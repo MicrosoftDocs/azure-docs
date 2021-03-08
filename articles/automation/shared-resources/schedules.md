@@ -3,7 +3,7 @@ title: Manage schedules in Azure Automation
 description: This article tells how to create and work with a schedule in Azure Automation.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
 ---
 
@@ -41,14 +41,14 @@ You can create a new schedule for your runbooks in the Azure portal or with Powe
 ### Create a new schedule in the Azure portal
 
 1. From your Automation account, on the left-hand pane select **Schedules** under **Shared Resources**.
-2. On the **Schedules** page, select **Add a schedule**.
-3. On the **New schedule** page, enter a name and optionally enter a description for the new schedule.
+1. On the **Schedules** page, select **Add a schedule**.
+1. On the **New schedule** page, enter a name and optionally enter a description for the new schedule.
 
     >[!NOTE]
     >Automation schedules do not currently support using special characters in the schedule name.
     >
 
-4. Select whether the schedule runs once or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once**, specify a start time and then select **Create**. If you select **Recurring**, specify a start time. For **Recur every**, select how often you want the runbook to repeat. Select by hour, day, week, or month.
+1. Select whether the schedule runs once or on a reoccurring schedule by selecting **Once** or **Recurring**. If you select **Once**, specify a start time and then select **Create**. If you select **Recurring**, specify a start time. For **Recur every**, select how often you want the runbook to repeat. Select by hour, day, week, or month.
 
     * If you select **Week**, the days of the week are presented for you to choose from. Select as many days as you want. The first run of your schedule will happen on the first day selected after the start time. For example, to choose a weekend schedule, select Saturday and Sunday.
 
@@ -58,7 +58,7 @@ You can create a new schedule for your runbooks in the Azure portal or with Powe
 
     ![Monthly schedule on first, fifteenth, and last day of the month](../media/schedules/monthly-first-fifteenth-last.png)
 
-5. When you're finished, select **Create**.
+1. When you're finished, select **Create**.
 
 ### Create a new schedule with PowerShell
 
@@ -114,6 +114,46 @@ The following example shows how to create a recurring schedule that runs on the 
 ```azurepowershell-interactive
 $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
+```
+
+## Create a schedule with a Resource Manager template
+
+In this example, we use an Automation Resource Manager (ARM) template that creates a new job schedule. For general information about this template to manage Automation job schedules, see [Microsoft.Automation automationAccounts/jobSchedules template reference](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates).
+
+In a text editor, copy this template file:
+
+```json
+{
+  "name": "5d5f3a05-111d-4892-8dcc-9064fa591b96",
+  "type": "Microsoft.Automation/automationAccounts/jobSchedules",
+  "apiVersion": "2015-10-31",
+  "properties": {
+    "schedule": {
+      "name": "scheduleName"
+    },
+    "runbook": {
+      "name": "runbookName"
+    },
+    "runOn": "hybridWorkerGroup",
+    "parameters": {}
+  }
+}
+```
+
+Edit the following parameter values and save the template as a JSON file:
+
+* Job schedule object name: A GUID (Globally Unique Identifier) is used as the name of the job schedule object.
+
+   >[!IMPORTANT]
+   For each job schedule deployed with an ARM template, the GUID must be unique. Even if you're rescheduling an existing schedule, you'll need to change the GUID. This applies even if you've previously deleted an existing job schedule that was created with the same template. Reusing the same GUID results in a failed deployment.
+
+* Schedule name: Represents the name of the Automation job schedule that will be linked to the specified runbook.
+* Runbook name: Represents the name of the Automation runbook the job schedule is to be associated with.
+
+You can then create the runbook job schedule with the following command. The command uses the `TemplateFile` parameter to specify the template.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
 ```
 
 ## Link a schedule to a runbook
@@ -183,8 +223,8 @@ When you're ready to remove your schedules, you can either use the Azure portal 
 ### Remove a schedule using the Azure portal
 
 1. In your Automation account, on the left-hand pane select **Schedules** under **Shared Resources**.
-2. Select the name of a schedule to open the details pane.
-3. Click **Delete**.
+1. Select the name of a schedule to open the details pane.
+1. Click **Delete**.
 
 ### Remove a schedule with PowerShell
 
