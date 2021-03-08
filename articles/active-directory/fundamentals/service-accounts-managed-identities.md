@@ -95,7 +95,7 @@ You can get a list of all managed identities in your tenant with the following G
 
 `https://graph.microsoft.com/v1.0/servicePrincipals?$filter=(servicePrincipalType eq 'ManagedIdentity') `
 
-You can filter these requests. For more information, see the Graph documentation for [GET servicePrincipal](https://docs.microsoft.com/graph/api/serviceprincipal-get?view=graph-rest-1.0&tabs=http).
+You can filter these requests. For more information, see the Graph documentation for [GET servicePrincipal](/graph/api/serviceprincipal-get?view=).
 
 ## Assess the security of managed identities 
 
@@ -135,7 +135,7 @@ If you are using a  service principal or an Azure AD user account, evaluate if y
 
 [Governing Azure service accounts](service-accounts-governing-azure.md)
 
-[Introduction to on-premises service accounts](service-accounts-on-poremises.md)
+[Introduction to on-premises service accounts](service-accounts-on-premises.md)
 
  
 

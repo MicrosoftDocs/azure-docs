@@ -20,7 +20,7 @@ This section discusses how to export resource usage for a single lab.
 Before you can export resource usage of DevTest Labs, you have to set up an Azure Storage account to allow the different files that contain the usage data to be stored. There are two common ways to execute the export of data:
 
 * [DevTest Labs REST API](/rest/api/dtl/labs/exportresourceusage) 
-* The PowerShell Az.Resource module [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) with the action of `exportResourceUsage`, the lab resource ID, and the necessary parameters. 
+* The PowerShell Az.Resource module [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) with the action of `exportResourceUsage`, the lab resource ID, and the necessary parameters. 
 
     The [export or delete personal data](personal-data-delete-export.md) article contains a sample PowerShell script with detailed information on the data that is exported. 
 
