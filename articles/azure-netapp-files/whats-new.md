@@ -27,13 +27,13 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     You can now enable SMB3 Protocol Encryption on Azure NetApp Files SMB volumes. This feature enables encryption for in-flight SMB3 data, using the [AES-CCM algorithm on SMB 3.0, and the AES-GCM algorithm on SMB 3.1.1](/windows-server/storage/file-server/file-server-smb-overview#features-added-in-smb-311-with-windows-server-2016-and-windows-10-version-1607) connections. SMB clients not using SMB3 encryption will not be able to access this volume. Data at rest is encrypted regardless of this setting. SMB encryption further enhances security. However, it might impact the client (CPU overhead for encrypting and decrypting messages). It might also impact storage resource utilization (reductions in throughput). You should test the encryption performance impact against your applications before deploying workloads into production.
 
-* SMB Continuous Availability (CA) shares (Public Preview)  
+* SMB Continuous Availability (CA) shares (Preview)  
 
     SMB Transparent Failover enables maintenance operations on the Azure NetApp Files service without interrupting connectivity to server applications storing and accessing data on SMB volumes. To support SMB Transparent Failover, Azure NetApp Files now supports the SMB Continuous Availability shares option for use with SQL Server applications over SMB running on Azure VMs. Enabling this feature provides significant SQL Server performance improvements and scale and cost benefits for [Single Instance, Always-On Failover Cluster Instance and Always-On Availability Group deployments](azure-netapp-files-solution-architectures.md#sql-server). See [Benefits of using Azure NetApp Files for SQL Server deployment](solutions-benefits-azure-netapp-files-sql-server.md).
 
 ## December 2020
 
-* [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (Public Preview)    
+* [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (Preview)    
 
     Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).   
 
@@ -53,7 +53,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## September 2020
 
-* [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) (Public Preview)
+* [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) (Preview)
 
   Azure NetApp Files now supports cross-region replication. With this new disaster recovery capability, you can replicate your Azure NetApp Files volumes from one Azure region to another in a fast and cost-effective way, protecting your data from unforeseeable regional failures. Azure NetApp Files cross region replication leverages NetApp SnapMirror® technology; only changed blocks are sent over the network in a compressed, efficient format. This proprietary technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
 
