@@ -59,16 +59,3 @@ def send_sms(resource_endpoint, from_phone_number, to_phone_number, message_cont
           send_sms_options=SendSmsOptions(enable_delivery_report=True))  # optional property
      )
 ```
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Learn about authentication](../../concepts/authentication.md)
-
-You may also want to:
-
-- [Learn more about Azure role-based access control](../../../../articles/role-based-access-control/index.yml)
-- [Learn more about Azure identity library for Python](/net/api/overview/azure/identity-readme)
-- [Creating user access tokens](../../quickstarts/access-tokens.md)
-- [Send an SMS message](../../quickstarts/telephony-sms/send.md)
-- [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
