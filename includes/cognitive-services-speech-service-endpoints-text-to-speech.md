@@ -8,33 +8,47 @@ ms.author: wolfma
 
 ### Standard and neural voices
 
-Use this table to determine availability of standard and neural voices by region/endpoint:
+Use this table to determine **availability of standard voices** by region/endpoint:
 
-| Region | Endpoint | Neural Voices | Standard Voices |
-|--------|----------|-----------------|---------------|
-| Australia East | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| Japan West | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
-| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
+| Region | Endpoint |
+|--------|----------|
+| Australia East | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` |
+| France Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Japan East | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Japan West | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
 > [Voices in preview](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
+
+Use this table to determine **availability of neural voices** by region/endpoint:
+
+| Region | Endpoint |
+|--------|----------|
+| Australia East | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | 
+| Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
+| East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| India Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` |
+| Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
+| UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` |
+| West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` |
+| West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 ### Custom voices
 

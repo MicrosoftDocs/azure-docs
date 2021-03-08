@@ -33,7 +33,7 @@ Additional updates include:
    Azure Data Studio: 
    - The overview page now shows the status of the server group itemized per node
    - A new properties pages is now available to show more details about the server group
-   - Configure Postgres engine parameters from **Node Parameters** page=
+   - Configure Postgres engine parameters from **Node Parameters** page
 
 For issues associated with this release, see [Known issues - Azure Arc enabled data services (Preview)](known-issues.md)
 

@@ -29,7 +29,7 @@ No. Workspaces created by Security Center, while configured for Azure Monitor lo
 
 - **Azure Defender on** – Security Center enables the "Security" solution on the default workspace.
 
-For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > The log analytics pricing tier of workspaces created by Security Center does not affect Security Center billing.
@@ -107,7 +107,7 @@ To select an existing Log Analytics workspace:
 
 1. From Security Center's menu, select **Pricing & settings**.
 1. Select the relevant subscription.
-1. Open the **Auto provisioning** page, s
+1. Open the **Auto provisioning** page.
 1. For the Log Analytics agent, select **Edit configuration**. 
 
     :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="The configuration of the Log Analytics agent to use when using auto deploy" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::
