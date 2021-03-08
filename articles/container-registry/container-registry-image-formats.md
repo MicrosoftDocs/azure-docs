@@ -29,7 +29,7 @@ To learn more about OCI artifacts, see the [OCI Registry as Storage (ORAS)](http
 
 ## Helm charts
 
-Azure Container Registry can host repositories for [Helm charts](https://helm.sh/), a packaging format used to quickly manage and deploy applications for Kubernetes. [Helm client](https://docs.helm.sh/using_helm/#installing-helm) version 3 is recommended. See [Push and pull Helm charts to an Azure container registry](container-registry-helm-repositories.md).
+Azure Container Registry can host repositories for [Helm charts](https://helm.sh/), a packaging format used to quickly manage and deploy applications for Kubernetes. [Helm client](https://docs.helm.sh/using_helm/#installing-helm) version 3 is recommended. See [Push and pull Helm charts to an Azure container registry](container-registry-helm-repos.md).
 
 ## Next steps
 
