@@ -48,7 +48,7 @@ ms.custom: include file
 
     - **Selected users** - Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
     - **Members (self)** - Use this option to have the users review their own role assignments.
-    - **(Preview) Manager** – Use this option to have the user’s manager review their role assignment. Upon selecting (Preview) Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory.
+    - **Manager** – Use this option to have the user’s manager review their role assignment. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory.
 
 ### Upon completion settings
 

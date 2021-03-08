@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/08/2021
 ---
 
 # What's new in Azure Sentinel
@@ -27,9 +27,26 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## February 2021
 
+- [Cybersecurity Maturity Model Certification (CMMC) workbook](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [Third-party data connectors](#third-party-data-connectors)
 - [UEBA insights in the entity page](#ueba-insights-in-the-entity-page)
 - [Improved incident search](#improved-incident-search)
+
+### Cybersecurity Maturity Model Certification (CMMC) workbook
+
+The Azure Sentinel CMMC Workbook provides a mechanism for viewing log queries aligned to CMMC controls across the Microsoft portfolio, including Microsoft security offerings, Office 365, Teams, Intune, Windows Virtual Desktop and many more.
+
+The CMMC workbook enables security architects, engineers, security operations analysts, managers, and IT professionals to gain situational awareness visibility for the security posture of cloud workloads. There are also recommendations for selecting, designing, deploying, and configuring Microsoft offerings for alignment with respective CMMC requirements and practices.
+
+Even if you aren’t required to comply with CMMC, the CMMC workbook is helpful in building Security Operations Centers, developing alerts, visualizing threats, and providing situational awareness of workloads.
+
+Access the CMMC workbook in the Azure Sentinel **Workbooks** area. Select **Template**, and then search for **CMMC**.
+
+For more information, see:
+
+- [Azure Sentinel Cybersecurity Maturity Model Certification (CMMC) Workbook](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
+- [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md)
+
 
 ### Third-party data connectors
 

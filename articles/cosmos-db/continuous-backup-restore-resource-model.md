@@ -4,7 +4,7 @@ description: This article explains the resource model for the Azure Cosmos DB po
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/22/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -124,7 +124,7 @@ This resource contains a database account instance that can be restored. The dat
 | restorableLocations: creationTime	| The time in UTC when the regional account was created.|
 | restorableLocations: deletionTime	| The time in UTC when the regional account was deleted. This value is empty if the regional account is live.|
 
-To get a list of all restorable accounts, see [Restorable Database Accounts - list](restorable-database-accounts-list.md) or [Restorable Database Accounts- list by location](restorable-database-accounts-list-by-location.md) articles.
+To get a list of all restorable accounts, see [Restorable Database Accounts - list](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/list) or [Restorable Database Accounts- list by location](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorabledatabaseaccounts/listbylocation) articles.
 
 ### Restorable SQL database
 
@@ -138,7 +138,7 @@ Each resource contains information of a mutation event such as creation and dele
 | operationType | The operation type of this database event. Here are the possible values:<br/><ul><li>Create: database creation event</li><li>Delete: database deletion event</li><li>Replace: database modification event</li><li>SystemOperation: database modification event triggered by the system. This event is not initiated by the user</li></ul> |
 | database |The properties of the SQL database at the time of the event|
 
-To get a list of all database mutations, see [Restorable Sql Databases - List](restorable-sql-databases-list.md) article.
+To get a list of all database mutations, see [Restorable Sql Databases - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqldatabases/list) article.
 
 ### Restorable SQL container
 
@@ -152,7 +152,7 @@ Each resource contains information of a mutation event such as creation and dele
 | operationType	| The operation type of this container event. Here are the possible values: <br/><ul><li>Create: container creation event</li><li>Delete: container deletion event</li><li>Replace: container modification event</li><li>SystemOperation: container modification event triggered by the system. This event is not initiated by the user</li></ul> |
 | container | The properties of the SQL container at the time of the event.|
 
-To get a list of all container mutations under the same database, see [Restorable Sql Containers - List](restorable-sql-containers-list.md) article.
+To get a list of all container mutations under the same database, see [Restorable Sql Containers - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlcontainers/list) article.
 
 ### Restorable SQL resources
 
@@ -163,7 +163,7 @@ Each resource represents a single database and all the containers under that dat
 | databaseName	| The name of the SQL database.
 | collectionNames	| The list of SQL containers under this database.|
 
-To get a list of SQL database and container combo that exist on the account at the given timestamp and location, see [Restorable Sql Resources - List](restorable-sql-resources-list.md) article.
+To get a list of SQL database and container combo that exist on the account at the given timestamp and location, see [Restorable Sql Resources - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablesqlresources/list) article.
 
 ### Restorable MongoDB database
 
@@ -176,7 +176,7 @@ Each resource contains information of a mutation event such as creation and dele
 | ownerResourceId	| The resource ID of the MongoDB database. |
 | operationType |	The operation type of this database event. Here are the possible values:<br/><ul><li> Create: database creation event</li><li> Delete: database deletion event</li><li> Replace: database modification event</li><li> SystemOperation: database modification event triggered by the system. This event is not initiated by the user </li></ul> |
 
-To get a list of all database mutation, see [Restorable Mongodb Databases - List](restorable-mongodb-databases-list.md) article.
+To get a list of all database mutation, see [Restorable Mongodb Databases - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbdatabases/list) article.
 
 ### Restorable MongoDB collection
 
@@ -189,7 +189,7 @@ Each resource contains information of a mutation event such as creation and dele
 | ownerResourceId	| The resource ID of the MongoDB collection. |
 | operationType |The operation type of this collection event. Here are the possible values:<br/><ul><li>Create: collection creation event</li><li>Delete: collection deletion event</li><li>Replace: collection modification event</li><li>SystemOperation: collection modification event triggered by the system. This event is not initiated by the user</li></ul> |
 
-To get a list of all container mutations under the same database, see [Restorable Mongodb Collections - List](restorable-mongodb-collections-list.md) article.
+To get a list of all container mutations under the same database, see [Restorable Mongodb Collections - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbcollections/list) article.
 
 ### Restorable MongoDB resources
 
@@ -200,7 +200,7 @@ Each resource represents a single database and all the collections under that da
 | databaseName	|The name of the MongoDB database. |
 | collectionNames | The list of MongoDB collections under this database. |
 
-To get a list of all MongoDB database and collection combinations that exist on the account at the given timestamp and location, see [Restorable Mongodb Resources - List](restorable-mongodb-resources-list.md) article.
+To get a list of all MongoDB database and collection combinations that exist on the account at the given timestamp and location, see [Restorable Mongodb Resources - List](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/restorablemongodbresources/list) article.
 
 ## Next steps
 

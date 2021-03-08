@@ -65,8 +65,8 @@ Connection string consists of a list of settings represented as key-value pairs 
   Any service can be explicitly overridden in the connection string.
    - `IngestionEndpoint` (ex: `https://dc.applicationinsights.azure.com`)
    - `LiveEndpoint` (ex: `https://live.applicationinsights.azure.com`)
-   - `ProfilerEndpoint` (ex: `https://profiler.applicationinsights.azure.com`)
-   - `SnapshotEndpoint` (ex: `https://snapshot.applicationinsights.azure.com`)
+   - `ProfilerEndpoint` (ex: `https://profiler.monitor.azure.com`)
+   - `SnapshotEndpoint` (ex: `https://snapshot.monitor.azure.com`)
 
 #### Endpoint schema
 
