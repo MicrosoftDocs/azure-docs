@@ -118,18 +118,14 @@ $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork
 
 ## Create web apps
 
-Configure two web apps for the backend pool.
+Configure two web apps for the backend pool. Replace \<site1-name> and \<site-2-name> with unique names in the `azurewebsites.net` domain.
 
-1. Select **Create a resource** and type **web app** in the search bar.
-1. Select **Web App**, and then select **Create**.
-1. For **Resource Group**, select **AppGW-rg**.
-1. For **Name**, type a unique name for your web app. It must be a unique name in the `azurewebsites.net` domain.
-1. For **Runtime stack**, select **.NETCore 3.1 (LTS)**
-1. For **Region**, select **East US 2**.
-1. Accept the remaining defaults, and **Review + create**.
-1. Select **Create**.
-
-Repeat this procedure to create a second web app.
+```azurepowershell
+New-AzAppServicePlan -ResourceGroupName $rg -Name "ASP-01"  -Location $location -Tier Basic `
+   -NumberofWorkers 2 -WorkerSize Small
+New-AzWebApp -ResourceGroupName $rg -Name <site1-name> -Location $location -AppServicePlan ASP-01
+New-AzWebApp -ResourceGroupName $rg -Name <site2-name> -Location $location -AppServicePlan ASP-01
+```
 
 ## Configure the infrastructure
 
