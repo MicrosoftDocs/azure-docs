@@ -1,111 +1,114 @@
 ---
 title: Use private endpoints to integrate Azure Functions with a virtual network
-description: A step-by-step tutorial that shows you how to connect a function to an Azure virtual network and lock it down with private endpoints
+description: This tutorial shows you how to connect a function to an Azure virtual network and lock it down by using private endpoints.
 ms.topic: article
 ms.date: 2/22/2021
 
 #Customer intent: As an enterprise developer, I want to create a function that can connect to a virtual network with private endpoints to secure my function app.
 ---
 
-# Tutorial: Integrate Azure Functions with an Azure virtual network using private endpoints
+# Tutorial: Integrate Azure Functions with an Azure virtual network by using private endpoints
 
-This tutorial shows you how to use Azure Functions to connect to resources in an Azure virtual network with private endpoints. You'll create a function with a storage account locked behind a virtual network that uses a service bus queue trigger.
+This tutorial shows you how to use Azure Functions to connect to resources in an Azure virtual network by using private endpoints. You'll create a function by using a storage account that's locked behind a virtual network. The virtual network uses a service bus queue trigger.
+
+In this tutorial, you'll:
 
 > [!div class="checklist"]
-> * Create a function app in the Premium plan
-> * Create Azure resources (Service Bus, Storage Account, Virtual Network)
-> * Lock down your Storage account behind a private endpoint
-> * Lock down your Service Bus behind a private endpoint
-> * Deploy a function app with both Service Bus and HTTP triggers.
-> * Lock down your function app behind a private endpoint
-> * Test to see that your function app is secure behind the virtual network
-> * Clean up resources
+> * Create a function app in the Premium plan.
+> * Create Azure resources, such as the service bus, storage account, and virtual network.
+> * Lock down your storage account behind a private endpoint.
+> * Lock down your service bus behind a private endpoint.
+> * Deploy a function app that uses both the service bus and HTTP triggers.
+> * Lock down your function app behind a private endpoint.
+> * Test to see that your function app is secure behind the virtual network.
+> * Clean up resources.
 
 ## Create a function app in a Premium plan
 
-First, you create a .NET function app in the [Premium plan] as this tutorial will use C#. Other languages are also supported in Windows. This plan provides serverless scale while supporting virtual network integration.
+You'll create a .NET function app in the Premium plan because this tutorial uses C#. Other languages are also supported in Windows. The Premium plan provides serverless scale while supporting virtual network integration.
 
-1. From the Azure portal menu or the **Home** page, select **Create a resource**.
+1. On the Azure portal menu or the **Home** page, select **Create a resource**.
 
-1. In the **New** page, select **Compute** > **Function App**.
+1. On the **New** page, select **Compute** > **Function App**.
 
-1. On the **Basics** page, use the function app settings as specified in the following table:
+1. On the **Basics** page, use the following table to configure the function app settings:
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | The subscription under which this new function app is created. |
-    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Name for the new resource group in which to create your function app. |
+    | **[Resource Group](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group where you'll create your function app. |
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
-    |**Publish**| Code | Option to publish code files or a Docker container. |
-    | **Runtime stack** | .NET | This tutorial uses .NET |
-    |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
+    |**Publish**| Code | Choose to publish code files or a Docker container. |
+    | **Runtime stack** | .NET | This tutorial uses .NET. |
+    |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
 
 1. Select **Next: Hosting**. On the **Hosting** page, enter the following settings:
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Storage account](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](./storage-considerations.md#storage-account-requirements). |
-    |**Operating system**| Windows | This tutorial uses Windows |
-    | **[Plan](./functions-scale.md)** | Premium | Hosting plan that defines how resources are allocated to your function app. Select **Premium**. By default, a new App Service plan is created. The default **Sku and size** is **EP1**, where EP stands for _elastic premium_. To learn more, see the [list of Premium SKUs](./functions-premium-plan.md#available-instance-skus).<br/>When running JavaScript functions on a Premium plan, you should choose an instance that has fewer vCPUs. For more information, see [Choose single-core Premium plans](./functions-reference-node.md#considerations-for-javascript-functions).  |
+    | **[Storage account](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters long. They may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](./storage-considerations.md#storage-account-requirements). |
+    |**Operating system**| Windows | This tutorial uses Windows. |
+    | **[Plan](./functions-scale.md)** | Premium | This hosting plan defines how resources are allocated to your function app. Select **Premium**. By default, a new App Service plan is created. The default **Sku and size** is **EP1**, where *EP* stands for _elastic premium_. For more information, see the list of [Premium SKUs](./functions-premium-plan.md#available-instance-skus).<br/><br/>When you run JavaScript functions on a Premium plan, choose an instance that has fewer vCPUs. For more information, see [Choose single-core Premium plans](./functions-reference-node.md#considerations-for-javascript-functions).  |
 
 1. Select **Next: Monitoring**. On the **Monitoring** page, enter the following settings:
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Application Insights](./functions-monitoring.md)** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) to store your data. |
+    | **[Application Insights](./functions-monitoring.md)** | Default | Create an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) to store your data. |
 
 1. Select **Review + create** to review the app configuration selections.
 
-1. On the **Review + create** page, review your settings, and then select **Create** to provision and deploy the function app.
+1. On the **Review + create** page, review your settings. Then select **Create** to provision and deploy the function app.
 
-1. Select the **Notifications** icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
+1. In the upper-right corner of the portal, select the **Notifications** icon and watch for the **Deployment succeeded** message.
 
 1. Select **Go to resource** to view your new function app. You can also select **Pin to dashboard**. Pinning makes it easier to return to this function app resource from your dashboard.
 
-1. Congratulations! You've successfully created your premium function app!
+Congratulations! You've successfully created your premium function app.
 
 ## Create Azure resources
 
+Next, you'll create a storage account, a service bus, and a virtual network. 
 ### Create a storage account
 
-A separate storage account from the one created in the initial creation of your function app is required for virtual networks.
+Your virtual networks will need a storage account that's separate from the one you created along with your function app.
 
-1. From the Azure portal menu or the **Home** page, select **Create a resource**.
+1. On the Azure portal menu or the **Home** page, select **Create a resource**.
 
-1. In the New page, search for **Storage Account** and select **Create**
+1. On the **New** page, search for *storage account*. Then select **Create**.
 
-1. On the **Basics** tab, set the settings as specified in the table below. The rest can be left as default:
+1. On the **Basics** tab, use the following table to configure the settings. All other settings can keep the default values.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
-    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose the resource group you created with your function app. |
-    | **Name** | mysecurestorage| The name of your storage account to which the private endpoint will be applied to. |
-    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Choose the region you created your function app in. |
+    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | The resource group you created with your function app. |
+    | **Name** | mysecurestorage| The name of the storage account that the private endpoint will be applied to. |
+    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | The region you created your function app in. |
 
-1. Select **Review + create**. After validation completes, select **Create**.
+1. Select **Review + create**. After validation finishes, select **Create**.
 
-### Create a Service Bus
+### Create a service bus
 
-1. From the Azure portal menu or the **Home** page, select **Create a resource**.
+1. On the Azure portal menu or the **Home** page, select **Create a resource**.
 
-1. In the New page, search for **Service Bus** and select **Create**.
+1. On the **New** page, search for *service bus*. Then select **Create**.
 
-1. On the **Basics** tab, set the settings as specified in the table below. The rest can be left as default:
+1. On the **Basics** tab, use the following table to configure the settings. All other settings can keep the default values.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. |
-    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose the resource group you created with your function app. |
-    | **Name** | myServiceBus| The name of your service bus to which the private endpoint will be applied to. |
-    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Choose the region you created your function app in. |
-    | **Pricing tier** | Premium | Choose this tier to use private endpoints with Service Bus. |
+    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | The resource group you created with your function app. |
+    | **Name** | myServiceBus| The name of the service bus that the private endpoint will be applied to. |
+    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | The region where you created your function app. |
+    | **Pricing tier** | Premium | Choose this tier to use private endpoints with Azure Service Bus. |
 
-1. Select **Review + create**. After validation completes, select **Create**.
+1. Select **Review + create**. After validation finishes, select **Create**.
 
 ### Create a virtual network
 
-Azure resources in this tutorial either integrate with or are placed within a virtual network. You'll use private endpoints to keep network traffic contained with the virtual network.
+The Azure resources in this tutorial either integrate with or are placed within a virtual network. You'll use private endpoints to contain network traffic within the virtual network.
 
 The tutorial creates two subnets:
 - **default**: Subnet for private endpoints. Private IP addresses are given from this subnet.
@@ -113,29 +116,29 @@ The tutorial creates two subnets:
 
 Now, create the virtual network to which the function app integrates.
 
-1. From the Azure portal menu or the Home page, select **Create a resource**.
+1. On the Azure portal menu or the **Home** page, select **Create a resource**.
 
-1. In the New page, search for **Virtual Network** and select **Create**.
+1. On the **New** page, search for *virtual network*. Then select **Create**.
 
-1. On the **Basics** tab, use the virtual network settings as specified below:
+1. On the **Basics** tab, use the following table to configure the virtual network settings.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subscription** | Your subscription | The subscription under which your resources are created. | 
-    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choose the resource group you created with your function app. |
-    | **Name** | myVirtualNet| The name of your virtual network to which your function app will connect. |
-    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | Choose the region you created your function app in. |
+    | **[Resource group](../azure-resource-manager/management/overview.md)**  | myResourceGroup | The resource group you created with your function app. |
+    | **Name** | myVirtualNet| The name of the virtual network that your function app will connect to. |
+    | **[Region](https://azure.microsoft.com/regions/)** | myFunctionRegion | The region you created your function app in. |
 
-1. On the **IP Addresses** tab, select **Add subnet**. Use the settings as specified below when adding a subnet:
+1. On the **IP Addresses** tab, select **Add subnet**. Use the following table to configure the subnet settings.
 
     :::image type="content" source="./media/functions-create-vnet/1-create-vnet-ip-address.png" alt-text="Screenshot of the create virtual network configuration view.":::
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Subnet name** | functions | The name of the subnet your function app will connect to. | 
-    | **Subnet address range** | 10.0.1.0/24 | Notice our IPv4 address space in the image above is 10.0.0.0/16. If the above was 10.1.0.0/16, the recommended *Subnet address range* would be 10.1.1.0/24. |
+    | **Subnet address range** | 10.0.1.0/24 | In the preceding image, notice that the IPv4 address space is 10.0.0.0/16. If the value were 10.1.0.0/16, the recommended subnet address range would be 10.1.1.0/24. |
 
-1. Select **Review + create**. After validation completes, select **Create**.
+1. Select **Review + create**. After validation finishes, select **Create**.
 
 ## Lock down your storage account with private endpoints
 
