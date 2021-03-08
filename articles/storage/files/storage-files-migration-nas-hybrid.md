@@ -11,14 +11,14 @@ ms.subservice: files
 
 # Migrate from Network Attached Storage (NAS) to a hybrid cloud deployment with Azure File Sync
 
-This is one of several migration articles involving the keywords NAS and Azure File Sync. Check if this article applies to your scenario:
+This migration article is one of several involving the keywords NAS and Azure File Sync. Check if this article applies to your scenario:
 
 > [!div class="checklist"]
 > * Data source: Network Attached Storage (NAS)
 > * Migration route: NAS &rArr; Windows Server &rArr; upload and sync with Azure file share(s)
 > * Caching files on-premises: Yes, the final goal is an Azure File Sync deployment.
 
-If your scenario is different, find it in the [table of migration guides](storage-files-migration-overview.md#migration-guides) in the migration overview article.
+If your scenario is different, look through the [table of migration guides](storage-files-migration-overview.md#migration-guides).
 
 Azure File Sync works on Direct Attached Storage (DAS) locations and does not support sync to Network Attached Storage (NAS) locations.
 This fact makes a migration of your files necessary and this article guides you through the planning and execution of such a migration.
@@ -54,7 +54,7 @@ As mentioned in the Azure Files [migration overview article](storage-files-migra
 
     1. Move a set of files that fits onto the disk
     2. let file sync and cloud tiering engage
-    3. when more free space is created on the volume, proceed with the next batch of files. 
+    3. when more free space is created on the volume, proceed with the next batch of files. Alternatively, review the RoboCopy command in the upcoming [RoboCopy section](#phase-7-robocopy) for use of the new `/LFSM` switch. Using `/LFSM` can significantly simplify your RoboCopy jobs, but it is not compatible with some other RoboCopy switches you might depend on.
     
     You can avoid this batching approach by provisioning the equivalent space on the Windows Server that your files occupy on the NAS appliance. Consider deduplication on NAS / Windows. If you don't want to permanently commit this high amount of storage to your Windows Server, you can reduce the volume size after the migration and before you adjust the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
 

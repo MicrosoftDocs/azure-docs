@@ -11,14 +11,14 @@ ms.subservice: files
 
 # Use DataBox to migrate from Network Attached Storage (NAS) to a hybrid cloud deployment with Azure File Sync
 
-This is one of several migration articles involving the keywords NAS, Azure File Sync, and Azure DataBox. Check if this article applies to your scenario:
+This migration article is one of several involving the keywords NAS, Azure File Sync, and Azure DataBox. Check if this article applies to your scenario:
 
 > [!div class="checklist"]
 > * Data source: Network Attached Storage (NAS)
 > * Migration route: NAS &rArr; DataBox &rArr; Azure file share &rArr; sync with Windows Server
 > * Caching files on-premises: Yes, the final goal is an Azure File Sync deployment.
 
-If your scenario is different, find it in the [table of migration guides](storage-files-migration-overview.md#migration-guides) in the migration overview article.
+If your scenario is different, look through the [table of migration guides](storage-files-migration-overview.md#migration-guides).
 
 Azure File Sync works on Direct Attached Storage (DAS) locations and does not support sync to Network Attached Storage (NAS) locations.
 This fact makes a migration of your files necessary and this article guides you through the planning and execution of such a migration.
