@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 ---
 
 # Notifying Microsoft regarding the Publisher Agreement
 
 ## Overview
 
-As stated in the Microsoft Publisher Agreement for the commercial marketplace, any legal notices sent from a publisher to Microsoft must be submitted through a support ticket. Follow these steps to submit a notice regarding the publisher agreement.
+Legal notices to Microsoft regarding the Microsoft Publisher Agreement must be submitted through a support ticket to ensure tracking and proper action. Follow these steps to submit a notice.  
 
 1. Go to the [Contractual or legal questions](https://partner.microsoft.com/support/?stage=2&topicid=05a1a389-1256-d441-89c9-a140217de6b9) section of Partner Center support.
 
