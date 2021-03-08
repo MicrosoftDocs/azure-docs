@@ -11,6 +11,15 @@ ms.subservice: files
 
 # Migrate from Linux to a hybrid cloud deployment with Azure File Sync
 
+This is one of several migration articles involving the keywords NFS and Azure File Sync. Check if this article applies to your scenario:
+
+> [!div class="checklist"]
+> * Data source: Network Attached Storage (NAS)
+> * Migration route: Linux Server with SAMBA &rArr; Windows Server 2012R2 or later &rArr; sync with Azure file share(s)
+> * Caching files on-premises: Yes, the final goal is an Azure File Sync deployment.
+
+If your scenario is different, find it in the [table of migration guides](storage-files-migration-overview.md#migration-guides) in the migration overview article.
+
 Azure File Sync works on Windows Server instances with direct attached storage (DAS). It does not support sync to and from Linux clients, or a remote Server Message Block (SMB) share, or Network File System (NFS) shares.
 
 As a result, transforming your file services into a hybrid deployment makes a migration to Windows Server necessary. This article guides you through the planning and execution of such a migration.
