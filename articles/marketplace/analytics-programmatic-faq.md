@@ -32,7 +32,8 @@ This table describes the API responses and what to do if you receive them.
 | Requested value ‘string’ not found | 400 | Check whether you have updated the request parameters `callbackurl` or `format`. |
 | No item found with given filters. | 404 | Check the `reportID` parameter used in the Get Report Executions API. |
 | There are no executions that have occurred for the given filter conditions. Please recheck the reportId or executionId and retry the API after the report's scheduled execution time | 404 | Make sure that the `reportId` is correct. Retry the API after the report’s scheduled execution time as specified in the request payload. |
-| Service unavailable | 500 | If you continuously receive a service unavailable (5xx error), email: [pcanalyticsapipilot@microsoft.com](mailto:pcanalyticsapipilot@microsoft.com). |
+| Internal error encountered while creating report. Correlation ID <> | 500 | Make sure that the format of date for the fields "StartTime", "QueryStartTime" and "QueryEndTime" are correct. |
+| Service unavailable | 500 | If you continuously receive a service unavailable (5xx error), please create a [support ticket](support.md). |
 ||||
 
 ## No records
