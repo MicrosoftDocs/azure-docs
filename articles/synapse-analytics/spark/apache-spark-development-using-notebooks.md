@@ -299,6 +299,8 @@ Not supported.
 
 You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than five. ```%run``` command currently only supports to pass a notebook path as parameter. 
 
+Example: ``` %run /path/notebookA ```.
+
 ---
 
 
@@ -551,5 +553,5 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 - [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Use .NET for Apache Spark with Azure Synapse Analytics](spark-dotnet.md)
-- [.NET for Apache Spark documentation](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [.NET for Apache Spark documentation](/dotnet/spark)
+- [Azure Synapse Analytics](../index.yml)

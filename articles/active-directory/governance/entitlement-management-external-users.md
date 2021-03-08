@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -83,7 +83,7 @@ To ensure people outside of your organization can request access packages and ge
 - Allowing guests to invite other guests to your directory means that guest invites can occur outside of entitlement management. We recommend setting **Guests can invite** to **No** to only allow for properly governed invitations.
 - If you are using the B2B allow list, you must make sure any domain you want to partner with using entitlement management is added to the list. Alternatively, if you are using the B2B deny list, you must make sure any domain you want to partner with is not added to the list.
 - If you create an entitlement management policy for **All users** (All connected organizations + any new external users), and a user doesn’t belong to a connected organization in your directory, a connected organization will automatically be created for them when they request the package. Any B2B allow or deny list settings you have will take precedence. Therefore, be sure to include the domains you intend to include in this policy to your allow list if you are using one, and exclude them from your deny list if you are using a deny list.
-- If you want to create an entitlement management policy that includes **All users** (All connected organizations + any new external users), you must first enable email one-time passcode authentication for your directory. For more information, see [Email one-time passcode authentication (preview)](../external-identities/one-time-passcode.md).
+- If you want to create an entitlement management policy that includes **All users** (All connected organizations + any new external users), you must first enable email one-time passcode authentication for your directory. For more information, see [Email one-time passcode authentication](../external-identities/one-time-passcode.md).
 - For more information about Azure AD B2B external collaboration settings, see [Enable B2B external collaboration and manage who can invite guests](../external-identities/delegate-invitations.md).
 
     ![Azure AD external collaboration settings](./media/entitlement-management-external-users/collaboration-settings.png)

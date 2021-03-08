@@ -79,7 +79,7 @@ First, create the resource group to contain the resources for this tutorial:
 Now, create the VNet:
 
 > [!NOTE]
-> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.

@@ -64,7 +64,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
     
 1. Edit the query to remove the Where clauses that limit the display to warning and error logs.
 
-1. Then select `Run`, and you will see logs. See [Azure Log Analytics docs](../azure-monitor/log-query/get-started-queries.md) for more guidance on writing queries.
+1. Then select `Run`, and you will see logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
 
    [ ![Logs Analytics query - Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
 
@@ -160,7 +160,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
    [ ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
-1. Then you will see filtered logs. See [Azure Log Analytics docs](../azure-monitor/log-query/get-started-queries.md) for more guidance on writing queries.
+1. Then you will see filtered logs. See [Azure Log Analytics docs](../azure-monitor/logs/get-started-queries.md) for more guidance on writing queries.
 
    [ ![Logs Analytics query](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query.png#lightbox)
 

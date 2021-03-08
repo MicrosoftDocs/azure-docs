@@ -1,36 +1,32 @@
 ---
-title: How to preserve data privacy using the WhiteNoise packages (preview)
+title: Differential privacy how-to - SmartNoise (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using the WhiteNoise packages.
+description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using the SmartNoise open-source libraries.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, responsible-ml
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 07/09/2020
+ms.date: 01/21/2020
 # Customer intent: As an experienced data scientist, I want to use differential privacy in Azure Machine Learning.
 ---
 
 # Use differential privacy in Azure Machine Learning (preview)
 
+Learn how to apply differential privacy best practices to Azure Machine Learning models by using the SmartNoise Python open-source libraries.
 
+Differential privacy is the gold-standard definition of privacy. Systems that adhere to this definition of privacy provide strong assurances against a wide range of data reconstruction and reidentification attacks, including attacks by adversaries who possess auxiliary information. Learn more about [how differential privacy works](./concept-differential-privacy.md).
 
-Learn how to apply differential privacy best practices to Azure Machine Learning models by using the WhiteNoise Python packages.
-
-Differential privacy is the gold-standard definition of privacy. Systems that adhere to this definition of privacy provide strong assurances against a wide range of data reconstruction and reidentification attacks, including attacks by adversaries who possess auxiliary information. Learn more about how [differential privacy works](./concept-differential-privacy.md).
-
-> [!NOTE]
-> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 - [Python 3](https://www.python.org/downloads/)
 
-## Install WhiteNoise packages
+## Install SmartNoise Python libraries
 
 ### Standalone installation
 
@@ -38,45 +34,45 @@ The libraries are designed to work from distributed Spark clusters, and can be i
 
 The instructions below assume that your `python` and `pip` commands are mapped to `python3` and `pip3`.
 
-Use pip to install the [WhiteNoise Python packages](https://pypi.org/project/opendp-whitenoise/).
+Use pip to install the [SmartNoise Python packages](https://pypi.org/project/opendp-smartnoise/).
 
-`pip install opendp-whitenoise`
+`pip install opendp-smartnoise`
 
 To verify that the packages are installed, launch a python prompt and type:
 
 ```python
-import opendp.whitenoise.core
-import opendp.whitenoise.sql
+import opendp.smartnoise.core
+import opendp.smartnoise.sql
 ```
 
 If the imports succeed, the libraries are installed and ready to use.
 
-### Docker image
+### Docker image installation
 
-You can also use WhiteNoise packages with Docker.
+You can also use SmartNoise packages with Docker.
 
-Pull the `opendp/whitenoise` image to use the libraries inside a Docker container that includes Spark, Jupyter, and sample code.
+Pull the `opendp/smartnoise` image to use the libraries inside a Docker container that includes Spark, Jupyter, and sample code.
 
 ```sh
-docker pull opendp/whitenoise:privacy
+docker pull opendp/smartnoise:privacy
 ```
 
 Once you've pulled the image, launch the Jupyter server:
 
 ```sh
-docker run --rm -p 8989:8989 --name whitenoise-run opendp/whitenoise:privacy
+docker run --rm -p 8989:8989 --name smartnoise-run opendp/smartnoise:privacy
 ```
 
-This starts a Jupyter server at port `8989` on your `localhost`, with password `pass@word99`. Assuming you used the command line above to start the container with name `whitenoise-privacy`, you can open a bash terminal in the Jupyter server by running:
+This starts a Jupyter server at port `8989` on your `localhost`, with password `pass@word99`. Assuming you used the command line above to start the container with name `smartnoise-privacy`, you can open a bash terminal in the Jupyter server by running:
 
 ```sh
-docker exec -it whitenoise-run bash
+docker exec -it smartnoise-run bash
 ```
 
 The Docker instance clears all state on shutdown, so you will lose any notebooks you create in the running instance. To remedy this, you can bind mount a local folder to the container when you launch it:
 
 ```sh
-docker run --rm -p 8989:8989 --name whitenoise-run --mount type=bind,source=/Users/your_name/my-notebooks,target=/home/privacy/my-notebooks opendp/whitenoise:privacy
+docker run --rm -p 8989:8989 --name smartnoise-run --mount type=bind,source=/Users/your_name/my-notebooks,target=/home/privacy/my-notebooks opendp/smartnoise:privacy
 ```
 
 Any notebooks you create under the *my-notebooks* folder will be stored in your local filesystem.
@@ -91,7 +87,7 @@ This sample references the California Public Use Microdata (PUMS), representing 
 import os
 import sys
 import numpy as np
-import opendp.whitenoise.core as wn
+import opendp.smartnoise.core as sn
 
 data_path = os.path.join('.', 'data', 'PUMS_california_demographics_1000', 'data.csv')
 var_names = ["age", "sex", "educ", "race", "income", "married", "pid"]
@@ -100,19 +96,19 @@ var_names = ["age", "sex", "educ", "race", "income", "married", "pid"]
 In this example, we compute the mean and the variance of the age.  We use a total `epsilon` of 1.0 (epsilon is our privacy parameter, spreading our privacy budget across the two quantities we want to compute. Learn more about [privacy metrics](concept-differential-privacy.md#differential-privacy-metrics).
 
 ```python
-with wn.Analysis() as analysis:
+with sn.Analysis() as analysis:
     # load data
-    data = wn.Dataset(path = data_path, column_names = var_names)
+    data = sn.Dataset(path = data_path, column_names = var_names)
 
     # get mean of age
-    age_mean = wn.dp_mean(data = wn.cast(data['age'], type="FLOAT"),
+    age_mean = sn.dp_mean(data = sn.cast(data['age'], type="FLOAT"),
                           privacy_usage = {'epsilon': .65},
                           data_lower = 0.,
                           data_upper = 100.,
                           data_n = 1000
                          )
     # get variance of age
-    age_var = wn.dp_variance(data = wn.cast(data['age'], type="FLOAT"),
+    age_var = sn.dp_variance(data = sn.cast(data['age'], type="FLOAT"),
                              privacy_usage = {'epsilon': .35},
                              data_lower = 0.,
                              data_upper = 100.,
@@ -152,19 +148,19 @@ You can use the library to compose more complex analysis graphs, with several me
 | Sum           |            | Imputation |
 | Variance/Covariance |      | Transform  |
 
-See the [data analysis notebook](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) for more details.
+See the [data analysis notebook](https://github.com/opendifferentialprivacy/smartnoise-samples/blob/master/analysis/basic_data_analysis.ipynb) for more details.
 
 ## Approximate utility of differentially private releases
 
 Because differential privacy operates by calibrating noise, the utility of releases may vary depending on the privacy risk.  Generally, the noise needed to protect each individual becomes negligible as sample sizes grow large, but overwhelm the result for releases that target a single individual.  Analysts can review the accuracy information for a release to determine how useful the release is:
 
 ```python
-with wn.Analysis() as analysis:
+with sn.Analysis() as analysis:
     # load data
-    data = wn.Dataset(path = data_path, column_names = var_names)
+    data = sn.Dataset(path = data_path, column_names = var_names)
 
     # get mean of age
-    age_mean = wn.dp_mean(data = wn.cast(data['age'], type="FLOAT"),
+    age_mean = sn.dp_mean(data = sn.cast(data['age'], type="FLOAT"),
                           privacy_usage = {'epsilon': .65},
                           data_lower = 0.,
                           data_upper = 100.,
@@ -198,11 +194,11 @@ Here is an example of an `Analysis` specifying bins for a continuous variable hi
 ```python
 income_edges = list(range(0, 100000, 10000))
 
-with wn.Analysis() as analysis:
-    data = wn.Dataset(path = data_path, column_names = var_names)
+with sn.Analysis() as analysis:
+    data = sn.Dataset(path = data_path, column_names = var_names)
 
-    income_histogram = wn.dp_histogram(
-            wn.cast(data['income'], type='int', lower=0, upper=100),
+    income_histogram = sn.dp_histogram(
+            sn.cast(data['income'], type='int', lower=0, upper=100),
             edges = income_edges,
             upper = 1000,
             null_value = 150,
@@ -212,11 +208,11 @@ with wn.Analysis() as analysis:
 
 Because the individuals are disjointly partitioned among histogram bins, the privacy cost is incurred only once per histogram, even if the histogram includes many bins.
 
-For more on histograms, see the [histograms notebook](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/histograms.ipynb).
+For more on histograms, see the [histograms notebook](https://github.com/opendifferentialprivacy/smartnoise-samples/blob/master/analysis/histograms.ipynb).
 
 ## Generate a covariance matrix
 
-WhiteNoise offers three different functionalities with its `dp_covariance` function:
+SmartNoise offers three different functionalities with its `dp_covariance` function:
 
 - Covariance between two vectors
 - Covariance matrix of a matrix
@@ -225,13 +221,13 @@ WhiteNoise offers three different functionalities with its `dp_covariance` funct
 Here is an example of computing a scalar covariance:
 
 ```python
-with wn.Analysis() as analysis:
-    wn_data = wn.Dataset(path = data_path, column_names = var_names)
+with sn.Analysis() as analysis:
+    wn_data = sn.Dataset(path = data_path, column_names = var_names)
 
-    age_income_cov_scalar = wn.dp_covariance(
-      left = wn.cast(wn_data['age'], 
+    age_income_cov_scalar = sn.dp_covariance(
+      left = sn.cast(wn_data['age'], 
       type = "FLOAT"), 
-      right = wn.cast(wn_data['income'], 
+      right = sn.cast(wn_data['income'], 
       type = "FLOAT"), 
       privacy_usage = {'epsilon': 1.0},
       left_lower = 0., 
@@ -243,8 +239,8 @@ with wn.Analysis() as analysis:
 ```
 
 For more information, see the [covariance notebook](
-https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/covariance.ipynb)
+https://github.com/opendifferentialprivacy/smartnoise-samples/blob/master/analysis/covariance.ipynb)
 
 ## Next Steps
 
-- Explore [WhiteNoise sample notebooks](https://github.com/opendifferentialprivacy/whitenoise-samples/tree/master/analysis).
+- Explore [SmartNoise sample notebooks](https://github.com/opendifferentialprivacy/smartnoise-samples/tree/master/analysis).

@@ -28,6 +28,7 @@ Microsoft recommends you require MFA on the following roles at a minimum:
 * Global administrator
 * Helpdesk administrator
 * Password administrator
+* Privileged Role Administrator
 * Security administrator
 * SharePoint administrator
 * User administrator

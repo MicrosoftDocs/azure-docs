@@ -125,7 +125,7 @@ The snapshot tools can be used in the following scenarios.
 - SKU TYPE I
 - SKU TYPE II
 
-See [Supported scenarios for HANA Large Instances](/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+See [Supported scenarios for HANA Large Instances](../virtual-machines/workloads/sap/hana-supported-scenario.md)
 
 ## Snapshot Support Matrix from SAP
 

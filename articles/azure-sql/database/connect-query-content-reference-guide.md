@@ -37,6 +37,29 @@ The following document includes links to Azure examples showing how to connect a
 |[R](connect-query-r.md)|This quickstart demonstrates how to use R with Azure SQL Database Machine Learning Services to create a program to connect to a database in Azure SQL Database and use Transact-SQL statements to query data.|
 |||
 
+## Get server connection information
+
+Get the connection information you need to connect to the database in Azure SQL Database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Navigate to the **SQL Databases**  or **SQL Managed Instances** page.
+
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for the database in Azure SQL Database or the fully qualified server name (or IP address) next to **Host** for an Azure SQL Managed Instance or SQL Server on Azure VM. To copy the server name or host name, hover over it and select the **Copy** icon.
+
+> [!NOTE]
+> For connection information for SQL Server on Azure VM, see [Connect to a SQL Server instance](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
+
+## Get ADO.NET connection information (optional - SQL Database only)
+
+1. Navigate to the database blade in the Azure portal and, under **Settings**, select **Connection strings**.
+
+2. Review the complete **ADO.NET** connection string.
+
+    ![ADO.NET connection string](./media/connect-query-dotnet-core/adonet-connection-string2.png)
+
+3. Copy the **ADO.NET** connection string if you intend to use it.
+
 ## TLS considerations for database connectivity
 
 Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to databases in Azure SQL Database or Azure SQL Managed Instance. No special configuration is necessary. For all connections to a SQL Server instance, a database in Azure SQL Database, or an instance of Azure SQL Managed Instance, we recommend that all applications set
@@ -62,7 +85,7 @@ The following table lists connectivity libraries or *drivers* that client applic
 | Language | Platform | Additional resources | Download | Get started |
 | :-- | :-- | :-- | :-- | :-- |
 | C# | Windows, Linux, macOS | [Microsoft ADO.NET for SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Download](https://www.microsoft.com/net/download/) | [Get started](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
-| Java | Windows, Linux, macOS | [Microsoft JDBC driver for SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Download](https://go.microsoft.com/fwlink/?linkid=852460) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
+| Java | Windows, Linux, macOS | [Microsoft JDBC driver for SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
 | PHP | Windows, Linux, macOS| [PHP SQL driver for SQL Server](/sql/connect/php/microsoft-php-driver-for-sql-server) | [Download](/sql/connect/php/download-drivers-php-sql-server) | [Get started](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
 | Node.js | Windows, Linux, macOS | [Node.js driver for SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Install](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Python SQL driver](/sql/connect/python/python-driver-for-sql-server/) | Install choices: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Get started](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)

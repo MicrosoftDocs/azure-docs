@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
-ms.custom: deploy, devx-track-azurecli
+ms.custom: deploy
 ---
 
 # Update a deployed web service
@@ -82,7 +82,7 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 >
 > To update the service to use a new entry script or environment, create an [inference configuration file](./reference-azure-machine-learning-cli.md#inference-configuration-schema) and specify it with the `ic` parameter.
 
-For more information, see the [az ml service update](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) documentation.
+For more information, see the [az ml service update](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-update) documentation.
 
 ## Next steps
 

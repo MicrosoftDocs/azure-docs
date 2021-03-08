@@ -285,11 +285,11 @@ jobs](../stream-analytics/stream-analytics-quick-create-portal.md) that
 integrate [inputs](../stream-analytics/stream-analytics-add-inputs.md) and
 [outputs](../stream-analytics/stream-analytics-define-outputs.md) and integrate
 the data from the inputs through
-[queries](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md)
+[queries](/stream-analytics-query/stream-analytics-query-language-reference)
 that yield a result that is then made available on the outputs.
 
 Queries are based on the [SQL query
-language](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference.md)
+language](/stream-analytics-query/stream-analytics-query-language-reference)
 and can be used to easily filter, sort, aggregate, and join streaming data over
 a period of time. You can also extend this SQL language with
 [JavaScript](../stream-analytics/stream-analytics-javascript-user-defined-functions.md)
@@ -401,6 +401,7 @@ between Event Hubs and various other eventing and messaging systems:
 - [Event replicator applications in Azure Functions][1]
 - [Replicating events between Event Hubs][2]
 - [Replicating events to Azure Service Bus][3]
+- [Use Apache Kafka MirrorMaker with Event Hubs][11] 
 
 [1]: event-hubs-federation-replicator-functions.md
 [2]: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopy
@@ -412,3 +413,4 @@ between Event Hubs and various other eventing and messaging systems:
 [8]: event-hubs-federation-patterns.md#log-projection
 [9]: process-data-azure-stream-analytics.md
 [10]: event-hubs-federation-patterns.md#replication
+[11]: event-hubs-kafka-mirror-maker-tutorial.md

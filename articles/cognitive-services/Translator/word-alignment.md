@@ -3,13 +3,13 @@ title: Word alignment - Translator
 titleSuffix: Azure Cognitive Services
 description: To receive alignment information, use the Translate method and include the optional includeAlignment parameter.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # How to receive word alignment information

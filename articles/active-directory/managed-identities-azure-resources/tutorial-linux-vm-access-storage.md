@@ -30,9 +30,6 @@ This tutorial shows you how to use a system-assigned managed identity for a Linu
 > * Grant the Linux VM's Managed Identity access to an Azure Storage container
 > * Get an access token and use it to call Azure Storage
 
-> [!NOTE]
-> Azure Active Directory authentication for Azure Storage is in public preview.
-
 ## Prerequisites
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]

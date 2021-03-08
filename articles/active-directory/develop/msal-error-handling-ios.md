@@ -237,4 +237,4 @@ See [Request custom claims using MSAL for iOS and macOS](request-custom-claims.m
 
 ## Next steps
 
-Consider enabling [Logging in MSAL iOS/macOS](msal-logging.md?tabs=swift) to help you diagnose and debug issues.
+Consider enabling [Logging in MSAL for iOS/macOS](msal-logging-ios.md) to help you diagnose and debug issues.

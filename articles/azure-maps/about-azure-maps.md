@@ -33,9 +33,9 @@ You can sign up for a free [Azure Maps account](https://azure.microsoft.com/serv
 
 The following video explains Azure Maps in depth:
 
-<br/>
+</br>
 
-<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny]
 
 ## Map controls
 

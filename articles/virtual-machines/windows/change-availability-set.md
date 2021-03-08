@@ -75,7 +75,7 @@ The following script provides an example of gathering the required information, 
        -CreateOption Attach
     }
     
-# Add NIC(s) and keep the same NIC as primary
+# Add NIC(s) and keep the same NIC as primary; keep the Private IP too, if it exists. 
     foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {	
     if ($nic.Primary -eq "True")
     {
@@ -101,4 +101,4 @@ The following script provides an example of gathering the required information, 
 
 ## Next steps
 
-Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Add additional storage to your VM by adding an additional [data disk](attach-managed-disk-portal.md).

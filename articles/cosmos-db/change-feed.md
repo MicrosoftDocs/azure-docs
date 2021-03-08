@@ -10,7 +10,7 @@ ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
 ---
 # Change feed in Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[appliesto-all-apis-except-table](includes/appliesto-all-apis-except-table.md)]
 
 Change feed in Azure Cosmos DB is a persistent record of changes to a container in the order they occur. Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. The persisted changes can be processed asynchronously and incrementally, and the output can be distributed across one or more consumers for parallel processing.
 

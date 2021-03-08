@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/28/2020
+ms.date: 12/18/2020
 ms.author: jeedes
 
 ---
@@ -67,7 +67,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **ProdPad** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| User.ProdpadRole | user.assignedroles |
 
     > [!NOTE]
-    > ProdPad expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/active-directory-enterprise-app-role-management.md).
+    > ProdPad expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -123,7 +123,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. If you have setup the roles as explained in the above, you can select it from the **Select a role** dropdown.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure ProdPad SSO

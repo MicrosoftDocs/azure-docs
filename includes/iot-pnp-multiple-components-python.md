@@ -8,6 +8,13 @@ ms.date: 11/20/2020
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Python and is included in the Azure IoT device SDK for Python. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
+In this tutorial, you:
+
+> [!div class="checklist"]
+> * Download the sample code.
+> * Run the sample device application and validate that it connects to your IoT hub.
+> * Review the source code.
+
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](iot-pnp-prerequisites.md)]

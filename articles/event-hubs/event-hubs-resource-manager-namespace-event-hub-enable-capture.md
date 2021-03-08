@@ -1,7 +1,7 @@
 ---
 title: Create an event hub with capture enabled - Azure Event Hubs | Microsoft Docs
 description: Create an Azure Event Hubs namespace with one event hub and enable Capture using Azure Resource Manager template
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 06/23/2020 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -399,13 +399,13 @@ New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -Templa
 Azure Blob Storage as destination:
 
 ```azurecli
-az group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
+az deployment group create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json][]
 ```
 
 Azure Data Lake Store as destination:
 
 ```azurecli
-az group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
+az deployment group create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json][]
 ```
 
 ## Next steps

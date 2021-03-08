@@ -38,7 +38,7 @@ To complete this tutorial:
 
 You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial].
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+You need an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). This tutorial doesn't work with the **free** subscription. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -278,7 +278,7 @@ An event subscription indicates which provider-generated events you want sent to
 
 1. Switch to the **Filters** tab, and do the following actions:
     1. Select **Enable subject filtering** option.
-    1. For **Subject begins with**, enter the following value : **/blobServices/default/containers/images/blobs/**.
+    1. For **Subject begins with**, enter the following value : **/blobServices/default/containers/images/**.
 
         ![Specify filter for the event subscription](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 

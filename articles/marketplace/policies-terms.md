@@ -21,7 +21,6 @@ Offers on the commercial marketplace must comply with our policies and terms. We
 
 - [Commercial marketplace certification policies](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context)
 - [Microsoft AppSource and Azure Marketplace review policies](/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context)
-- [Azure Marketplace participation policies](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
 - [Azure Marketplace terms](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
 ## Next steps

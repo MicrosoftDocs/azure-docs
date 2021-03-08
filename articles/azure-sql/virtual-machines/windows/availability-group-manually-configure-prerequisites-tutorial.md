@@ -89,9 +89,9 @@ To create the virtual network in the Azure portal:
    | **Field** | Value |
    | --- | --- |
    | **Name** |autoHAVNET |
-   | **Address space** |10.33.0.0/24 |
+   | **Address space** |10.0.0.0/24 |
    | **Subnet name** |Admin |
-   | **Subnet address range** |10.33.0.0/29 |
+   | **Subnet address range** |10.0.0.0/29 |
    | **Subscription** |Specify the subscription that you intend to use. **Subscription** is blank if you only have one subscription. |
    | **Resource group** |Choose **Use existing** and pick the name of the resource group. |
    | **Location** |Specify the Azure location. |
@@ -537,7 +537,7 @@ Repeat the steps on the other SQL Server VM.
 
 ### Tuning Failover Cluster Network Thresholds
 
-When running Windows Failover Cluster nodes in Azure Vms with SQL Server AlwaysOn, changing the cluster setting to a more relaxed monitoring state is recommended.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL AlwaysOn - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
+When running Windows Failover Cluster nodes in Azure Vms with SQL Server availability groups, change the cluster setting to a more relaxed monitoring state.  This will make the cluster much more stable and reliable.  For details on this, see [IaaS with SQL Server - Tuning Failover Cluster Network Thresholds](/windows-server/troubleshoot/iaas-sql-failover-cluster).
 
 
 ## <a name="endpoint-firewall"></a> Configure the firewall on each SQL Server VM

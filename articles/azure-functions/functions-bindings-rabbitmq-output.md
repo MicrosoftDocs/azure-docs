@@ -5,7 +5,7 @@ author: cachai2
 
 ms.assetid: 
 ms.topic: reference
-ms.date: 12/16/2020
+ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: 
 ---
@@ -13,7 +13,7 @@ ms.custom:
 # RabbitMQ output binding for Azure Functions overview
 
 > [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Windows Premium and Dedicated** plans. Consumption and Linux are currently not supported.
+> The RabbitMQ bindings are only fully supported on **Premium and Dedicated** plans. Consumption is not supported.
 
 Use the RabbitMQ output binding to send messages to a RabbitMQ queue.
 
@@ -27,7 +27,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```cs
 [FunctionName("RabbitMQOutput")]
-[return: RabbitMQ("outputQueue", ConnectionStringSetting = "ConnectionStringSetting")]
+[return: RabbitMQ(QueueName = "outputQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]
 public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
 {
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
@@ -40,34 +40,35 @@ The following example shows how to use the IAsyncCollector interface to send mes
 ```cs
 [FunctionName("RabbitMQOutput")]
 public static async Task Run(
-[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "TriggerConnectionString")] string rabbitMQEvent,
-[RabbitMQ("destinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<string> outputEvents,
+[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] string rabbitMQEvent,
+[RabbitMQ(QueueName = "destinationQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]IAsyncCollector<string> outputEvents,
 ILogger log)
 {
-    // processing:
-    var myProcessedEvent = DoSomething(rabbitMQEvent);
-    
      // send the message
-    await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+    await outputEvents.AddAsync(JsonConvert.SerializeObject(rabbitMQEvent));
 }
 ```
 
 The following example shows how to send the messages as POCOs.
 
 ```cs
-public class TestClass
+namespace Company.Function
 {
-    public string x { get; set; }
-}
-
-[FunctionName("RabbitMQOutput")]
-public static async Task Run(
-[RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "TriggerConnectionString")] TestClass rabbitMQEvent,
-[RabbitMQ("destinationQueue", ConnectionStringSetting = "OutputConnectionString")]IAsyncCollector<TestClass> outputPocObj,
-ILogger log)
-{
-    // send the message
-    await outputPocObj.Add(rabbitMQEvent);
+    public class TestClass
+    {
+        public string x { get; set; }
+    }
+    public static class RabbitMQOutput{
+        [FunctionName("RabbitMQOutput")]
+        public static async Task Run(
+        [RabbitMQTrigger("sourceQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")] TestClass rabbitMQEvent,
+        [RabbitMQ(QueueName = "destinationQueue", ConnectionStringSetting = "rabbitMQConnectionAppSetting")]IAsyncCollector<TestClass> outputPocObj,
+        ILogger log)
+        {
+            // send the message
+            await outputPocObj.AddAsync(rabbitMQEvent);
+        }
+    }
 }
 ```
 
@@ -94,7 +95,7 @@ Here's the binding data in the *function.json* file:
             "type": "rabbitMQ",
             "name": "outputMessage",
             "queueName": "outputQueue",
-            "connectionStringSetting": "connectionStringAppSetting",
+            "connectionStringSetting": "rabbitMQConnectionAppSetting",
             "direction": "out"
         }
     ]
@@ -103,7 +104,7 @@ Here's the binding data in the *function.json* file:
 
 Here's the C# script code:
 
-```csx
+```C#
 using System;
 using Microsoft.Extensions.Logging;
 
@@ -137,7 +138,7 @@ Here's the binding data in the *function.json* file:
             "type": "rabbitMQ",
             "name": "outputMessage",
             "queueName": "outputQueue",
-            "connectionStringSetting": "connectionStringAppSetting",
+            "connectionStringSetting": "rabbitMQConnectionAppSetting",
             "direction": "out"
         }
     ]
@@ -182,31 +183,33 @@ Here's the binding data in the *function.json* file:
             "type": "rabbitMQ",
             "name": "outputMessage",
             "queueName": "outputQueue",
-            "connectionStringSetting": "connectionStringAppSetting",
+            "connectionStringSetting": "rabbitMQConnectionAppSetting",
             "direction": "out"
         }
     ]
 }
 ```
 
+In *_\_init_\_.py*:
+
 ```python
 import azure.functions as func
 
-def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpResponse:
     input_msg = req.params.get('message')
-    msg.set(input_msg)
+    outputMessage.set(input_msg)
     return 'OK'
 ```
 
 # [Java](#tab/java)
 
-The following example shows a Java function that sends a message to RabbitMQ queue when triggered by a TimerTrigger every 5 minutes.
+The following Java function uses the `@RabbitMQOutput` annotation from the [Java RabbitMQ types](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) to describe the configuration for a RabbitMQ queue output binding. The function sends a message to the RabbitMQ queue when triggered by a TimerTrigger every 5 minutes.
 
 ```java
 @FunctionName("RabbitMQOutputExample")
 public void run(
 @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-@RabbitMQOutput(connectionStringSetting = "rabbitMQ", queueName = "hello") OutputBinding<String> output,
+@RabbitMQOutput(connectionStringSetting = "rabbitMQConnectionAppSetting", queueName = "hello") OutputBinding<String> output,
 final ExecutionContext context) {
     output.setValue("Some string");
 }
@@ -269,7 +272,7 @@ The following table explains the binding configuration properties that you set i
 |**userName**|**UserName**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the username to access the queue. Ex. UserNameSetting: "< UserNameFromSettings >"|
 |**password**|**Password**|(ignored if using ConnectionStringSetting) <br>Name of the app setting that contains the password to access the queue. Ex. UserNameSetting: "< UserNameFromSettings >"|
 |**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. Please note that if you specify the connection string directly and not through an app setting in local.settings.json, the trigger will not work. (Ex: In *function.json*: connectionStringSetting: "rabbitMQConnection" <br> In *local.settings.json*: "rabbitMQConnection" : "< ActualConnectionstring >")|
-|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0.|
+|**port**|**Port**|(ignored if using ConnectionStringSetting) Gets or sets the Port used. Defaults to 0 which points to rabbitmq client's default port setting: 5672.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -3,12 +3,12 @@ title: Plan an automatic user provisioning deployment for Azure Active Directory
 description: Guidance for planning and executing automatic user provisioning
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/17/2019
+ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
 #customer intent: As an admin, I want to automate user provisioning to SaaS apps
@@ -318,7 +318,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Keep up to date on what's new with Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Stack overflow Azure AD forum](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Microsoft Q&A Azure AD forum](/answers/topics/azure-active-directory.html)
 
 ## Next steps
 * [Configure Automatic User Provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

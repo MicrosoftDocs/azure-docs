@@ -13,7 +13,7 @@ Check out the latest version of Azure Media Services!
 * [Overview](../articles/media-services/latest/media-services-overview.md)
 * [Concepts](../articles/media-services/latest/concepts-overview.md)
 * [Start developing](../articles/media-services/latest/media-services-apis-overview.md)
-* [Migration guidance from v2 to v3](../articles/media-services/latest/migrate-from-v2-to-v3.md)
+* [Migration guidance from v2 to v3](../articles/media-services/latest/migrate-v-2-v-3-migration-introduction.md)
 
 ### Media Services v2 (legacy)
 

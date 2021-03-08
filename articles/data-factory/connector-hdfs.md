@@ -1,15 +1,10 @@
 ---
 title: Copy data from HDFS by using Azure Data Factory  
 description: Learn how to copy data from a cloud or on-premises HDFS source to supported sink data stores by using Copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 12/18/2020
 ms.author: jingwang
 ---
 
@@ -279,7 +274,7 @@ For either option, make sure you turn on webhdfs for Hadoop cluster:
 1. Create the HTTP principal and keytab for webhdfs.
 
     > [!IMPORTANT]
-    > The HTTP Kerberos principal must start with "**HTTP/**" according to Kerberos HTTP SPNEGO specification.
+    > The HTTP Kerberos principal must start with "**HTTP/**" according to Kerberos HTTP SPNEGO specification. Learn more from [here](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#HDFS_Configuration_Options).
 
     ```bash
     Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>

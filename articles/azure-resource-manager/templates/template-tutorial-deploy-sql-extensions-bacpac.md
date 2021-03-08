@@ -50,7 +50,7 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
 * Upload the BACPAC file to the container.
 * Display the storage account key and the blob URL.
 
-1. Select **Try it** to open the shell. Then paste the following PowerShell script into the shell window.
+1. Select **Try it** to open Azure Cloud Shell. Then paste the following PowerShell script into the shell window.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"

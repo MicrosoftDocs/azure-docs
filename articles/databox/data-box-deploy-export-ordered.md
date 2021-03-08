@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 12/18/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
 ---
-# Tutorial: Create export order for Azure Data Box (Preview)
+# Tutorial: Create export order for Azure Data Box
 
 Azure Data Box is a hybrid solution that allows you to move data out of Azure into your location. This tutorial describes how to create an export order for Azure Data Box. The main reason to create an export order is for disaster recovery, in case on-premise storage gets compromised and a back-up needs to be restored.
 
@@ -23,8 +23,6 @@ In this tutorial, you learn about:
 > * Order a Data Box for export
 > * Track the export order
 > * Cancel the export order
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## Prerequisites
 
@@ -98,7 +96,7 @@ Perform the following steps in the Azure portal to order a device.
     |---------|---------|
     |Storage account     | The Azure Storage account from where you want to export data. |
     |Export type     | Specifies the type of data to export from **All objects** and **Use XML file**.<ul><li> **All objects** - Specifies that the job exports all data depending on your selection for **Transfer options**.</li><li> **Use XML file** – Specifies an XML file that contains a set of paths and prefixes for blobs and/or files to be exported from the storage account. The XML file needs to be in the selected storage account's container, and selecting from file shares is currently not supported. The file needs to be a non-empty .xml file.</li></ul>        |
-    |Transfer options     |  Specifies the data transfer options from **Select all**, **All blobs**, and **All files**. <ul><li> **Select All** - Specifies that all blobs and Azure Files are exported. If you are using a storage account that supports only blobs (Blob Storage Account), the **All Files** option will not be selectable.</li><li> **All Blobs** - Specifies that only block and page blobs are exported.</li><li> **All Files** - Specifies that all files are exported excluding blobs. The type of storage account you have (GPv1 and GPv2, premium storage, or blob storage) determines the types of data you can export. For more information, see [Supported storage accounts for export](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Transfer options     |  Specifies the data transfer options from **Select all**, **All blobs**, and **All files**. <ul><li> **Select All** - Specifies that all blobs and Azure Files are exported. If you are using a storage account that supports only blobs (Blob Storage Account), the **All Files** option will not be selectable.</li><li> **All Blobs** - Specifies that only block and page blobs are exported.</li><li> **All Files** - Specifies that all files are exported excluding blobs. The type of storage account you have (GPv1 and GPv2, premium storage, or blob storage) determines the types of data you can export. For more information, see [Supported storage accounts for export](../import-export/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Include verbose log     | Indicates whether you want a verbose log file that contains a list of all files that were exported successfully.        |
 
     > [!NOTE]
@@ -177,9 +175,9 @@ Perform the following steps in the Azure portal to order a device.
 
 15. Select a user identity that you'll use to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
 
-    A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview).  
+    A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md).  
 
-    If you need to create a new managed identity, follow the guidance in [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    If you need to create a new managed identity, follow the guidance in [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Select a user identity](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 

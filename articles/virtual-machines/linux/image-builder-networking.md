@@ -6,7 +6,8 @@ ms.author: danis
 ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ---
 
 # Azure Image Builder Service networking options
@@ -84,4 +85,4 @@ Private Link service requires an IP from the given VNET and subnet. Currently, A
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).

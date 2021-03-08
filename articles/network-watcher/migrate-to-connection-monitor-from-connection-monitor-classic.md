@@ -10,11 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 11/23/2020
+ms.date: 01/07/2021
 ms.author: vinigam
 #Customer intent: I need to migrate from Connection Monitor to Connection Monitor. 
 ---
 # Migrate to Connection Monitor from Connection Monitor (Classic)
+
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new connection monitors in Connection Monitor (classic) but you can continue to use existing connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate from Connection Monitor (classic) to the new Connection Monitor](migrate-to-connection-monitor-from-connection-monitor-classic.md)  in Azure Network Watcher before 29 February 2024.
 
 You can migrate existing connection monitors to new, improved Connection Monitor with only a few clicks and with zero downtime. To learn more about the benefits, see [Connection Monitor](./connection-monitor-overview.md).
 
@@ -24,7 +27,7 @@ The migration helps produce the following results:
 
 * Agents and firewall settings work as is. No changes are required. 
 * Existing connection monitors are mapped to Connection Monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the new Connection Monitor, download a template to make changes to Connection Monitor, and submit it via Azure Resource Manager. 
-* Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). 
+* Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). The old metrics will get migrated to new metrics as ProbesFailedPercent -> ChecksFailedPercent and AverageRoundtripMs -> RoundTripTimeMs.
 * Data monitoring:
    * **Alerts**: Migrated automatically to the new metrics.
    * **Dashboards and integrations**: Require manually editing of the metrics set. 
@@ -41,7 +44,7 @@ If you're using a custom workspace, ensure that Network Watcher is enabled in yo
 	
 1. Select your subscription and the connection monitors you want to migrate, and then select **Migrate selected**. 
 
-With only a few clicks, you've migrated the existing connection monitors to Connection Monitor. 
+With only a few clicks, you've migrated the existing connection monitors to Connection Monitor. Once migrated from CM (Classic) to CM, you will not be able to see the monitor under CM (Classic)
 
 You can now customize Connection Monitor properties, change the default workspace, download templates, and check the migration status. 
 

@@ -71,6 +71,7 @@ INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]
     SECRET = '<password>';  
     ```
 
+    The "master_key_password" is a strong password of your choosing used to encrypt the connection credentials. 
     The "username" and "password" should be the username and password used to log in into the Customers database.
     Authentication using Azure Active Directory with elastic queries is not currently supported.
 

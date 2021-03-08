@@ -94,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| role      | user.assignedroles |
 
 	> [!NOTE]
-	> Academy Attendance supports two roles for users: **Lecturer** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. Please refer to [this](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) doc which explains how to create custom roles in Azure AD.
+	> Academy Attendance supports two roles for users: **Lecturer** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. Please refer to [this](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) doc which explains how to create custom roles in Azure AD.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -144,9 +144,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Academy Attendance Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Academy Attendance tile in the My Apps, this will redirect to Academy Attendance Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Academy Attendance tile in the My Apps, this will redirect to Academy Attendance Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure Academy Attendance you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Academy Attendance you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

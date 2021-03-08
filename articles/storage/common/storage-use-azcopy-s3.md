@@ -12,7 +12,7 @@ ms.subservice: common
 
 # Copy data from Amazon S3 to Azure Storage by using AzCopy
 
-AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you copy objects, directories, and buckets from Amazon Web Services (AWS) S3 to Azure blob storage by using AzCopy.
+AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. This article helps you copy objects, directories, and buckets from Amazon Web Services (AWS) S3 to Azure Blob Storage by using AzCopy.
 
 ## Choose how you'll provide authorization credentials
 

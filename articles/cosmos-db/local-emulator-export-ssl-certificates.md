@@ -12,7 +12,7 @@ ms.custom: devx-track-python, devx-track-java, contperf-fy21q1
 # Export the Azure Cosmos DB Emulator certificates for use with Java, Python, and Node.js apps
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Azure Cosmos Emulator supports only secure communication through TLS connections.
+The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Azure Cosmos DB Emulator supports only secure communication through TLS connections.
 
 Certificates in the Azure Cosmos DB local emulator are generated the first time you run the emulator. There are two certificates. One of them is used to connect to the local emulator and the other is used to manage default encryption of the emulator data within the emulator. The certificate you want to export is the connection certificate with the friendly name "DocumentDBEmulatorCertificate".
 

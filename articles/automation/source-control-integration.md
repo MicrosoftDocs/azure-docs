@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 11/12/2020
 ms.topic: conceptual
 ---
+
 # Use source control integration
 
  Source control integration in Azure Automation supports single-direction synchronization from your source control repository. Source control allows you to keep your runbooks in your Automation account up to date with scripts in your GitHub or Azure Repos source control repository. This feature makes it easy to promote code that has been tested in your development environment to your production Automation account.
@@ -23,7 +24,7 @@ Azure Automation supports three types of source control:
 ## Prerequisites
 
 * A source control repository (GitHub or Azure Repos)
-* A [Run As account](manage-runas-account.md)
+* A [Run As account](automation-security-overview.md#run-as-accounts)
 * The [latest Azure modules](automation-update-azure-modules.md) in your Automation account, including the `Az.Accounts` module (Az module equivalent of `AzureRM.Profile`)
 
 > [!NOTE]
@@ -203,4 +204,4 @@ Currently, you can't use the Azure portal to update the PAT in source control. W
 ## Next steps
 
 * For integrating source control in Azure Automation, see [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
-* For integrating runbook source control with Visual Studio Online, see [Azure Automation: Integrating Runbook Source Control using Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).
+* For integrating runbook source control with Visual Studio Codespaces, see [Azure Automation: Integrating Runbook Source Control using Visual Studio Codespaces](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

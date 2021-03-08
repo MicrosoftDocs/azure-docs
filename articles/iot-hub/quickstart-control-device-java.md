@@ -23,7 +23,7 @@ In this quickstart, you use a direct method to control a simulated device connec
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/), under **Long-term support**, select **Java 8**.
 
     You can verify the current version of Java on your development machine using the following command:
 
@@ -75,7 +75,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string \
+    az iot hub device-identity connection-string show\
       --hub-name {YourIoTHubName} \
       --device-id MyJavaDevice \
       --output table
@@ -94,7 +94,7 @@ You also need a _service connection string_ to enable the back-end application t
 **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
 ```azurecli-interactive
-az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
 ```
 
 Make a note of the service connection string, which looks like:

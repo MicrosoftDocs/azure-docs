@@ -20,8 +20,8 @@ The table summarizes supported discovery, assessment, and migration scenarios.
 --- | --- 
 **Discovery** | You can discover machine metadata, and dynamic performance data.
 **App-discovery** | You can discover apps, roles, and features running on VMware VMs. Currently this feature is limited to discovery only. Assessment is currently at the machine level. We don't yet offer app, role, or feature-based assessments. 
-**Assessment** | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess using Azure Migrate Server Assessment, Microsoft Data Migration Assistant (DMA), as well as other tools and ISV offerings.
-**Migration** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using Azure Migrate Server Assessment and Azure Database Migration Service (DMS), and well as other tools and ISV offerings.
+**Assessment** | Assess on-premises workloads and data running on VMware VMs, Hyper-V VMs, and physical servers. Assess using Azure Migrate: Server Assessment, Microsoft Data Migration Assistant (DMA), as well as other tools and ISV offerings.
+**Migration** | Migrate workloads and data running on physical servers, VMware VMs, Hyper-V VMs, physical servers, and cloud-based VMS to Azure. Migrate using Azure Migrate: Server Assessment and Azure Database Migration Service (DMS), and well as other tools and ISV offerings.
 
 > [!NOTE]
 > Currently, ISV tools can't send data to Azure Migrate in Azure Government. You can use integrated Microsoft tools, or use partner tools independently.
@@ -33,19 +33,19 @@ Specific tool support is summarized in the table.
 
 **Tool** | **Assess** | **Migrate** 
 --- | --- | ---
-Azure Migrate Server Assessment | Assess [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), and [physical servers](./tutorial-discover-physical.md). |  Not available (NA)
-Azure Migrate Server Migration | NA | Migrate [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [physical servers](tutorial-migrate-physical-virtual-machines.md).
-[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | NA | Migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. 
-[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | NA
+Azure Migrate: Server Assessment | Assess [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), and [physical servers](./tutorial-discover-physical.md). |  Not available (N/A)
+Azure Migrate: Server Migration | N/A | Migrate [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [physical servers](tutorial-migrate-physical-virtual-machines.md).
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | N/A | Migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. 
+[Cloudamize](https://www.cloudamize.com/platform#tab-0)| Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | N/A
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Assess and migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. |  Migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads.
-[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads.| NA
-[DMA](/sql/dma/dma-overview?view=sql-server-2017) | Assess SQL Server databases. | NA
-[DMS](../dms/dms-overview.md) | NA | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
-[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure (VDI) | NA
-[Movere](https://www.movere.io/) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical machines, workstations (including VDI), public cloud workloads | NA
-[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | Migrate VMWare VMs, Hyper-V VMs, Xen VMs, KVM VMs, physical machines, public cloud workloads 
-[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | NA
-[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads, and SQL Server databases. | NA
+[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads.| N/A
+[DMA](/sql/dma/dma-overview?view=sql-server-2017) | Assess SQL Server databases. | N/A
+[DMS](../dms/dms-overview.md) | N/A | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure (VDI) | N/A
+[Movere](https://www.movere.io/) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical machines, workstations (including VDI), public cloud workloads | N/A
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | N/A | Migrate VMWare VMs, Hyper-V VMs, Xen VMs, KVM VMs, physical machines, public cloud workloads 
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | N/A
+[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads, and SQL Server databases. | N/A
 [Webapp Migration Assistant](https://appmigration.microsoft.com/) | Assess web apps | Migrate web apps.
 
 
@@ -67,8 +67,8 @@ For Azure Migrate to work with Azure you need these permissions before you start
 **Task** | **Permissions** | **Details**
 --- | --- | ---
 Create an Azure Migrate project | Your Azure account needs permissions to create a project. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](./tutorial-discover-physical.md#prepare-an-azure-user-account).
-Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to assess machines with Azure Migrate Server Assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with Azure Migrate Server Migration. This appliance discovers machines, and sends metadata and performance data to Azure Migrate.<br/><br/> During registration, register providers (Microsoft.OffAzure, Microsoft.Migrate, and Microsoft.KeyVault) are registered with the subscription chosen in the appliance, so that the subscription works with the resource provider. To register, you need Contributor or Owner access on the subscription.<br/><br/> **VMware**-During onboarding, Azure Migrate creates two Azure Active Directory (Azure AD) apps. The first app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. The second app accesses an Azure Key Vault created in the user subscription for agentless VMware migration only. In agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. It has Azure RBAC access on the Azure Key Vault (in the customer tenant) when discovery is initiated from the appliance.<br/><br/> **Hyper-V**-During onboarding. Azure Migrate creates one Azure AD app. The app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](./tutorial-discover-physical.md#prepare-an-azure-user-account).
-Create a key vault for VMware agentless migration | To migrate VMware VMs with agentless Azure Migrate Server Migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group in which the Azure Migrate project resides. | [Set up](./tutorial-discover-vmware.md#prepare-an-azure-user-account) permissions.
+Register the Azure Migrate appliance| Azure Migrate uses a lightweight [Azure Migrate appliance](migrate-appliance.md) to assess machines with Azure Migrate: Server Assessment, and to run [agentless migration](server-migrate-overview.md) of VMware VMs with Azure Migrate: Server Migration. This appliance discovers machines, and sends metadata and performance data to Azure Migrate.<br/><br/> During registration, register providers (Microsoft.OffAzure, Microsoft.Migrate, and Microsoft.KeyVault) are registered with the subscription chosen in the appliance, so that the subscription works with the resource provider. To register, you need Contributor or Owner access on the subscription.<br/><br/> **VMware**-During onboarding, Azure Migrate creates two Azure Active Directory (Azure AD) apps. The first app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. The second app accesses an Azure Key Vault created in the user subscription for agentless VMware migration only. In agentless migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. It has Azure RBAC access on the Azure Key Vault (in the customer tenant) when discovery is initiated from the appliance.<br/><br/> **Hyper-V**-During onboarding. Azure Migrate creates one Azure AD app. The app communicates between the appliance agents and the Azure Migrate service. The app doesn't have permissions to make Azure resource management calls or have Azure RBAC access for resources. | Set up for [VMware](./tutorial-discover-vmware.md#prepare-an-azure-user-account), [Hyper-V](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account), or [physical servers](./tutorial-discover-physical.md#prepare-an-azure-user-account).
+Create a key vault for VMware agentless migration | To migrate VMware VMs with agentless Azure Migrate: Server Migration, Azure Migrate creates a Key Vault to manage access keys to the replication storage account in your subscription. To create the vault, you set permissions (Owner, or Contributor and User Access Administrator) on the resource group in which the Azure Migrate project resides. | [Set up](./tutorial-discover-vmware.md#prepare-an-azure-user-account) permissions.
 
 ## Supported geographies (public cloud)
 
@@ -107,11 +107,11 @@ Target replication | United States | Target regions: US DoD Central, US DoD East
 
 ## VMware assessment and migration
 
-[Review](migrate-support-matrix-vmware.md) the Azure Migrate Server Assessment and Server Migration support matrix for VMware VMs.
+[Review](migrate-support-matrix-vmware.md) the Azure Migrate: Server Assessment and Azure Migrate: Server Migration support matrix for VMware VMs.
 
 ## Hyper-V assessment and migration
 
-[Review](migrate-support-matrix-hyper-v.md) the Azure Migrate Server Assessment and Server Migration support matrix for Hyper-V VMs.
+[Review](migrate-support-matrix-hyper-v.md) the Azure Migrate: Server Assessment and Azure Migrate: Server Migration support matrix for Hyper-V VMs.
 
 
 

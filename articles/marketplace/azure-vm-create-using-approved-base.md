@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 10/20/2020
+ms.date: 01/06/2021
 ---
 
 # How to create a virtual machine using an approved base
@@ -35,15 +35,11 @@ Azure offers a range of approved Linux distributions. For a current list, see [L
 2. Select **Virtual machines**.
 3. Select **+ Add** to open the **Create a virtual machine** screen.
 4. Select the image from the dropdown list or select **Browse all public and private images** to search or browse all available virtual machine images.
-5. If you want to create **Gen 1** VM, go to the **Disks** tab and set the **Use Managed Disk** option to **NO** so that you will be able to get the VHD of your VM in specified storage account
-
-   :::image type="content" source="media/create-vm/create-virtual-machine-sizes-2.png" alt-text="Select Unmanaged disk.":::
-   
-6. To create a **Gen 2** VM, go to the **Advanced** tab and select the **Gen 2** option.
+5. To create a **Gen 2** VM, go to the **Advanced** tab and select the **Gen 2** option.
 
     :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Select Gen 1 or Gen 2.":::
 
-7. Select the size of the VM to deploy.
+6. Select the size of the VM to deploy.
 
     :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Select a recommended VM size for the selected image.":::
 
@@ -51,7 +47,6 @@ Azure offers a range of approved Linux distributions. For a current list, see [L
 8. Select **Review + create** to review your choices. When the **Validation passed** message appears, select  **Create**.
 
 Azure begins provisioning the virtual machine you specified. Track its progress by selecting the **Virtual Machines** tab in the left menu. After it's created, the status of Virtual Machine changes to **Running**.
-
 
 ## Configure the VM
 

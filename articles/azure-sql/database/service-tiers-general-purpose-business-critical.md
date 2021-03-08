@@ -72,6 +72,7 @@ The following factors affect the amount of storage used for data and log files, 
   - For storage in the premium or business critical service tiers, increase or decrease the size in 250-GB increments.
 - In the general purpose service tier, `tempdb` uses an attached SSD, and this storage cost is included in the vCore price.
 - In the business critical service tier, `tempdb` shares the attached SSD with the MDF and LDF files, and the `tempdb` storage cost is included in the vCore price.
+- In the DTU premium service tier, `tempdb` shares the attached SSD with MDF and LDF files.
 - The storage size for a SQL Managed Instance must be specified in multiples of 32 GB.
 
 
@@ -88,7 +89,7 @@ To monitor the current total size of your MDF and LDF files, use [sp_spaceused](
 Storage for database backups is allocated to support the point-in-time restore (PITR) and [long-term retention (LTR)](long-term-retention-overview.md) capabilities of SQL Database and SQL Managed Instance. This storage is allocated separately for each database and billed as two separate per-database charges.
 
 - **PITR**: Individual database backups are copied to [read-access geo-redundant (RA-GRS) storage](../../storage/common/geo-redundant-design.md) automatically. The storage size increases dynamically as new backups are created. The storage is used by weekly full backups, daily differential backups, and transaction log backups, which are copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period for backups. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 100 percent (1x) of the database size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups.
-- **LTR**: You also have the option to configure long-term retention of full backups for up to 10 years (this feature is in [limited public preview for SQL Managed Instance](long-term-retention-overview.md#sql-managed-instance-support). If you set up an LTR policy, these backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly backups. The configuration you choose determines how much storage will be used for LTR backups. To estimate the cost of LTR storage, you can use the LTR pricing calculator. For more information, see [SQL Database long-term retention](long-term-retention-overview.md).
+- **LTR**: You also have the option to configure long-term retention of full backups for up to 10 years [for SQL Managed Instance](long-term-retention-overview.md). If you set up an LTR policy, these backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly backups. The configuration you choose determines how much storage will be used for LTR backups. To estimate the cost of LTR storage, you can use the LTR pricing calculator. For more information, see [SQL Database long-term retention](long-term-retention-overview.md).
 
 ## Next steps
 

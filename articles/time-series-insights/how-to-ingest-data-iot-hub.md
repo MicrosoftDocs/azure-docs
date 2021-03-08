@@ -9,7 +9,7 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual 
-ms.date: 10/02/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
 ---
 

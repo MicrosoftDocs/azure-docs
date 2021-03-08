@@ -30,8 +30,8 @@ We have provided these guidelines specifically for Premium Storage because workl
 >
 > If you are looking to benchmark your disk, see our articles on benchmarking a disk:
 >
-> * For Linux: [Benchmark your application on Azure Disk Storage](linux/disks-benchmarks.md)
-> * For Windows: [Benchmarking a disk](windows/disks-benchmarks.md).
+> * For Linux: [Benchmark your application on Azure Disk Storage](./disks-benchmarks.md)
+> * For Windows: [Benchmarking a disk](./disks-benchmarks.md).
 >
 > If your VM supports accelerated networking, you should make sure it is enabled. If it is not enabled, you can enable it on already deployed VMs on both [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) and [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -225,7 +225,7 @@ Table below summarizes the cost breakdown of this scenario for Standard and Prem
 
 *Linux Distros*  
 
-With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros, and you can see the complete list [here](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
+With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros, and you can see the complete list [here](linux/endorsed-distros.md). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
 
 When running Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 
@@ -375,8 +375,8 @@ Azure Premium Storage provisions specified number of IOPS and Throughput dependi
 
 If you are looking to benchmark your disk, see our articles on benchmarking a disk:
 
-* For Linux: [Benchmark your application on Azure Disk Storage](linux/disks-benchmarks.md)
-* For Windows: [Benchmarking a disk](windows/disks-benchmarks.md).
+* For Linux: [Benchmark your application on Azure Disk Storage](./disks-benchmarks.md)
+* For Windows: [Benchmarking a disk](./disks-benchmarks.md).
 
 Learn more about the available disk types:
 

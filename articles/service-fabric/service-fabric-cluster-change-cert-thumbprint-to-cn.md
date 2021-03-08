@@ -58,8 +58,11 @@ There are multiple valid starting states for a conversion. The invariant is that
 #### Valid starting states
 
 - `Thumbprint: GoalCert, ThumbprintSecondary: None`
-- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `GoalCert` has a later `NotAfter` date than that of `OldCert1`
-- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `GoalCert` has a later `NotAfter` date than that of `OldCert1`
+- `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `GoalCert` has a later `NotBefore` date than that of `OldCert1`
+- `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `GoalCert` has a later `NotBefore` date than that of `OldCert1`
+
+> [!NOTE]
+> Prior to version 7.2.445 (7.2 CU4), Service Fabric selected the farthest expiring certificate (the certificate with the farthest 'NotAfter' property), so the above starting states prior to 7.2 CU4 require GoalCert to have a later `NotAfter` date than `OldCert1`
 
 If your cluster isn't in one of the valid states previously described, see information on achieving that state in the section at the end of this article.
 
@@ -212,11 +215,14 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
 
 | Starting state | Upgrade 1 | Upgrade 2 |
 | :--- | :--- | :--- |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` and `GoalCert` has a later `NotAfter` date than `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
-| `Thumbprint: OldCert1, ThumbprintSecondary: None` and `OldCert1` has a later `NotAfter` date than `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
-| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `OldCert1` has a later `NotAfter` date than `GoalCert` | Upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
-| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `OldCert1` has a later `NotAfter` date than `GoalCert` | Upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` and `GoalCert` has a later `NotBefore` date than `OldCert1` | `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert` | - |
+| `Thumbprint: OldCert1, ThumbprintSecondary: None` and `OldCert1` has a later `NotBefore` date than `GoalCert` | `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1` | `Thumbprint: GoalCert, ThumbprintSecondary: None` |
+| `Thumbprint: OldCert1, ThumbprintSecondary: GoalCert`, where `OldCert1` has a later `NotBefore` date than `GoalCert` | Upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
+| `Thumbprint: GoalCert, ThumbprintSecondary: OldCert1`, where `OldCert1` has a later `NotBefore` date than `GoalCert` | Upgrade to `Thumbprint: GoalCert, ThumbprintSecondary: None` | - |
 | `Thumbprint: OldCert1, ThumbprintSecondary: OldCert2` | Remove one of `OldCert1` or `OldCert2` to get to state `Thumbprint: OldCertx, ThumbprintSecondary: None` | Continue from the new starting state |
+
+> [!NOTE]
+> For a cluster on a version prior to version 7.2.445 (7.2 CU4), replace `NotBefore` with `NotAfter` in the above states.
 
 For instructions on how to carry out any of these upgrades, see [Manage certificates in an Azure Service Fabric cluster](service-fabric-cluster-security-update-certs-azure.md).
 

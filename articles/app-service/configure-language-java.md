@@ -10,6 +10,7 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
+adobe-target: true
 ---
 
 # Configure a Java app for Azure App Service
@@ -20,7 +21,7 @@ This guide provides key concepts and instructions for Java developers using App 
 
 ## Deploying your app
 
-You can use [Azure Web App Plugin for Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) to deploy your .war or .jar files. Deployment with popular IDEs is also supported with the [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) or [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
+You can use [Azure Web App Plugin for Maven](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) to deploy your .war or .jar files. Deployment with popular IDEs is also supported with the [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) or [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse).
 
 Otherwise, your deployment method will depend on your archive type:
 

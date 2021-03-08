@@ -121,8 +121,8 @@ To protect and configure backup on a database, one at a time, we use the [az bac
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \
     --policy-name saphanaPolicy \
-    --protectable-item-name saphanadatabase;hxe;hxe  \
-    --protectable-item-type SAPHANADatabse \
+    --protectable-item-name "saphanadatabase;hxe;hxe"  \
+    --protectable-item-type SAPHANADatabase \
     --server-name hxehost \
     --workload-type SAPHANA \
     --output table
@@ -171,9 +171,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 The response will give you the job name. This job name can be used to track the job status using the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
 >[!NOTE]
->In addition to scheduling a full or differential backup, they can also be currently triggered manually. Log backups are automatically triggered and managed by SAP HANA internally.
->
-> Incremental backups aren't currently supported by Azure Backup.
+>Log backups are automatically triggered and managed by SAP HANA internally.
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 01/12/2021
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate NetDocuments with Azure Active D
 * Control in Azure AD who has access to NetDocuments.
 * Enable your users to be automatically signed-in to NetDocuments with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -40,14 +38,14 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of NetDocuments into Azure AD, you need to add NetDocuments from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **NetDocuments** in the search box.
 1. Select **NetDocuments** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for NetDocuments
+## Configure and test Azure AD SSO for NetDocuments
 
 Configure and test Azure AD SSO with NetDocuments using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in NetDocuments.
 
@@ -64,7 +62,7 @@ To configure and test Azure AD SSO with NetDocuments, complete the following bui
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **NetDocuments** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **NetDocuments** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -72,25 +70,46 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    a. In the **Sign on URL** text box, type one of the following URL patterns:
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
-    
-    c. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `http://netdocuments.com/VAULT`
+    |Sign on URL|
+    |-----------|
+    |`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://eu.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://de.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://au.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |
+
+    b. In the **Identifier (Entity ID)** text box, type one of the URLs:
+
+    |Identifier|
+    |-----------|
+    |`http://netdocuments.com/VAULT`|
+    |`http://netdocuments.com/EU`|
+    |`http://netdocuments.com/AU`|
+    |`http://netdocuments.com/DE`|
+    |
+
+    c. In the **Reply URL** text box, type one of the following URL patterns:
+
+    |Reply URL|
+    |-----------|
+    |`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://eu.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://de.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://au.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Repository ID is a value starting with **CA-** followed by 8 character code associated with your NetDocuments Repository. You can check the [NetDocuments Federated Identity support document](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) for more information. Alternatively you can contact [NetDocuments Client support team](https://support.netdocuments.com/hc/) to get these values if you have difficulties configuring using the above information. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Repository ID is a value starting with **CA-** followed by 8 character code associated with your NetDocuments Repository. You can check the [NetDocuments Federated Identity support document](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) for more information. Alternatively you can contact [NetDocuments Client support team](https://support.netdocuments.com/hc/) to get these values if you have difficulties configuring using the above information . You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. NetDocuments application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. NetDocuments application expects **nameidentifier** to be mapped with **employeeid** or any other claim which is applicable to your Organization as **nameidentifier**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+1. NetDocuments application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. NetDocuments application expects **nameidentifier** to be mapped with **ObjectID** or any other claim which is applicable to your Organization as **nameidentifier**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **App Federation Metadata URL** and copy the URL.
 
-	![The Certificate download link](common/metadataxml.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
 1. On the **Set up NetDocuments** section, copy the appropriate URL(s) based on your requirement.
 
@@ -115,15 +134,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **NetDocuments**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure NetDocuments SSO
@@ -134,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. Select **Security Center**.
    
-    ![Screenshot shows Security Center selected from Legal Documents.](./media/netdocuments-tutorial/security-center.png "Security Center")
+    ![Repository](./media/netdocuments-tutorial/security-center.png "Security Center")
 
 4. Select **Advanced Authentication**.
     
@@ -142,9 +155,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5.	On the **Federated ID** tab, perform the following steps:   
    
-    ![Federated Identity](./media/netdocuments-tutorial/federated-id.png "Federated Identity")
+    [ ![Federated Identity](./media/netdocuments-tutorial/federated-id.png "Federated Identity")](./media/netdocuments-tutorial/federated-id.png#lightbox)
    
-    a. As **Federated identity server type**, select **Active Directory Federation Services**.
+    a. For **Federated identity server type**, select as **Windows Azure Active Directory**.
     
     b.	Select **Choose File**, to upload the downloaded metadata file which you have downloaded from Azure portal.
     
@@ -164,7 +177,7 @@ To enable Azure AD users to sign in to NetDocuments, they must be provisioned in
 
 3. Select **Users and groups**.
    
-    ![Screenshot shows Users & Groups selected from Legal Documents.](./media/netdocuments-tutorial/users-groups.png "Repository")
+    ![Users and groups](./media/netdocuments-tutorial/users-groups.png "Repository")
 
 4. In the **Email Address** textbox, type the email address of a valid Azure Active Directory account you want to provision, and then click **Add User**.
    
@@ -176,16 +189,15 @@ To enable Azure AD users to sign in to NetDocuments, they must be provisioned in
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the NetDocuments tile in the Access Panel, you should be automatically signed in to the NetDocuments for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Click on **Test this application** in Azure portal. This will redirect to NetDocuments Sign-on URL where you can initiate the login flow. 
 
-## Additional resources
+* Go to NetDocuments Sign-on URL directly and initiate the login flow from there.
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+* You can use Microsoft My Apps. When you click the NetDocuments tile in the My Apps, you should be automatically signed in to the NetDocuments for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+## Next steps
 
-- [Try NetDocuments with Azure AD](https://aad.portal.azure.com/)
+Once you configure NetDocuments you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

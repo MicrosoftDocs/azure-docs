@@ -26,9 +26,11 @@ This tutorial covers the following tasks:
 This tutorial only covers a basic scenario of using conditions. For more information, see:
 
 * [Template file structure: Condition](conditional-resource-deployment.md).
-* [Conditionally deploy a resource in an ARM template](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Conditionally deploy a resource in an ARM template](/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy).
 * [Template function: If](./template-functions-logical.md#if).
 * [Comparison functions for ARM templates](./template-functions-comparison.md)
+
+For a Microsoft Learn module that covers conditions, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 

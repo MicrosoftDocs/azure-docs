@@ -1,9 +1,8 @@
 ---
 title: Use REST APIs to do CI/CD for Azure Stream Analytics on IoT Edge
 description: Learn how to implement a continuous integration and deployment pipeline for Azure Stream Analytics using REST APIs.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: su-jie
+ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018

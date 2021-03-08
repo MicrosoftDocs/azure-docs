@@ -109,7 +109,7 @@ additionalContent:
         # Card
         - title: Online data transfer (on-premises to Azure)
           links:
-          - url: ../databox-online/data-box-gateway-overview.md
+          - url: ../databox-gateway/data-box-gateway-overview.md
             text: Seamlessly transfer data to Azure (Data Box Gateway)
           - url: ../databox-online/azure-stack-edge-overview.md
             text: Locally process data before transfer to Azure (Azure Stack Edge)

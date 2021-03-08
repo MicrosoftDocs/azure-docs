@@ -18,7 +18,7 @@ In this article, you'll learn how to ingest data from an Azure Data Lake Gen 2 s
 ## Prerequisites
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* **Azure storage account**: You use Azure Data Lake Storage Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) for steps to create one.
+* **Azure storage account**: You use Azure Data Lake Storage Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/common/storage-account-create.md) for steps to create one.
 * **Azure Synapse Analytics**: You use a dedicated SQL pool as a *sink* data store. If you don't have an Azure Synapse Analytics instance, see [Create a dedicated SQL pool](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) for steps to create one.
 
 ## Create linked services

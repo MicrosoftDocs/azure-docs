@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 03/01/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in Hyper-V so I can use it to transfer data to Azure.  
 ---
@@ -51,10 +51,10 @@ Before you deploy a device, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual device:
 
   * A minimum of 4 cores.
-  * At least 8 GB of RAM.
+  * At least 8 GB of RAM. We strongly recommend at least 16 GB of RAM.
   * One network interface.
-  * A 250 GB OS disk.
-  * A 2 TB virtual disk for data.
+  * A 250 -GB OS disk.
+  * A 2-TB virtual disk for data.
 
 ### For the network in the datacenter
 
@@ -74,13 +74,13 @@ To create a virtual device, you need:
   * A minimum of 4 virtual processors.
   * At least 8 GB of RAM.
   * One network interface connected to the network capable of routing traffic to Internet.
-  * A 250 GB OS disk.
-  * A 2 TB virtual disk for system data.
+  * A 250-GB OS disk.
+  * A 2-TB virtual disk for system data.
 
 ## BitLocker Considerations
 
 * We recommend that you enable BitLocker on your Data Box Gateway virtual machine. By default, BitLocker is not enabled. For more information, see:
-  * [Encryption support settings in Hyper-V Manager](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Encryption support settings in Hyper-V Manager](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
   * [BitLocker support in a virtual machine](https://kb.vmware.com/s/article/2036142)
 
 ## Provision a virtual device in hypervisor
@@ -88,10 +88,11 @@ To create a virtual device, you need:
 Perform the following steps to provision a device in your hypervisor.
 
 1. On your Windows Server host, copy the virtual device image to a local drive. You downloaded this VHDX image through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
+
 2. Open **Server Manager**. In the top-right corner, click **Tools** and select **Hyper-V Manager**.
 
-    ![Select Hyper-V Manager in Server Manager](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
-  
+    ![Select Hyper-V Manager in Server Manager](./media/data-box-gateway-deploy-provision-hyperv/image1.png)
+
 3. In **Hyper-V Manager**, in the scope pane, right-click your system node to open the context menu, and then click **New** > **Virtual Machine**.
 
    ![Create new virtual machine in Hyper-V Manager](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
@@ -114,13 +115,13 @@ Perform the following steps to provision a device in your hypervisor.
 10. Review the **Summary** and then click **Finish** to create the virtual machine.
 
     ![Completing the New Virtual Machine wizard page](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
-11. To meet the minimum requirements, you need 4 virtual processors. To add 4 virtual processors, select your host system in the **Hyper-V Manager** window. In the right-pane under the list of **Virtual Machines**, locate the virtual machine you just created. Select and right-click the machine name and select **Settings**.
+11. To meet the minimum requirements, you need four virtual processors. To add four virtual processors, select your host system in the **Hyper-V Manager** window. In the right-pane under the list of **Virtual Machines**, locate the virtual machine you just created. Select and right-click the machine name and select **Settings**.
 
     ![Virtual machine settings](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
 12. On the **Settings** page, in the left-pane, click **Processor**. In the right-pane, set **number of virtual processors** to 4 (or more). Click **Apply**.
 
     ![Set number of virtual processors on Settings page](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
-13. To meet the minimum requirements, you also need to add a 2 TB virtual data disk. In the **Settings** page:
+13. To meet the minimum requirements, you also need to add a 2-TB virtual data disk. In the **Settings** page:
 
     1. In the left pane, select **SCSI Controller**.
     2. In the right pane, select **Hard Drive,** and click **Add**.
@@ -134,12 +135,12 @@ Perform the following steps to provision a device in your hypervisor.
 17. On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). **Fixed size** disk would work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**.
 
     ![Choose Disk Type page](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
-18. On the **Specify Name and Location** page, provide a **name** as well as **location** (you can browse to one) for the data disk. Click **Next**.
+18. On the **Specify Name and Location** page, provide a **name** and **location** (you can browse to one) for the data disk. Click **Next**.
 
     ![Specify Name and Location page](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **2 TB** (or more).
+19. On the **Configure Disk** page, select the **Create a new blank virtual hard disk** option, and specify the size as **2 TB** (or more).
 
-    While 2 TB is the minimum requirement, you can always provision a larger disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device. Expansion of data disk is not supported. Click **Next**.
+    While 2 TB is the minimum requirement, you can always provision a larger disk. Note that you cannot shrink the disk once it's provisioned. Attempting to shrink the disk results in a loss of all the local data on the device. Expansion of data disk is not supported. Click **Next**.
 
     ![Configure Disk page](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. On the **Summary** page, review the details of your virtual data disk and if satisfied, click **Finish** to create the disk. The wizard closes and a virtual hard disk is added to your machine.
@@ -148,6 +149,11 @@ Perform the following steps to provision a device in your hypervisor.
 21. Return to the **Settings** page. Click **OK** to close the **Settings** page and return to Hyper-V Manager window.
 
     ![Settings page](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
+
+Your virtual machine is now fully configured.
+
+> [!NOTE]
+> You can't provision a new Data Box Gateway by copying your configured VHD. Each new Data Box Gateway virtual device must be provisioned from a virtual device image for Hyper-V that is downloaded from the Azure portal.
 
 ## Start the virtual device and get the IP
 

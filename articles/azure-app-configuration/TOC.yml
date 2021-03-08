@@ -7,7 +7,7 @@
     - name: Best practices
       href: howto-best-practices.md
     - name: FAQ
-      href: faq.md
+      href: faq.yml
 - name: Quickstarts
   expanded: true
   items:
@@ -40,7 +40,7 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutorials
   items:
-    - name: Enable dynamic configuration
+    - name: Enable dynamic configuration using poll model
       items:
         - name: ASP.NET Core
           href: enable-dynamic-configuration-aspnet-core.md
@@ -52,9 +52,13 @@
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot
           href: enable-dynamic-configuration-java-spring-app.md
-    - name: Use feature flags
+    - name: Enable dynamic configuration using push model
       items:
         - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core-push-refresh.md
+    - name: Use feature flags
+      items:
+        - name: ASP.NET Core
           href: use-feature-flags-dotnet-core.md
         - name: Spring Boot
           href: use-feature-flags-spring-boot.md
@@ -104,13 +108,15 @@
           href: overview-managed-identity.md
         - name: Security baseline
           href: security-baseline.md
+        - name: Security controls by Azure Policy
+          href: ./security-controls-policy.md
     - name: High availability
       items:
         - name: Resiliency and disaster recovery
           href: concept-disaster-recovery.md
 - name: How-to guides
   items:
-    - name: Enable a feature for a percentage of users
+    - name: Use conditional feature flags
       href: howto-feature-filters-aspnet-core.md
     - name: Enable a feature for specified users/groups
       href: howto-targetingfilter-aspnet-core.md
@@ -120,18 +126,20 @@
       href: howto-import-export-data.md
     - name: Use JSON content-type for key-values
       href: howto-leverage-json-content-type.md
-    - name: Route events to a custom endpoint
+    - name: Use Event Grid for data change notifications
       href: howto-app-configuration-event.md
     - name: Backup configuration store automatically
       href: howto-backup-config-store.md
     - name: Use managed identities to access App Configuration
       href: howto-integrate-azure-managed-service-identity.md
+    - name: Integrate App Configuration in Visual Studio
+      href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
 - name: Reference
   items:
     - name: Configuration
       items:
         - name: Azure CLI
-          href: /cli/azure/appconfig?view=azure-cli-latest
+          href: /cli/azure/appconfig
         - name: .NET Core provider
           href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: .NET Framework builder

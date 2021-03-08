@@ -545,7 +545,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 
 ### DESCRIPTION
 Function queries AAD Connect Run History and exports all the users reporting the Error: 
- "SourceAnchor attribute has changed."
+  "SourceAnchor attribute has changed."
 
 ### EXAMPLES
 
