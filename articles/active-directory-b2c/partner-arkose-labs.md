@@ -193,7 +193,7 @@ See [this article](https://docs.microsoft.com/azure/azure-functions/functions-de
 [Create an API connector](https://docs.microsoft.com/azure/active-directory-b2c/add-api-connector) and enable it for your user flow. 
 Your API connector configuration should look like:
 
-![Image shows search by app id](media/partner-arkose-labs/configure-api-connector.png)
+![Image shows how to configure api connector](media/partner-arkose-labs/configure-api-connector.png)
 
 - **Endpoint URL** - is the Function URL you copied earlier while you deployed Azure Function.
 
