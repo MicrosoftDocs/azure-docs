@@ -1,6 +1,6 @@
 ---
 title: Network File System 3.0 support in Azure Blob storage (preview) | Microsoft Docs
-description: Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Windows and Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer that runs on-premises.
+description: Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer that runs on-premises.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)
 
-Blob storage now supports the Network File System (NFS) 3.0 protocol. This support provides Linux file system compatibility at object storage scale and prices and enables Windows or Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
+Blob storage now supports the Network File System (NFS) 3.0 protocol. This support provides Linux file system compatibility at object storage scale and prices and enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
 
 > [!NOTE]
 > NFS 3.0 protocol support in Azure Blob storage is in public preview. It supports GPV2 storage accounts with standard tier performance in the following regions: Australia East, Korea Central, and South Central US. The preview also supports block blob with premium performance tier in all public regions.
@@ -41,7 +41,7 @@ When your application makes a request by using the NFS 3.0 protocol, that reques
 
 ## General workflow: Mounting a storage account container
 
-Your Windows or Linux clients can mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. To mount a storage account container, you'll have to do these things.
+Your Linux clients can mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. To mount a storage account container, you'll have to do these things.
 
 1. Register NFS 3.0 protocol feature with your subscription.
 

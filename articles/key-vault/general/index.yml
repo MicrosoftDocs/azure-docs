@@ -83,7 +83,7 @@ landingContent:
           - text: Client libraries for Azure Key Vault
             url: client-libraries.md
           - text: .NET Client library
-            url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+            url: /dotnet/api/overview/azure/key-vault
           - text: Python Client library
             url: /python/api/overview/azure/key-vault-index?view=azure-python
           - text: Java Client library
