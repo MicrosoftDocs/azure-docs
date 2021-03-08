@@ -293,6 +293,8 @@
       href: manage/mca-check-azure-credits-balance.md
     - name: Migrate from EA to MCA APIs
       href: costs/migrate-cost-management-api.md
+    - name: Assign roles to SPNs
+      href: manage/assign-roles-azure-service-principals.md
   - name: Purchase and administer reservations
     items:
     - name: Determine what to purchase
@@ -439,14 +441,6 @@
       href: manage/review-subscription-billing.md
     - name: Review resource usage
       href: manage/review-service-usage-api.md
-  - name: .NET samples
-    items:
-    - name: Invoice API code sample
-      href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
-    - name: Usage API code sample
-      href: https://github.com/Azure-Samples/billing-dotnet-usage-api
-    - name: RateCard API code sample
-      href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
 - name: Cloudyn
   items:
   - name: Overview

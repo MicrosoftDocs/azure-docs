@@ -123,7 +123,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
 
 #### Send logs to Azure Log Analytics
 
-1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then click the and then click the **Save** button.
+1. Select the **Send to Log Analytics** checkbox, select a log analytics workspace, and then click the **Save** button.
 
    > [!div class="mx-imgBorder"]   
    > ![Diagnostic settings page log analytics](media/monitor-blob-storage/diagnostic-logs-settings-pane-log-analytics.png)

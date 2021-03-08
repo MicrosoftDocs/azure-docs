@@ -196,7 +196,7 @@ Depending on the size of the environment, the process can take a couple of hours
 **Q: I received an email telling me that my auto upgrade no longer works and I need to install a new version. Why do I need to do this?**  
 Last year, we released a version of Azure AD Connect that, under certain circumstances, might have disabled the auto-upgrade feature on your server. We have fixed the issue in Azure AD Connect version 1.1.750.0. If you have been affected by the issue, you can mitigate it by running a PowerShell script to repair it or by manually upgrading to the latest version of Azure AD Connect. 
 
-To run the PowerShell script, [download the script](https://aka.ms/repairaadconnect) and run it on your Azure AD Connect server in an administrative PowerShell window. To learn how to run the script, [view this short video](https://aka.ms/repairaadcau).
+To run the PowerShell script, [download the script](/samples/browse/?redirectedfrom=TechNet-Gallery) and run it on your Azure AD Connect server in an administrative PowerShell window. To learn how to run the script, [view this short video](https://aka.ms/repairaadcau).
 
 To manually upgrade, you must download and run the latest version of the AADConnect.msi file.
  

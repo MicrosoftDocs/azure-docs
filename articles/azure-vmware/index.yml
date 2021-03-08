@@ -20,6 +20,8 @@ landingContent:
         links:
           - text: What is Azure VMware Solution?
             url: introduction.md
+          - text: Platform updates
+            url: azure-vmware-solution-platform-updates.md
       - linkListType: concept
         links:
           - text: Private cloud and clusters

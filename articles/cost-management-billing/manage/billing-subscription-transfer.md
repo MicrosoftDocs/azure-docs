@@ -61,7 +61,7 @@ Visual Studio and Microsoft Partner Network subscriptions have monthly recurring
 
 If you've accepted the billing ownership of an Azure subscription, we recommend you review these next steps:
 
-1. Review and update the Service Admin, Co-Admins, and Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Review and update the Service Admin, Co-Admins, and Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 1. Update credentials associated with this subscription's services including:
    1. Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](../../cloud-services/cloud-services-certs-create.md)
    1. Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-account-create.md)
@@ -121,4 +121,4 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 ## Next steps
 
-- Review and update the Service Admin, Co-Admins, and Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+- Review and update the Service Admin, Co-Admins, and Azure role assignments. To learn more, see [Add or change Azure subscription administrators](add-change-subscription-administrator.md) and [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).

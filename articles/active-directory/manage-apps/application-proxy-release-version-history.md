@@ -60,6 +60,7 @@ This version is only available for install via the download page. An auto-upgrad
 ### Release status
 
 April 07, 2020: Released for download
+This version is only available for install via the download page. An auto-upgrade release of this version will be released at a later time.
 
 ### New features and improvements
 -	Connectors only use TLS 1.2 for all connections. See [Connector pre-requisites](application-proxy-add-on-premises-application.md#prerequisites) for more details.
@@ -128,4 +129,3 @@ If you're using an Application Proxy connector version earlier than 1.5.36.0, up
 ## Next steps
 - Learn more about [Remote access to on-premises applications through Azure AD Application Proxy](application-proxy.md).
 - To start using Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy](application-proxy-add-on-premises-application.md).
-- 

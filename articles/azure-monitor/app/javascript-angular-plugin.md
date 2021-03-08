@@ -16,7 +16,6 @@ ms.author: lagayhar
 The Angular plugin for the Application Insights JavaScript SDK, enables:
 
 - Tracking of router changes
-- Angular components usage statistics
 
 > [!WARNING]
 > Angular plugin is NOT ECMAScript 3 (ES3) compatible.
@@ -34,9 +33,9 @@ npm install @microsoft/applicationinsights-angularplugin-js
 Set up an instance of Application Insights in the entry component in your app:
 
 ```js
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
-import { AngularPlugin, AngularPluginService } from '@microsoft/applicationinsights-angularplugin-js';
+import { AngularPlugin } from '@microsoft/applicationinsights-angularplugin-js';
 import { Router } from '@angular/router';
 
 @Component({
@@ -44,61 +43,20 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-    private appInsights;
+export class AppComponent {
     constructor(
-        private router: Router,
-        private angularPluginService: AngularPluginService 
+        private router: Router
     ){
         var angularPlugin = new AngularPlugin();
-        this.angularPluginService.init(angularPlugin, this.router);
-        this.appInsights = new ApplicationInsights({ config: {
+        const appInsights = new ApplicationInsights({ config: {
         instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
         extensions: [angularPlugin],
         extensionConfig: {
             [angularPlugin.identifier]: { router: this.router }
         }
         } });
+        appInsights.loadAppInsights();
     }
-
-    ngOnInit() {
-        this.appInsights.loadAppInsights();
-    }
-}
-
-```
-
-To use the `trackMetric` method to track Angular component usage, add `AngularPluginService` as a provider in the providers list in `app.module.ts` file.
-
-```js
-import { AngularPluginService } from '@microsoft/applicationinsights-angularplugin-js';
-
-@NgModule({
-    ...
-  providers: [ AngularPluginService ],
-})
-export class AppModule { }
-```
-
-To track the lifetime of a component, call `trackMetric` in the `ngOnDestroy` method of that component. When the component is destroyed, it will trigger a `trackMetric` event that sends the time the user stayed on the page and the component name.
-
-```js
-import { Component, OnDestroy, HostListener } from '@angular/core';
-import { AngularPluginService } from '@microsoft/applicationinsights-angularplugin-js';
-
-@Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
-})
-export class TestComponent implements OnDestroy {
-
-  constructor(private angularPluginService: AngularPluginService) {}
-
-  @HostListener('window:beforeunload')
-  ngOnDestroy() {
-    this.angularPluginService.trackMetric();
-  }
 }
 ```
 

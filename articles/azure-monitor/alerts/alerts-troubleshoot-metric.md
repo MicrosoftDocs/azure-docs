@@ -5,20 +5,19 @@ author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
-ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 
 This article discusses common problems in Azure Monitor [metric alerts](alerts-metric-overview.md) and how to troubleshoot them.
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md).
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. For more information on alerting, see [Overview of alerts in Microsoft Azure](./alerts-overview.md).
 
 ## Metric alert should have fired but didn't 
 
 If you believe a metric alert should have fired but it didn’t fire and isn't found in the Azure portal, try the following steps:
 
 1. **Configuration** - Review the metric alert rule configuration to make sure it’s properly configured:
-    - Check that the **Aggregation type** and **Aggregation granularity (period)** are configured as expected. **Aggregation type** determines how metric values are aggregated (learn more [here](../platform/metrics-aggregation-explained.md#aggregation-types)), and **Aggregation granularity (period)** controls how far back the evaluation aggregates the metric values each time the alert rule runs.
+    - Check that the **Aggregation type** and **Aggregation granularity (period)** are configured as expected. **Aggregation type** determines how metric values are aggregated (learn more [here](../essentials/metrics-aggregation-explained.md#aggregation-types)), and **Aggregation granularity (period)** controls how far back the evaluation aggregates the metric values each time the alert rule runs.
     -  Check that the **Threshold value** or **Sensitivity** are configured as expected.
     - For an alert rule that uses Dynamic Thresholds, check if advanced settings are configured, as **Number of violations** may filter alerts and **Ignore data before** can impact how the thresholds are calculated.
 
@@ -63,10 +62,10 @@ If you believe your metric alert shouldn't have fired but it did, the following 
 ## Can't find the metric to alert on - virtual machines guest metrics
 
 To alert on guest operating system metrics of virtual machines (for example: memory, disk space), ensure you've installed the required agent to collect this data to Azure Monitor Metrics:
-- [For Windows VMs](../platform/collect-custom-metrics-guestos-resource-manager-vm.md)
-- [For Linux VMs](../platform/collect-custom-metrics-linux-telegraf.md)
+- [For Windows VMs](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)
+- [For Linux VMs](../essentials/collect-custom-metrics-linux-telegraf.md)
 
-For more information about collecting data from the guest operating system of a virtual machine, see [here](../insights/monitor-vm-azure.md#guest-operating-system).
+For more information about collecting data from the guest operating system of a virtual machine, see [here](../vm/monitor-vm-azure.md#guest-operating-system).
 
 > [!NOTE] 
 > If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and will start showing data **only** after creating an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
@@ -78,8 +77,8 @@ For more information about collecting data from the guest operating system of a 
 
 If you’re looking to alert on a specific metric but can’t see it when creating an alert rule, check the following:
 - If you can't see any metrics for the resource, [check if the resource type is supported for metric alerts](./alerts-metric-near-real-time.md).
-- If you can see some metrics for the resource, but can’t find a specific metric, [check if that metric is available](../platform/metrics-supported.md), and if so, see the metric description to check if it’s only available in specific versions or editions of the resource.
-- If the metric isn't available for the resource, it might be available in the resource logs, and can be monitored using log alerts. See here for more information on how to [collect and analyze resource logs from an Azure resource](../learn/tutorial-resource-logs.md).
+- If you can see some metrics for the resource, but can’t find a specific metric, [check if that metric is available](../essentials/metrics-supported.md), and if so, see the metric description to check if it’s only available in specific versions or editions of the resource.
+- If the metric isn't available for the resource, it might be available in the resource logs, and can be monitored using log alerts. See here for more information on how to [collect and analyze resource logs from an Azure resource](../essentials/tutorial-resource-logs.md).
 
 ## Can’t find the metric dimension to alert on
 
@@ -205,7 +204,7 @@ Make sure that you're using the right CLI commands for metric alerts:
 
 - If you're receiving a `Metric not found` error:
 
-   - For a platform metric: Make sure that you're using the **Metric** name from [the Azure Monitor supported metrics page](../platform/metrics-supported.md), and not the **Metric Display Name**
+   - For a platform metric: Make sure that you're using the **Metric** name from [the Azure Monitor supported metrics page](../essentials/metrics-supported.md), and not the **Metric Display Name**
 
    - For a custom metric: Make sure that the metric is already being emitted (you cannot create an alert rule on a custom metric that doesn't yet exist), and that you're providing the custom metric's namespace (see a Resource Manager template example [here](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
