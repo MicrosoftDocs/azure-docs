@@ -16,8 +16,6 @@ The following table maps Common Event Format (CEF) field names to the names they
 
 This mapping may be helpful when you are working with a CEF data source in Azure Sentinel. For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
 
-[A - C](#a---c) | [D](#d) | [E - I](#e---i) | [M - P](#m---p) | [R - T](#r---t)
-
 <!--are these case sensitive?-->
 
 ## A - C
