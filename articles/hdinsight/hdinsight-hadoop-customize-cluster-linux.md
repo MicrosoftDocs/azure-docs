@@ -193,7 +193,7 @@ It can take several minutes before the cluster is created.
 
 ### Use a script action during cluster creation from the HDInsight .NET SDK
 
-The HDInsight .NET SDK provides client libraries that make it easier to work with HDInsight from a .NET application. For a code sample, see [Script Actions](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true#script-actions).
+The HDInsight .NET SDK provides client libraries that make it easier to work with HDInsight from a .NET application. For a code sample, see [Script Actions](/dotnet/api/overview/azure/hdinsight#script-actions).
 
 ## Script action to a running cluster
 

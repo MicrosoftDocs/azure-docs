@@ -41,7 +41,7 @@ _The device compliance status can take up to 5 minutes to refresh. Please wait, 
 ### Q: My device's deployment status shows incompatible, what should I do?
 _The manufacturer and model properties of a targeted device may have been changed after connecting the device to IoT Hub, causing the device to now be considered incompatible with the update content of the current deployment._
 
-_Check the [ADU Core Interface](./device-update-plug-and-play) to see what manufacturer and model your device is reporting to the Device Update service, and make sure it matches the manufacturer and model you specified in the [import manifest](./import-concepts.md) of the update content being deployed. You can change these properties for a given device using the [Device Update configuration file](./device-update-cofiguration-file.md)._
+_Check the [ADU Core Interface](./device-update-plug-and-play.md) to see what manufacturer and model your device is reporting to the Device Update service, and make sure it matches the manufacturer and model you specified in the [import manifest](./import-concepts.md) of the update content being deployed. You can change these properties for a given device using the [Device Update configuration file](./device-update-configuration-file.md)._
 
 ### Q: I see my deployment is in "Active" stage but none of my devices are "In progress" with the update. What should I do?
 _Ensure that your deployment start date is not set in the future. When you create a new deployment, the deployment start date is defaulted to the next day as a safeguard unless you explicitly change it. You can either wait for the deployment start date to arrive, or cancel the ongoing deployment and create a new deployment with the desired start date._
