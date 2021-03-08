@@ -38,7 +38,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 To authorize with Google Cloud Storage, you'll use a service account key. For information about how to create a service account key, see [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 
-After you've obtained a service key, set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to absolute path to the Service Account key file:
+After you've obtained a service key, set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to absolute path to the service account key file:
 
 | Operating system | Command  |
 |--------|-----------|
@@ -93,13 +93,11 @@ You can copy the contents of a directory without copying the containing director
 
 Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
-azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
-
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://storage.cloud.google.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Example** | `azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **Example** (hierarchical namespace)| `azcopy copy 'https://storage.cloud.google.com/mybucket/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 
 ### Copy all buckets in a Google Cloud project 
 
@@ -110,7 +108,7 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://storage.cloud.google.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **Example** | `azcopy copy 'https://storage.cloud.google.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **Example** | `azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 | **Example** (hierarchical namespace)| `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 
 ### Copy a subset of buckets in a Google Cloud project 
@@ -123,7 +121,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Use 
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://storage.cloud.google.com/<bucket*name>' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Example** | `azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **Example** (hierarchical namespace)| `azcopy copy 'https://storage.cloud.google.com/mybucket/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 
 ## Handle differences in bucket naming rules
 
