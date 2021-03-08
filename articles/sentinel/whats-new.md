@@ -44,7 +44,7 @@ Access the CMMC workbook in the Azure Sentinel **Workbooks** area. Select **Temp
 
 For more information, see:
 
-- [CMMC workbook blog post](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
+- [Azure Sentinel Cybersecurity Maturity Model Certification (CMMC) Workbook](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
 - [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md)
 
 
