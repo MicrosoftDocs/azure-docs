@@ -166,14 +166,12 @@ Use the following commands to create these items.
 
     In the previous example, replace `<STORAGE_NAME>` with a name that is appropriate to you and unique in Azure Storage. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account, which is [supported by Functions](storage-considerations.md#storage-account-requirements).
 
-4. Create the function app in Azure:
-
-    # [Azure CLI](#tab/azure-cli)
-        
+1. Create the function app in Azure:
+   
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet-isolated --runtime-version 5.0 --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
-    
+
     The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. 
     
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
