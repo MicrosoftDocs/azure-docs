@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Arkose Labs with Azure Active Directory B2C
 
-In this tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [Arkose Labs](https://www.arkoselabs.com/). Arkose Labs help organizations against bot attacks, account takeover attacks, and fraudulent account openings.  
+In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [Arkose Labs](https://www.arkoselabs.com/). Arkose Labs help organizations against bot attacks, account takeover attacks, and fraudulent account openings.  
 
 ## Prerequisites
 
