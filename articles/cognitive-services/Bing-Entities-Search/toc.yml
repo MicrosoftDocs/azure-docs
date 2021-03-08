@@ -57,11 +57,11 @@
   - name: SDKs
     items:
       - name: .NET
-        href: /dotnet/api/overview/azure/cognitiveservices/bing-entity-search-api-readme?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/bing-entity-search-api-readme
       - name: Java
         href: /java/api/overview/azure/cognitiveservices/client/bingentitysearchapi
       - name: Python
-        href: /python/api/azure-cognitiveservices-search-entitysearch/?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-entitysearch/
       - name: Node.js
         href: /javascript/api/@azure/cognitiveservices-entitysearch/
       - name: Go

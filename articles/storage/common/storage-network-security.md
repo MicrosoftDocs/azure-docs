@@ -5,7 +5,7 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/05/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
@@ -131,7 +131,7 @@ When planning for disaster recovery during a regional outage, you should create 
 
 ### Required permissions
 
-To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets being added. The permission needed is *Join Service to a Subnet* and is included in the *Storage Account Contributor* built-in role. It can also be added to custom role definitions.
+To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets being added. Applying a rule can be performed by a [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) or a user that has been given permission to the `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
 
 Storage account and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 

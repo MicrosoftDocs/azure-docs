@@ -286,7 +286,7 @@
         - name: NuGet - runtime
           href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/
         - name: Reference
-          href: /dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet
+          href: /dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding
         - name: Samples
           href: https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS
       - name: Go
