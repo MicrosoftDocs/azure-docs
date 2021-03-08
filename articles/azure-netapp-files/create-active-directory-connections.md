@@ -178,7 +178,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
         ```
         
-        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * **LDAP Signing**   
         Select this checkbox to enable LDAP signing. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
@@ -200,7 +200,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
         ```
         
-        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
      * **Security privilege users**   <!-- SMB CA share feature -->   
         You can grant security privilege (`SeSecurityPrivilege`) to users that require elevated privilege to access the Azure NetApp Files volumes. The specified user accounts will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
@@ -234,7 +234,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
+        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
     * Credentials, including your **username** and **password**
 

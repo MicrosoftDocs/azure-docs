@@ -72,9 +72,7 @@ To get started, see [Configure a cloud witness](/windows-server/failover-cluster
 
 ### File share witness
 
-A file share witness is an SMB file share that's typically configured on a file server running Windows Server. It maintains clustering information in a witness.log file, but doesn't store a copy of the cluster database. In Azure, you can you can configure an [Azure file share](../../../storage/files/storage-how-to-create-file-share.md) to use as the file share witness, or you can use a file share on a separate virtual machine.
-
-If you're going to use an Azure file share, you can mount it with the same process used to [mount the Premium file share](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+A file share witness is an SMB file share that's typically configured on a file server running Windows Server. It maintains clustering information in a witness.log file, but doesn't store a copy of the cluster database. In Azure, you can you can configure an a file share on a separate virtual machine.
 
 To get started, see [Configure a file share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
