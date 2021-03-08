@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/22/2021
+ms.date: 03/05/2021
 ms.author: victorh
 ---
 
@@ -15,8 +15,6 @@ With Active FTP, the FTP server initiates the data connection to the designated 
 
 By default, Active FTP support is disabled on Azure Firewall to protect against FTP bounce attacks using the FTP `PORT` command. However, you can enable Active FTP when you deploy using Azure PowerShell, the Azure CLI, or an Azure ARM template.
 
-> [!NOTE]
-> Currently, Active FTP is supported only for firewalls deployed in a virtual network. Virtual WAN support will be added later.
 
 ## Azure PowerShell
 

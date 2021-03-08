@@ -92,11 +92,11 @@
   - name: HTTP API
     href: durable-functions-http-api.md
   - name: .NET API
-    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
+    href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask
   - name: Node.js API
     href: /javascript/api/durable-functions/
   - name: Python API
-    href: /python/api/azure-functions-durable/azure.durable_functions?view=azure-python
+    href: /python/api/azure-functions-durable/azure.durable_functions
 - name: How-to guides
   items:
   - name: Develop
