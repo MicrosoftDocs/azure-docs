@@ -99,7 +99,7 @@ The following table lists the entity categories returned for NER v2.1.
 
 ### Feature changes 
 
-The language detection feature has not changed in v3 outside of the endpoint version, but the JSON response will contain `ConfidenceScore` instead of `score`. V3 also only returns a single language in the output. 
+The language detection feature output has changed in v3. The JSON response will contain `ConfidenceScore` instead of `score`. V3 also only returns one language in a  `detectedLanguage` attribute for each document.
 
 ### Steps to migrate
 

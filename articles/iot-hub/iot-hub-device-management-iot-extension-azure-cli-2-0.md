@@ -18,7 +18,7 @@ ms.author: menchi
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is an open-source IoT extension that adds to the capabilities of the [Azure CLI](/cli/azure/overview?view=azure-cli-latest). The Azure CLI includes commands for interacting with Azure Resource Manager and management endpoints. For example, you can use Azure CLI to create an Azure VM or an IoT hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command-line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
+[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is an open-source IoT extension that adds to the capabilities of the [Azure CLI](/cli/azure/overview). The Azure CLI includes commands for interacting with Azure Resource Manager and management endpoints. For example, you can use Azure CLI to create an Azure VM or an IoT hub. A CLI extension enables an Azure service to augment the Azure CLI giving you access to additional service-specific capabilities. The IoT extension gives IoT developers command-line access to all IoT Hub, IoT Edge, and IoT Hub Device Provisioning Service capabilities.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -56,7 +56,7 @@ Run Azure CLI and the IoT extension for Azure CLI with various management option
 
 * [Python 2.7x or Python 3.x](https://www.python.org/downloads/)
 
-* The Azure CLI. If you need to install it, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az –version` to validate.
+* The Azure CLI. If you need to install it, see [Install the Azure CLI](/cli/azure/install-azure-cli). At a minimum, your Azure CLI version must be 2.0.70 or above. Use `az –version` to validate.
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
