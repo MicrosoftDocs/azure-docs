@@ -33,7 +33,7 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 - Optionally, [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## FQDNs in use
-### These FQDNs are in use in the following regions: eastus, southcentralus and westus2.
+### These FQDNs are in use in the following regions: eastus, southcentralus, and westus2.
 The following list contains the fully qualified domain names (FQDN) used by your workspace:
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
@@ -41,7 +41,11 @@ The following list contains the fully qualified domain names (FQDN) used by your
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
+
+    > [!NOTE]
+    > The workspace name for this FQDN may be truncated. Truncation is done to keep the FQDN less than or equal to 63 characters.
+
 * If you create a compute instance, you must also add an entry for `<instance-name>.<region>.instances.azureml.ms` with the private IP of the workspace private endpoint.
 
     > [!NOTE]
@@ -97,7 +101,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 ---
 
-The information returned from all methods is the same; a list of the FQDN and private IP address for the resources. The following example is from the a public Azure region:
+The information returned from all methods is the same; a list of the FQDN and private IP address for the resources. The following example is from a global Azure region:
 
 | FQDN | IP Address |
 | ----- | ----- |
