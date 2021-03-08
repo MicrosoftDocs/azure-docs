@@ -7,16 +7,21 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/11/2021
+ms.date: 03/08/2021
 ms.author: barclayn
 
-#Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using entitlement management.
+#Customer intent: As an administrator, I want the high-level steps that I should follow to customize my claims when using verifiable credentials
 
 ---
 
 # Customizing claims in ID tokens
 
 This article contains instructions for populating your identity provider's ID tokens with custom user attributes. When you add a claim to your tokens, that claim can be used to populate attributes in your verifiable credentials.
+
+> [!IMPORTANT]
+> Azure Verifiable Credentials is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Azure Active Directory
 

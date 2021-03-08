@@ -18,6 +18,11 @@ ms.author: barclayn
 
 Now that we have our Verifiable Credentials service set up in Azure Active Directory (AAD). Let's use the Sample Code's Ninja Credential and use that with our Issuer.
 
+> [!IMPORTANT]
+> Azure Verifiable Credentials is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Create the Rules and Display Files
 
 Open up Visual Studio Code and create the Rules JSON file with the following configuration. Save it as SampleNinjaRules.json so we can differentiate it in the future.

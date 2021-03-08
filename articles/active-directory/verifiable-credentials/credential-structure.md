@@ -22,6 +22,11 @@ date:      06/15/1998
 studentId: 12515010
 ```
 
+> [!IMPORTANT]
+> Azure Verifiable Credentials is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 This article will help you define the properties and contents of your Verifiable Credentials.
 
 > [!NOTE] 

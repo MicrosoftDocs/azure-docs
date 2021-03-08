@@ -12,3 +12,5 @@ ms.author: barclayn
 
 #Customer intent: Why are we doing this?
 ---
+
+# Bind DNS (whats the title?)
