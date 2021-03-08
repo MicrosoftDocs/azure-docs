@@ -12,6 +12,8 @@ ms.date: 02/14/2021
 # Azure Security Center free vs Azure Defender enabled
 Azure Defender is free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we'll automatically start charging for usage.
 
+You can upgrade from the **Pricing & settings** page, as described in [Quickstart: Enable Azure Defender](enable-azure-defender.md). For pricing details in your currency of choice and according to your region, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
+
 ## What are the benefits of enabling Azure Defender?
 
 Security Center is offered in two modes:
@@ -65,14 +67,14 @@ Security Center has two offerings:
 ### How do I enable Azure Defender for my subscription? 
 You can use any of the following ways to enable Azure Defender for your subscription: 
 
-|Method  |Instructions  |
-|---------|---------|
-|Azure Security Center pages of the Azure portal|[Enable Azure Defender](enable-azure-defender.md)|
-|REST API|[Pricings API](/rest/api/securitycenter/pricings)|
-|Azure CLI|[az security pricing](/cli/azure/security/pricing)|
-|PowerShell|[Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)|
-|Azure Policy|[Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json)|
-|||
+| Method                                          | Instructions                                                                                                                                       |
+|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Security Center pages of the Azure portal | [Enable Azure Defender](enable-azure-defender.md)                                                                                                  |
+| REST API                                        | [Pricings API](/rest/api/securitycenter/pricings)                                                                                                  |
+| Azure CLI                                       | [az security pricing](/cli/azure/security/pricing)                                                                                                 |
+| PowerShell                                      | [Set-AzSecurityPricing](/powershell/module/az.security/set-azsecuritypricing)                                                                      |
+| Azure Policy                                    | [Bundle Pricings](https://github.com/Azure/Azure-Security-Center/blob/master/Pricing%20%26%20Settings/ARM%20Templates/Set-ASC-Bundle-Pricing.json) |
+|                                                 |                                                                                                                                                    |
 
 ### Can I enable Azure Defender for servers on a subset of servers in my subscription?
 No. When you enable [Azure Defender for servers](defender-for-servers-introduction.md) on a subscription, all the servers in the subscription will be protected by Azure Defender. 
