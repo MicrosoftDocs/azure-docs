@@ -7,7 +7,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: article
-ms.date: 02/19/2021
+ms.date: 03/08/2021
 ms.author: apimpm
 ---
 # API Management caching policies
@@ -181,7 +181,7 @@ For more information, see [Policy expressions](api-management-policy-expressions
 | Name             | Description                                                                                                                                                                                                                                                                                                                                                 | Required | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | duration         | Time-to-live of the cached entries, specified in seconds.     | Yes      | N/A               |
-| cache-response         | HTTP responses to cache. Typically provided using a policy expression. If this attribute isn't specified, only HTTP responses with the status code `200 OK` are cached.                           | No      | N/A               |
+| cache-response         | Boolean expression to specify when to cache the outgoing HTTP responses. If set to true, the current response is cached. If the attribute is omitted, only HTTP responses with the status code `200 OK` are cached.                           | No      | N/A               |
 
 ### Usage
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
