@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -67,10 +67,10 @@ You can define an AD FS account as a claims provider by adding it to the **Claim
     ```xml
     <ClaimsProvider>
       <Domain>contoso.com</Domain>
-      <DisplayName>Contoso AD FS</DisplayName>
+      <DisplayName>Contoso</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Contoso-SAML2">
-          <DisplayName>Contoso AD FS</DisplayName>
+          <DisplayName>Contoso</DisplayName>
           <Description>Login with your AD FS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
@@ -195,8 +195,10 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
 1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Contoso AD FS** to sign in with Contoso AD FS identity provider.
 
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+
 ## Troubleshooting AD FS service  
 
 AD FS is configured to use the Windows application log. If you experience challenges setting up AD FS as a SAML identity provider using custom policies in Azure AD B2C, you may want to check the AD FS event log:
