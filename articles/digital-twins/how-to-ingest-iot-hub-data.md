@@ -26,9 +26,9 @@ This how-to document walks through the process for writing a function that can i
 ## Prerequisites
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
-* **An IoT hub**. For instructions, see the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
+[!INCLUDE [digital-twins-prereq-instance-and-iot-hub.md](../../includes/digital-twins-prereq-instance-and-iot-hub.md)]
 * **A function** with the correct permissions to call your digital twin instance. For instructions, see [*How-to: Set up a function in Azure for processing data*](how-to-create-azure-function.md). 
-* **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md).
+
 
 ### Example telemetry scenario
 

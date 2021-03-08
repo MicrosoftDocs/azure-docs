@@ -26,9 +26,7 @@ For more information about the _provision_ and _retire_ stages, and to better un
 ## Prerequisites
 
 Before you can set up the provisioning, you'll need to set up the following:
-
 [!INCLUDE [digital-twins-prereq-instance-and-iot-hub.md](../../includes/digital-twins-prereq-instance-and-iot-hub.md)]
-
 * an [Azure function](../../articles/azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow [*How to: Ingest IoT hub data*](how-to-ingest-iot-hub-data.md) to create an Azure function. Gather the function **_name_** to use it in this article.
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
@@ -68,7 +66,7 @@ When a new device is provisioned using Device Provisioning Service, a new twin f
 
 Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal*](../iot-dps/quick-setup-auto-provision.md).
 
-The following Azure CLI command will create a Device Provisioning Service. You will need to specify a name, resource group, and region. To see what regions support device provisioning service, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+The following Azure CLI command will create a Device Provisioning Service. You will need to specify a device provisioning service name, resource group, and region. To see what regions support device provisioning service, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli-interactive
@@ -77,15 +75,9 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### Create an Azure function
 
-In this section, you are going to create a new function that will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. You can do this by using an existing project or creating a new project in your Visual Studio or any other code editor.
+In this section, you are going to create a new function that will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. You can do this by creating a new project or use your existing project in Visual Studio or any other code editor.
 
-#### Use an existing project
-
-You can open existing project with your function that you created in the prerequisites section, and add a new function inside your function app that will be used by the Device Provisioning Service.
-
-#### Create a new project
-
-You can create a new project in your code editor of your choice and create a new function app that will be used by the Device Provisioning Service.
+If you are creating a new project, make sure you have a function that updates digital twin information based on IoT Hub data as mentioned in the [prerequisites section](how-to-provision-using-device-provisioning-service.md#Prerequisites).
 
 #### Add a function to use with Device Provisioning Service
 
