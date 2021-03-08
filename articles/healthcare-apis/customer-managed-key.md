@@ -135,4 +135,4 @@ New-AzResourceGroupDeployment `
 In this article, you learned how to configure customer-managed keys at rest using Azure portal, PowerShell, CLI, and Resource Manager Template. You can check out the Azure Cosmos DB FAQ section for additional questions you might have: 
  
 >[!div class="nextstepaction"]
->[Cosmos DB: how to setup CMK](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)
+>[Cosmos DB: how to setup CMK](../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)

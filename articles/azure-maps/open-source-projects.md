@@ -65,9 +65,9 @@ The following is a list of open-source projects that extend the capabilities of 
 
 | Project Name | Description |
 |-|-|
-| [Azure Maps Cesium plugin](https://github.com/azure-samples/azure-maps-cesium) | A [Cesium JS](https://cesium.com/cesiumjs/) plugin that makes it easy to integrate Azure Maps services such as [tile layers](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) and [geocoding services](https://docs.microsoft.com/rest/api/maps/search). |
-| [Azure Maps Leaflet plugin](https://github.com/azure-samples/azure-maps-leaflet) | A [leaflet](https://leafletjs.com/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
- | [Azure Maps OpenLayers plugin](https://github.com/azure-samples/azure-maps-openlayers) | A [OpenLayers](https://www.openlayers.org/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+| [Azure Maps Cesium plugin](https://github.com/azure-samples/azure-maps-cesium) | A [Cesium JS](https://cesium.com/cesiumjs/) plugin that makes it easy to integrate Azure Maps services such as [tile layers](/rest/api/maps/renderv2/getmaptilepreview) and [geocoding services](/rest/api/maps/search). |
+| [Azure Maps Leaflet plugin](https://github.com/azure-samples/azure-maps-leaflet) | A [leaflet](https://leafletjs.com/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](/rest/api/maps/renderv2/getmaptilepreview). |
+ | [Azure Maps OpenLayers plugin](https://github.com/azure-samples/azure-maps-openlayers) | A [OpenLayers](https://www.openlayers.org/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](/rest/api/maps/renderv2/getmaptilepreview). |
 
 **Tools and resources**
 

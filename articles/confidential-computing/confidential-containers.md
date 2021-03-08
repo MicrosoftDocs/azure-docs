@@ -87,7 +87,7 @@ Occlum supports AKS deployments. Follow the deployment instructions with various
 
 
 ## Confidential Containers Demo
-View the confidential healthcare demo with confidential containers. Sample is available [here](https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference). 
+View the confidential healthcare demo with confidential containers. Sample is available [here](/azure/architecture/example-scenario/confidential/healthcare-inference). 
 
 > [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
 

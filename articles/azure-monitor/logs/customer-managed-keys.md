@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor customer-managed key
 description: Information and steps to configure Customer-managed key to encrypt data in your Log Analytics workspaces using an Azure Key Vault key.
-ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
@@ -21,11 +20,11 @@ We recommend you review [Limitations and constraints](#limitationsandconstraints
 
 Azure Monitor ensures that all data and saved queries are encrypted at rest using Microsoft-managed keys (MMK). Azure Monitor also provides an option for encryption using your own key that is stored in your [Azure Key Vault](../../key-vault/general/overview.md), which gives you the control to revoke the access to your data at any time. Azure Monitor use of encryption is identical to the way [Azure Storage encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) operates.
 
-Customer-managed key is delivered on [dedicated clusters](../log-query/logs-dedicated-clusters.md) providing higher protection level and control. Data ingested to dedicated clusters is being encrypted twice — once at the service level using Microsoft-managed keys or customer-managed keys, and once at the infrastructure level using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
+Customer-managed key is delivered on [dedicated clusters](./logs-dedicated-clusters.md) providing higher protection level and control. Data ingested to dedicated clusters is being encrypted twice — once at the service level using Microsoft-managed keys or customer-managed keys, and once at the infrastructure level using two different encryption algorithms and two different keys. [Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data. Dedicated cluster also allows you to protect your data with [Lockbox](#customer-lockbox-preview) control.
 
 Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for efficient query engine operation. This data remains encrypted with Microsoft keys regardless customer-managed key configuration, but your control over SSD data adheres to [key revocation](#key-revocation). We are working to have SSD data encrypted with Customer-managed key in the first half of 2021.
 
-Log Analytics Dedicated Clusters use a Capacity Reservation [pricing model](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) starting at 1000 GB/day.
+Log Analytics Dedicated Clusters use a Capacity Reservation [pricing model](./logs-dedicated-clusters.md#cluster-pricing-model) starting at 1000 GB/day.
 
 ## How Customer-managed key works in Azure Monitor
 
@@ -141,7 +140,7 @@ Clusters support two [managed identity types](../../active-directory/managed-ide
 > [!IMPORTANT]
 > You can't use User-assigned managed identity if your Key Vault is in Private-Link (vNet). You can use System-assigned managed identity in this scenario.
 
-Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
+Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#creating-a-cluster). 
 
 ## Grant Key Vault permissions
 
@@ -250,7 +249,7 @@ A response to GET request should look like this when the key update is complete:
 
 You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
 
-Follow the procedure illustrated in [Dedicated Clusters article](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-cluster).
+Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#link-a-workspace-to-cluster).
 
 ## Key revocation
 
@@ -384,7 +383,7 @@ Learn more about [Customer Lockbox for Microsoft Azure](../../security/fundament
 
 ## Customer-Managed key operations
 
-Customer-Managed key is provided on dedicated cluster and these operations are referred in [dedicated cluster article](../log-query/logs-dedicated-clusters.md#change-cluster-properties)
+Customer-Managed key is provided on dedicated cluster and these operations are referred in [dedicated cluster article](./logs-dedicated-clusters.md#change-cluster-properties)
 
 - Get all clusters in resource group  
 - Get all clusters in subscription
@@ -468,8 +467,8 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
   **Cluster Update**
   -  400 -- Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
-  -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
-  -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](../platform/customer-managed-keys.md#grant-key-vault-permissions) in Key Vault.
+  -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](#update-cluster-with-key-identifier-details).
+  -  400 -- Failed to validate key in Key Vault. Could be due to lack of permissions or when key doesn’t exist. Verify that you [set key and access policy](#grant-key-vault-permissions) in Key Vault.
   -  400 -- Key is not recoverable. Key Vault must be set to Soft-delete and Purge-protection. See [Key Vault documentation](../../key-vault/general/soft-delete-overview.md)
   -  400 -- Operation cannot be executed now. Wait for the Async operation to complete and try again.
   -  400 -- Cluster is in deleting state. Wait for the Async operation to complete and try again.
@@ -490,5 +489,5 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
   -  409 -- Workspace link or unlink operation in process.
 ## Next steps
 
-- Learn about [Log Analytics dedicated cluster billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
-- Learn about [proper design of Log Analytics workspaces](../platform/design-logs-deployment.md)
+- Learn about [Log Analytics dedicated cluster billing](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Learn about [proper design of Log Analytics workspaces](./design-logs-deployment.md)
