@@ -38,6 +38,20 @@
     href: groups-concept.md
   - name: Administrative units  
     href: administrative-units.md
+  - name: Security
+    items:
+    - name: Role security planning
+      href: security-planning.md
+    - name: Create emergency accounts
+      href: security-emergency-access.md
+  - name: Delegate
+    items:
+    - name: Delegate Azure AD admin roles
+      href: concept-delegation.md
+    - name: Delegate app admin role
+      href: delegate-app-roles.md
+    - name: My Staff delegation
+      href: my-staff-configure.md
 - name: How-to guides
   items:
   - name: List role definitions
@@ -84,20 +98,6 @@
       href: admin-units-add-manage-groups.md
     - name: Assign a role with scope
       href: admin-units-assign-roles.md
-  - name: Secure your roles
-    items:
-    - name: Role security planning
-      href: security-planning.md
-    - name: Create emergency accounts
-      href: security-emergency-access.md
-  - name: Delegate
-    items:
-    - name: Delegate Azure AD admin roles
-      href: concept-delegation.md
-    - name: Delegate app admin role
-      href: delegate-app-roles.md
-    - name: My Staff delegation
-      href: my-staff-configure.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot roles assigned to groups
@@ -109,10 +109,8 @@
 - name: Reference
   items:
   - name: Graph API
-    href: /graph/api/resources/directoryrole?view=graph-rest-1.0
-  - name: Azure AD CLI
-    href: /cli/azure/ad
+    href: /graph/api/overview
   - name:  Azure AD PowerShell for Graph
-    href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+    href: /powershell/azure/active-directory/overview
   - name: Azure AD service limits
     href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
