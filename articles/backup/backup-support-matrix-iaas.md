@@ -67,6 +67,7 @@ Here's what's supported if you want to back up Linux machines.
 Back up Linux Azure VMs with the Linux Azure VM agent | File consistent backup.<br/><br/> App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.
 Back up Linux Azure VMs with MARS agent | Not supported.<br/><br/> The MARS agent can only be installed on Windows machines.
 Back up Linux Azure VMs with DPM/MABS | Not supported.
+Backup Linux Azure VMs with docker mount points | Currently, Azure Backup doesn’t support exclusion of docker mount points as these are mounted at different paths every time.
 
 ## Operating system support (Linux)
 
@@ -165,6 +166,7 @@ Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out Fi
 [Shared disks](../virtual-machines/disks-shared-enable.md) | Not supported.
 Ultra SSD disks | Not supported. For more information, see these [limitations](selective-disk-backup-restore.md#limitations).
 [Temporary disks](../virtual-machines/managed-disks-overview.md#temporary-disk) | Temporary disks aren't backed up by Azure Backup.
+NVMe/ephemeral disks | Not supported.
 
 ## VM network support
 
