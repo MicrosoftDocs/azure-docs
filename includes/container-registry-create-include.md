@@ -16,7 +16,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 
-Use the [az acr create][az-acr-create] command to ceate a container registry in the Basic service tier. Specify a gloablly unique registry name.
+Use the [az acr create][az-acr-create] command to create a container registry in the Basic service tier. Specify a globally unique registry name.
 
 ```azurecli
 az acr create --resource-group myResourceGroup \
