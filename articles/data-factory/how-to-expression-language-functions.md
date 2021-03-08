@@ -55,7 +55,7 @@ Expressions can appear anywhere in a JSON string value and always result in anot
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Returns the string `Answer is: 42`|  
 |"Answer is: \@\@{pipeline().parameters.myNumber}"| Returns the string `Answer is: @{pipeline().parameters.myNumber}`.|  
 
-## Examples of using paramters in expressions 
+## Examples of using parameters in expressions 
 
 ### Complex expression example
 The below example shows a complex example that references a deep sub-field of activity output. To reference a pipeline parameter that evaluates to a sub-field, use [] syntax instead of dot(.) operator (as in case of subfield1 and subfield2)
@@ -82,7 +82,8 @@ Dynamic content editor converts above content to expression `"{ \n  \"type\": \"
 }
 ```
 
-### A dataset with a parameter
+### A dataset with  parameters
+
 In the following example, the BlobDataset takes a parameter named **path**. Its value is used to set a value for the **folderPath** property by using the expression: `dataset().path`. 
 
 ```json
@@ -106,7 +107,8 @@ In the following example, the BlobDataset takes a parameter named **path**. Its 
 }
 ```
 
-### A pipeline with a parameter
+### A pipeline with  parameters
+
 In the following example, the pipeline takes **inputPath** and **outputPath** parameters. The **path** for the parameterized blob dataset is set by using values of these parameters. The syntax used here is: `pipeline().parameters.parametername`. 
 
 ```json
@@ -294,13 +296,13 @@ These functions are useful inside conditions, they can be used to evaluate any t
 | [ticks](control-flow-expression-language-functions.md#ticks) | Return the `ticks` property value for a specified timestamp. |
 | [utcNow](control-flow-expression-language-functions.md#utcNow) | Return the current timestamp as a string. |
 
-## Comprehensive Azure data factory Copy with parameters 
+## Detailed Azure data factory Copy pipeline with parameters 
 
-This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
+This [Azure Data Factory Copy pipeline parameter passing tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
 
-## Detailed  Mapping data flow with parameters 
+## Detailed  Mapping data flow pipeline with parameters 
 
-Please follow [Mapping data flow with parameters](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) for comprehensive example on how to use parameters in  data flow.
+Please follow [Mapping data flow with parameters](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) for comprehensive example on how to use parameters in data flow.
 
 ## Next steps
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).
