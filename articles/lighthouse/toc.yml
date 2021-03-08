@@ -76,25 +76,27 @@
   - name: Link your partner ID
     displayName: partner earned credit, pec, mpn
     href: ./how-to/partner-earned-credit.md
-  - name: Azure Arc integration
-    displayName: server, kubernetes, hybrid, infrastructure
-    href: ./how-to/manage-hybrid-infrastructure-arc.md
-  - name: Azure Migrate integration
-    displayName: migration, project, on-prem
-    href: ./how-to/migration-at-scale.md
-  - name: Azure Monitor integration
-    displayName: log, analytics, analyze, activity
-    href: ./how-to/monitor-at-scale.md
-  - name: Azure Policy integration
+    name: Azure service integration
     items:
-    - name: Deploy a policy at scale
-      displayName: storage
-      href: ./how-to/policy-at-scale.md
-    - name: Deploy a policy that can be remediated
-      displayName: deployIfNotExists, modify, managed identities, managed identity
-      href: ./how-to/deploy-policy-remediation.md
-  - name: Azure Sentinel integration
-    href: ./how-to/manage-sentinel-workspaces.md
+    - name: Azure Arc integration
+      displayName: server, kubernetes, hybrid, infrastructure
+      href: ./how-to/manage-hybrid-infrastructure-arc.md
+    - name: Azure Migrate integration
+      displayName: migration, project, on-prem
+      href: ./how-to/migration-at-scale.md
+    - name: Azure Monitor integration
+      displayName: log, analytics, analyze, activity
+      href: ./how-to/monitor-at-scale.md
+    - name: Azure Policy integration
+      items:
+      - name: Deploy a policy at scale
+        displayName: storage
+        href: ./how-to/policy-at-scale.md
+      - name: Deploy a policy that can be remediated
+        displayName: deployIfNotExists, modify, managed identities, managed identity
+        href: ./how-to/deploy-policy-remediation.md
+    - name: Azure Sentinel integration
+      href: ./how-to/manage-sentinel-workspaces.md
 - name: Reference
   items:
   - name: Azure CLI
