@@ -31,7 +31,7 @@ Azure Private Link enables you to connect to your workspace using a private endp
 * You must have an existing virtual network to create the private endpoint in. You must also [disable network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) before adding the private endpoint.
 ## Limitations
 
-* Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
+* Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions.
 * If you enable public access for a workspace secured with private link and use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
 
 ## Create a workspace that uses a private endpoint
