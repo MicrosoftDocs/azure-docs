@@ -30,7 +30,7 @@ Many experienced template developers use this method to generate templates when 
     ![Select Create a resource from Azure portal menu](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
 1. In the search box, type **storage account**, and then press **[ENTER]**.
-1. Select **Create**.
+1. Select the down arrow next to **Create**, and then select **Storage account**.
 
     ![Create an Azure storage account](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 
@@ -55,7 +55,7 @@ Many experienced template developers use this method to generate templates when 
 
     The main pane shows the template. It is a JSON file with six top-level elements - `schema`, `contentVersion`, `parameters`, `variables`, `resources`, and `output`. For more information, see [Understand the structure and syntax of ARM templates](./template-syntax.md)
 
-    There are eight parameters defined. One of them is called **storageAccountName**. The second highlighted part on the previous screenshot shows how to reference this parameter in the template. In the next section, you edit the template to use a generated name for the storage account.
+    There are nine parameters defined. One of them is called **storageAccountName**. The second highlighted part on the previous screenshot shows how to reference this parameter in the template. In the next section, you edit the template to use a generated name for the storage account.
 
     In the template, one Azure resource is defined. The type is `Microsoft.Storage/storageAccounts`. Take a look of how the resource is defined, and the definition structure.
 1. Select **Download** from the top of the screen.
@@ -102,57 +102,61 @@ Azure requires that each Azure service has a unique name. The deployment could f
      The final template shall look like:
 
      ```json
-     {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-         "location": {
-           "type": "string"
-         },
-         "accountType": {
-           "type": "string"
-         },
-         "kind": {
-           "type": "string"
-         },
-         "accessTier": {
-           "type": "string"
-         },
-         "minimumTlsVersion": {
-           "type": "string"
-         },
-         "supportsHttpsTrafficOnly": {
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "location": {
+          "type": "string"
+        },
+        "accountType": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "accessTier": {
+          "type": "string"
+        },
+        "minimumTlsVersion": {
+          "type": "string"
+        },
+        "supportsHttpsTrafficOnly": {
           "type": "bool"
-         },
-         "allowBlobPublicAccess": {
-           "type": "bool"
-         }
-       },
-       "variables": {
-         "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
-       },
-       "resources": [
-         {
-           "name": "[variables('storageAccountName')]",
-           "type": "Microsoft.Storage/storageAccounts",
-           "apiVersion": "2019-06-01",
-           "location": "[parameters('location')]",
-           "properties": {
-             "accessTier": "[parameters('accessTier')]",
-             "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
-             "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
-             "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]"
-           },
-           "dependsOn": [],
-           "sku": {
-             "name": "[parameters('accountType')]"
-           },
-           "kind": "[parameters('kind')]",
-           "tags": {}
-         }
-       ],
-       "outputs": {}
-     }
+        },
+        "allowBlobPublicAccess": {
+          "type": "bool"
+        },
+        "allowSharedKeyAccess": {
+          "type": "bool"
+        }
+      },
+      "variables": {
+      "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+    },
+      "resources": [
+        {
+          "name": "[variables('storageAccountName')]",
+          "type": "Microsoft.Storage/storageAccounts",
+          "apiVersion": "2019-06-01",
+          "location": "[parameters('location')]",
+          "properties": {
+            "accessTier": "[parameters('accessTier')]",
+            "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
+            "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+            "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]",
+            "allowSharedKeyAccess": "[parameters('allowSharedKeyAccess')]"
+          },
+          "dependsOn": [],
+          "sku": {
+            "name": "[parameters('accountType')]"
+          },
+          "kind": "[parameters('kind')]",
+          "tags": {}
+        }
+      ],
+      "outputs": {}
+    }
      ```
 
 1. Select **Save**.
@@ -169,6 +173,7 @@ Azure requires that each Azure service has a unique name. The deployment could f
     |**Minimum TLS Version**|Enter **TLS1_0**. |
     |**Supports Https Traffic Only**| Select **true** for this quickstart. |
     |**Allow Blob Public Access**| Select **false** for this quickstart. |
+    |**Allow Shared Key Access**| Select **true** for this quickstart. |
 
 1. Select **Review + create**.
 1. Select **Create**.
