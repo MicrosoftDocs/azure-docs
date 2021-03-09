@@ -82,6 +82,9 @@ Routes for your Front Door are not ordered and a specific route is selected base
 
 ### How do I lock down the access to my backend to only Azure Front Door?
 
+> [!NOTE]
+> New SKU Front Door Premium provides a more recommended way to lock down your application via Private Endpoint. [Learn more about Private Endpoint](./standard-premium/concept-private-link.md)
+
 To lock down your application to accept traffic only from your specific Front Door, you will need to set up IP ACLs for your backend and then restrict the traffic on your backend to the specific value of the header 'X-Azure-FDID' sent by Front Door. These steps are detailed out as below:
 
 - Configure IP ACLing for your backends to accept traffic from Azure Front Door's backend IP address space and Azure's infrastructure services only. Refer the IP details below for ACLing your backend:

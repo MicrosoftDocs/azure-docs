@@ -46,7 +46,7 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true) package to bind input and outputs to your methods.
+Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions) package to bind input and outputs to your methods.
 
 ## Alternate entry point
 
@@ -194,7 +194,7 @@ Output can be expressed both in return value and output parameters. If there's o
 
 To use the return value of a function as the value of an output binding, the `name` property of the binding should be set to `$return` in `function.json`.
 
-To produce multiple outputs, use the `set()` method provided by the [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) interface to assign a value to the binding. For example, the following function can push a message to a queue and also return an HTTP response.
+To produce multiple outputs, use the `set()` method provided by the [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out) interface to assign a value to the binding. For example, the following function can push a message to a queue and also return an HTTP response.
 
 ```json
 {
@@ -301,7 +301,7 @@ For scaling and performance best practices for Python function apps, please refe
 
 ## Context
 
-To get the invocation context of a function during execution, include the [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) argument in its signature.
+To get the invocation context of a function during execution, include the [`context`](/python/api/azure-functions/azure.functions.context) argument in its signature.
 
 For example:
 
@@ -314,7 +314,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-The [**Context**](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) class has the following string attributes:
+The [**Context**](/python/api/azure-functions/azure.functions.context) class has the following string attributes:
 
 `function_directory`
 The directory in which the function is running.
@@ -638,7 +638,7 @@ All known issues and feature requests are tracked using [GitHub issues](https://
 
 For more information, see the following resources:
 
-* [Azure Functions package API documentation](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true)
+* [Azure Functions package API documentation](/python/api/azure-functions/azure.functions)
 * [Best practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions triggers and bindings](functions-triggers-bindings.md)
 * [Blob storage bindings](functions-bindings-storage-blob.md)
@@ -649,5 +649,5 @@ For more information, see the following resources:
 [Having issues? Let us know.](https://aka.ms/python-functions-ref-survey)
 
 
-[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true
-[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse
