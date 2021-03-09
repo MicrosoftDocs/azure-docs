@@ -33,14 +33,10 @@ Use the Computer Vision REST API to:
 
 ## Analyze an image
 
-> [!IMPORTANT]
-> Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
->
-> Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md).
-
 To analyze an image for a variety of visual features, do the following steps:
 
 1. Copy the following command into a text editor.
+1. Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 1. Make the following changes in the command where needed:
     1. Replace the value of `PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE` with your subscription key.
     1. Replace the first part of the request URL (`PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE`) with your own Computer Vision endpoint. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
@@ -52,6 +48,9 @@ To analyze an image for a variety of visual features, do the following steps:
 ```bash
 curl -H "Ocp-Apim-Subscription-Key: PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE" -H "Content-Type: application/json" "PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
+
+> [!IMPORTANT]
+> Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md).
 
 ### Examine the response
 
