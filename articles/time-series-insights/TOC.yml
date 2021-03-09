@@ -95,8 +95,10 @@
       items:
       - name: Plan your environment
         href: how-to-plan-your-environment.md
-    - name: Environment management
+    - name: Management
       items:
+      - name: How to create an environment using Azure CLI 
+        href: how-to-create-tsi-environment-using-cli.md
       - name: How to provision & manage 
         href: how-to-provision-manage.md
       - name: How to select a TSID
