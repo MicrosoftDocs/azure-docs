@@ -1106,7 +1106,7 @@ groups:
   prompt: Choose a programming language
   pivots:
   - id: programming-language-javascript
-    title: JavaScript 
+    title: Node.js 
   - id: programming-language-python
     title: Python 
   - id: programming-language-android
