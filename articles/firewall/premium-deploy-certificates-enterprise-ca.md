@@ -57,7 +57,7 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 1. Select **Save**.
    :::image type="content" source="media/premium-deploy-certificates-enterprise-ca/tls-inspection.png" alt-text="TLS inspection":::
 
-## Validate TLS Inspection
+## Validate TLS inspection
 
 1. Create an Application Rule using TLS inspection to the destination URL or FQDN of your choice.  For example: `*bing.com`.
 1. From a domain-joined machine within the Source range of the rule, navigate to your Destination and select the lock symbol next to the address bar in your browser. The certificate should show that it was issued by your Enterprise CA rather than a public CA.
