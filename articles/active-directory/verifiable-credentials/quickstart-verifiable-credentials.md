@@ -56,7 +56,7 @@ After you've installed **ngrok**, expose your local Node website over https usin
 ```cmd
 ngrok http 8081
 ```
-![ngrok](/media/quickstart-verifiable-credentials/ngrok.png)
+![ngrok helps you make your application end points available over the internet](/media/quickstart-verifiable-credentials/ngrok.png)
 
 >[!NOTE]
 > You may need to $cd into the folder where you installed ngrok.
