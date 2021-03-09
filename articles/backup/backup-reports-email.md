@@ -19,7 +19,7 @@ To configure email tasks via Backup Reports, perform the following steps:
     * **Data To Export** - The tab which you wish to export. You can either create a single task app per tab, or email all tabs using a single task, by selecting the **All Tabs** option.
     * **Email options**: The email frequency, recipient email ID(s), and the email subject.
 
-![Email Tab](./media/backup-azure-configure-backup-reports/email-tab.png)
+    ![Email Tab](./media/backup-azure-configure-backup-reports/email-tab.png)
 
 3.	After you click **Submit** and **Confirm**, the logic app will get created. The logic app and the associated API connections are created with the tag **UsedByBackupReports: true** for easy discoverability. You'll need to perform a one-time authorization step for the logic app to run successfully, as described in the section below.
 
@@ -32,16 +32,16 @@ To perform the authorization, follow the steps below:
 1.	Navigate to **Logic Apps** in the Azure portal.
 2.	Search for the name of the logic app you have created and navigate to the resource.
 
-![Logic Apps](./media/backup-azure-configure-backup-reports/logic-apps.png)
+    ![Logic Apps](./media/backup-azure-configure-backup-reports/logic-apps.png)
 
 3.	Click on the **API connections** menu item.
 
-![API Connections](./media/backup-azure-configure-backup-reports/api-connections.png)
+    ![API Connections](./media/backup-azure-configure-backup-reports/api-connections.png)
 
 4.	You will see two connections with the format `<location>-azuremonitorlogs` and `<location>-office365` - that is, _eastus-azuremonitorlogs_ and _eastus-office365_.
 5.	Navigate to each of these connections and select the **Edit API connection** menu item. In the screen that appears, select **Authorize**, and save the connection once authorization is complete.
 
-![Authorize connection](./media/backup-azure-configure-backup-reports/authorize-connections.png)
+    ![Authorize connection](./media/backup-azure-configure-backup-reports/authorize-connections.png)
 
 6.	To test whether the logic app works after authorization, you can navigate back to the logic app, open **Overview** and select **Run Trigger** in the top pane, to test whether an email is being generated successfully.
 

@@ -1,11 +1,11 @@
 ---
-title: System Functions on Azure Monitor Logs
+title: System functions on Azure Monitor Logs
 description: Write custom queries on Azure Monitor Logs using system functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ---
 
-# System Functions on Azure Monitor Logs
+# System functions on Azure Monitor Logs
 
 Azure Backup provides a set of functions, called system functions or solution functions, that are available by default in your Log Analytics (LA) workspaces.
  
@@ -33,7 +33,8 @@ It's recommended to use system functions for querying your backup data in LA wor
 
 * **Trend functions**: These are functions that return historical records for your backup-related entities (for example, backup instances, billing groups) and allow you to get daily, weekly and monthly trend information on key metrics (for example, Count, Storage consumed) pertaining to these entities. The parameters and returned schema for each of these trend functions are summarized below in this article.
 
-> > Currently, system functions return data for up to the last completed day (in UTC). Data for the current partial day isn't returned. So if you are looking to retrieve records for the current day, you'll need to use the raw LA tables.
+> [!NOTE]
+> Currently, system functions return data for up to the last completed day (in UTC). Data for the current partial day isn't returned. So if you are looking to retrieve records for the current day, you'll need to use the raw LA tables.
 
 
 ## List of system functions
@@ -50,7 +51,7 @@ This function returns the list of all Recovery Services vaults in your Azure env
 | -------------------- | ------------- | --------------- | ----------------- |
 | RangeStart     | Use this parameter along with RangeEnd parameter only if you need to fetch all vault-related records in the time period from RangeStart to RangeEnd. By default, the value of RangeStart and RangeEnd are null, which will make the function retrieve only the latest record for each vault. | N | "2021-03-03 00:00:00" |
 | RangeEnd     | Use this parameter along with RangeStart parameter only if you need to fetch all vault-related records in the time period from RangeStart to RangeEnd. By default, the value of RangeStart and RangeEnd are null, which will make the function retrieve only the latest record for each vault. | N |"2021-03-10 00:00:00"|
-| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription ids as a parameter to this function helps you retrieve only those vaults that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
+| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription IDs as a parameter to this function helps you retrieve only those vaults that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
 | VaultLocationList     | Use this parameter to filter the output of the function for a certain set of regions where backup data exists. Specifying a comma-separated list of regions as a parameter to this function helps you retrieve only those vaults that are in the specified regions. By default, the value of this parameter is '*', which makes the function search for records across all regions. | N | "eastus,westus"|
 | VaultList    |Use this parameter to filter the output of the function for a certain set of vaults. Specifying a comma-separated list of vault names as a parameter to this function helps you retrieve records pertaining only to the specified vaults. By default, the value of this parameter is '*', which makes the function search for records across all vaults. | N |"vault1,vault2,vault3"|
 | VaultTypeList     | Use this parameter to filter the output of the function to records pertaining to a particular vault type. Currently the only supported vault type is "Microsoft.RecoveryServices/vaults", which is the default value of this parameter | N | "Microsoft.RecoveryServices/vaults"|
@@ -61,7 +62,7 @@ This function returns the list of all Recovery Services vaults in your Azure env
 | **Field Name** | **Description** |
 | -------------- | --------------- |
 | UniqueId | Primary key denoting unique ID of the vault |
-| Id | ARM ID of the vault |
+| Id | Azure Resource Manager (ARM) ID of the vault |
 | Name | Name of the vault |
 | SubscriptionId | ID of the subscription in which the vault exists |
 | Location | Location in which the vault exists |
@@ -80,7 +81,7 @@ This function returns the list of backup policies that are being used in your Az
 | -------------------- | ------------- | --------------- | ----------------- |
 | RangeStart     | Use this parameter along with the RangeStart parameter only if you need to fetch all policy-related records in the time period from RangeStart to RangeEnd. By default, the value of RangeStart and RangeEnd are null, which will make the function retrieve only the latest record for each policy. | N | "2021-03-03 00:00:00" |
 | RangeEnd     | Use this parameter along with RangeStart parameter only if you need to fetch all policy-related records in the time period from RangeStart to RangeEnd. By default, the value of RangeStart and RangeEnd are null, which will make the function retrieve only the latest record for each policy. | N |"2021-03-10 00:00:00"|
-| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription ids as a parameter to this function helps you retrieve only those policies that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
+| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription IDs as a parameter to this function helps you retrieve only those policies that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
 | VaultLocationList     | Use this parameter to filter the output of the function for a certain set of regions where backup data exists. Specifying a comma-separated list of regions as a parameter to this function helps you retrieve only those policies that are in the specified regions. By default, the value of this parameter is '*', which makes the function search for records across all regions. | N | "eastus,westus"|
 | VaultList    |Use this parameter to filter the output of the function for a certain set of vaults. Specifying a comma-separated list of vault names as a parameter to this function helps you retrieve records of policies pertaining only to the specified vaults. By default, the value of this parameter is '*', which makes the function search for records of policies across all vaults. | N |"vault1,vault2,vault3"|
 | VaultTypeList     | Use this parameter to filter the output of the function to records pertaining to a particular vault type. Currently the only supported vault type is "Microsoft.RecoveryServices/vaults", which is the default value of this parameter. | N | "Microsoft.RecoveryServices/vaults"|
@@ -92,12 +93,12 @@ This function returns the list of backup policies that are being used in your Az
 | **Field Name** | **Description** |
 | -------------- | --------------- |
 | UniqueId | Primary key denoting unique ID of the policy |
-| Id | ARM ID of the policy |
+| Id | Azure Resource Manager (ARM) ID of the policy |
 | Name | Name of the policy |
 | Backup Solution | Backup Solution that the policy is associated with. For example, Azure VM Backup, SQL in Azure VM Backup, and so on. |
 | TimeGenerated | Timestamp of the record |
 | VaultUniqueId | Foreign key that refers to the vault associated with the policy |
-| VaultResourceId | ARM ID of the vault associated with the policy |
+| VaultResourceId | Azure Resource Manager (ARM) ID of the vault associated with the policy |
 | VaultName | Name of the vault associated with the policy |
 | VaultTags | Tags of the vault associated with the policy |
 | VaultLocation | Location of the vault associated with the policy |
@@ -116,7 +117,7 @@ This function returns a list of all backup and restore related jobs that were tr
 | -------------------- | ------------- | --------------- | ----------------- |
 | RangeStart     | Use this parameter along with RangeEnd parameter to retrieve the list of all jobs that started in the time period from RangeStart to RangeEnd. | Y | "2021-03-03 00:00:00" |
 | RangeEnd     | Use this parameter along with RangeStart parameter to retrieve the list of all jobs that started in the time period from RangeStart to RangeEnd. | Y |"2021-03-10 00:00:00"|
-| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription ids as a parameter to this function helps you retrieve only those jobs that are associated with vaults in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
+| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription IDs as a parameter to this function helps you retrieve only those jobs that are associated with vaults in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
 | VaultLocationList     | Use this parameter to filter the output of the function for a certain set of regions where backup data exists. Specifying a comma-separated list of regions as a parameter to this function helps you retrieve only those jobs that are associated with vaults in the specified regions. By default, the value of this parameter is '*', which makes the function search for records across all regions. | N | "eastus,westus"|
 | VaultList    | Use this parameter to filter the output of the function for a certain set of vaults. Specifying a comma-separated list of vault names as a parameter to this function helps you retrieve jobs pertaining only to the specified vaults. By default, the value of this parameter is '*', which makes the function search for jobs across all vaults. | N |"vault1,vault2,vault3"|
 | VaultTypeList     | Use this parameter to filter the output of the function to records pertaining to a particular vault type. Currently the only supported vault type is "Microsoft.RecoveryServices/vaults", which is the default value of this parameter. | N | "Microsoft.RecoveryServices/vaults"|
@@ -145,15 +146,15 @@ This function returns a list of all backup and restore related jobs that were tr
 | RestoreJobRPDateTime | The date and time when the recovery point that's being recovered was created |
 | RestoreJobRPLocation | The location where the recovery point that's being recovered was stored |
 | BackupInstanceUniqueId | Foreign key that refers to the backup instance associated with the job |
-| BackupInstanceId | ARM ID of the backup instance associated with the job |
+| BackupInstanceId | Azure Resource Manager (ARM) ID of the backup instance associated with the job |
 | BackupInstanceFriendlyName | Name of the backup instance associated with the job |
-| DatasourceResourceId | ARM ID of the underlying datasource associated with the job. For example, ARM id of the VM |
+| DatasourceResourceId | Azure Resource Manager (ARM) ID of the underlying datasource associated with the job. For example, Azure Resource Manager (ARM) ID of the VM |
 | DatasourceFriendlyName | Friendly name of the underlying datasource associated with the job |
 | DatasourceType | Type of the datasource associated with the job. For example "Microsoft.Compute/virtualMachines" |
 | BackupSolution | Backup Solution that the job is associated with. For example, Azure VM Backup, SQL in Azure VM Backup, and so on. |
-| DatasourceSetResourceId | ARM ID of the parent resource of the datasource (wherever applicable). For example, for a SQL in Azure VM datasource, this field will contain the ARM ID of the VM in which the SQL Database exists |
+| DatasourceSetResourceId | Azure Resource Manager (ARM) ID of the parent resource of the datasource (wherever applicable). For example, for a SQL in Azure VM datasource, this field will contain the Azure Resource Manager (ARM) ID of the VM in which the SQL Database exists |
 | DatasourceSetType | Type of the parent resource of the datasource (wherever applicable). For example, for an SAP HANA in Azure VM datasource, this field will be Microsoft.Compute/virtualMachines since the parent resource is an Azure VM |
-| VaultResourceId | ARM ID of the vault associated with the job |
+| VaultResourceId | Azure Resource Manager (ARM) ID of the vault associated with the job |
 | VaultUniqueId | Foreign key that refers to the vault associated with the job |
 | VaultName | Name of the vault associated with the job |
 | VaultTags | Tags of the vault associated with the job |
@@ -173,7 +174,7 @@ This function returns the list of backup instances that are associated with your
 | -------------------- | ------------- | --------------- | ----------------- |
 | RangeStart     | Use this parameter along with RangeEnd parameter only if you need to fetch all backup instance-related records in the time period from RangeStart to RangeEnd. By default, the value of RangeStart and RangeEnd are null, which will make the function retrieve only the latest record for each backup instance. | N | "2021-03-03 00:00:00" |
 | RangeEnd     | Use this parameter along with RangeStart parameter only if you need to fetch all backup instance-related records in the time period from RangeStart to RangeEnd. By default, the value of RangeStart and RangeEnd are null, which will make the function retrieve only the latest record for each backup instance. | N |"2021-03-10 00:00:00"|
-| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription ids as a parameter to this function helps you retrieve only those backup instances that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
+| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription IDs as a parameter to this function helps you retrieve only those backup instances that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
 | VaultLocationList     | Use this parameter to filter the output of the function for a certain set of regions where backup data exists. Specifying a comma-separated list of regions as a parameter to this function helps you retrieve only those backup instances that are in the specified regions. By default, the value of this parameter is '*', which makes the function search for records across all regions. | N | "eastus,westus"|
 | VaultList    |Use this parameter to filter the output of the function for a certain set of vaults. Specifying a comma-separated list of vault names as a parameter to this function helps you retrieve records of backup instances pertaining only to the specified vaults. By default, the value of this parameter is '*', which makes the function search for records of backup instances across all vaults. | N |"vault1,vault2,vault3"|
 | VaultTypeList     | Use this parameter to filter the output of the function to records pertaining to a particular vault type. Currently the only supported vault type is "Microsoft.RecoveryServices/vaults", which is the default value of this parameter. | N | "Microsoft.RecoveryServices/vaults"|
@@ -189,7 +190,7 @@ This function returns the list of backup instances that are associated with your
 | **Field Name** | **Description** |
 | -------------- | --------------- |
 | UniqueId | Primary key denoting unique ID of the backup instance |
-| Id | ARM ID of the backup instance |
+| Id | Azure Resource Manager (ARM) ID of the backup instance |
 | FriendlyName | Friendly name of the backup instance |
 | ProtectionInfo | Information about the protection settings of the backup instance. For example, protection configured, protection stopped, initial backup pending |
 | LatestRecoveryPoint | Date and time of the latest recovery point associated with the backup instance |
@@ -199,14 +200,14 @@ This function returns the list of backup instances that are associated with your
 | DataSourceFriendlyName | Friendly name of the datasource corresponding to the backup instance |
 | BackupSolution | Backup Solution that the backup instance is associated with. For example, Azure VM Backup, SQL in Azure VM Backup, and so on. |
 | DatasourceType | Type of the datasource corresponding to the backup instance. For example "Microsoft.Compute/virtualMachines" |
-| DatasourceResourceId | ARM ID of the underlying datasource corresponding to the backup instance. For example, ARM id of the VM |
+| DatasourceResourceId | Azure Resource Manager (ARM) ID of the underlying datasource corresponding to the backup instance. For example, Azure Resource Manager (ARM) ID of the VM |
 | DatasourceSetFriendlyName | Friendly name of the parent resource of the datasource (wherever applicable). For example, for a SQL in Azure VM datasource, this field will contain the name of the VM in which the SQL Database exists |
-| DatasourceSetResourceId | ARM ID of the parent resource of the datasource (wherever applicable). For example, for a SQL in Azure VM datasource, this field will contain the ARM ID of the VM in which the SQL Database exists |
+| DatasourceSetResourceId | Azure Resource Manager (ARM) ID of the parent resource of the datasource (wherever applicable). For example, for a SQL in Azure VM datasource, this field will contain the Azure Resource Manager (ARM) ID of the VM in which the SQL Database exists |
 | DatasourceSetType | Type of the parent resource of the datasource (wherever applicable). For example, for an SAP HANA in Azure VM datasource, this field will be Microsoft.Compute/virtualMachines since the parent resource is an Azure VM |
 | PolicyName | Name of the policy associated with the backup instance |
 | PolicyUniqueId | Foreign key that refers to the policy associated with the backup instance  |
-| PolicyId | ARM ID of the policy associated with the backup instance |
-| VaultResourceId | ARM ID of the vault associated with the backup instance |
+| PolicyId | Azure Resource Manager (ARM) ID of the policy associated with the backup instance |
+| VaultResourceId | Azure Resource Manager (ARM) ID of the vault associated with the backup instance |
 | VaultUniqueId | Foreign key which refers to the vault associated with the backup instance |
 | VaultName | Name of the vault associated with the backup instance |
 | VaultTags | Tags of the vault associated with the backup instance |
@@ -226,7 +227,7 @@ This function returns a list of all backup-related billing entities (billing gro
 | -------------------- | ------------- | --------------- | ----------------- |
 | RangeStart     | Use this parameter along with RangeEnd parameter only if you need to fetch all billing group related records in the time period from RangeStart to RangeEnd. By default, the value of RangeStart and RangeEnd are null, which will make the function retrieve only the latest record for each billing group. | N | "2021-03-03 00:00:00" |
 | RangeEnd     | Use this parameter along with RangeStart parameter only if you need to fetch all billing group related records in the time period from RangeStart to RangeEnd. By default, the value of RangeStart and RangeEnd are null, which will make the function retrieve only the latest record for each billing group. | N |"2021-03-10 00:00:00"|
-| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription ids as a parameter to this function helps you retrieve only those billing groups that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
+| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription IDs as a parameter to this function helps you retrieve only those billing groups that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
 | VaultLocationList     | Use this parameter to filter the output of the function for a certain set of regions where backup data exists. Specifying a comma-separated list of regions as a parameter to this function helps you retrieve only those billing groups that are in the specified regions. By default, the value of this parameter is '*', which makes the function search for records across all regions. | N | "eastus,westus"|
 | VaultList    |Use this parameter to filter the output of the function for a certain set of vaults. Specifying a comma-separated list of vault names as a parameter to this function helps you retrieve records of backup instances pertaining only to the specified vaults. By default, the value of this parameter is '*', which makes the function search for records of billing groups across all vaults. | N |"vault1,vault2,vault3"|
 | VaultTypeList     | Use this parameter to filter the output of the function to records pertaining to a particular vault type. Currently the only supported vault type is "Microsoft.RecoveryServices/vaults", which is the default value of this parameter. | N | "Microsoft.RecoveryServices/vaults"|
@@ -245,7 +246,7 @@ This function returns a list of all backup-related billing entities (billing gro
 | SourceSizeInMBs | Frontend size of the billing group in MBs |
 | VaultStore_StorageConsumptionInMBs | Total cloud storage consumed by the billing group in the vault-standard tier |
 | BackupSolution | Backup Solution that the billing group is associated with. For example, Azure VM Backup, SQL in Azure VM Backup, and so on. |
-| VaultResourceId | ARM ID of the vault associated with the billing group |
+| VaultResourceId | Azure Resource Manager (ARM) ID of the vault associated with the billing group |
 | VaultUniqueId | Foreign key which refers to the vault associated with the billing group |
 | VaultName | Name of the vault associated with the billing group |
 | VaultTags | Tags of the vault associated with the billing group |
@@ -268,7 +269,7 @@ This function returns historical records for each backup instance, allowing you 
 | -------------------- | ------------- | --------------- | ----------------- |
 | RangeStart     | Use this parameter along with RangeEnd parameter to retrieve all backup instance related records in the time period from RangeStart to RangeEnd. | Y | "2021-03-03 00:00:00" |
 | RangeEnd     | Use this parameter along with RangeStart parameter to retrieve all backup instance related records in the time period from RangeStart to RangeEnd. | Y |"2021-03-10 00:00:00"|
-| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription ids as a parameter to this function helps you retrieve only those backup instances that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
+| VaultSubscriptionList   | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription IDs as a parameter to this function helps you retrieve only those backup instances that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
 | VaultLocationList     | Use this parameter to filter the output of the function for a certain set of regions where backup data exists. Specifying a comma-separated list of regions as a parameter to this function helps you retrieve only those backup instances that are in the specified regions. By default, the value of this parameter is '*', which makes the function search for records across all regions. | N | "eastus,westus"|
 | VaultList    |Use this parameter to filter the output of the function for a certain set of vaults. Specifying a comma-separated list of vault names as a parameter to this function helps you retrieve records of backup instances pertaining only to the specified vaults. By default, the value of this parameter is '*', which makes the function search for records of backup instances across all vaults. | N |"vault1,vault2,vault3"|
 | VaultTypeList     | Use this parameter to filter the output of the function to records pertaining to a particular vault type. Currently the only supported vault type is "Microsoft.RecoveryServices/vaults", which is the default value of this parameter. | N | "Microsoft.RecoveryServices/vaults"|
@@ -285,7 +286,7 @@ This function returns historical records for each backup instance, allowing you 
 | **Field Name** | **Description** |
 | -------------- | --------------- |
 | UniqueId | Primary key denoting unique ID of the backup instance |
-| Id | ARM ID of the backup instance |
+| Id | Azure Resource Manager (ARM) ID of the backup instance |
 | FriendlyName | Friendly name of the backup instance |
 | ProtectionInfo | Information about the protection settings of the backup instance. For example, protection configured, protection stopped, initial backup pending |
 | LatestRecoveryPoint | Date and time of the latest recovery point associated with the backup instance |
@@ -295,14 +296,14 @@ This function returns historical records for each backup instance, allowing you 
 | DataSourceFriendlyName | Friendly name of the datasource corresponding to the backup instance |
 | BackupSolution | Backup Solution that the backup instance is associated with. For example, Azure VM Backup, SQL in Azure VM Backup, and so on. |
 | DatasourceType | Type of the datasource corresponding to the backup instance. For example "Microsoft.Compute/virtualMachines" |
-| DatasourceResourceId | ARM ID of the underlying datasource corresponding to the backup instance. For example, ARM id of the VM |
+| DatasourceResourceId | Azure Resource Manager (ARM) ID of the underlying datasource corresponding to the backup instance. For example, Azure Resource Manager (ARM) ID of the VM |
 | DatasourceSetFriendlyName | Friendly name of the parent resource of the datasource (wherever applicable). For example, for a SQL in Azure VM datasource, this field will contain the name of the VM in which the SQL Database exists |
-| DatasourceSetResourceId | ARM ID of the parent resource of the datasource (wherever applicable). For example, for a SQL in Azure VM datasource, this field will contain the ARM ID of the VM in which the SQL Database exists |
+| DatasourceSetResourceId | Azure Resource Manager (ARM) ID of the parent resource of the datasource (wherever applicable). For example, for a SQL in Azure VM datasource, this field will contain the Azure Resource Manager (ARM) ID of the VM in which the SQL Database exists |
 | DatasourceSetType | Type of the parent resource of the datasource (wherever applicable). For example, for an SAP HANA in Azure VM datasource, this field will be Microsoft.Compute/virtualMachines since the parent resource is an Azure VM |
 | PolicyName | Name of the policy associated with the backup instance |
 | PolicyUniqueId | Foreign key that refers to the policy associated with the backup instance  |
-| PolicyId | ARM ID of the policy associated with the backup instance |
-| VaultResourceId | ARM ID of the vault associated with the backup instance |
+| PolicyId | Azure Resource Manager (ARM) ID of the policy associated with the backup instance |
+| VaultResourceId | Azure Resource Manager (ARM) ID of the vault associated with the backup instance |
 | VaultUniqueId | Foreign key which refers to the vault associated with the backup instance |
 | VaultName | Name of the vault associated with the backup instance |
 | VaultTags | Tags of the vault associated with the backup instance |
@@ -322,7 +323,7 @@ This function returns historical records for each billing entity, allowing you t
 | -------------------- | ------------- | --------------- | ----------------- |
 | RangeStart     | Use this parameter along with RangeEnd parameter to retrieve all billing group related records in the time period from RangeStart to RangeEnd. | Y | "2021-03-03 00:00:00" |
 | RangeEnd     | Use this parameter along with RangeStart parameter to retrieve all billing group related records in the time period from RangeStart to RangeEnd. | Y |"2021-03-10 00:00:00"|
-| VaultSubscriptionList  | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription ids as a parameter to this function helps you retrieve only those billing groups that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
+| VaultSubscriptionList  | Use this parameter to filter the output of the function for a certain set of subscriptions where backup data exists. Specifying a comma-separated list of subscription IDs as a parameter to this function helps you retrieve only those billing groups that are in the specified subscriptions. By default, the value of this parameter is '*', which makes the function search for records across all subscriptions. | N | "00000000-0000-0000-0000-000000000000,11111111-1111-1111-1111-111111111111"|
 | VaultLocationList     | Use this parameter to filter the output of the function for a certain set of regions where backup data exists. Specifying a comma-separated list of regions as a parameter to this function helps you retrieve only those billing groups that are in the specified regions. By default, the value of this parameter is '*', which makes the function search for records across all regions. | N | "eastus,westus"|
 | VaultList    |Use this parameter to filter the output of the function for a certain set of vaults. Specifying a comma-separated list of vault names as a parameter to this function helps you retrieve records of backup instances pertaining only to the specified vaults. By default, the value of this parameter is '*', which makes the function search for records of billing groups across all vaults. | N |"vault1,vault2,vault3"|
 | VaultTypeList     | Use this parameter to filter the output of the function to records pertaining to a particular vault type. Currently the only supported vault type is "Microsoft.RecoveryServices/vaults", which is the default value of this parameter. | N | "Microsoft.RecoveryServices/vaults"|
@@ -342,7 +343,7 @@ This function returns historical records for each billing entity, allowing you t
 | SourceSizeInMBs | Frontend size of the billing group in MBs |
 | VaultStore_StorageConsumptionInMBs | Total cloud storage consumed by the billing group in the vault-standard tier |
 | BackupSolution | Backup Solution that the billing group is associated with. For example, Azure VM Backup, SQL in Azure VM Backup, and so on. |
-| VaultResourceId | ARM ID of the vault associated with the billing group |
+| VaultResourceId | Azure Resource Manager (ARM) ID of the vault associated with the billing group |
 | VaultUniqueId | Foreign key which refers to the vault associated with the billing group |
 | VaultName | Name of the vault associated with the billing group |
 | VaultTags | Tags of the vault associated with the billing group |
@@ -359,29 +360,29 @@ Below are some sample queries to help you get started with using system function
 
 - All failed Azure VM backup jobs in a given time range
 
-````Kusto
+    ````Kusto
     _AzureBackup_GetJobs("2021-03-05", "2021-03-06") //call function with RangeStart and RangeEnd parameters set, and other parameters with default value
     | where BackupSolution=="Azure Virtual Machine Backup" and Status=="Failed"
     | project BackupInstanceFriendlyName, BackupInstanceId, OperationCategory, Status,  JobStartDateTime=StartTime, JobDuration=DurationInSecs/3600, ErrorTitle, DataTransferred=DataTransferredInMBs
-````
+    ````
 
 - All SQL log backup jobs in a given time range
 
-````Kusto
+    ````Kusto
     _AzureBackup_GetJobs("2021-03-05", "2021-03-06","*","*","*","*",true,"*","*","*","*","*","*",false) //call function with RangeStart and RangeEnd parameters set, ExcludeLog parameter as false, and other parameters with default value
     | where BackupSolution=="SQL in Azure VM Backup" and Operation=="Log"
     | project BackupInstanceFriendlyName, BackupInstanceId, OperationCategory, Status,  JobStartDateTime=StartTime, JobDuration=DurationInSecs/3600, ErrorTitle, DataTransferred=DataTransferredInMBs
-````
+    ````
 
 - Weekly trend of backup storage consumed for VM "testvm"
 
-````Kusto
+    ````Kusto
     _AzureBackup_GetBackupInstancesTrends("2021-01-01", "2021-03-06","*","*","*","*",false,"*","*","*","*",true, "Weekly") //call function with RangeStart and RangeEnd parameters set, AggregationType parameter as Weekly, and other parameters with default value
     | where BackupSolution == "Azure Virtual Machine Backup"
     | where FriendlyName == "testvm"
     | project TimeGenerated, VaultStore_StorageConsumptionInMBs
     | render timechart 
-````
+    ````
 
 ## Next steps
 [Learn more about Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports)
