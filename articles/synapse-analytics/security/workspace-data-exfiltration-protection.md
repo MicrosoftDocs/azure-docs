@@ -28,6 +28,9 @@ Let us use an example to illustrate data exfiltration protection for Synapse wor
 
 >[!IMPORTANT]
 >Resources in tenants other than the workspace's tenant must not have blocking firewall rules in place for the SQL pools to connect to them. Resources within the workspace’s managed virtual network, such as Spark clusters, can connect over managed private links to firewall-protected resources.
+>[!IMPORTANT] 
+>Metastore is disabled in Synapse workspaces that have Managed Virtual Network with data exfiltration protection enabled. You will not be able to use Spark SQL in these workspaces.
+
 ## Next Steps
 
 Learn how to [create a workspace with data exfiltration protection enabled](./how-to-create-a-workspace-with-data-exfiltration-protection.md)
