@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Roles for Microsoft 365 services in Azure Active Directory
 
-All products in Microsoft 365 can be managed with administrative roles in Azure Active Directory (Azure AD). Some products also provide additional roles that are specific to that product. For information on the roles supported by each product, see the table below. General discussions of delegation issues can be found in [Role delegation planning in Azure Active Directory](concept-delegation.md).
+All products in Microsoft 365 can be managed with administrative roles in Azure Active Directory (Azure AD). Some products also provide additional roles that are specific to that product. For information on the roles supported by each product, see the table below. For guidelines about role security planning, see [Securing privileged access for hybrid and cloud deployments in Azure AD](security-planning.md).
 
 ## Where to find content
 
