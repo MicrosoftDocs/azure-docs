@@ -20,7 +20,7 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
 * [Docker 19.03](https://www.docker.com/)
 * [PIP3](https://pip.pypa.io/en/stable/user_guide/)
 * [TensorFlow 1.13](https://www.tensorflow.org/)
-* [Azure Machine Learning SDK 1.1](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py)
+* [Azure Machine Learning SDK 1.1](https://docs.microsoft.com/python/api/overview/azure/ml/)
 
 ## Optional Tools Available for Installation
 
@@ -79,6 +79,8 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
 
         > [!NOTE]
         > Docker supports Docker Desktop on the most recent versions of macOS. That is, the current release of macOS and the previous two releases. As new major versions of macOS are made generally available, Docker stops supporting the oldest version and supports the newest version of macOS (in addition to the previous two releases). Docker Desktop currently supports macOS Mojave, macOS Catalina, and macOS Big Sur.
+        > 
+        - The installer is not supported on Apple M1.
 
 ## Instructions
 
@@ -94,7 +96,7 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
     
         1. After downloading, move the Dev-Tools-Pack-Installer.app file to the Applications folder.
         
-        1. Click on “Dev-Tools-Pack-Installer.app” to open the installation wizard.
+        1. Click on **Dev-Tools-Pack-Installer.app** to open the installation wizard.
         
         1. If you get an “unidentified developer” security dialog:
         
@@ -118,7 +120,7 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
                 
             1. Type the following in the Terminal to make the AppImage executable
             
-                1. chmod +x Dev-Tools-Pack-Installer.AppImage
+                1. chmod +x **Dev-Tools-Pack-Installer.AppImage**
                 
             1. Type the following in the Terminal to run the installer
             
@@ -136,11 +138,11 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
 
 1. On the **Install Dev Tools Pack Installer** page, click **View license** to view the license agreements of each software package included in the installer. If you accept the terms in the license agreements, check the box and click **Next**.
 
-    ![License agreement screen in the installer.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_license_agreements.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-license-agreements.png" alt-text="License agreement screen in the installer.":::
 
 1. Click on **Privacy Statement** to review the Microsoft Privacy Statement. If you agree to the privacy statement terms and would like to send diagnostic data to Microsoft, select **Yes** and click **Next**. Otherwise, select **No** and click **Next**.
 
-    ![Privacy statement agreement screen in the installer.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_privacy_statement.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-privacy-statement.png" alt-text="Privacy statement agreement screen in the installer.":::
 
 1. On the **Configure Components** page, select the optional tools you would like to install (the mandatory tools will install by default).
 
@@ -148,11 +150,11 @@ The Dev Tools Pack Installer is a one-stop solution that installs and configures
 
     1. Click **Install** to proceed with the installation.
 
-    ![Installer screen showing available software packages.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_configure_components.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-configure-components.png" alt-text="Installer screen showing available software packages.":::
 
 1. After successful installation of all selected components, the wizard proceeds to the **Completing the Setup Wizard** page. Click **Finish** to exit the installer.
 
-    ![Installer completion screen.](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/user-guides/prototyping/article_images/dev_tools_finish.png)
+    :::image type="content" source="./media/dev-tools-installer/dev-tools-finish.png" alt-text="Installer completion screen.":::
 
 ## Docker status check
 
@@ -163,12 +165,12 @@ If the installer notifies you to verify Docker Desktop is in a good running stat
       1. Expand system tray hidden icons:
       
          1. Expand system tray hidden icons if hidden:
-         
-            * ![System Tray](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/article_images/SystemTray.png)
+
+            :::image type="content" source="./media/dev-tools-installer/system-tray.png" alt-text="System Tray.":::
          
          1. Verify the Docker Desktop icon shows 'Docker Desktop is Running':
-         
-            * ![Docker Status](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/article_images/DockerStatusRunning.png)
+
+            :::image type="content" source="./media/dev-tools-installer/docker-status-running.png" alt-text="Docker Status.":::
          
          1. If you do not see the above icon listed in the system tray, launch Docker Desktop from the start menu.
          
@@ -176,4 +178,4 @@ If the installer notifies you to verify Docker Desktop is in a good running stat
 
 ## Next steps
 
-Check out the [advanced development tutorial (local)](./advanced-development-local.md)to get started with advanced development for Azure Percept DK.
+Check out the [Azure Percept advanced development repository](https://github.com/microsoft/azure-percept-advanced-development) to get started with advanced development for Azure Percept DK.

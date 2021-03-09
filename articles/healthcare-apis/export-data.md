@@ -32,6 +32,13 @@ When data is exported, a separate file is created for each resource type. To ens
 
 In addition, checking the export status through the URL returned by the location header during the queuing is supported along with canceling the actual export job.
 
+### Exporting FHIR data to ADLS Gen2
+
+Currently we support $export for ADLS Gen2 enabled storage accounts, with the following limitation:
+
+- User cannot take advantage of [hierarchical namespaces](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) yet; there isn't a way to target export to a specific sub-directory within the container. We only provide the ability to target a specific container (where we create a new folder for each export).
+
+- Once an export is complete, we never export anything to that folder again, since subsequent exports to the same container will be inside a newly created folder.
 
 
 ## Settings and parameters

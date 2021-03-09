@@ -114,7 +114,12 @@ You can configure an IoT Central application to continuously export telemetry to
 
 Your Event Hubs namespace looks like the following screenshot: 
 
+<<<<<<< HEAD
 ```:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace-2.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
+=======
+:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
+
+>>>>>>> 3d7767089bc0baba625f97247f6d029f26b30fdb
 
 ## Define the function
 
@@ -131,7 +136,12 @@ This solution uses an Azure Functions app to send an email notification when the
 
 The portal creates a default function called **HttpTrigger1**:
 
+<<<<<<< HEAD
 ```:::image type="content" source="media/howto-create-custom-rules/default-function-2.png" alt-text="Screenshot of Edit HTTP trigger function.":::
+=======
+:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
+
+>>>>>>> 3d7767089bc0baba625f97247f6d029f26b30fdb
 
 1. Replace the C# code with the following code:
 
@@ -223,7 +233,11 @@ To test the function in the portal, first choose **Logs** at the bottom of the c
 
 The function log messages appear in the **Logs** panel:
 
+<<<<<<< HEAD
 ```:::image type="content" source="media/howto-create-custom-rules/function-app-logs-2.png" alt-text="Function log output":::
+=======
+:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
+>>>>>>> 3d7767089bc0baba625f97247f6d029f26b30fdb
 
 After a few minutes, the **To** email address receives an email with the following content:
 

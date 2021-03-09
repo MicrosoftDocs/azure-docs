@@ -26,7 +26,7 @@ Azure file shares are fully managed file shares that live in the cloud. This art
     - [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
     - Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
-- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
 ## Register the NFS 4.1 protocol
 If you're using the Azure PowerShell module or the Azure CLI, register your feature using the following commands:
@@ -187,7 +187,7 @@ Now that you have created a FileStorage account and configured the networking, y
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell)
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
     
 1. Install the latest version of the PowershellGet module.
 
@@ -203,7 +203,7 @@ Now that you have created a FileStorage account and configured the networking, y
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.0.0&preserve-view=true)
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
    
 1. To create a premium file share with the Azure PowerShell module, use the [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet.
 

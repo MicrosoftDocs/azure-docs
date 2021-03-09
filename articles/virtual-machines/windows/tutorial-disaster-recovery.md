@@ -2,7 +2,8 @@
 title: Tutorial - Set up disaster recovery for Windows VMs with Azure Site Recovery
 description: Learn how to enable disaster recovery for Windows VMs to a different Azure region, using the Azure Site Recovery service.
 author: rayne-wiselman
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 11/05/2020

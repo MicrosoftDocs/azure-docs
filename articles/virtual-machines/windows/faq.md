@@ -2,7 +2,8 @@
 title: FAQ about Windows VMs in Azure 
 description: Provides answers to some of the common questions about Windows virtual machines created with the Resource Manager model.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/08/2019
