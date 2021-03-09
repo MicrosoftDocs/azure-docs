@@ -44,11 +44,11 @@ To use your Kubernetes cluster for training, you need to attach it to your Azure
     }
     
     attach_config = KubernetesCompute.attach_configuration(
-        resource_id="/subscriptions/5abfd9c4-ec8c-4db9-acd4-c762dce93508/resourceGroups/aks-eng-rg/providers/Microsoft.Kubernetes/connectedClusters/arcAksE",
+        resource_id="<YOUR-RESOURCE-ID>",
         aml_k8s_config=k8s_config
     )
     
-    compute_target = KubernetesCompute.attach(ws, "saurya-compute", attach_config)
+    compute_target = KubernetesCompute.attach(ws, "aks-compute", attach_config)
     compute_target.wait_for_completion(show_output=True)
     ```
 
@@ -73,10 +73,6 @@ script_rc.run_config.amlk8scompute.resource_configuration.memory_request_in_gb =
  
 run = experiment.submit(script_rc)
 ```
-
-## Submit training job (Azure Arc enabled Kubernetes)
-
-
 
 ## Detach Kubernetes cluster compute
 
