@@ -33,6 +33,9 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 5. Provide a display name for the call. For example, **Check approval status**.
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. See the section below for options on securing your API.
+
+    ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
+
 8. Select **Save**.
 
 ## Securing the API endpoint
@@ -44,7 +47,7 @@ HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/r
 ### HTTPS client certificate authentication
 Client certificate authentication is a mutual certificate-based authentication, where the client, Azure Active Directory in this case, provides a client certificate to the server to prove its identity. This happens as a part of the SSL handshake. Only services that have proper certificates can access your REST API service. The client certificate is an X.509 digital certificate. In production environments, it should be signed by a certificate authority. 
 
-To create a certificate, you can use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. You can then [export the certificate](https://docs.microsoft.com/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli) and upload it for use in the API connectors configuration.
+To create a certificate, you can use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. You can then [export the certificate](https://docs.microsoft.com/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli) and upload it for use in the API connectors configuration. Note that password is only required for certificate files protected by a password.
 
 For Azure App Service and Azure functions, see [configure TLS mutual authentication](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth#:~:text=You%20can%20restrict%20access%20to%20your%20Azure%20App,called%20TLS%20mutual%20authentication%20or%20client%20certificate%20authentication) to learn how to enable and validate the certificate from your API endpoint.
 

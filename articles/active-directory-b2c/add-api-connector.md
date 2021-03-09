@@ -31,6 +31,9 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 5. Provide a display name for the call. For example, **Validate user information**.
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. See the section below for options on securing your API.
+
+    ![Add a new API connector](./media/add-api-connector/api-connector-config.png)
+
 8. Select **Save**.
 
 ## Securing the API endpoint
@@ -44,7 +47,7 @@ Client certificate authentication is a mutual certificate-based authentication, 
 
 To create a certificate, you can use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. You can then [export the certificate](https://docs.microsoft.com/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli) and upload it for use in the API connectors configuration.
 
-For Azure App Service and Azure functions, see [configure TLS mutual authentication](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth#:~:text=You%20can%20restrict%20access%20to%20your%20Azure%20App,called%20TLS%20mutual%20authentication%20or%20client%20certificate%20authentication) to learn how to enable and validate the certificate from your API endpoint.
+For Azure App Service and Azure functions, see [configure TLS mutual authentication](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth#:~:text=You%20can%20restrict%20access%20to%20your%20Azure%20App,called%20TLS%20mutual%20authentication%20or%20client%20certificate%20authentication) to learn how to enable and validate the certificate from your API endpoint. Note that password is only required for certificate files protected by a password.
 
 It's recommended you set reminder alerts for when your certificate will expire. To upload a new certificate to an existing API connector, select the API connector under **All API connectors** and click on **Upload new connector**. The most recently uploaded certificate which is not expired and is past the start date will be used automatically by Azure AD B2C.
 
@@ -313,7 +316,7 @@ Ensure that:
 * Your API explicitly checks for null values of received claims.
 * Your API responds as quickly as possible to ensure a fluid user experience.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." in production. For Azure Functions, its recommended to use the [Premium plan](../azure-functions/functions-scale.md)
-
+ 
 
 ### Use logging
 In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](../azure-functions/functions-monitoring.md), to monitor your API for unexpected error codes, exceptions, and poor performance.
