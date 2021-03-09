@@ -101,7 +101,7 @@ To register the app, perform the following steps:
 
 You're now ready to use Azure Active Directory for authentication in your App Service app.
 
-## Configure client apps to access your app
+## Configure client apps to access your App Service
 
 In the prior section, you registered your App Service or Azure Function to authenticate users. This section explains how to register native client or daemon apps so that they can request access to APIs exposed by your App Service on behalf of users or themselves. Completing the steps in this section is not required if you only wish to authenticate users.
 
