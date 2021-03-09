@@ -11,13 +11,11 @@ ms.custom: template-concept
 
 # Guide for running functions on .NET 5.0 in Azure
 
-_.NET 5.0 support is currently in preview._
-
 This article is an introduction to using C# to develop .NET isolated process functions, which run out-of-process in Azure Functions. Running out-of-process lets you decouple your function code from the Azure Functions runtime. It also provides a way for you to create and run functions that target the current .NET 5.0 release. 
 
 | Getting started | Concepts| Samples |
 | -- | -- | -- | 
-| <ul><li>[Using Visual Studio Code](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[Using command line tools](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Using Visual Studio](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
+| <ul><li>[Using Visual Studio Code](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[Using command line tools](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Using Visual Studio](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 If you don't need to support .NET 5.0 or run your functions out-of-process, you might want to instead [develop C# class library functions](functions-dotnet-class-library.md).
 
@@ -187,6 +185,9 @@ This section describes the current state of the functional and behavioral differ
 | Cold start times | Typical | Longer, because of just-in-time start-up. Run on Linux instead of Windows to reduce potential delays. |
 | ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ |
 
+## Known issues
+
+For information on workarounds to know issues running .NET isolated process functions, see [this known issues page](https://aka.ms/AAbh18e). To report problems, [create an issue in this GitHub repository](https://github.com/Azure/azure-functions-dotnet-worker/issues/new/choose).  
 
 ## Next steps
 

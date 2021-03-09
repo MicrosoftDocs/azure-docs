@@ -9,8 +9,6 @@ zone_pivot_groups: development-environment-functions
 
 # Develop and publish .NET 5 function using Azure Functions 
 
-_.NET 5.0 support is currently in preview._
-
 This article shows you how to work with C# functions using .NET 5.0, which run out-of-process from the Azure Functions runtime. You'll learn how to create, debug locally, and publish these .NET isolated process functions to Azure. In Azure, these functions run in an isolate process that supports .NET 5.0. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
 
 If you don't need to support .NET 5.0 or run your functions out-of-process, you might want to instead [create a C# class library function](functions-create-your-first-function-visual-studio.md).
@@ -35,7 +33,7 @@ If you don't need to support .NET 5.0 or run your functions out-of-process, you 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code, version 1.2.2 or newer.
 ::: zone-end
 ::: zone pivot="development-environment-vscode"
-+ [Visual Studio 2019](https://azure.microsoft.com/downloads/), including the **Azure development** workload.
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/), including the **Azure development** workload. .NET isolated function project templates and publishing isn't currently available in Visual Studio.
 ::: zone-end
 
 ## Create a local function project
@@ -94,7 +92,7 @@ In Azure Functions, a function project is a container for one or more individual
     cd LocalFunctionProj
     ```
 
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including the [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md) configurations files. Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
@@ -159,7 +157,7 @@ At this point, you can run the `func start` command from the root of your projec
 
     You should see trace output from the request written to the running terminal.
 
-1. When you are done, in the terminal press Ctrl + C to stop the host process.
+1. When you're done, in the terminal press Ctrl + C to stop the host process.
  
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -214,7 +212,7 @@ Use the following commands to create these items.
     
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
     
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md). This plan should be free for the amount of usage you incur in this article. The command also provisions an associated Azure Application Insights instance in the same resource group. Use this instance to monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running .NET 5.0 under the [Azure Functions Consumption Plan](consumption-plan.md). This plan should be free for the amount of usage you incur in this article. The command also provisions an associated Azure Application Insights instance in the same resource group. Use this instance to monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
@@ -250,7 +248,7 @@ In this section, you create a function app and related resources in your Azure s
     
     - **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
     
-    In the notification area, you see the status of individual resources as they are created in Azure.
+    In the notification area, you see the status of individual resources as they're created in Azure.
 
     :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation":::
     
