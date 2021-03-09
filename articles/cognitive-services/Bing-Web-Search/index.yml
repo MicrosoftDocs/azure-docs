@@ -300,23 +300,23 @@ additionalContent:
       - title: Java SDK
         links:
           - text: Bing Web Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi
           - text: Bing Custom Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch
           - text: Bing Entity Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingentitysearchapi
           - text: Bing Image Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingimagesearch
           - text: Bing News Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingnewssearch
           - text: Bing Video Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingvideosearch
           - text: Bing Visual Search
-            url: /java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingvisualsearch
           - text: Bing Spell Check
-            url: /java/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingspellcheck
           - text: Bing Autosuggest
-            url: /java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/bingautosuggest
       - title: Python SDK
         links:
           - text: Bing Web Search
@@ -336,27 +336,27 @@ additionalContent:
           - text: Bing Visual Search
             url: /python/api/overview/azure/cognitiveservices/bing-visual-search-readme
           - text: Bing Spell Check
-            url: /python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python
+            url: /python/api/overview/azure/cognitiveservices/spellcheck
       - title: Node.js SDK
         links:
           - text: Bing Web Search
-            url: /javascript/api/@azure/cognitiveservices-websearch/?view=azure-node-latest
+            url: /javascript/api/@azure/cognitiveservices-websearch/
           - text: Bing Custom Search
-            url: /javascript/api/@azure/cognitiveservices-customsearch/?view=azure-node-latest
+            url: /javascript/api/@azure/cognitiveservices-customsearch/
           - text: Bing Entity Search
-            url: /javascript/api/@azure/cognitiveservices-entitysearch/?view=azure-node-latest
+            url: /javascript/api/@azure/cognitiveservices-entitysearch/
           - text: Bing Image Search
-            url: /javascript/api/@azure/cognitiveservices-imagesearch/?view=azure-node-latest
+            url: /javascript/api/@azure/cognitiveservices-imagesearch/
           - text: Bing News Search
-            url: /javascript/api/@azure/cognitiveservices-newssearch/?view=azure-node-latest
+            url: /javascript/api/@azure/cognitiveservices-newssearch/
           - text: Bing Video Search
-            url: /javascript/api/@azure/cognitiveservices-videosearch/?view=azure-node-latest
+            url: /javascript/api/@azure/cognitiveservices-videosearch/
           - text: Bing Visual Search
-            url: /javascript/api/@azure/cognitiveservices-visualsearch/?view=azure-node-latest
+            url: /javascript/api/@azure/cognitiveservices-visualsearch/
           - text: Bing Spell Check
-            url: /javascript/api/@azure/cognitiveservices-spellcheck/?view=azure-node-latest
+            url: /javascript/api/@azure/cognitiveservices-spellcheck/
           - text: Bing Autosuggest
-            url: /javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest
+            url: /javascript/api/@azure/cognitiveservices-autosuggest/
       - title: Go SDK
         links:
           - text: Bing Web Search

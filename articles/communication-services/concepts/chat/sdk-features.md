@@ -15,6 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
+
 Azure Communication Services Chat client libraries can be used to add rich, real-time chat to your applications.
 
 ## Chat client library capabilities
@@ -39,7 +40,7 @@ The following list presents the set of features which are currently available in
 |                   | Send and receive typing notifications when a member is actively typing a message in a chat thread <br/> *Not available when there are more than 20 members in a chat thread*      | ✔️   | ✔️   | ✔️    | ✔️    |
 |                   | Get all messages in a chat thread <br/> *Unicode emojis supported*                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
 |                   | Send emojis as part of message content                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|Real-time signaling (enabled by proprietary signalling package**)| Get notified when a user receives a new message in a chat thread they're a member of                                     | ✔️   | ❌    | ❌  | ❌  |
+|Real-time signaling (enabled by proprietary signaling package**)| Get notified when a user receives a new message in a chat thread they're a member of                                     | ✔️   | ❌    | ❌  | ❌  |
 |                    | Get notified when a message has been edited by another member in a chat thread they're a member of                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Get notified when a message has been deleted by another member in a chat thread they're a member of                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Get notified when another chat thread member is typing                                                             | ✔️   | ❌    | ❌    | ❌  |
@@ -49,7 +50,7 @@ The following list presents the set of features which are currently available in
 |                    | Monitor the quality and status of API requests made by your app and configure alerts via the portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Additional features | Use [Cognitive Services APIs](../../../cognitive-services/index.yml) along with chat client library to enable intelligent features - *language translation & sentiment analysis of the incoming message on a client, speech to text conversion to compose a message while the member speaks, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
-**The proprietary signalling package is implemented using web sockets. It will fallback to long polling if web sockets are unsupported.
+**The proprietary signaling package is implemented using web sockets. It will fallback to long polling if web sockets are unsupported.
 
 ## JavaScript chat client library support by OS and browser
 

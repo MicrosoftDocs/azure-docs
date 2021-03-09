@@ -2,7 +2,7 @@
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: conceptual
-ms.date: 03/03/2021
+ms.date: 03/08/2021
 ---
 
 # What are ARM templates?
@@ -106,6 +106,15 @@ REQUEST BODY
 ```
 
 Notice that the **apiVersion** you set in the template for the resource is used as the API version for the REST operation. You can repeatedly deploy the template and have confidence it will continue to work. By using the same API version, you don't have to worry about breaking changes that might be introduced in later versions.
+
+To deploy a template, use any of the following options:
+
+* [Azure portal](deploy-portal.md)
+* [Azure CLI](deploy-cli.md)
+* [PowerShell](deploy-powershell.md)
+* [REST API](deploy-rest.md)
+* [Button in GitHub repository](deploy-to-azure-button.md)
+* [Azure Cloud Shell](deploy-cloud-shell.md)
 
 ## Template design
 
