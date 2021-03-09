@@ -1,9 +1,9 @@
 ---
-author: rothja
+author: amitbapat
 ms.service: key-vault
 ms.topic: include
 ms.date: 03/09/2021
-ms.author: jroth
+ms.author: ambapat
 ---
 
 Azure Key Vault service supports two resource types: Vaults and Managed HSMs. The following two sections describe the service limits for each of them respectively.
