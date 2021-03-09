@@ -68,7 +68,8 @@ Even if you aren’t required to comply with CMMC, the CMMC workbook is helpful 
 
 Access the CMMC workbook in the Azure Sentinel **Workbooks** area. Select **Template**, and then search for **CMMC**.
 
-:::image type="content" source="media/whats-new/cmmc-guide-toggle.gif" alt-text="Toggle the CMMC workbook guide on and off":::
+:::image type="content" source="media/whats-new/cmmc-guide-toggle.gif" alt-text="Toggle the CMMC workbook guide on and off" lightbox="media/whats-new/cmmc-guide-toggle.gif":::
+
 
 For more information, see:
 
