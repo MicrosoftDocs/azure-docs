@@ -1,0 +1,1 @@
+For the latest version of the service, see [Azure Video Analyzer]().

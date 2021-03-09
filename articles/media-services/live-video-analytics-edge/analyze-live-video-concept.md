@@ -7,6 +7,8 @@ ms.date: 04/27/2020
 ---
 # Analyzing live video without any recording
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 ## Suggested pre-reading 
 
 * [Media graph concept](media-graph-concept.md)
