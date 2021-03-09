@@ -9,7 +9,7 @@ zone_pivot_groups: development-environment-functions
 
 # Develop and publish .NET 5 function using Azure Functions 
 
-This article shows you how to work with C# functions using .NET 5.0, which run out-of-process from the Azure Functions runtime. You'll learn how to create, debug locally, and publish these .NET isolated process functions to Azure. In Azure, these functions run in an isolate process that supports .NET 5.0. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+This article shows you how to work with C# functions using .NET 5.0, which run out-of-process from the Azure Functions runtime. You'll learn how to create, debug locally, and publish these .NET isolated process functions to Azure. In Azure, these functions run in an isolated process that supports .NET 5.0. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
 
 If you don't need to support .NET 5.0 or run your functions out-of-process, you might want to instead [create a C# class library function](functions-create-your-first-function-visual-studio.md).
 
@@ -120,7 +120,9 @@ In Azure Functions, a function project is a container for one or more individual
 
 At this point, you can run the `func start` command from the root of your project folder to compile and run the C# isolated functions project. Currently, if you want to debug your out-of-process function code in Visual Studio, you need to manually attach a debugger to the running Functions runtime process by using the following steps:  
 
-1. From the root *LocalFunctionProj* project folder, use the following command from the terminal or command prompt to start the runtime host:
+1. Open the project file (.csproj) in Visual Studio. You can review and modify your project code and set any desired break points in the code. 
+
+1. From the root project folder, use the following command from the terminal or a command prompt to start the runtime host:
 
     ```console
     func start --dotnet-isolated-debug
@@ -145,7 +147,7 @@ At this point, you can run the `func start` command from the root of your projec
  
 1. In the Azure Functions runtime output, make a note of the process ID of the host process, to which you'll attach a debugger. Also note the URL of your local function.
 
-1. In Visual Studio, from the **Debug** menu, select **Attach to Process...**, locate the dotnet.exe process that matches the process ID, and select **Attach**. 
+1. From the **Debug** menu in Visual Studio, select **Attach to Process...**, locate the dotnet.exe process that matches the process ID, and select **Attach**. 
     
     :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="Attach the debugger to the Functions host process":::    
 
@@ -155,9 +157,9 @@ At this point, you can run the `func start` command from the root of your projec
 
     <http://localhost:7071/api/HttpExample>
 
-    You should see trace output from the request written to the running terminal.
+    You should see trace output from the request written to the running terminal. Code execution stops at any break points you set in your function code.
 
-1. When you're done, in the terminal press Ctrl + C to stop the host process.
+1. When you're done, go to the terminal and press Ctrl + C to stop the host process.
  
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
