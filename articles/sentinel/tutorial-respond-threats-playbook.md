@@ -145,7 +145,7 @@ To create an automation rule:
 
 1. The **Create new automation rule** panel opens. Enter a name for your rule.
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Add a new rule":::
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Create an automation rule":::
 
 1. If you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name** condition.
 
@@ -176,7 +176,7 @@ You use a playbook to respond to an **alert** by creating an **analytics rule**,
 
 1. In the **Analytics rule wizard - Edit existing rule** page, select the **Automated response** tab.
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/automated-response-tab.png" alt-text="Add a new rule":::
+   :::image type="content" source="./media/tutorial-respond-threats-playbook/automated-response-tab.png" alt-text="Automated response tab":::
 
 1. Choose your playbook from the drop-down list. You can choose more than one playbook, but only playbooks using the **alert trigger** will be available.
 
