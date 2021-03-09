@@ -101,7 +101,7 @@ const endpoint = pm.variables.get('endpoint')
 const hostStr = endpoint.replace('https://','');
 ```
 
-With this information created, we can now create the string which we'll be signing for the HTTP Request, this is composed of several previously created values:
+With this information created, we can now create the string, which we'll be signing for the HTTP Request, this is composed of several previously created values:
 
 ```JavaScript
 // This gets the part of our URL that is after the endpoint, for example in https://contoso.communication.azure.com/sms, it will get '/sms'
@@ -186,7 +186,7 @@ Start by setting, the request type to `POST` and entering `{{endpoint}}/sms?api-
 
 :::image type="content" source="media/postman/postrequestandurl.png" alt-text="A Postman request, with the type set to POST and the URL set correctly.":::
 
-Now select the Body tab of the request and then change the radio button beneath to "raw". On the right there is a dropdown that says "Text", change it to JSON:
+Now select the Body tab of the request and then change the radio button beneath to "raw". On the right, there is a dropdown that says "Text", change it to JSON:
 
 :::image type="content" source="media/postman/postmanjson.png" alt-text="Setting the request body to raw and JSON":::
 
@@ -208,7 +208,7 @@ In the text area below you'll need to enter a request body, it should be in the 
 
 For the "from" value, you'll need to [get a telephone number](../quickstarts/telephony-sms/get-phone-number.md) in the ACS Portal as previously mentioned. Enter it without any spaces and prefixed by your country code. For example: `+15555551234`. Your "message" can be whatever you'd like to send but `Hello from ACS` is a good example. The "to" value should be a phone you have access to that can receive SMS messages. Using your own mobile is a good idea.
 
-Once entered, we need to save this request into the ACS Collection that we previously created. This will ensure that it picks up the variables and pre-request script that we previously created. To do this click the "save" button in the top right of the request area.
+Once entered, we need to save this request into the ACS Collection that we previously created. This will ensure that it picks up the variables and pre-request script that we previously created. To do, this click the "save" button in the top right of the request area.
 
 :::image type="content" source="media/postman/postmansave.png" alt-text="The save button for a Postman request.":::
 
@@ -226,7 +226,7 @@ If everything went well, you should now see the response from ACS, which should 
 
 :::image type="content" source="media/postman/postman202.png" alt-text="A Postman request, sent successfully with a 202 status code.":::
 
-The Mobile phone which owns the number you provided in the "to" value, should also have received an SMS message. You've now got a working Postman set up, which can talk to ACS' Services and send SMS messages.
+The Mobile phone, which owns the number you provided in the "to" value, should also have received an SMS message. You've now got a working Postman set up, which can talk to ACS' Services and send SMS messages.
 
 
 ## Next steps
