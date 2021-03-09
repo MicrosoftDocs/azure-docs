@@ -1,6 +1,6 @@
 ---
-title: Common Event Format (CEF) and CommonSecurityLog field mapping
-description: This article maps CEF field names to the corresponding field names in the CommonSecurityLog, accessible via Azure Sentinel.
+title: Common Event Format (CEF) key and CommonSecurityLog field mapping
+description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Azure Sentinel.
 services: sentinel
 author: batamig
 ms.author: bagol
@@ -12,11 +12,9 @@ ms.date: 03/09/2021
 
 # CEF and CommonSecurityLog field mapping
 
-The following table maps Common Event Format (CEF) field names to the names they use in Azure Sentinel's CommonSecurityLog.
+The following tables map Common Event Format (CEF) field names to the names they use in Azure Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Azure Sentinel.
 
-This mapping may be helpful when you are working with a CEF data source in Azure Sentinel. For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
-
-<!--are these case sensitive?-->
+For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
 
 ## A - C
 
