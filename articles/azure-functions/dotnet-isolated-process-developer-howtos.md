@@ -18,9 +18,7 @@ If you don't need to support .NET 5.0 or run your functions out-of-process, you 
 >[!NOTE]
 >Developing .NET isolated process functions in the Azure portal isn't currently supported. You must use either the Azure CLI or Visual Studio Code publishing to create a function app in Azure that supports running .NET 5.0 apps out-of-process.   
 
-## Configure your local environment
-
-Before you begin, you must have the following:
+## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -35,6 +33,9 @@ Before you begin, you must have the following:
 + The [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code, version 1.2.2 or newer.
+::: zone-end
+::: zone pivot="development-environment-vscode"
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/), including the **Azure development** workload.
 ::: zone-end
 
 ## Create a local function project
@@ -101,7 +102,7 @@ In Azure Functions, a function project is a container for one or more individual
     func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
     ``` 
 
-    `func new` creates a HttpExample.cs code file.
+    `func new` creates an HttpExample.cs code file.
 ::: zone-end  
 
 ::: zone pivot="development-environment-vscode"  
@@ -119,15 +120,15 @@ In Azure Functions, a function project is a container for one or more individual
 
 ## Run the function locally
 
-At this point, you can use the `func start` in your project folder to compile and run the C# isolated functions project. Currently, if you want to debug your function code in Visual Studio, you need to manually attach a debugger to the running Functions runtime process by using the following steps:  
+At this point, you can run the `func start` command from the root of your project folder to compile and run the C# isolated functions project. Currently, if you want to debug your out-of-process function code in Visual Studio, you need to manually attach a debugger to the running Functions runtime process by using the following steps:  
 
-1. From the *LocalFunctionProj* folder, use the following command to start the Azure Functions runtime host locally from the terminal or command prompt:
+1. From the root *LocalFunctionProj* project folder, use the following command from the terminal or command prompt to start the runtime host:
 
     ```console
     func start --dotnet-isolated-debug
     ```
 
-    The `--dotnet-isolated-debug` option instructs the process to wait for a debugger to attach before continuing. Toward the end of the output, the following lines should appear: 
+    The `--dotnet-isolated-debug` option tells the process to wait for a debugger to attach before continuing. Towards the end of the output, you should see something like the following lines: 
     
     <pre>
     ...
@@ -137,19 +138,29 @@ At this point, you can use the `func start` in your project folder to compile an
         HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
 
     For detailed output, run func with --verbose flag.
-    [2021-03-09T08:41:41.904Z] Azure Functions .NET Worker (PID: 46568) initialized in debug mode. Waiting for debugger to attach...
+    [2021-03-09T08:41:41.904Z] Azure Functions .NET Worker (PID: 81720) initialized in debug mode. Waiting for debugger to attach...
     ...
     
     </pre> 
- 
-1. In the Azure Functions runtime output, make a note of the process ID (PID) of the host process, to which you'll attach a debugger. Also note the URL of your local function.
 
-1. In Visual Studio, from the **Debug** menu, select **Attach to Process...**, locate the dotnet.exe process that matches the process ID, and select **Attach**. With the debugger attached you can debug your function code as normal.
+    The `PID: XXXXXX` indicates the process ID (PID) of the dotnet.exe process that is the running Functions host.
+ 
+1. In the Azure Functions runtime output, make a note of the process ID of the host process, to which you'll attach a debugger. Also note the URL of your local function.
+
+1. In Visual Studio, from the **Debug** menu, select **Attach to Process...**, locate the dotnet.exe process that matches the process ID, and select **Attach**. 
+    
+    :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="Attach the debugger to the Functions host process":::    
+
+    With the debugger attached you can debug your function code as normal.
 
 1. Into your browser's address bar, type your local function URL, which looks like the following, and run the request. 
 
     <http://localhost:7071/api/HttpExample>
 
+    You should see trace output from the request written to the running terminal.
+
+1. When you are done, in the terminal press Ctrl + C to stop the host process.
+ 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
 > [!NOTE]  
@@ -203,7 +214,7 @@ Use the following commands to create these items.
     
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app. 
     
-    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md), which is free for the amount of usage you incur here. The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
+    This command creates a function app running in your specified language runtime under the [Azure Functions Consumption Plan](consumption-plan.md). This plan should be free for the amount of usage you incur in this article. The command also provisions an associated Azure Application Insights instance in the same resource group. Use this instance to monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
 [!INCLUDE [functions-publish-project-cli](../../includes/functions-publish-project-cli.md)]
 
@@ -227,9 +238,9 @@ In this section, you create a function app and related resources in your Azure s
 
 1. Provide the following information at the prompts:
 
-    - **Select folder**: Choose a folder from your workspace or browse to one that contains your function app. You won't see this if you already have a valid function app opened.
+    - **Select folder**: Choose a folder from your workspace or browse to one that contains your function app. You won't see this prompt when you already have a valid function app opened.
 
-    - **Select subscription**: Choose the subscription to use. You won't see this if you only have one subscription.
+    - **Select subscription**: Choose the subscription to use. You won't see this prompt when you only have one subscription.
 
     - **Select Function App in Azure**: Choose `- Create new Function App`. (Don't choose the `Advanced` option, which isn't covered in this article.)
       
@@ -239,7 +250,7 @@ In this section, you create a function app and related resources in your Azure s
     
     - **Select a location for new resources**:  For better performance, choose a [region](https://azure.microsoft.com/regions/) near you. 
     
-    The extension shows the status of individual resources as they are being created in Azure in the notification area.
+    In the notification area, you see the status of individual resources as they are created in Azure.
 
     :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notification of Azure resource creation":::
     
