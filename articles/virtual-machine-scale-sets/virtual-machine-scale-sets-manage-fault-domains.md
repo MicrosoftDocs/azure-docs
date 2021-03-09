@@ -14,7 +14,7 @@ ms.custom: mimckitt, devx-track-azurecli
 # Choosing the right number of fault domains for virtual machine scale set
 Virtual machine scale sets are created with five fault domains by default in Azure regions with no zones. For the regions that support zonal deployment of virtual machine scale sets and this option is selected, the default value of the fault domain count is 1 for each of the zones. FD=1 in this case implies that the VM instances belonging to the scale set will be spread across many racks on a best effort basis.
 
-You can also consider aligning the number of scale set fault domains with the number of Managed Disks fault domains. This alignment can help prevent loss of quorum if an entire Managed Disks fault domain goes down. The FD count can be set to less than or equal to the number of Managed Disks fault domains available in each of the regions. Refer to this [document](../virtual-machines/manage-availability.md) to learn about the number of Managed Disks fault domains by region.
+You can also consider aligning the number of scale set fault domains with the number of Managed Disks fault domains. This alignment can help prevent loss of quorum if an entire Managed Disks fault domain goes down. The FD count can be set to less than or equal to the number of Managed Disks fault domains available in each of the regions. Refer to this [document](../virtual-machines/availability.md) to learn about the number of Managed Disks fault domains by region.
 
 ## REST API
 You can set the property `properties.platformFaultDomainCount` to 1, 2, or 3 (default of 3 if not specified). Refer to the documentation for REST API [here](/rest/api/compute/virtualmachinescalesets/createorupdate).
