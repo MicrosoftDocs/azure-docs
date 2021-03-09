@@ -33,14 +33,30 @@ In Xcode, create a new iOS project and select the **App** template. We will be u
 
 1. Create a Podfile for your application:
 
-    ```
-    platform :ios, '12.0'
-    use_frameworks!
-    
-    target 'TeamsEmbedGettingStarted' do
-        pod 'AzureCommunication', '~> 1.0.0-beta.8'
+```
+platform :ios, '12.0'
+use_frameworks!
+
+target 'TeamsEmbedGettingStarted' do
+    pod 'AzureCommunication', '~> 1.0.0-beta.8'
+end
+
+azure_libs = [
+'AzureCommunication',
+'AzureCore']
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+    if azure_libs.include?(target.name)
+        puts "Adding BUILD_LIBRARY_FOR_DISTRIBUTION to #{target.name}"
+        target.build_configurations.each do |config|
+        xcconfig_path = config.base_configuration_reference.real_path
+        File.open(xcconfig_path, "a") {|file| file.puts "BUILD_LIBRARY_FOR_DISTRIBUTION = YES"}
+        end
     end
-    ```
+    end
+end
+```
 
 2. Run `pod install`.
 3. Open the generated `.xcworkspace` with Xcode.
@@ -83,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ### Add a button to the storyboard
 
-Add a `UIButton` to the storyboard labeled `Join Meeting`.
+Add a `UIButton` to the storyboard labeled `Join Meeting` and constrain it to the centre of the screen.
 
 :::image type="content" source="../media/ios/xcode-add-button.png" alt-text="Screenshot showing adding the button to the storyboard in Xcode.":::
 
