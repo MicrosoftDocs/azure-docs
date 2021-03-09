@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/01/2020
+ms.date: 03/09/2021
 ms.author: aahi
 ---
 
 
 # [Version 3.1 preview](#tab/version-3-1)
 
-[v3.1 Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/)
+[v3.1 Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/)
 
 # [Version 3.0](#tab/version-3)
 
@@ -87,7 +87,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
                "offset":0,
                "length":41,
                "text":"The customer service here is really good.",
-               "aspects":[
+               "targets":[
                   {
                      "sentiment":"positive",
                      "confidenceScores":{
@@ -99,13 +99,13 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
                      "text":"customer service",
                      "relations":[
                         {
-                           "relationType":"opinion",
-                           "ref":"#/documents/0/sentences/0/opinions/0"
+                           "relationType":"assessment",
+                           "ref":"#/documents/0/sentences/0/assessments/0"
                         }
                      ]
                   }
                ],
-               "opinions":[
+               "assessments":[
                   {
                      "sentiment":"positive",
                      "confidenceScores":{
@@ -200,7 +200,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
          "detectedLanguage":{
             "name":"English",
             "iso6391Name":"en",
-            "confidenceScore":0.99
+            "confidenceScore":1.0
          },
          "warnings":[
             
@@ -210,7 +210,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
    "errors":[
       
    ],
-   "modelVersion":"2020-09-01"
+   "modelVersion":"2021-01-05"
 }
 ```
 
@@ -273,19 +273,12 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
          "id":"1",
          "entities":[
             {
-               "text":"trip",
-               "category":"Event",
-               "offset":18,
-               "length":4,
-               "confidenceScore":0.61
-            },
-            {
                "text":"Seattle",
                "category":"Location",
                "subcategory":"GPE",
                "offset":26,
                "length":7,
-               "confidenceScore":0.82
+               "confidenceScore":0.99
             },
             {
                "text":"last week",
@@ -304,7 +297,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-pre
    "errors":[
       
    ],
-   "modelVersion":"2020-04-01"
+   "modelVersion":"2021-01-15"
 }
 
 ```
@@ -326,15 +319,22 @@ curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1-prev
 {
    "documents":[
       {
-         "redactedText":"Insurance policy for *** on file 123-12-1234 is here by approved.",
+         "redactedText":"Call our office at ************, or send an email to *******************",
          "id":"1",
          "entities":[
             {
-               "text":"SSN",
-               "category":"Organization",
-               "offset":21,
-               "length":3,
-               "confidenceScore":0.45
+               "text":"312-555-1234",
+               "category":"PhoneNumber",
+               "offset":19,
+               "length":12,
+               "confidenceScore":0.8
+            },
+            {
+               "text":"support@contoso.com",
+               "category":"Email",
+               "offset":53,
+               "length":19,
+               "confidenceScore":0.8
             }
          ],
          "warnings":[
@@ -345,7 +345,7 @@ curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1-prev
    "errors":[
       
    ],
-   "modelVersion":"2020-07-01"
+   "modelVersion":"2021-01-15"
 }
 ```
 
@@ -609,7 +609,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.0/ent
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/keyPhrases \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-text-analytics-key-here>" \
--d '{ documents: [{ id: "1", language:"en", text: "Hello world. This is some input text that I love."}]}'
+-d '{ documents: [{ id: "1", language:"en", text: "I had a wonderful trip to Seattle last week."}]}'
 ```
 
 ```json
