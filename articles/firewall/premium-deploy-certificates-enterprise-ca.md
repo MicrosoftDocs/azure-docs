@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/09/2021
 ms.author: victorh
 ---
 
@@ -76,4 +76,4 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 
 ## Next steps
 
-- [Azure Firewall Premium Preview in the Azure portal](premium-portal.md)
+[Azure Firewall Premium Preview in the Azure portal](premium-portal.md)
