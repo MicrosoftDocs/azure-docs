@@ -1,5 +1,5 @@
 ---
-title: JavaScript tutorial create and load index
+title: JavaScript tutorial creates and load index
 titleSuffix: Azure Cognitive Search
 description: Learn how to import data into a single Azure Cognitive Search index with JavaScript using the npm SDK @azure/search-documents.
 manager: nitinme
@@ -19,7 +19,7 @@ The sample application for this tutorial builds a website to search through a ca
 
 * Search – provides search functionality for the application.
 * Suggest – provides suggestions as the user is typing in the search bar.
-* Document Lookup – looks up a document by id to retrieve all of its contents for the details page.
+* Document Lookup – looks up a document by ID to retrieve all of its contents for the details page.
 
 You can load data into the Search resource from:
 
@@ -38,7 +38,7 @@ Install the following for your local development environment.
 
 You can complete this tutorial by:
 
-* Creating your own Search resource and Index. Those steps are provides in this article.
+* Creating your own Search resource and Index. Those steps are provided in this article.
 * Or [use an existing Search resource and Index](#use-an-existing-resource). 
 
 ### Use an existing resource
@@ -58,19 +58,20 @@ To use an existing resource:
 Create a new Search resource with the Azure CLI.  
 
 1. Open an Azure CLI environment.
-    1. Login to the Azure CLI on your local development environment with the following command 
+
+    1. Log in to the Azure CLI on your local development environment with the following command 
 
         ```azurecli
         az login
         ```
 
-    1. Or use the [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/):
+    1. Or use the [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/).
 
 1. Run the Azure command, [az search service create](/cli/azure/search/service#az_search_service_create), to create a Search resource, filling in your own values for:
 
-    * YOUR-SUBSCRIPTION-ID-OR-NAME
-    * YOUR-RESOURCE-GROUP
-    * YOUR-RESOURCE-NAME
+    * YOUR-SUBSCRIPTION-ID-OR-NAME - an existing subscription
+    * YOUR-RESOURCE-GROUP - an existing resource group
+    * YOUR-RESOURCE-NAME - the name of your new search resource, used as part of the endpoint URL
 
     ```azurecli
     az search service create \
@@ -83,11 +84,37 @@ Create a new Search resource with the Azure CLI.
 
 1. Keep the value of `YOUR-RESOURCE_NAME`, you will use this later in the tutorial. 
 
-## Download the book catalog to your local development environment
+## Get your resource key
+
+Get your Search resource key with the Azure CLI.  
 
 
+1. Open an Azure CLI environment.
 
-## Bulk load the book catalog CSV into the Search Index
+    1. Login to the Azure CLI on your local development environment with the following command 
+
+        ```azurecli
+        az login
+        ```
+
+    1. Or use the [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/).
+
+1. Run the Azure command, [az search service create](/cli/azure/search/admin-key#az_search_admin_key_show), to get an **admin key**:
+
+    * YOUR-SUBSCRIPTION-ID-OR-NAME
+    * YOUR-RESOURCE-GROUP
+    * YOUR-RESOURCE-NAME
+
+    ```azurecli
+    az search admin-key show \
+        --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
+        --resource-group YOUR-RESOURCE-GROUP \
+        --name YOUR-RESOURCE_NAME \
+        --location westus \
+        --sku Standard
+    ```
+
+## Bulk load the book catalog CSV into a new Search Index
 
 This tutorial uploads directly into the Search Index from the books.csv file. 
 
@@ -98,113 +125,45 @@ This tutorial uploads directly into the Search Index from the books.csv file.
       cd bulk_upload && \
       npm init -y && \
       npm install @azure/search-documents csv-parser && \
-      touch bulk_upload.js && \
+      touch bulk_insert_books.js && \
       code .
     ```
 
 1. In Visual Studio Code, create a new file called `books.csv` and copy the data from [goodbooks-10k](https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/books.csv) into the file. 
 
-1. In Visual Studio Code, open the `bulk_upload.js` file and add the following code:
+1. In Visual Studio Code, create a new file called `books.schema.json` and copy the data from [books.schema.json](https://github.com/Azure-Samples/js-e2e/blob/main/search/bulk-insert-books-from-csv/books.schema.json) into the file. 
+
+    The schema file defines how the data is stored in the Search Index and determines what functionality is provided with the index.
+
+    When you example the `bulk_insert_books.js` code file below, you can see in the insertData function's loop that each value is either passed directly or altered to better fit the datatype defined in the schema file. 
+
+1. In Visual Studio Code, open the `bulk_insert_books.js` file and add the following code:
+
+    :::code language="javascript" source="~/../js-e2e/search/bulk-insert-books-from-csv/bulk_insert_books.js" highlight="6,7" :::
+
+1. Replace the following variables with your own values:
+
+    * YOUR-RESOURCE-NAME
+    * YOUR-RESOURCE-KEY: your admin key
+
+1. Run the Node.js JavaScript file to bulk upload from the `books.csv` file directly into the Azure Search index named `good-books` with the following terminal command:
 
     ```javascript
-    const fs = require('fs');
-    const parse = require('csv-parser')
-    const { finished } = require('stream/promises');
-    const { SearchClient, SearchIndexClient, AzureKeyCredential } = require("@azure/search-documents");
-
-    const SEARCH_ENDPOINT = "https://YOUR-REOURCE-NAME.search.windows.net";
-    const SEARCH_KEY = "YOUR-RESOURCE-KEY";
-
-    const SEARCH_INDEX_NAME = "good-books";
-    const csvFile = './books.csv'    
-    const schema = require("./books.schema.json");
-
-    const client = new SearchClient(
-        SEARCH_ENDPOINT,
-        SEARCH_INDEX_NAME,
-        new AzureKeyCredential( SEARCH_KEY)
-    );
-    const clientIndex = new SearchIndexClient(
-        SEARCH_ENDPOINT,
-        new AzureKeyCredential(SEARCH_KEY)
-    );
-
-
-    // insert each row into ...
-    const insertData = async (readable) =>{
-        
-        let i = 0;
-        
-        for await (const row of readable) {
-            console.log(`${i++} = ${JSON.stringify(row)}`);
-            
-            const indexItem = {
-                "id": row.book_id,
-                "goodreads_book_id": row.goodreads_book_id,
-                "best_book_id": row.best_book_id,
-                "work_id": row.work_id,
-                "books_count": !row.books_count ? 0 : parseInt(row.books_count),
-                "isbn": row.isbn,
-                "isbn13": row.isbn13,
-                "authors": row.authors.split(",").map(name => name.trim()),
-                "original_publication_year": !row.original_publication_year ? 0: parseInt(row.original_publication_year),
-                "original_title": row.original_title,
-                "title": row.title,
-                "language_code": row.language_code,
-                "average_rating": !row.average_rating ? 0 : parseInt(row.average_rating),
-                "ratings_count": !row.ratings_count ? 0 : parseInt(row.ratings_count),
-                "work_ratings_count": !row.work_ratings_count ? 0 : parseInt(row.work_ratings_count),
-                "work_text_reviews_count": !row.work_text_reviews_count ? 0 : parseInt(row.work_text_reviews_count),
-                "ratings_1": !row.ratings_1 ? 0 : parseInt(row.ratings_1),
-                "ratings_2": !row.ratings_2 ? 0 : parseInt(row.ratings_2),
-                "ratings_3": !row.ratings_3 ? 0 : parseInt(row.ratings_3),
-                "ratings_4": !row.ratings_4 ? 0 : parseInt(row.ratings_4),
-                "ratings_5": !row.ratings_5 ? 0 : parseInt(row.ratings_5),
-                "image_url": row.image_url,
-                "small_image_url": row.small_image_url
-            }
-           
-
-            const uploadResult = await client.uploadDocuments([indexItem]);
-        }
-        
-    }
-    const bulkInsert = async () => {
-        
-       
-        // read file, parse CSV, each row is a chunk
-        const readable = fs
-        .createReadStream(csvFile)
-        .pipe(parse());
-
-        // Pipe rows to insert function
-        await insertData(readable)
-    }
-    async function createIndex() {
-      
-        schema.name = SEARCH_INDEX_NAME;
-        const result = await clientIndex.createIndex(schema);
-      
-        console.log(result);
-    }
-        
-        
-    const main = async ()=> {
-
-        await createIndex();
-        console.log("index created");
-        
-        
-        await bulkInsert();
-
-    }
-
-        
-    main()
-        .then(() => console.log('done'))
-        .catch((err) => {
-            console.log(`done +  failed ${err}`)
-        });
+    node bulk_insert_books.js
     ```
 
+    As the code runs, each row in books.csv is printed to the console as it is processed. 
 
+    When the upload is complete, the last statement printed to the console is "done".
+
+## Review the new Search Index
+
+Once the upload completes, the Search Index is ready to use. Review your new Index.
+
+1. In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.  
+
+    :::image type="content" source="/media/folder-with-same-name-as-article-file/visual-studio-code-search-extension-view-resource.png" alt-text="In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.":::
+
+1. Expand Indexes, then `good-books`, then select a doc. 
+ 
+    :::image type="content" source="/media/folder-with-same-name-as-article-file/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
