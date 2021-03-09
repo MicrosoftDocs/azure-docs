@@ -108,11 +108,6 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 >      - If your application supports **All Microsoft account users**, replace this value with `common`.
 >    - `redirectUri` is the **Redirect URI** you entered earlier in **App registrations** in the Azure portal.
 >
-<<<<<<< HEAD
-> To find the values of *Application ID*, *Directory (tenant) ID*, and *Supported account types*, go to the **Overview** page
-> Ensure the value for `redirectUri` in the **Web.config** corresponds with the **Redirect URI** defined for the App Registration in Azure AD (if not, navigate to the **Authentication** menu for the App Registration and update the **REDIRECT URI** to match)
-=======
->>>>>>> 3a3478ebabd03aeb29bc1e7cbc47deef81a117d5
 
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
