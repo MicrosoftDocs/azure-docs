@@ -1128,6 +1128,16 @@
       href: insights/network-insights-overview.md
     - name: Key Vault
       href: insights/key-vault-insights-overview.md
+    - name: SQL insights
+      items:
+      - name: Overview
+        href: insights/sql-insights-overview.md
+      - name: FAQ
+        href: faq.md#sql-insights
+      - name: Enable
+        href: insights/sql-insights-enable.md
+      - name: Troubleshoot
+        href: insights/sql-insights-troubleshoot.md
     - name: Storage
       displayname: storage, monitor, insights, storage accounts, azure storage
       href: insights/storage-insights-overview.md
