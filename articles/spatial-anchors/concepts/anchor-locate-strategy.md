@@ -47,6 +47,7 @@ When an anchor has been created or found in a session, it is also stored in the 
 *Default Value: Properties | Spatial*
 
 This property is used to determine what data is returned from a query using AnchorLocateCriteria. The default value returns both properties and spatial data, this should not be changed if properties and spatial data are both desired. This property can be specified using the AnchorDataCategory enum.
+
 AnchorDataCategory Enum Value | Returned Data
 -----|------------
 None | No data is returned
