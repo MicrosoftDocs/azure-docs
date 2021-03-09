@@ -162,4 +162,4 @@ If you'd like to try the latest pre-release bits of Bicep before they are releas
 
 ## Next steps
 
-Get started with the [Bicep quickstart](./bicep-tutorial-create-first-bicep.md).
+Get started with the [Bicep quickstart](./quickstart-create-bicep-use-visual-studio-code.md).
