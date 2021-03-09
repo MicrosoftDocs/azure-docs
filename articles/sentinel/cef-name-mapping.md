@@ -1,5 +1,5 @@
 ---
-title: CEF and CommonSecurityLog field mapping
+title: Common Event Format (CEF) and CommonSecurityLog field mapping
 description: This article maps CEF field names to the corresponding field names in the CommonSecurityLog, accessible via Azure Sentinel.
 services: sentinel
 author: batamig
@@ -23,7 +23,7 @@ This mapping may be helpful when you are working with a CEF data source in Azure
 |CEF key name  |CommonSecurityLog field name  |Description  |
 |---------|---------|---------|
 | act    |    DeviceAction     |  The action mentioned in the event.       |
-|   app  |    ApplicationProtocol     |  The protocol used in the application, such as HTTP, HTTPS,SSHv2, Telnet, POP, IMPA, IMAPS, and so on.   |
+|   app  |    ApplicationProtocol     |  The protocol used in the application, such as HTTP, HTTPS, SSHv2, Telnet, POP, IMPA, IMAPS, and so on.   |
 | cnt    |    EventCount     |  A count associated with the event, showing how many times the same event was observed.       |
 | | | |
 
@@ -35,7 +35,7 @@ This mapping may be helpful when you are working with a CEF data source in Azure
 |Device Product     |   DeviceProduct      |   String that, together with device vendor and version definitions, uniquely identifies the type of sending device.        |
 |Device Version     |   DeviceVersion      |      String that, together with device product and vendor definitions, uniquely identifies the type of sending device.     |
 |DeviceEventClassID     |   DeviceEventClassID     |   String or integer that serves as a unique identifier per event type.      |
-| destinationDnsDomain    | DestinationDnsDomain        |   The DNS part of the completely fully-qualified domain name (FQDN).      |
+| destinationDnsDomain    | DestinationDnsDomain        |   The DNS part of the fully-qualified domain name (FQDN).      |
 | destinationServiceName | DestinationServiceName | The service that is targeted by the event. For example, `sshd`.|
 | destinationTranslatedAddress | DestinationTranslatedAddress | Identifies the translated destination referred to by the event in an IP network, as an IPv4 IP address. |
 | destinationTranslatedPort | DestinationTranslatedPort | Port, after translation, such as a firewall. <br>Valid port numbers: `0` - `65535` |
@@ -100,7 +100,7 @@ This mapping may be helpful when you are working with a CEF data source in Azure
 |oldFileSize | OldFileSize | Size of the old file.|
 | oldFileType | OldFileType | File type of the old file, such as a pipe, socket, and so on.|
 | out | SentBytes | Number of bytes transferred outbound. |
-| Outcome | Outcome | Outcome of the event, typically `success` or `failure`.|
+| Outcome | Outcome | Outcome of the event, such as `success` or `failure`.|
 |proto    |  Protocol       | Transport protocol that identifies the Layer-4 protocol used. <br><br>Possible values include protocol names, such as `TCP` or `UDP`.        |
 | | | |
 
@@ -109,14 +109,14 @@ This mapping may be helpful when you are working with a CEF data source in Azure
 |CEF field name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
 |Reason     |  Reason      |The reason an audit event was generated. <br><br>For example, `Bad password` or `Unknown user`.         |
-|Request     |   RequestURL      | The URL accessed in the case of a HTTP request, including the protocol. For example, `http://www/secure.com`        |
+|Request     |   RequestURL      | The URL accessed for an HTTP request, including the protocol. For example, `http://www/secure.com`        |
 |requestClientApplication     |   RequestClientApplication      |   The user agent associated with the request.      |
 | requestContext | RequestContext | Describes the content from which the request originated, such as the HTTP Referrer. |
 | requestCookies | RequestCookies |Cookies associated with the request. |
 | requestMethod | RequestMethod | The method used to access a URL. <br><br>Valid values include methods such as `POST`, `GET`, and so on. |
 | rt | ReceiptTime | The time at which the event related to the activity was received. |
 | RemoteIP | RemoteIP | The remote IP address, derived from the event's direction value, if possible. |
-|Severity     |  LogSeverity       |  A string or integer that describes reflects the importance of the event.<br><br> Valid string values: `Unknown` , `Low`, `Medium`, `High`, `Very-High` <br><br>Valid integer values are: `0`-`3` = Low, `4`-`6` = Medium, `7`-`8` = High, `9`-`10` = Very-High |
+|Severity     |  LogSeverity       |  A string or integer that describes the importance of the event.<br><br> Valid string values: `Unknown` , `Low`, `Medium`, `High`, `Very-High` <br><br>Valid integer values are: `0`-`3` = Low, `4`-`6` = Medium, `7`-`8` = High, `9`-`10` = Very-High |
 | shost    | SourceHostName        |Identifies the source that event refers to in an IP network. Format should be a fully qualified domain name (DQDN) associated with the source node, when a node is available. For example, `host` or `host.domain.com`. |
 | smac | SourceMacAddress | Source MAC address. |
 | sntdom | SourceNTDomain | The Windows domain name for the source address. |
@@ -136,11 +136,11 @@ This mapping may be helpful when you are working with a CEF data source in Azure
 
 ## Unmapped fields
 
-The following **CommonSecurityLog** field names do not have mappings in CEF keys:
+The following **CommonSecurityLog** field names don't have mappings in CEF keys:
 
 - **OriginalLogSeverity**: A non-mapped version of LogSeverity
 - **RemotePort**: The remote port, derived from the event's direction value, if possible.
-- **SimplifiedDeviceAction**:  A mapped version of [DeviceAction](#d-2), such as `Denied` > `Deny` 
+- **SimplifiedDeviceAction**:  A mapped version of [DeviceAction](#d), such as `Denied` > `Deny` 
 
 ## Next steps
 
