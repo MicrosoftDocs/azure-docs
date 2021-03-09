@@ -82,9 +82,10 @@ The following table lists the recommended migration tools:
 
 |Technology | Description|
 |---------|---------|
+| [Azure Migrate](/azure/migrate/how-to-create-azure-sql-assessment) | Azure Migrate for Azure SQL allows you to discover and assess your SQL data estate at scale when on VMware,  providing Azure SQL deployment recommendations, target sizing, and monthly estimates. | 
 |[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | First party Azure service that supports migration in the offline mode for applications that can afford downtime during the migration process. Unlike the continuous migration in online mode, offline mode migration runs a one-time restore of a full database backup from the source to the target. | 
 |[Native backup and restore](../../managed-instance/restore-sample-database-quickstart.md) | SQL Managed Instance supports RESTORE of native SQL Server database backups (.bak files), making it the easiest migration option for customers who can provide full database backups to Azure storage. Full and differential backups are also supported and documented in the [migration assets section](#migration-assets) later in this article.| 
-|[Log Replay Service (LRS)](../../managed-instance/log-replay-service-migrate.md) | This is a cloud service enabled for Managed Instance based on the SQL Server log shipping technology, making it a migration option for customers who can provide full, differential and log database backups to Azure storage. LRS is used to restore backup files from Azure Blob Storage to SQL Managed Instance.| 
+|[Log Replay Service (LRS)](../../managed-instance/log-replay-service-migrate.md) | This is a cloud service enabled for Managed Instance based on the SQL Server log shipping technology, making it a migration option for customers who can provide full, differential, and log database backups to Azure storage. LRS is used to restore backup files from Azure Blob Storage to SQL Managed Instance.| 
 | | |
 
 ### Alternative tools
