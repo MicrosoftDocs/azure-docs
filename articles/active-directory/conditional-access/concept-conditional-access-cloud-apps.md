@@ -1,12 +1,12 @@
 ---
-title: Cloud apps or actions in Conditional Access policy - Azure Active Directory
-description: What are cloud apps or actions in an Azure AD Conditional Access policy
+title: Cloud apps, actions, and authentication context in Conditional Access policy - Azure Active Directory
+description: What are cloud apps, actions, and authentication context in an Azure AD Conditional Access policy
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/08/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,9 +15,9 @@ ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Cloud apps or actions
+# Conditional Access: Cloud apps, actions, and authentication  context
 
-Cloud apps or actions are a key signal in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications or actions.
+Cloud apps, actions, and authentication context are key signals in a Conditional Access policy. Conditional Access policies allow administrators to assign controls to specific applications, actions, or authentication context.
 
 - Administrators can choose from the list of applications that include built-in Microsoft applications and any [Azure AD integrated applications](../manage-apps/what-is-application-management.md) including gallery, non-gallery, and applications published through [Application Proxy](../manage-apps/what-is-application-proxy.md).
 - Administrators may choose to define policy not based on a cloud application but on a user action. The only supported action is Register security information (preview), allowing Conditional Access to enforce controls around the [combined security information registration experience](../authentication/howto-registration-mfa-sspr-combined.md).
@@ -107,7 +107,7 @@ The Microsoft Azure Management application includes multiple underlying services
 > [!NOTE]
 > The Microsoft Azure Management application applies to Azure PowerShell, which calls the Azure Resource Manager API. It does not apply to Azure AD PowerShell, which calls Microsoft Graph.
 
-## Other applications
+### Other applications
 
 In addition to the Microsoft apps, administrators can add any Azure AD registered application to Conditional Access policies. These applications may include: 
 
@@ -122,11 +122,33 @@ In addition to the Microsoft apps, administrators can add any Azure AD registere
 
 ## User actions
 
-User actions are tasks that can be performed by a user. The only currently supported action is **Register security information**, which allows Conditional Access policy to enforce when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration](../authentication/concept-registration-mfa-sspr-combined.md).
+User actions are tasks that can be performed by a user. The only currently supported action is **Register security information**, which allows Conditional Access policy to be enforced when users who are enabled for combined registration attempt to register their security information. More information can be found in the article, [Combined security information registration](../authentication/concept-registration-mfa-sspr-combined.md).
+
+## Authentication context (Preview)
+
+Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, applications like SharePoint, features like Privileged Identity Management, or applications protected by Microsoft Cloud App Security (MCAS). 
+
+For example, an organization may keep different files in SharePoint like the lunch menu or their secret BBQ sauce recipe. Everyone may have access to the lunch menu, but those who have access to the secret BBQ sauce recipe may need to access from a managed device and agree to specific terms of use.
+
+These authentication contexts are managed in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Authentication context**.
+
+![Manage authentication context in the Azure portal](./media/concept-conditional-access-cloud-apps/conditional-access-authentication-context-get-started.png)
+
+> [!WARNING]
+> * Deleting authentication context definitions is not possible during the preview. 
+> * The preview is limited to a total of 25 authentication context definitions in the Azure portal.
+
+Create new authentication context definitions by selecting **New authentication context** in the Azure portal. Provide a meaningful name and description, then choose **Save**. Authentication context definitions with the checkbox **Publish to apps** checked will appear to applications that can consume them.
+
+For more information about authentication context use, see the following articles.
+
+- Privileged Identity Management
+- SharePoint Online
+- Microsoft Cloud App Security
+- Custom applications
 
 ## Next steps
 
 - [Conditional Access: Conditions](concept-conditional-access-conditions.md)
-
 - [Conditional Access common policies](concept-conditional-access-policy-common.md)
 - [Client application dependencies](service-dependencies.md)

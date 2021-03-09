@@ -52,7 +52,7 @@ The assignments portion controls the who, what, and where of the Conditional Acc
 
 ### Cloud apps or actions
 
-[Cloud apps or actions](concept-conditional-access-cloud-apps.md) can include or exclude cloud applications or user actions that will be subject to the policy.
+[Cloud apps or actions](concept-conditional-access-cloud-apps.md) can include or exclude cloud applications, user actions, or authentication contexts that will be subjected to the policy.
 
 ### Conditions
 
@@ -103,6 +103,8 @@ The grant control can trigger enforcement of one or more controls.
 - Require Hybrid Azure AD joined device
 - Require approved client app
 - Require app protection policy
+- Require password change
+- Require terms of use
 
 Administrators can choose to require one of the previous controls or all selected controls using the following options. The default for multiple controls is to require all.
 
