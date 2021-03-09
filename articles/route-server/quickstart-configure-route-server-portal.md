@@ -97,6 +97,12 @@ If you have an ExpressRoute gateway and/or VPN gateway and you want them to exch
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/enable-route-exchange.png" alt-text="Screenshot of how to enable route exchange.":::
 
+## Clean up resources
+
+If you no longer need the Azure Route Server, select **Delete** from the overview page to deprovision the Route Server.
+
+:::image type="content" source="./media/quickstart-configure-route-server-portal/delete-route-server.png" alt-text="Screenshot of how to delete Route Server.":::
+
 ## Next steps
 
 After you create the Azure Route Server, continue to learn about how Azure Route Server interacts with ExpressRoute and VPN Gateways: 
