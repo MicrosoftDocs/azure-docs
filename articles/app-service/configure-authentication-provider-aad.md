@@ -123,7 +123,7 @@ You can register native clients to request access your App Service app's APIs on
 
 You have now configured a native client application that can request access your App Service app on behalf of a user.
 
-## Daemon client application (service-to-service calls)
+### Daemon client application (service-to-service calls)
 
 Your application can acquire a token to call a Web API hosted in your App Service or Function app on behalf of itself (not on behalf of a user). This scenario is useful for non-interactive daemon applications that perform tasks without a logged in user. It uses the standard OAuth 2.0 [client credentials](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) grant.
 
