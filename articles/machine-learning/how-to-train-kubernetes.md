@@ -24,7 +24,7 @@ This guide shows you how you can attach Kubernetes clusters as a compute to run 
 
 To use your Kubernetes cluster for training, you need to attach it to your Azure Machine Learning workspace. 
 
-# Studio (#tab/studio)
+# [Studio ](#tab/studio)
 
 1. Navigate to the [portal](https://ml.azure.com).
 1. Select the **Compute** tab.
@@ -32,7 +32,7 @@ To use your Kubernetes cluster for training, you need to attach it to your Azure
 1. Select **New+ > Kubernetes service**.
 1. Enter the name of your compute.
 
-# Python SDK (#tab/sdk)
+# [Python SDK](#tab/sdk)
 
 1. Install the SDK
 1. Attach the cluster
