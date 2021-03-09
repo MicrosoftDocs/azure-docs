@@ -56,7 +56,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
-> For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient` and `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`
+> For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient` and `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
