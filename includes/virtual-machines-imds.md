@@ -341,8 +341,8 @@ Schema breakdown:
 | `osType` | Linux or Windows | 2017-04-02
 | `placementGroupId` | [Placement Group](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 | `plan` | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-| `platformUpdateDomain` |  [Update domain](../articles/virtual-machines/manage-availability.md) the VM is running in | 2017-04-02
-| `platformFaultDomain` | [Fault domain](../articles/virtual-machines/manage-availability.md) the VM is running in | 2017-04-02
+| `platformUpdateDomain` |  [Update domain](../articles/virtual-machines/availability.md) the VM is running in | 2017-04-02
+| `platformFaultDomain` | [Fault domain](../articles/virtual-machines/availability.md) the VM is running in | 2017-04-02
 | `priority` | Priority of the VM. Refer to [Spot VMs](../articles/virtual-machines/spot-vms.md) for more information | 2020-12-01
 | `provider` | Provider of the VM | 2018-10-01
 | `publicKeys` | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
