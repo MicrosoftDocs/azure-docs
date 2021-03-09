@@ -921,6 +921,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/basic-age-gating.md",
+      "redirect_url": "/azure/active-directory-b2c/age-gating",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-goog-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
       "redirect_document_id": true
