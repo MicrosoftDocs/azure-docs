@@ -4,7 +4,7 @@
  services: virtual-machines
  author: JBCook
  ms.service: virtual-machines
- ms.subservice: workloads
+ ms.subservice: confidential-computing
  ms.topic: overview
  ms.date: 09/22/2020
  ms.author: JenCook
