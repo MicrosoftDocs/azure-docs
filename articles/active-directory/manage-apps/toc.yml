@@ -38,8 +38,14 @@
       items:
       - name: Overview of App Management samples
         href: app-management-powershell-samples.md
-      - name: Export all app registrations, secrets, and certs
+      - name: Export secrets and certs (app registrations)
         href: ./scripts/powershell-export-all-app-registrations-secrets-and-certs.md
+      - name: Export secrets and certs (enterprise apps)
+        href: ./scripts/powershell-export-all-enterprise-apps-secrets-and-certs.md
+      - name: Export expiring secrets and certs
+        href: ./scripts/powershell-export-apps-with-expriring-secrets.md
+      - name: Export secrets and certs expiring beyond required date
+        href: ./scripts/powershell-export-apps-with-secrets-beyond-required.md
     - name: App Proxy PowerShell samples
       href: application-proxy-powershell-samples.md
   - name: Concepts

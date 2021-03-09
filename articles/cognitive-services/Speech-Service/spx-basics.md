@@ -81,7 +81,7 @@ spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 You can also save the synthesized output to file. In this example, we'll create a file named `my-sample.wav` in the directory that the command is run.
 
 ```console
-spx synthesize --text "We hope that you enjoy using the Speech CLI." --audio output my-sample.wav
+spx synthesize --text "Enjoy using the Speech CLI." --audio output my-sample.wav
 ```
 
 These examples presume that you're testing in English. However, we support speech synthesis in many languages. You can pull down a full list of voices with this command, or by visiting the [language support page](./language-support.md).
