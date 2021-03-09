@@ -3,7 +3,7 @@ title: CLI - Create an image from a snapshot or Managed Disk in a Shared Image G
 description: Learn how to Create an image from a snapshot or Managed Disk in a Shared Image Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/30/2020
