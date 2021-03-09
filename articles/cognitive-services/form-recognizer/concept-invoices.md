@@ -60,7 +60,7 @@ When the **status** field has the **succeeded** value, the JSON response will in
 ### Sample JSON output
 
 The response to the Get Analyze Invoice Result operation will be the structured representation of the invoice with all the information extracted. 
-See here for a [sample invoice file](./media/sample-invoice.jpg) and its structured output [sample invoice output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/InvoiceResult-sample-invoice-new.pdf.json).
+See here for a [sample invoice file](./media/sample-invoice.jpg) and its structured output [sample invoice output](./media/InvoiceResult-sample-invoice.jpg.json).
 
 The JSON output has 3 parts: 
 * `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
@@ -75,9 +75,9 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Customer being invoiced | Microsoft Corp |  |
 | CustomerId | string | Reference ID for the customer | CID-12345 |  |
-| PurchaseOrder | string | A purchase order reference number | PO-3333 | |  |
-| InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | |  |
-| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 
+| PurchaseOrder | string | A purchase order reference number | PO-3333 | | 
+| InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | | 
+| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 2019-11-15 | 
 | DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 | 2019-11-15 |
 | VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
 | VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
@@ -102,17 +102,17 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 
 Following are the line items extracted from an invoice in the JSON output response (the output below uses this [sample invoice](./media/sample-invoice.jpg))  
 
-|Name| Type | Description | Text | Value (standardized output) |
+|Name| Type | Description | Text (line item #1) | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
-| Items | string | Full string text line of the line item | 1 Consulting service 1 $100.00 |  |
-| Amount | number | The amount of the line item | $100.00 | 100 |
+| Items | string | Full string text line of the line item | 3/4/2021 A123 Consulting Services 2 hours $30.00 10% $60.00 | |
+| Amount | number | The amount of the line item | $60.00 | 100 |
 | Description | string | The text description for the invoice line item | Consulting service | Consulting service |
-| Quantity | number | The quantity for this invoice line item | 1 | 1 |
-| UnitPrice | number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | 1 | 1 |
-| ProductCode | string| Product code, product number, or SKU associated with the specific line item | NA in the sample invoice | NA in the sample invoice |
-| Unit | string| The unit of the line item e.g kg, lb etc. | NA in the sample invoice | NA in the sample invoice |
-| Date | date| Date corresponding to each line item. Often this is a date the line item was shipped | NA in the sample invoice | NA in the sample invoice |
-| Tax | string | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | NA in the sample invoice | NA in the sample invoice |
+| Quantity | number | The quantity for this invoice line item | 2 | 2 |
+| UnitPrice | number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | $30.00 | 30 |
+| ProductCode | string| Product code, product number, or SKU associated with the specific line item | A123 | |
+| Unit | string| The unit of the line item e.g kg, lb etc. | hours | |
+| Date | date| Date corresponding to each line item. Often this is a date the line item was shipped | 3/4/2021| 2021-03-04 |
+| Tax | number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
 
 
 ## Next steps
