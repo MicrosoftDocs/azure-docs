@@ -49,7 +49,7 @@ The following example shows how to create a custom query to get _Normalized Usag
 
 | Header | Type | Description |
 | ------------- | ------------- | ------------- |
-| Authorization | string | Required. The Azure Active Directory (AAD) access token. The format is `Bearer <token>`. |
+| Authorization | string | Required. The Azure Active Directory (Azure AD) access token. The format is `Bearer <token>`. |
 | Content-Type | `string` | `application/JSON` |
 ||||
 
@@ -145,7 +145,7 @@ On creating a custom report template successfully and receiving the `QueryID` as
 
 | Header | Type | Description |
 | ------ | ---- | ----------- |
-| Authorization | string | Required. The Azure Active Directory (AAD) access token. The format is `Bearer <token>`. |
+| Authorization | string | Required. The Azure Active Directory (Azure AD) access token. The format is `Bearer <token>`. |
 | Content Type | string | `application/JSON` |
 ||||
 
@@ -268,7 +268,7 @@ You can use this method to query the status of a report execution using the `Rep
 
 | Header | Type | Description |
 | ------ | ------ | ------ |
-| Authorization | string | Required. The Azure Active Directory (AAD) access token. The format is `Bearer <token>`. |
+| Authorization | string | Required. The Azure Active Directory (Azure AD) access token. The format is `Bearer <token>`. |
 | Content type | string | `application/json` |
 ||||
 

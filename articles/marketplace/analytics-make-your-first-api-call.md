@@ -11,7 +11,7 @@ ms.date: 3/08/2021
 
 # Make your first API call to access commercial marketplace analytics data
 
-For a list of the APIs for accessing commercial marketplace analytics data, see [APIs for accessing commercial marketplace analytics data](analytics-available-apis.md). Before you make your first API call, make sure that you met the [pre-requisites](analytics-pre-reqs.md) to programmatically access commercial marketplace analytics data.
+For a list of the APIs for accessing commercial marketplace analytics data, see [APIs for accessing commercial marketplace analytics data](analytics-available-apis.md). Before you make your first API call, make sure that you met the [pre-requisites](analytics-prerequisites.md) to programmatically access commercial marketplace analytics data.
 
 ## Token generation
 

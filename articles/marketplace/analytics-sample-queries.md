@@ -15,9 +15,9 @@ This article provides sample queries for the Microsoft commercial marketplace Or
 
 For details about the column names, attributes, and descriptions, refer to the following tables:
 
-- [Customer details table](https://review.docs.microsoft.com/azure/marketplace/customer-dashboard?branch=pr-en-us-146484#customer-details-table)
-- [Orders details table](https://review.docs.microsoft.com/azure/marketplace/orders-dashboard?branch=pr-en-us-146484#orders-details-table)
-- [Usage details table](https://review.docs.microsoft.com/azure/marketplace/usage-dashboard?branch=pr-en-us-146484#usage-details-table)
+- [Customer details table](customer-dashboard.md#customer-details-table)
+- [Orders details table](orders-dashboard.md#orders-details-table)
+- [Usage details table](usage-dashboard.md#usage-details-table)
 
 ## Customers report queries
 
@@ -58,3 +58,7 @@ These sample queries apply to the Orders report.
 | Orders report for active orders for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Active’ TIMESPAN LAST_6_MONTHS` |
 | Orders report for canceled orders for the last 6M | `SELECT OrderId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = ‘Cancelled’ TIMESPAN LAST_6_MONTHS` |
 |||
+
+## Next steps
+
+- [APIs for accessing commercial marketplace analytics data](analytics-available-apis.md)

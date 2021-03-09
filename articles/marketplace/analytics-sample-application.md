@@ -20,7 +20,7 @@ You can choose to take inspiration from the sample application and build your ow
 
 The sample application achieves the following goals:
 
-- Generates an AAD Token.
+- Generates an Azure Active Directory (Azure AD) token.
 - Gets available datasets.
 - Creates user-defined queries.
 - Gets user-defined and system queries.
@@ -52,3 +52,7 @@ This page will make API calls to the webserver running on the local machine, whi
 The basic structure of the C# code for doing the programmatic access API calls is as follows:
 
 :::image type="content" source="./media/analytics-programmatic-access/code-snippets.png" alt-text="Screenshot of API calls.":::
+
+## Next steps
+
+- [APIs for accessing commercial marketplace analytics data](analytics-available-apis.md)

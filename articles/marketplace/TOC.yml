@@ -313,7 +313,7 @@
     - name: Get started
       href: analytics-get-started.md
     - name: Programmatic access prerequisites
-      href: analytics-pre-reqs.md 
+      href: analytics-prerequisites.md 
     - name: Programmatic access paradigm
       href: analytics-programmatic-access.md
     - name: Make your first API call

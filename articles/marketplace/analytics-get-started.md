@@ -26,4 +26,4 @@ The key value of programmatic access of commercial marketplace analytics data is
 
 ## Next steps
 
-- [Prerequisites to programmatically access analytics data](analytics-pre-reqs.md)
+- [Prerequisites to programmatically access analytics data](analytics-prerequisites.md)

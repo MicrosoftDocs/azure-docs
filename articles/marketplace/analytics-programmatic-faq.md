@@ -21,7 +21,7 @@ This table describes the API responses and what to do if you receive them.
 
 | Error description | Error code | Troubleshoot |
 | ------------ | ------------- | ------------- |
-| Unauthorized | 401 | This is an authentication exception. Check the correctness of the Azure Active Directory (AAD) token. The AAD token is valid for 60 minutes, after which time you would need to regenerate the AAD token. |
+| Unauthorized | 401 | This is an authentication exception. Check the correctness of the Azure Active Directory (Azure AD) token. The Azure AD token is valid for 60 minutes, after which time you would need to regenerate the Azure AD token. |
 | Invalid table name | 400 | The name of the dataset is wrong. Recheck the dataset name by calling the “Get All Datasets” API. |
 | Incorrect column name | 400| The name of the column in the query is incorrect. Recheck the column name by calling the “Get All Datasets” API or refer to the column names in the following tables:<br><ul><li>[Orders details table](orders-dashboard.md#orders-details-table)</li><li>[Usage details table](usage-dashboard.md#usage-details-table)</li><li>[Customer details table](customer-dashboard.md#customer-details-table)</li><li>[Marketplace insights details table](insights-dashboard.md#marketplace-insights-details-table)</li></UL> |
 | Null or missing value | 400 | You may be missing mandatory parameters as part of the request payload of the API. |
@@ -50,3 +50,7 @@ In this example, the allowable values for SKUBillingType are Paid or Free. Refer
 - [Usage details table](usage-dashboard.md#usage-details-table)
 - [Customer details table](customer-dashboard.md#customer-details-table)
 - [Marketplace insights details table](insights-dashboard.md#marketplace-insights-details-table)
+
+## Next steps
+
+- [APIs for accessing commercial marketplace analytics data](analytics-available-apis.md)
