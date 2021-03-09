@@ -8,11 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-<<<<<<< HEAD
-ms.date: 01/29/2021
-=======
-ms.date: 03/04/2021
->>>>>>> 2142944a0cd5de49b699c977fab5d426e9181270
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -202,7 +198,7 @@ The **JourneyFraming** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Enabled | Yes | Enables this policy to be loaded within an iframe. Possible values: `false` (default), or `true`. |
-| Sources | Yes | Contains the domains that will load host the iframe. For more information, see [Loading Azure B2C in an iframe](<<TBD>>.md). |
+| Sources | Yes | Contains the domains that will load host the iframe. For more information, see [Loading Azure B2C in an iframe](embedded-login.md). |
 
 ## TechnicalProfile
 

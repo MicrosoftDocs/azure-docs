@@ -9,52 +9,60 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/25/2020
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Embedded login experience
+# Embedded sign-in experience
 
-Embedded login allows you to embed the Azure AD B2C user interface into your application. With the embedded experience, users sign into your applications without being redirected or seeing a pop-up window.
+For a simpler sign-in experience, you can avoid redirecting users to a separate sign-in page or generating a pop-up window. By using the inline frame element `<iframe>`, you can embed the Azure AD B2C sign-in user interface directly into your web application.
 
-## Web application
+## Web application embedded sign-in
 
-In a web application, you can using an HTML inline frame element to embed the Azure B2C user interface into a web application page by . You can use an inline frame, or `<iframe>`, to embed a document, in this case the Azure AD B2C user interface, within an HTML5 document.
+The inline frame element `<iframe>` is used to embed a document in an HTML5 web page. You can use the iframe element to embed the Azure AD B2C sign-in user interface directly into your web application, as show in the following example:
 
 ![Login with hovering DIV experience](media/embedded-login/login-hovering.png)
 
 When using iframe, consider the following:
 
-- Embedded logging supports only local account. Most of the social identity providers (e.g. Google, Facebook) block their login pages from being rendered in inline frames.
-- Since Azure AD B2C session cookies within an iframe are considered third party cookies, certain browsers (e.g. Safari, Chrome in incognito mode) either block or clear these cookies leading to undesired impact to the user experience.  Your application domain name must be on the **same origin** as Azure AD B2C. For example, the app is hosted on https://app.contoso.com, while the Azure AD B2C runs under the https://login.contoso.com 
+- Embedded sign-in supports local accounts only. Most social identity providers (for example, Google and Facebook) block their sign-in pages from being rendered in inline frames.
+- Because Azure AD B2C session cookies within an iframe are considered third-party cookies, certain browsers (for example Safari or Chrome in incognito mode) either block or clear these cookies, resulting in an undesirable user experience. To prevent this issue, make sure your application domain name and your Azure AD B2C domain have the *same origin*. For example, an application hosted on https://app.contoso.com has the same origin as Azure AD B2C running on https://login.contoso.com.
  
 ## Configure your policy
 
-To allow your Azure AD B2C user interface to be embedded in an iframe, a content security policy `Content-Security-Policy`, and frame options `X-Frame-Options` must be included in the Azure AD B2C HTTP response headers. These headers allow the Azure AD B2C user interface to run under your application domain name.
+To allow your Azure AD B2C user interface to be embedded in an iframe, a content security policy `Content-Security-Policy` and frame options `X-Frame-Options` must be included in the Azure AD B2C HTTP response headers. These headers allow the Azure AD B2C user interface to run under your application domain name.
 
-Add a **JourneyFraming** element inside of the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. Your **UserJourneyBehavors** element should look like this example:
+Add a **JourneyFraming** element inside the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. Your **UserJourneyBehaviors** element should look like this example:
 
 
 ```xml
-<UserJourneyBehaviors> 
-  <JourneyFraming Enabled="true" Sources="https://somesite.com https://anothersite.com" /> 
-</UserJourneyBehaviors> 
+<!--
+<RelyingParty>
+  <JourneyFraming>
+    <DefaultUserJourney>
+    </DefaultUserJourney> -->
+      <UserJourneyBehaviors> 
+        <JourneyFraming Enabled="true" Sources="https://somesite.com https://anothersite.com" /> 
+      </UserJourneyBehaviors> 
+  <!--
+  </JourneyFraming>
+</RelyingParty> -->
 ```
 
-The **sources** attribute contains the URI of your web application. Use space between URIs. Each URI must meet the following requirements: 
+The **Sources** attribute contains the URI of your web application. Add a space between URIs. Each URI must meet the following requirements:
 
-- Be trusted and owned by your application.
-- Use the https scheme.  
-- Full URI of the web app. Wildcards are not supported. 
+- The URI must be trusted and owned by your application.
+- The URI must use the https scheme.  
+- The full URI of the web app must be specified. Wildcards are not supported.
 
-In addition, we recommend that you also block your own domain name from being embedded in an iframe by setting the Content-Security-Policy and X-Frame-Options headers respectively on your application pages. This will mitigate security concerns around older browsers related to nested embedding of iframes. 
+In addition, we recommend that you also block your own domain name from being embedded in an iframe by setting the Content-Security-Policy and X-Frame-Options headers respectively on your application pages. This will mitigate security concerns around older browsers related to nested embedding of iframes.
 
 ## Adjust policy user interface
 
-With Azure AD B2C [user interface customization](custom-policy-ui-customization.md), you get nearly full control of the HTML and CSS content that's presented to users. Follow the steps how to use a custom HTML page, using content definitions. To fits the Azure AD B2C user interface can into the iframe size, provide clean HTML page, without background and extra spaces.  
+With Azure AD B2C [user interface customization](customize-ui.md), you have almost full control over the HTML and CSS content presented to users. Follow the steps for customizing an HTML page using content definitions. To fit the Azure AD B2C user interface into the iframe size, provide clean HTML page without background and extra spaces.  
 
-The following CSS code hides the the Azure AD B2C HTML elements, and adjust the size of the panel to accommodate the iframe full size.
+The following CSS code hides the Azure AD B2C HTML elements and adjusts the size of the panel to fill the iframe.
 
 ```css
 div.social, div.divider {
@@ -70,9 +78,9 @@ div.api_container{
 }
 ```
 
-In some cases you may want to inform your application which Azure AD B2C page is presented now. For example, inform your application that a user selects the sign-up option. The application can respond by hiding the sign-in with social account links, or adjust the iframe size accordingly.
+In some cases, you might want to notify to your application of which Azure AD B2C page is currently being presented. For example, when a user selects the sign-up option, you might want the application to respond by hiding the links for signing in with a social account or adjusting the iframe size.
 
-To notify your application about the current Azure AD B2C page, [enable your policy to JavaScript](javascript-samples.md), the use HTML5 post massages. The following JavaScript code sends a post massage to the app with `signUp`.
+To notify your application of the current Azure AD B2C page, [enable your policy for JavaScript](javascript-samples.md), and then use HTML5 post messages. The following JavaScript code sends a post message to the app with `signUp`:
 
 ```javascript
 window.parent.postMessage("signUp", '*');
@@ -80,17 +88,17 @@ window.parent.postMessage("signUp", '*');
 
 ## Configure a web application
 
-When a user clicks on the sign-in button, the [app](code-samples.md#web-apps-and-apis) generates an authorization request that takes the user to Azure AD B2C to sign-in. After the sign-in is completed Azure AD B2C returns an ID token, or authorization code to the configured redirect URI within your application.
+When a user selects the sign-in button, the [web app](code-samples.md#web-apps-and-apis) generates an authorization request that takes the user to Azure AD B2C sign-in experience. After sign-in is complete, Azure AD B2C returns an ID token, or authorization code, to the configured redirect URI within your application.
 
-To support embedded login, the iframe **src** property is pointing to sign-in controller, such as `/account/SignUpSignIn`, which generates the authorization request, and redirect the user to Azure AD B2C policy.
+To support embedded login, the iframe **src** property points to the sign-in controller, such as `/account/SignUpSignIn`, which generates the authorization request and redirects the user to Azure AD B2C policy.
 
 ```html
 <iframe id="loginframe" frameborder="0" src="/account/SignUpSignIn"></iframe>
 ``` 
 
-After the ID token is received and validated by the application. The authorization flow is completed, and the application recognizes and trusts the user. Since the authorization flow happens inside th iframe, you need to reload the main page. After the page is reloaded the sign-in button is changed to sign-out, and the username is presented to the UI.  
+After the ID token is received and validated by the application, the authorization flow is complete and the application recognizes and trusts the user. Because the authorization flow happens inside the iframe, you need to reload the main page. After the page reloads, the sign-in button changes to "sign out" and the username is presented in the UI.  
 
-Following is an example how the sign-in redirect URI can refresh the main page.
+The following is an example showing how the sign-in redirect URI can refresh the main page:
 
 ```javascript
 window.top.location.reload();
@@ -98,24 +106,24 @@ window.top.location.reload();
 
 ### Add sign-in with social accounts to a web app
 
-Social identity providers block their login pages from being rendered in inline frames. You can use a septate policy for the social account, or a single policy, for both both sign-in and sign-up with local and social account. Then use the `domain_hint` query string parameter. The domain hint parameter takes the user directly to the social identity provider sign-in page. 
+Social identity providers block their sign-in pages from rendering in inline frames. You can use a separate policy for social accounts, or you can use a single policy for both sign-in and sign-up with local and social accounts. Then you can use the `domain_hint` query string parameter. The domain hint parameter takes the user directly to the social identity provider's sign-in page.
 
-In your application, add the sign-in with social account buttons. When a user clicks one of the social account button, the control need to change the policy name, or set the domain hint parameter. 
+In your application, add the sign-in with social account buttons. When a user clicks one of the social account buttons, the control needs to change the policy name or set the domain hint parameter.
 
-TBD: add a diagram
+<!-- TBD: add a diagram -->
 
-The redirect URI can be the same one, used by the iframe. Just skip the page reload.
+The redirect URI can be the same redirect URI used by the iframe. You can skip the page reload.
 
-## Configure a single page application
+## Configure a single-page application
 
-A single page application must have a second HTML page "the login page" that is loaded in the iframe. The login page hosts the authentication library code which generates the authorization code and get the token back.
+For a single-page application, you'll also need to a second "sign-in" HTML page that loads into the iframe. This sign-in page hosts the authentication library code that generates the authorization code and returns the token.
 
-When the single page applications needs the access token, use a JavaScript code to access in iframe and it's object the contain the access token.
+When the single-page application needs the access token, use JavaScript code to obtain the access token from the iframe and object that contains it.
 
->Note!
-> MSAL 2.0 currently doesn't support running inside an iframe.
+> [!NOTE]
+> Running MSAL 2.0 in an iframe is not currently supported.
 
-The following example is a code that runs on the main page, calling some iframe's JavaScript code;
+The following code is an example that runs on the main page and calls an iframe's JavaScript code:
 
 ```javascript
 function getToken()
@@ -133,4 +141,13 @@ function logOut()
   document.getElementById("loginframe").contentWindow.policyLogout("adB2CSignInSignUp", "B2C_1A_SignUpOrSignIn");
 }
 ```
- 
+
+## Next steps
+
+See the following related articles:
+
+- [User interface customization](customize-ui.md)
+- [RelyingParty](relyingparty.md) element reference
+- [Enable your policy for JavaScript](javascript-samples.md)
+- [Code samples](code-samples.md)
+- 
