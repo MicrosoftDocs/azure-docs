@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: active-directory
-author: barclayn
+author: ajburnle
 ms.service: active-directory
 ms.topic: include
 ms.date: 12/07/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.custom: include file
 ---
 
@@ -33,6 +33,7 @@ ms.custom: include file
     > [!NOTE]
     > - Roles selected here include both [permanent and eligible roles](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
     > - Selecting more than one role will create multiple access reviews. For example, selecting five roles will create five separate access reviews.
+    > - For roles with groups assigned to them, the access of each group linked with the role under review will be reviewed as a part of the access review.
 
     If you are creating an access review of **Azure AD roles**, the following shows an example of the Review membership list.
 
