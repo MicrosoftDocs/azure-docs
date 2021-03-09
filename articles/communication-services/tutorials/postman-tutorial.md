@@ -56,7 +56,7 @@ Once on the collection tab, create two variables:
 
 Enter these values into the "Initial Value" column of the variables screen. Once entered, press the "Persist All" button just above the table on the right. When configured correctly your Postman screen should look something like this:
 
-:::image type="content" source="media/postman/acsvariablesset.png" alt-text="Postman with an ACS Collection's Pre-Request Script Sub-Tab Selected.":::
+:::image type="content" source="media/postman/acsvariablesset.png" alt-text="Postman with an ACS Collection's variables set up correctly.":::
 
 You can learn more about variables by reading [Postman's documentation on them](https://learning.postman.com/docs/sending-requests/variables).
 
