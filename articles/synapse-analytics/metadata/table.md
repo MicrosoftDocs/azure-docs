@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 
 Azure Synapse Analytics allows the different workspace computational engines to share databases and Parquet-backed tables between its Apache Spark pools and serverless SQL pool.
 
-Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. Table names will converted to lower case and need to be queried using the lower case name. These tables will immediately become available for querying by any of the Azure Synapse workspace Spark pools. They can also be used from any of the Spark jobs subject to permissions.
+Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. Table names will be converted to lower case and need to be queried using the lower case name. These tables will immediately become available for querying by any of the Azure Synapse workspace Spark pools. They can also be used from any of the Spark jobs subject to permissions.
 
 The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in serverless SQL pool. [Exposing a Spark table in SQL](#expose-a-spark-table-in-sql) provides more detail on the table synchronization.
 
