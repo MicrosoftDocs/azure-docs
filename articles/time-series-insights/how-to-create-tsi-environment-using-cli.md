@@ -35,32 +35,32 @@ key=$(az storage account keys list -g $rg -n $storage --query [0].value --output
 
 ## Creating the Environment
 
-Now that the storage account is created and its name and management key are assigned to the variables, run the command below to create the Time Series Insights Environment:
+Now that the storage account is created and its name and management key are assigned to the variables, run the command below to create the Azure Time Series Insights Environment:
 
 > :warning: **Note**: In your code, replace the following with unique names for your scenario:
-> 
+>
 > - `my-tsi-env` with your Environment name.
 > - `my-ts-id-prop` with the name of your Time Series Id Property.
- 
+
 > [!IMPORTANT]
 > Your environment's Time Series ID is like a database partition key. The Time Series ID also acts as the primary key for your Time Series Model.
-> 
+>
 > For more information, see [Best practices for choosing a Time Series ID.](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid)
 
 ```azurecli-interactive
 az tsi environment gen2 create --name "my-tsi-env" --location eastus2 --resource-group $rg --sku name="L1" capacity=1 --time-series-id-properties name=my-ts-id-prop type=String --warm-store-configuration data-retention=P7D --storage-configuration account-name=$storage management-key=$key
 ```
-## Remove a Time Series Insights Environment
+## Remove an Azure Time Series Insights Environment
 
 You can use Azure CLI to delete an individual resource, such as a Time Series Insights Environment, or delete a Resource Group and all its resources, including any Time Series Insights Environments.
 
-To [delete a Time Series Insights Environments](https://docs.microsoft.com/en-us/cli/azure/ext/timeseriesinsights/tsi/environment?view=azure-cli-latest#ext_timeseriesinsights_az_tsi_environment_delete), run the following command:
+To [delete a Time Series Insights Environments](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/environment?view=azure-cli-latest#ext_timeseriesinsights_az_tsi_environment_delete), run the following command:
 
 ```azurecli-interactive
 az tsi environment delete --name "my-tsi-env" --resource-group $rg
 ```
 
-To [delete the storage account](https://docs.microsoft.com/en-us/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete), run the following command:
+To [delete the storage account](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete), run the following command:
 
 ```azurecli-interactive
 az storage account delete --name $storage --resource-group $rg
