@@ -32,7 +32,7 @@ Azure Cosmos DB supports two types of attachments:
 > [!NOTE]
 > Azure Cosmos DB API for MongoDB version 3.2 utilizes managed attachments for GridFS, which are thus subject to the same limitations as Azure Cosmos DB's managed attachments.
 >
-> We recommend users using the MongoDB GridFS feature set to upgrade to Azure Cosmos DB API for MongoDB version 3.6 or higher, which is decoupled from attachments and provides a a stronger and more robust experience. Alternatively, users using the MongoDB GridFS feature set should also consider using Azure Blob Storage - which is purpose-built for storing blob content.
+> We recommend developers using the MongoDB GridFS feature set to upgrade to Azure Cosmos DB API for MongoDB version 3.6 or higher, which is decoupled from attachments and provides a a stronger and more robust experience. Alternatively, developers using the MongoDB GridFS feature set should also consider using Azure Blob Storage - which is purpose-built for storing blob content and offers expanded functionality at lower cost compared to GridFS.
 
 ## Known limitations
 
