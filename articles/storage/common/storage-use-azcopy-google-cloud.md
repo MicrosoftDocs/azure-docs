@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/09/2021
 ms.author: normesta
 ms.subservice: common
 ---
@@ -109,7 +109,7 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://storage.cloud.google.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Example** | `azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **Example** (hierarchical namespace)| `azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://storage.cloud.google.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 
 ### Copy a subset of buckets in a Google Cloud project 
 
@@ -170,7 +170,5 @@ Find more examples in any of these articles:
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
 
 - [Transfer data](storage-use-azcopy-v10.md#transfer-data)
-
-- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
 - [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)

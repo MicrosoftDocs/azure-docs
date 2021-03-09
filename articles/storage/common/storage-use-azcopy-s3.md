@@ -164,6 +164,4 @@ Find more examples in any of these articles:
 
 - [Transfer data](storage-use-azcopy-v10.md#transfer-data)
 
-- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-
 - [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
