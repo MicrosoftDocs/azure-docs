@@ -366,7 +366,7 @@
       href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
-    - name: Using Azure Monitor
+    - name: Using Azure Monitor Logs
       href: backup-azure-monitoring-use-azuremonitor.md
   - name: Reports
     items:
@@ -374,10 +374,14 @@
       items:
       - name: Configure Azure Backup reports
         href: configure-reports.md
+      - name: Email Azure Backup reports
+        href: backup-reports-email.md
     - name: Configure Diagnostics Events for Recovery Services Vaults
       items:
       - name: Using Diagnostics Settings for Recovery Services Vaults
         href: backup-azure-diagnostic-events.md
+      - name: Using System Functions
+        href: backup-reports-system-functions.md
       - name: Log Analytics Data Model for Resource Specific Diagnostics Events
         href: backup-azure-reports-data-model.md
       - name: Log Analytics Data Model for Azure Backup (Azure Diagnostics mode)
