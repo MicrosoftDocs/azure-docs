@@ -5,12 +5,11 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick 
 ms.subservice: spark
 ---
-
 
 # Manage Scala and Java packages for Apache Spark in Azure Synapse Analytics
 
@@ -33,13 +32,10 @@ Workspace packages can be custom or private jar files. You can upload these pack
 
 To add workspace packages:
 1. Navigate to the **Manage** > **Workspace packages** tab.
-2. Upload your wheel files by using the file selector.
-3. Once the files have been uploaded to the Azure Synapse workspace, you can add these wheel files to a given Apache Spark pool.
+2. Upload your jar files by using the file selector.
+3. Once the files have been uploaded to the Azure Synapse workspace, you can add these jar files to a given Apache Spark pool.
 
 ![Screenshot that highlights workspace packages.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "View workspace packages")
-
-> [!IMPORTANT]
-> Installing Workspace packages is currently not yet supported within data exfiltration protected (DEP) workspaces.
 
 ## Pool libraries
 Once you have identified the Scala and Java packages that you would like to use for your Spark application, you can install them into a Spark pool. Pool-level libraries are available to all notebooks and jobs running on the pool.

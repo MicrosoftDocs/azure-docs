@@ -78,6 +78,18 @@
           href: synapse-link-use-cases.md
         - name: Synapse Link FAQ
           href: synapse-link-frequently-asked-questions.md
+    - name: Backup and restore
+      items:
+        - name: Backup and restore introduction
+          href: online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+          - name: Continuous backup - Introduction
+            href: continuous-backup-restore-introduction.md
+          - name: Continuous backup - FAQ
+            href: continuous-backup-restore-frequently-asked-questions.md
+          - name: Continuous backup - Resource model
+            href: continuous-backup-restore-resource-model.md
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
@@ -112,34 +124,6 @@
       href: concepts-limits.md
     - name: Enterprise readiness 
       items:
-        - name: Backup and restore introduction
-          href: online-backup-and-restore.md
-        - name: Continuous backup
-          items:
-          - name: Continuous backup - Introduction
-            href: continuous-backup-restore-introduction.md
-          - name: Continuous backup - FAQ
-            href: continuous-backup-restore-frequently-asked-questions.md
-          - name: Continuous backup - Resource model
-            items:
-            - name: Resource model overview
-              href: continuous-backup-restore-resource-model.md
-            - name: Restorable accounts - List
-              href: restorable-database-accounts-list.md
-            - name: Restorable accounts - List by location
-              href: restorable-database-accounts-list-by-location.md
-            - name: Restorable SQL resources - List
-              href: restorable-sql-resources-list.md
-            - name: Restorable SQL databases - List
-              href: restorable-sql-databases-list.md
-            - name: Restorable SQL containers - List
-              href: restorable-sql-containers-list.md
-            - name: Restorable MongoDB resources - List
-              href: restorable-mongodb-resources-list.md
-            - name: Restorable MongoDB collections - List
-              href: restorable-mongodb-collections-list.md
-            - name: Restorable MongoDB databases - List
-              href: restorable-mongodb-databases-list.md
         - name: Compliance
           href: compliance.md
     - name: Automatic recommendations
@@ -937,7 +921,7 @@
         - name: REST (Management plane)
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
@@ -1055,7 +1039,7 @@
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
 - name: MongoDB API
@@ -1186,7 +1170,7 @@
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
 - name: Gremlin API
@@ -1264,7 +1248,7 @@
         - name: Response Headers
           href: gremlin-headers.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: REST resource provider
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Resource Manager template
@@ -1350,7 +1334,7 @@
         - name: Python
           href: table-sdk-python.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Table storage REST APIs
           href: /rest/api/storageservices/table-service-rest-api
 - name: How-to guides
@@ -1391,6 +1375,22 @@
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Use Power BI with Synapse Link
           href: synapse-link-power-bi.md
+    - name: Backup and restore
+      items:
+        - name: Manage continuous backup
+          items:
+            - name: Continuous backup - Permissions and roles
+              href: continuous-backup-restore-permissions.md
+            - name: Continuous backup - Portal
+              href: continuous-backup-restore-portal.md
+            - name: Continuous backup - PowerShell
+              href: continuous-backup-restore-powershell.md
+            - name: Continuous backup - CLI
+              href: continuous-backup-restore-command-line.md
+            - name: Continuous backup - Resource Manager
+              href: continuous-backup-restore-template.md
+        - name: Manage periodic backup
+          href: configure-periodic-backup-restore.md 
     - name: Security
       items:
         - name: Configure IP firewall
@@ -1410,20 +1410,6 @@
           href: how-to-setup-cmk.md
     - name: Enterprise readiness
       items:
-        - name: Manage continuous backup
-          items:
-            - name: Continuous backup - Permissions and roles
-              href: continuous-backup-restore-permissions.md
-            - name: Continuous backup - Portal
-              href: continuous-backup-restore-portal.md
-            - name: Continuous backup - PowerShell
-              href: continuous-backup-restore-powershell.md
-            - name: Continuous backup - CLI
-              href: continuous-backup-restore-command-line.md
-            - name: Continuous backup - ARM
-              href: continuous-backup-restore-template.md
-        - name: Manage periodic backup
-          href: configure-periodic-backup-restore.md 
         - name: Request quota increase
           href: create-support-request-quota-increase.md
     - name: Monitor

@@ -31,6 +31,8 @@ We recommend trying some of these steps to get the best results.
 
 ## Detection
 
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Mixed-Reality/Azure-Object-Anchors-Detection-and-Alignment-Best-Practices/player]
+
 - The provided runtime SDK requires a user-provided search region to search for and detect the physical object(s). The
   search region could be a bounding box, a sphere, a view frustum, or any combination of them. To avoid a false detection,
   it is preferable to set a search region large enough to cover the object. When using the provided sample apps, you can

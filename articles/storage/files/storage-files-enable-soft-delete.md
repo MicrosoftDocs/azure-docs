@@ -30,7 +30,7 @@ The following sections show how to enable and use soft delete for Azure file sha
 
 # [Azure CLI](#tab/azure-cli)
 
-Soft delete cmdlets are available in version 2.1.3 and newer of the [Azure CLI module](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Soft delete cmdlets are available in version 2.1.3 and newer of the [Azure CLI module](/cli/azure/install-azure-cli).
 
 ## Getting started with CLI
 
