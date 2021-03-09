@@ -181,7 +181,7 @@ This section describes the current state of the functional and behavioral differ
 | function.json artifact | Generated | Not generated |
 | Configuration | [host.json](functions-host-json.md) | [host.json](functions-host-json.md) and [custom initialization](#configuration) |
 | Dependency injection | [Supported](functions-dotnet-dependency-injection.md)  | [Supported](#dependency-injection) |
-| Middleware | Not supported | [Supported](#middleware) |
+| Middleware | Not supported | Supported |
 | Cold start times | Typical | Longer, because of just-in-time start-up. Run on Linux instead of Windows to reduce potential delays. |
 | ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ |
 
