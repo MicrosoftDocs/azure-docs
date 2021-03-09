@@ -423,7 +423,7 @@ sudo az account set --subscription "<name or ID of Azure Subscription>"
 ```bash
 sudo az group create --name "<resource-group-name>" --location "<your-region>"
 ```
-**Note**: Example regions include WestUS, North Europe, China East, etc.
+See [Region Support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) for available regions.
 ```bash
 sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
 ```
