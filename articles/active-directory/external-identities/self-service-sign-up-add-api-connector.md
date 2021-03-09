@@ -34,7 +34,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. See the section below for options on securing your API.
 
-    ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
+    ![Configure an API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
 8. Select **Save**.
 
@@ -44,7 +44,11 @@ You can protect your API endpoint by using either HTTP basic authentication or H
 ### HTTP basic authentication
 HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Azure Active Directory sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. The credentials are formatted as the base64-encoded string "username:password". Your API then checks these values to determine whether to reject an API call or not.
 
-### HTTPS client certificate authentication
+### HTTPS client certificate authentication (preview)
+
+> [!IMPORTANT]
+> This functionality is in preview and is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Client certificate authentication is a mutual certificate-based authentication, where the client, Azure Active Directory in this case, provides a client certificate to the server to prove its identity. This happens as a part of the SSL handshake. Only services that have proper certificates can access your REST API service. The client certificate is an X.509 digital certificate. In production environments, it should be signed by a certificate authority. 
 
 To create a certificate, you can use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. You can then [export the certificate](https://docs.microsoft.com/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli) and upload it for use in the API connectors configuration. Note that password is only required for certificate files protected by a password.
