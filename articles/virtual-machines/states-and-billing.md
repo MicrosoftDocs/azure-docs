@@ -34,7 +34,7 @@ The power state represents the last known state of the VM.
 
 The following table provides a  description of each instance state and indicates whether it is billed for instance usage or not.
 
-| State | Description | Billing |  
+| Power state | Description | Billing |  
 |---|---|---|
 | Starting| Virtual Machine is powering up. |Not billed* | 
 | Running | Virtual Machine is fully up. This is the standard working state. | Billed | 
@@ -52,7 +52,7 @@ A provisioning state is the status of a user-initiated, control-plane operation 
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/vm-provisioning-states.png" alt-text="Image shows the provisioning states a VM can go through.":::
 
-| State | Description | Power state | Billing | 
+| Provisioning state | Description | Power state | Billing | 
 |---|---|---|---|
 | Create | Virtual machine creation. | Starting | Not billed* | 
 | Update | Updates the model for an existing virtual machine. Some non-model changes to a virtual machine such as start and restart fall under the update state. | Running | Billed | 
@@ -66,7 +66,7 @@ OS Provisioning states only apply to virtual machines created with an OS image. 
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/os-provisioning-states.png" alt-text="Image shows the OS provisioning states a VM can go through.":::
 
-| State | Description | Power state | Billing | 
+| OS Provisioning state | Description | Power state | Billing | 
 |---|---|---|---|
 | OSProvisioningInProgress | The VM is running and the installation of the Guest OS is in progress. | Running | Billed | 
 | OSProvisioningComplete | This is a short-lived state. The virtual machine quickly transitions from this state to **Success**. If extensions are still being installed you will continue to see this state until they are complete. | Running | Billed | 
