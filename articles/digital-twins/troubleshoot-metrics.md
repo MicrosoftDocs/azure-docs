@@ -50,6 +50,17 @@ Azure Digital Twins provides several metrics to give you an overview of the heal
 
 The following tables describe the metrics tracked by each Azure Digital Twins instance, and how each metric relates to the overall status of your instance.
 
+#### Metrics for tracking service limits
+
+You can configure these metrics to track when you're approaching a [published service limit](reference-service-limits.md#functional-limits) for some aspect of your solution. 
+
+To set this up, use the [alerts](troubleshoot-alerts.md) feature in Azure Monitor. You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.
+
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
+| TwinCount | Twin Count (Preview) | Count | Total | Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of twins allowed per instance. |  None |
+| ModelCount | Model Count (Preview) | Count | Total | Total number of models in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of models allowed per instance. | None |
+
 #### API request metrics
 
 Metrics having to do with API requests:
@@ -64,14 +75,13 @@ Metrics having to do with API requests:
 
 Metrics having to do with billing:
 
->[!NOTE]
->While these metrics still show up in the selectable list, they will remain at zero until the new pricing on the service becomes available. To learn more, see [*Azure Digital Twins pricing*](https://azure.microsoft.com/pricing/details/digital-twins/).
-
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | Billing API Operations | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | Meter Id |
-| BillingMessagesProcessed | Billing Messages Processed | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints.<br><br>To be considered a single message for billing purposes, a payload must be no larger than 1 KB. Payloads larger than this will be counted as additional messages in 1 KB increments (so a message between 1 and 2 KB will be counted as 2 messages, between 2 and 3 KB will be 3 messages, and so on).<br>This restriction also applies to responses—so a call that returns 1.5KB in the response body, for example, will be billed as 2 operations. | Meter Id |
-| BillingQueryUnits | Billing Query Units | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | Meter Id |
+| BillingApiOperations | Billing API Operations | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | Meter ID |
+| BillingMessagesProcessed | Billing Messages Processed | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints.<br><br>To be considered a single message for billing purposes, a payload must be no larger than 1 KB. Payloads larger than this will be counted as additional messages in 1 KB increments (so a message between 1 and 2 KB will be counted as 2 messages, between 2 and 3 KB will be 3 messages, and so on).<br>This restriction also applies to responses—so a call that returns 1.5KB in the response body, for example, will be billed as 2 operations. | Meter ID |
+| BillingQueryUnits | Billing Query Units | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](/dotnet/api/azure.digitaltwins.core.querychargehelper) | Meter ID |
+
+For more details on the way Azure Digital Twins is billed, see [*Azure Digital Twins pricing*](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 #### Ingress metrics
 

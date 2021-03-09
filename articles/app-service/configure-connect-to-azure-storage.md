@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 ::: zone pivot="container-windows"
 
-This guide shows how to attach Azure Storage Files as a network share to a windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) and [Premium Files Shares](../storage/files/storage-how-to-create-premium-fileshare.md) are supported. Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods.
+This guide shows how to attach Azure Storage Files as a network share to a windows container in App Service. Only [Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) and [Premium Files Shares](../storage/files/storage-how-to-create-file-share.md) are supported. Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods.
 
 > [!NOTE]
 >Azure Storage in App Service is **in preview** and **not supported** for **production scenarios**.
@@ -34,7 +34,7 @@ This guide shows how to attach Azure Storage to a Linux container App Service. B
 
 - [An existing Windows Container app in Azure App Service](quickstart-custom-container.md)
 - [Create Azure file share](../storage/files/storage-how-to-use-files-cli.md)
-- [Upload files to Azure File share](../storage/files/storage-files-deployment-guide.md)
+- [Upload files to Azure File share](../storage/files/storage-how-to-create-file-share.md)
 
 ::: zone-end
 
@@ -75,7 +75,7 @@ This guide shows how to attach Azure Storage to a Linux container App Service. B
 
 Once you've created your [Azure Storage account, file share and directory](#prerequisites), you can now configure your app with Azure Storage.
 
-To mount an Azure Files Share to a directory in your App Service app, you use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type must be AzureFiles.
+To mount an Azure Files Share to a directory in your App Service app, you use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) command. Storage Type must be AzureFiles.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory of form c:<directory name> >
@@ -89,7 +89,7 @@ You should do this for any other directories you want to be linked to an Azure F
 
 Once you've created your [Azure Storage account, file share and directory](#prerequisites), you can now configure your app with Azure Storage.
 
-To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. AzureFiles is used in this example. The mount path setting corresponds to the folder inside the container that you want to mount to Azure Storage. Setting it to '/' mounts the entire container to Azure Storage.
+To mount a storage account to a directory in your App Service app, you use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az-webapp-config-storage-account-add) command. Storage Type can be AzureBlob or AzureFiles. AzureFiles is used in this example. The mount path setting corresponds to the folder inside the container that you want to mount to Azure Storage. Setting it to '/' mounts the entire container to Azure Storage.
 
 
 > [!CAUTION]

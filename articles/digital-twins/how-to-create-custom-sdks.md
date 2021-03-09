@@ -45,10 +45,10 @@ To run AutoRest against the Azure Digital Twins Swagger file, follow these steps
 3. Run AutoRest with the following command. Replace the `<language>` placeholder with your language of choice: `python`, `java`, `go`, and so on. (You can find the full list of options in the [AutoRest README](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=DigitalTwinsApi --add-credentials --azure-arm --namespace=DigitalTwinsApi
 ```
 
-As a result, you'll see a new folder named *ADTApi* in your working directory. The generated SDK files will have the namespace *ADTApi*. You'll continue to use that namespace through the rest of the usage examples in this article.
+As a result, you'll see a new folder named *DigitalTwinsApi* in your working directory. The generated SDK files will have the namespace *DigitalTwinsApi*. You'll continue to use that namespace through the rest of the usage examples in this article.
 
 AutoRest supports a wide range of language code generators.
 
@@ -61,8 +61,8 @@ This section gives instructions on how to build the SDK as a class library, whic
 Here are the steps:
 
 1. Create a new Visual Studio solution for a class library
-2. Use *ADTApi* as the project name
-3. In Solutions Explorer, right-select the *ADTApi* project of the generated solution and choose *Add > Existing Item...*
+2. Use *DigitalTwinsApi* as the project name
+3. In Solutions Explorer, right-select the *DigitalTwinsApi* project of the generated solution and choose *Add > Existing Item...*
 4. Find the folder where you generated the SDK, and select the files at the root level
 5. Press "Ok"
 6. Add a folder to the project (right-select the project in Solution Explorer, and choose *Add > New Folder*)
@@ -101,17 +101,7 @@ Whenever an error occurs in the SDK (including HTTP errors such as 404), the SDK
 
 Here is a code snippet that tries to add a twin and catches any errors in this process:
 
-```csharp
-try
-{
-    await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(id, initData);
-    Console.WriteLine($"Created a twin successfully: {id}");
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_errorHandling":::
 
 ### Paging
 
@@ -119,62 +109,18 @@ AutoRest generates two types of paging patterns for the SDK:
 * One for all APIs except the Query API
 * One for the Query API
 
-In the non-query paging pattern, here is a code snippet showing how to retrieve a paged list of outgoing relationships from Azure Digital Twins:
+In the non-query paging pattern, here is a sample method showing how to retrieve a paged list of outgoing relationships from Azure Digital Twins:
 
-```csharp
- try 
- {
-     // List the relationships.
-    AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
-    Console.WriteLine($"Twin {srcId} is connected to:");
-    // Iterate through the relationships found.
-    int numberOfRelationships = 0;
-    await foreach (string rel in results)
-    {
-         ++numberOfRelationships;
-         // Do something with each relationship found
-         Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
-    }
-    Console.WriteLine($"Found {numberOfRelationships} relationships on {srcId}");
-} catch (RequestFailedException rex) {
-    Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
 The second pattern is only generated for the Query API. It uses a `continuationToken` explicitly.
 
+>[!TIP]
+> A main reason for getting pages is to calculate the [Query Unit charges](concepts-query-units.md) for a Query API call.
+
 Here is an example with this pattern:
 
-```csharp
-string query = "SELECT * FROM digitaltwins";
-string conToken = null; // continuation token from the query
-int page = 0;
-try
-{
-    // Repeat the query while there are pages
-    do
-    {
-        QuerySpecification spec = new QuerySpecification(query, conToken);
-        QueryResult qr = await client.Query.QueryTwinsAsync(spec);
-        page++;
-        Console.WriteLine($"== Query results page {page}:");
-        if (qr.Items != null)
-        {
-            // Query returns are JObjects
-            foreach(JObject o in qr.Items)
-            {
-                string twinId = o.Value<string>("$dtId");
-                Console.WriteLine($"  Found {twinId}");
-            }
-        }
-        Console.WriteLine($"== End query results page {page}");
-        conToken = qr.ContinuationToken;
-    } while (conToken != null);
-} catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error in twin query: ${e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="PagedQuery":::
 
 ## Next steps
 

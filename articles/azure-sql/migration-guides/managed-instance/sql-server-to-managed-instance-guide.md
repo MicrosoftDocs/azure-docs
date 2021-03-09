@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Managed Instance - Migration guide"
+title: "SQL Server to SQL Managed Instance: Migration guide"
 description: Follow this guide to migrate your SQL Server databases to Azure SQL Managed Instance. 
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -51,6 +51,8 @@ Alternatively, use the [Microsoft Assessment and Planning Toolkit (the "MAP 
 For more information about tools available to use for the Discover phase, see [Services and tools available for data migration scenarios](../../../dms/dms-tools-matrix.md). 
 
 ### Assess 
+
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
 
 After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Managed Instance to identify migration blockers or compatibility issues. 
 

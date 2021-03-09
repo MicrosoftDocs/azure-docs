@@ -32,6 +32,8 @@ By default, your app routes only RFC1918 traffic into your VNet. If you want to 
 
 > [!NOTE]
 > If you route all of your outbound traffic into your VNet, it's subject to the NSGs and UDRs that are applied to your integration subnet. When you route all of your outbound traffic into your VNet, your outbound addresses are still the outbound addresses that are listed in your app properties unless you provide routes to send the traffic elsewhere.
+> 
+> Regional VNet integration is not able to use port 25.
 
 There are some limitations with using VNet Integration with VNets in the same region:
 
@@ -42,7 +44,6 @@ There are some limitations with using VNet Integration with VNets in the same re
 * The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager VNet.
 * The app and the VNet must be in the same region.
 * You can't delete a VNet with an integrated app. Remove the integration before you delete the VNet.
-* You can only integrate with VNets in the same subscription as the app.
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
 * Your app cannot resolve addresses in Azure DNS Private Zones without configuration changes
@@ -90,7 +91,17 @@ Border Gateway Protocol (BGP) routes also affect your app traffic. If you have B
 
 ### Azure DNS Private Zones 
 
-After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with. You can override this behavior on your app by configuring the app setting WEBSITE_DNS_SERVER with the address of your desired DNS server. If you had a custom DNS server configured with your VNet but wanted to have your app use Azure DNS private zones, you should set WEBSITE_DNS_SERVER with value 168.63.129.16. 
+After your app integrates with your VNet, it uses the same DNS server that your VNet is configured with. By default, your app won't work with Azure DNS Private Zones. To work with Azure DNS Private Zones, you need to add the following app settings:
+
+
+1. WEBSITE_DNS_SERVER with value 168.63.129.16
+1. WEBSITE_VNET_ROUTE_ALL with value 1
+
+
+These settings will send all of your outbound calls from your app into your VNet in addition to enabling your app to use Azure DNS private zones.	These settings will send all the outbound calls from your app into your VNet. Additionally, it will enable the app to use Azure DNS by querying the Private DNS Zone at the worker level. This functionality is to be used when a running app is accessing a Private DNS Zone.
+
+> [!NOTE]
+>Trying to add a custom domain to a Web App using Private DNS Zone is not possible with the VNET Integration. Custom domain validation is done at the controller level, not the worker level, which prevents the DNS records from being seen. To use a custom domain from a Private DNS Zone, validation would need to be bypassed using an Application Gateway or ILB App Service Environment.
 
 ### Private endpoints
 

@@ -1,7 +1,7 @@
 ---
 title: What is Azure Lighthouse?
 description: Azure Lighthouse lets service providers deliver managed services for their customers with higher automation and efficiency at scale.
-ms.date: 11/12/2020
+ms.date: 12/16/2020
 ms.topic: overview
 ---
 
@@ -9,7 +9,7 @@ ms.topic: overview
 
 Azure Lighthouse enables cross- and multi-tenant management, allowing for higher automation, scalability, and enhanced governance across resources and tenants.
 
-With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. Customers maintain control over who can access their tenant, what resources they can access, and what actions can be taken. This offering can also benefit [enterprise IT organizations](concepts/enterprise.md) managing resources across multiple tenants.
+With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. Customers maintain control over who can access their tenant, which resources they can access, and what actions can be taken. This offering can also benefit [enterprise IT organizations](concepts/enterprise.md) managing resources across multiple tenants.
 
 ![Overview diagram of Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
@@ -40,3 +40,4 @@ Azure Lighthouse includes multiple ways to help streamline engagement and manage
 - Learn about [Azure delegated resource management](concepts/azure-delegated-resource-management.md).
 - Explore [cross-tenant management experiences](concepts/cross-tenant-management-experience.md).
 - See how to [use Azure Lighthouse within an enterprise](concepts/enterprise.md).
+- View [availability](https://azure.microsoft.com/global-infrastructure/services/?products=azure-lighthouse&regions=all) and [FedRAMP and DoD CC SRG audit scope](../azure-government/compliance/azure-services-in-fedramp-auditscope.md) details for Azure Lighthouse.

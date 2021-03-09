@@ -23,9 +23,9 @@ There are two levels of support:
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-## Custom handlers (preview) 
+## Custom handlers
 
-Custom handlers are lightweight web servers that receive events from the Azure Functions host. Any language that supports HTTP primitives can implement a custom handler. This means that custom handlers can be use to create functions in languages that aren't officially supported. To learn more, see [Azure Functions custom handlers (preview)](functions-custom-handlers.md).
+Custom handlers are lightweight web servers that receive events from the Azure Functions host. Any language that supports HTTP primitives can implement a custom handler. This means that custom handlers can be used to create functions in languages that aren't officially supported. To learn more, see [Azure Functions custom handlers](functions-custom-handlers.md).
 
 ## Language extensibility
 

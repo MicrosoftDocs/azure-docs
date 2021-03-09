@@ -242,6 +242,10 @@ The map that we've made so far only looks at the longitude/latitude data for the
 
 To view the full code for this tutorial, click [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). To view the live sample, click [here](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
+## Clean up resources
+
+There are no resources that require cleanup.
+
 ## Next steps
 
 The next tutorial demonstrates how to display a route between two locations.

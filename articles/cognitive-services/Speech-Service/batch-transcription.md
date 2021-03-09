@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 12/23/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
 ---
 
 # How to use batch transcription
 
-Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files using a typical URI or a shared access signature (SAS) URI and asynchronously receive transcription results. With the v3.0 API, you can transcribe one or more audio files, or process a whole storage container.
+Batch transcription is a set of REST API operations that enables you to transcribe a large amount of audio in storage. You can point to audio files using a typical URI or a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md) URI and asynchronously receive transcription results. With the v3.0 API, you can transcribe one or more audio files, or process a whole storage container.
 
 You can use batch transcription REST APIs to call the following methods:
 
@@ -63,7 +63,7 @@ To create an ordered final transcript, use the timestamps generated per utteranc
 
 ### Configuration
 
-Configuration parameters are provided as JSON.
+Configuration parameters are provided as JSON. 
 
 **Transcribing one or more individual files.** If you have more than one file to transcribe, we recommend sending multiple files in one request. The example below is using three files:
 
@@ -82,7 +82,7 @@ Configuration parameters are provided as JSON.
 }
 ```
 
-**Processing a whole storage container:**
+**Processing a whole storage container.** Container [SAS](../../storage/common/storage-sas-overview.md) should contain `r` (read) and `l` (list) permissions:
 
 ```json
 {
@@ -174,7 +174,7 @@ Use these optional properties to configure transcription:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Optional URL with [Service ad hoc SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. SAS with stored access policy are **not** supported. When not specified, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), the result data will also be deleted.
+      Optional URL with [ad hoc SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. SAS with stored access policy are **not** supported. When not specified, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), the result data will also be deleted.
 :::row-end:::
 
 ### Storage
@@ -209,23 +209,23 @@ Each transcription result file has this format:
   ],
   "recognizedPhrases": [                // results for each phrase and each channel individually
     {
-      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"
+      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"          
+      "speaker": 1,                     // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
       "channel": 0,                     // channel number of the result
       "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration 
       "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
       "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
       "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
-      
+
       // possible transcriptions of the current phrase with confidences
       "nBest": [
         {
           "confidence": 0.898652852,    // confidence value for the recognition of the whole phrase
-          "speaker": 1,                 // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",
           "display": "Hello world.",
-          
+
           // if wordLevelTimestampsEnabled is `true`, there will be a result for each word of the phrase, otherwise this property is not present
           "words": [
             {
@@ -246,7 +246,7 @@ Each transcription result file has this format:
             }
           ]
         }
-      ]    
+      ]
     }
   ]
 }

@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot web service deployment locally
+title: Troubleshooting local model deployment
 titleSuffix: Azure Machine Learning
-description: Learn how to work around, solve, and troubleshoot the common Azure Machine Learning Docker deployment errors locally.
+description: Try a local model deployment as a first step in troubleshooting model deployment errors.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,26 +10,27 @@ ms.author:  gopalv
 ms.reviewer: luquinta
 ms.date: 11/25/2020
 ms.topic: troubleshooting
-ms.custom: devx-track-python, deploy, contperfq2
+ms.custom: devx-track-python, deploy, contperf-fy21q2
+#Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
 ---
 
-# Troubleshoot model deployment locally
+# Troubleshooting with a local model deployment
 
-Learn how to troubleshoot and solve, or work around, common Azure Machine Learning Docker web service deployment errors locally.
+Try a local model deployment as a first step in troubleshooting deployment to Azure Container Instances (ACI) or Azure Kubernetes Service (AKS).  Using a local web service makes it easier to spot and fix common Azure Machine Learning Docker web service deployment errors.
 
 ## Prerequisites
 
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
-* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
-* The [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
-* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
-* To debug locally, you must have a working Docker installation on your local system.
-
-    To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
+* Option A (**Recommended**) - Debug locally on Azure Machine Learning Compute Instance
+   * An Azure Machine Learning Workspace with [compute instance](how-to-deploy-local-container-notebook-vm.md) running
+* Option B - Debug locally on your compute
+   * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
+   * The [Azure CLI](/cli/azure/install-azure-cli).
+   * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+   * Have a working Docker installation on your local system. 
+   * To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
 
 ## Debug locally
-
-If you have problems when deploying a model to ACI or AKS, deploy it as a local web service. Using a local web service makes it easier to troubleshoot problems.
 
 You can find a sample [local deployment notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) in the  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) repo to explore a runnable example.
 
@@ -93,7 +94,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > The script is reloaded from the location specified by the `InferenceConfig` object used by the service.
 
-To change the model, Conda dependencies, or deployment configuration, use [update()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-). The following example updates the model used by the service:
+To change the model, Conda dependencies, or deployment configuration, use [update()](/python/api/azureml-core/azureml.core.webservice%28class%29#update--args-). The following example updates the model used by the service:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -101,7 +102,7 @@ service.update([different_model], inference_config, deployment_config)
 
 ### Delete the service
 
-To delete the service, use [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
+To delete the service, use [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29#delete--).
 
 ### <a id="dockerlog"></a> Inspect the Docker log
 

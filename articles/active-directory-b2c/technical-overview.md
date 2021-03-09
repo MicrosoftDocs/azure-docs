@@ -75,7 +75,7 @@ On the sign-up or sign-in page, Azure AD B2C presents a list of external identit
 
 ![Mobile sign-in example with a social account (Facebook)](media/technical-overview/external-idp.png)
 
-To see how to add identity providers in Azure AD B2C, see [Tutorial: Add identity providers to your applications in Azure Active Directory B2C](tutorial-add-identity-providers.md).
+To see how to add identity providers in Azure AD B2C, see [Add identity providers to your applications in Azure Active Directory B2C](add-identity-provider.md).
 
 ## Identity experiences: user flows or custom policies
 
@@ -130,7 +130,7 @@ Learn more about custom policies in [Custom policies in Azure Active Directory B
 
 ## Protocols and tokens
 
-- For applications, Azure AD B2C supports the [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md), and [SAML protocols](connect-with-saml-service-providers.md) for user journeys. Your application starts the user journey by issuing authentication requests to Azure AD B2C. The result of a request to Azure AD B2C is a security token, such as an [ID token, access token](tokens-overview.md), or SAML token. This security token defines the user's identity within the application.
+- For applications, Azure AD B2C supports the [OAuth 2.0](protocols-overview.md), [OpenID Connect](openid-connect.md), and [SAML protocols](saml-service-provider.md) for user journeys. Your application starts the user journey by issuing authentication requests to Azure AD B2C. The result of a request to Azure AD B2C is a security token, such as an [ID token, access token](tokens-overview.md), or SAML token. This security token defines the user's identity within the application.
 
 - For external identities, Azure AD B2C supports federation with any OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML identity providers.
 
@@ -158,7 +158,7 @@ In Azure AD B2C, you can craft your users' identity experiences so that the page
 
 ![Screenshots of brand-customized sign-up sign-in page](media/technical-overview/seamless-ux.png)
 
-For information on UI customization, see [About user interface customization in Azure Active Directory B2C](customize-ui-overview.md).
+For information on UI customization, see [About user interface customization in Azure Active Directory B2C](customize-ui-with-html.md).
 
 ## Localization
 
@@ -166,7 +166,7 @@ Language customization in Azure AD B2C allows you to accommodate different langu
 
 ![Three sign-up sign-in pages showing UI text in different languages](media/technical-overview/localization.png)
 
-See how localization works in [Language customization in Azure Active Directory B2C](user-flow-language-customization.md).
+See how localization works in [Language customization in Azure Active Directory B2C](language-customization.md).
 
 ## Add your own business logic
 
@@ -217,7 +217,7 @@ For more information about Azure AD roles, including Azure AD B2C administration
 
 Azure AD B2C multi-factor authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides additional security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. Your users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator.
 
-See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](custom-policy-multi-factor-authentication.md).
+See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
 
 ### Smart account lockout
 
@@ -231,7 +231,7 @@ For more information about managing password protection settings, see [Manage th
 
 During sign up or password reset, your users must supply a password that meets complexity rules. By default, Azure AD B2C enforces a strong password policy. Azure AD B2C also provides configuration options for specifying the complexity requirements of the passwords your customers use.
 
-You can configure password complexity requirements in both [user flows](user-flow-password-complexity.md) and [custom policies](custom-policy-password-complexity.md).
+You can configure password complexity requirements in both [user flows](password-complexity.md) and [custom policies](password-complexity.md).
 
 ## Auditing and logs
 

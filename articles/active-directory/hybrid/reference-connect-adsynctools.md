@@ -22,16 +22,16 @@ To install the ADSyncTools PowerShell Module do the following:
 
 1.  Open Windows PowerShell with administrative priviledges
 2.  Type or copy and paste the following: 
-	``` powershell
-	    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    ``` powershell
+        [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
         Import-module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\Tools\AdSyncTools"
-	```
+    ```
 3.  Hit enter.
 4.  To verify the module was installed, enter or copy and paste the following"
-	```powershell
-	Get-module AdSyncTools
-	```
+    ```powershell
+    Get-module AdSyncTools
+    ```
 5.  You should now see information about the module.
 
 
@@ -545,7 +545,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 
 ### DESCRIPTION
 Function queries AAD Connect Run History and exports all the users reporting the Error: 
- "SourceAnchor attribute has changed."
+  "SourceAnchor attribute has changed."
 
 ### EXAMPLES
 
@@ -556,7 +556,7 @@ Function queries AAD Connect Run History and exports all the users reporting the
 
 $sourcePath = Read-Host -Prompt "Enter your log file path with file name" #"\<Source_Path\>"
  $outputPath = Read-Host -Prompt "Enter your out file path with file name" #"\<Out_Path\>"
- 
+
  Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
 #### EXAMPLE 2

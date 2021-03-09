@@ -107,8 +107,8 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
     
 > [!IMPORTANT]
 > 
-> There is a `publicNetworkAccess` flag which is `Enabled` by default. 
-> This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` with the following PATCH request.
+> There is a `publicNetworkAccess` flag which is `Disabled` by default. 
+> This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` or `Enabled` with the following PATCH request. Edit the value to reflect which flag you want for your cache.
 > ```http
 > PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 > {    "properties": {
@@ -208,9 +208,10 @@ If your cache is already a VNet injected cache, private endpoints cannot be used
 ### What features are not supported with private endpoints?
 Geo-replication, firewall rules, portal console support, multiple endpoints per clustered cache, persistence to firewall rules and zone redundancy. 
 
-### How can I change my private endpoint to be disabled from public network access?
-There is a `publicNetworkAccess` flag which is `Enabled` by default. 
-This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` with the following PATCH request.
+### How can I change my private endpoint to be disabled or enabled from public network access?
+There is a `publicNetworkAccess` flag which is `Disabled` by default. 
+This flag is meant to allow you to optionally allow both public and private endpoint access to the cache if it is set to `Enabled`. If set to `Disabled`, it will only allow private endpoint access. You can set the value to `Disabled` or `Enabled` with the following PATCH request. Edit the value to reflect which flag you want for your cache.
+
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
 {    "properties": {
@@ -220,7 +221,12 @@ PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/
 ```
 
 ### Are network security groups (NSG) enabled for private endpoints?
-No, they are disabled for private endpoints. However, if there are other resources on the subnet, NSG enforcement will apply to those resources.
+No, they are disabled for private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules will not be effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](../private-link/disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet. Routes on any client subnet will be using an /32 prefix, changing the default routing behavior requires a similar UDR. 
+
+Control the traffic by using NSG rules for outbound traffic on source clients. Deploy individual routes with /32 prefix to override private endpoint routes. NSG Flow logs and monitoring information for outbound connections are still supported and can be used
+
+### Can I use firewall rules with private endpoints?
+No, this is a current limitation of private endpoints. The private endpoint will not work properly if firewall rules are configured on the cache.
 
 ### How can I connect to a clustered cache?
 `publicNetworkAccess` needs to be set to `Disabled` and there can only be one private endpoint connection.

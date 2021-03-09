@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect sync V2 endpoint public preview  | Microsoft Docs'
+title: 'Azure AD Connect sync V2 endpoint | Microsoft Docs'
 description: This document covers updates to the Azure AD connect sync v2 endpoints API.
 services: active-directory
 author: billmath
@@ -8,33 +8,23 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD Connect sync V2 endpoint API (public preview) 
+# Azure AD Connect sync V2 endpoint API 
 Microsoft has deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. By utilizing the new V2 endpoint, you will experience noticeable performance gains on export and import to Azure AD. This new endpoint supports the following:
     
- -  syncing groups with up to 250k members
+ - syncing groups with up to 250k members
  - performance gains on export and import to Azure AD
  
 > [!NOTE]
 > Currently, the new endpoint does not have a configured group size limit for Microsoft 365 groups that are written back. This may have an effect on your Active Directory and sync cycle latencies. It is recommended to increase your group sizes incrementally.  
 
-
-## Pre-requisites  
+## Prerequisites  
 In order to use the new V2 endpoint, you will need to use [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later and follow the deployment steps provided below to enable the V2 endpoint for your Azure AD Connect server.   
-
->[!NOTE]
->Currently, this public preview is only available in the Azure global cloud and not available for [national clouds](../develop/authentication-national-cloud.md).
-
-### Public preview limitations  
-While this release has undergone extensive testing, you may still encounter issues. One of the goals of this public preview release is to find and fix any such issues.  
-
->[!IMPORTANT]
-> While support is provided for this public preview release, Microsoft may not always be able to fix all issues you may encounter immediately. For this reason, it is recommended that you use your best judgement before deploying this release in your production environment. 
 
 ## Deployment guidance 
 You will need to deploy [Azure AD Connect version 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) or later to use the V2 endpoint. Use the link provided to download. 
@@ -183,17 +173,9 @@ If you have enabled the v2 endpoint and need to rollback, follow these steps:
 > When switching back from the V2 to V1 endpoints, groups synced with more than 50k members will be deleted after a full sync is run, for both AD groups provisioned to Azure AD and Microsoft 365 unified groups provisioned to AD. 
 
 ## Frequently asked questions  
-**Q: Can a customer use this feature in production?**  
-</br>Yes, this can be used in production environments, with the caveat as mentioned before.
  
-**Q: Who can the customer contact when things go wrong?**  
-</br>If you need support when using this feature you should open a support case. 
- 
-**Q: Can I expect frequent updates to the public preview?**  
-</br>There is a limited degree of ongoing changes during a Public Preview. You should assess this risk when deploying Public Preview features in production.  
- 
-**Q: Time to next milestone?**  
-</br>Public Preview capabilities may be withdrawn and possibly redesigned before reaching further milestones.  
+**When will the new end point become the default for upgrades and new installations?**  
+</br>We are planning a new release of AADConnect to be published for download in February 2021. This release will use the V2 end point by default and will enable syncing groups larger than 50K without any additional configuration. This release will subsequently be published for auto upgrade to eligible servers.
  
 ## Next steps
 

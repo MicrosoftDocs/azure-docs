@@ -335,7 +335,7 @@ Save the `ip_address` value. It is used in the next section.
 In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using VS Code and the debugpy, you can attach to the code running inside the Docker container.
 
 > [!IMPORTANT]
-> This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-) method.
+> This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-) method.
 
 Local web service deployments require a working Docker installation on your local system. For more information on using Docker, see the [Docker Documentation](https://docs.docker.com/). Note that when working with compute instances, Docker is already installed.
 
@@ -351,9 +351,9 @@ Local web service deployments require a working Docker installation on your loca
 
 1. To configure VS Code to communicate with the Docker image, create a new debug configuration:
 
-    1. From VS Code, select the __Debug__ menu and then select __Open configurations__. A file named __launch.json__ opens.
+    1. From VS Code, select the __Debug__ menu in the __Run__ extention and then select __Open configurations__. A file named __launch.json__ opens.
 
-    1. In the __launch.json__ file, find the line that contains `"configurations": [`, and insert the following text after it:
+    1. In the __launch.json__ file, find the __"configurations"__ item (the line that contains `"configurations": [`), and insert the following text after it. 
 
         ```json
         {
@@ -372,11 +372,44 @@ Local web service deployments require a working Docker installation on your loca
             ]
         }
         ```
+        After insertion, the __launch.json__ file should be similar to the following:
+        ```json
+        {
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Python: Current File",
+                "type": "python",
+                "request": "launch",
+                "program": "${file}",
+                "console": "integratedTerminal"
+            },
+            {
+                "name": "Azure Machine Learning Deployment: Docker Debug",
+                "type": "python",
+                "request": "attach",
+                "connect": {
+                    "port": 5678,
+                    "host": "0.0.0.0"
+                    },
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/var/azureml-app"
+                    }
+                ]
+            }
+            ]
+        }
+        ```
 
         > [!IMPORTANT]
-        > If there are already other entries in the configurations section, add a comma (,) after the code that you inserted.
+        > If there are already other entries in the configurations section, add a comma ( __,__ ) after the code that you inserted.
 
-        This section attaches to the Docker container using port 5678.
+        This section attaches to the Docker container using port __5678__.
 
     1. Save the __launch.json__ file.
 
@@ -429,13 +462,13 @@ Local web service deployments require a working Docker installation on your loca
     package.pull()
     ```
 
-    Once the image has been created and downloaded, the image path (includes repository, name, and tag, which in this case is also its digest) is displayed in a message similar to the following:
+    Once the image has been created and downloaded (this process may take more than 10 minutes, so please wait patiently), the image path (includes repository, name, and tag, which in this case is also its digest) is finally displayed in a message similar to the following:
 
     ```text
     Status: Downloaded newer image for myregistry.azurecr.io/package@sha256:<image-digest>
     ```
 
-1. To make it easier to work with the image, use the following command to add a tag. Replace `myimagepath` with the location value from the previous step.
+1. To make it easier to work with the image locally, you can use the following command to add a tag for this image. Replace `myimagepath` in the following command with the location value from the previous step.
 
     ```bash
     docker tag myimagepath debug:1
@@ -453,22 +486,37 @@ Local web service deployments require a working Docker installation on your loca
 1. To start a Docker container using the image, use the following command:
 
     ```bash
-    docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_path_to_score.py>:/var/azureml-apps/score.py debug:1 /bin/bash
+    docker run -it --name debug -p 8000:5001 -p 5678:5678 -v <my_local_path_to_score.py>:/var/azureml-app/score.py debug:1 /bin/bash
     ```
 
-    This attaches your `score.py` locally to the one in the container. Therefore, any changes made in the editor are automatically reflected in the container.
+    This attaches your `score.py` locally to the one in the container. Therefore, any changes made in the editor are automatically reflected in the container
 
-1. Inside the container, run the following command in the shell
+2. For a better experience, you can go into the container with a new VS code interface. Select the `Docker` extention from the VS Code side bar, find your local container created, in this documentation it's `debug:1`. Right-click this container and select `"Attach Visual Studio Code"`, then a new VS Code interface will be opened automatically, and this interface shows the inside of your created container.
+
+    ![The container VS Code interface](./media/how-to-troubleshoot-deployment/container-interface.png)
+
+3. Inside the container, run the following command in the shell
 
     ```bash
     runsvdir /var/runit
     ```
+    Then you can see the following output in the shell inside your container:
 
-1. To attach VS Code to debugpy inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning Deployment: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning Deployment: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
+    ![The container run console output](./media/how-to-troubleshoot-deployment/container-run.png)
+
+4. To attach VS Code to debugpy inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning Deployment: Docker Debug__ configuration. You can also select the __Run__ extention icon from the side bar, the __Azure Machine Learning Deployment: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
     ![The debug icon, start debugging button, and configuration selector](./media/how-to-troubleshoot-deployment/start-debugging.png)
+    
+    After clicking the green arrow and attaching the debugger, in the container VS Code interface you can see some new information:
+    
+    ![The container debugger attached information](./media/how-to-troubleshoot-deployment/debugger-attached.png)
+    
+    Also, in your main VS Code interface, what you can see is following:
 
-At this point, VS Code connects to debugpy inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
+    ![The VS Code breakpoint in score.py](./media/how-to-troubleshoot-deployment/local-debugger.png)
+
+And now, the local `score.py` which is attached to the container has already stopped at the breakpoints where you set. At this point, VS Code connects to debugpy inside the Docker container and stops the Docker container at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
 For more information on using VS Code to debug Python, see [Debug your Python code](https://code.visualstudio.com/docs/python/debugging).
 
@@ -484,4 +532,10 @@ docker stop debug
 
 Now that you've set up VS Code Remote, you can use a compute instance as remote compute from VS Code to interactively debug your code. 
 
-[Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
+Learn more about troubleshooting:
+
+* [Local model deployment](how-to-troubleshoot-deployment-local.md)
+* [Remote model deployment](how-to-troubleshoot-deployment.md)
+* [Machine learning pipelines](how-to-debug-pipelines.md)
+* [ParallelRunStep](how-to-debug-parallel-run-step.md)
+

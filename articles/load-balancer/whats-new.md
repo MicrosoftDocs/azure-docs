@@ -36,7 +36,7 @@ The product group is actively working on resolutions for the following known iss
 
 |Issue |Description  |Mitigation  |
 | ---------- |---------|---------|
-| Log Analytics export | Log Analytics cannot export metrics for Standard Load Balancers nor health probe status logs for Basic Load Balancer  | [Utilize Azure Monitor for multi-dimensional metrics for your Standard Load Balancer](load-balancer-standard-diagnostics.md). While not able to use Log Analytics for monitoring, Azure Monitor provides visualization for a rich set of multi-dimensional metrics. You can leverage the pre-configured metrics dashboard via the Insights sub-blade of your Load Balancer. If using Basic Load Balancer [upgrade to Standard](upgrade-basic-standard.md) for production level metrics monitoring.
+| Load Balancer Alert Event and Health Probe Status Logs | Logging does not work for Load Balancer Alert Events for Basic and Standard Load Balancer nor health probe status logs for Basic Load Balancer  | [Utilize Azure Monitor for multi-dimensional metrics for your Standard Load Balancer](load-balancer-standard-diagnostics.md). Azure Monitor provides visualization for a rich set of multi-dimensional metrics that can also be exported as logs. You can leverage the pre-configured metrics dashboard via the Insights sub-blade of your Load Balancer. If using Basic Load Balancer [upgrade to Standard](upgrade-basic-standard.md) for production level metrics monitoring.
 
   
 

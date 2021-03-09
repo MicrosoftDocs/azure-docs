@@ -7,6 +7,7 @@ metadata:
   title: Azure Key Vault documentation
   description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
   services: key-vault
+  ms.subservice: general
   ms.service: key-vault
   ms.topic: landing-page # Required
   author: msmbaldwin
@@ -54,10 +55,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Security overview
+            url: security-overview.md
           - text: Secure your Key Vault
             url: secure-your-key-vault.md
-          - text: Security recommendations
-            url: security-recommendations.md
           - text: Security baseline
             url: security-baseline.md
       - linkListType: how-to-guide
@@ -82,13 +83,13 @@ landingContent:
           - text: Client libraries for Azure Key Vault
             url: client-libraries.md
           - text: .NET Client library
-            url: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+            url: /dotnet/api/overview/azure/key-vault
           - text: Python Client library
-            url: /python/api/overview/azure/key-vault-index?view=azure-python
+            url: /python/api/overview/azure/key-vault-index
           - text: Java Client library
             url: https://azure.github.io/azure-sdk-for-java/keyvault.html
           - text: Node.js Client library
-            url: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+            url: /javascript/api/overview/azure/key-vault-index
 
 
 

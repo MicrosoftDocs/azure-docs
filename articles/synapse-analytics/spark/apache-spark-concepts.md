@@ -75,7 +75,7 @@ The following article describes how to request an increase in workspace vCore qu
 - Select "Azure Synapse Analytics" as the service type.
 - In the Quota details window, select Apache Spark (vCore) per workspace
 
-[Request a capacity increase via the Azure portal](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+[Request a capacity increase via the Azure portal](../../azure-portal/supportability/per-vm-quota-requests.md#request-a-standard-quota-increase-from-help--support)
 
 ### Spark pool level
 
@@ -90,5 +90,5 @@ To solve this problem you have to reduce your usage of the pool resources before
 
 ## Next steps
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Apache Spark Documentation](https://spark.apache.org/docs/2.4.5/)

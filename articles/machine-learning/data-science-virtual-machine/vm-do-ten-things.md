@@ -3,8 +3,7 @@ title: Explore data and model on Windows
 titleSuffix: Azure Data Science Virtual Machine 
 description: Perform data exploration and modeling tasks on the Windows Data Science Virtual Machine.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 
 author: lobrien
@@ -22,7 +21,7 @@ The DSVM works closely with Azure services. It can read and process data that's 
 
 In this article, you'll learn how to use your DSVM to perform data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
 
-- Use a Jupyter notebook to experiment with your data in a browser by using Python 2, Python 3, and Microsoft R. (Microsoft R is an enterprise-ready version of R designed for performance.)
+- Use a Jupyter Notebook to experiment with your data in a browser by using Python 2, Python 3, and Microsoft R. (Microsoft R is an enterprise-ready version of R designed for performance.)
 - Explore data and develop models locally on the DSVM by using Microsoft Machine Learning Server and Python.
 - Administer your Azure resources by using the Azure portal or PowerShell.
 - Extend your storage space and share large-scale datasets/code across your whole team by creating an Azure Files share as a mountable drive on your DSVM.
@@ -46,8 +45,8 @@ In this article, you'll learn how to use your DSVM to perform data science tasks
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 
-## Use Jupyter notebooks
-The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R (both open source and Microsoft R Server) in a Jupyter notebook.
+## Use Jupyter Notebooks
+The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R (both open source and Microsoft R Server) in a Jupyter Notebook.
 
 To start the Jupyter Notebook, select the **Jupyter Notebook** icon on the **Start** menu or on the desktop. In the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or where you want to create new notebooks.  
 
@@ -199,7 +198,7 @@ You can also upload data from the local file in your VM by using Azure Storage E
 
 #### Read data from an Azure blob: Python ODBC
 
-You can use the BlobService library to read data directly from a blob in a Jupyter notebook or in a Python program.
+You can use the BlobService library to read data directly from a blob in a Jupyter Notebook or in a Python program.
 
 First, import the required packages:
 

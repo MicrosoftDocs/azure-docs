@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: stsoneff
+ms.custom: azureday1
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app using managed identities.
 ---
 

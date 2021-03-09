@@ -2,7 +2,7 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 12/01/2020 
+ms.date: 12/04/2020 
 ms.custom: devx-track-azurecli
 ---
 
@@ -40,20 +40,28 @@ You can't unregister a resource provider when you still have resource types from
 
 ## Azure portal
 
+### Register resource provider
+
 To see all resource providers, and the registration status for your subscription:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the Azure portal menu, select **All services**.
+1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
 
-    ![select subscriptions](./media/resource-providers-and-types/select-all-services.png)
+   :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="search subscriptions":::
 
-3. In the **All services** box, enter **subscription**, and then select **Subscriptions**.
-4. Select the subscription from the subscription list to view.
-5. Select **Resource providers** and view the list of available resource providers.
+1. Select the subscription you want to view.
 
-    ![show resource providers](./media/resource-providers-and-types/show-resource-providers.png)
+   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="select subscriptions":::
 
-6. To register a resource provider, select **Register**. In the previous screenshot, the **Register** link is highlighted for **Microsoft.Blueprint**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
+1. On the left menu, under **Settings**, select **Resource providers**.
+
+   :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="select resource providers":::
+
+6. Find the resource provider you want to register, and select **Register**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
+
+   :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="register resource providers":::
+
+### View resource provider
 
 To see information for a particular resource provider:
 

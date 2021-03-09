@@ -27,6 +27,8 @@
   items:
   - name: Security
     items:
+    - name: Security overview
+      href: security.md
     - name: Security baseline
       href: security-baseline.md
   - name: Azure Data Share terminology
@@ -62,8 +64,6 @@
     href: how-to-revoke-share-subscription.md
   - name: Monitor
     href: how-to-monitor.md
-  - name: Security
-    href: security.md
   - name: Disaster recovery
     href: disaster-recovery.md
   - name: Troubleshoot
@@ -74,11 +74,11 @@
   - name: .NET
     href: /dotnet/api/overview/azure/datashare
   - name: Azure PowerShell
-    href: /powershell/module/az.datashare/?view=azps-2.6.0
+    href: /powershell/module/az.datashare/
   - name: REST API
     href: /rest/api/datashare
   - name: Azure CLI
-    href: /cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
+    href: /cli/azure/azure-cli-reference-for-data-share
 - name: Resources
   items:
   - name: Microsoft Q&A question page

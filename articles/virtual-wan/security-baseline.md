@@ -25,7 +25,7 @@ WAN security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBen
 
 ## Network Security
 
-*For more information, see the [Azure Security Benchmark: Network Security](/azure/security/benchmarks/security-controls-v2-network-security).*
+*For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-controls-v2-network-security.md).*
 
 ### NS-1: Implement security for internal traffic
 
@@ -65,11 +65,11 @@ Use Azure Firewall to protect applications and services against potentially mali
 
 Choose Azure-provided DDoS Protection to protect your assets against attacks on your Azure Virtual Networks. Use Azure Security Center to detect misconfigurations risks related to your network-related resources.
 
-- [Azure Firewall Documentation](/azure/firewall)
+- [Azure Firewall Documentation](../firewall/index.yml)
 
-- [Manage Azure DDoS Protection Standard using the Azure portal](/azure/virtual-network/manage-ddos-protection) 
+- [Manage Azure DDoS Protection Standard using the Azure portal](../ddos-protection/manage-ddos-protection.md) 
 
-- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-network)
+- [Azure Security Center recommendations](../security-center/recommendations-reference.md#recs-networking)
 
 **Azure Security Center monitoring**: Yes
 
@@ -91,9 +91,9 @@ Choose Azure-provided DDoS Protection to protect your assets against attacks on 
 
 - [Understand and use service tags](../virtual-network/service-tags-overview.md)
 
-- [Understand and use application security groups](/azure/virtual-network/security-overview#application-security-groups)
+- [Understand and use application security groups](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
-- [Azure Firewall Documentation](/azure/firewall/)
+- [Azure Firewall Documentation](../firewall/index.yml)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -103,9 +103,9 @@ Choose Azure-provided DDoS Protection to protect your assets against attacks on 
 
 **Guidance**: Secure DNS capabilities are provided to Virtual WAN with Azure Firewall. Configure Azure Firewall to act as a DNS proxy which becomes an intermediary for DNS requests from client virtual machines to a DNS server. For custom DNS server configurations, enable DNS proxy to avoid a DNS resolution mismatch, and enable fully qualified domain name filtering in the network rules. 
 
-- [Azure Firewall Documentation](/azure/firewall/)
+- [Azure Firewall Documentation](../firewall/index.yml)
 
-- [Azure Firewall DNS Settings](/azure/firewall/dns-settings)
+- [Azure Firewall DNS Settings](../firewall/dns-settings.md)
 
 - [Use Azure Firewall as a DNS Forwarder with Private Link](https://github.com/adstuart/azure-privatelink-dns-azurefirewall)
 
@@ -115,7 +115,7 @@ Choose Azure-provided DDoS Protection to protect your assets against attacks on 
 
 ## Identity Management
 
-*For more information, see the [Azure Security Benchmark: Identity Management](/azure/security/benchmarks/security-controls-v2-identity-management).*
+*For more information, see the [Azure Security Benchmark: Identity Management](../security/benchmarks/security-controls-v2-identity-management.md).*
 
 ### IM-1: Standardize Azure Active Directory as the central identity and authentication system
 
@@ -192,7 +192,7 @@ For GitHub, you can use native secret scanning feature to identify credentials o
 
 ## Privileged Access
 
-*For more information, see the [Azure Security Benchmark: Privileged Access](/azure/security/benchmarks/security-controls-v2-privileged-access).*
+*For more information, see the [Azure Security Benchmark: Privileged Access](../security/benchmarks/security-controls-v2-privileged-access.md).*
 
 ### PA-2: Restrict administrative access to business-critical systems
 
@@ -214,7 +214,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 ## Data Protection
 
-*For more information, see the [Azure Security Benchmark: Data Protection](/azure/security/benchmarks/security-controls-v2-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data Protection](../security/benchmarks/security-controls-v2-data-protection.md).*
 
 ### DP-4: Encrypt sensitive information in transit
 
@@ -232,7 +232,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 ## Asset Management
 
-*For more information, see the [Azure Security Benchmark: Asset Management](/azure/security/benchmarks/security-controls-v2-asset-management).*
+*For more information, see the [Azure Security Benchmark: Asset Management](../security/benchmarks/security-controls-v2-asset-management.md).*
 
 ### AM-1: Ensure security team has visibility into risks for assets
 
@@ -256,7 +256,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production. Azure Virtual WAN also supports Azure Resource Manager-based resource deployments with which you can export asset templates. 
 
-- [Resource naming and tagging decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
 - [Azure Security Center asset inventory management](../security-center/asset-inventory.md)
 
@@ -287,7 +287,7 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 ## Logging and Threat Detection
 
-*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](/azure/security/benchmarks/security-controls-v2-logging-threat-protection).*
+*For more information, see the [Azure Security Benchmark: Logging and Threat Detection](../security/benchmarks/security-controls-v2-logging-threat-detection.md).*
 
 ### LT-1: Enable threat detection for Azure resources
 
@@ -341,7 +341,7 @@ A variety of diagnostic logs are also available for Virtual WAN, and can be conf
 
 - [Virtual WAN Logs and Metrics](logs-metrics.md)
 
-- [Azure Firewall logs and metrics](/azure/firewall/logs-and-metrics)
+- [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -353,9 +353,9 @@ A variety of diagnostic logs are also available for Virtual WAN, and can be conf
 
 Enable Azure resource logs for Virtual WAN. You can use Azure Security Center and Azure Policy to enable resource logs and log data collecting. These logs can be critical for later investigating security incidents and performing forensic exercises.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Understand Azure Security Center data collection](../security-center/security-center-enable-data-collection.md)
 
@@ -373,11 +373,11 @@ A variety of diagnostic logs are also available for Virtual WAN, and can be conf
 
 - [Virtual WAN Logs and Metrics](logs-metrics.md)
 
-- [Azure Firewall logs and metrics](/azure/firewall/logs-and-metrics)
+- [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md)
 
 Azure Virtual WAN security is provided through Azure Firewall. 
 
-- [Azure Firewall Documentation](/azure/firewall/overview)
+- [Azure Firewall Documentation](../firewall/overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -387,9 +387,9 @@ Azure Virtual WAN security is provided through Azure Firewall.
 
 **Guidance**: Configure your log retention according to your compliance, regulation, and business requirements. In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake or Log Analytics workspace accounts for long-term and archival storage.
 
-- [Change the data retention period in Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [How to configure retention policy for Azure Storage account logs](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [How to configure retention policy for Azure Storage account logs](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Azure Security Center alerts and recommendations export](../security-center/continuous-export.md)
 
@@ -399,7 +399,7 @@ Azure Virtual WAN security is provided through Azure Firewall.
 
 ## Incident Response
 
-*For more information, see the [Azure Security Benchmark: Incident Response](/azure/security/benchmarks/security-controls-v2-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-controls-v2-incident-response.md).*
 
 ### IR-1: Preparation – update incident response process for Azure
 
@@ -481,7 +481,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -504,7 +504,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ## Posture and Vulnerability Management
 
-*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](/azure/security/benchmarks/security-controls-v2-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Posture and Vulnerability Management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md).*
 
 ### PV-8: Conduct regular attack simulation
 
@@ -523,7 +523,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ## Endpoint Security
 
-*For more information, see the [Azure Security Benchmark: Endpoint Security](/azure/security/benchmarks/security-controls-v2-endpoint-security).*
+*For more information, see the [Azure Security Benchmark: Endpoint Security](../security/benchmarks/security-controls-v2-endpoint-security.md).*
 
 ### ES-1: Use Endpoint Detection and Response (EDR)
 
@@ -541,7 +541,7 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 
 ## Governance and Strategy
 
-*For more information, see the [Azure Security Benchmark: Governance and Strategy](/azure/security/benchmarks/security-controls-v2-governance-strategy).*
+*For more information, see the [Azure Security Benchmark: Governance and Strategy](../security/benchmarks/security-controls-v2-governance-strategy.md).*
 
 ### GS-1: Define asset management and data protection strategy 
 
@@ -566,15 +566,15 @@ This strategy should include documented guidance, policy, and standards for the 
 -	Appropriate cryptographic standards
 
 For more information, see the following references:
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?bc=%2fsecurity%2fcompass%2fbreadcrumb%2ftoc.json&toc=%2fsecurity%2fcompass%2ftoc.json)
 
 - [Azure Security Fundamentals - Azure Data security, encryption, and storage](../security/fundamentals/encryption-overview.md)
 
-- [Cloud Adoption Framework - Azure data security and encryption best practices](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+- [Cloud Adoption Framework - Azure data security and encryption best practices](../security/fundamentals/data-encryption-best-practices.md?bc=%2fazure%2fcloud-adoption-framework%2f_bread%2ftoc.json&toc=%2fazure%2fcloud-adoption-framework%2ftoc.json)
 
-- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+- [Azure Security Benchmark - Asset management](../security/benchmarks/security-controls-v2-asset-management.md)
 
-- [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
+- [Azure Security Benchmark - Data Protection](../security/benchmarks/security-controls-v2-data-protection.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -602,7 +602,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 **Guidance**: Continuously measure and mitigate risks to your individual assets and the environment they are hosted in. Prioritize high value assets and highly-exposed attack surfaces, such as published applications, network ingress and egress points, user and administrator endpoints, etc.
 
-- [Azure Security Benchmark - Posture and vulnerability management](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Posture and vulnerability management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -643,7 +643,7 @@ This strategy should include documented guidance, policy, and standards for the 
 For more information, see the following references:
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
+- [Azure Security Benchmark - Network Security](../security/benchmarks/security-controls-v2-network-security.md)
 
 - [Azure network security overview](../security/fundamentals/network-overview.md)
 
@@ -671,9 +671,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Identity management](/azure/security/benchmarks/security-benchmark-v2-identity-management)
+- [Azure Security Benchmark - Identity management](../security/benchmarks/security-controls-v2-identity-management.md)
 
-- [Azure Security Benchmark - Privileged access](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
+- [Azure Security Benchmark - Privileged access](../security/benchmarks//security-controls-v2-privileged-access.md)
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
@@ -705,9 +705,9 @@ This strategy should include documented guidance, policy, and standards for the 
 
 For more information, see the following references:
 
-- [Azure Security Benchmark - Logging and threat detection](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
+- [Azure Security Benchmark - Logging and threat detection](../security/benchmarks/security-controls-v2-logging-threat-detection.md)
 
-- [Azure Security Benchmark - Incident response](/azure/security/benchmarks/security-benchmark-v2-incident-response)
+- [Azure Security Benchmark - Incident response](../security/benchmarks/security-controls-v2-incident-response.md)
 
 - [Azure Security Best Practice 4 - Process. Update Incident Response Processes for Cloud](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
@@ -721,5 +721,5 @@ For more information, see the following references:
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

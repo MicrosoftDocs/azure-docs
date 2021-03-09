@@ -1,12 +1,12 @@
 ---
 title: Define multiple instances of an output value
-description: Use copy operation in an Azure Resource Manager template to iterate multiple times when returning a value from a deployment.
+description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when returning a value from a deployment.
 ms.topic: conceptual
 ms.date: 04/17/2020
 ---
 # Output iteration in ARM templates
 
-This article shows you how to create more than one value for an output in your Azure Resource Manager (ARM) template. By adding the **copy** element to the outputs section of your template, you can dynamically return a number of items during deployment.
+This article shows you how to create more than one value for an output in your Azure Resource Manager template (ARM template). By adding the `copy` element to the outputs section of your template, you can dynamically return a number of items during deployment.
 
 You can also use copy with [resources](copy-resources.md), [properties in a resource](copy-properties.md), and [variables](copy-variables.md).
 
@@ -21,9 +21,9 @@ The copy element has the following general format:
 }
 ```
 
-The **count** property specifies the number of iterations you want for the output value.
+The `count` property specifies the number of iterations you want for the output value.
 
-The **input** property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the **input** property. It can be a single property (like a string), or an object with several properties.
+The `input` property specifies the properties that you want to repeat. You create an array of elements constructed from the value in the `input` property. It can be a single property (like a string), or an object with several properties.
 
 ## Copy limits
 
@@ -160,11 +160,10 @@ The preceding example returns an array with the following values:
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create multiple resource instances using ARM templates](template-tutorial-create-multiple-instances.md).
+* To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
 * For other uses of the copy element, see:
   * [Resource iteration in ARM templates](copy-resources.md)
   * [Property iteration in ARM templates](copy-properties.md)
   * [Variable iteration in ARM templates](copy-variables.md)
-* If you want to learn about the sections of a template, see [Authoring ARM templates](template-syntax.md).
-* To learn how to deploy your template, see [Deploy an application with ARM template](deploy-powershell.md).
-
+* If you want to learn about the sections of a template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To learn how to deploy your template, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

@@ -56,8 +56,6 @@ landingContent:
       links:
         - text: Visualize anomalies using batch detection and Power BI
           url: tutorials/batch-anomaly-detection-powerbi.md
-        - text: Detect Anomalies in streaming data using Azure Databricks
-          url: tutorials/anomaly-detection-streaming-databricks.md
     - linkListType: video
       links:
         - text: Anomaly detection on streaming data using Azure Databricks
@@ -86,6 +84,8 @@ landingContent:
           url: anomaly-detector-container-configuration.md
         - text: Deploy a container instance to Azure
           url: how-to/deploy-anomaly-detection-on-container-instances.md
+        - text: Deploy to IoT Edge
+          url: how-to/deploy-anomaly-detection-on-iot-edge.md
     - linkListType: video
       links:
         - text: Bring Anomaly Detector on-premises with containers support

@@ -41,7 +41,7 @@ QnA Maker allows you to manage your knowledge bases by providing access to the k
     |--|--|
     |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
     |**Default answer text**| `Quickstart - default answer not found.`|
-    |**+ Add URL**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**+ Add URL**|`https://azure.microsoft.com/en-us/support/faq/`|
     |**Chit-chat**|Select **Professional**|
 
 1. In **Step 5**, Select **Create your KB**.

@@ -1,17 +1,12 @@
 ---
 title: Delta copy from a database using a control table
 description: Learn how to use a solution template to incrementally copy new or updated rows only from a database with Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/24/2018
+ms.date: 12/09/2020
 ---
 
 # Delta copy from a database with a control table
@@ -40,7 +35,7 @@ The template defines following parameters:
 - *Data_Source_WaterMarkColumn* is the name of the column in the source table that's used to identify new or updated rows. The type of this column is typically *datetime*, *INT*, or similar.
 - *Data_Destination_Container* is the root path of the place where the data is copied to in your destination store.
 - *Data_Destination_Directory* is the directory path under the root of the place where the data is copied to in your destination store.
-- *Data_Destination_Table_Name* is the place where the data is copied to in your destination store (applicable when "Azure Synapse Analytics (formerly SQL DW)" is selected as Data Destination).
+- *Data_Destination_Table_Name* is the place where the data is copied to in your destination store (applicable when "Azure Synapse Analytics" is selected as Data Destination).
 - *Data_Destination_Folder_Path* is the place where the data is copied to in your destination store (applicable when "File System" or "Azure Data Lake Storage Gen1" is selected as Data Destination).
 - *Control_Table_Table_Name* is the external control table that stores the high-watermark value.
 - *Control_Table_Column_Name* is the column in the external control table that stores the high-watermark value.

@@ -1,7 +1,10 @@
 ---
 title: Set up an Azure Migrate appliance in Azure Government
 description: Learn how to set up an Azure Migrate appliance in Azure Government
-ms.topic: article
+author: vikram1988
+ms.author: vibansa
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 04/16/2020
 ---
 
@@ -189,6 +192,6 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 After deploying the appliance, you need to configure it for the first time, and register it with the Azure Migrate project.
 
-- Set up the appliance for [VMware](how-to-set-up-appliance-vmware.md#configure-the-appliance).
+- Set up the appliance for [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance).
 - Set up the appliance for [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
 - Set up the appliance for [physical servers](how-to-set-up-appliance-physical.md).

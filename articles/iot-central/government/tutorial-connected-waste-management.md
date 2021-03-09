@@ -1,271 +1,256 @@
 ---
 title: 'Tutorial: Create a connected waste management app with Azure IoT Central'
-description: 'Tutorial: Learn to build Create a connected waste management application using Azure IoT Central application templates.'
+description: 'Tutorial: Learn to build a connected waste management application by using Azure IoT Central application templates'
 author: miriambrus
 ms.author: miriamb
-ms.date: 11/12/2019
+ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ---
+# Tutorial: Create a connected waste management app
 
+This tutorial shows you how to use Azure IoT Central to create a connected waste management application. 
 
-# Tutorial: Create a connected waste management application in IoT Central
-
-
-
-This tutorial guides you to create an Azure IoT Central connected waste management application from the IoT Central **Connected waste management** application template. 
-
-In this tutorial, you will learn how to: 
+Specifically, you learn how to: 
 
 > [!div class="checklist"]
-
-> * Use the Azure IoT Central **Connected waste management** template to create your connected waste management application
-> * Explore and customize operator dashboard 
-> * Explore connected waste bin device template
-> * Explore simulated devices
-> * Explore and configure rules
-> * Configure jobs
-> * Customize your application branding using whitelabeling
+> * Use the Azure IoT Central *Connected waste management* template to create your app.
+> * Explore and customize the operator dashboard. 
+> * Explore the connected waste bin device template.
+> * Explore simulated devices.
+> * Explore and configure rules.
+> * Configure jobs.
+> * Customize your application branding.
 
 ## Prerequisites
 
-To complete this tutorial, you need:
--  An Azure subscription is recommended. You can optionally use a free 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
+An Azure subscription is recommended. Alternatively, you can use a free, 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
 
-## Create Connected Waste Management app in IoT Central
+## Create your app in Azure IoT Central
 
-In this section, you use the Azure IoT Central **Connected waste management template** to create your connected waste management application in IoT Central.
+In this section, you use the Connected waste management template to create your app in Azure IoT Central. Here's how:
 
-To create a new Azure IoT Central connected waste management application:  
+1. Go to [Azure IoT Central](https://aka.ms/iotcentral).
 
-1. Navigate to the [Azure IoT Central Home page](https://aka.ms/iotcentral) website.
+    If you have an Azure subscription, sign in with the credentials you use to access it. Otherwise, sign in by using a Microsoft account:
 
-    If you have an Azure subscription, sign in with the credentials you use to access it, otherwise sign in using a Microsoft account:
+    ![Screenshot of Microsoft Sign in.](./media/tutorial-connectedwastemanagement/sign-in.png)
 
-    ![Enter your organization account](./media/tutorial-connectedwastemanagement/sign-in.png)
+1. From the left pane, select **Build**. Then select the **Government** tab. The government page displays several government application templates.
 
-2. Click on **Build** from the left pane and select the **Government** tab. The government page displays several government application templates.
+    ![Screenshot of Azure IoT Central Build page.](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
-    ![Build Government App templates](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
+1. Select the **Connected waste management** application template. 
+This template includes a sample connected waste bin device template, a simulated device, an operator dashboard, and preconfigured monitoring rules.    
 
-1. Select the **Connected Waste Management** application template. 
-This template includes sample connected waste bin device template, simulated device, operator dashboard, and pre-configured monitoring rules.    
+1. Select **Create app**, which opens the **New application** dialog box. Fill in the information for the following fields:
+    * **Application name**. By default, the application uses **Connected waste management**, followed by a unique ID string that Azure IoT Central generates. Optionally, you can choose a friendly application name. You can change the application name later, too.
+    * **URL**. Optionally, you can choose your desired URL. You can change the URL later. 
+    * **Pricing plan**. If you have an Azure subscription, enter your directory, Azure subscription, and region in the appropriate fields of the **Billing info** dialog box. If you don't have a subscription, select **Free** to enable 7-day trial subscription, and complete the required contact information.  
 
-2. Click **Create app**, which will open **New application** creation form with the following fields:
-    * **Application name**. By default the application  uses *Connected waste management* followed by a unique ID string that IoT Central generates. Optionally, choose a friendly application name. You can change the application name later too.
-    * **URL** – Optionally, you can choose to your desired URL. You can change the URL later too. 
-    * If you have an Azure subscription, enter your *Directory, Azure subscription, and Region*. If you don't have a subscription, you can enable **7-day free trial** and complete the required contact information.  
+    For more information about directories and subscriptions, see [Quickstart - Create an Azure IoT Central application](../core/quick-deploy-iot-central.md).
 
-    For more information about directories and subscriptions, see the [create an application quickstart](../core/quick-deploy-iot-central.md).
+1. At the bottom of the page, select **Create**. 
 
-5. Click **Create** button at the bottom of the page. 
-
-    ![Azure IoT Central Create Connected Waste Application page](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
+    ![Screenshot of Azure IoT Central Create New application dialog box.](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
     
-    ![Azure IoT Central Create Connected Billing info](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
+    ![Screenshot of Azure IoT Central Billing info dialog box.](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement-billinginfo.png)
 
  
-6. You now have created a connected waste management app using the Azure IoT Central **Connected waste management template**. 
+Your newly created application comes with preconfigured:
+* Sample operator dashboards.
+* Sample predefined connected waste bin device templates.
+* Simulated connected waste bin devices.
+* Rules and jobs.
+* Sample branding. 
 
-Congratulations! Your newly created application comes with pre-configured:
-* Sample operator dashboards
-* Sample pre-defined connected waste bin device templates
-* Simulated connected waste bin devices
-* Pre-configured rules and jobs
-* Sample Branding using white labeling 
+It's your application, and you can modify it anytime. Let's now explore the application and make some customizations.  
 
-It is your application and you can modify it anytime. Let's now explore the application and make some customizations.  
+## Explore and customize the operator dashboard 
 
-## Explore and customize operator dashboard 
-After creating the application you land in the **Wide Waste connected waste management dashboard**.
+Take a look at the **Wide World waste management dashboard**, which you see after creating your app.
 
-   ![Connected Waste Management dashboard](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard1.png)
+   ![Screenshot of Wide World waste management dashboard.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard1.png)
 
-As a builder, you can create and customize views on the dashboard for operators. Before you try to customize, let's explore the dashboard. 
+As a builder, you can create and customize views on the dashboard for operators. First, let's explore the dashboard. 
 
-> [!NOTE]
-> All data displayed in the dashboard is based on simulated device data, which will be explored in the next section. 
+>[!NOTE]
+>All data shown in the dashboard is based on simulated device data, which you'll see  more of in the next section. 
 
-The dashboard consists of different kinds of tiles:
+The dashboard consists of different tiles:
 
-* ***Wide World Waste utility image tile***: the first tile in the dashboard is an image tile of a fictitious Waste utility "Wide World Waste". You can customize the tile and put your own image or remove it. 
+* **Wide World Waste utility image tile**: The first tile in the dashboard is an image tile of a fictitious waste utility, "Wide World Waste." You can customize the tile and put in your own image, or you can remove it. 
 
-* ***Waste bin image tile***: you can use image and content tiles to create a visual representation of the device that is being monitored along with a descriptive text. 
+* **Waste bin image tile**: You can use image and content tiles to create a visual representation of the device that's being monitored, along with a description. 
 
-* ***Fill level KPI tile***: the tile displays a value reported by a *fill level* sensor in a waste bin. *Fill level* and other sensors like *odor meter* or *weight* in a waste bin can be remotely monitored. An operator can take action, like dispatching trash collection truck. 
+* **Fill level KPI tile**: This tile displays a value reported by a *fill level* sensor in a waste bin. Fill level and other sensors, like *odor meter* or *weight* in a waste bin, can be remotely monitored. An operator can take action, like dispatching a trash collection truck. 
 
-*  ***Waste monitoring area map***: the map is using Azure Maps, which you can configure directly in Azure IoT Central. The map tile is displaying device location. Try to hover over the map and try the controls over the map, like zoom-in, zoom-out or expand.
+* **Waste monitoring area map**: This tile uses Azure Maps, which you can configure directly in Azure IoT Central. The map tile displays device location. Try to hover over the map and try the controls over the map, like zoom-in, zoom-out, or expand.
 
-     ![Connected Waste Management dashboard map](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
-
-
-* ***Fill, odor, weight level bar chart**: you can visualize one or multiple device telemetry data in a bar chart. You can also expand the bar chart.  
-
-  ![Connected Waste Management dashboard bar chart](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
+     ![Screenshot of Connected Waste Management Template Dashboard map.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
 
-* **Field Services content tile**: the dashboard includes link to how to integrate with Dynamics 365 Field Services from your Azure IoT Central application. As an example, you can use Field Services to create tickets for dispatching trash collection services. 
+* **Fill, odor, weight level bar chart**: You can visualize one or multiple kinds of device telemetry data in a bar chart. You can also expand the bar chart.  
+
+  ![Screenshot of Connected Waste Management Template Dashboard bar chart.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
 
-### Customize dashboard 
+* **Field Services**: The dashboard includes a link to how to integrate with Dynamics 365 Field Services from your Azure IoT Central application. For example, you can use Field Services to create tickets for dispatching trash collection services. 
 
-As a builder, you can customize views in dashboard for operators. You can try:
-1. Click on **Edit** to customize the **Wide World connected waste management dashboard**. You can customize the dashboard by clicking on the **Edit** menu. Once the dashboard is in **edit** mode, you can add new tiles, or you can configure 
 
-    ![Edit Dashboard](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
+### Customize the dashboard 
 
-2. You can also click on **+ New** to create new dashboard and configure from scratch. You can have multiple dashboards and you can navigate between your dashboards from the dashboard menu. 
+You can customize the dashboard by selecting the **Edit** menu. Then you can add new tiles or configure existing ones. Here's what the dashboard looks like in editing mode: 
 
-## Explore connected waste bin device template
+![Screenshot of Connected Waste Management Template Dashboard in editing mode.](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
 
-A device template in Azure IoT Central defines the capability of a device, which can be telemetry, properties, or command. As a builder, you can define device templates that represent the capability of the devices you will connect. 
- 
+You can also select **+ New** to create a new dashboard and configure from scratch. You can have multiple dashboards, and you can switch between your dashboards from the dashboard menu. 
 
-The **Connected waste management** application comes with a sample connected waste bin device template.
+## Explore the device template
+
+A device template in Azure IoT Central defines the capabilities of a device, which can include telemetry, properties, or commands. As a builder, you can define device templates that represent the capabilities of the devices you will connect. 
+
+The Connected waste management application comes with a sample template for a connected waste bin device.
 
 To view the device template:
 
-1. Click on **Device templates** from the left pane of your application in IoT Central. 
+1. In Azure IoT Central, from the left pane of your app, select **Device templates**. 
 
-    ![Screenshot showing the list of device templates in the application](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+    ![Screenshot showing the list of device templates in the application.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
-2. In the Device templates list, you will see **Connected Waste Bin**. Open by clicking on the name.
+1. In the **Device templates** list, select **Connected Waste Bin**.
 
-3. Familiarize with the device template capabilities. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location*, and others.
+1. Examine the device template capabilities. You can see that it defines sensors like **Fill level**, **Odor meter**, **Weight**, and **Location**.
 
-   ![Screenshot showing the details of the connected waste bin device template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+   ![Screenshot showing the details of the Connected Waste Bin device template.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
 
-   
 
-### Customizing the device template
+### Customize the device template
 
 Try to customize the following:
-1. Navigate to **Customize** from the device template menu
-2. Find the `Odor meter` telemetry type
-3. Update the **Display name** of `Odor meter` to `Odor level`
-4. You can also try update unit of measurement, or set *Min value* and *Max value*
-5. **Save** any changes 
+1. From the device template menu, select **Customize**.
+1. Find the **Odor meter** telemetry type.
+1. Update the **Display name** of **Odor meter** to **Odor level**.
+1. Try to update the unit of measurement, or set **Min value** and **Max value**.
+1. Select **Save**. 
 
 ### Add a cloud property 
 
-1. Navigate to **Cloud property** from the device template menu
-2. Add a new cloud property by clicking **+ Add Cloud Property**. In IoT Central, you can add a property that is relevant to the device but not expected to be sent by a device. As an example, a cloud property could be an alerting threshold specific to installation area, asset information, or maintenance information, and other information. 
-3. **Save** any changes 
+Here's how:
+1. From the device template menu, select **Cloud property**.
+1. Select **+ Add Cloud Property**. In Azure IoT Central, you can add a property that is relevant to the device but isn't expected to be sent by a device. For example, a cloud property might be an alerting threshold specific to installation area, asset information, or maintenance information. 
+1. Select **Save**. 
  
 ### Views 
-* The connected waste bin device template comes with pre-defined views. Explore the views and you can make updates. The views define how operators will see the device data but also inputting cloud properties. 
+The connected waste bin device template comes with predefined views. Explore the views, and update them if you want to. The views define how operators see the device data and input cloud properties. 
 
-  ![Device Template Views](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
+  ![Screenshot of Connected Waste Management Template Device templates views.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
 
 ### Publish 
 
-* If you made any changes make sure to **Publish** the device template. 
+If you made any changes, remember to publish the device template. 
 
 ### Create a new device template 
 
-* Select **+ New** to create a new device template and follow the creation process. 
-You will be able to create a custom device template from scratch or you can choose a device template from the Azure Device Catalog. 
+To create a new device template, select **+ New**, and follow the steps. You can create a custom device template from scratch, or you can choose a device template from the Azure device catalog. 
 
 ## Explore simulated devices
 
-In IoT Central, you can create simulated devices to test your device template and application. 
+In Azure IoT Central, you can create simulated devices to test your device template and application. 
 
-The **Connected waste management** application has two simulated devices mapped to the connected waste bin device template. 
+The Connected waste management application has two simulated devices associated with the connected waste bin device template. 
 
-### To view the devices:
+### View the devices
 
-1. Navigate to **Device** from IoT Central left pane. 
+1. From the left pane of Azure IoT Central, select **Device**. 
 
-   ![Devices](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
+   ![Screenshot of Connected Waste Management Template devices.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
-2. Select and click on Connected Waste Bin device.  
+1. Select **Connected Waste Bin** device.  
 
-     ![Device 1](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices-bin1.png)
+     ![Screenshot of Connected Waste Management Template Device Properties.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices-bin1.png)
 
-3. Navigate to the **Cloud Properties** tab try updating the `Bin full alert threshold` value from `95` to `100`. 
-* Explore the **Device Properties** tab and **Device Dashboard** tab. 
+1. Go to the **Cloud Properties** tab. Update the value of **Bin full alert threshold** from **95** to **100**. 
+
+Explore the **Device Properties** and **Device Dashboard** tabs. 
 
 > [!NOTE]
-> Note that all the tabs have been configured from the **Device template Views**.
+> All the tabs have been configured from the device template views.
 
 ### Add new devices
 
-* You can add new devices by clicking on **+ New** on the **Devices** tab. 
+You can add new devices by selecting **+ New** on the **Devices** tab. 
 
 ## Explore and configure rules
 
-In Azure IoT Central, you can create rules to automatically monitor on device telemetry, and trigger actions when one or more conditions are met. The actions may include sending email notifications, triggering a Power Automate action, or a webhook action to send data to other services.
+In Azure IoT Central, you can create rules to automatically monitor device telemetry, and to trigger actions when one or more conditions are met. The actions might include sending email notifications, triggering an action in Power Automate, or starting a webhook action to send data to other services.
 
-The **Connected waste management** application has four sample rules.
+The Connected waste management application has four sample rules.
 
-### To view rules:
-1. Navigate to **Rules** from IoT Central left pane
+### View rules
+1. From the left pane of Azure IoT Central, select **Rules**.
 
-   ![Rules](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
+   ![Screenshot of Connected Waste Management Template Rules.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
-2. Select the **Bin full alert**
+1. Select **Bin full alert**.
 
-     ![Bin full alert](./media/tutorial-connectedwastemanagement/connectedwastemanagement-binfullalert.png)
+     ![Screenshot of Bin full alert.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-binfullalert.png)
 
- 3. The `Bin full alert` checks when **Condition** `Fill level is greater than or equal to Bin full alert threshold`.
+ 1. The **Bin full alert** checks the following condition: **Fill level is greater than or equal to Bin full alert threshold**.
 
-    The `Bin full alert threshold` is a *cloud property* defined in the `Connected waste bin` device template. 
+    The **Bin full alert threshold** is a cloud property that's defined in the connected waste bin device template. 
 
 Now let's create an email action.
 
 ### Create an email action
-To configure an email action in the Rule's actions list:
+
+In the **Actions** list of the rule, you can configure an email action:
 1. Select **+ Email**. 
-2. Enter *High pH alert* as the friendly **Display name** for the action.
-3. Enter the email address associated with your IoT Central account in **To**. 
-4. Optionally, enter a note to include in text of the email.
-5. Select **Done** to complete the action.
-6. Select **Save** to save and activate the new rule. 
+1. For **Display name**, enter **High pH alert**.
+1. For **To**, enter the email address associated with your Azure IoT Central account. 
+1. Optionally, enter a note to include in the text of the email.
+1. Select **Done** > **Save**. 
 
-You should receive email when the configured **condition** is met.
+You'll now receive an email when the configured condition is met.
 
-> [!NOTE]
-> The application will send email each time a condition is met. **Disable** the rule to stop receiving email from the automated rule. 
+>[!NOTE]
+>The application sends email each time a condition is met. Disable the rule to stop receiving email from the automated rule. 
   
-To create a new rule: 
-1. Select **+New** on the **Rules** from the left pane.
+To create a new rule, from the left pane of **Rules**, select **+New**.
 
-## Configure Jobs
+## Configure jobs
 
-In IoT Central, jobs allow you to trigger device or cloud properties updates on multiple devices. In addition to properties, you can also use jobs to trigger device commands on multiple devices. IoT Central will automate the workflow for you. 
+In Azure IoT Central, jobs allow you to trigger device or cloud properties updates on multiple devices. You can also use jobs to trigger device commands on multiple devices. Azure IoT Central automates the workflow for you. 
 
-1. Go to **Jobs** from the left pane. 
-2. Click **+New** and configure one or more jobs. 
-
+1. From the left pane of Azure IoT Central, select **Jobs**. 
+1. Select **+New**, and configure one or more jobs. 
 
 ## Customize your application 
 
 As a builder, you can change several settings to customize the user experience in your application.
 
-### To change the application theme:
+### Change the application theme
 
-1. Go to **Administration > Customize your application**.
-3. Use the **Change** button to choose an image to upload as the **Application logo**.
-4. Use the **Change** button to choose a **Browser icon** image that will appear on browser tabs.
-5. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes.
+Here's how:
+1. Go to **Administration** > **Customize your application**.
+1. Select **Change** to choose an image to upload for the **Application logo**.
+1. Select **Change** to choose an image to upload for the **Browser icon** (an image that will appear on browser tabs).
+1. You can also replace the default browser colors by adding HTML hexadecimal color codes. Use the **Header** and **Accent** fields for this purpose.
 
-   ![Azure IoT Central customize your application](./media/tutorial-connectedwastemanagement/connectedwastemanagement-customize-your-application.png)
+   ![Screenshot of Connected Wast Management Template Customize your application.](./media/tutorial-connectedwastemanagement/connectedwastemanagement-customize-your-application.png)
 
-6. You can also change application images by going to the **Administration > Application settings** and **Select image** button to choose an image to upload as the application image.
-7. Finally, you can also change the **Theme** by clicking **Settings** on the masthead of the application.
+1. You can also change application images. Select **Administration** > **Application settings** > **Select image** to choose an image to upload as the application image.
+1. Finally, you can also change the theme by selecting **Settings** on the masthead of the application.
 
-  
 ## Clean up resources
 
 If you're not going to continue to use this application, delete your application with the following steps:
 
-1. Open the Administration tab from the left pane of your IoT Central application.
-2. Select Application settings and click Delete button at the bottom of the page.
+1. From the left pane of your Azure IoT Central app, select **Administration**.
+1. Select **Application settings** > **Delete**.
 
 ## Next steps
 
-* Learn about more about
- 
 > [!div class="nextstepaction"]
 > [Connected waste management concepts](./concepts-connectedwastemanagement-architecture.md)

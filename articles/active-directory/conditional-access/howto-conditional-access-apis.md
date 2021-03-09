@@ -93,6 +93,6 @@ These samples are available in our [GitHub repository](https://github.com/Azure-
 
 - [Overview of Microsoft Graph](/graph/overview)
 
-- [Conditional Access API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-1.0)
+- [Conditional Access API](/graph/api/resources/conditionalaccesspolicy)
 
-- [Named location API](/graph/api/resources/namedlocation?view=graph-rest-1.0)
+- [Named location API](/graph/api/resources/namedlocation)

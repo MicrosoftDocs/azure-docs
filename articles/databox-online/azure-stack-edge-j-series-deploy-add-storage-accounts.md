@@ -7,13 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---
 # Tutorial: Transfer data via storage accounts with Azure Stack Edge Pro GPU 
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This tutorial describes how to add and connect to storage accounts on your Azure Stack Edge Pro device. After you've added the storage accounts, Azure Stack Edge Pro can transfer data to Azure.
 
@@ -132,9 +132,9 @@ Each of these steps is described in the following sections.
 
 Accessing Blob storage over HTTPS requires an SSL certificate for the device. You will also upload this certificate to your Azure Stack Edge Pro device as *.pfx* file with a private key attached to it. For more information on how to create (for test and dev purposes only) and upload these certificates to your Azure Stack Edge Pro device, go to:
 
-- [Create the blob endpoint certificate](azure-stack-edge-j-series-manage-certificates.md#create-certificates-optional).
-- [Upload the blob endpoint certificate](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
-- [Import certificates on the client accessing the device](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- [Create the blob endpoint certificate](azure-stack-edge-gpu-manage-certificates.md#create-certificates-optional).
+- [Upload the blob endpoint certificate](azure-stack-edge-gpu-manage-certificates.md#upload-certificates).
+- [Import certificates on the client accessing the device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
 ### Import certificate
 

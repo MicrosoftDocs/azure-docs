@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 
 ms.author: mimart
 author: msmimart
@@ -17,6 +17,9 @@ ms.collection: M365-identity-device-management
 # Add an API connector to a user flow
 
 To use an [API connector](api-connectors-overview.md), you first create the API connector and then enable it in a user flow.
+
+> [!IMPORTANT]
+>**Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## Create an API connector
 
@@ -103,7 +106,7 @@ Follow these steps to add an API connector to a self-service sign-up user flow.
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Select **User flows (Preview)**, and then select the user flow you want to add the API connector to.
+4. Select **User flows**, and then select the user flow you want to add the API connector to.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
    - **After signing in with an identity provider**
@@ -312,7 +315,11 @@ Ensure that:
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims.
 * Your API responds as quickly as possible to ensure a fluid user experience.
+<<<<<<< HEAD
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." in production. For Azure Functions, its recommended to use the [Premium plan](../azure-functions/functions-scale.md)
+=======
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-premium-plan.md). 
+>>>>>>> d8f5fcdbe0daf0a42993fe77c59609349bc1affb
 
 
 ### Use logging

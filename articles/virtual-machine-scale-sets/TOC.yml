@@ -63,6 +63,8 @@
     items:
     - name: Create a virtual machine scale set
       href: ./scripts/cli-sample-create-simple-scale-set.md
+    - name: Create and manage virtual machine scale set
+      href: ./scripts/cli-sample-manage-scale-set.md
     - name: Create a scale set from a custom VM image
       href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
     - name: Install applications to a scale set
@@ -105,44 +107,44 @@
     - name: Availability
       href: ../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
     - name: Co-location
-      href: co-location.md
+      href: ../virtual-machines/co-location.md
     - name: Network performance
       href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
     - name: Manage fault domains in scale sets
       href: virtual-machine-scale-sets-manage-fault-domains.md
     maintainContext: true
   - name: Images
-    href: shared-image-galleries.md
+    href: ../virtual-machines/shared-image-galleries.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
   - name: VM types and sizes
     href: ../virtual-machines/sizes.md
     items:
     - name: General purpose
       href: ../virtual-machines/sizes-general.md
-      maintainContext: true
       items:
       - name: B-series burstable
         href: ../virtual-machines/sizes-b-series-burstable.md
         maintainContext: true
+      maintainContext: true
     - name: Compute optimized
       href: ../virtual-machines/sizes-compute.md
       maintainContext: true
     - name: Memory optimized
       href: ../virtual-machines/sizes-memory.md
-      maintainContext: true
       items:
       - name: Constrained vCPUs
         href: ../virtual-machines/constrained-vcpu.md
         maintainContext: true
+      maintainContext: true
     - name: Storage optimized
       href: ../virtual-machines/sizes-storage.md
       maintainContext: true
     - name: GPU optimized
       href: ../virtual-machines/sizes-gpu.md
-      maintainContext: true
       items:
       - name: Setup NVIDIA GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
         maintainContext: true
+      maintainContext: true
     - name: High performance compute
       href: ../virtual-machines/sizes-hpc.md
       maintainContext: true
@@ -162,11 +164,16 @@
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
+  - name: Orchestration modes (preview) 
+    href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Maintenance and updates
-    href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
-    maintainContext: true
-  - name: Orchestration modes
-    href: orchestration-modes.md
+    items:
+    - name: Overview
+      href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
+      maintainContext: true
+    - name: Automatic extension upgrade (preview) 
+      href: ../virtual-machines/automatic-extension-upgrade.md
+      maintainContext: true
   - name: Disk storage
     items:
     - name: Managed Disks
@@ -184,7 +191,7 @@
     - name: Ephemeral OS disks
       href: ../virtual-machines/ephemeral-os-disks.md
     - name: Scalability targets for disks
-      href: ../virtual-machines/windows/disk-scalability-targets.md
+      href: ../virtual-machines/disks-scalability-targets.md
       maintainContext: true
     - name: Backup and disaster recovery for disks
       href: ../virtual-machines/backup-and-disaster-recovery-for-azure-iaas-disks.md
@@ -205,7 +212,7 @@
       href: security-baseline.md
     maintainContext: true
   - name: Monitoring
-    href: ../azure-monitor/insights/monitor-vm-azure.md
+    href: ../azure-monitor/vm/monitor-vm-azure.md
     maintainContext: true
   - name: Deployment considerations
     items:
@@ -299,7 +306,7 @@
       - name: Use the Azure portal
         href: virtual-machine-scale-sets-autoscale-portal.md
       - name: Advanced autoscale
-        href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+        href: ../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md
         maintainContext: true
       - name: Troubleshoot autoscale
         href: virtual-machine-scale-sets-troubleshoot.md
@@ -329,16 +336,17 @@
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
       href: virtual-machine-scale-sets-convert-template-to-md.md
-    - name: Use dedicated hosts (preview)
-      href: ../virtual-machines/dedicated-hosts.md
+    - name: Use dedicated hosts
       items:
+      - name: Overview
+        href: ../virtual-machines/dedicated-hosts.md
       - name: CLI
         href: ../virtual-machines/linux/dedicated-hosts-cli.md
       - name: PowerShell
         href: ../virtual-machines/windows/dedicated-hosts-powershell.md
       - name: Portal
         href: ../virtual-machines/dedicated-hosts-portal.md
-    - name: Use spot instance
+    - name: Azure Spot Virtual Machines
       href: use-spot.md
   - name: Manage
     items:

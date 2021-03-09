@@ -1,12 +1,8 @@
 ---
 title: View and filter Azure resource information
 description: Filter information and use different views to better understand your Azure resources.
-author: mgblythe
-ms.service: azure-portal
 ms.topic: how-to
-ms.author: mblythe
 ms.date: 09/11/2020
-
 ---
 
 # View and filter Azure resource information
@@ -48,6 +44,18 @@ To delete a view:
 1. Select **Manage view** then **Browse all views**.
 
 1. In the **Saved views for "All resources"** pane, select the view then select the **Delete** icon ![Delete view icon](media/manage-filter-resource-views/icon-delete.png).
+
+## Export information from a view
+
+You can export the resource information from a view. To export information in CSV format:
+
+1. Select **Export to CSV**.
+
+    :::image type="content" source="media/manage-filter-resource-views/export-csv.png" alt-text="Screenshot of exporting to CSV format":::
+
+1. Save the file locally, then open in Excel or another application that supports the CSV format. 
+
+As you move around the portal, you'll see other areas where you can export information, such as an individual resource group.
 
 ## Summarize resources with visuals
 

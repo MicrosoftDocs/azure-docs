@@ -1,12 +1,12 @@
 ---
 title: Template functions - deployment
-description: Describes the functions to use in an Azure Resource Manager template to retrieve deployment information.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 03/02/2021
 ---
 # Deployment functions for ARM templates
 
-Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager (ARM) template:
+Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager template (ARM template):
 
 * [deployment](#deployment)
 * [environment](#environment)
@@ -27,6 +27,7 @@ Returns information about the current deployment operation.
 
 This function returns the object that is passed during deployment. The properties in the returned object differ based on whether you are:
 
+* deploying a template or a template spec.
 * deploying a template that is a local file or deploying a template that is a remote file accessed through a URI.
 * deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
 
@@ -60,6 +61,31 @@ When deploying a remote template to a resource group: the function returns the f
   "properties": {
     "templateLink": {
       "uri": ""
+    },
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
+}
+```
+
+When deploying a template spec to a resource group: the function returns the following format:
+
+```json
+{
+  "name": "",
+  "properties": {
+    "templateLink": {
+      "id": ""
     },
     "template": {
       "$schema": "",
@@ -428,7 +454,7 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
+For more information about using parameters, see [Parameters in ARM templates](template-parameters.md).
 
 ## variables
 
@@ -476,7 +502,7 @@ Typically, you use variables to simplify your template by constructing complex v
 # [Bicep](#tab/bicep)
 
 ```bicep
-var storageName = concat('storage', uniqueString(resourceGroup().id))
+var storageName = 'storage${uniqueString(resourceGroup().id)}'
 
 resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
@@ -565,8 +591,8 @@ The output from the preceding example with the default values is:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
+For more information about using variables, see [Variables in ARM template](template-variables.md).
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

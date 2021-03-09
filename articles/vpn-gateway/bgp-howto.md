@@ -46,7 +46,7 @@ In this section, you create and configure a virtual network, create and configur
 
 ### 1. Create and configure TestVNet1
 
-In this step, you create and configure TestVNet1. Use the steps in the [Create a gateway tutorial](vpn-gateway-tutorial-create-gateway-powershell.md) to create and configure your Azure virtual network and VPN gateway. Use the reference settings in the screenshots below.
+In this step, you create and configure TestVNet1. Use the steps in the [Create a gateway tutorial](./tutorial-create-gateway-portal.md) to create and configure your Azure virtual network and VPN gateway. Use the reference settings in the screenshots below.
 
 * Virtual network:
 
@@ -104,7 +104,7 @@ Once the gateway is created, you can obtain the BGP Peer IP addresses on the Azu
 
 ## <a name ="crosspremises"></a>Part 2: Configure BGP on cross-premises S2S connections
 
-To establish a cross-premises connection, you need to create a *local network gateway* to represent your on-premises VPN device, and a *connection* to connect the VPN gateway with the local network gateway as explained in [Create site-to-site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md). This article contains the additional properties required to specify the BGP configuration parameters.
+To establish a cross-premises connection, you need to create a *local network gateway* to represent your on-premises VPN device, and a *connection* to connect the VPN gateway with the local network gateway as explained in [Create site-to-site connection](./tutorial-site-to-site-portal.md). This article contains the additional properties required to specify the BGP configuration parameters.
 
 **Diagram 3**
 

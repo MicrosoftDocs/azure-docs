@@ -424,4 +424,4 @@ In your claim type, add **PredicateValidationReference** element and specify the
 
 ## Next steps
 
-- Learn how to [Configure password complexity using custom policies in Azure Active Directory B2C](custom-policy-password-complexity.md) using predicate validations.
+- Learn how to [Configure password complexity using custom policies in Azure Active Directory B2C](password-complexity.md) using predicate validations.

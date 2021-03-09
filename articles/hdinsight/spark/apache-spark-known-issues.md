@@ -1,13 +1,10 @@
 ---
 title: Troubleshoot issues with Apache Spark cluster in Azure HDInsight
 description: Learn about issues related to Apache Spark clusters in Azure HDInsight and how to work around those.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.author: hrasheed
 ---
 
 # Known issues for Apache Spark cluster on HDInsight
@@ -70,13 +67,13 @@ HDInsight Spark clusters do not support the Spark-Phoenix connector.
 
 You must use the Spark-HBase connector instead. For the instructions, see [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
-## Issues related to Jupyter notebooks
+## Issues related to Jupyter Notebooks
 
-Following are some known issues related to Jupyter notebooks.
+Following are some known issues related to Jupyter Notebooks.
 
 ### Notebooks with non-ASCII characters in filenames
 
-Do not use non-ASCII characters in Jupyter notebook filenames. If you try to upload a file through the Jupyter UI, which has a non-ASCII filename, it fails without any error message. Jupyter does not let you upload the file, but it does not throw a visible error either.
+Do not use non-ASCII characters in Jupyter Notebook filenames. If you try to upload a file through the Jupyter UI, which has a non-ASCII filename, it fails without any error message. Jupyter does not let you upload the file, but it does not throw a visible error either.
 
 ### Error while loading notebooks of larger sizes
 
@@ -95,15 +92,15 @@ To prevent this error from happening in the future, you must follow some best pr
 
 ### Notebook initial startup takes longer than expected
 
-First code statement in Jupyter notebook using Spark magic could take more than a minute.  
+First code statement in Jupyter Notebook using Spark magic could take more than a minute.  
 
 **Explanation:**
 
 This happens because when the first code cell is run. In the background this initiates session configuration and Spark, SQL, and Hive contexts are set. After these contexts are set, the first statement is run and this gives the impression that the statement took a long time to complete.
 
-### Jupyter notebook timeout in creating the session
+### Jupyter Notebook timeout in creating the session
 
-When Spark cluster is out of resources, the Spark and PySpark kernels in the Jupyter notebook will time out trying to create the session.
+When Spark cluster is out of resources, the Spark and PySpark kernels in the Jupyter Notebook will time out trying to create the session.
 
 **Mitigations:**
 
@@ -135,8 +132,8 @@ When Spark cluster is out of resources, the Spark and PySpark kernels in the Jup
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels available for Jupyter Notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter Notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources

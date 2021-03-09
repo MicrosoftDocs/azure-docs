@@ -13,6 +13,13 @@ services: iot-edge
 
 This article helps you prepare your environment for development and deployment. First, set up a development machine with all the tools you need. Then, create the necessary cloud resources in Azure.
 
+In this section of the tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> * Set up a virtual machine for development.
+> * Set up an IoT Hub and cloud storage for your development environment to use.
+
 ## Prerequisites
 
 This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. Each article in the series builds on the work in the previous article. If you have arrived at this article directly, visit the [first article](tutorial-machine-learning-edge-01-intro.md) in the series.
@@ -204,15 +211,13 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Since no edits were made, just close this page.
 
+## Clean up resources
+
+This tutorial is part of a set where each article builds on the work done in the previous ones. Please wait to clean up any resources until you complete the final tutorial.
+
 ## Next steps
 
 In this article, we created an IoT Hub and configured a route to an Azure Storage account. Next, we will send data from a set of simulated devices through the IoT Hub into the storage account. Later in the tutorial, after we have configured our IoT Edge device and modules, we will revisit routes and look a little more at the routing query.
-
-For more information about the steps covered in this portion of the Machine Learning on IoT Edge tutorial, see:
-
-* [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
-* [Configure message routing with IoT Hub](../iot-hub/tutorial-routing.md)
-* [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md)
 
 Continue to the next article to create a simulated device to monitor.
 

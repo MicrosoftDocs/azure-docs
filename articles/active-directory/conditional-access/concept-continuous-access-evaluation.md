@@ -25,7 +25,7 @@ Timely response to policy violations or security issues really requires a “con
 
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
-To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](/develop/app-resilience-continuous-access-evaluation.md).
+To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
 
 ### Key benefits
 
@@ -45,7 +45,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 - Password for a user is changed or reset
 - Multi-factor authentication is enabled for the user
 - Administrator explicitly revokes all refresh tokens for a user
-- Elevated user risk detected by Azure AD Identity Protection
+- High user risk detected by Azure AD Identity Protection
 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
 
@@ -102,7 +102,7 @@ If you are not using CAE-capable clients, your default access token lifetime wil
 
 1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
 1. An access token is returned along with other artifacts to the client.
-1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A revocation event will be sent to the resource provider from Azure AD.
+1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). A revocation event will be sent to the resource provider from Azure AD.
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there is any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.

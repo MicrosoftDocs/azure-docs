@@ -71,7 +71,7 @@ If you have generated queries using the Power BI Connector, they are making call
 To update the queries to use the new API version and new Time Series Expression Syntax, queries will need to be regenerated from the Explorer. Read more about how to [create queries using the Power BI Connector](./how-to-connect-power-bi.md).
 
 > [!NOTE]
-> You must be using the July 2020 Version of Power BI Desktop. If not you may see an [invalid query payload version error](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect).
+> You must be using at least the July 2020 Version of Power BI Desktop. If you do not, you may see an "Invalid query payload version" error.
 
 ## Migrate custom applications
 
