@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Manage virtual machines with the CLI 
 description: In this tutorial, you learn how to use the Azure CLI to manage Azure virtual machines by applying Azure RBAC, policies, locks, and tags.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: tfitzmac
 manager: gwallace
 
 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.topic: tutorial

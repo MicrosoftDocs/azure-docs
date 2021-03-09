@@ -2,7 +2,7 @@
 title: Connect to a Windows Server VM 
 description: Learn how to connect and sign on to a Windows VM using the Azure portal and the Resource Manager deployment model.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/26/2018
