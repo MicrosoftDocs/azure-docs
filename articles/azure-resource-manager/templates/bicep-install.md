@@ -2,7 +2,7 @@
 title: Setup Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ---
 
 # Setup Bicep development and deployment environment
@@ -25,12 +25,12 @@ You can deploy Bicep files by using Azure CLI or Azure PowerShell. For Azure CLI
 
 To get the best Bicep authoring experience, you need two components:
 
-- **Bicep extension for Visual Studio Code**. To create Bicep files, you need a good Bicep editor. We recommend [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). These tools provides language support and resource autocompletion. They help create and validate Bicep files. For more information, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code).
+- **Bicep extension for Visual Studio Code**. To create Bicep files, you need a good Bicep editor. We recommend [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). These tools provides language support and resource autocompletion. They help create and validate Bicep files. For more information, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - **Bicep CLI**. Use Bicep CLI to compile Bicep files to ARM JSON templates, and decompile ARM JSON templates to Bicep files.
 
 ### Install Bicep CLI by using Azure CLI
 
-If you already have the latest version of Az CLI installed (v2.20.0 or later), the Bicep CLI is automatically installed when a command that depends on it is executed (`az deployment ... -f *.bicep` or `az bicep ...`).
+With Az CLI version 2.20.0 or later installed, the Bicep CLI is automatically installed when a command that depends on it is executed. For example, `az deployment ... -f *.bicep` or `az bicep ...`.
 
 You can also manually install the CLI using the built-in commands:
 
@@ -51,7 +51,7 @@ az bicep install --version v0.2.212
 ```
 
 > [!NOTE]
-> Az CLI installs a separate version of the Bicep CLI that is not conflict with any other Bicep installs you may have,  and Az CLI does not add Bicep to your PATH.
+> Az CLI installs a separate version of the Bicep CLI that is not conflict with any other Bicep installs you may have, and Az CLI does not add Bicep to your PATH.
 
 To show the installed versions:
 
@@ -67,11 +67,11 @@ az bicep list-versions
 
 ### Install Bicep CLI by using Azure PowerShell
 
-The Azure PowerShell module does not yet have the capability to install the Bicep CLI. Azure PowerShell (v5.6.0 or later) expects that the Bicep CLI is already installed and available on the PATH. Follow one of the [manual install methods](#manually-install). Once the Bicep CLI is installed, Bicep CLI is called whenever it is required for a deployment cmdlet. For example, `New-AzResourceGroupDeployment ... -TemplateFile main.bicep`.
+Azure PowerShell does not have the capability to install the Bicep CLI yet. Azure PowerShell (v5.6.0 or later) expects that the Bicep CLI is already installed and available on the PATH. Follow one of the [manual install methods](#manually-install-bicep-cli). Once the Bicep CLI is installed, Bicep CLI is called whenever it is required for a deployment cmdlet. For example, `New-AzResourceGroupDeployment ... -TemplateFile main.bicep`.
 
 ### Manually install Bicep CLI
 
-All of the following methods install the Bicep CLI and add it to your PATH.
+The following methods install the Bicep CLI and add it to your PATH.
 
 #### Linux
 
@@ -121,7 +121,7 @@ bicep --help
 
 #### Windows Installer
 
-Download and run the [latest Windows installer](https://github.com/Azure/bicep/releases/latest/download/bicep-setup-win-x64.exe). The installer does not require administrative privileges. After the installation, Bicep CLI is added to your user PATH. If you have any command shell windows open (`cmd`, `PowerShell`, or similar), close and reopen them for the PATH change to take effect.
+Download and run the [latest Windows installer](https://github.com/Azure/bicep/releases/latest/download/bicep-setup-win-x64.exe). The installer does not require administrative privileges. After the installation, Bicep CLI is added to your user PATH. Close and reopen any opened command shell windows for the PATH change to take effect.
 
 #### Chocolatey
 
@@ -155,10 +155,10 @@ bicep --help
 
 #### Install the nightly builds of bicep (experimental)
 
-If you'd like to try the latest pre-release bits of Bicep before they are released, you can [follow instructions for installing the nightly builds](./installing-nightly.md).
+If you'd like to try the latest pre-release bits of Bicep before they are released, see [Install nightly builds](https://github.com/Azure/bicep/blob/main/docs/installing-nightly.md).
 
 > [!WARNING]
-> These builds are much more likely to have known or unknown bugs.
+> These pre-release builds are much more likely to have known or unknown bugs.
 
 ## Next steps
 
