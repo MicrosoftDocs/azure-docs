@@ -315,10 +315,10 @@ Ensure that:
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims.
 * Your API responds as quickly as possible to ensure a fluid user experience.
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." in production. For Azure Functions, its recommended to use the [Premium plan](../azure-functions/functions-scale.md)
+    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." in production. For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-scale.md)
 
 ### Use logging
-In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](../azure-functions/functions-monitoring.md), to monitor your API for unexpected error codes, exceptions, and poor performance.
+In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](../../azure-functions/functions-monitoring.md), to monitor your API for unexpected error codes, exceptions, and poor performance.
 * Monitor for HTTP status codes that aren't HTTP 200 or 400.
 * A 401 or 403 HTTP status code typically indicates there's an issue with your authentication. Double-check your API's authentication layer and the corresponding configuration in the API connector.
 * Use more aggressive levels of logging (e.g. "trace" or "debug") in development if needed.
