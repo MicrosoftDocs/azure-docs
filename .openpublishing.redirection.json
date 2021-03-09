@@ -38910,6 +38910,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/states-lifecycle.md",
+      "redirect_url": "/azure/virtual-machines/states-and-billing",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/linux/sizes-hpc.md",
       "redirect_url": "/azure/virtual-machines/sizes-hpc",
       "redirect_document_id": false
