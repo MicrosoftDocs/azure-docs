@@ -4,7 +4,7 @@ description: Describes how to create a data collection rule to collect data from
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
+ms.date: 03/08/2021
 
 ---
 
@@ -64,6 +64,17 @@ Click **Add Data Source** and then **Review + create** to review the details of 
 > [!NOTE]
 > After the data collection rule and associations have been created, it might take up to 5 minutes for data to be sent to the destinations.
 
+## Limit data collection
+Since you're charged for any data collected in a Log Analytics workspace, you should collect only the data that you require. Using basic configuration in the Azure portal, you only have limited ability to filter events to collect. For Application and System logs, this is all logs with a particular severity. For Security logs, this is all audit success or all audit failure logs.
+
+To specify additional filters, you must use Custom configuration and specify an XPath that filters out the events you don't. Only one XPath is allowed for each event log so you must specify all criteria for a particular event log in a single XPath.
+
+The following table shows examples for filtering events using a custom XPath.
+
+| Description | XPath |
+|:---|:---|
+|Collect all Critical, Error, Warning, and Information events from the System event log except for Event ID = 6 (Driver loaded) | `System!*[System[(Level=1 or Level=2 or Level=3) and (not[EventID=6])]]` |
+| Collect all success and failure Security events except for Event ID 4624 (Successful logon) | `Security!*[System[(band(Keywords,13510798882111488)) and (not[EventID=4624])]]` |
 
 ## Create rule and association using REST API
 
@@ -79,6 +90,8 @@ Follow the steps below to create a data collection rule and association
 ## Create association using Resource Manager template
 
 You cannot create a data collection rule using a Resource Manager template, but you can create an association between an Azure virtual machine or Azure Arc enabled server using a Resource Manager template. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates.
+
+
 
 ## Next steps
 
