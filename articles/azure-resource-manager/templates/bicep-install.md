@@ -147,23 +147,23 @@ bicep --help
 
 #### Windows
 
-#### Windows Installer
+##### Windows Installer
 
 Download and run the [latest Windows installer](https://github.com/Azure/bicep/releases/latest/download/bicep-setup-win-x64.exe). The installer does not require administrative privileges. After the installation, Bicep CLI is added to your user PATH. Close and reopen any opened command shell windows for the PATH change to take effect.
 
-#### Chocolatey
+##### Chocolatey
 
 ```powershell
 choco install bicep
 ```
 
-#### Winget
+##### Winget
 
 ```powershell
 winget install -e --id Microsoft.Bicep
 ```
 
-#### Manual with PowerShell
+##### Manual with PowerShell
 
 ```powershell
 # Create the install folder
@@ -181,7 +181,7 @@ bicep --help
 # Done!
 ```
 
-### Install the nightly builds of Bicep
+## Install the nightly builds of Bicep
 
 If you'd like to try the latest pre-release bits of Bicep before they are released, see [Install nightly builds](https://github.com/Azure/bicep/blob/main/docs/installing-nightly.md).
 
