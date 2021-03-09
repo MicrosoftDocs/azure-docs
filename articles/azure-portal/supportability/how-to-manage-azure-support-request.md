@@ -84,34 +84,34 @@ Follow these guidelines when you use the file upload option:
 * Files can't be larger than 4 MB.
 * All files must have a file name extension, such as *.docx* or *.xlsx*. The following table shows the filename extensions that are allowed for upload.
 
-| 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
+| 0-9, A-C    | D-G   | H-N         | O-Q   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
-| .7z         | .dat  | .har        | .odx  | .rar     | .tdb       | .xlam   |
-| .a          | .db   | .hwl        | .oft  | .rdl     | .tdf       | .xlr    |
-| .abc        | .DMP  | .ics        | .old  | .rdlc    | .text      | .xls    |
-| .adm        | .do_  | .ini        | .one  | .re_     | .thmx      | .xlsb   |
-| .aspx       | .doc  | .java       | .osd  | .remove  | .tif       | .xlsm   |
-| .ATF        | .docm | .jpg        | .OUT  | .ren     | .trc       | .xlsx   |
-| .b          | .docx | .LDF        | .p1   | .rename  | .TTD       | .xlt    |
-| .ba_        | .dotm | .letterhead | .pcap | .rft     | .tx_       | .xltx   |
-| .bak        | .dotx | .lo_        | .pdb  | .rpt     | .txt       | .xml    |
-| .blg        | .dtsx | .log        | .pdf  | .rte     | .uccapilog | .xmla   |
-| .CA_        | .eds  | .lpk        | .piz  | .rtf     | .uccplog   | .xps    |
-| .CAB        | .emf  | .manifest   | .pmls | .run     | .udcx      | .xsd    |
-| .cap        | .eml  | .master     | .png  | .saz     | .vb_       | .xsn    |
-| .catx       | .emz  | .mdmp       | .potx | .sql     | .vbs_      | .xxx    |
-| .CFG        | .err  | .mof        | .ppt  | .sqlplan | .vcf       | .z_     |
-| .compressed | .etl  | .mp3        | .pptm | .stp     | .vsd       | .z01    |
-| .Config     | .evt  | .mpg        | .pptx | .svclog  | .wdb       | .z02    |
-| .cpk        | .evtx | .ms_        | .prn  | -        | .wks       | .zi     |
-| .cpp        | .EX   | .msg        | .psf  | -        | .wma       | .zi_    |
-| .cs         | .ex_  | .mso        | .pst  | -        | .wmv       | .zip    |
-| .CSV        | .ex0  | .msu        | .pub  | -        | .wmz       | .zip_   |
-| .cvr        | .FRD  | .nfo        | -     | -        | .wps       | .zipp   |
-| -           | .gif  | -           | -     | -        | .wpt       | .zipped |
-| -           | .guid | -           | -     | -        | .wsdl      | .zippy  |
-| -           | .gz   | -           | -     | -        | .wsp       | .zipx   |
-| -           | -     | -           | -     | -        | .wtl       | .zit    |
+| .7z         | .dat  | .har        | .odx  | .rar     | .uccapilog | .xlam   |
+| .a          | .db   | .hwl        | .oft  | .rdl     | .uccplog   | .xlr    |
+| .abc        | .DMP  | .ics        | .old  | .rdlc    | .udcx      | .xls    |
+| .adm        | .do_  | .ini        | .one  | .re_     | .vb_       | .xlsb   |
+| .aspx       | .doc  | .java       | .osd  | .remove  | .vbs_      | .xlsm   |
+| .ATF        | .docm | .jpg        | .OUT  | .ren     | .vcf       | .xlsx   |
+| .b          | .docx | .LDF        | .p1   | .rename  | .vsd       | .xlt    |
+| .ba_        | .dotm | .letterhead | .pcap | .rft     | .wdb       | .xltx   |
+| .bak        | .dotx | .lo_        | .pdb  | .rpt     | .wks       | .xml    |
+| .blg        | .dtsx | .log        | .pdf  | .rte     | .wma       | .xmla   |
+| .CA_        | .eds  | .lpk        | .piz  | .rtf     | .wmv       | .xps    |
+| .CAB        | .emf  | .manifest   | .pmls | .run     | .wmz       | .xsd    |
+| .cap        | .eml  | .master     | .png  | .saz     | .wps       | .xsn    |
+| .catx       | .emz  | .mdmp       | .potx | .sql     | .wpt       | .xxx    |
+| .CFG        | .err  | .mof        | .ppt  | .sqlplan | .wsdl      | .z_     |
+| .compressed | .etl  | .mp3        | .pptm | .stp     | .wsp       | .z01    |
+| .Config     | .evt  | .mpg        | .pptx | .svclog  | .wtl       | .z02    |
+| .cpk        | .evtx | .ms_        | .prn  | .tdb     | -          | .zi     |
+| .cpp        | .EX   | .msg        | .psf  | .tdf     | -          | .zi_    |
+| .cs         | .ex_  | .mso        | .pst  | .text    | -          | .zip    |
+| .CSV        | .ex0  | .msu        | .pub  | .thmx    | -          | .zip_   |
+| .cvr        | .FRD  | .nfo        | -     | .tif     | -          | .zipp   |
+| -           | .gif  | -           | -     | .trc     | -          | .zipped |
+| -           | .guid | -           | -     | .TTD     | -          | .zippy  |
+| -           | .gz   | -           | -     | .tx_     | -          | .zipx   |
+| -           | -     | -           | -     | .txt     | -          | .zit    |
 | -           | -     | -           | -     | -        | -          | .zix    |
 | -           | -     | -           | -     | -        | -          | .zzz    |
 
