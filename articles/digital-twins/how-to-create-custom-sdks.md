@@ -5,10 +5,10 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use AutoRest to generate custom-language SDKs, for writing Azure Digital Twins code in other languages that don't have published SDKs.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/24/2020
+ms.date: 3/9/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-js
+ms.custom: [devx-track-js, contperf-fy21q3]
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
