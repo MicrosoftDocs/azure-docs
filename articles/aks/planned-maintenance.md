@@ -12,7 +12,7 @@ author: qpetraroia
 
 # Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)
 
-Planned Maintenance allows you to schedule weekly maintenance windows that minimize workload impact. This can be used for the AKS weekly releases, platform maintenance, or any automatic operations like automatic upgrades. You can schedule one or more weekly windows on your cluster by specifying a day or time range on a specific day. Maintenance Windows are configured using the Azure CLI.
+Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows that minimize workload impact. This can be used for the AKS weekly releases, platform maintenance, or any automatic operations like automatic upgrades. Once scheduled, all your maintenance will occur during the window you selected. You can schedule one or more weekly windows on your cluster by specifying a day or time range on a specific day. Maintenance Windows are configured using the Azure CLI.
 
 ## Before you begin
 
@@ -64,6 +64,8 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Allow maintenance on every Monday at 1:00am to 2:00am
 
+To add a maintenance window, you can use the `az aks maintenanceconfiguration add` command.
+
 > [!IMPORTANT]
 > Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
@@ -73,7 +75,7 @@ az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSClust
 
 The following example output shows the maintenance window from 1:00am to 2:00am every Monday.
 
-```
+```json
 {- Finished ..
   "id": "/subscriptions/<subscriptionID>/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
   "name": "default",
@@ -92,13 +94,15 @@ The following example output shows the maintenance window from 1:00am to 2:00am 
 }
 ```
 
-## Allow maintenance at any time every Monday
+To allow maintenance any time during a day, omit the *start-hour* parameter. For example, the following command sets the maintenance window for the full day every Monday:
 
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday
 ```
 
 ## Add a maintenance configuration with a JSON file
+
+You can also use a JSON file create a maintenance window instead of using parameters. Create a test.json file with the following contents:
 
 ```json
   {
@@ -127,15 +131,15 @@ az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSClust
 }
 ```
 
+The above JSON file specifies maintenance windows every Tuesday at 1:00am - 3:00am and every Wednesday at 1:00am - 2:00am. There is also an exception is from *2021-05-26T03:00:00Z* to *2021-05-30T12:00:00Z* where maintenance isn't allowed even if it overlaps with a maintenance window. The following command adds the maintenance windows from `test.json`.
+
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --config-file ./test.json
 ```
 
-The following JSON file specifies maintenance windows every Tuesday at 1:00am - 3:00am and every Wednesday at 1:00am - 2:00am. There is also an exception is from *2021-05-26T03:00:00Z* to *2021-05-30T12:00:00Z* where maintenance isn't allowed even if it overlaps with a maintenance window.
-
 ## Update an existing maintenance window
 
-To update an existing maintenance configuration, you can use the `update` command.
+To update an existing maintenance configuration, use the `az aks maintenanceconfiguration update` command.
 
 ```azurecli-interactive
 az aks maintenanceconfiguration update -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday  --start-hour 1
@@ -143,15 +147,15 @@ az aks maintenanceconfiguration update -g MyResourceGroup --cluster-name myAKSCl
 
 ## List all maintenance windows in an existing cluster
 
-To see all current maintenance configuration windows in your AKS Cluster, use the `list` command.
+To see all current maintenance configuration windows in your AKS Cluster, use the `az aks maintenanceconfiguration list` command.
 
 ```azurecli-interactive
 az aks maintenanceconfiguration list -g MyResourceGroup --cluster-name myAKSCluster
 ```
 
-In the output below, you can see that there are two maintenance windows configured for myAKSCluster.
+In the output below, you can see that there are two maintenance windows configured for myAKSCluster. One on Monday where maintenance will occur at 1:00am and another on Friday where maintenance will occur at 4:00am.
 
-```
+```json
 [
   {
     "id": "/subscriptions/<subscriptionID>/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
@@ -190,13 +194,15 @@ In the output below, you can see that there are two maintenance windows configur
 
 ## Show a specific maintenance configuration window in an AKS cluster
 
-To see a certain maintenance configuration window in your AKS Cluster, use the `show` command.
+To see a specific maintenance configuration window in your AKS Cluster, use the `az aks maintenanceconfiguration show` command.
 
 ```azurecli-interactive
 az aks maintenanceconfiguration show -g MyResourceGroup --cluster-name myAKSCluster --name default
 ```
 
-```
+The following example output shows the maintenance window for default:
+
+```json
 {
   "id": "/subscriptions/<subscriptionID>/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
   "name": "default",
@@ -217,7 +223,7 @@ az aks maintenanceconfiguration show -g MyResourceGroup --cluster-name myAKSClus
 
 ### Delete a certain maintenance configuration window in an existing AKS Cluster
 
-To delete a certain maintenance configuration window in your AKS Cluster, use the `delete` command.
+To delete a certain maintenance configuration window in your AKS Cluster, use the `az aks maintenanceconfiguration delete` command.
 
 ```azurecli-interactive
 az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCluster --name default
