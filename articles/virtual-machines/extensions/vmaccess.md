@@ -5,7 +5,8 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
 author: amjads1
-ms.author: amjadsms.collection: linux
+ms.author: amjads
+ms.collection: linux
 ms.date: 05/10/2018
 
 ---

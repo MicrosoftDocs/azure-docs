@@ -5,6 +5,7 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
 author: ejarvi 
+ms.author: ejarvi
 ms.date: 03/19/2020
 ms.collection: linux
 
