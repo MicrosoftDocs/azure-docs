@@ -148,7 +148,7 @@ landingContent:
             url: faq.yml
       - linkListType: video
         links:
-          - text: Azure VMware Solution playlist
+          - text: Playlist
             url: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
           - text: Demystify DNS and Secure Communication 
             url: https://youtu.be/m26iLu6DHbU
