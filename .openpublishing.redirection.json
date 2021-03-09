@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/spring-cloud/spring-cloud-howto-access-data-plane-azure-ad-rbac.md",
+      "redirect_url": "/azure/spring-cloud/spring-cloud-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-percept/advanced-development-cloud.md",
       "redirect_url": "/azure/azure-percept/overview-advanced-code",
       "redirect_document_id": false
@@ -18471,7 +18476,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-portal/tutorial-azureportal-devops.md",
-      "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&view=vsts&tabs=new-nav",
+      "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&tabs=new-nav",
       "redirect_document_id": false
     },
     {
@@ -46392,6 +46397,11 @@
     {
       "source_path_from_root": "/articles/migrate/how-to-create-group-dependencies.md",
       "redirect_url": "how-to-create-a-group#refine-a-group-with-dependency-mapping",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/resource-mover/move-region-powershell.md",
+      "redirect_url": "tutorial-move-region-powershell",
       "redirect_document_id": false
     },
     {

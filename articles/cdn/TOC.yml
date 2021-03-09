@@ -27,8 +27,6 @@
     href: cdn-custom-ssl.md
   - name: Set caching rules
     href: cdn-caching-rules-tutorial.md
-  - name: Enforce HTTPS by using the Standard rules engine
-    href: cdn-standard-rules-engine.md
 - name: Samples
   items:
   - name: Code samples
@@ -76,6 +74,8 @@
       href: cdn-improve-performance.md
     - name: Endpoint multi-origin
       href: endpoint-multiorigin.md
+    - name: Enforce HTTPS by using the Standard rules engine
+      href: cdn-standard-rules-engine.md
     - name: Control caching behavior
       items:
       - name: Control caching behavior by using caching rules
