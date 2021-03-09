@@ -143,7 +143,7 @@ Make sure that `CaseSensitiveLookup` is enabled on the Windows client to speed u
 	Example:   
 	`Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
 
-### How does Azure NetApp FIles support NFSv4.1 file-locking? 
+### How does Azure NetApp Files support NFSv4.1 file-locking? 
 
 For NFSv4.1 clients, Azure NetApp Files supports the NFSv4.1 file-locking mechanism that maintains the state of all file locks under a lease-based model. 
 
