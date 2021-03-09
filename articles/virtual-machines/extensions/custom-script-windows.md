@@ -1,17 +1,13 @@
 ---
 title: Azure Custom Script Extension for Windows 
 description: Automate Windows VM configuration tasks by using the Custom Script extension
-services: virtual-machines
-manager: gwallace
-author: amjads1
+ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.collection: windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 08/31/2020
 ms.author: amjads
+author: amjads1
+ms.collection: windows
+ms.date: 08/31/2020
 
 ---
 # Custom Script Extension for Windows
