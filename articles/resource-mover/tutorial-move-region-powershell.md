@@ -284,14 +284,14 @@ In this tutorial, since we're moving VMs, we need to prepare the source resource
     ```
     **Output**
 
-    ![Output text after preparing source resource group](./media/move-region-powershell/prepare-source-resource-group.png)
+    ![Output text after preparing source resource group](./media/tutorial-move-region-powershell/prepare-source-resource-group.png)
 
 2. Initiate the move of the source resource group.
 
     ```azurepowershell-interactive
     "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource “PSDemoRM”
     ```
-    ![Output text after initiating move of source resource group](./tutorial-media/move-region-powershell/initiate-move-source-resource-group.png)
+    ![Output text after initiating move of source resource group](./media/tutorial-move-region-powershell/initiate-move-source-resource-group.png)
 
 3. Commit the move for the source resource group.
 
@@ -338,9 +338,10 @@ After preparing and moving the source resource group, we can prepare VM resource
     > [!NOTE]
     > You can provide the source resource ID instead of resource name as the input parameters for the Prepare cmdlet, as well as in the Initiate Move and Commit cmdlets. To do this, run:
 
-        ```azurepowershell-interactive
+
+    ```azurepowershell-interactive
         Invoke-AzResourceMoverPrepare -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -MoveResourceInputType MoveResourceSourceId  -MoveResource $('/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/PSDemoRMS/providers/Microsoft.Network/networkSecurityGroups/PSDemoVM-nsg')
-        ```
+    ```
 
 ## Initiate move of VM resources
 
