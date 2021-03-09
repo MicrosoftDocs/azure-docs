@@ -25,10 +25,10 @@ The examples in this article show the creation of a [data plane SDK](how-to-use-
 ## Prerequisites
 
 To generate an SDK, you'll first need to complete the following setup on your local machine:
-* Install [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
-* Install [Node.js](https://nodejs.org), which is a pre-requisite for using AutoRest
-* Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-* Download the latest Azure Digital Twins **data plane Swagger** (OpenAPI) file from the [data plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins), along with its accompanying folder of examples. The Swagger file is the one entitled *digitaltwins.json*.
+* Install [**AutoRest**](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
+* Install [**Node.js**](https://nodejs.org), which is a pre-requisite for using AutoRest
+* Install [**Visual Studio**](https://visualstudio.microsoft.com/downloads/)
+* Download the latest Azure Digital Twins **data plane Swagger** (OpenAPI) file from the [data plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins), along with its accompanying folder of examples. The Swagger file is the one called *digitaltwins.json*.
 
 >[!TIP]
 > To create a **control plane SDK** instead, complete the steps in this article using the latest **control plane Swagger** (OpenAPI) file from the [control plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) instead of the data plane one.
@@ -85,7 +85,7 @@ To add these, open *Tools > NuGet Package Manager > Manage NuGet Packages for So
 
 You can now build the project, and include it as a project reference in any Azure Digital Twins application you write.
 
-## Using the SDK
+## Tips for using the SDK
 
 This section contains general information and guidelines for using the generated SDK.
 
