@@ -10,7 +10,7 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 03/09/2021
 ms.author: apimpm
 ---
 
@@ -263,7 +263,7 @@ You can use the system-assigned identity to authenticate to the back end through
 ### <a name="apim-as-trusted-service"></a>Connect to Azure resources behind IP Firewall using System Assigned Managed Identity
 
 
-API Management is a trusted microsoft services to the following resources. This allows the service to connect to the following resources behind a firewall. After explicitly assignining the appropriate Azure role to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
+API Management is a trusted microsoft service to the following resources. This allows the service to connect to the following resources behind a firewall. After explicitly assigning the appropriate Azure role to the [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md) for that resource instance, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 
 
 |Azure Service | Link|
