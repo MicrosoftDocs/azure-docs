@@ -40,7 +40,7 @@ Between preview launch on March 2 through April 1, spell correction and semantic
 
 Components of semantic search are layered on top of the existing query execution pipeline. Spell correction (not shown in the diagram) improves recall by correcting typos in individual query terms. After parsing and analysis are completed, the search engine retrieves the documents that matched the query and scores them using the [default scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms), either BM25 or classic, depending on when the service was created. Scoring profiles are also applied at this stage.
 
-Having received the top 50 matches, the [semantic ranking model](semantic-how-to-query-response.md) re-evaluates the document corpus. Results can include more than 50 matches, but only the first 50 will be reranked. For ranking, the model uses both machine learning and transfer learning to re-score the documents based on how well each one matches the intent of the query.
+Having received the top 50 matches, the [semantic ranking model](semantic-ranking-answers.md) re-evaluates the document corpus. Results can include more than 50 matches, but only the first 50 will be reranked. For ranking, the model uses both machine learning and transfer learning to re-score the documents based on how well each one matches the intent of the query.
 
 To create captions and answers, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question, and answers are requested, the response will include a text passage that best answers the question, as expressed by the search query.
 
@@ -53,4 +53,4 @@ A new query type enables the relevance ranking and response structures of semant
 [Create a semantic query](semantic-how-to-query-request.md) to get started. Or, review either of the following articles for related information.
 
 + [Add spell check to query terms](speller-how-to-add.md)
-+ [Semantic ranking and responses (answers and captions)](semantic-how-to-query-response.md)
++ [Semantic ranking and answers](semantic-ranking-answers.md)

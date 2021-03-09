@@ -31630,6 +31630,11 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/semantic-how-to-query-response.md",
+      "redirect_url": "/azure/search/semantic-ranking-answers",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/search/knowledge-store-connect-powerbi.md",
       "redirect_url": "/azure/search/knowledge-store-create-portal",
       "redirect_document_id": true
