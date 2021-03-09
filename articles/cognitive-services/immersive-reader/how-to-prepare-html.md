@@ -17,7 +17,7 @@ This article shows you how to structure your HTML and retrieve the content, so t
 
 ## Prepare the HTML content
 
-Place the content that you want to render in the Immersive Reader inside of a container element. Be sure that the container element has a unique `id`. The Immersive Reader provides support for basic HTML elements, see the [reference](../../reference.md#html-support) for more information.
+Place the content that you want to render in the Immersive Reader inside of a container element. Be sure that the container element has a unique `id`. The Immersive Reader provides support for basic HTML elements, see the [reference](reference.md#html-support) for more information.
 
 ```html
 <div id='immersive-reader-content'>
@@ -58,4 +58,4 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, data, YOUR_OPTIONS);
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK Reference](../../reference.md)
+* Explore the [Immersive Reader SDK Reference](reference.md)
