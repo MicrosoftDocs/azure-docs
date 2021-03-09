@@ -33,7 +33,8 @@ If you don't need to support .NET 5.0 or run your functions out-of-process, you 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code, version 1.3.0 or newer.
 ::: zone-end
 ::: zone pivot="development-environment-vs"
-+ [Visual Studio 2019](https://azure.microsoft.com/downloads/), including the **Azure development** workload. .NET isolated function project templates and publishing isn't currently available in Visual Studio.
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/), including the **Azure development** workload.  
+.NET isolated function project templates and publishing aren't currently available in Visual Studio.
 ::: zone-end
 
 ## Create a local function project
