@@ -4,9 +4,11 @@ description: Overview of various states a VM can enter and when a user is billed
 services: virtual-machines
 author: mimckitt
 ms.service: virtual-machines
+ms.subservice: billing
 ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
+ms.reviewer: cynthn
 ---
 
 # States and billing of Azure Virtual Machines
