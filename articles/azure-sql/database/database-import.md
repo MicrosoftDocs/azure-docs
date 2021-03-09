@@ -141,7 +141,13 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 ## Cancel the import request
 
-Use the procedure in the blog [How to cancel Azure SQL Database Import or Export operation](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-cancel-azure-sql-database-import-or-export-operation/ba-p/1935001) to cancel an ongoing import or export operation on Azure SQL Database. 
+Use the [Database Operations - Cancel API](https://docs.microsoft.com/en-us/rest/api/sql/databaseoperations/cancel)
+or the Powershell [Stop-AzSqlDatabaseActivity command](https://docs.microsoft.com/en-us/powershell/module/az.sql/Stop-AzSqlDatabaseActivity?view=azps-5.5.0), here an example of powershell command.
+
+```cmd
+Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
+```
+
 
 ## Limitations
 
