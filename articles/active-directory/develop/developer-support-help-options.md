@@ -29,12 +29,15 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 - If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-- If you are not an Azure customer, you can also open a support request with Microsoft via [our commercial support](https://support.serviceshub.microsoft.com/supportforbusiness).
 
-## Post a question to Microsoft Q&A
-<div class='icon is-large'>
-    <img alt='Microsoft Q&A' src='./media/common/question_mark_icon.png'>
-</div>             
+For faster results, scope your search to [Microsoft Q&A](https://docs.microsoft.com/answers/products/) the documentation, and the code samples by using the following query in your favorite search engine:
+
+For faster results, scope your search to [Microsoft Q&A](/answers/products/)the documentation, and the code samples by using the following query in your favorite search engine:
+
+
+```
+{Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
+```
 
 Get answers to your identity app development questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
 

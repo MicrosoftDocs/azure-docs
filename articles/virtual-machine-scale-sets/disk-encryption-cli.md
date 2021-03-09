@@ -161,7 +161,7 @@ When VM instances are encrypted, the status code reports *EncryptionState/encryp
 
 ## Disable encryption
 
-If you no longer wish to use encrypted VM instances disks, you can disable encryption with [az vmss encryption disable](/cli/azure/vmss/encryption?view=azure-cli-latest#az-vmss-encryption-disable) as follows:
+If you no longer wish to use encrypted VM instances disks, you can disable encryption with [az vmss encryption disable](/cli/azure/vmss/encryption#az-vmss-encryption-disable) as follows:
 
 ```azurecli-interactive
 az vmss encryption disable --resource-group myResourceGroup --name myScaleSet

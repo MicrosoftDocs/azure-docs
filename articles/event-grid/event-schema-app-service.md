@@ -3,7 +3,7 @@ title: Azure App Service as Event Grid source
 description: This article describes how to use Azure App Service as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
 author: jasonfreeberg
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 03/06/2021
 ms.author: jafreebe
 ---
 
@@ -84,7 +84,7 @@ This section contains an example of what that data would look like for each even
 		"appEventTypeDetail": {
 			"action": "Started"
 		},
-		"siteName": "<site-name>",
+		"name": "<site-name>",
 		"clientRequestId": "None",
 		"correlationRequestId": "None",
 		"requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -108,7 +108,7 @@ This section contains an example of what that data would look like for each even
 		"appEventTypeDetail": {
 			"action": "Started"
 		},
-		"siteName": "<site-name>",
+		"name": "<site-name>",
 		"clientRequestId": "None",
 		"correlationRequestId": "None",
 		"requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -149,7 +149,7 @@ The data object contains the following properties:
 		"appEventTypeDetail": {
 			"action": "Started"
 		},
-		"siteName": "<site-name>",
+		"name": "<site-name>",
 		"clientRequestId": "None",
 		"correlationRequestId": "None",
 		"requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -174,7 +174,7 @@ The data object contains the following properties:
 		"appEventTypeDetail": {
 			"action": "Started"
 		},
-		"siteName": "<site-name>",
+		"name": "<site-name>",
 		"clientRequestId": "None",
 		"correlationRequestId": "None",
 		"requestId": "292f499d-04ee-4066-994d-c2df57b99198",
@@ -213,7 +213,7 @@ The data object contains the following properties:
 	"eventTime": "2020-01-28T18:26:51.7194887Z",
 	"data": {
 		"appEventTypeDetail": null,
-		"siteName": "<site-name>",
+		"name": "<site-name>",
 		"clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
 		"correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
 		"requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -238,7 +238,7 @@ The data object contains the following properties:
 	"time": "2020-01-28T18:26:51.7194887Z",
 	"data": {
 		"appEventTypeDetail": null,
-		"siteName": "<site-name>",
+		"name": "<site-name>",
 		"clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
 		"correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
 		"requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -280,7 +280,7 @@ The data object contains the following properties:
 	"eventTime": "2020-01-28T18:26:51.7194887Z",
 	"data": {
 		"appEventTypeDetail": null,
-		"siteName": "<site-name>",
+		"name": "<site-name>",
 		"clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
 		"correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
 		"requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -305,7 +305,7 @@ The data object contains the following properties:
 	"time": "2020-01-28T18:26:51.7194887Z",
 	"data": {
 		"appEventTypeDetail": null,
-		"siteName": "<site-name>",
+		"name": "<site-name>",
 		"clientRequestId": "922f4841-20d9-4dd6-8c5b-23f0d85e5592",
 		"correlationRequestId": "9ac46505-2b8a-4e06-834c-05ffbe2e8c3a",
 		"requestId": "765117aa-eaf8-4bd2-a644-1dbf69c7b0fd",
@@ -348,7 +348,7 @@ The data object contains the following properties:
 		"appEventTypeDetail": {
 			"action": "Stopped"
 		},
-		"siteName": "<site-name>",
+		"name": "<site-name>",
 		"clientRequestId": "64a5e0aa-7cee-4ff1-9093-b9197b820014",
 		"correlationRequestId": "25bb36a5-8f6c-4f04-b615-e9a0ee045756",
 		"requestId": "f2e8eb3f-b190-42de-b99e-6acefe587374",
@@ -373,7 +373,7 @@ The data object contains the following properties:
 		"appEventTypeDetail": {
 			"action": "Stopped"
 		},
-		"siteName": "<site-name>",
+		"name": "<site-name>",
 		"clientRequestId": "64a5e0aa-7cee-4ff1-9093-b9197b820014",
 		"correlationRequestId": "25bb36a5-8f6c-4f04-b615-e9a0ee045756",
 		"requestId": "f2e8eb3f-b190-42de-b99e-6acefe587374",
