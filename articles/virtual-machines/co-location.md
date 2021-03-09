@@ -4,6 +4,7 @@ description: Learn about using proximity placement groups in Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
+ms.subservice: proximity-placement-groups
 ms.topic: conceptual
 ms.date: 3/07/2021
 ms.reviewer: zivr

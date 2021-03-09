@@ -3,7 +3,7 @@ title: Share VM images with Shared Galleries
 description: Learn how to use shared image galleries to share Linux VM images across your organization.
 author: axayjo
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 10/14/2020
