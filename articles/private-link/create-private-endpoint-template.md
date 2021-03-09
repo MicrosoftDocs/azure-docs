@@ -1,5 +1,5 @@
 ---
-title: Create a private endpoint in Azure Private Link
+title: 'Quickstart - Create a private endpoint by using an ARM template'
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private endpoint.
 services: private-link
 author: mblanco77
@@ -132,4 +132,6 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-Learn more about [Azure Private Link](private-link-overview.md).
+For more information on the services that support a private endpoint, see:
+> [!div class="nextstepaction"]
+> [Private Link availability](private-link-overview.md#availability)
