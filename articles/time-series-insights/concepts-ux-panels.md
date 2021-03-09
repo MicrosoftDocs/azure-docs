@@ -20,7 +20,7 @@ This article describes the various features and options available within the Azu
 
 To get started with the Azure Time Series Insights Explorer, you must:
 
-* Have an Azure Time Series Insights Gen2 environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Gen2](./tutorial-set-up-tsi-environment.md) tutorial.
+* Have an Azure Time Series Insights Gen2 environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md) tutorial.
 * [Provide data access](./concepts-access-policies.md) to the Azure Time Series Insights Gen2 environment that you created for the account. You can provide access to others as well as to yourself.
 * Add an event source to the Azure Time Series Insights Gen2 environment to push data to the environment:
   * Learn [how to connect to an event hub](./how-to-ingest-data-event-hub.md)

@@ -22,7 +22,8 @@ This document will guide you through creating a new Time Series Insights Gen2 En
 
 * Create an Azure storage account for your environment's [cold store](concepts-storage.md#cold-store). This account is designed for long-term retention and analytics for historical data.
 
-> [!NOTE] In your code, replace `mytsicoldstore` with a unique name for your cold storage account.
+> [!NOTE]
+> In your code, replace `mytsicoldstore` with a unique name for your cold storage account.
 
 First, create the storage account:
 
@@ -37,7 +38,8 @@ key=$(az storage account keys list -g $rg -n $storage --query [0].value --output
 
 Now that the storage account is created and its name and management key are assigned to the variables, run the command below to create the Azure Time Series Insights Environment:
 
-> [!NOTE] In your code, replace the following with unique names for your scenario:
+> [!NOTE]
+> In your code, replace the following with unique names for your scenario:
 >
 > * `my-tsi-env` with your Environment name.
 > * `my-ts-id-prop` with the name of your Time Series Id Property.
