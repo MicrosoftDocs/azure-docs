@@ -1,15 +1,15 @@
 ---
-title: States, lifecycle and billing of Azure Virtual Machines 
-description: Overview of the lifecycle of a VM in Azure including descriptions of the various states a VM can be in at any time.
+title: States and billing of Azure Virtual Machines 
+description: Overview of various states a VM can enter and when a user is billed. 
 services: virtual-machines
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/8/2021
 ms.author: mimckitt
 ---
 
-# States, lifecycle and billing of Azure Virtual Machines
+# States and billing of Azure Virtual Machines
 
 Azure Virtual Machines (VMs) go through different states that can be categorized into *provisioning* and *power* states. The purpose of this article is to describe these states and specifically highlight when customers are billed for instance usage. 
 
