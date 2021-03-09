@@ -63,7 +63,7 @@ In order to trigger the playbook, you'll then create an automation rule that run
 
 1. It adds the tags "compromised user" and ???.
 
-1. Finally, it calls the playbook you just created. ([Special permissions are required for this step]().)
+1. Finally, it calls the playbook you just created. ([Special permissions are required for this step](automate-responses-with-playbooks#incident-creation-automated-response).)
 
 Playbooks can be run automatically in response to incidents, by creating automation rules that call the playbooks as actions, as in the example above. They can also be run automatically in response to alerts, by telling the analytics rule to automatically run one or more playbooks when the alert is generated. 
 

@@ -213,7 +213,7 @@ For playbooks that are triggered by incident creation and receive incidents as t
     >
     > When you add the **run playbook** action to an automation rule, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as "grayed out." You can grant permission to Azure Sentinel on the spot by selecting the **Manage playbook permissions** link.
 
-See the [complete instructions for creating automation rules](tutorial-respond-threats-playbook.md).
+See the [complete instructions for creating automation rules](tutorial-respond-threats-playbook.md#respond-to-incidents).
 
 ### Run a playbook manually on an alert
 
