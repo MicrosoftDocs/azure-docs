@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 03/09/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -169,9 +169,13 @@ The [UserJourney](userjourneys.md) element defines the path that the user takes 
 To include the UserInfo endpoint in the relying party application, add an [Endpoint](relyingparty.md#endpoints) element to the *SocialAndLocalAccounts/SignUpOrSignIn.xml* file. 
 
 ```xml
-<Endpoints>
-  <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
-</Endpoints>
+<!--
+<RelyingParty> -->
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+<!--
+</RelyingParty> -->
 ```
 
 The completed relying party element will be as follows:
