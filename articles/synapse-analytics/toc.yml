@@ -346,15 +346,12 @@
         - name: Stored procedures
           href: sql/develop-stored-procedures.md
         - name: Transactions
-          href: sql/develop-transactions.md
-        - name: Transactions
           items:
-          - name: Serverless SQL pool
+          - name: Dedicated SQL pool transactions
+            href: sql/develop-transactions.md
+          - name: Dedicated SQL pool best practices transactions
             displayname: Transaction, best, practices
             href: sql/develop-transaction-best-practices.md
-          - name: Dedicated SQL pool
-            displayname: Transactions, best, practices
-            href: ./sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: User-defined schemas
           href: sql/develop-user-defined-schemas.md
         - name: Variable assignment

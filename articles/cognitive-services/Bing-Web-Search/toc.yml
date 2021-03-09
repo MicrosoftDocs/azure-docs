@@ -78,7 +78,7 @@
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi
     - name: Python
-      href: /python/api/azure-cognitiveservices-search-websearch/?view=azure-python
+      href: /python/api/azure-cognitiveservices-search-websearch/
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-websearch/
     - name: Go

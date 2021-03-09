@@ -22,9 +22,9 @@ ms.collection: M365-identity-device-management
 # More details about features in preview
 This topic describes how to use features currently in preview.
 
-## Azure AD Connect sync V2 endpoint API (public preview) 
+## Azure AD Connect sync V2 endpoint API
 
-We have deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. By utilizing the new V2 endpoint, you will experience noticeable performance gains on export and import to Azure AD. This new endpoint also supports syncing groups with up to 250k members. Using this endpoint also allows you to write back Microsoft 365 unified groups, with no maximum membership limit, to your on-premises Active Directory, when group writeback is enabled. For more information see [Azure AD Connect sync V2 endpoint API (public preview)](how-to-connect-sync-endpoint-api-v2.md).
+We have deployed a new endpoint (API) for Azure AD Connect that improves the performance of the synchronization service operations to Azure Active Directory. By utilizing the new V2 endpoint, you will experience noticeable performance gains on export and import to Azure AD. This new endpoint also supports syncing groups with up to 250k members. Using this endpoint also allows you to write back Microsoft 365 unified groups, with no maximum membership limit, to your on-premises Active Directory, when group writeback is enabled. For more information see [Azure AD Connect sync V2 endpoint API](how-to-connect-sync-endpoint-api-v2.md).
 
 ## User writeback
 > [!IMPORTANT]
