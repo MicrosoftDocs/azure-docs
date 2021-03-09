@@ -174,7 +174,7 @@ To include the UserInfo endpoint in the relying party application, add an [Endpo
   <Endpoints>
     <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
   </Endpoints>
-<!--
+<!-- 
 </RelyingParty> -->
 ```
 
