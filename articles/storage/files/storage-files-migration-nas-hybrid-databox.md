@@ -29,18 +29,10 @@ The goal is to move the shares that you have on your NAS appliance to a Windows 
 
 ## Migration overview
 
-As mentioned in the Azure Files [migration overview article](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your NAS appliance is exposing SMB shares directly on your local network. RoboCopy, built-into Windows Server, is the best way to move your files onto one or more Azure DataBox appliances.
+The migration process consists of several phases. You'll need to deploy Azure storage accounts and file shares, deploy an on-premises Windows Server, configure Azure File Sync, migrate using RoboCopy, and finally, do the cut-over. The following sections describe the phases of the migration process in detail.
 
-- Phase 1: [Identify how many Azure file shares you need](#phase-1-identify-how-many-azure-file-shares-you-need)
-- Phase 2: [Deploy Azure storage resources](#phase-2-deploy-azure-storage-resources)
-- Phase 3: [Determine how many Azure DataBox appliances you need](#phase-3-determine-how-many-azure-databox-appliances-you-need)
-- Phase 4: [Provision a suitable Windows Server on-premises](#phase-4-provision-a-suitable-windows-server-on-premises)
-- Phase 5: [Copy files onto your DataBox](#phase-5-copy-files-onto-your-databox)
-- Phase 6: [Deploy the Azure File Sync cloud resource](#phase-6-deploy-the-azure-file-sync-cloud-resource)
-- Phase 7: [Deploy the Azure File Sync agent](#phase-7-deploy-the-azure-file-sync-agent)
-- Phase 8: [Configure Azure File Sync on the Windows Server](#phase-8-configure-azure-file-sync-on-the-windows-server)
-- Phase 9: [Wait for the namespace to fully appear on the server](#phase-9-wait-for-the-namespace-to-fully-appear-on-the-server)
-- Phase 10: [Catch-up RoboCopy from your NAS](#phase-10-catch-up-robocopy-from-your-nas)
+> [!TIP]
+> If you are returning to this article, use the navigation on the right side to jump to the migration phase where you left off.
 
 ## Phase 1: Identify how many Azure file shares you need
 
