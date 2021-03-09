@@ -18,6 +18,8 @@
     href: how-to-create-immersive-reader.md
   - name: Launch the Immersive Reader
     href: how-to-launch-immersive-reader.md
+  - name: Prepare HTML content
+    href: how-to-prepare-html.md
   - name: Edit the Immersive Reader launch button
     href: how-to-customize-launch-button.md
   - name: Cache the authentication token

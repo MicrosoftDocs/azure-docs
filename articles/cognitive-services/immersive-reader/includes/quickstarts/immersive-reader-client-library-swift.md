@@ -569,4 +569,4 @@ When you click on the **Immersive Reader** button, you'll see the Immersive Read
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Edit the Immersive Reader launch button](../../how-to-customize-launch-button.md)
+> [Create a resource and configure AAD](../../how-to-create-immersive-reader.md)

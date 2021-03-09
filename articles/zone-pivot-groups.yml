@@ -1105,8 +1105,6 @@ groups:
   title: Programming languages
   prompt: Choose a programming language
   pivots:
-  - id: programming-language-html
-    title: HTML
   - id: programming-language-javascript
     title: JavaScript 
   - id: programming-language-python

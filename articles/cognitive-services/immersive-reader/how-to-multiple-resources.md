@@ -16,7 +16,7 @@ ms.custom: devx-track-js
 
 # Integrate multiple Immersive Reader resources
 
-In the [overview](./overview.md), you learned about what the Immersive Reader is and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. In the [quickstart](./quickstarts/client-libraries.md?pivots=programming-language-nodejs), you learned how to use Immersive Reader with a single resource. This tutorial covers how to integrate multiple Immersive Reader resources in the same application. In this tutorial, you learn how to:
+In the [overview](./overview.md), you learned about what the Immersive Reader is and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. In the [quickstart](./quickstarts/client-libraries.md), you learned how to use Immersive Reader with a single resource. This tutorial covers how to integrate multiple Immersive Reader resources in the same application. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create multiple Immersive Reader resource under an existing resource group
