@@ -99,7 +99,7 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 ```
 
 This command exports the entire chain of certificates with private key. The certificate is password protected.
-For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
+For more information on the **Get-AzKeyVaultCertificate** command and parameters, see [Get-AzKeyVaultCertificate - Example 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate).
 
 # [Portal](#tab/azure-portal)
 

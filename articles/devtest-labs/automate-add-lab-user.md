@@ -95,7 +95,7 @@ The role definition ID is the string identifier for the existing role definition
 
 The subscription ID is obtained by using `subscription().subscriptionId` template function.  
 
-You need to get the role definition for the `DevTest Labs User` built-in role. To get the GUID for the [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user) role, you can use the [Role Assignments REST API](/rest/api/authorization/roleassignments) or the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition?view=azps-1.8.0) cmdlet.
+You need to get the role definition for the `DevTest Labs User` built-in role. To get the GUID for the [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user) role, you can use the [Role Assignments REST API](/rest/api/authorization/roleassignments) or the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) cmdlet.
 
 ```powershell
 $dtlUserRoleDefId = (Get-AzRoleDefinition -Name "DevTest Labs User").Id
@@ -156,7 +156,7 @@ New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -Resou
 
 It's important to note that the group deployment name and role assignment GUID need to be unique. If you try to deploy a resource assignment with a non-unique GUID, then you'll get a `RoleAssignmentUpdateNotPermitted` error.
 
-If you plan to use the template several times to add several Active Directory objects to the DevTest Labs User role for your lab, consider using dynamic objects in your PowerShell command. The following example uses the [New-Guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid?view=powershell-5.0) cmdlet to specify the resource group deployment name and role assignment GUID dynamically.
+If you plan to use the template several times to add several Active Directory objects to the DevTest Labs User role for your lab, consider using dynamic objects in your PowerShell command. The following example uses the [New-Guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid) cmdlet to specify the resource group deployment name and role assignment GUID dynamically.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateFile .\azuredeploy.json -roleAssignmentGuid "$(New-Guid)" -labName "MyLab" -principalId "11111111-1111-1111-1111-111111111111"
