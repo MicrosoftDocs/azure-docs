@@ -39,7 +39,9 @@ Access metrics from the host by exposing and mapping the metrics port from the m
 Choose different and unique host port numbers if you are mapping both the edgeHub and edgeAgent's metrics endpoints.
 
 > [!NOTE]
-> If you wish to disable metrics, set the `MetricsEnabled` environment variable to `false` for **edgeAgent**.
+> The environment variable `httpSettings__enabled` should not be set to `false` for built-in metrics to be available for collection.
+>
+> Environment variables that can be used to disable metrics are listed in the [azure/iotedge repo doc](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
 
 ## Available metrics
 

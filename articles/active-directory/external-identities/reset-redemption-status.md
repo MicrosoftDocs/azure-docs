@@ -42,7 +42,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## Use Microsoft Graph API to reset redemption status
 
-Using the [Microsoft Graph invitation API](/graph/api/resources/invitation?view=graph-rest-1.0), set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property.
+Using the [Microsoft Graph invitation API](/graph/api/resources/invitation), set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

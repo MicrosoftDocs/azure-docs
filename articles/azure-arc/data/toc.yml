@@ -6,6 +6,8 @@
       href: overview.md
     - name: Release notes
       href: release-notes.md
+    - name: Known issues
+      href: known-issues.md
 - name: Quickstarts
   items:
     - name: Create data controller
@@ -150,7 +152,7 @@
           items:
             - name: Migrate PostgreSQL data into a Postgres Hyperscale server group
               href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
-            - name: Restore the sample database AdventureWorks
+            - name: Import the sample database AdventureWorks
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-hyperscale-server-group.md
@@ -180,6 +182,8 @@
               href: configure-managed-instance.md
             - name: Monitoring, log analytics, billing information, Azure portal
               href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: High availability
+              href: managed-instance-high-availability.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Migrate

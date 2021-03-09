@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.subservice: metrics
 ---
 # Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
 

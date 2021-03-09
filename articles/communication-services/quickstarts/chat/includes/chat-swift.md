@@ -44,16 +44,18 @@ Create a Podfile:
 
 Open the Podfile and add the following dependencies to the `ChatQuickstart` target:
 ```
-pod 'AzureCommunication', '~> 1.0.0-beta.8'
-pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
+pod 'AzureCommunication', '~> 1.0.0-beta.9'
+pod 'AzureCommunicationChat', '~> 1.0.0-beta.9'
 ```
 
 Install the dependencies, this will also create an Xcode workspace:
 `pod install`
 
+**After running pod install, re-open the project in Xcode by selecting the newly created `.xcworkspace`.**
+
 ### Setup the placeholders
 
-Open the workspace file `ChatQuickstart.xcworkspace` in Xcode and then open `ViewController.swift`.
+Open the workspace `ChatQuickstart.xcworkspace` in Xcode and then open `ViewController.swift`.
 
 In this Quickstart, we will add our code to `viewController`, and view the output in the Xcode console. This quickstart does not address building a UI in iOS. 
 
@@ -142,7 +144,7 @@ let request = CreateThreadRequest(
     topic: "Quickstart",
     participants: [
         Participant(
-            id: "<USER_ID>",
+            id: CommunicationUserIdentifier("<USER_ID>"),
             displayName: "Jack"
         )
     ]
@@ -162,7 +164,7 @@ chatClient.create(thread: request) { result, _ in
 semaphore.wait()
 ```
 
-Replace `<<USER_ID>>` with a valid Communication Services user ID.
+Replace `<USER_ID>` with a valid Communication Services user ID.
 
 We're using a semaphore here to wait for the completion handler before continuing. We will use the `threadId` from the response returned to the completion handler in later steps.
 
@@ -206,7 +208,7 @@ Replace the comment `<ADD A USER>` with the following code:
 
 ```
 let user = Participant(
-    id: "<USER_ID>",
+    id: CommunicationUserIdentifier("<USER_ID>"),
     displayName: "Jane"
 )
 
@@ -254,7 +256,7 @@ Replace the `<REMOVE A USER>` comment with the following code:
 ```
 chatThreadClient
     .remove(
-        participant: "<USER_ID>"
+        participant: CommunicationUserIdentifier("<USER_ID>")
     ) { result, _ in
         switch result {
         case .success:

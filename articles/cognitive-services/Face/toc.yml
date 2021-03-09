@@ -71,11 +71,11 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
     - name: Python
-      href: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+      href: /python/api/azure-cognitiveservices-vision-face/
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/faceapi
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-face
     - name: Go
@@ -90,10 +90,6 @@
       href: /samples/browse/?products=azure&term=face
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/430315-face-api
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability

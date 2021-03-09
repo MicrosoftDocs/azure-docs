@@ -176,7 +176,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
-    href: /python/api/overview/azure/resources?view=azure-python
+    href: /python/api/overview/azure/resources
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

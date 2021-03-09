@@ -11,7 +11,7 @@ ms.author: cynthn
 | VM total cores per [subscription](https://azure.microsoft.com/pricing/) |20<sup>1</sup> per region. Contact support to increase limit. |
 | Azure Spot VM total cores per [subscription](https://azure.microsoft.com/pricing/) |20<sup>1</sup> per region. Contact support to increase limit. |
 | VM per series, such as Dv2 and F, cores per [subscription](https://azure.microsoft.com/pricing/) |20<sup>1</sup> per region. Contact support to increase limit. |
-| [Availability sets](../articles/virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per subscription |2,500 per region. |
+| [Availability sets](../articles/virtual-machines/availability-set-overview.md) per subscription |2,500 per region. |
 | Virtual machines per availability set | 200 |
 | [Proximity placement groups](../articles/virtual-machines/windows/proximity-placement-groups-portal.md) per [resource group](../articles/azure-resource-manager/management/overview.md#resource-groups) | 800 | 
 | Certificates per availability set | 199<sup>2</sup> |

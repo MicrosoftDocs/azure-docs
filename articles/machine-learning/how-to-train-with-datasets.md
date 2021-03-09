@@ -19,9 +19,9 @@ ms.custom: how-to, devx-track-python, data4ml
 
 # Train models with Azure Machine Learning datasets 
 
-In this article, you learn how to work with [Azure Machine Learning datasets](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) to train machine learning models.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths. 
+In this article, you learn how to work with [Azure Machine Learning datasets](/python/api/azureml-core/azureml.core.dataset%28class%29) to train machine learning models.  You can use datasets in your local or remote compute target without worrying about connection strings or data paths. 
 
-Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
+Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training functionality like [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig), [HyperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive) and [Azure Machine Learning pipelines](./how-to-create-machine-learning-pipelines.md).
 
 If you are not ready to make your data available for model training, but want to load your data to your notebook for data exploration, see how to [explore the data in your dataset](how-to-create-register-datasets.md#explore-data). 
 
@@ -33,16 +33,16 @@ To create and train with datasets, you need:
 
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), which includes the `azureml-datasets` package.
+* The [Azure Machine Learning SDK for Python installed](/python/api/overview/azure/ml/install) (>= 1.13.0), which includes the `azureml-datasets` package.
 
 > [!Note]
-> Some Dataset classes have dependencies on the [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
+> Some Dataset classes have dependencies on the [azureml-dataprep](/python/api/azureml-dataprep/) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
 ## Consume datasets in machine learning training scripts
 
 If you have structured data not yet registered as a dataset, create a TabularDataset and use it directly in your training script for your local or remote experiment.
 
-In this example, you create an unregistered [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) and specify it as a script argument in the ScriptRunConfig object for training. If you want to reuse this TabularDataset with other experiments in your workspace, see [how to register datasets to your workspace](how-to-create-register-datasets.md#register-datasets).
+In this example, you create an unregistered [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) and specify it as a script argument in the ScriptRunConfig object for training. If you want to reuse this TabularDataset with other experiments in your workspace, see [how to register datasets to your workspace](how-to-create-register-datasets.md#register-datasets).
 
 ### Create a TabularDataset
 
@@ -88,7 +88,7 @@ df = dataset.to_pandas_dataframe()
 
 ### Configure the training run
 
-A [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) object is used to configure and submit the training run.
+A [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun) object is used to configure and submit the training run.
 
 This code creates a ScriptRunConfig object, `src`, that specifies
 
@@ -115,7 +115,7 @@ run.wait_for_completion(show_output=True)
 
 ## Mount files to remote compute targets
 
-If you have unstructured data, create a [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) and either mount or download your data files to make them available to your remote compute target for training. Learn about when to use [mount vs. download](#mount-vs-download) for your remote training experiments. 
+If you have unstructured data, create a [FileDataset](/python/api/azureml-core/azureml.data.filedataset) and either mount or download your data files to make them available to your remote compute target for training. Learn about when to use [mount vs. download](#mount-vs-download) for your remote training experiments. 
 
 The following example creates a FileDataset and mounts the dataset to the compute target by passing it as an argument to the training script. 
 
@@ -223,7 +223,7 @@ print (mounted_path)
 
 ## Get datasets in machine learning scripts
 
-Registered datasets are accessible both locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered dataset across experiments, use the following code to access your workspace and get the dataset that was used in your previously submitted run. By default, the [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset that's registered with the workspace.
+Registered datasets are accessible both locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered dataset across experiments, use the following code to access your workspace and get the dataset that was used in your previously submitted run. By default, the [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset that's registered with the workspace.
 
 ```Python
 %%writefile $script_folder/train.py

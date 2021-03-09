@@ -149,7 +149,7 @@ Signaling between the VPN to the customer network uses Flow 2*. Signaling betwee
 
 ### VPN user to internal user (direct media)
 
-:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="One to One Call Flow with a VPN with Direct Media":::
+:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="One to One Call Flow (internal user) with a VPN with Direct Media":::
 
 *Figure 6 - VPN user to internal user (direct media)*
 
@@ -159,7 +159,7 @@ This media transmission is bidirectional. The direction of Flow 2 to the remote 
 
 ### VPN user to external user (direct media)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="One to One Call Flow with a VPN with Direct Media":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="One to One Call Flow (external user) with a VPN with Direct Media":::
 
 *Figure 7 - VPN user to external user (direct media)*
 
