@@ -8,7 +8,7 @@ ms.author: ccompy
 Using regional VNet Integration enables your app to access:
 
 * Resources in a VNet in the same region as your app.
-* Resources in VNets peered to the VNet your app is integrated with.
+* Resources in VNets in the same region peered to the VNet your app is integrated with (global VNet peering not supported).
 * Service endpoint secured services.
 * Resources across Azure ExpressRoute connections.
 * Resources in the VNet you're integrated with.
