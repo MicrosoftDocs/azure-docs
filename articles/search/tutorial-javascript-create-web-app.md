@@ -1,7 +1,7 @@
 ---
-title: JavaScript tutorial creates and load index
+title: JavaScript tutorial creates searchable web app
 titleSuffix: Azure Cognitive Search
-description: Learn how to import data into a single Azure Cognitive Search index with JavaScript using the npm SDK @azure/search-documents.
+description: Learn how to add Search to a web app.
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -11,7 +11,7 @@ ms.date: 03/09/2021
 ms.custom: devx-track-js
 ---
 
-# Tutorial: Create and load Search Index with JavaScript
+# Tutorial: Create searchable web app
 
 Import data into a single Azure Cognitive Search index with JavaScript using the npm SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
 
@@ -162,13 +162,8 @@ Once the upload completes, the Search Index is ready to use. Review your new Ind
 
 1. In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.  
 
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-resource.png" alt-text="In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.":::
+    :::image type="content" source="/media/folder-with-same-name-as-article-file/visual-studio-code-search-extension-view-resource.png" alt-text="In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.":::
 
 1. Expand Indexes, then `good-books`, then select a doc. 
  
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
-
-## Next steps
-
-* [Continue the tutorial to add Search to a web site](tutorial-javascript-create-web-app.md)
-
+    :::image type="content" source="/media/folder-with-same-name-as-article-file/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
