@@ -41,13 +41,13 @@ Any identity provider that supports the OpenID Connect protocol is supported. Ex
 
 ## Register an App so DID Wallets are allowed to sign in users 
 
-To issue a Verifiable Credential, you need to provide the issuer service with the [configuration](issuer-openid.md) details of your Azure Active Directory.
+To issue a Verifiable Credential, you need to register an app so Authenticator or any other Verifiable Credential Wallet is allowed to sign in users through their app.  
 
-Register the Verifiable Credential issuer service as an application in your identity provider and obtain a client ID. 
+Register an application called 'VC Wallet App' in your identity provider and obtain a client ID. 
 
 1. Follow the instructions for registering an application with [Azure AD](../develop/quickstart-register-app.md) When registering, use the values below.
 
-    - Name: "Tenant VC Issuer"
+    - Name: "VC Wallet App"
     - Supported account types: Accounts in this organizational directory only
     - Redirect URI: vcclient://openid/
 
