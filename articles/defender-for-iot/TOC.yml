@@ -56,18 +56,18 @@
       href: concept-key-concepts.md    
   - name: Agent-based solution for Device Builders
     items:
-    - name: Agent portfolio overview and OS support                      
+    - name: Agent portfolio overview and OS support (Preview)                     
       displayName: standalone agent, micro agent, RTOS
       href: concept-agent-portfolio-overview-os-support.md
     - name: Standalone micro agent overview (Preview)
       displayName: endpoint, posture, distribution, flexible, model 
       href: concept-standalone-micro-agent-overview.md
-    - name: Security agent authentication 
+    - name: Security agent authentication (Preview)
       displayName: connection string, certificate, authentication
       href: concept-security-agent-authentication.md
     - name: Security posture - CIS benchmark
       href: concept-security-posture.md
-    - name: Event aggregation 
+    - name: Event aggregation (Preview)
       displayName: process events, network connection
       href: concept-event-aggregation.md
     - name: Built-in alerts for IoT Hub

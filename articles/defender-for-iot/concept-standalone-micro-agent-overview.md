@@ -42,4 +42,4 @@ The Azure Defender for IoT micro agent is easy to deploy, and has minimal perfor
 
 ## Next steps
 
-Check your [Micro agent authentication methods ](concept-security-agent-authentication.md).
+Check your [Micro agent authentication methods (Preview)](concept-security-agent-authentication.md).

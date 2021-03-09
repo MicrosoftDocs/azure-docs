@@ -16,7 +16,7 @@ This article provides an explanation of how to install, and authenticate the Def
 
 ## Prerequisites
 
-Prior to installing the Defender for IoT module you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create a Defender IoT micro agent module twin ](quickstart-create-micro-agent-module-twin.md).
+Prior to installing the Defender for IoT module you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create a Defender IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
 
 ## Install the package
 
