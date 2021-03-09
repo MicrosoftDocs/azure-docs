@@ -120,6 +120,8 @@
     href: concepts/authentication.md
   - name: Privacy
     href: concepts/privacy.md  
+  - name: Pricing
+    href: concepts/pricing.md  
   - name: Push Notifications
     href: concepts/notifications.md
   - name: Teams interoperability

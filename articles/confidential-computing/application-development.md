@@ -1,13 +1,13 @@
 ---
- title: Azure confidential computing development tools 
- description: Use tools and libraries to develop applications for confidential computing
- services: virtual-machines
- author: JBCook
- ms.service: virtual-machines
- ms.subservice: workloads
- ms.topic: conceptual
- ms.date: 09/22/2020
- ms.author: JenCook
+title: Azure confidential computing development tools 
+description: Use tools and libraries to develop applications for confidential computing
+services: virtual-machines
+author: JBCook
+ms.service: virtual-machines
+ms.subservice: confidential-computing
+ms.topic: conceptual
+ms.date: 09/22/2020
+ms.author: JenCook
 ---
 
 # Application development on Intel SGX 

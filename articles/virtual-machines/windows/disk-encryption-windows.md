@@ -2,8 +2,9 @@
 title: Azure Disk Encryption scenarios on Windows VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Windows VMs for various scenarios
 author: msmbaldwin
-ms.service: virtual-machines-windows
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019

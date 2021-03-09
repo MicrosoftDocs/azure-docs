@@ -2,7 +2,8 @@
 title: Quickstart - Create a Windows VM in the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create a Windows virtual machine
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 11/05/2019
