@@ -3,11 +3,11 @@ title: Provision devices using symmetric keys - Azure IoT Hub Device Provisionin
 description: How to use symmetric keys to provision devices with your Device Provisioning Service (DPS) instance
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: eliotga
+manager: lizross
 ---
 
 # How to provision devices using symmetric key enrollment groups
@@ -16,9 +16,7 @@ This article demonstrates how to securely provision multiple symmetric key devic
 
 Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. The Device Provisioning Service includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based off unique information like the MAC address or a serial number.
 
-If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Since that approach may allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device image.
-
-This article assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices. 
+If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Using an HSM will allow you to bypass updating the code deployed to all your devices, and you would not have a secret key embedded in your device images. This article assumes that neither an HSM or a certificate is a viable option. However, it is assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices. 
 
 This article also assumes that the device update takes place in a secure environment to prevent unauthorized access to the master group key or the derived device key.
 
@@ -137,41 +135,19 @@ In this example, we use a combination of a MAC address and serial number forming
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Create a unique registration ID for your device. Valid characters are lowercase alphanumeric and dash ('-').
+Create unique registration IDs for each device. Valid characters are lowercase alphanumeric and dash ('-').
 
 
 ## Derive a device key 
 
-To generate the device key, use the group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device and convert the result into Base64 format.
+To generate device keys, use the enrollment group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the registration ID for each device. The result is then converted into Base64 format for each device.
 
 > [!WARNING]
-> Your device code should only include the derived device key for the individual device. Do not include your group master key in your device code. 
+> Your device code for each device should only include the corresponding derived device key for that device. Do not include your group master key in your device code. 
 > A compromised master key has the potential to compromise the security of all devices being authenticated with it.
 
 
-#### Linux workstations
-
-If you are using a Linux workstation, you can use openssl to generate your 
-derived device key as shown in the following example.
-
-Replace the value of **KEY** with the **Primary Key** you noted earlier.
-
-Replace the value of **REG_ID** with your registration ID.
-
-```bash
-KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
-```
-
-```bash
-Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
-```
-
-
-#### Windows-based workstations
+# [Windows](#tab/windows)
 
 If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
 
@@ -194,8 +170,30 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
+# [Linux](#tab/linux)
 
-Your device will use the derived device key with your unique registration ID to perform symmetric key attestation with the enrollment group during provisioning.
+If you are using a Linux workstation, you can use openssl to generate your 
+derived device key as shown in the following example.
+
+Replace the value of **KEY** with the **Primary Key** you noted earlier.
+
+Replace the value of **REG_ID** with your registration ID.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+---
+
+Each device uses its derived device key and unique registration ID to perform symmetric key attestation with the enrollment group during provisioning.
 
 
 
@@ -203,7 +201,7 @@ Your device will use the derived device key with your unique registration ID to 
 
 In this section, you will update a provisioning sample named **prov\_dev\_client\_sample** located in the Azure IoT C SDK you set up earlier. 
 
-This sample code simulates a device boot sequence that sends the provisioning request to your Device Provisioning Service instance. The boot sequence will cause the device to be recognized and assigned to the IoT hub you configured on the enrollment group.
+This sample code simulates a device boot sequence that sends the provisioning request to your Device Provisioning Service instance. The boot sequence will cause the device to be recognized and assigned to the IoT hub you configured on the enrollment group. This would be completed for each device that would be provisioned using the enrollment group.
 
 1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and note down the **_ID Scope_** value.
 
@@ -277,10 +275,7 @@ This sample code simulates a device boot sequence that sends the provisioning re
 
 ## Security concerns
 
-Be aware that this leaves the derived device key included as part of the image, which is not a recommended security best practice. This is one reason why security and ease-of-use are tradeoffs. 
-
-
-
+Be aware that this leaves the derived device key included as part of the image for each device, which is not a recommended security best practice. This is one reason why security and ease-of-use are often tradeoffs. You must fully review the security of your devices based on your own requirements.
 
 
 ## Next steps

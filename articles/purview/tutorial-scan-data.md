@@ -27,7 +27,7 @@ In part 1 of this tutorial series, you will:
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 * An [Azure Purview account](create-catalog-portal.md).
-* [The starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip) that will deploy your data estate.
+* [The starter kit](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip) that will deploy your data estate.
 
 > [!NOTE]
 > The starter kit is only available for Windows.
@@ -50,7 +50,7 @@ In this section, you run the starter kit scripts to create a simulated data esta
 
 Follow these steps to set up the starter kit client software on your Windows machine:
 
-1. [Download the starter kit](https://download.microsoft.com/download/9/7/9/979db3b1-0916-4997-a7fb-24e3d8f83174/PurviewStarterKitV4.zip), and extract its contents to the location of your choice.
+1. [Download the starter kit](https://github.com/Azure/Purview-Samples/blob/master/PurviewStarterKitV4.zip), and extract its contents to the location of your choice.
 
 
 1. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell**, and then select **Run as administrator**.
@@ -86,7 +86,9 @@ Before you run the PowerShell scripts to bootstrap the catalog, get the values o
    1. Select the **Overview** section and save the GUID for the **Subscription ID**.
 
    > [!NOTE]
-   > Make sure you're using the same subscription as the one in which you created the Azure Purview Account. This is the same subscription that was placed in the allow list.
+   > - Make sure you're using the same subscription as the one in which you created the Azure Purview Account. This is the same subscription that was placed in the allow list.
+   > - Lineage could be missing sometimes in Azure Purview after running the starter kit. This is because the Data Factory created by starter kit has missing permissions in Purview. Select [**this document link**](how-to-link-azure-data-factory.md#view-existing-data-factory-connections)  to make sure the Data Factory is configured correct and assigned appropriate role in Purview
+
 
 * CatalogName: The name of the Azure Purview account that you created in [Create an Azure Purview account](create-catalog-portal.md).
 

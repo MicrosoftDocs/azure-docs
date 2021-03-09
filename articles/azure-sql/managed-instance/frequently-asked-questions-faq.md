@@ -88,7 +88,7 @@ This is a current limitation on underlying component that verifies subnet name a
 
 **How can I scale my managed instance?**
 
-You can scale your managed instance from [Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) or [ARM templates](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+You can scale your managed instance from [Azure portal](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [Azure CLI](/cli/azure/sql/mi#az-sql-mi-update) or [ARM templates](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Can I move my Managed Instance from one region to another?**
 
@@ -96,7 +96,7 @@ Yes, you can. For instructions, see [Move resources across regions](../database/
 
 **How can I delete my Managed Instance?**
 
-You can delete Managed Instances via Azure portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), [Azure CLI](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) or [Resource Manager REST APIs](/rest/api/sql/managedinstances/delete).
+You can delete Managed Instances via Azure portal, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [Azure CLI](/cli/azure/sql/mi#az-sql-mi-delete) or [Resource Manager REST APIs](/rest/api/sql/managedinstances/delete).
 
 **How much time does it take to create or update an instance, or to restore a database?**
 
@@ -357,14 +357,7 @@ Yes. See [How to configure a Custom DNS for Azure SQL Managed Instance](./custom
 
 **Can I do DNS refresh?**
 
-Currently, we don't provide a feature to refresh DNS server configuration for SQL Managed Instance.
-
-DNS configuration is eventually refreshed:
-
-- When DHCP lease expires.
-- On platform upgrade.
-
-As a workaround, downgrade SQL Managed Instance to 4 vCores and upgrade it again afterward. This has a side effect of refreshing the DNS configuration.
+Yes. See [Synchronize virtual network DNS servers setting on SQL Managed Instance virtual cluster](./synchronize-vnet-dns-servers-setting-on-virtual-cluster.md).
 
 ## Change time zone
 

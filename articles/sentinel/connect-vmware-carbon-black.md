@@ -44,7 +44,7 @@ Azure Functions can integrate and pull events and logs directly from VMware Carb
 After a successful connection is established, the data appears in Log Analytics under the **CarbonBlackAuditLogs_CL**, **CarbonBlackNotifications_CL** and ****CarbonBlackEvents_CL**** tables.
 
 ## Validate connectivity
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+It may take up to 20 minutes until your logs start to appear in Log Analytics. 
 
 
 ## Next steps

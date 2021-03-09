@@ -1,9 +1,6 @@
 ---
 title: Extract, transform, and load (ETL) at scale - Azure HDInsight 
 description: Learn how extract, transform, and load is used in HDInsight with Apache Hadoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020

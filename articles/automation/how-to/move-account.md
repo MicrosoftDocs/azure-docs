@@ -2,14 +2,11 @@
 title: Move your Azure Automation account to another subscription
 description: This article tells how to move your Automation account to another subscription.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/11/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-manager: carmonm
 ---
+
 # Move your Azure Automation account to another subscription
 
 Azure Automation allows you to move some resources to a new resource group or subscription. You can move resources through the Azure portal, PowerShell, the Azure CLI, or the REST API. To learn more about the process, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
@@ -102,7 +99,7 @@ You can now move your Automation account and its runbooks.
 
 ## Re-create Run As accounts
 
-[Run As accounts](../manage-runas-account.md) create a service principal in Azure Active Directory to authenticate with Azure resources. When you change subscriptions, the Automation account no longer uses the existing Run As account. To re-create the Run As accounts:
+[Run As accounts](../automation-security-overview.md#run-as-accounts) create a service principal in Azure Active Directory to authenticate with Azure resources. When you change subscriptions, the Automation account no longer uses the existing Run As account. To re-create the Run As accounts:
 
 1. Go to your Automation account in the new subscription, and select **Run as accounts** under **Account Settings**. You'll see that the Run As accounts show as incomplete now.
 
@@ -111,7 +108,7 @@ You can now move your Automation account and its runbooks.
 2. Delete the Run As accounts, one at a time, by selecting **Delete** on the **Properties** page. 
 
     > [!NOTE]
-    > If you don't have permissions to create or view the Run As accounts, you see the following message: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` For more information, see [Permissions required to configure Run As accounts](../manage-runas-account.md#permissions).
+    > If you don't have permissions to create or view the Run As accounts, you see the following message: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` For more information, see [Permissions required to configure Run As accounts](../automation-security-overview.md#permissions).
 
 3. After you've deleted the Run As accounts, select **Create** under **Azure Run As account**. 
 

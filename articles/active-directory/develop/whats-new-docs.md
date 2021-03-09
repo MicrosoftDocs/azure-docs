@@ -18,15 +18,48 @@ ms.author: marsma
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
 
-## January 2021
+## February 2021
+
+### New articles
+
+- [Quickstart: Acquire an access token and call the Microsoft Graph API from an Electron desktop app](quickstart-v2-nodejs-desktop.md)
+- [Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app](tutorial-v2-nodejs-desktop.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a Node.js console app using app's identity](quickstart-v2-nodejs-console.md)
+- [Tutorial: Call the Microsoft Graph API in a Node.js console app](tutorial-v2-nodejs-console.md)
+- [Tutorial: Sign-in users in a Node.js & Express web app](tutorial-v2-nodejs-webapp-msal.md)
+- [Support passwordless authentication with FIDO2 keys in apps you develop](support-fido2-authentication.md)
 
 ### Updated articles
 
+- [What's new for authentication?](reference-breaking-changes.md)
+- [Use MSAL.NET to sign in users with social identities](msal-net-aad-b2c-considerations.md)
+- [Microsoft identity platform code samples (v2.0 endpoint)](sample-v2-code.md)
+- [Microsoft identity platform videos](identity-videos.md)
+- [Quickstart: Set up a tenant](quickstart-create-new-tenant.md)
+- [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a Java console app using app's identity](quickstart-v2-java-daemon.md)
+
+## January 2021
+
+### New articles
+
+- [Logging in MSAL for Android](msal-logging-android.md)
+- [Logging in MSAL.NET](msal-logging-dotnet.md)
+- [Logging in MSAL for iOS/macOS](msal-logging-ios.md)
+- [Logging in MSAL for Java](msal-logging-java.md)
+- [Logging in MSAL.js](msal-logging-js.md)
+- [Logging in MSAL for Python](msal-logging-python.md)
+
+### Updated articles
+
+- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
+- [Application model](application-model.md)
 - [Authentication vs. authorization](authentication-vs-authorization.md)
 - [How to: Restrict your Azure AD app to a set of users in an Azure AD tenant](howto-restrict-your-app-to-a-set-of-users.md)
 - [Permissions and consent in the Microsoft identity platform endpoint](v2-permissions-and-consent.md)
 - [Configurable token lifetimes in Microsoft identity platform (preview)](active-directory-configurable-token-lifetimes.md)
 - [Configure token lifetime policies (preview)](configure-token-lifetimes.md)
+- [Microsoft identity platform authentication libraries](reference-v2-libraries.md)
 - [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
 
 ## December 2020
@@ -50,17 +83,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Microsoft identity platform access tokens](access-tokens.md)
 - [A web API that calls web APIs: Acquire a token for the app](scenario-web-api-call-api-acquire-token.md)
 
-
-## November 2020
-
-### New articles
-
-- [How to use Continuous Access Evaluation-enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
-
-### Updated articles
-
-- [Microsoft identity platform access tokens](access-tokens.md)
-- [Application configuration options (MSAL)](msal-client-application-configuration.md)
-- [How to: Provide optional claims to your app](active-directory-optional-claims.md)
-- [Publish your app to the Azure AD app gallery](v2-howto-app-gallery-listing.md)
-- [How to: Add app roles to your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md)

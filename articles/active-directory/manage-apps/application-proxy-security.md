@@ -4,7 +4,7 @@ description: Covers security considerations for using Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -103,7 +103,7 @@ The connector uses a client certificate to authenticate to the Application Proxy
 When the connector is first set up, the following flow events take place:
 
 1. The connector registration to the service happens as part of the installation of the connector. Users are prompted to enter their Azure AD admin credentials. The token acquired from this authentication is then presented to the Azure AD Application Proxy service.
-2. The Application Proxy service evaluates the token. It checks whether the user is a company administrator in the tenant. If the user is not an administrator, the process is terminated.
+2. The Application Proxy service evaluates the token. It checks whether the user is a Global Administrator in the tenant. If the user is not an administrator, the process is terminated.
 3. The connector generates a client certificate request and passes it, along with the token, to the Application Proxy service. The service in turn verifies the token and signs the client certificate request.
 4. The connector uses the client certificate for future communication with the Application Proxy service.
 5. The connector performs an initial pull of the system configuration data from the service using its client certificate, and it is now ready to take requests.

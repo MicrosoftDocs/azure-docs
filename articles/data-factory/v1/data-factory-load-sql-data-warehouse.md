@@ -1,21 +1,11 @@
 ---
 title: Load terabytes of data into Azure Synapse Analytics
 description: Demonstrates how 1 TB of data can be loaded into Azure Synapse Analytics under 15 minutes with Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Load 1 TB into Azure Synapse Analytics under 15 minutes with Data Factory

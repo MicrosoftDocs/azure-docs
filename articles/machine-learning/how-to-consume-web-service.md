@@ -21,7 +21,7 @@ ms.custom: "how-to, devx-track-python, devx-track-csharp"
 
 Deploying an Azure Machine Learning model as a web service creates a REST API endpoint. You can send data to this endpoint and receive the prediction returned by the model. In this document, learn how to create clients for the web service by using C#, Go, Java, and Python.
 
-You create a web service when you deploy a model to your local environment, Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA). You retrieve the URI used to access the web service by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). If authentication is enabled, you can also use the SDK to get the authentication keys or tokens.
+You create a web service when you deploy a model to your local environment, Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA). You retrieve the URI used to access the web service by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). If authentication is enabled, you can also use the SDK to get the authentication keys or tokens.
 
 The general workflow for creating a client that uses a machine learning web service is:
 
@@ -37,7 +37,7 @@ The general workflow for creating a client that uses a machine learning web serv
 > [!NOTE]
 > Use the Azure Machine Learning SDK to get the web service information. This is a Python SDK. You can use any language to create a client for the service.
 
-The [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) class provides the information you need to create a client. The following `Webservice` properties are useful for creating a client application:
+The [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%28class%29) class provides the information you need to create a client. The following `Webservice` properties are useful for creating a client application:
 
 * `auth_enabled` - If key authentication is enabled, `True`; otherwise, `False`.
 * `token_auth_enabled` - If token authentication is enabled, `True`; otherwise, `False`.
@@ -57,7 +57,7 @@ There are a several ways to retrieve this information for deployed web services:
     print(service.swagger_uri)
     ```
 
-* You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace. You can add filters to narrow the list of information returned. For more information about what can be filtered on, see the [Webservice.list](/python/api/azureml-core/azureml.core.webservice.webservice.webservice?preserve-view=true&view=azure-ml-py) reference documentation.
+* You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace. You can add filters to narrow the list of information returned. For more information about what can be filtered on, see the [Webservice.list](/python/api/azureml-core/azureml.core.webservice.webservice.webservice) reference documentation.
 
     ```python
     services = Webservice.list(ws)
@@ -75,7 +75,7 @@ There are a several ways to retrieve this information for deployed web services:
 
 # [Azure CLI](#tab/azure-cli)
 
-If you know the name of the deployed service, use the [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) command:
+If you know the name of the deployed service, use the [az ml service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) command:
 
 ```azurecli
 az ml service show -n <service-name>
@@ -137,7 +137,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> If you need to regenerate a key, use [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py).
+> If you need to regenerate a key, use [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29).
 
 #### Authentication with tokens
 
@@ -525,7 +525,7 @@ The results returned are similar to the following JSON document:
 
 ## Web service schema (OpenAPI specification)
 
-If you used automatic schema generation with your deployment, you can get the address of the OpenAPI specification for the service by using the [swagger_uri property](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueswagger-uri). (For example, `print(service.swagger_uri)`.) Use a GET request or open the URI in a browser to retrieve the specification.
+If you used automatic schema generation with your deployment, you can get the address of the OpenAPI specification for the service by using the [swagger_uri property](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#swagger-uri). (For example, `print(service.swagger_uri)`.) Use a GET request or open the URI in a browser to retrieve the specification.
 
 The following JSON document is an example of a schema (OpenAPI specification) generated for a deployment:
 
@@ -667,7 +667,7 @@ For a utility that can create client libraries from the specification, see [swag
 
 
 > [!TIP]
-> You can retrieve the schema JSON document after you deploy the service. Use the [swagger_uri property](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueswagger-uri) from the deployed web service (for example, `service.swagger_uri`) to get the URI to the local web service's Swagger file.
+> You can retrieve the schema JSON document after you deploy the service. Use the [swagger_uri property](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#swagger-uri) from the deployed web service (for example, `service.swagger_uri`) to get the URI to the local web service's Swagger file.
 
 ## Consume the service from Power BI
 

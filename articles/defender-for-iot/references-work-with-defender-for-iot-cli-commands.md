@@ -11,20 +11,24 @@ ms.service: azure
 
 # Work with Defender for IoT CLI commands
 
-This article describes CLI commands for sensors and on-premises management consoles. The commands are accessible to administrators, cyberx users, and support users.
+This article describes CLI commands for sensors and on-premises management consoles. The commands are accessible to the following users:
 
-Define exclusion rules when you're planning maintenance activities or an activity that doesn't require an alert.
+- Administrator
+- CyberX 
+- Support
+
+To start working in the CLI, connect using a terminal. For example, terminal name `Putty`, and `Support` user. 
 
 ## Create local alert exclusion rules
 
-You can create an exclusion rule by entering the following command into the CLI:
+You can create a local alert exclusion rule by entering the following command into the CLI:
 
 ```azurecli-interactive
 alerts exclusion-rule-create [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-The attributes that you can define within the alert exclusion rules are as follows:
+The following attributes can be used with the alert exclusion rules:
 
 | Attribute | Description |
 |--|--|
@@ -37,18 +41,18 @@ The attributes that you can define within the alert exclusion rules are as follo
 
 ## Append local alert exclusion rules
 
-You can add new rules to the current alert exclusion rules by entering the following command in the CLI:
+You can append local alert exclusion rules by entering the following command in the CLI:
 
 ```azurecli-interactive
 alerts exclusion-rule-append [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
 [-dev DEVICES] [-a ALERTS]
 ```
 
-The attributes used here are similar to attributes described when you're creating local alert exclusion rules. In the usage here, the attributes are applied to existing rules.
+The attributes used here are the same as the attributes explained in the Create local alert exclusion rules section. The difference in the usage is that here the attributes are applied on the existing rules.
 
 ## Show local alert exclusion rules
 
-Enter the following command to view all existing exclusion rules:
+Enter the following command to present the existing list of exclusion rules:
 
 ```azurecli-interactive
 alerts exclusion-rule-list [-h] -n NAME [-ts TIMES] [-dir DIRECTION]  
@@ -64,7 +68,7 @@ alerts exclusion-rule-remove [-h] -n NAME [-ts TIMES] [-dir DIRECTION]
 [-dev DEVICES] [-a ALERTS]
 ```
 
-You can use the following attribute with the alert exclusion rules:
+The following attribute can be used with the alert exclusion rules:
 
 | Attribute | Description|
 | --------- | ---------------------------------- |
@@ -72,11 +76,11 @@ You can use the following attribute with the alert exclusion rules:
 
 ## Sync time from the NTP server
 
-You can enable and disable a time sync from an NTP server.
+You can enable, or disable a time sync from a specified NTP server.
 
 ### Enable NTP sync
 
-Entering the following command will enable a periodic retrieval of the current time from a specified NTP server:
+Enter the following command to periodically retrieve the time from the specified NTP server:
 
 ```azurecli-interactive
 ntp enable IP
@@ -86,7 +90,7 @@ The attribute that you can define within the command is the IP address of the NT
 
 ### Disable NTP sync
 
-Entering the following command will disable the time sync with the specified NTP server:
+Enter the following command to disable the time sync with the specified NTP server:
 
 ```azurecli-interactive
 ntp disable IP
@@ -94,15 +98,15 @@ ntp disable IP
 
 The attribute that you can define within the command is the IP address of the NTP server.
 
-## Configure the network
+## Network configuration
 
 The following table describes the commands available to configure your network options for Azure Defender for IoT:
 
 |Name|Command|Description|
 |-----------|-------|-----------|
-|Ping|`ping IP `| Pings addresses outside the Defender for IoT platform.|
-|Blink|`network blink`|Enables changing the network configuration parameters.|
-|Reconfigure the network |`network edit-settings`| Enables changing the network configuration parameters. |
+|Ping|`ping IP`| Ping an address outside the Defender for IoT platform.|
+|Blink|`network blink`| Locate a connection by causing the interface lights to blink. |
+|Reconfigure the network |`network edit-settings`| Enable a change in the network configuration parameters. |
 |Show network settings |`network list`|Displays the network adapter parameters. |
 |Validate the network configuration |`network validate` |Presents the output network settings. <br /> <br />For example: <br /> <br />Current Network Settings: <br /> interface: eth0 <br /> ip: 10.100.100.1 <br />subnet: 255.255.255.0 <br />default gateway: 10.100.100.254 <br />dns: 10.100.100.254 <br />monitor interfaces: eth1|
 |Import a certificate |`certificate import FILE` |Imports the HTTPS certificate. You'll need to specify the full path, which leads to a \*.crt file. |
@@ -110,7 +114,7 @@ The following table describes the commands available to configure your network o
 
 ## Filter network configurations
 
-The `network capture-filter` command lets administrators eliminate network traffic that doesn't need to be analyzed. Filter traffic by using an include list or an exclude list.
+The `network capture-filter` command allows administrators to eliminate network traffic that doesn't need to be analyzed. You can filter traffic by using an include list, or an exclude list.
 
 ```azurecli-interactive
 network capture-filter
@@ -120,7 +124,7 @@ After you enter the command, you'll be prompted with the following question:
 
 >`Would you like to supply devices and subnet masks you wish to include in the capture filter? [Y/N]:`
 
-Select `Y` to open a nano file where you can add devices, channels, ports, and subsets according to the following syntax:
+Select `Y` to open a nano file where you can add a device, channel, port, and subset according to the following syntax:
 
 | Attribute | Description |
 |--|--|
@@ -132,11 +136,11 @@ Separate arguments by dropping a row.
 
 When you include a device, channel, or subnet, the sensor processes all the valid traffic for that argument, including ports and traffic that wouldn't usually be processed.
 
-You'll then be asked the following:
+You'll then be asked the following question:
 
 >`Would you like to supply devices and subnet masks you wish to exclude from the capture filter? [Y/N]:`
 
-Select `Y` to open a nano file where you can add device, channels, ports, and subsets according to the following syntax:
+Select `Y` to open a nano file where you can add a device, channel, port, and subsets according to the following syntax:
 
 | Attribute | Description |
 |--|--|
@@ -168,7 +172,7 @@ Include or exclude UDP and TCP ports for all the traffic.
 
 ### Components
 
-You're asked the following:
+You're asked the following question:
 
 >`In which component do you wish to apply this capture filter?`
 
@@ -227,7 +231,7 @@ sudo cyberx-xsense-capture-filter -p all -m all-connected
 
 ## Define client and server hosts
 
-If Defender for IoT did not automatically detect the client and server hosts, enter the following command to set the client and server hosts:
+If Defender for IoT didn't automatically detect the client, and server hosts, enter the following command to set the client and server hosts:
 
 ```azurecli-interactive
 directions [-h] [--identifier IDENTIFIER] [--port PORT] [--remove] [--add]  
@@ -251,6 +255,7 @@ The following table describes the commands available to perform various system a
 
 |Name|Code|Description|
 |----|----|-----------|
+|Show the date|`date`|Returns the current date on the host in GMT format.|
 |Reboot the host|`system reboot`|Reboots the host device.|
 |Shut down the host|`system shutdown`|Shuts down the host.|
 |Back up the system|`system backup`|Initiates an immediate backup (an unscheduled backup).|

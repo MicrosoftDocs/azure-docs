@@ -1,9 +1,6 @@
 ---
 title: 'Infrastructure: On-premises Apache Hadoop to Azure HDInsight'
 description: Learn infrastructure best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -34,7 +31,7 @@ For more information, see the article [Capacity planning for HDInsight clusters]
 
 ## Use recommended virtual machine type for cluster
 
-See [Default node configuration and virtual machine sizes for clusters](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) for recommended virtual machine types for each type of HDInsight cluster.
+See [Default node configuration and virtual machine sizes for clusters](../hdinsight-supported-node-configuration.md) for recommended virtual machine types for each type of HDInsight cluster.
 
 ## Check Hadoop components availability in HDInsight
 
@@ -71,7 +68,7 @@ Applications or components that were available in on-premises clusters but aren'
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
-For more information, see the article [Apache Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+For more information, see the article [Apache Hadoop components available with different HDInsight versions](../hdinsight-component-versioning.md)
 
 ## Customize HDInsight clusters using script actions
 

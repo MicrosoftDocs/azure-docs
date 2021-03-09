@@ -93,7 +93,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Plan a My Apps deployment
-            url: access-panel-deployment-plan.md
+            url: my-apps-deployment-plan.md
           - text: Create collections
             url: access-panel-collections.md
   - title: Develop new apps

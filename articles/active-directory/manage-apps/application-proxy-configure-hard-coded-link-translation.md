@@ -4,7 +4,7 @@ description: Learn how to redirect hard-coded links for apps published with Azur
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -58,6 +58,9 @@ With the MyApps Browser Extension, all internal URLs published with Application 
 To use this feature, the user needs to download the extension and be logged in. There is no other configuration needed for admins or the users. 
 
 To learn more, including how to configure this option, please see the [MyApps Browser Extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
+
+> [!NOTE]
+> The MyApps Browser Extension does not support link translation for wildcard URLs.
 
 ### Option 3: Link Translation Setting 
 

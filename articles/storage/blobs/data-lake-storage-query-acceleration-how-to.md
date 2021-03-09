@@ -35,7 +35,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
   ### [Java](#tab/java)
 
-  - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above
+  - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 
@@ -173,10 +173,10 @@ Update-Module -Name Az
    cd myProject
    ```
 
-2. Install the `12.5.0-preview.6` version of the Azure Blob storage client library for .NET package by using the `dotnet add package` command. 
+2. Install the `12.5.0-preview.6` version or later of the Azure Blob storage client library for .NET package by using the `dotnet add package` command. 
 
    ```console
-   dotnet add package Azure.Storage.Blobs -v 12.6.0
+   dotnet add package Azure.Storage.Blobs -v 12.8.0
    ```
 
 3. The examples that appear in this article parse a CSV file by using the [CsvHelper](https://www.nuget.org/packages/CsvHelper/) library. To use that library, use the following command.
@@ -351,11 +351,11 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
                 query,
                 options)).Value.Content))
         {
-            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture) { HasHeaderRecord = true }))
+            using (var parser = new CsvReader(reader, new CsvConfiguration(CultureInfo.CurrentCulture, hasHeaderRecord: true) { HasHeaderRecord = true }))
             {
                 while (await parser.ReadAsync())
                 {
-                    Console.Out.WriteLine(String.Join(" ", parser.Context.Record));
+                    Console.Out.WriteLine(String.Join(" ", parser.Parser.Record));
                 }
             }
         }

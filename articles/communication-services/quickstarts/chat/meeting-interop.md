@@ -12,13 +12,14 @@ ms.service: azure-communication-services
 
 # Quickstart: Join your chat app to a Teams meeting
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+> [!IMPORTANT]
+> To enable/disable [Teams tenant interoperability](../../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
 Get started with Azure Communication Services by connecting your chat solution to Microsoft Teams using the JavaScript client library. 
 
 ## Prerequisites 
 
-1. A [Teams deployment](https://docs.microsoft.com/deployoffice/teams-install). 
+1. A [Teams deployment](/deployoffice/teams-install). 
 2. A working [chat app](./get-started.md). 
 
 ## Enable Teams interoperability 

@@ -76,7 +76,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<companyname>.logicmonitor.com`
-
+    
+    c. In the **Reply URL (Assertion Consumer Service URL)** textbox, type a URL using the following pattern:
+    `https://companyname.logicmonitor.com/santaba/saml/SSO/` 
+  
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [LogicMonitor Client support team](https://www.logicmonitor.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -172,8 +175,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to LogicMonitor Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the LogicMonitor tile in the My Apps, you should be automatically signed in to the LogicMonitor for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the LogicMonitor tile in the My Apps, you should be automatically signed in to the LogicMonitor for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure LogicMonitor you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure LogicMonitor you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

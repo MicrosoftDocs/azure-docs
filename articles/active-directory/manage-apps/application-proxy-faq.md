@@ -3,7 +3,7 @@ title: Azure Active Directory Application Proxy frequently asked questions
 description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -32,6 +32,21 @@ If your license expires, Application Proxy will automatically be disabled. Your 
 Make sure you have at least an Azure AD Premium P1 or P2 license and an Azure AD Application Proxy Connector installed. After you successfully install your first connector, the Azure AD Application Proxy service will be enabled automatically.
 
 ## Connector configuration
+
+### Why is my connector still using an older version and not auto-upgraded to latest version?
+
+This may be due to either the updater service not working correctly or if there are no new updates available that the service can install.
+
+The updater service is healthy if it’s running and there are no errors recorded in the event log (Applications and Services logs -> Microsoft -> AadApplicationProxy -> Updater -> Admin). 
+
+> [!IMPORTANT]
+> Only major versions are released for auto-upgrade. We recommend updating your connector manually on a regular schedule. For more information on new releases, the type of the release (download, auto-upgrade), bug fixes and new features see, [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
+
+To manually upgrade a connector:
+
+-  Download the latest version of the connector. (You will find it under Application Proxy on the Azure Portal. You can also find the link at [Azure AD Application Proxy: Version release history](application-proxy-release-version-history.md).
+-	The installer restarts the Azure AD Application Proxy Connector services. In some cases, a reboot of the server might be required if the installer cannot replace all files. Therefore we recommend closing all applications (i.e. Event Viewer) before you start the upgrade.
+-	Run the installer. The upgrade process is quick and does not require providing any credentials and the connector will not be re-registered.
 
 ### Can Application Proxy Connector services run in a different user context than the default?
 
@@ -100,6 +115,15 @@ The default length is 85 seconds. The "long" setting is 180 seconds. The timeout
 ### Can a service principal manage Application Proxy using Powershell or Microsoft Graph APIs?
 
 No, this is currently not supported.
+
+### What happens if I delete CWAP_AuthSecret (the client secret) in the app registration?
+
+The client secret, also called *CWAP_AuthSecret*, is automatically added to the application object (app registration) when the Azure AD Application Proxy app is created.
+
+The client secret is valid for one year. A new one-year client secret is automatically created before the current valid client secret expires. Three CWAP_AuthSecret client secrets are kept in the application object at all times. 
+
+> [!IMPORTANT]
+> Deleting CWAP_AuthSecret breaks pre-authentication for Azure AD Application Proxy. Don't delete CWAP_AuthSecret.
 
 ### How do I change the landing page my application loads?
 
@@ -182,11 +206,11 @@ No. Azure AD Application Proxy is designed to work with Azure AD and doesn’t f
 
 ## WebSocket
 
-### Does WebSocket support work for applications other than QlikSense?
+### Does WebSocket support work for applications other than QlikSense and Remote Desktop Web Client (HTML5)?
 
 Currently, WebSocket protocol support is still in public preview and it may not work for other applications. Some customers have had mixed success using WebSocket protocol with other applications. If you test such scenarios, we would love to hear your results. Please send us your feedback at aadapfeedback@microsoft.com.
 
-Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) or Remote Desktop Web Client (HTML5) do not work through Azure AD Application Proxy presently.
+Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) do not work through Azure AD Application Proxy presently.
 
 ## Link translation
 

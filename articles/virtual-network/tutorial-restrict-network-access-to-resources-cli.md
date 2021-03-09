@@ -322,7 +322,7 @@ Access is denied, and you receive a `mount error(13): Permission denied` error, 
 
 Exit the SSH session to the *myVmPublic* VM.
 
-From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share?view=azure-cli-latest). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
+From your computer, attempt to view the shares in your storage account with [az storage share list](/cli/azure/storage/share). Replace `<account-name>` and `<account-key>` with the storage account name and key from [Create a storage account](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \

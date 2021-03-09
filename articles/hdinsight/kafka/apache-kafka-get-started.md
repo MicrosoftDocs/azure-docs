@@ -1,9 +1,6 @@
 ---
 title: 'Quickstart: Set up Apache Kafka on HDInsight using Azure portal'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using the Azure portal. You also learn about Kafka topics, subscribers, and consumers.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
@@ -57,7 +54,7 @@ To create an Apache Kafka cluster on HDInsight, use the following steps:
 
     Each Azure region (location) provides _fault domains_. A fault domain is a logical grouping of underlying hardware in an Azure data center. Each fault domain shares a common power source and network switch. The virtual machines and managed disks that implement the nodes within an HDInsight cluster are distributed across these fault domains. This architecture limits the potential impact of physical hardware failures.
 
-    For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
+    For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/availability.md) document.
 
     Select the **Next: Storage >>** tab to advance to the storage settings.
 
@@ -214,7 +211,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
         
         * In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
         
-        * For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
+        * For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/availability.md) document.
 
         * Apache Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
 

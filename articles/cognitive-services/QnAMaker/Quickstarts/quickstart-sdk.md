@@ -51,7 +51,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Tutorial: Test your knowledge base with a batch file](../index.yml)
+>[Tutorial: Test your knowledge base with a batch file](../how-to/test-knowledge-base.md#batch-test-with-tool)
 
 * [What is the QnA Maker API?](../Overview/overview.md)
 * [Edit a knowledge base](../how-to/edit-knowledge-base.md)

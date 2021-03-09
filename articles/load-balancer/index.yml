@@ -45,8 +45,6 @@ landingContent:
             url: quickstart-load-balancer-standard-internal-portal.md
       - linkListType: tutorial
         links:
-          - text: Load balance internet traffic to VMs
-            url: tutorial-load-balancer-standard-manage-portal.md
           - text: Load balance VMs across availability zones with a Standard Load Balancer
             url: tutorial-load-balancer-standard-public-zone-redundant-portal.md
           - text: Configure port forwarding in Azure Load Balancer
@@ -119,9 +117,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: /powershell/module/az.network/?view=azps-2.5.0#load_balancer
+            url: /powershell/module/az.network/#load_balancer
           - text: Azure CLI
-            url: /cli/azure/network/lb?view=azure-cli-latest
+            url: /cli/azure/network/lb
           - text: ARM templates
             url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
           - text: Frequently asked Load Balancer questions

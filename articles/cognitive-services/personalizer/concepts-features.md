@@ -75,7 +75,7 @@ JSON objects can include nested JSON objects and simple property/values. An arra
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": ["47.6", "-122.1"]
+                "latlong": ["47.6,-122.1"]
             }
         },
         {
