@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -78,7 +78,10 @@ The email signature contains the Azure AD B2C tenant's name that you provided wh
 1. Change the **Name** field.
 1. Click **Save** at the top of the page.
 
-Currently there is no way to change the "From:" field on the email.
+Currently you cannot change the "From:" field on the email.
+
+> [!TIP]
+> With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md), or [SparkPost](https://sparkpost.com).
 
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
 

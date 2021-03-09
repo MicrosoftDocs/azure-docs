@@ -53,7 +53,7 @@ New-AzFirewall @azFw
 > [!NOTE]
 > IANAPrivateRanges is expanded to the current defaults on Azure Firewall while the other ranges are added to it. To keep the IANAPrivateRanges default in your private range specification, it must remain in your `PrivateRange` specification as shown in the following examples.
 
-For more information, see [New-AzFirewall](/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
+For more information, see [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
 
 ### Existing firewall
 
