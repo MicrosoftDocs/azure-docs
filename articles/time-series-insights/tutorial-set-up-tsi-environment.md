@@ -10,7 +10,7 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 02/25/2021
 ms.custom: seodec18
-# Customer intent: As a data analyst or developer, I want to learn how to create an Azure Time Series Insights Gen2 environment so that I can use Azure Time Series Insights Gen2 queries to understand device behavior. 
+# Customer intent: As a data analyst or developer, I want to learn how to create an Azure Time Series Insights Gen2 environment so that I can use Azure Time Series Insights Gen2 queries to understand device behavior.
 ---
 
 # Tutorial: Set up an Azure Time Series Insights Gen2 environment
@@ -36,7 +36,7 @@ Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if yo
 
 * At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-* Create an environment using either the [Azure Portal](#Create-an-azure-time-series-insights-gen2-environment) or [CLI](how-to-create-tsi-environment-using-cli.md).
+* Create an environment using either the [Azure portal](#create-an-azure-time-series-insights-gen2-environment) or [CLI](how-to-create-tsi-environment-using-cli.md).
 
 ## Create a device simulation
 
@@ -50,16 +50,16 @@ In this section, you will create three simulated devices that send data to an Az
 
 1. Follow the [deployment instructions](https://github.com/Azure/azure-iot-pcs-device-simulation/blob/master/deployment/README.md) in the Getting Started section.
 
-   When you're finished, select **Create** to provision the solution's Azure resources. It may take up to 20 minutes to complete this process.
+   It may take up to 20 minutes to complete this process.
 
-1. After provisioning has finished, two notifications will appear announcing that the deployment state has moved from **Provisioning** to **Ready**.
+1. When deployment has finished, you'll be provided the URL to your simulation. Keep this page open because you'll return to it later.
 
    >[!IMPORTANT]
    > Don't enter your solution accelerator yet! Keep this web page open because you'll return to it later.
 
-   [![Device simulation solution provisionings complete.](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
+   [![Device simulation solution provisioning complete.](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
 
-1. Now, inspect the newly created resources in the Azure portal. On the **Resource groups** page, notice that a new resource group was created by using the **Solution name** provided in the last step. Make note of the resources that were created for the device simulation.
+1. Now, inspect the newly created resources in the Azure portal. On the **Resource groups** page, notice that a new resource group was created by using the `solutionName` you provided in your ARM template parameters file. Make note of the resources that were created for the device simulation.
 
    [![Device simulation resources.](media/tutorial-set-up-tsi-environment/tsi-device-sim-solution-resources.png)](media/tutorial-set-up-tsi-environment/tsi-device-sim-solution-resources.png#lightbox)
 
@@ -85,13 +85,13 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
     | **Time Series ID property name** | Enter a name of a property that contains values that uniquely identify your time series instances. The value you enter in the **Property name** box as Time Series ID cannot be changed later. For this tutorial, enter ***iothub-connection-device-id***. To learn more about Time Series ID including composite Time Series ID, read [Best practices for choosing a Time Series ID](./how-to-select-tsid.md). |
     | **Storage account name** | Enter a globally unique name for a new storage account.|
     | **Storage account kind** | Select the storage kind for a new storage account. We recommend StorageV2|
-    | **Storage account replication** | Select the storage kind for a new storage account. Based on your location selection, you can choose from LRS, GRS and ZRS. For this tutorial, you can select LRS|
+    | **Storage account replication** | Select the storage kind for a new storage account. Based on your location selection, you can choose from LRS, GRS, and ZRS. For this tutorial, you can select LRS|
     | **Hierarchical namespace** |This option is selectable, once you select the storage kind to be StorageV2. By default, it is disabled. For this tutorial, you can leave it in its default *disabled* state|
     |**Enable warm store**|Select **Yes** to enable warm store. This setting can be disabled and re-enabled after the environment has been created as well. |
     |**Data retention (in days)**|Choose the default option of 7 days. |
 
     [![New Time Series Insights environment configuration.](media/tutorial-set-up-tsi-environment/tsi-environment-configuration.png)](media/tutorial-set-up-tsi-environment/tsi-environment-configuration.png#lightbox)
-    [![New Time Series Insights environment configuration.](media/tutorial-set-up-tsi-environment/tsi-environment-configuration2.png)](media/tutorial-set-up-tsi-environment/tsi-environment-configuration2.png#lightbox)
+    [![New Time Series Insights environment configuration continued.](media/tutorial-set-up-tsi-environment/tsi-environment-configuration2.png)](media/tutorial-set-up-tsi-environment/tsi-environment-configuration2.png#lightbox)
 
 1. Select **Next: Event Source**.
 
@@ -318,7 +318,7 @@ Now that you've completed the tutorial, clean up the resources you created:
 
 ## Next steps
 
-In this tutorial, you learned how to:  
+In this tutorial, you learned how to:
 
 * Create and use a device simulation accelerator.
 * Create an Azure Time Series Insights Gen2 PAYG environment.

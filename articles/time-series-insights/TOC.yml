@@ -14,7 +14,7 @@
 - name: Tutorials
   items:
   - name: Set up a Time Series Insights Gen2 environment
-    href: tutorials-set-up-tsi-environment.md
+    href: tutorial-set-up-tsi-environment.md
   - name: Model synchronization between Azure Digital Twins and Time Series Insights Gen2
     href: tutorials-model-sync.md
 - name: Concepts
@@ -53,7 +53,7 @@
       items:
       - name: Adding support for long data type
         href: breaking-changes-long-data-type.md
-      - name: Changes to JSON flattening and storage 
+      - name: Changes to JSON flattening and storage
         href: ingestion-rules-update.md
   - name: Azure Time Series Insights Gen1
     items:
@@ -88,7 +88,7 @@
   - name: Monitor Azure Time Series Insights
     href: ./how-to-monitor-tsi.md
   - name: Manage resources by using templates
-    href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
+    href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
   - name: Azure Time Series Insights Gen2
     items:
     - name: Best practices
@@ -97,9 +97,9 @@
         href: how-to-plan-your-environment.md
     - name: Management
       items:
-      - name: How to create an environment using Azure CLI 
+      - name: How to create an environment using Azure CLI
         href: how-to-create-tsi-environment-using-cli.md
-      - name: How to provision & manage 
+      - name: How to provision & manage
         href: how-to-provision-manage.md
       - name: How to select a TSID
         href: how-to-select-tsid.md
@@ -121,7 +121,7 @@
     items:
     - name: Explore Time Series Insights
       href: time-series-quickstart.md
-    - name: Create and populate an environment 
+    - name: Create and populate an environment
       href: tutorial-create-populate-tsi-environment.md
     - name: Create an environment in Azure portal
       href: time-series-insights-get-started.md
@@ -139,7 +139,7 @@
       href: time-series-insights-diagnose-and-solve-problems.md
 - name: Reference
   items:
-  - name: Time Series Insights 
+  - name: Time Series Insights
     items:
     - name: Rest APIs Overview
       href: /rest/api/time-series-insights/
@@ -196,7 +196,7 @@
     - name: Azure IoT code samples
       href: /samples/browse/?term=iot
   - name: Pricing and availability
-    items:   
+    items:
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/time-series-insights/
     - name: Pricing calculator
@@ -214,7 +214,7 @@
     - name: MSDN forum
       href: https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights
   - name: Feedback and forums
-    items:  
+    items:
     - name: MSDN forum
       href: https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights
     - name: Product requests and suggestions
