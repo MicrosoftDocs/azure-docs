@@ -19,7 +19,8 @@ This feature uses [Start-AzVm](/powershell/module/az.compute/start-azvm) cmdlet 
 > [!NOTE]
 > Start/Stop VMs during off-hours has been updated to support the newest versions of the Azure modules that are available. The updated version of this feature, available in the Marketplace, doesn’t support AzureRM modules because we have migrated from AzureRM to Az modules.
 
-> [!NOTE] Thank you for your interest in the Start/Stop VMs during off-hours feature. Before you install this version, we would like you to know about the [next version](https://github.com/microsoft/startstopv2-deployments), which is in preview right now.  This new version (V2) offers all the same functionality as this one, but is designed to take advantage of newer technology in Azure. It adds some of the commonly requested features from customers, such as multi-subscription support from a single Start/Stop instance.  
+> [!NOTE]
+> Thank you for your interest in the Start/Stop VMs during off-hours feature. Before you install this version, we would like you to know about the [next version](https://github.com/microsoft/startstopv2-deployments), which is in preview right now.  This new version (V2) offers all the same functionality as this one, but is designed to take advantage of newer technology in Azure. It adds some of the commonly requested features from customers, such as multi-subscription support from a single Start/Stop instance.  
 
 The feature provides a decentralized low-cost automation option for users who want to optimize their VM costs. You can use the feature to:
 
