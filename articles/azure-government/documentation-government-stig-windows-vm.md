@@ -1,6 +1,6 @@
 ---
-title: Deploy STIG compliant Windows Virtual Machines
-description: This quickstart shows you how to deploy a STIG compliant Windows VM from Azure Marketplace
+title: Deploy STIG-compliant Windows Virtual Machines
+description: This quickstart shows you how to deploy a STIG-compliant Windows VM from Azure Marketplace
 author: stevevi
 ms.author: stevevi
 ms.service: azure-government
@@ -12,7 +12,7 @@ ms.date: 03/09/2021
 
 Microsoft Azure Security Technical Implementation Guides (STIGs) solution templates help you accelerate your [DoD STIG compliance](https://public.cyber.mil/stigs/) by delivering an automated solution to deploy virtual machines and apply STIGs through the Azure portal.
 
-This quickstart shows how to use the Azure portal to deploy a STIG compliant Windows virtual machine.
+This quickstart shows how to use the Azure portal to deploy a STIG-compliant Windows virtual machine.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ This quickstart shows how to use the Azure portal to deploy a STIG compliant Win
 
 Sign in at the [Azure Government portal](https://portal.azure.us/).
 
-## Create a STIG compliant virtual machine
+## Create a STIG-compliant virtual machine
 
 1. Select *Create a resource*.
 1. Type **Azure STIG Templates for Windows** in the search bar and press enter.
@@ -55,7 +55,7 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
 
     f. Confirm *Password*.
 
-    :::image type="content" source="./media/stig-windows-instance-details.png" alt-text="Instance details section where you provide a name for the virtual machine and select its region, image and size" border="false":::
+    :::image type="content" source="./media/stig-windows-instance-details.png" alt-text="Instance details section where you provide a name for the virtual machine and select its region, image, and size" border="false":::
 
 1. Under **Disk**:
 
@@ -94,7 +94,7 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
 
     b.  ***Inputs*** tab provides a list of the inputs to the deployment.
 
-    c.  ***Outputs*** tab provide information on any deployment outputs.
+    c.  ***Outputs*** tab provides information on any deployment outputs.
 
     d.  ***Template*** tab provides downloadable access to the JSON scripts used in the template.
 
@@ -108,7 +108,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 ## Next steps
 
-This quickstart showed you how to deploy a STIG compliant Windows virtual machine on Azure Government. For more information about creating virtual machines in Azure Government, see [Tutorial: Create Virtual Machines](./documentation-government-quickstarts-vm.md). To learn more about Azure services continue to the Azure documentation.
+This quickstart showed you how to deploy a STIG-compliant Windows virtual machine on Azure Government. For more information about creating virtual machines in Azure Government, see [Tutorial: Create Virtual Machines](./documentation-government-quickstarts-vm.md). To learn more about Azure services, continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
 > [Azure documentation](../index.yml)
