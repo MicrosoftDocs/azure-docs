@@ -33,7 +33,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ## Post a question to Microsoft Q&A
 <div class='icon is-large'>
-    <img alt='Microsoft Q&A' src='./media/common/question_mark_icon.png'>
+    <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
 </div>             
 
 Get answers to your identity app development questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
