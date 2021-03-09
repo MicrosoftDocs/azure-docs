@@ -70,7 +70,7 @@
   - name: Node.js
     href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
+    href: /python/api/overview/azure/keyvault-certificates-readme
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template
