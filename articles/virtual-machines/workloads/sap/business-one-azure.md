@@ -98,7 +98,7 @@ For the database type, SQL Server and SAP HANA are available. Independent of the
 
 Though emphasized in the specific and generic database documents already, you should make yourself familiar with:
 
-- [Manage the availability of Windows virtual machines in Azure](../../manage-availability.md) and [Manage the availability of Linux virtual machines in Azure](../../manage-availability.md)
+- [Manage the availability of Windows virtual machines in Azure](../../availability.md) and [Manage the availability of Linux virtual machines in Azure](../../availability.md)
 - [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 These documents should help you to decide on the selection of storage types and high availability configuration.
