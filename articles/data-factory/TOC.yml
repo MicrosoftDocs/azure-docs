@@ -586,6 +586,8 @@
       href: control-flow-system-variables.md
     - name: Parameterizing mapping data flows
       href: parameters-data-flow.md
+    - name: How to parameterize 
+      href: how-to-expression-language-functions.md
   - name: Security
     items:
     - name: Data movement security considerations
