@@ -76,6 +76,7 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 - **Azure Sentinel Contributor** role lets you attach a playbook to an analytics rule.
 - **Azure Sentinel Responder** role lets you run a playbook manually.
+- **Azure Sentinel Automation Contributor** ???
 
 #### Learn more
 
@@ -193,7 +194,7 @@ If the alert creates an incident, the incident will trigger an automation rule w
 
 For playbooks that are triggered by alert creation and receive alerts as their inputs (their first step is “When an Azure Sentinel Alert is triggered”), attach the playbook to an analytics rule:
 
-1. Edit the analytics rule that generates the alert you want to define an automated response for.
+1. Edit the [analytics rule](tutorial-detect-threats-custom.md) that generates the alert you want to define an automated response for.
 
 1. Under **Alert automation** in the **Automated response** tab, select the playbook or playbooks that this analytics rule will trigger when an alert is created.
 
@@ -204,6 +205,13 @@ For playbooks that are triggered by incident creation and receive incidents as t
 - Edit the analytics rule that generates the incident you want to define an automated response for. Under **Incident automation** in the **Automated response** tab, create an automation rule. This will create a automated response only for this analytics rule.
 
 - From the **Automation rules** tab in the **Automation** blade, create a new automation rule and specify the appropriate conditions and desired actions. This automation rule will be applied to any analytics rule that fulfills the specified conditions.
+
+    > [!NOTE]
+    > To run a playbook from an automation rule, Azure Sentinel uses a service account specifically authorized to do so. The use of this account (as opposed to your user account) increases the security level of the service and enables the automation rules API to support CI/CD use cases.
+    >
+    > This account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group.
+    >
+    > When you add the **run playbook** action to an automation rule, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as "grayed out." You can grant permission to Azure Sentinel on the spot by selecting the **Manage playbook permissions** link.
 
 See the [complete instructions for creating automation rules](tutorial-respond-threats-playbook.md).
 

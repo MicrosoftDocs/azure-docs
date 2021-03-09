@@ -1,6 +1,6 @@
 ﻿---
-title: Investigate alerts with Azure Sentinel| Microsoft Docs
-description: Learn how to use out-of-the-box, built-in Azure threat detection templates that notify you when something suspicious happens.
+title: Detect threats with built-in analytics rules in Azure Sentinel | Microsoft Docs
+description: Learn how to use out-of-the-box threat detection rules, based on built-in templates, that notify you when something suspicious happens.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -74,4 +74,3 @@ The following template types are available:
 In this tutorial, you learned how to get started detecting threats using Azure Sentinel. 
 
 To learn how to automate your responses to threats, [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
-

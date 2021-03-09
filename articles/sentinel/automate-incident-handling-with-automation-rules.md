@@ -37,7 +37,7 @@ Automation rules are made up of several components:
 
 Automation rules are triggered by the creation of an incident. 
 
-To review – incidents are created from alerts by analytics rules, of which there are four types, as explained in the tutorial [Investigate alerts with Azure Sentinel](tutorial-detect-threats-built-in.md).
+To review – incidents are created from alerts by analytics rules, of which there are four types, as explained in the tutorial [Detect threats with built-in analytics rules in Azure Sentinel](tutorial-detect-threats-built-in.md).
 
 ### Conditions
 
@@ -72,11 +72,11 @@ You can define the order in which automation rules will run.
 
 ### Incident-triggered automation
 
-Until now, only alerts could trigger an automated response, through the use of playbooks. With automation rules, incidents can now trigger automated response chains, which can include new incident-triggered playbooks, when an incident is created. 
+Until now, only alerts could trigger an automated response, through the use of playbooks. With automation rules, incidents can now trigger automated response chains, which can include new incident-triggered playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)), when an incident is created. 
 
 ### Trigger playbooks for Microsoft providers
 
-Automation rules provide a way to automate the handling of Microsoft security alerts by applying these rules to incidents created from the alerts. The automation rules can call playbooks and pass the incidents to them with all their details, including alerts and entities. In general, Azure Sentinel best practices dictate using the incidents queue as the focal point of security operations.
+Automation rules provide a way to automate the handling of Microsoft security alerts by applying these rules to incidents created from the alerts. The automation rules can call playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)) and pass the incidents to them with all their details, including alerts and entities. In general, Azure Sentinel best practices dictate using the incidents queue as the focal point of security operations.
 
 Microsoft security alerts include the following:
 
@@ -117,6 +117,14 @@ You can automatically add free-text tags to incidents to group or classify them 
 Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
 
 For playbook actions, there is a two-minute delay between the beginning of the playbook action and the next action on the list.
+
+### Permissions for automation rules to run playbooks
+
+When an Azure Sentinel automation rule runs a playbook, it does so using a special Azure Sentinel service account specifically authorized for this action. The use of this account (as opposed to your user account) increases the security level of the service and enables the automation rules API to support CI/CD use cases.
+
+In order for an automation rule to run a playbook, this account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group.
+
+When you're configuring an automation rule and adding a **run playbook** action, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as "grayed out." You can grant permission to Azure Sentinel on the spot by selecting the **Manage playbook permissions** link.
 
 ## Creating and managing automation rules
 
