@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -244,7 +244,7 @@ https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/policy-name/v2.0/.wel
 ```http
 GET /yourtenant.onmicrosoft.com/b2c_1a_signup_signin/openid/v2.0/userinfo
 Host: b2cninja.b2clogin.com
-Authorization: Bearer <your ID token>
+Authorization: Bearer <your access token>
 ```
 
 A successful response would look like:
