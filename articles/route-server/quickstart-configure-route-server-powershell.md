@@ -125,7 +125,7 @@ You can view the routes advertised and received by Azure Route Server with this 
 Get-AzRouteServerPeerAdvertisedRoute
 Get-AzRouteServerPeerLearnedRoute
 ```
-## Clean up
+## Clean up resources
 
 If you no longer need the Azure Route Server, use these commands to remove the BGP peering and then remove the Route Server. 
 
