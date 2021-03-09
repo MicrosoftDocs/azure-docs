@@ -27,7 +27,7 @@ For more information, see [Connect your external solution using Common Event For
 
 ## D
 
-|CEF field name  |CommonSecurityLog name  |Description  |
+|CEF key name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
 |Device Vendor     |  DeviceVendor       | String that, together with device product and version definitions, uniquely identifies the type of sending device.       |
 |Device Product     |   DeviceProduct      |   String that, together with device vendor and version definitions, uniquely identifies the type of sending device.        |
@@ -65,7 +65,7 @@ For more information, see [Connect your external solution using Common Event For
 
 ## E - I
 
-|CEF field name  |CommonSecurityLog name  |Description  |
+|CEF key name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
 |end     |  EndTime       | The time at which the activity related to the event ended.        |
 |externalId    |   ExternalID      | An ID used by the originating device. Typically, these values have increasing values that are each associated with an event.        |
@@ -84,7 +84,7 @@ For more information, see [Connect your external solution using Common Event For
 
 ## M - P
 
-|CEF field name  |CommonSecurityLog name  |Description  |
+|CEF key name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
 |msg   |  Message       | A message that gives more details about the event.        |
 |Name     |  Activity       |   A string that represents a human-readable and understandable description of the event.     |
@@ -104,7 +104,7 @@ For more information, see [Connect your external solution using Common Event For
 
 ## R - T
 
-|CEF field name  |CommonSecurityLog name  |Description  |
+|CEF key name  |CommonSecurityLog name  |Description  |
 |---------|---------|---------|
 |Reason     |  Reason      |The reason an audit event was generated. <br><br>For example, `Bad password` or `Unknown user`.         |
 |Request     |   RequestURL      | The URL accessed for an HTTP request, including the protocol. For example, `http://www/secure.com`        |
