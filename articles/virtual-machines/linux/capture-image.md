@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
+ms.collection: linux
 ---
 # How to create a managed image of a virtual machine or VHD
 

@@ -59,6 +59,8 @@ You can choose compute and storage resources during deployment and then change t
 > [!IMPORTANT]
 > Any discrepancy in the [managed instance virtual network requirements](../../managed-instance/connectivity-architecture-overview.md#network-requirements) can prevent you from creating new instances or using existing ones. Learn more about [creating new](../../managed-instance/virtual-network-subnet-create-arm-template.md) and [configuring existing](../../managed-instance/vnet-existing-add-subnet.md) networks. 
 
+Another key consideration in the selection of the target service tier in Azure SQL Managed Instance (General Purpose Vs Business Critical) is the availability of certain features like In-Memory OLTP that is only available in Business Critical tier. 
+
 ### SQL Server VM alternative
 
 Your business may have requirements that make SQL Server on Azure VMs a more suitable target than Azure SQL Managed Instance. 
@@ -185,6 +187,26 @@ When migrating databases protected by [Transparent Data Encryption](../../data
 #### System databases
 
 Restore of system databases is not supported. To migrate instance-level objects (stored in master or msdb databases), script them using Transact-SQL (T-SQL) and then recreate them on the target managed instance. 
+
+#### In-Memory OLTP (Memory-optimized tables)
+
+SQL Server provides In-Memory OLTP capability that allows usage of memory-optimized tables, memory-optimized table types and natively compiled SQL modules to run workloads that have high throughput and low latency transactional processing requirements. 
+
+> [!IMPORTANT]
+> In-Memory OLTP is only supported in the Business Critical tier in Azure SQL Managed Instance (and not supported in the General Purpose tier).
+
+If you have memory-optimized tables or memory-optimized table types in your on-premises SQL Server and you are looking to migrate to Azure SQL Managed Instance, you should either:
+
+- Choose Business Critical tier for your target Azure SQL Managed Instance that supports In-Memory OLTP, Or
+- If you want to migrate to General Purpose tier in Azure SQL Managed Instance, remove memory-optimized tables, memory-optimized table types and natively compiled SQL modules that interact with memory-optimized objects before migrating your database(s). The following T-SQL query can be used to identify all objects that need to be removed before migration to General Purpose tier:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+To learn more about in-memory technologies, see [Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview)
 
 ## Leverage advanced features 
 
