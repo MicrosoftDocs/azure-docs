@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Create custom SDKs for Azure Digital Twins with AutoRest
+title: Create custom-language SDKs with AutoRest
 titleSuffix: Azure Digital Twins
-description: See how to generate custom SDKs, to use Azure Digital Twins with languages other than C#.
+description: Learn how to use AutoRest to generate custom-language SDKs, for writing Azure Digital Twins code in other languages that don't have published SDKs.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 4/24/2020
@@ -16,7 +16,7 @@ ms.custom: devx-track-js
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Create custom SDKs for Azure Digital Twins using AutoRest
+# Create custom-language SDKs for Azure Digital Twins using AutoRest
 
 If you need to work with Azure Digital Twins using a language that does not have a [published Azure Digital Twins SDK](how-to-use-apis-sdks.md), this article will show you how to use AutoRest to generate your own SDK in the language of your choice. 
 
