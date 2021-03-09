@@ -26,7 +26,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.network/?view=azps-5.5.0#route
+    href: /powershell/module/az.network/#route
   - name: Azure CLI
     href: /cli/azure/network/routeserver
   - name: REST

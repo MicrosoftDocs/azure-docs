@@ -71,7 +71,7 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
 
 When using virtual machines in Azure, you're responsible for implementing a high availability and disaster recovery solution to avoid any downtime. 
 
-Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
+Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/availability-set-overview.md). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
 
 ## Deployment with Azure Resource Manager (ARM) Template
 
