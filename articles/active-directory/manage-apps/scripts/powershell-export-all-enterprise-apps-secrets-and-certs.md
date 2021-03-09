@@ -1,6 +1,6 @@
 ---
-title: PowerShell sample - Export secrets and certificates for app registrations in Azure Active Directory tenant.
-description: PowerShell example that exports all secrets and certificates for the specified app registrations in your Azure Active Directory tenant.
+title: PowerShell sample - Export secrets and certificates for enterprise apps in Azure Active Directory tenant.
+description: PowerShell example that exports all secrets and certificates for the specified enterprise apps in your Azure Active Directory tenant.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -13,9 +13,8 @@ ms.author: kenwith
 ms.reviewer: mifarca
 ---
 
-# Export secrets and certificates for app registrations
-
-This PowerShell script example exports all secrets and certificates for the specified app registrations from your directory into a CSV file.
+# Export secrets and certificates for enterprise apps
+This PowerShell script example exports all secrets and certificates for the specified enterprise apps from your directory into a CSV file.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -23,7 +22,7 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Sample script
 
-[!code-azurepowershell[main](~/powershell_scripts/application-management/export-all-app-registrations-secrets-and-certs.ps1 "Exports all secrets and certificates for the specified app registrations in your directory.")]
+[!code-azurepowershell[main](~/powershell_scripts/application-management/export-all-enterprise-apps-secrets-and-certs.ps1 "Exports all secrets and certificates for the specified enterprise apps in your directory.")]
 
 ## Script explanation
 

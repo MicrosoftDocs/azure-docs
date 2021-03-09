@@ -1,6 +1,6 @@
 ---
-title: PowerShell sample - Export secrets and certificates for app registrations in Azure Active Directory tenant.
-description: PowerShell example that exports all secrets and certificates for the specified app registrations in your Azure Active Directory tenant.
+title: PowerShell sample - Export apps with secrets and certificates expiring beyond the required date in Azure Active Directory tenant.
+description: PowerShell example that exports all apps with secrets and certificates expiring beyond the required date for the specified apps in your Azure Active Directory tenant.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -13,9 +13,9 @@ ms.author: kenwith
 ms.reviewer: mifarca
 ---
 
-# Export secrets and certificates for app registrations
+# Export apps with secrets and certificates expiring beyond the required date
 
-This PowerShell script example exports all secrets and certificates for the specified app registrations from your directory into a CSV file.
+This PowerShell script example exports all apps secrets and certificates expiring beyond the required date for the specified apps from your directory in a CSV file.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -23,7 +23,7 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Sample script
 
-[!code-azurepowershell[main](~/powershell_scripts/application-management/export-all-app-registrations-secrets-and-certs.ps1 "Exports all secrets and certificates for the specified app registrations in your directory.")]
+[!code-azurepowershell[main](~/powershell_scripts/application-management/export-apps-with-secrets-beyond-required.ps1 "Exports all apps with secrets and certificates expiring beyond the required date for the specified apps in your directory.")]
 
 ## Script explanation
 
