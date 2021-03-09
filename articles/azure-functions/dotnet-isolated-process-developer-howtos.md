@@ -26,7 +26,7 @@ Before you begin, you must have the following:
 
 + [.NET SDK 5.0](https://www.microsoft.com/net/download)
 
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3320, or a later version.
++ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.0.3381, or a later version.
 
 + [Azure CLI](/cli/azure/install-azure-cli) version 2.20, or a later version.  
 ::: zone pivot="development-environment-vscode"
@@ -44,7 +44,7 @@ In Azure Functions, a function project is a container for one or more individual
 ::: zone pivot="development-environment-vs"
 
 >[!NOTE]  
-> At this time, there are no Visual Studio project templates that support creating .NET isolated function projects. This article shows you how to use Core Tools to create project and Visual Studio to run locally, debug, and publish to an existing function app.  
+> At this time, there are no Visual Studio project templates that support creating .NET isolated function projects. This article shows you how to use Core Tools to create your C# project, which you can then run locally and debug in Visual Studio.  
 
 ::: zone-end
 
@@ -80,7 +80,7 @@ In Azure Functions, a function project is a container for one or more individual
 
 1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj*:  
 
-    ```csharp
+    ```console
     func init LocalFunctionProj --worker-runtime dotnetisolated
     ```
     
@@ -119,14 +119,41 @@ In Azure Functions, a function project is a container for one or more individual
 
 ## Run the function locally
 
-Visual Studio integrates with Azure Functions Core Tools so that you can test your functions locally using the full Azure Functions runtime.  
+At this point, you can use the `func start` in your project folder to compile and run the C# isolated functions project. Currently, if you want to debug your function code in Visual Studio, you need to manually attach a debugger to the running Functions runtime process by using the following steps:  
 
-[!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
+1. From the *LocalFunctionProj* folder, use the following command to start the Azure Functions runtime host locally from the terminal or command prompt:
+
+    ```console
+    func start --dotnet-isolated-debug
+    ```
+
+    The `--dotnet-isolated-debug` option instructs the process to wait for a debugger to attach before continuing. Toward the end of the output, the following lines should appear: 
+    
+    <pre>
+    ...
+    
+    Functions:
+
+        HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
+
+    For detailed output, run func with --verbose flag.
+    [2021-03-09T08:41:41.904Z] Azure Functions .NET Worker (PID: 46568) initialized in debug mode. Waiting for debugger to attach...
+    ...
+    
+    </pre> 
+ 
+1. In the Azure Functions runtime output, make a note of the process ID (PID) of the host process, to which you'll attach a debugger. Also note the URL of your local function.
+
+1. In Visual Studio, from the **Debug** menu, select **Attach to Process...**, locate the dotnet.exe process that matches the process ID, and select **Attach**. With the debugger attached you can debug your function code as normal.
+
+1. Into your browser's address bar, type your local function URL, which looks like the following, and run the request. 
+
+    <http://localhost:7071/api/HttpExample>
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
 > [!NOTE]  
-> Visual Studio publishing isn't currently available for .NET isolated process apps. After you've finished developing your project in Visual Studio, you must use the Azure CLI to create the remote Azure resources. Then, you can use Azure Functions Core Tools from the command line to publish your project to Azure.
+> Visual Studio publishing isn't currently available for .NET isolated process apps. After you've finished developing your project in Visual Studio, you must use the Azure CLI to create the remote Azure resources. Then, you can again use Azure Functions Core Tools from the command line to publish your project to Azure.
 ::: zone-end
 
 ::: zone pivot="development-environment-cli,development-environment-vs" 
