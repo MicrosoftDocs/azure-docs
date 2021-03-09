@@ -22,17 +22,17 @@ If you need to work with Azure Digital Twins using a language that does not have
 
 The examples in this article show the creation of a [data plane SDK](how-to-use-apis-sdks.md#overview-data-plane-apis), but this process will work for generating a  [control plane SDK](how-to-use-apis-sdks.md#overview-control-plane-apis) as well.
 
-## Set up your machine
+## Prerequisites
 
-To generate an SDK, you will need:
-* [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
-* [Node.js](https://nodejs.org) as a pre-requisite to AutoRest
-* The latest Azure Digital Twins **data plane Swagger** (OpenAPI) file from the [data plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins), and its accompanying folder of examples.  Download the Swagger file *digitaltwins.json* and its folder of examples to your local machine.
+To generate an SDK, you'll first need to complete the following setup on your local machine:
+* Install [AutoRest](https://github.com/Azure/autorest), version 2.0.4413 (version 3 isn't currently supported)
+* Install [Node.js](https://nodejs.org), which is a pre-requisite for using AutoRest
+* Download the latest Azure Digital Twins **data plane Swagger** (OpenAPI) file from the [data plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins), along with its accompanying folder of examples. The Swagger file is the one entitled *digitaltwins.json*.
 
 >[!TIP]
 > To create a **control plane SDK** instead, complete the steps in this article using the latest **control plane Swagger** (OpenAPI) file from the [control plane Swagger folder](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) instead of the data plane one.
 
-Once your machine is equipped with everything from the list above, you're ready to use AutoRest to create the SDK.
+Once your machine is equipped with everything from the list above, you're ready to use AutoRest to create an SDK.
 
 ## Create the SDK with AutoRest 
 
