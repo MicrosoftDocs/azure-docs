@@ -79,7 +79,7 @@ To check the version of `kubectl`:
     
    The output should state that no resources (pods) are found because there are no applications running on your cluster.
 
-   The command will populate the directory structure of "C:\Users\\&lt;username&gt;\\.kube\" with configuration files. The kubectl command-line tool will use these files to create and manage stateless applications on your Kubernetes cluster.
+   The command will populate the directory structure of "C:\Users\\&lt;username&gt;\\.kube\" with configuration files. The kubectl command-line tool will use these files to create and manage stateless applications on your Kubernetes cluster.  
 
 3. Manually check the directory structure of "C:\Users\\&lt;username&gt;\\.kube\" to verify *kubectl* has populated it with the following subfolders:
 
