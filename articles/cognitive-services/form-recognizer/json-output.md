@@ -3,14 +3,14 @@ title: How to interpret responses from Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to interpert and understand the Form Recognizer JSON output - Form Recognizer API
 services: cognitive-services
-author: La Januari
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.author: la.januari
+ms.author: lajanuar
 ---
 
 # Interpreting Analyze Output JSON
@@ -251,28 +251,34 @@ Each analyze operation outputs a subset of the results.
 ### Page Info
 TODO: Picture of file with multiple pages, definition of width, height, and overall text angle.
 
-
 ### Text Line / Word
+
 TODO: Visual representation of text line/word hierarchy.  Rough description of word as space delimited characters (with exception of CJK? need to verify).  Rough description of line as tab delimited words.  Include picture with examples.
 
 ### Selection Mark
+
 TODO: Need a few visual examples of the types of selection marks we current support.
 
 ### Appearance
+
 TODO: Not sure if we want to cover this right now.  If we do, just need a visual example and quick description.
 
 ### Table
+
 TODO: Visual example of tables with rows/columns with row/column spans.  If we support isHeader, include examples.  Should document what types of tables we exclude (1 row or 1 column).  Consider describing how some tables are broken into multiple.  Indicate that we currently do not support multi-page tables.
 
 ### Key-Value Pair
+
 TODO: Visual example of key-value pairs we currently extract.
 
 ### Document
+
 TODO: Describe each document has a doc type with corresponding semantic schema.  Describe field types and their corresponding semantic normalization (links to ISO standards).  Additional description for array and object.
 
-For each prebuilt doc type, link/include semantic schema (similar to https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/concept-receipts#fields-extracted but with structure using relative JsonPointer syntax).
+For each prebuilt doc type, link/include semantic schema similar to [Receipt service extracted fields](/azure/cognitive-services/form-recognizer/concept-receipts#fields-extracted) but using relative JsonPointer syntax structure.
 
 ### Bounding Box
+
 TODO: Describe how bounding boxes are represented with 8 numbers and how top-left is defined.  Include example picture with tilted bounding box.
 
 ### Confidence
@@ -284,6 +290,7 @@ Confidence values are estimates of certainty of a classification. To interpret t
 How do we provide this? Our confidence values are [calibrated](https://en.wikipedia.org/wiki/Calibration_(statistics)) based on large datasets designed to represent the full range of data our models serve.
 
 Whenever you see the term confidence used in a OneOCR product, this corresponds to a calibrated confidence value, and you can use it in that way. Depending on the output field, the confidence may refer to a different level of prediction:
+
 * Text and selection mark is the confidence of the output value: the word or the selection state.
 * For fields in custom forms, it is the confidence of the choice of value boxes corresponding to the proposed field.
 * Future features may have a distinct level of confidence, which will be documented appropriately.
@@ -333,7 +340,7 @@ So how can you use this confidence value in your workflow. Here we go through 2 
 ]
 ```
 
-# Limitations of confidence
+## Limitations of confidence
 
 As mentioned above, our confidence values are calibrated to estimate the confidence of each prediction based on Microsoft's datasets. These are built to reflect our customers' diversity, but they do not conform to any single customer's exact scenario. Thus, different customers may see different rates of validation failures than the confidence value suggests. It should be used as a guideline, from which a customer may base validation management decisions. Furthermore, for some customers with particularly challenging scenarios, we may not be "confident enough" in our predictions to meet their desired validation goals. We continually work to improve our products. As our products improve, we expect to enable more and more customers to achieve their goals, including with use of the confidence score.
 

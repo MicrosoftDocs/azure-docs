@@ -12,7 +12,7 @@ ms.date: 05/19/2020
 ms.author: pafarley
 
 ---
-
+<!-- markdownlint-disable MD024 -->
 # What's new in Form Recognizer?
 
 The Form Recognizer service is updated on an ongoing basis. Use this article to stay up to date with feature enhancements, fixes, and documentation updates.
@@ -29,7 +29,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 - **Line-item extraction for prebuilt invoice model** - Prebuilt Invoice model now supports line item extraction; it now extracts full items and their parts - description, amount, quantity, product ID, date and more. With a simple API/SDK call you can extract useful data from your invoices - text, table, key-value pairs, and line items.
 
- > [Learn more about the prebuilt invoice model](concept-invoice.md)
+ > [Learn more about the prebuilt invoice model](concept-invoices.md)
 
 - **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model will extract line items as part of the JSON output in the documentResults section.
 
@@ -93,41 +93,33 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 - **[New locales for pre-built Receipts](concept-receipts.md)** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
 - **Quality improvements** for `Layout`, `Train Custom Model` - _Train without Labels_ and _Train with Labels_.
 
-
 **v2.0** includes the following update:
 
 - The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability. 
 
-
 **New samples** are available on GitHub. 
+
 - The [Knowledge Extraction Recipes - Forms Playbook](https://github.com/microsoft/knowledge-extraction-recipes-forms) collects best practices from real Form Recognizer customer engagements and provides usable code samples, checklists, and sample pipelines used in developing these projects. 
 - The [sample labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](quickstarts/label-tool.md) for getting started with the tool. 
 - The [Intelligent Kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Form Recognizer sample shows how to integrate `Analyze Receipt` and `Train Custom Model` - _Train without Labels_.
 
-
-
 ## July 2020
 
 ### New features
-
+<!-- markdownlint-disable MD004 -->
 * **v2.0 reference available** - View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme), and [JavaScript](/javascript/api/overview/azure/).
 * **Table enhancements and Extraction enhancements** - includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in _custom train without labels_. 
 
 * **Currency support** - Detection and extraction of global currency symbols.
 * **Azure Gov** - Form Recognizer is now also available in Azure Gov.
 * **Enhanced security features**: 
-<<<<<<< HEAD
-   * **Bring your own key** - Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys, also known as bring your own key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
-   * **Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link.](../../private-link/private-link-overview.md)
-=======
-   * **Bring your own key** - Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys, also known as bring your own key (BYOK)](./encrypt-data-at-rest.md), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
-   * **Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link. ](../../private-link/private-link-overview.md)
->>>>>>> upstream/master
-
+  * **Bring your own key** - Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys, also known as bring your own key (BYOK)](./form-recognizer-encryption-of-data-at-rest.md), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
+  * **Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link.](../../private-link/private-link-overview.md)
 
 ## June 2020
 
 ### New features
+
 * **CopyModel API added to client SDKs** - You can now use the client SDKs to copy models from one subscription to another. See [Back up and recover models](./disaster-recovery.md) for general information on this feature.
 * **Azure Active Directory integration** - You can now use your Azure AD credentials to authenticate your Form Recognizer client objects in the SDKs.
 * **SDK-specific changes** - This includes both minor feature additions and breaking changes. See the SDK changelogs for more information.
@@ -139,24 +131,26 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 ## April 2020
 
 ### New features
+
 * **SDK support for Form Recognizer API v2.0 Public Preview** - This month we expanded our service support to include a preview SDK for Form Recognizer v2.0 (preview) release. Use the links below to get started with your language of choice: 
-   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
-   * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
-   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
-   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
+  * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
+  * [Java SDK](/java/api/overview/azure/ai-formrecognizer-readme)
+  * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
+  * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
   The new SDK supports all the features of the v2.0 REST API for Form Recognizer. For example, you can train a model with or without labels and extract text, key value pairs and tables from your forms, extract data from receipts with the pre-built receipts service and extract text and tables with the layout service from your documents. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
- 
+
 * **Copy Custom Model** You can now copy models between regions and subscriptions using the new Copy Custom Model feature. Before invoking the Copy Custom Model API, you must first obtain authorization to copy into the target resource by calling the Copy Authorization operation against the target resource endpoint.
-   * [Generate a copy authorization](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) REST API
-   * [Copy a custom model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) REST API 
+
+  * [Generate a copy authorization](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModelAuthorization) REST API
+  * [Copy a custom model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/CopyCustomFormModel) REST API 
 
 ### Security improvements
 
 * Customer-Managed Keys are now available for FormRecognizer. For more information, see [Data encryption at rest for Form Recognizer](./encrypt-data-at-rest.md).
 * Use Managed Identities for access to Azure resources with Azure Active Directory. For more information, see [Authorize access to managed identities](../authentication.md#authorize-access-to-managed-identities).
 
-## March 2020 
+## March 2020
 
 ### New features
 

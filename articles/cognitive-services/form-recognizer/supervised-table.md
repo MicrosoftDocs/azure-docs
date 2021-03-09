@@ -27,7 +27,7 @@ Here are some examples of when using table tags would be appropriate.
 Note that, tagged or not, every table found in your form will be extracted. Therefore, not every table from your form has to be labeled with a table tag, and your table tag does not have to replicate the structure of a table found in your form.
 
 ## Create a table tag in FOTT
-
+<!-- markdownlint-disable MD004 -->
 * First, determine whether you want a dynamic table tag or a fixed-size table tag. Will the number of rows vary from document to document? If so, use a dynamic table. If not, use a fixed size table.
 * If your table tag is dynamic, define the column names and the data type and format for each column.
 * If your table is fixed size, define column/row names and the data type and format for each.
@@ -36,7 +36,7 @@ Note that, tagged or not, every table found in your form will be extracted. Ther
 ## Label your data into a table tag
 
 * If your project has a table tag, you can click on the table tag to open the labeling panel and populate the tag just like you would label key-value fields.
-:::image type="content" source="table-labeling" alt-text="Label with table tags":::
+:::image type="content" source="media/table-labeling.png" alt-text="Label with table tags":::
 
 ## Next steps
 

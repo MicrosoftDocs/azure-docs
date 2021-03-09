@@ -60,7 +60,7 @@ When the **status** field has the **succeeded** value, the JSON response will in
 ### Sample JSON output
 
 The response to the Get Analyze Invoice Result operation will be the structured representation of the invoice with all the information extracted. 
-See here for a [sample invoice file](./media/sample-invoice.jpg) and its structured output [sample invoice output](./media/InvoiceResult-sample-invoice.jpg.json).
+See here for a [sample invoice file](./media/sample-invoice.jpg) and its structured output [sample invoice output](./media/InvoiceResult-sample-invoice.jpg).
 
 The JSON output has 3 parts: 
 * `"readResults"` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
@@ -75,17 +75,10 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Customer being invoiced | Microsoft Corp |  |
 | CustomerId | string | Reference ID for the customer | CID-12345 |  |
-<<<<<<< HEAD
 | PurchaseOrder | string | A purchase order reference number | PO-3333 | | 
 | InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | | 
 | InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 2019-11-15 | 
 | DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 | 2019-11-15 |
-=======
-| PurchaseOrder | string | A purchase order reference number | PO-3333 | |  |
-| InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | |  |
-| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 2019-11-15 |
-| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 |
->>>>>>> upstream/master
 | VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
 | VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters | |

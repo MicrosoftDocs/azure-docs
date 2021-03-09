@@ -47,11 +47,13 @@ First, call the [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.c
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/layout/analyzeResults/44a436324-fc4b-4387-aa06-090cfbf0064f` |
 
 ### Natural reading order output (Latin only)
+
 You can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
 :::image border type="content" source="./Images/layout-reading-order-example.png" alt-text="Layout Reading order example":::
 
 ### Select page numbers or ranges for text extraction
+
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
 :::image border type="content" source="./Images/layout-select-pages.png" alt-text="Layout selected pages output":::
@@ -69,6 +71,7 @@ Call this operation iteratively until it returns the `succeeded` value. Use an i
 When the **status** field has the `succeeded` value, the JSON response will include the extracted layout, text, tables, and selection marks. The extracted data includes extracted text lines and words, bounding boxes, text appearance with handwritten indication, tables, and selection marks with selected/unselected indicated. 
 
 ### Handwritten classification for text lines (Latin only)
+
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
 
 :::image border type="content" source="./Images/layout-handwriting-classification.png" alt-text="handwriting classification example":::
@@ -78,7 +81,8 @@ The response includes classifying whether each text line is of handwriting style
 The response to the *Get Analyze Layout Result* operation is a structured representation of the document with all the information extracted. 
 See here for a [sample document file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout.pdf) and its structured output [sample layout output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/curl/form-recognizer/sample-layout-output.json).
 
-The JSON output has two parts: 
+The JSON output has two parts:
+
 * `readResults` node contains all of the recognized text and selection marks. Text is organized by page, then by line, then by individual words. 
 * `pageResults` node contains the tables and cells extracted with their bounding boxes, confidence, and a reference to the lines and words in "readResults".
 
@@ -100,8 +104,8 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ## Next steps
 
-- Try your own layout extraction using the [Form Recognizer Sample UI tool](https://fott-preview.azurewebsites.net/)
-- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started extracting layouts in the development language of your choice.
+* Try your own layout extraction using the [Form Recognizer Sample UI tool](https://fott-preview.azurewebsites.net/)
+* Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started extracting layouts in the development language of your choice.
 
 ## See also
 

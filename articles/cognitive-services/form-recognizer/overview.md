@@ -27,41 +27,29 @@ Form Recognizer is composed of the following services:
 
 * **[Layout API](#layout-api)** - Extract text, selection marks, and tables structures, along with their bounding box coordinates, from documents.
 * **[Custom models](#custom-models)** - Extract text, key/value pairs, selection marks, and table data from forms. These models are trained with your own data, so they're tailored to your forms.
-<<<<<<< HEAD
-* **[Prebuilt models](#prebuilt-models)** - Extract data from unique document types using prebuilt models. Currently available are the following prebuilt models
-    * [Invoices](./concept-invoices.md)
-    * [Sales receipts](./concept-receipts.md)
-    * [Business cards](./concept-business-cards.md)
-    * [Identification (ID) cards](./concept-identification-cards.md)
 
-=======
-* **[Prebuilt models](#prebuilt-models)** - Extract data from unique form types using prebuilt models. Currently available are the following prebuilt models
+* **[Prebuilt models](#prebuilt-models)** - Extract data from unique document types using prebuilt models. Currently available are the following prebuilt models
+
   * [Invoices](./concept-invoices.md)
   * [Sales receipts](./concept-receipts.md)
   * [Business cards](./concept-business-cards.md)
->>>>>>> upstream/master
+  * [Identification (ID) cards](./concept-identification-cards.md)
 
 ## Try it out
 
 To try out the Form Recognizer Service, go to the online Sample UI Tool:
 <!-- markdownlint-disable MD025 -->
-# [v2.1 preview](#tab/v2-1)
+<!-- markdownlint-disable MD024 -->
 
-<<<<<<< HEAD
-# [v2.1 preview](#tab/v2-1)
-=======
->>>>>>> upstream/master
+## [v2.1 preview](#tab/v2-1)
+
+## [v2.1 preview](#tab/v2-1)
+
 > [!div class="nextstepaction"]
 > [Try Form Recognizer](https://fott-preview.azurewebsites.net/)
 
 # [v2.0](#tab/v2-0)
 
-<<<<<<< HEAD
-=======
-> [!div class="nextstepaction"]
-> [Try Form Recognizer](https://fott.azurewebsites.net/)
-
->>>>>>> upstream/master
 ---
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
@@ -92,15 +80,14 @@ Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes a
 
 [Get started with Train with labels](./quickstarts/label-tool.md)
 
-
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
-
 
 ## Prebuilt models
 
 Form Recognizer also includes Prebuilt models for automated data processing of unique form types.
 
 ### Prebuilt Invoice model
+
 The Prebuilt Invoice model extracts data from invoices in a variety of formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal, line items and more. In addition, the prebuilt invoice model is trained to analyze and return all of the text and tables on the invoice. See the [Invoices](./concept-invoices.md) conceptual guide for more info.
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
@@ -123,33 +110,36 @@ The Business Cards model enables you to extract information such as the person's
 
 :::image type="content" source="./media/overview-business-card.jpg" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
-
 ## Get started
 
 Use the Sample Form Recognizer Tool to try out Layout, Pre-built models and train a custom model for your documents:  
 
-# [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
+
 > [!div class="nextstepaction"]
 > [Try Form Recognizer](https://fott-preview.azurewebsites.net/)
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
+
 > [!div class="nextstepaction"]
 > [Try Form Recognizer](https://fott.azurewebsites.net/)
 
+---
 Follow the [Client library / REST API quickstart](./quickstarts/client-library.md) to get started extracting data from your docuements. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 You can also use the REST samples (GitHub) to get started - 
- * Extract text, selection marks and table structure from documents
-    * [Extract layout data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
-  * Train custom models and extract form data
-    * [Train without labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
-    * [Train with labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
-  * Extract data from invoices
-    * [Extract invoice data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
-  * Extract data from sales receipts
-    * [Extract receipt data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
-  * Extract data from business cards
-    * [Extract business card data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
+
+* Extract text, selection marks and table structure from documents
+  * [Extract layout data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
+* Train custom models and extract form data
+  * [Train without labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+  * [Train with labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
+* Extract data from invoices
+  * [Extract invoice data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
+* Extract data from sales receipts
+  * [Extract receipt data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
+* Extract data from business cards
+  * [Extract business card data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ### Review the REST APIs
 
@@ -165,14 +155,12 @@ You'll use the following APIs to train models and extract structured data from f
 | **Analyze ID** | Analyze an ID card document to extract key information, and other identification card text.|
 | **Analyze Business Card** | Analyze a business card to extract key information and text.|
 
-# [v2.1 preview](#tab/v2-1)
-<<<<<<< HEAD
-Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
-=======
-Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
->>>>>>> upstream/master
+### [v2.1 preview](#tab/v2-1)
 
-# [v2.0](#tab/v2-0)
+Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
+
+### [v2.0](#tab/v2-0)
+
 Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
 ---
@@ -202,5 +190,6 @@ As with all the cognitive services, developers using the Form Recognizer service
 ## Next steps
 
 Complete the following: 
+
 1. [Form Recognizer tool] (https://fott-preview.microsoft.com/) to try our the Form Recognizer service
 2. [client libarary and REST API quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.

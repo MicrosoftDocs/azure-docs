@@ -147,7 +147,6 @@ Fill in the fields with the following values:
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Connection settings of sample labeling tool.":::
 
-
 ## Create a new project
 
 In the sample labeling tool, projects store your configurations and settings. Create a new project and fill in the fields with the following values:
@@ -184,22 +183,13 @@ In v2.1, if your training document does not have a value filled in, you can draw
 
 Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze.
 
-<<<<<<< HEAD
-# [v2.0](#tab/v2-0)  
+### [v2.0](#tab/v2-0)  
+
 1. First, use the tags editor pane to create the tags you'd like to identify.
    1. Click **+** to create a new tag.
    1. Enter the tag name.
    1. Press Enter to save the tag.
 1. In the main editor, click to select words from the highlighted text elements or a region you drew in.
-=======
-### [v2.1 preview](#tab/v2-1)
-
-1. First, use the tags editor pane to create the tags you'd like to identify:
-   * Click **+** to create a new tag.
-   * Enter the tag name.
-   * Press Enter to save the tag.
-1. In the main editor, click to select words from the highlighted text elements. In the _v2.1 preview.2_ API, you can also click to select _Selection Marks_ like radio buttons and checkboxes as key value pairs. Form Recognizer will identify whether the selection mark is "selected" or "unselected" as the value.
->>>>>>> upstream/master
 1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
     > [!Tip]
     > Keep the following tips in mind when you're labeling your forms:
