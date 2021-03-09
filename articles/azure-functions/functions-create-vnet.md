@@ -333,7 +333,7 @@ For more information, see the [private endpoint documentation](https://docs.micr
 
 1. In your function app, in the menu on the left, select **Networking**.
 
-1. Under **Private Endpoint Connections**, select **Click here to configure**.
+1. Under **Private Endpoint Connections**, select **Configure your private endpoint connections**.
 
     :::image type="content" source="./media/functions-create-vnet/14-navigate-app-private-endpoint.png" alt-text="Screenshot of how to navigate to a function app private endpoint.":::
 
@@ -382,7 +382,7 @@ Here's an alternative way to monitor your function by using Application Insights
 Congratulations! You've successfully tested your function app setup with private endpoints.
 
 ## Understand private DNS zones
-You've used a private endpoint to connect to Azure resources. You're connecting to a private IP address instead of the public endpoint. Existing Azure services are configured to use an  existing DNS to connect to the public endpoint. You must override the DNS configuration to connect to the private endpoint.
+You've used a private endpoint to connect to Azure resources. You're connecting to a private IP address instead of the public endpoint. Existing Azure services are configured to use an existing DNS to connect to the public endpoint. You must override the DNS configuration to connect to the private endpoint.
 
 A private DNS zone is created for each Azure resource that was configured with a private endpoint. A DNS record is created for each private IP address associated with the private endpoint.
 
