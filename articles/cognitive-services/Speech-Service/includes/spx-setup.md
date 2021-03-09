@@ -14,11 +14,12 @@ ms.author: v-demjoh
 Follow these steps to install the Speech CLI on Windows:
 
 1. On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform. Installing this for the first time may require a restart.
-1. Install [.NET Core 3.1](/dotnet/core/install/linux).
+1. Install [.NET Core 3.1 SDK](/dotnet/core/install/windows).
 2. Install the Speech CLI using NuGet by entering this command:
 
-    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
-
+   ```console
+   dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0
+   ```
 Type `spx` to see help for the Speech CLI.
 
 > [!NOTE]
@@ -47,7 +48,7 @@ The following Linux distributions are supported for x64 architectures using the 
 
 Follow these steps to install the Speech CLI on Linux on an x64 CPU:
 
-1. Install [.NET Core 3.1](/dotnet/core/install/linux).
+1. Install [.NET Core 3.1 SDK](/dotnet/core/install/linux).
 2. Install the Speech CLI using NuGet by entering this command:
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
@@ -65,7 +66,7 @@ Type `spx` to see help for the Speech CLI.
 
 Follow these steps to install the Speech CLI in a Docker container:
 
-1. <a href="https://www.docker.com/get-started" target="_blank">Install Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> for your platform if it isn't already installed.
+1. <a href="https://www.docker.com/get-started" target="_blank">Install Docker Desktop</a> for your platform if it isn't already installed.
 2. In a new command prompt or terminal, type this command:
    ```console   
    docker pull msftspeech/spx
@@ -118,7 +119,7 @@ To use the `spx` command installed in a container, always enter the full command
 For example, on Windows, this command sets your key:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 For more extended interaction with the command line tool, you can start a container with an interactive bash shell by adding an entrypoint parameter.
@@ -172,8 +173,8 @@ Get these credentials by following steps in [Try the Speech service for free](..
 Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
 
 ```console
-spx config --set @key SUBSCRIPTION-KEY
-spx config --set @region REGION
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
 ```
 
 Your subscription authentication is now stored for future SPX requests. If you need to remove either of these stored values, run `spx config @region --clear` or `spx config @key --clear`.

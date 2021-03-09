@@ -162,14 +162,14 @@ Traffic from Azure Front Door to your application originates from a well known s
 
 You can add access restrictions programmatically by doing either of the following: 
 
-* Use [the Azure CLI](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). For example:
+* Use [the Azure CLI](/cli/azure/webapp/config/access-restriction). For example:
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-5.2.0&preserve-view=true). For example:
+* Use [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule). For example:
 
 
   ```azurepowershell-interactive

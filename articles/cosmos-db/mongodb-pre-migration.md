@@ -1,12 +1,12 @@
 ---
 title: Pre-migration steps for data migration to Azure Cosmos DB's API for MongoDB
 description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Cosmos DB.
-author: christopheranderson
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 02/14/2021
-ms.author: chrande
+ms.date: 03/02/2021
+ms.author: anfeldma
 ---
 
 # Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
@@ -76,7 +76,7 @@ This command will output a JSON document similar to the following:
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-You can also use [the diagnostic settings](cosmosdb-monitor-resource-logs.md) to understand the frequency and patterns of the queries executed against Azure Cosmos DB. The results from the diagnostic logs can be sent to a storage account, an EventHub instance or [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).  
+You can also use [the diagnostic settings](cosmosdb-monitor-resource-logs.md) to understand the frequency and patterns of the queries executed against Azure Cosmos DB. The results from the diagnostic logs can be sent to a storage account, an EventHub instance or [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).  
 
 ## <a id="partitioning"></a>Choose your partition key
 Partitioning, also known as Sharding, is a key point of consideration before migrating data. Azure Cosmos DB uses fully-managed partitioning to increase the capacity in a database to meet the storage and throughput requirements. This feature doesn't need the hosting or configuration of routing servers.   
@@ -85,7 +85,7 @@ In a similar way, the partitioning capability automatically adds capacity and re
 
 ## <a id="indexing"></a>Index your data
 
-The Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field only. This field can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. To index additional fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
+The Azure Cosmos DB's API for MongoDB server versions 3.6 and higher automatically indexes the `_id` field only. This field can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. To index additional fields, you apply the [MongoDB index-management commands](mongodb-indexing.md). This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
 The indexing capabilities provided by Azure Cosmos DB include adding compound indices, unique indices and time-to-live (TTL) indices. The index management interface is mapped to the `createIndex()` command. Learn more at [Indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)article.
 

@@ -4,7 +4,7 @@ description: Explains how to add, modify, monitor, and delete StorSimple volumes
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 12/08/2017
+ms.date: 12/09/2017
 ms.author: alkohli
 
 ---
@@ -59,7 +59,7 @@ Refer to the following table for maximum provisioned capacity for each device an
 
 The **Volumes** blade allows you to manage the storage volumes that are provisioned on the Microsoft Azure StorSimple device for your initiators (servers). It displays the list of volumes on the StorSimple devices connected to your service.
 
- ![Volumes page](./media/storsimple-8000-manage-volumes-u2/volumeslist.png)
+ ![Volumes page](./media/storsimple-8000-manage-volumes-u2/volumes-list.png)
 
 A volume consists of a series of attributes:
 
@@ -85,7 +85,7 @@ You [created a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-creat
 
 1. From the tabular listing of the devices in the **Devices** blade, select your device. Click **+ Add volume**.
 
-    ![Add a new volume](./media/storsimple-8000-manage-volumes-u2/step5createvol1.png)
+    ![Add a new volume](./media/storsimple-8000-manage-volumes-u2/add-volume-01.png)
 
 2. In the **Add a volume** blade:
    
@@ -107,11 +107,13 @@ You [created a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-creat
       
        If you provision a locally pinned volume of 8.5 TB (maximum allowable size) on your 8100 device, then you have exhausted all the local space available on the device. You can't create any tiered volume from that point onwards as there is no local space on the device to host the working set of the tiered volume. Existing tiered volumes also affect the space available. For example, if you have an 8100 device that already has tiered volumes of roughly 106 TB, only 4 TB of space is available for locally pinned volumes.
 
-    6. In the **Connected hosts** field, click the arrow. In the **Connected hosts** blade, choose an existing ACR or add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to Get the IQN of a Windows Server host. Click **Create**. A volume is created with the specified settings.
+    6. In the **Connected hosts** field, click the arrow, and then select each ACR you want to connect. In the **Connected hosts** blade, choose an existing ACR or add a new ACR. If you choose a new ACR, then supply a **Name** for your ACR, provide the **iSCSI Qualified Name** (IQN) of your Windows host. If you don't have the IQN, go to Get the IQN of a Windows Server host.<!--Please verify: Is new ACR capability still available? Are the labels and controls the same?--> 
 
-        ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
+        ![Add a connected host](./media/storsimple-8000-manage-volumes-u2/add-volume-02.png)<!--New graphic. Source: add-volume-connected host-->
 
-Your new volume is now ready to use.
+   7. When you finish your settings, click **Create**. 
+
+      A volume is created with the specified settings. Your new volume is ready to use.
 
 > [!NOTE]
 > If you create a locally pinned volume and then create another locally pinned volume immediately afterwards, the volume creation jobs run sequentially. The first volume creation job must finish before the next volume creation job can begin.
@@ -128,19 +130,19 @@ Modify a volume when you need to expand it or change the hosts that access the v
 
 1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of the devices, select the device that has the volume that you intend to modify. Click **Settings > Volumes**.
 
-    ![Go to Volumes blade](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Go to Volumes blade](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 2. From the tabular listing of volumes, select the volume and right-click to invoke the context menu. Select **Take offline** to take the volume you will modify offline.
 
-    ![Select and take volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol4.png)
+    ![Select and take volume offline](./media/storsimple-8000-manage-volumes-u2/modify-volume-04.png)
 
 3. In the **Take offline** blade, review the impact of taking the volume offline and select the corresponding checkbox. Ensure that the corresponding volume on the host is offline first. For information on how to take a volume offline on your host server connected to StorSimple, refer to operating system specific instructions. Click **Take offline**.
 
-    ![Review impact of taking volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Review impact of taking volume offline](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)
 
 4. After the volume is offline (as shown by the volume status), select the volume and right-click to invoke the context menu. Select **Modify volume**.
 
-    ![Select modify volume](./media/storsimple-8000-manage-volumes-u2/modifyvol9.png)
+    ![Select modify volume](./media/storsimple-8000-manage-volumes-u2/modify-volume-09.png)
 
 
 5. In the **Modify volume** blade, you can make the following changes:
@@ -150,11 +152,11 @@ Modify a volume when you need to expand it or change the hosts that access the v
    3. Increase the **Provisioned Capacity**. The **Provisioned Capacity** can only be increased. You cannot shrink a volume after it is created.
    4. Under **Connected hosts**, you can modify the ACR. To modify an ACR, the volume must be offline.
 
-       ![Review impact of taking volume offline 2](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+       ![Review impact of taking volume offline 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)<!--Legacy screen doesn't match step. New graphic needed?-->
 
-5. Click **Save** to save your changes. When prompted for confirmation, click **Yes**. The Azure portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
+6. Click **Save** to save your changes. When prompted for confirmation, click **Yes**. The Azure portal will display an updating volume message. It will display a success message when the volume has been successfully updated.
 
-    ![Review impact of taking volume offline 3](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Review impact of taking volume offline 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)<!--Updated graphic. Source: modify-volume-save-->
 
 7. If you are expanding a volume, complete the following steps on your Windows host computer:
    
@@ -210,11 +212,11 @@ You may want to change a locally pinned volume to a tiered volume if you need ad
 
 1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of the devices, select the device that has the volume that you intend to modify. Click **Settings > Volumes**.
 
-    ![Go to Volumes blade 2](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Go to Volumes blade 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 3. From the tabular listing of volumes, select the volume and right-click to invoke the context menu. Select **Modify**.
 
-    ![Select modify from context menu](./media/storsimple-8000-manage-volumes-u2/changevoltype2.png)
+    ![Select modify from context menu](./media/storsimple-8000-manage-volumes-u2/change-volume-type-02.png)
 
 4. On the **Modify volume** blade, change the volume type by selecting the new type from the **Type** drop-down list.
    
@@ -222,15 +224,15 @@ You may want to change a locally pinned volume to a tiered volume if you need ad
    * If you are changing the type to **Tiered** and this volume will be used for archival data, select the **Use this volume for less frequently accessed archival data** check box.
    * If you are configuring a locally pinned volume as tiered or _vice-versa_, the following message appears.
    
-     ![Change volume type message](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Change volume type message](./media/storsimple-8000-manage-volumes-u2/change-volume-type-03.png)
 
 7. Click **Save** to save the changes. When prompted for confirmation, click **Yes** to start the conversion process. 
 
-    ![Save and confirm](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+    ![Save and confirm](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)
 
 8. The Azure portal displays a notification for the job creation that would update the volume. Click on the notification to monitor the status of the volume conversion job.
 
-    ![Job for volume conversion](./media/storsimple-8000-manage-volumes-u2/changevoltype5.png)
+    ![Job for volume conversion](./media/storsimple-8000-manage-volumes-u2/change-volume-type-05.png)
 
 ## Take a volume offline
 
@@ -244,15 +246,15 @@ You may need to take a volume offline when you are planning to modify or delete 
    
     1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of the devices, select the device that has the volume that you intend to modify. Click **Settings > Volumes**.
 
-        ![Go to Volumes blade 3](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+        ![Go to Volumes blade 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
     2. From the tabular listing of volumes, select the volume and right-click to invoke the context menu. Select **Take offline** to take the volume you will modify offline.
 
-        ![Select and take volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol4.png)
+        ![Select and take volume offline](./media/storsimple-8000-manage-volumes-u2/modify-volume-04.png)
 
 3. In the **Take offline** blade, review the impact of taking the volume offline and select the corresponding checkbox. Click **Take offline**. 
 
-    ![Review impact of taking volume offline 4](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Review impact of taking volume offline 4](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)
       
       You are notified when the volume is offline. The volume status also updates to Offline.
       
@@ -272,20 +274,20 @@ Complete the following steps to delete a volume.
 
 1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of the devices, select the device that has the volume that you intend to modify. Click **Settings > Volumes**.
 
-    ![Go to Volumes blade 4](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Go to Volumes blade 4](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 3. Check the status of the volume you want to delete. If the volume you want to delete is not offline, take it offline first. Follow the steps in [Take a volume offline](#take-a-volume-offline).
 4. After the volume is offline, select the volume, right-click to invoke the context menu and then select **Delete**.
 
-    ![Select delete from context menu](./media/storsimple-8000-manage-volumes-u2/deletevol1.png)
+    ![Select delete from context menu](./media/storsimple-8000-manage-volumes-u2/delete-volume-01.png)
 
 5. In the **Delete** blade, review and select the checkbox against the impact of deleting a volume. When you delete a volume, all the data that resides on the volume is lost. 
 
-    ![Save and confirm changes](./media/storsimple-8000-manage-volumes-u2/deletevol2.png)
+    ![Save and confirm changes](./media/storsimple-8000-manage-volumes-u2/delete-volume-02.png)
 
 6. After the volume is deleted, the tabular list of volumes updates to indicate the deletion.
 
-    ![Updated volume list](./media/storsimple-8000-manage-volumes-u2/deletevol3.png)
+    ![Updated volume list](./media/storsimple-8000-manage-volumes-u2/delete-volume-03.png)
    
    > [!NOTE]
    > If you delete a locally pinned volume, the space available for new volumes may not be updated immediately. The StorSimple Device Manager Service updates the local space available periodically. We suggest you wait for a few minutes before you try to create the new volume.
@@ -308,7 +310,8 @@ Perform the following steps to enable or disable monitoring for a volume.
 2. From the tabular listing of volumes, select the volume and right-click to invoke the context menu. Select **Modify**.
 3. In the **Modify volume** blade, for **Monitoring** select **Enable** or **Disable** to enable or disable monitoring.
 
-    ![Disable monitoring](./media/storsimple-8000-manage-volumes-u2/monitorvol1.png) 
+    ![Disable monitoring](./media/storsimple-8000-manage-volumes-u2/monitor-volume-0
+1.png) 
 
 4. Click **Save** and when prompted for confirmation, click **Yes**. The Azure portal displays a notification for updating the volume and then a success message, after the volume is successfully updated.
 

@@ -1,22 +1,21 @@
 ---
 title: Azure Compute - Linux Diagnostic Extension 4.0
 description: How to configure the Azure Linux Diagnostic Extension (LAD) 4.0 to collect metrics and log events from Linux VMs running in Azure.
-services: virtual-machines-linux
-author: axayjo
-manager: gwallace
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
 ms.date: 02/05/2021
-ms.author: akjosh
+
 ---
 # Use Linux Diagnostic Extension 4.0 to monitor metrics and logs
 
 This document describes version 4.0 and newer of the Linux Diagnostic Extension.
 
 > [!IMPORTANT]
-> For information about version 3.*, see  [this document](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3). 
+> For information about version 3.*, see  [this document](./diagnostics-linux-v3.md). 
 > For information about version 2.3 and older, see [this document](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## Introduction
@@ -103,7 +102,7 @@ The python2 executable must be aliased to *python*. Following is one method that
 The sample configuration downloaded in these examples collects a set of standard data and sends them to table storage. The URL for the sample configuration and its contents are subject to change. In most cases, you should download a copy of the portal settings JSON file and customize it for your needs, then have any templates or automation you construct use your own version of the configuration file rather than downloading that URL each time.
 
 > [!NOTE]
-> For enabling the new Azure Monitor Sink, the VMs need to have System Assigned Identity enabled for MSI Auth token generation. This can be done during VM creation or after the VM has been created. Steps for enabling System Assigned Identity through portal, CLI, PowerShell, and resource manager.  are listed in detail [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> For enabling the new Azure Monitor Sink, the VMs need to have System Assigned Identity enabled for MSI Auth token generation. This can be done during VM creation or after the VM has been created. Steps for enabling System Assigned Identity through portal, CLI, PowerShell, and resource manager.  are listed in detail [here](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
 
 #### Azure CLI sample
 
@@ -486,7 +485,7 @@ This optional section controls enabling sending metrics to the Azure Monitor Sin
 
 > [!NOTE]
 > This requires System Assigned Identity to be enabled on the VMs/VMSS. 
-> This can be done through portal, CLI, PowerShell, and resource manager. Steps are listed in detail [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> This can be done through portal, CLI, PowerShell, and resource manager. Steps are listed in detail [here](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
 > The steps to enable this are also listed in the installation samples for AZ CLI, PowerShell etc. above. 
 
 ```json
@@ -824,6 +823,6 @@ See the relevant [EventHubs documentation](../../event-hubs/event-hubs-about.md)
 
 ## Next steps
 
-* Create metric alerts in [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) for the metrics you collect.
-* Create [monitoring charts](../../azure-monitor/platform/data-platform.md) for your metrics.
+* Create metric alerts in [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) for the metrics you collect.
+* Create [monitoring charts](../../azure-monitor/data-platform.md) for your metrics.
 * Learn how to [create a virtual machine scale set](../linux/tutorial-create-vmss.md) using your metrics to control autoscaling.

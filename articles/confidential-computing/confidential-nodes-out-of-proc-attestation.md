@@ -1,14 +1,14 @@
 ---
- title: Out-of-proc attestation support with Intel SGX quote helper DaemonSet on Azure
- description: DaemonSet for generating the quote outside of the SGX application process. This article explains how the out-of-proc attestation facility is provided for confidential workloads running inside a container.
- ms.service: container-service
- author: agowdamsft
- ms.topic: overview
- ms.date: 9/22/2020
- ms.author: amgowda
+title: Out-of-proc attestation support with Intel SGX quote helper Daemonset on Azure (preview)
+description: DaemonSet for generating the quote outside of the SGX application process. This article explains how the out-of-proc attestation facility is rovided for confidential workloads running inside a container.
+ms.service: container-service
+author: agowdamsft
+ms.topic: overview
+ms.date: 2/12/2021
+ms.author: amgowda
 ---
 
-# Platform Software Management with SGX quote helper daemon set
+# Platform Software Management with SGX quote helper daemon set (preview)
 
 [Enclave applications](confidential-computing-enclaves.md) that perform remote attestation requires a generated QUOTE. This QUOTE provides cryptographic proof of the identity and the state of the application, as well as the environment the enclave is running. The generation of the QUOTE requires trusted software components that are part of the Intel’s Platform Software Components (PSW).
 
@@ -22,6 +22,13 @@ Intel supports two attestation modes to run the quote generation:
 SGX applications built using Open Enclave SDK by default use in-proc attestation mode. SGX-based applications allow out-of-proc and would require extra hosting and exposing the required components such as Architectural Enclave Service Manager (AESM), external to the application.
 
 Utilizing this feature is **highly recommended**, as it enhances uptime for your enclave apps during Intel Platform updates or DCAP driver updates.
+
+To enable this feature on AKS Cluster please modify add --enable-sgxquotehelper command to the CLI when enabling the confidential computing add-on. Detailed CLI instructions are [here](confidential-nodes-aks-get-started.md): 
+
+```azurecli-interactive
+# Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
+```
 
 ## Why and What are the benefits of out-of-proc?
 

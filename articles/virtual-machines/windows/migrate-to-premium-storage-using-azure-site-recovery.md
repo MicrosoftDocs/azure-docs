@@ -2,7 +2,8 @@
 title: Migrate your Windows VMs to Azure Premium Storage with Azure Site Recovery 
 description: Learn how to migrate your VM disks from a standard storage account to a premium storage account by using Azure Site Recovery.
 author: luywang
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
@@ -161,7 +162,7 @@ To verify that your configuration server is successfully associated with the rep
 
    ![Enable replication pane with Source selected][13]
 
-When you design your Azure Storage environment, we recommend that you use separate storage accounts for each VM in an availability set. We recommend that you follow the best practice in the storage layer to [use multiple storage accounts for each availability set](../manage-availability.md). Distributing VM disks to multiple storage accounts helps to improve storage availability and distributes the I/O across the Azure storage infrastructure.
+When you design your Azure Storage environment, we recommend that you use separate storage accounts for each VM in an availability set. We recommend that you follow the best practice in the storage layer to [use multiple storage accounts for each availability set](../availability.md). Distributing VM disks to multiple storage accounts helps to improve storage availability and distributes the I/O across the Azure storage infrastructure.
 
 If your VMs are in an availability set, instead of replicating disks of all VMs into one storage account, we highly recommend migrating multiple VMs multiple times. That way, the VMs in the same availability set do not share a single storage account. Use the **Enable Replication** pane to set up a destination storage account for each VM, one at a time.
  

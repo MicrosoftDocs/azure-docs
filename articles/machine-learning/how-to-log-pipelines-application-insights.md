@@ -32,7 +32,7 @@ Having your logs in once place will provide a history of exceptions and error me
 
 This section is an introduction specific to using OpenCensus from an Azure Machine Learning pipeline. For a detailed tutorial, see [OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Add a PythonScriptStep to your Azure ML Pipeline. Configure your [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) with the dependency on opencensus-ext-azure. Configure the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
+Add a PythonScriptStep to your Azure ML Pipeline. Configure your [RunConfiguration](/python/api/azureml-core/azureml.core.runconfiguration) with the dependency on opencensus-ext-azure. Configure the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -158,6 +158,6 @@ Some of the queries below use 'customDimensions.Level'. These severity levels co
 
 ## Next Steps
 
-Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) based on query results.
+Once you have logs in your Application Insights instance, they can be used to set [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md#what-you-can-alert-on) based on query results.
 
-You can also add results from queries to an [Azure Dashboard](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) for additional insights.
+You can also add results from queries to an [Azure Dashboard](../azure-monitor/app/tutorial-app-dashboards.md#add-logs-query) for additional insights.

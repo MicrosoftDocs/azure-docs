@@ -105,7 +105,7 @@
   - name: Overview
     items:
     - name: What is Azure Stack Edge Mini R?
-      href: azure-stack-edge-k-series-overview.md
+      href: azure-stack-edge-mini-r-overview.md
   - name: Concepts
     items:
     - name: Ready safety
@@ -243,13 +243,13 @@
     - name: Manage certificates
       items:
       - name: Requirements
-        href: azure-stack-edge-j-series-certificate-requirements.md 
+        href: azure-stack-edge-gpu-certificate-requirements.md 
       - name: Bring your own
-        href: azure-stack-edge-j-series-manage-certificates.md 
+        href: azure-stack-edge-gpu-manage-certificates.md 
       - name: Create via Azure Stack Readiness Checker tool
-        href: azure-stack-edge-j-series-create-certificates-tool.md 
+        href: azure-stack-edge-gpu-create-certificates-tool.md 
       - name: Troubleshoot certificate errors
-        href: azure-stack-edge-j-series-certificate-troubleshooting.md 
+        href: azure-stack-edge-gpu-certificate-troubleshooting.md 
     - name: Manage Edge compute 
       href: azure-stack-edge-j-series-manage-compute.md
     - name: Manage Edge container registry
@@ -276,6 +276,8 @@
         href: azure-stack-edge-gpu-connect-powershell-interface.md 
       - name: Apply updates
         href: azure-stack-edge-gpu-install-update.md 
+      - name: Reset, reactivate device
+        href: azure-stack-edge-reset-reactivate-device.md
       - name: Return device
         href: azure-stack-edge-return-device.md     
       - name: Replace device
@@ -309,18 +311,18 @@
     - name: 2101 - Current 
       href: azure-stack-edge-gpu-2101-release-notes.md
     - name: 2010 
-      href: azure-stack-edge-gpu-2009-release-notes.md 
+      href: azure-stack-edge-gpu-2010-release-notes.md 
     - name: 2008 
       href: azure-stack-edge-gpu-2008-release-notes.md 
   
   - name: Shared reference
     items:
     - name: Azure PowerShell
-      href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+      href: /powershell/module/az.stackedge/#stack_edge
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
+      href: /dotnet/api/overview/azure/databoxedge/databoxgateway
 
 - name: Azure Stack Edge Pro - FPGA
   items:
@@ -410,11 +412,11 @@
   - name: Reference
     items:
     - name: Azure PowerShell
-      href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+      href: /powershell/module/az.stackedge/#stack_edge
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
-      href: /dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet  
+      href: /dotnet/api/overview/azure/databoxedge/databoxgateway  
 
 - name: Security
   items:

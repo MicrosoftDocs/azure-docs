@@ -27,6 +27,10 @@ ms.subservice: B2C
 - [Register your application](tutorial-register-applications.md) in the tenant that you created so that it can communicate with Azure AD B2C.
 - Complete the steps in [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) to configure a Facebook application. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
 
+> [!TIP]
+> This article explains how to set up your tenant manually. You can automate the entire process from this article. Automating will deploy the Azure AD B2C [SocialAndLocalAccountsWithMFA starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), which will provide Sign Up and Sign In, Password Reset and Profile Edit journeys. To automate the walkthrough below, visit the [IEF Setup App](https://aka.ms/iefsetup) and follow the instructions.
+
+
 ## Add signing and encryption keys
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -107,7 +111,7 @@ Next, expose the API by adding a scope:
 Next, specify that the application should be treated as a public client:
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**). Ensure that **"allowPublicClient": true** is set in the application manifest. 
+1. Under **Advanced settings**, in the **Allow public client flows** section, set **Enable the following mobile and desktop flows** to **Yes**. Ensure that **"allowPublicClient": true** is set in the application manifest. 
 1. Select **Save**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:

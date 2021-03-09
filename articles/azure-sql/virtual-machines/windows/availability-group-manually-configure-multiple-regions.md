@@ -200,6 +200,6 @@ For more information, see the following topics:
 ## Next steps
 
 * [Always On Availability Groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
-* [Azure Virtual Machines](../../../virtual-machines/windows/index.yml)
+* [Azure Virtual Machines](../../../virtual-machines/index.yml)
 * [Azure Load Balancers](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
-* [Azure Availability Sets](../../../virtual-machines/manage-availability.md)
+* [Azure Availability Sets](../../../virtual-machines/availability.md)

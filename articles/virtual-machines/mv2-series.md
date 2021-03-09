@@ -3,7 +3,7 @@ title: Mv2-series - Azure Virtual Machines
 description: Specifications for the Mv2-series VMs.
 author: ayshakeen
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman

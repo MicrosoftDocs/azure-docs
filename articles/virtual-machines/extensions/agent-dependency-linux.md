@@ -1,20 +1,13 @@
 ---
 title: Azure Monitor Dependency virtual machine extension for Linux 
 description: Deploy the Azure Monitor Dependency agent on Linux virtual machine by using a virtual machine extension.
-services: virtual-machines-linux
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 
-ms.service: virtual-machines-linux
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 03/29/2019
+ms.service: virtual-machines
+ms.subservice: extensions
+author: mgoedtel
 ms.author: magoedte
+ms.collection: linux
+ms.date: 03/29/2019
 
 ---
 # Azure Monitor Dependency virtual machine extension for Linux
@@ -25,7 +18,7 @@ The Azure Monitor for VMs Map feature gets its data from the Microsoft Dependenc
 
 ### Operating system
 
-The Azure VM Dependency agent extension for Linux can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
+The Azure VM Dependency agent extension for Linux can be run against the supported operating systems listed in the [Supported operating systems](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) section of the Azure Monitor for VMs deployment article.
 
 ## Extension schema
 

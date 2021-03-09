@@ -34,7 +34,7 @@ For general information on how to manage your experiments, see [Start, monitor, 
 
 ## Monitor runs using the Jupyter notebook widget
 
-When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
+When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](/python/api/azureml-widgets/azureml.widgets). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
 View the Jupyter widget while waiting for the run to complete.
     
@@ -73,9 +73,23 @@ When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_ou
 
 <a id="queryrunmetrics"></a>
 
-## Query run metrics
+## View run metrics
 
-You can view the metrics of a trained model using ```run.get_metrics()```. For example, you could use this with the example above to determine the best model by looking for the model with the lowest mean square error (mse) value.
+## Via the SDK
+You can view the metrics of a trained model using ```run.get_metrics()```. See the example below. 
+
+```python
+from azureml.core import Run
+run = Run.get_context()
+run.log('metric-name', metric_value)
+
+metrics = run.get_metrics()
+# metrics is of type Dict[str, List[float]] mapping mertic names
+# to a list of the values for that metric in the given run.
+
+metrics.get('metric-name')
+# list of metrics in the order they were recorded
+```
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 
@@ -90,18 +104,6 @@ For the individual Experiment view, select the **All experiments** tab. On the e
 You can also edit the run list table to select multiple runs and display either the last, minimum, or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs. 
 
 ![Run details in the Azure Machine Learning studio](media/how-to-track-experiments/experimentation-tab.gif)
-
-### Format charts 
-
-Use the following methods in the logging APIs to influence the metrics visualizations.
-
-|Logged Value|Example code| Format in portal|
-|----|----|----|
-|Log an array of numeric values| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|single-variable line chart|
-|Log a single numeric value with the same metric name repeatedly used (like from within a for loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Single-variable line chart|
-|Log a row with 2 numerical columns repeatedly|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Two-variable line chart|
-|Log table with 2 numerical columns|`run.log_table(name='Sine Wave', value=sines)`|Two-variable line chart|
-
 
 ### View log files for a run 
 

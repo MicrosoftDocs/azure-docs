@@ -35,7 +35,9 @@
   - name: Resource Manager Templates
     href: front-door-quickstart-template-samples.md
 - name: Concepts
-  items:
+  items :
+  - name: Standard/Premium SKU
+    href: standard-premium/overview.md
   - name: Security
     items: 
     - name: Security baseline
