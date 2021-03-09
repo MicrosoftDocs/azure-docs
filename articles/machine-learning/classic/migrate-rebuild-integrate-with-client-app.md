@@ -34,7 +34,7 @@ If you deployed your model as a **real-time endpoint**, you can find its REST en
 1. Select **Consume**.
 
 > [!NOTE]
-> You can also find the Swagger specification for your endpoint in the **Details** tab. Refer to the Swagger definition to understand your endpoint schema. For more information on Swagger definition, see [Swagger official documentation](https://swagger.io/docs/specification/2-0/what-is-swagger/).
+> You can also find the Swagger specification for your endpoint in the **Details** tab. Use the Swagger definition to understand your endpoint schema. For more information on Swagger definition, see [Swagger official documentation](https://swagger.io/docs/specification/2-0/what-is-swagger/).
 
 
 ## Consume a pipeline endpoint
@@ -61,7 +61,7 @@ You can call your Azure Machine Learning pipeline as a step in an Azure Data Fac
 
 ## Next steps
 
-In this article, you learned how to find schema and sample code for your pipeline endpoints. For more more information on consuming endpoints from the client application, see [Consume an Azure Machine Learning endpoint](../how-to-consume-web-service.md).
+In this article, you learned how to find schema and sample code for your pipeline endpoints. For more information on consuming endpoints from the client application, see [Consume an Azure Machine Learning endpoint](../how-to-consume-web-service.md).
 
 See the rest of the articles in the Azure Machine Learning migration series: 
 1. [Migration overview](migrate-overview.md).

@@ -23,6 +23,9 @@ You have three options to migrate a dataset to Azure Machine Learning:
 
 Read each section to determine which option is best for your dataset.
 
+> [!NOTE]
+> Azure Machine Learning also supports [code-first workflows](../how-to-create-register-datasets.md) for creating and managing datasets. 
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -32,9 +35,7 @@ Read each section to determine which option is best for your dataset.
 
 ## Download the dataset from Studio (classic)
 
-The simplest way to migrate an existing Studio (classic) dataset to Azure Machine Learning is to download your dataset and register it in Azure Machine Learning.
-
-This creates a new copy of your dataset and uploads it to an Azure Machine Learning datastore.
+The simplest way to migrate a  Studio (classic) dataset to Azure Machine Learning is to download your dataset and register it in Azure Machine Learning. This creates a new copy of your dataset and uploads it to an Azure Machine Learning datastore.
 
 You can download the following Studio (classic) dataset types directly.
 
@@ -131,7 +132,7 @@ Use the following steps to import data directly to your designer pipeline:
 
 1. [Create a datastore](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/machine-learning/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
 
-After you create the datastore, you can use the **Import Data** module in the designer to ingest data from it:
+After you create the datastore, you can use the [**Import Data**](../algorithm-module-reference/import-data.md) module in the designer to ingest data from it:
 
 1. Create a new designer pipeline draft.
 1. In the module palette to the left, find the **Import Data** module and drag it to the canvas.

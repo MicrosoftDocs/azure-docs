@@ -19,8 +19,7 @@ Use Azure Machine Learning pipeline endpoints to make predictions, retrain model
 
 This article is part of the Studio (classic) to Azure Machine Learning migration series. For more information on migrating to Azure Machine Learning, see the [migration overview article](migrate-overview.md).
 
-> [!NOTE]
-> The migration series focuses on the designer since the drag-and-drop experience is similar to Studio (classic). For more information on deploying models programmatically, see [Deploy machine learning models in Azure](../how-to-deploy-and-where.md)
+This migration series focuses on the drag-and-drop designer. For more information on deploying models programmatically, see [Deploy machine learning models in Azure](../how-to-deploy-and-where.md)
 
 ## Prerequisites
 
@@ -30,7 +29,7 @@ This article is part of the Studio (classic) to Azure Machine Learning migration
 
 ## Real-time endpoint vs pipeline endpoint
 
-Studio (classic) web services have been replaced by **endpoints** in Azure Machine Learning. The following table shows the mapping between web service types and their endpoint replacements. Use this table to decide what kind of Azure Machine Learning endpoint you should use.
+Studio (classic) web services have been replaced by **endpoints** in Azure Machine Learning. Use the following table to choose which endpoint type to use:
 
 |Studio (classic) web service| Azure Machine Learning replacement
 |---|---|
@@ -50,9 +49,9 @@ There are multiple ways to deploy a model in Azure Machine Learning. One of the 
 
     ![create realtime inference pipeline](./media/migrate-rebuild-web-service/create-inference-pipeline.png)
         
-    The designer converts the training pipeline into a real-time inference pipeline. This also occurs in Studio (classic).
+    The designer converts the training pipeline into a real-time inference pipeline. A similar conversion also occurs in Studio (classic).
 
-    In the designer, the conversion step also registers the trained model to your Azure Machine Learning workspace.
+    In the designer, the conversion step also [registers the trained model to your Azure Machine Learning workspace](../how-to-deploy-and-where.md#registermodel).
 
 1. Select **Submit** to run the real-time inference pipeline, and verify that it runs successfully.
 
@@ -79,16 +78,13 @@ After deployment completes, you can see more details and test your endpoint:
 
 ## Publish a pipeline endpoint for batch prediction or retraining
 
-You can also use your training pipeline to create a **pipeline endpoint** instead of a real-time endpoint.
+You can also use your training pipeline to create a **pipeline endpoint** instead of a real-time endpoint. Use **pipeline endpoints** to perform either batch prediction or retraining.
 
 Pipeline endpoints replace Studio (classic) **batch execution endpoints**  and **retraining web services**.
 
-In Azure Machine Learning, you use **pipeline endpoints** to perform either batch prediction or retraining. You can call pipeline endpoints from any HTTP library.
-
-
 ### Publish a pipeline endpoint for batch prediction
 
-Publishing a batch prediction endpoint is similar to the real-time endpoint. Similar to the real-time endpoint, you must already have a training pipeline draft. For more information on building a training pipeline, see [Rebuild a Studio (classic) experiment](migrate-rebuild-experiment.md).
+Publishing a batch prediction endpoint is similar to the real-time endpoint.
 
 Use the following steps to publish a pipeline endpoint for batch prediction:
 
@@ -98,9 +94,9 @@ Use the following steps to publish a pipeline endpoint for batch prediction:
 
     ![Screenshot showing the create inference pipeline button on a training pipeline](./media/migrate-rebuild-web-service/create-inference-pipeline.png)
         
-    The designer converts the training pipeline into a batch inference pipeline. This also occurs in Studio (classic)
+    The designer converts the training pipeline into a batch inference pipeline. A similar conversion also occurs in Studio (classic).
 
-    In the designer, this step also registers the trained model to your Azure Machine Learning workspace.
+    In the designer, this step also [registers the trained model to your Azure Machine Learning workspace](../how-to-deploy-and-where.md#registermodel).
 
 1. Select **Submit** to run the batch inference pipeline and verify that it successfully completes.
 
@@ -116,6 +112,8 @@ Use the following steps to publish a pipeline endpoint for batch prediction:
  ### Publish a pipeline endpoint for retraining
 
 To publish a pipeline endpoint for retraining, you must already have a pipeline draft that trains a model. For more information on building a training pipeline, see [Rebuild a Studio (classic) experiment](migrate-rebuild-experiment.md).
+
+To reuse your pipeline endpoint for retraining, you must create a **pipeline parameter** for your input dataset. This lets you dynamically set your training dataset, so that you can retrain your model.
 
 Use the following steps to publish retraining pipeline endpoint:
 

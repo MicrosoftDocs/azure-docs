@@ -64,7 +64,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 
 ## Step 4: Integrate client apps
 
-1. Modify client applications that invoke Studio (classic) web services to modify your new [Azure Machine Learning endpoints](migrate-rebuild-integrate-with-client-app.md).
+1. Modify client applications that invoke Studio (classic) web services to use your new [Azure Machine Learning endpoints](migrate-rebuild-integrate-with-client-app.md).
 
 ## Step 5: Cleanup Studio (classic) assets
 
@@ -151,7 +151,7 @@ In Azure Machine Learning, **real-time endpoints** are used for real-time predic
 
 ## Next steps
 
-In this article, you learned the high-level requirements for migrating to Azure Machine Learning. For detailed steps see the other articles in the Studio (classic) migration series:
+In this article, you learned the high-level requirements for migrating to Azure Machine Learning. For detailed steps, see the other articles in the Studio (classic) migration series:
 
 1. **Migration overview**.
 1. [Migrate dataset](migrate-register-dataset.md).
