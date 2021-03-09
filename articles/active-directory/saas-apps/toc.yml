@@ -30,7 +30,9 @@
       - name: Academy Attendance
         href: academy-attendance-tutorial.md
       - name: Acadia
-        href: acadia-tutorial.md  
+        href: acadia-tutorial.md
+      - name: Accenture Academy
+        href: accenture-academy-tutorial.md  
       - name: Accredible
         href: accredible-tutorial.md
       - name: Achieve3000
@@ -605,6 +607,8 @@
         href: evidence-tutorial.md
       - name: ExactCare SSO
         href: exactcare-sso-tutorial.md
+      - name: Exceed.ai
+        href: exceed-ai-tutorial.md
       - name: ExcelityGlobal
         href: excelityglobal-tutorial.md
       - name: ExpenseIn
@@ -1614,6 +1618,8 @@
         href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
+      - name: SendPro Enterprise
+        href: sendpro-enterprise-tutorial.md
       - name: SendSafely
         href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
@@ -1708,6 +1714,8 @@
         href: smartkargo-tutorial.md
       - name: SmartLPA
         href: smartlpa-tutorial.md
+      - name: Smartlook
+        href: smartlook-tutorial.md
       - name: SmartRecruiters
         href: smartrecruiters-tutorial.md
       - name: smartvid.io
@@ -2119,6 +2127,8 @@
         href: bonusly-provisioning-tutorial.md
       - name: Box
         href: box-userprovisioning-tutorial.md
+      - name: Bpanda
+        href: bpanda-provisioning-tutorial.md
       - name: Brivo Onair Identity Connector
         href: brivo-onair-identity-connector-provisioning-tutorial.md       
       - name: Cerner Central

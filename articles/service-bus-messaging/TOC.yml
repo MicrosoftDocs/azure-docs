@@ -310,7 +310,7 @@
     - name: azure/service-bus version 7 
       href: /javascript/api/overview/azure/service-bus?view=azure-node--preview
     - name: azure/service-bus version 1 
-      href: /javascript/api/overview/azure/service-bus?view=azure-node-latest
+      href: /javascript/api/overview/azure/service-bus
   - name: PHP
     href: https://github.com/Azure/azure-sdk-for-php
   - name: Ruby

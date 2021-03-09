@@ -16810,6 +16810,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-2009-release-notes.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-2010-release-notes",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell",
       "redirect_document_id": false
@@ -38847,6 +38852,11 @@
     {
       "source_path_from_root": "/articles/virtual-machines/windows/shared-images.md",
       "redirect_url": "/azure/virtual-machines/shared-images-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/manage-availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
       "redirect_document_id": false
     },
     {
@@ -64329,6 +64339,10 @@
         "redirect_url": "/troubleshoot/azure/virtual-machines/windows-update-installation-capacity",
         "redirect_document_id": false
     },
+    {   "source_path": "articles/storage/files/storage-sync-cloud-tiering.md",
+        "redirect_url": "/azure/storage/files/storage-sync-cloud-tiering-overview",
+        "redirect_document_id": false
+    },
     {
       "source_path": "articles/azure-monitor/app/usage-send-user-context.md",
       "redirect_url": "/azure/azure-monitor/app/usage-overview",
@@ -64337,6 +64351,11 @@
     {
       "source_path": "articles/virtual-network/quickstart-create-nat-gateway-portal.md",
       "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector//tutorials/anomaly-detection-streaming-databricks.md",
+      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
       "redirect_document_id": false
     }
   ]
