@@ -78,7 +78,9 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 > [!TIP]
 > Want to view the whole quickstart code file at once? You can find it on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs), which contains the code examples in this quickstart.
 
-From the project directory, open the *ComputerVisionQuickstart.cs* file in your preferred editor or IDE.
+From the project directory, open the *Program.cs* file in your preferred editor or IDE.
+
+### Find the subscription key and endpoint
 
 Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 
@@ -120,10 +122,7 @@ These code snippets show you how to do the following tasks with the Computer Vis
 
 ## Authenticate the client
 
-> [!NOTE]
-> This quickstart assumes you've [created environment variables](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for your Computer Vision key and endpoint, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT` respectively.
-
-In a new method in the **Program** class, instantiate a client with your endpoint and key. Create a **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** object with your key, and use it with your endpoint to create a **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** object.
+In a new method in the **Program** class, instantiate a client with your endpoint and subscription key. Create a **[ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.apikeyserviceclientcredentials)** object with your subscription key, and use it with your endpoint to create a **[ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient)** object.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
