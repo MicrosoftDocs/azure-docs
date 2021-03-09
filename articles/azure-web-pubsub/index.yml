@@ -26,25 +26,25 @@ landingContent:
             url: web-pubsub-overview.md
 
   # Card 
-  - title: Get started
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Serverless - C#
-            url: web-pubsub-quickstart-functions-csharp.md
-          - text: Serverless - Java
-            url: web-pubsub-quickstart-functions-java.md
-          - text: Serverless - JavaScript
-            url: web-pubsub-quickstart-functions-javascript.md
-          - text: Serverless - Python
-            url: web-pubsub-quickstart-functions-python.md
+  # - title: Get started
+  #   linkLists:
+  #     - linkListType: quickstart
+  #       links:
+  #         - text: Serverless - C#
+  #           url: web-pubsub-quickstart-functions-csharp.md
+  #         - text: Serverless - Java
+  #           url: web-pubsub-quickstart-functions-java.md
+  #         - text: Serverless - JavaScript
+  #           url: web-pubsub-quickstart-functions-javascript.md
+  #         - text: Serverless - Python
+  #           url: web-pubsub-quickstart-functions-python.md
 
   # Card
-  - title: Build Azure Web PubSub service applications
-    linkLists:
-      - linkListType: sample
-        links:
-          - text: Azure Web PubSub Code Samples
-            url: TBD.md
-          - text: Azure CLI
-            url: web-pubsub-reference-cli.md
+  # - title: Build Azure Web PubSub service applications
+  #   linkLists:
+  #     - linkListType: sample
+  #       links:
+  #         - text: Azure Web PubSub Code Samples
+  #           url: TBD.md
+  #         - text: Azure CLI
+  #           url: web-pubsub-reference-cli.md
