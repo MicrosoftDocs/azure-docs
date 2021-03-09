@@ -212,6 +212,8 @@
           href: core/howto-connect-rigado-cascade-500.md
         - name: Connect other IoT clouds
           href: core/howto-build-iotc-device-bridge.md
+        - name: Manage your devices
+          href: core/how-to-move-device-to-iot.md
     - name: Build integrated solutions
       items:
         - name: Add tiles to your dashboard
