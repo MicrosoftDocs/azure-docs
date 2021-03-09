@@ -37,15 +37,15 @@ To analyze an image for a variety of visual features, do the following steps:
 
 1. Copy the following command into a text editor.
 1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your subscription key.
-    1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
+    1. Replace the value of `PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE` with your subscription key.
+    1. Replace the first part of the request URL (`PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE`) with your own Computer Vision endpoint. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Optionally, change the image URL in the request body (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) to the URL of a different image to be analyzed.
 1. Open a command prompt window.
 1. Paste the command from the text editor into the command prompt window, and then run the command.
 
 ```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE" -H "Content-Type: application/json" "PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
 
 ### Examine the response
