@@ -14,7 +14,7 @@ ms.author: barclayn
 
 ---
 
-# Create Sample Ninja Credential in your Issuer
+# Tutorial 2: Create Sample Ninja Credential in your Issuer
 
 Now that we have our Verifiable Credentials service set up in Azure Active Directory (AAD). Let's use the Sample Code's Ninja Credential and use that with our Issuer.
 

@@ -1,5 +1,5 @@
 ---
-title: Step 1 - Set up Verifiable Credentials issuer in your own Azure AD (preview)
+title: Tutorial 1 - Set up Verifiable Credentials issuer in your own Azure AD (preview)
 description: Set up your own verifiable credentials issuer in Azure
 documentationCenter: ''
 author: barclayn
@@ -19,7 +19,7 @@ ms.author: barclayn
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-# Step 1 - Set up Verifiable Credentials (VC) in Azure
+# Tutorial 1 - Set up Verifiable Credentials (VC) in Azure
 
 In this article:
 

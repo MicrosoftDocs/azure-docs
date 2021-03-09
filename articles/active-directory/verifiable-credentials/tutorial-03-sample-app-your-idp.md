@@ -14,7 +14,7 @@ ms.author: barclayn
 
 ---
 
-# Tutorial - Configure your identity provider (IdP) to use a new Verifiable Credential (INSTANCE?)
+# Tutorial 3 - Configure AAD to work with the Verifiable Credential service
 
 > [!IMPORTANT]
 > Azure Verifiable Credentials is currently in public preview.
@@ -26,7 +26,7 @@ Now that you have your Azure tenant set up with the Verifiable Credential servic
 In this article you learn how to:
 
 > [!div class="checklist"]
-> * Connect your identity provider
+> * Connect your AAD tenant
 > * Create the Ninja Credential Rules and Display File
 > * Upload Rules and Display files
 > * Set up Issuer service to Azure Key Vault
@@ -39,7 +39,7 @@ Authenticating ID Tokens allows users to prove who they are before receiving the
 Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include [Azure Active Directory](../fundamentals/active-directory-whatis.md), and [Azure AD B2C](../../active-directory-b2c/overview.md). 
 
 
-## Register the Verifiable Credential Issuer service
+## Register an App so DID Wallets are allowed to sign in users 
 
 To issue a Verifiable Credential, you need to provide the issuer service with the [configuration](issuer-openid.md) details of your Azure Active Directory.
 
@@ -49,7 +49,7 @@ Register the Verifiable Credential issuer service as an application in your iden
 
     - Name: "Tenant VC Issuer"
     - Supported account types: Accounts in this organizational directory only
-    - Redirect URI: vcclient://openid
+    - Redirect URI: vcclient://openid/
 
     ![register an application](/media/tutorial-sample-app-your-IdP/MUnp9lS.png)
 
