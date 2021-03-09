@@ -45,6 +45,7 @@ Click the resource provider name in the following table to see the list of opera
 | [microsoft.storagesync](#microsoftstoragesync) |
 | [Microsoft.StorSimple](#microsoftstorsimple) |
 | **Web** |
+| [Microsoft.AppPlatform](#microsoftappplatform) |
 | [Microsoft.CertificateRegistration](#microsoftcertificateregistration) |
 | [Microsoft.DomainRegistration](#microsoftdomainregistration) |
 | [Microsoft.Maps](#microsoftmaps) |
@@ -2042,6 +2043,62 @@ Azure service: [StorSimple](../storsimple/index.yml)
 > | Microsoft.StorSimple/operations/read | Lists or gets the Operations |
 
 ## Web
+
+### Microsoft.AppPlatform
+
+Azure service: [Azure Spring Cloud](../spring-cloud/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AppPlatform/register/action | Register the subscription to the Microsoft.AppPlatform resource provider |
+> | Microsoft.AppPlatform/unregister/action | Unregister the subscription from the Microsoft.AppPlatform resource provider |
+> | Microsoft.AppPlatform/locations/checkNameAvailability/action | Check resource name availability |
+> | Microsoft.AppPlatform/locations/operationResults/Spring/read | Read resource operation result |
+> | Microsoft.AppPlatform/locations/operationStatus/operationId/read | Read resource operation status |
+> | Microsoft.AppPlatform/operations/read | List available operations of Microsoft Azure Spring Cloud |
+> | Microsoft.AppPlatform/skus/read | List available skus of Microsoft Azure Spring Cloud |
+> | Microsoft.AppPlatform/Spring/write | Create or Update a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/delete | Delete a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/read | Get Azure Spring Cloud service instance(s) |
+> | Microsoft.AppPlatform/Spring/enableTestEndpoint/action | Enable test endpoint functionality for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/disableTestEndpoint/action | Disable test endpoint functionality for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/listTestKeys/action | List test keys for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/regenerateTestKey/action | Regenerate test key for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/apps/write | Create or update the application for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/apps/delete | Delete the application for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/apps/read | Get the applications for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action | Get the resource upload URL of a specific Microsoft Azure Spring Cloud application |
+> | Microsoft.AppPlatform/Spring/apps/validateDomain/action | Validate the custom domain for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/bindings/write | Create or update the binding for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/bindings/delete | Delete the binding for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/bindings/read | Get the bindings for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/write | Create or update the deployment for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/delete | Delete the deployment for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/read | Get the deployments for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/start/action | Start the deployment for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/stop/action | Stop the deployment for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/restart/action | Restart the deployment for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action | Get the log file URL of a specific Microsoft Azure Spring Cloud application deployment |
+> | Microsoft.AppPlatform/Spring/apps/deployments/skus/read | List available skus of an application deployment |
+> | Microsoft.AppPlatform/Spring/apps/domains/write | Create or update the custom domain for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/domains/delete | Delete the custom domain for a specific application |
+> | Microsoft.AppPlatform/Spring/apps/domains/read | Get the custom domains for a specific application |
+> | Microsoft.AppPlatform/Spring/certificates/write | Create or update the certificate for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/certificates/delete | Delete the certificate for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/certificates/read | Get the certificates for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/configServers/read | Get the config server for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/configServers/write | Create or update the config server for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/deployments/read | Get the deployments for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/detectors/read | Get the detectors for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/monitoringSettings/read | Get the monitoring setting for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/monitoringSettings/write | Create or update the monitoring setting for a specific Azure Spring Cloud service instance |
+> | **DataAction** | **Description** |
+> | Microsoft.AppPlatform/Spring/configService/read | Read the configuration content(for example, application.yaml) for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/eurekaService/read | Read the user app(s) registration information for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/eurekaService/write | Write the user app(s) registration information for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/eurekaService/delete | Delete the user app registration information for a specific Azure Spring Cloud service instance |
+> | Microsoft.AppPlatform/Spring/logstreamService/read | Read the streaming log of user app for a specific Azure Spring Cloud service instance |
 
 ### Microsoft.CertificateRegistration
 

@@ -931,6 +931,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/connect-with-saml-service-providers.md",
+      "redirect_url": "/azure/active-directory-b2c/saml-service-provider",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/conditional-access-technical-profile.md",
       "redirect_url": "/azure/active-directory-b2c/conditional-access-user-flow",
       "redirect_document_id": true
@@ -2871,6 +2876,11 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-continuous-deployment.md",
+      "redirect_url": "/azure/app-service/deploy-continuous-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/deploy-github-actions.md",
       "redirect_url": "/azure/app-service/deploy-continuous-deployment",
       "redirect_document_id": false
     },
@@ -16800,6 +16810,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-gpu-2009-release-notes.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-2010-release-notes",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell",
       "redirect_document_id": false
@@ -16812,6 +16827,11 @@
     {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-powershell-script.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-powershell-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-k-series-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-mini-r-overview",
       "redirect_document_id": false
     },
     {
@@ -25610,6 +25630,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/dms/known-issues-azure-sql-online.md",
+      "redirect_url": "/azure/dms/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md",
+      "redirect_url": "/azure/dms/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-logic/index.md",
       "redirect_url": "/azure/logic-apps/",
       "redirect_document_id": false
@@ -32625,6 +32655,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/security-center/security-center-monitoring.md",
+      "redirect_url": "/azure/security-center/security-center-remediate-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-using-recommendations.md",
+      "redirect_url": "/azure/security-center/security-center-remediate-recommendations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/configure-security-policy-azure-policy.md",
+      "redirect_url": "/azure/security-center/custom-security-policies?pivot=rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/security-center/security-center-alerts-cloud-smart.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security-center/azure-container-registry-integration.md",
       "redirect_url": "/azure/security-center/defender-for-container-registries-introduction",
       "redirect_document_id": false
@@ -38802,6 +38852,11 @@
     {
       "source_path_from_root": "/articles/virtual-machines/windows/shared-images.md",
       "redirect_url": "/azure/virtual-machines/shared-images-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/manage-availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
       "redirect_document_id": false
     },
     {
@@ -62235,6 +62290,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/use-pod-security-on-azure-policy.md",
+      "redirect_url": "/azure/aks/use-azure-policy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/key-vault/secrets/quick-create-github-secret.md",
       "redirect_url": "/azure/developer/github/deploy-to-azure",
       "redirect_document_id": false
@@ -64279,6 +64339,10 @@
         "redirect_url": "/troubleshoot/azure/virtual-machines/windows-update-installation-capacity",
         "redirect_document_id": false
     },
+    {   "source_path": "articles/storage/files/storage-sync-cloud-tiering.md",
+        "redirect_url": "/azure/storage/files/storage-sync-cloud-tiering-overview",
+        "redirect_document_id": false
+    },
     {
       "source_path": "articles/azure-monitor/app/usage-send-user-context.md",
       "redirect_url": "/azure/azure-monitor/app/usage-overview",
@@ -64287,6 +64351,11 @@
     {
       "source_path": "articles/virtual-network/quickstart-create-nat-gateway-portal.md",
       "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector//tutorials/anomaly-detection-streaming-databricks.md",
+      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
       "redirect_document_id": false
     }
   ]

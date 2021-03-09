@@ -138,7 +138,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: Azure CLI
-          url: /cli/azure/appconfig?view=azure-cli-latest
+          url: /cli/azure/appconfig
         - text: PowerShell
           url: /powershell/module/az.appconfiguration/
         - text: Terraform

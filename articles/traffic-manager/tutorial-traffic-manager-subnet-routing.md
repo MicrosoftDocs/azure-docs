@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 03/08/2021
 ms.author: duau
 ---
 
 # Tutorial: Direct traffic to specific endpoints based on user subnet using Traffic Manager
 
-This article describes how to configure the subnet traffic-routing method. The **Subnet** traffic-routing method allows you to map a set of IP address ranges to specific endpoints and when a request is received by Traffic Manager, it inspects the source IP of the request and returns the endpoint associated with it.
+This article describes how to configure the subnet traffic-routing method. The **Subnet** traffic-routing method allows you to map a set of IP address ranges to specific endpoints. When a request is received by Traffic Manager, it inspects the source IP of the request and returns the endpoint associated with it.
 
-In this tutorial, using subnet routing, depending on the IP address of the user's query, traffic is either routed to an internal website or a production website.
+In this tutorial, using subnet routing, depending on the IP address of the user's query, traffic gets routed either to an internal website or a production website.
 
 In this tutorial, you learn how to:
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-In order to see the Traffic Manager in action, this tutorial requires that you deploy the following:
+To see the Traffic Manager in action, this tutorial requires that you deploy the following:
 
 - two basic websites running in different Azure regions - **East US** (serves as internal website) and **West Europe** (serves as production website).
 - two test VMs for testing the Traffic Manager - one VM in **East US** and the second VM in **West Europe**.
@@ -64,23 +64,23 @@ In this section, you create two VMs *myIISVMEastUS* and *myIISVMWestEurope* in t
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
    - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
-   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** and **HTTP** in the pull down box.
+   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** and **HTTP** in the pull-down box.
 
 3. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
 4. Select **Review + create**.
-5. Review the settings, and then click **Create**.  
+5. Review the settings, and then select **Create**.  
 6. Follow the steps to create a second VM named *myIISVMWestEurope*, with a **Resource group** name of *myResourceGroupTM2*, a **location** of *West Europe*, and all the other settings the same as *myIISVMEastUS*.
-7. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
+7. The VMs take a few minutes to create. Don't continue with the remaining steps until both VMs are created.
 
 #### Install IIS and customize the default web page
 
-In this section, you install the IIS server on the two VMs - *myIISVMEastUS* & *myIISVMWestEurope*, and then update the default website page. The customized website page shows the name of the VM that you are connecting to when you visit the website from a web browser.
+In this section, you install the IIS server on the two VMs - *myIISVMEastUS* & *myIISVMWestEurope*, and then update the default website page. The customized website page shows the name of the VM that you're connecting to when you visit the website from a web browser.
 
-1. Select **All resources** in the left-hand menu, and then from the resources list click *myIISVMEastUS* that is located in the *myResourceGroupTM1* resource group.
-2. On the **Overview** page, click **Connect**, and then in **Connect to virtual machine**, select **Download RDP file**.
+1. Select **All resources** in the left-hand menu, and then from the resources list select *myIISVMEastUS* that is located in the *myResourceGroupTM1* resource group.
+2. On the **Overview** page, select **Connect**, and then in **Connect to virtual machine**, select **Download RDP file**.
 3. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM.
 4. Select **OK**.
-5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
+5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to continue with the connection.
 6. On the server desktop, navigate to **Windows Administrative Tools**>**Server Manager**.
 7. Launch Windows PowerShell on VM *myIISVMEastUS*, and using the following commands to install IIS server and update the default htm file.
 
@@ -114,7 +114,7 @@ In this section, you install the IIS server on the two VMs - *myIISVMEastUS* & *
 
 Traffic Manager routes user traffic based on DNS name of the service endpoints. In this section, you configure the DNS names for the IIS servers - *myIISVMEastUS* and *myIISVMWestEurope*.
 
-1. Click **All resources** in the left-hand menu, and then from the resources list, select *myIISVMEastUS* that is located in the *myResourceGroupTM1* resource group.
+1. Select **All resources** in the left-hand menu, and then from the resources list, select *myIISVMEastUS* that is located in the *myResourceGroupTM1* resource group.
 2. On the **Overview** page, under **DNS name**, select **Configure**.
 3. On the **Configuration** page, under DNS name label, add a unique name, and then select **Save**.
 4. Repeat steps 1-3, for the VM named *myIISVMWestEurope* that is located in the *myResourceGroupTM2* resource group.
@@ -132,11 +132,11 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
    - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
-   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** in the pull down box.
+   - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** in the pull-down box.
 
 3. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
 4. Select **Review + create**.
-5. Review the settings, and then click **Create**.  
+5. Review the settings, and then select **Create**.  
 6. Follow the steps to create a second VM named *myVMWestEurope*, with a **Resource group** name of *myResourceGroupTM2*, a **location** of *West Europe*, and all the other settings the same as *myVMEastUS*.
 7. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
 
@@ -144,8 +144,10 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
 
 Create a Traffic Manager profile that allows you to return specific endpoints based on the source IP of the request.
 
-1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
-2. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
+1. On the top left-hand side of the screen, select **Create a resource**. Search for *Traffic Manager profile* and select **Create**.
+2. In the **Create Traffic Manager profile**, enter or select the following information. Accept the defaults for the remaining settings, and then select **Create**.
+
+    ![Create a Traffic Manager profile](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -153,18 +155,14 @@ Create a Traffic Manager profile that allows you to return specific endpoints ba
     | Routing method          | Select the **Subnet** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select **Existing** and enter *myResourceGroupTM1*. |
-    | |                              |
-    |
-
-    ![Create a Traffic Manager profile](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
 ## Add Traffic Manager endpoints
 
 Add the two VMs running the IIS servers - *myIISVMEastUS* & *myIISVMWestEurope* to route user traffic based on the subnet of the user's query.
 
 1. In the portal’s search bar, search for the Traffic Manager profile name that you created in the preceding section and select the profile in the results that the displayed.
-2. In **Traffic Manager profile**, in the **Settings** section, click **Endpoints**, and then click **Add**.
-3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**:
+2. In **Traffic Manager profile**, in the **Settings** section, select **Endpoints**, and then select **Add**.
+3. Enter, or select the following information. Accept the defaults for the remaining settings, and then select **OK**:
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -175,7 +173,7 @@ Add the two VMs running the IIS servers - *myIISVMEastUS* & *myIISVMWestEurope* 
     |  Subnet routing settings    |   Add the IP address of *myVMEastUS* test VM. Any user query originating from this VM will be directed to the *myInternalWebSiteEndpoint*.    |
 
 4. Repeat steps 2 and 3 to add another endpoint named *myProdWebsiteEndpoint* for the public IP address *myIISVMWestEurope-ip* that is associated with the IIS server VM named *myIISVMWestEurope*. For **Subnet routing settings**, add the IP address of the test VM - *myVMWestEurope*. Any user query from this test VM will be routed to the endpoint - *myProdWebsiteEndpoint*.
-5. When the addition of both endpoints is complete, they are displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
+5. When the addition of both endpoints is complete, they're displayed in **Traffic Manager profile** along with their monitoring status as **Online**.
 
 ## Test Traffic Manager profile
 
@@ -192,19 +190,19 @@ In this tutorial, for simplicity, you use the DNS name of the Traffic Manager pr
 
 You can determine the DNS name of the Traffic Manager profile as follows:
 
-1. In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section. In the results that are displayed, click the traffic manager profile.
-2. Click **Overview**.
+1. In the portal’s search bar, search for the **Traffic Manager profile** name that you created in the preceding section. In the results that are displayed, select the traffic manager profile.
+2. Select **Overview**.
 3. The **Traffic Manager profile** displays the DNS name of your newly created Traffic Manager profile. In production deployments, you configure a vanity domain name to point to the Traffic Manager domain name, using a DNS CNAME record.
 
 ### View Traffic Manager in action
 
 In this section, you can see the Traffic Manager is action.
 
-1. Select **All resources** in the left-hand menu, and then from the resources list click *myVMEastUS* that is located in the *myResourceGroupTM1* resource group.
-2. On the **Overview** page, click **Connect**, and then in **Connect to virtual machine**, select **Download RDP file**.
+1. Select **All resources** in the left-hand menu, and then from the resources list select *myVMEastUS* that is located in the *myResourceGroupTM1* resource group.
+2. On the **Overview** page, select **Connect**, and then in **Connect to virtual machine**, select **Download RDP file**.
 3. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM.
 4. Select **OK**.
-5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
+5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to continue with the connection.
 6. In a web browser on the VM *myVMEastUS*, type the DNS name of your Traffic Manager profile to view your website. Since the VM *myVMEastUS* IP address is associated with the endpoint *myInternalWebsiteEndpoint*, the web browser launches the Test website server - *myIISVMEastUS*.
 
 7. Next, connect to the VM *myVMWestEurope* located in **West Europe** using steps 1-5 and browse to the Traffic Manager profile domain name from this VM. Since the VM *myVMWestEurope* IP address is associated with the endpoint *myProductionWebsiteEndpoint*, the web browser launches the Test website server - *myIISVMWestEurope*.
