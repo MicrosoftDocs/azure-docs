@@ -312,7 +312,7 @@ This [Azure Data factory copy pipeline parameter passing tutorial](https://azure
 
 Please follow [Mapping data flow with parameters](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) for comprehensive example on how to use parameters in data flow.
 
-### Detailed Metadata driven pipeline with paramteters
+### Detailed Metadata driven pipeline with parameters
 
 Please follow [Metadata driven pipeline with parameters](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) to learn more about how to use parameters to design metadata driven pipelines. This is a popular use case for parameters.
 
