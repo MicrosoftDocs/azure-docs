@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/13/2018
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
