@@ -197,19 +197,24 @@ You'll need the following items:
 
 1. In the Azure Portal, in the left navigation bar, select the **Monitor** tab. 
 
-3. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
-![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor1.png)
+1. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
 
-3. In the Diagnostic Setting, under the **Category details**, select the **AmlRunStatusChangedEvent**. In the **Destination details**, select the 
-**Send to Log Analytics workspace** and specify the **Subscription** and **Log Analytics workspace**. Note that the 
-**Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, 
-you can [create a Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
-![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor2.png)
+    ![Screenshot of diagnostic settings for email notification](./media/how-to-manage-runs/diagnostic-setting.png)
 
-4. In the **Logs** tab, add a **New alert rule**. 
-![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor3.png)
+1. In the Diagnostic Setting, 
+    1. under the **Category details**, select the **AmlRunStatusChangedEvent**. 
+    1. In the **Destination details**, select the **Send to Log Analytics workspace**  and specify the **Subscription** and **Log Analytics workspace**. 
 
-5. This [article](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log) shows how to create and manage log alerts using Azure Monitor.
+    > [!NOTE]
+    > The **Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, you can [create a Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+    
+    ![Where to save email notification](./media/how-to-manage-runs/log-location.png)
+
+1. In the **Logs** tab, add a **New alert rule**. 
+
+    ![New alert rule](./media/how-to-manage-runs/new-alert-rule.png)
+
+1. See [how to create and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
 
 ## Run description 
 
