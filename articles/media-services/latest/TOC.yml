@@ -224,8 +224,6 @@
     items:
     - name: Media players for Media Services
       href: media-players-overview.md
-    - name: Azure Media Player overview
-      href: ../azure-media-player/azure-media-player-overview.md
   - name: Developing with v3 APIs
     items:
     - name: Overview
