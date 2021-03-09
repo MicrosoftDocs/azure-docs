@@ -20,7 +20,7 @@ Microsoft Azure Government Marketplace provides a similar experience as Azure Ma
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Images
-To obtain the list of virtual machine images available in Azure Government, [connect to Azure Government via PowerShell](documentation-government-get-started-connect-with-ps.md) and run the following commands:
+To obtain a list of virtual machine images available in Azure Government, [connect to Azure Government via PowerShell](documentation-government-get-started-connect-with-ps.md) and run the following commands:
 
 ```powershell
 Connect-AzAccount -Environment AzureUSGovernment
