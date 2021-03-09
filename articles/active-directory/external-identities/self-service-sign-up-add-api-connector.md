@@ -37,7 +37,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 ## Securing the API endpoint
 You can protect your API endpoint by using either HTTP Basic authentication or HTTPS client certificate authentication. In either case, you provide the credentials that Azure Active Directory will use when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
-
+`
 ### HTTP Basic authentication
 HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Azure Active Directory sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. The credentials are formatted as the base64-encoded string "username:password". Your API then checks these values to determine whether to reject an API call or not.
 
@@ -315,12 +315,7 @@ Ensure that:
 * The **Endpoint URL** of the API connector points to the correct API endpoint.
 * Your API explicitly checks for null values of received claims.
 * Your API responds as quickly as possible to ensure a fluid user experience.
-<<<<<<< HEAD
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." in production. For Azure Functions, its recommended to use the [Premium plan](../azure-functions/functions-scale.md)
-=======
-    * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm." For Azure Functions, its recommended to use the [Premium plan](../../azure-functions/functions-premium-plan.md). 
->>>>>>> d8f5fcdbe0daf0a42993fe77c59609349bc1affb
-
 
 ### Use logging
 In general, it's helpful to use the logging tools enabled by your web API service, like [Application insights](../azure-functions/functions-monitoring.md), to monitor your API for unexpected error codes, exceptions, and poor performance.
