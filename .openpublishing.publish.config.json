@@ -539,6 +539,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "js-e2e",
+      "url": "https://github.com/azure-samples/js-e2e",
+      "branch": "main"
+    },    
+    {
       "path_to_root": "ImmersiveReaderSdk",
       "url": "https://github.com/microsoft/immersive-reader-sdk",
       "branch": "master",
