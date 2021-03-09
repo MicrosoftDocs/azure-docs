@@ -2,7 +2,7 @@
 title: Start/Stop VMs overview
 description: This article describes the Start/Stop VMs version two feature, which starts or stops Azure Resource Manager and classic VMs on a schedule.
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/09/2021
 ---
 
 # Start/Stop VMs overview
