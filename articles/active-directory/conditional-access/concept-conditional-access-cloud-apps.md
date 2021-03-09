@@ -128,7 +128,7 @@ User actions are tasks that can be performed by a user. The only currently suppo
 
 Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, applications like SharePoint, features like Privileged Identity Management, or applications protected by Microsoft Cloud App Security (MCAS). 
 
-For example, an organization may keep different files in SharePoint like the lunch menu or their secret BBQ sauce recipe. Everyone may have access to the lunch menu, but those who have access to the secret BBQ sauce recipe may need to access from a managed device and agree to specific terms of use.
+For example, an organization may keep different files in SharePoint like the lunch menu or their secret BBQ sauce recipe. Everyone may have access to the lunch menu, but users who have access to the secret BBQ sauce recipe may need to access from a managed device and agree to specific terms of use.
 
 These authentication contexts are managed in the Azure portal under **Azure Active Directory** > **Security** > **Conditional Access** > **Authentication context**.
 
