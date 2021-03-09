@@ -16900,11 +16900,6 @@
       "redirect_document_id": false
     },
    {
-      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-kubernetes-cluster.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster",
-      "redirect_document_id": false
-    },
-   {
       "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-iot-edge-module.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-iot-edge-module",
       "redirect_document_id": false
