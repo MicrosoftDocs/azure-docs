@@ -39,11 +39,18 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 1. Run the `login` command.
 
+    # [Azure CLI](#tab/azure-cli)
     ```azurecli-interactive
     az login
     ```
+    # [PowerShell](#tab/powershell)
+    
+    ```powershell-interactive
+    Connect-AzAccount
+    ```
+    ---
 
-    If the CLI can open your default browser, it will do so and load an Azure sign-in page.
+    If AzCLI or AzPowerShell can open your default browser, it will do so and load an Azure sign-in page.
 
     Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
     authorization code displayed in your terminal.
@@ -54,9 +61,16 @@ This quickstart is using Azure Identity library with Azure CLI to authenticate u
 
 Create an access policy for your key vault that grants key permissions to your user account
 
-```console
+# [Azure CLI](#tab/azure-cli)
+```azurecli-interactive
 az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --key-permissions delete get list create purge
 ```
+# [PowerShell](#tab/powershell)
+
+```powershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName <your-key-vault-name> -UserPrincipalName user@domain.com -PermissionsToSecrets delete,get,list,set,purge
+```
+---
 
 ### Create new .NET console app
 
