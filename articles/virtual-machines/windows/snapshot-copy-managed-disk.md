@@ -9,7 +9,6 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
-ms.subservice: disks
 
 ---
 # Create a snapshot using the portal or PowerShell
