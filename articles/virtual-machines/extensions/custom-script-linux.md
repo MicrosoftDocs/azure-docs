@@ -1,15 +1,16 @@
 ---
 title: Run Custom Script Extension on Linux VMs in Azure
 description: Automate Linux VM configuration tasks by using the Custom Script Extension v2
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: amjads1
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

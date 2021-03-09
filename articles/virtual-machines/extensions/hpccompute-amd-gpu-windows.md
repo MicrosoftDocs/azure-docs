@@ -5,9 +5,9 @@ services: virtual-machines-windows
 documentationcenter: ''
 author: vikancha-MSFT
 manager: jkabat
-ms.service: virtual-machines-windows
-ms.subservice: extensions
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020

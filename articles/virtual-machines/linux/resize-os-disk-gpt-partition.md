@@ -1,15 +1,14 @@
 ---
 title: Resize an OS disk that has a GPT partition
 description: This article provides instructions on how to resize an OS disk that has a GUID Partition Table (GPT) partition in Linux.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: kailashmsft
 manager: dcscontentpm
 editor: ''
 tags: ''
-
-ms.service: security
-ms.topic: troubleshooting
+ms.service: disks
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.devlang: azurecli
 ms.date: 05/03/2020
