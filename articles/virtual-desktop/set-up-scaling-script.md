@@ -3,7 +3,7 @@ title: Scale session hosts Azure Automation - Azure
 description: How to automatically scale Windows Virtual Desktop session hosts with Azure Automation.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
 ---
