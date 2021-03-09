@@ -5,7 +5,7 @@ description: Learn how to sign and makes requests for ACS with Postman
 author: ProbablePrime
 services: azure-communication-services
 ms.author: rifox
-ms.date: 08/03/2021
+ms.date: 03/08/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
