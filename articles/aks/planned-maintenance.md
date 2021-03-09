@@ -1,5 +1,5 @@
 ---
-title: Planned Maintenance for your Kubernetes Cluster
+title: Use Planned Maintenance for your Azure Kubernetes Service (AKS) cluster (preview)
 titleSuffix: Azure Kubernetes Service
 description: Learn how to use Planned Maintenance in Azure Kubernetes Service (AKS).
 services: container-service
@@ -10,9 +10,9 @@ author: qpetraroia
 
 ---
 
-# Use planned maintenance to schedule maintenance windows for your AKS cluster (preview)
+# Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)
 
-Planned Maintenance allows you to schedule weekly maintenance windows that minimize workload impact. You can now pick the specific day of the week and the time on which you would like to perform maintenance on your control plane. This can be done by manually typing in the values for the day of the week and the time, or can be done by a JSON file.
+Planned Maintenance allows you to schedule weekly maintenance windows that minimize workload impact. This can be used for the AKS weekly releases, platform maintenance, or any automatic operations like automatic upgrades. You can schedule one or more weekly windows on your cluster by specifying a day or time range on a specific day. Maintenance Windows are configured using the Azure CLI.
 
 ## Before you begin
 
@@ -22,14 +22,13 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ### Limitations
 
-When using the planned maintenance feature, the following restrictions apply:
+When using Planned Maintenance, the following restrictions apply:
 
-- One window per cluster to avoid conflicts.
-- AKS reserves the right to break these windows for urgent & critical fixes/patches.
-- It is not guaranteed all maintenance operations will occur in this window, best-effort only.
-- Azure Maintenance control allows 35 days to complete updates within the defined window, after which point, it is ignored to complete fixes.
+- AKS reserves the right to break these windows for fixes and patches that are urgent or critical.
+- Performing maintenance operations are considered *best-effort only* and are not guaranteed to occur within a specified window.
+- Updates can not be blocked for more than seven days.
 
-#### Install aks-preview CLI extension
+### Install aks-preview CLI extension
 
 You also need the *aks-preview* Azure CLI extension version 0.5.4 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
@@ -41,9 +40,9 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-#### Register the `maintenanceconfiguration` preview feature
+### Register the `maintenanceconfiguration` preview feature
 
-To create an AKS cluster that uses planned maintenance, you must enable the `maintenanceconfiguration` feature flag on your subscription.
+To create an AKS cluster that uses Planned Maintenance, you must enable the `maintenanceconfiguration` feature flag on your subscription.
 
 Register the `maintenanceconfiguration` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
@@ -63,29 +62,20 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## Use planned maintenance on an AKS Cluster
+## Allow maintenance on every Monday at 1:00am to 2:00am
 
-To use the `az aks plannedmaintenance` command, use it with any of the options below.
-
-- add: Add a maintenance configuration in managed Kubernetes cluster.
-- delete: Delete a maintenance configuration in managed Kubernetes cluster.
-- list: List maintenance configurations in managed Kubernetes cluster.
-- show: Show the details of a maintenance configuration in managed Kubernetes cluster.
-- update: Update a maintenance configuration of a managed Kubernetes cluster.
-
-### Allow maintenance on every Monday at 1:00am to 2:00am
-
-> [!NOTE]
-> Planned Maintenance uses the Coordinated Universal Time (UTC). Please take this into consideration when setting up your maintenance configuration window.
+> [!IMPORTANT]
+> Planned Maintenance windows are specified in Coordinated Universal Time (UTC).
 
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday  --start-hour 1
 ```
 
-You will then see the output of your command
+The following example output shows the maintenance window from 1:00am to 2:00am every Monday.
+
 ```
 {- Finished ..
-  "id": "/subscriptions/9982170d-2bff-4ce6-a7d8-67d2aec3d900/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
+  "id": "/subscriptions/<subscriptionID>/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
   "name": "default",
   "notAllowedTime": null,
   "resourceGroup": "MyResourceGroup",
@@ -102,18 +92,13 @@ You will then see the output of your command
 }
 ```
 
-### Allow maintenance on every Monday (without a specific time selected)
+## Allow maintenance at any time every Monday
 
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday
 ```
 
-### Add a maintenance configuration with maintenance configuration json file
-
-```azurecli-interactive
-az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --config-file ./test.json
-```
-The json file below states that maintenance will happen on every Tuesday at 1:00am - 3:00am and every Wednesday at 1:00am - 2:00am. The exception is from "2021-05-26T03:00:00Z" to "2021-05-30T12:00:00Z". The maintenance isn't allowed even if it's in the weekly schedule.
+## Add a maintenance configuration with a JSON file
 
 ```json
   {
@@ -142,7 +127,13 @@ The json file below states that maintenance will happen on every Tuesday at 1:00
 }
 ```
 
-### Update an existing maintenance configuration window
+```azurecli-interactive
+az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --config-file ./test.json
+```
+
+The following JSON file specifies maintenance windows every Tuesday at 1:00am - 3:00am and every Wednesday at 1:00am - 2:00am. There is also an exception is from *2021-05-26T03:00:00Z* to *2021-05-30T12:00:00Z* where maintenance isn't allowed even if it overlaps with a maintenance window.
+
+## Update an existing maintenance window
 
 To update an existing maintenance configuration, you can use the `update` command.
 
@@ -150,7 +141,7 @@ To update an existing maintenance configuration, you can use the `update` comman
 az aks maintenanceconfiguration update -g MyResourceGroup --cluster-name myAKSCluster --name default --weekday Monday  --start-hour 1
 ```
 
-### List all maintenance configuration windows in an existing cluster
+## List all maintenance windows in an existing cluster
 
 To see all current maintenance configuration windows in your AKS Cluster, use the `list` command.
 
@@ -163,7 +154,7 @@ In the output below, you can see that there are two maintenance windows configur
 ```
 [
   {
-    "id": "/subscriptions/9982170d-2bff-4ce6-a7d8-67d2aec3d900/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
+    "id": "/subscriptions/<subscriptionID>/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
     "name": "default",
     "notAllowedTime": null,
     "resourceGroup": "MyResourceGroup",
@@ -179,7 +170,7 @@ In the output below, you can see that there are two maintenance windows configur
     "type": null
   },
   {
-    "id": "/subscriptions/9982170d-2bff-4ce6-a7d8-67d2aec3d900/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/testConfiguration",
+    "id": "/subscriptions/<subscriptionID>/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/testConfiguration",
     "name": "testConfiguration",
     "notAllowedTime": null,
     "resourceGroup": "MyResourceGroup",
@@ -197,7 +188,7 @@ In the output below, you can see that there are two maintenance windows configur
 ]
 ```
 
-### Show a certain maintenance configuration window in an existing AKS Cluster
+## Show a specific maintenance configuration window in an AKS cluster
 
 To see a certain maintenance configuration window in your AKS Cluster, use the `show` command.
 
@@ -207,7 +198,7 @@ az aks maintenanceconfiguration show -g MyResourceGroup --cluster-name myAKSClus
 
 ```
 {
-  "id": "/subscriptions/9982170d-2bff-4ce6-a7d8-67d2aec3d900/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
+  "id": "/subscriptions/<subscriptionID>/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
   "name": "default",
   "notAllowedTime": null,
   "resourceGroup": "MyResourceGroup",
@@ -234,7 +225,7 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 
 ## Next steps
 
-- Read more about upgrading an AKS Cluster[here](upgrade-cluster.md).
+- To get started with upgrading your AKS cluster, see [Upgrade an AKS cluster][aks-upgrade]
 
 
 <!-- LINKS - Internal -->
@@ -246,3 +237,4 @@ az aks maintenanceconfiguration delete -g MyResourceGroup --cluster-name myAKSCl
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[aks-upgrade]: upgrade-cluster.md
