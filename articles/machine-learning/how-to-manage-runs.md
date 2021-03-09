@@ -14,16 +14,20 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
 ---
 
-# Start, monitor, and cancel training runs in Python
+# Start, monitor and track runs 
 
 The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), [Machine Learning CLI](reference-azure-machine-learning-cli.md), and [Azure Machine Learning studio](https://ml.azure.com) provide various methods to monitor, organize, and manage your runs for training and experimentation.
 
 This article shows examples of the following tasks:
 
 * Monitor run performance.
+* Monitor the run status by email notification.
+* Tag and find runs.
+* Add a run description. 
+* Run search. 
 * Cancel or fail runs.
 * Create child runs.
-* Tag and find runs.
+ 
 
 > [!TIP]
 > If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
@@ -45,7 +49,8 @@ You'll need the following items:
     print(azureml.core.VERSION)
     ```
 
-* The [Azure CLI](/cli/azure/) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) and [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+
 
 ## Monitor run performance
 
@@ -91,7 +96,7 @@ You'll need the following items:
     
         This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
     
-        For more information, see [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext-azure-cli-ml-az-ml-folder-attach).
+        For more information, see [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
     
     2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you are looking at your file system) against the -c parameter.
     
@@ -106,7 +111,7 @@ You'll need the following items:
         >
         > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
     
-        For more information, see [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-script).
+        For more information, see [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
     # [Studio](#tab/azure-studio)
 
@@ -157,7 +162,7 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about runs for this experiment.
     
-        For more information, see [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment#ext-azure-cli-ml-az-ml-experiment-list).
+        For more information, see [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list).
     
     * To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
     
@@ -167,7 +172,7 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about the run.
     
-        For more information, see [az ml run show](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-show).
+        For more information, see [az ml run show](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-show).
     
     
     # [Studio](#tab/azure-studio)
@@ -187,6 +192,24 @@ You'll need the following items:
     1. To view the run logs, select a specific run and in the **Outputs + logs** tab, you can find diagnostic and error logs for your run.
     
     ---
+
+## Monitor the run status by email notification
+
+1. In the Azure Portal, in the left navigation bar, select the **Monitor** tab. 
+
+3. Select **Diagnostic settings** and then select **+ Add diagnostic setting**.
+![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor1.png)
+
+3. In the Diagnostic Setting, under the **Category details**, select the **AmlRunStatusChangedEvent**. In the **Destination details**, select the 
+**Send to Log Analytics workspace** and specify the **Subscription** and **Log Analytics workspace**. Note that the 
+**Azure Log Analytics Workspace** is a different type of Azure Resource than the **Azure Machine Learning service Workspace**. If there are no options in that list, 
+you can [create a Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor2.png)
+
+4. In the **Logs** tab, add a **New alert rule**. 
+![Screenshot of monitoring by email notification](./media/how-to-manage-runs/monitor3.png)
+
+5. This [article](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log) shows how to create and manage log alerts using Azure Monitor.
 
 ## Run description 
 
@@ -248,7 +271,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    For more information, see [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-update).
+    For more information, see [az ml run update](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
     
     # [Studio](#tab/azure-studio)
     
@@ -282,16 +305,23 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
     ```
     
-    For more information on querying Azure CLI results, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
+    For more information on querying Azure CLI results, see [Query Azure CLI command output](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest).
     
     # [Studio](#tab/azure-studio)
     
     1. Navigate to the  **All runs** list.
     
-    1. Use the search bar to filter on the run metadata like the tags, descriptions, experiment names, and submitter name. The tags filter can also be used to filter on the tags. 
-    
+    1. Use the **Add filter** button and select filter on tags to filter your runs by tag that was assigned to the run(s).
+       
     ---
+## Run Search 
 
+    1. Navigate to the  **All runs** list. 
+    2. Use the search bar to quickly find runs by searching on the run metadata like the run status, descriptions, experiment names, and submitter name. 
+
+
+:::image type="content" source="media/how-to-manage-runs/runsearch.gif" alt-text="Screenshot: run search"::: 
+    
 
 ## Cancel or fail runs
 
@@ -326,7 +356,7 @@ To cancel a run using the CLI, use the following command. Replace `runid` with t
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-For more information, see [az ml run cancel](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-cancel).
+For more information, see [az ml run cancel](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
 
 # [Studio](#tab/azure-studio)
 
