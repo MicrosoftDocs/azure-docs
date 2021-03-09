@@ -81,7 +81,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Python SDK
-            url: /python/api/overview/azure/ml/?view=azure-ml-py
+            url: /python/api/overview/azure/ml/
           - text: REST API
             url: /rest/api/azureml/
           - text: Machine learning CLI
