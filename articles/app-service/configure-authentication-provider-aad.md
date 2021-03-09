@@ -103,7 +103,7 @@ You're now ready to use Azure Active Directory for authentication in your App Se
 
 ## Configure client apps to access your App Service app on behalf of users
 
-In the prior section, you registered your App Service or Azure Function to authenticate users. This section explains how to register native client or demon apps so that they can request access to APIs exposed by your App Service on behalf of users or themselves.
+In the prior section, you registered your App Service or Azure Function to authenticate users. This section explains how to register native client or daemon apps so that they can request access to APIs exposed by your App Service on behalf of users or themselves.
 
 ### Native client application
 
