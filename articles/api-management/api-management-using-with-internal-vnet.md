@@ -14,7 +14,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/09/2021
+ms.date: 03/09/2021
 ms.author: apimpm
 
 ---
