@@ -4,7 +4,7 @@ description: In this article, we show an architecture for running an IBM DB2 pur
 author: njray
 manager: edprice
 editor: edprice
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: how-to

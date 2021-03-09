@@ -2,7 +2,8 @@
 title: Overview of Linux VMs in Azure 
 description: Overview of Linux virtual machines in Azure.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 11/14/2019

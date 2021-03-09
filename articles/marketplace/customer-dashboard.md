@@ -1,5 +1,5 @@
 ---
-title: Customers dashboard in Microsoft commercial marketplace analytics on Partner Center, Azure Marketplace and Microsoft AppSource
+title: Customers dashboard in Microsoft commercial marketplace analytics on Partner Center, Azure Marketplace, and Microsoft AppSource
 description: Learn how to access information about your customers, including growth trends, using the Customers dashboard in commercial marketplace analytics.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -137,28 +137,28 @@ Note the following:
 
 _**Table 1: Dictionary of data terms**_
 
-| Column name | Attribute name | Definition |
-| ------------ | ------------- | ------------- |
-| Marketplace Subscription Id | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. |
-| DateAcquired | Date Acquired | The first date the customer purchased any offer you published. |
-| DateLost | Date Lost | The last date the customer canceled the last of all previously purchased offers. |
-| Provider Name | Provider Name | The name of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP. |
-| Provider Email | Provider Email | The email address of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP. |
-| FirstName | Customer First Name | The first name provided by the customer. Name could be different than the name provided in a customer's Azure subscription. |
-| LastName | Customer Last Name | The last name provided by the customer. Name could be different than the name provided in a customer's Azure subscription. |
-| Email | Customer Email | The e-mail address provided by the end customer. Email could be different than the e-mail address in a customer's Azure subscription. |
-| Customer Company Name | Customer Company Name | The company name provided by the customer. Name could be different than the city in a customer's Azure subscription. |
-| CustomerCity | Customer City | The city name provided by the customer. City could be different than the city in a customer's Azure subscription. |
-| Customer Postal Code | Customer Postal Code | The postal code provided by the customer. Code could be different than the postal code provided in a customer's Azure subscription. |
-| CustomerCommunicationCulture | Customer Communication Language | The language preferred by the customer for communication. |
-| CustomerCountryRegion | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. |
-| AzureLicenseType | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the _channel_. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> |
-| PromotionalCustomers | Is Promotional Contact Opt In | The value will let you know if the customer proactively opted in for promotional contact from publishers. At this time, we are not presenting the option to customers, so we have indicated "No" across the board. After this feature is deployed, we will start updating accordingly. |
-| CustomerState | Customer State | The state of residence provided by the customer. State could be different than the state provided in a customer's Azure subscription. |
-| CommerceRootCustomer | Commerce Root Customer | One Billing Account ID can be associated with multiple Customer IDs.<br>One combination of a Billing Account ID and a Customer ID can be associated with multiple commercial marketplace subscriptions.<br>The Commerce Root Customer signifies the name of the subscription’s customer. |
-| Customer Id | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. |
-| Billing Account Id | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. |
-||||
+| Column name in<br>user interface | Attribute name | Definition | Column name in programmatic<br>access reports |
+| ------------ | ------------- | ------------- | ------------- |
+| Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. For infrastructure offers, this is the customer's Azure subscription GUID. For SaaS offers, this is shown as zeros since SaaS purchases do not require an Azure subscription. | MarketplaceSubscriptionId |
+| DateAcquired | Date Acquired | The first date the customer purchased any offer you published. | DateAcquired |
+| DateLost | Date Lost | The last date the customer canceled the last of all previously purchased offers. | DateLost |
+| Provider Name | Provider Name | The name of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP. | ProviderName |
+| Provider Email | Provider Email | The email address of the provider involved in the relationship between Microsoft and the customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP. | ProviderEmail |
+| FirstName | Customer First Name | The first name provided by the customer. Name could be different than the name provided in a customer's Azure subscription. | FirstName |
+| LastName | Customer Last Name | The last name provided by the customer. Name could be different than the name provided in a customer's Azure subscription. | LastName |
+| Email | Customer Email | The e-mail address provided by the end customer. Email could be different than the e-mail address in a customer's Azure subscription. | Email |
+| Customer Company Name | Customer Company Name | The company name provided by the customer. Name could be different than the city in a customer's Azure subscription. | CustomerCompany Name |
+| CustomerCity | Customer City | The city name provided by the customer. City could be different than the city in a customer's Azure subscription. | CustomerCity |
+| Customer Postal Code | Customer Postal Code | The postal code provided by the customer. Code could be different than the postal code provided in a customer's Azure subscription. | CustomerPostal Code |
+| CustomerCommunicationCulture | Customer Communication Language | The language preferred by the customer for communication. | CustomerCommunicationCulture |
+| CustomerCountryRegion | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountryRegion |
+| AzureLicenseType | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the _channel_. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> | AzureLicenseType |
+| PromotionalCustomers | Is Promotional Contact Opt In | The value will let you know if the customer proactively opted in for promotional contact from publishers. At this time, we are not presenting the option to customers, so we have indicated "No" across the board. After this feature is deployed, we will start updating accordingly. | PromotionalCustomers |
+| CustomerState | Customer State | The state of residence provided by the customer. State could be different than the state provided in a customer's Azure subscription. | CustomerState |
+| CommerceRootCustomer | Commerce Root Customer | One Billing Account ID can be associated with multiple Customer IDs.<br>One combination of a Billing Account ID and a Customer ID can be associated with multiple commercial marketplace subscriptions.<br>The Commerce Root Customer signifies the name of the subscription’s customer. | CommerceRootCustomer |
+| Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerId |
+| Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
+|||||
 
 ### Customers page filters
 
