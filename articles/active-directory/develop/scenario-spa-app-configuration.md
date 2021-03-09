@@ -20,9 +20,9 @@ ms.custom: aaddev
 
 Learn how to configure the code for your single-page application (SPA).
 
-## Microsoft libraries supports single page apps 
+## Microsoft libraries supporting single-page apps 
 
-he following Microsoft libraries support single page apps:
+The following Microsoft libraries support single-page apps:
 
 [!INCLUDE [active-directory-develop-libraries-spa](../../../includes/active-directory-develop-libraries-spa.md)]
 
