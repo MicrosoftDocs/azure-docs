@@ -103,7 +103,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 
 ### PowerShell
 
-When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) command to remove the resource group and all resources contained within.
+When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group and all resources contained within.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
