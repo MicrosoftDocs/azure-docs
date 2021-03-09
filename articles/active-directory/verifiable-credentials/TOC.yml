@@ -1,0 +1,51 @@
+- name: Azure AD Verifiable Credentials documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What are Verifiable Credentials
+    href: verifiable-credentials-overview.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Configure verifiable credentials in your tenant
+    items:
+    - name: Set up Verifiable Credentials issuer in your own Azure AD
+      href: tutorial-01-verifiable-credentials-issuer.md
+    - name: Create a sample credential in your issuer
+      href: tutorial-02-create-sample-card-your-issuer.md
+    - name: Connect your verifiable credentials issuer to your own Azure AD
+      href: tutorial-03-sample-app-your-idp.md
+    - name: Step 4
+      href: tutorial-04-update-sample-your-idp-vc.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: OpenID Connect Protocol Details
+    href: issuer-openid.md
+  - name: Section 2 Title
+    items:
+    - name: duplicate as an example
+      href: issuer-openid.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Customizing claims in ID tokens
+    href: how-to-idp-claims.md
+  - name: How to customize your credentials
+    href: credential-design.md
+- name: Resources
+  expanded: true
+  items:
+  - name: SDK
+    href: https://github.com/Azure-Samples/active-directory-verifiable-credentials
+  - name: Pointer to PowerShell content (example)
+    href: verifiable-credentials-troubleshooting.md
+- name: Resources
+  expanded: true
+  items:
+  - name: FAQ
+    href: verifiable-credentials-faq.md
+  - name: Troubleshooting
+    href: verifiable-credentials-troubleshooting.md
+
