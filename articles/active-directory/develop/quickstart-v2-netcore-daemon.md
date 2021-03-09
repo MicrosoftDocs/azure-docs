@@ -97,7 +97,7 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 > [!div renderon="docs"]
 > #### Step 3: Configure your Visual Studio project
 >
-> 1. Extract the .zip file to a local folder that's close to the root of the disk. For example, extract to **C:\Azure-Samples**.
+> 1. Extract the .zip file to a local folder that's close to the root of the disk. For example, extract to *C:\Azure-Samples*.
 >
 >    We recommend extracting the archive into a directory near the root of your drive to avoid errors caused by path length limitations on Windows.
 >
