@@ -55042,7 +55042,7 @@
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-concept-delegation.md",
       "redirect_url": "/azure/active-directory/roles/security-planning",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-assign-graph.md",
