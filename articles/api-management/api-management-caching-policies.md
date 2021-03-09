@@ -181,7 +181,7 @@ For more information, see [Policy expressions](api-management-policy-expressions
 | Name             | Description                                                                                                                                                                                                                                                                                                                                                 | Required | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | duration         | Time-to-live of the cached entries, specified in seconds.     | Yes      | N/A               |
-| cache-response         | Set to true to cache the current HTTP response. If the attribute is omitted, only HTTP responses with the status code `200 OK` are cached.                           | No      | N/A               |
+| cache-response         | Set to true to cache the current HTTP response. If the attribute is omitted or set to false, only HTTP responses with the status code `200 OK` are cached.                           | No      | false               |
 
 ### Usage
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
