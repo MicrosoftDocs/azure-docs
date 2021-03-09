@@ -13,6 +13,12 @@
     href: documentation-government-get-started-connect-with-portal.md
   - name: Azure CLI
     href: documentation-government-get-started-connect-with-cli.md
+  - name: DoD DISA STIGs
+    items:
+    - name: Deploy Linux VM
+      href: documentation-government-stig-linux-vm.md
+    - name: Deploy Windows VM
+      href: documentation-government-stig-windows-vm.md
   - name: PowerShell
     href: documentation-government-get-started-connect-with-ps.md
   - name: Visual Studio
