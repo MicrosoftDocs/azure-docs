@@ -119,7 +119,7 @@ Alert limits support a range of 0.01% to 1000% of the budget threshold that you'
 
 After you create a budget, it's shown in cost analysis. Viewing your budget against your spending trend is one of the first steps when you start to [analyze your costs and spending](./quick-acm-cost-analysis.md).
 
-:::image type="content" source="./media/tutorial-acm-create-budgets/cost-analysis.png)" alt-text="Screenshot showing an example budget with spending shown in cost analysis." lightbox="./media/tutorial-acm-create-budgets/cost-analysis.png" :::
+:::image type="content" source="./media/tutorial-acm-create-budgets/cost-analysis.png" alt-text="Screenshot showing an example budget with spending shown in cost analysis." lightbox="./media/tutorial-acm-create-budgets/cost-analysis.png" :::
 
 In the preceding example, you created a budget for a subscription. You can also create a budget for a resource group. If you want to create a budget for a resource group, navigate to **Cost Management + Billing** &gt; **Subscriptions** &gt; select a subscription > **Resource groups** > select a resource group > **Budgets** > and then **Add** a budget.
 
