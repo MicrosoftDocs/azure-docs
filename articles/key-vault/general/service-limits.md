@@ -15,7 +15,5 @@ ms.author: mbaldwin
 ---
 # Azure Key Vault service limits
 
-Here are the service limits for Azure Key Vault.
-
 [!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
 
