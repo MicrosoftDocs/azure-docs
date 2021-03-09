@@ -1,5 +1,5 @@
 ---
-title: Set up Verifiable Credentials issuer in your own Azure AD? (preview)
+title: Tutorial 3 Set up Verifiable Credentials issuer in your own Azure AD? (preview)
 description: Change the Verifiable Credential code sample to work with your Azure tenant
 documentationCenter: ''
 author: barclayn

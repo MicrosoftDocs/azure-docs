@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create Sample Ninja Credential in your Issuer (preview)
+title: Tutorial 2 - Create Sample Ninja Credential in your Issuer (preview)
 description: Modify the sample app to work with your issuer
 documentationCenter: ''
 author: barclayn

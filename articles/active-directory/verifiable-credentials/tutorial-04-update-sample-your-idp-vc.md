@@ -1,5 +1,5 @@
 ---
-title: Step 4 - Update Sample with your IDP VC and to use your Keyvault (preview)
+title: Tutorial 4 - Update Sample with your IDP VC and to use your Keyvault (preview)
 description: Set up your own verifiable credentials issuer in Azure
 documentationCenter: ''
 author: barclayn
@@ -14,7 +14,7 @@ ms.author: barclayn
 
 ---
 
-# Update Sample with your IDP VC and to use your Keyvault
+# Tutorial 4: Update Sample with your IDP VC and to use your Keyvault
 
 
 > [!IMPORTANT]
