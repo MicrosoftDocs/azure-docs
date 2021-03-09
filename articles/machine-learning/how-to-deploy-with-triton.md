@@ -31,7 +31,7 @@ Triton is a framework that is *optimized for inference*. It provides better util
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiarity with [how and where to deploy a model](how-to-deploy-and-where.md) with Azure Machine Learning.
-* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/?view=azure-ml-py) **or** the [Azure CLI](/cli/azure/) and [machine learning extension](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/) **or** the [Azure CLI](/cli/azure/) and [machine learning extension](reference-azure-machine-learning-cli.md).
 * A working installation of Docker for local testing. For information on installing and validating Docker, see [Orientation and setup](https://docs.docker.com/get-started/) in the docker documentation.
 
 ## Architectural overview
@@ -129,7 +129,7 @@ model = Model.register(
 )
 
 ```
-For more information, see the documentation for the [Model class](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
+For more information, see the documentation for the [Model class](/python/api/azureml-core/azureml.core.model.model).
 
 ---
 
@@ -271,7 +271,7 @@ An inference configuration allows you use an entry script, as well as the Azure 
 > [!IMPORTANT]
 > You must specify the `AzureML-Triton` [curated environment](./resource-curated-environments.md).
 >
-> The Python code example clones `AzureML-Triton` into another environment called `My-Triton`. The Azure CLI code also uses this environment. For more information on cloning an environment, see the [Environment.Clone()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) reference.
+> The Python code example clones `AzureML-Triton` into another environment called `My-Triton`. The Azure CLI code also uses this environment. For more information on cloning an environment, see the [Environment.Clone()](/python/api/azureml-core/azureml.core.environment.environment#clone-new-name-) reference.
 
 # [Azure CLI](#tab/azcli)
 
@@ -332,7 +332,7 @@ For information on how to create a client that sends inference requests to the s
 
 ### Setting the number of workers
 
-To set the number of workers in your deployment, set the environment variable `WORKER_COUNT`. Given you have an [Environment](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) object called `env`, you can do the following:
+To set the number of workers in your deployment, set the environment variable `WORKER_COUNT`. Given you have an [Environment](/python/api/azureml-core/azureml.core.environment.environment) object called `env`, you can do the following:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"

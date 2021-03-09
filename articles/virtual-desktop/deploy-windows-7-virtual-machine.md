@@ -40,7 +40,7 @@ To set up a Windows 7 VM on Windows Virtual Desktop:
      shutdown /r /t 0
      ```
 
-12. Follow the instructions [here](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) to get a registration token.
+12. Follow the instructions [here](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo) to get a registration token.
 
       - If you'd rather use the Azure portal, you can also go to the Overview page of the host pool you want to add the VM to and create a token there.
 
