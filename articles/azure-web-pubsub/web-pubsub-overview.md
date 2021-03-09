@@ -3,7 +3,7 @@ title: What is Azure Web PubSub Service?
 description: Better understand what typical use case scenarios to use Azure Web PubSub, and learn the key benefits of Azure Web PubSub.
 author: yjin81
 ms.author: yajin1
-ms.service: webpubsub
+ms.service: azure-web-pubsub
 ms.topic: overview 
 ms.date: 01/27/2021
 ---
