@@ -116,7 +116,7 @@ landingContent:
           - text: .Net SDK reference documentation
             url: /dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker
           - text: Azure PowerShell
-            url: /powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
             url: /cli/azure/cognitiveservices#az-cognitiveservices-list
 
