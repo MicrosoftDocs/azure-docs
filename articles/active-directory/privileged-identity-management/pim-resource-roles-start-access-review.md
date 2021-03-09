@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 The need for access to privileged Azure resource roles by employees changes over time. To reduce the risk associated with stale role assignments, you should regularly review access. You can use Azure Active Directory (Azure AD) Privileged Identity Management (PIM) to create access reviews for privileged access to Azure resource roles. You can also configure recurring access reviews that occur automatically. This article describes how to create one or more access reviews.
 
-## Prerequisites
+## Prerequisite role
 
  To create access reviews, you must be assigned to the [Owner](../../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) Azure role for the resource.
 
