@@ -66,6 +66,8 @@ Your app's `package.json` file will be updated with the dependencies.
 
 Create a new file, *index.js*, and open it in a text editor.
 
+### Find the subscription key and endpoint
+
 Go to the Azure portal. If the Computer Vision resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your subscription key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
 
 Create variables for your Computer Vision subscription key and endpoint. Paste your subscription key and endpoint into the following code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
