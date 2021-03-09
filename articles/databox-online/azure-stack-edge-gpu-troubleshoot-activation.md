@@ -7,12 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 10/08/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 # Troubleshoot activation issues on your Azure Stack Edge Pro GPU device 
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to troubleshoot activation issues on your Azure Stack Edge Pro GPU device. 
 

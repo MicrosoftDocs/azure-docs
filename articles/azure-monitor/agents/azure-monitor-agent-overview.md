@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor agent overview
 description: Overview of the Azure Monitor agent (AMA), which collects monitoring data from the guest operating system of virtual machines.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
