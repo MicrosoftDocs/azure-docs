@@ -1,5 +1,5 @@
 ---
-title: Defender IoT micro agent troubleshooting 
+title: Defender IoT micro agent troubleshooting (Preview)
 titleSuffix: Azure Defender for IoT
 description: Learn how to handle unexpected or unexplained errors.
 author: shhazam-ms
@@ -10,7 +10,7 @@ ms.topic: reference
 ms.service: azure
 ---
 
-# Defender IoT micro agent troubleshooting 
+# Defender IoT micro agent troubleshooting (Preview)
 
 In the event you have unexpected or unexplained errors, use the following troubleshooting methods to attempt to resolve your issues. You can also reach out to the Azure Defender for IoT product team for assistance as needed.   
 

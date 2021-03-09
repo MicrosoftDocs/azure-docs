@@ -125,7 +125,7 @@
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-computervision/
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/computervision?view=azure-python
+      href: /python/api/overview/azure/cognitiveservices/computervision
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - name: Java
