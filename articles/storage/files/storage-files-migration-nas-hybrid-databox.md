@@ -160,9 +160,9 @@ The basic migration approach is a RoboCopy from your NAS appliance to your Windo
 
 Run the first local copy to your Windows Server target folder:
 
-1 Identify the first location on your NAS appliance.
-1 Identify the matching folder on the Windows Server, that already has Azure File Sync configured on it.
-1 Start the copy using RoboCopy
+1. Identify the first location on your NAS appliance.
+1. Identify the matching folder on the Windows Server, that already has Azure File Sync configured on it.
+1. Start the copy using RoboCopy
 
 The following RoboCopy command will copy only the differences (updated files and folders) from your NAS storage to your Windows Server target folder. The Windows Server will then sync them to the Azure file share(s). 
 
