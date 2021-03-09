@@ -220,7 +220,7 @@
       href: media-services-metrics-diagnostic-logs.md      
     - name: Diagnostic logs schemas
       href: media-services-diagnostic-logs-schema.md          
-  - name: Compatible media players
+  - name: Compatible players
     items:
     - name: Media players for Media Services
       href: media-players-overview.md
