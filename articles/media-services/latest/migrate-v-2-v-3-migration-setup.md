@@ -46,7 +46,7 @@ Follow the quickstart steps for [setting up your environment](how-to-set-azure-s
 
 ## Download client SDK of your choice and set up your environment
 
-- SDKs available for [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media), and [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
+- SDKs available for [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/mediaservices/mgmt/2018-07-01/media), and [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md).
 - [Azure CLI](/cli/azure/ams) integration for simple scripting support.
 
 > [!NOTE]
