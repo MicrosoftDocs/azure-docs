@@ -23,6 +23,14 @@ This article gives answers to frequently asked questions about Azure Media Servi
 
 ## General
 
+### Does Media Services store any customer data outside of the service region?
+
+- Customers attach their own storage accounts to their Azure Media Services account.  All asset data is stored in these associated storage accounts and the customer controls the location and replication type of this storage.
+- Additional data associated with the Media Services account (including Content Encryption Keys, token verification keys, JobInputHttp urls, and other entity metadata) is stored in Microsoft owned storage within the region selected for the Media Services account.
+    - Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, the additional account data is stored in a zone-redundant fashion and is contained in a single region. For Southeast Asia, all the additional account data is stored in Singapore and for Brazil South, the data is stored in Brazil.
+    - In regions other than Brazil South and Southeast Asia, the additional account data may also be stored in Microsoft owned storage in the [paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+- Azure Media Services is a regional service and does not provide [high availability](media-services-high-availability-encoding.md) or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions.  A sample showing how to build a solution for High Availability with Media Services Video on Demand is available as a guide.
+
 ### What are the Azure portal limitations for Media Services v3?
 
 You can use the [Azure portal](https://portal.azure.com/) to manage v3 live events, view v3 assets and jobs, get info about accessing APIs, encrypt content. <br/>For all other management tasks (for example, managing transforms and jobs or analyzing v3 content), use the [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
