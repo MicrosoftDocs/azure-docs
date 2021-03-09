@@ -14,7 +14,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Enable Age Gating in Azure Active Directory B2C
+# Enable age gating in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -26,7 +26,7 @@ Age gating in Azure Active Directory B2C (Azure AD B2C) enables you to identify 
 
 When age gating is enabled for a user flow, users are asked for their date of birth, and country of residence. If a user signs in that hasn't previously entered the information, they'll need to enter it the next time they sign in. The rules are applied every time a user signs in.
 
-![Screenshot of age gating information gather flow](./media/age-gating/age-gaing-information-gathering.png)
+![Screenshot of age gating information gather flow](./media/age-gating/age-gating-information-gathering.png)
 
 Azure AD B2C uses the information that the user enters to identify whether they're a minor. The **ageGroup** field is then updated in their account. The value can be `null`, `Undefined`, `Minor`, `Adult`, and `NotAdult`.  The **ageGroup** and **consentProvidedForMinor** fields are then used to calculate the value of **legalAgeGroupClassification**.
 
