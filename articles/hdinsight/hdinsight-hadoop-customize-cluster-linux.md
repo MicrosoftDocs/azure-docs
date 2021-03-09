@@ -23,7 +23,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
       - Data Lake Storage Gen1/Gen2: The service principal HDInsight uses to access Data Lake Storage must have read access to the script. The URI format for scripts stored in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`. 
       - A blob in an Azure Storage account that's either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Do not rotate the storage key on this Azure Storage account, as it will cause subsequent script actions with scripts stored there to fail.
 
       - A public file-sharing service accessible through `http://` paths. Examples are Azure Blob, GitHub, or OneDrive. For example URIs, see [Example script action scripts](#example-script-action-scripts).
