@@ -56,6 +56,10 @@
       href: tutorial-csharp-facets.md
     - name: 5 - Add results ordering
       href: tutorial-csharp-orders.md
+  - name: Add Search to web sites
+    items: 
+    - name: Create and load Search Index with JavaScript
+      href: tutorial-javascript-create-load-index.md
   - name: Index Azure data
     items:
     - name: Index Azure SQL Database
