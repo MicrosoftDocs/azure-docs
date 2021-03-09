@@ -322,6 +322,9 @@ You can create your own built-in connectors for any service you need by using th
 
 The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, you need to first convert your project from extension bundle-based (Node.js) to NuGet package-based (.NET).
 
+> [!IMPORTANT]
+> This action is a one-way operation that you can't undo.
+
 1. In the Explorer pane, at your project's root, move your mouse pointer over any blank area below all the other files and folders, open the shortcut menu, and select **Convert to Nuget-based Logic App project**.
 
    ![Screenshot that shows that shows Explorer pane with the project's shortcut menu opened from a blank area in the project window.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)

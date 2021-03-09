@@ -79,9 +79,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: .NET API
-            url: /dotnet/api/microsoft.azure.notificationhubs?view=azure-dotnet
+            url: /dotnet/api/microsoft.azure.notificationhubs
           - text: PowerShell
-            url: /powershell/module/az.notificationhubs/?view=azps-3.6.1
+            url: /powershell/module/az.notificationhubs/
           - text: CLI
             url: /cli/azure/ext/notification-hub/notification-hub
 

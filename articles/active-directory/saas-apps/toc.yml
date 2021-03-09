@@ -30,7 +30,9 @@
       - name: Academy Attendance
         href: academy-attendance-tutorial.md
       - name: Acadia
-        href: acadia-tutorial.md  
+        href: acadia-tutorial.md
+      - name: Accenture Academy
+        href: accenture-academy-tutorial.md  
       - name: Accredible
         href: accredible-tutorial.md
       - name: Achieve3000
@@ -1712,6 +1714,8 @@
         href: smartkargo-tutorial.md
       - name: SmartLPA
         href: smartlpa-tutorial.md
+      - name: Smartlook
+        href: smartlook-tutorial.md
       - name: SmartRecruiters
         href: smartrecruiters-tutorial.md
       - name: smartvid.io

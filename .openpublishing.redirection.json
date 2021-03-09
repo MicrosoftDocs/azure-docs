@@ -38855,6 +38855,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/manage-availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/linux/sizes.md",
       "redirect_url": "/azure/virtual-machines/sizes",
       "redirect_document_id": false
@@ -64346,6 +64351,11 @@
     {
       "source_path": "articles/virtual-network/quickstart-create-nat-gateway-portal.md",
       "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector//tutorials/anomaly-detection-streaming-databricks.md",
+      "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
       "redirect_document_id": false
     }
   ]
