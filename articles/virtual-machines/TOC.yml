@@ -823,7 +823,7 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
   - name: Understand VM reboots
     href: understand-vm-reboots.md
-  - name: States and lifecycle
+  - name: States and billing
     href: states-lifecycle.md
   - name: Azure Regions
     href: regions.md
