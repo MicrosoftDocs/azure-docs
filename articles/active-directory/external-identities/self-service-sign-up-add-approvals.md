@@ -74,7 +74,7 @@ Now you'll add the API connectors to a self-service sign-up user flow with these
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **External Identities**.
-4. Select **User flows (Preview)**, and then select the user flow you want to enable the API connector for.
+4. Select **User flows**, and then select the user flow you want to enable the API connector for.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
    - **After signing in with an identity provider**: Select your approval status API connector, for example _Check approval status_.
@@ -149,7 +149,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-PENDING"
 }
 ```
 
@@ -161,7 +160,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-DENIED"
 }
 ```
 
@@ -237,7 +235,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-REQUESTED"
 }
 ```
 
@@ -249,7 +246,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-AUTO-DENIED"
 }
 ```
 

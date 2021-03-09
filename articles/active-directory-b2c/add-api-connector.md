@@ -31,11 +31,28 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 5. Provide a display name for the call. For example, **Validate user information**.
 6. Provide the **Endpoint URL** for the API call.
 7. Provide the authentication information for the API.
-
-   - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a 'dummy' **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** (for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
-
    ![Configure a new API connector](./media/add-api-connector/api-connector-config.png)
 8. Select **Save**.
+
+## Securing the API endpoint
+You can protect your API endpoint by using either HTTP Basic authentication or HTTPS client certificate authentication. In either case, you provide the credentials that Azure Active Directory will use when calling your API endpoint. Your API endpoint then checks the credentials and performs authorization decisions.
+
+### HTTP Basic authentication
+HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Azure Active Directory sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. The credentials are formatted as the base64-encoded string "username:password". Your API then checks these values to determine whether to reject an API call or not.
+
+### HTTPS client certificate authentication
+Client certificate authentication is a mutual certificate-based authentication, where the client, Azure Active Directory in this case, provides a client certificate to the server to prove its identity. This happens as a part of the SSL handshake. Only services that have proper certificates can access your REST API service. The client certificate is an X.509 digital certificate. In production environments, it should be signed by a certificate authority. 
+
+To create a certificate, you can use (Azure Key Vault)[https://docs.microsoft.com/azure/key-vault/certificates/create-certificate], which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. You can then [export the certificate](https://docs.microsoft.com/azure/key-vault/certificates/how-to-export-certificate?tabs=azure-cli) and upload it for use in the API connectors configuration.
+
+For Azure App Service and Azure functions, see (configure TLS mutual authentication)[https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth#:~:text=You%20can%20restrict%20access%20to%20your%20Azure%20App,called%20TLS%20mutual%20authentication%20or%20client%20certificate%20authentication.] to learn how to enable and validate the certificate from your API endpoint.
+
+It's recommended you set reminder alerts for when your certificate will expire. To upload a new certificate to an existing API connector, select the API connector under **All API connectors** and click on **Upload new connector**. The most recently uploaded certificate which is not expired and is past the start date will be used automatically by Azure Active Directory.
+
+### API Key
+Some services use an "API key" mechanism to make it harder to access your HTTP endpoints during development. For (Azure Functions)[https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys], you can accomplish this by including the `code` as a query parameter in the **Endpoint URL**. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
+
+This is not a mechanism that should be used alone in production. Therefore, configuration for Basic or Certificate authentication is always required. If you do wish to implement any authentication method (not recommended) for development purposes, you can choose basic authentication and use temporary values for `username` and `password` that your API can disregard while you implement the authorization in your API.
 
 ## The request sent to your API
 An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](/graph/api/resources/user#properties) user properties. 
@@ -151,13 +168,6 @@ See an example of a [blocking response](#example-of-a-blocking-response).
 
 An API connector at this step in the sign-up process is invoked after the attribute collection page, if one is included. This step is always invoked before a user account is created.
 
-<!-- The following are examples of scenarios you might enable at this point during sign-up: -->
-<!-- 
-- Validate user input data and ask a user to resubmit data.
-- Block a user sign-up based on data entered by the user.
-- Perform identity verification.
-- Query external systems for existing data about the user and overwrite the user-provided value. -->
-
 ### Example request sent to the API at this step
 
 ```http
@@ -235,7 +245,6 @@ Content-type: application/json
 
 | Parameter                                          | Type              | Required | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | String            | Yes      | The version of the API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`. Returned values can overwrite values collected from a user. They can also be returned in the token if selected as an **Application claim**.  |
@@ -266,8 +275,6 @@ Content-type: application/json
 
 ### Example of a validation-error response
 
-
-
 ```http
 HTTP/1.1 400 Bad Request
 Content-type: application/json
@@ -282,7 +289,7 @@ Content-type: application/json
 
 | Parameter   | Type    | Required | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| version     | String  | Yes      | The version of the API.                                                    |
+| version     | String  | Yes      | The version of your API.                                                    |
 | action      | String  | Yes      | Value must be `ValidationError`.                                           |
 | status      | Integer | Yes      | Must be value `400` for a ValidationError response.                        |
 | userMessage | String  | Yes      | Message to display to the user.                                            |
@@ -317,5 +324,4 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 * Monitor your API for long response times.
 
 ## Next steps
-<!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
 - Get started with our [samples](code-samples.md#api-connectors).
