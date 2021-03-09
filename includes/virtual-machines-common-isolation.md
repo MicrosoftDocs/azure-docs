@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: rishabv90
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 11/05/2020
+ ms.author: risverma
+ ms.custom: include file
+---
 
 Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer. The Isolated sizes live and operate on specific hardware generation and will be deprecated when the hardware generation is retired.
 
