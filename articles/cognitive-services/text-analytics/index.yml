@@ -161,7 +161,7 @@ landingContent:
         - text: .NET client library
           url: /dotnet/api/overview/azure/ai.textanalytics-readme
         - text: Python client library
-          url: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python
+          url: /python/api/overview/azure/ai-textanalytics-readme
         - text: JavaScript client library
           url: /javascript/api/overview/azure/ai-text-analytics-readme
         - text: Java client library
