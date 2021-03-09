@@ -68,7 +68,7 @@ The previous `$BlockRule` maps to the following custom rule in Azure Resource Ma
               }
             ],
             "operator": "Contains",
-            "negationConditon": false,
+            "negationCondition": false,
             "matchValues": [
               "evilbot"
             ],
