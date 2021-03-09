@@ -34,7 +34,7 @@ Enabling the capability of explaining a machine learning model is important duri
 
 ## Interpretability with Azure Machine Learning
 
-The model interpretability classes are made available through the following SDK package: (Learn how to [install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py))
+The model interpretability classes are made available through the following SDK package: (Learn how to [install SDK packages for Azure Machine Learning](/python/api/overview/azure/ml/install))
 
 * `azureml.interpret`, contains functionalities supported by Microsoft.
 
