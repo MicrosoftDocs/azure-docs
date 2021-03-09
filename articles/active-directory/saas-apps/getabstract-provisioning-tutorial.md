@@ -36,10 +36,10 @@ This tutorial describes the steps you need to perform in both getAbstract and Az
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning. Examples are Application administrator, Cloud Application administrator, Application Owner, or Global administrator.
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning. Examples are Application Administrator, Cloud Application Administrator, Application Owner, or Global Administrator.
 * A getAbstract tenant (getAbstract corporate license).
 * SSO enabled on Azure AD tenant and getAbstract tenant.
-* Approval and SCIM enabling for getAbstract (send email to b2b.itsupport@getabstract.com).
+* Approval and System for Cross-domain Identity Management (SCIM) enabling for getAbstract. (Send email to b2b.itsupport@getabstract.com.)
 
 ## Step 1. Plan your provisioning deployment
 
@@ -70,7 +70,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Screenshot that shows the getAbstract SCIM Token 2.](media/getabstract-provisioning-tutorial/scim-generate-token-step-1.png)
 
-1. Lastly, you can either select the copy-to-clipboard icon or select the whole token and copy it. Also make a note that the Tenant/Base URL is `https://www.getabstract.com/api/scim/v2`. These values will be entered in the **Secret Token** and **Tenant URL** boxes on the **Provisioning** tab of your getAbstract's application in the Azure portal.
+1. Either select the copy-to-clipboard icon or select the whole token and copy it. Also make a note that the Tenant/Base URL is `https://www.getabstract.com/api/scim/v2`. These values will be entered in the **Secret Token** and **Tenant URL** boxes on the **Provisioning** tab of your getAbstract application in the Azure portal.
 
 	![Screenshot that shows the getAbstract SCIM Token 3.](media/getabstract-provisioning-tutorial/scim-generate-token-step-3.png)
 
@@ -96,9 +96,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot that shows the Enterprise applications pane.](common/enterprise-applications.png)
 
-1. In the applications list, select **getAbstract**.
+1. In the list of applications, select **getAbstract**.
 
-	![Screenshot that shows the getAbstract link in the Applications list.](common/all-applications.png)
+	![Screenshot that shows the getAbstract link in the list of applications.](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
@@ -108,7 +108,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot that shows Provisioning Mode set to Automatic.](common/provisioning-automatic.png)
 
-1. Under the **Admin Credentials** section, input your getAbstract Tenant URL and Secret Token. Select **Test Connection** to ensure Azure AD can connect to getAbstract. If the connection fails, ensure your getAbstract account has Admin permissions and try again.
+1. In the **Admin Credentials** section, enter your getAbstract **Tenant URL** and **Secret token** information. Select **Test Connection** to ensure that Azure AD can connect to getAbstract. If the connection fails, ensure that your getAbstract account has admin permissions and try again.
 
  	![Screenshot that shows the Tenant URL and Secret Token boxes.](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -118,7 +118,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Select **Save**.
 
-1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to getAbstract**.
+1. In the **Mappings** section, select **Synchronize Azure Active Directory Users to getAbstract**.
 
 1. Review the user attributes that are synchronized from Azure AD to getAbstract in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in getAbstract for update operations. If you change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the getAbstract API supports filtering users based on that attribute. Select **Save** to commit any changes.
 
@@ -156,7 +156,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot that shows the Save button.](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur about every 40 minutes as long as the Azure AD provisioning service is running.
 
 ## Step 6. Monitor your deployment
 
