@@ -144,8 +144,10 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
 
 Create a Traffic Manager profile that allows you to return specific endpoints based on the source IP of the request.
 
-1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
-2. In the **Create Traffic Manager profile**, enter or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
+1. On the top left-hand side of the screen, select **Create a resource**. Search for *Traffic Manager profile* and select **Create**.
+2. In the **Create Traffic Manager profile**, enter or select the following information. Accept the defaults for the remaining settings, and then select **Create**.
+
+    ![Create a Traffic Manager profile](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
@@ -153,8 +155,6 @@ Create a Traffic Manager profile that allows you to return specific endpoints ba
     | Routing method          | Select the **Subnet** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select **Existing** and enter *myResourceGroupTM1*. |
-
-    ![Create a Traffic Manager profile](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
 ## Add Traffic Manager endpoints
 
