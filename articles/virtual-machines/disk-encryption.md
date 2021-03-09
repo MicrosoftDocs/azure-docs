@@ -2,7 +2,6 @@
 title: Server-side encryption of Azure managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.author: rogarana
