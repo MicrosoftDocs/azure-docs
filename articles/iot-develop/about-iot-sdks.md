@@ -102,7 +102,7 @@ These SDKs can run on any device that can support a higher-order language runtim
 * [GitHub Repository](https://github.com/Azure/azure-iot-sdk-node)
 * [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
 * [Package](https://www.npmjs.com/package/azure-iot-device)
-* [Reference Documentation](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
+* [Reference Documentation](/javascript/api/azure-iot-device/)
 * [Edge Module Reference Documentation](/javascript/api/azure-iot-device/moduleclient)
 
 #### Python Device SDK
@@ -126,7 +126,7 @@ The IoT Hub service SDKs allow you to build applications that easily interact wi
 
 **Java IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-java/tree/master/service) | [Package](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples) | [Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.service)
 
-**JavaScript IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [Package](https://www.npmjs.com/package/azure-iothub) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [Reference Documentation](/javascript/api/azure-iothub/?view=azure-iot-typescript-latest&preserve-view=true)
+**JavaScript IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [Package](https://www.npmjs.com/package/azure-iothub) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [Reference Documentation](/javascript/api/azure-iothub/)
 
 **Python IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub) | [Package](https://pypi.python.org/pypi/azure-iot-hub/) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub/samples) | [Reference Documentation](/python/api/azure-iot-hub)
 

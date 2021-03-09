@@ -199,7 +199,7 @@ Zone level resource locks can be created via the Azure portal.  From the DNS zon
 
 ![Zone level resource locks via the Azure portal](./media/dns-protect-private-zones-recordsets/locks1.png)
 
-Zone-level resource locks can also be created via [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock?view=latest):
+Zone-level resource locks can also be created via [Azure PowerShell](/powershell/module/az.resources/new-azresourcelock):
 
 ```azurepowershell-interactive
 # Lock a DNS zone

@@ -281,7 +281,7 @@ If you are using the Azure Bot Service and the issue is that the **Test in Web C
 
 #### Resolve issue while debugging on local machine with Bot Framework.
 
-To learn more about local debugging of a bot, see [Debug a bot](/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
+To learn more about local debugging of a bot, see [Debug a bot](/azure/bot-service/bot-service-debug-bot).
 
 ## Integrating LUIS
 

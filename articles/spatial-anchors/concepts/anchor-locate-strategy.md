@@ -15,7 +15,7 @@ ms.service: azure-spatial-anchors
 In this article you will learn the different options you can use when querying an anchor. We will go over the AnchorLocateCriteria class, its options and valid option combinations.
 
 ## Anchor locate criteria
-The [AnchorLocateCriteria class](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria?view=spatialanchors-dotnet) helps you query the service for previously created anchors. One AnchorLocateCriteria object may be used per watcher at any time. Each AnchorLocateCriteria object must include **exactly one** of the following properties: [Identifiers](#identifiers), [NearAnchor](#nearanchor), or [NearDevice](#neardevice). Additional properties such as [Strategy](#strategy), [BypassCache](#bypasscache), and [RequestedCategories](#requestedcategories) can be set if desired. 
+The [AnchorLocateCriteria class](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) helps you query the service for previously created anchors. One AnchorLocateCriteria object may be used per watcher at any time. Each AnchorLocateCriteria object must include **exactly one** of the following properties: [Identifiers](#identifiers), [NearAnchor](#nearanchor), or [NearDevice](#neardevice). Additional properties such as [Strategy](#strategy), [BypassCache](#bypasscache), and [RequestedCategories](#requestedcategories) can be set if desired. 
 
 ### Properties
 Define **exactly one** of the following properties in your watcher:
