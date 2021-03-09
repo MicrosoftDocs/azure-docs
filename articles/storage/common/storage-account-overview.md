@@ -67,7 +67,7 @@ General-purpose v2 storage accounts support the latest Azure Storage features an
 - Tables
 
 > [!NOTE]
-> Microsoft recommends using a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 account with no downtime and without the need to copy data.
+> Microsoft recommends using a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 account with no downtime and without the need to copy data. However, the upgrade cannot be undone.
 >
 > For more information on upgrading to a general-purpose v2 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).
 
@@ -93,6 +93,8 @@ You can use general-purpose v1 accounts for these scenarios:
 
 > [!NOTE]
 > Although Microsoft recommends general-purpose v2 accounts for most scenarios, Microsoft will continue to support general-purpose v1 accounts for new and existing customers. You can create general-purpose v1 storage accounts in new regions whenever Azure Storage is available in those regions. Microsoft does not currently have a plan to deprecate support for general-purpose v1 accounts and will provide at least one year's advance notice before deprecating any Azure Storage feature. Microsoft will continue to provide security updates for general-purpose v1 accounts, but no new feature development is expected for this account type.
+>
+> As of October 1, 2020, pricing for general-purpose v1 accounts in new Azure Storage regions is equivalent to pricing for general-purpose v2 accounts in those regions. Pricing in existing Azure Storage regions has not changed. For pricing details for general-purpose v1 accounts in a specific region, see the Azure Storage pricing page. Choose your region, and then next to **Pricing offers**, select **Other**.
 
 ### BlockBlobStorage accounts
 
