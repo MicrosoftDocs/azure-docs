@@ -4,8 +4,8 @@ description: This article explains how to generate and collect structured applic
 author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.author: brendanm
+ms.date: 02/05/2021
+ms.author: brendm
 ms.custom: devx-track-java
 ---
 
@@ -233,4 +233,4 @@ AppPlatformLogsforSpring
 ```
 
 ## Next Steps
-* To learn more about the Log Query, see [Get started with log queries in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* To learn more about the Log Query, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)

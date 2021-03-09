@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/04/2021
 
 ms.author: mimart
 author: msmimart
@@ -30,8 +30,7 @@ OneDrive/SharePoint Online has a separate invitation manager. Support for extern
 
 - Azure AD B2B collaboration invited users can be picked from OneDrive/SharePoint Online sharing dialog boxes. OneDrive/SharePoint Online invited users also show up in Azure AD after they redeem their invitations.
 
-- The licensing requirements differ. To learn more about licensing, see [Azure AD B2B licensing](./external-identities-pricing.md) and ["What is an external user?" in the SharePoint Online external sharing overview](/sharepoint/external-sharing-overview#what-happens-when-users-share).
-
+- The licensing requirements differ. To learn more about licensing, see [Azure AD External Identities licensing](./external-identities-pricing.md) and [the SharePoint Online external sharing overview](/sharepoint/external-sharing-overview).
 To manage external sharing in OneDrive/SharePoint Online with Azure AD B2B collaboration, set the OneDrive/SharePoint Online external sharing setting to **Allow sharing only with the external users that already exist in your organization's directory**. Users can go to externally shared sites and pick from external collaborators that the admin has added. The admin can add the external collaborators through the B2B collaboration invitation APIs.
 
 

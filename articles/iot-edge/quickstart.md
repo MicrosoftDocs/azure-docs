@@ -50,6 +50,9 @@ Make sure your IoT Edge device meets the following requirements:
 * At least 4 GB of memory, recommended 8 GB of memory
 * 10 GB of free disk space
 
+>[!NOTE]
+>This quickstart uses Windows Admin Center to create a deployment of IoT Edge for Linux on Windows. You can also use PowerShell. If you wish to use PowerShell to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md).
+
 ## Create an IoT hub
 
 Start by creating an IoT hub with the Azure CLI.

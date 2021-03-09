@@ -225,6 +225,8 @@ audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
 raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
 audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
 audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
+audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
 ```
 
 > [!NOTE]
@@ -275,5 +277,5 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-- [Asynchronous synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Asynchronous synthesis for long-form audio](./long-audio-api.md)
 - [Get started with Custom Voice](how-to-custom-voice.md)

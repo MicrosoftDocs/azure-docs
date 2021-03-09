@@ -422,6 +422,7 @@ The KVVM extension, as a provisioning agent, runs continuously on a predetermine
 You may have noticed the KVVM extension's 'linkOnRenewal' flag, and the fact that it is set to false. We're addressing here in depth the behavior controlled by this flag and its implications on the functioning of a cluster. Note this behavior is specific to Windows.
 
 According to its [definition](../virtual-machines/extensions/key-vault-windows.md#extension-schema):
+
 ```json
 "linkOnRenewal": <Only Windows. This feature enables auto-rotation of SSL certificates, without necessitating a re-deployment or binding.  e.g.: false>,
 ```
@@ -453,7 +454,7 @@ As it emerged from the json snippets above, a specific sequencing of the operati
 
 To dispose the creation of a managed identity, or to assign it to another resource, the deployment operator must have the required role (ManagedIdentityOperator) in the subscription or the resource group, in addition to the roles required to manage the other resources referenced in the template. 
 
-From a security standpoint, recall that the virtual machine (scale set) is considered a security boundary with regards to its Azure identity. That means that any application hosted on the VM could, in principle, obtain an access token representing the VM - managed identity access tokens are obtained from the unauthenticated IMDS endpoint. If you consider the VM to be a shared, or multi-tenant environment, then perhaps this method of retrieving cluster certificates is not indicated. It is, however, the only provisioning mechanism suitable for certificate autorollover.
+From a security standpoint, recall that the virtual machine (scale set) is considered a security boundary with regard to its Azure identity. That means that any application hosted on the VM could, in principle, obtain an access token representing the VM - managed identity access tokens are obtained from the unauthenticated IMDS endpoint. If you consider the VM to be a shared, or multi-tenant environment, then perhaps this method of retrieving cluster certificates is not indicated. It is, however, the only provisioning mechanism suitable for certificate autorollover.
 
 ## Troubleshooting and frequently asked questions
 

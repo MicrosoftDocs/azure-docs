@@ -81,4 +81,4 @@ The ASE is normally deployed on VMs that are provisioned on a multi-tenant hyper
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

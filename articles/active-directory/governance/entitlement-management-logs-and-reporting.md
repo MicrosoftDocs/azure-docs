@@ -58,7 +58,7 @@ to send the Azure AD audit log to the Azure Monitor workspace.
 
 ## View events for an access package  
 
-To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) for information) and in one of the following roles: 
+To view events for an access package, you must have access to the underlying Azure monitor workspace (see [Manage access to log data and workspaces in Azure Monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) for information) and in one of the following roles: 
 
 - Global administrator  
 - Security administrator  
@@ -157,8 +157,7 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
-).
+You can reauthenticate and associate your PowerShell session to that subscription using a command such as `Connect-AzAccount –Subscription $subs[0].id`. To learn more about how to authenticate to Azure from PowerShell, including non-interactively, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 If you have multiple Log Analytics workspaces in that subscription, then the cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) returns the list of workspaces. Then you can find the one that has the Azure AD logs. The `CustomerId` field returned by this cmdlet is the same as the value of the "Workspace Id" displayed in the Azure portal in the Log Analytics workspace overview.
  
@@ -188,4 +187,4 @@ $bResponse.Results |ft
 ```
 
 ## Next steps:
-- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/platform/workbooks-overview.md)
+- [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md)

@@ -181,7 +181,7 @@ You will need an Azure AD tenant in order to test your app. To set up your devel
 
 Alternatively, an Azure AD tenant comes with every Microsoft 365 subscription. To set up a free Microsoft 365 development environment, see [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
-Once you have a tenant, test single-sign on and [provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Once you have a tenant, test single-sign on and [provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client). 
 
 **For OIDC or Oath applications**, [Register your application](quickstart-register-app.md) as a multi-tenant application. ‎Select the Accounts in any organizational directory and personal Microsoft accounts option in Supported Account types.
 

@@ -1,26 +1,22 @@
 ---
 title: Configure a virtual network - Premium-tier Azure Cache for Redis instance
-description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instances.
+description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instance
 author: yegu-ms
+
 ms.author: yegu
 ms.service: cache
-ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/08/2021
 ---
-# Configure virtual network support for a Premium-tier Azure Cache for Redis instance
+# Configure virtual network support for a Premium Azure Cache for Redis instance
 
-Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. Premium-tier features include clustering, persistence, and virtual network support. A virtual network is a private network in the cloud. When an Azure Cache for Redis instance is configured with a virtual network, it isn't publicly addressable and can only be accessed from virtual machines and applications within the virtual network. This article describes how to configure virtual network support for a Premium-tier Azure Cache for Redis instance.
+[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation along with subnets, access control policies, and other features to further restrict access. When an Azure Cache for Redis instance is configured with a virtual network, it isn't publicly addressable and can only be accessed from virtual machines and applications within the virtual network. This article describes how to configure virtual network support for a Premium-tier Azure Cache for Redis instance.
 
 > [!NOTE]
 > Azure Cache for Redis supports both classic deployment model and Azure Resource Manager virtual networks.
 > 
 
-## Why Virtual Network?
-
-[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation for your Azure Cache for Redis instance, along with subnets, access control policies, and other features to further restrict access.
-
-## Virtual network support
+## Set up virtual network support
 
 Virtual network support is configured on the **New Azure Cache for Redis** pane during cache creation.
 

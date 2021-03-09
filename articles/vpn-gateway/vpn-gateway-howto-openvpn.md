@@ -27,12 +27,12 @@ This article helps you set up **OpenVPN® Protocol** on Azure VPN Gateway. You c
 ## Portal
 
 1. In the portal, navigate to your **Virtual network gateway -> Point-to-site configuration**.
-1. For **Tunnel type**, select **OpenVPN (SSL)** or **IKEv2 and OpenVPN(SSL)** from the dropdown.
+1. For **Tunnel type**, select **OpenVPN (SSL)** from the dropdown.
 
    :::image type="content" source="./media/vpn-gateway-howto-openvpn/portal.png" alt-text="Select OpenVPN SSL from the dropdown":::
 1. Save your changes and continue with **Next steps**.
 
-Enable OpenVPN on your gateway.
+## Enable OpenVPN on your gateway using PowerShell.
 
 1. Enable OpenVPN on your gateway using the following example:
 

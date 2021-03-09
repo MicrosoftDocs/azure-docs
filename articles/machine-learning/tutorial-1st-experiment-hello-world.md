@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
 ---
 
@@ -43,15 +43,7 @@ print("Hello world!")
 
 Your project directory structure will now look like:
 
-```Bash
-tutorial
-└──.azureml
-|  └──config.json
-└──src
-|  └──hello.py
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Directory structure shows hello.py in src subdirectory":::
 
 
 ### <a name="test"></a>Test your script locally

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/24/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -72,7 +72,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 
 **2.1.2**
 - Fixed the localization encoding issue for languages such as Spanish and French.
-- Allowing the "forgot password" link to use as claims exchange like social IDP.
+- Allowing the "forgot password" link to use as claims exchange. For more information, see [Self-service password reset](add-password-reset-policy.md#self-service-password-reset-recommended).
 
 **2.1.1**
 - Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.

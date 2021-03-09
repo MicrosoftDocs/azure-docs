@@ -21,7 +21,7 @@ When you set up diagnostic logging, you will be asked to specify a storage mecha
 
 | Resource | Used for |
 |----------|----------|
-| [Send to Log Analytics workspace](../azure-monitor/learn/tutorial-resource-logs.md) | Events and metrics are sent to a Log Analytics workspace, which can be queried in the portal to return detailed information. For an introduction, see [Get started with Azure Monitor logs](../azure-monitor/log-query/log-analytics-tutorial.md) |
+| [Send to Log Analytics workspace](../azure-monitor/essentials/tutorial-resource-logs.md) | Events and metrics are sent to a Log Analytics workspace, which can be queried in the portal to return detailed information. For an introduction, see [Get started with Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) |
 | [Archive with Blob storage](../storage/blobs/storage-blobs-overview.md) | Events and metrics are archived to a Blob container and stored in JSON files. Logs can be quite granular (by the hour/minute), useful for researching a specific incident but not for open-ended investigation. Use a JSON editor to view a raw log file or Power BI to aggregate and visualize log data.|
 | [Stream to Event Hub](../event-hubs/index.yml) | Events and metrics are streamed to an Azure Event Hubs service. Choose this as an alternative data collection service for very large logs. |
 
@@ -29,7 +29,7 @@ When you set up diagnostic logging, you will be asked to specify a storage mecha
 
 Create resources in advance so that you can select one or more when configuring diagnostic logging.
 
-+ [Create a log analytics workspace](../azure-monitor/learn/quick-create-workspace.md)
++ [Create a log analytics workspace](../azure-monitor/logs/quick-create-workspace.md)
 
 + [Create a storage account](../storage/common/storage-account-create.md)
 

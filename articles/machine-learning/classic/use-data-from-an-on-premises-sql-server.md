@@ -3,7 +3,7 @@ title: 'ML Studio (classic): On-premises SQL Server - Azure'
 description: Use data from a SQL Server database to perform advanced analytics with Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt

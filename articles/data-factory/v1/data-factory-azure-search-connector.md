@@ -1,21 +1,11 @@
 ---
 title: Push data to Search index by using Data Factory 
 description: 'Learn about how to push data to Azure Cognitive Search Index by using Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 
@@ -154,9 +144,9 @@ As a first step, setup the data management gateway on your on-premises machine. 
 
 **SQL Server input dataset**
 
-The sample assumes you have created a table “MyTable” in SQL Server and it contains a column called “timestampcolumn” for time series data. You can query over multiple tables within the same database using a single dataset, but a single table must be used for the dataset's tableName typeProperty.
+The sample assumes you have created a table "MyTable" in SQL Server and it contains a column called "timestampcolumn" for time series data. You can query over multiple tables within the same database using a single dataset, but a single table must be used for the dataset's tableName typeProperty.
 
-Setting “external”: ”true” informs Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```JSON
 {
