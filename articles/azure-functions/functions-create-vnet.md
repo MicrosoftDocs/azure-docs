@@ -267,75 +267,77 @@ To use your function app with virtual networks, you need to join it to a subnet.
 
     :::image type="content" source="./media/functions-create-vnet/9-connect-app-subnet.png" alt-text="Screenshot of how to connect a function app to a subnet.":::
 
-## Configure your function app settings for private endpoints
+## Configure your function app settings
 
-1. In your function app, select **Configuration** from the left menu.
+1. In your function app, in the menu on the left, select **Configuration**.
 
-1. To use your function app with virtual networks, the following app settings will need to be updated. Select **+ New application setting** or the pencil by **Edit** in the rightmost column of the app settings table as appropriate. When done, select **Save**.
+1. To use your function app with virtual networks, update the app settings shown in the following table. To add or edit a setting, select **+ New application setting** or the **Edit** icon in the rightmost column of the app settings table. When you finish, select **Save**.
 
     :::image type="content" source="./media/functions-create-vnet/10-configure-app-settings.png" alt-text="Screenshot of how to configure function app settings for private endpoints.":::
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **AzureWebJobsStorage** | mysecurestorageConnectionString | The connection string of the storage account you created. This is the storage connection string from [Get storage account connection string](#get-storage-account-connection-string). By changing this setting, your function app will now use the secure storage account for normal operations at runtime. | 
-    | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING**  | mysecurestorageConnectionString | The connection string of the storage account you created. By changing this setting, your function app will now use the secure storage account for Azure Files, which are used when deploying. |
-    | **WEBSITE_CONTENTSHARE** | files | The name of the file share you created in the storage account. This app setting is used in conjunction with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. |
-    | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Create an app setting for the connection string of your service bus. This is the storage connection string from [Get service bus connection string](#get-service-bus-connection-string).|
-    | **WEBSITE_CONTENTOVERVNET** | 1 | Create this app setting. A value of 1 enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. |
-    | **WEBSITE_DNS_SERVER** | 168.63.129.16 | Create this app setting. Once your app integrates with a virtual network, it will use the same DNS server as the virtual network. This is one of two settings needed have your function app work with Azure DNS private zones and are required when using private endpoints. These settings will send all outbound calls from your app into your virtual network. |
-    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Create this app setting. Once your app integrates with a virtual network, it will use the same DNS server as the virtual network. This is one of two settings needed have your function app work with Azure DNS private zones and are required when using private endpoints. These settings will send all outbound calls from your app into your virtual network. |
+    | **AzureWebJobsStorage** | mysecurestorageConnectionString | The connection string of the storage account you created. This is the storage connection string from the [Get the storage account connection string](#get-the-storage-account-connection-string) section. This setting allows your function app to use the secure storage account for normal operations at runtime. | 
+    | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING**  | mysecurestorageConnectionString | The connection string of the storage account you created. This setting allows your function app to use the secure storage account for Azure Files, which is used during deployment. |
+    | **WEBSITE_CONTENTSHARE** | files | The name of the file share you created in the storage account. Use this setting with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. |
+    | **SERVICEBUS_CONNECTION** | myServiceBusConnectionString | Create this app setting for the connection string of your service bus. This is the storage connection string from the [Get a service bus connection string](#get-a-service-bus-connection-string) section.|
+    | **WEBSITE_CONTENTOVERVNET** | 1 | Create this app setting. A value of 1 enables your function app to scale when you your storage account is restricted to a virtual network. Enable this setting when you restrict your storage account to a virtual network. |
+    | **WEBSITE_DNS_SERVER** | 168.63.129.16 | Create this app setting. When your app integrates with a virtual network, it will use the same DNS server as the virtual network. Your function app needs this setting so it can work with Azure DNS private zones. It's required when you use private endpoints. This setting and WEBSITE_VNET_ROUTE_ALL will send all outbound calls from your app into your virtual network. |
+    | **WEBSITE_VNET_ROUTE_ALL** | 1 | Create this app setting. When your app integrates with a virtual network, it will use the same DNS server as the virtual network. Your function app needs this setting so it can work with Azure DNS private zones. It's required when you use private endpoints. This setting and WEBSITE_DNS_SERVER will send all outbound calls from your app into your virtual network. |
 
-1. Staying on the **Configuration** view, select the **Function runtime settings** tab.
+1. In the **Configuration** view, select the **Function runtime settings** tab.
 
-1. Set **Runtime Scale Monitoring** to **On**, and select **Save**. Runtime driven scaling allows you to connect non-HTTP trigger functions to services running inside your virtual network.
+1. Set **Runtime Scale Monitoring** to **On**. Then select **Save**. Runtime-driven scaling allows you to connect non-HTTP trigger functions to services that run inside your virtual network.
 
-    :::image type="content" source="./media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Screenshot of how to enable Runtime Driven Scaling for Azure Functions.":::
+    :::image type="content" source="./media/functions-create-vnet/11-enable-runtime-scaling.png" alt-text="Screenshot of how to enable runtime-driven scaling for Azure Functions.":::
 
-## Deploy a service bus trigger and http trigger to your function app
+## Deploy a service bus trigger and http trigger
 
-1. In GitHub, browse to the following sample repository, which contains a function app with two functions, an HTTP Trigger and a Service Bus Queue Trigger.
+1. In GitHub, go to the following sample repository. It contains a function app and two functions, an HTTP trigger, and a service bus queue trigger.
 
     <https://github.com/Azure-Samples/functions-vnet-tutorial>
 
-1. At the top of the page, select the **Fork** button to create a fork of this repository in your own GitHub account or organization.
+1. At the top of the page, select **Fork** to create a fork of this repository in your own GitHub account or organization.
 
-1. In your function app, select **Deployment Center** from the left menu. Then, select **Settings**.
+1. In your function app, in the menu on the left, select **Deployment Center**. Then select **Settings**.
 
-1. On the **Settings** tab, use the deployment settings as specified below:
+1. On the **Settings** tab, use the deployment settings shown in the following table.
 
     | Setting      | Suggested value  | Description      |
     | ------------ | ---------------- | ---------------- |
-    | **Source** | GitHub | You should have created a GitHub repo with the sample code in step 2. | 
-    | **Organization**  | myOrganization | This is the organization your repo is checked into, usually your account. |
-    | **Repository** | myRepo | The repo you created with the sample code. |
-    | **Branch** | main | This is the repo you just created, so use the main branch. |
+    | **Source** | GitHub | You should have created a GitHub repository for the the sample code in step 2. | 
+    | **Organization**  | myOrganization | The organization your repo is checked into. It's usually your account. |
+    | **Repository** | myRepo | The repository you created for the sample code. |
+    | **Branch** | main | The main branch of the repository you just created. |
     | **Runtime stack** | .NET | The sample code is in C#. |
 
 1. Select **Save**. 
 
     :::image type="content" source="./media/functions-create-vnet/12-deploy-portal.png" alt-text="Screenshot of how to deploy Azure Functions code through the portal.":::
 
-1. Your initial deployment may take a few minutes. You will see a **Success (Active)** Status message in the **Logs** tab when your app is successfully deployed. If needed, refresh the page. 
+1. Your initial deployment might take a few minutes. When your app is successfully deployed, on the **Logs** tab, you'll see a **Success (Active)** status message. If necessary, refresh the page.
 
-1. Congratulations! You have successfully deployed your sample function app.
+Congratulations! You have successfully deployed your sample function app.
 
-## Lock down your function app with a private endpoint
+## Lock down your function app
 
-Now, create the private endpoint for your function app. This private endpoint will connect your function app privately and securely to your virtual network using a private IP address. For more information on private endpoints, go to the [private endpoints documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+Now create the private endpoint for your function app. This private endpoint will connect your function app privately and securely to your virtual network by using a private IP address. 
 
-1. In your function app, select **Networking** in the left menu.
+For more information about private endpoints, see the [private endpoint documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
 
-1. Select **Click here to configure** under Private Endpoint Connections.
+1. In your function app, in the menu on the left, select **Networking**.
 
-    :::image type="content" source="./media/functions-create-vnet/14-navigate-app-private-endpoint.png" alt-text="Screenshot of how to navigate to a Function App Private Endpoint.":::
+1. Under **Private Endpoint Connections**, select **Click here to configure**.
+
+    :::image type="content" source="./media/functions-create-vnet/14-navigate-app-private-endpoint.png" alt-text="Screenshot of how to navigate to a function app private endpoint.":::
 
 1. Select **Add**.
 
-1. On the menu that opens up, use the private endpoint settings as specified below:
+1. On the menu that opens, use the following private endpoint settings:
 
-    :::image type="content" source="./media/functions-create-vnet/15-create-app-private-endpoint.png" alt-text="Screenshot of how to create a Function App private endpoint.":::
+    :::image type="content" source="./media/functions-create-vnet/15-create-app-private-endpoint.png" alt-text="Screenshot of how to create a function app private endpoint. The name is functionapp-endpoint. The subscription is "Private Test Sub CACHHAI". The virtual network is MyVirtualNet-tutorial. The subnet is default.":::
 
-1. Select **Ok** to add the private endpoint. Congratulations! You've successfully secured your function app, service bus, and storage account with private endpoints!
+1. Select **OK** to add the private endpoint. Congratulations! You've successfully secured your function app, service bus, and storage account with private endpoints!
 
 ### Test your locked down function app
 
