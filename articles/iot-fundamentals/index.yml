@@ -160,7 +160,7 @@ conceptualContent:
         - url: ../iot-hub-device-update/device-update-simulator.md
           itemType: tutorial
           text: Use device update on a simulator
-        - url: ..iot-hub-device-update/device-update-ubuntu-agent.md
+        - url: ../iot-hub-device-update/device-update-ubuntu-agent.md
           itemType: tutorial
           text: Package update on Ubuntu Server
       # footerLink
