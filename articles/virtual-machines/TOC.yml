@@ -824,7 +824,7 @@
   - name: Understand VM reboots
     href: understand-vm-reboots.md
   - name: States and billing
-    href: states-and-billing.md
+    href: states-billing.md
   - name: Azure Regions
     href: regions.md
 - name: Disks
