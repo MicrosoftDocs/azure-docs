@@ -35,7 +35,7 @@ At this time, Custom Commands supports speech subscriptions created in these reg
 ## Prerequisites
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource in a region that supports Custom Commands.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Refer to the **Region Availability** section above for list of supported regions.
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource in a region that supports Custom Commands.</a> Refer to the **Region Availability** section above for list of supported regions.
 > * Download the sample
 [Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).

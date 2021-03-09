@@ -3,7 +3,7 @@ title: Download a Windows VHD from Azure
 description: Download a Windows VHD using the Azure portal.
 author: cynthn
 manager: gwallace
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
