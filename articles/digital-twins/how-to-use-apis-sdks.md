@@ -123,10 +123,10 @@ You can also find additional samples in the [GitHub repo for the .NET (C#) SDK](
 Serialization helpers are helper functions available within the SDK for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break the twin data down further.
 
 The available helper classes are:
-* `BasicDigitalTwin`: Represents the core data of a digital twin
-* `BasicDigitalTwinComponent`: Represents data for component-type properties of a `BasicDigitalTwin`
-* `BasicRelationship`: Represents the core data of a relationship
-* `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom types
+* `BasicDigitalTwin`: Generically represents the core data of a digital twin
+* `BasicDigitalTwinComponent`: Generically represents a component in the `Contents` properties of a `BasicDigitalTwin`
+* `BasicRelationship`: Generically represents the core data of a relationship
+* `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom digital twin types
 
 ##### Deserialize a digital twin
 
