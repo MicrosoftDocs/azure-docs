@@ -1,21 +1,13 @@
 ---
 title: Log Analytics virtual machine extension for Windows 
 description: Deploy the Log Analytics agent on Windows virtual machine using a virtual machine extension.
-services: virtual-machines
-documentationcenter: ''
-author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
+ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
+author: amjads1
+ms.author: amjads
 ms.collection: windows
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 06/26/2020
-ms.author: akjosh
 
 ---
 # Log Analytics virtual machine extension for Windows

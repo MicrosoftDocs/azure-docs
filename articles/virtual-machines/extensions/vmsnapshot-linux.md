@@ -4,7 +4,6 @@ description: Take application consistent backup of the virtual machine from Azur
 services: backup, virtual-machines
 documentationcenter: ''
 author: trinadhkotturu
-manager: gwallace
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: linux
