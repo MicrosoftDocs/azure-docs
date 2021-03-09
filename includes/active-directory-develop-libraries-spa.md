@@ -9,7 +9,7 @@
 | Vue | [Vue MSAL]( https://github.com/mvertopoulos/vue-msal) | [vue-msal]( https://www.npmjs.com/package/vue-msal) | ![X indicating no.][n] | ![Green check mark.][y] | ![Green check mark.][y] | -- |
 -->
 
-<sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews][preview-tos] apply to libraries in *Public preview*.
+<sup>1</sup> [Supplemental terms of use for Microsoft Azure Previews](preview-tos) apply to libraries in *Public preview*.
 
 <sup>2</sup> [Auth code flow applies for MSAL Angular v2, MSAL.js v2 and MSAL React while Implicit flow applies for MSAL Angular and MSAL AngularJS].
 
