@@ -30,7 +30,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 
-* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 
 * The [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
@@ -139,4 +139,4 @@ To update Azure Machine Learning to use the new key, use the following steps:
 
 ## Next steps
 
-For more information on registering datastores, see the [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py) class reference.
+For more information on registering datastores, see the [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29) class reference.

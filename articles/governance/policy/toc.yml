@@ -97,7 +97,7 @@
       href: ./samples/hipaa-hitrust-9-2.md
     - name: ISO 27001:2013
       href: ./samples/iso-27001.md
-    - name: New Zealand ISM
+    - name: New Zealand ISM Restricted
       href: ./samples/new-zealand-ism.md
     - name: NIST SP 800-53 R4
       href: ./samples/nist-sp-800-53-r4.md
