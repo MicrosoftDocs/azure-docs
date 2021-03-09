@@ -280,28 +280,26 @@
       href: ./linux/spot-template.md
     - name: Error codes
       href: error-codes-spot.md
-  - name: Purchasing options
+  - name: Azure Hybrid Benefit
     items:
-    - name: Azure Hybrid Benefit
+    - name: Linux
+      href: ./linux/azure-hybrid-benefit-linux.md
+    - name: Windows
       items:
-      - name: Linux
-        href: ./linux/azure-hybrid-benefit-linux.md
-      - name: Windows
-        items:
-        - name: Use Azure Hybrid Benefit license
-          href: ./windows/hybrid-use-benefit-licensing.md
-        - name: Use Multitenant Hosting Rights for Windows 10
-          href: ./windows/windows-desktop-multitenant-hosting-deployment.md
-    - name: Reserved instances
-      items:
-      - name: Prepay for VMs
-        href: ./prepay-reserved-vm-instances.md
-      - name: Prepay for Dedicated Hosts
-        href: prepay-dedicated-hosts-reserved-instances.md
-      - name: What are Azure reservations?
-        href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
-      - name: VM instance size flexibility
-        href: reserved-vm-instance-size-flexibility.md
+      - name: Use Azure Hybrid Benefit license
+        href: ./windows/hybrid-use-benefit-licensing.md
+      - name: Use Multitenant Hosting Rights for Windows 10
+        href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+  - name: Reserved instances
+    items:
+    - name: Prepay for VMs
+      href: ./prepay-reserved-vm-instances.md
+    - name: Prepay for Dedicated Hosts
+      href: prepay-dedicated-hosts-reserved-instances.md
+    - name: What are Azure reservations?
+      href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
+    - name: VM instance size flexibility
+      href: reserved-vm-instance-size-flexibility.md
   - name: Create Linux VMs
     items:
     - name: Endorsed distros
@@ -783,41 +781,52 @@
       href: ./windows/build-image-with-packer.md
 - name: Availability and scale
   items:
-  - name: Scale sets
-    href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
-  - name: Availability
+  - name: Overview
     href: availability.md
-  - name: Co-location
-    href: co-location.md
-  - name: Network performance
-    href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
-  - name: States, lifecycle and billing
-    href: states-lifecycle.md
-  - name: Autoscale
-    href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-  - name: High availability
-    href: manage-availability.md
   - name: Availability sets
     items:
-    - name: Linux
+    - name: Overview
+      href: availability-set-overview.md
+    - name: CLI
       href: ./linux/tutorial-availability-sets.md
-    - name: Windows
-      items:
-      - name: Create an availability set
-        href: ./windows/tutorial-availability-sets.md
-      - name: Change availability set
-        href: ./windows/change-availability-set.md
-  - name: Create a proximity placement group
-    displayName: PPG aligned colocation co-location
-    items:
+    - name: PowerShell
+      href: ./windows/tutorial-availability-sets.md
+    - name: Change an availability set
+      href: ./windows/change-availability-set.md
+  - name: Availability zones
+    items: 
+    - name: Overview
+      href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
+    - name: CLI
+      href: ./linux/create-cli-availability-zone.md
+    - name: PowerShell
+      href: ./windows/create-powershell-availability-zone.md
+    - name: Portal
+      href: ./windows/create-portal-availability-zone.md
+  - name: Proximity Placement Groups
+    items: 
+    - name: Overview
+      href: co-location.md
     - name: CLI
       href: ./linux/proximity-placement-groups.md
-    - name: Portal
-      href: ./windows/proximity-placement-groups-portal.md
     - name: PowerShell
       href: ./windows/proximity-placement-groups.md
-  - name: Create VM in availability zone
-    href: ./linux/create-cli-availability-zone.md
+    - name: Portal
+      href: ./windows/proximity-placement-groups-portal.md
+  - name: Virtual Machine Scale Sets
+    items: 
+    - name: Overview
+      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+    - name: Autoscale
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
+    - name: Orchestration modes
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+  - name: Understand VM reboots
+    href: understand-vm-reboots.md
+  - name: States and lifecycle
+    href: states-lifecycle.md
+  - name: Azure Regions
+    href: regions.md
 - name: Disks
   items:
   - name: Introduction to managed disks
