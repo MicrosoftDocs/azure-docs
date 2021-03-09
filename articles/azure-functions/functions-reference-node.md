@@ -598,15 +598,13 @@ module.exports = async function (context, myTimer) {
 ## <a name="ecmascript-modules"></a>ECMAScript modules (preview)
 
 > [!NOTE]
-> As ECMAScript modules are currently labeled *experimental* in Node.js 14, they're available as a preview feature in Node.js 14 Azure Functions. Until Node.js 14 support for ES modules becomes *stable*, expect possible changes to its API or behavior.
+> As ECMAScript modules are currently labeled *experimental* in Node.js 14, they're available as a preview feature in Node.js 14 Azure Functions. Until Node.js 14 support for ECMAScript modules becomes *stable*, expect possible changes to its API or behavior.
 
 [ECMAScript modules](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (ES modules) are the new official standard module system for Node.js. So far, the code samples in this article use the CommonJS syntax. When running Azure Functions in Node.js 14, you can choose to write your functions using ES modules syntax.
 
-To use ES modules in a function, change its filename to use a `.mjs` extension. The following example is an HTTP triggered function that uses ES modules syntax to import the `uuid` library and return a value.
+To use ES modules in a function, change its filename to use a `.mjs` extension. The following *index.mjs* file example is an HTTP triggered function that uses ES modules syntax to import the `uuid` library and return a value.
 
 ```js
-// index.mjs
-
 import { v4 as uuidv4 } from 'uuid';
 
 export default async function (context, req) {
