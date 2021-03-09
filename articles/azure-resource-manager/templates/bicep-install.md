@@ -16,7 +16,43 @@ To get the best Bicep authoring experience, you need two components:
 - **Bicep extension for Visual Studio Code**. To create Bicep files, you need a good Bicep editor. We recommend [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). These tools provides language support and resource autocompletion. They help create and validate Bicep files. For more information, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - **Bicep CLI**. Use Bicep CLI to compile Bicep files to ARM JSON templates, and decompile ARM JSON templates to Bicep files. For more information, see [Install Bicep CLI](#install-bicep-cli).
 
-## Install Bicep CLI by using Azure CLI
+## Deployment environment
+
+You can deploy Bicep files by using Azure CLI or Azure PowerShell. For Azure CLI, you need version 2.20.0 or later; for Azure PowerShell, you need version 5.6.0 or later. For the installation instructions, see:
+
+- [Install Azure PowerShell](/powershell/azure/install-az-ps)
+- [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
+- [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
+- [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
+
+> [!NOTE]
+> Currently, both Azure CLI and Azure PowerShell can only deploy local Bicep files. For more information about deploying Bicep files by using Azure CLI, see [Deploy - CLI](/deploy-cli.md#deploy-remote-template), for more information about deploying Bicep files by using Azure PowerShell, see [Deploy - PowerShell](/deploy-powershell.md#deploy-remote-template).
+
+After the supported version of Azure PowerShell or Azure CLI is installed, you can deploy a Bicep file with:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleGroup `
+  -TemplateFile <path-to-template-or-bicep> `
+  -storageAccountType Standard_GRS
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file <path-to-template-or-bicep> \
+  --parameters storageAccountType=Standard_GRS
+```
+
+---
+
+## Install Bicep CLI
 
 You can install Bicep CLI by using Azure CLI, using Azure PowerShell or manually.
 
@@ -59,7 +95,7 @@ az bicep list-versions
 
 ### Use Azure PowerShell
 
-Azure PowerShell does not have the capability to install the Bicep CLI yet. Azure PowerShell (v5.6.0 or later) expects that the Bicep CLI is already installed and available on the PATH. Follow one of the [manual install methods](#manually-install-bicep-cli). Once the Bicep CLI is installed, Bicep CLI is called whenever it is required for a deployment cmdlet. For example, `New-AzResourceGroupDeployment ... -TemplateFile main.bicep`.
+Azure PowerShell does not have the capability to install the Bicep CLI yet. Azure PowerShell (v5.6.0 or later) expects that the Bicep CLI is already installed and available on the PATH. Follow one of the [manual install methods](#install-manually). Once the Bicep CLI is installed, Bicep CLI is called whenever it is required for a deployment cmdlet. For example, `New-AzResourceGroupDeployment ... -TemplateFile main.bicep`.
 
 ### Install manually
 
@@ -151,42 +187,6 @@ If you'd like to try the latest pre-release bits of Bicep before they are releas
 
 > [!WARNING]
 > These pre-release builds are much more likely to have known or unknown bugs.
-
-## Deployment environment
-
-You can deploy Bicep files by using Azure CLI or Azure PowerShell. For Azure CLI, you need version 2.20.0 or later; for Azure PowerShell, you need version 5.6.0 or later. For the installation instructions, see:
-
-- [Install Azure PowerShell](/powershell/azure/install-az-ps)
-- [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
-- [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux)
-- [Install Azure CLI on macOS](/cli/azure/install-azure-cli-macos)
-
-> [!NOTE]
-> Currently, both Azure CLI and Azure PowerShell can only deploy local Bicep files. For more information about deploying Bicep files by using Azure CLI, see [Deploy - CLI](/deploy-cli.md#deploy-remote-template), for more information about deploying Bicep files by using Azure PowerShell, see [Deploy - PowerShell](/deploy-powershell.md#deploy-remote-template).
-
-After the supported version of Azure PowerShell or Azure CLI is installed, you can deploy a Bicep file with:
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzResourceGroupDeployment `
-  -Name ExampleDeployment `
-  -ResourceGroupName ExampleGroup `
-  -TemplateFile <path-to-template-or-bicep> `
-  -storageAccountType Standard_GRS
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli-interactive
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-file <path-to-template-or-bicep> \
-  --parameters storageAccountType=Standard_GRS
-```
-
----
 
 ## Next steps
 
