@@ -1,29 +1,29 @@
 ---
-title: Data protection overview
+title: Data protection for Blob Storage and Data Lake Storage Gen2
 titleSuffix: Azure Storage
-description: Data protection overview for Azure Storage
+description: The data protection options available for your blob and Azure Data Lake Storage Gen2 data enables you to protect your data from accidental or malicious deletes or updates. If you should need to recover data that has been deleted or overwritten, this guide can help you to choose the recovery option that's best for your scenario.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
 ms.subservice: common
 ---
 
-# Data protection overview
+# Data protection for Blob Storage and Data Lake Storage Gen2
 
-The data protection options available for your blob and Azure Data Lake Storage Gen2 data enable you to prepare for scenarios where data could be compromised in the future. It's important to think about how to best protect your data before an incident occurs that could compromise your data. This guide can help you decide in advance which data protection features your scenario requires, and how to implement them. If you should need to recover data that has been deleted or overwritten, this overview also provides guidance on how to proceed, based on your scenario.
+The data protection options available for your blob and Azure Data Lake Storage Gen2 data help you to prepare for scenarios where data could be compromised in the future. It's important to think about how to best protect your data before an incident occurs that could compromise your data. This guide can help you decide in advance which data protection features your scenario requires, and how to implement them. If you should need to recover data that has been deleted or overwritten, this overview also provides guidance on how to proceed, based on your scenario.
 
-In the Azure Storage documentation, *data protection* refers to strategies for protecting the storage account and data within it from being erroneously deleted or modified, or for restoring data that has been deleted or modified. Azure Storage also offers options for *disaster recovery*, including multiple levels of redundancy to protect your data from service outages due to hardware problems or natural disasters, and customer-managed failover in the event that the data center in the primary region becomes unavailable. For more information about how your data is protected from service outages, see [Disaster recovery](#disaster-recovery).
+In the Azure Storage documentation, *data protection* refers to strategies for protecting the storage account and data within it from being erroneously or maliciously deleted or modified, or for restoring data after it has been deleted or modified. Azure Storage also offers options for *disaster recovery*, including multiple levels of redundancy to protect your data from service outages due to hardware problems or natural disasters, and customer-managed failover in the event that the data center in the primary region becomes unavailable. For more information about how your data is protected from service outages, see [Disaster recovery](#disaster-recovery).
 
 ## Configure data protection options
 
 The best time to plan for data protection is before an incident that requires data recovery. Whether you are anticipating that data could be deleted or overwritten by accident in the normal course of business, or intentionally, by a malicious actor, preparing your storage account so that your data is protected in advance can provide peace of mind, and simplify the act of recovery should it ever be necessary.
 
-The following table summarizes the data protection options available in Azure Storage. Note that not all features are available at this time for storage accounts with a hierarchical namespace enabled.
+The following table summarizes the options available in Azure Storage for common data protection scenarios. Choose the scenarios that are applicable to your situation to learn more about the options available to you. Note that not all features are available at this time for storage accounts with a hierarchical namespace enabled.
 
 | Scenario | Action | Available for Data Lake Storage | Protection benefit | Recommendation |
 |--|--|--|--|--|
@@ -32,9 +32,9 @@ The following table summarizes the data protection options available in Azure St
 | A container can be deleted, but a copy of the deleted container is maintained for a specified interval. | [Configure container soft delete for the storage account](#configure-container-soft-delete-for-the-storage-account) | Yes, in preview | Protects a container from accidental deletes. | Recommended for scenarios where you may need to restore a deleted container. The minimum recommended retention period of 7 days. |
 | A blob can be deleted or updated, but its state is automatically saved in a previous version. | [Configure blob versioning for the storage account](#configure-blob-versioning-for-the-storage-account) | No | Protects blob data from accidental deletes and updates. A previous version of a blob can be read or referenced. | Recommended for storage accounts where you need to preserve earlier versions of blob data. |
 | A blob can be deleted or updated, or a blob version can be deleted, but a copy of the blob or version is maintained for a specified interval. | [Configure blob soft delete for the storage account](#configure-blob-soft-delete-for-the-storage-account) | No | Protects blob data from accidental deletes and updates. | Recommended for scenarios where you may need to restore a deleted blob or version. The minimum recommended retention period of 7 days. |
-| Blobs can be deleted or updated, but all updates and deletes are tracked so that data can be restored to a previous point in time. | [Configure point-in-time restore for the storage account](#configure-point-in-time-restore-for-the-storage-account) | No | Protects blob data from accidental deletes and updates with best-effort restore. Does not protect against malicious deletion or corruption of data. | Recommended when your scenario requires recovering data within a certain range of time. |
+| Blobs can be deleted or updated, but all updates and deletes are tracked so that data can be restored to a previous point in time. | [Configure point-in-time restore for the storage account](#configure-point-in-time-restore-for-the-storage-account) | No | Protects blob data from accidental deletes and updates. Does not protect against malicious deletion or corruption of data. | Recommended when your scenario requires recovering data within a certain range of time. |
 | A blob can be updated, but the state of a blob is saved manually at a given point in time. | [Take a manual snapshot of a blob](#take-a-manual-snapshot-of-a-blob) | Yes, in preview | Preserves the state of a blob at a particular time. A blob snapshot can be read or referenced. | Recommended when blob versioning is not appropriate for your scenario, due to cost or other considerations. |
-| A blob can be updated or deleted, but the data is regularly copied to a second storage account by using object replication or a tool like AzCopy or Azure Data Factory. | [Object replication for block blobs](object-replication-overview.md)<br />[Get started with AzCopy](../common/storage-use-azcopy-v10.md)<br />[Introduction to Azure Data Factory](../../data-factory/introduction.md) | Yes | Protects blob data from accidental or malicious deletes or updates. | Recommended for peace-of-mind protection against malicious actions or unpredictable scenarios. |
+| A blob can be updated or deleted, but the data is regularly copied to a second storage account by using object replication or a tool like AzCopy or Azure Data Factory. | [Object replication for block blobs](object-replication-overview.md)<br />[Get started with AzCopy](../common/storage-use-azcopy-v10.md)<br />[Introduction to Azure Data Factory](../../data-factory/introduction.md) | AzCopy and Azure Data Factory are supported. Object replication is not supported. | Protects blob data from accidental or malicious deletes or updates. | Recommended for peace-of-mind protection against malicious actions or unpredictable scenarios. |
 
 ### Configure an Azure Resource Manager lock on the storage account
 
@@ -112,7 +112,7 @@ There is no charge to enable container soft delete for a storage account. Data i
 
 Blob versioning automatically saves a read-only copy of the previous state of a blob each time the blob is updated or when the blob is deleted. Each version is assigned a unique version ID. The data in a previous version can be read and referenced by calling Get Blob with the version ID. To restore a previous version, you can promote it to be the current version, which makes it writable again.
 
-When blob versioning is enabled for the storage account, every write and delete operation to a blob in that account creates a new version. Versions are maintained until they are explicitly deleted. To limit costs related to storing versions, use lifecycle management to delete older versions. For more information, see [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md).
+When blob versioning is enabled for the storage account, every write and delete operation to a blob in that account creates a new version. Versions are maintained until they are explicitly deleted. Having a large number of versions per blob can increase costs and decrease performance for blob listing operations. To mitigate  impacts related to storing versions, use lifecycle management to delete older versions. For more information, see [Optimize costs by automating Azure Blob Storage access tiers](storage-lifecycle-management-concepts.md).
 
 Be sure that you understand the billing implications of enabling blob versioning. For more information, see [Pricing and billing](versioning-overview.md#pricing-and-billing).
 
@@ -120,8 +120,9 @@ Blob versioning is not currently available for Azure Data Lake Storage Gen2. How
 
 #### Recommendation summary
 
-- Enable blob versioning for all storage accounts, together with container soft delete and blob soft delete. Enabling blob soft delete together with versioning provides an additional level of protection for deleted versions, and should not increase costs in most scenarios.
-- Store blob data that requires versioning in one storage account, and other data in a different storage account.
+- Enable blob versioning, together with container soft delete and blob soft delete, for storage accounts where you need optimal protection for blob data. Enabling blob soft delete together with versioning provides an additional level of protection for deleted versions, and should not increase costs in most scenarios.
+- When blob versioning is enabled, a new version is created for every write or delete operation on every blob in that storage account. If you have data that may generate a large number of versions and your scenario does not require that capability, then consider storing that data in another account where versioning is not enabled.
+- Use lifecycle management to delete older versions as needed to control costs and reduce latency for blob listing operations.
 - For storage accounts with a hierarchical namespace enabled, use blob snapshots to capture blob data at a given point in time.
 
 To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
@@ -160,9 +161,9 @@ There is no charge to enable blob soft delete for a storage account. Data in sof
 
 ### Configure point-in-time restore for the storage account
 
-Point-in-time restore is a convenient option for automatically restoring block blob data to an earlier point in time. When point-in-time restore is enabled for a storage account, you can restore sets of block blobs to an earlier state within a specified period of time. The retention interval is configured when you enable point-in-time restore for the storage account.
+Point-in-time restore is a convenient option for automatically restoring block blob data to an earlier point in time. When point-in-time restore is enabled for a storage account, you can restore sets of block blobs to their earlier state at a specified point in time. The retention interval is configured when you enable point-in-time restore for the storage account.
 
-Point-in-time restore is a best-effort restore, so it is recommended for scenarios where some amount of data loss is an acceptable risk. Azure Storage cannot guarantee that data will be restored with perfect fidelity. If you need to restore data with greater control and accuracy, or if you need to restore blobs that are not block blobs, then Microsoft recommends restoring from a soft-deleted container or blob, or from a previous version of a blob.
+If you need greater control or higher precision when restoring data, or if you need to restore a container, page blob, or append blob, then Microsoft recommends restoring manually from a soft-deleted container or blob, or from a previous version of a blob.
 
 Point-in-time restore is not currently available for Azure Data Lake Storage Gen2.
 
@@ -170,8 +171,9 @@ For more information about point-in-time restore, see [Point-in-time restore for
 
 #### Recommendation summary
 
-- Use point-in-time restore for a best-effort recovery of block blob data that has been accidentally overwritten or deleted.
-- If you need greater control over the recovery process or maximum possible fidelity and integrity of restored data, then use a manual restore process. In addition to implementing the data protection features described in this guide, consider copying data to a second storage account on a regular basis with a tool like AzCopy.
+- Use point-in-time restore to restore block blob data that has been accidentally overwritten or deleted to a specific point in the past.
+- Point-in-time restore supports restoring against operations that acted on block blobs only. Any operations that acted on containers cannot be restored. For example, if you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a point-in-time restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later.
+- If you need greater control over the recovery process, then use one or more of the manual restoration options. In addition to implementing the data protection features described in this guide, consider copying data to a second storage account on a regular basis. You can use a utility like [AzCopy](../common/storage-use-azcopy-v10.md), a service like [Azure Data Factory](../../data-factory/introduction.md), or Azure Storage [object replication](object-replication-overview.md).
 
 To learn how to enable point-in-time restore and how to perform a restore operation, see [Point-in-time restore for block blobs](point-in-time-restore-overview.md).
 
@@ -195,7 +197,7 @@ To learn how to take a snapshot of a blob in .NET, see [Create and manage a blob
 
 #### Cost considerations
 
-Data in a snapshot is billed based on unique blocks or pages. Costs therefore increase as the base blob diverges from the snapshot. Changing a blob or snapshot's tier may have a billing impact. For more information, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) for blob snapshots.
+Data in a snapshot is billed based on unique blocks or pages. Costs therefore increase as the base blob diverges from the snapshot. Changing a blob or snapshot's tier may have a billing impact. Use lifecycle management to delete older snapshots as needed to control costs. For more information, see [Pricing and billing](snapshots-overview.md#pricing-and-billing) for blob snapshots.
 
 ## Recover deleted or overwritten data
 
@@ -203,8 +205,8 @@ If you should need to recover data that was overwritten or deleted, think about 
 
 - Was the storage account itself deleted?
 - Was data deleted or overwritten maliciously, or by accident?
-- What level of control do you require over the recovery operation?
-- What degree of fidelity and data integrity does your scenario require for the recovered data?
+- What level of control do you require over the recovery process?
+- What degree of precision does your scenario require for the recovery process?
 - What costs can you incur for data recovery?
 
 ### Recover a deleted storage account
@@ -223,15 +225,17 @@ For more information, see [Recover a deleted storage account](../common/storage-
 
 The best way to protect against malicious activity is to prevent write and delete operations altogether. However, the need to prevent malicious activity for a set of data must be balanced against the needs of clients that write to that data. If you cannot prevent write and delete operations, then consider how you can best recover in the event of a malicious act.
 
-A good way to protect against malicious activity is to regularly copy your data to a second storage account with a tool like AzCopy. While this strategy may incur greater costs, it can provide peace of mind that your data is safe. If the data in your storage account is compromised, you can update your application to point to the endpoints for the second storage account.
+A good way to protect against malicious activity is to regularly copy your data to a second storage account. You can copy data by using a utility like [AzCopy](../common/storage-use-azcopy-v10.md) or a service such as [Azure Data Factory](../../data-factory/introduction.md). You can also use Azure Storage [object replication](object-replication-overview.md). Then if the data in your storage account is compromised, you can update your application to point to the endpoints for the second storage account.
 
-Point-in-time restore is a convenient way to restore data to a previous point in time, but it uses information from the storage account to perform the restore. In the case of a malicious act, this information might also be compromised. Additionally, point-in-time restore is a best-effort restore operation, and it may not be able to restore with absolute fidelity to the original data. If you don't have a second storage account that serves as a copy of your data, your best option is to try to recover your data manually by restoring soft-deleted containers and blobs or promoting a previous version of a blob to the current version.
+While this strategy may incur additional costs, it can provide peace of mind that your data is safe. If the second storage account is located in the same region as the source storage account, then you will not be charged for data egress from the source to the copy. If you decide to locate the second storage account in a different region, then you will incur egress charges when copying data to the second account.
+
+Point-in-time restore is a convenient way to restore data to a previous point in time, but it uses information from the same storage account to perform the restore. In the case of a malicious act, this information might also be compromised. If you don't have a second storage account that serves as a copy of your data, your best option may be try to recover your data manually by restoring soft-deleted containers and blobs or promoting a previous version of a blob to the current version.
 
 ### Recover from an accidental action
 
-If data is accidentally overwritten or deleted, then point-in-time restore may be a good option for restoring it to a previous state, with the caveat that absolute fidelity is not guaranteed. Additionally, performing a point-in-time restore operation may be more expensive than using a manual method to recover data.
+If data is accidentally overwritten or deleted, then point-in-time restore may be a good option for restoring it to a previous state. However, performing a point-in-time restore operation may be more expensive and less precise than using a manual method to recover data.
 
-If your scenario requires high fidelity or you are looking for a lower-cost solution, then use a manual restore method to recover the data. To restore soft-deleted containers, call the Restore Container operation. To recover a deleted or overwritten blob, promote a previous blob version to be the current version, or use the Undelete Blob operation. You can also call Undelete Blob to restore a deleted blob version.  
+If your recovery scenario requires greater precision or you are looking for a lower-cost solution, then use a manual restore method to recover the data. To restore soft-deleted containers, call the [Restore Container](/rest/api/storageservices/restore-container) operation. To recover a deleted or overwritten blob, promote a previous blob version to be the current version, or use the [Undelete Blob](/rest/api/storageservices/undelete-blob) operation. You can also call **Undelete Blob** to restore a deleted blob version.  
 
 ## Summary of cost considerations
 
@@ -246,7 +250,7 @@ The following table summarizes the cost considerations for the various data prot
 | Blob soft delete | No charge to enable. Data in soft-deleted blobs is billed at same rate as active data. |
 | Point-in-time restore | No charge to enable. You are billed when you perform a restore operation. The cost of a restore operation depends on the amount of data being restored. Using a manual restore method may be more cost-effective. For more information, see [Pricing and billing](point-in-time-restore-overview.md#pricing-and-billing). |
 | Blob snapshots | Data in a snapshot is billed based on unique blocks or pages. Costs therefore increase as the base blob diverges from the snapshot. Changing a blob or snapshot's tier may have a billing impact. For more information, see [Pricing and billing](snapshots-overview.md#pricing-and-billing). |
-| Copy data to a second storage account | Maintaining data in a second storage account will incur capacity and transaction costs. |
+| Copy data to a second storage account | Maintaining data in a second storage account will incur capacity and transaction costs. If the second storage account is located in a different region than the source account, then copying data to that second account will additionally incur egress charges. |
 
 ## Disaster recovery
 
@@ -256,3 +260,5 @@ In the event that a failure occurs in a data center, if your storage account is 
 
 ## Next steps
 
+- [Azure Storage redundancy](../common/storage-redundancy.md)
+- [Disaster recovery and storage account failover](../common/storage-disaster-recovery-guidance.md)
