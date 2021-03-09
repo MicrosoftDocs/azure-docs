@@ -52,7 +52,7 @@ There are a few other ways that you can initialize a [`SpeechConfig`](/java/api/
 
 ## Recognize from microphone
 
-To recognize speech using your device microphone, create an `AudioConfig` using `fromDefaultMicrophoneInput()`. Then initialize a[`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer), passing your `audioConfig` and `config`.
+To recognize speech using your device microphone, create an `AudioConfig` using `fromDefaultMicrophoneInput()`. Then initialize a [`SpeechRecognizer`](/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer), passing your `audioConfig` and `config`.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;

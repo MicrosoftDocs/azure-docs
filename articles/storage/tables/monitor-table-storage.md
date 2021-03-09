@@ -102,6 +102,8 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
 
 2. In the **Storage account** drop-down list, select the storage account that you want to archive your logs to, click the **OK** button, and then click the **Save** button.
 
+   [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
    > [!NOTE]
    > Before you choose a storage account as the export destination, see [Archive Azure resource logs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) to understand prerequisites on the storage account.
 
@@ -146,12 +148,14 @@ If you choose to archive your logs to a storage account, you'll pay for the volu
 Enable logs by using the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet along with the `StorageAccountId` parameter.
 
 ```powershell
-Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
+Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operations-to-log>
 ```
 
 Replace the `<storage-service-resource--id>` placeholder in this snippet with the resource ID of the table service. You can find the resource ID in the Azure portal by opening the **Properties** page of your storage account.
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **Category** parameter.
+
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
 Here's an example:
 
@@ -215,9 +219,11 @@ Replace the `<storage-service-resource--id>` placeholder in this snippet with th
 
 You can use `StorageRead`, `StorageWrite`, and `StorageDelete` for the value of the **category** parameter.
 
+[!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
+
 Here's an example:
 
-`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
+`az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true}]'`
 
 #### Stream logs to an event hub
 
@@ -252,7 +258,6 @@ Here's an example:
 To view an Azure Resource Manager template that creates a diagnostic setting, see [Diagnostic setting for Azure Storage](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
 ---
-
 
 ## Analyzing metrics
 
