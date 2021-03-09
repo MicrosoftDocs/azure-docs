@@ -58,7 +58,7 @@ To use the new capability, follow these steps:
 
     ![Screenshot that shows the link for adding attributes.](media/how-to-attribute-mapping/mapping-6.png)
 
-6.  Select **Add Attribute**.
+6.  Select **Add attribute**.
 
     ![Screenshot that shows the button for adding an attribute, along with lists of attributes and mapping types.](media/how-to-attribute-mapping/mapping-1.png)
 
@@ -70,9 +70,9 @@ To use the new capability, follow these steps:
     ![Screenshot that shows the filled-in boxes for creating an attribute mapping.](media/how-to-attribute-mapping/mapping-2a.png)
 
 11. Back on the **Attribute mappings** screen, you should see your new attribute mapping.  
-12. Select **Save Schema**.
+12. Select **Save schema**.
 
-    ![Screenshot that shows the Save Schema button.](media/how-to-attribute-mapping/mapping-3.png)
+    ![Screenshot that shows the Save schema button.](media/how-to-attribute-mapping/mapping-3.png)
 
 ## Test your attribute mapping
 
