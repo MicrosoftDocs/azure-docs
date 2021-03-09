@@ -132,4 +132,4 @@ This tutorial showed just one Video Indexer connectors example. You can use the 
 > [!div class="nextstepaction"]
 > [Use the Video Indexer API](video-indexer-use-apis.md)
 
-For additional resources, refer to this document on [video indexer.](https://docs.microsoft.com/connectors/videoindexer-v2/)
+For additional resources, refer to this document on [video indexer.](/connectors/videoindexer-v2/)

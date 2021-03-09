@@ -103,7 +103,7 @@ Use the following procedure to edit a volume group.
 #### To edit a volume group
 1. Click the desktop icon to start StorSimple Snapshot Manager.
 2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Edit**.
-3. The **Create a volume group **dialog box appears. You can change the **Name**, **Applications**, and **Volumes** entries.
+3. The **Create a volume group** dialog box appears. You can change the **Name**, **Applications**, and **Volumes** entries.
 4. Click **OK** to save your changes.
 
 ## Delete a volume group

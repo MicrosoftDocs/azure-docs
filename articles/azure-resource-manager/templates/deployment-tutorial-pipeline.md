@@ -1,7 +1,7 @@
 ---
 title: Continuous integration with Azure Pipelines
 description: Learn how to continuously build, test, and deploy Azure Resource Manager templates (ARM templates).
-ms.date: 08/24/2020
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -34,12 +34,12 @@ To complete this article, you need:
 
 * **A GitHub account**, where you use it to create a repository for your templates. If you don't have one, you can [create one for free](https://github.com). For more information about using GitHub repositories, see [Build GitHub repositories](/azure/devops/pipelines/repos/github).
 * **Install Git**. This tutorial instruction uses *Git Bash* or *Git Shell*. For instructions, see [Install Git](https://www.atlassian.com/git/tutorials/install-git).
-* **An Azure DevOps organization**. If you don't have one, you can create one for free. See [Create an organization or project collection](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
+* **An Azure DevOps organization**. If you don't have one, you can create one for free. See [Create an organization or project collection](/azure/devops/organizations/accounts/create-organization).
 * (optional) **Visual Studio Code with Resource Manager Tools extension**. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Prepare a GitHub repository
 
-GitHub is used to store your project source code including Resource Manager templates. For other supported repositories, see [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
+GitHub is used to store your project source code including Resource Manager templates. For other supported repositories, see [repositories supported by Azure DevOps](/azure/devops/pipelines/repos/).
 
 ### Create a GitHub repository
 
@@ -100,8 +100,8 @@ The _azuredeploy.json_ has been added to the local repository. Next, you upload 
 
     You might get a warning about LF. You can ignore the warning. **main** is the main branch.  You typically create a branch for each update. To simplify the tutorial, you use the main branch directly.
 
-1. Browse to your GitHub repository from a browser. The URL is `https://github.com/[YourAccountName]/[YourGitHubRepository]`. You shall see the _CreateWebApp_ folder and the three files inside the folder.
-1. Select _linkedStorageAccount.json_ to open the template.
+1. Browse to your GitHub repository from a browser. The URL is `https://github.com/[YourAccountName]/[YourGitHubRepository]`. You shall see the _CreateWebApp_ folder and the two files inside the folder.
+1. Select _azuredeploy.json_ to open the template.
 1. Select the **Raw** button. The URL begins with `https://raw.githubusercontent.com`.
 1. Make a copy of the URL. You need to provide this value when you configure the pipeline later in the tutorial.
 
@@ -129,7 +129,7 @@ Create a service connection that is used to deploy projects to Azure.
 
 1. Select **Project settings** from the bottom of the left menu.
 1. Select **Service connections** under **Pipelines**.
-1. Select **New Service connection**, select **Azure Resource Manager**, and then select **Next**.
+1. Select **Create Service connection**, select **Azure Resource Manager**, and then select **Next**.
 1. Select **Service principal**, and then select **Next**.
 1. Enter the following values:
 
@@ -150,7 +150,7 @@ Until now, you have completed the following tasks.  If you skip the previous sec
 To create a pipeline with a step to deploy a template:
 
 1. Select **Pipelines** from the left menu.
-1. Select **New pipeline**.
+1. Select **Create pipeline**.
 1. From the **Connect** tab, select **GitHub**. If asked, enter your GitHub credentials, and then follow the instructions. If you see the following screen, select **Only select repositories**, and verify your repository is in the list before you select **Approve & Install**.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines only select repositories](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
@@ -169,10 +169,10 @@ To create a pipeline with a step to deploy a template:
     * **Action**: Select the **Create Or Update Resource Group** action does 2 actions - 1. create a resource group if a new resource group name is provided; 2. deploy the template specified.
     * **Resource group**: Enter a new resource group name. For example, **AzureRmPipeline-rg**.
     * **Location**: Select a location for the resource group, for example, **Central US**.
-    * **Template location**: Select **Linked artifact**, which means the task looks for the template file directly from the connected repository.
-    * **Template**: Enter _CreateWebApp/azuredeploy.json_. If you changed the folder name and the file name, you need to change this value.
-    * **Template parameters**: Leave this field blank. You will specify the parameter values in the **Override template parameters**.
-    * **Override template parameters**: Enter `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]`. Replace the project name and the linked template URL. The linked template URL is what you wrote down at the end of [Create a GitHub repository](#create-a-github-repository). It starts with `https://raw.githubusercontent.com`.
+    * **Template location**: Select **URL of the file**, which means the task looks for the template file by using the URL. Because _relativePath_ is used in the main template and _relativePath_ is only supported on URI-based deployments, you must use URL here.
+    * **Template link**: Enter the URL that you got at the end of the [Prepare a GitHub repository](#prepare-a-github-repository) section. It starts with `https://raw.githubusercontent.com`.
+    * **Template parameters link**: Leave this field blank. You will specify the parameter values in the **Override template parameters**.
+    * **Override template parameters**: Enter `-projectName [EnterAProjectName]`.
     * **Deployment mode**: Select **Incremental**.
     * **Deployment name**: Enter **DeployPipelineTemplate**. Select **Advanced** before you can see **Deployment name**.
 

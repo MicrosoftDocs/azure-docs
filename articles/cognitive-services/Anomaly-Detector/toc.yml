@@ -16,8 +16,6 @@
   items:
     - name: Visualize anomalies as a batch using Power BI
       href: tutorials/batch-anomaly-detection-powerbi.md
-    - name: Anomaly detection on streaming data using Azure Databricks
-      href: tutorials/anomaly-detection-streaming-databricks.md
 - name: How-to guides
   items:
     - name: Identify anomalies in your data
@@ -38,7 +36,7 @@
         href: ../containers/index.yml
 - name: Concepts
   items: 
-    - name: Anomaly Detection API best practices
+    - name: Anomaly Detector API best practices
       href: concepts/anomaly-detection-best-practices.md
 - name: Reference
   items:

@@ -4,8 +4,8 @@ description: Reference guide to functions in expressions for Azure Logic Apps an
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 09/04/2020
+ms.topic: reference
+ms.date: 02/18/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -295,7 +295,7 @@ For the full reference about each function, see the
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Return an action's output at runtime. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your workflow definition. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Return the inputs and outputs from all the actions inside the specified scoped action, such as `For_each`, `Until`, and `Scope`. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Return the inputs and outputs from the top-level actions inside the specified scoped action, such as `For_each`, `Until`, and `Scope`. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Return a trigger's output at runtime, or from other JSON name-and-value pairs. See also [triggerOutputs](#triggerOutputs) and [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Return a trigger's `body` output at runtime. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Return a single value matching a key name in *form-data* or *form-encoded* trigger outputs. |
@@ -601,10 +601,10 @@ addDays('<timestamp>', <days>, '<format>'?)
 This example adds 10 days to the specified timestamp:
 
 ```
-addDays('2018-03-15T13:00:00Z', 10)
+addDays('2018-03-15T00:00:00Z', 10)
 ```
 
-And returns this result: `"2018-03-25T00:00:0000000Z"`
+And returns this result: `"2018-03-25T00:00:00.0000000Z"`
 
 *Example 2*
 
@@ -614,7 +614,7 @@ This example subtracts five days from the specified timestamp:
 addDays('2018-03-15T00:00:00Z', -5)
 ```
 
-And returns this result: `"2018-03-10T00:00:0000000Z"`
+And returns this result: `"2018-03-10T00:00:00.0000000Z"`
 
 <a name="addHours"></a>
 
@@ -646,7 +646,7 @@ This example adds 10 hours to the specified timestamp:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-And returns this result: `"2018-03-15T10:00:0000000Z"`
+And returns this result: `"2018-03-15T10:00:00.0000000Z"
 
 *Example 2*
 
@@ -656,7 +656,7 @@ This example subtracts five hours from the specified timestamp:
 addHours('2018-03-15T15:00:00Z', -5)
 ```
 
-And returns this result: `"2018-03-15T10:00:0000000Z"`
+And returns this result: `"2018-03-15T10:00:00.0000000Z"`
 
 <a name="addMinutes"></a>
 
@@ -2339,7 +2339,7 @@ guid('<format>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | No | String | A single [format specifier](/dotnet/api/system.guid.tostring?view=netcore-3.1#system_guid_tostring_system_string_) for the returned GUID. By default, the format is "D", but you can use "N", "D", "B", "P", or "X". |
+| <*format*> | No | String | A single [format specifier](/dotnet/api/system.guid.tostring#system_guid_tostring_system_string_) for the returned GUID. By default, the format is "D", but you can use "N", "D", "B", "P", or "X". |
 |||||
 
 | Return value | Type | Description |
@@ -2614,12 +2614,19 @@ This example creates a counter variable and increments that variable by one duri
 
 ### json
 
-Return the JavaScript Object Notation (JSON)
-type value or object for a string or XML.
+Return the JavaScript Object Notation (JSON) type value, object, or array of objects for a string or XML.
 
 ```
 json('<value>')
+json(xml('value'))
 ```
+
+> [!IMPORTANT]
+> Without an XML schema that defines the output's structure, the function might return results 
+> where the structure greatly differs from the expected format, depending on the input.
+>  
+> This behavior makes this function unsuitable for scenarios where the output must conform 
+> to a well-defined contract, for example, in critical business systems or solutions.
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
@@ -2628,12 +2635,12 @@ json('<value>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*JSON-result*> | JSON native type or object | The JSON native type value or object for the specified string or XML. If the string is null, the function returns an empty object. |
+| <*JSON-result*> | JSON native type, object, or array | The JSON native type value, object, or array of objects from the input string or XML. <p><p>- If you pass in XML that has a single child element in the root element, the function returns a single JSON object for that child element. <p> - If you pass in XML that has multiple child elements in the root element, the function returns an array that contains JSON objects for those child elements. <p>- If the string is null, the function returns an empty object. |
 ||||
 
 *Example 1*
 
-This example converts this string to the JSON value:
+This example converts this string into a JSON value:
 
 ```
 json('[1, 2, 3]')
@@ -2643,7 +2650,7 @@ And returns this result: `[1, 2, 3]`
 
 *Example 2*
 
-This example converts this string to JSON:
+This example converts this string into JSON:
 
 ```
 json('{"fullName": "Sophia Owen"}')
@@ -2651,7 +2658,7 @@ json('{"fullName": "Sophia Owen"}')
 
 And returns this result:
 
-```
+```json
 {
   "fullName": "Sophia Owen"
 }
@@ -2659,23 +2666,53 @@ And returns this result:
 
 *Example 3*
 
-This example converts this XML to JSON:
+This example uses the `json()` and `xml()` functions to convert XML that has a single child element in the root element into a JSON object named `person` for that child element:
 
-```
-json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))
-```
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> </root>'))`
 
 And returns this result:
 
 ```json
 {
-   "?xml": { "@version": "1.0" },
+   "?xml": { 
+      "@version": "1.0" 
+   },
    "root": {
-      "person": [ {
+      "person": {
          "@id": "1",
          "name": "Sophia Owen",
          "occupation": "Engineer"
-      } ]
+      }
+   }
+}
+```
+
+*Example 4*
+
+This example uses the `json()` and `xml()` functions to convert XML that has multiple child elements in the root element into an array named `person` that contains JSON objects for those child elements:
+
+`json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> <occupation>Engineer</occupation> </person> <person id='2'> <name>John Doe</name> <occupation>Engineer</occupation> </person> </root>'))`
+
+And returns this result:
+
+```json
+{
+   "?xml": {
+      "@version": "1.0"
+   },
+   "root": {
+      "person": [
+         {
+            "@id": "1",
+            "name": "Sophia Owen",
+            "occupation": "Engineer"
+         },
+         {
+            "@id": "2",
+            "name": "John Doe",
+            "occupation": "Engineer"
+         }
+      ]
    }
 }
 ```
@@ -3517,7 +3554,12 @@ Here's the updated JSON object:
 
 ### result
 
-Return the inputs and outputs from all the actions that are inside the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. This function is useful returning the results from a failed action so that you can diagnose and handle exceptions. For more information, see [Get context and results for failures](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Return the results from the top-level actions in the specified scoped action, such as a `For_each`, `Until`, or `Scope` action. The `result()` function accepts a single parameter, which is the scope's name, and returns an array that contains information from the first-level actions in that scope. These action objects include the same attributes as those returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs.
+
+> [!NOTE]
+> This function returns information *only* from the first-level actions in the scoped action and not from deeper nested actions such as switch or condition actions.
+
+For example, you can use this function to get the results from failed actions so that you can diagnose and handle exceptions. For more information, see [Get context and results for failures](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -3525,17 +3567,17 @@ result('<scopedActionName>')
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | Yes | String | The name of the scoped action from which to return the inputs and outputs from all the inner actions |
+| <*scopedActionName*> | Yes | String | The name of the scoped action where you want the inputs and outputs from the top-level actions inside that scope |
 ||||
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*array-object*> | Array object | An array that contains arrays of inputs and outputs from each action that appears inside the specified scoped action |
+| <*array-object*> | Array object | An array that contains arrays of inputs and outputs from each top-level action inside the specified scope |
 ||||
 
 *Example*
 
-This example returns the inputs and outputs from each iteration of an HTTP action inside that's inside a `For_each` loop by using the `result()` function in the `Compose` action:
+This example returns the inputs and outputs from each iteration of an HTTP action inside that's in a `For_each` loop by using the `result()` function in the `Compose` action:
 
 ```json
 {
@@ -4087,7 +4129,7 @@ This example subtracts one day from this timestamp:
 subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day')
 ```
 
-And returns this result: `"2018-01-01T00:00:00:0000000Z"`
+And returns this result: `"2018-01-01T00:00:00.0000000Z"`
 
 *Example 2*
 
@@ -4140,7 +4182,7 @@ And return these results:
 
 ### ticks
 
-Returns the number of ticks, which are 100-nanosecond intervals, since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#) up to the specified timestamp. For more information, see this topic: [DateTime.Ticks Property (System)](/dotnet/api/system.datetime.ticks?view=netframework-4.7.2#remarks).
+Returns the number of ticks, which are 100-nanosecond intervals, since January 1, 0001 12:00:00 midnight (or DateTime.Ticks in C#) up to the specified timestamp. For more information, see this topic: [DateTime.Ticks Property (System)](/dotnet/api/system.datetime.ticks).
 
 ```
 ticks('<timestamp>')

@@ -239,7 +239,12 @@ To add a command tile to reboot the gateway:
 
 1. Optionally, select the **Reboot** tile to run the reboot command on your gateway.
 
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## Next steps
+
 In this tutorial, you learned how to:
 
 * Change the dashboard name

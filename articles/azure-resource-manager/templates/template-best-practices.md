@@ -20,7 +20,7 @@ You're also limited to:
 * 64 output values
 * 24,576 characters in a template expression
 
-You can exceed some template limits by using a nested template. For more information, see [Using linked and nested templates when deploying Azure resources](linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+You can exceed some template limits by using a nested template. For more information, see [Using linked and nested templates when deploying Azure resources](linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 ## Resource group
 
@@ -270,6 +270,8 @@ The following information can be helpful when you work with [resources](template
 
    > [!NOTE]
    > To ensure that secrets are encrypted when they are passed as parameters to VMs and extensions, use the `protectedSettings` property of the relevant extensions.
+
+* Specify explicit values for properties that have default values that could change over time. For example, if you are deploying an AKS cluster, you can either specify or omit the `kubernetesVersion` property. If you don't specify it, then [the cluster is defaulted to the N-1 minor version and latest patch](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). When you deploy the cluster using an ARM template, this default behavior might not be what you expect. Redeploying your template may result in the cluster being upgraded to a new Kubernetes version unexpectedly. Instead, consider specifying an explicit version number and then manually changing it when you are ready to upgrade your cluster.
 
 ## Use test toolkit
 

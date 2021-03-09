@@ -8,8 +8,7 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
@@ -41,8 +40,8 @@ SAP systems often contain sensitive business data. It is rarely acceptable for V
 
 Examples of scenarios, requiring access to Azure public end point are:  
 - Azure Fence Agent requires access to **management.azure.com** and **login.microsoftonline.com**  
-- [Azure Backup](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity)
-- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-urls)  
+- [Azure Backup](../../../backup/tutorial-backup-sap-hana-db.md#set-up-network-connectivity)
+- [Azure Site Recovery](../../../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-for-urls)  
 - Using public repository for patching the Operating system
 - The SAP application data flow may require outbound connectivity to public end point
 
@@ -96,7 +95,7 @@ The configuration would look like:
 2. Create Backend pool **MyBackendPoolOfPublicILB** and add the VMs.  
    1. Select the Virtual network  
    1. Select the VMs and their IP addresses and add them to the backend pool  
-3. [Create outbound rules](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). Currently it is not possible to create outbound rules from the Azure portal. You can create outbound rules with [Azure CLI](../../../cloud-shell/overview.md?view=azure-cli-latest).  
+3. [Create outbound rules](../../../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard%3ftabs%3doption-1-create-load-balancer-standard#create-outbound-rule-configuration). Currently it is not possible to create outbound rules from the Azure portal. You can create outbound rules with [Azure CLI](../../../cloud-shell/overview.md).  
 
    ```azurecli
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup

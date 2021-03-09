@@ -118,7 +118,9 @@ In your Conditional Access policy, you can require an [Intune app protection pol
 
 In order to leverage this grant control, Conditional Access requires that the device be registered in Azure Active Directory which requires the use of a broker app. The broker app can be either the Microsoft Authenticator for iOS, or the Microsoft Company portal for Android devices. If a broker app is not installed on the device when the user attempts to authenticate, the user gets redirected to the app store to install the broker app.
 
-This setting applies to the following client apps:
+Applications are required to have the **Intune SDK** with **Policy Assurance** implemented and meet certain other requirements to support this setting. Developers implementing applications with the Intune SDK can find more information in the SDK documentation on these requirements.
+
+The following client apps have been confirmed to support this setting:
 
 - Microsoft Cortana
 - Microsoft Edge
@@ -136,7 +138,7 @@ This setting applies to the following client apps:
 - Nine Mail - Email & Calendar
 
 > [!NOTE]
-> Microsoft Kaizala, Microsoft Skype for Business and Microsoft Visio do not support the **Require app protection policy** grant. If you require these apps to work, please use the **Require approved apps** grant exclusively. The use of the or clause between the two grants will not work for these three applications.
+> Microsoft Teams, Microsoft Kaizala, Microsoft Skype for Business and Microsoft Visio do not support the **Require app protection policy** grant. If you require these apps to work, please use the **Require approved apps** grant exclusively. The use of the or clause between the two grants will not work for these three applications.
 
 **Remarks**
 

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 frequently asked questions| Microsoft Docs
+title: Azure Media Services v3 frequently asked questions
 description: This article gives answers to frequently asked questions about Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -22,6 +22,14 @@ ms.author: inhenkel
 This article gives answers to frequently asked questions about Azure Media Services v3.
 
 ## General
+
+### Does Media Services store any customer data outside of the service region?
+
+- Customers attach their own storage accounts to their Azure Media Services account.  All asset data is stored in these associated storage accounts and the customer controls the location and replication type of this storage.
+- Additional data associated with the Media Services account (including Content Encryption Keys, token verification keys, JobInputHttp urls, and other entity metadata) is stored in Microsoft owned storage within the region selected for the Media Services account.
+    - Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, the additional account data is stored in a zone-redundant fashion and is contained in a single region. For Southeast Asia, all the additional account data is stored in Singapore and for Brazil South, the data is stored in Brazil.
+    - In regions other than Brazil South and Southeast Asia, the additional account data may also be stored in Microsoft owned storage in the [paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+- Azure Media Services is a regional service and does not provide [high availability](media-services-high-availability-encoding.md) or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions.  A sample showing how to build a solution for High Availability with Media Services Video on Demand is available as a guide.
 
 ### What are the Azure portal limitations for Media Services v3?
 
@@ -57,7 +65,7 @@ When you're using pagination, you should always use the next link to enumerate t
 
 ### What features are not yet available in Azure Media Services v3?
 
-For details, see [Feature gaps with respect to v2 APIs](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+For details, see [the Migration Guide](migrate-v-2-v-3-migration-introduction.md).
 
 ### What is the process of moving a Media Services account between subscriptions?  
 
@@ -166,7 +174,7 @@ For all other management tasks (for example, [Transforms and Jobs](transforms-jo
 
 The `AssetFile` concept was removed from the Media Services API to separate Media Services from Storage SDK dependency. Now Azure Storage, not Media Services, keeps the information that belongs in the Storage SDK. 
 
-For more information, see [Migrate to Media Services v3](media-services-v2-vs-v3.md).
+For more information, see [Migrate to Media Services v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### Where did client-side storage encryption go?
 

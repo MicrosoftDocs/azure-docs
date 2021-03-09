@@ -102,7 +102,7 @@ To configure Azure AD single sign-on with Bridge, perform the following steps:
     `https://<company name>.bridgeapp.com`
 
     > [!NOTE]
-    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Bridge Client support team](https://community.bridgeapp.com/community/help) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Bridge Client support team](https://community.bridgeapp.com/hc/en-us/community/topics) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
 
@@ -120,7 +120,7 @@ To configure Azure AD single sign-on with Bridge, perform the following steps:
 
 ### Configure Bridge Single Sign-On
 
-To configure single sign-on on **Bridge** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Bridge support team](https://community.bridgeapp.com/community/help). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Bridge** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Bridge support team](https://community.bridgeapp.com/hc/en-us/community/topics). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -175,7 +175,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Bridge test user
 
-In this section, you create a user called Britta Simon in Bridge. Work with [Bridge support team](https://community.bridgeapp.com/community/help) to add the users in the Bridge platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Bridge. Work with [Bridge support team](https://community.bridgeapp.com/hc/en-us/community/topics) to add the users in the Bridge platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 

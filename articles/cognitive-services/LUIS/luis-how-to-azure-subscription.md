@@ -168,7 +168,7 @@ You can control who can see your LUIS prediction runtime endpoint key by calling
 
 ### Create resources in the Azure CLI
 
-Use the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) to create each resource individually.
+Use the [Azure CLI](/cli/azure/install-azure-cli) to create each resource individually.
 
 Resource `kind`:
 
@@ -231,6 +231,10 @@ For automated processes like CI/CD pipelines, you might want to automate the ass
 
 1. Get an Azure Resource Manager token from [this website](https://resources.azure.com/api/token?plaintext=true). This token does expire, so use it right away. The request returns an Azure Resource Manager token.
 
+    ```azurecli
+    az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
+    ```
+    
     ![Screenshot that shows the website for requesting an Azure Resource Manager token.](./media/luis-manage-keys/get-arm-token.png)
 
 1. Use the token to request the LUIS runtime resources across subscriptions. Use the [Get LUIS Azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), which your user account has access to.

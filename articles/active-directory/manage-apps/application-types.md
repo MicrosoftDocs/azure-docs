@@ -3,7 +3,7 @@ title: Viewing apps using your Azure Active Directory tenant for identity manage
 description: Understand how to view all applications using your Azure Active Directory tenant for identity management.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

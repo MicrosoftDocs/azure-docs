@@ -1,20 +1,11 @@
 ---
 title: Session log in copy activity 
 description: 'Learn about how to enable session log in copy activity in Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: 
-ms.reviewer: 
-
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-
 ---
 #  Session log in copy activity
 
@@ -61,7 +52,7 @@ The following example provides a JSON definition to enable session log in Copy A
                "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
             },
-			"path": "sessionlog/"
+            "path": "sessionlog/"
         }
     }
 }
@@ -91,7 +82,7 @@ After the copy activity runs completely, you can see the path of log files from 
             "filesSkipped": 2, 
             "throughput": 297,
             "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
-			"dataConsistencyVerification": 
+            "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
                 "InconsistentData": "Skipped" 
@@ -100,6 +91,9 @@ After the copy activity runs completely, you can see the path of log files from 
 
 ```
 
+> [!NOTE]
+> When the `enableCopyActivityLog` property is set to `Enabled`, the log file names are system generated.
+
 ### The schema of the log file
 
 The following is the schema of a log file.
@@ -107,8 +101,8 @@ The following is the schema of a log file.
 Column | Description 
 -------- | -----------  
 Timestamp | The timestamp when ADF reads, writes, or skips the object.
-Level | The log level of this item. It can be 'Warning' or “Info”.
-OperationName | ADF copy activity operational behavior on each object. It can be ‘FileRead’,’ FileWrite’, 'FileSkip', or ‘TabularRowSkip’.
+Level | The log level of this item. It can be 'Warning' or "Info".
+OperationName | ADF copy activity operational behavior on each object. It can be 'FileRead',' FileWrite', 'FileSkip', or 'TabularRowSkip'.
 OperationItem | The file names or skipped rows.
 Message | More information to show if the file has been read from source store, or written to the destination store. It can also be why the file or rows has being skipped.
 
@@ -156,7 +150,7 @@ select OperationItem from SessionLogDemo where OperationName='FileSkip'
 select TIMESTAMP, OperationItem, Message from SessionLogDemo where OperationName='FileSkip'
 ```
 
--   Give me the list of files skipped due to the same reason: “blob file does not exist”. 
+-   Give me the list of files skipped due to the same reason: "blob file does not exist". 
 ```sql
 select TIMESTAMP, OperationItem, Message from SessionLogDemo where OperationName='FileSkip' and Message like '%UserErrorSourceBlobNotExist%'
 ```

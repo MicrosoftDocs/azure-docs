@@ -6,11 +6,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 03/05/2021
 ms.author: alkohli
 ---
 
 # Open a support ticket for Azure Stack Edge Pro and Azure Data Box Gateway
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-databox-gateway-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-databox-gateway-sku.md)]
 
 This article applies to Azure Stack Edge Pro and Azure Data Box Gateway both of which are managed by the Azure Stack Edge Pro / Azure Data Box Gateway service. If you encounter any issues with your service, you can create a service request for technical support. This article walks you through:
 
@@ -94,4 +96,4 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 ## Next steps
 
 Learn how to [Troubleshoot issues related to Azure Stack Edge Pro](azure-stack-edge-troubleshoot.md).
-Learn how to [Troubleshoot issues related to Data Box Gateway](data-box-gateway-troubleshoot.md).
+Learn how to [Troubleshoot issues related to Data Box Gateway](../databox-gateway/data-box-gateway-troubleshoot.md).

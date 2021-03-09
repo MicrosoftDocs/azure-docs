@@ -32,6 +32,8 @@ By default, your app routes only RFC1918 traffic into your VNet. If you want to 
 
 > [!NOTE]
 > If you route all of your outbound traffic into your VNet, it's subject to the NSGs and UDRs that are applied to your integration subnet. When you route all of your outbound traffic into your VNet, your outbound addresses are still the outbound addresses that are listed in your app properties unless you provide routes to send the traffic elsewhere.
+> 
+> Regional VNet integration is not able to use port 25.
 
 There are some limitations with using VNet Integration with VNets in the same region:
 
@@ -42,7 +44,6 @@ There are some limitations with using VNet Integration with VNets in the same re
 * The feature requires an unused subnet that's a /28 or larger in an Azure Resource Manager VNet.
 * The app and the VNet must be in the same region.
 * You can't delete a VNet with an integrated app. Remove the integration before you delete the VNet.
-* You can only integrate with VNets in the same subscription as the app.
 * You can have only one regional VNet Integration per App Service plan. Multiple apps in the same App Service plan can use the same VNet.
 * You can't change the subscription of an app or a plan while there's an app that's using regional VNet Integration.
 * Your app cannot resolve addresses in Azure DNS Private Zones without configuration changes

@@ -1,16 +1,20 @@
 ---
 title: Manage server - Azure portal - Azure Database for MySQL
 description: Learn how to manage an Azure Database for MySQL server from the Azure portal.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 3/18/2020
+ms.date: 1/26/2021
 ---
 
 # Manage an Azure Database for MySQL server using the Azure portal
 
 This article shows you how to manage your Azure Database for MySQL servers. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
+
+> [!NOTE]
+> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+>
 
 ## Sign in
 
@@ -78,6 +82,13 @@ You can change the administrator role's password using the Azure portal.
    :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot of Azure portal to reset your password and save in Azure Database for MySQL":::
 
 3. Select **OK** to save the new password.
+ 
+
+> [!IMPORTANT]
+> Resetting server admin password will automatically reset the server admin privileges to default. Consider resetting your server admin password if you accidentally revoked one or more of the server admin privileges.
+   
+> [!NOTE]
+> Server admin user has the following privileges by default: SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER
 
 ## Delete a server
 

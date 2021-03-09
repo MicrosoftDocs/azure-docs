@@ -97,4 +97,4 @@ Certain browsers support showing timestamps in the "Console" tab. For Chromium E
 ![show time stamp](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## Next steps
-If the previous steps don't help to resolve your issue [Create a support ticket](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+If the previous steps don't help to resolve your issue [Create a support ticket](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

@@ -39,7 +39,7 @@ Examples of recommendations you might see in these two controls on Security Cent
 - Deprecated accounts should be removed from your subscription (Deprecated accounts are accounts that are no longer needed, and blocked from signing in by Azure Active Directory)
 
 > [!TIP]
-> For more information about these recommendations and the others you might see in these controls, see [Identity and Access recommendations](recommendations-reference.md#recs-identity).
+> For more information about these recommendations and the others you might see in these controls, see [Identity and Access recommendations](recommendations-reference.md#recs-identityandaccess).
 
 ### Limitations
 

@@ -1,6 +1,5 @@
 ---
 title: Media Services architectures
-titleSuffix: Azure Media Services
 description: This article describes architectures for Media Services.
 services: media-services
 documentationcenter: ''
@@ -26,7 +25,7 @@ A live streaming solution allows you to capture video in real-time and broadcast
 
 This solution is built on the Azure managed services: Media Services and Content Delivery Network. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
-See [Live streaming digital media](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-live-stream) in the Azure Architecture center.
+See [Live streaming digital media](/azure/architecture/solution-ideas/articles/digital-media-live-stream) in the Azure Architecture center.
 
 ## Video-on-demand digital media
 
@@ -34,13 +33,13 @@ A basic video-on-demand solution that gives you the capability to stream recorde
 
 This solution is built on the Azure managed services: Blob Storage, Content Delivery Network and Azure Media Player. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
-See [Video-on-demand digital media](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/digital-media-video) in the Azure Architecture center.
+See [Video-on-demand digital media](/azure/architecture/solution-ideas/articles/digital-media-video) in the Azure Architecture center.
 
 ## Gridwich media processing system
 
 The Gridwich system embodies best practices for processing and delivering media assets on Azure. Although the Gridwich system is media-specific, the message processing and eventing framework can apply to any stateless event processing workflow.
 
-See [Gridwich media processing system](https://docs.microsoft.com/azure/architecture/reference-architectures/media-services/gridwich-architecture) in the Azure Architecture center.
+See [Gridwich media processing system](/azure/architecture/reference-architectures/media-services/gridwich-architecture) in the Azure Architecture center.
 
 ## Next steps
 

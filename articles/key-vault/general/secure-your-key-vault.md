@@ -22,7 +22,7 @@ For more information on Key Vault, see [About Azure Key Vault](overview.md); for
 
 Access to a key vault is controlled through two interfaces: the **management plane** and the **data plane**. The management plane is where you manage Key Vault itself. Operations in this plane include creating and deleting key vaults, retrieving Key Vault properties, and updating access policies. The data plane is where you work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
 
-Both planes use [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) for authentication. For authorization, the management plane uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and the data plane uses a [Key Vault access policy](./assign-access-policy-portal.md) and [Azure RBAC for Key Vault data plane operations (preview)](./rbac-guide.md).
+Both planes use [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) for authentication. For authorization, the management plane uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and the data plane uses a [Key Vault access policy](./assign-access-policy-portal.md) and [Azure RBAC for Key Vault data plane operations](./rbac-guide.md).
 
 To access a key vault in either plane, all callers (users or applications) must have proper authentication and authorization. Authentication establishes the identity of the caller. Authorization determines which operations the caller can execute. Authentication with Key Vault works in conjunction with [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md), which is responsible for authenticating the identity of any given **security principal**.
 
@@ -32,7 +32,7 @@ A security principal is an object that represents a user, group, service, or app
 
 * A **group** security principal identifies a set of users created in Azure Active Directory. Any roles or permissions assigned to the group are granted to all of the users within the group.
 
-* A **service principal** is a type of security principal that identities an application or service, which is to say, a piece of code rather than a user or group. A service principal's object ID is known as its **client ID** and acts like its username. The service principal's **client secret** or **certificate** acts like its password. Many Azure Services supports assigning [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) with automated management of **client ID** and **certificate**. Managed identity is the most secure and recommended option for authenticating within Azure.
+* A **service principal** is a type of security principal that identifies an application or service, which is to say, a piece of code rather than a user or group. A service principal's object ID is known as its **client ID** and acts like its username. The service principal's **client secret** or **certificate** acts like its password. Many Azure Services supports assigning [Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) with automated management of **client ID** and **certificate**. Managed identity is the most secure and recommended option for authenticating within Azure.
 
 For more information about authentication to Key Vault, see [Authenticate to Azure Key Vault](authentication.md)
 
@@ -108,7 +108,7 @@ When an Azure role is assigned to an Azure AD security principal, Azure grants a
 
 Key benefits of using Azure RBAC permission over vault access policies are centralized access control management and its integration with [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md). Privileged Identity Management provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 
-For more information about Key Vault data plane with Azure RBAC, see [Key Vault keys, certificates, and secrets with an Azure role-based access control (preview)](rbac-guide.md)
+For more information about Key Vault data plane with Azure RBAC, see [Key Vault keys, certificates, and secrets with an Azure role-based access control](rbac-guide.md)
 
 ## Firewalls and virtual networks
 
@@ -179,13 +179,13 @@ We need to authorize the following operations for our roles:
 
 The following table summarizes the access permissions for our roles and application.
 
-| Role | Management plane permissions | Data plane permissions - vault access policies | Data plane permissions -Azure RBAC (preview)  |
+| Role | Management plane permissions | Data plane permissions - vault access policies | Data plane permissions -Azure RBAC  |
 | --- | --- | --- | --- |
-| Security team | [Key Vault Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificates: all operations <br> Keys: all operations <br> Secrets: all operations | [Key Vault Administrator (preview)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
+| Security team | [Key Vault Contributor](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificates: all operations <br> Keys: all operations <br> Secrets: all operations | [Key Vault Administrator](../../role-based-access-control/built-in-roles.md#key-vault-administrator) |
 | Developers and&nbsp;operators | Key Vault deploy permission<br><br> **Note**: This permission allows deployed VMs to fetch secrets from a key vault. | None | None |
-| Auditors | None | Certificates: list <br> Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. | [Key Vault Reader (preview)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
-| Azure Storage Account | None | Keys: get, list, wrapKey, unwrapKey <br> | [Key Vault Crypto Service Encryption User](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
-| Application | None | Secrets: get, list <br> Certificates: get, list | [Key Vault Reader (preview)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [Key Vault Secret User (preview)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
+| Auditors | None | Certificates: list <br> Keys: list<br>Secrets: list<br><br> **Note**: This permission enables auditors to inspect attributes (tags, activation dates, expiration dates) for keys and secrets not emitted in the logs. | [Key Vault Reader](../../role-based-access-control/built-in-roles.md#key-vault-reader) |
+| Azure Storage Account | None | Keys: get, list, wrapKey, unwrapKey <br> | [Key Vault Crypto Service Encryption User](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
+| Application | None | Secrets: get, list <br> Certificates: get, list | [Key Vault Reader](../../role-based-access-control/built-in-roles.md#key-vault-reader), [Key Vault Secret User](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user) |
 
 The three team roles need access to other resources along with Key Vault permissions. To deploy VMs (or the Web Apps feature of Azure App Service), developers and operators need deploy access. Auditors need read access to the Storage account where the Key Vault logs are stored.
 

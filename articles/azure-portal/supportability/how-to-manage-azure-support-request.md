@@ -10,7 +10,7 @@ ms.date: 12/14/2020
 
 # Manage an Azure support request
 
-After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support).
+After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support), or by using [Azure CLI](/cli/azure/azure-cli-support-request).
 
 ## View support requests
 
@@ -84,34 +84,34 @@ Follow these guidelines when you use the file upload option:
 * Files can't be larger than 4 MB.
 * All files must have a file name extension, such as *.docx* or *.xlsx*. The following table shows the filename extensions that are allowed for upload.
 
-| 0-9, A-C     | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
+| 0-9, A-C    | D-G   | H-N         | O-Q   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
-| .7z         | .dat  | .har        | .odx  | .rar     | .tdb       | .xlam   |
-| .a          | .db   | .hwl        | .oft  | .rdl     | .tdf       | .xlr    |
-| .abc        | .DMP  | .ics        | .old  | .rdlc    | .text      | .xls    |
-| .adm        | .do_  | .ini        | .one  | .re_     | .thmx      | .xlsb   |
-| .aspx       | .doc  | .java       | .osd  | .reg     | .tif       | .xlsm   |
-| .ATF        | .docm | .jpg        | .OUT  | .remove  | .trc       | .xlsx   |
-| .b          | .docx | .LDF        | .p1   | .ren     | .TTD       | .xlt    |
-| .ba_        | .dotm | .letterhead | .pcap | .rename  | .tx_       | .xltx   |
-| .bak        | .dotx | .lnk        | .pdb  | .rft     | .txt       | .xml    |
-| .bat        | .dtsx | .lo_        | .pdf  | .rpt     | .uccapilog | .xmla   |
-| .blg        | .eds  | .log        | .piz  | .rte     | .uccplog   | .xps    |
-| .CA_        | .emf  | .lpk        | .pmls | .rtf     | .udcx      | .xsd    |
-| .CAB        | .eml  | .manifest   | .png  | .run     | .vb_       | .xsn    |
-| .cap        | .emz  | .master     | .potx | .saz     | .vbs_      | .xxx    |
-| .catx       | .err  | .mdmp       | .ppt  | .sql     | .vcf       | .z_     |
-| .CFG        | .etl  | .mof        | .pptm | .sqlplan | .vsd       | .z01    |
-| .compressed | .evt  | .mp3        | .pptx | .stp     | .wdb       | .z02    |
-| .Config     | .evtx | .mpg        | .prn  | .svclog  | .wks       | .zi     |
-| .cpk        | .EX   | .ms_        | .psf  | -        | .wma       | .zi_    |
-| .cpp        | .ex_  | .msg        | .pst  | -        | .wmv       | .zip    |
-| .cs         | .ex0  | .msi        | .pub  | -        | .wmz       | .zip_   |
-| .CSV        | .FRD  | .mso        | -     | -        | .wps       | .zipp   |
-| .cvr        | .gif  | .msu        | -     | -        | .wpt       | .zipped |
-| -           | .guid | .nfo        | -     | -        | .wsdl      | .zippy  |
-| -           | .gz   | -           | -     | -        | .wsp       | .zipx   |
-| -           | -     | -           | -     | -        | .wtl       | .zit    |
+| .7z         | .dat  | .har        | .odx  | .rar     | .uccapilog | .xlam   |
+| .a          | .db   | .hwl        | .oft  | .rdl     | .uccplog   | .xlr    |
+| .abc        | .DMP  | .ics        | .old  | .rdlc    | .udcx      | .xls    |
+| .adm        | .do_  | .ini        | .one  | .re_     | .vb_       | .xlsb   |
+| .aspx       | .doc  | .java       | .osd  | .remove  | .vbs_      | .xlsm   |
+| .ATF        | .docm | .jpg        | .OUT  | .ren     | .vcf       | .xlsx   |
+| .b          | .docx | .LDF        | .p1   | .rename  | .vsd       | .xlt    |
+| .ba_        | .dotm | .letterhead | .pcap | .rft     | .wdb       | .xltx   |
+| .bak        | .dotx | .lo_        | .pdb  | .rpt     | .wks       | .xml    |
+| .blg        | .dtsx | .log        | .pdf  | .rte     | .wma       | .xmla   |
+| .CA_        | .eds  | .lpk        | .piz  | .rtf     | .wmv       | .xps    |
+| .CAB        | .emf  | .manifest   | .pmls | .run     | .wmz       | .xsd    |
+| .cap        | .eml  | .master     | .png  | .saz     | .wps       | .xsn    |
+| .catx       | .emz  | .mdmp       | .potx | .sql     | .wpt       | .xxx    |
+| .CFG        | .err  | .mof        | .ppt  | .sqlplan | .wsdl      | .z_     |
+| .compressed | .etl  | .mp3        | .pptm | .stp     | .wsp       | .z01    |
+| .Config     | .evt  | .mpg        | .pptx | .svclog  | .wtl       | .z02    |
+| .cpk        | .evtx | .ms_        | .prn  | .tdb     | -          | .zi     |
+| .cpp        | .EX   | .msg        | .psf  | .tdf     | -          | .zi_    |
+| .cs         | .ex_  | .mso        | .pst  | .text    | -          | .zip    |
+| .CSV        | .ex0  | .msu        | .pub  | .thmx    | -          | .zip_   |
+| .cvr        | .FRD  | .nfo        | -     | .tif     | -          | .zipp   |
+| -           | .gif  | -           | -     | .trc     | -          | .zipped |
+| -           | .guid | -           | -     | .TTD     | -          | .zippy  |
+| -           | .gz   | -           | -     | .tx_     | -          | .zipx   |
+| -           | -     | -           | -     | .txt     | -          | .zit    |
 | -           | -     | -           | -     | -        | -          | .zix    |
 | -           | -     | -           | -     | -        | -          | .zzz    |
 

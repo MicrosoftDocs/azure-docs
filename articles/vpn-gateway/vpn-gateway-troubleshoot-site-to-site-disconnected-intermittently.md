@@ -8,7 +8,7 @@ author: chadmath
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 10/30/2018
+ms.date: 02/10/2021
 ms.author: genli
 ---
 
@@ -63,6 +63,5 @@ The **Perfect Forward Secrecy** feature can cause the disconnection problems. If
 
 ## Next steps
 
-- [Configure a Site-to-Site connection to a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Configure a Site-to-Site connection to a virtual network](./tutorial-site-to-site-portal.md)
 - [Configure IPsec/IKE policy for Site-to-Site VPN connections](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-

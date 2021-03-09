@@ -95,7 +95,7 @@ In some cases, customers with regulatory constraints or strict security requirem
 
 There are two modes of [deploying API Management into a VNet](./api-management-using-with-vnet.md) – External and Internal. 
 
-If API consumers do not reside in the cluster VNet, the External mode (Fig. 4) should be used. In this mode, the API Management gateway is injected into the cluster VNet but accessible from public internet via an external load balancer. It helps to hide the cluster completely while still allow external clients to consume the microservices. Additionally, you can use Azure networking capabilities such as Network Security Groups (NSG) to restrict network traffic.
+If API consumers do not reside in the cluster VNet, the External mode (Fig. 4) should be used. In this mode, the API Management gateway is injected into the cluster VNet but accessible from public internet via an external load balancer. It helps to hide the cluster completely while still allowing external clients to consume the microservices. Additionally, you can use Azure networking capabilities such as Network Security Groups (NSG) to restrict network traffic.
 
 ![External VNet mode](./media/api-management-aks/vnet-external.png)
 

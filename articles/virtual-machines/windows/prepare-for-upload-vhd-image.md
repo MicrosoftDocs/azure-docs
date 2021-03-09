@@ -486,7 +486,7 @@ generalized disk, see
 > [microsoft-windows-shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup)
 > options into the *unattend.xml* file that the Azure provisioning agent uses. You can use, for
 > example,
-> [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true)
+> [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent)
 > to add FirstLogonCommands and LogonCommands. For more information, see
 > [additionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 

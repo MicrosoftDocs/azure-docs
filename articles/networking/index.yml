@@ -26,10 +26,10 @@ highlightedContent:
       url: https://azure.microsoft.com/updates/?category=networking
     - title: Load-balancing options in Azure
       itemType: architecture
-      url: https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview
+      url: /azure/architecture/guide/technology-choices/load-balancing-overview
     - title: Hub-spoke network topology in Azure
       itemType: architecture
-      url: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
     - title: What is Azure Orbital?
       itemType: concept
       url: azure-orbital-overview.md
@@ -65,7 +65,7 @@ conceptualContent:
         - url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
           itemType: overview
           text: What is Azure VPN Gateway? 
-        - url: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
+        - url: ../vpn-gateway/tutorial-site-to-site-portal.md
           itemType: tutorial
           text: Site-to-site-connections 
         - url: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
@@ -158,7 +158,7 @@ conceptualContent:
         - url: ../application-gateway/quick-create-portal.md
           itemType: quickstart
           text:  Direct web traffic using the portal
-        - url: ../application-gateway/application-gateway-faq.md
+        - url: ../application-gateway/application-gateway-faq.yml
           itemType: concept
           text:  Frequently asked questions
         - url: ../application-gateway/application-gateway-troubleshooting-502.md
@@ -169,20 +169,21 @@ conceptualContent:
         text: See more
 
 
-    - title: Global load balancer 
+    - title: Secure cloud CDN and global load balancer
       links: 
         - url: ../frontdoor/front-door-overview.md
           itemType: overview
           text:  What is Azure Front Door Service?
+        - url: ../frontdoor/standard-premium/overview.md
+          itemType: overview
+          text: What is Azure Front Door Standard/Premium (Preview)?
         - url: ../frontdoor/front-door-custom-domain.md
           itemType: how-to-guide
           text:  Add a custom domain to your Azure Front Door Service
         - url: ../frontdoor/front-door-how-to-redirect-https.md
           itemType: how-to-guide
           text:  HTTP to HTTPS redirection
-        - url: ../frontdoor/front-door-troubleshoot-routing.md
-          itemType: how-to-guide
-          text: Troubleshoot routing issues 
+
       footerLink: 
         url: ../frontdoor/index.yml
         text: See more
@@ -222,7 +223,7 @@ conceptualContent:
         - url: ../bastion/bastion-overview.md
           itemType: overview
           text:  What is Azure Bastion?
-        - url: ../bastion/bastion-create-host-portal.md
+        - url: ../bastion/tutorial-create-host-portal.md
           itemType: how-to-guide
           text:  Create an Azure Bastion host
         - url: ../bastion/troubleshoot.md
@@ -354,10 +355,10 @@ additionalContent:
     - items:
       - title: Azure PowerShell commands for Azure networking
         summary: Learn about the Azure network Cmdlets. 
-        url: https://docs.microsoft.com/en-us/powershell/module/az.network/?view=azps-3.5.0#networking
+        url: /powershell/module/az.network/#networking
       - title: Azure CLI commands for Azure networking
         summary: Find the Azure network commands in the CLI reference.
-        url: https://docs.microsoft.com/en-us/cli/azure/network?view=azure-cli-latest
+        url: /cli/azure/network
       - title: Azure networking blogs
         summary: View the latest blogs in Azure networking.
         url: https://azure.microsoft.com/blog/topics/networking/

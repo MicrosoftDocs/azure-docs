@@ -35,7 +35,7 @@ You will learn how to:
 ## Prerequisites
 
 * Complete the quickstart [Create an Azure API Management instance](get-started-create-service-instance.md).
-* Make sure you have an Azure Functions app in your subscription. For more information, see [Create an Azure Function App](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). It has to contain Functions with HTTP trigger and authorization level setting set to *Anonymous* or *Function*.
+* Make sure you have an Azure Functions app in your subscription. For more information, see [Create an Azure Function App](../azure-functions/functions-get-started.md). It has to contain Functions with HTTP trigger and authorization level setting set to *Anonymous* or *Function*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

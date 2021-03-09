@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/11/2021
 ms.author: victorh
 ---
 
@@ -20,6 +20,9 @@ If your organization uses a public IP address range for private networks, Azure 
 - To configure Azure Firewall to **never** SNAT regardless of the destination IP address, use **0.0.0.0/0** as your private IP address range. With this configuration, Azure Firewall can never route traffic directly to the Internet. 
 
 - To configure the firewall to **always** SNAT regardless of the destination address, use **255.255.255.255/32** as your private IP address range.
+
+> [!IMPORTANT]
+> The private address range that you specify only applies to network rules. Currently, application rules always SNAT.
 
 > [!IMPORTANT]
 > If you want to specify your own private IP address ranges, and keep the default IANA RFC 1918 address ranges, make sure your custom list still includes the IANA RFC 1918 range. 
@@ -50,7 +53,7 @@ New-AzFirewall @azFw
 > [!NOTE]
 > IANAPrivateRanges is expanded to the current defaults on Azure Firewall while the other ranges are added to it. To keep the IANAPrivateRanges default in your private range specification, it must remain in your `PrivateRange` specification as shown in the following examples.
 
-For more information, see [New-AzFirewall](/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
+For more information, see [New-AzFirewall](/powershell/module/az.network/new-azfirewall).
 
 ### Existing firewall
 

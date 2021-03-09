@@ -405,7 +405,7 @@ Now an AKS cluster can be deployed into the existing virtual network. We'll also
 
 ### Create a service principal with access to provision inside the existing virtual network
 
-A service principal is used by AKS to create cluster resources. The service principal that is passed at create time is used to create underlying AKS resources such as Storage resources, IPs, and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
+A cluster identity (managed identity or service principal) is used by AKS to create cluster resources. A service principal that is passed at create time is used to create underlying AKS resources such as Storage resources, IPs, and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
 
 ```azurecli
 # Create SP and Assign Permission to Virtual Network
@@ -743,7 +743,7 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 
 Get the service IP by running:
 ```bash
-SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Add the NAT rule by running:

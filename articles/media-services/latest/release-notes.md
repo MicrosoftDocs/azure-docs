@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 release notes | Microsoft Docs
+title: Azure Media Services v3 release notes 
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -291,21 +291,21 @@ Updates from the GA release of the V3 API include:
 
 ## November 2018
 
-The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
+The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/ams) – v 2.0.50.
 
 ### New commands
 
-- [az ams account](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
-- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
-- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
-- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
-- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
-- [az ams job](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
-- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
-- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
-- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
-- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
-- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
+- [az ams account](/cli/azure/ams/account)
+- [az ams account-filter](/cli/azure/ams/account-filter)
+- [az ams asset](/cli/azure/ams/asset)
+- [az ams asset-filter](/cli/azure/ams/asset-filter)
+- [az ams content-key-policy](/cli/azure/ams/content-key-policy)
+- [az ams job](/cli/azure/ams/job)
+- [az ams live-event](/cli/azure/ams/live-event)
+- [az ams live-output](/cli/azure/ams/live-output)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint)
+- [az ams streaming-locator](/cli/azure/ams/streaming-locator)
+- [az ams account mru](/cli/azure/ams/account/mru) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
 
 ### New features and breaking changes
 
@@ -433,10 +433,9 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## See also
 
-[Migration guidance for moving from Media Services v2 to v3](migrate-from-v2-to-v3.md#known-issues).
+[Migration guidance for moving from Media Services v2 to v3](migrate-v-2-v-3-migration-introduction.md).
 
 ## Next steps
 
 - [Overview](media-services-overview.md)
-- [Media Services v3 Documentation updates](docs-release-notes.md)
 - [Media Services v2 release notes](../previous/media-services-release-notes.md)

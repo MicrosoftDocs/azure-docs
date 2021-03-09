@@ -25,7 +25,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **IDE**: Visual Studio, VS Code, or command line.
 
 > [!NOTE]
-> ASP.NET Core 3.X requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
+> ASP.NET Core 3.1 requires [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) or later.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ For Visual Studio for Mac use the [manual guidance](#enable-application-insights
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.16.0" />
         </ItemGroup>
     ```
 
@@ -228,7 +228,7 @@ See the [configurable settings in `ApplicationInsightsServiceOptions`](https://g
 
 ### Configuration Recommendation for Microsoft.ApplicationInsights.AspNetCore SDK 2.15.0 & above
 
-Starting from Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) the recommendation is to configure every setting available in `ApplicationInsightsServiceOptions`, including instrumentationkey using applications `IConfiguration` instance. The settings must be under the section "ApplicationInsights", as shown in the below example. The following section from appsettings.json configures instrumentation key, and also disable adaptive sampling and performance counter collection.
+Starting from Microsoft.ApplicationInsights.AspNetCore SDK version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0), the recommendation is to configure every setting available in `ApplicationInsightsServiceOptions`, including instrumentationkey using applications `IConfiguration` instance. The settings must be under the section "ApplicationInsights", as shown in the following example. The following section from appsettings.json configures instrumentation key, and also disable adaptive sampling and performance counter collection.
 
 ```json
 {
