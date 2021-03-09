@@ -36,7 +36,7 @@ To proceed, you will need a client app project in which you write your code. If 
 * [.NET (C#)](/dotnet/api/azure.identity)
 * [Java](/java/api/overview/azure/identity-readme)
 * [JavaScript](/javascript/api/overview/azure/identity-readme)
-* [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
+* [Python](/python/api/overview/azure/identity-readme)
 
 Three common credential-obtaining methods in `Azure.Identity` are:
 

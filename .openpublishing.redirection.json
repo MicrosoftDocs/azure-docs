@@ -38855,6 +38855,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/manage-availability.md",
+      "redirect_url": "/azure/virtual-machines/availability",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/linux/sizes.md",
       "redirect_url": "/azure/virtual-machines/sizes",
       "redirect_document_id": false
