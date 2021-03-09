@@ -76,7 +76,7 @@ When you sign-in as a minor, you should see the following error message: *Unfort
 
 ::: zone pivot="b2c-custom-policy"
 
-## Add Conditional Access to your policy
+## Enable age gating in your custom policy
 
 1. Get the example of an age gating policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/age-gating).
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
