@@ -123,18 +123,21 @@ You can also find additional samples in the [GitHub repo for the .NET (C#) SDK](
 Serialization helpers are helper functions available within the SDK for quickly creating or deserializing twin data for access to basic information. Since the core SDK methods return twin data as JSON by default, it can be helpful to use these helper classes to break the twin data down further.
 
 The available helper classes are:
-* `BasicDigitalTwin`: Represents the core data of a digital twin
-* `BasicRelationship`: Represents the core data of a relationship
-* `UpdateOperationUtility`: Represents JSON Patch information used in update calls
-* `WriteableProperty`: Represents property metadata
+* `BasicDigitalTwin`: Generically represents the core data of a digital twin
+* `BasicDigitalTwinComponent`: Generically represents a component in the `Contents` properties of a `BasicDigitalTwin`
+* `BasicRelationship`: Generically represents the core data of a relationship
+* `DigitalTwinsJsonPropertyName`: Contains the string constants for use in JSON serialization and deserialization for custom digital twin types
 
 ##### Deserialize a digital twin
 
-You can always deserialize twin data using the JSON library of your choice, like `System.Test.Json` or `Newtonsoft.Json`. For basic access to a twin, the helper classes make this a bit more convenient.
+You can always deserialize twin data using the JSON library of your choice, like `System.Text.Json` or `Newtonsoft.Json`. For basic access to a twin, the helper classes can make this more convenient.
 
 The `BasicDigitalTwin` helper class also gives you access to properties defined on the twin, through a `Dictionary<string, object>`. To list properties of the twin, you can use:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+
+> [!NOTE]
+> `BasicDigitalTwin` uses `System.Text.Json` attributes. In order to use `BasicDigitalTwin` with your [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), you must either initialize the client with the default constructor, or, if you want to customize the serializer option, use the [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
 
 ##### Create a digital twin
 
