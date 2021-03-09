@@ -83,49 +83,37 @@ Output of a successful twin create command should look like this:
 
 ## Create a function
 
-This section uses the same Visual Studio startup steps and function skeleton from [*How-to: Set up a function for processing data*](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
+In this section, you will create a function to access Azure Digital Twins. Follow the steps below to complete the process of creating a function.
 
-In the steps that follow, you'll add specific code to it for processing IoT telemetry events from IoT Hub.  
+**Step - 1: Create a function app in you code editor**
 
-### Add telemetry processing
-    
-Telemetry events come in the form of messages from the device. The first step in adding telemetry-processing code is extracting the relevant part of this device message from the Event Grid event. 
+Follow the steps in the *Create a function app in Visual Studio* section of [*How-to: Set up a function for processing data*](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) article.
 
-Different devices may structure their messages differently, so the code for **this step depends on the connected device.** 
+**Step - 2: Update your function code**
 
-The following code shows an example for a simple device that sends telemetry as JSON. This sample is fully explored in [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). The following code finds the device ID of the device that sent the message, as well as the temperature value.
+Follow the steps in the *Update your function code* section of [*How-to: Set up a function for processing data*](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) article to add your function to access Azure Digital Twins.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs" id="Find_device_ID_and_temperature":::
+**Step - 3: Publish the function app to Azure**
 
-The next code sample takes the ID and temperature value and uses them to "patch" (make updates to) that twin.
+Follow the steps in the *Publish the function app to Azure* section of [*How-to: Set up a function for processing data*](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) article to publish your function app.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs" id="Update_twin_with_device_temperature":::
+Make note of your **function app name** to use it to verify that the function is successfully published in the Azure portal.
 
-### Update your function code
+Now, you can verify that your function app is successfully published in the Azure portal by following the steps:
 
-Now that you understand the code from the earlier samples, open your function from the [*Prerequisites*](#prerequisites) section in Visual Studio. (If you don't have a function that was created in Azure, visit the link in the prerequisites to create one now).
+* Sign in with your credentials in the [Azure portal](https://portal.azure.com/).
+* In the search bar on the top of the window, search for your **function app name**. 
 
-Replace your function's code with this sample code.
+:::image type="content" source="media/how-to-ingest-iot-hub-data/search-function-app.png" alt-text="Search for your function app with its name in the Azure portal.":::
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
+* In the *Function app* page that opens, choose *Functions* in the menu options on the left. If your function is successfully published, you'll see your function name in the list.
+Note that you might have to wait a few min or refresh the page couple of times before you can see your function listed in the published functions list.
 
-Save your function code and publish the function app to Azure. To learn how, see [*Publish the function app*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) in [*How to set up a function in Azure to process data*](how-to-create-azure-function.md).
+:::image type="content" source="media/how-to-ingest-iot-hub-data/view-published-functions.png" alt-text="View published functions in the Azure portal.":::
 
-After a successful publish, you will see the output in the Visual Studio command window as shown below:
+**Step - 4: Configure the function app**
 
-```cmd
-1>------ Build started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
-1>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
-2>------ Publish started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
-2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
-2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\Out\
-2>Publishing C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\adtIngestFunctionSample - 20200911112545669.zip to https://adtingestfunctionsample20200818134346.scm.azurewebsites.net/api/zipdeploy...
-========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
-========== Publish: 1 succeeded, 0 failed, 0 skipped ==========
-```
-You can also verify your status of the publish process in the [Azure portal](https://portal.azure.com/). Search for your _resource group_ and navigate to _Activity log_ and look for _Get web app publishing profile_ in the list and verify that the status is Succeeded.
-
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Screenshot of the Azure portal that shows status of the publish process.":::
+Follow the steps in the section *Set up security access for the function app* of [*How-to: Set up a function for processing data*](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) article.
 
 ## Connect your function to IoT Hub
 
