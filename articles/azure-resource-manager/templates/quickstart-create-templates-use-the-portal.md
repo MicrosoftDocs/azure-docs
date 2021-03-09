@@ -88,76 +88,76 @@ Azure requires that each Azure service has a unique name. The deployment could f
    - Remove the **storageAccountName** parameter as shown in the previous screenshot.
    - Add one variable called **storageAccountName** as shown in the previous screenshot:
 
-       ```json
-       "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
-       ```
+      ```json
+      "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+      ```
 
-       Two template functions are used here: `concat()` and `uniqueString()`.
+      Two template functions are used here: `concat()` and `uniqueString()`.
    - Update the name element of the **Microsoft.Storage/storageAccounts** resource to use the newly defined variable instead of the parameter:
 
-       ```json
-       "name": "[variables('storageAccountName')]",
-       ```
+      ```json
+      "name": "[variables('storageAccountName')]",
+      ```
 
-     The final template shall look like:
+      The final template shall look like:
 
-     ```json
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "location": {
-          "type": "string"
-        },
-        "accountType": {
-          "type": "string"
-        },
-        "kind": {
-          "type": "string"
-        },
-        "accessTier": {
-          "type": "string"
-        },
-        "minimumTlsVersion": {
-          "type": "string"
-        },
-        "supportsHttpsTrafficOnly": {
-          "type": "bool"
-        },
-        "allowBlobPublicAccess": {
-          "type": "bool"
-        },
-        "allowSharedKeyAccess": {
-          "type": "bool"
-        }
-      },
-      "variables": {
-      "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
-    },
-      "resources": [
-        {
-          "name": "[variables('storageAccountName')]",
-          "type": "Microsoft.Storage/storageAccounts",
-          "apiVersion": "2019-06-01",
-          "location": "[parameters('location')]",
-          "properties": {
-            "accessTier": "[parameters('accessTier')]",
-            "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
-            "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
-            "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]",
-            "allowSharedKeyAccess": "[parameters('allowSharedKeyAccess')]"
+      ```json
+      {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+          "location": {
+            "type": "string"
           },
-          "dependsOn": [],
-          "sku": {
-            "name": "[parameters('accountType')]"
+          "accountType": {
+            "type": "string"
           },
-          "kind": "[parameters('kind')]",
-          "tags": {}
-        }
-      ],
-      "outputs": {}
-    }
-     ```
+          "kind": {
+            "type": "string"
+          },
+          "accessTier": {
+            "type": "string"
+          },
+          "minimumTlsVersion": {
+            "type": "string"
+          },
+          "supportsHttpsTrafficOnly": {
+            "type": "bool"
+          },
+          "allowBlobPublicAccess": {
+            "type": "bool"
+          },
+          "allowSharedKeyAccess": {
+            "type": "bool"
+          }
+        },
+        "variables": {
+          "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+        },
+        "resources": [
+          {
+            "name": "[variables('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "[parameters('location')]",
+            "properties": {
+              "accessTier": "[parameters('accessTier')]",
+              "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
+              "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+              "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]",
+              "allowSharedKeyAccess": "[parameters('allowSharedKeyAccess')]"
+            },
+            "dependsOn": [],
+            "sku": {
+              "name": "[parameters('accountType')]"
+            },
+            "kind": "[parameters('kind')]",
+            "tags": {}
+          }
+        ],
+        "outputs": {}
+      }
+      ```
 
 1. Select **Save**.
 1. Enter the following values:
