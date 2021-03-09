@@ -146,11 +146,11 @@ The preceding code uses these Azure CLI commands:
 
 | Command | Description |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Sets a subscription to be the current active subscription. |
+| [az account set](/cli/azure/account#az-account-set) | Sets a subscription to be the current active subscription. |
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Creates a server that hosts databases and elastic pools. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Creates a server-level firewall rule. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | Creates a database. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Creates a database. |
 
 For more Azure SQL Database Azure CLI samples, see [Azure CLI samples](../database/az-cli-script-samples-content-guide.md).
 

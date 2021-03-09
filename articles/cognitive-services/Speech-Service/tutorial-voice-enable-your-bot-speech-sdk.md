@@ -65,7 +65,7 @@ Here's what you'll need to complete this tutorial:
 
 The client app that you'll create in this tutorial uses a handful of Azure services. To reduce the round-trip time for responses from your bot, you'll want to make sure that these services are located in the same Azure region. In this section, you'll create a resource group in the **West US** region. This resource group will be used when creating individual resources for the Bot Framework, the Direct Line Speech channel, and the Speech service.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Create a resource group <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Create a resource group </a>
 1. You'll be prompted to provide some information:
    * Set **Subscription** to **Free Trial** (you can also use an existing subscription).
    * Enter a name for your **Resource group**. We recommend **SpeechEchoBotTutorial-ResourceGroup**.
@@ -91,7 +91,7 @@ Now that you have a resource group in a supported region, the next step is to cr
 
 Follow these instructions to create a Speech resource:
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create a Speech service resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create a Speech service resource </a>
 4. You'll be prompted to provide some information:
    * Give your resource a **Name**. We recommend **SpeechEchoBotTutorial-Speech**
    * For **Subscription**, make sure **Free Trial** is selected.
@@ -111,7 +111,7 @@ At this point, check that your resource group (**SpeechEchoBotTutorial-ResourceG
 
 The next step is to create an App Service Plan. An App Service plan defines a set of compute resources for a web app to run.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Create an Azure App Service plan <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Create an Azure App Service plan </a>
 4. You'll be prompted to provide some information:
    * Set **Subscription** to **Free Trial** (you can also use an existing subscription).
    * For **Resource group**, select **SpeechEchoBotTutorial-ResourceGroup**.
@@ -233,7 +233,7 @@ You'll need to make a small configuration change so that your bot can communicat
 
 Now that you've created an Azure App Service to host your bot, the next step is to create a **Bot Channels Registration**. Creating a channel registration is a prerequisite for registering your bot with Bot Framework channels, including Direct Line Speech channel. If you'd like to learn more about how bots use channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels).
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Create an Azure Bot Channels Registration <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Create an Azure Bot Channels Registration </a>
 2. You'll be prompted to provide some information:
    * For **Bot handle**, enter **SpeechEchoBotTutorial-BotRegistration-####** and replace **####** with your a number of your choice. Note that Bot handle must be globally unique. If you enter a Bot handle but get the error message _The requested bot ID is not available_, then pick a different number. In the examples below we used 8726
    * For **Subscription**, select **Free Trial**.

@@ -104,7 +104,7 @@ Can't manage service principals' sign-in with Conditional Access.| Monitor the s
 ## Move from a user account to a service principal​  
 ‎If you are using an Azure user account as a service principal, evaluate if you can move to a [Managed Identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) or a service principal. If you cannot use a managed identity, provision a service principal that has just enough permissions and scope to run the required tasks. You can create a service principal by [registering an application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal), or with [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
 
-When using Microsoft Graph, check the documentation of the specific API, [like in this example](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-5.0.0), ‎and make sure the permission type for application is showing as supported.
+When using Microsoft Graph, check the documentation of the specific API, [like in this example](/powershell/azure/create-azure-service-principal-azureps), ‎and make sure the permission type for application is showing as supported.
 
 ## Next steps
 
@@ -112,7 +112,7 @@ When using Microsoft Graph, check the documentation of the specific API, [like i
 
 [Create a service principal](../develop/howto-create-service-principal-portal.md)
 
- [Monitor service principal sign-ins](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md)
+ [Monitor service principal sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
 
 **To learn more about securing service accounts:**
 
@@ -122,4 +122,4 @@ When using Microsoft Graph, check the documentation of the specific API, [like i
 
 [Governing Azure service accounts](service-accounts-governing-azure.md)
 
-[Introduction to on-premises service accounts](service-accounts-on-poremises.md)
+[Introduction to on-premises service accounts](service-accounts-on-premises.md)

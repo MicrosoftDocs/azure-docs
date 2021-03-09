@@ -1,7 +1,6 @@
 ---
 title: Resource Manager template samples for log queries
 description: Sample Azure Resource Manager templates to deploy Azure Monitor log queries.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren

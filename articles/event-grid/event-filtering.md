@@ -2,7 +2,7 @@
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
 ms.topic: conceptual
-ms.date: 02/26/2021
+ms.date: 03/04/2021
 ---
 
 # Understand event filtering for Event Grid subscriptions
@@ -53,13 +53,27 @@ To filter by values in the data fields and specify the comparison operator, use 
 * values - The value or values to compare to the key.
 
 ## Key
-Key is the field in the event data that you're using for filtering. It can be a number, boolean, string, or an array. For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`).
+Key is the field in the event data that you're using for filtering. It can be one of the following types:
+
+- Number
+- Boolean
+- String
+- Array. You need to set the `enableAdvancedFilteringOnArrays` property to true to use this feature. Currently, the Azure portal doesn't support enabling this feature. 
+
+    ```json
+    "filter":
+    {
+        "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
+        "subjectEndsWith": ".jpg",
+        "enableAdvancedFilteringOnArrays": true
+    }
+    ```
+
+For events in the **Event Grid schema**, use the following values for the key: `ID`, `Topic`, `Subject`, `EventType`, `DataVersion`, or event data (like `data.key1`).
 
 For events in **Cloud Events schema**, use the following values for the key: `eventid`, `source`, `eventtype`, `eventtypeversion`, or event data (like `data.key1`).
 
-For **custom input schema**, use the event data fields (like `data.key1`).
-
-To access fields in the data section, use the `.` (dot) notation. For example, `data.sitename`, `data.appEventTypeDetail.action` to access `sitename` or `action` for the following sample event.
+For **custom input schema**, use the event data fields (like `data.key1`). To access fields in the data section, use the `.` (dot) notation. For example, `data.sitename`, `data.appEventTypeDetail.action` to access `sitename` or `action` for the following sample event.
 
 ```json
 	"data": {
@@ -75,10 +89,8 @@ To access fields in the data section, use the `.` (dot) notation. For example, `
 	},
 ```
 
-
 ## Values
 The values can be: number, string, boolean, or array
-
 
 ## Operators
 

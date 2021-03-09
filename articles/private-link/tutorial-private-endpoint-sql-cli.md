@@ -8,6 +8,7 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
+ms.custom: fasttrack-edit
 ---
 # Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Azure CLI
 
@@ -321,6 +322,8 @@ In this tutorial, you created a:
 * Azure SQL server with private endpoint.
 
 You used the virtual machine to test connectivity securely to the SQL server across the private endpoint.
+
+As a next step, you may also be interested in the [Web app with private connectivity to Azure SQL database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 
 Learn how to create a Private Link service:
 > [!div class="nextstepaction"]

@@ -73,7 +73,7 @@ ssh-keygen \
 ### Example of ssh-keygen
 
 ```bash
-ssh-keygen -t -m PEM rsa -b 4096 -C "azureuser@myserver"
+ssh-keygen -t rsa -m PEM -b 4096 -C "azureuser@myserver"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):

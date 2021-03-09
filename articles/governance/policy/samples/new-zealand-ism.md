@@ -1,20 +1,20 @@
 ---
-title: Regulatory Compliance details for New Zealand ISM
-description: Details of the New Zealand ISM Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 02/09/2021
+title: Regulatory Compliance details for New Zealand ISM Restricted
+description: Details of the New Zealand ISM Restricted Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
+ms.date: 03/05/2021
 ms.topic: sample
 ms.custom: generated
 ---
-# Details of the New Zealand ISM Regulatory Compliance built-in initiative
+# Details of the New Zealand ISM Restricted Regulatory Compliance built-in initiative
 
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
-definition maps to **compliance domains** and **controls** in New Zealand ISM.
+definition maps to **compliance domains** and **controls** in New Zealand ISM Restricted.
 For more information about this compliance standard, see
-[New Zealand ISM](https://www.nzism.gcsb.govt.nz/). To understand
+[New Zealand ISM Restricted](https://www.nzism.gcsb.govt.nz/). To understand
 _Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
-The following mappings are to the **New Zealand ISM** controls. Use the
+The following mappings are to the **New Zealand ISM Restricted** controls. Use the
 navigation on the right to jump directly to a specific **compliance domain**. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.
@@ -106,7 +106,7 @@ initiative definition.
 
 ## Access Control and Passwords
 
-### 16.1.32 System User Identitfication
+### 16.1.32 System User Identification
 
 **ID**: NZISM Security Benchmark AC-2
 **Ownership**: Customer

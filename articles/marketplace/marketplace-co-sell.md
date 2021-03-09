@@ -65,7 +65,7 @@ Biz Apps ISV Connect Premium incentive status can be applied to these offer type
 - Dynamics 365 for Customer Engagement & PowerApps
 - Dynamics 365 for operations
 
-Offers that achieve _Azure IP Co-sell incentivized_ or _Biz Apps ISV Connect Premium incentive_ status gain these commercial marketplace benefits:
+Offers that achieve _Azure IP Co-sell incentivized_ status gain these commercial marketplace benefits:
 
 - The marketplace service fee is reduced from 20% to 10%. This discount applies to your infrastructure as a service (IaaS) solution or software as a service (SaaS) solution sold through the commercial marketplace. For more information, see [Commercial marketplace service fees](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Cloud Solution Provider (CSP) partners receive a 10% incentive to sell your IaaS solution or SaaS offer. To learn more about the CSP program, see [Cloud Solution Provider program](cloud-solution-providers.md).

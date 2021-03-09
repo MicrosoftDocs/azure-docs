@@ -3,12 +3,12 @@ title: Back up your data to Azure with Commvault
 titleSuffix: Azure Blob Storage Docs
 description: Web page provides an overview of factors to consider and steps to follow to leverage Azure as a storage target and recovery location for Commvault Complete Backup and Recovery 
 keywords: Commvault, Backup to Cloud, Backup, Backup to Azure, Disaster Recovery, Business Continuity
-author: Karl Rautenstrauch
+author: karauten
 ms.author: karauten
 ms.date: 11/11/2020
 ms.topic: article
-ms.service: Storage
-ms.subservice: Blob Storage
+ms.service: storage
+ms.subservice: blobs
 ---
 
 # Back up to Azure with Commvault

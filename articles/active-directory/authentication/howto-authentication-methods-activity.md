@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 
 ms.author: justinha
 author: sopand
@@ -23,10 +23,17 @@ The new authentication methods activity dashboard enables admins to monitor auth
 
 ## Permissions and licenses
 
-The following roles can access usage and insights:
+Built-in and custom roles with the following permissions can access the Authentication Methods Activity blade and APIs:
+
+- Microsoft.directory/auditLogs/allProperties/read
+- Microsoft.directory/signInReports/allProperties/read
+
+The following roles have the required permissions:
 
 - Reports Reader
 - Security Reader
+- Global Reader
+- Security Operator
 - Security Administrator
 - Global Administrator
 
@@ -119,11 +126,12 @@ The registration details report shows the following information for each user:
 - Status (Success, Failure)
 - Reason for failure (explanation)
 
-  ![Screenshot of Usage page](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
+  ![Screenshot of registration and reset events](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## Limitations
 
-Temporary Access Pass (TAP) registrations aren't reflected in the registration tab of the report because they're only valid for short period of time.
+- The data in the report is not updated in real-time and may reflect a latency of up to a few hours.
+- Temporary Access Pass registrations are not reflected in the registration tab of the report because they are only valid for short period of time.
 
 ## Next steps
 

@@ -150,7 +150,7 @@ At this point you should revalidate that the scale-out appliance is able to conn
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Import successful":::
 
 > [!IMPORTANT]
-> If you edit the vCenter Server credentials on the primary appliance, ensure that you import the configuration files again to the scale-out appliance to get the latest configuration and continue any ongoing replications.<br/> If you do not need the scale-out appliance any longer, make sure that you disable the scale-out appliance. [**Learn more**](./common-questions-appliance) on how to disable the scale-out appliance when not needed.
+> If you edit the vCenter Server credentials on the primary appliance, ensure that you import the configuration files again to the scale-out appliance to get the latest configuration and continue any ongoing replications.<br/> If you do not need the scale-out appliance any longer, make sure that you disable the scale-out appliance. [**Learn more**](./common-questions-appliance.md) on how to disable the scale-out appliance when not needed.
 
 ## Replicate
 

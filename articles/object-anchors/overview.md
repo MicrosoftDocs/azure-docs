@@ -5,7 +5,7 @@ author: craigktreasure
 manager: vriveras
 
 ms.author: crtreasu
-ms.date: 02/18/2021
+ms.date: 03/02/2021
 ms.topic: overview
 ms.service: azure-object-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
@@ -33,7 +33,7 @@ Some example use cases enabled by Azure Object Anchors include:
 The following sections provide information about getting started with using and building apps with Azure Object Anchors.
 
 > [!div class="nextstepaction"]
-> [Model Ingestion](quickstarts/get-started-model-ingestion.md)
+> [Model Ingestion](quickstarts/get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Unity HoloLens](quickstarts/get-started-unity-hololens.md)

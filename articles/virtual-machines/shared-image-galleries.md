@@ -100,7 +100,7 @@ Specialized VMs have not been through a process to remove machine specific infor
 
 ## Regional Support
 
-All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription added to the allow list. To request that a subscriptions is added to the allow list, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
+All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription added to the allow list. To request that a subscriptions is added to the allow list, go to: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
 
 ## Limits 
 
@@ -321,4 +321,3 @@ In addition, you can post and tag your question with `azure-virtual-machines-ima
 ## Next steps
 
 Learn how to deploy shared images using the [Azure CLI](shared-images-cli.md) or [PowerShell](shared-images-powershell.md).
-

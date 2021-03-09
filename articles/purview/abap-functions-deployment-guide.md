@@ -85,7 +85,7 @@ When the module has been created, specify the following information:
 3.  Navigate to the \"Source code\" tab. There are two ways how to
     deploy code for the function:
 
-    a.  From the main menu, upload Z\_MITI\_DOWNLOAD.txt file by
+    a.  From the main menu, upload the text file [Z\_MITI\_DOWNLOAD](https://github.com/Azure/Purview-Samples/tree/master/connectors/sap) file by
         selecting Utilities=\>More Utilities=\>Upload/Download=\>Upload.
 
     b.  Alternatively, open the file, copy its content and paste into

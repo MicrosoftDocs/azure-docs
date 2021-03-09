@@ -98,7 +98,7 @@
     {
       "path_to_root": "samples-mediaservices-integration",
       "url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "samples-mediaservices-encryptiondrm",
@@ -201,6 +201,11 @@
       "path_to_root": "functions-docs-powershell",
       "url": "https://github.com/Azure-Samples/functions-docs-powershell",
       "branch": "master"
+    },    
+    {
+      "path_to_root": "azure-functions-dotnet-worker",
+      "url": "https://github.com/Azure/azure-functions-dotnet-worker",
+      "branch": "main"
     },
     {
       "path_to_root": "samples-personalizer",
@@ -577,6 +582,11 @@
     {
       "path_to_root": "digital-twins-docs-samples",
       "url": "https://github.com/azure-samples/digital-twins-docs-code",
+      "branch": "main"
+    },
+    {
+      "path_to_root": "digital-twins-docs-samples-dps",
+      "url": "https://github.com/Azure-Samples/digital-twins-iothub-integration",
       "branch": "main"
     }
   ],

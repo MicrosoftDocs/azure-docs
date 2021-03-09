@@ -111,9 +111,9 @@ Deep learning frameworks on the DSVM are listed below.
 
 | Category | Value |
 | ------------- | ------------- |
-| Version(s) supported | 1.2.0 (Ubuntu 16.04), 1.4.0 (Ubuntu 18.04, Windows 2019) |
+| Version(s) supported | 1.2.0 (Ubuntu 16.04), 1.7.1 (Ubuntu 18.04, Windows 2019) |
 | Supported DSVM editions      | Windows Server 2019<br>Ubuntu 18.04<br> Ubuntu 16.04 |
-| How is it configured / installed on the DSVM?  | Installed in [Python 3.5](dsvm-tools-languages.md#python-linux-edition). Sample Jupyter notebooks are included, and samples are in /dsvm/samples/pytorch. |
+| How is it configured / installed on the DSVM?  | Installed in [Python 3.7](dsvm-tools-languages.md#python-linux-edition) under the py37_pytorch conda environment. Sample Jupyter notebooks are included, and samples are in /dsvm/samples/pytorch. |
 | How to run it      | Terminal: Activate the correct environment, and then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Connect, and then open the PyTorch directory for samples.  |
 
 ## [TensorFlow](https://www.tensorflow.org/)

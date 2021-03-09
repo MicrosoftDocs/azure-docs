@@ -46,14 +46,14 @@ We recommend the following practices for service account privileges.
 
 **Permissions**
 
-* Do not assign built-in roles to service accounts. Instead, use the [OAuth2 permission grant model for Microsoft Graph](https://docs.microsoft.com/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0),
+* Do not assign built-in roles to service accounts. Instead, use the [OAuth2 permission grant model for Microsoft Graph](/graph/api/resources/oauth2permissiongrant),
 
 * If the service principal must be assigned a privileged role, consider assigning a [custom role](https://docs.microsoft.com/azure/active-directory/roles/custom-create) with specific, required privileged, in a time-bound fashion.
 
 * Do not include service accounts as members of any groups with elevated permissions. 
 
-* [Use PowerShell to enumerate members of privileged roles](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0), such as   
-‎`Get-AzureADDirectoryRoleMember`, and filter for objectType “Service Principal.”
+* [Use PowerShell to enumerate members of privileged roles](/powershell/module/azuread/get-azureaddirectoryrolemember), such as   
+‎`Get-AzureADDirectoryRoleMember`, and filter for objectType "Service Principal".
 
    or use  
 ‎   `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
@@ -112,15 +112,15 @@ We recommend you export Azure AD sign-In logs and import them into your existing
 
 Regularly review the permissions granted and scopes accessed by service accounts to see if they can be reduced eliminated.
 
-* Use [PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant?view=azureadps-2.0) to [build automation for checking and documenting](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes to which consent is granted to a service account.
+* Use [PowerShell](/powershell/module/azuread/get-azureadserviceprincipaloauth2permissiongrant) to [build automation for checking and documenting](https://gist.github.com/psignoret/41793f8c6211d2df5051d77ca3728c09) scopes to which consent is granted to a service account.
 
 * Use PowerShell to [review existing service principals' credentials](https://github.com/AzureAD/AzureADAssessment) and check their validity.
 
-* Do not set service principal’s credentials to “Never expire”.
+* Do not set service principal’s credentials to "Never expire".
 
 * Use certificates or credentials stored in Azure KeyVault where possible.
 
-Microsoft’s free PowerShell sample collects service principal’s OAuth2 grants and credential information, records them in a comma-separated values file (CSV), and a Power BI sample dashboard to interpret and use the data. for more information, see [AzureAD/AzureADAssessment: Tooling for assessing an Azure AD tenant state and configuration (github.com)](https://github.com/AzureAD/AzureADAssessment)
+Microsoft's free PowerShell sample collects service principal’s OAuth2 grants and credential information, records them in a comma-separated values file (CSV), and a Power BI sample dashboard to interpret and use the data. for more information, see [AzureAD/AzureADAssessment: Tooling for assessing an Azure AD tenant state and configuration (github.com)](https://github.com/AzureAD/AzureADAssessment)
 
 ### Recertify service account use
 
@@ -167,7 +167,7 @@ Establish a review process to ensure that service accounts are regularly reviewe
 
 **The processes for deprovisioning should include the following tasks.**
 
-1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md) and resource access by the service account.
+1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) and resource access by the service account.
 
    * If the account still is active, determine how it's being used before taking subsequent steps.
  

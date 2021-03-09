@@ -4,6 +4,8 @@
   items:
   - name: What are ARM templates?
     href: overview.md
+  - name: Bicep overview
+    href: bicep-overview.md 
 - name: Quickstarts
   items:
   - name: Create templates - portal
@@ -324,10 +326,10 @@
     href: template-best-practices.md
   - name: Bicep
     items:
-    - name: Overview
-      href: bicep-overview.md 
-    - name: Going from JSON to Bicep
+    - name: Comparing JSON to Bicep
       href: compare-template-syntax.md
+  - name: Data types
+    href: data-types.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
   - name: Templates for cloud consistency
@@ -554,7 +556,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
-    href: /python/api/overview/azure/resources?view=azure-python
+    href: /python/api/overview/azure/resources
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

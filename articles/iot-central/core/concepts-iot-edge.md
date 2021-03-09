@@ -82,6 +82,20 @@ IoT Central uses [device templates](concepts-device-templates.md) to define how 
 
 An IoT Edge device can send telemetry, synchronize property values, and respond to commands in the same way as a standard device. So, an IoT Edge device needs a device template in IoT Central.
 
+### IoT Edge device templates
+
+IoT Central device templates use models to describe the capabilities of devices. The following diagram shows the structure of the model for an IoT Edge device:
+
+:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="Structure of model for IoT Edge device connected to IoT Central" border="false":::
+
+IoT Central models an IoT Edge device as follows:
+
+* Every IoT Edge device template has a capability model.
+* For every custom module listed in the deployment manifest, a module  capability model is generated.
+* A relationship is established between each module capability model and a device model.
+* A module capability model implements one or more module interfaces.
+* Each module interface contains telemetry, properties, and commands.
+
 ### IoT Edge deployment manifests and IoT Central device templates
 
 In IoT Edge, you deploy and manage business logic in the form of modules. IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services such as Azure Stream Analytics, or your own solution-specific code.
