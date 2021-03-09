@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/09/2021
 ms.author: victorh
 ---
 
@@ -92,7 +92,7 @@ To configure a CA certificate in your Firewall Premium policy, select your polic
 To help you test and verify TLS inspection, you can use the following scripts to create your own self-signed Root CA and Intermediate CA.
 
 > [!IMPORTANT]
-> For production, you should use your corporate PKI to create an Intermediate CA certificate. A corporate PKI leverages the existing infrastructure and handles the Root CA distribution to all endpoint machines.
+> For production, you should use your corporate PKI to create an Intermediate CA certificate. A corporate PKI leverages the existing infrastructure and handles the Root CA distribution to all endpoint machines. For more information, see [Deploy and configure Enterprise CA certificates for Azure Firewall Preview](premium-deploy-certificates-enterprise-ca.md).
 
 There are two versions of this script:
 - a bash script `cert.sh` 

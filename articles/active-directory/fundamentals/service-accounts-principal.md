@@ -86,7 +86,7 @@ Using PowerShell
 `Get-AzureADServicePrincipal -All:$true` 
 
 
-For more information see [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0)
+For more information see [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal)
 
 ## Assess service principal security
 

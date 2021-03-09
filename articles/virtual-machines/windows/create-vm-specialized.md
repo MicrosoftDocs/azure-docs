@@ -2,7 +2,9 @@
 title: Create a Windows VM from a specialized VHD in Azure 
 description: Create a new Windows VM by attaching a specialized managed disk as the OS disk by using the Resource Manager deployment model.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019

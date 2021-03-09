@@ -3,6 +3,7 @@ title: Maintenance control for Azure virtual machines using CLI
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and CLI.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: maintenance-control
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/20/2020

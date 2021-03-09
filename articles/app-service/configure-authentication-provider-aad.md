@@ -13,8 +13,6 @@ ms.custom: seodec18, fasttrack-edit, has-adal-ref
 
 This article shows you how to configure authentication for Azure App Service or Azure Functions so that your app signs in users with Azure Active Directory (Azure AD) as the authentication provider.
 
-This feature is currently not available on Linux Consumption plan for Azure Functions.
-
 ## <a name="express"> </a>Configure with express settings
 
 The **Express** option is designed to make enabling authentication simple and requires just a few clicks.

@@ -34,7 +34,7 @@ For general information on how to manage your experiments, see [Start, monitor, 
 
 ## Monitor runs using the Jupyter notebook widget
 
-When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
+When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](/python/api/azureml-widgets/azureml.widgets). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
 View the Jupyter widget while waiting for the run to complete.
     
