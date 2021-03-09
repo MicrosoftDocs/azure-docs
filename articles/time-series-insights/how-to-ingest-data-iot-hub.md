@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
-ms.topic: conceptual
+ms.topic: conceptual 
 ms.date: 01/21/2021
 ms.custom: seodec18
 ---

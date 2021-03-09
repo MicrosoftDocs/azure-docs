@@ -87,7 +87,7 @@ The well displays instance fields and other metadata associated with selected Ti
 
 You may remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element. The well also lets you control how each element is displayed in the chart. You can choose to add min/max shadows, data points, shift the element in time and visualize the instance a stepped manner.
 
-Additionally, The explorations control lets you create time shifts and scatter plots easily.
+Additionally, The explorations control lets you create time shifts and scatter plots easily.  
 
   [![Well layout options](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 
