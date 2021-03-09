@@ -30,12 +30,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * To use a template from a CLI, you need either [Azure PowerShell](/powershell/azure/) or the [Azure CLI](/cli/azure/install-azure-cli).
 
-* Some scenarios require you to open a support ticket. These scenarios are:
-
-    * __Private Link enabled workspace with a customer-managed key__
-    * __Azure Container Registry for the workspace behind your virtual network__
-
-    For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* Some scenarios require you to open a support ticket. For example, using a Private Link enabled workspace with a customer-managed key. For more information, see [Manage and increase quotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## Limitations
 

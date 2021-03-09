@@ -921,6 +921,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/active-directory-b2c/basic-age-gating.md",
+      "redirect_url": "/azure/active-directory-b2c/age-gating",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-setup-goog-app.md",
       "redirect_url": "/azure/active-directory-b2c/identity-provider-google",
       "redirect_document_id": true
@@ -38910,6 +38915,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-machines/states-lifecycle.md",
+      "redirect_url": "/azure/virtual-machines/states-and-billing",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-machines/linux/sizes-hpc.md",
       "redirect_url": "/azure/virtual-machines/sizes-hpc",
       "redirect_document_id": false
@@ -56482,6 +56492,11 @@
     {
       "source_path_from_root": "/articles/active-directory/active-directory-saas-linkedinlearning-provisioning-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/linkedinlearning-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/saas-apps/linkedinlearning-provisioning-tutorial.md",
+      "redirect_url": "/azure",
       "redirect_document_id": false
     },
     {
