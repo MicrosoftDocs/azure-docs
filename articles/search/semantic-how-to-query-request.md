@@ -172,7 +172,7 @@ The following table summarizes the query parameters used in a semantic query so 
 | queryType | String | Valid values include simple, full, and semantic. A value of "semantic" is required for semantic queries. |
 | queryLanguage | String | Required for semantic queries. Currently, only "en-us" is implemented. |
 | searchFields | String | A comma-delimited list of searchable fields. Optional but recommended. Specifies the fields over which semantic ranking occurs. </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence.|
-| answers |String | Optional field to specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. This example "extractive|count3"` shows a count of three answers. The default is 1.|
+| answers |String | Optional field to specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. The default is one. This example shows a count of three answers: "extractive\|count3"`. |
 
 ## Query with Search explorer
 
@@ -181,7 +181,7 @@ The following query targets the built-in Hotels sample index, using API version 
 ### With queryType=semantic
 
 ```json
-search=I want a nice hotel on the water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
+search=nice hotel on water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
 ```
 
 The first few results are as follows.

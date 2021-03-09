@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 12/04/2020
 ms.author: jeedes
-ms.custom: it-pro
+ms.custom: contperf-fy21q3-portal
 ms.reviewer: celested
 ---
 
@@ -90,6 +90,7 @@ To find more tutorials, use the table of contents on the left.
 | ![logo-InVision](./media/tutorial-list/active-directory-saas-invision-tutorial.png)| [InVision](invision-tutorial.md)|
 | ![logo-Jamf Pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
 | ![logo-Kanbanize](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
+| ![logo-Kendis - Azure AD Integration](./media/tutorial-list/active-directory-saas-kendis-azure-ad-integration.png)| [Kendis - Azure AD Integration](kendis-scaling-agile-platform-tutorial.md)|
 | ![logo-Knowledge Anywhere LMS](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
 | ![logo-Litmus](./media/tutorial-list/active-directory-saas-litmus-tutorial.png)| [Litmus](litmus-tutorial.md)|
 | ![logo-Marketo](./media/tutorial-list/active-directory-saas-marketo-tutorial.png)| [Marketo](marketo-tutorial.md)|

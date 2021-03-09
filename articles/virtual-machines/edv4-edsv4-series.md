@@ -6,7 +6,7 @@ ms.author: brbell
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 02/04/2020
 ---
