@@ -139,7 +139,7 @@ This tutorial uploads directly into the Search Index from the books.csv file.
 
 1. In Visual Studio Code, open the `bulk_insert_books.js` file and add the following code:
 
-    :::code language="javascript" source="~/../js-e2e/search/bulk-insert-books-from-csv/bulk_insert_books.js" highlight="6,7" :::
+    :::code language="javascript" source="~/js-e2e/search/bulk-insert-books-from-csv/bulk_insert_books.js" highlight="6,7" :::
 
 1. Replace the following variables with your own values:
 
