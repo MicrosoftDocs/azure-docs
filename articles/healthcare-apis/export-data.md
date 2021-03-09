@@ -32,6 +32,13 @@ When data is exported, a separate file is created for each resource type. To ens
 
 In addition, checking the export status through the URL returned by the location header during the queuing is supported along with canceling the actual export job.
 
+### Exporting FHIR data to ADLS Gen2
+
+Currently we support $export for ADLS Gen2 enabled storage accounts, with the following limitation:
+
+- User cannot take advantage of [hierarchical namespaces](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) yet; there isn't a way to target export to a specific sub-directory within the container. We only provide the ability to target a specific container (where we create a new folder for each export).
+
+- Once an export is complete, we never export anything to that folder again, since subsequent exports to the same container will be inside a newly created folder.
 
 
 ## Settings and parameters
@@ -98,9 +105,10 @@ Azure API for FHIR service is provisioned.
 ### When the Azure storage account is in the same region
 
 The configuration process is the same as above except a specific IP
-address range in CIDR format is used instead, 100.64.0.0/10. 
+address range in CIDR format is used instead, 100.64.0.0/10. The reason why the IP address range, which includes 100.64.0.0 – 100.127.255.255, must be specified is because the actual IP address used by the service varies, but will be within the range, for each $export request.
 
-Note that because the actual IP address used by the service changes for each $export request, the IP address range, 100.64.0.0 – 100.127.255.255, must be specified.
+> [!Note] 
+> It is possible that a private IP address within the range of 10.0.2.0/24 may be used instead. In that case the $export operation will not succeed. You can retry the $export request but there is no guarantee that an IP address within the range of 100.64.0.0/10 will be used next time. That's the known networking behavior by design. The alternative is to configure the storage account in a different region.
     
 ## Next steps
 

@@ -27,6 +27,8 @@ If your security solution already has an existing connector, use the connector-s
 
 - [AI Vectra Detect](connect-ai-vectra-detect.md)
 - [Akamai Security Events](connect-akamai-security-events.md)
+- [Aruba ClearPass](connect-aruba-clearpass.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
 - [Check Point](connect-checkpoint.md)
 - [Cisco ASA](connect-cisco.md)
 - [Citrix WAF](connect-citrix-waf.md)
