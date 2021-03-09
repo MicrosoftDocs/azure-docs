@@ -594,7 +594,7 @@
   items: 
     - name: Python SDK
       displayName: api, core, package, python, class
-      href: /python/api/overview/azure/ml/intro?view=azure-ml-py
+      href: /python/api/overview/azure/ml/intro
     - name: R SDK
       displayName: api, core, package, R, class
       href: https://azure.github.io/azureml-sdk-for-r/reference/index.html

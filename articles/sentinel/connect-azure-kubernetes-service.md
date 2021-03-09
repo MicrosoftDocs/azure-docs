@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 03/07/2021
 ms.author: yelevin
 ---
-# Connect Azure Kubernetes Service diagnostics and auditing logs
+# Connect Azure Kubernetes Service diagnostics logs
 
 Azure Kubernetes Service (AKS) is an open-source, fully-managed container orchestration service that allows you to deploy, scale, and manage Docker containers and container-based applications in a cluster environment.
 
