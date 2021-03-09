@@ -49,7 +49,7 @@ Learn more about this dashboard in [Azure Security Center's overview page](overv
 
 ### SQL vulnerability assessment now includes the "Disable rule" experience (preview)
 
-Security Center includes a built-in vulnerability scanner to help you discover, track, and remediate potential database vulnerabilities. The findings from your assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
+Security Center includes a built-in vulnerability scanner to help you discover, track, and remediate potential database vulnerabilities. The results from your assessment scans provide an overview of your SQL machines' security state, and details of any security findings.
 
 If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 

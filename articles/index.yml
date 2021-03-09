@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 01/29/2021
+  ms.date: 03/03/2021
   featureFlags:
   - clicktale
 
@@ -1270,6 +1270,13 @@ productDirectory:
         - storage
       url: databox/index.yml
     # Card
+    - title: Object Anchors (Preview)
+      summary: Automatically align and anchor 3D content to objects in the physical world
+      imageSrc: ./media/index/object-anchors.svg
+      azureCategories:
+        - mixed-reality
+      url: object-anchors/index.yml
+    # Card
     - title: Spatial Anchors
       summary: Create multi-user, spatially aware mixed reality experiences
       imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
@@ -1278,7 +1285,7 @@ productDirectory:
         - mobile
       url: spatial-anchors/index.yml
     # Card
-    - title: Remote Rendering (Preview)
+    - title: Azure Remote Rendering
       summary: Render high-quality, interactive 3D content, and stream it to your devices in real time
       imageSrc: https://static.docs.com/ui/media/product/azure/remote-rendering.svg
       azureCategories:

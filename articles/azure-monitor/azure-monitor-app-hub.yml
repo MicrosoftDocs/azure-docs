@@ -432,13 +432,13 @@ conceptualContent:
         - url: ./app/azure-functions-supported-features.md
           itemType: reference
           text:  Azure Functions integration
-        - url: /dotnet/api/overview/azure/insights?view=azure-dotnet
+        - url: /dotnet/api/overview/azure/insights
           itemType: reference
           text: .NET SDK 
-        - url: /java/api/overview/azure/appinsights?view=azure-java-stable
+        - url: /java/api/overview/azure/appinsights
           itemType: reference
           text: .Java
-        - url: /javascript/api/overview/azure/applicationinsights?view=azure-node-latest
+        - url: /javascript/api/overview/azure/applicationinsights
           itemType: reference
           text: Node.js
         - url: /rest/api/application-insights/
@@ -457,7 +457,7 @@ additionalContent:
         url: ./app/api-custom-events-metrics.md
       - title: Application Insights PowerShell
         summary: Learn how to install and use the Application Insights PowerShell cmdlets.
-        url: /powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0
+        url: /powershell/module/az.applicationinsights/new-azapplicationinsights
       - title: Azure CLI commands for Application Insights
         summary: Application Insights CLI extension commands (az extension add -n application-insights).
         url: /cli/azure/ext/application-insights/monitor/app-insights/component
