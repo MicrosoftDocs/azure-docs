@@ -265,9 +265,9 @@
     - name: PowerShell
       href: ./windows/dedicated-hosts-powershell.md
   - name: Azure Spot Virtual Machines
-    displayName: pre-empt, preempt, spot
     items:
     - name: Overview
+      displayName: pre-empt, preempt, spot
       href: spot-vms.md
     - name: CLI
       href: ./linux/spot-cli.md
@@ -782,6 +782,7 @@
 - name: Availability and scale
   items:
   - name: Overview
+    displayName: availability
     href: availability.md
   - name: Availability sets
     items:
@@ -1352,10 +1353,8 @@
       items:
       - name: Log Analytics VM Extension
         href: ../azure-monitor/visualize/vmext-troubleshoot.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-        displayname: troubleshoot, troubleshooting
       - name: Log Analytics Linux agent
         href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
-        displayname: troubleshoot, troubleshooting
     - name: Azure Monitor for VMs
       items:
       - name: Overview
