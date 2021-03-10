@@ -66,7 +66,7 @@ Then, use the client to issue a token for a new user:
 The following code example shows how to create a service client object with managed identity, then use the client to send an SMS message:
 
 ```java
-     public SmsSendResult sendSms() {
+     public SendSmsResponse sendSms() {
           // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
     
