@@ -52,6 +52,8 @@ The two options used to authenticate the Defender for IoT micro agent are:
 
 Ensure the [Prerequisites](#prerequisites) for this article are met, and that you create a module identity before starting these steps. 
 
+#### Get the module identity connection string
+
 To get the module identity connection string from the IoT Hub: 
 
 1. Navigate to the IoT Hub, and select your hub.
@@ -69,6 +71,8 @@ To get the module identity connection string from the IoT Hub:
 1. In the **Module Identity Details** page, copy the primary key by selecting the **copy** button.
 
    :::image type="content" source="media/quickstart-standalone-agent-binary-installation/copy-button.png" alt-text="Select the copy button to copy the primary key.":::
+
+#### Configure authentication using a module identity connection string
 
 To configure the agent to authenticate using a module identity connection string:
 
