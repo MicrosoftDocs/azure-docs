@@ -75,14 +75,6 @@ Extension attributes can only be registered on an application object, even thoug
     * **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.
     * **Object ID**. Example: `22222222-2222-2222-2222-222222222222`.
 
-## Using custom attribute with MS Graph API
-
-Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_ApplicationClientID_attributename`, where the `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` application. Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example:
-
-```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
-``` 
-
 ::: zone pivot="b2c-custom-policy"
 
 ## Modify your custom policy
@@ -166,6 +158,14 @@ The following example demonstrates the use of a custom attribute in Azure AD B2C
 ```
 
 ::: zone-end
+
+## Using custom attribute with MS Graph API
+
+Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_ApplicationClientID_attributename`, where the `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` application. Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example:
+
+```json
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
+``` 
 
 ## Next steps
 
