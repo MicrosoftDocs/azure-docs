@@ -152,7 +152,7 @@ Now you're ready to test the function.
 
 1. Click **Run** to execute the function. The IP address in the HTTP response content is one of the values shown in the outbound IP addresses viewed earlier
 
-    ![Test function output](./media/functions-how-to-use-nat-gateway/function-code-test-1-output.png)
+    ![Test function output](./media/functions-how-to-use-nat-gateway/function-test-1-output.png)
 
 ## Create public IP
 
