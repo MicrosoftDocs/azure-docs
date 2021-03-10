@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 12/08/2020
+ms.date: 03/10/2021
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -27,15 +27,15 @@ You can review your offer status on the **Overview** tab of the commercial marke
 | Live | Offer is live in the marketplace and can be seen and acquired by customers. |
 | Pending stop sell | Publisher selected "stop sell" on an offer or plan, but the action has not yet been completed. |
 | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
-|||
+|
 
 ## Validation and publishing steps
 
 When you are ready to submit an offer for publishing, select **Review and publish** at the upper-right corner of the portal. The **Review and publish** page shows the status of each page for your offer, which can be one of the following:
 
-   - **Not started** – The page is incomplete.
-   - **Incomplete** – The page is missing required information or has errors that need to be fixed. You'll need to go back to the page and update it.
-   - **Complete** – The page is complete. All required data has been provided and there are no errors.
+- **Not started** – The page is incomplete.
+- **Incomplete** – The page is missing required information or has errors that need to be fixed. You'll need to go back to the page and update it.
+- **Complete** – The page is complete. All required data has been provided and there are no errors.
 
 If any of the pages have a status other than **Complete**, you need to correct the issue on that page and then return to the **Review and publish** page to confirm the status now shows as **Complete**. Some offer types require testing. If so, you will see a **Notes for certification** field where you need to provide testing instructions to the certification team and any supplementary notes helpful for understanding your app.
 
@@ -73,6 +73,13 @@ The first step in the publishing process is a set of automated validations. Each
 - **Lead management validation and registration** (<15 min)
 
     We confirm that your lead management system can receive customer leads based on the details you provided on the **Offer setup** page. This step is only applicable for offers with lead management enabled.
+
+- **Offer validation** (<30 min)
+
+    For SaaS offers only, we perform quick validations for content and technical configurations. Preview creation will not be blocked on any validation issues detected in this step. If we find any issues that can fail certification, a **View validation report** link appears on the **Offer overview** page. The report will contain descriptions of any policy violations.
+
+    > [!IMPORTANT]
+    > Be sure to review and address all warnings from the Offer validation step before selecting the **Go live** button. Otherwise, you risk failing certification that will delay your offer from going live.
 
 ## Certification phase
 
@@ -142,16 +149,19 @@ If you want to publish the offer at a later time, you'll need to start the publi
 
 When the offer is ready for you to review and be signed off, we’ll send you an email to request that you review and approve your offer preview. You can also refresh the **Offer overview** page in your browser to see if your offer has reached the Publisher sign-off phase. If it has, the **Go live** button and preview links will be available.
 
-The following screenshot shows the **Offer overview** page for a SaaS offer. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer.
+The following screenshot shows the **Offer overview** page in the commercial marketplace program in Partner Center. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer. Note that the certification phase can happen during submission to preview or submission to live depending on the offer type.
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png)
 
 ### Previewing and approving your offer
 
 > [!IMPORTANT]
-> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge. If your offer is a Contact Me listing, test that a lead is created as expected by providing the Contact Me details during preview.
+> To validate the end-to-end purchase and setup flow, purchase your offer while it is in Preview. First notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge. If your offer is a _Contact Me_ listing, test that a lead is created as expected by providing the Contact Me details during preview.
 
 On the **Offer overview** page, you will see preview links under the **Go live** button. There will be a link for either AppSource preview, Azure Marketplace preview, or both depending on the options you chose when creating your offer. If you chose to sell your offer through Microsoft, anyone who has been added to the preview audience can test the acquisition and deployment of your offer to ensure it meets your requirements during this stage.
+
+> [!IMPORTANT]
+> Be sure to review and address all warnings from the _Offer validation_ step before selecting the **Go live** button. Otherwise, you risk failing certification that will delay your offer from going live.
 
 After you approve your preview, select **Go live** to publish your offer live to the commercial marketplace. 
 
@@ -189,10 +199,10 @@ The **History** page in Partner Center shows the publishing events for your comm
 
 To view the history of your offer:
 
-1.    Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2.    In the navigation menu on the left, select **Commercial Marketplace** > **Overview**.
-3.    Select your offer.
-4.    Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the navigation menu on the left, select **Commercial Marketplace** > **Overview**.
+3. Select your offer.
+4. Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:
 
 |Event    |Description    |
 |---------|---------------|
@@ -217,21 +227,22 @@ To view the history of your offer:
 
 You can use filters to narrow down the full history of your offer to specific publishing events:
 
-1.    Select the filter button on the upper-right corner of the page.
-2.    Choose a filter, then select **Apply** to see which history events correspond to the criteria you selected.
-3.    Select **Clear filters** to return to the full history of your offer.
+1. Select the filter button on the upper-right corner of the page.
+2. Choose a filter, then select **Apply** to see which history events correspond to the criteria you selected.
+3. Select **Clear filters** to return to the full history of your offer.
 
 There are four filters:
-* Events
-* Users
-* Date
-* Pages
+
+- Events
+- Users
+- Date
+- Pages
 
 When you choose the **Pages** filter, you can select any of the Partner Center pages that are applicable to your offer type. When applied, the **Pages** filter shows all the **Submitted offer to preview** events with changes to the page you selected.
 
-* For all offers, the **Offer setup** page is included by default for each submission event.
-* For offers that support plans, the **Plan overview** page is included for each submission event.
-* For offers that support test drive, the **Test drive** page is included for each submission event.
+- For all offers, the **Offer setup** page is included by default for each submission event.
+- For offers that support plans, the **Plan overview** page is included for each submission event.
+- For offers that support test drive, the **Test drive** page is included for each submission event.
 
 ### Users
 
@@ -263,4 +274,4 @@ No user is shown for system processes that correspond to [validation and publish
 
 ## Next steps
 
-[Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md)
+- [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md)
