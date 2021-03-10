@@ -209,12 +209,13 @@ You can also call a REST API technical profile with your business logic, overwri
 | setting.enableRememberMe <sup>2</sup>| No| Displays the [Keep me signed in](session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) checkbox. Possible values: `true` , or `false` (default). |
 | setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Improves user experience, by waiting for the user to stop typing, and then validate the value. Default value 2000 milliseconds. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
-|forgotPasswordLinkOverride| No | A password reset claims exchange to be executed. For more information, see [Self-service password reset](add-password-reset-policy.md). |
+|forgotPasswordLinkOverride <sup>4</sup>| No | A password reset claims exchange to be executed. For more information, see [Self-service password reset](add-password-reset-policy.md). |
 
 Notes:
 1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`.
 1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`. [Page layout version](page-layout.md) 1.1.0 and above.
 1. Available for [page layout version](page-layout.md) 1.2.0 and above.
+1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`. [Page layout version](page-layout.md) 2.1.2 and above.
 
 ## Cryptographic keys
 
