@@ -332,7 +332,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## Azure Kubernetes Service
+## <a id="aks"></a>Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) allows for various configuration options when used with Azure Machine Learning. For more information, see [How to create and attach Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
 
