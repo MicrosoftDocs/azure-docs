@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.author: helohr
 ---
 # Configure AD FS single sign-on for Windows Virtual Desktop
@@ -65,7 +65,7 @@ To determine if you are already using an enrollment agent certificate template, 
 7. Enter the service account name for AD FS and select **OK**.
      * In an isolated AD FS setup, the service account will be named `adfssvc$`.
      * If you setup AD FS via Azure AD Connect, the service account will be named `aadcsvc$`.
-8. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for Authenticated Users** pane, then select **OK** to save.
+8. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for the AD FS service account** pane, then select **OK** to save.
 
     ![A screenshot showing the security tab of the Enrollment Agent certificate template after it is properly configured](media/adfs-enrollment-properties-security.png)
 
@@ -79,7 +79,7 @@ To determine if you are already using an enrollment agent certificate template, 
 7. Enter the service account name for AD FS and select **OK**.
      * In an isolated AD FS setup, the service account will be named `adfssvc$`.
      * If you setup AD FS via Azure AD Connect, the service account will be named `aadcsvc$`.
-8. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for Authenticated Users** pane, then select **OK** to save.
+8. After the service account is added and is visible in the **Security** tab, select it in the **Group or user names** pane, select **Allow** for both "Enroll" and "Autoenroll" in the **Permissions for the AD FS service account** pane, then select **OK** to save.
 
 ### Configure the smart card logon certificate template for interactive logon
 
