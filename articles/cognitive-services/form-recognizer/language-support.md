@@ -46,7 +46,7 @@ This table lists the human languages supported by the Form Recognizer service.
 |German | `de` |✔ | ✔ |
 |Gilbertese    | `gil` | ✔ | |
 |Greenlandic   | `kl` |  ✔ | |
-|Haitian Creole  | `ht` | | ✔ |
+|Haitian Creole  | `ht` | ✔ | |
 |Hani  | `hni` |  ✔ | |
 |Hmong Daw (Latin) | `mww` |  ✔ | |
 |Hungarian | `hu` |  ✔ | |
@@ -79,7 +79,7 @@ This table lists the human languages supported by the Form Recognizer service.
 |Slovenian  | `slv` |  ✔ | |
 |Spanish | `es` |✔ | ✔ |
 |Swahili (Latin)  | `sw` | ✔ | |
-|Swedish | `sv` | |✔ |✔ |
+|Swedish | `sv` | |✔ ||
 |Tatar (Latin)  | `tat` |  ✔ | |
 |Tetum    | `tet` |  ✔ | |
 |Turkish | `tr` |  ✔ | |
