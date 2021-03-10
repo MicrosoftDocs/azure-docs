@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 03/09/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -142,6 +142,16 @@ Make sure that `CaseSensitiveLookup` is enabled on the Windows client to speed u
 2. Mount the volume on the Windows server.   
 	Example:   
 	`Mount -o rsize=1024 -o wsize=1024 -o mtype=hard \\10.x.x.x\testvol X:*`
+
+### How does Azure NetApp Files support NFSv4.1 file-locking? 
+
+For NFSv4.1 clients, Azure NetApp Files supports the NFSv4.1 file-locking mechanism that maintains the state of all file locks under a lease-based model. 
+
+Per RFC 3530, Azure NetApp Files defines a single lease period for all state held by an NFS client. If the client does not renew its lease within the defined period, all states associated with the client's lease will be released by the server.  
+
+For example, if a client mounting a volume becomes unresponsive or crashes beyond the timeouts, the locks will be released. The client can renew its lease explicitly or implicitly by performing operations such as reading a file.   
+
+A grace period defines a period of special processing in which clients can try to reclaim their locking state during a server recovery. The default timeout for the leases is 30 seconds with a grace period of 45 seconds. After that time, the client's lease will be released.   
 
 ## SMB FAQs
 

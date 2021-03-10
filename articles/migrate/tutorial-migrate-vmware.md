@@ -184,7 +184,7 @@ After you've verified that the test migration works as expected, you can migrate
 ## Complete the migration
 
 1. After the migration is done, right-click the VM > **Stop Replication**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
-2. Install the Azure VM [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines if the machine has Linux OS. We automatically install the VM agent for Windows VMs during migration.
+2. We automatically install the VM agent for Windows VMs and Linux during migration. Review the Azure VM Linux agent [requirements](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) on the migrated machines if the machine has Linux OS to ensure Linux VM agent installation is done properly. 
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 5. Cut over traffic to the migrated Azure VM instance.

@@ -12,13 +12,13 @@ ms.author: tyao
 
 # Connect Azure Front Door Premium to a storage account origin with Private Link
 
-This article will guide you through how to configure Azure Front Door Premium SKU to connect to your Storage account origin privately using the Azure Private Link service.
+This article will guide you through how to configure Azure Front Door Premium SKU to connect to your storage account origin privately using the Azure Private Link service.
 
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Enable Private Link to a storage account in Azure Front Door Premium
+## Enable Private Link to a storage account
  
 In this section, you'll map the Private Link service to a private endpoint created in Azure Front Door's private network. 
 
@@ -42,7 +42,7 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
 1. Then select **Add** to save your configuration.
 
-## Approve Azure Front Door Premium private endpoint connection from the storage account
+## Approve private endpoint connection from the storage account
 
 1. Go to the storage account you configure Private Link for in the last section. Select **Networking** under **Settings**.
 

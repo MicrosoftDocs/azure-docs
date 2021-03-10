@@ -33,7 +33,7 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
     display(df.limit(10))
     ```
 1. In the notebook, in the **Attach to** menu, choose the **Spark1** serverless Spark pool that we created earlier.
-1. Select **Run** on the cell
+1. Select **Run** on the cell. Synapse will start a new Spark session to run this cell if needed. If a new Spark session is needed, intially it will take about two seconds to be created. 
 1. If you just want to see the schema of the dataframe run a cell with the following code:
     ```
 
