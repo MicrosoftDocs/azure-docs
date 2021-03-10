@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.author: alkohli
 ---
 # Manage compute on your Azure Stack Edge Pro GPU
@@ -32,7 +32,7 @@ Take the following steps in the Azure portal to create a trigger.
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **IoT Edge**. Go to **Triggers** and select **+ Add trigger** on the command bar.
 
-    ![Select add trigger](media/azure-stack-edge-j-series-manage-compute/add-trigger-1-m.png)
+    ![Select add trigger](media/azure-stack-edge-gpu-manage-compute/add-trigger-1-m.png)
 
 2. In **Add trigger** blade, provide a unique name for your trigger.
     
@@ -42,17 +42,17 @@ Take the following steps in the Azure portal to create a trigger.
 
     - **File trigger** - Choose from the dropdown list a mounted share. When a file event is fired in this share, the trigger would invoke an Azure Function.
 
-        ![Add SMB share](media/azure-stack-edge-j-series-manage-compute/add-file-trigger.png)
+        ![Add SMB share](media/azure-stack-edge-gpu-manage-compute/add-file-trigger.png)
 
     - **Scheduled trigger** - Specify the start date/time, and the repeat interval in hours, minutes, or seconds. Also, enter the name for a topic. A topic will give you the flexibility to route the trigger to a module deployed on the device.
 
         An example route string is: `"route3": "FROM /* WHERE topic = 'topicname' INTO BrokeredEndpoint("modules/modulename/inputs/input1")"`.
 
-        ![Add NFS share](media/azure-stack-edge-j-series-manage-compute/add-scheduled-trigger.png)
+        ![Add NFS share](media/azure-stack-edge-gpu-manage-compute/add-scheduled-trigger.png)
 
 4. Select **Add** to create the trigger. A notification shows that the trigger creation is in progress. After the trigger is created, the blade updates to reflect the new trigger.
  
-    ![Updated trigger list](media/azure-stack-edge-j-series-manage-compute/add-trigger-2.png)
+    ![Updated trigger list](media/azure-stack-edge-gpu-manage-compute/add-trigger-2.png)
 
 ### Delete a trigger
 
@@ -60,15 +60,15 @@ Take the following steps in the Azure portal to delete a trigger.
 
 1. From the list of triggers, select the trigger that you want to delete.
 
-    ![Select trigger](media/azure-stack-edge-j-series-manage-compute/delete-trigger-1.png)
+    ![Select trigger](media/azure-stack-edge-gpu-manage-compute/delete-trigger-1.png)
 
 2. Right-click and then select **Delete**.
 
-    ![Select delete](media/azure-stack-edge-j-series-manage-compute/delete-trigger-2.png)
+    ![Select delete](media/azure-stack-edge-gpu-manage-compute/delete-trigger-2.png)
 
 3. When prompted for confirmation, click **Yes**.
 
-    ![Confirm delete](media/azure-stack-edge-j-series-manage-compute/delete-trigger-3.png)
+    ![Confirm delete](media/azure-stack-edge-gpu-manage-compute/delete-trigger-3.png)
 
 The list of triggers updates to reflect the deletion.
 
@@ -82,11 +82,11 @@ Take the following steps in the Azure portal to view the IoT Edge configuration 
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **IoT Edge**. After IoT Edge service is enabled on your device, the Overview page indicates that the IoT Edge service is running fine.
 
-    ![Select View compute](media/azure-stack-edge-j-series-manage-compute/view-compute-1.png)
+    ![Select View compute](media/azure-stack-edge-gpu-manage-compute/view-compute-1.png)
 
 2. Go to **Properties** to view the IoT Edge configuration on your device. When you configured compute, you created an IoT Hub resource. Under that IoT Hub resource, an IoT device and an IoT Edge device are configured. Only the Linux modules are supported to run on the IoT Edge device.
 
-    ![View configuration](media/azure-stack-edge-j-series-manage-compute/view-compute-2.png)
+    ![View configuration](media/azure-stack-edge-gpu-manage-compute/view-compute-2.png)
 
 
 ### Remove IoT Edge service
@@ -95,11 +95,11 @@ Take the following steps in the Azure portal to remove the existing IoT Edge con
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **IoT Edge**. Go to **Overview** and select **Remove** on the command bar.
 
-    ![Select Remove compute](media/azure-stack-edge-j-series-manage-compute/remove-compute-1.png)
+    ![Select Remove compute](media/azure-stack-edge-gpu-manage-compute/remove-compute-1.png)
 
 2. If you remove the IoT Edge service, the action is irreversible and can't be undone. The modules and triggers that you created will also be deleted. You will need to reconfigure your device in case you need to use IoT Edge again. When prompted for confirmation, select **OK**.
 
-    ![Select Remove compute 2](media/azure-stack-edge-j-series-manage-compute/remove-compute-2.png)
+    ![Select Remove compute 2](media/azure-stack-edge-gpu-manage-compute/remove-compute-2.png)
 
 ### Sync up IoT device and IoT Edge device access keys
 
@@ -113,11 +113,11 @@ Take the following steps in the Azure portal to sync the access keys for your de
 
 1. In the Azure portal, go to your Azure Stack Edge resource and then go to **IoT Edge compute**. Go to **Overview** and select **Refresh configuration** on the command bar.
 
-    ![Select Refresh configuration](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-1.png)
+    ![Select Refresh configuration](media/azure-stack-edge-gpu-manage-compute/refresh-configuration-1.png)
 
 2. Select **Yes** when prompted for confirmation.
 
-    ![Select Yes when prompted](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-2.png)
+    ![Select Yes when prompted](media/azure-stack-edge-gpu-manage-compute/refresh-configuration-2.png)
 
 3. Exit out of the dialog once the sync is complete.
 
@@ -132,7 +132,7 @@ Kubernetes external service IPs are used to reach out to services that are expos
     - You will need an IP for each additional IoT Edge module or container that you intend to deploy. 
     - These are static, contiguous IPs.
 
-    ![Change Kubernetes service IPs](media/azure-stack-edge-j-series-manage-compute/change-service-ips-1.png)
+    ![Change Kubernetes service IPs](media/azure-stack-edge-gpu-manage-compute/change-service-ips-1.png)
 
 1. Select **Apply**. After the IPs are applied, your device does not need a restart or a reboot. The new IPs take effect immediately.
 
