@@ -73,7 +73,9 @@ The following table shows examples for filtering events using a custom XPath.
 
 | Description | XPath |
 |:---|:---|
-|Collect all Critical, Error, Warning, and Information events from the System event log except for Event ID = 6 (Driver loaded) | `System!*[System[(Level=1 or Level=2 or Level=3) and (not[EventID=6])]]` |
+| Collect only System events with Event ID = 4648 | `System[EventID=4648]!*`  |
+| Collect only System events with Event ID = 4648 and a process name of consent.exe | `System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]` |
+| Collect all Critical, Error, Warning, and Information events from the System event log except for Event ID = 6 (Driver loaded) | `System!*[System[(Level=1 or Level=2 or Level=3) and (not[EventID=6])]]` |
 | Collect all success and failure Security events except for Event ID 4624 (Successful logon) | `Security!*[System[(band(Keywords,13510798882111488)) and (not[EventID=4624])]]` |
 
 ## Create rule and association using REST API
