@@ -24,8 +24,6 @@
     href: iot-security-deployment.md
 - name: Resources
   items:
-  - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-fundamentals/toc.json&bc=/azure/iot-fundamentals/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

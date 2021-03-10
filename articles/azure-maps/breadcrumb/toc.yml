@@ -9,6 +9,6 @@
     - name: Azure Maps
       tocHref: /azure/azure-maps/
       topicHref: /azure/azure-maps/index/
-    - name: Azure Digital Twins
+    - name: Azure Maps
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/azure-maps/index
