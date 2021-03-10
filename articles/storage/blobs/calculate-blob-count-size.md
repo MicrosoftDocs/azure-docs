@@ -1,5 +1,5 @@
 ---
-title: Calculate blob count and total size per container
+title: Calculate blob count and size using Azure Storage inventory
 description: Learn how to calculate the count and total size of blobs per container.
 services: storage
 author: mhopkins-msft
@@ -11,7 +11,7 @@ ms.subservice: blobs
 ms.topic: how-to
 ---
 
-# Calculate the count and total size of blobs per container
+# Calculate blob count and total size per container using Azure Storage inventory
 
 This article uses the Azure Blob Storage inventory feature and Azure Synapse to calculate the blob count and total size of blobs per container. These values are useful when optimizing blob usage per container.
 
