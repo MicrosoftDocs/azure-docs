@@ -54,7 +54,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 #### [version 3.1-preview](#tab/version-3-1)
 
 > [!NOTE]
-> The below example includes a request for the Opinion Mining feature of Sentiment Analysis using the `opinionMining=true` parameter, which provides granular information about the opinions related to aspects (such as the attributes of products or services) in text.
+> The below example includes a request for the Opinion Mining feature of Sentiment Analysis using the `opinionMining=true` parameter, which provides granular information about assessments (adjectives) related to targets (nouns) in the text.
 
 ```bash
 curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1-preview.4/sentiment?opinionMining=true \
