@@ -5,7 +5,7 @@ ms.service: synapse-analytics
 ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
-ms.topic: how-to
+ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
@@ -15,7 +15,7 @@ ms.date: 08/25/2020
 The following sections provide an overview of what's involved with migrating an existing Oracle data warehouse solution to Azure Synapse Analytics.
 
 ## Overview
-Before migrating, you should verify that Azure Synapse Analytics is the best solution for your workload. Azure Synapse Analytics is a distributed system designed to perform analytics on large data. Migrating to Azure Synapse Analytics requires some design changes that are not difficult to understand but that might take some time to implement. If your business requires an enterprise-class data warehouse, the benefits are worth the effort. However, if you don't need the power of Azure Synapse Analytics, it is more cost-effective to use [SQL Server](https://docs.microsoft.com/sql/sql-server/?view=sql-server-ver15) or [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/).
+Before migrating, you should verify that Azure Synapse Analytics is the best solution for your workload. Azure Synapse Analytics is a distributed system designed to perform analytics on large data. Migrating to Azure Synapse Analytics requires some design changes that are not difficult to understand but that might take some time to implement. If your business requires an enterprise-class data warehouse, the benefits are worth the effort. However, if you don't need the power of Azure Synapse Analytics, it is more cost-effective to use [SQL Server](https://docs.microsoft.com/sql/sql-server/) or [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/).
 
 Consider using Azure Synapse Analytics when you:
 - Have one or more Terabytes of data.
@@ -34,7 +34,7 @@ Rather than Azure Synapse Analytics, consider other options for operational (OLT
 To migrate your Oracle data warehouse to Azure Synapse Analytics, make sure you have the following prerequisites: 
 
 - A data warehouse or Analytics workload 
-- SSMA for Oracle to convert Oracle objects to SQL Server. See [Migrating Oracle Databases to SQL Server (OracleToSQL)](https://docs.microsoft.com/sql/ssma/oracle/migrating-oracle-databases-to-sql-server-oracletosql?view=sql-server-ver15) for more information. 
+- SSMA for Oracle to convert Oracle objects to SQL Server. See [Migrating Oracle Databases to SQL Server (OracleToSQL)](https://docs.microsoft.com/sql/ssma/oracle/migrating-oracle-databases-to-sql-server-oracletosql) for more information. 
 - Latest version of [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787) tool to migrate SQL Server objects to Azure Synapse objects.
 - A [dedicated SQL pool](../get-started-create-workspace.md) in Azure Synapse workspace.  
 
@@ -64,11 +64,11 @@ For additional assistance with completing this migration scenario, please see th
 > [!NOTE]
 > These above resources were developed as part of the Data Migration Jumpstart Program (DM Jumpstart), which is sponsored by the Azure Data Group engineering team. The core charter of DM Jumpstart is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft’s Azure Data platform. If you think your organization would be interested in participating in the DM Jumpstart program, please contact your account team and ask that they submit a nomination.
 
-# Additional resources 
+## Additional resources 
 - The CAT (Customer Advisory Team) has some great Azure Synapse Analytics (formerly SQL Data Warehouse) guidance published as blog postings. Be sure to take a look at their article, [Migrating data to Azure SQL Data Warehouse in practice](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), for additional guidance on migration.
 - Check out the white paper [Choosing your database migration path to Azure](https://azure.microsoft.com/mediahandler/files/resourcefiles/choosing-your-database-migration-path-to-azure/Choosing_your_database_migration_path_to_Azure.pdf) for additional information and recommendations.
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
 
-### Videos
+## Videos
 - For an overview of the Azure Database Migration Guide and the information it contains, see the video [How to Use the Database Migration Guide](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/).
 - For a walk through of the phases of the migration process and detail about the specific tools and services recommended to perform assessment and migration, see the video [Overview of the migration journey and the tools/services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
