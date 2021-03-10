@@ -53,7 +53,7 @@ In this section we create the NAT gateway and supporting resources.
 
 * Create a virtual network named **myVnet** with a subnet named **mySubnet** using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) in the **myResourceGroup** using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The IP address space for the virtual network is **10.1.0.0/16**. The subnet within the virtual network is **10.1.0.0/24**.
 
-* Create an Azure Bastion host named **myBastionHost** using [New-AzBastion](/powershell/module/az.network/new-azbastion) to access the virtual machine. Create a public IP address for the bastion host with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
+* Create an Azure Bastion host named **myBastionHost** to access the virtual machine. Use [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the bastion host. Create a public IP address for the bastion host with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
 ```azurepowershell-interactive
 ## Create public IP address for NAT gateway ##
@@ -129,7 +129,7 @@ In this section, you'll create a virtual machine to test the NAT gateway and ver
 
 * Create a network interface with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
 
-* Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
+* Set an administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
 
 * Create the virtual machine with:
     * [New-AzVM](/powershell/module/az.compute/new-azvm)
