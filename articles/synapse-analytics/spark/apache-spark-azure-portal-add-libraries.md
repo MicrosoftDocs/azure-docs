@@ -33,6 +33,7 @@ When developing custom applications or models, your team may develop various cod
 In Synapse, workspace packages can be custom or private wheel or jar files. You can upload these packages to your workspace and later assign them to a specific Spark pool. Once assigned, these workspace packages are automatically installed on all Spark pool sessions.
 
 To learn more about how to manage workspace libraries, visit the following how-to guides:
+
 - [Python workspace packages (preview): ](./apache-spark-manage-python-packages.md#install-wheel-files) Upload Python wheel files as a workspace package and later add these packages to specific serverless Apache Spark pools.
 - [Scala/Java workspace packages (preview): ](./apache-spark-manage-scala-packages.md#workspace-packages) Upload Scala and Java jar files as a workspace package and later add these packages to specific serverless Apache Spark pools.
 
@@ -55,9 +56,14 @@ Often, when doing interactive data analysis or machine learning, you may find th
 
 Session-scoped packages allow users to define package dependencies at the start of their session. When you install a session-scoped package, only the current session has access to the specified packages. As a result, these session-scoped packages will not impact other sessions or jobs using the same Apache Spark pool. In addition, these libraries are installed on top of the base runtime and pool level packages. 
 
+These packages are added automatically to your Python environment. The packages must not be mentioned in your *requirements.txt* file.
+
+Note that this method currently suports only `*.whl` files. Do not add any `*.tar.gz` files to the container.
+
 To learn more about how to manage session-scoped packages, visit the following how-to guides:
+
 - [Python session packages (preview): ](./apache-spark-manage-python-packages.md) At the start of a session, provide a Conda *environment.yml* to install additional Python packages from popular repositories. 
-- [Scala/Java session packages: ](./apache-spark-manage-scala-packages.md) At the start of your session, provide a list of jar files to install using ```%%configure```.
+- [Scala/Java session packages: ](./apache-spark-manage-scala-packages.md) At the start of your session, provide a list of jar files to install using `%%configure`.
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)

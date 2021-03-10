@@ -1,5 +1,5 @@
 ---
-title: Add Azure resources to your IoT solution
+title: "Quickstart: Add Azure resources to your IoT solution"
 description: In this quickstart, learn how to configure your end-to-end IoT solution using Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -19,6 +19,10 @@ ms.author: shhazam
 # Quickstart: Configure your Azure Defender for IoT solution
 
 This article provides an explanation of how to perform initial configuration of your IoT security solution using Defender for IoT.
+
+## Prerequisites
+
+None
 
 ## What is Defender for IoT?
 

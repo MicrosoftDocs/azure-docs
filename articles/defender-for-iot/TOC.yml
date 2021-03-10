@@ -4,13 +4,13 @@
   displayName: IoT, OT, getting started
   href: overview.md
   items:
-  - name: What's new?
-    href: release-notes.md
   - name: Agentless solution architecture
     displayName: deployment, where to deploy
     href: architecture.md
   - name: Agent-based solution architecture 
     href: architecture-agent-based.md
+- name: What's new?
+  href: release-notes.md
 - name: Quickstarts
   expanded: true
   items:
@@ -59,7 +59,7 @@
     - name: Agent portfolio overview and OS support (Preview)                     
       displayName: standalone agent, micro agent, RTOS
       href: concept-agent-portfolio-overview-os-support.md
-    - name: Standalone micro agent overview (Preview) 
+    - name: Standalone micro agent overview (Preview)
       displayName: endpoint, posture, distribution, flexible, model 
       href: concept-standalone-micro-agent-overview.md
     - name: Security agent authentication (Preview)
@@ -249,9 +249,6 @@
       displayName: data, collection, geolocation, log analytics, raw events
       href: how-to-configure-agent-based-solution.md
     - name: Investigate CIS benchmark recommendation
-      displayName: investigation, queries, investigate
-      href: how-to-configure-agent-based-solution.md
-    - name: Investigate CIS benchmark recommendation
       href: how-to-investigate-cis-benchmark.md
     - name: Create custom alerts
       displayName: security group
@@ -293,7 +290,6 @@
       - name: Send your own security messages
         href: how-to-send-security-messages.md
       - name: Access raw security data
-
         displayName: log analytics, alerts, 
         href: how-to-security-data-access.md
       - name: Investigate a device

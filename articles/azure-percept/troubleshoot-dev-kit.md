@@ -90,7 +90,7 @@ There are three small LEDs on top of the carrier board housing. A cloud icon is 
 |LED             |State      |Description                      |
 |----------------|-----------|---------------------------------|
 |LED 1 (IoT Hub) |On (solid) |Device is connected to an IoT Hub. |
-|LED 2 (Wi-Fi)   |Slow blink |Device authentication in progress. |
+|LED 2 (Wi-Fi)   |Slow blink |Device is ready to be configured by Wi-Fi Easy Connect and is announcing its presence to a configurator. |
 |LED 2 (Wi-Fi)   |Fast blink |Authentication was successful, device association in progress. |
 |LED 2 (Wi-Fi)   |On (solid) |Authentication and association were successful; device is connected to a Wi-Fi network. |
 |LED 3           |NA         |LED not in use. |

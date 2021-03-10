@@ -70,6 +70,9 @@ The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nod
 
 ### Cloud Services Configuration
 
+> [!WARNING]
+> Cloud Service Configuration Pools are deprecated. Please use Virtual Machine Configuration Pools instead.
+
 The **Cloud Services Configuration** specifies that the pool is composed of Azure Cloud Services nodes. Cloud Services provides only Windows compute nodes.
 
 Available operating systems for Cloud Services Configuration pools are listed in the [Azure Guest OS releases and SDK compatibility matrix](../cloud-services/cloud-services-guestos-update-matrix.md), and available compute node sizes are listed in [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md). When you create a pool that contains Cloud Services nodes, you specify the node size and its *OS Family* (which determines which versions of .NET are installed with the OS). Cloud Services is deployed to Azure more quickly than virtual machines running Windows. If you want pools of Windows compute nodes, you may find that Cloud Services provide a performance benefit in terms of deployment time.

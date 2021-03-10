@@ -23,11 +23,10 @@ This guide explains how to install and deploy the Defender for IoT C#-based secu
 
 In this guide, you learn how to:
 
-> [!div class="checklist"]
-> * Install
-> * Verify deployment
-> * Uninstall the agent
-> * Troubleshoot
+- Install
+- Verify deployment
+- Uninstall the agent
+- Troubleshoot
 
 ## Prerequisites
 
