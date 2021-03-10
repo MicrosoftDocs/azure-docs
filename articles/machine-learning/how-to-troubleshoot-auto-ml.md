@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python, automl, references_regions
 
 # Troubleshoot automated ML experiments in Python
 
-In this guide, learn how to identify and resolve known issues in your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+In this guide, learn how to identify and resolve known issues in your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 
 ## Version dependencies
 

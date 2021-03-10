@@ -15,7 +15,7 @@ ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
 
 # Deploy ML models to field-programmable gate arrays (FPGAs) with Azure Machine Learning 
 
-In this article, you learn about FPGAs and how to deploy your ML models to an Azure FPGA using the [hardware-accelerated models Python package](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py) from [Azure Machine Learning](overview-what-is-azure-ml.md).
+In this article, you learn about FPGAs and how to deploy your ML models to an Azure FPGA using the [hardware-accelerated models Python package](/python/api/azureml-accel-models/azureml.accel) from [Azure Machine Learning](overview-what-is-azure-ml.md).
 
 ## What are FPGAs?
 FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance. 
@@ -51,7 +51,7 @@ The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "
 
 ## Deploy models on FPGAs
 
-You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py). Using FPGAs provides ultra-low latency inference, even with a single batch size. 
+You can deploy a model as a web service on FPGAs with [Azure Machine Learning Hardware Accelerated Models](/python/api/azureml-accel-models/azureml.accel). Using FPGAs provides ultra-low latency inference, even with a single batch size. 
 
 In this example, you create a TensorFlow graph to preprocess the input image, make it a featurizer using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set. Then, the model is deployed to an AKS cluster.
 
@@ -75,7 +75,7 @@ In this example, you create a TensorFlow graph to preprocess the input image, ma
 
 ### Define the TensorFlow model
 
-Begin by using the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
+Begin by using the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
 
 1. Load Azure Machine Learning workspace
 

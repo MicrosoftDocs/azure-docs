@@ -823,8 +823,8 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
   - name: Understand VM reboots
     href: understand-vm-reboots.md
-  - name: States and lifecycle
-    href: states-lifecycle.md
+  - name: States and billing
+    href: states-billing.md
   - name: Azure Regions
     href: regions.md
 - name: Disks
@@ -1355,7 +1355,7 @@
       - name: General Availability FAQ
         href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
       - name: FAQ
-        href: ../azure-monitor/faq.md
+        href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context
       - name: Enable monitoring
         items:
         - name: Enable monitoring overview
