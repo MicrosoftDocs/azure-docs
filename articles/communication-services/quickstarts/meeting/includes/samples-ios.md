@@ -58,19 +58,19 @@ Implement the `didUpdateCallState` and `didUpdateRemoteParticipantCount` functio
 
 ## Assigning avatars for users
 
-Add the `MeetingIdentityProviderDelegate` to your class.
+Add the `MeetingUIClientIdentityProviderDelegate` to your class.
 
 ```swift
-class ViewController: UIViewController, MeetingIdentityProviderDelegate {
+class ViewController: UIViewController, MeetingUIClientIdentityProviderDelegate {
 
     private var meetingClient: MeetingUIClient?
 ```
 
-Set the `MeetingIdentityProviderDelegate` to `self` before joining the meeting.
+Set the `MeetingUIClientIdentityProviderDelegate` to `self` before joining the meeting.
 
 ```swift
 private func joinMeeting() {
-    meetingClient?.meetingIdentityProviderDelegate = self
+    meetingClient?.meetingUIClientIdentityProviderDelegate = self
     let meetingJoinOptions = MeetingJoinOptions(displayName: "John Smith")
 
     meetingClient?.join(meetingUrl: "<MEETING_URL>", meetingJoinOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
@@ -84,24 +84,24 @@ private func joinMeeting() {
 Map each `userMri` with the corresponding avatar.
 
 ```swift
-func avatarForUserMri(userMri: String, completionHandler completion: @escaping (UIImage?) -> Void) {
-        if (userMri .starts(with: "8:teamsvisitor:")) {
+    func avatarFor(userIdentifier: String, completionHandler: @escaping (UIImage?) -> Void) {
+        if (userIdentifier.starts(with: "8:teamsvisitor:")) {
             // Anonymous teams user will start with prefix 8:teamsvistor:
             let image = UIImage (named: "avatarPink")
-            completion(image!)
+            completionHandler(image!)
         }
-        else if (userMri .starts(with: "8:orgid:")) {
+        else if (userIdentifier.starts(with: "8:orgid:")) {
             // OrgID user will start with prefix 8:orgid:
             let image = UIImage (named: "avatarDoctor")
-            completion(image!)
+            completionHandler(image!)
         }
-        else if (userMri .starts(with: "8:acs:")) {
+        else if (userIdentifier.starts(with: "8:acs:")) {
             // ACS user will start with prefix 8:acs:
             let image = UIImage (named: "avatarGreen")
-            completion(image!)
+            completionHandler(image!)
         }
         else {
-            completion(nil)
+            completionHandler(nil)
         }
 }
 ```
