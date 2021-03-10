@@ -1235,11 +1235,17 @@
   items:
   - name: Overview
     href: maintenance-and-updates.md
-  - name: Automatic VM guest patching (preview)
-    href: automatic-vm-guest-patching.md
+  - name: Image upgrade
+    href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
+  - name: In-guest patching (preview)
+    items: 
+    - name: Automatic VM guest patching (preview)
+      href: automatic-vm-guest-patching.md
+    - name: Hotpatching
+      href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
   - name: Automatic extension upgrade (preview)
     href: automatic-extension-upgrade.md
-  - name: Maintenance control
+  - name: Platform maintenance
     items:
     - name: Maintenance notifications
       items:
@@ -1273,16 +1279,12 @@
         href: ./linux/tutorial-config-management.md
       - name: Windows
         href: ./windows/tutorial-config-management.md
-    - name: Virtual machine scale set OS image upgrades
+    - name: Maintenance control
       items:
-      - name: Automatic OS upgrades
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
-      - name: Maintenance control
-        items:
-        - name: Overview (Preview)
-          href: virtual-machine-scale-sets-maintenance-control.md
-        - name: PowerShell (Preview)
-          href: virtual-machine-scale-sets-maintenance-control-powershell.md
+      - name: Overview (Preview)
+        href: virtual-machine-scale-sets-maintenance-control.md
+      - name: PowerShell (Preview)
+        href: virtual-machine-scale-sets-maintenance-control-powershell.md
 - name: Monitoring
   items:
   - name: Overview
