@@ -26,7 +26,7 @@ In this article, the Azure Stack Edge Pro FPGA device is referred to as the *sou
 
 ## Comparison summary
 
-This section provides a comparative summary of capabilities between the Azure Stack Edge Pro GPU vs. the Azure Stack Edge Pro FPGA devices. The hardware in both the source and the target device is largely identical and differs only with respect to the hardware acceleration card and the storage capacity. 
+This section provides a comparative summary of capabilities between the Azure Stack Edge Pro GPU vs. the Azure Stack Edge Pro FPGA devices. The hardware in both the source and the target device is largely identical; only the hardware acceleration card and the storage capacity may differ.<!--Please verify: These components MAY, but need not necessarily, differ?-->
 
 |    Capability  | Azure Stack Edge Pro GPU (Target device)  | Azure Stack Edge Pro FPGA (Source device)|
 |----------------|-----------------------|------------------------|
