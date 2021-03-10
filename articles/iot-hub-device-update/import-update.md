@@ -52,11 +52,11 @@ Learn how to import a new update into Device Update for IoT Hub. If you haven't 
 
     | Parameter | Description |
     | --------- | ----------- |
-    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso. Must match _manufacturer_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)
-    | deviceModel | Model of the device the update is compatible with, for example, Toaster. Must match _model_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)
+    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso. Must match _manufacturer_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties).
+    | deviceModel | Model of the device the update is compatible with, for example, Toaster. Must match _model_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties).
     | updateProvider | Entity who is creating or directly responsible for the update. It will often be a company name.
     | updateName | Identifier for a class of updates. The class can be anything you choose. It will often be a device or model name.
-    | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. May or may not match a version of an individual software component on the device.
+    | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. Does not have match a version of an individual software component on the device (but can if you choose).
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
     | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify recommended value for `microsoft/apt:1` update type.
     | updateFilePath(s) | Path to the update file(s) on your computer
