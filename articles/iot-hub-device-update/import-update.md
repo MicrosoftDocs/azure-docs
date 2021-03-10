@@ -28,9 +28,9 @@ Learn how to import a new update into Device Update for IoT Hub. If you haven't 
 
 1. Ensure that your update image file or APT Manifest file is located in a directory accessible from PowerShell.
 
-2. Download the [AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) PowerShell cmdlet.
+2. Download the [AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) PowerShell cmdlet to the directory where your update image file or APT Manifest file is located.
 
-3. In PowerShell, navigate to the folder where you downloaded the cmdlet from step 2. Then run:
+3. In PowerShell, navigate to the directory where you downloaded the cmdlet from step 2. Then run:
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -108,7 +108,7 @@ Example:
 ## Import update
 
 [!NOTE]
-The instructions below show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) instead. 
+The instructions below show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) to import an update. 
 
 1. Log in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 
