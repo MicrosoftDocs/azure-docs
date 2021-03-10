@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot issues with Azure Percept Audio and speech modules
-description: Get troubleshooting tips for some of the more common issues found during the on-boarding experience
+title: Troubleshoot issues with Azure Percept Audio and the speech module
+description: Get troubleshooting tips for Azure Percept Audio and azureearspeechclientmodule
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept

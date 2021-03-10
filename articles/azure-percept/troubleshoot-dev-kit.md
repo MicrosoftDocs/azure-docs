@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot general issues with Azure Percept DK and IoT Edge
-description: Get troubleshooting tips for some of the more common issues found during the on-boarding experience
+description: Get troubleshooting tips for some of the more common issues with Azure Percept DK
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
