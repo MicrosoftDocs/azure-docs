@@ -49,7 +49,7 @@ The following sections details the protection support matrix for MABS:
 | VMware  VMs                                                  | VMware  server 5.5, 6.0, or 6.5, 6.7 (Licensed Version) | Hyper-V  virtual machine  <br><br>   VMware  virtual machine         | V3 UR1                             | Protect:  VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage   <br><br>     Recover:  Virtual machine, Item-level recovery of files and folders available only for  Windows, volumes, virtual hard drives <br><br>    VMware  vApps aren't supported. |
 
 >[!NOTE]
-> MABS doesn't support the backup of virtual machine data on pass-through disks that present volumes to the virtual machine or that use a remote VHD. We recommend that in this scenario you use host-level backup of the VHD files using MABS, and install an agent on the virtual machine to back up data that isn't visible on the host.
+> MABS doesn't support backup of virtual machines with pass-through disks or those that use a remote VHD. We recommend that in these scenarios you use guest-level backup using MABS, and install an agent on the virtual machine to back up the data.
 
 ## Linux
 
