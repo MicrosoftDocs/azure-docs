@@ -139,7 +139,7 @@ For more information about LTR, see [Long-term backup retention](long-term-reten
 The price for backup storage varies and depends on your purchasing model (DTU or vCore), chosen backup storage redundancy option, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
 
 > [!NOTE]
-> Azure invoice will show only the excess backup storage consumed, not the entire backup storage consumption. For example, if you have provisioned 4TB of data storage, you will get 4TB of free backup storage space. In case that you have used a total of 7.8TB of backup storage space, Azure invoice will show 3.8TB charge on the bill, as only excess backup storage is charged.
+> Azure invoice will show only the excess backup storage consumed, not the entire backup storage consumption. For example, if you have provisioned 4TB of data storage, you will get 4TB of free backup storage space. In case that you have used the total of 7.8TB of backup storage space, Azure invoice will show only 3.8TB charge on the bill, as only excess backup storage is charged.
 
 ### DTU model
 
