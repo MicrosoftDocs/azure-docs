@@ -87,5 +87,6 @@ az group delete --name MyResourceGroup
 - [az cdn origin-group create](/cli/azure/cdn/origin-group#az_cdn_origin_group_create)
 - [az cdn profile create](/cli/azure/cdn/profile#az_cdn_profile_create)
 - [az group create](/cli/azure/group#az_group_create)
+- [az group delete](/cli/azure/group#az_group_delete)
 - [az cdn custom-domain create](/cli/azure/cdn/custom-domain#az_cdn_custom_domain_create)
 - [az cdn custom-domain enable-https](/cli/azure/cdn/custom-domain#az_cdn_custom_domain_enable_https)
