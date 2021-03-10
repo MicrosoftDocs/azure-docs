@@ -7,12 +7,12 @@ In the pom.xml file, add the following dependency elements to the group of depen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.6</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.4</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -66,27 +66,27 @@ Then, use the client to issue a token for a new user:
 The following code example shows how to create a service client object with managed identity, then use the client to send an SMS message:
 
 ```java
-     public SendSmsResponse sendSms() {
-          // You can find your endpoint and access key from your resource in the Azure portal
-          String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+     public SmsSendResult sendSms() {
+        // You can find your endpoint and access key from your resource in the Azure portal
+        String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+    
+        HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+        TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
-          HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
-          TokenCredential credential = new DefaultAzureCredentialBuilder().build();
+        SmsClient smsClient = new SmsClientBuilder()
+            .endpoint(endpoint)
+            .credential(credential)
+            .httpClient(httpClient)
+            .buildClient();
 
-          SmsClient smsClient = new SmsClientBuilder()
-               .endpoint(endpoint)
-               .credential(credential)
-               .httpClient(httpClient)
-               .buildClient();
+        // Send the message and check the response for a message id
+        SmsSendResult response = smsClient.send(
+            "<leased-phone-number>",
+            "<to>",
+            "your message"
+            );
 
-          // Send the message and check the response for a message id
-          SendSmsResponse response = smsClient.sendMessage(
-               new PhoneNumberIdentifier("<leased-phone-number>"),
-               to,
-               "your message",
-               options /* Optional */
-          );
-          return response;
-    }
+        return response;
+}
 ```
 
