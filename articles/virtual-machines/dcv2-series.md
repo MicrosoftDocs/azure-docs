@@ -3,7 +3,7 @@ title: DC-series - Azure Virtual Machines
 description: Specifications for the DC-series VMs.
 author: susaxen
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
@@ -21,8 +21,10 @@ Example use cases include: confidential multiparty data sharing, fraud detection
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*) <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 
-*Except for Standard_DC8_v2
+*Except for Standard_DC8_v2 <br>
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (MBps) | EPC Memory (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

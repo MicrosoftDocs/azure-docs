@@ -2,8 +2,6 @@
 title: Migrate cluster to a newer version
 titleSuffix: Azure HDInsight
 description: Learn guidelines to migrate your Azure HDInsight cluster to a newer version.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh 
 ms.service: hdinsight
 ms.topic: how-to

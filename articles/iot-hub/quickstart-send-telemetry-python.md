@@ -1,5 +1,5 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart (Python) | Microsoft Docs
+title: Quickstart - Send telemetry to Azure IoT Hub quickstart (Python) | Microsoft Docs
 description: In this quickstart, you run a sample Python application to send simulated telemetry to an IoT hub and use a utility to read telemetry from the IoT hub.
 author: wesmc7777
 manager: philmea

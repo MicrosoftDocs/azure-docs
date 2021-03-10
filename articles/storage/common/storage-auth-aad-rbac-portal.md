@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -39,10 +39,12 @@ After you have determined the appropriate scope for a role assignment, navigate 
 
 The following sections describe each of these steps in more detail.
 
-> [!NOTE]
+> [!IMPORTANT]
 > When you create an Azure Storage account, you are not automatically assigned permissions to access data via Azure AD. You must explicitly assign yourself an Azure role for Azure Storage. You can assign it at the level of your subscription, resource group, storage account, or container or queue.
 >
 > Prior to assigning yourself a role for data access, you will be able to access data in your storage account via the Azure portal because the Azure portal can also use the account key for data access. For more information, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md).
+>
+> If the storage account is locked with an Azure Resource Manager read-only lock, then the lock prevents the assignment of Azure RBAC roles that are scoped to the storage account or to a data container (blob container or queue).
 
 ### Assign an Azure built-in role
 

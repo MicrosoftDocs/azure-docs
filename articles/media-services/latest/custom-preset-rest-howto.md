@@ -1,19 +1,17 @@
 ---
-title: Encode custom transform using Media Services v3 REST - Azure | Microsoft Docs
+title: Encode a custom transform REST
 description: This topic shows how to use Azure Media Services v3 to encode a custom transform using REST.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
 ms.custom: 
 ms.date: 08/31/2020
 ms.author: inhenkel
-
 ---
 
 # How to encode with a custom transform - REST

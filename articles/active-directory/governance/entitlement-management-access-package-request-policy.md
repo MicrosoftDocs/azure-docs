@@ -196,7 +196,8 @@ To change the request and approval settings for an access package, you need to o
 
 1. Click **Next**.
 
-1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in []() to configure requestor information (preview).
+1. If you want to require requestors to provide additional information when requesting access to an access package, use the steps in [Change approval and requestor information (preview) settings for an access package in Azure AD entitlement management](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview)
+ to configure requestor information (preview).
 
 1. Configure lifecycle settings.
 

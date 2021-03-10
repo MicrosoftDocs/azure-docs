@@ -5,7 +5,7 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 02/05/2021
 ms.author: banders
 ---
 
@@ -95,6 +95,8 @@ The following tables show what role you need to complete tasks in the context of
 |Update billing profile properties |✔|✔|✘|✘|✘|✘|✘|
 |View policies applied on the billing profile like enable Azure reservation purchases, enable Azure marketplace purchases, and more|✔|✔|✔|✔|✔|✔|✔|
 |Apply policies on the billing profile |✔|✔|✘|✘|✘|✘|✘|
+|Manage reservation orders |✔|✔|✘|✘|✘|✘|✘|
+|View reservation orders |✔|✔|✔|✘|✘|✘|✘|
 
 ### Manage invoices for billing profile
 

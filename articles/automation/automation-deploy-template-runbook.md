@@ -18,7 +18,7 @@ In this article, we create a PowerShell runbook that uses a Resource Manager tem
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or [sign up for a free account](https://azure.microsoft.com/free/).
-* [Automation account](./manage-runas-account.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
+* [Automation account](./automation-security-overview.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 * [Azure Storage account](../storage/common/storage-account-create.md) in which to store the Resource Manager template.
 * Azure PowerShell installed on a local machine. See [Install the Azure PowerShell Module](/powershell/azure/install-az-ps) for information about how to get Azure PowerShell.
 

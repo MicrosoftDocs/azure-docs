@@ -69,6 +69,9 @@ The table below lists Service Fabric durability tiers, their requirements, and a
 | Silver           | 5                              | VMs of single core or above with at least 50 GB of local SSD                      | Can be delayed until approved by the Service Fabric cluster | Cannot be delayed for any significant period of time                                                    |
 | Bronze          | 1                              | VMs with at least 50 GB of local SSD                                              | Will not be delayed by the Service Fabric cluster           | Cannot be delayed for any significant period of time                                                    |
 
+> [!NOTE]
+> The above mentioned minimum number of VMs is a necessary requirement for each durability level. We have validations in-place which will prevent creation or modification of existing virtual machine scalesets which do not meet these requirements.
+
 > [!WARNING]
 > With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
 
@@ -141,7 +144,7 @@ Here is the recommendation on choosing the reliability tier. The number of seed 
 | 7 or 8 | Gold |
 | 9 and up | Platinum |
 
-When you increase or decrease the size of your cluster (the sum of VM instances in all node types), consider updating the reliability of your cluster from one tier to another. Doing this triggers the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps)
+When you increase or decrease the size of your cluster (the sum of VM instances in all node types), consider updating the reliability of your cluster from one tier to another. Doing this triggers the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade)
 
 ### Capacity planning for reliability
 

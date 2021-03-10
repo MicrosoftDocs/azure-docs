@@ -100,7 +100,7 @@ SignalR Service can access Key Vault to get secret using the managed identity.
 
 1. Add a system-assigned identity or user-assigned identity for Azure SignalR Service.
 
-2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md)
 
 Currently, this feature can be used in the following scenarios:
 

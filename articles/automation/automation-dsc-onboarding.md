@@ -69,7 +69,7 @@ You can enable Windows servers running on-premises or in other cloud environment
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
    ```
 
-1. If you can't apply the PowerShell DSC metaconfigurations remotely, copy the **metaconfigurations** folder to the machines that you are enabling. Then add code to call [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) locally on the machines.
+1. If you can't apply the PowerShell DSC metaconfigurations remotely, copy the **metaconfigurations** folder to the machines that you are enabling. Then add code to call [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) locally on the machines.
 1. Using the Azure portal or cmdlets, verify that the machines appear as State Configuration nodes registered in your Azure Automation account.
 
 ## Enable physical/virtual Linux machines
@@ -119,7 +119,7 @@ To enable any machine for State Configuration, you can generate a [DSC metaconfi
 > [!NOTE]
 > DSC metaconfigurations contain the secrets needed to enable a machine in an Automation account for management. Make sure to properly protect any DSC metaconfigurations you create, or delete them after use.
 
-Proxy support for metaconfigurations is controlled by the [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), which is the Windows PowerShell DSC engine. The LCM runs on all target nodes and is responsible for calling the configuration resources that are included in a DSC metaconfiguration script. You can include proxy support in a metaconfiguration by including definitions of `ProxyURL` and `ProxyCredential` properties as needed in the `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb`, and `ReportServerWeb` blocks. An example of the URL setting is `ProxyURL = "http://172.16.3.6:3128";`. The `ProxyCredential` property is set to a `PSCredential` object, as described in [Manage credentials in Azure Automation](shared-resources/credentials.md). 
+Proxy support for metaconfigurations is controlled by the [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig), which is the Windows PowerShell DSC engine. The LCM runs on all target nodes and is responsible for calling the configuration resources that are included in a DSC metaconfiguration script. You can include proxy support in a metaconfiguration by including definitions of `ProxyURL` and `ProxyCredential` properties as needed in the `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb`, and `ReportServerWeb` blocks. An example of the URL setting is `ProxyURL = "http://172.16.3.6:3128";`. The `ProxyCredential` property is set to a `PSCredential` object, as described in [Manage credentials in Azure Automation](shared-resources/credentials.md). 
 
 ### Generate DSC metaconfigurations using a DSC configuration
 
@@ -257,7 +257,7 @@ If PowerShell DSC LCM defaults match your use case and you want to
 enable machines to both pull from and report to Azure Automation State Configuration, you can generate the needed DSC metaconfigurations more simply using the Azure Automation cmdlets.
 
 1. Open the PowerShell console or VSCode as an administrator on a machine in your local environment.
-2. Connect to Azure Resource Manager using [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0).
+2. Connect to Azure Resource Manager using [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount).
 3. Download the PowerShell DSC metaconfigurations for the machines you want to enable from the Automation account in which you are setting up nodes.
 
    ```powershell
@@ -323,7 +323,7 @@ To view the status of the Azure VM Desired State Configuration extension:
 
 - To get started, see [Get started with Azure Automation State Configuration](automation-dsc-getting-started.md).
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compile DSC configurations in Azure Automation State Configuration](automation-dsc-compile.md).
-- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation).
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/).
 - For an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).
 - For troubleshooting information, see [Troubleshoot Azure Automation State Configuration](./troubleshoot/desired-state-configuration.md).
