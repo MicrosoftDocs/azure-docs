@@ -146,6 +146,17 @@ landingContent:
             url: /powershell/module/az.vmware
           - text: FAQ
             url: faq.yml
+      - linkListType: video
+        links:
+          - text: Playlist
+            url: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
+          - text: Demystify DNS and Secure Communication 
+            url: https://youtu.be/m26iLu6DHbU
+          - text: Integrate with Azure Application Gateway
+            url: https://youtu.be/BoQYvqzb6Y8
+          - text: Migrate and capacity planning
+            url: https://youtu.be/NoNG-hkksrA
+                            
 
 # card 8
   - title: Troubleshooting
