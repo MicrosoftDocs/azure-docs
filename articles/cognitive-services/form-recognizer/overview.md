@@ -41,14 +41,12 @@ To try out the Form Recognizer Service, go to the online Sample UI Tool:
 <!-- markdownlint-disable MD025 -->
 <!-- markdownlint-disable MD024 -->
 
-## [v2.1 preview](#tab/v2-1)
-
-## [v2.1 preview](#tab/v2-1)
+### [v2.1 preview](#tab/v2-1)
 
 > [!div class="nextstepaction"]
 > [Try Form Recognizer](https://fott-preview.azurewebsites.net/)
 
-# [v2.0](#tab/v2-0)
+### [v2.0](#tab/v2-0)
 
 ---
 

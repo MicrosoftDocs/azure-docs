@@ -204,27 +204,6 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
     >
 
-### [v2.0](#tab/v2-0)
-
-1. First, use the tags editor pane to create the tags you'd like to identify.
-   1. Click **+** to create a new tag.
-   1. Enter the tag name.
-   1. Press Enter to save the tag.
-1. In the main editor, click to select words from the highlighted text elements.
-1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
-    > [!Tip]
-    > Keep the following tips in mind when you're labeling your forms:
-    >
-    > * You can only apply one tag to each selected text element.
-    > * Each tag can only be applied once per page. If a value appears multiple times on the same form, create different tags for each instance. For example: "invoice# 1", "invoice# 2" and so on.
-    > * Tags cannot span across pages.
-    > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
-    > * Don't include keys in your tagged fields&mdash;only the values.
-    > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
-    > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
-    > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
->
-
 ---
 
 :::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Main editor window of sample labeling tool.":::

@@ -50,13 +50,13 @@ First, call the [Analyze Layout](https://westcentralus.dev.cognitive.microsoft.c
 
 You can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
-:::image border type="content" source="./Images/layout-reading-order-example.png" alt-text="Layout Reading order example":::
+:::image type="content" source="../Computer-vision/Images/ocr-reading-order-example.png" alt-text="Layout Reading order example":::
 
 ### Select page numbers or ranges for text extraction
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
-:::image border type="content" source="./Images/layout-select-pages.png" alt-text="Layout selected pages output":::
+:::image type="content" source="../Computer-vision/Images/ocr-select-pages.png" alt-text="Layout selected pages output":::
 
 ## The Get Analyze Layout Result operation
 
@@ -74,7 +74,7 @@ When the **status** field has the `succeeded` value, the JSON response will incl
 
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
 
-:::image border type="content" source="./Images/layout-handwriting-classification.png" alt-text="handwriting classification example":::
+:::image type="content" source="../Computer-vision/Images/ocr-handwriting-classification.png" alt-text="handwriting classification example":::
 
 ### Sample JSON output
 
