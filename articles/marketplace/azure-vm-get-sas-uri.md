@@ -83,7 +83,8 @@ This script uses following commands to generate the SAS URI for a snapshot and c
 |Command  |Notes  |
 |---------|---------|
 | az disk grant-access    |     Generates read-only SAS that is used to copy the underlying VHD file to a storage account or download it to on-premises    |
-|  az storage blob copy start   |    Copies a blob asynchronously from one storage account to another. Use az storage blob show to check the status of the new blob.     ||
+|  az storage blob copy start   |    Copies a blob asynchronously from one storage account to another. Use az storage blob show to check the status of the new blob.     |
+|
 
 ## Generate the SAS address
 
