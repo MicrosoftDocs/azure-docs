@@ -1255,7 +1255,7 @@
       href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
   - name: Automatic extension upgrade (Preview)
     href: automatic-extension-upgrade.md
-  - name: Update management in Azure Automation
+  - name: Update Management in Azure Automation
     href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
   - name: Maintenance
     items:
