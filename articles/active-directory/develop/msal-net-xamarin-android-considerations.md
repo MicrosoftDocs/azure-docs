@@ -71,9 +71,9 @@ protected override void OnActivityResult(int requestCode,
 }
 ```
 
-## Update the Android Manifest for System WebView support 
+## Update the Android manifest for System WebView support 
 
-To support the System WebView, the *AndroidManifest.xml* file should contain the following values:
+To support System WebView, the *AndroidManifest.xml* file should contain the following values:
 
 ```xml
 <activity android:name="microsoft.identity.client.BrowserTabActivity" android:configChanges="orientation|screenSize">
@@ -86,7 +86,8 @@ To support the System WebView, the *AndroidManifest.xml* file should contain the
 </activity>
 ```
 
-The `android:scheme` is created from the redirect URI configured in the application portal. So if your redirect URI is `msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842://auth` The `android:scheme` should be:
+The `android:scheme` value is created from the redirect URI that's configured in the application portal. For example, if your redirect URI is `msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842://auth`, the `android:scheme` entry in the manifest would look like this example:
+
 ```xml
 <data android:scheme="msal4a1aa1d5-c567-49d0-ad0b-cd957a47f842" android:host="auth" />
 ```
@@ -108,9 +109,9 @@ Here's an example of a class that represents the values of the XML file:
 
 ### Use System WebView in brokered authentication
 
-To use System WebView as a fallback for interactive authentication when you've configured your application to use brokered authentication and the device doesn't have a broker installed, enable MSAL to capture the authentication response using the broker's redirect URI. MSAL will try to authenticate using the default System WebView on the device when it detects that the broker is unavailable and will fail out of the box because the redirect URI is configured for broker and the System WebView doesn't know how to use it to navigate back to MSAL. To resolve this, configure what is known as an _intent filter_ with the broker redirect URI that you configured previously. Add the intent filter by modifying your application's manifest as shown below.
+To use System WebView as a fallback for interactive authentication when you've configured your application to use brokered authentication and the device doesn't have a broker installed, enable MSAL to capture the authentication response by using the broker's redirect URI. MSAL will try to authenticate by using the default System WebView on the device when it detects that the broker is unavailable. Using this default, it will fail because the redirect URI is configured to use a broker, and System WebView doesn't know how to use it to return to MSAL. To resolve this, create an _intent filter_ by using the broker redirect URI that you configured earlier. Add the intent filter by modifying your application's manifest like this example:
 
-```XML
+```xml
 <!--Intent filter to capture System WebView or Authenticator calling back to our app after sign-in-->
 <activity
       android:name="microsoft.identity.client.BrowserTabActivity">
@@ -133,9 +134,9 @@ Xamarin.Forms 4.3.x generates code that sets the `package` attribute to `com.com
 
 ## Android 11 support
 
-In order to utilize the system browser and brokered authentication on Android 11 you must first declare these packages so that they will be visible to the app.Apps targeting Android 10 (API 29) and below were able to query the OS for a list of which packages were available on the device at any given time. In the interest of privacy and security Android 11 is reducing the package visibility to a default list of OS packages and along with the packages that are specified in the app's AndoridManifest.xml file. 
+To use the system browser and brokered authentication in Android 11, you must first declare these packages, so they are visible to the app. Apps that target Android 10 (API 29) and earlier can query the OS for a list of packages that are available on the device at any given time. To support privacy and security, Android 11 reduces package visibility to a default list of OS packages and the packages that are specified in the app's *AndroidManifest.xml* file. 
 
-To enable the application to authenticate with both the system browser and broker, add the following to the *AndroidManifest.xml*:
+To enable the application to authenticate by using both the system browser and the broker, add the following section to *AndroidManifest.xml*:
 
 ```xml
 <!-- Required for API Level 30 to make sure the app can detect browsers and other apps where communication is needed.-->
@@ -161,7 +162,7 @@ To enable the application to authenticate with both the system browser and broke
 
 Replace `{Package Name}` with the application package name. 
 
-Your completed manifest that enables support for the system browser and brokered authentication should appear similar to the following:
+Your updated manifest, which now includes support for the system browser and brokered authentication, should look similar to this example:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
