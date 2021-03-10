@@ -166,43 +166,36 @@ By restricting operating system capabilities, you can strengthen the security of
 
 ## Windows Virtual Desktop support for Trusted Launch
 
-Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, along with what is supported in Windows Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
+Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Windows Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
 
 ### Secure Boot
 
 Secure Boot is a mode that platform firmware supports that protects your firmware from malware-based rootkits and boot kits. This mode only allows signed OSes and drivers to start up the machine. 
 
-Windows Virtual Desktop VMs support Secure Boot.
-
 ### Monitor boot integrity using Remote Attestation
 
 Remote attestation is a great way to check the health of your VMs. Remote attestation verifies that Measured Boot records are present, genuine, and originate from the Virtual Trusted Platform Module (vTPM). As a health check, it provides cryptographic certainty that a platform started up correctly. 
-
-Windows Virtual Desktop VMs support remote attestation. 
 
 ### vTPM
 
 A vTPM is a virtualized version of a hardware Trusted Platform Module (TPM), with a virtual instance of a TPM per VM. vTPM enables remote attestation by performing integrity measurement of the entire boot chain of the VM (UEFI, OS, system, and drivers). 
 
-We recommend enabling vTPM to leverage remote attestation of your VMs. With vTPM enabled, you can also enable BitLocker functionality, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the WVD service in a pooled scenario, users can be redirected to any VM in the host pool so depending on how the feature is designed this may have an impact.
+We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Windows Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
 
 >[!NOTE]
->BitLocker should not be used to encrypt the specific disk that your FSLogix profile data is being stored on.
+>BitLocker should not be used to encrypt the specific disk where you're storing your FSLogix profile data.
 
 ### Virtualization-based Security
 
-Virtualization-based Security (VBS) uses the hypervisor to create and isolate a secure region of memory that's inaccessible to the OS. Hypervisor Code Integrity (HVCI) and Windows Defender Credential Guard both use VBS to provide increased protection from vulnerabilities. 
+Virtualization-based Security (VBS) uses the hypervisor to create and isolate a secure region of memory that's inaccessible to the OS. Hypervisor-Protected Code Integrity (HVCI) and Windows Defender Credential Guard both use VBS to provide increased protection from vulnerabilities. 
 
-#### Hypervisor Code Integrity
+#### Hypervisor-Protected Code Integrity
 
-HVCI is a powerful system mitigation that leverages VBS to protect Windows kernel-mode processes against the injection and execution of malicious or unverified code. 
-HVCI is supported on Windows Virtual Desktop VMs.
+HVCI is a powerful system mitigation that uses VBS to protect Windows kernel-mode processes against injection and execution of malicious or unverified code.
 
 #### Windows Defender Credential Guard
 
 Windows Defender Credential Guard uses VBS to isolate and protect secrets so that only privileged system software can access them. This prevents unauthorized access to these secrets and credential theft attacks, such as Pass-the-Hash attacks.
-
-Windows Virtual Desktop VMs support Windows Defender Credential Guard.
 
 ### Deploy Trusted Launch in your Windows Virtual Desktop environment
 
