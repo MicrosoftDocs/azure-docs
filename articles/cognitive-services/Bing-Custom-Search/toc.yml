@@ -81,7 +81,7 @@
       - name: Java - Custom Image Search
         href: /java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch
       - name: Python
-        href: /python/api/azure-cognitiveservices-search-customsearch/?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-customsearch/
       - name: Node.js
         href: /javascript/api/@azure/cognitiveservices-customsearch/
       - name: Go - Custom Search

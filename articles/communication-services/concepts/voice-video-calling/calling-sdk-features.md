@@ -15,6 +15,7 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
+
 There are two separate families of Calling client libraries, for *clients* and *services.* Currently available client libraries are intended for end-user experiences: websites and native apps.
 
 The Service client libraries are not yet available, and provide access to the raw voice and video data planes, suitable for integration with bots and other services.
@@ -23,12 +24,12 @@ The Service client libraries are not yet available, and provide access to the ra
 
 The following list presents the set of features which are currently available in the Azure Communication Services Calling client libraries.
 
-| Group of features | Capability                                                                                                          | JS  | Java (Android) | Objective-C (iOS) 
+| Group of features | Capability                                                                                                          | JS  | Java (Android) | Objective-C (iOS)
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- | ---  | -------------- | -------------
-| Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️   | ✔️            | ✔️  
-|                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️   | ✔️            | ✔️ 
-|                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️ 
-|                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️ 
+| Core Capabilities | Place a one-to-one call between two users                                                                           | ✔️   | ✔️            | ✔️
+|                   | Place a group call with more than two users (up to 350 users)                                                       | ✔️   | ✔️            | ✔️
+|                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️
+|                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️            | ✔️
 |  Mid call control | Turn your video on/off                                                                                              | ✔️   | ✔️            | ✔️ 
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️         

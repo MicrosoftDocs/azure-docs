@@ -163,7 +163,7 @@ To create a custom classification rule:
 
 1. After the dictionary is generated, you can adjust the distinct match and minimum match thresholds and submit the rule.
 
-   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Purview dictionary rule - adjust distinct match threshold and minimum match threshold" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Create dictionary rule, with Dictionary Generated checkmark." border="true":::
 
 ## Next steps
 

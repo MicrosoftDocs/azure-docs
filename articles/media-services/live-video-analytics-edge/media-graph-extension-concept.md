@@ -14,11 +14,11 @@ Live Video Analytics supports two kinds of media graph extension processors:
 * [HTTP extension processor](media-graph-concept.md#http-extension-processor)
 * [gRPC extension processor](media-graph-concept.md#grpc-extension-processor)
 
-The graph extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/inference-metadata-schema?branch=release-lva-dec-update).
+The graph extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](/azure/media-services/live-video-analytics-edge/inference-metadata-schema).
 
 ## HTTP extension processor
 
-HTTP extension processor enables extensibility scenarios using the [HTTP protocol](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/http-extension-protocol?branch=release-lva-dec-update), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a media graph via an HTTP REST endpoint. 
+HTTP extension processor enables extensibility scenarios using the [HTTP protocol](/azure/media-services/live-video-analytics-edge/http-extension-protocol), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a media graph via an HTTP REST endpoint. 
 
 Use HTTP extension processor node when:
 
@@ -28,7 +28,7 @@ Use HTTP extension processor node when:
 
 ## gRPC extension processor
 
-gRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/grpc-extension-protocol?branch=release-lva-dec-update). It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:
+gRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol](/azure/media-services/live-video-analytics-edge/grpc-extension-protocol). It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:
 
 * [in-box shared memory](https://en.wikipedia.org/wiki/Shared_memory) or 
 * directly embedding the content into the body of gRPC messages. 
@@ -52,7 +52,7 @@ The diagram below depicts the high-level data flow:
 
 ## Samples
 
-You can get started with one of our quickstarts that illustrate live video analytics with pre-built extension service at low frame rates with [HTTP extension processor](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp) or at high frame rates with [gRPC extension processor](https://review.docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?branch=release-lva-dec-update&pivots=programming-language-csharp)
+You can get started with one of our quickstarts that illustrate live video analytics with pre-built extension service at low frame rates with [HTTP extension processor](/azure/media-services/live-video-analytics-edge/use-your-model-quickstart?pivots=programming-language-csharp) or at high frame rates with [gRPC extension processor](/azure/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart?pivots=programming-language-csharp)
 
 For advanced users, you can checkout some of our [Jupyter notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) samples for Live Video Analytics. These notebooks will provide you with step-by-step instructions for **the media graph extensions** on:
 

@@ -39,7 +39,7 @@ Do the following steps in the Azure portal to add a schedule.
 
    1. Provide the **Start day**, **End day**, **Start time**, and **End time** of the schedule.
    2. Check the **All day** option if this schedule should run all day.
-   3. **Bandwidth rate** is the bandwidth in Megabits per second (Mbps) used by your device in operations involving the cloud (both uploads and downloads). Supply a number between 20 and 2,147,483,647 for this field.
+   3. **Bandwidth rate** is the bandwidth in Megabits per second (Mbps) used by your device in operations involving the cloud (both uploads and downloads). Supply a number between 64 and 2,147,483,647 for this field.
    4. Select **Unlimited bandwidth** if you do not want to throttle the date upload and download.
    5. Select **Add**.
 

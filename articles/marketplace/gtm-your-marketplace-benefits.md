@@ -4,7 +4,7 @@ description: Go-To-Market Services - Microsoft resources that publishers can use
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/13/2021
+ms.date: 03/03/2021
 author: keferna
 ms.author: keferna
 ---
@@ -33,7 +33,7 @@ You will get support in understanding the resources available to you and in impl
 
 Detailed descriptions of all program benefits can be found in this [Marketplace Rewards program presentation](https://aka.ms/marketplacerewards).
 
-Getting started is easy:
+## Getting started is easy:
 
 1. Publish an offer in either Microsoft AppSource or Azure Marketplace.
 2. Go to [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) in Partner Center and select **Enroll in Marketplace Rewards Program**.
@@ -44,19 +44,19 @@ Getting started is easy:
     1. Provide the contact phone and preferred language for this marketing contact. After you finish entering this information, select **Assign user**.
     1. After you've updated the marketing contact, select **Activate** for the benefit you want to start using. Once you activate a benefit, your marketing contact will be contacted by a member of the Rewards team within a week.
 
-### Technical benefits
+> [!NOTE]
+> If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps.
 
-1. You can use your technical benefits to request technical assistance during the presales, design, deployment, and app development phases of your cloud and hybrid solutions. To request assistance, fill in the request form and then select **Submit request**.
-2. How to make use of Azure sponsorship benefits will be shared via an email as you unlock these benefits.
-
->[!NOTE]
->If your offer has been live for more than four weeks and you have not received a message, please check within your organization who is the owner of the offer in question, by looking in Partner Center. They should have the communication and next steps.<br><br>If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at [Help and Support](https://aka.ms/marketplacepublishersupport).
+If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at [Help and Support](https://aka.ms/marketplacepublishersupport).
 
 The scope of the activities available to you expands as you grow your offerings in the commercial marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
 ## List, trial, and consulting benefits
 
-If you publish a trial or consulting proof of concept, implementation, or workshop, you will be assigned an engagement manager for three months, who will help guide you in a successful go-to-market plan. You can repeat this three-month engagement each time you publish a new offer, to help get each of your new offers started with success.
+Each time you publish on Microsoft AppSource or Azure Marketplace, you will have access to a new set of benefits. Once your offer goes live, go to [Partner Center](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fdashboard%2Fmpn%2Fmembership%2Fbenefits%2Fcommercialmarketplace&data=04%7C01%7Cv-kilieb%40microsoft.com%7C3b13a8a6e41a47d6d96008d8c7cb3b50%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637479022971578374%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=MF1ZlPX9M5JiJZE2e%2B6kXEsRX1klB5hTcSqcHYDjZq8%3D&reserved=0) to activate your eligible marketing, sales, and technical benefits.
+
+> [!NOTE]
+> All Trial and Consulting benefits expire after 3 months.
 
 The table below summarizes the eligibility requirements for list, trial, and consulting offers:
 

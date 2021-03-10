@@ -33,7 +33,7 @@ Run this code on either of these environments:
  
  - Your own Jupyter Notebook server
 
-    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
+    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` and `utils.py`
      
@@ -63,7 +63,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### Initialize a workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object.
 
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
@@ -189,7 +189,7 @@ For more information on creating and using environments, see [Create and use sof
 
 ### Create a ScriptRunConfig
 
-Create a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Any arguments to your training script will be passed via command line if specified in the `arguments` parameter.
+Create a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Any arguments to your training script will be passed via command line if specified in the `arguments` parameter.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -217,7 +217,7 @@ For more information on configuring jobs with ScriptRunConfig, see [Configure an
 
 ### Submit a run
 
-The [Run object](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.
+The [Run object](/python/api/azureml-core/azureml.core.run%28class%29) provides the interface to the run history while the job is running and after it has completed.
 
 ```Python
 run = Experiment(workspace=ws, name='Tutorial-TF-Mnist').submit(src)
@@ -286,7 +286,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-In order to execute a distributed job using MPI/Horovod on Azure ML, you must specify an [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. The below code will configure a 2-node distributed job running one process per node. If you would also like to run multiple processes per node (i.e. if your cluster SKU has multiple GPUs), additionally specify the `process_count_per_node` parameter in MpiConfiguration (the default is `1`).
+In order to execute a distributed job using MPI/Horovod on Azure ML, you must specify an [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. The below code will configure a 2-node distributed job running one process per node. If you would also like to run multiple processes per node (i.e. if your cluster SKU has multiple GPUs), additionally specify the `process_count_per_node` parameter in MpiConfiguration (the default is `1`).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -306,7 +306,7 @@ For a full tutorial on running distributed TensorFlow with Horovod on Azure ML, 
 
 If you are using [native distributed TensorFlow](https://www.tensorflow.org/guide/distributed_training) in your training code, e.g. TensorFlow 2.x's `tf.distribute.Strategy` API, you can also launch the distributed job via Azure ML. 
 
-To do so, specify a [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. If you are using `tf.distribute.experimental.MultiWorkerMirroredStrategy`, specify the `worker_count` in the TensorflowConfiguration corresponding to the number of nodes for your training job.
+To do so, specify a [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration) to the `distributed_job_config` parameter of the ScriptRunConfig constructor. If you are using `tf.distribute.experimental.MultiWorkerMirroredStrategy`, specify the `worker_count` in the TensorflowConfiguration corresponding to the number of nodes for your training job.
 
 ```python
 import os

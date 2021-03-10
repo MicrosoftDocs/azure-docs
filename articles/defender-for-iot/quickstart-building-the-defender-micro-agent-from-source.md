@@ -1,5 +1,5 @@
 ---
-title: Build the Defender micro agent from source code 
+title: Build the Defender micro agent from source code (Preview)
 titleSuffix: Azure Defender for IoT
 description: Micro Agent includes an infrastructure, which can be used to customize your distribution.
 author: shhazam-ms
@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure
 ---
 
-# Build the Defender micro agent from source code
+# Build the Defender micro agent from source code (Preview)
 
 The Micro Agent includes an infrastructure, which can be used to customize your distribution. To see a list of the available configuration parameters look at the `configs/LINUX_BASE.conf` file.
 

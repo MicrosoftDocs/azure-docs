@@ -27,6 +27,7 @@ Follow the steps below to create a new scoped resource set configuration:
 
    :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Create scoped resource set configurations" border="true":::
 
+
 1. To enter a rule for a configuration scope, select **+ New Rule**.
 
 1. Enter in the following fields to create a rule:
@@ -42,6 +43,7 @@ Follow the steps below to create a new scoped resource set configuration:
       :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Create new configuration rule." border="true":::
 
 1. Save the rule by clicking **Add**.
+
 
 ## <a name="syntax"></a> Scoped resource set syntax
 
