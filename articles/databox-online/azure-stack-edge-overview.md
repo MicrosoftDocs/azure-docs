@@ -7,13 +7,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 03/10/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 # What is Azure Stack Edge Pro with FPGA?
 
 [!INCLUDE [data-box-edge-gateway-rename-note](../../includes/data-box-edge-gateway-rename-note.md)]
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 Azure Stack Edge Pro with FPGA is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge Pro with FPGA solution, benefits, key capabilities, and the scenarios where you can deploy this device.
 
