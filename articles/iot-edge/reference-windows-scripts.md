@@ -1,5 +1,5 @@
 ---
-title: Windows scripts for Azure IoT Edge | Microsoft Docs 
+title: Scripts for Azure IoT Edge with Windows containers | Microsoft Docs 
 description: Reference information for IoT Edge PowerShell scripts to install, uninstall, or update on Windows devices
 author: kgremban
 manager: philmea
@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# PowerShell scripts for IoT Edge on Windows
+# PowerShell scripts for IoT Edge with Windows containers
 
 Understand the PowerShell scripts that install, update, or uninstall IoT Edge on Windows devices.
 
