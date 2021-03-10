@@ -29,6 +29,19 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## March 2021
+**Agent Update**
+
+- Azure AD Connect Health agent for AD FS (version 3.1.95.0)
+
+	1. Fix to resolve NT4 formatted username to a UPN during sign-in events
+	2. Fix to identify incorrect application identifier scenarios with a dedicated error code.
+	3. Changes to add a new property for OAuth client identifier.
+	4. Fix to display correct values in the Protocol and Authentication Type fields in Azure AD Sign-In Report for certain sign-in scenarios.
+	5. Fix to display IP addresses in Azure AD Sign-In Report's IP chain field in order of the request
+	6. Changes to introduce a new field to differentiate if secondary authentication was requested during a sign-in.
+	7. Fix for AD FS application identifier property to display in Azure AD Sign-In Report
+
 ## April 2020
 **Agent Update**
 
