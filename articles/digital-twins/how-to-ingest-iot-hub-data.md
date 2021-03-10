@@ -98,7 +98,7 @@ Save your function code.
 
 #### Step 3: Publish the function app to Azure
 
-Publish the project to a function app in Azure by right-selecting the project in *Solution Explorer* and choose **Publish**.
+Publish the project to a function app in Azure.
 
 For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
 
