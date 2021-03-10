@@ -86,7 +86,7 @@ This section details how you can create and configure the following components o
   - A public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
   - Change the idle timeout from the default of 4 minutes to 10 minutes.
 
-Create a global Azure NAT gateway with [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway). The result of this command will create a gateway resource named **myNATgateway** that uses the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix**. The idle timeout is set to 10 minutes.  The result of this command will be stored in a variable named **$natGateway** for later use.
+Create a global Azure NAT gateway with [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway). The result of this command will create a gateway resource named **myNATgateway** that uses the public IP address **myPublicIP**. The idle timeout is set to 10 minutes.  The result of this command will be stored in a variable named **$natGateway** for later use.
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'
