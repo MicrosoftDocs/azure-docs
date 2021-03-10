@@ -148,7 +148,7 @@ At this point, you can run the `func start` command from the root of your projec
  
 1. In the Azure Functions runtime output, make a note of the process ID of the host process, to which you'll attach a debugger. Also note the URL of your local function.
 
-1. From the **Debug** menu in Visual Studio, select **Attach to Process...**, locate the dotnet.exe process that matches the process ID, and select **Attach**. 
+1. From the **Debug** menu in Visual Studio, select **Attach to Process...**, locate the process that matches the process ID, and select **Attach**. 
     
     :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="Attach the debugger to the Functions host process":::    
 
