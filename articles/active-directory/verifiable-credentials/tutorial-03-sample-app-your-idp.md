@@ -14,7 +14,7 @@ ms.author: barclayn
 
 ---
 
-# Tutorial 3 - Configure AAD to work with the Verifiable Credential service
+# Tutorial 3 - Configure Azure Active Directory (AAD) to work with the Verifiable Credential service
 
 > [!IMPORTANT]
 > Azure Verifiable Credentials is currently in public preview.
@@ -29,10 +29,10 @@ In this article you learn how to:
 > * Connect your AAD tenant
 > * Create the Ninja Credential Rules and Display File
 > * Upload Rules and Display files
-> * Set up Issuer service to Azure Key Vault
-> * Update Sample Code with your tenant.
+> * Set up your Verifiable Credentials Issuer service to use Azure Key Vault
+> * Update Sample Code with your tenant's information.
 
-The sample code we are using in the tutorials requires that we authenticate to an IdP before Ninja Verifiable Credential can be issued. Not all Verifiable Credentials require IdP login.
+Our sample code requires users to authenticate to an identity provider (IdP) before Ninja Verifiable Credential can be issued. Not all Verifiable Credentials issuers require authentication before issuing credentials.
 
 Authenticating ID Tokens allows users to prove who they are before receiving their credential. When users successfully log in, the identity provider returns a security token containing claims about the user. The issuer service then transforms these security tokens and their claims into Verifiable Credentials.
 

@@ -16,6 +16,9 @@ ms.author: barclayn
 
 # Tutorial 1 - Set up Verifiable Credentials (VC) in Azure
 
+In this tutorial we build on the work done in the [quickstart](quickstart-verifiable-credentials.md). We set up your own issuer and verifier in your tenant. In a few simple steps, we configure your Azure AD to produce the same Ninja credential from the sample code using your tenant's Distributed ID (DID).
+
+
 > [!IMPORTANT]
 > Azure Verifiable Credentials is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
@@ -30,7 +33,6 @@ In this article:
 1. Create your directory (ISN'T ONE CREATED WITH EVERY TEST SUB CREATED?)
 1. Set up Azure Key Vault
 
-In this tutorial we build on the work done in the tutorial. We will set up your own Issuer and Verifier in your tenant. In a few simple steps, we will configure your Azure AD to produce the same Ninja credential from the Sample code using your tenant's Distributed ID (DID).
 
 ## Prerequisites
 
@@ -45,25 +47,25 @@ To issue Verifiable Credentials, you need the following services.
 
 ## Azure Active Directory
 
-Before we can get started, we first need an Azure AD tenant. In the world of Verifiable Credentials, your Azure AD tenant represents your organization. When your tenant is enabled for Verifiable Credentials, it is assigned a decentralized identifier (DID) and it is equipped with an issuer service for issuing verifiable  credentials. Any verifiable credential you issue is issued by your tenant and its DID. The DID is also used when verifying Verifiable Credentials.
+Before we can get started, we first need an Azure AD tenant. When your tenant is enabled for Verifiable Credentials, it is assigned a decentralized identifier (DID) and it is equipped with an issuer service for issuing verifiable  credentials. Any verifiable credential you issue is issued by your tenant and its DID. The DID is also used when verifying Verifiable Credentials.
 
 >[!NOTE]
->The Verifiable Credentials preview also requires an Azure AD Premium license. 
+>The Verifiable Credentials preview also requires an Azure AD Premium license P2.
 
-If you just created a test Azure subscription keep in mind that your tenant does not need to be populated with user accounts.
+If you just created a test Azure subscription, keep in mind that your tenant does not need to be populated with user accounts.
 
 ## Create a Key Vault
 
-In the Verifiable Credentials preview, (IS THIS GOING TO CHANGE LATER?) you have complete control and management of the cryptographic keys your tenant will use to digitally sign Verifiable Credentials. To issue and verify credentials, you must provide Azure AD with access to your own instance of Azure Key Vault.
+In Verifiable Credentials you have complete control and management of the cryptographic keys your tenant will use to digitally sign Verifiable Credentials. To issue and verify credentials, you must provide Azure AD with access to your own instance of Azure Key Vault.
 
 1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
 2. In the Search box, enter **Key Vault**.
 3. From the results list, choose **Key Vault**.
 4. On the Key Vault section, choose **Create**.
 5. On the **Create key vault** section provide the following information:
-    - **Name**: A unique name is required. We use **Contoso-VC-Vault** so replace this value with your own unique name.
     - **Subscription**: Choose a subscription.
     - Under **Resource Group**, choose **Create new** and enter a resource group name such as **vc-resource-group**. We are using the same resource group name across multiple articles.
+    - **Name**: A unique name is required. We use **Contoso-VC-Vault** so replace this value with your own unique name.
     - In the **Location** pull-down menu, choose a location.
     - Leave the other options to their defaults.
 6. After providing the information above, select **Access Policy**
