@@ -110,7 +110,7 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
 ![Diagram that shows the step to start the IoT Edge runtime.](./media/quickstart/start-runtime.png)
 
-1. [Download Windows Admin Center](https://aka.ms/WACDownloadEFLOW).
+1. [Download Windows Admin Center](https://aka.ms/wacdownload).
 
 1. Follow the prompts in the installation wizard to set up Windows Admin Center on your device.
 
