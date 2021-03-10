@@ -16,15 +16,15 @@ This article provides an overview of the various update and maintenance options 
 
 Enabling [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context) on your scale set helps ease update management by safely and automatically upgrading the OS disk for all instances in the scale set.
 
-[Automatic OS upgrade](./virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context) has the following characteristics:
+[Automatic OS upgrade](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context) has the following characteristics:
 
 - Once configured, the latest OS image published by image publishers is automatically applied to the scale set without user intervention.
 - Upgrades batches of instances in a rolling manner each time a new image is published by the publisher.
-- Integrates with application health probes and [Application Health extension](virtual-machine-scale-sets-health-extension.md).
+- Integrates with application health probes and [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md?context=/azure/virtual-machines/context/context).
 - Works for all VM sizes, and for both Windows and Linux images.
 - You can opt out of automatic upgrades at any time (OS Upgrades can be initiated manually as well).
 - The OS Disk of a VM is replaced with the new OS Disk created with latest image version. Configured extensions and custom data scripts are run, while persisted data disks are retained.
-- [Extension sequencing](virtual-machine-scale-sets-extension-sequencing.md) is supported.
+- [Extension sequencing](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md?context=/azure/virtual-machines/context/context) is supported.
 - Automatic OS image upgrade can be enabled on a scale set of any size.
 
 
@@ -35,7 +35,7 @@ Enabling [automatic VM guest patching](automatic-vm-guest-patching.md) for your 
 [Automatic VM guest patching](automatic-vm-guest-patching.md) has the following characteristics:
 - Patches classified as *Critical* or *Security* are automatically downloaded and applied on the VM.
 - Patches are applied during off-peak hours in the VM's time zone.
-- Patch orchestration is managed by Azure and patches are applied following [availability-first principles](#availability-first-patching).
+- Patch orchestration is managed by Azure and patches are applied following [availability-first principles](automatic-vm-guest-patching.md#availability-first-patching).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 - Works for all VM sizes.
 
@@ -84,7 +84,7 @@ With [maintenance control](maintenance-control.md), you can:
 
 Scheduled Events is an Azure Metadata Service that gives your application time to prepare for virtual machine (VM) maintenance. It provides information about upcoming maintenance events (for example, reboot) so that your application can prepare for them and limit disruption. It's available for all Azure Virtual Machines types, including PaaS and IaaS on both Windows and Linux. 
 
-For information on Scheduled Events, see [Scheduled Events for Windows VMs](../windows/scheduled-events.md) and [Scheduled Events for Linux](../linux/scheduled-events.md)
+For information on Scheduled Events, see [Scheduled Events for Windows VMs](./windows/scheduled-events.md) and [Scheduled Events for Linux](./linux/scheduled-events.md)
 
 ## Next steps
 
