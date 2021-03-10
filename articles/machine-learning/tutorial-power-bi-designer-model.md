@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Drag-and-drop to create the predictive model (part 1 of 2)"
+title: "Tutorial: Drag and drop to create the predictive model (part 1 of 2)"
 titleSuffix: Azure Machine Learning
-description: Learn how to build and deploy a machine learning predictive model with designer, so you can use it to predict outcomes in Microsoft Power BI.
+description: Learn how to build and deploy a machine learning predictive model by using the designer. Later, you can use it to predict outcomes in Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,153 +13,169 @@ ms.date: 12/11/2020
 ms.custom: designer
 ---
 
-# Tutorial:  Power BI integration - drag-and-drop to create the predictive model (part 1 of 2)
+# Tutorial: Power BI integration - Drag and drop to create the predictive model (part 1 of 2)
 
-In the first part of this tutorial, you train and deploy a predictive machine learning model using Azure Machine Learning designer - a low-code drag-and-drop user interface. In part 2, you'll then use the model to predict outcomes in Microsoft Power BI.
+In part 1 of this tutorial, you train and deploy a predictive machine learning model by using the Azure Machine Learning designer. The designer is a low-code drag-and-drop user interface. In part 2, you'll use the model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Create an Azure Machine Learning compute instance
-> * Create an Azure Machine Learning inference cluster
-> * Create a dataset
-> * Train a regression model
-> * Deploy the model to a real-time scoring endpoint
+> * Create an Azure Machine Learning compute instance.
+> * Create an Azure Machine Learning inference cluster.
+> * Create a dataset.
+> * Train a regression model.
+> * Deploy the model to a real-time scoring endpoint.
 
 
-There are three different ways to create and deploy the model you'll use in Power BI.  This article covers Option B: Train and deploy models using designer.  This option shows a low-code authoring experience using designer (a drag-and-drop user interface).  
+There are three ways to create and deploy the model you'll use in Power BI.  This article covers "Option B: Train and deploy models by using the designer."  This option is a low-code authoring experience that uses the designer interface.  
 
-You could instead use:
+But you could instead use one of the other options:
 
-* [Option A: Train and deploy models using Notebooks](tutorial-power-bi-custom-model.md) -  a code-first authoring experience using Jupyter notebooks hosted in Azure Machine Learning studio.
-* [Option C: Train and deploy models using automated ML](tutorial-power-bi-automated-model.md) - a no-code authoring experience that fully automates the data preparation and model training.
+* [Option A: Train and deploy models by using Jupyter Notebooks](tutorial-power-bi-custom-model.md). This code-first authoring experience uses Jupyter Notebooks that are hosted in Azure Machine Learning Studio.
+* [Option C: Train and deploy models by using automated machine learning](tutorial-power-bi-automated-model.md). This no-code authoring experience fully automates data preparation and model training.
 
 ## Prerequisites
 
-- An Azure subscription ([a free trial is available](https://aka.ms/AMLFree)). 
-- An Azure Machine Learning workspace. If you do not already have a workspace, follow [how to create an Azure Machine Learning Workspace](./how-to-manage-workspace.md#create-a-workspace).
+- An Azure subscription. If you don't already have a subscription, you can use a [free trial](https://aka.ms/AMLFree). 
+- An Azure Machine Learning workspace. If you don't already have a workspace, see [Create and manage Azure Machine Learning workspaces](./how-to-manage-workspace.md#create-a-workspace).
 - Introductory knowledge of machine learning workflows.
 
 
-## Create compute for training and scoring
+## Create compute to train and score
 
-In this section, you create a *compute instance*, which is used for training machine learning models. Also, you create an *inference cluster* that will be used to host the deployed model for real-time scoring.
+In this section, you create a *compute instance*. Compute instances are used to train machine learning models. You also create an *inference cluster* to host the deployed model for real-time scoring.
 
-Log into the [Azure Machine Learning studio](https://ml.azure.com) and select **Compute** from the left-hand menu followed by **New**:
+Sign in to [Azure Machine Learning Studio](https://ml.azure.com). In the menu on the left, select **Compute** and then **New**:
 
-:::image type="content" source="media/tutorial-power-bi/create-new-compute.png" alt-text="Screenshot showing how to create compute instance":::
+:::image type="content" source="media/tutorial-power-bi/create-new-compute.png" alt-text="Screenshot showing how to create a compute instance.":::
 
-On the resulting **Create compute instance** screen, select a VM size (for this tutorial, select a `Standard_D11_v2`) followed by **Next**. In the Setting page, provide a valid name for your compute instance followed by selecting **Create**. 
+On the **Create compute instance** page, select a VM size. For this tutorial, select a **Standard_D11_v2** VM. Then select **Next**. 
+
+On the **Settings** page, name your compute instance. Then select **Create**. 
 
 >[!TIP]
-> The compute instance can also be used to create and execute notebooks.
+> You can also use the compute instance to create and run notebooks.
 
-You can now see your compute instance **Status** is **Creating** - it will take around 4 minutes for the machine to be provisioned. While you are waiting, select **Inference Cluster** tab on the compute page followed by **New**:
+Your compute instance **Status** is now **Creating**. The machine takes around 4 minutes to provision. 
 
-:::image type="content" source="media/tutorial-power-bi/create-cluster.png" alt-text="Screenshot showing how to create an inference cluster":::
+While you wait, on the **Compute** page, select the **Inference clusters** tab. Then select **New**:
 
-In the resulting **Create inference cluster** page, select a region followed by a VM size (for this tutorial, select a `Standard_D11_v2`), then select **Next**. On the **Configure Settings** page:
+:::image type="content" source="media/tutorial-power-bi/create-cluster.png" alt-text="Screenshot showing how to create an inference cluster.":::
 
-1. Provide a valid compute name
-1. Select **Dev-test** as the cluster purpose (creates a single node to host the deployed model)
-1. Select **Create**
+On the **Create inference cluster** page, select a region and a VM size. For this tutorial, select a **Standard_D11_v2** VM. Then select **Next**. 
 
-You can now see your inference cluster **Status** is **Creating** - it will take around 4 minutes for your single node cluster to deploy.
+On the **Configure Settings** page:
+
+1. Provide a valid compute name.
+1. Select **Dev-test** as the cluster purpose. This option creates a single node to host the deployed model.
+1. Select **Create**.
+
+Your inference cluster **Status** is now **Creating**. Your single node cluster takes around 4 minutes to deploy.
 
 ## Create a dataset
 
-In this tutorial, you use the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html), which is made available in [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/).
+In this tutorial, you use the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset is  available in [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/).
 
-To create the dataset, in the left-hand menu select **Datasets**, then **Create Dataset** - you will see the following options:
+To create the dataset, in the menu on the left, select **Datasets**. Then select **Create dataset**. You see the following options:
 
-:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot showing how to create a new dataset":::
+:::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot showing how to create a new dataset.":::
 
-Select **From Open Datasets**, and then in **Create dataset from Open Datasets** screen:
+Select **From Open Datasets**. On the **Create dataset from Open Datasets** page:
 
-1. Search for *diabetes* using the search bar
-1. Select **Sample: Diabetes**
-1. Select **Next**
-1. Provide a name for your dataset - *diabetes*
-1. Select **Create**
+1. Use the search bar to find *diabetes*.
+1. Select **Sample: Diabetes**.
+1. Select **Next**.
+1. Name your dataset *diabetes*.
+1. Select **Create**.
 
-You can explore the data by selecting the Dataset followed by **Explore**:
+To explore the data, select the dataset and then select **Explore**:
 
-:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="Screenshot showing how to dataset explore":::
+:::image type="content" source="media/tutorial-power-bi/explore-dataset.png" alt-text="Screenshot showing how to explore a dataset.":::
 
-The data has 10 baseline input variables (such as age, sex, body mass index, average blood pressure, and six blood serum measurements), and one target variable named **Y** (a quantitative measure of diabetes progression one year after baseline).
+The data has 10 baseline input variables, such as age, sex, body mass index, average blood pressure, and six blood serum measurements. It also has one target variable, named **Y**. This target variable is a quantitative measure of diabetes progression one year after the baseline.
 
-## Create a Machine Learning model using designer
+## Create a machine learning model by using the designer
 
-Once you have created the compute and datasets, you can move on to creating the machine learning model using designer. In the Azure Machine Learning studio, select **Designer** followed by **New Pipeline**:
+After you create the compute and datasets, you can use the designer to create the machine learning model. In Azure Machine Learning Studio, select **Designer** and then **New pipeline**:
 
-:::image type="content" source="media/tutorial-power-bi/create-designer.png" alt-text="Screenshot showing how to create a new pipeline":::
+:::image type="content" source="media/tutorial-power-bi/create-designer.png" alt-text="Screenshot showing how to create a new pipeline.":::
 
-You see a blank *canvas* where you can also see a **Settings menu**:
+You see a blank *canvas* and a **Settings** menu:
 
-:::image type="content" source="media/tutorial-power-bi/select-compute.png" alt-text="Screenshot showing how to select a compute target":::
+:::image type="content" source="media/tutorial-power-bi/select-compute.png" alt-text="Screenshot showing how to select a compute target.":::
 
-On the **Settings menu**, **Select compute target** and then select the compute instance you created earlier followed by **Save**. Rename your **Draft name** to something more memorable (for example *diabetes-model*) and enter a description.
+On the **Settings** menu, choose **Select compute target**. Select the compute instance you created earlier, and then select **Save**. Change the **Draft name** to something more memorable, such as *diabetes-model*. Finally, enter a description.
 
-Next, in listed assets expand **Datasets** and locate the **diabetes** dataset - drag-and-drop this module onto the canvas:
+In list of assets, expand **Datasets** and locate the **diabetes** dataset. Drag this component onto the canvas:
 
-:::image type="content" source="media/tutorial-power-bi/drag-component.png" alt-text="Screenshot showing how to drag a component on":::
+:::image type="content" source="media/tutorial-power-bi/drag-component.png" alt-text="Screenshot showing how to drag a component onto the canvas.":::
 
-Next, drag-and-drop the following components on to the canvas:
+Next, drag the following components onto the canvas:
 
-1. Linear regression (located in **Machine Learning Algorithms**)
-1. Train model (located in **Model Training**)
+1. **Linear Regression** (located in **Machine Learning Algorithms**)
+1. **Train Model** (located in **Model Training**)
 
-Your canvas should look like (notice that the top-and-bottom of the components has little circles called ports - highlighted in red below):
+On your canvas, notice the circles at the top and bottom of the components. These circles are ports.
 
-:::image type="content" source="media/tutorial-power-bi/connections.png" alt-text="Screenshot showing how unconnected components":::
+:::image type="content" source="media/tutorial-power-bi/connections.png" alt-text="Screenshot showing the ports on unconnected components.":::
  
-Next, you need to *wire* these components together. Select the port at the bottom of the **diabetes** dataset and drag it to the right-hand port at the top of the **Train model** component. Select the port at the bottom of the **Linear regression** component and drag onto the left-hand port at the top of the **Train model** port.
+Now *wire* the components together. Select the port at the bottom of the **diabetes** dataset. Drag it to the port on the upper-right side of the **Train Model** component. Select the port at the bottom of the **Linear Regression** component. Drag it to the port on the upper-left side of the **Train Model** component.
 
-Choose the column in the dataset to be used as the label (target) variable to predict. Select the **Train model** component followed by **Edit column**. From the dialog box - Select the **Enter Column name** followed by **Y** in the drop-down list:
+Choose the dataset column to use as the label (target) variable to predict. Select the **Train Model** component and then select **Edit column**. 
 
-:::image type="content" source="media/tutorial-power-bi/label-columns.png" alt-text="Screenshot select label column":::
+In the dialog box, select **Enter column name** > **Y**:
 
-Select **Save**. Your machine learning *workflow* should look as follows:
+:::image type="content" source="media/tutorial-power-bi/label-columns.png" alt-text="Screenshot showing how to select a label column.":::
 
-:::image type="content" source="media/tutorial-power-bi/connected-diagram.png" alt-text="Screenshot showing how connected components":::
+Select **Save**. Your machine learning *workflow* should look like this:
 
-Select **Submit** and then **Create new** under experiment. Provide a name for the experiment followed by **Submit**.
+:::image type="content" source="media/tutorial-power-bi/connected-diagram.png" alt-text="Screenshot showing connected components.":::
+
+Select **Submit**. Under **Experiment**, select **Create new**. Name the experiment, and then select **Submit**.
 
 >[!NOTE]
-> It should take around 5-minutes for your experiment to complete on the first run. Subsequent runs are much quicker - designer caches already run components to reduce latency.
+> Your experiment's first run should take around 5 minutes. Subsequent runs are much quicker because the designer caches components that have been run to reduce latency.
 
-When the experiment is completed, you see:
+When the experiment finishes, you see this view:
 
-:::image type="content" source="media/tutorial-power-bi/completed-run.png" alt-text="Screenshot showing completed run":::
+:::image type="content" source="media/tutorial-power-bi/completed-run.png" alt-text="Screenshot showing a completed run.":::
 
-You can inspect the logs of the experiment by selecting **Train model** followed by **Outputs + logs**.
+To inspect the experiment logs, select **Train Model** and then select **Outputs + logs**.
 
 ## Deploy the model
 
-To deploy the model, select **Create Inference Pipeline** (located at the top of the canvas) followed by **Real-time inference pipeline**:
+To deploy the model, at the top of the canvas, select **Create inference pipeline** > **Real-time inference pipeline**:
 
-:::image type="content" source="media/tutorial-power-bi/pipeline.png" alt-text="Screenshot showing real-time inference pipeline":::
+:::image type="content" source="media/tutorial-power-bi/pipeline.png" alt-text="Screenshot showing where to select a real-time inference pipeline.":::
  
-The pipeline condenses to just the components necessary to do the model scoring. When you score the data you will not know the target variable values, therefore we can remove **Y** from the dataset. To remove, add to the canvas a **Select columns in Dataset** component. Wire the component so the diabetes dataset is the input, and the results are the output into the **Score Model** component:
+The pipeline condenses to just the components necessary to score the model. When you score the data, you won't know the target variable values. So you can remove **Y** from the dataset. 
 
-:::image type="content" source="media/tutorial-power-bi/remove-column.png" alt-text="Screenshot showing removal of a column":::
+To remove **Y**, add a **Select Columns in Dataset** component to the canvas. Wire the component so the diabetes dataset is the input. The results are the output into the **Score Model** component:
 
-Select the **Select Columns in Dataset** component on the canvas followed by **Edit Columns**. In the Select columns dialog, select **By name** and then ensure all the input variables are selected but **not** the target:
+:::image type="content" source="media/tutorial-power-bi/remove-column.png" alt-text="Screenshot showing how to remove a column.":::
 
-:::image type="content" source="media/tutorial-power-bi/removal-settings.png" alt-text="Screenshot showing removal of a column settings":::
+On the canvas, select the **Select Columns in Dataset** component, and then select **Edit Columns**. 
 
-Select **Save**. Finally, select the **Score Model** component and ensure the **Append score columns to output** checkbox is unchecked (only the predictions are sent back, rather than the inputs *and* predictions, reducing latency):
+In the **Select columns** dialog box, choose **By name**. Then ensure that all the input variables are selected but the target is *not* selected:
 
-:::image type="content" source="media/tutorial-power-bi/score-settings.png" alt-text="Screenshot showing score model component settings":::
+:::image type="content" source="media/tutorial-power-bi/removal-settings.png" alt-text="Screenshot showing how to remove column settings.":::
 
-Select **Submit** at the top of the canvas.
+Select **Save**. 
 
-When you have successfully run the inference pipeline, you can then deploy the model to your inference cluster. Select **Deploy**, which will show the **Set-up real-time endpoint** dialog box. Select **Deploy new real-time endpoint**, name the endpoint **my-diabetes-model**, select the inference you created earlier, select **Deploy**:
+Finally, select the **Score Model** component and ensure the **Append score columns to output** check box is cleared. To reduce latency, the predictions are sent back without the inputs.
 
-:::image type="content" source="media/tutorial-power-bi/endpoint-settings.png" alt-text="Screenshot showing real-time endpoint settings":::
+:::image type="content" source="media/tutorial-power-bi/score-settings.png" alt-text="Screenshot showing settings for the Score Model component.":::
+
+At the top of the canvas, select **Submit**.
+
+After you successfully run the inference pipeline, you can deploy the model to your inference cluster. Select **Deploy**. 
+
+In the **Set-up real-time endpoint** dialog box, select **Deploy new real-time endpoint**. Name the endpoint *my-diabetes-model*. Select the inference you created earlier, and then select **Deploy**:
+
+:::image type="content" source="media/tutorial-power-bi/endpoint-settings.png" alt-text="Screenshot showing real-time endpoint settings.":::
 ## Next steps
 
-In this tutorial, you saw how to train and deploy a designer model. In the next part, you learn how to consume (score) this model from Power BI.
+In this tutorial, you saw how to train and deploy a designer model. In the next part, you learn how to consume (score) this model in Power BI.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Consume model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Tutorial: Consume a model in Power BI](/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)

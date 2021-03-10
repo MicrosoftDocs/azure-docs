@@ -10,6 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
+adobe-target: true
 ---
 
 # Tutorial: Get started with Azure Machine Learning in Jupyter Notebooks

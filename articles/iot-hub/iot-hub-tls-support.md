@@ -5,7 +5,7 @@
  author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 11/25/2020
+ ms.date: 01/14/2020
  ms.author: jlian
 ---
 
@@ -41,9 +41,16 @@ For added security, configure your IoT Hubs to *only* allow client connections t
 * South Central US
 * West US 2
 * US Gov Arizona
-* US Gov Virginia
+* US Gov Virginia (TLS 1.0/1.1 support isn't available in this region - TLS 1.2 enforcement must be enabled or IoT hub creation fails)
 
-For this purpose, provision a new IoT Hub in any of the supported regions and set the `minTlsVersion` property to `1.2` in your Azure Resource Manager template's IoT hub resource specification:
+To enable TLS 1.2 enforcement, follow the steps in [Create IoT hub in Azure portal](iot-hub-create-through-portal.md), except
+
+- Choose a **Region** from one in the list above.
+- Under **Management -> Advanced -> Transport Layer Security (TLS) -> Minimum TLS version**, select **1.2**. This setting only appears for IoT hub created in supported region.
+
+    :::image type="content" source="media/iot-hub-tls-12-enforcement.png" alt-text="Screenshot showing how to turn on TLS 1.2 enforcement during IoT hub creation":::
+
+To use ARM template for creation, provision a new IoT Hub in any of the supported regions and set the `minTlsVersion` property to `1.2` in the resource specification:
 
 ```json
 {

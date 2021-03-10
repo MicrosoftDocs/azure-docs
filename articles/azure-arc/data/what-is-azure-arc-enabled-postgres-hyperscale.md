@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
 ---
 
@@ -43,13 +43,13 @@ This is the hyperscale form factor of the Postgres database engine available as 
 This is the hyperscale form factor of the Postgres database engine that is available with Azure Arc enabled data services. It is also powered by the Citus extension that enables the hyperscale experience. In this form factor, our customers provide the infrastructure that hosts the systems and operate them.
 
 ## Next steps
-- **Create**
-   > **Just want to try things out? You do not have a Kubernetes cluster available? We provide you with a sandbox:**  
-   > Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+- **Try it out.** Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM. 
 
-   - **Create:**
-      - [Install the client tools](install-client-tools.md)
-      - [Create the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
-      - [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (Requires creation of an Azure Arc data controller first.)
-- [**Read more about Azure Arc enabled data services**](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
-- [**Read about Azure Arc**](https://aka.ms/azurearc)
+- **Create your own.** Follow these steps to create on your own Kubernetes cluster: 
+   1. [Install the client tools](install-client-tools.md)
+   2. [Create the Azure Arc data controller](create-data-controller.md)
+   3. [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) 
+
+- **Learn**
+   - [Read more about Azure Arc enabled data services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
+   - [Read about Azure Arc](https://aka.ms/azurearc)

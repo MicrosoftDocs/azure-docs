@@ -1,5 +1,5 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart (C#) | Microsoft Docs
+title: Quickstart - Send telemetry to Azure IoT Hub quickstart (C#) | Microsoft Docs
 description: In this quickstart, you run two sample C# applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: robinsh
 manager: philmea
@@ -70,7 +70,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:

@@ -11,6 +11,9 @@ ms.date: 12/01/2020
 
 Azure Active Directory pod-managed identities uses Kubernetes primitives to associate [managed identities for Azure resources][az-managed-identities] and identities in Azure Active Directory (AAD) with pods. Administrators create identities and bindings as Kubernetes primitives that allow pods to access Azure resources that rely on AAD as an identity provider.
 
+> [!NOTE]
+> If you have an existing installation of AADPODIDENTITY, you must remove the existing installation. Enabling this feature means that the MIC component isn't needed.
+
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
@@ -52,7 +55,7 @@ Create an AKS cluster with a managed identity and pod-managed identity enabled. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
-az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --enable-pod-identity
+az aks create -g myResourceGroup -n myAKSCluster --enable-managed-identity --enable-pod-identity --network-plugin azure
 ```
 
 Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS cluster. This command also downloads and configures the `kubectl` client certificate on your development computer.
@@ -72,6 +75,16 @@ export IDENTITY_NAME="application-identity"
 az identity create --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME}
 export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query clientId -otsv)"
 export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
+```
+
+## Assign permissions for the managed identity
+
+The *IDENTITY_CLIENT_ID* managed identity must have Reader permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
+
+```azurecli-interactive
+NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+az role assignment create --role "Reader" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
 ```
 
 ## Create a pod identity
@@ -169,11 +182,11 @@ az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
 For more information on managed identities, see [Managed identities for Azure resources][az-managed-identities].
 
 <!-- LINKS - external -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az_identity_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
-[az-role-assignment-create]: /cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

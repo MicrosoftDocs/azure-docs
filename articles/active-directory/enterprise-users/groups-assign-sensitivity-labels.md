@@ -43,7 +43,7 @@ To apply published labels to groups, you must first enable the feature. These st
     ```
 
     > [!NOTE]
-    > If no group settings have been created for this Azure AD organization, you must first create the settings. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to create group settings for this Azure AD organization.
+    > If no group settings have been created for this Azure AD organization you will get an error in the above cmdlet that reads "Cannot bind argument to parameter 'Id' because it is null". In this case you must first create the settings. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](../enterprise-users/groups-settings-cmdlets.md) to create group settings for this Azure AD organization.
 
 1. Next, display the current group settings.
 

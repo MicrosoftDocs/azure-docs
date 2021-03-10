@@ -10,7 +10,7 @@ author: mesameki
 ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, responsible-ml
 ---
 
 # Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
@@ -42,7 +42,7 @@ Later versions of Fairlearn should also work in the following example code.
 
 The following example shows how to use the fairness package. We will upload model fairness insights into Azure Machine Learning and see the fairness assessment dashboard in Azure Machine Learning studio.
 
-1. Train a sample model in a Jupyter notebook. 
+1. Train a sample model in Jupyter Notebook. 
 
     For the dataset, we use the well-known adult census dataset, which we fetch from OpenML. We pretend we have a loan decision problem with the label indicating whether an individual repaid a previous loan. We will train a model to predict if previously unseen individuals will repay a loan. Such a model might be used in making loan decisions.
 
@@ -210,10 +210,15 @@ The following example shows how to use the fairness package. We will upload mode
     1. Select **Experiments** in the left pane to see a list of experiments that you've run on Azure Machine Learning.
     1. Select a particular experiment to view all the runs in that experiment.
     1. Select a run, and then the **Fairness** tab to the explanation visualization dashboard.
+    1. Once landing on the **Fairness** tab, click on a **fairness id** from the menu on the right.
+    1. Configure your dashboard by selecting your sensitive attribute, performance metric, and fairness metric of interest to land on the fairness assessment page.
+    1. Switch chart type from one to another to observe both **allocation** harms and **quality of service** harms.
 
 
-    [![Fairness Dashboard](./media/how-to-machine-learning-fairness-aml/dashboard.png)](./media/how-to-machine-learning-fairness-aml/dashboard.png#lightbox)
+
+    [![Fairness Dashboard Allocation](./media/how-to-machine-learning-fairness-aml/dashboard-1.png)](./media/how-to-machine-learning-fairness-aml/dashboard-1.png#lightbox)
     
+    [![Fairness Dashboard Quality of Service](./media/how-to-machine-learning-fairness-aml/dashboard-2.png)](./media/how-to-machine-learning-fairness-aml/dashboard-2.png#lightbox)
     * **Models pane**
     1. If you registered your original model by following the previous steps, you can select **Models** in the left pane to view it.
     1. Select a model, and then the **Fairness** tab to view the explanation visualization dashboard.

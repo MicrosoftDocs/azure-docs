@@ -8,13 +8,16 @@ ms.custom: mvc, devx-track-azurecli
 
 # Mount an Azure file share in Azure Container Instances
 
-By default, Azure Container Instances are stateless. If the container crashes or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store. As shown in this article, Azure Container Instances can mount an Azure file share created with [Azure Files](../storage/files/storage-files-introduction.md). Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol. Using an Azure file share with Azure Container Instances provides file-sharing features similar to using an Azure file share with Azure virtual machines.
+By default, Azure Container Instances are stateless. If the container is restarted, crashes, or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store. As shown in this article, Azure Container Instances can mount an Azure file share created with [Azure Files](../storage/files/storage-files-introduction.md). Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol. Using an Azure file share with Azure Container Instances provides file-sharing features similar to using an Azure file share with Azure virtual machines.
 
 > [!NOTE]
 > Mounting an Azure Files share is currently restricted to Linux containers. Find current platform differences in the [overview](container-instances-overview.md#linux-and-windows-containers).
 >
 > Mounting an Azure Files share to a container instance is similar to a Docker [bind mount](https://docs.docker.com/storage/bind-mounts/). Be aware that if you mount a share into a container directory in which files or directories exist, these files or directories are obscured by the mount and are not accessible while the container runs.
 >
+
+> [!IMPORTANT]
+> If you are deploying container groups into an Azure Virtual Network, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to your Azure Storage Account.
 
 ## Create an Azure file share
 

@@ -588,7 +588,7 @@ Some other considerations:
 As a Kubernetes controller/container, both the the _azure-policy_ and _gatekeeper_ pods keep logs in
 the Kubernetes cluster. The logs can be exposed in the **Insights** page of the Kubernetes cluster.
 For more information, see
-[Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/insights/container-insights-analyze.md).
+[Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/containers/container-insights-analyze.md).
 
 To view the add-on logs, use `kubectl`:
 
@@ -607,7 +607,7 @@ documentation.
 ## Troubleshooting the add-on
 
 For more information about troubleshooting the Add-on for Kubernetes, see the
-[Kubernetes section](/azure/governance/policy/troubleshoot/general#add-on-for-kubernetes-general-errors)
+[Kubernetes section](../troubleshoot/general.md#add-on-for-kubernetes-general-errors)
 of the Azure Policy troubleshooting article.
 
 ## Remove the add-on

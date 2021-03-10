@@ -10,7 +10,7 @@ ms.date: 08/05/2020
 ms.author: pafarley
 ---
 
-[Reference documentation](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Package (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
+[Reference documentation](/javascript/api/@azure/arm-cognitiveservices/) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [Package (NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
 ## JavaScript prerequisites
 
@@ -69,7 +69,7 @@ Next, add the following `quickstart` function to handle the main work of your pr
 
 Add the following code to the end of your `quickstart` function to list available resources, create a sample resource, list your owned resources, and then delete the sample resource. You'll define these functions in the next steps.
 
-## Create a Cognitive Services resource
+## Create a Cognitive Services resource (Node.js)
 
 To create and subscribe to a new Cognitive Services resource, use the **Create** function. This function adds a new billable resource to the resource group you pass in. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location. The following function takes all of these arguments and creates a resource.
 
@@ -111,7 +111,7 @@ node index.js
 
 ## See also
 
-* [Azure Management SDK reference documentation](/javascript/api/@azure/arm-cognitiveservices/?view=azure-node-latest)
+* [Azure Management SDK reference documentation](/javascript/api/@azure/arm-cognitiveservices/)
 * [What are Azure Cognitive Services?](../../what-are-cognitive-services.md)
 * [Authenticate requests to Azure Cognitive Services](../../authentication.md)
 * [Create a new resource using the Azure portal](../../cognitive-services-apis-create-account.md)

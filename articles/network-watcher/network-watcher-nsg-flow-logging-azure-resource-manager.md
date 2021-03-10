@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/26/2020
+ms.date: 01/07/2021
 ms.author: damendo
 
 ---
@@ -73,7 +73,7 @@ To create a Microsoft.Network/networkWatchers/flowLogs resource, add the above J
 
 If you are using Azure Resource Manager templates for the first time, you can learn more about them using the links below.
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
 * [Tutorial: Create and deploy your first Azure Resource Manager template](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell)
 
 
@@ -141,7 +141,7 @@ Below are two examples of complete templates to set up NSG Flow Logs.
         },
         "format": {
           "type": "JSON",
-          "version": 2			
+          "version": 2
         }
       }
     }

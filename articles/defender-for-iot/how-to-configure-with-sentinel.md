@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Sentinel for Defender for IoT (preview)
+title: Configure Azure Sentinel for Defender for IoT 
 description: Explains how to configure Azure Sentinel to receive data from your Defender for IoT solution.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -10,14 +10,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/16/2020
+ms.date: 12/28/2020
 ms.author: shhazam
 ---
 
-# Connect your data from Defender for IoT to Azure Sentinel (preview)
-
-> [!IMPORTANT]
-> The Defender for IoT data connector is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Connect your data from Defender for IoT to Azure Sentinel 
 
 Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel. 
 
@@ -63,5 +60,5 @@ After connecting a **Subscription**, the hub data is available in Azure Sentinel
 
 In this document, you learned how to connect Defender for IoT to Azure Sentinel. To learn more about threat detection and security data access, see the following articles:
 
-- Learn how to use Azure Sentinel to [get visibility into your data, and potential threats](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility).
+- Learn how to use Azure Sentinel to [get visibility into your data, and potential threats](../sentinel/quickstart-get-visibility.md).
 - Learn how to [Access your IoT security data](how-to-security-data-access.md)

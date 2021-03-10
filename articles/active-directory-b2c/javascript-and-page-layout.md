@@ -20,8 +20,6 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
 ::: zone pivot="b2c-custom-policy"
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -61,7 +59,7 @@ To specify a page layout version for your user flow pages:
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
-1. Select **Page layouts**. Under **Layout name**, select a user flow page and choose the **Page Layout Version (Preview)**.
+1. Select **Page layouts**. Choose a **Layout name**, and then choose the **Page Layout Version (Preview)**.
 
 For information about the different page layout versions, see the [Page layout version change log](page-layout.md).
 

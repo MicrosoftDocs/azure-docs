@@ -8,8 +8,7 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -313,7 +312,8 @@ By default the server created is protected with a firewall and isn't accessible 
 
    # auditbl1 is the database name of Audit database. You can provide the name you want for CMS database.
    CREATE SCHEMA `auditbl1` DEFAULT CHARACTER SET utf8;
-
+   ```
+   
 4. Create user account to connect to schema
 
    ```sql
@@ -550,7 +550,7 @@ Following section describes how to implement backup and restore strategy for eac
 
 In Azure, the simplest way to back up application servers and all the attached disks is by using [Azure Backup](../../../backup/backup-overview.md) Service. It provides independent and isolated backups to guard unintended destruction of the data on your VMs. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scaling are simple, backups are optimized and can be restored easily when needed.
 
-As part of backup process, snapshot is taken and the data is transferred to the Recovery Service vault with no impact on production workloads. The snapshot provides different level of consistency as described in [Snapshot Consistency](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) article. You can also choose to back up subset of the data disks in VM by using selective disks backup and restore functionality. For more information, see [Azure VM Backup](../../../backup/backup-azure-vms-introduction.md) document and [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.md).
+As part of backup process, snapshot is taken and the data is transferred to the Recovery Service vault with no impact on production workloads. The snapshot provides different level of consistency as described in [Snapshot Consistency](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) article. You can also choose to back up subset of the data disks in VM by using selective disks backup and restore functionality. For more information, see [Azure VM Backup](../../../backup/backup-azure-vms-introduction.md) document and [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.yml).
 
 #### Backup & restore for file repository server
 
@@ -599,7 +599,7 @@ To reduce the impact of downtime due to one or more events, it is advisable to f
 - Use Managed Disks for VMs in an Availability Set.
 - Configure each application tier into separate Availability Sets.
 
-For more information, check [Manage the availability of Linux virtual machines](../../manage-availability.md)
+For more information, check [Manage the availability of Linux virtual machines](../../availability.md)
 
 #### High availability for CMS database
 

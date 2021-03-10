@@ -44,8 +44,14 @@
     href: hpc-cache-mount.md
   - name: Manage the cache
     href: hpc-cache-manage.md
-  - name: Configure optional settings
-    href: configuration.md
+  - name: Use optional settings
+    items:
+    - name: Configure optional settings
+      href: configuration.md
+    - name: Customize access policies
+      href: access-policies.md
+    - name: Set up directory services
+      href: directory-services.md
 
 - name: Reference
   items:

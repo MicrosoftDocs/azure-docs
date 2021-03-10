@@ -112,7 +112,7 @@ AKS provides the following four built-in roles:
 
 | Role                                | Description  |
 |-------------------------------------|--------------|
-| Azure  Kubernetes Service RBAC Viewer  | Allows read-only access to see most objects in a namespace. It doesn't allow viewing roles or role bindings. This role doesn't allow viewing `Secrets`, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation)  |
+| Azure  Kubernetes Service RBAC Reader  | Allows read-only access to see most objects in a namespace. It doesn't allow viewing roles or role bindings. This role doesn't allow viewing `Secrets`, since reading the contents of Secrets enables access to ServiceAccount credentials in the namespace, which would allow API access as any ServiceAccount in the namespace (a form of privilege escalation)  |
 | Azure Kubernetes Service RBAC  Writer | Allows read/write access to most objects in a namespace. This role doesn't allow viewing or modifying roles or role bindings. However, this role allows accessing `Secrets` and running Pods as any ServiceAccount in the namespace, so it can be used to gain the API access levels of any ServiceAccount in the namespace. |
 | Azure Kubernetes Service RBAC Admin  | Allows admin access, intended to be granted within a namespace. Allows read/write access to most resources in a namespace (or cluster scope), including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | Azure Kubernetes Service RBAC Cluster Admin  | Allows super-user access to perform any action on any resource. It gives full control over every resource in the cluster and in all namespaces. |
@@ -151,17 +151,17 @@ Copy the below json into a file called `deploy-view.json`.
 
 ```json
 {
-	"Name": "AKS Deployment Viewer",
-	"Description": "Lets you view all deployments in cluster/namespace.",
+    "Name": "AKS Deployment Viewer",
+    "Description": "Lets you view all deployments in cluster/namespace.",
     "Actions": [],
     "NotActions": [],
     "DataActions": [
-        "Microsoft.ContainerService/managedClusters/apps/deployments/read"	
+        "Microsoft.ContainerService/managedClusters/apps/deployments/read"
     ],
     "NotDataActions": [],
-	"assignableScopes": [
-		"/subscriptions/<YOUR SUBSCRIPTION ID>"
-	]	
+    "assignableScopes": [
+        "/subscriptions/<YOUR SUBSCRIPTION ID>"
+    ]
 }
 ```
 
@@ -281,4 +281,5 @@ az group delete -n MyResourceGroup
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
+[az-provider-register]: /cli/azure/provider#az-provider-register

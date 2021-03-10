@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Users and groups
 
-A Conditional Access policy must include a user assignment as one of the signals in the decision process. Users can be included or excluded from Conditional Access policies. Azure Active Directory evaluates all policies and ensures that all requirements are met before granting access to the user.
+A Conditional Access policy must include a user assignment as one of the signals in the decision process. Users can be included or excluded from Conditional Access policies. Azure Active Directory evaluates all policies and ensures that all requirements are met before granting access to the user. In addition to this article, we have a video on [how to include or exclude users from conditional access policies](https://www.youtube.com/watch?v=5DsW1hB3Jqs) that walks you through the process outlined below. 
 
 ![User as a signal in the decisions made by Conditional Access](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -38,6 +38,9 @@ The following options are available to include when creating a Conditional Acces
       - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example, organizations may create a more restrictive policy on users assigned the global administrator role.
    - Users and groups
       - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups. Policy will be applied to nested users and groups.
+
+> [!IMPORTANT]
+> When selecting which users and groups are included in a Conditional Access Policy, there is a limit to the number of individual users that can be added directly to a Conditional Access policy. If there are a large amount of individual users that are needed to be added to directly to a Conditional Access policy, we recommend placing the users in a group, and assigning the group to the Conditional Access policy instead.
 
 > [!WARNING]
 > If users or groups are a member of over 2048 groups their access may be blocked. This limit applies to both direct and nested group membership.

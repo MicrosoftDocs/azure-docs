@@ -7,45 +7,13 @@
     href: overview.md
   - name: What's new
     href: whats-new.md
-- name: Quickstarts
+- name: Get started with Form Recognizer
   expaned: true
   items:
-  - name: Using client library
+  - name: Using the client library or REST API
     href: quickstarts/client-library.md
   - name: Using the sample labeling tool
-    items:
-    - name: Train custom model with labels
-      href: quickstarts/label-tool.md
-  - name: Using the REST API
-    items:
-    - name: Train and use custom model without labels
-      items:
-      - name: cURL
-        href: quickstarts/curl-train-extract.md
-      - name: Python
-        href: quickstarts/python-train-extract.md
-    - name: Train and use custom model with labels
-      items:
-      - name: Python
-        href: quickstarts/python-labeled-data.md
-    - name: Use prebuilt receipt model
-      items:
-      - name: cURL
-        href: quickstarts/curl-receipts.md
-      - name: Python
-        href: quickstarts/python-receipts.md
-    - name: Use prebuilt business card model
-      items:
-      - name: Python
-        href: quickstarts/python-business-cards.md
-    - name: Use prebuilt invoice model
-      items:
-      - name: Python
-        href: quickstarts/python-invoices.md
-    - name: Get text layout information
-      items:
-      - name: Python
-        href: quickstarts/python-layout.md
+    href: quickstarts/label-tool.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Cognitive Search
@@ -54,6 +22,8 @@
     href: tutorial-ai-builder.md
   - name: Use Form Recognizer with Azure Functions
     href: tutorial-azure-function.md
+  - name: Extract form data in bulk
+    href: tutorial-bulk-processing.md
 - name: Concepts
   items:
   - name: Layout extraction
@@ -96,7 +66,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/ai.formrecognizer-readme
     - name: Python
-      href: /python/api/azure-ai-formrecognizer/?view=azure-python
+      href: /python/api/azure-ai-formrecognizer/
     - name: Java
       href: /java/api/overview/azure/ai-formrecognizer-readme
     - name: JavaScript
@@ -107,10 +77,6 @@
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/
-  - name: UserVoice
-    href: https://go.microsoft.com/fwlink/?linkid=2090535
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/form-recognizer
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
@@ -120,4 +86,4 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: form-recognizer-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md

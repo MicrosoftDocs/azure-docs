@@ -66,7 +66,7 @@ You might be sending data without the Time Series ID.
 - This problem might occur because your environment is being throttled.
 
     > [!NOTE]
-    > At this time, Time Series Insights supports a maximum ingestion rate of 6 Mbps.
+    > At this time, Time Series Insights supports a maximum ingestion rate of 1 Mbps.
 
 ## Problem: Data was showing, but now ingestion has stopped
 

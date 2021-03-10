@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL that uses the following pattern:
     `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
-1. Select **Set additional URLs**, and perform the following steps if you want to configure the application in **SP** initiated mode:
+1. You can optionally select **Set additional URLs**, and perform the following steps to configure the application in **SP** initiated mode:
 
     a. In the **Sign-on URL** text box, type a URL that uses the following pattern:
     `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`

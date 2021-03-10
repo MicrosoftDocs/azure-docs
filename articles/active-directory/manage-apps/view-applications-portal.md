@@ -3,7 +3,7 @@ title: 'Quickstart: View the list of applications that are using your Azure Acti
 description: In this Quickstart, use the Azure portal to view the list of applications that are registered to use your Azure Active Directory (Azure AD) tenant for identity management.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

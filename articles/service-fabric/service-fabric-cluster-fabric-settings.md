@@ -125,7 +125,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |EnableTelemetry |Bool, default is true | Dynamic |This is going to enable or disable telemetry. |
 |FailuresOnlyHttpTelemetry | Bool, default is false | Dynamic | If HTTP telemetry capture is enabled; capture only failed requests. This is to help cut down on the number of events generated for telemetry. |
 |HttpTelemetryCapturePercentage | int, default is 50 | Dynamic | If HTTP telemetry capture is enabled; capture only a random percentage of requests. This is to help cut down on the number of events generated for telemetry. |
-|MaxDiskQuotaInMB |Int, default is 65536 | Dynamic |Disk quota in MB for Windows Fabric log files. |
+|MaxDiskQuotaInMB |Int, default is 65536 | Dynamic |Disk quota in MB for Windows and Linux Fabric log files. |
 |ProducerInstances |String | Dynamic |The list of DCA producer instances. |
 
 ## DnsService
@@ -516,7 +516,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AutoDetectAvailableResources|bool, default is TRUE|Static|This config will trigger auto detection of available resources on node (CPU and Memory) When this config is set to true - we will read real capacities and correct them if user specified bad node capacities or didn't define them at all If this config is set to false - we will trace a warning that user specified bad node capacities; but we will not correct them; meaning that user wants to have the capacities specified as > than the node really has or if capacities are undefined; it will assume unlimited capacity |
 |BalancingDelayAfterNewNode | Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. Do not start balancing activities within this period after adding a new node. |
 |BalancingDelayAfterNodeDown | Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. Do not start balancing activities within this period after a node down event. |
-|BlockNodeInUpgradeConstraintPriority | Int, default is 0 |Dynamic|Determines the priority of capacity constraint: 0: Hard; 1: Soft; negative: Ignore  |
+|BlockNodeInUpgradeConstraintPriority | Int, default is -1 |Dynamic|Determines the priority of capacity constraint: 0: Hard; 1: Soft; negative: Ignore  |
 |CapacityConstraintPriority | Int, default is 0 | Dynamic|Determines the priority of capacity constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, default is 20 | Dynamic|Defines the number of consecutive times that ResourceBalancer-issued Movements are dropped before diagnostics are conducted and health warnings are emitted. Negative: No Warnings Emitted under this condition. |
 |ConstraintFixPartialDelayAfterNewNode | Time in seconds, default is 120 |Dynamic| Specify timespan in seconds. DDo not Fix FaultDomain and UpgradeDomain constraint violations within this period after adding a new node. |

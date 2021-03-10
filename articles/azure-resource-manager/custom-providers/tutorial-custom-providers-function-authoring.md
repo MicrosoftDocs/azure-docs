@@ -3,7 +3,7 @@ title: Author a RESTful endpoint
 description: This tutorial shows how to author a RESTful endpoint for custom providers. It details how to handle requests and responses for the supported RESTful HTTP methods.
 author: jjbfour
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 01/13/2021
 ms.author: jobreen
 ---
 
@@ -342,7 +342,7 @@ After you add the methods and classes, you need to update the **using** methods 
 ```csharp
 #r "Newtonsoft.Json"
 #r "Microsoft.WindowsAzure.Storage"
-#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent.dll"
+#r "../bin/Microsoft.Azure.Management.ResourceManager.Fluent"
 
 using System;
 using System.Net;

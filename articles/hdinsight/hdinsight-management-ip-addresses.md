@@ -1,9 +1,6 @@
 ---
 title: Azure HDInsight management IP addresses
 description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure network security groups and user-defined routes for virtual networking with Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
@@ -76,6 +73,7 @@ Allow traffic from the IP addresses listed for the Azure HDInsight health and ma
 | &nbsp; | UK South | 51.140.47.39</br>51.140.52.16 | \*:443 | Inbound |
 | United States | Central US | 13.89.171.122</br>13.89.171.124 | \*:443 | Inbound |
 | &nbsp; | East US | 13.82.225.233</br>40.71.175.99 | \*:443 | Inbound |
+| &nbsp; | East US2 | 20.44.16.8/29</br>20.49.102.48/29 | \*:443 | Inbound |
 | &nbsp; | North Central US | 157.56.8.38</br>157.55.213.99 | \*:443 | Inbound |
 | &nbsp; | West Central US | 52.161.23.15</br>52.161.10.167 | \*:443 | Inbound |
 | &nbsp; | West US | 13.64.254.98</br>23.101.196.19 | \*:443 | Inbound |

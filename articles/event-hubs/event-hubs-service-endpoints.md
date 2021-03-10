@@ -2,12 +2,12 @@
 title: Virtual Network service endpoints - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to add a Microsoft.EventHub service endpoint to a virtual network. 
 ms.topic: article
-ms.date: 07/29/2020
+ms.date: 02/12/2021
 ---
 
 # Allow access to Azure Event Hubs namespaces from specific virtual networks 
 
-The integration of Event Hubs with [Virtual Network (VNet) Service Endpoints][vnet-sep] enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends.
+The integration of Event Hubs with [Virtual Network (VNet) Service Endpoints][vnet-sep] enables secure access to messaging capabilities from workloads such as virtual machines that are bound to virtual networks, with the network traffic path being secured on both ends. Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in the **basic** tier.
 
 Once configured to bound to at least one virtual network subnet service endpoint, the respective Event Hubs namespace no longer accepts traffic from anywhere but authorized subnets in virtual networks. From the virtual network perspective, binding an Event Hubs namespace to a service endpoint configures an isolated networking tunnel from the virtual network subnet to the messaging service. 
 
@@ -16,8 +16,8 @@ The result is a private and isolated relationship between the workloads bound to
 >[!WARNING]
 > Enabling virtual networks for your Event Hubs namespace blocks incoming requests by default, unless requests originate from a service operating from allowed virtual networks. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. As an exception, you can allow access to Event Hubs resources from certain trusted services even when virtual networks are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
 
-> [!NOTE]
-> Virtual networks are supported in **standard** and **dedicated** tiers of Event Hubs. It's not supported in the **basic** tier.
+> [!IMPORTANT]
+> Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key).  
 
 ## Advanced security scenarios enabled by VNet integration 
 
@@ -41,8 +41,8 @@ This section shows you how to use Azure portal to add a virtual network service 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
 4. Select **Networking** under **Settings** on the left menu. You see the **Networking** tab only for **standard** or **dedicated** namespaces. 
 
-    > [!NOTE]
-    > By default, the **Selected networks** option is selected as shown in the following image. If you don't specify an IP firewall rule or add a virtual network on this page, the namespace can be accessed via **public internet** (using the access key). 
+    > [!WARNING]
+    > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed via **public internet** (using the access key). 
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -53,6 +53,9 @@ This section shows you how to use Azure portal to add a virtual network service 
 2. In the **Virtual Network** section of the page, select **+Add existing virtual network***. Select **+ Create new virtual network** if you want to create a new VNet. 
 
     ![add existing virtual network](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
+
+    >[!WARNING]
+    > If you select the **Selected networks** option and don't add at least one IP firewall rule or a virtual network on this page, the namespace can be accessed over public internet (using the access key).
 3. Select the virtual network from the list of virtual networks, and then pick the **subnet**. You have to enable the service endpoint before adding the virtual network to the list. If the service endpoint isn't enabled, the portal will prompt you to enable it.
    
    ![select subnet](./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png)
@@ -74,29 +77,12 @@ This section shows you how to use Azure portal to add a virtual network service 
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## Use Resource Manager template
+The following sample Resource Manager template adds a virtual network rule to an existing Event Hubs namespace. For the network rule, it specifies the ID of a subnet in a virtual network. 
 
-The following Resource Manager template enables adding a virtual network rule to an existing Event Hubs namespace.
+The ID is a fully qualified Resource Manager path for the virtual network subnet. For example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
 
-Template parameters:
+When adding virtual network or firewalls rules, set the value of `defaultAction` to `Deny`.
 
-* `namespaceName`: Event Hubs namespace.
-* `vnetRuleName`: Name for the Virtual Network rule to be created.
-* `virtualNetworkingSubnetId`: Fully qualified Resource Manager path for the virtual network subnet; for example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
-
-> [!NOTE]
-> While there are no deny rules possible, the Azure Resource Manager template has the default action set to **"Allow"** which doesn't restrict connections.
-> When making Virtual Network or Firewalls rules, we must change the
-> ***"defaultAction"***
-> 
-> from
-> ```json
-> "defaultAction": "Allow"
-> ```
-> to
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -198,6 +184,9 @@ Template parameters:
 ```
 
 To deploy the template, follow the instructions for [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
 
 ## Next steps
 

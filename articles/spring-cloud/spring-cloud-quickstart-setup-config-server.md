@@ -6,7 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -37,9 +37,9 @@ Azure Spring Cloud Config server is centralized configuration service for distri
 
 ## Prerequisites
 
-* [Install JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
+* [Install JDK 8](/java/azure/jdk/)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## Azure Spring Cloud config server procedures
@@ -79,7 +79,7 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ::: zone-end
 
 > [!TIP]
-> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server).
+> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](./spring-cloud-tutorial-config-server.md).
 
 ## Troubleshooting of Azure Spring Cloud config server
 

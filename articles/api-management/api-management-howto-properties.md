@@ -7,7 +7,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/14/2020
+ms.date: 02/09/2021
 ms.author: apimpm
 ---
 
@@ -39,7 +39,7 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 * Secrets stored in key vaults can be reused across services
 * Granular [access policies](../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) can be applied to secrets
-* Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. 
+* Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. You can also manually refresh the secret using the Azure portal or via the management REST API.
 
 ### Prerequisites for key vault integration
 
@@ -54,25 +54,16 @@ Using key vault secrets is recommended because it helps improve API Management s
 
 To use the key vault secret, [add or edit a named value](#add-or-edit-a-named-value), and specify a type of **Key vault**. Select the secret from the key vault.
 
-> [!CAUTION]
-> When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
-
-If [Key Vault firewall](../key-vault/general/network-security.md) is enabled on your key vault, the following are additional requirements for using key vault secrets:
-
-* You must use the API Management instance's **system-assigned** managed identity to access the key vault.
-* In Key Vault firewall, enable the **Allow Trusted Microsoft Services to bypass this firewall** option.
-
-If the API Management instance is deployed in a virtual network, also configure the following network settings:
-* Enable a [service endpoint](../key-vault/general/overview-vnet-service-endpoints.md) to Azure Key Vault on the API Management subnet.
-* Configure a network security group (NSG) rule to allow outbound traffic to the AzureKeyVault and AzureActiveDirectory [service tags](../virtual-network/service-tags-overview.md). 
-
-For details, see network configuration details in [Connect to a virtual network](api-management-using-with-vnet.md#-common-network-configuration-issues).
+[!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## Add or edit a named value
 
 ### Add a key vault secret
 
 See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integration).
+
+> [!CAUTION]
+> When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **Named values** > **+Add**.
@@ -91,6 +82,8 @@ See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integ
 
 ### Add a plain or secret value
 
+### [Portal](#tab/azure-portal)
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Under **APIs**, select **Named values** > **+Add**.
 1. Enter a **Name** identifier, and enter a **Display name** used to reference the property in policies.
@@ -100,6 +93,50 @@ See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integ
 1. Select **Create**.
 
 Once the named value is created, you can edit it by selecting the name. If you change the display name, any policies that reference that named value are automatically updated to use the new display name.
+
+### [Azure CLI](#tab/azure-cli)
+
+To begin using Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az_apim_nv_create) command:
+
+```azurecli
+az apim nv create --resource-group apim-hello-word-resource-group \
+    --display-name "named_value_01" --named-value-id named_value_01 \
+    --secret true --service-name apim-hello-world --value test
+```
+
+After you create a named value, you can update it by using the [az apim nv update](/cli/azure/apim/nv#az_apim_nv_update) command. To see all your named values, run the [az apim nv list](/cli/azure/apim/nv#az_apim_nv_list) command:
+
+```azurecli
+az apim nv list --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --output table
+```
+
+To see the details of the named value you created for this example, run the [az apim nv show](/cli/azure/apim/nv#az_apim_nv_show) command:
+
+```azurecli
+az apim nv show --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+This example is a secret value. The previous command does not return the value. To see the value, run the [az apim nv show-secret](/cli/azure/apim/nv#az_apim_nv_show_secret) command:
+
+```azurecli
+az apim nv show-secret --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+To delete a named value, use the [az apim nv delete](/cli/azure/apim/nv#az_apim_nv_delete) command:
+
+```azurecli
+az apim nv delete --resource-group apim-hello-word-resource-group \
+    --service-name apim-hello-world --named-value-id named_value_01
+```
+
+---
 
 ## Use a named value
 

@@ -52,7 +52,7 @@ In these cases, the client application generates a [System.TimeoutException][Sys
 Now that you've learned the basics of asynchronous messaging in Service Bus, read more details about [handling outages and disasters][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
-[System.TimeoutException]: /dotnet/api/system.timeoutexception?view=netcore-3.1
+[System.TimeoutException]: /dotnet/api/system.timeoutexception
 [MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
 [Microsoft.ServiceBus.Messaging.MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
@@ -65,8 +65,8 @@ Now that you've learned the basics of asynchronous messaging in Service Bus, rea
 [NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
 [EnableSyphon]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
-[System.TimeSpan.Zero]: /dotnet/api/system.timespan.zero?view=netcore-3.1
+[System.TimeSpan.Zero]: /dotnet/api/system.timespan.zero
 [IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
-[UnauthorizedAccessException]: /dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1
-[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions?redirectedfrom=MSDN
+[UnauthorizedAccessException]: /dotnet/api/system.unauthorizedaccessexception
+[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
 [handling outages and disasters]: service-bus-outages-disasters.md

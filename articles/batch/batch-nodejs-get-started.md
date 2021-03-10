@@ -33,7 +33,7 @@ The node.js client deploys a batch job with a preparation task (explained in det
 
 > [!TIP]
 > The Node.js client in the link specified does not contain specific code to be deployed as an Azure function app. You can refer to the following links for instructions to create one.
-> - [Create function app](../azure-functions/functions-create-first-azure-function.md)
+> - [Create function app](../azure-functions/functions-get-started.md)
 > - [Create timer trigger function](../azure-functions/functions-bindings-timer.md)
 
 ## Build the application

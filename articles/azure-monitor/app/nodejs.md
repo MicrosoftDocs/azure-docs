@@ -330,6 +330,12 @@ server.on("listening", () => {
 });
 ```
 
+### Flush
+
+By default, telemetry is buffered for 15 seconds before it is sent to the ingestion server. If your application has a short lifespan (e.g. a CLI tool), it might be necessary to manually flush your buffered telemetry when application terminates, `appInsights.defaultClient.flush()`.
+
+If the SDK detects that your application is crashing, it will call flush for you, `appInsights.defaultClient.flush({ isAppCrashing: true })`. With the flush option `isAppCrashing`, your application is assumed to be in an abnormal state, not suitable for sending telemetry. Instead, the SDK will save all buffered telemetry to [persistent storage](./data-retention-privacy.md#nodejs) and let your application terminate. When you application starts again, it will try to send any telemetry that was saved to persistent storage.
+
 ### Preprocess data with telemetry processors
 
 You can process and filter collected data before it is sent for retention using *Telemetry Processors*. Telemetry processors are called one by one in the order they were added before the telemetry item is sent to the cloud.
@@ -414,7 +420,7 @@ These properties are client specific, so you can configure `appInsights.defaultC
 ## Next steps
 
 * [Monitor your telemetry in the portal](./overview-dashboard.md)
-* [Write Analytics queries over your telemetry](../log-query/log-analytics-tutorial.md)
+* [Write Analytics queries over your telemetry](../logs/log-analytics-tutorial.md)
 
 <!--references-->
 

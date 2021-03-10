@@ -68,7 +68,7 @@ Most teams require a manual review and approval process for deployment to a prod
 
 Use the following tools for CI/CD automation workflows for Custom Speech:
 
-- [Azure CLI](/cli/azure/?view=azure-cli-latest) to create an Azure service principal authentication, query Azure subscriptions, and store test results in Azure Blob.
+- [Azure CLI](/cli/azure/) to create an Azure service principal authentication, query Azure subscriptions, and store test results in Azure Blob.
 - [Azure Speech CLI](spx-overview.md) to interact with the Speech Service from the command line or an automated workflow.
 
 ## DevOps solution for Custom Speech using GitHub Actions
@@ -78,7 +78,7 @@ For an already-implemented DevOps solution for Custom Speech, go to the [Speech 
 The [Speech DevOps template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) provides the infrastructure and detailed guidance to:
 
 - Copy the template repository to your GitHub account, then create Azure resources and a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the GitHub Actions CI/CD workflows.
-- Walk through the "[dev inner loop](https://mitchdenny.com/the-inner-loop/)." Update training and testing data from a feature branch, test the changes with a temporary development model, and raise a pull request to propose and review the changes.
+- Walk through the "[dev inner loop](/dotnet/architecture/containerized-lifecycle/design-develop-containerized-apps/docker-apps-inner-loop-workflow)." Update training and testing data from a feature branch, test the changes with a temporary development model, and raise a pull request to propose and review the changes.
 - When training data is updated in a pull request to *main*, train models with the GitHub Actions CI workflow.
 - Perform automated accuracy testing to establish a model's [Word Error Rate](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER). Store the test results in Azure Blob.
 - Execute the CD workflow to create an endpoint when the WER improves.

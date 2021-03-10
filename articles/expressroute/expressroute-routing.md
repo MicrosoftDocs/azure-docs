@@ -27,13 +27,22 @@ You need to reserve a few blocks of IP addresses to configure routing between yo
 ### IP addresses used for Azure private peering
 You can use either private IP addresses or public IP addresses to configure the peerings. The address range used for configuring routes must not overlap with address ranges used to create virtual networks in Azure. 
 
-* You must reserve a /29 subnet or two /30 subnets for routing interfaces.
-* The subnets used for routing can be either private IP addresses or public IP addresses.
-* The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
-* If a /29 subnet is used, it is split into two /30 subnets. 
-  * The first /30 subnet is used for the primary link and the second /30 subnet is used for the secondary link.
-  * For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft uses the second IP address of the /30 subnet to set up a BGP session.
-  * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.  
+* IPv4:
+    * You must reserve a /29 subnet or two /30 subnets for routing interfaces.
+    * The subnets used for routing can be either private IP addresses or public IP addresses.
+    * The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
+    * If a /29 subnet is used, it is split into two /30 subnets. 
+      * The first /30 subnet is used for the primary link and the second /30 subnet is used for the secondary link.
+      * For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft uses the second IP address of the /30 subnet to set up a BGP session.
+      * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
+* IPv6:
+    * You must reserve a /125 subnet or two /126 subnets for routing interfaces.
+    * The subnets used for routing can be either private IP addresses or public IP addresses.
+    * The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
+    * If a /125 subnet is used, it is split into two /126 subnets. 
+      * The first /126 subnet is used for the primary link and the second /30 subnet is used for the secondary link.
+      * For each of the /126 subnets, you must use the first IP address of the /126 subnet on your router. Microsoft uses the second IP address of the /126 subnet to set up a BGP session.
+      * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 #### Example for private peering
 If you choose to use a.b.c.d/29 to set up the peering, it is split into two /30 subnets. In the following example, notice how the a.b.c.d/29 subnet is used:
@@ -119,7 +128,7 @@ Microsoft uses AS 12076 for Azure public, Azure private and Microsoft peering. W
 There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging to you. Route metrics are not required to be identical.
 
 ## Route aggregation and prefix limits
-We support up to 4000 prefixes advertised to us through the Azure private peering. This can be increased up to 10,000 prefixes if the ExpressRoute premium add-on is enabled. We accept up to 200 prefixes per BGP session for Azure public and Microsoft peering. 
+We support up to 4000 IPv4 prefixes and 100 IPv6 prefixes advertised to us through the Azure private peering. This can be increased up to 10,000 IPv4 prefixes if the ExpressRoute premium add-on is enabled. We accept up to 200 prefixes per BGP session for Azure public and Microsoft peering. 
 
 The BGP session is dropped if the number of prefixes exceeds the limit. We will accept default routes on the private peering link only. Provider must filter out default route and private IP addresses (RFC 1918) from the Azure public and Microsoft peering paths. 
 

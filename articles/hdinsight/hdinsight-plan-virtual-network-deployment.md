@@ -1,13 +1,10 @@
 ---
 title: Plan a virtual network for Azure HDInsight
 description: Learn how to plan an Azure Virtual Network deployment to connect HDInsight to other cloud resources, or resources in your datacenter.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
-ms.date: 05/04/2020
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 01/12/2021
 ---
 
 # Plan a virtual network for Azure HDInsight
@@ -46,7 +43,8 @@ The following are the questions that you must answer when planning to install HD
 Use the steps in this section to discover how to add a new HDInsight to an existing Azure Virtual Network.
 
 > [!NOTE]  
-> You cannot add an existing HDInsight cluster into a virtual network.
+> - You cannot add an existing HDInsight cluster into a virtual network.
+> - The VNET and the cluster being created must be in the same subscription.
 
 1. Are you using a classic or Resource Manager deployment model for the virtual network?
 

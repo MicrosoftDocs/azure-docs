@@ -153,7 +153,7 @@ The query cache is enabled by default in MariaDB with the `have_query_cache` par
 
 Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value **|
+|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|

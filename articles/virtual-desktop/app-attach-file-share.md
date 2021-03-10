@@ -60,6 +60,12 @@ The setup process for MSIX app attach file share is largely the same as [the set
 
 If you're storing your MSIX applications in Azure Files, then for your session hosts, you'll need to assign all session host VMs both storage account role-based access control (RBAC) and file share New Technology File System (NTFS) permissions on the share.
 
+| Azure object                      | Required role                                     | Role function                                  |
+|-----------------------------------|--------------------------------------------------|-----------------------------------------------|
+| Session host (VM computer objects)| Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
+| Admins on File Share              | Storage File Data SMB Share Elevated Contributor | Full control                                  |
+| Users on File Share               | Storage File Data SMB Share Contributor          | Read and Execute, Read, List folder contents  |
+
 To assign session host VMs permissions for the storage account and file share:
 
 1. Create an Active Directory Domain Services (AD DS) security group.

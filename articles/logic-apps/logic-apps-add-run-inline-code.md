@@ -27,7 +27,7 @@ When you want to run a piece of code inside your logic app, you can add the buil
   > [!NOTE]
   > The `require()` function isn't supported by the Inline Code action for running JavaScript.
 
-This action runs the code snippet and returns the output from that snippet as a token that's named `Result`. You can use this token with subsequent actions in your logic app's workflow. For other scenarios where you want to create a function for your code, try [creating and calling an Azure function instead](../logic-apps/logic-apps-azure-functions.md) in your logic app.
+This action runs the code snippet and returns the output from that snippet as a token that's named `Result`. You can use this token with subsequent actions in your logic app's workflow. For other scenarios where you want to create a function for your code, try [creating and calling a function through Azure Functions instead](../logic-apps/logic-apps-azure-functions.md) in your logic app.
 
 In this article, the example logic app triggers when a new email arrives in a work or school account. The code snippet extracts and returns any email addresses that appear in the email body.
 

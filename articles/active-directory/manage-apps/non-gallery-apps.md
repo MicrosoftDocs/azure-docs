@@ -3,7 +3,7 @@ title: Using Azure AD for applications not listed in the app gallery
 description: Understand how to integrate apps not listed in the Azure AD gallery.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual

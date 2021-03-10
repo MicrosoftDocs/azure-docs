@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/24/2020
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -19,6 +19,9 @@ ms.subservice: B2C
 Page layout packages are periodically updated to include fixes and improvements in their page elements. The following change log specifies the changes introduced in each version.
 
 ## Self-asserted page (selfasserted)
+
+**2.1.2**
+- Fixed the localization encoding issue for languages such as Spanish and French.
 
 **2.1.1**
 
@@ -47,7 +50,7 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Focus is now placed on the password field after the email is verified.
 - Removed `autofocus` from the checkbox control. 
 - Added support for a display control for phone number verification.
-- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for
+- You can now add the `data-preload="true"` attribute [in your HTML tags](customize-ui-with-html.md#guidelines-for-using-custom-page-content)
   - Load linked CSS files at the same time as your HTML template so it doesn't 'flicker' between loading the files.
   - Control the order in which your `script` tags are fetched and executed before the page load.
 - Email field is now `type=email` and mobile keyboards will provide the correct suggestions.
@@ -66,6 +69,13 @@ Page layout packages are periodically updated to include fixes and improvements 
 - Initial release
 
 ## Unified sign-in sign-up page with password reset link (unifiedssp)
+
+> [!TIP]
+> If you localize your page to support multiple locales, or languages in a user flow. The [localization IDs](localization-string-ids.md) article provides the list of localization IDs that you can use for the page version you select.
+
+**2.1.2**
+- Fixed the localization encoding issue for languages such as Spanish and French.
+- Allowing the "forgot password" link to use as claims exchange. For more information, see [Self-service password reset](add-password-reset-policy.md#self-service-password-reset-recommended).
 
 **2.1.1**
 - Added a UXString `heading` in addition to `intro` to display on the page as a title. This is hidden by default.

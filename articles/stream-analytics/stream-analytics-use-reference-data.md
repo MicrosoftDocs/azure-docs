@@ -3,7 +3,7 @@ title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to lookup or correlate data in an Azure Stream Analytics job's query design.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2020
@@ -27,7 +27,7 @@ Stream Analytics supports Azure Blob storage and Azure SQL Database as the stora
 
 ## Azure Blob storage
 
-Reference data is modeled as a sequence of blobs (defined in the input configuration) in ascending order of the date/time specified in the blob name. It **only** supports adding to the end of the sequence by using a date/time **greater** than the one specified by the last blob in the sequence.
+Reference data is modeled as a sequence of blobs (defined in the input configuration) in ascending order of the date/time specified in the blob name. It **only** supports adding to the end of the sequence by using a date/time **greater** than the one specified by the last blob in the sequence. For more information, see [Use reference data from a Blob Storage for an Azure Stream Analytics job](data-protection.md).
 
 ### Configure blob reference data
 

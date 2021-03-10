@@ -15,18 +15,17 @@ ms.reviewer: jrasnick
 
 Enterprise analytics must work at massive scale on any kind of data, whether raw, refined, or highly curated. This typically requires enterprises to stitch together big data and data warehousing technologies into complex data pipelines that work across data in relational stores and data lakes. These kinds of solutions are difficult to build, maintain, and secure. Their complexity delays delivering the insight enterprises need.
 
-**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, and **Pipelines** for data integration and ETL/ELT. **Synapse Studio** provides a unified experience for management, monitoring, coding, and security. Synapse has deep integration with other Azure services such as **Power BI**, **CosmosDB**, and **AzureML**.
+**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, **Pipelines** for data integration and ETL/ELT, and deep integration with other Azure services such as **Power BI**, **CosmosDB**, and **AzureML**.
 
 ## Key features & benefits
 
 ### Industry-leading SQL
 
-* **Synapse SQL** is a distributed query system that enables enterprises to implement data warehousing and data virtualization 
-scenarios using standard and familiar T-SQL experiences. It also expands the capabilities of SQL to address streaming and machine learning scenarios.
-
+* **Synapse SQL** is a distributed query system for T-SQL that enables data warehousing and data virtualization 
+scenarios and extends T-SQL to address streaming and machine learning scenarios.
 * Synapse SQL offers both **serverless** and **dedicated** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
-* Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
+* Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
 ### Industry-standard Apache Spark
 
@@ -61,18 +60,18 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 * Fine-grained access control on data and code
 * A single dashboard to monitor resources, usage, and users across SQL and Spark
 
-### Synapse Studio
+### Unified experience
 
-**Synapse Studio** is the web-native experience that ties everything together for data engineers, allowing them in one location to do every task they need to build a complete solution.
+**Synapse Studio** is the user experience that ties everything together for data engineers. It allows them to do every task they need to build a complete analytics solution.
 
-* Build an end-to-end analytics solution in one place: ingest, explore, prepare, orchestrate, visualize
-* Industry-leading productivity for data engineers writing SQL or Spark code: authoring, debugging, and performance optimization
-* Integrate with enterprise CI/CD processes
+* Key data engingeer tasks in one place: ingest, explore, prepare, orchestrate, visualize
+* Industry-leading productivity for writing SQL or Spark code: authoring, debugging, and performance optimization
+* Integrate with enterprise CI/CD process
 
 ## Engage with the Synapse engineering team
 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Ask development questions.
-- [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Ask technical questions.
+- [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html): Ask technical questions.
 
 ## Next steps
 

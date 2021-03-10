@@ -27,6 +27,10 @@ Use these steps to update an offer that's been successfully published to Preview
     - **Incomplete**: The updates made to the section introduced errors that need to be fixed or requires more information to be provided.
 2. Select **Publish** to submit the updated offer for publishing. Your offer will then go through the standard [validation and publishing steps](../review-publish-offer.md#validation-and-publishing-steps).
 
+## Changing offer type
+
+[!INCLUDE [change-offer-type](../includes/change-offer-type.md)]
+
 > [!IMPORTANT]
 > You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
 

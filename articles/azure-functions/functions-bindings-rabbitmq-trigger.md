@@ -23,7 +23,7 @@ For information on setup and configuration details, see the [overview](functions
 
 # [C#](#tab/csharp)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message as a [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message as a [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
@@ -225,7 +225,7 @@ The following table explains the binding configuration properties that you set i
 
 # [C#](#tab/csharp)
 
-The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
+The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `string`
@@ -234,7 +234,7 @@ The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/r
 
 # [C# Script](#tab/csharp-script)
 
-The default message type is [RabbitMQ Event](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
+The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
 * `An object serializable as JSON` - The message is delivered as a valid JSON string.
 * `string`
@@ -309,6 +309,21 @@ If you are testing locally without a connection string, you should set the "host
 |hostName|n/a|(ignored if using connectionString) <br>Hostname of the queue (Ex: 10.26.45.210)|
 |userName|n/a|(ignored if using connectionString) <br>Name to access the queue |
 |password|n/a|(ignored if using connectionString) <br>Password to access the queue|
+
+
+## Enable Runtime Scaling
+
+In order for the RabbitMQ trigger to scale out to multiple instances, the **Runtime Scale Monitoring** setting must be enabled. 
+
+In the portal, this setting can be found under **Configuration** > **Function runtime settings** for your function app.
+
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
+
+In the CLI, you can enable **Runtime Scale Monitoring** by using the following command:
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+```
 
 ## Monitoring RabbitMQ endpoint
 To monitor your queues and exchanges for a certain RabbitMQ endpoint:

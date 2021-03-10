@@ -1,19 +1,17 @@
 ---
-title: Signal descriptive audio tracks with Azure Media Services v3 | Microsoft Docs
+title: Signal descriptive audio tracks with Media Services v3
 description: Follow the steps of this tutorial to upload a file, encode the video, add descriptive audio tracks, and stream your content with Media Services v3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-
 ---
 
 # Signal descriptive audio tracks
