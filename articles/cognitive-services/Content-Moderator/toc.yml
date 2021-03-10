@@ -122,6 +122,8 @@
     href: https://docs.microsoft.com/learn/browse/?terms=content%20moderator
   - name: Support & help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
+  - name: Azure Government and global Azure
+    href: https://docs.microsoft.com/en-us/azure/azure-government/compare-azure-government-global-azure
   - name: Azure updates
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Compliance
