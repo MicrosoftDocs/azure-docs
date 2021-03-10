@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Handle SMS events
+title: Quickstart - Handle SMS events for Delivery Reports and Inbound Messages
 titleSuffix: An Azure Communication Services quickstart
 description: Learn how to handle SMS events using Azure Communication Services.
 author: mikben
@@ -11,7 +11,7 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 ---
-# Quickstart: Handle SMS events
+# Quickstart: Handle SMS events for Delivery Reports and Inbound Messages
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
