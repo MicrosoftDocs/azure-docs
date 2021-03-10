@@ -1231,7 +1231,7 @@
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
   - name: Linux Active Directory sign-in
     href: ./linux/login-using-aad.md
-- name: Maintenance and updates
+- name: Updates and maintenance
   items:
   - name: Overview
     href: maintenance-and-updates.md
