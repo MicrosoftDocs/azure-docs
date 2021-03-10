@@ -48,8 +48,8 @@ ms.custom: include file
     ![Reviewers list of selected users or members (self)](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **Selected users** - Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
-    - **Members (self)** - Use this option to have the users review their own role assignments.
-    - **Manager** – Use this option to have the user’s manager review their role assignment. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory.
+    - **Members (self)** - Use this option to have the users review their own role assignments. Groups assigned to the role will not be a part of the review when this option is selected.
+    - **Manager** – Use this option to have the user’s manager review their role assignment. Upon selecting Manager, you will also have the option to specify a fallback reviewer. Fallback reviewers are asked to review a user when the user has no manager specified in the directory. Groups assigned to the role will be reviewed by the Fallback reviewer if one is selected. 
 
 ### Upon completion settings
 
