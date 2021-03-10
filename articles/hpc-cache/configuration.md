@@ -1,10 +1,10 @@
 ---
 title: Configure Azure HPC Cache settings
-description: Explains how to configure additional settings for the cache like MTU and no-root-squash, and how to access the express snapshots from Azure Blob storage targets.
+description: Explains how to configure additional settings for the cache like MTU, custom NTP and DNS configuration, and how to access the express snapshots from Azure Blob storage targets.
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/21/2020
+ms.date: 03/10/2021
 ms.author: v-erkel
 ---
 
@@ -14,17 +14,15 @@ The **Networking** page in the Azure portal has options for customizing several 
 
 This article also describes how to use the snapshot feature for Azure Blob storage targets. The snapshot feature has no configurable settings.
 
-To see the settings, open the cache's **Configuration** page in the Azure portal.
+To see the settings, open the cache's **Networking** page in the Azure portal.
 
-**???** need new screenshot/s
-
-![screenshot of configuration page in Azure portal](media/configuration.png)
+![screenshot of networking page in Azure portal](media/networking-page.png)
 
 > [!NOTE]
 > A previous version of this page included a cache-level root squash setting, but this feature has been moved to client access policies.
 
 <!-- >> [!TIP]
-> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the configuration page and its settings. -->
+> The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->
 
 ## Adjust MTU value
 <!-- linked from troubleshoot-nas article -->
@@ -42,39 +40,35 @@ If you don't want to change the MTU settings on other system components, you sho
 
 Learn more about MTU settings in Azure virtual networks by reading [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md).
 
-<!-- ## Configure root squash
-
-**???** missing from current GUI? **???**
-
-The **Enable root squash** setting controls how Azure HPC Cache treats requests from the root user on client machines.
-
-When root squash is enabled, root users from a client are automatically mapped to the user "nobody" when they send requests through the Azure HPC Cache. It also prevents client requests from using set-UID permission bits.
-
-If root squash is disabled, a request from the client root user (UID 0) is passed through to a back-end NFS storage system as root. This configuration might allow inappropriate file access.
-
-Setting root squash on the cache can help compensate for the required ``no_root_squash`` setting on NAS systems that are used as storage targets. (Read more about [NFS storage target prerequisites](hpc-cache-prerequisites.md#nfs-storage-requirements).) It also can improve security when used with Azure Blob storage targets.
-
-The default setting is **Yes**. (Caches created before April 2020 might have the default setting **No**.)
-
-> [!TIP]
-> You also can set root squash for specific storage exports by customizing [client access polices](access-policies.md#root-squash). -->
-
 ## Customize NTP
 
-Your cache uses the Azure-based time server time.microsoft.com by default. If you want your cache to use a different NTP server, specify it in the **NTP configuration** field. Use a fully qualified domain name or an IP address.
+Your cache uses the Azure-based time server time.microsoft.com by default. If you want your cache to use a different NTP server, specify it in the **NTP configuration** section. Use a fully qualified domain name or an IP address.
 
 ## Set a custom DNS configuration
 
 > [!NOTE]
 > Do not change your cache DNS configuration if you don't need to. Configuration mistakes can cause the cache to become unreachable permanently.
 
-- (stuff about how to configure and why not to - from that email thread)
-- (something about a DNS forwarder?)
+Azure HPC Cache is automatically configured to use a secure and convenient Azure DNS system. Only a few unusual use cases require a separate DNS configuration. Check with your Azure representatives or consult Microsoft Service and Support to determine if you need a custom DNS configuration.
+
+<!-- If configuring your own DNS system, make sure it meets these requirements:
+
+* Azure DNS forwarding -->
+
+If you need to set a custom DNS server for your cache, fill in the provided fields:
+
+* **DNS search domain** - Enter your search domain, for example, company.com. A single value is allowed.
+* **DNS server(s)** - Enter up to three DNS servers. Specify them by IP address.
+  
+  > [!NOTE]
+  > The cache will use only the first DNS server it successfully finds.
+
+<!-- - (stuff about how to configure and why not to - from that email thread)
+- (something about a DNS forwarder?) -->
 
 ### Refresh storage target DNS
 
 If your DNS configuration changes, storage targets will become unavailable. Read how to update your custom DNS system IP address in [Edit storage targets](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
-
 
 ## View snapshots for blob storage targets
 
@@ -93,8 +87,8 @@ Snapshots are taken every eight hours, at UTC 0:00, 08:00, and 16:00.
 
 Azure HPC Cache stores daily, weekly, and monthly snapshots until they are replaced by new ones. The limits are:
 
-* up to 20 daily snapshots
-* up to 8 weekly snapshots
-* up to 3 monthly snapshots
+* Up to 20 daily snapshots
+* Up to 8 weekly snapshots
+* Up to 3 monthly snapshots
 
 Access the snapshots from the `.snapshot` directory in your blob storage target's namespace.
