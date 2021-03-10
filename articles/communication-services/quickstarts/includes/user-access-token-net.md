@@ -131,10 +131,14 @@ Use the `createUserWithToken` method to create a Communication Services identity
 
 ```csharp  
 // Issue an identity and an access token with the "voip" scope for the new identity
-var identityWithTokenResponse = await client.CreateUserWithTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
-var identity = identityWithTokenResponse.Value.user.Id;
-var token = identityWithTokenResponse.Value.token.Token;
-var expiresOn = identityWithTokenResponse.Value.token.ExpiresOn;
+var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
+var identity = identityAndTokenResponse.Value.User;
+var token = identityAndTokenResponse.Value.AccessToken.Token;
+var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
+
+Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
+Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
+Console.WriteLine(token);
 ```
 
 ## Refresh access tokens
