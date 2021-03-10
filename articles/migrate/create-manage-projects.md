@@ -10,7 +10,9 @@ ms.date: 11/23/2020
 
 # Create and manage Azure Migrate projects
 
-This article describes how to create, manage, and delete [Azure Migrate](migrate-services-overview.md) projects. If you're using Classic Azure Migrate projects, please delete those projects and follow the steps to create a new Azure Migrate project. You can't upgrade Classic Azure Migrate projects or components to the Azure Migrate. View [FAQ](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) before you start the creation process.
+This article describes how to create, manage, and delete [Azure Migrate](migrate-services-overview.md) projects. 
+
+Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported and the inventory metadata in the classic project will be deleted. If you're using classic Azure Migrate projects, delete those projects and follow the steps to create a new Azure Migrate project. You can't upgrade classic Azure Migrate projects or components to the Azure Migrate. View [FAQ](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) before you start the creation process.
 
 An Azure Migrate project is used to store discovery, assessment, and migration metadata collected from the environment you're assessing or migrating. In a project you can track discovered assets, create assessments, and orchestrate migrations to Azure.  
 
@@ -80,7 +82,7 @@ Find a project as follows:
 3. Select the appropriate subscription and Azure Migrate project.
 
 
-### Find a legacy project
+### Find a classic Azure Migrate project
 
 If you created the project in the [previous version](migrate-services-overview.md#azure-migrate-versions) of Azure Migrate, find it as follows:
 
@@ -120,7 +122,7 @@ Note that:
        
     - If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
        
-2. [Follow the instructions](../azure-monitor/platform/delete-workspace.md) to delete the workspace.
+2. [Follow the instructions](../azure-monitor/logs/delete-workspace.md) to delete the workspace.
 
 ## Next steps
 

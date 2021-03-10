@@ -210,7 +210,7 @@ Creating a secret with a short expiration date will publish a `SecretNearExpiry`
 
 To verify that the secret has rotated, go to **Key Vault** > **Secrets**:
 
-:::image type="content" source="../media/rotate-8.png" alt-text="Go to Secrets":::
+:::image type="content" source="../media/rotate-8.png" alt-text="Screenshot that shows how to access Key Vault > Secrets.":::
 
 Open the **sqlPassword** secret and view the original and rotated versions:
 

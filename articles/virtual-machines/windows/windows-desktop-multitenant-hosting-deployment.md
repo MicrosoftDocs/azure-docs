@@ -1,25 +1,44 @@
 ---
 title: How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure with Multitenant Hosting Rights.
-author: xujing
-ms.service: virtual-machines-windows
+author: mimckitt
+ms.service: virtual-machines
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 1/24/2018
+ms.date: 2/2/2021
 ms.author: mimckitt
+ms.custom: rybaker, chmimckitt
 
 ---
 # How to deploy Windows 10 on Azure with Multitenant Hosting Rights 
-For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. For more information, please see [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
+For customers with Windows 10 Enterprise E3/E5 per user or Windows Virtual Desktop Access per user (User Subscription Licenses or Add-on User Subscription Licenses), Multitenant Hosting Rights for Windows 10 allows you to bring your Windows 10 Licenses to the cloud and run Windows 10 Virtual Machines on Azure without paying for another license. Multitenant Hosting Rights are only available for Windows 10 (version 1703 or later).
+
+For more information, see [Multitenant Hosting for Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 > [!NOTE]
-> This article shows you to implement the licensing benefit for Windows 10 Pro Desktop images on Azure Marketplace.
-> - For Windows 7, 8.1, 10 Enterprise (x64) images on Azure Marketplace for MSDN Subscriptions, please refer to [Windows client in Azure for dev/test scenarios](client-images.md)
+> - To use Windows 7, 8.1 and 10 images for development or testing see [Windows client in Azure for dev/test scenarios](client-images.md)
 > - For Windows Server licensing benefits, please refer to [Azure Hybrid use benefits for Windows Server images](hybrid-use-benefit-licensing.md).
->
+
+## Subscription Licenses that qualify for Multitenant Hosting Rights
+
+Using the [Microsoft admin center](/microsoft-365/admin/admin-overview/about-the-admin-center), you can confirm if a user has been assigned a Windows 10 supported license.
+
+> [!IMPORTANT]
+> Users must have one of the below subscription licenses in order to use Windows 10 images in Azure. If you do not have one of these subscription licenses, they can be purchased through your [Cloud Service Partner](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/) or directly through [Microsoft](https://www.microsoft.com/microsoft-365?rtc=1).
+
+**Eligible subscription licenses:**
+
+-	Microsoft 365 E3/E5 
+-	Microsoft 365 F3 
+-	Microsoft 365 A3/A5 
+-	Windows 10 Enterprise E3/E5
+-	Windows 10 Education A3/A5 
+-	Windows VDA E3/E5
+
 
 ## Deploying Windows 10 Image from Azure Marketplace 
-For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`.
+For PowerShell, CLI and Azure Resource Manager template deployments, Windows 10 images can be found using the `PublisherName: MicrosoftWindowsDesktop` and `Offer: Windows-10`. Windows 10 version Creators Update (1809) or later is supported for Multitenant Hosting Rights. 
 
 ```powershell
 Get-AzVmImageSku -Location '$location' -PublisherName 'MicrosoftWindowsDesktop' -Offer 'Windows-10'
@@ -35,17 +54,6 @@ rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus
 ```
 
 For more information on available images see [Find and use Azure Marketplace VM images with Azure PowerShell](./cli-ps-findimage.md)
-
-## Qualify for Multi-tenant hosting rights 
-To qualify for multi-tenant hosting rights and to run Windows 10 images on Azure users must have one of the following subscriptions: 
-
--	Microsoft 365 E3/E5 
--	Microsoft 365 F3 
--	Microsoft 365 A3/A5 
--	Windows 10 Enterprise E3/E5
--	Windows 10 Education A3/A5 
--	Windows VDA E3/E5
-
 
 ## Uploading Windows 10 VHD to Azure
 if you are uploading a generalized Windows 10 VHD, please note Windows 10 does not have built-in administrator account enabled by default. To enable the built-in administrator account, include the following command as part of the Custom Script extension.
@@ -116,10 +124,7 @@ LicenseType              :
 ```
 
 ## Additional Information about joining Azure AD
->[!NOTE]
->Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
->
->
+Azure provisions all Windows VMs with built-in administrator account, which cannot be used to join AAD. For example, *Settings > Account > Access Work or School > +Connect* will not work. You must create and log on as a second administrator account to join Azure AD manually. You can also configure Azure AD using a provisioning package, use the link in the *Next Steps* section to learn more.
 
 ## Next Steps
 - Learn more about [Configuring VDA for Windows 10](/windows/deployment/vda-subscription-activation)

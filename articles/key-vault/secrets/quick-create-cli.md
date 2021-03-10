@@ -47,7 +47,7 @@ You can now reference this password that you added to Azure Key Vault by using i
 To view the value contained in the secret as plain text:
 
 ```azurecli
-az keyvault secret show --name "ExamplePassword" --vault-name "<your-unique-keyvault-name>"
+az keyvault secret show --name "ExamplePassword" --vault-name "<your-unique-keyvault-name>" --query "value"
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.

@@ -152,7 +152,7 @@ On the other hand, if **AutoCertificateRollover** is set to **True**, but your f
    >
 3. Look at the command output at any certificates listed. If AD FS has generated a new certificate, you should see two certificates in the output: one for which the **IsPrimary** value is **True** and the **NotAfter** date is within 5 days, and one for which **IsPrimary** is **False** and **NotAfter** is about a year in the future.
 4. If you only see one certificate, and the **NotAfter** date is within 5 days, you need to generate a new certificate.
-5. To generate a new certificate, execute the following command at a PowerShell command prompt: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+5. To generate a new certificate, execute the following command at a PowerShell command prompt: `PS C:\Update-ADFSCertificate –CertificateType token-signing`.
 6. Verify the update by running the following command again: PS C:\>Get-ADFSCertificate –CertificateType token-signing
 
 Two certificates should be listed now, one of which has a **NotAfter** date of approximately one year in the future, and for which the **IsPrimary** value is **False**.

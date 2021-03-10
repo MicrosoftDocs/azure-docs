@@ -188,7 +188,7 @@ Monitor the copying process by querying the [sys.databases](/sql/relational-data
 > [!IMPORTANT]
 > If you need to create a copy with a substantially smaller service objective than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL Database using database backups](recovery-using-backups.md#geo-restore) for more information.
 
-## Azure roles to manage database copy
+## Azure RBAC roles and permissions to manage database copy
 
 To create a database copy, you will need to be in the following roles
 

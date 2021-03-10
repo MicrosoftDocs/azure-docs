@@ -4,7 +4,7 @@ description: Learn how to use the Azure SDK to download large amounts of random 
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 02/04/2021
 ms.author: rogarana
 ms.subservice: blobs
 ms.custom: devx-track-csharp

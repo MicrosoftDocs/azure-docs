@@ -18,7 +18,7 @@ ms.author: mlottner
 
 # Investigate a suspicious IoT device
 
-Defender for IoT service alerts provide clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised.
+Defender for IoT service alerts provides clear indications when IoT devices are suspected of involvement in suspicious activities or when indications exist that a device is compromised.
 
 In this guide, use the investigation suggestions provided to help determine the potential risks to your organization, decide how to remediate, and discover the best ways to prevent similar attacks in the future.
 
@@ -35,12 +35,12 @@ To locate your Log Analytics workspace for data storage:
 1. Open your IoT hub,
 1. Under **Security**, select **Settings**, and then select **Data Collection**.
 1. Change your Log Analytics workspace configuration details.
-1. Click **Save**.
+1. Select **Save**.
 
 Following configuration, do the following to access data stored in your Log Analytics workspace:
 
-1. Select and click on an Defender for IoT alert in your IoT Hub.
-1. Click **Further investigation**.
+1. Select and select on a Defender for IoT alert in your IoT Hub.
+1. Select **Further investigation**.
 1. Select **To see which devices have this alert click here and view the DeviceId column**.
 
 ## Investigation steps for suspicious IoT devices
@@ -51,7 +51,7 @@ See the sample kql queries below to get started with investigating alerts and ac
 
 ### Related alerts
 
-To find out if other alerts were triggered around the same time use the following kql query:
+You can find out if other alerts were triggered around the same time through the following kql query:
 
   ```
   let device = "YOUR_DEVICE_ID";
@@ -139,9 +139,9 @@ To find users that logged into the device use the following kql query:
 
 Use the query results to discover:
 
-- Which users logged in to the device?
-- Are the users that logged in, supposed to log in?
-- Did the users that logged in connect from expected or unexpected IP addresses?
+- Which users signed in to the device?
+- Are the users that signed in, supposed to sign in?
+- Did the users that signed in connect from expected or unexpected IP addresses?
 
 ### Process list
 
@@ -178,7 +178,7 @@ Use the query results to discover:
 
 - Were there any suspicious processes running on the device?
 - Were processes executed by appropriate users?
-- Did any command line executions contain the correct and expected arguments?
+- Did any command-line executions contain the correct and expected arguments?
 
 ## Next steps
 

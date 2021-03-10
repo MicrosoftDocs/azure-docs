@@ -6,13 +6,18 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/12/2020
-ms.author: matjazl
+ms.date: 03/03/2021
+ms.author: zxue
 ---
 
 # Configure private link
 
 Private link enables you to access Azure API for FHIR over a private endpoint, a network interface that connects you privately and securely using a private IP address from your virtual network. With private link, you can access our services securely from your Vnet as a first party service without having to go through a public DNS. This article walks you through how to create, test, and manage your private endpoint for Azure API for FHIR.
+
+>[!Note]
+>Neither Private Link nor Azure API for FHIR can be moved from one resource group or subscription to another once Private Link is enabled. To move, delete the Private Link first, then move Azure API for FHIR and create a new Private Link once the move is complete. Assess potential security ramifications before deleting Private Link.
+>
+>If exporting audit logs and/metrics is enabled for Azure API for FHIR, update the export setting through Diagnostic Settings from the portal.
 
 ## Prerequisites
 

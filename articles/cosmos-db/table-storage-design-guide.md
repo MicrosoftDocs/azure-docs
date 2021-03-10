@@ -637,7 +637,7 @@ For this option, use index entities that store the following data:
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Screenshot that shows the Employee index entity that contains a list of employee IDs for employees with the last name stored in the RowKey and PartitionKey.":::
 
-The `EmployeeIDs` property contains a list of employee IDs for employees with the last name stored in the `RowKey` and `PartitionKey`.  
+The `EmployeeDetails` property contains a list of employee IDs and department name pairs for employees with the last name stored in the `RowKey`.
 
 You can't use EGTs to maintain consistency, because the index entities are in a separate partition from the employee entities. Ensure that the index entities are eventually consistent with the employee entities.  
 

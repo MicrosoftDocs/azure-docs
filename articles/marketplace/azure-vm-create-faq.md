@@ -48,6 +48,7 @@ This issue usually appears if you created a VM from a VHD that has a lock on it.
 ## How do I create a VM from a generalized vhd?
 
 ### Prepare an Azure Resource Manager template
+
 This section describes how to create and deploy a user-provided virtual machine (VM) image. You can do this by providing operating system and data disk VHD images from an Azure-deployed virtual hard disk. These steps deploy the VM using generalized VHD.
 
 1. Sign in to the Azure portal.

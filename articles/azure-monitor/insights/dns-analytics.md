@@ -1,7 +1,6 @@
 ---
 title: DNS Analytics solution in Azure Monitor | Microsoft Docs
 description: Set up and use the DNS Analytics solution in Azure Monitor to gather insights into DNS infrastructure on security, performance, and operations.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -31,10 +30,10 @@ The following table describes the connected sources that are supported by this s
 
 | **Connected source** | **Support** | **Description** |
 | --- | --- | --- |
-| [Windows agents](../platform/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
-| [Linux agents](../learn/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
-| [System Center Operations Manager management group](../platform/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
-| [Azure storage account](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage isn't used by the solution. |
+| [Windows agents](../agents/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
+| [Linux agents](../vm/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
+| [System Center Operations Manager management group](../agents/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
+| [Azure storage account](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage isn't used by the solution. |
 
 ### Data collection details
 
@@ -44,7 +43,7 @@ The solution collects DNS inventory and DNS event-related data from the DNS serv
 
 Use the following information to configure the solution:
 
-- You must have a [Windows](../platform/agent-windows.md) or [Operations Manager](../platform/om-agents.md) agent on each DNS server that you want to monitor.
+- You must have a [Windows](../agents/agent-windows.md) or [Operations Manager](../agents/om-agents.md) agent on each DNS server that you want to monitor.
 - You can add the DNS Analytics solution to your Log Analytics workspace from the [Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). You can also use the process described in [Add Azure Monitor solutions from the Solutions Gallery](solutions.md).
 
 The solution starts collecting data without the need of further configuration. However, you can use the following configuration to customize data collection.
@@ -72,7 +71,7 @@ If your Operations Manager management group is connected to your Log Analytics w
 - Microsoft DNS Data Collector Intelligence Pack (Microsoft.IntelligencePacks.Dns)
 - Microsoft System Center Advisor DNS Analytics Configuration (Microsoft.IntelligencePack.Dns.Configuration)
 
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../platform/om-agents.md).
+For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../agents/om-agents.md).
 
 ## Use the DNS Analytics solution
 
@@ -181,4 +180,4 @@ To provide feedback, visit the [Log Analytics UserVoice page](https://aka.ms/dns
 
 ## Next steps
 
-[Query logs](../log-query/log-query-overview.md) to view detailed DNS log records.
+[Query logs](../logs/log-query-overview.md) to view detailed DNS log records.

@@ -1,21 +1,21 @@
 ---
-title: Azure Compute - Linux Diagnostic Extension 
-description: How to configure the Azure Linux Diagnostic Extension (LAD) to collect metrics and log events from Linux VMs running in Azure.
-services: virtual-machines-linux
-author: axayjo
-manager: gwallace
-ms.service: virtual-machines-linux
-ms.subservice: extensions
-ms.tgt_pltfrm: vm-linux
+title: Azure Compute - Linux Diagnostic Extension 4.0
+description: How to configure the Azure Linux Diagnostic Extension (LAD) 4.0 to collect metrics and log events from Linux VMs running in Azure.
 ms.topic: article
-ms.date: 12/13/2018 
-ms.author: akjosh
----
-# Use Linux Diagnostic Extension to monitor metrics and logs
+ms.service: virtual-machines
+ms.subservice: extensions
+author: amjads1
+ms.author: amjads
+ms.collection: linux
+ms.date: 02/05/2021
 
-This document describes version 3.0 and newer of the Linux Diagnostic Extension.
+---
+# Use Linux Diagnostic Extension 4.0 to monitor metrics and logs
+
+This document describes version 4.0 and newer of the Linux Diagnostic Extension.
 
 > [!IMPORTANT]
+> For information about version 3.*, see  [this document](./diagnostics-linux-v3.md). 
 > For information about version 2.3 and older, see [this document](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## Introduction
@@ -38,10 +38,11 @@ You can enable this extension by using the Azure PowerShell cmdlets, Azure CLI s
 >[!NOTE]
 >Certain components of the Diagnostics VM extension are also shipped in the [Log Analytics VM extension](./oms-linux.md). Due to this architecture, conflicts can arise if both extensions are instantiated in the same ARM template. To avoid these install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) to ensure the extensions are installed sequentially. The extensions can be installed in either order.
 
-These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 3.0 to:
+These installation instructions and a [downloadable sample configuration](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configure LAD 4.0 to:
 
-* capture and store the same metrics as were provided by LAD 2.3;
-* capture a useful set of file system metrics, new to LAD 3.0;
+* capture and store the same metrics as were provided by LAD 2.3, 3*;
+* send metrics to Azure Monitor Sink along with the usual sink to Azure Storage, new in Lad 4.0
+* capture a useful set of file system metrics, as were provided by LAD 3.0;
 * capture the default syslog collection enabled by LAD 2.3;
 * enable the Azure portal experience for charting and alerting on VM metrics.
 
@@ -100,6 +101,9 @@ The python2 executable must be aliased to *python*. Following is one method that
 
 The sample configuration downloaded in these examples collects a set of standard data and sends them to table storage. The URL for the sample configuration and its contents are subject to change. In most cases, you should download a copy of the portal settings JSON file and customize it for your needs, then have any templates or automation you construct use your own version of the configuration file rather than downloading that URL each time.
 
+> [!NOTE]
+> For enabling the new Azure Monitor Sink, the VMs need to have System Assigned Identity enabled for MSI Auth token generation. This can be done during VM creation or after the VM has been created. Steps for enabling System Assigned Identity through portal, CLI, PowerShell, and resource manager.  are listed in detail [here](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
+
 #### Azure CLI sample
 
 ```azurecli
@@ -114,6 +118,9 @@ az login
 # Select the subscription containing the storage account
 az account set --subscription <your_azure_subscription_id>
 
+# Enable System Assigned Identity to the existing VM
+az vm identity assign -g $my_resource_group -n $my_linux_vm
+
 # Download the sample Public settings. (You could also use curl or any web browser)
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
 
@@ -126,10 +133,10 @@ sed -i "s#__VM_RESOURCE_ID__#$my_vm_resource_id#g" portal_public_settings.json
 my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --account-name $my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
 my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
-# Finallly tell Azure to install and enable the extension
-az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
+# Finally tell Azure to install and enable the extension
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group $my_resource_group --vm-name $my_linux_vm --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
-#### Azure CLI sample for Installing LAD 3.0 extension on the VMSS instance
+#### Azure CLI sample for Installing LAD 4.0 extension on the virtual machine scale set instance
 
 ```azurecli
 #Set your Azure VMSS diagnostic variables correctly below
@@ -142,6 +149,9 @@ az login
 
 # Select the subscription containing the storage account
 az account set --subscription <your_azure_subscription_id>
+
+# Enable System Assigned Identity to the existing VMSS
+az vmss identity assign -g $my_resource_group -n $my_linux_vmss
 
 # Download the sample Public settings. (You could also use curl or any web browser)
 wget https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json -O portal_public_settings.json
@@ -156,7 +166,7 @@ $my_diagnostic_storage_account_sastoken=$(az storage account generate-sas --acco
 $my_lad_protected_settings="{'storageAccountName': '$my_diagnostic_storage_account', 'storageAccountSasToken': '$my_diagnostic_storage_account_sastoken'}"
 
 # Finally tell Azure to install and enable the extension
-az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
+az vmss extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group $my_resource_group --vmss-name $my_linux_vmss --protected-settings "${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
 #### PowerShell sample
@@ -169,6 +179,9 @@ $VMresourceGroup = "yourVMResourceGroupName"
 
 # Get the VM object
 $vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
+
+# Enable System Assigned Identity on an existing VM
+Update-AzVM -ResourceGroupName $VMresourceGroup -VM $vm -IdentityType SystemAssigned
 
 # Get the public settings template from GitHub and update the templated values for storage account and resource ID
 $publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
@@ -184,7 +197,7 @@ $sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Servi
 $protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
 
 # Finally install the extension with the settings built above
-Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0 
+Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0 
 ```
 
 ### Updating the extension settings
@@ -193,21 +206,17 @@ After you've changed your Protected or Public settings, deploy them to the VM by
 
 ### Migration from previous versions of the extension
 
-The latest version of the extension is **3.0**. **Any old versions (2.x) are deprecated and may be unpublished on or after July 31, 2018**.
+The latest version of the extension is **4.0 which is currently in Public Preview**. **Older versions of 3.x are still being supported while versions of 2.x are deprecated since July 31, 2018**.
 
 > [!IMPORTANT]
-> This extension introduces breaking changes to the configuration of the extension. One such change was made to improve the security of the extension; as a result, backwards compatibility with 2.x could not be maintained. Also, the Extension Publisher for this extension is different than the publisher for the 2.x versions.
->
-> To migrate from 2.x to this new version of the extension, you must uninstall the old extension (under the old publisher name), then install version 3 of the extension.
+> To migrate from 3.x to this new version of the extension, you must uninstall the old extension, then install version 4 of the extension (with the updated configuration for system assigned identity and sinks for sending metrics to Azure Monitor Sink.)
 
 Recommendations:
 
 * Install the extension with automatic minor version upgrade enabled.
-  * On classic deployment model VMs, specify '3.*' as the version if you are installing the extension through Azure XPLAT CLI or Powershell.
+  * On classic deployment model VMs, specify '4.*' as the version if you are installing the extension through Azure XPLAT CLI or PowerShell.
   * On Azure Resource Manager deployment model VMs, include '"autoUpgradeMinorVersion": true' in the VM deployment template.
-* Use a new/different storage account for LAD 3.0. There are several small incompatibilities between LAD 2.3 and LAD 3.0 that make sharing an account troublesome:
-  * LAD 3.0 stores syslog events in a table with a different name.
-  * The counterSpecifier strings for `builtin` metrics differ in LAD 3.0.
+* Can use the same storage account for LAD 4.0 as with LAD 3.*. 
 
 ## Protected settings
 
@@ -240,7 +249,7 @@ You can easily construct the required SAS token through the Azure portal.
 1. Make the appropriate sections as previously described
 1. Click the "Generate SAS" button.
 
-![Screenshot shows the Shared access signature page with Generate S A S.](./media/diagnostics-linux/make_sas.png)
+:::image type="content" source="./media/diagnostics-linux/make_sas.png" alt-text="Screenshot shows the Shared access signature page with Generate S A S.":::
 
 Copy the generated SAS into the storageAccountSasToken field; remove the leading question-mark ("?").
 
@@ -266,7 +275,7 @@ Element | Value
 name | A string used to refer to this sink elsewhere in the extension configuration.
 type | The type of sink being defined. Determines the other values (if any) in instances of this type.
 
-Version 3.0 of the Linux Diagnostic Extension supports two sink types: EventHub, and JsonBlob.
+Version 4.0 of the Linux Diagnostic Extension supports two sink types: EventHub, and JsonBlob.
 
 #### The EventHub sink
 
@@ -311,14 +320,14 @@ Data directed to a JsonBlob sink is stored in blobs in Azure storage. Each insta
 
 ## Public settings
 
-This structure contains various blocks of settings that control the information collected by the extension. Each setting is optional. If you specify `ladCfg`, you must also specify `StorageAccount`.
+This structure contains various blocks of settings that control the information collected by the extension. Each setting (except ladCfg) is optional. If you specify metric or syslog collection in `ladCfg`, you must also specify `StorageAccount`. sinksConfig element needs to be specified in order to enable Azure Monitor Sink for metrics from LAD 4.0
 
 ```json
 {
     "ladCfg":  { ... },
-    "perfCfg": { ... },
     "fileLogs": { ... },
     "StorageAccount": "the storage account to receive data",
+    "sinksConfig": { ... },
     "mdsdHttpProxy" : ""
 }
 ```
@@ -344,7 +353,15 @@ The remaining elements are described in detail in the following sections.
 }
 ```
 
-This optional structure controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data sinks. You must specify either `performanceCounters` or `syslogEvents` or both. You must specify the `metrics` structure.
+This structure controls the gathering of metrics and logs for delivery to the Azure Metrics service and to other data sinks. You must specify either `performanceCounters` or `syslogEvents` or both. You must specify the `metrics` structure.
+
+If you don't want to enable syslog or metrics collection, then you can simply specify an empty structure for ladCfg element as shown below - 
+
+```json
+"ladCfg": {
+    "diagnosticMonitorConfiguration": {}
+    }
+```
 
 Element | Value
 ------- | -----
@@ -462,31 +479,27 @@ When you specify `syslogEvents`, LAD always writes data to a table in Azure stor
 
 Examples include `LinuxSyslog20170410` and `LinuxSyslog20170609`.
 
-### perfCfg
+### sinksConfig
 
-This optional section controls execution of arbitrary [OMI](https://github.com/Microsoft/omi) queries.
+This optional section controls enabling sending metrics to the Azure Monitor Sink in addition to the Storage account and the default Guest Metrics blade.
+
+> [!NOTE]
+> This requires System Assigned Identity to be enabled on the VMs/VMSS. 
+> This can be done through portal, CLI, PowerShell, and resource manager. Steps are listed in detail [here](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
+> The steps to enable this are also listed in the installation samples for AZ CLI, PowerShell etc. above. 
 
 ```json
-"perfCfg": [
-    {
-        "namespace": "root/scx",
-        "query": "SELECT PercentAvailableMemory, PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
-        "table": "LinuxOldMemory",
-        "frequency": 300,
-        "sinks": ""
-    }
-]
+  "sinksConfig": {
+    "sink": [
+      {
+        "name": "AzMonSink",
+        "type": "AzMonSink",
+        "AzureMonitor": {}
+      }
+    ]
+  },
 ```
 
-Element | Value
-------- | -----
-namespace | (optional) The OMI namespace within which the query should be executed. If unspecified, the default value is "root/scx", implemented by the [System Center Cross-platform Providers](https://github.com/Microsoft/SCXcore).
-query | The OMI query to be executed.
-table | (optional) The Azure storage table, in the designated storage account (see [Protected settings](#protected-settings)).
-frequency | (optional) The number of seconds between execution of the query. Default value is 300 (5 minutes); minimum value is 15 seconds.
-sinks | (optional) A comma-separated list of names of additional sinks to which raw sample metric results should be published. No aggregation of these raw samples is computed by the extension or by Azure Metrics.
-
-Either "table" or "sinks", or both, must be specified.
 
 ### fileLogs
 
@@ -515,6 +528,9 @@ Either "table" or "sinks", or both, must be specified.
 
 ## Metrics supported by the builtin provider
 
+> [!NOTE]
+> The default metrics supported by LAD are aggregated across all file-systems/disks/name. For non-aggregated metrics, kindly refer to the newer Azure Monitor Sink metrics support.
+
 The builtin metric provider is a source of metrics most interesting to a broad set of users. These metrics fall into five broad classes:
 
 * Processor
@@ -539,8 +555,6 @@ PercentPrivilegedTime | Of non-idle time, the percentage spent in privileged (ke
 
 The first four counters should sum to 100%. The last three counters also sum to 100%; they subdivide the sum of PercentProcessorTime, PercentIOWaitTime, and PercentInterruptTime.
 
-To obtain a single metric aggregated across all processors, set `"condition": "IsAggregate=TRUE"`. To obtain a metric for a specific processor, such as the second logical processor of a four-vCPU VM, set `"condition": "Name=\\"1\\""`. Logical processor numbers are in the range `[0..n-1]`.
-
 ### builtin metrics for the Memory class
 
 The Memory class of metrics provides information about memory utilization, paging, and swapping.
@@ -563,7 +577,7 @@ This class of metrics has only a single instance. The "condition" attribute has 
 
 ### builtin metrics for the Network class
 
-The Network class of metrics provides information about network activity on an individual network interfaces since boot. LAD does not expose bandwidth metrics, which can be retrieved from host metrics.
+The Network class of metrics provides information about network activity on an individual network interface since boot. LAD does not expose bandwidth metrics, which can be retrieved from host metrics.
 
 counter | Meaning
 ------- | -------
@@ -575,8 +589,6 @@ PacketsReceived | Total packets received since boot
 TotalRxErrors | Number of receive errors since boot
 TotalTxErrors | Number of transmit errors since boot
 TotalCollisions | Number of collisions reported by the network ports since boot
-
- Although this class is instanced, LAD does not support capturing Network metrics aggregated across all network devices. To obtain the metrics for a specific interface, such as eth0, set `"condition": "InstanceID=\\"eth0\\""`.
 
 ### builtin metrics for the Filesystem class
 
@@ -597,10 +609,6 @@ ReadsPerSecond | Read operations per second
 WritesPerSecond | Write operations per second
 TransfersPerSecond | Read or write operations per second
 
-Aggregated values across all file systems can be obtained by setting `"condition": "IsAggregate=True"`. Values for a specific mounted file system, such as "/mnt", can be obtained by setting `"condition": 'Name="/mnt"'`. 
-
-**NOTE**: If using the Azure Portal instead of JSON, the correct condition field form is Name='/mnt'
-
 ### builtin metrics for the Disk class
 
 The Disk class of metrics provides information about disk device usage. These statistics apply to the entire drive. If there are multiple file systems on a device, the counters for that device are, effectively, aggregated across all of them.
@@ -618,16 +626,14 @@ ReadBytesPerSecond | Number of bytes read per second
 WriteBytesPerSecond | Number of bytes written per second
 BytesPerSecond | Number of bytes read or written per second
 
-Aggregated values across all disks can be obtained by setting `"condition": "IsAggregate=True"`. To get information for a specific device (for example, /dev/sdf1), set `"condition": "Name=\\"/dev/sdf1\\""`.
-
-## Installing and configuring LAD 3.0
+## Installing and configuring LAD 4.0
 
 ### Azure CLI
 
 Assuming your protected settings are in the file ProtectedSettings.json and your public configuration information is in PublicSettings.json, run this command:
 
 ```azurecli
-az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json
 ```
 
 The command assumes you are using the Azure Resource Management mode of the Azure CLI. To configure LAD for classic deployment model (ASM) VMs, switch to "asm" mode (`azure config mode asm`) and omit the resource group name in the command. For more information, see the [cross-platform CLI documentation](/cli/azure/authenticate-azure-cli).
@@ -637,12 +643,12 @@ The command assumes you are using the Azure Resource Management mode of the Azur
 Assuming your protected settings are in the `$protectedSettings` variable and your public configuration information is in the `$publicSettings` variable, run this command:
 
 ```powershell
-Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0
 ```
 
-## An example LAD 3.0 configuration
+## An example LAD 4.0 configuration
 
-Based on the preceding definitions, here's a sample LAD 3.0 extension configuration with some explanation. To apply this sample to your case, you should use your own storage account name, account SAS token, and EventHubs SAS tokens.
+Based on the preceding definitions, here's a sample LAD 4.0 extension configuration with some explanation. To apply this sample to your case, you should use your own storage account name, account SAS token, and EventHubs SAS tokens.
 
 > [!NOTE]
 > Depending on whether you use the Azure CLI or PowerShell to install LAD, the method for providing public and protected settings will differ. If using the Azure CLI, save the following settings to ProtectedSettings.json and PublicSettings.json to use with the sample command above. If using PowerShell, save the settings to `$protectedSettings` and `$publicSettings` by running `$protectedSettings = '{ ... }'`.
@@ -703,7 +709,6 @@ These public settings cause LAD to:
 
 * Upload percent-processor-time and used-disk-space metrics to the `WADMetrics*` table
 * Upload messages from syslog facility "user" and severity "info" to the `LinuxSyslog*` table
-* Upload raw OMI query results (PercentProcessorTime and PercentIdleTime) to the named `LinuxCPU` table
 * Upload appended lines in file `/var/log/myladtestlog` to the `MyLadTestLog` table
 
 In each case, data is also uploaded to:
@@ -770,14 +775,15 @@ In each case, data is also uploaded to:
       }
     }
   },
-  "perfCfg": [
-    {
-      "query": "SELECT PercentProcessorTime, PercentIdleTime FROM SCX_ProcessorStatisticalInformation WHERE Name='_TOTAL'",
-      "table": "LinuxCpu",
-      "frequency": 60,
-      "sinks": "LinuxCpuJsonBlob,LinuxCpuEventHub"
-    }
-  ],
+  "sinksConfig": {
+    "sink": [
+      {
+        "name": "AzMonSink",
+        "type": "AzMonSink",
+        "AzureMonitor": {}
+      }
+    ]
+  },
   "fileLogs": [
     {
       "file": "/var/log/myladtestlog",
@@ -798,7 +804,7 @@ The `resourceId` in the configuration must match that of the VM or the virtual m
 
 Use the Azure portal to view performance data or set alerts:
 
-![Screenshot shows the Azure portal with the Used disk space on metric selected and the resulting chart.](./media/diagnostics-linux/graph_metrics.png)
+:::image type="content" source="./media/diagnostics-linux/graph_metrics.png" alt-text="Screenshot shows the Azure portal with the Used disk space on metric selected and the resulting chart.":::
 
 The `performanceCounters` data are always stored in an Azure Storage table. Azure Storage APIs are available for many languages and platforms.
 
@@ -809,14 +815,14 @@ In addition, you can use these UI tools to access the data in Azure Storage:
 * Visual Studio Server Explorer.
 * [Screenshot shows containers and tables in Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#an-example-lad-30-configuration).
+This snapshot of a Microsoft Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't match exactly with the [sample LAD 3.0 configuration](#an-example-lad-40-configuration).
 
-![image](./media/diagnostics-linux/stg_explorer.png)
+:::image type="content" source="./media/diagnostics-linux/stg_explorer.png" alt-text="Screenshot shows the Azure Storage Explorer.":::
 
 See the relevant [EventHubs documentation](../../event-hubs/event-hubs-about.md) to learn how to consume messages published to an EventHubs endpoint.
 
 ## Next steps
 
-* Create metric alerts in [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) for the metrics you collect.
-* Create [monitoring charts](../../azure-monitor/platform/data-platform.md) for your metrics.
+* Create metric alerts in [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) for the metrics you collect.
+* Create [monitoring charts](../../azure-monitor/data-platform.md) for your metrics.
 * Learn how to [create a virtual machine scale set](../linux/tutorial-create-vmss.md) using your metrics to control autoscaling.
