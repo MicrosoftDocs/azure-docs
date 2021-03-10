@@ -29,11 +29,11 @@ When you have an inventory report to analyze, grant yourself blob read access to
 1. Navigate to the container with the inventory CSV report file.
 1. Select **Access Control (IAM)**, then **Add role assignments**
 
-    :::image type="content" source="media/calc-blob-count-size/access.png" alt-text="Select add role assignments":::
+    :::image type="content" source="media/calculate-blob-count-size/access.png" alt-text="Select add role assignments":::
 
 1. Select **Storage Blob Data Reader** from the **Role** dropdown list.
 
-    :::image type="content" source="media/calc-blob-count-size/add-role-assignment.png" alt-text="Add the Storage Blob Data Reader role from the dropdown":::
+    :::image type="content" source="media/calculate-blob-count-size/add-role-assignment.png" alt-text="Add the Storage Blob Data Reader role from the dropdown":::
 
 1. Enter the email address of the account you're using to run the report in the **Select** field.
 
@@ -50,7 +50,7 @@ After you create your Azure Synapse workspace, do the following steps.
 1. Select the large plus sign (+) to add an item.
 1. Select **SQL script**.
 
-    :::image type="content" source="media/calc-blob-count-size/synapse-sql-script.png" alt-text="Select SQL script to create a new query":::
+    :::image type="content" source="media/calculate-blob-count-size/synapse-sql-script.png" alt-text="Select SQL script to create a new query":::
 
 ## Run the SQL query
 
@@ -75,7 +75,7 @@ After you create your Azure Synapse workspace, do the following steps.
 
 1. Select the **Run** button to execute the SQL query. The blob count and total size per container are reported in the **Results** pane.
 
-    :::image type="content" source="media/calc-blob-count-size/output.png" alt-text="Output from running the script to calculate blob count and total size.":::
+    :::image type="content" source="media/calculate-blob-count-size/output.png" alt-text="Output from running the script to calculate blob count and total size.":::
 
 ## Next steps
 

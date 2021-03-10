@@ -296,7 +296,7 @@
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
       - name: Calculate blobs count and total size
-        href: calc-blob-count-size.md
+        href: calculate-blob-count-size.md
     - name: Authorize access to blob data
       items:
       - name: Authorization options for users
