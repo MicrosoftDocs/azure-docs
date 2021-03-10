@@ -9,12 +9,12 @@ ms.author: mikben
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A user access token to enable the call client. For more information, see [Create and manage access tokens](../../access-tokens.md).
+- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../getting-started-with-calling.md).
 
 ## Install the client library
 
-Use the `npm install` command to install the Azure Communication Services Calling and Common client libraries for JavaScript.
+Use the `npm install` command to install the Azure Communication Services calling and common client libraries for JavaScript.
 This document references types in version 1.0.0-beta.5 of the calling library.
 
 ```console
@@ -25,18 +25,18 @@ npm install @azure/communication-calling --save
 
 ## Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling client library:
+The following classes and interfaces handle some of the major features of the Azure Communication Services calling client library:
 
 | Name                             | Description                                                                                                                                 |
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                      | The main entry point to the Calling client library.                                                                       |
+| `CallClient`                      | The main entry point to the calling client library.                                                                       |
 | `CallAgent`                        | Used to start and manage calls.                                                                                            |
 | `ceviceManager`                    | Used to manage media devices.                                                                                           |
-| `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate the `callAgent`. |
+| `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`. |
 
-## Initialize the callClient, create a callAgent, and access deviceManager
+## Initialize a CallClient instance, create a CallAgent instance, and access deviceManager
 
-Create a new `CallClient` instance. You can configure it with custom options like you do with a Logger instance.
+Create a new `CallClient` instance. You can configure it with custom options like a Logger instance.
 
 When you have a `CallClient` instance, you can create a `CallAgent` instance by calling the `createCallAgent` method on the `CallClient` instance. This asynchronously returns a `CallAgent` instance object.
 
@@ -54,13 +54,13 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## Place a call
 
-To create and start a call, use one of the APIs on the `callAgent` and provide a user that you've created through the Communication Services Administration client library.
+To create and start a call, use one of the APIs on `callAgent` and provide a user that you've created through the Communication Services Administration client library.
 
-The call instance allows you to subscribe to call events.
+Call creation and start is synchronous. The call instance allows you to subscribe to call events.
 
 ### Place a 1:n call to a user or PSTN
 
-To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services Administration library](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+To call another Communication Services user, use the `startCall` method on `callAgent` and pass the recipient's `CommunicationUserIdentifier` that you [created with the Communication Services administration library](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
@@ -97,7 +97,7 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCaller
 > [!IMPORTANT]
 > There can currently be no more than one outgoing local video stream.
 
-To place a video call, you have to specify your cameras by using the `deviceManager` `getCameras()` API.
+To place a video call, you have to specify your cameras by using the `getCameras()` API in `deviceManager`.
 
 After you select a camera, use it to construct a `LocalVideoStream` instance. Pass it within `videoOptions` as an item within the `localVideoStream` array to the `startCall` method.
 
@@ -149,7 +149,7 @@ const call = callAgent.join(locator);
 
 ## Receive an incoming call
 
-The `CallAgent` instance emits an `incomingCall` event when the logged-in identity receives an incoming call. To listen to this event, subscribe by using one of these options:
+The `callAgent` instance emits an `incomingCall` event when the logged-in identity receives an incoming call. To listen to this event, subscribe by using one of these options:
 
 ```js
 const incomingCallHander = async (args: { incomingCall: IncomingCall }) => {
@@ -173,27 +173,27 @@ During a call, you can access call properties and manage video and audio setting
 
 ### Check call properties
 
-- Get the unique ID (string) for a call:
+Get the unique ID (string) for a call:
 
    ```js
     const callId: string = call.id;
    ```
 
-- Learn about other participants in the call by inspecting the `remoteParticipant` collection:
+Learn about other participants in the call by inspecting the `remoteParticipant` collection:
 
    ```js
    const remoteParticipants = call.remoteParticipants;
    ```
 
-- Identify the caller of an incoming call:
+Identify the caller of an incoming call:
 
    ```js
    const callerIdentity = call.callerInfo.identifier;
    ```
 
-    `identifier` is one of the `CommunicationIdentifier` types.
+   `identifier` is one of the `CommunicationIdentifier` types.
 
-- Get the state of a call:
+Get the state of a call:
 
    ```js
    const callState = call.state;
@@ -212,7 +212,7 @@ During a call, you can access call properties and manage video and audio setting
   - `Disconnecting`: Transition state before the call goes to a `Disconnected` state.
   - `Disconnected`: Final call state. If the network connection is lost, the state changes to `Disconnected` after two minutes.
 
-- Find out why a call ended by inspecting the `callEndReason` property:
+Find out why a call ended by inspecting the `callEndReason` property:
 
    ```js
    const callEndReason = call.callEndReason;
@@ -220,32 +220,32 @@ During a call, you can access call properties and manage video and audio setting
    // callEndReason.subCode (number) subCode associated with the reason
    ```
 
-- Learn if the current call is incoming or outgoing by inspecting the `direction` property. This returns `CallDirection`.
+Learn if the current call is incoming or outgoing by inspecting the `direction` property. It returns `CallDirection`.
 
   ```js
    const isIncoming = call.direction == 'Incoming';
    const isOutgoing = call.direction == 'Outgoing';
    ```
 
-- Check if the current microphone is muted. This returns `Boolean`.
+Check if the current microphone is muted. It returns `Boolean`.
 
    ```js
    const muted = call.isMicrophoneMuted;
    ```
 
-- Find out if the screen sharing stream is being sent from a given endpoint by checking the `isScreenSharingOn` property. This returns `Boolean`.
+Find out if the screen sharing stream is being sent from a given endpoint by checking the `isScreenSharingOn` property. It returns `Boolean`.
 
    ```js
    const isScreenSharingOn = call.isScreenSharingOn;
    ```
 
-- Inspect active video streams by checking the `localVideoStreams` collection. This returns `LocalVideoStream` objects.
+Inspect active video streams by checking the `localVideoStreams` collection. It returns `LocalVideoStream` objects.
 
    ```js
    const localVideoStreams = call.localVideoStreams;
    ```
 
-### Check a call ended event
+### Check a callEnded event
 
 The `call` instance emits a `callEnded` event when the call ends. To listen to this event, subscribe by using the following code:
 
@@ -259,7 +259,7 @@ call.on('callEnded', callEndHander);
 
 ### Mute and unmute
 
-To mute or unmute the local endpoint, you can use the `mute` and `unmute` APIs:
+To mute or unmute the local endpoint, you can use the `mute` and `unmute` asynchronous APIs:
 
 ```js
 
@@ -311,9 +311,9 @@ The `remoteParticipants` collection returns a list of remote participants in a c
 call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 ```
 
-### See remote participant properties
+### Access remote participant properties
 
-Remote participants have a set of associated properties and collections.
+Remote participants have a set of associated properties and collections:
 
 - `CommunicationIdentifier`: Get the identifier for a remote participant. Identity is one of the `CommunicationIdentifier` types:
 
@@ -363,7 +363,7 @@ Remote participants have a set of associated properties and collections.
   const isSpeaking = remoteParticipant.isSpeaking;
   ```
 
-- `videoStreams`: To inspect all video streams that a given participant is sending in this call, check `videoStreams` collection, it contains `RemoteVideoStream` objects
+- `videoStreams`: To inspect all video streams that a given participant is sending in this call, check the `videoStreams` collection. It contains `RemoteVideoStream` objects.
 
   ```js
   const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
@@ -371,7 +371,7 @@ Remote participants have a set of associated properties and collections.
 
 ### Add a participant to a call
 
-To add a participant (either a user or a phone number) to a call, you can use `addParticipant`. Provide one of the `Identifier` types. This returns the `remoteParticipant` instance.
+To add a participant (either a user or a phone number) to a call, you can use `addParticipant`. Provide one of the `Identifier` types. It returns the `remoteParticipant` instance.
 
 ```js
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
@@ -382,7 +382,7 @@ const remoteParticipant = call.addParticipant(pstnIdentifier, {alternateCallerId
 
 ### Remove a participant from a call
 
-To remove a participant (either a user or a phone number) from a call, you can invoke `removeParticipant`. You have to pass one of the `Identifier` types. This resolves after the participant is removed from the call. The participant is also removed from the `remoteParticipants` collection.
+To remove a participant (either a user or a phone number) from a call, you can invoke `removeParticipant`. You have to pass one of the `Identifier` types. This resolves asynchronously after the participant is removed from the call. The participant is also removed from the `remoteParticipants` collection.
 
 ```js
 const userIdentifier = { communicationUserId: <ACS_USER_ID> };
@@ -400,9 +400,9 @@ const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStr
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
 
-To render a `RemoteVideoStream`, you have to subscribe to an `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `Renderer`, and then create a new `RendererView` instance by using the `createView` method.  You can then attach `view.target` to any UI element.
+To render `RemoteVideoStream`, you have to subscribe to an `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `Renderer`, and then create a new `RendererView` instance by using the asynchronous `createView` method.  You can then attach `view.target` to any UI element.
 
-When the availability of a remote stream changes, you can destroy the `Renderer`, destroy a specific `RendererView`, or keep it all. This results in a blank video frame.
+When the availability of a remote stream changes, you can destroy `Renderer`, destroy a specific `RendererView` instance, or keep it all. This results in a blank video frame.
 
 ```js
 function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
@@ -440,7 +440,7 @@ Remote video streams have the following properties:
   const size: {width: number; height: number} = remoteVideoStream.size;
   ```
 
-- `mediaStreamType`: This can be `Video` or `ScreenSharing`.
+- `mediaStreamType`: Can be `Video` or `ScreenSharing`.
 
   ```js
   const type: MediaStreamType = remoteVideoStream.mediaStreamType;
@@ -454,13 +454,13 @@ Remote video streams have the following properties:
 
 ### Renderer methods and properties
 
-- Create a `RendererView` instance that can be attached in the application UI to render the remote video stream:
+Create a `rendererView` instance that can be attached in the application UI to render the remote video stream:
 
   ```js
   renderer.createView()
   ```
 
-- Dispose of the `renderer` and all associated `RendererView` instances:
+Dispose of `renderer` and all associated `rendererView` instances:
 
   ```js
   renderer.dispose()
@@ -468,7 +468,7 @@ Remote video streams have the following properties:
 
 ### RendererView methods and properties
 
-When you create a `RendererView`, you can specify `scalingMode` and `isMirrored` properties. `scalingMode` can be `Stretch`, `Crop`, or `Fit`. If `isMirrored` is specified, the rendered stream is flipped vertically.
+When you create `rendererView`, you can specify the `scalingMode` and `isMirrored` properties. `scalingMode` can be `Stretch`, `Crop`, or `Fit`. If `isMirrored` is specified, the rendered stream is flipped vertically.
 
 ```js
 const rendererView: RendererView = renderer.createView({ scalingMode, isMirrored });
@@ -488,9 +488,9 @@ view.updateScalingMode('Crop')
 
 ## Device management
 
-`DeviceManager` lets you specify local devices that can transmit your audio and video streams in a call. It also helps you request permission to access another user's microphone and camera by using the native browser API.
+In `deviceManager`, you can specify local devices that can transmit your audio and video streams in a call. It also helps you request permission to access another user's microphone and camera by using the native browser API.
 
-You can access the `deviceManager` by calling the `callClient.getDeviceManager()` method:
+You can access `deviceManager` by calling the `callClient.getDeviceManager()` method:
 
 > [!IMPORTANT]
 > You must have a `callAgent` object before you can access `deviceManager`.
@@ -516,7 +516,7 @@ const localSpeakers = await deviceManager.getSpeakers(); // [AudioDeviceInfo, Au
 
 ### Set the default microphone and speaker
 
-`deviceManager` allows you to set a default device that you'll use to start a call. If client defaults aren't set, Communication Services uses operating system defaults.
+In `deviceManager`, you can set a default device that you'll use to start a call. If client defaults aren't set, Communication Services uses operating system defaults.
 
 ```js
 // Get the microphone device that is being used.
@@ -596,21 +596,21 @@ const callTransferApi = call.api(Features.Transfer);
 
 Call transfers involve three parties:
 
-- *transferor*: The person who initiates the transfer request.
-- *transferee*: The person who is being transferred.
-- *transfer target*: The person who is being transferred to.
+- *Transferor*: The person who initiates the transfer request.
+- *Transferee*: The person who is being transferred.
+- *Transfer target*: The person who is being transferred to.
 
 Transfers follow these steps:
 
-1. There's already a connected call between *transferor* and *transferee*. *transferor* decides to transfer the call from *transferee* to *transfer target*.
-1. *transferor* calls the `transfer` API.
-1. *transferee* decides whether to `accept` or `reject` the transfer request to *transfer target* by using a `transferRequested` event.
-1. *transfer target* receives an incoming call only if *transferee* accepts the transfer request.
+1. There's already a connected call between the *transferor* and the *transferee*. The *transferor* decides to transfer the call from the *transferee* to the *transfer target*.
+1. The *transferor* calls the `transfer` API.
+1. The *transferee* decides whether to `accept` or `reject` the transfer request to the *transfer target* by using a `transferRequested` event.
+1. The *transfer target* receives an incoming call only if the *transferee* accepts the transfer request.
 
 To transfer a current call, you can use the `transfer` API. `transfer` takes the optional `transferCallOptions`, which allows you to set a `disableForwardingAndUnanswered` flag:
 
-- `disableForwardingAndUnanswered = false`: If *transfer target* doesn't answer the transfer call, the transfer follows the *transfer target* forwarding and unanswered settings.
-- `disableForwardingAndUnanswered = true`: If *transfer target* doesn't answer the transfer call, the transfer attempt ends.
+- `disableForwardingAndUnanswered = false`: If the *transfer target* doesn't answer the transfer call, the transfer follows the *transfer target* forwarding and unanswered settings.
+- `disableForwardingAndUnanswered = true`: If the *transfer target* doesn't answer the transfer call, the transfer attempt ends.
 
 ```js
 // transfer target can be an ACS user
@@ -622,7 +622,7 @@ const id = { communicationUserId: <ACS_USER_ID> };
 const transfer = callTransferApi.transfer({targetParticipant: id});
 ```
 
-Transfer allows you to subscribe to `transferStateChanged` and `transferRequested` events. A `transferRequested` event comes from a `call` instance, while a `transferStateChanged` event and transfer `state` and `error` come from a `transfer` instance.
+The `transfer` API allows you to subscribe to `transferStateChanged` and `transferRequested` events. A `transferRequested` event comes from a `call` instance; a `transferStateChanged` event and transfer `state` and `error` come from a `transfer` instance.
 
 ```js
 // transfer state
@@ -632,7 +632,7 @@ const transferState = transfer.state; // None | Transferring | Transferred | Fai
 const transferError = transfer.error; // transfer error code that describes the failure if a transfer request failed
 ```
 
-*transferee* can accept or reject the transfer request initiated by *transferor* in the `transferRequested` event by using `accept()` or `reject()` in `transferRequestedEventArgs`. You can access `targetParticipant` information and `accept` or `reject` methods in `transferRequestedEventArgs`.
+The *transferee* can accept or reject the transfer request initiated by the *transferor* in the `transferRequested` event by using `accept()` or `reject()` in `transferRequestedEventArgs`. You can access `targetParticipant` information and `accept` or `reject` methods in `transferRequestedEventArgs`.
 
 ```js
 // Transferee to accept the transfer request
