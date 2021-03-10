@@ -75,6 +75,8 @@ This page gives you the chance to provide an account username, user ID, and a li
 
 After logging in, you can use the `/.auth/me` endpoint to retrieve the user's [client principal](./user-information.md).
 
+Navigating to `./auth/logout` clears the client principal and logs out the mock user.
+
 ## Debugging
 
 There are two debugging contexts in a static web app. The first is for the static content site, and the second is for API functions. Local debugging is possible by allowing the Static Web Apps CLI to use development servers for one or both of these contexts.
