@@ -152,4 +152,4 @@ The availability option you should use for your VMs depends on your image's loca
 | Availability set with managed SKU (managed disk) | Blob storage | Enabled with "No" as default |
 | Availability set with managed SKU (managed disk) | Blob storage (Gallery option disabled) | Disabled with "No" as default |
 | Availability set (newly created by user) | Gallery | Disabled with "Yes" as default |
-| Availablilty set (newly created by user) | Blob storage | Enabled with "No" as default |
+| Availability set (newly created by user) | Blob storage | Enabled with "No" as default |
