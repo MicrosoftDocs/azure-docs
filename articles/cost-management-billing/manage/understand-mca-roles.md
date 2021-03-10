@@ -5,7 +5,7 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 03/10/2021
 ms.author: banders
 ---
 
@@ -17,7 +17,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 Watch the [Manage access to your MCA billing account](https://www.youtube.com/watch?v=9sqglBlKkho) video to learn how you can control access to your Microsoft Customer Agreement (MCA) billing account.
 
->[!VIDEO https://www.youtube.com/watch?v=9sqglBlKkho]
+>[!VIDEO https://www.youtube.com/embed/9sqglBlKkho]
 
 ## Billing role definitions
 
