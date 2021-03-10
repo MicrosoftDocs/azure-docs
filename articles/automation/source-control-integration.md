@@ -24,7 +24,7 @@ Azure Automation supports three types of source control:
 
 * A source control repository (GitHub or Azure Repos)
 * A [Run As account](manage-runas-account.md)
-* The [`AzureRM.Profile` module](https://docs.microsoft.com/en-us/powershell/module/azurerm.profile/?view=azurermps-6.13.0) must be imported into your Automation account. Note that the equivalent Az module (`Az.Accounts`) will not work with Automation source control.
+* The [`AzureRM.Profile` module](/powershell/module/azurerm.profile/) must be imported into your Automation account. Note that the equivalent Az module (`Az.Accounts`) will not work with Automation source control.
 
 > [!NOTE]
 > Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs.
