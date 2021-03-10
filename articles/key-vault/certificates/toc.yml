@@ -60,7 +60,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+    href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
