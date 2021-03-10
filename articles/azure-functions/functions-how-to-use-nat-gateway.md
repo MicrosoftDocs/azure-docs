@@ -151,7 +151,7 @@ Now, you can run the function. But first, check in the portal and see what outbo
 
 1. Select **Run** to execute the function. 
 
-    ![Test function output](./media/functions-how-to-use-nat-gateway/function-code-test-1-output.png)
+    ![Test function output](./media/functions-how-to-use-nat-gateway/function-test-1-output.png)
 
 1. Verify that IP address in the HTTP response body is one of the values from the outbound IP addresses you viewed earlier.
 
