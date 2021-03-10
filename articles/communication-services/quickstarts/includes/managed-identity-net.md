@@ -29,16 +29,18 @@ The following code example shows how to create a service client object with Azur
 Then, use the client to issue a token for a new user:
 
 ```csharp
-     public async Task<Response<CommunicationUserToken>> CreateIdentityAndGetTokenAsync(Uri resourceEdnpoint)
+     public async Task<Response<AccessToken>> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
      {
           TokenCredential credential = new DefaultAzureCredential();
+
           // You can find your endpoint and access key from your resource in the Azure portal
-          String resourceEndpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+          // "https://<RESOURCE_NAME>.communication.azure.com";
 
           var client = new CommunicationIdentityClient(resourceEndpoint, credential);
           var identityResponse = await client.CreateUserAsync();
+          var identity = identityResponse.Value;
 
-          var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+          var tokenResponse = await client.GetTokenAsync(identity, scopes: new[] { CommunicationTokenScope.VoIP });
 
           return tokenResponse;
      }
@@ -49,19 +51,19 @@ Then, use the client to issue a token for a new user:
 The following code example shows how to create a SMS service client object with managed identity, then use the client to send an SMS message:
 
 ```csharp
-     public async Task SendSms(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
+     public async Task SendSms(Uri resourceEndpoint, string from, string to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
           // You can find your endpoint and access key from your resource in the Azure portal
-          String resourceEndpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+          // "https://<RESOURCE_NAME>.communication.azure.com";
 
           SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
           smsClient.Send(
                from: from,
                to: to,
                message: message,
-               new SendSmsOptions { EnableDeliveryReport = true } // optional
+               new SmsSendOptions(enableDeliveryReport: true) // optional
           );
-     }
+      }
 ```
 
