@@ -48,4 +48,4 @@ Set the Search settings for the Static Web App.
 
 ## Next steps
 
-* 
+* [Index Azure SQL data](search-indexer-tutorial)

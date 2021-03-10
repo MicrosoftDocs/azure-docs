@@ -56,11 +56,17 @@ Install the following for your local development environment.
     - [Azure Static web apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
 - [Azure CLI](/cli/azure/install-azure-cli)
 
+
 ## Download the sample app
 
 Fork and download the sample project structure with the React and Function apps. 
 
-1. Open this link, [https://github.com/dereklegenzoff/azure-search-react-template/generate](https://github.com/dereklegenzoff/azure-search-react-template/generate) to create your own fork of the sample repo.
+1. Create your fork of the sample rep by opening this GitHub link: 
+    
+    * [https://github.com/dereklegenzoff/azure-search-react-template/generate](https://github.com/dereklegenzoff/azure-search-react-template/generate)
+
+    Complete the fork process in your web browser with your GitHub account. 
+
 1. At a bash terminal, download the sample application using the following Git command. Replace `YOUR-GITHUB-ALIAS` with your GitHub alias. 
 
     ```bash
@@ -70,13 +76,6 @@ Fork and download the sample project structure with the React and Function apps.
 1. In Visual Studio Code, open the `azure-search-react-template` project.
 
 1. Add a subdirectory named `scripts`. 
-1. Install the dependencies of both the React app and the Function app with the following bash command:
-
-    ```bash
-    yarn install && \
-        cd api && \
-        npm install
-    ```
 
 ## Create or use an existing Search Index
 

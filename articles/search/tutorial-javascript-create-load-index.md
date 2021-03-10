@@ -19,21 +19,13 @@ Continue to build your Search-enabled website. Import data into a new Azure Cogn
 
 Create a new Search resource with the Azure CLI.  
 
-1. Open an Azure CLI environment.
+1. Login to the Azure CLI with the following command: 
 
-    1. Log in to the Azure CLI on your local development environment with the following command 
+    ```bash
+    az login
+    ```
 
-        ```azurecli
-        az login
-        ```
-
-    1. Or use the [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/).
-
-1. Run the Azure command, [az search service create](/cli/azure/search/service#az_search_service_create), to create a Search resource, filling in your own values for:
-
-    * YOUR-SUBSCRIPTION-ID-OR-NAME - an existing subscription
-    * YOUR-RESOURCE-GROUP - an existing resource group
-    * YOUR-RESOURCE-NAME - the name of your new search resource, used as part of the endpoint URL
+1. Run the Azure command, [az search service create](/cli/azure/search/service#az_search_service_create), to create a Search resource, filling in your own values:
 
     ```azurecli
     az search service create \
@@ -50,22 +42,13 @@ Create a new Search resource with the Azure CLI.
 
 Get your Search resource key with the Azure CLI.  
 
+1. Login to the Azure CLI with the following command: 
 
-1. Open an Azure CLI environment.
+    ```bash
+    az login
+    ```
 
-    1. Login to the Azure CLI on your local development environment with the following command 
-
-        ```azurecli
-        az login
-        ```
-
-    1. Or use the [Azure Cloud Shell](https://ms.portal.azure.com/#cloudshell/).
-
-1. Run the Azure command, [az search service create](/cli/azure/search/admin-key#az_search_admin_key_show), to get an **admin key**:
-
-    * YOUR-SUBSCRIPTION-ID-OR-NAME
-    * YOUR-RESOURCE-GROUP
-    * YOUR-RESOURCE-NAME
+1. Run the Azure command, [az search service create](/cli/azure/search/admin-key#az_search_admin_key_show), filling in your own values, to get an **admin key**:
 
     ```azurecli
     az search admin-key show \
@@ -99,7 +82,7 @@ In Visual Studio Code, create a new file, `books.schema.json` and copy the data 
 
 The schema file defines how the data is stored in the Search Index and determines what functionality is provided with the index.
 
-When you example the `bulk_insert_books.js` code file below, you can see in the insertData function's loop that each value is either passed directly or altered to better fit the datatype defined in the schema file. 
+When you examine the `bulk_insert_books.js` code file below, you can see in the insertData function's loop that each value is either passed directly or altered to better fit the datatype defined in the schema file. 
 
 ## Create the bulk import script
 
