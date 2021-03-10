@@ -323,7 +323,7 @@ The forward-slash (`/`) in front of the signature in the `android:path` value is
                     android:path="/hgbUYHVBYUTvuvT&Y6tr554365466="/>
 ```
 
-For more information on configuring your application for system browser and Android 11 support, please take a look at [Update the Android manifest for System Browser Support](msal-net-xamarin-android-considerations.md#update-the-android-manifest).
+For more information about configuring your application for system browser and Android 11 support, see [Update the Android manifest for system browser support](msal-net-xamarin-android-considerations.md#update-the-android-manifest).
 
 As an alternative, you can configure MSAL to fall back to the embedded browser, which doesn't rely on a redirect URI:
 
@@ -347,18 +347,18 @@ Here are a few tips on avoiding issues when you implement brokered authenticatio
 
     1. Select the menu button in the top-right corner of the app.
     1. Select **Send Feedback** > **Having Trouble?**.
-    1. Select one of the options under **What are you trying to do?** and add a description
-    1. Select the arrow on the top right of the screen to send the logs.
+    1. Under **What are you trying to do?**, select an option and add a description.
+    1. To send the logs, select the arrow in the top-right corner of the app.
 
-        Once you send the logs, a popup window displays the **Incident ID**. Record the Incident ID and then provide it when you request assistance.
+    After you send the logs, a dialog box displays the incident ID. Record the incident ID, and include it when you request assistance.
 
   - Get Intune Company Portal logs:
 
-    1. Select the menu button on the top-left corner of the app
-    1. Select **Help** > **Email Support**
-    1. Select **Upload Logs Only** to send the logs.
+    1. Select the menu button on the top-left corner of the app.
+    1. Select **Help** > **Email Support**.
+    1. To send the logs, select **Upload Logs Only**.
 
-        Once you send the logs, a popup window displays the **Incident ID**. Record the Incident ID and then provide it when you request assistance.
+    After you send the logs, a dialog box displays the incident ID. Record the incident ID, and include it when you request assistance.
 
 ## Next steps
 
