@@ -1,7 +1,7 @@
 ---
-title: JavaScript tutorial creates and load index
+title: JavaScript tutorial creates searchable web app
 titleSuffix: Azure Cognitive Search
-description: Learn how to import data into a single Azure Cognitive Search index with JavaScript using the npm SDK @azure/search-documents.
+description: Learn how to add Search to a web app.
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -11,9 +11,20 @@ ms.date: 03/09/2021
 ms.custom: devx-track-js
 ---
 
-# Tutorial: Create and load Search Index with JavaScript
+# Tutorial: Create searchable web app
 
-Import data into a new Azure Cognitive Search index with JavaScript using the npm SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
+Import data into a single Azure Cognitive Search index with JavaScript using the npm SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
+
+The sample application for this tutorial builds a website to search through a catalog of books. The search experience includes: 
+
+* Search – provides search functionality for the application.
+* Suggest – provides suggestions as the user is typing in the search bar.
+* Document Lookup – looks up a document by ID to retrieve all of its contents for the details page.
+
+You can load data into the Search resource from:
+
+* Upload the CSV list directly into the Search Index - this tutorial uses this method.
+* Or an Azure database you plan to update and maintain.
 
 ## Set up your development environment
 
@@ -23,7 +34,26 @@ Install the following for your local development environment.
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
 - [Azure CLI]()
 
-## Create an Azure Search resource 
+## Get an Azure Search resource 
+
+You can complete this tutorial by:
+
+* Creating your own Search resource and Index. Those steps are provided in this article.
+* Or [use an existing Search resource and Index](#use-an-existing-resource). 
+
+### Use an existing resource
+
+To use an existing resource: 
+
+1. Copy the following setting values:
+
+    "SearchServiceName": "azs-playground",
+    "SearchIndexName": "good-books",
+    "SearchAPIKey": "03097125077C18172260E41153975439"
+
+1. Skip to the next section of the tutorial.
+
+### Create your own resource
 
 Create a new Search resource with the Azure CLI.  
 
@@ -132,13 +162,8 @@ Once the upload completes, the Search Index is ready to use. Review your new Ind
 
 1. In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.  
 
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-resource.png" alt-text="In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.":::
+    :::image type="content" source="/media/folder-with-same-name-as-article-file/visual-studio-code-search-extension-view-resource.png" alt-text="In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.":::
 
 1. Expand Indexes, then `good-books`, then select a doc. 
  
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
-
-## Next steps
-
-* [Continue the tutorial to add Search to a web site](tutorial-javascript-create-web-app.md)
-
+    :::image type="content" source="/media/folder-with-same-name-as-article-file/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::

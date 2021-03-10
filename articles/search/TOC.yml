@@ -58,8 +58,13 @@
       href: tutorial-csharp-orders.md
   - name: Add Search to web sites
     items: 
-    - name: Create and load Search Index with JavaScript
+    - name: 1. Overview
+      href: tutorial-javascript-overview.md
+    - name: 2. Create and load Search Index with JavaScript
       href: tutorial-javascript-create-load-index.md
+    - name: 3. Create search queries in Azure Function app
+      href: tutorial-javascript-create-function-app.md
+      
   - name: Index Azure data
     items:
     - name: Index Azure SQL Database
