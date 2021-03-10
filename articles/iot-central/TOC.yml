@@ -303,8 +303,7 @@
   - name: Code samples
     href: /samples/browse/?expanded=azure&products=azure-iot-central
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
-
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub
