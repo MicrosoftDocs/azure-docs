@@ -20,15 +20,15 @@ You can use private endpoints for your Purview accounts to allow clients and use
 
 1. Fill basic information, and set connectivity method to Private endpoint in **Networking** tab. Set up your ingestion private endpoints by providing details of **Subscription, Vnet and Subnet** that you want to pair with your private endpoint.
 
-    :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="PE creation during account creation":::
+    :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Create a Private Endpoint in the Azure portal":::
 
 1. You can also optionally choose to set up a **Private DNS zone** for each ingestion private endpoint.
 
 1. Click Add to add a private endpoint for your Purview account.
 
-1. In the Create private endpoint blade, set Purview sub-resource to **account**, choose your virtual network and subnet, and select the Private DNS Zone where the DNS will be registered (you can also utilize your won DNS servers or create DNS records using host files on your virtual machines).
+1. In the Create private endpoint page, set Purview sub-resource to **account**, choose your virtual network and subnet, and select the Private DNS Zone where the DNS will be registered (you can also utilize your won DNS servers or create DNS records using host files on your virtual machines).
 
-    :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="PE creation during account creation":::
+    :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="Private Endpoint creation seletions":::
 
 1. Select **OK**.
 
