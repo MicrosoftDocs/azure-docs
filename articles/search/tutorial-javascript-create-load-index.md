@@ -15,8 +15,6 @@ ms.custom: devx-track-js
 
 Continue to build your Search-enabled website. Import data into a new Azure Cognitive Search index with JavaScript using the npm SDK [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents).
 
-If you would prefer to use an existing Search index or didn't complete the initial instructions to create your own Search-enabled website, go back to the [Overview](tutorial-javascript-overview.md#use-the-sample-application).
-
 ## Create an Azure Search resource 
 
 Create a new Search resource with the Azure CLI.  
@@ -99,9 +97,9 @@ This tutorial uploads directly into the Search Index from the `books.csv` file.
 
 In Visual Studio Code, create a new file, `books.schema.json` and copy the data from [books.schema.json](https://github.com/Azure-Samples/js-e2e/blob/main/search/bulk-insert-books-from-csv/books.schema.json) into the file. 
 
-    The schema file defines how the data is stored in the Search Index and determines what functionality is provided with the index.
+The schema file defines how the data is stored in the Search Index and determines what functionality is provided with the index.
 
-    When you example the `bulk_insert_books.js` code file below, you can see in the insertData function's loop that each value is either passed directly or altered to better fit the datatype defined in the schema file. 
+When you example the `bulk_insert_books.js` code file below, you can see in the insertData function's loop that each value is either passed directly or altered to better fit the datatype defined in the schema file. 
 
 ## Create the bulk import script
 
@@ -149,6 +147,4 @@ Copy these settings, you will need to use them so the Function app can connect t
 
 ## Next steps
 
-Step 3. [Deploy your static web app](tutorial-javascript-deploy-static-web-app.md)
-
-
+[Deploy your static web app](tutorial-javascript-deploy-static-web-app.md)

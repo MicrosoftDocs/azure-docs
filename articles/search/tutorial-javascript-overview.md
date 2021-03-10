@@ -1,5 +1,5 @@
 ---
-title: JavaScript tutorial adds search to a web app
+title: Tutorial add search to a web app
 titleSuffix: Azure Cognitive Search
 description: Learn technical and conceptual overview of adding Search to a web site. 
 manager: nitinme
@@ -17,7 +17,7 @@ This tutorial builds a website to search through a catalog of books.
 
 The application is available: 
 * [Sample application](https://aka.ms/search-react-template)
-* [Demo website - aka.ms/azs-good-books](aka.ms/azs-good-books)
+* [Demo website - aka.ms/azs-good-books](https://aka.ms/azs-good-books)
 
 ## What does the sample website do? 
 
@@ -87,5 +87,5 @@ You can either create your own Search Index or use the existing Sample's Index.
 
 ## Next steps
 
-Step 2. [Create a Search Index and load with data](tutorial-javascript-create-load-index.md)
-Step 3. [Deploy your static web app](tutorial-javascript-deploy-static-web-app.md)
+* [Create a Search Index and load with data](tutorial-javascript-create-load-index.md)
+* [Deploy your static web app](tutorial-javascript-deploy-static-web-app.md)
