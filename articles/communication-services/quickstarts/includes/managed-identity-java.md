@@ -84,7 +84,7 @@ The following code example shows how to create a service client object with mana
                "<leased-phone-number>",
                "<to>",
                "your message"
-            );
+          );
 
           return response;
     }
