@@ -4,6 +4,7 @@ description: This article provides answers to frequently asked questions (FAQ) a
 author: brbell 
 ms.service: virtual-machines 
 ms.topic: conceptual 
+ms.subservice: sizes
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020 

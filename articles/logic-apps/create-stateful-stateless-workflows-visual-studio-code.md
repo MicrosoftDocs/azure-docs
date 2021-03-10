@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 ---
 
 # Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension
@@ -30,6 +30,8 @@ This article shows how to create your logic app and a workflow in Visual Studio 
 * Add a trigger and an action.
 
 * Run, test, debug, and review run history locally.
+
+* Find domain name details for firewall access.
 
 * Deploy to Azure, which includes optionally enabling Application Insights.
 
@@ -600,7 +602,7 @@ To add a breakpoint, follow these steps:
 
 1. To review the available information when a breakpoint hits, in the Run view, examine the **Variables** pane.
 
-1. To continue workflow execution, on the Debug toolbar, select **Continue** (play button). 
+1. To continue workflow execution, on the Debug toolbar, select **Continue** (play button).
 
 You can add and remove breakpoints at any time during the workflow run. However, if you update the **workflow.json** file after the run starts, breakpoints don't automatically update. To update the breakpoints, restart the logic app.
 
@@ -786,6 +788,55 @@ After you make updates to your logic app, you can run another test by rerunning 
    ![Screenshot that shows the status for each step in the updated workflow plus the inputs and outputs in the expanded "Response" action.](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details-rerun.png)
 
 1. To stop the debugging session, on the **Run** menu, select **Stop Debugging** (Shift + F5).
+
+<a name="firewall-setup"></a>
+
+##  Find domain names for firewall access
+
+Before you deploy and run your logic app workflow in the Azure portal, if your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow.
+
+To find the fully qualified domain names (FQDNs) for these connections, follow these steps:
+
+1. In your logic app project, open the **connections.json** file, which is created after you add the first connection-based trigger or action to your workflow, and find the `managedApiConnections` object.
+
+1. For each connection that you created, find, copy, and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
+
+   This example **connections.json** file contains two connections, an AS2 connection and an Office 365 connection with these `connectionRuntimeUrl` values:
+
+   * AS2: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba`
+
+   * Office 365: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f`
+
+   ```json
+   {
+      "managedApiConnections": {
+         "as2": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/as2"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         },
+         "office365": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/office365"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         }
+      }
+   }
+   ```
 
 <a name="deploy-azure"></a>
 
