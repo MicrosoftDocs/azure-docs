@@ -243,7 +243,7 @@
     - name: With Node.js
       displayName: bot framework, framework, sdk, abs
       href: luis-nodejs-tutorial-bf-v4.md
-  - name: Build app programmatically using Node.js
+    - name: Build app programmatically using Node.js
       href: luis-tutorial-node-import-utterances-csv.md
 - name: Reference
   items:
