@@ -50,12 +50,12 @@ Internally, Azure Machine Learning service replaces the URL by secure SAS URL, s
 
 ## Use a repository of packages from Azure DevOps feed
 
-If you're actively developing Python packages for your machine learning application, you can host them in an Azure DevOps repository as artifacts and publish them as a feed. This approach allows you to integrate the DevOps workflow for building packages with your Azure Machine Learning Workspace. To learn how to set up Python feeds using Azure DevOps, read [Get Started with Python Packages in Azure Artifacts](/azure/devops/artifacts/quickstarts/python-packages?preserve-view=true&view=azure-devops)
+If you're actively developing Python packages for your machine learning application, you can host them in an Azure DevOps repository as artifacts and publish them as a feed. This approach allows you to integrate the DevOps workflow for building packages with your Azure Machine Learning Workspace. To learn how to set up Python feeds using Azure DevOps, read [Get Started with Python Packages in Azure Artifacts](/azure/devops/artifacts/quickstarts/python-packages)
 
 This approach uses Personal Access Token to authenticate against the repository. The same approach is applicable to other repositories
 with token based authentication, such as private GitHub repositories. 
 
- 1. [Create a Personal Access Token (PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?preserve-view=true&tabs=preview-page&view=azure-devops#create-a-pat) for your Azure DevOps instance. Set the scope of the token to __Packaging > Read__. 
+ 1. [Create a Personal Access Token (PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?tabs=preview-page#create-a-pat) for your Azure DevOps instance. Set the scope of the token to __Packaging > Read__. 
 
  2. Add the Azure DevOps URL and PAT as workspace properties, using the [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-) method.
 

@@ -84,7 +84,7 @@ For more information, see the following articles:
 
 - Familiarize yourself with [using the calling client library](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
-- Review the [API Reference docs](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- Review the [API Reference docs](/javascript/api/azure-communication-services/@azure/communication-calling/)
 - Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample
 
 ## Additional reading

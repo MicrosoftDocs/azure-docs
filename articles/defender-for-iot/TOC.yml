@@ -4,13 +4,13 @@
   displayName: IoT, OT, getting started
   href: overview.md
   items:
+  - name: What's new?
+    href: release-notes.md
   - name: Agentless solution architecture
     displayName: deployment, where to deploy
     href: architecture.md
   - name: Agent-based solution architecture 
     href: architecture-agent-based.md
-- name: What's new?
-  href: release-notes.md
 - name: Quickstarts
   expanded: true
   items:
@@ -111,13 +111,13 @@
     - name: Prepare your network
       items:
         - name: Identify required appliances 
-          displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment
           href: how-to-identify-required-appliances.md
+          displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate
         - name: Set up your network
           displayName: passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning
           href: how-to-set-up-your-network.md
         - name: Install software
-          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install
+          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate
           href: how-to-install-software.md
     - name: Prepare your sensors
       items:
@@ -155,8 +155,8 @@
     - name: Manage sensors on the cloud
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Manage the on-premises management console
-      displayName: upgrade, activation, certificate, software update, backup, restore, proxy, password recovery
       href: how-to-manage-the-on-premises-management-console.md
+      displayName: mail, SMTP, activation, certificate, software update, backup, restore, proxy, password recovery
     - name: Work with threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
     - name: Work with device inventory information
@@ -295,17 +295,12 @@
       - name: Investigate a device
         displayName: access, data, kql, ports, logins, process
         href: how-to-investigate-device.md
-- name: Troubleshooting
-  items:
-  - name: Defender IoT micro agent troubleshooting (Preview)
-    displayName: service status, review logs
-    href: troubleshoot-defender-micro-agent.md
-- name: Feature support and retirement
-  items:
-  - name: Feature support and retirement
-    displayName: C, C#, deprecation, support
-    href: edge-security-module-deprecation.md
-- name: References
+  - name: Troubleshoot
+    items:
+    - name: Defender IoT micro agent troubleshooting (Preview)
+      displayName: service status, review logs
+      href: troubleshoot-defender-micro-agent.md
+- name: Reference
   items:
   - name: Agentless Solution for Organizations
     items:
@@ -334,7 +329,12 @@
       href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Defender for IoT glossary
     href: references-defender-for-iot-glossary.md
-- name: Resources
+  - name: Feature support and retirement
+    items:
+    - name: Feature support and retirement
+      displayName: C, C#, deprecation, support
+      href: edge-security-module-deprecation.md
+- name: Resource
   items:
   - name: Agent-based solution for Device Builders
     items: 

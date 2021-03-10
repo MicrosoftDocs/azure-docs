@@ -76,7 +76,7 @@ Azure IoT Hub device SDK for Node.js:
 
 * Install from [npm](https://www.npmjs.com/package/azure-iot-device)
 * [Source code](https://github.com/Azure/azure-iot-sdk-node)
-* [API reference](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
+* [API reference](/javascript/api/azure-iot-device/)
 * [Module reference](/javascript/api/azure-iot-device/moduleclient)
 
 Azure IoT Hub device SDK for Python:
@@ -111,7 +111,7 @@ Azure IoT Hub service SDK for Node.js:
 
 * Download from [npm](https://www.npmjs.com/package/azure-iothub)
 * [Source code](https://github.com/Azure/azure-iot-sdk-node)
-* [API reference](/javascript/api/azure-iothub/?view=azure-iot-typescript-latest&preserve-view=true)
+* [API reference](/javascript/api/azure-iothub/)
 
 Azure IoT Hub service SDK for Python:
 
