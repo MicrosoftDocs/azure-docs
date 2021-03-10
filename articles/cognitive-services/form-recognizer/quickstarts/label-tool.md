@@ -169,9 +169,9 @@ When you create or open a project, the main tag editor window opens. The tag edi
 * The main editor pane that allows you to apply tags.
 * The tags editor pane that allows users to modify, lock, reorder, and delete tags.
 
-### Identify text elements or empty regions
+### Identify text and tables 
 
-Click **Run OCR on all files** on the left pane to get the text layout information for each document. The labeling tool will draw bounding boxes around each text element.
+Click **Run OCR on all files** on the left pane to get the text and table layout information for each document. The labeling tool will draw bounding boxes around each text element.
 
 It will also show which tables have been automatically extracted. Click on the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
 
