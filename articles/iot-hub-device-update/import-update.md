@@ -53,8 +53,8 @@ a location accessible from PowerShell (once the zip file is downloaded, right cl
 
     | Parameter | Description |
     | --------- | ----------- |
-    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso
-    | deviceModel | Model of the device the update is compatible with, for example, Toaster
+    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso. Must match _manufacturer_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)
+    | deviceModel | Model of the device the update is compatible with, for example, Toaster. Must match _model_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)
     | updateProvider | Entity who is creating or directly responsible for the update. It will often be a company name.
     | updateName | Identifier for a class of updates. The class can be anything you choose. It will often be a device or model name.
     | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. May or may not match a version of an individual software component on the device.

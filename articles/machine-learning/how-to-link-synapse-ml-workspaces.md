@@ -27,7 +27,7 @@ You can link your ML workspace and Synapse workspace via the [Python SDK](#link-
 You can also link workspaces and attach a Synapse Spark pool with a single [Azure Resource Manager (ARM) template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-machine-learning-linkedservice-create/azuredeploy.json).
 
 >[!IMPORTANT]
-> The Azure Machine Learning and Azure Synapse integration is in public preview. The functionalities presented from the `azureml-synapse` package are [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview features, and may change at any time.
+> The Azure Machine Learning and Azure Synapse integration is in public preview. The functionalities presented from the `azureml-synapse` package are [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features, and may change at any time.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ You can also link workspaces and attach a Synapse Spark pool with a single [Azur
 
 * [Create Apache Spark pool using Azure portal, web tools or Synapse Studio](/synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
-* Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro)
 
 * Access to the [Azure Machine Learning studio](https://ml.azure.com/).
 
@@ -49,7 +49,7 @@ You can also link workspaces and attach a Synapse Spark pool with a single [Azur
 >
 > If you are not an **Owner** and are only a **Contributor** to the Synapse workspace, you can only use existing linked services. See how to [Retrive and use an existing linked service](how-to-data-prep-synapse-spark-pool.md#get-an-existing-linked-service).
 
-The following code employs the [`LinkedService`](/python/api/azureml-core/azureml.core.linked_service.linkedservice?preserve-view=true&view=azure-ml-py) and [`SynapseWorkspaceLinkedServiceConfiguration`](/python/api/azureml-core/azureml.core.linked_service.synapseworkspacelinkedserviceconfiguration?preserve-view=true&view=azure-ml-py) classes to,
+The following code employs the [`LinkedService`](/python/api/azureml-core/azureml.core.linked_service.linkedservice) and [`SynapseWorkspaceLinkedServiceConfiguration`](/python/api/azureml-core/azureml.core.linked_service.synapseworkspacelinkedserviceconfiguration) classes to,
 
 * Link your machine learning workspace, `ws` with your Azure Synapse workspace.
 * Register your Synapse workspace with Azure Machine Learning as a linked service.

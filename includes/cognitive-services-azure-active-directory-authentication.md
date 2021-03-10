@@ -20,13 +20,13 @@ In the following sections, you'll use either the Azure Cloud Shell environment o
 
 The first step is to create a custom subdomain. If you want to use an existing Cognitive Services resource which does not have custom subdomain name, follow the instructions in [Cognitive Services Custom Subdomains](../articles/cognitive-services/cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) to enable custom subdomain for your resource.
 
-1. Start by opening the Azure Cloud Shell. Then [select a subscription](/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0):
+1. Start by opening the Azure Cloud Shell. Then [select a subscription](/powershell/module/az.accounts/set-azcontext):
 
    ```powershell-interactive
    Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
-2. Next, [create a Cognitive Services resource](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) with a custom subdomain. The subdomain name needs to be globally unique and cannot include special characters, such as: ".", "!", ",".
+2. Next, [create a Cognitive Services resource](/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount) with a custom subdomain. The subdomain name needs to be globally unique and cannot include special characters, such as: ".", "!", ",".
 
    ```powershell-interactive
    $account = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <ACCOUNT_NAME> -Type <ACCOUNT_TYPE> -SkuName <SUBSCRIPTION_TYPE> -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
@@ -42,7 +42,7 @@ Now that you have a custom subdomain associated with your resource, you're going
 > [!NOTE]
 > Keep in mind that Azure role assignments may take up to five minutes to propagate.
 
-1. First, let's register an [AAD application](/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
+1. First, let's register an [AAD application](/powershell/module/Az.Resources/New-AzADApplication).
 
    ```powershell-interactive
    $SecureStringPassword = ConvertTo-SecureString -String <YOUR_PASSWORD> -AsPlainText -Force
@@ -52,7 +52,7 @@ Now that you have a custom subdomain associated with your resource, you're going
 
    You're going to need the **ApplicationId** in the next step.
 
-2. Next, you need to [create a service principal](/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) for the AAD application.
+2. Next, you need to [create a service principal](/powershell/module/az.resources/new-azadserviceprincipal) for the AAD application.
 
    ```powershell-interactive
    New-AzADServicePrincipal -ApplicationId <APPLICATION_ID>
@@ -61,7 +61,7 @@ Now that you have a custom subdomain associated with your resource, you're going
    >[!NOTE]
    > If you register an application in the Azure portal, this step is completed for you.
 
-3. The last step is to [assign the "Cognitive Services User" role](/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) to the service principal (scoped to the resource). By assigning a role, you're granting service principal access to this resource. You can grant the same service principal access to multiple resources in your subscription.
+3. The last step is to [assign the "Cognitive Services User" role](/powershell/module/az.Resources/New-azRoleAssignment) to the service principal (scoped to the resource). By assigning a role, you're granting service principal access to this resource. You can grant the same service principal access to multiple resources in your subscription.
    >[!NOTE]
    > The ObjectId of the service principal is used, not the ObjectId for the application.
    > The ACCOUNT_ID will be the Azure resource Id of the Cognitive Services account you created. You can find Azure resource Id from "properties" of the resource in Azure portal.

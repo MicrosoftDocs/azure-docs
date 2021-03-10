@@ -222,7 +222,7 @@ Note that all semantic manipulation of the policy signer certificate must be don
 
 For policy signer certificate sample, see [examples of policy signer certificate](policy-signer-examples.md).
 
-For more information on the cmdlets and its parameters, see [Azure Attestation PowerShell cmdlets](/powershell/module/az.attestation/?view=azps-4.3.0#attestation) 
+For more information on the cmdlets and its parameters, see [Azure Attestation PowerShell cmdlets](/powershell/module/az.attestation/#attestation) 
 
 ## Next steps
 
