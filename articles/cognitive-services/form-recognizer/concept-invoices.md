@@ -37,7 +37,7 @@ You will need an Azure subscription ([create one for free](https://azure.microso
 
 ### Input requirements 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## The Analyze Invoice operation
 
@@ -77,8 +77,8 @@ The Invoice service will extract the text, tables and 26 invoice fields. Followi
 | CustomerId | string | Reference ID for the customer | CID-12345 |  |
 | PurchaseOrder | string | A purchase order reference number | PO-3333 | |  |
 | InvoiceId | string | ID for this specific invoice (often "Invoice Number") | INV-100 | |  |
-| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 
-| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| InvoiceDate | date | Date the invoice was issued | 11/15/2019 | 2019-11-15 |
+| DueDate | date | Date payment for this invoice is due | 12/15/2019 | 2019-12-15 |
 | VendorName | string | Vendor who has created this invoice | CONTOSO LTD. | |
 | VendorAddress | string | Mailing address for the Vendor | 123 456th St New York, NY, 10001 | |
 | VendorAddressRecipient | string | Name associated with the VendorAddress | Contoso Headquarters | |

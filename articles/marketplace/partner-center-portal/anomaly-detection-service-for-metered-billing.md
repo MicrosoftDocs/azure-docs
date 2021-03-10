@@ -45,7 +45,7 @@ The model works by generating retrospective confidence intervals. The time serie
 
 ## Anomaly detection notification
 
-You can evaluate, manage, and acknowledge anomalies in Partner Center. To learn how, see [Anomaly detection for metered billing](../anomaly-detection.md).
+You can evaluate, manage, and acknowledge anomalies in Partner Center. To learn how, see [Manage metered billing anomalies in Partner Center](../anomaly-detection.md).
 
 To ensure that your customers are not overcharged for metered usage, you should investigate if detected anomalies are real issues. If so, you can acknowledge the incorrect usage in Partner Center.
 
@@ -78,4 +78,4 @@ For more publisher support options, see [Support for the commercial marketplace 
 ## Next steps
 
 - Learn about the [Marketplace metering service API](marketplace-metering-service-apis.md).
-- [Anomaly detection for metered billing](../anomaly-detection.md)
+- [Manage metered billing anomalies in Partner Center](../anomaly-detection.md)

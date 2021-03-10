@@ -13,8 +13,6 @@ ms.custom: seodec18, fasttrack-edit, has-adal-ref
 
 This article shows you how to configure authentication for Azure App Service or Azure Functions so that your app signs in users with Azure Active Directory (Azure AD) as the authentication provider.
 
-This feature is currently not available on Linux Consumption plan for Azure Functions.
-
 ## <a name="express"> </a>Configure with express settings
 
 The **Express** option is designed to make enabling authentication simple and requires just a few clicks.
@@ -101,9 +99,9 @@ To register the app, perform the following steps:
 
 You're now ready to use Azure Active Directory for authentication in your App Service app.
 
-## Configure client apps to access your App Service app on behalf of users
+## Configure client apps to access your App Service
 
-In the prior section, you registered your App Service or Azure Function to authenticate users. This section explains how to register native client or demon apps so that they can request access to APIs exposed by your App Service on behalf of users or themselves.
+In the prior section, you registered your App Service or Azure Function to authenticate users. This section explains how to register native client or daemon apps so that they can request access to APIs exposed by your App Service on behalf of users or themselves. Completing the steps in this section is not required if you only wish to authenticate users.
 
 ### Native client application
 
@@ -123,7 +121,7 @@ You can register native clients to request access your App Service app's APIs on
 
 You have now configured a native client application that can request access your App Service app on behalf of a user.
 
-## Daemon client application (service-to-service calls)
+### Daemon client application (service-to-service calls)
 
 Your application can acquire a token to call a Web API hosted in your App Service or Function app on behalf of itself (not on behalf of a user). This scenario is useful for non-interactive daemon applications that perform tasks without a logged in user. It uses the standard OAuth 2.0 [client credentials](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) grant.
 

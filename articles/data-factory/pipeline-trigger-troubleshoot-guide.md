@@ -73,13 +73,33 @@ Azure Data Factory evaluates the outcome of all leaf-level activities. Pipeline 
 1. Implement activity-level checks by following [How to handle pipeline failures and errors](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 1. Use Azure Logic Apps to monitor pipelines in regular intervals following [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory).
 
-## Monitor pipeline failures in regular intervals
+### How to monitor pipeline failures in regular intervals
 
 You might need to monitor failed Data Factory pipelines in intervals, say 5 minutes. You can query and filter the pipeline runs from a data factory by using the endpoint. 
 
-Set up an Azure logic app to query all of the failed pipelines every 5 minutes, as described in [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to our ticketing system.
+**Resolution**
+You can set up an Azure logic app to query all of the failed pipelines every 5 minutes, as described in [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to your ticketing system.
 
 For more information, go to [Send Notifications from Data Factory, Part 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
+
+### Degree of parallelism  increase does not result in higher throughput
+
+**Cause** 
+
+The degree of parallelism in *ForEach* is actually max degree of parallelism. We cannot guarantee a specific number of executions happening at the same time, but this parameter will guarantee that we never go above the value that was set. You should see this as a limit, to be leveraged when controlling concurrent access to your sources and sinks.
+
+Known Facts about *ForEach*
+ * Foreach has a property called batch count(n) where default value is 20 and the max is 50.
+ * The batch count, n, is used to construct n queues. Later we will discuss some details on how these queues are constructed.
+ * Every queue runs sequentially, but you can have several queues running in parallel.
+ * The queues are pre-created. This means there is no rebalancing of the queues during the runtime.
+ * At any time, you have at most one item being process per queue. This means at most n items being processed at any given time.
+ * The foreach total processing time is equal to the processing time of the longest queue. This means that the foreach activity depends on how the queues are constructed.
+ 
+**Resolution**
+
+ * You should not use *SetVariable* activity inside *For Each* that runs in parallel.
+ * Taking in consideration the way the queues are constructed, customer can improve the foreach performance by setting multiple *foreaches* where each foreach will have items with similar processing time. This will ensure that long runs are processed in parallel rather sequentially.
 
 ## Next steps
 

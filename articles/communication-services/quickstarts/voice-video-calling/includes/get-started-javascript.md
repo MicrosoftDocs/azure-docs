@@ -9,6 +9,10 @@ ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how start a call using the Azure Communication Services Calling client library for JavaScript.
+This document is referencing types in version 1.0.0-beta.5 of calling library.
+
+> [!NOTE]
+> This document uses version 1.0.0-beta.6 of the calling client library.
 
 ## Prerequisites
 
@@ -97,7 +101,7 @@ Add an event handler to initiate a call when the `callButton` is clicked:
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    call = callAgent.call(
+    call = callAgent.startCall(
         [{ communicationUserId: userToCall }],
         {}
     );

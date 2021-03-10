@@ -7,18 +7,25 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
-author: CaitlinV39
-ms.date: 02/03/2021
+author: zxue
+ms.date: 03/03/2021
 ---
 
 # Enable Diagnostic Logging in Azure API for FHIR
 
 In this article, you will learn how to enable diagnostic logging in Azure API for FHIR and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements (such as HIPAA) is a must. The feature in Azure API for FHIR that enables diagnostic logs is the [**Diagnostic settings**](../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
+## View and Download FHIR Metrics Data
+
+You can view the metrics under Monitoring | Metrics from the portal. The metrics include Number of Requests, Average Latency, Number of Errors, Data Size, RUs Used, Number of requests that exceeded capacity, and Availability (in %). The screenshot below shows RUs used for a sample environment with very few activities in the last 7 days. You can download the data in Json format.
+
+   :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="Azure API for FHIR Metrics from the portal" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
+
 ## Enable audit logs
 1. To enable diagnostic logging in Azure API for FHIR, select your Azure API for FHIR service in the Azure portal 
 2. Navigate to **Diagnostic settings** 
-![Diagnostic settings](media/diagnostic-logging/diagnostic-settings-screen.png) 
+
+   :::image type="content" source="media/diagnostic-logging/diagnostic-settings-screen.png" alt-text="Add Azure FHIR Diagnostic Settings." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png":::
 
 3. Select **+ Add diagnostic setting**
 
@@ -30,7 +37,7 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
     2. **Stream to event hub** for ingestion by a third-party service or custom analytic solution. You will need to create an event hub namespace and event hub policy before you can configure this step.
     3. **Stream to the Log Analytics** workspace in Azure Monitor. You will need to create your Logs Analytics Workspace before you can select this option.
 
-6. Select **AuditLogs** and/or **AllMetrics**. The metrics include service name, availability, data size, total latency, total requests, total errors and timestamp.
+6. Select **AuditLogs** and/or **AllMetrics**. The metrics include service name, availability, data size, total latency, total requests, total errors and timestamp. You can find more detail on [supported metrics](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices). 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Azure FHIR Diagnostic Settings. Select AuditLogs and/or AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
@@ -38,7 +45,7 @@ In this article, you will learn how to enable diagnostic logging in Azure API fo
 
 
 > [!Note] 
-> It might take up to 15 minutes for the first Logs to show in Log Analytics.  
+> It might take up to 15 minutes for the first Logs to show in Log Analytics. Also, if Azure API for FHIR is moved from one resource group or subscription to another, update the setting once the move is complete. 
  
 For more information on how to work with diagnostic logs, please refer to the [Azure Resource Log documentation](../azure-monitor/essentials/platform-logs-overview.md)
 

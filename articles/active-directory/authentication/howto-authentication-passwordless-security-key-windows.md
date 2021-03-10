@@ -1,12 +1,12 @@
 ---
 title: Passwordless security key sign-in Windows - Azure Active Directory
-description: Learn how to enable passwordless security key sign-in to Azure Active Directory using FIDO2 security keys (preview)
+description: Learn how to enable passwordless security key sign-in to Azure Active Directory using FIDO2 security keys 
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/24/2020
+ms.date: 02/22/2021
 
 ms.author: justinha
 author: justinha
@@ -15,19 +15,16 @@ ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign-in to Windows 10 devices with Azure Active Directory (preview)
+# Enable passwordless security key sign-in to Windows 10 devices with Azure Active Directory 
 
 This document focuses on enabling FIDO2 security key based passwordless authentication with Windows 10 devices. At the end of this article, you will be able to sign in to both your Azure AD and hybrid Azure AD joined Windows 10 devices with your Azure AD account using a FIDO2 security key.
-
-> [!NOTE]
-> FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Requirements
 
 | Device Type | Azure AD joined | Hybrid Azure AD joined |
 | --- | --- | --- |
 | [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
-| [Combined security information registration preview](concept-registration-mfa-sspr-combined.md) | X | X |
+| [Combined security information registration](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN requires Windows 10 version 1903 or higher | X | X |
 | [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1909 or higher | X |   |
@@ -51,9 +48,9 @@ The following scenarios aren't supported:
 - Signing in or unlocking a Windows 10 device with a security key containing multiple Azure AD accounts. This scenario utilizes the last account added to the security key. WebAuthN allows users to choose the account they wish to use.
 - Unlock a device running Windows 10 version 1809. For the best experience, use Windows 10 version 1903 or higher.
 
-## Prepare devices for preview
+## Prepare devices
 
-Azure AD joined devices that you are piloting during the feature preview with must run Windows 10 version 1909 or higher.
+Azure AD joined devices must run Windows 10 version 1909 or higher.
 
 Hybrid Azure AD joined devices must run Windows 10 version 2004 or newer.
 
@@ -147,13 +144,13 @@ In the example below, a user named Bala Sandhu has already provisioned their FID
 
 ## Troubleshooting and feedback
 
-If you'd like to share feedback or encounter issues while previewing this feature, share via the Windows Feedback Hub app using the following steps:
+If you'd like to share feedback or encounter issues about this feature, share via the Windows Feedback Hub app using the following steps:
 
 1. Launch **Feedback Hub** and make sure you're signed in.
 1. Submit feedback under the following categorization:
    - Category: Security and Privacy
    - Subcategory: FIDO
-1. To capture logs, use the option to **Recreate my Problem**
+1. To capture logs, use the option to **Recreate my Problem**.
 
 ## Next steps
 

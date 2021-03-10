@@ -47,7 +47,7 @@ This article walks through setting up the sign-in health workbook to monitor for
 
 * A Log Analytics workspace in your Azure subscription to send logs to Azure Monitor logs. 
 
-   * Learn how to [create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+   * Learn how to [create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md)
 
 * Azure AD logs integrated with Azure Monitor logs
 
@@ -90,7 +90,7 @@ Use the following instructions to create email alerts based on the queries refle
 
  To configure the underlying query and set alerts, complete the following steps. You'll use the Sample Query as the basis for your configuration. An explanation of the query structure appears at the end of this section.
 
-For more information on how to create, view, and manage log alerts using Azure Monitor see [Manage log alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+For more information on how to create, view, and manage log alerts using Azure Monitor see [Manage log alerts](../../azure-monitor/alerts/alerts-log.md).
 
  
 1. In the workbook, select **Edit**, then select the **query icon** just above the right-hand side of the graph.   
@@ -277,10 +277,9 @@ Once you have set up the query and alerts, create business processes to manage t
 
 ## Next steps
 
-[Learn more about workbooks](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+[Learn more about workbooks](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
  
 
  
 
- 

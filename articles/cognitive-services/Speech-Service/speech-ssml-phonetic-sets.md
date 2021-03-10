@@ -14,7 +14,7 @@ ms.author: jiajzhan
 
 # Speech service phonetic sets
 
-The Speech service defines phonetic alphabets ("phone sets" for short), consisting of seven languages; `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`. The Speech service phone sets typically map to the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA) <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Speech service phone sets are used in conjunction with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), as part of the Text-to-speech service offering. In this article, you'll learn how these phone sets are mapped and when to use which phone set.
+The Speech service defines phonetic alphabets ("phone sets" for short), consisting of seven languages; `en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`. The Speech service phone sets typically map to the <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet (IPA) </a>. Speech service phone sets are used in conjunction with the [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), as part of the Text-to-speech service offering. In this article, you'll learn how these phone sets are mapped and when to use which phone set.
 
 # [en-US](#tab/en-US)
 
@@ -335,7 +335,7 @@ The Speech service phone set puts stress after the vowel of the stressed syllabl
 
 # [zh-CN](#tab/zh-CN)
 
-The Speech service phone set for `zh-CN` is based on the native phone <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">Pinyin <span class="docon docon-navigate-external x-hidden-focus"></span></a> set.
+The Speech service phone set for `zh-CN` is based on the native phone <a href="https://en.wikipedia.org/wiki/Pinyin" target="_blank">Pinyin </a> set.
 
 ### Tone
 
@@ -357,7 +357,7 @@ The Speech service phone set for `zh-CN` is based on the native phone <a href="h
 
 # [zh-TW](#tab/zh-TW)
 
-The Speech service phone set for `zh-TW` is based on the native phone <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">Bopomofo <span class="docon docon-navigate-external x-hidden-focus"></span></a> set.
+The Speech service phone set for `zh-TW` is based on the native phone <a href="https://en.wikipedia.org/wiki/Bopomofo" target="_blank">Bopomofo </a> set.
 
 ### Tone
 
@@ -379,7 +379,7 @@ The Speech service phone set for `zh-TW` is based on the native phone <a href="h
 
 # [ja-JP](#tab/ja-JP)
 
-The Speech service phone set for `ja-JP` is based on the native phone <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">Kana <span class="docon docon-navigate-external x-hidden-focus"></span></a> set.
+The Speech service phone set for `ja-JP` is based on the native phone <a href="https://en.wikipedia.org/wiki/Kana" target="_blank">Kana </a> set.
 
 ### Stress
 
