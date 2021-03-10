@@ -9,7 +9,7 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 03/10/2021
 ms.author: sstein
 ---
 # What's new in Azure SQL Database & SQL Managed Instance?
@@ -44,13 +44,10 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
-| Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](../accelerated-database-recovery.md).|
-| Data discovery & classification  |For information, see [Azure SQL Database and Azure Synapse Analytics data discovery & classification](data-discovery-and-classification-overview.md).|
 | Elastic database jobs (preview) | For information, see [Create, configure, and manage elastic jobs](elastic-jobs-overview.md). |
 | Elastic queries | For information, see [Elastic query overview](elastic-query-overview.md). |
 | Elastic transactions | [Distributed transactions across cloud databases](elastic-transactions-overview.md). |
 | Query editor in the Azure portal |For information, see [Use the Azure portal's SQL query editor to connect and query data](connect-query-portal.md).|
-| R services / machine learning with single databases and elastic pools |For information, see [Machine Learning Services in Azure SQL Database](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
 |SQL Analytics|For information, see [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).|
 | &nbsp; |
 
