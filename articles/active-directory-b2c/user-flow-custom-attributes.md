@@ -164,7 +164,7 @@ The following example demonstrates the use of a custom attribute in Azure AD B2C
 Microsoft Graph API supports creating and updating a user with extension attributes. Extension attributes in the Graph API are named by using the convention `extension_ApplicationClientID_attributename`, where the `ApplicationClientID` is the **Application (client) ID** of the `b2c-extensions-app` application. Note that the **Application (client) ID** as it's represented in the extension attribute name includes no hyphens. For example:
 
 ```json
-"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
+"extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyId": "212342" 
 ``` 
 
 ## Next steps
