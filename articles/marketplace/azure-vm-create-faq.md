@@ -243,9 +243,10 @@ This section describes how to create and deploy a user-provided virtual machine 
 
 6. Provide the parameter values for the displayed Custom deployment property pages.
 
-| **TABLE 1** |   |
-| --- | --- |
+ **TABLE 1**
+
 | **ResourceGroupName** | **Existing Azure resource group name. Typically, use the same RG as your key vault.** |
+| --- | --- |
 | TemplateFile | Full pathname to the file VHDtoImage.json. |
 | userStorageAccountName | Name of the storage account. |
 | dnsNameForPublicIP | DNS name for the public IP; must be lowercase. |
