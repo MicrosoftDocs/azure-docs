@@ -3,7 +3,7 @@ title: Azure Services in FedRAMP and DoD SRG Audit Scope
 description: This article contains tables for Azure Public and Azure Government that illustrate what FedRAMP (Moderate vs. High) and DoD SRG (Impact level 2, 4, 5 or 6) audit scope a given service has reached.
 author: Jain-Garima  
 ms.author: gjain
-ms.date: 01/29/2021
+ms.date: 03/10/2021
 ms.topic: article
 ms.service: azure-government
 ms.reviewer: rochiou
@@ -200,7 +200,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 **&ast;&ast;** FedRAMP High certification for Azure Databricks is applicable for limited regions in Azure Commercial. To configure Azure Databricks for FedRAMP High use, please reach out to your Microsoft or Databricks Representative.
 
 ## Azure Government services by audit scope
-| _Last Updated: January 2021_ |
+| _Last Updated: March 2021_ |
 
 | Azure Service | DoD CC SRG IL 2 | DoD CC SRG IL 4 | DoD CC SRG IL 5 (Azure Gov)**&ast;** | DoD CC SRG IL 5 (Azure DoD) **&ast;&ast;** | FedRAMP High | DoD CC SRG IL 6 
 | ------------- |:---------------:|:---------------:|:---------------:|:------------:|:------------:|:------------:
@@ -313,6 +313,7 @@ This article provides a detailed list of in-scope cloud services across Azure Pu
 | [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
 | [Microsoft Graph](/graph/overview) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Microsoft PowerApps](/powerapps/powerapps-overview) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: | 
+| [Microsoft PowerApps Portal](https://docs.microsoft.com/powerapps/maker/portals/overview) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: | 
 | [Microsoft Stream](/stream/overview) | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
