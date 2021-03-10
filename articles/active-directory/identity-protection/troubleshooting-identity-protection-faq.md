@@ -86,6 +86,10 @@ All risk detections are documented in the article [What is risk](concept-identit
     >
     > If you believe the user is not compromised, use **Dismiss user risk** on the user level instead of using **Confirmed safe** on the sign-in level. A **Dismiss user risk** on the user level closes the user risk and all past risky sign-ins and risk detections.
 
+### Does Azure AD Identity Protection support custom controls and 3rd party MFA?
+
+Azure AD Identity Protection does honor the MFA claim from third party providers to remediate risk. So, if you are federating with another identity provider that supports MFA, the claim received by the Azure AD endpoint does remediate risk. However, we don't support remediation of risk through custom-controls. Custom-controls should be thought of as just another grant control CA evaluates for access to an Authentication-Authorization flow. 
+
 ### Why am I seeing a user with a low (or above) risk score, even if no risky sign-ins or risk detections are shown in Identity Protection?
 
 Given the user risk is cumulative in nature and does not expire, a user may have a user risk of low or above even if there are no recent risky sign-ins or risk detections shown in Identity Protection. This situation could happen if the only malicious activity on a user took place beyond the timeframe for which we store the details of risky sign-ins and risk detections. We do not expire user risk because bad actors have been known to stay in customers' environment over 140 days behind a compromised identity before ramping up their attack. Customers can review the user's risk timeline to understand why a user is at risk by going to: `Azure Portal > Azure Active Directory > Risky users’ report > Click on an at-risk user > Details’ drawer > Risk history tab`
