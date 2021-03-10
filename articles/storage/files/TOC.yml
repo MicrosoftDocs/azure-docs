@@ -231,6 +231,8 @@
         href: storage-files-migration-linux-hybrid.md
       - name: Migrate from an on-premises NAS to a hybrid file server with Azure File Sync
         href: storage-files-migration-nas-hybrid.md
+      - name: Migrate from an on-premises NAS to a hybrid file server with DataBox
+        href: storage-files-migration-nas-hybrid-databox.md
     - name: From StorSimple
       items:
       - name: StorSimple 8100 and 8600 migration guide

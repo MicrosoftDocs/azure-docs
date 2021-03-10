@@ -132,11 +132,11 @@ Access tokens are short-lived credentials that need to be reissued. Not doing so
 
 ## Create an identity and issue an access token within the same request
 
-Use the `createUserWithToken` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
+Use the `createUserAndToken` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
 
 ```javascript
 // Issue an identity and an access token with the "voip" scope for the new identity
-let identityTokenResponse = await this.client.createUserWithToken(["voip"]);
+let identityTokenResponse = await this.client.createUserAndToken(["voip"]);
 const { token, expiresOn, user } = identityTokenResponse;
 console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
