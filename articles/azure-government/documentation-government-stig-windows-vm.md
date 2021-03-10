@@ -39,7 +39,8 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
 
     c. Select your *Region*.
 
-    > [!IMPORTANT] Make sure to choose an empty resource group or create a new one.
+    > [!IMPORTANT]
+    > Make sure to choose an empty resource group or create a new one.
     
     :::image type="content" source="./media/stig-project-details.png" alt-text="Project details section showing where you select the Azure subscription and the resource group for the virtual machine" border="false":::
 

@@ -39,7 +39,8 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
 
     c. Select your *Region*.
 
-    > [!IMPORTANT] Make sure to choose an empty resource group or create a new one.
+    > [!IMPORTANT]
+    > Make sure to choose an empty resource group or create a new one.
 
     :::image type="content" source="./media/stig-project-details.png" alt-text="Project details section showing where you select the Azure subscription and the resource group for the virtual machine" border="false":::
 
@@ -59,7 +60,8 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
 
     g. Confirm *Password* (*Public key* only needs to be input once).
 
-    > [!NOTE] For instructions on creating an SSH RSA public-private key pair for SSH client connections, see **[Create and manage SSH keys for authentication to a Linux VM in Azure](../virtual-machines/linux/create-ssh-keys-detailed.md).**
+    > [!NOTE]
+    > For instructions on creating an SSH RSA public-private key pair for SSH client connections, see **[Create and manage SSH keys for authentication to a Linux VM in Azure](../virtual-machines/linux/create-ssh-keys-detailed.md).**
 
     :::image type="content" source="./media/stig-linux-instance-details.png" alt-text="Instance details section where you provide a name for the virtual machine and select its region, image, and size" border="false":::
 
