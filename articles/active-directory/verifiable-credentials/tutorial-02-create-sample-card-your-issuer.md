@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/08/2021
+ms.date: 03/09/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can learn how to issue cards using Azure verifiable credentials
@@ -169,7 +169,7 @@ Now that you have a new credential, copy the credential URL and run it in the br
 
 You should see a response formatted like the example shown below:
 
-![The issue credential URL](media/tutorial-create-sample-card-your-issuer/issue-credential-url.png)
+![The issue credential URL response](media/tutorial-create-sample-card-your-issuer/issue-credential-url.png)
 
 ```json
 {
@@ -240,13 +240,15 @@ You should see a response formatted like the example shown below:
 
 1. Open your Issuer Sample code app.js file.
 2. Update the constant 'credential' with your new credential URL and save the file.
-    ```
-    /////////// Set the expected values for the Verifiable Credential
 
-    const credential = 'https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/SampleNinja';
-
-    const credentialType = ['VerifiedCredentialNinja'];
+  ```js
+        /////////// Set the expected values for the Verifiable Credential
+    
+        const credential = 'https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a33457/portableIdentities/contracts/SampleNinja';
+    
+        const credentialType = ['VerifiedCredentialNinja'];
     ```
+
 3. Open a command prompt and open the issuer folder where the app.js file we just updated resides. 
 4. Run the updated node app.
 
@@ -266,9 +268,9 @@ Open up your url from ngrok and test issuing the VC to yourself.
 >[!Note]
 > Delete or Archive the Verifiable Credential from the Getting Started guide in order to issue the credential again to yourself. 
 
-## Test Verifying the VC with Sample Code
+## Test verifying the VC with Sample Code
 
-Now that we've issued the Verifible Credential via our own tenant, let's verify it with our Sample app. 
+Now that we've issued the Verifiable Credential via our own tenant, let's verify it with our Sample app. 
 
 Open up Settings in the Verifiable Credentials blade in Azure portal. Copy the Issuer identifier.
 
@@ -291,7 +293,7 @@ Now run ngrok with the verifier port 8082.
 $.\ngrok http 8082
 ```
 
-In another terminal window, we will navigate to the Verifer app and run it similarly to how we ran the issuer app.
+In another terminal window, navigate to the verifier app and run it similarly to how we ran the issuer app.
 
 ```bash
 cd ..
@@ -303,4 +305,5 @@ node ./app.js
 
 Now that you have the sample code issuing a VC by your issuer, lets jump into the next section where you use your own identity provider to gate who can get the VC.
 
-- [Tutorial - Configure your identity provider using the verifiable credentials sample app](tutorial-sample-app-your-idp.md)
+> [!div class="nextstepaction"]
+> [Tutorial - Configure your identity provider using the verifiable credentials sample app](tutorial-sample-app-your-idp.md)
