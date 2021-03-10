@@ -1235,14 +1235,14 @@
   items:
   - name: Guest OS updates
     items: 
-    - name: Image upgrade
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
-    - name: In-guest patching
+    - name: Guest OS patching
       items: 
       - name: Automatic VM guest patching (preview)
         href: automatic-vm-guest-patching.md
       - name: Hotpatching
         href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
+    - name: Automatic OS image upgrade
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
   - name: Automatic extension upgrade (preview)
     href: automatic-extension-upgrade.md
   - name: Platform maintenance
