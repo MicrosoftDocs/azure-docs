@@ -4,7 +4,7 @@ description: Learn about solution architecture, network preparation, prerequisit
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 01/03/2021
+ms.date: 02/18/2021
 ms.topic: how-to
 ms.service: azure
 ---
@@ -17,7 +17,7 @@ Azure Defender for IoT delivers continuous ICS threat monitoring and device disc
 
 **Defender for IoT on-premises management console**: The on-premises management console provides a consolidated view of all network devices. It delivers a real-time view of key OT and IoT risk indicators and alerts across all your facilities. Tightly integrated with your SOC workflows and playbooks, it enables easy prioritization of mitigation activities and cross-site correlation of threats. 
 
-**Defender for IoT for IoT portal:** The Defender for IoT application can help you purchase solution appliances, install and update software, and update TI packages. 
+**Defender for IoT portal:** The Defender for IoT application can help you purchase solution appliances, install and update software, and update TI packages. 
 
 This article provides information about solution architecture, network preparation, prerequisites, and more to help you successfully set up your network to work with Defender for IoT appliances. Readers working with the information in this article should be experienced in operating and managing OT and IoT networks. Examples include automation engineers, plant managers, OT network infrastructure service providers, cybersecurity teams, CISOs, or CIOs.
 

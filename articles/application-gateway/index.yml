@@ -84,8 +84,8 @@ landingContent:
             url: ingress-controller-overview.md
       - linkListType: tutorial
         links:
-          - text: Create an Ingress Controller for AKS 
-            url: ingress-controller-install-new.md
+          - text: Deploy an Ingress Controller AKS Add-On for AKS 
+            url: tutorial-ingress-controller-add-on-new.md
 
 # Card
   - title: Rewrite HTTP headers and URL using Application Gateway

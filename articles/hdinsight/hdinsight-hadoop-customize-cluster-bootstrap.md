@@ -100,7 +100,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## Use .NET SDK
 
-See [Azure HDInsight SDK for .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true).
+See [Azure HDInsight SDK for .NET](/dotnet/api/overview/azure/hdinsight).
 
 ## Use Resource Manager template
 

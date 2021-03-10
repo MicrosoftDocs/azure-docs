@@ -90,4 +90,5 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 ```
 
 ## Next steps
+
 [Generate thumbnails using REST](media-services-generate-thumbnails-rest.md)

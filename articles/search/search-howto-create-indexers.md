@@ -151,7 +151,7 @@ How an indexer supports change detection varies by data source:
 
 For large indexing loads, an indexer also keeps track of the last document it processed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer keeps track of where it stopped. When indexing resumes, either through a scheduled run or an on-demand invocation, the indexer references the high water mark so that it can pick up where it left off.
 
-If you need to clear the high water mark to re-index in full, you can use [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). For more selective re-indexing, use [Reset Skills](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) or [Reset Documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Through the reset APIs, you can clear internal state, and also flush the cache if you enabled [incremental enrichment](search-howto-incremental-index.md). For more background and comparison of each reset option, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
+If you need to clear the high water mark to re-index in full, you can use [Reset Indexer](/rest/api/searchservice/reset-indexer). For more selective re-indexing, use [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) or [Reset Documents](/rest/api/searchservice/preview-api/reset-documents). Through the reset APIs, you can clear internal state, and also flush the cache if you enabled [incremental enrichment](search-howto-incremental-index.md). For more background and comparison of each reset option, see [Run or reset indexers, skills, and documents](search-howto-run-reset-indexers.md).
 
 ## Know your data
 
@@ -161,7 +161,7 @@ To flatten relational data into a row set, you should create a SQL view, or buil
 
 In addition to flattened data, it's important to pull in only searchable data. Searchable data is alphanumeric. Cognitive Search cannot search over binary data in any format, although it can extract and infer text descriptions of image files (see [AI enrichment](cognitive-search-concept-intro.md)) to create searchable content. Likewise, using AI enrichment, large text can be analyzed by natural language models to find structure or relevant information, generating new content that you can add to a search document.
 
-Given that indexers don't fix data problems, other forms of data cleansing or manipulation might be needed. For more information, you should refer to the product documentation of your [Azure database product](/azure/?product=databases).
+Given that indexers don't fix data problems, other forms of data cleansing or manipulation might be needed. For more information, you should refer to the product documentation of your [Azure database product](../index.yml?product=databases).
 
 ## Know your index
 

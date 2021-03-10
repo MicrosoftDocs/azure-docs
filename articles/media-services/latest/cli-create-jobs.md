@@ -28,8 +28,6 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 
 [Create a Media Services account](./create-account-howto.md).
 
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
-
 ## Example script
 
 When you run `az ams job start`, you can set a label on the job's output. The label can later be used to identify what this output asset is for. 
@@ -86,4 +84,4 @@ You get a response similar to this:
 
 ## Next steps
 
-[az ams job (CLI)](/cli/azure/ams/job?view=azure-cli-latest)
+[az ams job (CLI)](/cli/azure/ams/job)

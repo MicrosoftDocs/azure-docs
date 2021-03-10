@@ -36,7 +36,7 @@
       href: quickstart-v2-aspnet-core-webapp.md
     - name: ASP.NET Core (call Microsoft Graph)
       href: quickstart-v2-aspnet-core-webapp-calls-graph.md
-    - name: Node.js - MSAL | Preview
+    - name: Node.js - MSAL
       href: quickstart-v2-nodejs-webapp-msal.md
     - name: Node.js - Passport.js
       displayName: OIDC, express

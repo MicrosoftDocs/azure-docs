@@ -1,29 +1,27 @@
 ---
-title: Anomaly detection for metered billing | Azure Marketplace
-description: Learn how automatic anomaly detection for metered billing helps insure your customers are billed correctly for metered usage of your commercial marketplace offer.
+title: Manage metered billing anomalies in Partner Center | Azure Marketplace
+description: Learn how automatic anomaly detection for metered billing helps insure your customers are billed correctly for metered usage of your commercial marketplace offers.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 1/09/2021
+ms.date: 2/18/2021
 author: sayantanroy83
 ms.author: sroy
 ---
 
-# Anomaly detection for metered billing
+# Manage metered billing anomalies in Partner Center
 
-This article provides details about the marketplace metering service and the associated automated anomaly detection capability to help ensure we invoice customers correctly for their metered usage. The metered billing option is currently available to [Software as a service](plan-saas-offer.md) (SaaS) offers and [Azure Applications](plan-azure-application-offer.md#types-of-plans) with a Managed application plan. This option lets partners create offers in the commercial marketplace program that are charged according to non-standard units.
+The custom metered billing option is currently available to [Software as a service](plan-saas-offer.md) (SaaS) offers and [Azure Applications](plan-azure-application-offer.md#types-of-plans) with a Managed application plan.
 
-Partners who have custom meters deployed for SaaS and Managed applications can see deviation from expected usage behavior as anomalies for the _overage events_ on specific _custom meters_ in Partner Center. To mitigate the risk, Partner Center uses an anomaly detection service that applies machine learning algorithms to determine normal metered billing behavior, analyze the metered billing usage, and discover anomalies with minimal user intervention. Using _anomaly detection models_ on the metered billing usage data sets, Partner Center aims to inform the publisher when the reported usage exceeds the expected usage.
+If you are using the metered billing option to create offers in the commercial marketplace program that lets you charge for usage based on non-standard units, you need to know when your customer has used more of a service than expected.
 
-## Usability experience
+## Use the Anomaly detection feature
 
-Microsoft relies on the partner to report their customer’s overage usage of their SaaS or Azure Managed application offers before Microsoft invoices the customer. If the wrong usage is reported, the customer could potentially receive an incorrect invoice, undermining both Microsoft’s and the partner’s credibility.
+Microsoft relies on you, the partner, to report your customers’ overage usage of their SaaS or Azure Managed application offers before Microsoft invoices the customer. If the wrong usage is reported, the customer could potentially receive an incorrect invoice, undermining both Microsoft’s and the partner’s credibility.
 
-To help mitigate this, an automated anomaly detection feature is provided for both SaaS Apps and Azure application managed application plans. This feature is a machine learning model that proactively monitors usage against metered billing and predicts the expected value of usage within the expected range. If the usage is outside the expected range, it is treated as an anomaly, and an alert notification is displayed to the partner on the Offer Overview page in the commercial marketplace program of Partner Center.
+To help ensure that your customers are billed correctly, use the **Anomaly detection** feature for both SaaS Apps and Azure application managed application plans. This feature monitors usage against metered billing and predicts the expected value of usage within the expected range. If the usage is outside the expected range, it is treated as unexpected, (an anomaly,) and you will receive an alert notification on your Offer Overview page in the commercial marketplace program of Partner Center. You can track your customers’ usage daily for every custom meter dimension that you’ve set.
 
-The machine learning model analyses overage usage daily. The publisher can see all anomalies reported against their customers’ overage usage for every offer’s custom meter dimensions.
-
-### View and manage metered usage anomalies
+## View and manage metered usage anomalies
 
 1. Sign-in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Analyze**.
@@ -77,3 +75,4 @@ After you mark an overage usage as an anomaly or acknowledge a model that flagge
 ## See also
 - [Metered billing for SaaS using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md)
 - [Managed application metered billing](./partner-center-portal/azure-app-metered-billing.md)
+- [Anomaly detection service for metered billing](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

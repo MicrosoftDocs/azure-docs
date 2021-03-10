@@ -100,9 +100,9 @@ You set the scope through the `expressionEvaluationOptions` property. By default
   "apiVersion": "2019-10-01",
   "name": "nestedTemplate1",
   "properties": {
-  "expressionEvaluationOptions": {
-    "scope": "inner"
-  },
+    "expressionEvaluationOptions": {
+      "scope": "inner"
+    },
   ...
 ```
 
@@ -662,10 +662,10 @@ The following example template shows how to use `copy` with a nested template.
             "kind": "StorageV2"
             // Copy works here when scope is inner
             // But, when scope is default or outer, you get an error
-            //"copy":{
-            //  "name": "storagecopy",
-            //  "count": 2
-            //}
+            // "copy": {
+            //   "name": "storagecopy",
+            //   "count": 2
+            // }
           }
         ]
       }

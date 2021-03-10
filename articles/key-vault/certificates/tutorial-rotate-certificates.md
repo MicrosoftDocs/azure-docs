@@ -131,7 +131,7 @@ Set-AzureKeyVaultCertificatePolicy -VaultName $vaultName
 > }
 >  ```
 > 
-To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-set-attributes).
+To learn more about the parameters, see [az keyvault certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-set-attributes).
 
 ## Clean up resources
 

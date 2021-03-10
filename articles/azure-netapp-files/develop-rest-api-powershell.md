@@ -29,7 +29,7 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 
 ## Access the Azure NetApp Files REST API  
 
-1. [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven't done so already.
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) if you haven't done so already.
 2. Create a service principal in your Azure Active Directory (Azure AD):
    1. Verify that you have [sufficient permissions](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 

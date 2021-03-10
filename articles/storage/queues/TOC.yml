@@ -236,7 +236,7 @@
     - name: Monitor (classic)
       items:
       - name: Monitor in the Azure portal (classic)
-        href: ../common/storage-monitor-storage-account.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/manage-storage-analytics-logs.md??toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Troubleshoot
     items:
     - name: Latency issues

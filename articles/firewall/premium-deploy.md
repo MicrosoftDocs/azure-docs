@@ -30,7 +30,7 @@ You'll use a template to deploy a test environment that has a central VNet (10.0
 - an Azure Bastion subnet (10.0.20.0/24)
 - a firewall subnet (10.0.100.0/24)
 
-A single central VNet is used in this test environment for simplicity. For production purposes, a [hub and spoke topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with peered VNets is more common.
+A single central VNet is used in this test environment for simplicity. For production purposes, a [hub and spoke topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) with peered VNets is more common.
 
 :::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Central VNet topology":::
 

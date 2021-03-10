@@ -6,12 +6,11 @@ ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
 ---
 
 # Webhook actions for log alert rules
 
-[Log alert](alerts-log.md) supports [configuring webhook action groups](../platform/action-groups.md#webhook). In this article, we'll describe what properties are available and how to configure a custom JSON webhook.
+[Log alert](alerts-log.md) supports [configuring webhook action groups](./action-groups.md#webhook). In this article, we'll describe what properties are available and how to configure a custom JSON webhook.
 
 > [!NOTE]
 > Custom JSON-based webhook is not currently supported in the API version `2020-05-01-preview`
@@ -42,7 +41,7 @@ Default webhook action properties and their custom JSON parameter names:
 | *SearchQuery* |#searchquery |Log search query used by the alert rule. |
 | *SearchResults* |"IncludeSearchResults": true|Records returned by the query as a JSON table, limited to the first 1,000 records. "IncludeSearchResults": true is added in a custom JSON webhook definition as a top-level property. |
 | *Dimensions* |"IncludeDimensions": true|Dimensions value combinations that triggered that alert as a JSON section. "IncludeDimensions": true is added in a custom JSON webhook definition as a top-level property. |
-| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](../platform/alerts-unified-log.md#measure).|
+| *Alert Type*| #alerttype | The type of log alert rule configured as [Metric measurement or Number of results](./alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |ID of your Log Analytics workspace. |
 | *Application ID* |#applicationid |ID of your Application Insights app. |
 | *Subscription ID* |#subscriptionid |ID of your Azure subscription used. |
@@ -79,7 +78,7 @@ This section shows sample payloads for webhooks for log alerts. The sample paylo
 The following sample payload is for a standard webhook action that's used for alerts based on Log Analytics:
 
 > [!NOTE]
-> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](../alerts/alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](../platform/api-alerts.md).
+> The "Severity" field value changes if you've [switched to the current scheduledQueryRules API](../alerts/alerts-log-api-switch.md) from the [legacy Log Analytics Alert API](./api-alerts.md).
 
 ```json
 {
@@ -313,8 +312,8 @@ The following sample payload is for a custom webhook action for any log alert:
 ```
 
 ## Next steps
-- Learn about [log alerts in Azure alerts](../platform/alerts-unified-log.md).
+- Learn about [log alerts in Azure alerts](./alerts-unified-log.md).
 - Understand how to [manage log alerts in Azure](alerts-log.md).
-- Create and manage [action groups in Azure](../platform/action-groups.md).
-- Learn more about [Application Insights](../log-query/log-query-overview.md).
-- Learn more about [log queries](../log-query/log-query-overview.md). 
+- Create and manage [action groups in Azure](./action-groups.md).
+- Learn more about [Application Insights](../logs/log-query-overview.md).
+- Learn more about [log queries](../logs/log-query-overview.md).

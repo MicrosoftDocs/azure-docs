@@ -1,7 +1,6 @@
 ---
-title: Enable Azure Monitor for VMs using Resource Manager templates
-description: This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates.
-ms.subservice:
+title: Enable VM insights using Resource Manager templates
+description: This article describes how you enable VM insights for one or more Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,8 +8,8 @@ ms.date: 07/27/2020
 
 ---
 
-# Enable Azure Monitor for VMs using Resource Manager templates
-This article describes how to enable Azure Monitor for VMs for a virtual machine or virtual machine scale set using Resource Manager templates. This procedure can be used for the following:
+# Enable VM insights using Resource Manager templates
+This article describes how to enable VM insights for a virtual machine or virtual machine scale set using Resource Manager templates. This procedure can be used for the following:
 
 - Azure virtual machine
 - Azure virtual machine scale set
@@ -18,8 +17,8 @@ This article describes how to enable Azure Monitor for VMs for a virtual machine
 
 ## Prerequisites
 
-- [Create and configure a Log Analytics workspace](../insights/vminsights-configure-workspace.md). 
-- See [Supported operating systems](../insights/vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
+- [Create and configure a Log Analytics workspace](./vminsights-configure-workspace.md). 
+- See [Supported operating systems](./vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 ## Resource Manager templates
 
@@ -33,14 +32,14 @@ The Azure Resource Manager templates are provided in an archive file (.zip) that
 
 The download file contains the following templates for different scenarios:
 
-- **ExistingVmOnboarding** template enables Azure Monitor for VMs if the virtual machine already exists.
-- **NewVmOnboarding** template creates a virtual machine and enables Azure Monitor for VMs to monitor it.
-- **ExistingVmssOnboarding** template enables Azure Monitor for VMs if the virtual machine scale set already exists.
-- **NewVmssOnboarding** template creates virtual machine scale sets and enables Azure Monitor for VMs to monitor them.
-- **ConfigureWorkspace** template configures your Log Analytics workspace to support Azure Monitor for VMs by enabling the solutions and collection of Linux and Windows operating system performance counters.
+- **ExistingVmOnboarding** template enables VM insights if the virtual machine already exists.
+- **NewVmOnboarding** template creates a virtual machine and enables VM insights to monitor it.
+- **ExistingVmssOnboarding** template enables VM insights if the virtual machine scale set already exists.
+- **NewVmssOnboarding** template creates virtual machine scale sets and enables VM insights to monitor them.
+- **ConfigureWorkspace** template configures your Log Analytics workspace to support VM insights by enabling the solutions and collection of Linux and Windows operating system performance counters.
 
 >[!NOTE]
->If virtual machine scale sets were already present and the upgrade policy is set to **Manual**, Azure Monitor for VMs won't be enabled for instances by default after running the **ExistingVmssOnboarding** Azure Resource Manager template. You have to manually upgrade the instances.
+>If virtual machine scale sets were already present and the upgrade policy is set to **Manual**, VM insights won't be enabled for instances by default after running the **ExistingVmssOnboarding** Azure Resource Manager template. You have to manually upgrade the instances.
 
 ## Deploy templates
 The templates can be deployed using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md) including the following examples using PowerShell and CLI.
@@ -58,8 +57,8 @@ az deployment group create --resource-group <ResourceGroupName> --template-file 
 
 ## Next steps
 
-Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
+Now that monitoring is enabled for your virtual machines, this information is available for analysis with VM insights.
 
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+- To view discovered application dependencies, see [View VM insights Map](vminsights-maps.md).
 
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM Performance](vminsights-performance.md).
