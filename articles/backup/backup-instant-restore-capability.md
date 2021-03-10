@@ -107,7 +107,7 @@ The new model doesn't allow deleting the restore point (Tier2) unless the snapsh
 
 ### Why does my snapshot still exist, even after the set retention period in backup policy?
 
-If the recovery point has a snapshot and it's the latest recovery point available, it's retained until the next successful backup. This is according to the designated "garbage collection" (GC) policy. It mandates that at least one latest recovery point always be present, in case all subsequent backups fail due to an issue in the VM. In normal scenarios, recovery points are cleaned up at most 24 hours after they expire. In rare scenarios, there might be additional one or two more snapshots based on the heavier load on the garbage collector (GC).
+If the recovery point has a snapshot and it's the latest recovery point available, it's retained until the next successful backup. This is according to the designated "garbage collection" (GC) policy. It mandates that at least one latest recovery point always be present, in case all subsequent backups fail due to an issue in the VM. In normal scenarios, recovery points are cleaned up at most 24 hours after they expire. In rare scenarios, there might be one or two additional snapshots based on the heavier load on the garbage collector (GC).
 
 ### Why do I see more snapshots than my retention policy?
 
