@@ -30,7 +30,7 @@ This section describes how to size, update, and generalize an Azure VM. These st
 
 [!INCLUDE [Discussion of most current updates](includes/most-current-updates.md)]
 
-### Perform additional security checks
+### Perform more security checks
 
 [!INCLUDE [Discussion of addition security checks](includes/additional-security-checks.md)]
 
@@ -186,7 +186,7 @@ Configure and prepare the VM to be uploaded as described in [Prepare a Windows V
 
 ### Option 3: Extract the VHD from Managed Image (if using image building services)
 
-If you are using an image building service such as [Packer](https://www.packer.io/), you may need to extract the VHD from the image. There is no direct way to do this. You will have to create a VM and extract the VHD from the VM disk.
+If you are using an image building service like [Packer](https://www.packer.io/), you may need to extract the VHD from the image. There is no direct way to do this. You will have to create a VM and extract the VHD from the VM disk.
 
 ## Create the VM on the Azure portal
 
