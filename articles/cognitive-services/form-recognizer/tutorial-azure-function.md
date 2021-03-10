@@ -170,24 +170,28 @@ Next, add code to query the service and get the returned data.
 
 
 ```Python
-    resp = post(url = post_url, data = source, headers = headers)
+resp = requests.post(url = post_url, data = source, headers = headers)
     if resp.status_code != 202:
         print("POST analyze failed:\n%s" % resp.text)
         quit()
     print("POST analyze succeeded:\n%s" % resp.headers)
     get_url = resp.headers["operation-location"]
 
+
     wait_sec = 25
+    
 
     time.sleep(wait_sec)
-
-# The layout API is async therefore the wait statement
-    resp = get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": apim_key})
-
+    # The layout API is async therefore the wait statement
+    
+    resp =requests.get(url = get_url, headers = {"Ocp-Apim-Subscription-Key": apim_key})
+    
     resp_json = json.loads(resp.text)
-
+    
+    
     status = resp_json["status"]
-
+    
+    
     if status == "succeeded":
         print("Layout Analysis succeeded:\n%s")
         results=resp_json
@@ -195,6 +199,7 @@ Next, add code to query the service and get the returned data.
         print("GET Layout results failed:\n%s")
         quit()
 
+    
     results=resp_json
 ```
 
@@ -248,7 +253,7 @@ The following code parses the returned Form Recognizer response, constructs a .c
         b=pd.DataFrame(b)
         s=0
         for i,j in zip(new_table["rowIndex"],new_table["columnIndex"]):
-            b.ix[i,j]=new_table.ix[new_table.ix[s,"rownum"],"text"]
+            b.loc[i,j]=new_table.loc[new_table.loc[s,"rownum"],"text"]
             s=s+1
 
 ```
