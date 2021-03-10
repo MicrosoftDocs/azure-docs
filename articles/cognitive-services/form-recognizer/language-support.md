@@ -16,7 +16,6 @@ ms.author: lajanuar
 
 This table lists the human languages supported by the Form Recognizer service.
 
-
 |Language| Language code | Form Recognizer v2.0 | Form Recognizer v2.1 preview|
 |:-----|:----:|:-----:|:---:|
 |Afrikaans|`af`| | ✔ |
