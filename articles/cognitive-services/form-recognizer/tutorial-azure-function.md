@@ -138,7 +138,6 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
         }
 
     text1=os.path.basename(myblob.name)
-
 ```
 
 # [version 2.1 preview](#tab/2-1)
@@ -157,7 +156,6 @@ The following code block calls the Form Recognizer [Analyze Layout](https://west
         }
 
     text1=os.path.basename(myblob.name)
-
 ```
 ---
 
@@ -177,10 +175,8 @@ resp = requests.post(url = post_url, data = source, headers = headers)
     print("POST analyze succeeded:\n%s" % resp.headers)
     get_url = resp.headers["operation-location"]
 
-
     wait_sec = 25
     
-
     time.sleep(wait_sec)
     # The layout API is async therefore the wait statement
     
@@ -199,7 +195,6 @@ resp = requests.post(url = post_url, data = source, headers = headers)
         print("GET Layout results failed:\n%s")
         quit()
 
-    
     results=resp_json
 ```
 
