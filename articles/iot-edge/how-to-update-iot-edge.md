@@ -115,8 +115,9 @@ If you want to update to the most recent version of IoT Edge, use the following 
 # [Windows](#tab/windows)
 
 <!-- 1.1 -->
-:::moniker range="iotedge-2018-06"
-With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and is managed with Microsoft Update to keep the components up to date. Currently, there are no updates available.
+::: moniker range="iotedge-2018-06"
+
+With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and it is managed with Microsoft Update to keep the components up to date. If you have automatic updates enabled, new updates will download and install whenever they're available.
 
 With IoT Edge for Windows, IoT Edge runs directly on the Windows device. For update instructions using the PowerShell scripts, see [Install and manage Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md).
 :::moniker-end

@@ -39,7 +39,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.6</version>
 </dependency>
 ```
 
@@ -55,13 +55,15 @@ From the project directory:
 Use the following code to begin:
 
 ```java
-import com.azure.communication.identity.*;
 import com.azure.communication.common.*;
-import java.io.*;
-import java.util.*;
-import java.time.*;
-
+import com.azure.communication.identity.*;
+import com.azure.communication.identity.models.*;
+import com.azure.core.credential.*;
 import com.azure.core.http.*;
+import com.azure.core.http.netty.*;
+
+import java.time.*;
+import java.util.*;
 
 public class App
 {
@@ -92,10 +94,10 @@ String accessKey = "SECRET";
 HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
-    .endpoint(endpoint)
-    .accessKey(accessKey)
-    .httpClient(httpClient)
-    .buildClient();
+        .endpoint(endpoint)
+        .credential(new AzureKeyCredential(accessKey))
+        .httpClient(httpClient)
+        .buildClient();
 ```
 
 You can initialize the client with any custom HTTP client the implements the `com.azure.core.http.HttpClient` interface. The above code demonstrates use of the [Azure Core Netty HTTP client](/java/api/overview/azure/core-http-netty-readme) that is provided by `azure-core`.
@@ -125,7 +127,7 @@ Use the `getToken` method to issue an access token for already existing Communic
 
 ```java
 // Issue an access token with the "voip" scope for a user identity
-List<String> scopes = new ArrayList<>(Arrays.asList(CommunicationTokenScope.VOIP));
+List<CommunicationTokenScope> scopes = new ArrayList<>(Arrays.asList(CommunicationTokenScope.VOIP));
 AccessToken accessToken = communicationIdentityClient.getToken(user, scopes);
 OffsetDateTime expiresAt = accessToken.getExpiresAt();
 String token = accessToken.getToken();
@@ -139,7 +141,7 @@ issue an access token.
 
 ```java
 List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.CHAT);
-CommunicationUserIdentifierWithTokenResult result = client.createUserAndToken(scopes);
+CommunicationUserIdentifierAndToken result = communicationIdentityClient.createUserAndToken(scopes);
 CommunicationUserIdentifier user = result.getUser();
 System.out.println("\nCreated a user identity with ID: " + user.getId());
 AccessToken accessToken = result.getUserToken();
@@ -157,7 +159,7 @@ To refresh an access token, use the `CommunicationUserIdentifier` object to reis
 ```java
 // Value existingIdentity represents identity of Azure Communication Services stored during identity creation
 CommunicationUserIdentifier identity = new CommunicationUserIdentifier(existingIdentity);
-response = communicationIdentityClient.getToken(identity, scopes);
+AccessToken response = communicationIdentityClient.getToken(identity, scopes);
 ```
 
 ## Revoke access tokens
