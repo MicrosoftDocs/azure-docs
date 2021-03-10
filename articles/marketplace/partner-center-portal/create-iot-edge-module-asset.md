@@ -34,7 +34,7 @@ Your module must support all Tier 1 platforms supported by IoT Edge (as recorded
 
 - Provide a latest tag and a version tag (for example, 1.0.1) that are manifest tags built with the [GitHub Manifest-tool](https://github.com/estesp/manifest-tool).
 
-- Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to the [Azure IoT Edge Certified device catalog](https://devicecatalog.azure.com/alldevices?filters={%2218%22:[%221%22]}/).
+- Use the offer listing tab in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace) to add a link under the **Useful links** section to the [Azure IoT Edge Certified device catalog](https://devicecatalog.azure.com/devices?certificationBadgeTypes=IoTEdgeCompatible).
 
 #### A subset of Tier 1 platforms supported by IoT Edge
 
