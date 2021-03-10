@@ -1231,16 +1231,24 @@
       href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
   - name: Linux Active Directory sign-in
     href: ./linux/login-using-aad.md
-- name: Maintenance and updates
+- name: Updates and maintenance
   items:
-  - name: Overview
-    href: maintenance-and-updates.md
-  - name: Automatic VM guest patching (preview)
-    href: automatic-vm-guest-patching.md
+  - name: Guest OS updates
+    items: 
+    - name: Guest OS patching
+      items: 
+      - name: Automatic VM guest patching (preview)
+        href: automatic-vm-guest-patching.md
+      - name: Hotpatching
+        href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
+    - name: Automatic OS image upgrade
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
   - name: Automatic extension upgrade (preview)
     href: automatic-extension-upgrade.md
-  - name: Maintenance control
+  - name: Maintenance
     items:
+    - name: Overview
+      href: maintenance-and-updates.md
     - name: Maintenance notifications
       items:
       - name: Overview
@@ -1251,7 +1259,7 @@
         href: maintenance-notifications-portal.md
       - name: PowerShell
         href: maintenance-notifications-powershell.md
-    - name: Platform maintenance
+    - name: Maintenance control 
       items:
       - name: Overview
         href: maintenance-control.md
@@ -1273,16 +1281,6 @@
         href: ./linux/tutorial-config-management.md
       - name: Windows
         href: ./windows/tutorial-config-management.md
-    - name: Virtual machine scale set OS image upgrades
-      items:
-      - name: Automatic OS upgrades
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
-      - name: Maintenance control
-        items:
-        - name: Overview (Preview)
-          href: virtual-machine-scale-sets-maintenance-control.md
-        - name: PowerShell (Preview)
-          href: virtual-machine-scale-sets-maintenance-control-powershell.md
 - name: Monitoring
   items:
   - name: Overview
