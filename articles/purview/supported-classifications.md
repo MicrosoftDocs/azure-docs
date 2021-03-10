@@ -56,6 +56,7 @@ Formatted:
 - four digits
 - a hyphen
 - a digit
+
 Unformatted: nine consecutive digits beginning with 0, 1, 2, 3, 6, 7, or 8
 
 ### Keywords
