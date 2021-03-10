@@ -84,7 +84,7 @@ Get your Search resource key with the Azure CLI.
         --sku Standard
     ```
 
-## Bulk load the book catalog CSV into a new Search Index
+## Load the book catalog into an Index
 
 This tutorial uploads directly into the Search Index from the books.csv file. 
 
