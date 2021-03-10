@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.custom: devx-track-terraform
 ---
 
