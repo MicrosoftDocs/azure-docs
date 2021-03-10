@@ -311,14 +311,14 @@
     - name: 2101 - Current 
       href: azure-stack-edge-gpu-2101-release-notes.md
     - name: 2010 
-      href: azure-stack-edge-gpu-2009-release-notes.md 
+      href: azure-stack-edge-gpu-2010-release-notes.md 
     - name: 2008 
       href: azure-stack-edge-gpu-2008-release-notes.md 
   
   - name: Shared reference
     items:
     - name: Azure PowerShell
-      href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+      href: /powershell/module/az.stackedge/#stack_edge
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
@@ -412,7 +412,7 @@
   - name: Reference
     items:
     - name: Azure PowerShell
-      href: /powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+      href: /powershell/module/az.stackedge/#stack_edge
     - name: REST API
       href: /rest/api/databoxedgegateway
     - name: .NET SDK

@@ -61,7 +61,7 @@ Azure Private Link provides the following benefits:
 |Azure Service Bus | All public region<br/>All Government regions  | Supported with premium tier of Azure Service Bus. [Select for tiers](../service-bus-messaging/service-bus-premium-messaging.md) | GA   <br/> [Learn how to create a private endpoint for Azure Service Bus.](../service-bus-messaging/private-link-service.md)    |
 |Azure Relay | All public regions      |  | Preview <br/> [Learn how to create a private endpoint for Azure Relay.](../azure-relay/private-link-service.md)  |
 |Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn how to create a private endpoint for Azure Event Grid.](../event-grid/network-security.md) |
-|Azure Web Apps | All public regions      | Supported with PremiumV2, PremiumV3, or Function Premium plan  | GA   <br/> [Learn how to create a private endpoint for Azure Web Apps.](./tutorial-private-endpoint-webapp-portal.md)   |
+|Azure Web Apps | All public regions<br/> China North 2 & East 2    | Supported with PremiumV2, PremiumV3, or Function Premium plan  | GA   <br/> [Learn how to create a private endpoint for Azure Web Apps.](./tutorial-private-endpoint-webapp-portal.md)   |
 |Azure Machine Learning | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
 | Azure Automation  | All public regions<br/> All Government regions |  | Preview </br> [Learn how to create a private endpoint for Azure Automation.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
