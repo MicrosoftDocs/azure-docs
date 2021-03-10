@@ -19,7 +19,7 @@ The following table includes links to PowerShell script examples for Azure AD Ap
 - The [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) or,
 - The [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), unless otherwise noted.
 
-For more information about the cmdlets used in these samples, see [Applications](/powershell/module/azuread/?view=azureadps-2.0#applications&preserve-view=true).
+For more information about the cmdlets used in these samples, see [Applications](/powershell/module/azuread/#applications).
 
 | Link | Description |
 |---|---|

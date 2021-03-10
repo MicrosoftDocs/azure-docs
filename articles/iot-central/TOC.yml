@@ -204,6 +204,8 @@
           href: core/how-to-connect-devices-x509.md
         - name: Monitor device connectivity using Azure CLI
           href: core/howto-monitor-devices-azure-cli.md
+        - name: Connect devices through an IoT Edge transparent gateway
+          href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: core/howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
@@ -303,8 +305,7 @@
   - name: Code samples
     href: /samples/browse/?expanded=azure&products=azure-iot-central
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
-
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

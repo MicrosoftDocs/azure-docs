@@ -32,8 +32,8 @@ You can modify the "$Path" variable directly in PowerShell, with a CSV file path
 
 | Command | Notes |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Retrieves an application from your directory. |
-| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner?view=azureadps-2.0&preserve-view=true) | Retrieves the owners of an application from your directory. |
+| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Retrieves an application from your directory. |
+| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner) | Retrieves the owners of an application from your directory. |
 
 ## Next steps
 
