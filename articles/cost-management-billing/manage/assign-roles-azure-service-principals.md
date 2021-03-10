@@ -18,7 +18,7 @@ You can manage your Enterprise Agreement (EA) enrollment in the [Azure Enterpris
 Before you begin, ensure that you're familiar with the following articles:
 
 - [Enterprise agreement roles](understand-ea-roles.md)
-- [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-5.5.0&preserve-view=true)
+- [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps)
 - [How to call REST APIs with Postman](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
 ## Create and authenticate your service principal
@@ -84,7 +84,7 @@ The parameter is the Billing account ID. You can find it in the Azure portal on 
 
 **billingRoleAssignmentName**
 
-The parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) PowerShell command.
+The parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command.
 
 Or, you can use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
@@ -136,7 +136,7 @@ It's the Billing account ID. You can find it in the Azure portal on the Cost Man
 
 **billingRoleAssignmentName**
 
-The parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) PowerShell command.
+The parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command.
 
 Or, you can use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 
@@ -194,7 +194,7 @@ The parameter is the Billing account ID. You can find it in the Azure portal on 
 
 **billingRoleAssignmentName**
 
-The parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid?view=powershell-7.1&preserve-view=true) PowerShell command.
+The parameter is a unique GUID that you need to provide. You can generate a GUID using the [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid) PowerShell command.
 
 Or, you can use the [Online GUID / UUID Generator](https://guidgenerator.com/) website to generate a unique GUID.
 **enrollmentAccountName**

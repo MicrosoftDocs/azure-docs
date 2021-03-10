@@ -197,9 +197,6 @@ In this tutorial, you:
 * Created a load-balancing rule.
 * Tested the load balancer.
 
-For more information on cross-region load balancer, see [Cross-region load balancer (Preview)](cross-region-overview.md).
-
-
-Advance to the next article to learn how to:
+For more information on cross-region load balancer, see:
 > [!div class="nextstepaction"]
-> [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Cross-region load balancer (Preview)](cross-region-overview.md)

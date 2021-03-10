@@ -4,7 +4,7 @@ description: Specifications for the NVv3-series VMs.
 services: virtual-machines
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman

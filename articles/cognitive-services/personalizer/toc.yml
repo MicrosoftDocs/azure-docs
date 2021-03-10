@@ -104,7 +104,7 @@
     - name: Python
       items:
       - name: Reference
-        href: /python/api/overview/azure/cognitiveservices/personalizer?view=azure-python
+        href: /python/api/overview/azure/cognitiveservices/personalizer
       - name: Pypi package
         href: https://pypi.org/project/azure-cognitiveservices-personalizer/
 - name: Resources
