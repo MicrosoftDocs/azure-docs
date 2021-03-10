@@ -1,11 +1,11 @@
 ---
-title: "REST API: Sync between multiple databases in Azure SQL Database"
-description: Use an Azure PowerShell example script to sync between multiple databases in Azure SQL Database.
+title: "REST API: Sync between multiple databases"
+description: Use a REST API example script to sync between multiple databases.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
-ms.devlang: PowerShell
+ms.devlang: REST API
 ms.topic: sample
 author: stevestein
 ms.author: sstein
@@ -13,297 +13,150 @@ ms.reviewer:
 ms.date: 03/12/2019
 ---
 
-# Use PowerShell to sync data between multiple databases in Azure SQL Database
+# Use REST API to sync data between multiple databases 
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-This Azure PowerShell example configures SQL Data Sync to sync data between multiple databases in Azure SQL Database.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use PowerShell locally, this tutorial requires Az PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+This REST API example configures SQL Data Sync to sync data between multiple databases.
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](../sql-data-sync-data-sql-server-sql-database.md).
 
 > [!IMPORTANT]
 > SQL Data Sync does not support Azure SQL Managed Instance at this time.
 
-## Prerequisites
+## Create sync group
 
-- Create a database in Azure SQL Database from an AdventureWorksLT sample database as a hub database.
-- Create a database in Azure SQL Database in the same region as the sync database.
-- Update the parameter placeholders before running the example.
+Use the following template to create a sync group: https://docs.microsoft.com/en-us/rest/api/sql/syncgroups/createorupdate
+When creating a sync group, do not pass in the sync schema (table\column) and do not pass in masterSyncMemberName, because at this time sync group does not have table\column information yet.
 
-## Example
+Sample request for creating a sync group: 
 
-```powershell-interactive
-using namespace Microsoft.Azure.Commands.Sql.DataSync.Model
-using namespace System.Collections.Generic
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187?api-version=2015-05-01-preview
+```
 
-# hub database info
-$subscriptionId = "<subscriptionId>"
-$resourceGroupName = "<resourceGroupName>"
-$serverName = "<serverName>"
-$databaseName = "<databaseName>"
-
-# sync database info
-$syncDatabaseResourceGroupName = "<syncResourceGroupName>"
-$syncDatabaseServerName = "<syncServerName>"
-$syncDatabaseName = "<syncDatabaseName>"
-
-# sync group info
-$syncGroupName = "<syncGroupName>"
-$conflictResolutionPolicy = "HubWin" # can be HubWin or MemberWin
-$intervalInSeconds = 300 # sync interval in seconds (must be no less than 300)
-
-# member database info
-$syncMemberName = "<syncMemberName>"
-$memberServerName = "<memberServerName>"
-$memberDatabaseName = "<memberDatabaseName>"
-$memberDatabaseType = "SqlServerDatabase" # can be AzureSqlDatabase or SqlServerDatabase
-$syncDirection = "Bidirectional" # can be Bidirectional, Onewaymembertohub, Onewayhubtomember
-
-# sync agent info
-$syncAgentName = "<agentName>"
-$syncAgentResourceGroupName = "<syncAgentResourceGroupName>"
-$syncAgentServerName = "<syncAgentServerName>"
-
-$syncMemberResourceId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/databases/$syncMemberDBName"
-
-# temp file to save the sync schema
-$tempFile = $env:TEMP+"\syncSchema.json"
-
-# list of included columns and tables in quoted name
-$includedColumnsAndTables =  "[SalesLT].[Address].[AddressID]",
-                             "[SalesLT].[Address].[AddressLine2]",
-                             "[SalesLT].[Address].[rowguid]",
-                             "[SalesLT].[Address].[PostalCode]",
-                             "[SalesLT].[ProductDescription]"
-$metadataList = [System.Collections.ArrayList]::new($includedColumnsAndTables)
-
-Connect-AzAccount
-Select-AzSubscription -SubscriptionId $subscriptionId
-
-# use if it's safe to show password in script, otherwise use PromptForCredential
-# $user = "username"
-# $password = ConvertTo-SecureString -String "password" -AsPlainText -Force
-# $credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $user, $password
-
-$credential = $Host.ui.PromptForCredential("Need credential",
-              "Please enter your user name and password for server "+$serverName+".database.windows.net",
-              "",
-              "")
-
-# create a new sync group (if you use private link, make sure to manually approve it)
-Write-Host "Creating Sync Group "$syncGroupName"..."
-New-AzSqlSyncGroup -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Name $syncGroupName `
-    -SyncDatabaseName $syncDatabaseName -SyncDatabaseServerName $syncDatabaseServerName -SyncDatabaseResourceGroupName $syncDatabaseResourceGroupName `
-    -ConflictResolutionPolicy $conflictResolutionPolicy -DatabaseCredential $credential -UsePrivateLinkConnection | Format-list
-
-# use if it's safe to show password in script, otherwise use PromptForCredential
-# $user = "username"
-# $password = ConvertTo-SecureString -String "password" -AsPlainText -Force
-# $credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $user, $password
-
-$credential = $Host.ui.PromptForCredential("Need credential",
-              "Please enter your user name and password for server "+$serverName+".database.windows.net",
-              "",
-              "")
-
-# add a new sync member (if you use private link, make sure to manually approve it)
-Write-Host "Adding member"$syncMemberName" to the sync group..."
-New-AzSqlSyncMember -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
-    -SyncGroupName $syncGroupName -Name $syncMemberName -MemberDatabaseType $memberDatabaseType -SyncAgentResourceGroupName $syncAgentResourceGroupName `
-    -SyncAgentServerName $syncAgentServerName -SyncAgentName $syncAgentName  -SyncDirection $syncDirection -SqlServerDatabaseID  $syncAgentInfo.DatabaseId `
-    -SyncMemberAzureDatabaseResourceId $syncMemberResourceId -UsePrivateLinkConnection | Format-list
-
-# update existing sync member to use private link connection 
-Update-AzSqlSyncMember `
-    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -SyncGroupName $syncGroupName -Name $syncMemberName `
-    -MemberDatabaseCredential $memberDatabaseCredential -SyncMemberAzureDatabaseResourceId $syncMemberResourceId -UsePrivateLinkConnection $true
-    
-# update existing sync group and remove private link connection
-Update-AzSqlSyncGroup `
-    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Name $syncGroupName -UsePrivateLinkConnection $false
-
-# run the following Get-AzSqlSyncGroup/ Get-AzSqlSyncMember commands to confirm that a private link has been setup for Data Sync, if you decide to use private link. 
-# Get-AzSqlSyncMember returns information about one or more Azure SQL Database Sync Members. Specify the name of a sync member to see information for only that sync member.
-Get-AzSqlSyncMember `
-    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -SyncGroupName $syncGroupName -Name $syncMemberName ` | Format-List
-# Get-AzSqlSyncGroup returns information about one or more Azure SQL Database Sync Groups. Specify the name of a sync group to see information for only that sync group.
-Get-AzSqlSyncGroup `
-    -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName ` | Format-List
-    
-# approve private endpoint connection, if you decide to use private link
-Approve-AzPrivateEndpointConnection `
-    -Name myPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkService
-
-# refresh database schema from hub database, specify the -SyncMemberName parameter if you want to refresh schema from the member database
-Write-Host "Refreshing database schema from hub database..."
-$startTime = Get-Date
-Update-AzSqlSyncSchema -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -SyncGroupName $syncGroupName
-
-# waiting for successful refresh
-$startTime = $startTime.ToUniversalTime()
-$timer=0
-$timeout=90
-
-# check the log and see if refresh has gone through
-Write-Host "Check for successful refresh..."
-$isSucceeded = $false
-while ($isSucceeded -eq $false) {
-    Start-Sleep -s 10
-    $timer=$timer+10
-    $details = Get-AzSqlSyncSchema -SyncGroupName $syncGroupName -ServerName $serverName -DatabaseName $databaseName -ResourceGroupName $resourceGroupName
-    if ($details.LastUpdateTime -gt $startTime) {
-        Write-Host "Refresh was successful"
-        $isSucceeded = $true
-    }
-    if ($timer -eq $timeout) {
-        Write-Host "Refresh timed out"
-        break;
-    }
-}
-
-# get the database schema
-Write-Host "Adding tables and columns to the sync schema..."
-$databaseSchema = Get-AzSqlSyncSchema -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
-    -DatabaseName $DatabaseName -SyncGroupName $SyncGroupName `
-
-$databaseSchema | ConvertTo-Json -depth 5 -Compress | Out-File "C:\Users\OnPremiseServer\AppData\Local\Temp\syncSchema.json"
-
-$newSchema = [AzureSqlSyncGroupSchemaModel]::new()
-$newSchema.Tables = [List[AzureSqlSyncGroupSchemaTableModel]]::new();
-
-# add columns and tables to the sync schema
-foreach ($tableSchema in $databaseSchema.Tables) {
-    $newTableSchema = [AzureSqlSyncGroupSchemaTableModel]::new()
-    $newTableSchema.QuotedName = $tableSchema.QuotedName
-    $newTableSchema.Columns = [List[AzureSqlSyncGroupSchemaColumnModel]]::new();
-    $addAllColumns = $false
-    if ($MetadataList.Contains($tableSchema.QuotedName)) {
-        if ($tableSchema.HasError) {
-            $fullTableName = $tableSchema.QuotedName
-            Write-Host "Can't add table $fullTableName to the sync schema" -foregroundcolor "Red"
-            Write-Host $tableSchema.ErrorId -foregroundcolor "Red"
-            continue;
-        }
-        else {
-            $addAllColumns = $true
-        }
-    }
-    foreach($columnSchema in $tableSchema.Columns) {
-        $fullColumnName = $tableSchema.QuotedName + "." + $columnSchema.QuotedName
-        if ($addAllColumns -or $MetadataList.Contains($fullColumnName)) {
-            if ((-not $addAllColumns) -and $tableSchema.HasError) {
-                Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
-                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"
-            }
-            elseif ((-not $addAllColumns) -and $columnSchema.HasError) {
-                Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
-                Write-Host $columnSchema.ErrorId -foregroundcolor "Red"
-            }
-            else {
-                Write-Host "Adding"$fullColumnName" to the sync schema"
-                $newColumnSchema = [AzureSqlSyncGroupSchemaColumnModel]::new()
-                $newColumnSchema.QuotedName = $columnSchema.QuotedName
-                $newColumnSchema.DataSize = $columnSchema.DataSize
-                $newColumnSchema.DataType = $columnSchema.DataType
-                $newTableSchema.Columns.Add($newColumnSchema)
-            }
-        }
-    }
-    if ($newTableSchema.Columns.Count -gt 0) {
-        $newSchema.Tables.Add($newTableSchema)
-    }
-}
-
-# convert sync schema to JSON format
-$schemaString = $newSchema | ConvertTo-Json -depth 5 -Compress
-
-# work around a PowerShell bug
-$schemaString = $schemaString.Replace('"Tables"', '"tables"').Replace('"Columns"', '"columns"').Replace('"QuotedName"', '"quotedName"').Replace('"MasterSyncMemberName"','"masterSyncMemberName"')
-
-# save the sync schema to a temp file
-$schemaString | Out-File $tempFile
-
-# update sync schema
-Write-Host "Updating the sync schema..."
-Update-AzSqlSyncGroup -ResourceGroupName $resourceGroupName -ServerName $serverName `
-    -DatabaseName $databaseName -Name $syncGroupName -Schema $tempFile
-
-$syncLogStartTime = Get-Date
-
-# trigger sync manually
-Write-Host "Trigger sync manually..."
-Start-AzSqlSyncGroupSync -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -SyncGroupName $syncGroupName
-
-# check the sync log and wait until the first sync succeeded
-Write-Host "Check the sync log..."
-$isSucceeded = $false
-for ($i = 0; ($i -lt 300) -and (-not $isSucceeded); $i = $i + 10) {
-    Start-Sleep -s 10
-    $syncLogEndTime = Get-Date
-    $syncLogList = Get-AzSqlSyncGroupLog -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
-        -SyncGroupName $syncGroupName -StartTime $syncLogStartTime.ToUniversalTime() -EndTime $syncLogEndTime.ToUniversalTime()
-
-    if ($synclogList.Length -gt 0) {
-        foreach ($syncLog in $syncLogList) {
-            if ($syncLog.Details.Contains("Sync completed successfully")) {
-                Write-Host $syncLog.TimeStamp : $syncLog.Details
-                $isSucceeded = $true
-            }
-        }
-    }
-}
-
-if ($isSucceeded) {
-    # enable scheduled sync
-    Write-Host "Enable the scheduled sync with 300 seconds interval..."
-    Update-AzSqlSyncGroup  -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
-        -Name $syncGroupName -IntervalInSeconds $intervalInSeconds
-}
-else {
-    # output all log if sync doesn't succeed in 300 seconds
-    $syncLogEndTime = Get-Date
-    $syncLogList = Get-AzSqlSyncGroupLog  -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
-        -SyncGroupName $syncGroupName -StartTime $syncLogStartTime.ToUniversalTime() -EndTime $syncLogEndTime.ToUniversalTime()
-
-    if ($synclogList.Length -gt 0) {
-        foreach ($syncLog in $syncLogList) {
-            Write-Host $syncLog.TimeStamp : $syncLog.Details
-        }
-    }
+```json
+{
+  "properties": {
+    "interval": -1,
+    "lastSyncTime": "0001-01-01T08:00:00Z",
+    "conflictResolutionPolicy": "HubWin",
+    "syncDatabaseId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+    "hubDatabaseUserName": "hubUser"
+  }
 }
 ```
 
-## Clean up deployment
+Sample response for creating a sync group:
 
-After you run the sample script, you can run the following command to remove the resource group and all resources associated with it.
-
-```powershell
-Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
-Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
+```json
+{
+  "properties": {
+    "interval": -1,
+    "lastSyncTime": "0001-01-01T08:00:00Z",
+    "conflictResolutionPolicy": "HubWin",
+    "syncDatabaseId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+    "hubDatabaseUserName": "hubUser",
+    "syncState": "NotReady"
+  },
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187",
+  "name": "syncgroupcrud-3187",
+  "type": "Microsoft.Sql/servers/databases/syncGroups"
+}
 ```
 
-## Script explanation
+```json
+{
+  "properties": {
+    "interval": -1,
+    "lastSyncTime": "0001-01-01T08:00:00Z",
+    "conflictResolutionPolicy": "HubWin",
+    "syncDatabaseId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+    "hubDatabaseUserName": "hubUser",
+    "syncState": "NotReady"
+  },
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187",
+  "name": "syncgroupcrud-3187",
+  "type": "Microsoft.Sql/servers/databases/syncGroups"
+}
+```
 
-This script uses the following commands. Each command in the table links to command-specific documentation.
+## Refresh schema
 
-| Command | Notes |
-|---|---|
-| [New-AzSqlSyncAgent](/powershell/module/az.sql/New-azSqlSyncAgent) |  Creates a new Sync Agent. |
-| [New-AzSqlSyncAgentKey](/powershell/module/az.sql/New-azSqlSyncAgentKey) |  Generates the agent key associated with the Sync Agent. |
-| [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Get all the information for the Sync Agent. |
-| [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Add a new member to the sync group. |
-| [Update-AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  Refreshes the database schema information. |
-| [Get-AzSqlSyncSchema](/powershell/module/az.sql/Get-azSqlSyncSchema) |  Get the database schema information. |
-| [Update-AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  Updates the sync group. |
-| [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | Triggers a sync. |
-| [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Checks the Sync Log. |
-|||
+Once your sync group is created successfully, refresh schema using the following templates.
+ 
+Refresh schema for hub: https://docs.microsoft.com/en-us/rest/api/sql/syncgroups/refreshhubschema
+
+Sample request for refreshing a hub database schema: 
+
+```http
+POST https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/refreshHubSchema?api-version=2015-05-01-preview
+```
+
+Sample response for refreshing a hub database schema: 
+
+Status code: 200
+
+Status code: 202
+
+Refresh schema for member: https://docs.microsoft.com/en-us/rest/api/sql/syncmembers/refreshmemberschema
+
+## Update sync group 
+
+Use the following template to update your sync group: https://docs.microsoft.com/en-us/rest/api/sql/syncgroups/createorupdate
+Update sync group by specifying the sync schema. Include your schema and masterSyncMemberName, which is the name that holds the schema you want to use. 
+
+Sample request for updating sync group: 
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187?api-version=2015-05-01-preview
+```
+
+```json
+{
+  "properties": {
+    "interval": -1,
+    "lastSyncTime": "0001-01-01T08:00:00Z",
+    "conflictResolutionPolicy": "HubWin",
+    "syncDatabaseId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+    "hubDatabaseUserName": "hubUser"
+  }
+}
+```
+
+Sample response for updating sync group: 
+
+```json
+{
+  "properties": {
+    "interval": -1,
+    "lastSyncTime": "0001-01-01T08:00:00Z",
+    "conflictResolutionPolicy": "HubWin",
+    "syncDatabaseId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+    "hubDatabaseUserName": "hubUser",
+    "syncState": "NotReady"
+  },
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187",
+  "name": "syncgroupcrud-3187",
+  "type": "Microsoft.Sql/servers/databases/syncGroups"
+}
+```
+
+```json
+{
+  "properties": {
+    "interval": -1,
+    "lastSyncTime": "0001-01-01T08:00:00Z",
+    "conflictResolutionPolicy": "HubWin",
+    "syncDatabaseId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+    "hubDatabaseUserName": "hubUser",
+    "syncState": "NotReady"
+  },
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187",
+  "name": "syncgroupcrud-3187",
+  "type": "Microsoft.Sql/servers/databases/syncGroups"
+}
+```
 
 ## Next steps
 
