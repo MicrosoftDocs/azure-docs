@@ -19,7 +19,7 @@ This article will tell you how to publish apps in your Windows Virtual Desktop e
 To publish a built-in app:
 
 1. Connect to one of the virtual machines in your host pool.
-2. Get the **PackageFamilyName** of the app you want to publish by following the instructions in [this article](/powershell/module/appx/get-appxpackage?view=win10-ps/).
+2. Get the **PackageFamilyName** of the app you want to publish by following the instructions in [this article](/powershell/module/appx/get-appxpackage).
 3. Finally, run the following cmdlet with `<PackageFamilyName>` replaced by the **PackageFamilyName** you found in the previous step:
 
    ```powershell

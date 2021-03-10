@@ -1,33 +1,17 @@
-﻿---
-title: "Tutorial: Start the Immersive Reader using Python"
-titleSuffix: Azure Cognitive Services
-description: In this tutorial, you'll create a Python application that starts the Immersive Reader.
-services: cognitive-services
-author: dylankil
-manager: guillasi
+---
+author: erhopf
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: tutorial
-ms.date: 09/11/2020
-ms.author: dylankil
-ms.custom: "devx-track-python"
-#Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
+ms.topic: include
+ms.date: 03/04/2021
+ms.author: erhopf
 ---
-
-# Tutorial: Start the Immersive Reader using the Python sample project
-
-In the [overview](./overview.md), you learned about what the Immersive Reader is and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. This tutorial covers how to create a Python web application that starts the Immersive Reader. In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create a Python web app with pip, Flask, Jinja, and virtualenv by using a sample project.
-> * Acquire an access token.
-> * Start the Immersive Reader with sample content.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
-* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](./how-to-create-immersive-reader.md) to get set up. You'll need some of the values created here when you configure the environment properties. Save the output of your session into a text file for future reference.
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* An Immersive Reader resource configured for Azure Active Directory authentication. Follow [these instructions](../../how-to-create-immersive-reader.md) to get set up.  You will need some of the values created here when configuring the environment properties. Save the output of your session into a text file for future reference.
 * [Git](https://git-scm.com/).
 * [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk).
 * [Python](https://www.python.org/downloads/) and [pip](https://docs.python.org/3/installing/index.html). Starting with Python 3.4, pip is included by default with the Python binary installers.
@@ -68,15 +52,15 @@ Install [Python](https://www.python.org/downloads/).
 
 Select the **Add Python to PATH** check box.
 
-![Python Windows Install dialog step 1](./media/pythoninstallone.jpg)
+![Python Windows Install dialog step 1](../../media/pythoninstallone.jpg)
 
 Add **Optional Features** by selecting check boxes, and then select **Next**.
 
-![Python Windows Install dialog step 2](./media/pythoninstalltwo.jpg)
+![Python Windows Install dialog step 2](../../media/pythoninstalltwo.jpg)
 
 Select **Custom installation**, and set the installation path as your root folder, for example, `C:\Python37-32\`. Then select **Install**.
 
-![Python Windows Install dialog step 3](./media/pythoninstallthree.jpg)
+![Python Windows Install dialog step 3](../../media/pythoninstallthree.jpg)
 
 After the Python installation is finished, open a command prompt and use `cd` to go to the Python Scripts folder.
 
@@ -309,5 +293,5 @@ Open your browser, and go to http://localhost:5000.
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK reference](./reference.md).
+* Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK reference](../../reference.md).
 * View code samples on [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/).
