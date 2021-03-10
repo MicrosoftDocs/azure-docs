@@ -8,7 +8,7 @@
   - name: What's new
     href: whats-new.md
 - name: Get started with Form Recognizer
-  expaned: true
+  expanded: true
   items:
   - name: Using the client library or REST API
     href: quickstarts/client-library.md
@@ -24,8 +24,12 @@
     href: tutorial-bulk-processing.md
 - name: Concepts
   items:
-  - name: Layout extraction
-    href: concept-layout.md
+  - name: Layout API
+    items:
+    - name: Extract form data    
+      href: concept-layout.md
+    - name: Interpret form data extraction results
+      href: concept-interpret-json-output.md
   - name: Custom models
     href: concept-custom.md  
   - name: Receipts
@@ -34,6 +38,8 @@
     href: concept-business-cards.md
   - name: Invoices
     href: concept-invoices.md
+  - name: Identification cards
+    href: concept-identification-cards.md    
 - name: How-to guides
   items:
   - name: Build a training data set

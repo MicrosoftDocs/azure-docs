@@ -1,5 +1,5 @@
 ---
-title: How to interpret responses from Form Recognizer
+title: Interpret JSON response from Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to interpert and understand the Form Recognizer JSON output - Form Recognizer API
 services: cognitive-services
@@ -13,15 +13,31 @@ ms.date: 03/02/2021
 ms.author: lajanuar
 ---
 
-# Interpreting Analyze Output JSON
+# Interpret Form Recognizer Layout JSON response
 
-**TODO: Need reorganization/restructuring and more descriptive text.**
+In this article we'll discuss how to analyze and interpret the JSON object returned by Form Recognizer's Layout API. Form Recognizer can extract text, tables, selection marks, and structure information from documents using its Layout service. The Layout API extracts form data and returns an organized, structured JSON response using two operations:
 
-Form Recognizer represents the output of all analysis operations in a common JSON format.  At a high level, it is organized into 3 sections:
+* The [**Analyze Layout**](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) operation takes a document (image, TIFF, or PDF file) as the input and extracts the text, tables, selection marks, and structure of the document and returns a `resultID` to be used in the Get Analyze Layout Result operation.
 
-* readResults - Extracted text lines/words, selection marks (ex. check boxes), and basic information for each page of the input file.
-* pageResults - Layout information for each page in the input file, such as data tables and key-value pairs.
-* documentResults - Extracted semantic fields for each detected document in the input file.
+* The [**Get Analyze Layout Result**](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeLayoutResult) operation takes as input the `resultID`  created by the Analyze Layout operation and returns a JSON response. At a high level, the JSON response is organized into 3 sections:
+
+  * **readResults** - Extracted text lines/words, selection marks (ex. check boxes), and basic information for each page of the input file.
+  * **pageResults** - Layout information for each page in the input file, such as data tables and key-value pairs.
+  * **documentResults** - Extracted semantic fields for each detected document in the input file.
+
+## Supported Features
+
+Each analyze operation outputs a subset of the results.
+
+| Feature | Layout | Receipt / BusinessCard / IdDocument | Invoice | Custom (no labels) | Custom (labels) |
+|---|:-:|:-:|:-:|:-:|:-:|
+| Extracted text<br/>(#/readResults/*/lines) | ✔ | ✔ * | ✔ * | ✔ | ✔ |
+| Selection marks<br/>(#/readResults/*/selectionMarks) | ✔ |   | ✔ | ✔ | ✔ |
+| Data tables<br/>(#/pageResults/*/tables) | ✔ |   | ✔ | ✔ | ✔ |
+| Key-value pairs<br/>(#/pageResults/*/keyValuePairs) |   |   |   | ✔ |   |
+| Semantic fields<br/>(#/documentResults) |   | ✔ | ✔ |   | ✔ |
+
+\* Available when includeTextDetails query parameter is set to true.
 
 ## Annotated JSON
 Below is an annotated example of the different content in the analysis output JSON:
@@ -231,20 +247,6 @@ Below is an annotated example of the different content in the analysis output JS
   ]
 }
 ```
-
-## Supported Features
-
-Each analyze operation outputs a subset of the results.
-
-| Feature | Layout | Receipt / BusinessCard / IdDocument | Invoice | Custom (no labels) | Custom (labels) |
-|---|:-:|:-:|:-:|:-:|:-:|
-| Extracted text<br/>(#/readResults/*/lines) | ✔ | ✔ * | ✔ * | ✔ | ✔ |
-| Selection marks<br/>(#/readResults/*/selectionMarks) | ✔ |   | ✔ | ✔ | ✔ |
-| Data tables<br/>(#/pageResults/*/tables) | ✔ |   | ✔ | ✔ | ✔ |
-| Key-value pairs<br/>(#/pageResults/*/keyValuePairs) |   |   |   | ✔ |   |
-| Semantic fields<br/>(#/documentResults) |   | ✔ | ✔ |   | ✔ |
-
-\* Available when includeTextDetails query parameter is set to true.
 
 ## Concepts (TODO: Need better name)
 
