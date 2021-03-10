@@ -91,7 +91,7 @@ This tutorial uploads directly into the Search Index from the `books.csv` file.
       touch bulk_insert_books.js
     ```
 
-    This command also initializes npm and install dependencies used for this bulk upload script. 
+    This command also initializes npm and installs dependencies used for this bulk upload script. 
 
 1. In Visual Studio Code, create a new file called `books.csv` and copy the data from [goodbooks-10k](https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/books.csv) into the file. 
 
@@ -138,8 +138,17 @@ Once the upload completes, the Search Index is ready to use. Review your new Ind
  
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
 
+## Copy your Search index information before moving to next step
+
+Copy these settings, you will need to use them so the Function app can connect to the Search Index
+
+```json
+"SearchServiceName": "YOUR-RESOURCE-NAME",
+"SearchApiKey": "YOUR-RESOURCE-KEY",
+```
+
 ## Next steps
 
-3. [Create an Azure Function app to provide queries into Search Index](tutorial-javascript-create-function-app.md)
-4. [Create a React app to display book catalog with Search functionality](tutorial-javascript-create-web-app.md)
+Step 3. [Deploy your static web app](tutorial-javascript-deploy-static-web-app.md)
+
 
