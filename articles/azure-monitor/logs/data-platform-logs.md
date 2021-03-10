@@ -31,7 +31,7 @@ The following table describes some of the different ways that you can use Logs i
 
 
 ## Data collection
-Once you create a Log Analytics workspace, you must configure different sources to send their data. No data is collected automatically. This configuration will be different depending on the data source. For example, [create diagnostic settings](../essentials/diagnostic-settings.md) to send resource logs from Azure resources to the workspace. [Enable Azure Monitor for VMs](../vm/vminsights-enable-overview.md) to collect data from virtual machines. Configure [data sources on the workspace](../agents/data-sources.md) to collect additional events and performance data.
+Once you create a Log Analytics workspace, you must configure different sources to send their data. No data is collected automatically. This configuration will be different depending on the data source. For example, [create diagnostic settings](../essentials/diagnostic-settings.md) to send resource logs from Azure resources to the workspace. [Enable VM insights](../vm/vminsights-enable-overview.md) to collect data from virtual machines. Configure [data sources on the workspace](../agents/data-sources.md) to collect additional events and performance data.
 
 - See [What is monitored by Azure Monitor?](../monitor-reference.md) for a complete list of data sources that you can configure to send data to Azure Monitor Logs.
 

@@ -84,7 +84,7 @@ Add an event handler to initiate a call to the phone number you provided when th
 callPhoneButton.addEventListener("click", () => {
   // start a call to phone
   const phoneToCall = calleePhoneInput.value;
-  call = callAgent.call(
+  call = callAgent.startCall(
     [{phoneNumber: phoneToCall}], { alternateCallerId: {phoneNumber: 'YOUR AZURE REGISTERED PHONE NUMBER HERE: +12223334444'}
   });
   // toggle button states

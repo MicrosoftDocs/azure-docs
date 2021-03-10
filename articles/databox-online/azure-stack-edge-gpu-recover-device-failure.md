@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Recover from a failed Azure Stack Edge Pro GPU device 
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 This article describes how to recover from a non-tolerable failure on your Azure Stack Edge Pro GPU device. A non-tolerable failure on Azure Stack Edge Pro GPU device requires a device replacement.
 

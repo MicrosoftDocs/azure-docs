@@ -7,21 +7,41 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
 
 # Release notes - Azure Arc enabled data services (Preview)
 
+This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc enabled data services. 
+
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## February 2021
+
+### New capabilities and features
+
+Azure Data CLI (`azdata`) version number: 20.3.1. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+Additional updates include:
+
+- Azure Arc enabled SQL Managed Instance
+   - High availability with Always On availability groups
+
+- Azure Arc enabled PostgreSQL Hyperscale
+   Azure Data Studio: 
+   - The overview page now shows the status of the server group itemized per node
+   - A new properties pages is now available to show more details about the server group
+   - Configure Postgres engine parameters from **Node Parameters** page
+
+For issues associated with this release, see [Known issues - Azure Arc enabled data services (Preview)](known-issues.md)
 
 ## January 2021
 
 ### New capabilities and features
 
 Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
-
 
 Additional updates include:
 - Localized portal available for 17 new languages
