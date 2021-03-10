@@ -1,6 +1,6 @@
 ---
 title: Sign an HTTP request with C#
-description: This article explains the C# version of signing an HTTP request with an HMAC signature for Azure Communication Services.
+description: This tutorial explains the C# version of signing an HTTP request with an HMAC signature for Azure Communication Services.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
@@ -40,7 +40,7 @@ The following steps describe how to construct the authorization header.
 
 ### Create a new C# application
 
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `SignHmacTutorial`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+In a console window, such as cmd, PowerShell, or Bash, use the `dotnet new` command to create a new console app with the name `SignHmacTutorial`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
 
 ```console
 dotnet new console -o SignHmacTutorial
@@ -61,7 +61,7 @@ Install the package `Newtonsoft.Json` that's used for body serialization.
 dotnet add package Newtonsoft.Json
 ```
 
-Update the `Main` method declaration to support async code. Use the following code to begin:
+Update the `Main` method declaration to support async code. Use the following code to begin.
 
 ```csharp
 using System;
@@ -89,7 +89,7 @@ namespace SignHmacTutorial
 
 For this example, we'll sign a request to create a new identity by using the Communication Services Authentication API (version `2021-03-07`).
 
-Add the following code to the `Main` method:
+Add the following code to the `Main` method.
 
 ```csharp
 string resourceEndpoint = "resourceEndpoint";
@@ -150,7 +150,7 @@ We'll now construct the string that we'll add to our authorization header.
 1. Compute the signature.
 1. Concatenate the string, which will be used in the authorization header.
  
-Add the following code to the `Main` method:
+Add the following code to the `Main` method.
 
 ```csharp
 // Compute a content hash.
@@ -167,7 +167,7 @@ var authorizationHeader = $"HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha
 
 ## Add headers to requestMessage
 
-Use the following code to add the required headers to your `requestMessage`:
+Use the following code to add the required headers to your `requestMessage`.
 
 ```csharp
 //Add a content hash header.
