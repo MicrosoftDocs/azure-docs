@@ -127,18 +127,61 @@ New-AzBastion @bastion -AsJob
 
 In this section, you'll create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection.
 
-* Create the virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm).
+* Create a network interface with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface).
+
+* Set an administrator username and password for the VMs with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential).
+
+* Create the virtual machine with:
+    * [New-AzVM](/powershell/module/az.compute/new-azvm)
+    * [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)
+    * [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem)
+    * [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
+    * [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
     
 ```azurepowershell-interactive
-## Create virtual machine to test the NAT gateway ##
+# Set the administrator and password for the VMs. ##
+$cred = Get-Credential
+
+## Place the virtual network into a variable. ##
+$vnet = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroupNAT'
+
+## Create network interface for virtual machine. ##
+$nic = @{
+    Name = "myNicVM"
+    ResourceGroupName = 'myResourceGroupNAT'
+    Location = 'eastus2'
+    Subnet = $vnet.Subnets[0]
+}
+$nicVM = New-AzNetworkInterface @nic
+
+## Create a virtual machine configuration for VMs ##
+$vmsz = @{
+    VMName = "myVM"
+    VMSize = 'Standard_DS1_v2'  
+}
+$vmos = @{
+    ComputerName = "myVM"
+    Credential = $cred
+}
+$vmimage = @{
+    PublisherName = 'MicrosoftWindowsServer'
+    Offer = 'WindowsServer'
+    Skus = '2019-Datacenter'
+    Version = 'latest'    
+}
+$vmConfig = New-AzVMConfig @vmsz `
+    | Set-AzVMOperatingSystem @vmos -Windows `
+    | Set-AzVMSourceImage @vmimage `
+    | Add-AzVMNetworkInterface -Id $nicVM.Id
+
+## Create the virtual machine for VMs ##
 $vm = @{
     ResourceGroupName = 'myResourceGroupNAT'
     Location = 'eastus2'
-    Name = 'myVM'
-    VirtualNetworkName = 'myVNet'
-    SubnetName = 'mySubnet'
+    VM = $vmConfig
 }
 New-AzVM @vm
+
 ```
 
 Wait for the virtual machine creation to complete before moving on to the next section.
@@ -176,13 +219,9 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 If you're not going to continue to use this application, delete
 the virtual network, virtual machine, and NAT gateway with the following steps:
 
-1. From the left-hand menu, select **Resource groups**.
-
-2. Select the **myResourceGroupNAT** resource group.
-
-3. Select **Delete resource group**.
-
-4. Enter **myResourceGroupNAT** and select **Delete**.
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name 'myResourceGroupNAT' -Force
+```
 
 ## Next steps
 
