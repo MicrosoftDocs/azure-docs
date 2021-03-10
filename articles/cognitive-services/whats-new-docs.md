@@ -44,4 +44,4 @@ Welcome to what's new in the Cognitive Services docs from February 1, 2021 throu
 - [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support)
 - [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
 
-[!INCLUDE [Service specific updates](./includes/service-specific-updates)]
+[!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]
