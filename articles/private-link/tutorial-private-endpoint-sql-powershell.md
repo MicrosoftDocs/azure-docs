@@ -1,5 +1,5 @@
 ﻿---
-title: 'Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - PowerShell'
+title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - PowerShell'
 description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure PowerShell
 services: private-link
 author: asudbring
@@ -10,7 +10,7 @@ ms.date: 10/31/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
 ---
-# Tutorial - Connect to an Azure SQL server using an Azure Private Endpoint - Azure PowerShell
+# Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Azure PowerShell
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
@@ -333,8 +333,6 @@ In this tutorial, you created a:
 
 You used the virtual machine to test connectivity securely to the SQL server across the private endpoint.
 
-As a next step, you may also be interested in the [Web app with private connectivity to Azure SQL database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
-
-Learn how to create a Private Link service:
+As a next step, you may also be interested in the **Web app with private connectivity to Azure SQL database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 > [!div class="nextstepaction"]
-> [Create a Private Link service](create-private-link-service-portal.md)
+> [Web app with private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app)
