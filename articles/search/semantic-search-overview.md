@@ -24,19 +24,21 @@ The underlying technology is from Bing and Microsoft Research, and integrated in
 
 The following video provides an overview of the capabilities.
 
-> [!VIDEO https://www.youtube.com/embed/v=yOf0WfVd_V0]
+> [!VIDEO https://www.youtube.com/embed/yOf0WfVd_V0]
 
 ## Components of semantic search
 
 + [Semantic ranking](semantic-ranking.md) that uses the context or semantic meaning to compute a relevance score.
 
-+ [Semantic queries](semantic-how-to-query-request.md) that return highlighted captions that summarize key passages from a result for easy scanning. Semantic captions are text passages relevant to the query extracted from the search results. They can help to summarize a result when individual content fields are too large for the results page. Captions feature semantic highlights, allowing users to quickly skim query results to find the most relevant documents thus improving overall user experience. 
++ [Semantic queries](semantic-how-to-query-request.md) that return highlighted captions that summarize key passages from a result for easy scanning.
 
-+ [Semantic answers](semantic-answers.md) in the response that provide a direct answer to the query. Answers are extracted from text found in the most relevant match.
+  *Semantic captions* are text passages relevant to the query extracted from the search results. They can help to summarize a result when individual content fields are too large for the results page. Captions feature *semantic highlights*, allowing users to quickly skim query results to find the most relevant documents thus improving overall user experience. Captions and highlighting are provided automatically in a semantic query response.
 
-+ [Spell check](speller-how-to-add.md) that corrects typos before the query terms reach the search engine
++ [Semantic answers](semantic-answers.md) is an optional and additional substructure in the response that provides a direct answer to the query. Answers are extracted from text found in the most relevant match.
 
-To use semantic search in queries, you'll need to make small modifications to the search request, but no extra configuration or reindexing is required.
++ [Spell check](speller-how-to-add.md) corrects typos before the query terms reach the search engine.
+
+To use semantic capabilities in queries, you'll need to make small modifications to the search request, but no extra configuration or reindexing is required.
 
 ## Availability and pricing
 
@@ -53,4 +55,5 @@ A new query type enables the relevance ranking and response structures of semant
 [Create a semantic query](semantic-how-to-query-request.md) to get started. Or, review either of the following articles for related information.
 
 + [Add spell check to query terms](speller-how-to-add.md)
-+ [Semantic ranking and answers](semantic-answers.md)
++ [Return a semantic answers](semantic-answers.md)
++ [Semantic ranking](semantic-ranking.md)

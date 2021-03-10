@@ -17,7 +17,7 @@ ms.date: 03/10/2021
 
 In this article, learn how to formulate a search request that uses semantic ranking. The request will return semantic captions, and optionally [semantic answers](semantic-answers.md), with highlights over the most relevant terms and phrases.
 
-Both captions and answers are extracted intact from text in the search document. The semantic subsystem determines what  captions and answers to return, but it does not compose new sentences, or combine values from different fields in the response. For this reason, content that includes explanations or definitions work best for semantic search.
+Both captions and answers are extracted verbatim from text in the search document. The semantic subsystem determines what content has the characteristics of a caption or answer, but it does not compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic search.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Both captions and answers are extracted intact from text in the search document.
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
-+ A [query request](/rest/api/searchservice/preview-api/search-documents) with the semantic option and other parameters described in this article.
++ A [query request](/rest/api/searchservice/preview-api/search-documents) must include the semantic option and other parameters described in this article.
 
 ## What's a semantic query?
 
@@ -57,9 +57,9 @@ Only the top 50 matches from the initial results can be semantically ranked, and
 
 ## Query with Search explorer
 
-[Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after you sign up for the preview. Options enable semantic queries, searchFields, and spell correction.
+[Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after you sign up for the preview. Query options can enable semantic queries, searchFields, and spell correction.
 
-You can also paste the required query parameters into the request.
+You can also paste the required query parameters into the query string.
 
 :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Query options in Search explorer" border="true":::
 
@@ -67,7 +67,7 @@ You can also paste the required query parameters into the request.
 
 Use the [Search Documents (REST preview)](/rest/api/searchservice/preview-api/search-documents) to formulate the request programmatically.
 
-A response includes captions and highlighting automatically. If you want the response to include spelling correction or answers, add an optional **`speller`** or **`answer`** parameter on the request.
+A response includes captions and highlighting automatically. If you want the response to include spelling correction or answers, add an optional **`speller`** or **`answers`** parameter on the request.
 
 The following example uses the hotels-sample-index to create a semantic query request with semantic answers and captions:
 
