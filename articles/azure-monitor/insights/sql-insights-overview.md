@@ -30,8 +30,8 @@ SQL insights supports the following versions of SQL Server:
 
 SQL insights supports SQL Server running in the following environments:
 
-- Azure SQL Databases
-- Azure SQL Managed Instances
+- Azure SQL Database
+- Azure SQL Managed Instance
 - Azure SQL VMs
 - Azure VMs
 

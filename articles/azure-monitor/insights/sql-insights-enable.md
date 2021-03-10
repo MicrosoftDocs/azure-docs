@@ -8,17 +8,15 @@ ms.date: 03/04/2021
 ---
 
 # Enable SQL insights (preview)
-This article describes how to enable [SQL insights](sql-insights-overview.md). During public preview, monitoring is performed from an Azure Virtual Machine that makes a connection to your SQL deployments and uses Dynamic Management Views (DMVs) to gather monitoring data.  This allows you to monitor PaaS versions of SQL as well as SQL running on IaaS.  In both cases, the monitoring is performed remotely. No agent is installed on the SQL Server virtual machine.
+This article describes how to enable [SQL insights](sql-insights-overview.md) to monitor your SQL deployments. Monitoring is performed from an Azure virtual machine that makes a connection to your SQL deployments and uses Dynamic Management Views (DMVs) to gather monitoring data. You can control what datasets are collected and the frequency of collection using a monitoring profile.
 
-## Create Telegraf user 
-You need a user named *telegraf* on the SQL deployments that you want to monitor. Follow the procedures below for different types of SQL deployments.
+## Create monitoring user 
+You need a user on the SQL deployments that you want to monitor. Follow the procedures below for different types of SQL deployments.
 
-### SQL database
-Open Azure SQL Database [via SQL Server Management Studio (SSMS)](../../azure-sql/database/connect-query-ssms.md) or Query Editor (preview) in the Azure portal. When using Query Editor, you need firewall access to use the feature. 
+### Azure SQL database
+Open Azure SQL Database with [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or [Query Editor (preview)](../../azure-sql/database/connect-query-portal.md) in the Azure portal.
 
-:::image type="content" source="media/sql-insights-enable/telegraf-user-database.png" alt-text="Create telegraf user for SQL database.":::
-
-Run the following script to create the Telegraf user with the permissions needed. Replace *mystrongpassword* with a password.
+Run the following script to create a user with the required permissions. Replace *telegraf* with a username and *mystrongpassword* with a password.
 
 ```
 CREATE USER [telegraf] WITH PASSWORD = N'mystrongpassword'; 
@@ -34,7 +32,7 @@ Verify the user was created.
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Verify telegraf user script.":::
 
 ### Azure SQL Managed Instance
-Log into your Azure SQL Managed Instance and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the Telegraf user with the permissions needed. Replace *mystrongpassword* with a password.
+Log into your Azure SQL Managed Instance and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *telegraf* with a username and *mystrongpassword* with a password.
 
  
 ```
@@ -49,7 +47,7 @@ GO
 ```
 
 ### SQL Server
-Log into your Azure VM running SQL Server and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the Telegraf user with the permissions needed. Replace *mystrongpassword* with a password.
+Log into your Azure virtual machine running SQL Server and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *telegraf* with a username and *mystrongpassword* with a password.
 
  
 ```
@@ -64,7 +62,7 @@ GO
 ```
 
 ## Create Azure Virtual Machine 
-You will need to create one or more Azure VMs that will be used to collect data to monitor SQL.  
+You will need to create one or more Azure virtual machines that will be used to collect data to monitor SQL.  
 
 > [!NOTE]
 >  The [monitoring profiles](#create-sql-monitoring-profile) specifies what data you will collect from the different types of SQL you want to monitor. Each monitoring virtual machine can have only one monitoring profile associated with it. If you have a need for multiple monitoring profiles, then you need to create a virtual machine for each.
@@ -73,7 +71,7 @@ You will need to create one or more Azure VMs that will be used to collect data 
 The Azure virtual machines has the following requirements.
 
 - Operating system: Ubuntu 18.04 
-- Recommended Azure virtual machine sizes: Standard B2s (2 cpus, 4 GiB memory) will handle up to 100 connection strings.
+- Recommended Azure virtual machine sizes: Standard_B2s (2 cpus, 4 GiB memory) 
 - Supported regions
    - East US
    - West Europe
@@ -85,6 +83,9 @@ The Azure virtual machines has the following requirements.
    - UK South
    - North Europe
    - West US  
+
+> [!NOTE]
+> The Standard_B2s (2 cpus, 4 GiB memory) virtual machine size will support up to 100 connection strings. You shouldn't allocate more than 100 connections to a single virtual machine.
 
 The virtual machines need to be placed in the same VNET as your SQL systems so they can make network connections to collect monitoring data. If use the monitoring virtual machine to monitor SQL running on Azure virtual machines or as an Azure Managed Instance, consider placing the monitoring virtual machine in an application security group or the same virtual network as those resources so that you don’t need to provide a public network endpoint for monitoring the SQL server. 
 
@@ -107,10 +108,10 @@ If your monitoring virtual machine will be in the same VNet as your SQL MI resou
 
 
 ### Azure virtual machine and Azure SQL virtual machine  
-If your monitoring virtual machine is in the same VNet as your SQL virtual machine resources, then see [Connect to SQL Server within a virtual network](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-within-a-virtual-network). If your monitoring virtual machine will be in the different VNet than your SQL VM resources, then see  [Connect to SQL Server over the internet](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet).
+If your monitoring virtual machine is in the same VNet as your SQL virtual machine resources, then see [Connect to SQL Server within a virtual network](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-within-a-virtual-network). If your monitoring virtual machine will be in the different VNet than your SQL virtual machine resources, then see  [Connect to SQL Server over the internet](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet).
 
-## Store Telegraf password in Key Vault
-This is not required during public preview, but it is recommended so you don't hardcode the Telegraf password into the connection string. You can create more than one secret in your Key Vault if you want to use a different login and password per connection string. 
+## Store monitoring password in Key Vault
+This is not required during public preview, but it is recommended so you don't hardcode the monitoring password into the connection string. You can create more than one secret in your Key Vault if you want to use a different login and password per connection string. 
 
 When settings up your profile for SQL monitoring, you will need one of the following permissions on the Key Vault resource you intend to use:
 
@@ -151,7 +152,7 @@ Select the monitoring profile from the combo box. You may need to use the **refr
 ### Add monitoring machine
 Select **Add monitoring machine** to open a context panel to choose the virtual machine to setup to monitor your SQL instances and provide the connection strings.
 
-Select the subscription and name of your monitoring virtual machine. If you're using Key Vault to store your password for the Telegraf user,  select the Key Vault resources with these secrets and enter the URL and secret name in the connection strings. See the next section for details on identifying the connection string for different SQL deployments.
+Select the subscription and name of your monitoring virtual machine. If you're using Key Vault to store your password for the monitoring user,  select the Key Vault resources with these secrets and enter the URL and secret name in the connection strings. See the next section for details on identifying the connection string for different SQL deployments.
 
 
 :::image type="content" source="media/sql-insights-enable/add-monitoring-machine.png" alt-text="Add monitoring machine.":::
@@ -178,7 +179,7 @@ Get the details from the **Connection strings** menu item for the database.
 To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
 
 
-#### Azure VMs running SQL Server 
+#### Azure virtual machines running SQL Server 
 Enter the connection string in the form:
 
 ```
@@ -190,6 +191,9 @@ Enter the connection string in the form:
 If your monitoring virtual machine is in the same VNET, use the private IP address of the Server.  Otherwise, use the public IP address. If you're using Azure SQL virtual machine, you can see which port to use here on the **Security** page for the resource.
 
 :::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="SQL virtual machine security":::
+
+To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
+
 
 ### Azure SQL Managed Instances 
 Enter the connection string in the form:
@@ -209,7 +213,7 @@ To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOn
 
 
 ## Profile created 
-Select **Add monitoring virtual machine** to configure the virtual machine to collect data from your SQL deployments. Do not return to the **Overview** tab.  In a few minutes you should see data for the systems you have chosen to monitor.
+Select **Add monitoring virtual machine** to configure the virtual machine to collect data from your SQL deployments. Do not return to the **Overview** tab.  In a few minutes, the Status column should change to say "Collecting", you should see data for the systems you have chosen to monitor.
 
 If you do not see data, see [Troubleshooting SQL insights](sql-insights-troubleshooting.md) to identify the issue. 
 
