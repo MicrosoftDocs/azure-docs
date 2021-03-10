@@ -17,7 +17,7 @@ ms.date: 03/10/2021
 
 In this article, learn how to formulate a search request that uses semantic ranking. The request will return semantic captions, and optionally [semantic answers](semantic-ranking-answers.md), with highlights over the most relevant terms and phrases.
 
-Both captions and answers are extracted intact from the available content. The semantic subsystem does not compose new sentence structures, or combine values from different fields, to create an answer or summary. For this reason, content that includes explanations or definitions is well-suited for semantic search.
+Both captions and answers are extracted intact from text in the search document. The semantic subsystem determines what each of them are, but it does not compose new sentences, or combine values from different fields when returning an answer or summary. For this reason, content that includes explanations or definitions work best for semantic search.
 
 ## Prerequisites
 
