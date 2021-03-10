@@ -56,9 +56,9 @@
       href: tutorial-csharp-facets.md
     - name: 5 - Add results ordering
       href: tutorial-csharp-orders.md
-  - name: Add Search to web sites
+  - name: Add Search to web site
     items: 
-    - name: 1. Overview
+    - name: 1. Overview of JavaScript app
       href: tutorial-javascript-overview.md
     - name: 2. Create and load Search Index with JavaScript
       href: tutorial-javascript-create-load-index.md

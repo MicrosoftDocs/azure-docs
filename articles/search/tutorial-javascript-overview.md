@@ -11,7 +11,7 @@ ms.date: 03/09/2021
 ms.custom: devx-track-js
 ---
 
-# Tutorial: Add search to a website
+# 1. Overview - Add search to a website
 
 This tutorial builds a website to search through a catalog of books. 
 
@@ -36,32 +36,54 @@ The search experience includes:
 The sample website includes the following:
 
 * React client (presentation layer)
-* Function app (business layer) - separating out Azure Search API calls and securing the Search key
+* Function app (business layer) - separating out Azure Search API calls in JavaScript and securing the Search key 
 
 The website is deployed as a Static web app, including both the React and Function apps together in a single repository, using GitHub Actions. 
 
-## Create or use a sample Search Index
+The directory containing both apps with have the following subdirectories:
+
+* \api - Function App with its own package.json
+* \public - React app public assets
+* \src - React app source code
+* \scripts - JavaScript script for bulk import
+
+## Create or use the sample web app and Search Index
 
 You can complete this tutorial by:
 
 * Creating your own Search resource and Index. Those steps are provided in the [next section of the tutorial](tutorial-javascript-create-load-index.md).
 * Or [use an existing Search resource and Index](#use-an-existing-resource). 
 
-    To use an existing resource, copy the following setting values and skip forward to [create your Azure Function]():
+
+
+### [Create your own](#tab/create-new)
+
+#### Set up your development environment
+
+Install the following for your local development environment. 
+
+- [Node.js 12+ and npm](https://nodejs.org/en/download) 
+- [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
+- [Azure CLI](/cli/azure/install-azure-cli)
+
+#### Create the basic project structure
+
+Create the basic project structure and the React and Function app. 
+
+1. Add a create-react-app into a folder named `azure-search-react` and open in Visual Studio Code, with the following command:
 
     ```bash
-    "SearchServiceName": "azs-playground",
-    "SearchIndexName": "good-books",
-    "SearchAPIKey": "03097125077C18172260E41153975439"
+    npx create-react-app azure-search-react && \
+        cd azure-search-react && \
+        code .
     ```
 
-## Create or use a web app
+1. Add a subdirectory named `scripts`. 
 
-You can complete the web app by: 
+    With this basic app structure in place, you can [move to the next step in the tutorial](tutorial-javascript-create-load-index.md). 
 
-* Creating the Azure Function app with your Search queries, and creating the React client app.
-* Or [use the sample application already created for you.](#use-the-sample-application)
-    
+# [Use existing sample](#tab/use-existing)
+
 ### Use the sample application
 
 1. Open the sample GitHub repository in a browser: [https://aka.ms/search-react-template](https://aka.ms/search-react-template).
@@ -71,8 +93,49 @@ You can complete the web app by:
 
     This will create your own copy of the code that you can deploy and edit as you please.
 
+1. Open the project in Visual Studio and rename the `local.settings.json.rename` file by removing the `rename` ending.
+1. Edit the `local.settings.json` to use the sample resource values:
+    
+    * SearchServiceName: "azs-playground",
+    * SearchIndexName: "good-books",
+    * SearchAPIKey: "03097125077C18172260E41153975439"
+
+    ```json
+    {
+      "IsEncrypted": false,
+      "Values": {
+        "AzureWebJobsStorage": "",
+        "FUNCTIONS_WORKER_RUNTIME": "node",
+        "SearchApiKey": "03097125077C18172260E41153975439",
+        "SearchServiceName": "azs-playground",
+        "SearchIndexName": "good-books",
+        "SearchFacets": ""
+      }
+    }
+    ```
+
+1. Run the following command to install dependencies in both the React app and the Function app:
+
+    ```bash
+    yarn install && \
+        cd api && \
+        npm install
+    ```
+
+    React uses yarn to install dependencies and Azure Function apps uses npm.
+
+1. Run both projects:
+
+    ```bash
+    ```
+
+## Create or use a web app
+
+#
+
 ## Next steps
 
-1. [Create a Search Index and load with data](tutorial-javascript-create-load-index.md)
-2. [Create an Azure Function app to provide queries into Search Index](tutorial-javascript-create-function-app.md)
+2. [Create a Search Index and load with data](tutorial-javascript-create-load-index.md)
+3. [Create an Azure Function app to provide queries into Search Index](tutorial-javascript-create-function-app.md)
+4. [Create a React app to display book catalog with Search functionality](tutorial-javascript-create-web-app.md)
 
