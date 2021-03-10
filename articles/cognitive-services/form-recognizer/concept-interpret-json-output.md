@@ -13,7 +13,7 @@ ms.date: 03/02/2021
 ms.author: lajanuar
 ---
 
-# Interpret Form Recognizer Layout JSON response
+# Interpret Layout extraction JSON response
 
 In this article we'll discuss how to analyze and interpret the JSON object returned by Form Recognizer's Layout API. Form Recognizer can extract text, tables, selection marks, and structure information from documents using its Layout service. The Layout API extracts form data and returns an organized, structured JSON response using two operations:
 

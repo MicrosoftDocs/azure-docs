@@ -28,7 +28,7 @@
     items:
     - name: Extract form data    
       href: concept-layout.md
-    - name: Interpret form data extraction results
+    - name: Interpret form data extraction 
       href: concept-interpret-json-output.md
   - name: Custom models
     href: concept-custom.md  
