@@ -30,7 +30,7 @@ As an administrator, you can reset a user's password if the password is forgotte
 
 ## To reset a password
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a user administrator, or password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md#available-roles)
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a user administrator, or password administrator. For more information about the available roles, see [Azure AD built-in roles](../roles/permissions-reference.md)
 
 2. Select **Azure Active Directory**, select **Users**, search for and select the user that needs the reset, and then select **Reset Password**.
 

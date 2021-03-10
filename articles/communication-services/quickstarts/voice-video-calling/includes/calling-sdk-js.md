@@ -14,8 +14,11 @@ ms.author: mikben
 
 ## Install the client library
 
+> [!NOTE]
+> This document uses version 1.0.0-beta.6 of the calling client library.
+
 Use the `npm install` command to install the Azure Communication Services calling and common client libraries for JavaScript.
-This document references types in version 1.0.0-beta.5 of the calling library.
+This document references types in version 1.0.0-beta.5 of calling library.
 
 ```console
 npm install @azure/communication-common --save
@@ -54,7 +57,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## Place a call
 
-To create and start a call, use one of the APIs on `callAgent` and provide a user that you've created through the Communication Services Administration client library.
+To create and start a call, use one of the APIs on `callAgent` and provide a user that you've created through the Communication Services administration client library.
 
 Call creation and start are synchronous. The call instance allows you to subscribe to call events.
 
@@ -263,10 +266,10 @@ To mute or unmute the local endpoint, you can use the `mute` and `unmute` asynch
 
 ```js
 
-//mute local device 
+//mute local device
 await call.mute();
 
-//unmute local device 
+//unmute local device
 await call.unmute();
 
 ```
@@ -583,7 +586,7 @@ const isRecordingActiveChangedHandler = () => {
 };
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
-               
+
 ```
 
 ## Transfer calls

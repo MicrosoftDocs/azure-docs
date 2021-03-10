@@ -161,4 +161,4 @@ Now that you're collecting operational and performance data from your Windows co
 To learn how to view and analyze the data, continue to the tutorial:
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics](../log-query/log-analytics-tutorial.md)
+> [View or analyze data in Log Analytics](../logs/log-analytics-tutorial.md)

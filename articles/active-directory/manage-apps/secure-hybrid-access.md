@@ -43,7 +43,7 @@ The following networking vendors offer pre-built solutions and detailed guidance
 
 - [Citrix Application Delivery Controller (ADC)](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)
 
-- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/saas-apps/headerf5-tutorial)
+- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
 
 - [Kemp](https://docs.microsoft.com/azure/active-directory/saas-apps/kemp-tutorial)
 

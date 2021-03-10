@@ -226,8 +226,6 @@ This widget displays a pie chart that shows the number of incidents by type. Thi
 
 This widget displays a pie chart that shows the number of devices by vendor. The number of devices for a specific vendor is proportional to the size of that device’s vendor part of the disk relative to other device vendors.
 
-:::image type="content" source="media/how-to-create-trends-and-statistics-reports/devices-by-vendor.png" alt-text="A view of the devices by vendor widget.":::
-
 ## Number of devices per VLAN widget
 
 This widget displays a pie chart that shows the number of discovered devices per VLAN. The size of each slice of the pie is proportional to the number of discovered devices relative to the other slices.
@@ -265,10 +263,6 @@ The System Report is a PDF file containing all the data in the system:
 ## Devices in a system report 
 
 The System Report shows a list of all devices, and their information. For example, Type, Name, and Protocols used. The System Report also shows a list of devices per vendor.
-
-:::image type="content" source="media/how-to-create-trends-and-statistics-reports/devices.png" alt-text="A list of devices in the system report.":::
-
-:::image type="content" source="media/how-to-create-trends-and-statistics-reports/devices-by-vendor-report.png" alt-text="A view of the devices by vendor in the system report.":::
 
 ## Alerts in system report 
 
