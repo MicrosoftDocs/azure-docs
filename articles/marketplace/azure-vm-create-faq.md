@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/15/2020
+ms.date: 03/10/2021
 ---
 
 # Common questions about VM in Azure Marketplace
