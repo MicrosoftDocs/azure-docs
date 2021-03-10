@@ -336,7 +336,7 @@ additionalContent:
           - text: Bing Visual Search
             url: /python/api/overview/azure/cognitiveservices/bing-visual-search-readme
           - text: Bing Spell Check
-            url: /python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python
+            url: /python/api/overview/azure/cognitiveservices/spellcheck
       - title: Node.js SDK
         links:
           - text: Bing Web Search

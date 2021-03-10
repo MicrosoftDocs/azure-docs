@@ -6,15 +6,12 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/11/2021
 ---
 
 # Grant and request tenant-wide visibility
 
 A user with the Azure Active Directory (AD) role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. Permission elevation is required because Azure AD role assignments don't grant access to Azure resources. 
-
-> [!TIP]
-> Learn more about permission elevation for the Global Administrator role in [Elevate access to manage all Azure subscriptions and management groups](../role-based-access-control/elevate-access-global-admin.md).
 
 ## Grant tenant-wide permissions to yourself
 
@@ -40,6 +37,14 @@ To assign yourself tenant-level permissions:
 1. Log out of the Azure portal, and then log back in again.
 
 1. Once you have elevated access, open or refresh Azure Security Center to verify you have visibility into all subscriptions under your Azure AD tenant. 
+
+The simple process above performs a number of operations automatically for you:
+
+1. The user's permissions are temporarily elevated.
+1. Using the new permissions, the user is assigned to the desired Azure RBAC role on the root management group.
+1. The elevated permissions are removed.
+
+For more details of the Azure AD elevation process, see [Elevate access to manage all Azure subscriptions and management groups](../role-based-access-control/elevate-access-global-admin.md).
 
 
 ## Request tenant-wide permissions when yours are insufficient
