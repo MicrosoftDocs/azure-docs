@@ -7,16 +7,14 @@ documentationcenter: ''
 author: willzhan
 manager: steveng
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 3/10/2021
 ms.author: willzhan
 ms.custom: devx-track-csharp
-
 ---
 
 # Offline PlayReady Streaming for Windows 10

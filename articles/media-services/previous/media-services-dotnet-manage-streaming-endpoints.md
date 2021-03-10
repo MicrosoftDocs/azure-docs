@@ -4,7 +4,7 @@ title: Manage streaming endpoints with .NET SDK. | Microsoft Docs
 description: This article demonstrates how to manage streaming endpoints with .NET SDK.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: inhenkel
 writer: juliako
 manager: femila
 editor: ''
@@ -15,8 +15,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
 
 ---

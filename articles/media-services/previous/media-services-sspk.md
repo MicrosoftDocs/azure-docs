@@ -6,16 +6,14 @@ documentationcenter: ''
 author: xpouyat
 manager: femila
 editor: ''
-
 ms.assetid: e3b488e7-8428-4c10-a072-eb3af46c82ad
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 3/10/2021
 ms.author: xpouyat
-
 ---
 # Licensing Microsoft&reg; Smooth Streaming Client Porting Kit
 

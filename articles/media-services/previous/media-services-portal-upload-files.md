@@ -3,7 +3,7 @@ title: Upload files to a Media Services account in the Azure portal | Microsoft 
 description: This tutorial walks you through the steps of uploading files to a Media Services account in the Azure portal.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: inhenkel
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 
 ---
 # Upload files to a Media Services account in the Azure portal

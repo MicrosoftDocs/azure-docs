@@ -3,7 +3,7 @@ title: Configure a content key authorization policy with REST - Azure | Microsof
 description: Learn how to configure an authorization policy for a content key by using the Media Services REST API.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: inhenkel
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
 
 ---

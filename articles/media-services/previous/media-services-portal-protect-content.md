@@ -3,7 +3,7 @@ title: Configure content protection policies by using the Azure portal | Microso
 description: This article demonstrates how to use the Azure portal to configure content protection policies. The article also shows how to enable dynamic encryption for your assets.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: inhenkel
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 
 ---
 # Configure content protection policies by using the Azure portal

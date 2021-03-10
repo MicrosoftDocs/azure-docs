@@ -3,7 +3,7 @@ title: Azure Media Services frequently asked questions
 description: This article gives answers to the Frequently asked questions about Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: inhenkel
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 
 ---
 # Media Services v2 frequently asked questions

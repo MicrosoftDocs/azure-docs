@@ -3,7 +3,7 @@ title: Overview of Azure on-demand media encoders | Microsoft Docs
 description: Azure Media Services provides multiple options for the encoding of media in the cloud. This article gives an overview of Azure on-demand media encoders.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: inhenkel
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 
 ---
 # Overview of Azure on-demand media encoders

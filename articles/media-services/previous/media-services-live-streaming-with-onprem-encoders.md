@@ -3,7 +3,7 @@ title: Stream live with on-premises encoders that create multi-bitrate streams -
 description: This topic describes how to set up a channel that receives a multi-bitrate live stream from an on-premises encoder. 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: inhenkel
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 
 ---
 # Working with Channels that receive multi-bitrate live stream from on-premises encoders

@@ -1,7 +1,7 @@
 ---
 title: Media Encoder Standard schema | Microsoft Docs
 description: This article describes some of the elements and types of the XML schema on which Media Encoder Standard presets are based.
-author: Juliako
+author: inhenkel
 manager: femila
 editor: ''
 services: media-services
@@ -12,8 +12,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 
 ---
 # Media Encoder Standard schema

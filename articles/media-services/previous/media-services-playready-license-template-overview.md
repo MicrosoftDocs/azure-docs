@@ -1,7 +1,7 @@
 ---
 title: Media Services PlayReady license template overview
 description: This topic gives an overview of a PlayReady license template that is used to configure PlayReady licenses.
-author: juliako
+author: inhenkel
 manager: femila
 editor: ''
 services: media-services
@@ -13,8 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 
 ---
 # Media Services PlayReady license template overview
