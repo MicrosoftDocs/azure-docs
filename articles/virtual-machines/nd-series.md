@@ -19,7 +19,7 @@ The ND-series virtual machines are a new addition to the GPU family designed for
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 Nvidia NVLink Interconnect: Not Supported<br>
 
 > [!IMPORTANT]
