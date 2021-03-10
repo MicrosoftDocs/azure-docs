@@ -16,3 +16,8 @@
 
 [y]: ../articles/active-directory/develop/media/common/yes.png
 [n]: ../articles/active-directory/develop/media/common/no.png
+
+
+<!--Reference-style links -->
+
+[preview-tos]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
