@@ -1234,7 +1234,7 @@
 - name: Updates and maintenance
   items:
   - name: Overview
-    href: updates-maintenance.md
+    href: updates-maintenance-overview.md
   - name: Automatic OS image upgrade
     items:
     - name: Overview

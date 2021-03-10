@@ -46,7 +46,7 @@ Enabling [automatic VM guest patching](automatic-vm-guest-patching.md) for your 
 
  Automatic Extension Upgrade has the following features:
 - Supported for Azure VMs and Azure Virtual Machine Scale Sets. Service Fabric Virtual Machine Scale Sets are currently not supported.
-- Upgrades are applied in an availability-first deployment model (detailed below).
+- Upgrades are applied in an availability-first deployment model.
 - For a Virtual Machine Scale Set, no more than 20% of the scale set virtual machines will be upgraded in a single batch. The minimum batch size is one virtual machine.
 - Works for all VM sizes, and for both Windows and Linux extensions.
 - You can opt out of automatic upgrades at any time.
