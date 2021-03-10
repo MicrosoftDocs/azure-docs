@@ -1233,8 +1233,6 @@
     href: ./linux/login-using-aad.md
 - name: Updates and maintenance
   items:
-  - name: Overview
-    href: maintenance-and-updates.md
   - name: Guest OS updates
     items: 
     - name: Image upgrade
@@ -1249,6 +1247,8 @@
     href: automatic-extension-upgrade.md
   - name: Platform maintenance
     items:
+    - name: Overview
+      href: maintenance-and-updates.md
     - name: Maintenance notifications
       items:
       - name: Overview
