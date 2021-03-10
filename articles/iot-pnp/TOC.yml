@@ -81,7 +81,7 @@
   items:
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-pnp/toc.json&bc=/azure/iot-pnp/breadcrumb/toc.json
-  - name: Glossary
+  - name: IoT Glossary
     href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-pnp/toc.json&bc=/azure/iot-pnp/breadcrumb/toc.json
   - name: Azure IoT services
     items:

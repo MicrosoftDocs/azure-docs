@@ -69,7 +69,7 @@ In IoT Plug and Play, commands defined in an [interface](#interface) represent m
 
 ### Component
 
-In IoT Plug and Play, components let you build a model [interface](#interface) as an assembly of other interfaces. A [device model](#device-model) can combine multiple interfaces as components. For example, a model might include a switch component and thermostat component. Multiple components in a model can also use the same interface type. For example a model might include two thermostat components.
+In IoT Plug and Play, components let you build a model [interface](#interface) as an assembly of other interfaces. A [device model](#device-model) can combine multiple interfaces as components. For example, a model might include a switch component and thermostat component. Multiple components in a model can also use the same interface type. For example, a model might include two thermostat components.
 
 ### Configuration
 
@@ -111,7 +111,7 @@ A device model uses the [Digital Twins Definition Language](#digital-twins-defin
 
 ### Device builder
 
-A device builder uses a [device model](#device-model) and [interfaces](#interface) when implementing code to run on an [IoT Plug and Play device](#iot-plug-and-play-device). Device builders typically use one of the [Azure IoT device SDKs](#azure-iot-device-sdks) to implement  the device client but this is not required.
+A device builder uses a [device model](#device-model) and [interfaces](#interface) when implementing code to run on an [IoT Plug and Play device](#iot-plug-and-play-device). Device builders typically use one of the [Azure IoT device SDKs](#azure-iot-device-sdks) to implement the device client.
 
 ### Device modeling
 
@@ -179,15 +179,15 @@ A digital twin is a collection of digital data that represents a physical object
 
 ### Digital twin change events
 
-When an [IoT Plug and Play device](#iot-plug-and-play-device) is connected to an IoT hub, the hub can use its routing capability to send notifications of digital twin changes. For example, whenever a [property](#properties) value changes on a device, IoT Hub can send a notification to an endpoint such as a Event hub.
+When an [IoT Plug and Play device](#iot-plug-and-play-device) is connected to an IoT hub, the hub can use its routing capability to send notifications of digital twin changes. For example, whenever a [property](#properties) value changes on a device, IoT Hub can send a notification to an endpoint such as an Event hub.
 
 ### Digital Twins Definition Language
 
-A language for describing models and interfaces for [IoT Plug and Play devices](#iot-plug-and-play-device). Use the [Digital Twins Definition Language version 2](https://github.com/Azure/opendigitaltwins-dtdl) to describe a [digital twin's](#digital-twin) capabilities and enable the IoT platform and IoT solutions to leverage the semantics of the entity.
+A language for describing models and interfaces for [IoT Plug and Play devices](#iot-plug-and-play-device). Use the [Digital Twins Definition Language version 2](https://github.com/Azure/opendigitaltwins-dtdl) to describe a [digital twin's](#digital-twin) capabilities and enable the IoT platform and IoT solutions to use the semantics of the entity.
 
 ### Digital twin route
 
-A route set up in an IoT hub to deliver [digital twin change events](#digital-twin-change-events) to and endpoint such as a Event hub.
+A route set up in an IoT hub to deliver [digital twin change events](#digital-twin-change-events) to and endpoint such as an Event hub.
 
 ## E
 
@@ -335,7 +335,7 @@ Your solution back end can use [jobs](../iot-hub/iot-hub-devguide-jobs.md) to sc
 
 ### Model ID
 
-When an IoT Plug and Play device connects to an IoT Hub it sends the **Model ID** of the [DTDL](#digital-twins-definition-language) model it implements. This enables the solution to find the device model.
+When an IoT Plug and Play device connects to an IoT Hub, it sends the **Model ID** of the [DTDL](#digital-twins-definition-language) model it implements. This ID enables the solution to find the device model.
 
 ### Model repository
 
@@ -357,7 +357,7 @@ Module identity and module twin provide the same capabilities as [device identit
 
 ### Module identity
 
-The module identity is the unique identifier assigned to every module that belong to a device. Module identity is also registered in the [identity registry](#identity-registry).
+The module identity is the unique identifier assigned to every module that belongs to a device. Module identity is also registered in the [identity registry](#identity-registry).
 
 ### Module twin
 
