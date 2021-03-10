@@ -1,14 +1,10 @@
 ---
 title: Pipeline execution and triggers in Azure Data Factory 
 description: This article provides information about how to execute a pipeline in Azure Data Factory, either on-demand or by creating a trigger.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
 ---
@@ -376,7 +372,7 @@ The following table provides a comparison of the tumbling window trigger and sch
 | **Reliability** | 100% reliability. Pipeline runs can be scheduled for all windows from a specified start date without gaps. | Less reliable. |
 | **Retry capability** | Supported. Failed pipeline runs have a default retry policy of 0, or a policy that's specified by the user in the trigger definition. Automatically retries when the pipeline runs fail due to concurrency/server/throttling limits (that is, status codes 400: User Error, 429: Too many requests, and 500: Internal Server error). | Not supported. |
 | **Concurrency** | Supported. Users can explicitly set concurrency limits for the trigger. Allows between 1 and 50 concurrent triggered pipeline runs. | Not supported. |
-| **System variables** | Along with @trigger().scheduledTime and @trigger().startTime, it also supports the use of the **WindowStart** and **WindowEnd** system variables. Users can access `triggerOutputs().windowStartTime` and `triggerOutputs().windowEndTime` as trigger system variables in the trigger definition. The values are used as the window start time and window end time, respectively. For example, for a tumbling window trigger that runs every hour, for the window 1:00 AM to 2:00 AM, the definition is `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` and `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Only supports default @trigger().scheduledTime and @trigger().startTime variables. |
+| **System variables** | Along with @trigger().scheduledTime and @trigger().startTime, it also supports the use of the **WindowStart** and **WindowEnd** system variables. Users can access `trigger().outputs.windowStartTime` and `trigger().outputs.windowEndTime` as trigger system variables in the trigger definition. The values are used as the window start time and window end time, respectively. For example, for a tumbling window trigger that runs every hour, for the window 1:00 AM to 2:00 AM, the definition is `trigger().outputs.windowStartTime = 2017-09-01T01:00:00Z` and `trigger().outputs.windowEndTime = 2017-09-01T02:00:00Z`. | Only supports default @trigger().scheduledTime and @trigger().startTime variables. |
 | **Pipeline-to-trigger relationship** | Supports a one-to-one relationship. Only one pipeline can be triggered. | Supports many-to-many relationships. Multiple triggers can kick off a single pipeline. A single trigger can kick off multiple pipelines. |
 
 ## Next steps

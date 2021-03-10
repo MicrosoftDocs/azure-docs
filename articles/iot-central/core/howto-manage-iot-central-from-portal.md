@@ -18,6 +18,9 @@ Instead of creating and managing IoT Central applications on the [Azure IoT Cent
 
 ## Create IoT Central applications
 
+[!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
+
+
 To create an application, navigate to the [Azure portal](https://ms.portal.azure.com) and select **Create a resource**.
 
 In **Search the Marketplace** bar, type *IoT Central*:
@@ -45,7 +48,7 @@ After filling out all fields, select **Create**.
 If you already have an Azure IoT Central application you can delete it, or move it to a different subscription or resource group in the Azure portal.
 
 > [!NOTE]
-> You can't see applications created on the free pricing plan in the Azure portal because they are not associated with your subscription.
+> Applications created using the *free* plan do not require an Azure subscriptions, and therefore you won't find them listed in your Azure subscription on the Azure portal. You can only see and manage free apps from the IoT Central portal.
 
 To get started, select **All resources** in the portal. Select **Show hidden types** and start typing the name of your application in **Filter by name** to find it. Then select the IoT Central application you'd like to manage.
 

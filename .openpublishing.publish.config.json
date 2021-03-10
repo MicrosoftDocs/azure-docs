@@ -1,5 +1,8 @@
 {
   "build_entry_point": "docs",
+  "redirection_files": [
+    ".openpublishing.redirection.json"
+  ],
   "docsets_to_publish": [
     {
       "docset_name": "azure-documents",
@@ -95,7 +98,7 @@
     {
       "path_to_root": "samples-mediaservices-integration",
       "url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "samples-mediaservices-encryptiondrm",
@@ -140,7 +143,12 @@
     {
       "path_to_root": "samples-durable-functions",
       "url": "https://github.com/Azure/azure-functions-durable-extension",
-      "branch": "master"
+      "branch": "main"
+    },
+    {
+      "path_to_root": "samples-durable-functions-python",
+      "url": "https://github.com/Azure/azure-functions-durable-python",
+      "branch": "main"
     },
     {
       "path_to_root": "functions-python-tensorflow-tutorial",
@@ -193,6 +201,11 @@
       "path_to_root": "functions-docs-powershell",
       "url": "https://github.com/Azure-Samples/functions-docs-powershell",
       "branch": "master"
+    },    
+    {
+      "path_to_root": "azure-functions-dotnet-worker",
+      "url": "https://github.com/Azure/azure-functions-dotnet-worker",
+      "branch": "main"
     },
     {
       "path_to_root": "samples-personalizer",
@@ -263,6 +276,11 @@
       "path_to_root": "media-services-v3-dotnet-tutorials",
       "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials",
       "branch": "master"
+    },
+    {
+      "path_to_root": "media-services-v3-dotnet",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet",
+      "branch": "main"
     },
     {
       "path_to_root": "samples-javascript",
@@ -560,6 +578,16 @@
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "master"
+    },
+    {
+      "path_to_root": "digital-twins-docs-samples",
+      "url": "https://github.com/azure-samples/digital-twins-docs-code",
+      "branch": "main"
+    },
+    {
+      "path_to_root": "digital-twins-docs-samples-dps",
+      "url": "https://github.com/Azure-Samples/digital-twins-iothub-integration",
+      "branch": "main"
     }
   ],
   "branch_target_mapping": {

@@ -29,12 +29,12 @@ The private packages are used through [Environment](/python/api/azureml-core/azu
 
 ## Prerequisites
 
- * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
+ * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install)
  * An [Azure Machine Learning workspace](how-to-manage-workspace.md)
 
 ## Use small number of packages for development and testing
 
-For a small number of private packages for a single workspace, use the static [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) method. This approach allows you to quickly add a private package to the workspace, and is well suited for development and testing purposes.
+For a small number of private packages for a single workspace, use the static [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment#add-private-pip-wheel-workspace--file-path--exist-ok-false-) method. This approach allows you to quickly add a private package to the workspace, and is well suited for development and testing purposes.
 
 Point the file path argument to a local wheel file and run the ```add_private_pip_wheel``` command. The command returns a URL used to track the location of the package within your Workspace. Capture the storage URL and pass it the `add_pip_package()` method.
 
@@ -57,7 +57,7 @@ with token based authentication, such as private GitHub repositories.
 
  1. [Create a Personal Access Token (PAT)](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?preserve-view=true&tabs=preview-page&view=azure-devops#create-a-pat) for your Azure DevOps instance. Set the scope of the token to __Packaging > Read__. 
 
- 2. Add the Azure DevOps URL and PAT as workspace properties, using the [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-) method.
+ 2. Add the Azure DevOps URL and PAT as workspace properties, using the [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-) method.
 
      ```python
     from azureml.core import Workspace

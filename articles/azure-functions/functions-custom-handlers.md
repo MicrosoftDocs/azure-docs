@@ -117,9 +117,6 @@ For custom handlers, set `FUNCTIONS_WORKER_RUNTIME` to `Custom` in *local.settin
 }
 ```
 
-> [!NOTE]
-> `Custom` may not be recognized as a valid runtime on the Linux Premium or App Service plans. If that is your deployment target, set `FUNCTIONS_WORKER_RUNTIME` to an empty string.
-
 ### Function metadata
 
 When used with a custom handler, the *function.json* contents are no different from how you would define a function under any other context. The only requirement is that *function.json* files must be in a folder named to match the function name.
@@ -402,7 +399,7 @@ By setting the `message` output equal to the order data that came in from the re
 For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. This behavior can be configured in *host.json* using the `enableForwardingHttpRequest` setting.
 
 > [!IMPORTANT]
-> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets are not available. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](functions-scale.md#cold-start).
+> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets are not available. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](event-driven-scaling.md#cold-start).
 >
 > To address these circumstances, consider running your web apps on [Azure App Service](../app-service/overview.md).
 

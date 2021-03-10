@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-azurecli"
+ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python"
 ---
 
 # Azure Event Grid trigger for Azure Functions
@@ -600,7 +600,7 @@ The subscription validation request will be received first; ignore any validatio
 
 ### Manually post the request
 
-Run your Event Grid function locally.
+Run your Event Grid function locally. The `Content-Type` and `aeg-event-type` headers are required to be manually set, while and all other values can be left as default.
 
 Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/docs/httpscripting.html) to create an HTTP POST request:
 

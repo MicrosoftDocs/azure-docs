@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 In Azure Synapse Analytics, the data integration capabilities such as Synapse pipelines and data flows are based upon those of Azure Data Factory. For more information, see [what is Azure Data Factory](../../data-factory/introduction.md).
 
 
-## Available Features in Azure Data Factory and Azure Synapse Analytics
+## Available features in ADF & Azure Synapse Analytics
 
 Check below table for features availability:
 
@@ -31,6 +31,7 @@ Check below table for features availability:
 | **GIT Repository Integration** | GIT Integration | ✓ | ✓ |
 | **Monitoring**           | Monitoring of Spark Jobs for Data Flow | ✗ | ✓<br><small>*Leverage the Synapse Spark pools* |
 |                          | Integration with Azure Monitor | ✓ | ✗ |
+| **Lineage** | Supports publishing Pipeline lineage data to Purview  | ✓ | ✗ |  
 
 > [!Note]
 > **Time to Live** is an Azure Integration Runtime setting that enables the Spark cluster to *stay warm* for a period of time after an execution of data flow.

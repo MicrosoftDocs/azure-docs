@@ -4,7 +4,6 @@ description: This article gives an overview of a continuous integration and depl
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 9/22/2020

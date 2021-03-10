@@ -277,4 +277,5 @@ The next example shows how to run the tests.
 
 ## Next steps
 
-To learn about the default tests, see [Default test cases for ARM template test toolkit](test-cases.md).
+- To learn about the default tests, see [Default test cases for ARM template test toolkit](test-cases.md).
+- For a Microsoft Learn module that covers using the test toolkit, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).

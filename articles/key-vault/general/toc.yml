@@ -27,7 +27,7 @@
       href: tutorial-python-virtual-machine.md
   - name: Azure App Service
     items:
-    - name: Use Azure Key Vault wit an Web App in .NET
+    - name: Use Azure Key Vault with a Web App in .NET
       href: tutorial-net-create-vault-azure-web-app.md
   - name: Azure Kubernetes Service
     items: 
@@ -48,24 +48,22 @@
   items:
   - name: Basic concepts
     href: basic-concepts.md
+  - name: Best practices
+    href: best-practices.md
   - name: Security
     items:
-    - name: Key Vault Authentication Fundamentals
+    - name: Overview
+      href: security-overview.md
+    - name: Secure access to a key vault
+      href: secure-your-key-vault.md
+    - name: Key Vault authentication fundamentals
       href: authentication-fundamentals.md
-    - name: Azure Key Vault security
-      href: overview-security.md
-    - name: Best Practices to use Key Vault - Azure Key Vault
-      href: best-practices.md
-    - name: Azure Key Vault security worlds
+    - name: Security worlds and geographic boundaries
       href: overview-security-worlds.md
     - name: Network Security
       href: network-security.md
-    - name: Secure access to a key vault - Azure Key Vault
-      href: secure-your-key-vault.md
     - name: Azure Security Baseline for Key Vault
       href: security-baseline.md
-    - name: Security recommendations for Azure Key Vault
-      href: security-recommendations.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
@@ -87,12 +85,12 @@
     href: overview-throttling.md
   - name: Azure Key Vault availability and redundancy
     href: disaster-recovery-guidance.md
-  - name: Virtual network service endpoints for Azure Key Vault - Azure Key Vault
+  - name: Virtual network service endpoints for Azure Key Vault
     href: overview-vnet-service-endpoints.md
 
 - name: How-to guides
   items:
-  - name: Authenticate
+  - name: Authenticate & Authorize
     items:
     - name: Authenticate to Key Vault
       href: authentication.md
@@ -104,45 +102,49 @@
         href: assign-access-policy-powershell.md
       - name: Portal
         href: assign-access-policy-portal.md
-    - name: Use an Azure RBAC for managing access to keys, secrets, and certificates (preview)
-      href: rbac-guide.md
-    - name: Vault access policies to Azure RBAC migration guide
-      href: rbac-migration.md  
+    - name: Azure RBAC permission model
+      items:
+      - name: Use an Azure RBAC for managing access to keys, secrets, and certificates
+        href: rbac-guide.md
+      - name: Vault access policies to Azure RBAC migration guide
+        href: rbac-migration.md  
     - name: Troubleshoot access issues
       href: troubleshooting-access-issues.md
-  - name: Enable soft delete and purge protection
-    href: key-vault-recovery.md
-  - name: Enable logging
-    href: howto-logging.md
   - name: Develop
     items:
     - name: Azure Key Vault Developer's Guide
       href: developers-guide.md
     - name: Use Azure Resource Manager to deploy Key Vault
       href: vault-create-template.md
-    - name: Save Web App secrets
-      href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
-    - name: Service-to-service authentication with .NET
-      href: service-to-service-authentication.md
     - name: Use Key Vault Connected Service
       href: vs-key-vault-add-connected-service.md
   - name: Monitor and govern
     items:
-    - name: Configure monitoring and alerting for Azure Key Vault
+    - name: Event Grid Notifications
+      items:
+      - name: Receive notifications via Logic Apps 
+        href: event-grid-logicapps.md
+      - name: Receive notifications via Azure Automation
+        href: event-grid-tutorial.md
+    - name: Enable logging
+      href: howto-logging.md
+    - name: Configure monitoring and alerting for Azure Key Vault with Azure Monitor
       href: alert.md
+    - name: Recovery management with soft-delete and purge protection
+      href: key-vault-recovery.md
     - name: Integrate Azure Key Vault with Azure Policy
       href: azure-policy.md
-    - name: Receive notifications via Azure Event Grid and Logic Apps
-      href: event-grid-logicapps.md
-    - name: Receive notifications via Azure Event Grid and Azure Automation
-      href: event-grid-tutorial.md
     - name: Back up Individual Key Vault Objects
       href: backup.md
   - name: Secure
     items:
-    - name: Integrate with Azure Private Link Service
-      href: private-link-service.md
-    - name: Access Key Vault behind a firewall - Azure Key Vault
+    - name: Azure Private Link
+      items:
+      - name: Integrate with Azure Private Link Service
+        href: private-link-service.md
+      - name: Diagnose Private Links Configuration Issues
+        href: private-link-diagnostics.md
+    - name: Access Key Vault behind a firewall
       href: access-behind-firewall.md
   - name: Move Key Vault
     items: 
@@ -152,37 +154,32 @@
       href: move-subscription.md
     - name: Move Key Vault to Another Region
       href: move-region.md
-  - name: Networking
-    items:
-    - name: Diagnose Private Links Configuration Issues
-      href: private-link-diagnostics.md
-
 - name: Reference
   items:
   - name: What's new
     href: whats-new.md
   - name: Client libraries
     href: client-libraries.md
-  - name: REST API error codes - Azure Key Vault
+  - name: REST API error codes
     href: rest-error-codes.md
-  - name: Common error codes - Azure Key Vault
+  - name: Common error codes
     href: common-error-codes.md
   - name: Common parameters and headers 
     href: common-parameters-and-headers.md
   - name: Key vault versions 
     href: versions.md
   - name: Azure PowerShell
-    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+    href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
+    href: /dotnet/api/overview/azure/key-vault
   - name: Java
-    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    href: /java/api/overview/azure/keyvault
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/keyvault/management?view=azure-python
+    href: /python/api/overview/azure/key-vault-index
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template

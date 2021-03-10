@@ -58,7 +58,7 @@ steps:
       az configure --defaults spring-cloud=${{ variables.serviceName }}
       az spring-cloud app deploy -n ${{ variables.planetAppName }} --runtime-version NetCore_31 --main-entry ${{ variables.planetMainEntry }} --artifact-path ./${{ variables.planetAppName }}/publish-deploy-planet.zip
       az spring-cloud app deploy -n ${{ variables.solarAppName }} --runtime-version NetCore_31 --main-entry ${{ variables.solarMainEntry }} --artifact-path ./${{ variables.solarAppName }}/publish-deploy-solar.zip
-      az spring-cloud app update -n ${{ variables.solarAppName }} --is-public true
+      az spring-cloud app update -n ${{ variables.solarAppName }} --assign-endpoint
       az spring-cloud app show -n ${{ variables.solarAppName }} -o table
     workingDirectory: '${{ variables.workingDirectory }}/src'
 ```

@@ -86,6 +86,9 @@ You can also use the following FQDNs to allow access to the required services fr
 
 When you back up an SAP HANA database running on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
 
+> [!NOTE]
+> There is no service level proxy support. That is, traffic via the proxy from only a few or selected services (Azure backup services) isn't supported. The entire data or traffic can either be routed by proxy or not.
+
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Discover the databases
@@ -164,7 +167,7 @@ Specify the policy settings as follows:
     ![Differential backup policy](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > Incremental backups are now supported in public preview. You can choose either a differential or an incremental as a daily backup but not both.
+    > You can choose either a differential or an incremental as a daily backup but not both.
 1. In **Incremental Backup policy**, select **Enable** to open the frequency and retention controls.
     * At most, you can trigger one incremental backup per day.
     * Incremental backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.

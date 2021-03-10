@@ -4,7 +4,7 @@ description: Best practices for keeping your Windows Virtual Desktop environment
 author: heidilohr
 
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -75,10 +75,10 @@ Enabling [Conditional Access](../active-directory/conditional-access/overview.md
 
 Enabling audit log collection lets you view user and admin activity related to Windows Virtual Desktop. Some examples of key audit logs are:
 
--   [Azure Activity Log](../azure-monitor/platform/activity-log.md)
+-   [Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 -   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [Session hosts](../azure-monitor/platform/agent-windows.md)
+-   [Session hosts](../azure-monitor/agents/agent-windows.md)
 -   [Windows Virtual Desktop Diagnostic Log](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Key Vault logs](../key-vault/general/logging.md)
 
@@ -93,6 +93,25 @@ Monitor your Windows Virtual Desktop service's usage and availability with [Azur
 ## Session host security best practices
 
 Session hosts are virtual machines that run inside an Azure subscription and virtual network. Your Windows Virtual Desktop deployment's overall security depends on the security controls you put on your session hosts. This section describes best practices for keeping your session hosts secure.
+
+### Enable screen capture protection (preview)
+
+The screen capture protection feature prevents sensitive information from being captured on the client endpoints. When you enable this feature, remote content will be automatically blocked or hidden in screenshots and screen shares. It will also be hidden from malicious software that may be continuously capturing your screen's content. We recommend you disable clipboard redirection to prevent copying of remote content to endpoints while using this feature.
+
+This policy is enforced at the host level by configuring a registry key. To enable this policy, open PowerShell and set the **fEnableScreenCaptureProtection** registry key by running this cmdlet:
+
+```powershell
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
+```
+
+To test this new feature:
+
+- Make sure your host pools are provisioned in the validation environment.
+- Make sure you've downloaded and installed the Windows Desktop client, version 1.2.1526 or later.
+
+>[!NOTE]
+>During preview, only full desktop connections from Windows 10 endpoints support this feature.
+
 
 ### Enable endpoint protection
 

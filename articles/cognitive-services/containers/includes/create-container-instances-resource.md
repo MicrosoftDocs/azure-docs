@@ -11,7 +11,7 @@ ms.date: 04/01/2020
 ms.author: aahi
 ---
 
-## Create an Azure Container Instance resource
+## Create an Azure Container Instance resource using the Azure portal
 
 1. Go to the [Create](https://ms.portal.azure.com/#create/Microsoft.ContainerInstances) page for Container Instances.
 
@@ -23,8 +23,8 @@ ms.author: aahi
     |Resource group|Select the available resource group or create a new one such as `cognitive-services`.|
     |Container name|Enter a name such as `cognitive-container-instance`. The name must be in lower caps.|
     |Location|Select a region for deployment.|
-    |Image type|If your container image is stored in a container registry that doesn’t require credentials, choose `Public`. If accessing your container image requires credentials, choose `Private`. Refer to [container repositories and images](../../cognitive-services-container-support.md#container-repositories-and-images) for details on whether or not the container image is `Public` or `Private` ("Public Preview"). |
-    |Image name|Enter the Cognitive Services container location. The location is what's used as an argument to the `docker pull` command. Refer to the [container repositories and images](../../cognitive-services-container-support.md#container-repositories-and-images) for the available image names and their corresponding repository.<br><br>The image name must be fully qualified specifying three parts. First, the container registry, then the repository, finally the image name: `<container-registry>/<repository>/<image-name>`.<br><br>Here is an example, `mcr.microsoft.com/azure-cognitive-services/keyphrase` would represent the Key Phrase Extraction image in the Microsoft Container Registry under the Azure Cognitive Services repository. Another example is, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` which would represent the Speech to Text image in the Microsoft repository of the Container Preview container registry. |
+    |Image type|If your container image is stored in a container registry that doesn’t require credentials, choose `Public`. If accessing your container image requires credentials, choose `Private`. Refer to [container repositories and images](../container-image-tags.md) for details on whether or not the container image is `Public` or `Private` ("Public Preview"). |
+    |Image name|Enter the Cognitive Services container location. The location is what's used as an argument to the `docker pull` command. Refer to the [container repositories and images](../container-image-tags.md) for the available image names and their corresponding repository.<br><br>The image name must be fully qualified specifying three parts. First, the container registry, then the repository, finally the image name: `<container-registry>/<repository>/<image-name>`.<br><br>Here is an example, `mcr.microsoft.com/azure-cognitive-services/keyphrase` would represent the Key Phrase Extraction image in the Microsoft Container Registry under the Azure Cognitive Services repository. Another example is, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` which would represent the Speech to Text image in the Microsoft repository of the Container Preview container registry. |
     |OS type|`Linux`|
     |Size|Change size to the suggested recommendations for your specific Cognitive Service container:<br>2 CPU cores<br>4 GB
 
@@ -38,9 +38,9 @@ ms.author: aahi
 
     | Key | Value |
     |--|--|
-    |`apikey`|Copied from the **Keys** page of the resource. It is a 32 alphanumeric-character string with no spaces or dashes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Copied from the **Overview** page of the resource.|
-    |`eula`|`accept`|
+    |`ApiKey`|Copied from the **Keys and endpoint** page of the resource. It is a 32 alphanumeric-character string with no spaces or dashes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`Billing`| Your endpoint URL copied from the **Keys and endpoint** page of the resource.|
+    |`Eula`|`accept`|
 
 5. Click **Review and Create**
 6. After validation passes, click **Create** to finish the creation process

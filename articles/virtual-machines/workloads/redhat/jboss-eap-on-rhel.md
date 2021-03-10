@@ -4,8 +4,9 @@ description: How to deploy enterprise Java applications by using Red Hat JBoss E
 author: theresa-nguyen
 ms.author: bicnguy
 ms.topic: quickstart
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: redhat
+ms.collection: linux
 ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.date: 10/30/2020
 ---
@@ -147,7 +148,7 @@ For details on PAYG VM pricing, see [Red Hat Enterprise Linux pricing](https://a
 To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with entitlements to use RHEL OS in Azure. Complete the following prerequisites before you deploy the RHEL OS with the BYOS model:
 
 1. Ensure that you have RHEL OS and JBoss EAP entitlements attached to your Red Hat subscription.
-2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management documentation](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/con-enable-subs) to complete the process, which includes these steps:
+2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management documentation](https://access.redhat.com/documentation/red_hat_subscription_management/1/) to complete the process, which includes these steps:
 
    1. Enable Microsoft Azure as a provider in your Red Hat Cloud Access Dashboard.
 
@@ -155,7 +156,7 @@ To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with enti
 
    1. Enable new products for Cloud Access on Microsoft Azure.
     
-   1. Activate Red Hat Gold Images for your Azure subscription. For more information, see [Red Hat Gold Images on Microsoft Azure](https://access.redhat.com/documentation/en/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).
+   1. Activate Red Hat Gold Images for your Azure subscription. For more information, see [Red Hat Gold Images on Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access).
 
    1. Wait for Red Hat Gold Images to be available in your Azure subscription. These images are typically available within three hours of submission.
     
@@ -207,7 +208,7 @@ You can deploy the template in the following ways:
   ```
 
   ```
-  az group deployment create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
+  az deployment group create --resource-group <my-resource-group> --template-uri <raw link to the template which can be obtained from github>
   ```
 
   For details on installing and configuring the Azure CLI, see [Install the CLI](/cli/azure/install-azure-cli).

@@ -87,13 +87,13 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/contentmoderator
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-contentmoderator/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-contentmoderator/
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python
+      href: /python/api/overview/azure/cognitiveservices/contentmoderator
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
 - name: Resources
@@ -116,14 +116,8 @@
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/559960-content-moderator
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
   - name: Language support
     href: language-support.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure roadmap
@@ -131,4 +125,4 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: content-moderator-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md

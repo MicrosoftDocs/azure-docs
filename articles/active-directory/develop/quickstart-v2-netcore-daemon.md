@@ -14,7 +14,7 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
-#Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
+#Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by the Microsoft identity platform using client credentials flow.
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API using console app's identity
@@ -36,7 +36,7 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) pane.
+> 1. Go to the <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >
@@ -46,7 +46,7 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</span></a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -62,7 +62,7 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 > ### Download and configure your quickstart app
 >
 > #### Step 1: Configure your application in Azure portal
-> For the code sample for this quickstart to work, you need to create a client secret, and add Graph API's **User.Read.All** application permission.
+> For the code sample in this quickstart to work, create a client secret and add Graph API's **User.Read.All** application permission.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -127,7 +127,7 @@ If you try to run the application at this point, you'll receive *HTTP 403 - Forb
 
 ##### Standard user
 
-If you're a standard user of your tenant, then you need to ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
+If you're a standard user of your tenant, ask a global administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here

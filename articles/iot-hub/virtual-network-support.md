@@ -5,7 +5,7 @@
  author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 12/02/2020
+ ms.date: 12/18/2020
  ms.author: jlian
 ---
 
@@ -66,6 +66,9 @@ The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-buil
 
 :::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Image showing two private endpoints given each IoT Hub private link":::
 
+IoT Hub's [IP filter](iot-hub-ip-filtering.md) can optionally control public access to the built-in endpoint. 
+
+To completely block public network access to your IoT hub, [turn off public network access](iot-hub-public-network-access.md) or use IP filter to block all IP and select the option to apply rules to the built-in endpoint.
 
 ### Pricing for Private Link
 
@@ -85,9 +88,15 @@ To allow other services to find your IoT hub as a trusted Microsoft service, it 
 
     :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot showing how to turn on managed identity for IoT Hub":::
 
+To use Azure CLI to turn on managed identity:
+
+```azurecli-interactive
+az iot hub update --name <iot-hub-resource-name> --set identity.type="SystemAssigned"
+```
+
 ### Assign managed identity to your IoT Hub at creation time using ARM template
 
-To assign managed identity to your IoT hub at resource provisioning time, use the ARM template below:
+To assign managed identity to your IoT hub at resource provisioning time, use the ARM template below. This ARM template has two required resources, and they both need to be deployed before creating other resources like `Microsoft.Devices/IotHubs/eventHubEndpoints/ConsumerGroups`. 
 
 ```json
 {
@@ -111,9 +120,9 @@ To assign managed identity to your IoT hub at resource provisioning time, use th
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2018-02-01",
-      "name": "updateIotHubWithKeyEncryptionKey",
+      "name": "createIotHub",
       "dependsOn": [
-        "<provide-a-valid-resource-name>"
+        "[resourceId('Microsoft.Devices/IotHubs', '<provide-a-valid-resource-name>')]"
       ],
       "properties": {
         "mode": "Incremental",

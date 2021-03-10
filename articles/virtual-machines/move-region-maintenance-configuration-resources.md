@@ -14,7 +14,7 @@ ms.author: shants
 
 Follow this article to move resources associated with a Maintenance Control configuration to a different Azure region. You might want to move a configuration for a number of reasons. For example, to take advantage of a new region, to deploy features or services available in a specific region, to meet internal policy and governance requirements, or in response to capacity planning.
 
-Maintenance control, with customized maintenance configurations, allows you to control how platform updates are applied to [Windows](./maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json) and [Linux](./maintenance-control-cli.md?toc=%2Fazure%2Fvirtual-machines%2Flinux%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Flinux%2Fbreadcrumb%2Ftoc.json&view=azure-java-stable) VMs, and to Azure Dedicated Hosts. There are a couple of scenarios for moving maintenance control across regions:
+[Maintenance control](maintenance-control.md), with customized maintenance configurations, allows you to control how platform updates are applied to VMs, and to Azure Dedicated Hosts. There are a couple of scenarios for moving maintenance control across regions:
 
 - To move the resources associated with a maintenance configuration, but not the configuration itself, follow this article.
 - To move your maintenance control configuration, but not the resources associated with the configuration, follow [these instructions](move-region-maintenance-configuration.md).
@@ -46,7 +46,7 @@ Before you begin moving the resources associated with a Maintenance Control conf
     $adh | Dedicated host name | "myHost"
     $adhParentName | Parent resource name | "HostGroup"
     
-2. To retrieve the maintenance configurations using the PowerShell [Get-AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment?view=azps-3.5.0) command:
+2. To retrieve the maintenance configurations using the PowerShell [Get-AZConfigurationAssignment](/powershell/module/az.maintenance/get-azconfigurationassignment) command:
 
     - For Azure Dedicated Hosts, run:
         ```
@@ -58,7 +58,7 @@ Before you begin moving the resources associated with a Maintenance Control conf
         ```
         Get-AzConfigurationAssignment -ResourceGroupName $rgName -ResourceName $vmName -ProviderName Microsoft.Compute -ResourceType virtualMachines | Format-Table Name
         ```
-3. To retrieve the maintenance configurations using the CLI [az maintenance assignment](/cli/azure/ext/maintenance/maintenance/assignment?view=azure-cli-latest) command:
+3. To retrieve the maintenance configurations using the CLI [az maintenance assignment](/cli/azure/ext/maintenance/maintenance/assignment) command:
 
     - For Azure Dedicated Hosts:
 

@@ -1590,3 +1590,8 @@ To get more help, we recommend that you post the detailed message that accompani
 |Library exception.|
 |Library exception: {exception}.|
 |Unknown library exception: {exception}. {customer_support_guidance}.|
+
+
+## Execute Python Script Module
+
+Search **in azureml_main** in **70_driver_logs** of **Execute Python Script Module** and you could find which line occurred error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your python script.

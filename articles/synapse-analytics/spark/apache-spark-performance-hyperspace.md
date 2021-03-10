@@ -2234,4 +2234,4 @@ productIndex2:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspa
 ## Next steps
 
 * [Project Hyperspace](https://microsoft.github.io/hyperspace/)
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Azure Synapse Analytics](../index.yml)

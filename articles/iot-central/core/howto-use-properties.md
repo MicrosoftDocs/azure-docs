@@ -12,7 +12,7 @@ services: iot-central
 
 # Use properties in an Azure IoT Central solution
 
-This article shows you how to use device properties that are defined in a device template in your Azure IoT Central application.
+This how-to guide shows you how, as a device developer, to use device properties that are defined in a device template in your Azure IoT Central application.
 
 Properties represent point-in-time values. For example, a device can use a property to report the target temperature it's trying to reach. By default, device properties are read-only in IoT Central. Writable properties let you synchronize state between your device and your Azure IoT Central application.
 
@@ -31,7 +31,7 @@ The following table shows the configuration settings for a property capability.
 | Field           | Description                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Display name    | The display name for the property value used on dashboards and forms.                                                                                                                                                              |
-| Name            | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.                                                 |
+| Name            | The name of the property. Azure IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field must be alphanumeric.  The device code uses this **Name** value.           |
 | Capability type | Property.                                                                                                                                                                                                                          |
 | Semantic type   | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available.                                                                       |
 | Schema          | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types.                                               |
@@ -156,7 +156,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-This article uses Node.js for simplicity. For complete information about device application examples, see the following [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
+This article uses Node.js for simplicity. For other language examples, see the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial.
 
 The following view in Azure IoT Central application shows the properties you can see. The view automatically makes the **Device model** property a _read-only device property_.
 

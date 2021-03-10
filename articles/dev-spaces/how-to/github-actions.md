@@ -98,7 +98,7 @@ Navigate to your forked repository and click *Settings*. Click on *Secrets* in t
 > [!NOTE]
 > All of these secrets are used by the GitHub action and are configured in [.github/workflows/bikes.yml][github-action-yaml].
 
-Optionally, if you want to update the master space after your PR is merged, add the *GATEWAY_HOST* secret, which takes the form *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, which in this example is *dev.gateway.fedcab0987.eus.azds.io*. Once you merge your changes into the master branch in your fork, another action will run to rebuild and run your entire application in the master dev space. In this example, the master space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+Optionally, if you want to update the master space after your PR is merged, add the *GATEWAY_HOST* secret, which takes the form *<MASTER_SPACE>.gateway.<HOST_SUFFIX>*, which in this example is *dev.gateway.fedcab0987.eus.azds.io*. Once you merge your changes into the main branch in your fork, another action will run to rebuild and run your entire application in the master dev space. In this example, the master space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 Additionally, if you would like the changes in your PR to run in a grandchild space, update the *MASTER_SPACE* and *HOST* secrets. For example, if your application is running in *dev* with a child space *dev/azureuser1*, to have the PR run in a child space of *dev/azureuser1*:
 
@@ -144,7 +144,7 @@ Use `git push` to push your new branch to your forked repository:
 git push origin bike-images
 ```
 
-After the push is complete, navigate to your forked repository on GitHub to create a pull request with the *master* branch in your forked repository as the base branch compared to the *bike-images* branch.
+After the push is complete, navigate to your forked repository on GitHub to create a pull request with the *main* branch in your forked repository as the base branch compared to the *bike-images* branch.
 
 After your pull request is opened, navigate to the *Actions* tab. Verify a new action has started and is building the *Bikes* service.
 
@@ -157,7 +157,7 @@ After the action has completed, you will see a comment with a URL to your new ch
 
 Navigate to the *bikesharingweb* service by opening the URL from the comment. Select *Aurelia Briggs (customer)* as the user, then select a bike to rent. Verify you no longer see the placeholder image for the bike.
 
-If you merge your changes into the *master* branch in your fork, another action will run to rebuild and run your entire application in the parent dev space. In this example, the parent space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
+If you merge your changes into the *main* branch in your fork, another action will run to rebuild and run your entire application in the parent dev space. In this example, the parent space is *dev*. This action is configured in [.github/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## Clean up your Azure resources
 
@@ -172,10 +172,10 @@ Learn more about how Azure Dev Spaces works.
 > [!div class="nextstepaction"]
 > [How Azure Dev Spaces works](../how-dev-spaces-works.md)
 
-[azure-cli-installed]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-installed]: /cli/azure/install-azure-cli
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-acr-show]: /cli/azure/acr#az-acr-show
-[az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
+[az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [bikes-server-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/Bikes/server.js#L232-L233
 [bike-sharing-gh]: https://github.com/Azure/dev-spaces/

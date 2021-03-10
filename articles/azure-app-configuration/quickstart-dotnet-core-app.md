@@ -100,7 +100,7 @@ You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to cre
     export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
 
-    Restart the command prompt to allow the change to take effect. Print out the value of the environment variable to validate that it is set properly.
+    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it is set properly.
 
 2. Run the following command to build the console app:
 

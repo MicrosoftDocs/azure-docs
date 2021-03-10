@@ -1,13 +1,9 @@
 ---
 title: Copy data to and from Azure Databricks Delta Lake
 description: Learn how to copy data to and from Azure Databricks Delta Lake by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
@@ -36,8 +32,8 @@ In general, Azure Data Factory supports Delta Lake with the following capabiliti
 
 To use this Azure Databricks Delta Lake connector, you need to set up a cluster in Azure Databricks.
 
-- To copy data to delta lake, Copy activity invokes Azure Databricks cluster to read data from an Azure Storage, which is either your original source or a staging area to where Data Factory firstly writes the source data via built-in staged copy. Learn more from [Delta lake as the source](#delta-lake-as-source).
-- Similarly, to copy data from delta lake, Copy activity invokes Azure Databricks cluster to write data to an Azure Storage, which is either your original sink or a staging area from where Data Factory continues to write data to final sink via built-in staged copy. Learn more from [Delta lake as the sink](#delta-lake-as-sink).
+- To copy data to delta lake, Copy activity invokes Azure Databricks cluster to read data from an Azure Storage, which is either your original source or a staging area to where Data Factory firstly writes the source data via built-in staged copy. Learn more from [Delta lake as the sink](#delta-lake-as-sink).
+- Similarly, to copy data from delta lake, Copy activity invokes Azure Databricks cluster to write data to an Azure Storage, which is either your original sink or a staging area from where Data Factory continues to write data to final sink via built-in staged copy. Learn more from [Delta lake as the source](#delta-lake-as-source).
 
 The Databricks cluster needs to have access to Azure Blob or Azure Data Lake Storage Gen2 account, both the storage container/file system used for source/sink/staging and the container/file system where you want to write the Delta Lake tables.
 
@@ -93,8 +89,8 @@ The following properties are supported for an Azure Databricks Delta Lake linked
             "domain": "https://adb-xxxxxxxxx.xx.azuredatabricks.net",
             "clusterId": "<cluster id>",
             "accessToken": {
-            	"type": "SecureString", 
-            	"value": "<access token>"
+                "type": "SecureString", 
+                "value": "<access token>"
           	}
         }
     }

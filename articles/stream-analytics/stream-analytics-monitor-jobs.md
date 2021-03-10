@@ -3,7 +3,7 @@ title: Monitor and manage Azure Stream Analytics jobs programmatically
 description: This article describes how to programmatically monitor Stream Analytics jobs created via REST APIs, Azure SDK, or PowerShell.
 author: jseb225
 ms.author: jeanb
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/20/2017

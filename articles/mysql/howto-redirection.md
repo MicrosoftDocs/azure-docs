@@ -17,6 +17,9 @@ Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Databas
 
 For details, refer to how to create an Azure Database for MySQL server using the [Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
 
+> [!IMPORTANT]
+> Redirection is currently not supported with [Private Link for Azure Database for MySQL](concepts-data-access-security-private-link.md).
+
 ## Enable redirection
 
 On your Azure Database for MySQL server, configure the `redirect_enabled` parameter to `ON` to allow connections with redirection mode. To update this server parameter, use the [Azure portal](howto-server-parameters.md) or [Azure CLI](howto-configure-server-parameters-using-cli.md).

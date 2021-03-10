@@ -3,7 +3,8 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: How to create a Windows Virtual Desktop host pool by using the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
 ---
@@ -61,6 +62,9 @@ To start creating your new host pool:
 
      > [!div class="mx-imgBorder"]
      > ![A screenshot of the Azure portal showing the Location field with the East US location selected. Next to the field is text that says, "Metadata will be stored in East US."](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > If you want to create your host pool in [a supported region](data-locations.md) outside the US, you'll need to re-register the resource provider. After re-registering, you should see the other regions in the drop-down for selecting the location. Learn how to re-register at our [Host pool creation](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects) troubleshooting article.
 
 8. Under Host pool type, select whether your host pool will be **Personal** or **Pooled**.
 
@@ -112,7 +116,7 @@ To set up your virtual machine within the host pool setup process:
       - Windows 10 Enterprise multi-session, Version 2004
       - Windows 10 Enterprise multi-session, Version 2004 + Microsoft 365 Apps
 
-     If you don't see the image you want, select **Browse all images and disks**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers.
+     If you don't see the image you want, select **Browse all images and disks**, which lets you select either another image in your gallery or an image provided by Microsoft and other publishers. Make sure that the image you choose is one of the [supported OS images](overview.md#supported-virtual-machine-os-images).
 
      > [!div class="mx-imgBorder"]
      > ![A screenshot of the Marketplace with a list of images from Microsoft displayed.](media/marketplace-images.png)

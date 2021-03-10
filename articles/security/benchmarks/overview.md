@@ -22,7 +22,7 @@ This benchmark is part of a set of holistic security guidance that also includes
 - **Azure Well-Architected Framework** – Guidance on [securing your workloads](/assessments/?mode=pre-assessment&session=local) on Azure.
 - **Microsoft Security Best Practices** – [recommendations](/security/compass/microsoft-security-compass-introduction) with examples on Azure.
 
- The Azure Security Benchmark focuses on cloud-centric control areas. These controls are consistent with well-known security benchmarks, such as those described by the Center for Internet Security (CIS) Controls Version 7.1 and National Institute of Standards and Technology (NIST) SP800-53.
+ The Azure Security Benchmark focuses on cloud-centric control areas. These controls are consistent with well-known security benchmarks, such as those described by the Center for Internet Security (CIS) Controls Version 7.1 and National Institute of Standards and Technology (NIST) SP 800-53.
 The following controls are included in the Azure Security Benchmark:
 
 | ASB Control Domains | Description 
@@ -45,7 +45,7 @@ Each recommendation includes the following information:
 
 - **Azure ID**: The Azure Security Benchmark ID that corresponds to the recommendation.
 - **CIS Controls v7.1 ID(s)**: The CIS Controls v7.1 control(s) that correspond to this recommendation.
-- **NIST SP800-53 r4 ID(s)**: The NIST SP800-53 r4 (moderate) control(s) that correspond to this recommendation.
+- **NIST SP 800-53 r4 ID(s)**: The NIST SP 800-53 r4 (moderate) control(s) that correspond to this recommendation.
 - **Details**: The rationale for the recommendation and links to guidance on how to implement it. If the recommendation is supported by Azure Security Center, that information will also be listed.
 - **Responsibility**: Whether the customer, the service-provider, or both are responsible for implementing this recommendation. Security responsibilities are shared in the public cloud. Some security controls are only available to the cloud service provider and therefore the provider is responsible for addressing those. These are general observations – for some individual services, the responsibility will be different from what is listed in the Azure Security Benchmark. Those differences are described in the baseline recommendations for the individual service.
 - **Customer Security Stakeholders**: [The security functions](/azure/cloud-adoption-framework/organize/cloud-security#security-functions) at the customer organization who may be accountable, responsible, or consulted for the respective control. It may be different from organization to organization depending on your company’s security organization structure, and the roles and responsibilities you set up related to Azure security.

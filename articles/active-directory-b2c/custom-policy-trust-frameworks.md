@@ -1,5 +1,5 @@
 ---
-title: Reference - trust frameworks in Azure Active Directory B2C | Microsoft Docs
+title: Azure AD B2C custom policy overview | Microsoft Docs
 description: A topic about Azure Active Directory B2C custom policies and the Identity Experience Framework.
 services: active-directory-b2c
 author: msmimart
@@ -8,116 +8,162 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/04/2017
+ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
 
-# Define Trust Frameworks with Azure AD B2C Identity Experience Framework
+# Azure AD B2C custom policy overview
 
-Azure Active Directory B2C (Azure AD B2C) custom policies that use the Identity Experience Framework provide your organization with a centralized service. This service reduces the complexity of identity federation in a large community of interest. The complexity is reduced to a single trust relationship and a single metadata exchange.
+Custom policies are configuration files that define the behavior of your Azure Active Directory B2C (Azure AD B2C) tenant. While [user flows](user-flow-overview.md) are predefined in the Azure AD B2C portal for the most common identity tasks, custom policies can be fully edited by an identity developer to complete many different tasks.
 
-Azure AD B2C custom policies use the Identity Experience Framework to enable you to answer the following questions:
+A custom policy is fully configurable and policy-driven. A custom policy orchestrates trust between entities in standard protocol formats such as OpenID Connect, OAuth, SAML, and a few non-standard ones, for example REST API-based system-to-system claims exchanges. The framework creates user-friendly, white-labeled experiences.
 
-- What are the legal, security, privacy, and data protection policies that must be adhered to?
-- Who are the contacts and what are the processes for becoming an accredited participant?
-- Who are the accredited identity information providers (also known as "claims providers") and what do they offer?
-- Who are the accredited relying parties (and optionally, what do they require)?
-- What are the technical “on the wire” interoperability requirements for participants?
-- What are the operational “runtime” rules that must be enforced for exchanging digital identity information?
+A custom policy is represented as one or more XML-formatted files, which refer to each other in a hierarchical chain. The XML elements define the building blocks, the interaction with the user, and other parties, and the business logic. 
 
-To answer all these questions, Azure AD B2C custom policies that use the Identity Experience Framework use the Trust Framework (TF) construct. Let’s consider this construct and what it provides.
+## Custom policy starter pack
 
-## Understand the Trust Framework and federation management foundation
+Azure AD B2C custom policy [starter pack](custom-policy-get-started.md#get-the-starter-pack) comes with several pre-built policies to get you going quickly. Each of these starter packs contains the smallest number of technical profiles and user journeys needed to achieve the scenarios described:
 
-The Trust Framework is a written specification of the identity, security, privacy, and data protection policies to which participants in a community of interest must conform.
+- **LocalAccounts** - Enables the use of local accounts only.
+- **SocialAccounts** - Enables the use of social (or federated) accounts only.
+- **SocialAndLocalAccounts** - Enables the use of both local and social accounts. Most of our samples refer to this policy.
+- **SocialAndLocalAccountsWithMFA** - Enables social, local, and multi-factor authentication options.
 
-Federated identity provides a basis for achieving end-user identity assurance at Internet scale. By delegating identity management to third parties, a single digital identity for an end user can be reused with multiple relying parties.
+## Understanding the basics 
 
-Identity assurance requires that identity providers (IdPs) and attribute providers (AtPs) adhere to specific security, privacy, and operational policies and practices.  If they can't perform direct inspections, relying parties (RPs) must develop trust relationships with the IdPs and AtPs they choose to work with.
+### Claims
 
-As the number of consumers and providers of digital identity information grows, it's difficult to continue pairwise management of these trust relationships, or even the pairwise exchange of the technical metadata that's required for network connectivity.  Federation hubs have achieved only limited success at solving these problems.
+A claim provides temporary storage of data during an Azure AD B2C policy execution. It can store information about the user, such as first name, last name, or any other claim obtained from the user or other systems (claims exchanges). The [claims schema](claimsschema.md) is the place where you declare your claims. 
 
-### What a Trust Framework specification defines
-TFs are the linchpins of the Open Identity Exchange (OIX) Trust Framework model, where each community of interest is governed by a particular TF specification. Such a TF specification defines:
+When the policy runs, Azure AD B2C sends and receives claims to and from internal and external parties and then sends a subset of these claims to your relying party application as part of the token. Claims are used in these ways: 
 
-- **The security and privacy metrics for the community of interest with the definition of:**
-    - The levels of assurance (LOA) that are offered/required by participants; for example, an ordered set of confidence ratings for the authenticity of digital identity information.
-    - The levels of protection (LOP) that are offered/required by participants; for example, an ordered set of confidence ratings for the protection of digital identity information that's handled by participants in the community of interest.
+- A claim is saved, read, or updated against the directory user object.
+- A claim is received from an external identity provider.
+- Claims are sent or received using a custom REST API service.
+- Data is collected as claims from the user during the sign-up or edit profile flows.
 
-- **The description of the digital identity information that's offered/required by participants**.
+### Manipulating your claims
 
-- **The technical policies for production and consumption of digital identity information, and thus for measuring LOA and LOP. These written policies typically include the following categories of policies:**
-    - Identity proofing policies, for example: *How strongly is a person’s identity information vetted?*
-    - Security policies, for example: *How strongly are information integrity and confidentiality protected?*
-    - Privacy policies, for example: *What control does a user have over personal identifiable information (PII)*?
-    - Survivability policies, for example: *If a provider ceases operations, how does continuity and protection of PII function?*
+The [claims transformations](claimstransformations.md) are predefined functions that can be used to convert a given claim into another one, evaluate a claim, or set a claim value. For example adding an item to a string collection, changing the case of a string, or evaluate a date and time claim. A claims transformation specifies a transform method. 
 
-- **The technical profiles for production and consumption of digital identity information. These profiles include:**
-    - Scope interfaces for which digital identity information is available at a specified LOA.
-    - Technical requirements for on-the-wire interoperability.
+### Customize and localize your UI
 
-- **The descriptions of the various roles that participants in the community can perform and the qualifications that are required to fulfill these roles.**
+When you'd like to collect information from your users by presenting a page in their web browser, use the [self-asserted technical profile](self-asserted-technical-profile.md). You can edit your self-asserted technical profile to [add claims and customize user input](./configure-user-input.md).
 
-Thus a TF specification governs how identity information is exchanged between the participants of the community of interest: relying parties, identity and attribute providers, and attribute verifiers.
+To [customize the user interface](customize-ui-with-html.md) for your self-asserted technical profile, you specify a URL in the [content definition](contentdefinitions.md) element with customized HTML content. In the self-asserted technical profile, you point to this content definition ID.
 
-A TF specification is one or multiple documents that serve as a reference for the governance of the community of interest that regulates the assertion and consumption of digital identity information within the community. It's a documented set of policies and procedures designed to establish trust in the digital identities that are used for online transactions between members of a community of interest.
+To customize language-specific strings, use the [localization](localization.md) element. A content definition may contain a [localization](localization.md) reference that specifies a list of localized resources to load. Azure AD B2C merges user interface elements with the HTML content that's loaded from your URL and then displays the page to the user. 
 
-In other words, a TF specification defines the rules for creating a viable federated identity ecosystem for a community.
+## Relying party policy overview
 
-Currently there's widespread agreement on the benefit of such an approach. There's no doubt that trust framework specifications facilitate the development of digital identity ecosystems with verifiable security, assurance and privacy characteristics, meaning that they can be reused across multiple communities of interest.
+A relying party application, which in the SAML protocol is known as a service provider, calls the [relying party policy](relyingparty.md) to execute a specific user journey. The relying party policy specifies the user journey to be executed, and list of claims that the token includes. 
 
-For that reason, Azure AD B2C custom policies that use the Identity Experience Framework uses the specification as the basis of its data representation for a TF to facilitate interoperability.
+![Diagram showing the policy execution flow](./media/custom-policy-trust-frameworks/custom-policy-execution.png)
 
-Azure AD B2C Custom policies that leverage the Identity Experience Framework represent a TF specification as a mixture of human and machine-readable data. Some sections of this model (typically sections that are more oriented toward governance) are represented as references to published security and privacy policy documentation along with the related procedures (if any). Other sections describe in detail the configuration metadata and runtime rules that facilitate operational automation.
+All relying party applications that use the same policy will receive the same token claims, and the user goes through the same user journey.
 
-## Understand Trust Framework policies
+### User journeys
 
-In terms of implementation, the TF specification consists of a set of policies that allow complete control over identity behaviors and experiences.  Azure AD B2C custom policies that leverage the Identity Experience Framework enable you to author and create your own TF through such declarative policies that can define and configure:
+[User journeys](userjourneys.md) allows you to define the business logic with path through which user will follow to gain access to your application. The user is taken through the user journey to retrieve the claims that are to be presented to your application. A user journey is built from a sequence of [orchestration steps](userjourneys.md#orchestrationsteps). A user must reach the last step to acquire a token. 
 
-- The document reference or references that define the federated identity ecosystem of the community that relates to the TF. They are links to the TF documentation. The (predefined) operational “runtime” rules, or the user journeys that automate and/or control the exchange and usage of the claims. These user journeys are associated with a LOA (and a LOP). A policy can therefore have user journeys with varying LOAs (and LOPs).
+The following instructions describe how you can add orchestration steps to the [social and local account starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts) policy. Here's an example of a REST API call that has been added.
 
-- The identity and attribute providers, or the claims providers, in the community of interest and the technical profiles they support along with the (out-of-band) LOA/LOP accreditation that relates to them.
+![customized user journey](media/custom-policy-trust-frameworks/user-journey-flow.png)
 
-- The integration with attribute verifiers or  claims providers.
 
-- The relying parties in the community (by inference).
+### Orchestration steps
 
-- The metadata for establishing network communications between participants. This metadata, along with the technical profiles, are used during a transaction to plumb “on the wire” interoperability between the relying party and other community participants.
+The orchestration step references to a method that implements its intended purpose or functionality. This method is called a [technical profile](technicalprofiles.md). When your user journey needs branching to better represent the business logic, the orchestration step references to [sub journey](subjourneys.md). A sub journey contains its own set of orchestration steps.
 
-- The protocol conversion if any (for example, SAML 2.0, OAuth2, WS-Federation, and OpenID Connect).
+A user must reach the last orchestration step in the user journey to acquire a token. But users may not need to travel through all of the orchestration steps. Orchestration steps can be conditionally executed based on [preconditions](userjourneys.md#preconditions) defined in the orchestration step. 
 
-- The authentication requirements.
+After an orchestration step completes, Azure AD B2C stores the outputted claims in the **claims bag**. The claims in the claims bag can be utilized by any further orchestration steps in the user journey.
 
-- The multifactor orchestration if any.
+The following diagram shows how the user journey's orchestration steps can access the claims bag.
 
-- A shared schema for all the claims that are available and mappings to participants of a community of interest.
+![Azure AD B2C user journey](media/custom-policy-trust-frameworks/user-journey-diagram.png)
 
-- All the claims transformations, along with the possible data minimization in this context, to sustain the exchange and usage of the claims.
+### Technical profile
 
-- The binding and encryption.
+A technical profile provides an interface to communicate with different types of parties. A user journey combines calling technical profiles via orchestration steps to define your business logic.
 
-- The claims storage.
+All types of technical profiles share the same concept. You send input claims, run claims transformation, and communicate with the configured party. After the process is completed, the technical profile returns the output claims to claims bag. For more information, see [technical profiles overview](technicalprofiles.md).
 
-### Understand claims
+### Validation technical profile
 
-> [!NOTE]
-> We collectively refer to all the possible types of identity information that might be exchanged as "claims": claims about an end user’s authentication credential, identity vetting, communication device, physical location, personally identifying attributes, and so on.
->
-> We use the term "claims"--rather than "attributes"--because in online transactions, these data artifacts are not facts that can be directly verified by the relying party. Rather they're assertions, or claims, about facts for which the relying party must develop sufficient confidence to grant the end user’s requested transaction.
->
-> We also use the term "claims" because Azure AD B2C custom policies that use the Identity Experience Framework are designed to simplify the exchange of all types of digital identity information in a consistent manner regardless of whether the underlying protocol is defined for user authentication or attribute retrieval.  Likewise, we use the term "claims providers" to collectively refer to identity providers, attribute providers, and attribute verifiers when we do not want to distinguish between their specific functions.
+When a user interacts with the user interface, you may want to validate the data that is collected. To interact with the user, a [self-asserted technical profile](self-asserted-technical-profile.md) must be used.
 
-Thus they govern how identity information is exchanged between a relying party, identity and attribute providers, and attribute verifiers. They control which identity and attribute providers are required for a relying party’s authentication. They should be considered as a domain-specific language (DSL), that is, a computer language that's specialized for a particular application domain with inheritance, *if* statements, polymorphism.
+To validate the user input, a [validation technical profile](validation-technical-profile.md) is called from the self-asserted technical profile. A validation technical profile is a method to call any non-interactive technical profile. In this case, the technical profile can return output claims, or an error message. The error message is rendered to the user on screen, allowing the user to retry.
 
-These policies constitute the machine-readable portion of the TF construct in Azure AD B2C Custom policies leveraging the Identity Experience Framework. They include all the operational details, including claims providers’ metadata and technical profiles, claims schema definitions, claims transformation functions, and user journeys that are filled in to facilitate operational orchestration and automation.
+The following diagram illustrates how Azure AD B2C uses a validation technical profile to validate the user credentials.
 
-They are assumed to be *living documents* because there is  a good chance that their contents will change over time concerning the active participants declared in the policies. There is also the potential that the terms and conditions for being a participant might change.
+![Validation technical profile diagram](media/custom-policy-trust-frameworks/validation-technical-profile.png)
 
-Federation setup and maintenance are vastly simplified by shielding relying parties from ongoing trust and connectivity reconfigurations as different claims providers/verifiers join or leave (the community represented by) the set of policies.
+## Inheritance model
 
-Interoperability is another significant challenge. Additional claims providers/verifiers must be integrated, because relying parties are unlikely to support all the necessary protocols. Azure AD B2C custom policies solve this problem by supporting industry-standard protocols and by applying specific user journeys to transpose requests when relying parties and attribute providers do not support the same protocol.
+Each starter pack includes the following files:
 
-User journeys include protocol profiles and metadata that are used to plumb “on the wire” interoperability between the relying party and other participants. There are also operational runtime rules that are applied to identity information exchange request/response messages for enforcing compliance with published policies as part of the TF specification. The idea of user journeys is key to the customization of the customer experience. It also sheds light on how the system works at the protocol level.
+- A **Base** file that contains most of the definitions. To help with troubleshooting and long-term maintenance of your policies, try to minimize the number of changes you make to this file.
+- An **Extensions** file that holds the unique configuration changes for your tenant. This policy file is derived from the Base file. Use this file to add new functionality or override existing functionality. For example, use this file to federate with new identity providers.
+- A **Relying Party (RP)** file that is the single task-focused file that is invoked directly by the relying party application, such as your web, mobile, or desktop applications. Each unique task, such as sign-up, sign-in, password reset, or profile edit, requires its own relying party policy file. This policy file is derived from the extensions file.
 
-On that basis, relying party applications and portals can, depending on their context, invoke Azure AD B2C custom policies that leverage the Identity Experience Framework passing the name of a specific policy and get precisely the behavior and information exchange they want without any muss, fuss, or risk.
+The inheritance model is as follows:
+
+- The child policy at any level can inherit from the parent policy and extend it by adding new elements.
+- For more complex scenarios, you can add more inheritance levels (up to 10 in total).
+- You can add more relying party policies. For example, delete my account, change a phone number, SAML relying party policy and more.
+
+The following diagram shows the relationship between the policy files and the relying party applications.
+
+![Diagram showing the trust framework policy inheritance model](media/custom-policy-trust-frameworks/policies.png)
+
+
+## Guidance and best practices
+
+### Best practices
+
+Within an Azure AD B2C custom policy, you can integrate your own business logic to build the user experiences you require and extend functionality of the service. We have a set of best practices and recommendations to get started.
+
+- Create your logic within the **extension policy**, or **relying party policy**. You can add new elements, which will override the base policy by referencing the same ID. This will allow you to scale out your project while making it easier to upgrade base policy later on if Microsoft releases new starter packs.
+- Within the **base policy**, we highly recommend avoiding making any changes. When necessary, make comments where the changes are made.
+- When you're overriding an element, such as technical profile metadata, avoid copying the entire technical profile from the base policy. Instead, copy only the required section of the element. See [Disable email verification](./disable-email-verification.md) for an example of how to make the change.
+- To reduce duplication of technical profiles, where core functionality is shared, use [technical profile inclusion](technicalprofiles.md#include-technical-profile).
+- Avoid writing to the Azure AD directory during sign-in, which may lead to throttling issues.
+- If your policy has external dependencies, such as REST APIs, makes sure they're highly available.
+- For a better user experience, make sure your custom HTML templates, are globally deployed using [online content delivery](../cdn/index.yml). Azure Content Delivery Network (CDN) lets you reduce load times, save bandwidth, and improve response speed.
+- If you want to make a change to user journey, copy the entire user journey from the base policy to the extension policy. Provide a unique user journey ID to the user journey you've copied. Then in the [relying party policy](relyingparty.md), change the [default user journey](relyingparty.md#defaultuserjourney) element to point to the new user journey.
+
+## Troubleshooting
+
+When developing with Azure AD B2C policies, you may run into errors or exceptions while executing your user journey. The can be investigated using Application Insights.
+
+- Integrate Application Insights with Azure AD B2C to [diagnose exceptions](troubleshoot-with-application-insights.md).
+- The [Azure AD B2C extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) can help you access and [visualize the logs](https://github.com/azure-ad-b2c/vscode-extension/blob/master/src/help/app-insights.md) based on a policy name and time.
+- The most common error in setting up custom policies is improperly formatted XML. Use [XML schema validation](troubleshoot-custom-policies.md) to identify errors before you upload your XML file.
+
+## Continuous integration
+
+By using a continuous integration and delivery (CI/CD) pipeline that you set up in Azure Pipelines, you can [include your Azure AD B2C custom policies in your software delivery](deploy-custom-policies-devops.md) and code control automation. As you deploy to different Azure AD B2C environments, for example dev, test, and production, we recommend that you remove manual processes and perform automated testing by using Azure Pipelines.
+
+## Prepare your environment
+
+You get started with Azure AD B2C custom policy:
+
+1. [Create an Azure AD B2C tenant](tutorial-create-tenant.md)
+1. [Register a web application](tutorial-register-applications.md) using the Azure portal so you'll be able to test your policy.
+1. Add the necessary [policy keys](custom-policy-get-started.md#add-signing-and-encryption-keys) and [register the Identity Experience Framework applications](custom-policy-get-started.md#register-identity-experience-framework-applications).
+1. [Get the Azure AD B2C policy starter pack](custom-policy-get-started.md#get-the-starter-pack) and upload to your tenant. 
+1. After you upload the starter pack, [test your sign-up or sign-in policy](custom-policy-get-started.md#test-the-custom-policy).
+1. We recommend you to download and install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Visual Studio Code is a lightweight but powerful source code editor, which runs on your desktop and is available for Windows, macOS, and Linux. With VS Code, you can quickly navigate through and edit your Azure AD B2C custom policy XML files by installing the [Azure AD B2C extension for VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
+ 
+## Next steps
+
+After you set up and test your Azure AD B2C policy, you can start customizing your policy. Go through the following articles to learn how to:
+
+- [Add claims and customize user input](./configure-user-input.md) using custom policies. Learn how to define a claim and add a claim to the user interface by customizing some of the starter pack technical profiles.
+- [Customize the user interface](customize-ui-with-html.md) of your application using a custom policy. Learn how to create your own HTML content, and customize the content definition.
+- [Localize the user interface](./language-customization.md) of your application using a custom policy. Learn how to set up the list of supported languages, and provide language-specific labels, by adding the localized resources element.
+- During your policy development and testing, you can [disable email verification](./disable-email-verification.md). Learn how to overwrite a technical profile metadata.
+- [Set up sign-in with a Google account](./identity-provider-google.md) using custom policies. Learn how to create a new claims provider with OAuth2 technical profile. Then customize the user journey to include the Google sign-in option.
+- To diagnose problems with your custom policies you can [Collect Azure Active Directory B2C logs with Application Insights](troubleshoot-with-application-insights.md). Learn how to add new technical profiles, and configure your relying party policy.

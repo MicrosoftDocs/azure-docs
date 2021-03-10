@@ -3,7 +3,7 @@ title: Manage credentials in Azure Automation
 description: This article tells how to create credential assets and use them in a runbook or DSC configuration.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/03/2020
+ms.date: 12/22/2020
 ms.topic: conceptual
 ---
 
@@ -46,9 +46,9 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 > [!NOTE]
 > You should avoid using variables in the `Name` parameter of `Get-AutomationPSCredential`. Their use can complicate discovery of dependencies between runbooks or DSC configurations and credential assets at design time.
 
-## Python 2 functions that access credentials
+## Python functions that access credentials
 
-The function in the following table is used to access credentials in a Python 2 runbook.
+The function in the following table is used to access credentials in a Python 2 and 3 runbook. Python 3 runbooks are currently in preview.
 
 | Function | Description |
 |:---|:---|
@@ -99,6 +99,8 @@ Alternatively, you can use the [GetNetworkCredential](/dotnet/api/system.managem
 
 ### Textual runbook example
 
+# [PowerShell](#tab/azure-powershell)
+
 The following example shows how to use a PowerShell credential in a runbook. It retrieves the credential and assigns its user name and password to variables.
 
 ```powershell
@@ -108,7 +110,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Under most circumstances, you should use a [Run As account](../manage-runas-account.md) and retrieve the connection with [Get-AzAutomationConnection](../automation-connections.md).
+You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Under most circumstances, you should use a [Run As account](../automation-security-overview.md#run-as-accounts) and retrieve the connection with [Get-AzAutomationConnection](../automation-connections.md).
 
 ```powershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential'
@@ -120,6 +122,36 @@ $myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$sec
 
 Connect-AzAccount -Credential $myPsCred
 ```
+
+# [Python 2](#tab/python2)
+
+The following example shows an example of accessing credentials in Python 2 runbooks.
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a credential
+cred = automationassets.get_automation_credential("credtest")
+print cred["username"]
+print cred["password"]
+```
+
+# [Python 3](#tab/python3)
+
+The following example shows an example of accessing credentials in Python 3 runbooks (preview).
+
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
+
+# get a credential
+cred = automationassets.get_automation_credential("credtest")
+print (cred["username"])
+print (cred["password"])
+```
+
+---
 
 ### Graphical runbook example
 
@@ -134,20 +166,6 @@ The following image shows an example of using a credential in a graphical runboo
 ## Use credentials in a DSC configuration
 
 While DSC configurations in Azure Automation can work with credential assets using `Get-AutomationPSCredential`, they can also pass credential assets via parameters. For more information, see [Compiling configurations in Azure Automation DSC](../automation-dsc-compile.md#credential-assets).
-
-## Use credentials in a Python 2 runbook
-
-The following example shows an example of accessing credentials in Python 2 runbooks.
-
-```python
-import automationassets
-from automationassets import AutomationAssetNotFound
-
-# get a credential
-cred = automationassets.get_automation_credential("credtest")
-print cred["username"]
-print cred["password"]
-```
 
 ## Next steps
 

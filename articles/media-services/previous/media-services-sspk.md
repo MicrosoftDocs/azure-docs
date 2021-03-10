@@ -42,7 +42,7 @@ SSPK is licensed on terms that offer excellent business value. SSPK license prov
   * programming interfaces for interaction with hardware A/V decoders (decoding, rendering)
 * Digital Rights Management (DRM) Interface 
   * programming interfaces for handling DRM through the DRM Abstraction Layer (DAL)
-  * Microsoft PlayReady Porting Kit ships separately but integrates through this interface. For more details on Microsoft PlayReady Device licensing, click [here](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
+  * Microsoft PlayReady Porting Kit ships separately but integrates through this interface. [See more details on Microsoft PlayReady Device licensing](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl).
 * Implementation samples 
   * sample PAL implementation for Linux
   * sample HAL implementation for GStreamer
@@ -119,16 +119,18 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * EXPRESS LUCK TECHNOLOGY LIMITED
 * Fluendo S.A.
 * FUNAI ELECTRIC CO., LTD
-* Hisense International Co., Ltd. 
+* Hisense International Co., Ltd.
+* Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited
 * Hong Kong Konka Ltd
 * Innolux Corporation
-* Innopia Technologies, Inc
+* Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
 * K-Tronics (Suzhou) Technology Co., Ltd. 
 * Kaonmedia Co., Ltd.
 * KDDI Corporation
 * Mega Fame Electronics Co. Limited
 * MIRC Electronics Limited
+* MOKA INTERNATIONAL LIMITED
 * Nintendo Co., Ltd.
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
@@ -142,6 +144,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.
+* Sky CP Ltd
 * Sky Deutschland Fernsehen GmbH & Co. KG
 * SMARDTV GLOBAL SAS
 * SoftAtHome
@@ -149,6 +152,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Technicolor Delivery Technologies, SAS
 * Top Victory Investments, Ltd.
 * UMC Poland sp. z .o.o.
+* Vizio, Inc.
 * ZTE Corporation
 
 ## Media Services learning paths

@@ -2,7 +2,7 @@
 title: Concepts - vSphere role-based access control (vSphere RBAC)
 description: Learn about the key capabilities of vSphere role-based access control for Azure VMware Solution 
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 02/02/2021
 ---
 
 # vSphere role-based access control (vSphere RBAC) for Azure VMware Solution
@@ -17,9 +17,6 @@ In a vCenter and ESXi on-premises deployment, the administrator has access to th
 In an Azure VMware Solution deployment, the administrator doesn't have access to the administrator user account. But they can assign AD users and groups to the CloudAdmin role on vCenter.  
 
 The private cloud user doesn't have access to and can't configure specific management components supported and managed by Microsoft. For example, clusters, hosts, datastores, and distributed virtual switches.
-
-
-
 
 ## Azure VMware Solution CloudAdmin role on vCenter
 
@@ -58,7 +55,11 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 
 ## Next steps
 
-Refer to the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) for a detailed explanation of each privilege.
+Now that you've covered the basics of vSphere role-based access control for Azure VMware Solution, you may want to learn about:
+
+- The details of each privilege in the [VMware product documentation](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html).
+- [How Azure VMware Solution monitors and repairs private clouds](concepts-monitor-repair-private-cloud.md).
+- [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
 

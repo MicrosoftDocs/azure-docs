@@ -1,7 +1,7 @@
 ---
 title: Azure Blockchain Service overview
 description: Overview of Azure Blockchain Service
-ms.date: 05/22/2020
+ms.date: 01/04/2021
 ms.topic: overview
 ms.reviewer: ravastra
 #Customer intent: As a network operator or developer, I want to understand how I can use Azure Blockchain Service to build and manage consortium blockchain networks on Azure
@@ -79,6 +79,8 @@ Engage with Microsoft engineers and Azure Blockchain community experts.
 
 To get started, try a quickstart or find out more details from these resources.
 * [Create a blockchain member using the Azure portal](create-member.md) or [create a blockchain member using Azure CLI](create-member-cli.md)
-* For cost comparisons and calculators, see the [pricing page](https://azure.microsoft.com/pricing/details/blockchain-service).
+* Follow the Microsoft Learn path [Get started with blockchain development](/learn/paths/ethereum-blockchain-development)
+* Watch the [Beginner's series to blockchain](https://channel9.msdn.com/Series/Beginners-Series-to-Blockchain)
+* For cost comparisons and calculators, see the [pricing page](https://azure.microsoft.com/pricing/details/blockchain-service)
 * Build your first app using the [Azure Blockchain Development Kit](https://github.com/Azure-Samples/blockchain-devkit)
 * Azure Blockchain VSCode Extension [user guide](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki)

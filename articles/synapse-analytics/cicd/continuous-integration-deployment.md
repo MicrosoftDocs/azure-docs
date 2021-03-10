@@ -16,7 +16,7 @@ ms.reviewer: pimorano
 
 Continuous Integration (CI) is the process of automating the build and testing of code every time a team member commits changes to version control. Continuous Deployment (CD) is the process to build, test, configure, and deploy from multiple testing or staging environments to a production environment.
 
-For Azure Synapse workspace, continuous integration and delivery (CI/CD) move all entities from one environment (development, test, production) to another. To promote your workspace to another workspace, there are two parts: use [Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) to create or update workspace resources (pools and workspace); migrate artifacts (SQL scripts, notebook, Spark job definition, pipelines, datasets, data flows, and so on) with Synapse CI/CD tools in Azure DevOps. 
+For Azure Synapse workspace, continuous integration and delivery (CI/CD) move all entities from one environment (development, test, production) to another. To promote your workspace to another workspace, there are two parts: use [Azure Resource Manager templates](../../azure-resource-manager/templates/overview.md) to create or update workspace resources (pools and workspace); migrate artifacts (SQL scripts, notebook, Spark job definition, pipelines, datasets, data flows, and so on) with Synapse CI/CD tools in Azure DevOps. 
 
 This article will outline using Azure release pipeline to automate the deployment of a Synapse workspace to multiple environments.
 
@@ -41,7 +41,7 @@ This article will outline using Azure release pipeline to automate the deploymen
 
 1.  In the **Stage name** box, enter the name of your environment.
 
-1.  Select **Add artifact**, and then select the git repository configured with your development Synapse Studio. Select the git repository you used for managing ARM template of pools and workspace. If you use GitHub as the source, you need to create a service connection for your GitHub account and pull repositories. For more information about [service connection](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) 
+1.  Select **Add artifact**, and then select the git repository configured with your development Synapse Studio. Select the git repository you used for managing ARM template of pools and workspace. If you use GitHub as the source, you need to create a service connection for your GitHub account and pull repositories. For more information about [service connection](/azure/devops/pipelines/library/service-endpoints) 
 
     ![Add publish branch](media/release-creation-github.png)
 
@@ -82,7 +82,7 @@ Add an Azure Resource Manager Deployment task to create or update resources, inc
     ![grant permission](media/release-creation-grant-permission.png)
 
  > [!WARNING]
-> In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes)
+> In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](../../azure-resource-manager/templates/deployment-modes.md)
 
 ## Set up a stage task for artifacts deployment 
 
@@ -96,7 +96,7 @@ Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?it
 
      ![Install extension](media/install-extension.png)
 
-1. Make sure Azure DevOps pipeline’s service principle has been granted the permission of subscription and also assigned as workspace admin for target workspace. 
+1. Make sure Azure DevOps pipeline’s service principal has been granted the permission of subscription and also assigned as workspace admin for target workspace. 
 
 1. Create a new task. Search for **Synapse workspace deployment**, and then select **Add**.
 
@@ -117,7 +117,7 @@ Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?it
 
 ## Create release for deployment 
 
-After saving all changes, you can select **Create release** to manually create a release. To automate the creation of releases, see [Azure DevOps release triggers](https://docs.microsoft.com/azure/devops/pipelines/release/triggers)
+After saving all changes, you can select **Create release** to manually create a release. To automate the creation of releases, see [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers)
 
    ![Select Create release](media/release-creation-manually.png)
 
@@ -128,6 +128,14 @@ If you're using Git integration with your Synapse workspace and have a CI/CD pip
 -   **Git integration**. Configure only your development Synapse workspace with Git integration. Changes to test and production workspaces are deployed via CI/CD and don't need Git integration.
 -   **Prepare pools before artifacts migration**. If you have SQL script or notebook attached to pools in the development workspace, the same name of pools in different environments are expected. 
 -   **Infrastructure as Code (IaC)**. Management of infrastructure (networks, virtual machines, load balancers, and connection topology) in a descriptive model, use the same versioning as DevOps team uses for source code. 
--   **Others**. See [best practices for ADF artifacts](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
+-   **Others**. See [best practices for ADF artifacts](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
 
+## Troubleshooting artifacts deployment 
 
+### Use the Synapse workspace deployment task
+
+In Synapse, there are a number of artifacts that are not ARM resources. This differs from Azure Data Factory. The ARM template deployment task will not work properly to deploy Synapse artifacts
+ 
+### Unexpected token error in release
+
+When your parameter file has parameter values which are not escaped, the release pipeline will fail to parse the file, and will generate the error, "unexpected token". We suggest you to override parameters or use Azure KeyVault to retrieve parameter values. You could also use double escape characters as a workaround.

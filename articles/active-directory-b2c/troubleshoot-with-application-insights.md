@@ -22,7 +22,7 @@ This article provides steps for collecting logs from Active Directory B2C (Azure
 The detailed activity logs described here should be enabled **ONLY** during the development of your custom policies.
 
 > [!WARNING]
-> Do not set the `DeploymentMode` to `Developer` in production environments. Logs collect all claims sent to and from identity providers. You as the developer assume responsibility for any personal data collected in your Application Insights logs. These detailed logs are collected only when the policy is placed in **DEVELOPER MODE**.
+> Do not set the `DeploymentMode` to `Development` in production environments. Logs collect all claims sent to and from identity providers. You as the developer assume responsibility for any personal data collected in your Application Insights logs. These detailed logs are collected only when the policy is placed in **DEVELOPER MODE**.
 
 ## Set up Application Insights
 
@@ -97,7 +97,7 @@ Here is a list of queries you can use to see the logs:
 
 The entries may be long. Export to CSV for a closer look.
 
-For more information about querying, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+For more information about querying, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## Configure Application Insights in Production
 

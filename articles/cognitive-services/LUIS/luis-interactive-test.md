@@ -114,7 +114,7 @@ If you have several LUIS endpoints, use the **Additional Settings** link on the 
 
 
 ## Batch testing
-See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
+See batch testing [concepts](./luis-how-to-batch-test.md) and learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
 
 ## Next steps
 

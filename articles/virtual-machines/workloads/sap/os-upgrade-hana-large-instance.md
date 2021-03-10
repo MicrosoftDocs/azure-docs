@@ -6,8 +6,7 @@ documentationcenter:
 author: saghorpa
 manager: juergent
 editor:
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -21,9 +20,6 @@ This document describes the details on operating system upgrades on the HANA Lar
 
 >[!NOTE]
 >The OS upgrade is customer's responsibility, Microsoft operations support can guide you to the key areas to watch out during the upgrade. You should consult your operating system vendor as well before you plan for an upgrade.
-
-> [!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 During HLI unit provisioning, the Microsoft operations team installs the operating system.
 Over the time, you are required to maintain the operating system (Example: Patching, tuning, upgrading etc.) on the HLI unit.
@@ -64,6 +60,8 @@ Operating system configuration can drift from the recommended settings over time
   |   SuSE        |  SLES 12 SP3            |   3.2.3i           |  2.3.0.43    |   1.6.0.36   |
   |   SuSE        |  SLES 12 SP5            |   3.2.3i           |  4.0.0.8     |   2.0.0.60   |
   |   Red Hat     |  RHEL 7.2               |   3.1.3h           |  2.3.0.39    |   1.6.0.34   |
+  |   Red Hat     |  RHEL 7.6               |   3.2.3i           |  3.1.137.5   |   2.0.0.50   |
+  |   Red Hat     |  RHEL 7.6               |   4.1.1b           |  4.0.0.8     |   2.0.0.60   |
  
 
 ### Commands for driver upgrade and to clean old rpm packages

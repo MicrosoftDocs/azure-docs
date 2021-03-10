@@ -5,7 +5,7 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 02/05/2021
 ms.author: banders
 ---
 
@@ -27,7 +27,7 @@ The following table describes the billing roles you use to manage your billing a
 |Billing profile owner|Manage everything for billing profile|
 |Billing profile contributor|Manage everything except permissions on the billing profile|
 |Billing profile reader|Read-only view of everything on billing profile|
-|Invoice manager|View and pay invoices for billing profile|
+|Invoice manager|View invoices for billing profile|
 |Invoice section owner|Manage everything on invoice section|
 |Invoice section contributor|Manage everything except permissions on the invoice section|
 |Invoice section reader|Read-only view of everything on the invoice section|
@@ -95,6 +95,8 @@ The following tables show what role you need to complete tasks in the context of
 |Update billing profile properties |✔|✔|✘|✘|✘|✘|✘|
 |View policies applied on the billing profile like enable Azure reservation purchases, enable Azure marketplace purchases, and more|✔|✔|✔|✔|✔|✔|✔|
 |Apply policies on the billing profile |✔|✔|✘|✘|✘|✘|✘|
+|Manage reservation orders |✔|✔|✘|✘|✘|✘|✘|
+|View reservation orders |✔|✔|✔|✘|✘|✘|✘|
 
 ### Manage invoices for billing profile
 

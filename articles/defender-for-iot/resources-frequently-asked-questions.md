@@ -35,7 +35,7 @@ Azure Defender for IoT provides comprehensive protocol support. In addition to e
 This unique solution for developing protocols as plugins, does not require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
 
 ## Do I have to purchase hardware appliances from Microsoft partners?
-Azure Defender for IoT sensor runs on specific hardware specs as described in the [Hardware Specifications Guide](https://aka.ms/AzureDefenderforIoTBareMetalAppliance), customers can purchase certified hardware from Microsoft partners or use the supplied bill of materials  (BOM) and purchase it on their own. 
+Azure Defender for IoT sensor runs on specific hardware specs as described in the [Hardware Specifications Guide](./how-to-identify-required-appliances.md), customers can purchase certified hardware from Microsoft partners or use the supplied bill of materials  (BOM) and purchase it on their own. 
 
 Certified hardware has been tested in our labs for driver stability, packet drops and network sizing.
 
@@ -76,15 +76,11 @@ Yes. You can set a customized alert on pre-determined set of behaviors such as I
 
 The sensors and agents continue to run and store data as long as the device is running. Data is stored in the security message cache according to size configuration. When the device regains connectivity, security messages resume sending.
 
-
-
-
-
 ## Next steps
 
 To learn more about how to get started with Defender for IoT, see the following articles:
 
 - Read the Defender for IoT [overview](overview.md)
-- Verify the [Service prerequisites](service-prerequisites.md)
-- Learn more about how to [Get started](getting-started.md)
+- Verify the [System prerequisites](quickstart-system-prerequisites.md)
+- Learn more about how to [Getting started with Defender for IoT](getting-started.md)
 - Understand [Defender for IoT security alerts](concept-security-alerts.md)

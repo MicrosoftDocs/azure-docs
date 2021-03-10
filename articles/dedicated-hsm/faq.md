@@ -274,8 +274,8 @@ Full Suite B support
   * RC5
   * CAST
   * Hash/Message Digest/HMAC: SHA-1, SHA-2, SM3
-  * Key Derivation: SP800-108 Counter Mode
-  * Key Wrapping: SP800-38F
+  * Key Derivation: SP 800-108 Counter Mode
+  * Key Wrapping: SP 800-38F
   * Random Number Generation: FIPS 140-2 approved DRBG (SP 800-90 CTR mode), complying with BSI DRG.4
 
 ### Q: Is Dedicated HSM FIPS 140-2 Level 3 validated?

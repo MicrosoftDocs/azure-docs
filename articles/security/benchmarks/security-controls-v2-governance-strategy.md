@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Governance and Strategy
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -16,19 +16,19 @@ Governance and Strategy provides guidance for ensuring a coherent security strat
 
 ## GS-1: Define asset management and data protection strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
-Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
+Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems.
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
 - Data classification standard in accordance with the business risks
 
-- Security organization visibility into risks and asset inventory 
+- Security organization visibility into risks and asset inventory
 
-- Security organization approval of Azure services for use 
+- Security organization approval of Azure services for use
 
 - Security of assets through their lifecycle
 
@@ -59,7 +59,7 @@ For more information, see the following references:
 
 ## GS-2: Define enterprise segmentation strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-2 | 4, 9, 16 | AC, CA, SC |
 
@@ -83,7 +83,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 ## GS-3: Define security posture management strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-3 | 20, 3, 5 | RA, CM, SC |
 
@@ -99,11 +99,11 @@ Continuously measure and mitigate risks to your individual assets and the enviro
 
 ## GS-4: Align organization roles, responsibilities, and accountabilities
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-4 | N/A | PL, PM |
 
-Ensure you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
+Ensure that you document and communicate a clear strategy for roles and responsibilities in your security organization. Prioritize providing clear accountability for security decisions, educating everyone on the shared responsibility model, and educate technical teams on technology to secure the cloud.
 
 - [Azure Security Best Practice 1 – People: Educate Teams on Cloud Security Journey](/azure/cloud-adoption-framework/security/security-top-10#1-people-educate-teams-about-the-cloud-security-journey)
 
@@ -119,13 +119,13 @@ Ensure you document and communicate a clear strategy for roles and responsibilit
 
 ## GS-5: Define network security strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-5 | 9 | CA, SC |
 
-Establish an Azure network security approach as part of your organization’s overall security access control strategy.  
+Establish an Azure network security approach as part of your organization's overall security access control strategy.
 
-This strategy should include documented guidance, policy, and standards for the following elements: 
+This strategy should include documented guidance, policy, and standards for the following elements:
 
 - Centralized network management and security responsibility
 
@@ -137,7 +137,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 - Hybrid cloud and on-premises interconnectivity strategy
 
-- Up-to-date network security artifacts (e.g. network diagrams, reference network architecture)
+- Up-to-date network security artifacts (such as network diagrams, reference network architecture)
 
 For more information, see the following references:
 
@@ -157,13 +157,13 @@ For more information, see the following references:
 
 ## GS-6: Define identity and privileged access strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
-Establish an Azure identity and privileged access approaches as part of your organization’s overall security access control strategy.  
+Establish an Azure identity and privileged access approaches as part of your organization's overall security access control strategy.
 
-This strategy should include documented guidance, policy, and standards for the following elements: 
+This strategy should include documented guidance, policy, and standards for the following elements:
 
 - A centralized identity and authentication system and its interconnectivity with other internal and external identity systems
 
@@ -171,7 +171,7 @@ This strategy should include documented guidance, policy, and standards for the 
 
 - Protection of highly privileged users
 
-- Anomaly user activities monitoring and handling  
+- Anomaly user activities monitoring and handling
 
 - User identity and access review and reconciliation process
 
@@ -193,7 +193,7 @@ For more information, see the following references:
 
 ## GS-7: Define logging and threat response strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-7 | 19 | IR, AU, RA, SC |
 
@@ -201,7 +201,7 @@ Establish a logging and threat response strategy to rapidly detect and remediate
 
 This strategy should include documented guidance, policy, and standards for the following elements: 
 
-- The security operations (SecOps) organization’s role and responsibilities 
+- The security operations (SecOps) organization's role and responsibilities 
 
 - A well-defined incident response process aligning with NIST or another industry framework 
 
@@ -234,7 +234,7 @@ For more information, see the following references:
 
 ## GS-8: Define backup and recovery strategy
 
-| Azure ID | CIS Controls v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+| Azure ID | CIS Controls v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
 | GS-8 | 10 | CP |
 

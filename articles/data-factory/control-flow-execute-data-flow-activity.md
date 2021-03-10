@@ -1,14 +1,11 @@
 ---
 title: Data Flow activity
 description: How to execute data flows from inside a data factory pipeline. 
-services: data-factory
-documentationcenter: ''
 author: kromerm
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 11/24/2020
+ms.date: 01/03/2021
 ---
 
 # Data Flow activity in Azure Data Factory
@@ -33,6 +30,8 @@ Use the Data Flow activity to transform and move data via mapping data flows. If
          "computeType": "General"
       },
       "traceLevel": "Fine",
+      "runConcurrently": true,
+      "continueOnError": true,      
       "staging": {
           "linkedService": {
               "referenceName": "MyStagingLinkedService",
@@ -90,6 +89,14 @@ If you're using an Azure Synapse Analytics as a sink or source, you must choose 
 If you do not require every pipeline execution of your data flow activities to fully log all verbose telemetry logs, you can optionally set your logging level to "Basic" or "None". When executing your data flows in "Verbose" mode (default), you are requesting ADF to fully log activity at each individual partition level during your data transformation. This can be an expensive operation, so only enabling verbose when troubleshooting can improve your overall data flow and pipeline performance. "Basic" mode will only log transformation durations while "None" will only provide a summary of durations.
 
 ![Logging level](media/data-flow/logging.png "Set logging level")
+
+## Sink properties
+
+The grouping feature in data flows allow you to both set the order of execution of your sinks as well as to group sinks together using the same group number. To help manage groups, you can ask ADF to run sinks, in the same group, in parallel. You can also set the sink group to continue even after one of the sinks encounters an error.
+
+The default behavior of data flow sinks is to execute each sink sequentially, in a serial manner, and to fail the data flow when an error is encountered in the sink. Additionally, all sinks are defaulted to the same group unless you go into the data flow properties and set different priorities for the sinks.
+
+![Sink properties](media/data-flow/sink-properties.png "Set sink properties")
 
 ## Parameterizing Data Flows
 
