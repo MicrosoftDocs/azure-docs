@@ -99,15 +99,15 @@ Save your function code.
 
 #### Step-3: Publish the function app to Azure
 
-Follow the steps in the section **Publish the function app to Azure** of [*How-to: Set up a function for processing data*](how-to-create-azure-function.md#publish-the-function-app-to-azure) article.
+Follow the steps in the section **Publish the function app to Azure** of the [*How-to: Set up a function for processing data*](how-to-create-azure-function.md#publish-the-function-app-to-azure) article.
 
 #### Step-4: Verify function publish
 
-Follow the steps in the section **Verify function publish** of [*How-to: Set up a function for processing data*](how-to-create-azure-function.md#verify-function-publish) article.
+Follow the steps in the section **Verify function publish** of the [*How-to: Set up a function for processing data*](how-to-create-azure-function.md#verify-function-publish) article.
 
 #### Step-5: Configure the function app
 
-Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the *Set up security access for the function app* of [*How-to: Set up a function for processing data*](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) article.
+Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the *Set up security access for the function app* of the [*How-to: Set up a function for processing data*](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) article.
 
 ## Connect your function to IoT Hub
 
