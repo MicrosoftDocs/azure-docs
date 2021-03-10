@@ -33,7 +33,6 @@ Follow the steps in [Create a Media Services account](./create-account-howto.md)
 
 [!INCLUDE [media-services-cli-instructions.md](./includes/task-create-basic-audio-rest.md)]
 
-
 ## Next steps
 
-[Media Services Overview](media-services-overview.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

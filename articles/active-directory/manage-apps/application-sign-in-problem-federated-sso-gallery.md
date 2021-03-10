@@ -3,7 +3,7 @@ title: Problems signing in to SAML-based single sign-on configured apps
 description: Guidance for the specific errors when signing into an application you have configured for SAML-based federated single sign-on with Azure Active Directory
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -17,7 +17,7 @@ ms.custom: contperf-fy21q2
 # Problems signing in to SAML-based single sign-on configured apps
 To troubleshoot the sign-in issues below, we recommend the following to better diagnosis and automate the resolution steps:
 
-- Install the [My Apps Secure Browser Extension](./access-panel-deployment-plan.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
+- Install the [My Apps Secure Browser Extension](my-apps-deployment-plan.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
 - Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](./debug-saml-sso-issues.md)
 
 If you use the [testing experience](./debug-saml-sso-issues.md) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow the steps below to open the SAML-based single sign-on configuration page.
@@ -36,7 +36,8 @@ To open the SAML-based single sign-on configuration page:
 1. Select SAML-based SSO.
 
 ## Application not found in directory
-`Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory.`
+
+`Error AADSTS70001: Application with Identifier 'https://contoso.com' was not found in the directory.`
 
 **Possible cause**
 
@@ -49,7 +50,7 @@ Ensure that the `Issuer` attribute in the SAML request matches the Identifier va
 On the SAML-based SSO configuration page, in the **Basic SAML configuration** section, verify that the value in the Identifier textbox matches the value for the identifier value displayed in the error.
 
 ## The reply address does not match the reply addresses configured for the application
-`Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
+`Error AADSTS50011: The reply URL specified in the request does not match the reply URLs configured for the application: '{application identifier}'.`
 
 **Possible cause**
 
@@ -64,7 +65,7 @@ Verify or update the value in the Reply URL textbox to match the `AssertionConsu
 After you've updated the Reply URL value in Azure AD, and it matches the value sent by the application in the SAML request, you should be able to sign in to the application.
 
 ## User not assigned a role
-`Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application.`
+`Error AADSTS50105: The signed in user 'brian@contoso.com' is not assigned to a role for the application.`
 
 **Possible cause**
 

@@ -1,17 +1,16 @@
 ---
-title: Monitor Azure Media Services events with Event Grid using CLI  | Microsoft Docs
+title: Monitor Azure Media Services events with Event Grid
 description: This article shows how to subscribe to Event Grid in order to monitor Azure Media Services events by using Azure CLI.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.author: inhenkel 
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ---
 
@@ -26,7 +25,7 @@ In this article, you use the Azure CLI to subscribe to events for your Azure Med
 ## Prerequisites
 
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
     Currently, not all [Media Services v3 CLI](/cli/azure/ams) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 

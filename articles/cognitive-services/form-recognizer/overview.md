@@ -24,26 +24,27 @@ Azure Form Recognizer is a cognitive service that lets you build automated data 
 Form Recognizer is composed of custom document processing models, prebuilt models for invoices, receipts and business cards, and the layout model. You can call Form Recognizer models by using a REST API or client library SDKs to reduce complexity and integrate it into your workflow or application.
 
 Form Recognizer is composed of the following services:
+
 * **[Layout API](#layout-api)** - Extract text, selection marks, and tables structures, along with their bounding box coordinates, from documents.
 * **[Custom models](#custom-models)** - Extract text, key/value pairs, selection marks, and table data from forms. These models are trained with your own data, so they're tailored to your forms.
 * **[Prebuilt models](#prebuilt-models)** - Extract data from unique form types using prebuilt models. Currently available are the following prebuilt models
-    * [Invoices](./concept-invoices.md)
-    * [Sales receipts](./concept-receipts.md)
-    * [Business cards](./concept-business-cards.md)
-
+  * [Invoices](./concept-invoices.md)
+  * [Sales receipts](./concept-receipts.md)
+  * [Business cards](./concept-business-cards.md)
 
 ## Try it out
 
 To try out the Form Recognizer Service, go to the online Sample UI Tool:
-
-
-# [v2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Try Form Recognizer](https://fott.azurewebsites.net/)
-
+<!-- markdownlint-disable MD025 -->
 # [v2.1 preview](#tab/v2-1)
+
 > [!div class="nextstepaction"]
 > [Try Form Recognizer](https://fott-preview.azurewebsites.net/)
+
+# [v2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Try Form Recognizer](https://fott.azurewebsites.net/)
 
 ---
 
@@ -84,13 +85,13 @@ Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes a
 Form Recognizer also includes Prebuilt models for automated data processing of unique form types.
 
 ### Prebuilt Invoice model
-The Prebuilt Invoice model extracts data from invoices in a variety of formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal and more. In addition, the prebuilt invoice model is trained to recognize and return all of the text and tables on the invoice. See the [Invoices](./concept-invoices.md) conceptual guide for more info.
+The Prebuilt Invoice model extracts data from invoices in a variety of formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal and more. In addition, the prebuilt invoice model is trained to analyze and return all of the text and tables on the invoice. See the [Invoices](./concept-invoices.md) conceptual guide for more info.
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
 
 ### Prebuilt Receipt model
 
-The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt. See the [Receipts](./concept-receipts.md) conceptual guide for more info.
+The Prebuilt Receipt model is used for reading English sales receipts from Australia, Canada, Great Britain, India, and the United States&mdash;the type used by restaurants, gas stations, retail, and so on. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes, line items, totals and more. In addition, the prebuilt receipt model is trained to analyze and return all of the text on a receipt. See the [Receipts](./concept-receipts.md) conceptual guide for more info.
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
@@ -134,12 +135,11 @@ You'll use the following APIs to train models and extract structured data from f
 | **Analyze Receipt** | Analyze a receipt document to extract key information, and other receipt text.|
 | **Analyze Business Card** | Analyze a business card to extract key information and text.|
 
+# [v2.1 preview](#tab/v2-1)
+Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
 # [v2.0](#tab/v2-0)
 Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
-
-# [v2.1](#tab/v2-1)
-Explore the [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
 
 ---
 
@@ -168,4 +168,4 @@ As with all the cognitive services, developers using the Form Recognizer service
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the language of your choice.
+Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.

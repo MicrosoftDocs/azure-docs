@@ -12,8 +12,6 @@
   items:
   - name: Security technical capabilities
     href: technical-capabilities.md
-  - name: Built-in security controls
-    href: security-controls.md
 
 - name: Azure platform and infrastructure
   items:
@@ -149,7 +147,7 @@
 
 - name: Monitoring, auditing, and operations
   items:
-  - name: Advanced threat protection
+  - name: Threat protection
     href: threat-detection.md
   - name: Azure logging and auditing
     href: log-audit.md

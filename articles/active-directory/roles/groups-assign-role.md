@@ -2,14 +2,14 @@
 title: Assign a role to a cloud group in Azure Active Directory | Microsoft Docs
 description: Assign an Azure AD role to a role-assignable group in the Azure portal, PowerShell, or Graph API.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 

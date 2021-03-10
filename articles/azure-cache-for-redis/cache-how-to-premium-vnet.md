@@ -1,26 +1,22 @@
 ---
 title: Configure a virtual network - Premium-tier Azure Cache for Redis instance
-description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instances.
+description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instance
 author: yegu-ms
+
 ms.author: yegu
 ms.service: cache
-ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 02/08/2021
 ---
-# Configure virtual network support for a Premium-tier Azure Cache for Redis instance
+# Configure virtual network support for a Premium Azure Cache for Redis instance
 
-Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. Premium-tier features include clustering, persistence, and virtual network support. A virtual network is a private network in the cloud. When an Azure Cache for Redis instance is configured with a virtual network, it isn't publicly addressable and can only be accessed from virtual machines and applications within the virtual network. This article describes how to configure virtual network support for a Premium-tier Azure Cache for Redis instance.
+[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation along with subnets, access control policies, and other features to further restrict access. When an Azure Cache for Redis instance is configured with a virtual network, it isn't publicly addressable and can only be accessed from virtual machines and applications within the virtual network. This article describes how to configure virtual network support for a Premium-tier Azure Cache for Redis instance.
 
 > [!NOTE]
 > Azure Cache for Redis supports both classic deployment model and Azure Resource Manager virtual networks.
 > 
 
-## Why Virtual Network?
-
-[Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation for your Azure Cache for Redis instance, along with subnets, access control policies, and other features to further restrict access.
-
-## Virtual network support
+## Set up virtual network support
 
 Virtual network support is configured on the **New Azure Cache for Redis** pane during cache creation.
 
@@ -172,7 +168,7 @@ There are network connectivity requirements for Azure Cache for Redis that might
 * Outbound network connectivity to Azure Storage endpoints worldwide. Endpoints located in the same region as the Azure Cache for Redis instance and storage endpoints located in *other* Azure regions are included. Azure Storage endpoints resolve under the following DNS domains: *table.core.windows.net*, *blob.core.windows.net*, *queue.core.windows.net*, and *file.core.windows.net*.
 * Outbound network connectivity to *ocsp.digicert.com*, *crl4.digicert.com*, *ocsp.msocsp.com*, *mscrl.microsoft.com*, *crl3.digicert.com*, *cacerts.digicert.com*, *oneocsp.microsoft.com*, and *crl.microsoft.com*. This connectivity is needed to support TLS/SSL functionality.
 * The DNS configuration for the virtual network must be capable of resolving all of the endpoints and domains mentioned in the earlier points. These DNS requirements can be met by ensuring a valid DNS infrastructure is configured and maintained for the virtual network.
-* Outbound network connectivity to the following Azure Monitor endpoints, which resolve under the following DNS domains: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *east-prod2.prod2.metrics.nsatc.net*, and *azglobal-red.azglobal.metrics.nsatc.net*.
+* Outbound network connectivity to the following Azure Monitor endpoints, which resolve under the following DNS domains: *shoebox2-black.shoebox2.metrics.nsatc.net*, *north-prod2.prod2.metrics.nsatc.net*, *azglobal-black.azglobal.metrics.nsatc.net*, *shoebox2-red.shoebox2.metrics.nsatc.net*, *east-prod2.prod2.metrics.nsatc.net*, *azglobal-red.azglobal.metrics.nsatc.net*, *shoebox3.prod.microsoftmetrics.com*, *shoebox3-red.prod.microsoftmetrics.com* and *shoebox3-black.prod.microsoftmetrics.com*.
 
 ### How can I verify that my cache is working in a virtual network?
 

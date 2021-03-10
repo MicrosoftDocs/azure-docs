@@ -17,6 +17,13 @@ You should use one of the Azure IoT Device SDKs to build your IoT Plug and Play 
 
 The sample in this tutorial uses the [Eclipse Mosquitto](http://mosquitto.org/) MQTT library and Visual Studio. The steps in this tutorial assume you're using Windows on your development machine.
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Download and build the Eclipse Mosquitto library.
+> * Modify the C-based MQTT sample code to make the device an IoT Plug and Play device.
+> * Identify the MQTT topics that an IoT Plug and Play device uses.
+
 ## Prerequisites
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
@@ -134,15 +141,14 @@ The following definitions are for the MQTT topics the device uses to send inform
 * The `DEVICE_TELEMETRY_MESSAGE` defines the topic the device uses to send telemetry to your IoT hub.
 
 For more information about MQTT, visit the [MQTT Samples for Azure IoT](https://github.com/Azure-Samples/IoTMQTTSample/) GitHub repository.
-  
+
+## Clean up resources
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## Next steps
 
-In this tutorial, you learned how to modify an MQTT device client to follow the IoT Plug and Play conventions. To learn more about IoT Plug and Play, see:
-
-> [!div class="nextstepaction"]
-> [Architecture](concepts-architecture.md)
-
-To learn more about IoT Hub support for the MQTT protocol, see:
+In this tutorial, you learned how to modify an MQTT device client to follow the IoT Plug and Play conventions. To learn more about IoT Hub support for the MQTT protocol, see:
 
 > [!div class="nextstepaction"]
 > [Communicate with your IoT hub using the MQTT protocol](../iot-hub/iot-hub-mqtt-support.md)

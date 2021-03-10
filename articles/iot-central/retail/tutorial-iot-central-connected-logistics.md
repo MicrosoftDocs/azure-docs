@@ -126,10 +126,8 @@ If you're not going to continue to use this application, delete the application 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Template cleanup":::
 
 ## Next steps
-* Learn more about 
+
+Learn more about :
+
 > [!div class="nextstepaction"]
-> [Connected logistics concept](./architecture-connected-logistics.md)
-* Learn more about other 
-[IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about 
-[IoT Central overview](../core/overview-iot-central.md)
+> [Connected logistics concepts](./architecture-connected-logistics.md)

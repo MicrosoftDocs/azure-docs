@@ -58,7 +58,7 @@ The figure below shows a collapsed IT subnet with 27 IT network elements.
 
 To enable the IT networks collapsing capability:
 
-- In the System Setting window, ensure that the IT Networks capability is enabled.
+- In the **System Settings** window, ensure that the Toggle IT Networks Grouping capability is enabled.
 
 :::image type="content" source="media/how-to-work-with-maps/shrunk-it-subnet-v2.png" alt-text="System Setting window":::
 
@@ -71,7 +71,7 @@ To expand an IT subnet:
 
    :::image type="content" source="media/how-to-work-with-maps/subnet-list.png" alt-text="Subnets Configuration":::
 
-2. In the Edit Subnets Configuration window, clear the  ICS subnet for each subnet that you want to define as an IT subnet. The IT subnets appear collapsed in the device map with the notifications for ICS devices, such as a controller or PLC, in IT networks.
+2. In the **Edit Subnets Configuration** window, clear the **ICS Subnet** checkbox for each subnet that you want to define as an IT subnet. The IT subnets appear collapsed in the device map with the notifications for ICS devices, such as a controller or PLC, in IT networks.
 
    :::image type="content" source="media/how-to-work-with-maps/edit-config.png" alt-text="Edit Subnets Configuration":::
 
@@ -101,13 +101,13 @@ The collapse icon is updated with the updated number of expanded IT subnets.
 
 ## View or highlight device groups
 
-You can customize the map display based on device Groups. For example, groups of devices associated with a specific VLAN or subnet. Predefined groups are available and custom groups can be created.
+You can customize the map display based on device Groups. For example, groups of devices associated with a specific OT Protocol, VLAN, or subnet. Predefined groups are available and custom groups can be created.
 
 View groups by:
 
   - **Highlighting:** Highlight the devices that belong to a specific group in blue.
 
-  - **Filtering:** Only display devices on the map only that belong to a specific group.
+  - **Filtering:** Display only devices that belong to a specific group.
 
 :::image type="content" source="media/how-to-work-with-maps/port-standard.png" alt-text="Standard view of your port":::
 
@@ -115,17 +115,18 @@ The following predefined groups are available:
 
 | Group name | Description |
 |--|--|
-| **Known applications or non-standard ports (default)** | Devices that use reserved ports, such as TCP. Devices that use non-standard ports or ports that have not been assigned an alias. |
-| **OT protocols (default)** | Devices that handle the OT traffic. |
-| **Authorization (default)** | Devices that were discovered in the network during the learning process or were officially added to the network |
+| **Known applications** | Devices that use reserved ports, such as TCP.  |
+| **non-standard ports (default)** | Devices that use non-standard ports or ports that have not been assigned an alias. |
+| **OT protocols (default)** | Devices that handle known OT traffic. |
+| **Authorization (default)** | Devices that were discovered in the network during the learning process or were officially authorized on the network. |
 | **Device inventory filters** | Devices grouped according to the filters save in the Device Inventory table. |
 | **Polling intervals** | Devices grouped by polling intervals. The polling intervals are generated automatically according to cyclic channels, or periods. For example, 15.0 seconds, 3.0 seconds, 1.5 seconds, or any interval. Reviewing this information helps you learn if systems are polling too quickly or slowly. |
-| **Programming** | Engineering stations and programmed controllers |
+| **Programming** | Engineering stations, and programming machines. |
 | **Subnets** | Devices that belong to a specific subnet. |
 | **VLAN** | Devices associated with a specific VLAN ID. |
-| **Connection between subnets** | Devices associated with cross subnet connection. |
+| **Cross subnet connections** | Devices that communicate from one subnet to another subnet. |
 | **Pinned alerts** | Devices for which the user has pinned an alert. |
-| **Attack vector simulations** | Vulnerable devices detected in attack vector reports. In order to view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Add Attack Vector Simulations"::: |
+| **Attack vector simulations** | Vulnerable devices detected in attack vector reports. In order to view these devices on the map, select the **Display on Device Map** checkbox when generating the Attack Vector. :::image type="content" source="media/how-to-work-with-maps/add-attack-v2.png" alt-text="Add Attack Vector Simulations":::. |
 | **Last seen** | Devices grouped by the time frame they were last seen, for example: One hour, six hours, one day, seven days. |
 | **Not In Active Directory** | All non-PLC devices that are not communicating with the Active Directory. |
 
@@ -137,7 +138,7 @@ To highlight or filter devices:
 
 3. From the Groups pane, select the group you want to highlight or filter devices.
 
-4. Select **Highlight** or **Filter**.
+4. Select **Highlight** or **Filter**. Toggle the same selection to remove the highlight, or filter.
 
 ## Define custom groups
 
@@ -150,20 +151,20 @@ To create a group:
 
 1. Select **Devices** on the side menu. The Device Map is displayed.
 
-2. Select :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Group Setting"::: to display the Groups settings.
+1. Select :::image type="content" source="media/how-to-work-with-maps/menu-icon.png" alt-text="Group Setting"::: to display the Groups settings.
 
-3. Select :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="groups"::: to create a new custom group.
+1. Select :::image type="content" source="media/how-to-work-with-maps/create-group-v2.png" alt-text="groups"::: to create a new custom group.
 
 :::image type="content" source="media/how-to-work-with-maps/custom-group-v2.png" alt-text="Create a custom group screen":::
 
-4. Add the name of the group, use up to 30 characters.
+1. Add the name of the group, use up to 30 characters.
 
-5. Select the relevant devices, as follows:
+1. Select the relevant devices, as follows:
 
    - Add the devices from this menu by selecting them from the list (select on the arrow button),<br /> Or, <br /> 
    - Add the devices from this menu by copying them from a selected group (select on the arrow button)
 
-6. Select **Add group**.
+1. Select **Add group** to add existing groups to custom groups.
 
 ### Add devices to a custom group
 
@@ -171,13 +172,13 @@ You can add devices to a custom group or create a new custom group and the devic
 
 1. Right-click a device(s) on the map.
 
-2. Select **Add to group**.
+1. Select **Add to group**.
 
-3. Enter a group name in the group field and select +. The new group appears. If the group already exists, it will be added to the existing custom group.
+1. Enter a group name in the group field and select +. The new group appears. If the group already exists, it will be added to the existing custom group.
 
    :::image type="content" source="media/how-to-work-with-maps/groups-section-v2.png" alt-text="Group name":::
 
-4. Add devices to a group by repeating steps 1-3.
+1. Add devices to a group by repeating steps 1-3.
 
 ## Map zoom views
 
@@ -314,12 +315,12 @@ The following information can be updated manually. Information manually entered 
 | Basic Information | The basic information needed. |
 | Name | The device name. <br /> By default, the sensor discovers the device name as it defined in the network. For example, a name defined in the DNS server. <br /> If no such names were defined, the device IP address appears in this field. <br /> You can change a device name manually. Give your devices meaningful names that reflect their functionality. |
 | Type | The device type detected by the sensor. <br /> For more information, see [View device types](#view-device-types). |
-| Vendor | The device vendor. |
-| Operating System | The device OS. |
+| Vendor | The device vendor. This is determined by the leading characters of the device MAC address. This field is read-only. |
+| Operating System | The device OS detected by the sensor. |
 | Purdue Layer | The Purdue layer identified by the sensor for this device, including: <br /> - Automatic <br /> - Process Control <br /> - Supervisory <br /> - Enterprise |
 | Description | A free text field. <br /> Add more information about the device. |
 | Attributes | Any additional information that was discovered about the device during the learning period and does not belong to other categories, appears in the attributes section. <br /> The information is RO. |
-| Settings | You can manually change device settings to prevent false positives: <br /> - **Authorized Device**: During the learning period, all the devices discovered in the network are identified as authorized devices. When a device is discovered after the learning period, it appears as an unauthorized device by default. You can change this definition manually. <br /> - **Known as Scanner**: Enable this option if you know that this device is known as scanner and there is no need to alert you about it. <br /> - **Programming Device**: Enable this option if you know that this device is known as a programming device and there is no need to alert you about it. |
+| Settings | You can manually change device settings to prevent false positives: <br /> - **Authorized Device**: During the learning period, all the devices discovered in the network are identified as authorized devices. When a device is discovered after the learning period, it appears as an unauthorized device by default. You can change this definition manually. <br /> - **Known as Scanner**: Enable this option if you know that this device is known as scanner and there is no need to alert you about it. <br /> - **Programming Device**: Enable this option if you know that this device is known as a programming device and is used to make programming changes. Identifying it as a programming device will prevent alerts for programming changes originating from this asset. |
 | Custom Groups | The custom groups in the device map in which this device participates. |
 | State | The security and the authorization status of the device: <br /> - The status is `Secured` when there are no alerts <br /> - When there are alerts about the device, the number of alerts is displayed <br /> - The status `Unauthorized` is displayed for devices that were added to the network after the learning period. You can manually define the device as `Authorized Device` in the settings <br /> - In case the address of this device is defined as a dynamic address, `DHCP` is added to the status. |
 
@@ -364,7 +365,7 @@ To view the device information:
 
 2. Right-click a device and select **View Properties**. The Device Properties window is displayed.
 
-3. Select on the required alert at the bottom of this window to view detailed information about alerts for this device.
+3. Select on the required alert to view detailed information about alerts for this device.
 
 ### Backplane properties
 
@@ -424,7 +425,7 @@ Enhance forensics by displaying programming events carried out on your network d
 
 You can display a programmed device and scroll through various programming changes carried out on it by other devices.
 
-View code that was added, changed, removed, or unchanged by the programming device. Search for programming changes based on file types, dates, or times of interest.
+View code that was added, changed, removed, or reloaded by the programming device. Search for programming changes based on file types, dates, or times of interest.
 
 ### When to review programming activity 
 
@@ -438,7 +439,7 @@ You may need to review programming activity:
 
 :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Programing Change Log":::
 
-Additional options let you:
+Other options let you:
 
   - Mark events of interest with a star.
 
@@ -471,7 +472,7 @@ Alerts are triggered when unauthorized programming devices carry out programming
 :::image type="content" source="media/how-to-work-with-maps/unauthorized.png" alt-text="Unauthorized programming alerts":::
 
 > [!NOTE]
-> You can also view basic programming information in the Device Properties window and Device Inventory. See [Device Programming Information: Additional Locations](#device-programming-information-additional-locations) for details.
+> You can also view basic programming information in the Device Properties window and Device Inventory.
 
 ### Working in the programming timeline window
 
@@ -534,7 +535,7 @@ To compare:
 
 5. The file selected from the Recent Events/Files pane always appears on the right.
 
-### Device programming information: additional locations
+### Device programming information: Other locations
 
 In addition to reviewing details in the Programming Timeline, you can access programming information in the Device Properties window and the Device Inventory.
 
@@ -551,7 +552,7 @@ The sensor does not update or impact devices directly on the network. Changes ma
 
 You may want to delete a device if the information learned is not relevant. For example,
 
-  - A partner contractor at an engineering workstation connects to perform configuration updates. After the task is completed, the device should no longer be monitored.
+  - A partner contractor at an engineering workstation connects temporarily to perform configuration updates. After the task is completed, the device is removed.
 
   - Due to changes in the network, some devices are no longer connected.
 
@@ -561,7 +562,7 @@ You may receive an alert indicating that the device is unresponsive if another d
 
 The device will be removed from the Device Map, Device Inventory, and Data Mining reports. Other information, for example: information stored in Widgets will be maintained.
 
-The device must be active for at least 10 minutes to delete it.
+The device must be inactive for at least 10 minutes to delete it.
 
 To delete a device from the device map:
 
@@ -571,15 +572,17 @@ To delete a device from the device map:
 
 ### Merge devices
 
-Under certain circumstances, you may need to merge devices. This may be required if the sensor discovered separate network entities that are one unique device. For example,
+Under certain circumstances, you may need to merge devices. This may be required if the sensor discovered separate network entities that are associated with one unique device. For example,
 
-  - A PLC with four network cards
+  - A PLC with four network cards.
 
-  - A Laptop with WIFI and physical card
+  - A Laptop with WIFI and physical card.
+  
+  - A Workstation with two, or more network cards.
 
 When merging, you instruct the sensor to combine the device properties of two devices into one. When you do this, the Device Properties window and sensor reports will be updated with the new device property details.
 
-For example, if you merge two devices with an IP address, both IP addresses will appear as separate interfaces in the Device Properties window. You can only merge authorized devices.
+For example, if you merge two devices, each with an IP address, both IP addresses will appear as separate interfaces in the Device Properties window. You can only merge authorized devices.
 
 :::image type="content" source="media/how-to-work-with-maps/device-properties-v2.png" alt-text="Device Properties window":::
 
@@ -591,7 +594,7 @@ You cannot undo a device merge. If you mistakenly merged two devices, delete the
 
 To merge devices:
 
-1. Select two devices and right-click one of them.
+1. Select two devices (shift-click), and then right-click one of them.
 
 2. Select **Merge** to merge the devices. It can take up to 2 minutes complete the merge.
 
@@ -617,7 +620,7 @@ If you move a device on the map or manually change the device properties, the `N
 
 #### Unauthorized devices - attack vectors and risk assessment reports
 
-Unauthorized devices are calculated included in Risk Assessment reports and Attack Vectors reports.
+Unauthorized devices are included in Risk Assessment reports and Attack Vectors reports.
 
 - **Attack Vector Reports:** Devices marked as unauthorized are resolved in the Attack Vector as suspected rogue devices that might be a threat to the network.
 

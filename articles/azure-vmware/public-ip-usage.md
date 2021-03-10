@@ -2,7 +2,7 @@
 title: How to use the public IP functionality in Azure VMware Solution
 description: This article explains how to use the public IP functionality in Azure Virtual WAN.
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 02/04/2021
 ---
 # How to use the public IP functionality in Azure VMware Solution
 
@@ -110,11 +110,11 @@ Once all components are deployed, you can see them in the added Resource group. 
 
    :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Screenshot of how to create a firewall policy in Firewall Manager" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
-1. Under the **Basics** tab, provide the required details and select **Next : DNS Settings**. 
+1. Under the **Basics** tab, provide the required details and select **Next: DNS Settings**. 
 
-1. Under the **DNS** tab, select **Disable**, and then select **Next : Rules**.
+1. Under the **DNS** tab, select **Disable**, and then select **Next: Rules**.
 
-1. Select **Add a rule collection**, provide the below details, and select **Add** and then select **Next : Threat intelligence**.
+1. Select **Add a rule collection**, provide the below details, and select **Add** and then select **Next: Threat intelligence**.
 
    -  Name
    -  Rules collection Type - DNAT
@@ -130,7 +130,7 @@ Once all components are deployed, you can see them in the added Resource group. 
    -  Translated address – **Azure VMware Solution Web Server private IP Address**
    -  Translated port - **Azure VMware Solution Web Server port**
 
-1. Leave the default value, and then select **Next : Hubs**.
+1. Leave the default value, and then select **Next: Hubs**.
 
 1. Select **Associate virtual hub**.
 
@@ -138,11 +138,11 @@ Once all components are deployed, you can see them in the added Resource group. 
 
    :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot that shows the selected hubs that will be converted to Secured Virtual Hubs." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
-1. Select **Next : Tags**. 
+1. Select **Next: Tags**. 
 
 1. (Optional) Create name and value pairs to categorize your resources. 
 
-1. Select **Next : Review + create** and then select **Create**.
+1. Select **Next: Review + create** and then select **Create**.
 
 ## Limitations
 
@@ -150,5 +150,7 @@ You can have 100 public IPs per SDDCs.
 
 ## Next steps
 
-Learn more about using public IP addresses using [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+Now that you've covered how to use the public IP functionality in Azure VMware Solution, you may want to learn about:
 
+- Using public IP addresses with [Azure Virtual WAN](../virtual-wan/virtual-wan-about.md).
+- [Creating an IPSec tunnel into Azure VMware Solution](create-ipsec-tunnel.md).
