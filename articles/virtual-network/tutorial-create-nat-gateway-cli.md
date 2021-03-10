@@ -140,7 +140,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 az vm create \
-    --name myVM
+    --name myVM \
     --resource-group myResourceGroupNAT  \
     --admin-username azureuser \
     --image win2019datacenter \
