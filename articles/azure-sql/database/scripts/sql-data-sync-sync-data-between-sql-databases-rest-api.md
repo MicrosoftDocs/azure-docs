@@ -26,7 +26,7 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 ## Create sync group
 
-Use the following template to create a sync group: https://docs.microsoft.com/en-us/rest/api/sql/syncgroups/createorupdate
+Use the following template to create a sync group: https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate
 When creating a sync group, do not pass in the sync schema (table\column) and do not pass in masterSyncMemberName, because at this time sync group does not have table\column information yet.
 
 Sample request for creating a sync group: 
@@ -85,7 +85,7 @@ Sample response for creating a sync group:
 
 Once your sync group is created successfully, refresh schema using the following templates.
  
-Refresh schema for hub: https://docs.microsoft.com/en-us/rest/api/sql/syncgroups/refreshhubschema
+Refresh schema for hub: https://docs.microsoft.com/rest/api/sql/syncgroups/refreshhubschema
 
 Sample request for refreshing a hub database schema: 
 
@@ -99,11 +99,11 @@ Status code: 200
 
 Status code: 202
 
-Refresh schema for member: https://docs.microsoft.com/en-us/rest/api/sql/syncmembers/refreshmemberschema
+Refresh schema for member: https://docs.microsoft.com/rest/api/sql/syncmembers/refreshmemberschema
 
 ## Update sync group 
 
-Use the following template to update your sync group: https://docs.microsoft.com/en-us/rest/api/sql/syncgroups/createorupdate
+Use the following template to update your sync group: https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate
 Update sync group by specifying the sync schema. Include your schema and masterSyncMemberName, which is the name that holds the schema you want to use. 
 
 Sample request for updating sync group: 
