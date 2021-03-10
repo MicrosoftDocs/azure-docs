@@ -39,7 +39,7 @@ sMSAs offer greater security than user accounts used as service accounts, while 
 
    * The DNS name of the host computer is changed.
 
-   * When adding or removing an additional sam-accountname or dns-hostname parameters using [PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
+   * When adding or removing an additional sam-accountname or dns-hostname parameters using [PowerShell](/powershell/module/addsadministration/set-adserviceaccount)
 
 ## When to use sMSAs
 
@@ -48,7 +48,7 @@ sMSAs can simplify management and security tasks. Use sMSAs when you've one or m
 > [!NOTE] 
 > While you can use sMSAs for more than one service, we recommend that each service have its own identity for auditing purposes. 
 
-If the creator of the software can’t tell you if it can use an MSA, you must test your application. To do so, create a test environment and ensure it can access all required resources. See [create and install an sMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) for step-by-step directions.
+If the creator of the software can’t tell you if it can use an MSA, you must test your application. To do so, create a test environment and ensure it can access all required resources. See [create and install an sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) for step-by-step directions.
 
 ### Assess security posture of sMSAs
 
@@ -107,7 +107,7 @@ You can use the following Active Directory PowerShell cmdlets for managing sMSAs
 
 ## Move to sMSAs
 
-If an application service supports sMSA but not gMSAs, and is currently using a user account or computer account for the security context, [create and install an sMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) on the server. 
+If an application service supports sMSA but not gMSAs, and is currently using a user account or computer account for the security context, [create and install an sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) on the server. 
 
 Ideally, move resources to Azure, and use Azure Managed Identities or service principals.
 
@@ -128,4 +128,3 @@ See the following articles on securing service accounts
 
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
 
- 

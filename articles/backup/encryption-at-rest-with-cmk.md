@@ -230,11 +230,11 @@ InfrastructureEncryptionState : Disabled
 >[!NOTE]
 > This process remains the same when you wish to update or change the encryption key. If you wish to update and use a key from another Key Vault (different from the one that's being currently used), make sure that:
 >
-> - The Key Vault is located in the same region as the Recovery Services vault
+> - The key vault is located in the same region as the Recovery Services vault
 >
-> - The Key vault has soft-delete and purge protection enabled
+> - The key vault has soft-delete and purge protection enabled
 >
-> - The Recovery Services vault has the required permissions to access the Key Vault.
+> - The Recovery Services vault has the required permissions to access the key Vault.
 
 ## Backing up to a vault encrypted with customer-managed keys
 

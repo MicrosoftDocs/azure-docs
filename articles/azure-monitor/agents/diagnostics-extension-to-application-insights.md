@@ -1,7 +1,6 @@
 ---
 title: Send Azure Diagnostics data to Application Insights
 description: Update the Azure Diagnostics public configuration to send data to Application Insights.
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -168,25 +167,27 @@ In the previous configuration, the following lines have the following meanings:
 
 ### Send all the data that is being collected by Azure diagnostics
 
-```XML
+```xml
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
 ```
-```JSON
+
+```json
 "DiagnosticMonitorConfiguration": {
-	"overallQuotaInMB": 4096,
-	"sinks": "ApplicationInsights",
+    "overallQuotaInMB": 4096,
+    "sinks": "ApplicationInsights",
 }
 ```
 
 ### Send only error logs to the Application Insights sink
 
-```XML
+```xml
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights.MyTopDiagdata">
 ```
-```JSON
+
+```json
 "DiagnosticMonitorConfiguration": {
-	"overallQuotaInMB": 4096,
-	"sinks": "ApplicationInsights.MyTopDiagData",
+    "overallQuotaInMB": 4096,
+    "sinks": "ApplicationInsights.MyTopDiagData",
 }
 ```
 
@@ -197,8 +198,8 @@ In the previous configuration, the following lines have the following meanings:
 ```
 ```JSON
 "DiagnosticMonitorConfiguration": {
-	"overallQuotaInMB": 4096,
-	"sinks": "ApplicationInsights.MyLogData",
+    "overallQuotaInMB": 4096,
+    "sinks": "ApplicationInsights.MyLogData",
 }
 ```
 

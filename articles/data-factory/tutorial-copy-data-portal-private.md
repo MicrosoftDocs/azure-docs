@@ -5,13 +5,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 ms.author: jingwang
 ---
 
 # Copy data securely from Azure Blob storage to a SQL database by using private endpoints
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). *The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) by using private endpoints in [Azure Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md).* The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [Supported data stores and formats](./copy-activity-overview.md) table.
 

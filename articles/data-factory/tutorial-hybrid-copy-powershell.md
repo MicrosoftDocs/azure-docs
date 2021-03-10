@@ -6,12 +6,12 @@ ms.author: abnarain
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
-ms.date: 01/22/2018
+ms.date: 02/18/2021
 ---
 
 # Tutorial: Copy data from a SQL Server database to Azure Blob storage
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you use Azure PowerShell to create a data-factory pipeline that copies data from a SQL Server database to Azure Blob storage. You create and use a self-hosted integration runtime, which moves data between on-premises and cloud data stores.
 

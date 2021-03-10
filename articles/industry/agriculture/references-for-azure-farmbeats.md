@@ -4,7 +4,7 @@ description: Explore reference links to Azure FarmBeats articles, such as the Fa
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ---
 
 # Reference information for FarmBeats

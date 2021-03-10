@@ -63,13 +63,13 @@ Computer Vision's OCR APIs support several languages. They do not require you to
 |Italian | `it` |✔ |✔ |✔ |
 |Japanese | `ja` |✔ | |✔ |
 |Javanese | `jv` | | |✔ |
+|K’iche’  | `quc` | | |✔ |
 |Kabuverdianu | `kea` | | |✔ |
 |Kachin (Latin) | `kac` | | |✔ |
 |Kara-Kalpak | `kaa` | | |✔ |
 |Kashubian | `csb` | | |✔ |
 |Khasi  | `kha` | | |✔ |
 |Korean | `ko` |✔ | |✔ |
-|K’iche’  | `quc` | | |✔ |
 |Kurdish (latin) | `kur` | | |✔ |
 |Luxembourgish  | `lb` | | |✔ |
 |Malay (Latin)  | `ms` | | |✔ |

@@ -10,14 +10,14 @@ ms.date: 02/11/2021
 
 # What is Document Translation (Preview)?
 
-Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service and is part of the Azure Cognitive Service family of REST APIs. The Document Translation API translates documents to and from more than 70 languages while preserving document structure and data format.
+Document Translation is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service and is part of the Azure Cognitive Service family of REST APIs. The Document Translation API translates documents to and from 90 languages and dialects while preserving document structure and data format.
 
 ## Document Translation key features
 
 | Feature | Description |
 | ---------| -------------|
 | **Translate large files**| Translate whole documents asynchronously.|
-|**Translate numerous files**|Translate multiple files to and from more than 70 languages.|
+|**Translate numerous files**|Translate multiple files to and from 90 languages and dialects.|
 |**Preserve source file presentation**| Translate files while preserving the original layout and format.|
 |**Apply custom translation**| Translate documents using general and [custom translation](../customization.md#custom-translator) models.|
 |**Apply custom glossaries**|Translate documents using custom glossaries.|

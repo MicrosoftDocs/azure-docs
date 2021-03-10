@@ -95,7 +95,7 @@ The following image shows how to enable Azure AD DS authentication over SMB for 
 
 To enable Azure AD DS authentication over SMB with Azure PowerShell, install the latest Az module (2.4 or newer) or the Az.Storage module (1.5 or newer). For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
 
-To create a new storage account, call [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), and then set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for enabling the feature is **EnableAzureFilesAadIntegrationForSMB**.)
+To create a new storage account, call [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), and then set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for enabling the feature is **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -119,9 +119,9 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable Azure AD authentication over SMB with Azure CLI, install the latest CLI version (Version 2.0.70 or newer). For more information about installing Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+To enable Azure AD authentication over SMB with Azure CLI, install the latest CLI version (Version 2.0.70 or newer). For more information about installing Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-To create a new storage account, call [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), and set the `--enable-files-aadds` property to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
+To create a new storage account, call [az storage account create](/cli/azure/storage/account#az-storage-account-create), and set the `--enable-files-aadds` property to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account

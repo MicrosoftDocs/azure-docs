@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2021
+ms.date: 03/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -80,6 +80,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
+- 03/03/2021: Change in [HA guide for SAP ASCS/SCS with WSFC and Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) to add a cautionary statement that elevated privileges are required for the the user running SWPM, during the installation of the SAP system
 - 02/11/2021: Changes in [High availability of IBM Db2 LUW on Azure VMs on Red Hat Enterprise Linux Server](./high-availability-guide-rhel-ibm-db2-luw.md) to amend pacemaker cluster commands for RHEL 8.x
 - 02/03/2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to update  pcmk_host_map in the stonith create command
 - 02/03/2021: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to add pcmk_host_map in the stonith create command 

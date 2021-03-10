@@ -7,13 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.subservice: metrics
 ---
 
 # Advanced features of the Azure metrics explorer
 
 > [!NOTE]
-> This article assumes you're familiar with basic features of the Azure metrics explorer feature of Azure Monitor. If you're a new user and want to learn how to create your first metric chart, see [Getting started with the metrics explorer](../platform/metrics-getting-started.md).
+> This article assumes you're familiar with basic features of the Azure metrics explorer feature of Azure Monitor. If you're a new user and want to learn how to create your first metric chart, see [Getting started with the metrics explorer](./metrics-getting-started.md).
 
 In Azure Monitor, [metrics](data-platform-metrics.md) are a series of measured values and counts that are collected and stored over time. Metrics can be standard (also called "platform") or custom. 
 
@@ -45,11 +44,11 @@ When you're satisfied with your selection, select **Apply**.
 ### View metrics across multiple resources
 Some resource types can query for metrics over multiple resources. The resources must be within the same subscription and location. Find these resource types at the top of the **Resource types** menu. 
 
-For more information, see [Select multiple resources](../platform/metrics-dynamic-scope.md#select-multiple-resources).
+For more information, see [Select multiple resources](./metrics-dynamic-scope.md#select-multiple-resources).
 
 ![Screenshot showing cross-resource types.](./media/metrics-charts/multi-resource-scope.png)
 
-For types that are compatible with multiple resources, you can query for metrics across a subscription or multiple resource groups. For more information, see [Select a resource group or subscription](../platform/metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
+For types that are compatible with multiple resources, you can query for metrics across a subscription or multiple resource groups. For more information, see [Select a resource group or subscription](./metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
 
 ## Multiple metric lines and charts
 
@@ -63,7 +62,7 @@ For example, imagine you have five storage accounts, and you want to know how mu
 
 ### Multiple metrics on the same chart
 
-To view multiple metrics on the same chart, first [create a new chart](../platform/metrics-getting-started.md#create-your-first-metric-chart). Then select **Add metric**. Repeat this step to add another metric on the same chart.
+To view multiple metrics on the same chart, first [create a new chart](./metrics-getting-started.md#create-your-first-metric-chart). Then select **Add metric**. Repeat this step to add another metric on the same chart.
 
 > [!NOTE]
 > Typically, your charts shouldn't mix metrics that use different units of measure. For example, avoid mixing one metric that uses milliseconds with another that uses kilobytes. Also avoid mixing metrics whose scales differ significantly. 
@@ -82,7 +81,7 @@ When you add a metric to a chart, the metrics explorer automatically applies a d
 
 Before you use different aggregations on a chart, you should understand how the metrics explorer handles them. Metrics are a series of measurements (or "metric values") that are captured over a time period. When you plot a chart, the values of the selected metric are separately aggregated over the *time grain*. 
 
-You select the size of the time grain by using the metrics explorer's [time picker panel](../platform/metrics-getting-started.md#select-a-time-range). If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
+You select the size of the time grain by using the metrics explorer's [time picker panel](./metrics-getting-started.md#select-a-time-range). If you don't explicitly select the time grain, the currently selected time range is used by default. After the time grain is determined, the metric values that were captured during each time grain are aggregated on the chart, one data point per time grain.
 
 For example, suppose a chart shows the *Server response time* metric. It uses the *average* aggregation over time span of the *last 24 hours*. In this example:
 
@@ -226,6 +225,42 @@ The alert rule creation pane opens. In the pane, you see the chart's metric dime
 
 For more information, see [Create, view, and manage metric alerts](../alerts/alerts-metric.md).
 
+## Correlate metrics to logs
+To help customer diagnose the root cause of anomalies in their metrics chart, we created Drill into Logs. Drill into Logs allows customers to correlate spikes in their metrics chart to logs and queries. 
+
+Before we dive into the experience, we want to first introduce the different types of logs and queries provided. 
+
+| Term             | Definition  | 
+|------------------|-------------|
+| Activity logs    | Provides insight into the operations on each Azure resource in the subscription from the outside (the management plane) in addition to updates on Service Health events. Use the Activity Log, to determine the what, who, and when for any write operations (PUT, POST, DELETE) taken on the resources in your subscription. There is a single Activity log for each Azure subscription.  |   
+| Diagnostic log   | Provide insight into operations that were performed within an Azure resource (the data plane), for example getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type. **Note:** Must be provided by service and enabled by customer  | 
+| Recommended log | Scenario-based queries that customer can leverage to investigate anomalies in their metrics explorer.  |
+
+Currently, Drill into Logs are available for select resource providers. The resource providers that have the complete Drill into Logs experience are: 
+
+* Application Insights 
+* Autoscale 
+* App Services  
+* Storage  
+
+Below is a sample experiences for the Application Insights resource provider.
+
+![Spike in failures in app insights metrics blade](./media/metrics-charts/drill-into-log-ai.png)
+
+To diagnose the spike in failed requests, click on “Drill into Logs”.
+
+![Screenshot of drill into logs dropdown](./media/metrics-charts/drill-into-logs-dropdown.png)
+
+By clicking on the failure option, you will be led to a custom failure blade that provides you with the failed operation operations, top exceptions types, and dependencies. 
+
+![Screenshot of app insights failure blade](./media/metrics-charts/ai-failure-blade.png)
+
+### Common problems with Drill into Logs
+
+* Log and queries are disabled - To view recommended logs and queries, you must route your diagnostic logs to Log Analytics. Read [this document](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) to learn how to do this. 
+* Activity logs are only provided - The Drill into Logs feature is only available for select resource providers. By default, activity logs are provided. 
+
+ 
 ## Troubleshooting
 
 If you don't see any data on your chart, review the following troubleshooting information:
@@ -238,6 +273,5 @@ If you don't see any data on your chart, review the following troubleshooting in
 
 ## Next steps
 
-To create actionable dashboards by using metrics, see [Creating custom KPI dashboards](../learn/tutorial-app-dashboards.md).
+To create actionable dashboards by using metrics, see [Creating custom KPI dashboards](../app/tutorial-app-dashboards.md).
 
- 

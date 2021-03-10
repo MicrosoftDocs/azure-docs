@@ -1054,47 +1054,17 @@ The new VM Extension for SAP uses a Managed Identity assigned to the VM to acces
    az login
    ```
 
-1. Follow the steps in the [Configure managed identities for Azure resources on an Azure VM using Azure CLI][qs-configure-cli-windows-vm] article to enable a System-Assigned Managed Identity to the VM. User-Assigned Managed Identities are not supported by the VM extension for SAP. However, you can enable both, a system-assigned and a user-assigned identity.
-
-   Example:
+1. Install Azure CLI AEM Extension. Make sure to use at least version 0.2.0 or higher.
+  
    ```azurecli
-   az vm identity assign -g <resource-group-name> -n <vm name>
+   az extension add --name aem
    ```
-
-1. Assign the Managed Identity access to the resource group of the VM or to all network interfaces, managed disks and the VM itself as described in [Assign a managed identity access to a resource using Azure CLI][howto-assign-access-cli]
-
-    Example:
-
-    ```azurecli
-    # Azure CLI on Linux
-    spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
-    rgId=$(az group show -g <resource-group-name> --query id --out tsv)
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-
-    # Azure CLI on Windows/PowerShell
-    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
-    $rgId=az group show -g <resource-group-name> --query id --out tsv
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-    ```
-
-1. Run the following Azure CLI command to install the Azure Extension for SAP.
-    The extension is currently only supported in AzureCloud. Azure China 21Vianet, Azure Government or any of the other special environments are not yet supported.
-
-    ```azurecli
-    # Azure CLI on Linux
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    # Azure CLI on Windows/PowerShell
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-    ```
+  
+1. Install the new extension with
+  
+   ```azurecli
+   az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
+   ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Checks and Troubleshooting
 

@@ -1,7 +1,6 @@
 ---
 title: Resource Manager template samples for workbooks
 description: Sample Azure Resource Manager templates to deploy Azure Monitor workbooks.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
