@@ -75,7 +75,7 @@ Most virtualized environments are configured by default to prevent users from in
 
 - [Publish built-in apps in Windows Virtual Desktop](publish-apps.md)
 - [DISM app package servicing command-line options](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage)
 
 ## How do I make sure users don't download and install apps from the Microsoft Store?
 
