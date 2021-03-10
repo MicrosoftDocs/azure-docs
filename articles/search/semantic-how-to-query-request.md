@@ -15,9 +15,9 @@ ms.date: 03/10/2021
 > [!IMPORTANT]
 > Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During the initial preview launch, there is no charge for semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-In this article, learn how to formulate a search request that uses semantic ranking. The request will return semantic captions, and optionally [semantic answers](semantic-ranking-answers.md), with highlights over the most relevant terms and phrases.
+In this article, learn how to formulate a search request that uses semantic ranking. The request will return semantic captions, and optionally [semantic answers](semantic-answers.md), with highlights over the most relevant terms and phrases.
 
-Both captions and answers are extracted intact from text in the search document. The semantic subsystem determines what each of them are, but it does not compose new sentences, or combine values from different fields when returning an answer or summary. For this reason, content that includes explanations or definitions work best for semantic search.
+Both captions and answers are extracted intact from text in the search document. The semantic subsystem determines what  captions and answers to return, but it does not compose new sentences, or combine values from different fields in the response. For this reason, content that includes explanations or definitions work best for semantic search.
 
 ## Prerequisites
 
@@ -53,13 +53,13 @@ As with all queries in Cognitive Search, the request targets the documents colle
 
 The difference lies in relevance and scoring. As defined in this preview release, a semantic query is one whose *results* are reranked using a semantic language model, providing a way to surface the matches deemed most relevant by the semantic ranker, rather than the scores assigned by the default similarity ranking algorithm.
 
-Only the top 50 matches from the initial results can be semantically ranked, and all include captions in the response. Optionally, you can specify an **`answer`** parameter on the request to extract a potential answer. For more information, see [Semantic answers](semantic-ranking-answers.md).
+Only the top 50 matches from the initial results can be semantically ranked, and all include captions in the response. Optionally, you can specify an **`answer`** parameter on the request to extract a potential answer. For more information, see [Semantic answers](semantic-answers.md).
 
 ## Query with Search explorer
 
 [Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after you sign up for the preview. Options enable semantic queries, searchFields, and spell correction.
 
-You can also paste in a URL that includes the required parameters.
+You can also paste the required query parameters into the request.
 
 :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Query options in Search explorer" border="true":::
 
@@ -95,7 +95,7 @@ The following table summarizes the query parameters used in a semantic query so 
 | queryLanguage | String | Required for semantic queries. Currently, only "en-us" is implemented. |
 | searchFields | String | A comma-delimited list of searchable fields. Optional but recommended. Specifies the fields over which semantic ranking occurs. </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence. For more usage instructions, see [Step 2: Set searchFields](#searchfields). |
 | speller | String | Optional parameter, not specific to semantic queries, that corrects misspelled terms before they reach the search engine. For more information, see [Add spell correction to queries](speller-how-to-add.md). |
-| answers |String | Optional parameters that specifies whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. The default is one. This example shows a count of three answers: "extractive\|count3"`. For more information, see [Return semantic answers](semantic-ranking-answers.md).|
+| answers |String | Optional parameters that specifies whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. The default is one. This example shows a count of three answers: "extractive\|count3"`. For more information, see [Return semantic answers](semantic-answers.md).|
 
 ### Formulate the request
 
@@ -144,7 +144,7 @@ Remove any orderBy clauses, if they exist in an existing request. The semantic s
 
 #### Step 4: Add answers
 
-Optionally, add "answers" if you want to include additional processing that provides an answer. Answers (and captions) are extracted from passages found in fields listed in searchFields. Be sure to include content-rich fields in searchFields to get the best answers in a response. For more information, see [How to return semantic answers](semantic-ranking-answers.md).
+Optionally, add "answers" if you want to include additional processing that provides an answer. Answers (and captions) are extracted from passages found in fields listed in searchFields. Be sure to include content-rich fields in searchFields to get the best answers in a response. For more information, see [How to return semantic answers](semantic-answers.md).
 
 <!-- There are explicit and implicit conditions that produce answers. 
 
@@ -162,11 +162,11 @@ Optionally, you can customize the highlight style applied to captions. Captions 
 
 ## Evaluate the response
 
-Response for the above query returns the following match as the top pick. Captions are returned automatically, with plain text and highlighted versions.
-
 A response includes the original relevance score, the new semantically ranking relevance score, captions in plain text and with highlights, followed by other fields listed in the select clause. Answer is omitted because one could not be determined for the query.
 
 In a client app, you can structure the search page to include a caption as the decription of the match, rather than the entire contents of a specific field.
+
+The response for the above query returns the following match as the top pick. Captions are returned automatically, with plain text and highlighted versions.
 
 ```json
 "@odata.count": 35,

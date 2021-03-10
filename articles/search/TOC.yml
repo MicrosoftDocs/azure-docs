@@ -312,6 +312,8 @@
       href: search-query-create.md
     - name: Create a semantic query
       href: semantic-how-to-query-request.md
+    - name: Return a semantic answer
+      href: semantic-answers.md
     - name: Add spell check to queries
       href: speller-how-to-add.md
     - name: Query types and composition
@@ -354,12 +356,12 @@
       href: search-query-understand-collection-filters.md
     - name: Filter by language
       href: search-filters-language.md
-  - name: Relevance and answers
+  - name: Relevance
     items:
     - name: Similarity ranking
       href: index-ranking-similarity.md
-    - name: Semantic ranking and answers
-      href: semantic-ranking-answers.md
+    - name: Semantic ranking
+      href: semantic-ranking.md
     - name: Scoring profiles 
       href: index-add-scoring-profiles.md
   - name: Security
