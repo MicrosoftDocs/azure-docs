@@ -97,7 +97,7 @@ Each storage type has specific prerequisites.
 If you want to use Azure Blob storage with your cache, you need a compatible storage account and either an empty Blob container or a container that is populated with Azure HPC Cache formatted data as described in [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
 > [!NOTE]
-> Different requirements apply to NFS-mounted blob storage. Read [ADLS-NFS storage requirements](additional-requirements-for-nfs-mounted-blob-storage-containers) for details.
+> Different requirements apply to NFS-mounted blob storage. Read [ADLS-NFS storage requirements](#nfs-mounted-blob-adls-nfs-storage-requirements-preview) for details.
 
 Create the account before attempting to add a storage target. You can create a new container when you add the target.
 
@@ -175,10 +175,10 @@ Azure HPC Cache also can use a blob container mounted with the NFS protocol as a
 
 > [!NOTE]
 > NFS 3.0 protocol support for Azure Blob storage is in public preview. Availability is restricted, and features might change between now and when the feature becomes generally available. Do not use preview technology in production systems.
+>
+> Read more about this preview feature in [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support.md).
 
-Read more about this preview feature in [NFS 3.0 protocol support in Azure Blob storage](../storage/blobs/network-file-system-protocol-support).
-
-The storage account requirements are different for an ADLS-NFS blob storage target and for a standard blob storage target. Follow the instructions in [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to) carefully to create and configure the NFS-enabled storage account.
+The storage account requirements are different for an ADLS-NFS blob storage target and for a standard blob storage target. Follow the instructions in [Mount Blob storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md) carefully to create and configure the NFS-enabled storage account.
 
 This is a general overview of the steps:
 
@@ -190,7 +190,7 @@ This is a general overview of the steps:
 
 1. Create the storage account.
 
-   * Instead of the using the storage account settings for a standard blob storage account, follow the instructions in the [how-to document](../storage/blobs/network-file-system-protocol-support-how-to). The type of storage account supported might vary by Azure region.
+   * Instead of the using the storage account settings for a standard blob storage account, follow the instructions in the [how-to document](../storage/blobs/network-file-system-protocol-support-how-to.md). The type of storage account supported might vary by Azure region.
 
    * In the **Networking** section, choose a private endpoint in the secure virtual network you created (recommended), or choose a public endpoint with restricted access from the secure VNet. <!-- private endpoint might not be possible actually -->
 
