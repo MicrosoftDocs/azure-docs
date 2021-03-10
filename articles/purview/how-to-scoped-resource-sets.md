@@ -21,15 +21,21 @@ Follow the steps below to create a new scoped resource set configuration:
 
 1. Go to the management center. Select **Scoped resource sets** from the menu. Select **+ New** to create a new configuration rule set.
 
+<<<<<<< HEAD
    :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Create new scoped resource set rule" border="true":::
 
 1. Enter the scope of your scoped resource set configuration. Select your storage account type and the name of the storage account you wish to create a rule set on. Each set of rules is applied relative to a folder path scope specified in the **Folder path** field.
 
    :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Create scoped resource set configurations" border="true":::
+=======
+1. Enter the scope of your scoped resource set configuration. Select your storage account type and the name of the storage account you wish to create a rule set on. Each set of rules is applied relative to a folder path scope specified in the **Folder path** field. 
+        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Enter storage account scope" border="true":::
+>>>>>>> 1fb1dec726f8fd633809106f71ec261a63ed4d6b
 
 1. To enter a rule for a configuration scope, select **+ New Rule**.
 
 1. Enter in the following fields to create a rule:
+<<<<<<< HEAD
 
    1. **Rule name:** The name of the configuration rule. This field has no effect on the assets the rule applies to.
 
@@ -42,6 +48,14 @@ Follow the steps below to create a new scoped resource set configuration:
       :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Create new configuration rule." border="true":::
 
 1. Save the rule by clicking **Add**.
+=======
+    1. **Rule name:** The name of the configuration rule. This field has no effect on the assets the rule applies to.
+    1. **Qualified name:** A qualified path that uses a combination of text, dynamic replacers, and static replacers to match assets to the configuration rule. This path is relative to the scope of the configuration rule. See the [syntax](#syntax) section below for detailed instructions on how to specify qualified names. 
+    1. **Display name:** The display name of the asset. This field is optional. Use plain text and static replacers to customize how an asset is displayed in the catalog. For more detailed instructions, see the [syntax](#syntax) section below.
+    1. **Do not group as resource set:** If enabled, matched resource won't be grouped into a resource set. 
+        :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Enter scoped resource set configuration" border="true"::: 
+1. Save the rule by clicking **Add**. 
+>>>>>>> 1fb1dec726f8fd633809106f71ec261a63ed4d6b
 
 ## <a name="syntax"></a> Scoped resource set syntax
 

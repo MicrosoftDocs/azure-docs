@@ -1,8 +1,8 @@
 ---
 title: Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Yocto Image | Microsoft Docs
 description: Get started with Device Update for Azure IoT Hub using the Raspberry Pi 3 B+ Reference Yocto Image.
-author: vimeht
-ms.author: vimeht
+author: valls
+ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
@@ -154,13 +154,11 @@ Use that version number in the Import Update step below.
 
 ## Import update
 
-1. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
-
-2. Select the Updates tab.
-
-3. Select "+ Import New Update".
-
-4. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you downloaded previously. Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the apt manifest update file you downloaded previously.
+1. Create an Import Manifest following these [instructions](import-update.md).
+2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+3. Select the Updates tab.
+4. Select "+ Import New Update".
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the update file that you wish to deploy to your IoT devices.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 

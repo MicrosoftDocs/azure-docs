@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Secure a Linux web server with TLS/SSL certificates in Azure"
 description: In this tutorial, you learn how to use the Azure CLI to secure a Linux virtual machine that runs the NGINX web server with SSL certificates stored in Azure Key Vault.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
@@ -9,7 +9,8 @@ manager: gwallace
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

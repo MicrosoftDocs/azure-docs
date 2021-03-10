@@ -58,7 +58,7 @@ The following example shows how to apply `copy` to the `dataDisks` property on a
       "type": "int",
       "minValue": 0,
       "maxValue": 16,
-      "defaultValue": 16,
+      "defaultValue": 3,
       "metadata": {
         "description": "The number of dataDisks to create."
       }
