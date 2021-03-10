@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Build a machine learning app using Microsoft Machine Learning for Apache Spark (Preview)'
+title: 'Tutorial: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)'
 description: Learn how to use Microsoft Machine Learning for Apache Spark to create machine learning applications in Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics 
