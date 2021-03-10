@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -352,7 +352,7 @@ The following are the IDs for a [Verification display control](display-control-v
 
 | ID | Default value |
 | -- | ------------- |
-|intro_msg| Verification is necessary. Please click Send button.|
+|intro_msg <sup>1</sup>| Verification is necessary. Please click Send button.|
 |success_send_code_msg | Verification code has been sent. Please copy it to the input box below.|
 |failure_send_code_msg | We are having trouble verifying your email address. Please enter a valid email address and try again.|
 |success_verify_code_msg | E-mail address verified. You can now continue.|
@@ -361,6 +361,14 @@ The following are the IDs for a [Verification display control](display-control-v
 |but_verify_code | Verify code|
 |but_send_new_code | Send new code|
 |but_change_claims | Change e-mail|
+
+Notes:
+
+1. The `intro_msg` isn't showen on the self-asserted papes. To make it visible use the Cascading Style Sheets. For example:
+    
+    ```css
+    .verificationInfoText div{display: block!important}
+    ```
 
 ### Verification display control example
 
