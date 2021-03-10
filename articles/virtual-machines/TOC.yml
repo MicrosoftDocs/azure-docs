@@ -1233,18 +1233,28 @@
     href: ./linux/login-using-aad.md
 - name: Updates and maintenance
   items:
-  - name: Guest OS updates
-    items: 
-    - name: Guest OS patching
-      items: 
-      - name: Automatic VM guest patching (preview)
-        href: automatic-vm-guest-patching.md
-      - name: Hotpatching
-        href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
-    - name: Automatic OS image upgrade
+  - name: Overview
+    href: updates-maintenance.md
+  - name: Automatic OS image upgrade
+    items:
+    - name: Overview
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
+    - name: Maintenance control for OS image upgrade
+      items: 
+      - name: Overview (preview)
+        href: virtual-machine-scale-sets-maintenance-control.md
+      - name: PowerShell (preview)
+        href: virtual-machine-scale-sets-maintenance-control-powershell.md
+  - name: Automatic VM guest patching (preview)
+    items: 
+    - name: Overview
+      href: automatic-vm-guest-patching.md
+    - name: Hotpatch
+      href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
   - name: Automatic extension upgrade (preview)
     href: automatic-extension-upgrade.md
+  - name: Update management
+    href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
   - name: Maintenance
     items:
     - name: Overview
