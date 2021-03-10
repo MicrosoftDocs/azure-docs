@@ -18,7 +18,7 @@ There are two stages in an upgrade:
 2. Run the PowerShell script to complete the upgrade and traffic migration.
 
 > [!IMPORTANT]
-> The script is currently under maintenance. You can refer to instructions [here](../virtual-network/virtual-network-public-ip-address-upgrade.md?tabs=option-upgrade-cli%2coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) on how to upgrade Public IP addresses from Basic SKU and Standard SKU.
+> The script is currently under maintenance. You can refer to instructions [here](../virtual-network/virtual-network-public-ip-address-upgrade.md) on how to upgrade Public IP addresses from Basic SKU and Standard SKU.
 
 ## Upgrade overview
 
