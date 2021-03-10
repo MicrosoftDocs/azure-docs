@@ -69,7 +69,7 @@ Number of keys per HSM Pool|5000
 Number of versions per key|100
 Number of custom role definitions per HSM|50
 Number of role assignments at HSM scope|50
-Number of role assignment at individual key scope|10
+Number of role assignment at each individual key scope|10
 |||
 
 #### Transaction limits for administrative operations (number of operations per second per HSM instance)
