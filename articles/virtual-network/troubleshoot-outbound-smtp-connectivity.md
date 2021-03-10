@@ -76,7 +76,7 @@ After a subscription is exempted and the VMs have been stopped and restarted in 
 
 ## Changing subscription type
 
-If you change subscription type or get your Cloud Solution Provider or pay-as-you-go subscription approved, you must stop, deallocate, and then restart your VM for the new policy to take effect. Similarly, if you have a subscription type that's allowed by default and then change to a subscription type that is not allowed, port 25 might then be blocked because of the changes to deployment.
+If you change subscription type or your Cloud Solution Provider or pay-as-you-go subscription is approved, you must stop, deallocate, and then restart your VM for the new policy to take effect. Similarly, if you have a subscription type that's allowed by default, and then you change to a subscription type that's not allowed, port 25 might then be blocked because of the changes to deployment.
 
 ## Need help? Contact support
 
