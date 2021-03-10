@@ -13,7 +13,8 @@ ms.author: barclayn
 #Customer intent: Why are we doing this?
 ---
 
-# Link your Domain to your DID
+# Link your Domain to your Distributed Identifier (DID)
+
 
 In this article:
 - Why you want to link your domain
@@ -25,7 +26,7 @@ In this article:
 
 To link your DID to your domain, you need to have completed the following.
 
-- Complete the Getting Started and Tutorial. 
+- Complete the Getting Started and Tutorial.  (WHICH TUTORIAL? ALL OF THEM?)
 
 ## Why should we link our domain to our DID?
 

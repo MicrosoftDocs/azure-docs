@@ -8,7 +8,7 @@ editor:
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: overview
-ms.date: 03/08/2021
+ms.date: 03/09/2021
 ms.author: barclayn
 # As a developer, I'd like to create a solution that allows customers to manage information about themselves
 ---
@@ -25,11 +25,17 @@ Welcome to the developer documentation for Verifiable Credentials at Microsoft. 
 
 What are the components of a verifiable credentials?
 - Azure Verifiable Credential Issuer Service
+- 
 - VC SDK
 - Authenticator (iOS and Android)
 - ION
 
 What is a verifiable credential?
+What is a DID?
+
+"decentralized identifier = A portable URL-based identifier, also known as a DID, associated with an entity. These identifiers are most often used in a verifiable credential and are associated with subjects such that a verifiable credential itself can be easily ported from one repository to another without the need to reissue the credential. An example of a DID is did:example:123456abcdef." From https://www.w3.org/TR/vc-data-model/#:~:text=A%20portable%20URL%2Dbased%20identifier,need%20to%20reissue%20the%20credential. 
+
+
 What makes up the overall ‘solution’? 
 What are the use cases and requirements?
 What is the problem that this is trying to solve?
