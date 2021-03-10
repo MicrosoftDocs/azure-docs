@@ -240,8 +240,8 @@
     href: security-center-partner-integration.md
   - name: Protect network resources
     href: security-center-network-recommendations.md
-  - name: Enable MFA
-    displayName: identity, access, AAD, active directory
+  - name: Enforce MFA
+    displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
     href: security-center-identity-access.md
   - name: Use Security Center's additional threat protections
     href: other-threat-protections.md

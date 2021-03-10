@@ -9,7 +9,7 @@ ms.date: 03/10/2021
 ms.author: memildin
 ---
 
-# Configure multi-factor authentication (MFA) on your subscriptions
+# Manage multi-factor authentication (MFA) enforcement on your subscriptions
 
 If you're only using passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords or reuse them for multiple services. With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on (SSO).
 
@@ -100,7 +100,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 - [We're already using CA policy to enforce MFA. Why do we still get the Security Center recommendations?](#were-already-using-ca-policy-to-enforce-mfa-why-do-we-still-get-the-security-center-recommendations)
 - [We're using a third-party MFA tool to enforce MFA. Why do we still get the Security Center recommendations?](#were-using-a-third-party-mfa-tool-to-enforce-mfa-why-do-we-still-get-the-security-center-recommendations)
 - [Why does Security Center show user accounts without permissions on the subscription as "requiring MFA"?](#why-does-security-center-show-user-accounts-without-permissions-on-the-subscription-as-requiring-mfa)
-- [We're enforcing MFA with PIM. Why are PIM accounts are shown as noncompliant?](#were-enforcing-mfa-with-pim-why-are-pim-accounts-are-shown-as-noncompliant)
+- [We're enforcing MFA with PIM. Why are PIM accounts shown as noncompliant?](#were-enforcing-mfa-with-pim-why-are-pim-accounts-shown-as-noncompliant)
 - [Can I exempt/dismiss some of the accounts?](#can-i-exemptdismiss-some-of-the-accounts)
 - [Can I customize the number of owners designated for a subscription?](#can-i-customize-the-number-of-owners-designated-for-a-subscription)
 
@@ -117,7 +117,7 @@ Security Center's MFA recommendations don't support third-party MFA tools (for e
 If the recommendations are irrelevant for your organization, consider marking them as "mitigated" as described in [Exempting resources and recommendations from your secure score](exempt-resource.md). You can also [disable a recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
 
 ### Why does Security Center show user accounts without permissions on the subscription as "requiring MFA"?
-Security Center's MFA recommendations refer to [Azure RBAC](../role-based-access-control/role-definitions-list.md) roles and the [Classic administrator](https://docs.microsoft.com/en-us/azure/role-based-access-control/classic-administrators) role. Verify that none of the accounts have such roles.
+Security Center's MFA recommendations refer to [Azure RBAC](../role-based-access-control/role-definitions-list.md) roles and the [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) role. Verify that none of the accounts have such roles.
 
 ### We're enforcing MFA with PIM. Why are PIM accounts shown as noncompliant?
 Security Center's MFA recommendations currently don't support PIM accounts. You can add these accounts to a CA Policy in the Users/Group section.
