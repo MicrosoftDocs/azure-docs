@@ -19,33 +19,29 @@ Welcome to what's new in the Cognitive Services docs from February 1, 2021 throu
 
 - [Azure Policy Regulatory Compliance controls for Azure Cognitive Services](security-controls-policy.md)
 
-### Updated articles
-
-- [Cognitive Services docs: What's new for January 1, 2021 - January 31, 2021](whats-new-docs.md)
-
 ## Containers
 
 ### New articles
 
-- [Azure Cognitive Services containers frequently asked questions (FAQ)](/azure/cognitive-services/containers/container-faq.yml)
+- [Azure Cognitive Services containers frequently asked questions (FAQ)](/azure/cognitive-services/containers/container-faq)
 
 ### Updated articles
 
-- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags.md)
+- [Azure Cognitive Services container image tags and release notes](/azure/cognitive-services/containers/container-image-tags)
 
 ## Form Recognizer
 
 ### Updated articles
 
-- [Deploy the sample labeling tool](/azure/cognitive-services/form-recognizer/deploy-label-tool.md)
-- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview.md)
-- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool.md)
+- [Deploy the sample labeling tool](/azure/cognitive-services/form-recognizer/deploy-label-tool)
+- [What is Form Recognizer?](/azure/cognitive-services/form-recognizer/overview)
+- [Train a Form Recognizer model with labels using the sample labeling tool](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
 
 ## Text Analytics
 
 ### Updated articles
 
-- [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support.md)
-- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api.md)
+- [Text Analytics API v3 language support](/azure/cognitive-services/text-analytics/language-support)
+- [How to call the Text Analytics REST API](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api)
 
-[!INCLUDE [Service specific updates](./includes/service-specific-updates.md)]
+[!INCLUDE [Service specific updates](./includes/service-specific-updates)]
