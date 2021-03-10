@@ -90,7 +90,7 @@ First, create a new function app project in Visual Studio. For instructions on h
 
 #### Step 2: Fill in function code
 
-Rename the *Function1.cs* sample function that Visual Studio has generated with the new project to *IoTHubToTwins.cs*. Replace the code in the file with the following code:
+Rename the *Function1.cs* sample function that Visual Studio has generated with the new project to *IoTHubtoTwins.cs*. Replace the code in the file with the following code:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
@@ -98,13 +98,11 @@ Save your function code.
 
 #### Step 3: Publish the function app to Azure
 
+Publish the project to a function app in Azure by right-selecting the project in *Solution Explorer* and choose **Publish**.
+
 For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
 
-#### Step 4: Verify function publish
-
-For instructions on how to do this, see the section [**Verify function publish**](how-to-create-azure-function.md#verify-function-publish) of the *How-to: Set up a function for processing data* article.
-
-#### Step 5: Configure the function app
+#### Step 4: Configure the function app
 
 Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
 
