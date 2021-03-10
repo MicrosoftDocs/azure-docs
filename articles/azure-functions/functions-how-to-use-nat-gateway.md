@@ -1,18 +1,18 @@
 ---
 title: Control Azure Functions outbound IP with an Azure virtual network NAT gateway
 description: A step-by-step tutorial that shows you how to configure NAT for a function connected to an Azure virtual network
-ms.topic: article
+ms.topic: tutorial
 ms.author: kyburns
 ms.date: 2/26/2021
 
 #Customer intent: As an enterprise developer, I want a consistent and predictable outbound IP address for my function so that an external party can add my function's IP to the allowlist.
 ---
 
-# Tutorial: control Azure Functions outbound IP with an Azure virtual network NAT gateway
+# Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway
 
-Virtual network address translation (NAT) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. This can be useful for Azure Functions or Web Apps that need to consume a third party service which uses an allowlist of IP address as a security measure. To learn more, see [What is Virtual Network NAT?](../virtual-network/nat-overview.md).
+Virtual network address translation (NAT) simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. An NAT can be useful for Azure Functions or Web Apps that need to consume a third-party service that uses an allowlist of IP address as a security measure. To learn more, see [What is Virtual Network NAT?](../virtual-network/nat-overview.md).
 
-This tutorial shows you how to use Virtual Network NAT to route outbound traffic from an Azure Function
+This tutorial shows you how to use virtual network NATs to route outbound traffic from an Azure Function
 
 > [!div class="checklist"]
 > * Create a public IP address
@@ -20,18 +20,20 @@ This tutorial shows you how to use Virtual Network NAT to route outbound traffic
 > * Configure function app to route outbound traffic through the NAT gateway
 
 ## Topology
-The following diagram show the architecture of the solution that you create:
+
+The following diagram shows the architecture of the solution that you create:
 
 ![UI for NAT gateway integration](./media/functions-how-to-use-nat-gateway/topology.png)
 
 Functions running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the VNet Integration feature. To learn more about VNet Integration, including troubleshooting and advanced configuration, see [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
 
 ## Prerequisites
+
 For this tutorial, it's important that you understand IP addressing and subnetting. You can start with [this article that covers the basics of addressing and subnetting](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Many more articles and videos are available online.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you have already completed the [integrate Functions with an Azure virtual network](./functions-create-vnet.md) tutorial, you can skip to [Add function code to show outbound public IP](#add-function-code-to-show-outbound-public-ip).
+If you've already completed the [integrate Functions with an Azure virtual network](./functions-create-vnet.md) tutorial, you can skip to [Add function code to show outbound public IP](#add-function-code-to-show-outbound-public-ip).
 
 ## Create a virtual network
 
@@ -58,29 +60,14 @@ If you have already completed the [integrate Functions with an Azure virtual net
 
 1. In **Create virtual network**, select **Create**.
 
-## Create a function app in a Premium plan
-
 Next, you create a function app in the [Premium plan]. This plan provides serverless scale while supporting virtual network integration.
 
->
-> NOTE: for the best experience in this tutorial, it is recommended that you select .NET for the runtime stack and Windows operating system. The Function App should be created in the same region as your virtual network
->
+## Create a function app in a Premium plan
+
+> [!NOTE]  
+> For the best experience in this tutorial, choose .NET for runtime stack and choose Windows for operating system. Also, create you function app in the same region as your virtual network.
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]  
-
-Next, create a function in the new function app.
-
-## <a name="create-function"></a>Create an HTTP trigger function
-
-1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
- 
-1. From the **New Function** window, select **Http trigger**.
-
-    ![Choose HTTP trigger function](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
-
-1. In the **New Function** window, accept the default name for **New Function**, or enter a new name. 
-
-    Azure creates the HTTP trigger function. Now, you can run the new function by testing in the Azure Portal. We will come back to this.
 
 ## Connect your function app to the virtual network
 
@@ -110,49 +97,65 @@ You can now connect your function app to the virtual network.
 
 1. Select **OK** to add the subnet. Close the **VNet Integration** and **Network Feature Status** pages to return to your function app page.
 
-The function app can now access the virtual network.
+The function app can now access the virtual network. Next, you'll add an HTTP-triggered function to the function app.
 
-## Add function code to show outbound public IP
+## <a name="create-function"></a>Create an HTTP trigger function
 
-At this point, you have a working function with access to the Virtual Network that you created. You can find the outbound IP addresses currently used by the function app in the Azure portal by clicking **Properties** in the function app's left-hand navigation and viewing the **Outbound IP Addresses** field.
+1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
+ 
+1. From the **New Function** window, select **Http trigger**.
 
-![View function app outbound IP addresses](./media/functions-how-to-use-nat-gateway/function-properties-ip.png)
+    ![Choose HTTP trigger function](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-Since we are going to use NAT to override the default outbound address behavior, use the following code (for .NET function) to hit an external website that returns the IP address of the caller (your function).
+1. In the **New Function** window, accept the default name for **New Function**, or enter a new name. 
 
-```csharp
-#r "Newtonsoft.Json"
+    Azure creates the HTTP trigger function. Now, you can run the new function by testing in the Azure portal. Make a note of the function name, you'll need it later.
 
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
+1. In **Code + Test**, replace the template-generated C# script (.csx) code with the following code: 
 
-public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-{
-    log.LogInformation("C# HTTP trigger function processed a request.");
+    ```csharp
+    #r "Newtonsoft.Json"
+    
+    using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+    {
+        log.LogInformation("C# HTTP trigger function processed a request.");
+    
+        var client = new HttpClient();
+        var response = await client.GetAsync(@"https://ifconfig.me");
+        var responseMessage = await response.Content.ReadAsStringAsync();
+    
+        return new OkObjectResult(responseMessage);
+    }
+    ```
 
-    var client = new HttpClient();
-    var response = await client.GetAsync(@"https://ifconfig.me");
-    var responseMessage = await response.Content.ReadAsStringAsync();
+    This code calls an external website that returns the IP address of the caller, which in this case is this function. This lets you easily determine the outbound IP address being used by your function app.
 
-    return new OkObjectResult(responseMessage);
-}
-```
+Now you're ready to run the function and check the current outbound IPs.
 
-Now you're ready to test the function.
+## Verify current outbound IPs
 
-## Test the function
+Now, you can run the function. But first, check in the portal and see what outbound IPs are being use by the function app.  
 
-1. In your new HTTP trigger function, select **Code + Test** from the left menu
+1. In your function app, select **Properties** and review the **Outbound IP Addresses** field.
 
-1. Select **Test/Run** from the top menu
+    ![View function app outbound IP addresses](./media/functions-how-to-use-nat-gateway/function-properties-ip.png)
+
+1. Now, return to your HTTP trigger function, select **Code + Test** and then **Test/Run**.
 
     ![Test function](./media/functions-how-to-use-nat-gateway/function-code-test.png)
 
-1. Click **Run** to execute the function. The IP address in the HTTP response content is one of the values shown in the outbound IP addresses viewed earlier
+1. Select **Run** to execute the function. 
 
     ![Test function output](./media/functions-how-to-use-nat-gateway/function-code-test-1-output.png)
+
+1. Verify that IP address in the HTTP response body is one of the values from the outbound IP addresses you viewed earlier.
+
+NOw, you can create a public IP and use a NAT gateway to modify this outbound IP address.
 
 ## Create public IP
 
@@ -173,13 +176,13 @@ Now you're ready to test the function.
 
 1. Select **Create** to submit the deployment.
 
-1. Once the deployment completes, navigate to your newly created Public IP Address resource and view the IP Address in the Overview blade.
+1. Once the deployment completes, navigate to your newly created Public IP Address resource and view the IP Address in the **Overview**.
 
     ![View Public IP Address](./media/functions-how-to-use-nat-gateway/public-ip-overview.png)
 
 ## Create NAT gateway
 
-(previous tutorial used Function-Net as the suggested subnet name and MyResourceGroup-vnet as the vnet name)
+Now, let's create the NAT gateway. If you are leveraging the [previous virtual networking tutorial](functions-create-vnet.md), `Function-Net` was the suggested subnet name and `MyResourceGroup-vnet` was the suggested virtual network name in that tutorial.
 
 1. From your resource group, select **Add**, search the Azure Marketplace for **NAT gateway**, and select **Create**. Use the settings in the table below the image to populate the **Basics** tab:
 
@@ -201,10 +204,11 @@ Now you're ready to test the function.
 
 1. Select **Review + Create** then **Create** to submit the deployment.
 
-Once the deployment completes, the NAT gateway is ready to route traffic from your function subnet to the Internet.
+Once the deployment completes, the NAT gateway is ready to route traffic from your function app subnet to the Internet.
 
 ## Update function configuration
-If you were to test the function again at this point, it would produce the same results as before because by default traffic destined for Internet destinations does not route through the integrated vnet, which is used for routing traffic to other resources connected to your private Azure networking space. To override this behavior and force **all** outbound traffic through the virtual network and associated NAT gateway, the `WEBSITE_VNET_ROUTE_ALL` application setting needs set to a value of **1**.
+
+Now, you must add an application setting `WEBSITE_VNET_ROUTE_ALL` set to a value of `1`.  This setting forces outbound traffic through the virtual network and associated NAT gateway. Without this setting, internet traffic isn't routed through the integrated virtual network, and you'll see the same outbound IPs. 
 
 1. Navigate to your function app in the Azure portal and select **Configuration** from the left-hand menu.
 
@@ -213,15 +217,15 @@ If you were to test the function again at this point, it would produce the same 
     |**Name**    |WEBSITE_VNET_ROUTE_ALL|
     |**Value**   |1|
 
-1. Select **Ok** to close the new application setting dialog
+1. Select **OK** to close the new application setting dialog
 
 1. Select **Save** and then **Continue** to save the settings
 
-The function has now been configured to route traffic through its associated virtual network.
+The function app's now configured to route traffic through its associated virtual network.
 
-## Final function test
+## Verify new outbound IPs
 
-Repeat the steps earlier from [Test the function](#test-the-function). You should now see the outbound IP address that you configured in the function output.
+Repeat [the steps earlier](#verify-current-outbound-ips) to run the function again. You should now see the outbound IP address that you configured in the NAT shown in the function output.
 
 ## Clean up resources
 
@@ -229,4 +233,5 @@ Repeat the steps earlier from [Test the function](#test-the-function). You shoul
 
 ## Next steps
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+> [!div class="nextstepaction"]
+> [Azure Functions networking options](functions-networking-options.md)
