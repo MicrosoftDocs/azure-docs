@@ -81,7 +81,7 @@ The following table represents the set of supported browsers which are currently
 | Windows***                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-*Safari versions 13.1+ are supported. 
+*Safari versions 13.1+ are supported, 1:1 calls are not supported on Safari. 
 
 **Safari 14+/macOS 11+ needed for outgoing video support. 
 
