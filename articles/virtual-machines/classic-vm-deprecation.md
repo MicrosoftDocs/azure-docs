@@ -4,6 +4,7 @@ description: This article provides a high-level overview of the retirement of VM
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
+ms.subservice: classic-to-arm-migration
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
@@ -25,7 +26,7 @@ VMs created using the classic deployment model will follow the [Modern Lifecycle
 - On March 1, 2023, subscriptions that are not migrated to Azure Resource Manager will be informed regarding timelines for deleting any remaining VMs (classic).  
 
 This retirement does *not* affect the following Azure services and functionality: 
-- [Azure Cloud Services (classic)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)
+- [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md)
 - Storage accounts *not* used by VMs (classic) 
 - Virtual networks *not* used by VMs (classic) 
 - Other classic resources

@@ -1,7 +1,6 @@
 ---
 title: Connector status errors in the ITSMC dashboard
 description: Learn about common errors that exist in the IT Service Management Connector dashboard. 
-ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
@@ -52,7 +51,9 @@ The following sections describe common errors that appear in the connector statu
 
 ## Invalid refresh token
 
-**Error**: "AccessToken and RefreshToken invalid. User needs to authenticate again."
+**Error**: 
+  * "AccessToken and RefreshToken invalid. User needs to authenticate again."
+  * "Could not sync templates configuration for Event,Alert,Incident. See Exception Message for more details."
 
 **Cause**: A refresh token is expired.
 

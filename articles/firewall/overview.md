@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 02/16/2021
+ms.date: 03/10/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -50,7 +50,8 @@ Azure Firewall has the following known issues:
 
 |Issue  |Description  |Mitigation  |
 |---------|---------|---------|
-Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work for Internet bound traffic|Network filtering rules for non-TCP/UDP protocols don't work with SNAT to your public IP address. Non-TCP/UDP protocols are supported between spoke subnets and VNets.|Azure Firewall uses the Standard Load Balancer, [which doesn't support SNAT for IP protocols today](../load-balancer/load-balancer-overview.md). We're exploring options to support this scenario in a future release.|
+|If you update a rule from IP address to IP Group or vice-versa using the portal, both types are saved, but only one is presented on the portal.|This issue happens with Classic rules.<br><br>When you use the portal to update a NAT rule source type from IP address to IP Group or vice-versa, it saves both types in the backend but presents only the newly updated type.<br><br>The same issue exists when you update a Network or Application rule destination type from IP address to IP Group type or vice-versa.|A portal fix is targeted for March, 2021.<br><br>In the meantime, use Azure PowerShell, Azure CLI, or API to modify a rule from IP address to IP Group or vice versa.|
+|Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work for Internet bound traffic|Network filtering rules for non-TCP/UDP protocols don't work with SNAT to your public IP address. Non-TCP/UDP protocols are supported between spoke subnets and VNets.|Azure Firewall uses the Standard Load Balancer, [which doesn't support SNAT for IP protocols today](../load-balancer/load-balancer-overview.md). We're exploring options to support this scenario in a future release.|
 |Missing PowerShell and CLI support for ICMP|Azure PowerShell and CLI don't support ICMP as a valid protocol in network rules.|It's still possible to use ICMP as a protocol via the portal and the REST API. We're working to add ICMP in PowerShell and CLI soon.|
 |FQDN tags require a protocol: port to be set|Application rules with FQDN tags require port: protocol definition.|You can use **https** as the port: protocol value. We're working to make this field optional when FQDN tags are used.|
 |Moving a firewall to a different resource group or subscription isn't supported|Moving a firewall to a different resource group or subscription isn't supported.|Supporting this functionality is on our road map. To move a firewall to a different resource group or subscription, you must delete the current instance and recreate it in the new resource group or subscription.|
@@ -77,6 +78,6 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 
 ## Next steps
 
+- [Quickstart: Create an Azure Firewall and a firewall policy - ARM template](../firewall-manager/quick-firewall-policy.md)
+- [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
-- [Deploy Azure Firewall using a template](deploy-template.md)
-- [Create an Azure Firewall test environment](scripts/sample-create-firewall-test.md)

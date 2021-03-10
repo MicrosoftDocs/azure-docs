@@ -20,7 +20,7 @@ By using Azure Front Door, you can monitor resources in the following ways:
 - **Metrics**. Azure Front Door currently has eight metrics to view performance counters.
 - **Logs**. Activity and diagnostic logs allow performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
-### Metrics
+##  <a name="metrics"></a>Metrics
 
 Metrics are a feature for certain Azure resources that allow you to view performance counters in the portal. The following are available Front Door metrics:
 

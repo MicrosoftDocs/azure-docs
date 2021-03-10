@@ -87,7 +87,7 @@ On downstream IoT devices, use the **gatewayHostname** parameter in the connecti
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
-On downstream IoT Edge devices, use the **parent_hostname** parameter in the config.yaml file to point to the parent device.
+On downstream IoT Edge devices, use the **parent_hostname** parameter in the config file to point to the parent device.
 ::: moniker-end
 
 #### Secure connection

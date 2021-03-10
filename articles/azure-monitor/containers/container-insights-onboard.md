@@ -1,15 +1,15 @@
 ---
 
-title: Enable Azure Monitor for containers | Microsoft Docs
-description: This article describes how to enable and configure Azure Monitor for containers so that you can understand how your container is performing and what performance-related issues have been identified. 
+title: Enable Container insights | Microsoft Docs
+description: This article describes how to enable and configure Container insights so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
 ms.date: 06/30/2020
 
 ---
 
-# Enable Azure Monitor for containers
+# Enable Container insights
 
-This article provides an overview of the options that are available for setting up Azure Monitor for containers to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on:
+This article provides an overview of the options that are available for setting up Container insights to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versions 3.x and 4.x  
@@ -20,7 +20,7 @@ You can also monitor the performance of workloads that are deployed to self-mana
 - Azure, by using the [AKS engine](https://github.com/Azure/aks-engine)
 - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises, by using the AKS engine.
 
-You can enable Azure Monitor for containers for a new deployment or for one or more existing deployments of Kubernetes by using any of the following supported methods:
+You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using any of the following supported methods:
 
 - The Azure portal
 - Azure PowerShell
@@ -42,37 +42,37 @@ Kubelet secure port (:10250) should be opened in the cluster's virtual network f
 
 - You have a Log Analytics workspace.
 
-   Azure Monitor for containers supports a Log Analytics workspace in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
+   Container insights supports a Log Analytics workspace in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
 
    You can create a workspace when you enable monitoring for your new AKS cluster, or you can let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. 
    
    If you choose to create the workspace yourself, you can create it through: 
-   - [Azure Resource Manager](../samples/resource-manager-workspace.md)
-   - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [The Azure portal](../learn/quick-create-workspace.md) 
+   - [Azure Resource Manager](../logs/resource-manager-workspace.md)
+   - [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+   - [The Azure portal](../logs/quick-create-workspace.md) 
    
-   For a list of the supported mapping pairs to use for the default workspace, see [Region mapping for Azure Monitor for containers](container-insights-region-mapping.md).
+   For a list of the supported mapping pairs to use for the default workspace, see [Region mapping for Container insights](container-insights-region-mapping.md).
 
-- You are a member of the *Log Analytics contributor* group for enabling container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
+- You are a member of the *Log Analytics contributor* group for enabling container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../logs/manage-access.md).
 
 - You are a member of the [*Owner* group](../../role-based-access-control/built-in-roles.md#owner) on the AKS cluster resource.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-- To view the monitoring data, you need to have [*Log Analytics reader*](../platform/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Azure Monitor for containers.
+- To view the monitoring data, you need to have [*Log Analytics reader*](../logs/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Container insights.
 
 - Prometheus metrics aren't collected by default. Before you [configure the agent](container-insights-prometheus-integration.md) to collect the metrics, it's important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
 
 ## Supported configurations
 
-Azure Monitor for containers officially supports the following configurations:
+Container insights officially supports the following configurations:
 
 - Environments: Azure Red Hat OpenShift, Kubernetes on-premises, and the AKS engine on Azure and Azure Stack. For more information, see [the AKS engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 - The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md). 
 
 ## Network firewall requirements
 
-The following table lists the proxy and firewall configuration information that's required for the containerized agent to communicate with Azure Monitor for containers. All network traffic from the agent is outbound to Azure Monitor.
+The following table lists the proxy and firewall configuration information that's required for the containerized agent to communicate with Container insights. All network traffic from the agent is outbound to Azure Monitor.
 
 |Agent resource|Port |
 |--------------|------|
@@ -100,7 +100,7 @@ The following table lists the proxy and firewall configuration information for A
 
 ## Components
 
-Your ability to monitor performance relies on a containerized Log Analytics agent for Linux that's specifically developed for Azure Monitor for containers. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
+Your ability to monitor performance relies on a containerized Log Analytics agent for Linux that's specifically developed for Container insights. This specialized agent collects performance and event data from all nodes in the cluster, and the agent is automatically deployed and registered with the specified Log Analytics workspace during deployment. 
 
 The  agent version is microsoft/oms:ciprod04202018 or later, and it's represented by a date in the following format: *mmddyyyy*.
 
@@ -114,7 +114,7 @@ When a new version of the agent is released, it's automatically upgraded on your
 >
 > The template needs to be deployed in the same resource group as the cluster.
 
-To enable Azure Monitor for containers, use one of the methods that's described in the following table:
+To enable Container insights, use one of the methods that's described in the following table:
 
 | Deployment state | Method | Description |
 |------------------|--------|-------------|
@@ -134,4 +134,4 @@ To enable Azure Monitor for containers, use one of the methods that's described 
 
 ## Next steps
 
-Now that you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment. To learn how to use Azure Monitor for containers, see [View Kubernetes cluster performance](container-insights-analyze.md).
+Now that you've enabled monitoring, you can begin analyzing the performance of your Kubernetes clusters that are hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment. To learn how to use Container insights, see [View Kubernetes cluster performance](container-insights-analyze.md).

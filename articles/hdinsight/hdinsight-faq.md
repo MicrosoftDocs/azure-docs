@@ -231,7 +231,7 @@ Do one of the following actions:
 
 ### How can I set up auditing for my blob storage account?
 
-To audit blob storage accounts, configure monitoring using the procedure at [Monitor a storage account in the Azure portal](../storage/common/storage-monitor-storage-account.md). An HDFS-audit log provides only auditing information for the local HDFS filesystem only (hdfs://mycluster).  It doesn't include operations that are done on remote storage.
+To audit blob storage accounts, configure monitoring using the procedure at [Monitor a storage account in the Azure portal](../storage/common/manage-storage-analytics-logs.md). An HDFS-audit log provides only auditing information for the local HDFS filesystem only (hdfs://mycluster).  It doesn't include operations that are done on remote storage.
 
 ### How can I transfer files between a blob container and an HDInsight head node?
 

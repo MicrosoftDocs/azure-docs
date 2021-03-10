@@ -7,14 +7,13 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
-ms.subservice: ""
 ---
 
 # Send Guest OS metrics to the Azure Monitor metrics database for a Windows virtual machine (classic)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-The Azure Monitor [Diagnostics extension](../agents/diagnostics-extension-overview.md) (known as "WAD" or "Diagnostics") allows you to collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json)
+The Azure Monitor [Diagnostics extension](../agents/diagnostics-extension-overview.md) (known as "WAD" or "Diagnostics") allows you to collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 This article describes the process for sending Guest OS performance metrics for a Windows virtual machine (classic) to the Azure Monitor metric database. Starting with Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. 
 
@@ -30,7 +29,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](../../cloud-shell/overview.md) installed.
 
-- Your VM resource must be in a [region that supports custom metrics](../platform/metrics-custom-overview.md#supported-regions).
+- Your VM resource must be in a [region that supports custom metrics](./metrics-custom-overview.md#supported-regions).
 
 ## Create a classic virtual machine and storage account
 
@@ -199,4 +198,4 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 
 ## Next steps
-- Learn more about [custom metrics](../platform/metrics-custom-overview.md).
+- Learn more about [custom metrics](./metrics-custom-overview.md).

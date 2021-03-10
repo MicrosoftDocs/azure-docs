@@ -1,11 +1,10 @@
 ---
 title: Standard columns in Azure Monitor log records | Microsoft Docs
 description: Describes columns that are common to multiple data types in Azure Monitor logs.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/09/2020
+ms.date: 02/25/2021
 
 ---
 
@@ -16,6 +15,10 @@ Workspace-based applications in Application Insights store their data in a Log A
 
 > [!NOTE]
 > Some of the standard columns will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the column in the output.
+> 
+
+## TenantId
+The **TenantId** column holds the workspace ID for the Log Analytics workspace.
 
 ## TimeGenerated and timestamp
 The **TimeGenerated** (Log Analytics workspace) and **timestamp** (Application Insights application) columns contain the date and time that the record was created by the data source. See [Log data ingestion time in Azure Monitor](../logs/data-ingestion-time.md) for more details.
@@ -238,6 +241,6 @@ union withsource = tt *
 
 ## Next steps
 
-- Read more about how [Azure Monitor log data is stored](../log-query/log-query-overview.md).
-- Get a lesson on [writing log queries](../log-query/get-started-queries.md).
+- Read more about how [Azure Monitor log data is stored](./log-query-overview.md).
+- Get a lesson on [writing log queries](./get-started-queries.md).
 - Get a lesson on [joining tables in log queries](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

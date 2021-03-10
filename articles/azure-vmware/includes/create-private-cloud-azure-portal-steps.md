@@ -21,8 +21,6 @@ ms.date: 02/17/2021
    | **Resource name** | The name of your Azure VMware Solution private cloud. |
    | **SKU** | Select the following SKU value: AV36 |
    | **Hosts** | The number of hosts to add to the private cloud cluster. The default value is 3, which can be raised or lowered after deployment.  |
-   | **vCenter admin password** | Enter a cloud administrator password. |
-   | **NSX-T manager password** | Enter an NSX-T administrator password. |
    | **Address block** | Enter an IP address block for the CIDR network for the private cloud, for example, 10.175.0.0/22. |
    | **Virtual Network** | Select a Virtual Network or create a new one for the Azure VMware Solution private cloud.  |
 
