@@ -16,33 +16,35 @@ ms.date: 03/12/2021
 > [!IMPORTANT]
 > Semantic ranking and semantic answers are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When formulating a [semantic query](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers are included in the response, which you can then render on a search page to improve the user experience of your app.
+When formulating a [semantic query](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
 In this article, learn how to request a semantic answer, unpack the response, and what content characteristics are most conducive to producing high quality answers.
 
 ## Prerequisites
 
+All prerequisites that apply to semantic queries also apply to answers, including service tier and region.
+
 + Queries formulated using the [semantic query type](semantic-how-to-query-request.md) and include the "answers" parameter. For more information, see [request answers in the query](#query-params).
 
-+ Query strings must be formulated in language that has the characteristics of a question.
++ Query strings must be formulated in language having the characteristics of a question.
 
-+ Search documents must include text that has the characteristics of an answer. The text must be in one of the fields listed in searchFields.
-
-All prerequisites that apply to semantic queries also apply to answers, including service tier and region.
++ Search documents must include text having the characteristics of an answer. Text must exist in one of the fields listed in "searchFields".
 
 ## What is a semantic answer?
 
-Semantic answers are produced from machine learning models that can formulate answers to queries that look like questions. The answers are selected from verbatim passages most relevant to the query, as extracted from documents in an initial result set. For an answer to be returned, phrases or sentences must exist in a search document that have the language characteristics of an answer, and the query itself must be posed as a question. If the query looks more like a keyword search than a question, answer processing is skipped.
+Semantic answers are produced from machine reading comprehension models that can formulate answers to queries that look like questions. The model identifies possible answers from the available documents, and when it reaches a high enough confidence level, it will propose an answer.
+
+The answers are composed of verbatim passages, as extracted from documents in an initial result set. For an answer to be returned, phrases or sentences must exist in a search document that have the language characteristics of an answer, and the query itself must be posed as a question. 
 
 Answers are returned as an independent, top-level object in the query response payload that you can choose to render on  search pages, along side search results. Structurally, it's an array element of a response that includes text, a document key, and a confidence score.
 
 <a name="query-params"></a>
 
-## Request answers in the query
+## How to request semantic answers in a query
 
-To return a semantic answer, the query must have the semantic query type, language, search fields, and the answers parameter. Specifying the answers parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
+To return a semantic answer, the query must have the semantic query type, language, search fields, and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
 
-The searchFields parameter is critical to returning a high quality answer, both in terms of content and order.
+The "searchFields" parameter is critical to returning a high quality answer, both in terms of content and order.
 
 ```json
 {
@@ -106,13 +108,13 @@ Answers are followed by the "value" array, which always includes scores, caption
 
 ## Tips for producing high-quality answers
 
-For best results, return semantic answers on a document corpus having the following charactersitics:
+For best results, return semantic answers on a document corpus having the following characteristics:
 
-+ searchFields should include one or more fields that provides sufficient text in which an answer is likely to be found.
++ "searchFields" should include one or more fields that provides sufficient text in which an answer is likely to be found.
 
-+ Fields should not contain more than 10,000 tokens (approximately three pages in length on a printed page).
++ Fields should not contain more than 10,000 tokens (approximately three pages in length on a printed page). Fields can contain more content, but the extraction model will ignore it.
 
-+ query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list oof arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
++ query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
 
 ## Next steps
 

@@ -146,14 +146,6 @@ Remove any orderBy clauses, if they exist in an existing request. The semantic s
 
 Optionally, add "answers" if you want to include additional processing that provides an answer. Answers (and captions) are extracted from passages found in fields listed in searchFields. Be sure to include content-rich fields in searchFields to get the best answers in a response. For more information, see [How to return semantic answers](semantic-answers.md).
 
-<!-- There are explicit and implicit conditions that produce answers. 
-
-+ Explicit conditions include adding "answers=extractive". Additionally, to specify the number of answers returned in the overall response, add "count" followed by a number: `"answers=extractive|count=3"`.  The default is one. Maximum is five.
-
-+ Implicit conditions include a query string construction that lends itself to an answer. A query composed of 'what hotel has the green room' is more likely to be "answered" than a query composed of a statement like 'hotel with fancy interior'. As you might expect, the query cannot be unspecified or null.
-
-The important point to take away is that if the query doesn't look like a question, answer processing is skipped, even if the "answers" parameter is set. -->
-
 #### Step 5: Add other parameters
 
 Set any other parameters that you want in the request. Parameters such as [speller](speller-how-to-add.md), [select](search-query-odata-select.md), and count improve the quality of the request and readability of the response.

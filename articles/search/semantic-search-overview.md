@@ -18,7 +18,7 @@ ms.custom: references_regions
 
 Semantic search is a collection of query-related features that support a higher-quality, more natural query experience. 
 
-Capabilities include semantic reranking of search results, as well as caption and answer extraction, with semantic highlighting over relevant terms and phrases. Sophisticated pretrained models are used for ranking and extraction. To maintain the fast performance that users expect from search, semantic ranking is applied to just the top 50 results returned from the [full text search engine](search-lucene-query-architecture.md), reranking those results to find the most relevant matches.
+These capabilities include semantic reranking of search results, as well as caption and answer extraction, with semantic highlighting over relevant terms and phrases. Sophisticated pretrained models are used for ranking and extraction. To maintain the fast performance that users expect from search, semantic ranking is applied to just the top 50 results returned from the [full text search engine](search-lucene-query-architecture.md), scoring those results based on the semantic strength of the match.
 
 The underlying technology is from Bing and Microsoft Research, and integrated into the Cognitive Search infrastructure. For more information about the research and AI investments backing semantic search, see [How AI from Bing is powering Azure Cognitive Search (Microsoft Research Blog)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 
@@ -28,9 +28,9 @@ The following video provides an overview of the capabilities.
 
 ## Components of semantic search
 
-+ [Semantic ranking](semantic-ranking.md) that uses the context or semantic meaning to compute a relevance score.
++ [Semantic ranking](semantic-ranking.md) uses the context or semantic meaning to compute a relevance score.
 
-+ [Semantic queries](semantic-how-to-query-request.md) that return highlighted captions that summarize key passages from a result for easy scanning.
++ [Semantic queries](semantic-how-to-query-request.md) returns highlighted captions that summarize key passages from a result for easy scanning.
 
   *Semantic captions* are text passages relevant to the query extracted from the search results. They can help to summarize a result when individual content fields are too large for the results page. Captions feature *semantic highlights*, allowing users to quickly skim query results to find the most relevant documents thus improving overall user experience. Captions and highlighting are provided automatically in a semantic query response.
 
@@ -52,7 +52,7 @@ Between preview launch on March 2 through April 1, spell correction and semantic
 
 A new query type enables the relevance ranking and response structures of semantic search.
 
-[Create a semantic query](semantic-how-to-query-request.md) to get started. Or, review either of the following articles for related information.
+[Create a semantic query](semantic-how-to-query-request.md) to get started. Or, review the following articles for related information.
 
 + [Add spell check to query terms](speller-how-to-add.md)
 + [Return a semantic answers](semantic-answers.md)

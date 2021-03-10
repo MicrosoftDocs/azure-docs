@@ -9,28 +9,34 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-
 ---
-# Semantic ranking
+
+# Semantic ranking in Azure Cognitive Search
 
 > [!IMPORTANT]
 > Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Semantic ranking improves the precision of search results by reranking the top matches using a semantic ranking model trained for queries expressed in natural language as opposed to keywords.
+Semantic ranking is an add-on extension of the query execution pipeline that improves the precision by reranking the top matches. Semantic ranking is backed by a pretrained machine reading comprehension model, trained for queries expressed in natural language as opposed to keyword search. In contrast with the [default ranking algorithm](index-ranking-similarity.md), the semantic ranker uses the context and meaning of words to determine relevance. 
 
-This article describes the semantic ranking algorithm and how a semantic response is shaped. A response includes captions, both in plain text and with highlights, and answers (optional).
+Whereas a keyword algorithm might give equal weight to any term in the query, the semantic algorithm recognizes the dependency and relationships among words that are otherwise unrelated on the surface.
 
-## OTher stuff
+:::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
 
-A semantic response includes new properties for scores, captions, and answers. A semantic response is built from the standard response, using the top 50 results returned by the [full text search engine](search-lucene-query-architecture.md), which are then re-ranked using the semantic ranker. If more than 50 are specified, the additional results are returned, but they won’t be semantically re-ranked.
+## Key points
+
++ Reranks an initial result set, up to 50 documents, as determined by the default ranking model. Semantic ranking is resource intensive. Evaluating a smaller result set ensure that semantic ranking can be computed quickly.
+
++ Semantic ranking is offered on Standard services only. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+
+## Improve precision
+
+<!-- A semantic response includes new properties for scores, captions, and answers. A semantic response is built from the standard response, using the top 50 results returned by the [full text search engine](search-lucene-query-architecture.md), which are then re-ranked using the semantic ranker. If more than 50 are specified, the additional results are returned, but they won’t be semantically re-ranked.
 
 As with all queries, a response is composed of all fields marked as retrievable, or just those fields listed in the select statement. It also includes an "answer" field and "captions".
 
 + For each semantic result, by default, there is one "answer", returned as a distinct field that you can choose to render in a search page. You can specify up to five. Formulation of answer is automated: reading through all the documents in the initial results, running extractive summarization, followed by machine reading comprehension, and finally promoting a direct answer to the user’s question in the answer field.
 
-+ A "caption" is an extraction-based summarization of document content, returned in plain text or with highlights. Captions are included automatically and cannot be suppressed. Highlights are applied using machine reading comprehension to identify which strings should be emphasized. Highlights draw your attention to the most relevant passages, so that you can quickly scan a page of results to find the right document.
-
-A semantically re-ranked result set orders results by the @search.rerankerScore value. If you add an OrderBy clause, an HTTP 400 error will be returned because that clause is not supported in a semantic query.
++ A "caption" is an extraction-based summarization of document content, returned in plain text or with highlights. Captions are included automatically and cannot be suppressed. Highlights are applied using machine reading comprehension to identify which strings should be emphasized. Highlights draw your attention to the most relevant passages, so that you can quickly scan a page of results to find the right document. -->
 
 ## Semantic ranking workflow
 
@@ -46,7 +52,7 @@ Internally, the extraction model intakes about 10,000 tokens, which roughly corr
 
 To create captions and answers, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question, and answers are requested, the response will include a text passage that best answers the question, as expressed by the search query.
 
-:::image type="content" source="media/semantic-search-overview/semantic-query-architecture.png" alt-text="Semantic components in a query pipeline" border="true":::
+:::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Semantic components in query execution" border="true":::
 
 ## Next steps
 
