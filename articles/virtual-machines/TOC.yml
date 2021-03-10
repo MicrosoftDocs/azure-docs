@@ -1245,7 +1245,7 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
   - name: Automatic extension upgrade (preview)
     href: automatic-extension-upgrade.md
-  - name: Platform maintenance
+  - name: Maintenance
     items:
     - name: Overview
       href: maintenance-and-updates.md
