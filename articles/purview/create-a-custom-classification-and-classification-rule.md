@@ -1,6 +1,6 @@
 ---
 title: Create a custom classification and classification rule (preview)
-description: This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
+description: Learn how to create custom classifications to define data types in your data estate that are unique to your organization in Azure Purview.
 author: animukherjee
 ms.author: anmuk
 ms.service: purview
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/5/2021
 ---
-# Custom classifications in Azure Purview 
+# Custom classifications in Azure Purview
 
 This article describes how you can create custom classifications to define data types in your data estate that are unique to your organization. It also describes the creation of custom classification rules that let you find specified data throughout your data estate.
 
@@ -157,13 +157,13 @@ To create a custom classification rule:
 
 ### Creating a Dictionary Rule
 
-1.	If creating a dictionary rule, you will see the following screen. Upload a file that contains all possible values for the classification you’re creating in a single column.
+1. If creating a dictionary rule, you will see the following screen. Upload a file that contains all possible values for the classification you're creating in a single column.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Create dictionary rule" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-rule.png" alt-text="Create dictionary rule" border="true":::
 
-1.	After the dictionary is generated, you can adjust the distinct match and minimum match thresholds and submit the rule.
+1. After the dictionary is generated, you can adjust the distinct match and minimum match thresholds and submit the rule.
 
-    :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Create dictionary rule" border="true":::
+   :::image type="content" source="media/create-a-custom-classification-and-classification-rule/dictionary-generated.png" alt-text="Purview dictionary rule - adjust distinct match threshold and minimum match threshold" border="true":::
 
 ## Next steps
 
