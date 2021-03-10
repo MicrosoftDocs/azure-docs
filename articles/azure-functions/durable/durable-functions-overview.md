@@ -697,7 +697,17 @@ module.exports = async function (context) {
 
 # [Python](#tab/python)
 
-Durable entities are currently not supported in Python.
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    entity_id = df.EntityId("Counter", "myCounter")
+    instance_id = await client.signal_entity(entity_id, "add", 1)
+    return func.HttpResponse("Entity signaled")
+```
 
 # [PowerShell](#tab/powershell)
 
@@ -705,7 +715,7 @@ Durable entities are currently not supported in PowerShell.
 
 ---
 
-Entity functions are available in [Durable Functions 2.0](durable-functions-versions.md) and above for C# and JavaScript.
+Entity functions are available in [Durable Functions 2.0](durable-functions-versions.md) and above for C#, JavaScript, and Python.
 
 ## The technology
 

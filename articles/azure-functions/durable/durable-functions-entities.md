@@ -187,7 +187,6 @@ def entity_function(context: df.DurableEntityContext):
     context.set_state(current_value)
 
 
-
 main = df.Entity.create(entity_function)
 ```
 ---
