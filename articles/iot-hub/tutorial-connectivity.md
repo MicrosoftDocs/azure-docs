@@ -1,6 +1,6 @@
 ---
-title: Check device connectivity to Azure IoT Hub
-description: Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
+title: Tutorial - Check device connectivity to Azure IoT Hub
+description: Tutorial - Use IoT Hub tools to troubleshoot, during development, device connectivity issues to your IoT hub.
 services: iot-hub
 author: wesmc7777
 manager: philmea
@@ -26,15 +26,7 @@ In this tutorial, you learn how to:
 > * Check cloud-to-device connectivity
 > * Check device twin synchronization
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Prerequisites
-
-The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
-
-```azurecli-interactive
-az extension add --name azure-iot
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -64,15 +56,15 @@ A device must authenticate with your hub before it can exchange any data with th
 
 Sign in to the portal and navigate to your IoT hub. Then navigate to the **IoT Devices** tool:
 
-![IoT Devices tool](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="IoT Devices tool":::
 
-To register a new device, click **+ Add**, set **Device ID** to **MyTestDevice**, and click **Save**:
+To register a new device, click **+ New**, set **Device ID** to **MyTestDevice**, and click **Save**.
 
-![Add new device](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Add new device":::
 
-To retrieve the connection string for **MyTestDevice**, click on it in the list of devices and then copy the **Connection string-primary key** value. The connection string includes the *shared access key* for the device.
+To retrieve the connection string for **MyTestDevice**, click on it in the list of devices and then copy the **Primary Connection String** value. The connection string includes the *shared access key* for the device.
 
-![Retrieve device connection string](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Retrieve device connection string}":::
 
 To simulate **MyTestDevice** sending telemetry to your IoT hub, run the Node.js simulated device application you downloaded previously.
 
@@ -174,7 +166,7 @@ After a device connects, it typically tries to send telemetry to your IoT hub. T
 First, retrieve the current connection string for your simulated device using the following command:
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
+az iot hub device-identity connection-string show --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
 To run a simulated device that sends messages, navigate to the **iot-hub\Tutorials\ConnectivityTests** folder in the code you downloaded.
@@ -216,9 +208,9 @@ The simulated device prints a message to the console when it receives a direct m
 
 ![Simulated device receives direct method call](media/tutorial-connectivity/receive-method-call.png)
 
-When the simulated device successfully receives the direct method call, it sends an acknowledgement back to the hub:
+When the simulated device successfully receives the direct method call, it sends an acknowledgment back to the hub:
 
-![Receive direct method acknowledgement](media/tutorial-connectivity/method-acknowledgement.png)
+![Receive direct method acknowledgment](media/tutorial-connectivity/method-acknowledgement.png)
 
 ## Check twin synchronization
 

@@ -4,12 +4,16 @@
   items:
   - name: What are ARM templates?
     href: overview.md
+  - name: Bicep overview
+    href: bicep-overview.md
 - name: Quickstarts
   items:
   - name: Create templates - portal
     href: quickstart-create-templates-use-the-portal.md
   - name: Create templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
+  - name: Create Bicep - VS Code
+    href: quickstart-create-bicep-use-visual-studio-code.md
   - name: Create & deploy template specs
     href: quickstart-create-template-specs.md
   - name: Azure services
@@ -19,7 +23,7 @@
       - name: Cognitive Search
         href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Cognitive Services
-        href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%252fazure%252fazure-resource-manager%252ftemplates%252ftoc.json
+        href: ../../cognitive-services/create-account-resource-manager-template.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
       - name: Data Science Virtual Machine
         href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Machine Learning
@@ -48,7 +52,7 @@
         href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Stream Analytics
         href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
-      - name: Synapse Analytics SQL pool
+      - name: Dedicated SQL pool (formerly SQL DW)
         href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Blockchain
       items:
@@ -126,6 +130,8 @@
         href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: IoT Hub
         href: ../../iot-hub/horizontal-arm-route-messages.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: IoT Hub Device Provisioning Service
+        href: ../../iot-dps/quick-setup-auto-provision-rm.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Management and Governance
       items:
       - name: Advisor
@@ -139,7 +145,7 @@
       - name: Managed Applications
         href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Monitor
-        href: ../../azure-monitor/learn/quick-collect-activity-log-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+        href: ../../azure-monitor/essentials/quick-collect-activity-log-arm.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
       - name: Policy
         href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Portal
@@ -160,6 +166,8 @@
         href: ../../application-gateway/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Content Delivery Network
         href: ../../cdn/create-profile-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: DDoS Protection
+        href: ../../ddos-protection/manage-ddos-protection-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: DNS
         href: ../../dns/dns-get-started-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: ExpressRoute
@@ -216,7 +224,7 @@
         href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutorials
   items:
-  - name: Beginner templates
+  - name: Beginner JSON templates
     items:
     - name: 1 - Create first template
       href: template-tutorial-create-first-template.md
@@ -238,6 +246,28 @@
       href: template-tutorial-add-tags.md
     - name: 10 - Use parameter file
       href: template-tutorial-use-parameter-file.md
+  - name: Beginner Bicep
+    items:
+    - name: 1 - Create first template
+      href: bicep-tutorial-create-first-bicep.md
+    - name: 2 - Add parameters
+      href: bicep-tutorial-add-parameters.md
+    - name: 3 - Add template functions
+      href: bicep-tutorial-add-functions.md
+    - name: 4 - Add variables
+      href: bicep-tutorial-add-variables.md
+    - name: 5 - Add outputs
+      href: bicep-tutorial-add-outputs.md
+    - name: 6 - Use exported template
+      href: bicep-tutorial-export-template.md
+    - name: 7 - Use Quickstart template
+      href: bicep-tutorial-quickstart-template.md
+    - name: 8 - Add tags
+      href: bicep-tutorial-add-tags.md
+    - name: 9 - Use parameter file
+      href: bicep-tutorial-use-parameter-file.md
+    - name: 10 - Add modules
+      href: bicep-tutorial-add-modules.md
   - name: Deployment
     items:
     - name: 1 - Deploy a local template
@@ -288,14 +318,22 @@
     - name: Use health check in Deployment Manager
       displayName: adm
       href: deployment-manager-tutorial-health-check.md
+  - name: Microsoft Learn path about templates
+    href: /learn/paths/deploy-manage-resource-manager-templates/
 - name: Concepts
   items:
   - name: Template best practices
     href: template-best-practices.md
+  - name: Bicep
+    items:
+    - name: Install Bicep
+      href: bicep-install.md
+    - name: Comparing JSON to Bicep
+      href: compare-template-syntax.md
+  - name: Data types
+    href: data-types.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
-  - name: Template Specs
-    href: template-specs.md
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
   - name: Deployment modes
@@ -329,6 +367,8 @@
       href: template-user-defined-functions.md
     - name: Resources
       items:
+      - name: Resource declaration
+        href: resource-declaration.md
       - name: Child resource name and type
         href: child-resource-name-type.md
       - name: Conditional deployment
@@ -419,6 +459,12 @@
       href: test-toolkit.md
     - name: Test cases
       href: test-cases.md
+  - name: Template specs
+    items:
+    - name: Create & deploy template specs
+      href: template-specs.md
+    - name: Convert portal template gallery
+      href: convert-to-template-spec.md
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
@@ -481,6 +527,8 @@
     items:
     - name: All functions
       href: template-functions.md
+    - name: Any function (Bicep)
+      href: template-functions-any.md
     - name: Array functions
       href: template-functions-array.md
     - name: Comparison functions
@@ -510,9 +558,11 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.resources
   - name: Python
-    href: /python/api/overview/azure/resources?view=azure-python
+    href: /python/api/overview/azure/resources
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/paths/deploy-manage-resource-manager-templates/
   - name: Azure Quickstart Templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Azure Roadmap

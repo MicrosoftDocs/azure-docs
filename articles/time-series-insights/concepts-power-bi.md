@@ -60,4 +60,4 @@ For advanced querying and editing functionality within Power BI, use Power BI’
 
 * Download [Power BI desktop](https://powerbi.microsoft.com/desktop/) and begin to connect your data.
 
-* Learn more about [Power BI](https://docs.microsoft.com/power-bi/).
+* Learn more about [Power BI](/power-bi/).

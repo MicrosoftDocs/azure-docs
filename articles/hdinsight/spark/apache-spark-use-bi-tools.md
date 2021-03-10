@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: Analyze Azure HDInsight Apache Spark data with Power BI'
 description: Tutorial - Use Microsoft Power BI to visualize Apache Spark data stored HDInsight clusters  
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc,seoapr2020
@@ -34,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The [Jupyter Notebook](https://jupyter.org/) that you created in the [previous tutorial](apache-spark-load-data-run-query.md) includes code to create an `hvac` table. This table is based on the CSV file available on all HDInsight Spark clusters at `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv`. Use the following procedure to verify the data.
 
-1. From the Jupyter notebook, paste the following code, and then press **SHIFT + ENTER**. The code verifies the existence of the tables.
+1. From the Jupyter Notebook, paste the following code, and then press **SHIFT + ENTER**. The code verifies the existence of the tables.
 
     ```PySpark
     %%sql

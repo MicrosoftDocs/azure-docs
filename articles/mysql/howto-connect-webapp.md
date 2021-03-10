@@ -1,8 +1,8 @@
 ---
 title: Connect to Azure App Service - Azure Database for MySQL
 description: Instructions for how to properly connect an existing Azure App Service to Azure Database for MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020

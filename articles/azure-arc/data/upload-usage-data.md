@@ -14,7 +14,7 @@ zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 
 # Upload usage data to Azure Monitor
 
-Periodically, you can export out usage information. The export and upload of of this information creates and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export out usage information. The export and upload of this information creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
 > During the preview period, there is no cost for using Azure Arc enabled data services.
@@ -59,7 +59,7 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
 
 If you want to upload metrics and logs on a scheduled basis, you can create a script and run it on a timer every few minutes. Below is an example of automating the uploads using a Linux shell script.
 
-In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
+In your favorite text/code editor, add the following script to the file and save as a script executable file such as `.sh` (Linux/Mac) or `.cmd`, `.bat`, or `.ps1`.
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force

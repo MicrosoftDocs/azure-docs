@@ -25,7 +25,7 @@ Use the Face service client library for Go to:
 
 * The latest version of [Go](https://golang.org/dl/)
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 * After you get a key and endpoint, [create environment variables](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for the key and endpoint, named `FACE_SUBSCRIPTION_KEY` and `FACE_ENDPOINT`, respectively.
@@ -187,6 +187,9 @@ The following code sorts the images by their prefix, detects faces, and assigns 
 Once you've assigned faces, you train the **PersonGroup** so it can identify the visual features associated with each of its **Person** objects. The following code calls the asynchronous **train** method and polls the result, printing the status to the console.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
+
+> [!TIP]
+> The Face API runs on a set of pre-built models that are static by nature (the model's performance will not regress or improve as the service is run). The results that the model produces might change if Microsoft updates the model's backend without migrating to an entirely new model version. To take advantage of a newer version of a model, you can retrain your **PersonGroup**, specifying the newer model as a parameter with the same enrollment images.
 
 ## Identify a face
 

@@ -69,7 +69,7 @@ The App Service Hybrid Connections feature is available only in Basic, Standard,
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Storage account](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and can contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Storage account](../storage/common/storage-account-create.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and can contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../azure-functions/storage-considerations.md#storage-account-requirements). |
     |**Operating system**| Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
     | **[Plan type](../azure-functions/functions-scale.md)** | **App service plan** | Choose **App service plan**. When you run in an App Service plan, you must manage the [scaling of your function app](../azure-functions/functions-scale.md).  |
 

@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ---
 
 # Quickstart: Create a Cognitive Services resource using an ARM template
@@ -70,7 +70,7 @@ One Azure resource is defined in the template:
 > [!NOTE]
 > `az deployment group` create requires Azure CLI version 2.6 or later. To display the version type `az --version`. For more information, see the [documentation](/cli/azure/deployment/group).
 
-Run the following script using the Azure Command Line Interface (CLI) [On your local machine](/cli/azure/install-azure-cli?view=azure-cli-latest), or in a browser with the **Try it** button. Enter a name and location (for example `centralus`) for a new resource group, and the ARM template will be used to deploy a Cognitive Services resource within it. Remember the name you use. You will use it later to validate the deployment.
+Run the following script using the Azure Command Line Interface (CLI) [On your local machine](/cli/azure/install-azure-cli), or in a browser with the **Try it** button. Enter a name and location (for example `centralus`) for a new resource group, and the ARM template will be used to deploy a Cognitive Services resource within it. Remember the name you use. You will use it later to validate the deployment.
 
 
 ```azurecli-interactive

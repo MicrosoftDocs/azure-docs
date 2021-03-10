@@ -17,13 +17,17 @@ All Azure services set default limits and quotas for resources and features.   A
 
 ## Azure Spring Cloud service tiers and limits
 
-| Resource | Basic | Standard
+| Resource | Scope | Basic | Standard
 ------- | ------- | -------
-vCPU | 1 per service instance | 4 per service instance
-Memory | 2 GB per service instance | 8 GB per service instance
-Azure Spring Cloud service instances per region per subscription | 10 | 10
-Total app instances per Azure Spring Cloud service instance | 25 | 500
-Persistent volumes | 1 GB/app x 10 apps | 50 GB/app x 10 apps
+vCPU | per app instance | 1 | 4
+Memory | per app instance | 2 GB | 8 GB
+Azure Spring Cloud service instances | per region per subscription | 10 | 10
+Total app instances | per Azure Spring Cloud service instance | 25 | 500
+Custom Domains | per Azure Spring Cloud service instance | 0 | 25 
+Persistent volumes | per Azure Spring Cloud service instance | 1 GB/app x 10 apps | 50 GB/app x 10 apps
+
+> [!TIP]
+> Limits listed for Total app instances per service instance apply for apps and deployments in any state, including stopped state. Please delete apps or deployments that are not in use.
 
 ## Next steps
 

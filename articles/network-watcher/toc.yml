@@ -28,7 +28,7 @@
     href: network-watcher-nsg-flow-logging-portal.md
 - name: Concepts
   items:
-  - name: Connection Monitor (Preview)
+  - name: Connection Monitor
     href: connection-monitor-overview.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
@@ -58,7 +58,7 @@
   items:
   - name: Configure Network Watcher
     href: network-watcher-create.md
-  - name: Create Connection Monitor (Preview)
+  - name: Create Connection Monitor
     items:
     - name: Using Azure portal
       href: connection-monitor-create-using-portal.md
@@ -66,20 +66,20 @@
       href: connection-monitor-create-using-template.md
     - name: Using PowerShell
       href: connection-monitor-create-using-powershell.md 
-  - name: Migrate to Connection Monitor (Preview)
+  - name: Migrate to Connection Monitor
     items:
     - name: From Network Performance Monitor
-      href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
-    - name: From Connection Monitor
-      href: migrate-to-connection-monitor-preview-from-connection-monitor.md
+      href: migrate-to-connection-monitor-from-network-performance-monitor.md
+    - name: From Connection Monitor (classic)
+      href: migrate-to-connection-monitor-from-connection-monitor-classic.md
   - name: Diagnose VM network problems
     items:
     - name: Install VM extension
       items:
       - name: Windows
-        href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+        href: ../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
       - name: Linux
-        href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+        href: ../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
     - name: Diagnose a routing problem
       items:
       - name: Azure PowerShell
@@ -184,7 +184,7 @@
   - name: Determine relative latency between a location and Azure region
     href: view-relative-latencies.md
   - name: Monitor network performance
-    href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+    href: ../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
   - name: Move resources
     items:
     - name: Move Network Watcher Resources
@@ -214,7 +214,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
+    href: /answers/topics/azure-virtual-network.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/network-watcher/
   - name: Service updates

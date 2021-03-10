@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/16/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: rogoya
 
@@ -21,7 +21,7 @@ A lot of security guidance recommends that you don't use the same password in mu
 
 With Azure AD Password Protection, default global banned password lists are automatically applied to all users in an Azure AD tenant. To support your own business and security needs, you can define entries in a custom banned password list. When users change or reset their passwords, these banned password lists are checked to enforce the use of strong passwords.
 
-You should use additional features like [Azure Multi-Factor Authentication](concept-mfa-howitworks.md), not just rely on strong passwords enforced by Azure AD Password Protection. For more information on using multiple layers of security for your sign-in events, see [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+You should use additional features like [Azure AD Multi-Factor Authentication](concept-mfa-howitworks.md), not just rely on strong passwords enforced by Azure AD Password Protection. For more information on using multiple layers of security for your sign-in events, see [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > This conceptual article explains to an administrator how Azure AD Password Protection works. If you're an end user already registered for self-service password reset and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr).
@@ -171,7 +171,7 @@ Consider the following example:
 The next step is to identify all instances of banned passwords in the user's normalized new password. Points are assigned based on the following criteria:
 
 1. Each banned password that's found in a user's password is given one point.
-1. Each remaining unique character is given one point.
+1. Each remaining character that is not part of a banned password is given one point.
 1. A password must be at least five (5) points to be accepted.
 
 For the next two example scenarios, Contoso is using Azure AD Password Protection and has "contoso" on their custom banned password list. Let's also assume that "blank" is on the global list.

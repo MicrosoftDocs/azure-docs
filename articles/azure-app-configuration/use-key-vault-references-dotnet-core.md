@@ -3,8 +3,7 @@ title: Tutorial for using Azure App Configuration Key Vault references in an ASP
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from an ASP.NET Core app
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 
 ms.assetid: 
@@ -13,7 +12,7 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/08/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.
@@ -91,7 +90,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Connect to Key Vault
 
-1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
+1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth

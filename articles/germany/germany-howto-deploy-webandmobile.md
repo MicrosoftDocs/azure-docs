@@ -29,4 +29,4 @@ After Visual Studio is configured to connect to your Azure Germany account (whic
 * [Deploy an ASP.NET web app to Azure App Service by using Visual Studio](../app-service/quickstart-dotnetcore.md).
 * For general App Service information, see [App Service - API Apps documentation](../app-service/index.yml).
 * For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).

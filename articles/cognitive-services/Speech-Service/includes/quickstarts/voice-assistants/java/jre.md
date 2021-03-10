@@ -11,9 +11,9 @@ ms.author: travisw
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](~/articles/cognitive-services/speech-service/get-started.md)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Set up your development environment and create an empty project](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
-> * Create a bot connected to the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+> * Create a bot connected to the [Direct Line Speech channel](/azure/bot-service/bot-service-channel-connect-directlinespeech)
 > * Make sure that you have access to a microphone for audio capture
 
   > [!NOTE]
@@ -110,7 +110,7 @@ Additionally, to enable logging, update the _pom.xml_ file to include the follow
 
 1. In the `main` method, you first configure your `DialogServiceConfig` and use it to create a `DialogServiceConnector` instance. This instance connects to the Direct Line Speech channel to interact with your bot. An `AudioConfig` instance is also used to specify the source for audio input. In this example, the default microphone is used with `AudioConfig.fromDefaultMicrophoneInput()`.
 
-   - Replace the string `YourSubscriptionKey` with your subscription key, which you can get from [this website](~/articles/cognitive-services/speech-service/get-started.md).
+   - Replace the string `YourSubscriptionKey` with your subscription key, which you can get from [this website](../../../../overview.md#try-the-speech-service-for-free).
    - Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/speech-service/regions.md) associated with your subscription.
 
    > [!NOTE]

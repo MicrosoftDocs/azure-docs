@@ -96,7 +96,7 @@ Perform the following steps to install and verify regular-mode hotfixes. If you 
    * `FriendlySoftwareVersion: StorSimple 8000 Series Update 4.0`
    * `HcsSoftwareVersion: 6.3.9600.17820`
    
-     If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-contact-microsoft-support.md) for further assistance.
+     If the version number does not change after applying the update, it indicates that the hotfix has failed to apply. Should you see this, please contact [Microsoft Support](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) for further assistance.
      
      > [!IMPORTANT]
      > You must restart the active controller via the `Restart-HcsController` cmdlet before applying the next update.
@@ -262,4 +262,3 @@ To install the disk firmware updates, follow the instructions below.
    `Exit-HcsMaintenanceMode`
 
 5. The controllers restart when you exit maintenance mode. After the disk firmware updates are successfully applied and the device has exited maintenance mode, return to the Azure classic portal. Note that the portal might not show that you installed the maintenance mode updates for 24 hours.
-

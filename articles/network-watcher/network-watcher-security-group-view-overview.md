@@ -30,20 +30,11 @@ Rules can be selected and a new blade opens up to show the Network Security Grou
 ### Next steps
 
 You can also use the *Effective Security Groups* feature through other methods listed below:
-* [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/NetworkInterfaces/ListEffectiveNetworkSecurityGroups)
-* [PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azeffectivenetworksecuritygroup?view=azps-4.4.0)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg)
+* [REST API](/rest/api/virtualnetwork/NetworkInterfaces/ListEffectiveNetworkSecurityGroups)
+* [PowerShell](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)
+* [Azure CLI](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
 
 Learn how to audit your Network Security Group settings by visiting [Audit Network Security Group settings with PowerShell](network-watcher-nsg-auditing-powershell.md)
 
 [1]: ./media/network-watcher-security-group-view-overview/securitygroupview.png
 [2]: ./media/network-watcher-security-group-view-overview/figure1.png
-
-
-
-
-
-
-
-
-

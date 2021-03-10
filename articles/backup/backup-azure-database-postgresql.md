@@ -26,7 +26,7 @@ You may use this solution independently or in addition to the native backup solu
 
 |Support  |Details  |
 |---------|---------|
-|Supported deployments   |  Azure Database for PostgreSQL standalone single server     |
+|Supported deployments   |  [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
 |Supported Azure regions |  East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, Brazil South, Canada Central, North Europe, West Europe, UK South, UK West, Germany West Central, Switzerland North, Switzerland West, East Asia, South East Asia, Japan East, Japan West, Korea Central, Korea South, India Central, Australia East, Australia Central, Australia Central 2, UAE North  |
 |Supported Azure PostgreSQL versions    |   9.5, 9.6, 10, 11      |
 
@@ -130,7 +130,7 @@ The following instructions are a step-by-step guide to configuring backup on the
 
 1. Define **Retention** settings. You can add one or more retention rules. Each retention rule assumes inputs for specific backups, and data store and retention duration for those backups.
 
-1. You can choose to store your backups in one of the two data stores (or tiers): **Backup data store** (hot tier) or **Archive data store** (in preview). You can choose between **two tiering options** to define when the backups are tiered across the two datastores:
+1. You can choose to store your backups in one of the two data stores (or tiers): **Backup data store** (standard tier) or **Archive data store** (in preview). You can choose between **two tiering options** to define when the backups are tiered across the two datastores:
 
     - Choose to copy **Immediately** if you prefer to have a backup copy in both backup and archive data stores simultaneously.
     - Choose to move **On-expiry** if you prefer to move the backup to archive data store upon its expiry in the backup data store.

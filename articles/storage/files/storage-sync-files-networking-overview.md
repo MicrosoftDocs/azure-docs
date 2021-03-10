@@ -50,7 +50,7 @@ Azure File Sync requires the IP address ranges for the following services, as id
 | Azure Resource Manager | The Azure Resource Manager is the management interface for Azure. All management calls, including Azure File Sync server registration and ongoing sync server tasks, are made through the Azure Resource Manager. | `AzureResourceManager` |
 | Azure Active Directory | Azure Active Directory, or Azure AD, contains the user principals required to authorize server registration against a Storage Sync Service, and the service principals required for Azure File Sync to be authorized to access your cloud resources. | `AzureActiveDirectory` |
 
-If you are using Azure File Sync within Azure, even if its a different region, you can use the name of the service tag directly in your network security group to allow traffic to that service. To learn more about how to do this, see [Network security groups](../../virtual-network/security-overview.md). 
+If you are using Azure File Sync within Azure, even if its a different region, you can use the name of the service tag directly in your network security group to allow traffic to that service. To learn more about how to do this, see [Network security groups](../../virtual-network/network-security-groups-overview.md). 
 
 If you are using Azure File Sync on-premises, you can use the service tag API to get specific IP address ranges for your firewall's allow list. There are two methods for getting this information:
 
@@ -60,9 +60,9 @@ If you are using Azure File Sync on-premises, you can use the service tag API to
     - [Azure China](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure Germany](https://www.microsoft.com/download/details.aspx?id=57064)
 - The service tag discovery API (preview) allows programmatic retrieval of the current list of service tags. In preview, the service tag discovery API may return information that's less current than information returned from the JSON documents published on the Microsoft Download Center. You can use the API surface based on your automation preference:
-    - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
-    - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
+    - [REST API](/rest/api/virtualnetwork/servicetags/list)
+    - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
+    - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 To learn more about how to use the service tag API to retrieve the addresses of your services, see [Allow list for Azure File Sync IP addresses](storage-sync-files-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses).
 

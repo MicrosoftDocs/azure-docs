@@ -3,11 +3,10 @@ title: Mapping data flow Debug Mode
 description: Start an interactive debug session when building data flows
 ms.author: makromer
 author: kromerm
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/11/2020
+ms.date: 02/19/2021
 ---
 
 # Mapping data flow Debug Mode
@@ -20,9 +19,9 @@ Azure Data Factory mapping data flow's debug mode allows you to interactively wa
 
 ![Debug slider](media/data-flow/debugbutton.png "Debug slider")
 
-Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a 60-minute time to live will be spun up. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#ir).
+Once you turn on the slider, you will be prompted to select which integration runtime configuration you wish to use. If AutoResolveIntegrationRuntime is chosen, a cluster with eight cores of general compute with a default 60-minute time to live will be spun up. If you'd like to allow for more idle team before your session times out, you can choose a higher TTL setting. For more information on data flow integration runtimes, see [Data flow performance](concepts-data-flow-performance.md#ir).
 
-![Debug IR selection](media/data-flow/debugbutton2.png "Debug IR selection")
+![Debug IR selection](media/data-flow/debug-new-1.png "Debug IR selection")
 
 When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off in Azure Data Factory. You should be aware of the hourly charges incurred by Azure Databricks during the time that you have the debug session turned on.
 
@@ -31,13 +30,13 @@ In most cases, it's a good practice to build your Data Flows in debug mode so th
 ![View data flow debug sessions](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
 
 > [!NOTE]
-> Every debug session that a user starts from their ADF browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions above to view and manage debug sessions per factory.
+> Every debug session that a user starts from their ADF browser UI is a new session with its own Spark cluster. You can use the monitoring view for debug sessions above to view and manage debug sessions per factory. You are charged for every hour that each debug session is executing including the TTL time.
 
 ## Cluster status
 
-The cluster status indicator at the top of the design surface turns green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster wasn't already running when you entered debug mode, then you'll have to wait 5-7 minutes for the cluster to spin up. The indicator will spin until its ready.
+The cluster status indicator at the top of the design surface turns green when the cluster is ready for debug. If your cluster is already warm, then the green indicator will appear almost instantly. If your cluster wasn't already running when you entered debug mode, then the Spark cluster will perform a cold boot. The indicator will spin until the environment is ready for interactive debugging.
 
-When you are finished with your debugging, turn the Debug switch off so that your Azure Databricks cluster can terminate and you'll no longer be billed for debug activity.
+When you are finished with your debugging, turn the Debug switch off so that your Spark cluster can terminate and you'll no longer be billed for debug activity.
 
 ## Debug settings
 
@@ -46,6 +45,8 @@ Once you turn on debug mode, you can edit how a data flow previews data. Debug s
 ![Debug settings](media/data-flow/debug-settings.png "Debug settings")
 
 If you have parameters in your Data Flow or any of its referenced datasets, you can specify what values to use during debugging by selecting the **Parameters** tab.
+
+Use the sampling settings here to point to sample files or sample tables of data so that you do not have to change your source datasets. By using a sample file or table here, you can maintain the same logic and property settings in your data flow while testing against a subset of data.
 
 ![Debug settings parameters](media/data-flow/debug-settings2.png "Debug settings parameters")
 

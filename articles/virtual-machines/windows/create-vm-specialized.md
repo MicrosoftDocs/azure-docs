@@ -2,7 +2,9 @@
 title: Create a Windows VM from a specialized VHD in Azure 
 description: Create a new Windows VM by attaching a specialized managed disk as the OS disk by using the Resource Manager deployment model.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
@@ -13,8 +15,6 @@ ms.author: cynthn
 
 Create a new VM by attaching a specialized managed disk as the OS disk. A specialized disk is a copy of a virtual hard disk (VHD) from an existing VM that contains the user accounts, applications, and other state data from your original VM. 
 
-When you use a specialized VHD to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.
-
 You have several options:
 * [Use an existing managed disk](#option-1-use-an-existing-disk). This option is useful if you have a VM that isn't working correctly. You can delete the VM and then reuse the managed disk to create a new VM. 
 * [Upload a VHD](#option-2-upload-a-specialized-vhd) 
@@ -23,6 +23,11 @@ You have several options:
 You can also use the Azure portal to [create a new VM from a specialized VHD](create-vm-specialized-portal.md).
 
 This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
+
+> [!IMPORTANT]
+> 
+> When you use a specialized disk to create a new VM, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
+> Thus, don't use a specialized disk if you want to create multiple VMs. Instead, for larger deployments, [create an image](capture-image-resource.md) and then [use that image to create multiple VMs](create-vm-generalized-managed.md).
 
 We recommend that you limit the number of concurrent deployments to 20 VMs from a single VHD or snapshot. 
 
@@ -46,7 +51,7 @@ You can upload the VHD from a specialized VM created with an on-premises virtual
 ### Prepare the VM
 Use the VHD as-is to create a new VM. 
   
-  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Do not** generalize the VM by using Sysprep.
+  * [Prepare a Windows VHD to upload to Azure](prepare-for-upload-vhd-image.md). **Do not** generalize the VM by using Sysprep.
   * Remove any guest virtualization tools and agents that are installed on the VM (such as VMware tools).
   * Make sure the VM is configured to get the IP address and DNS settings from DHCP. This ensures that the server obtains an IP address within the virtual network when it starts up. 
 
@@ -185,7 +190,7 @@ $nsg = New-AzNetworkSecurityGroup `
 	
 ```
 
-For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md).
 
 ### Create a public IP address and NIC
 To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.

@@ -14,33 +14,30 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2020
+ms.date: 12/08/2020
 ms.author: blehr
 ms.custom: references_regions 
 ---
 
 # Upgrade public IP addresses
 
-Azure public IP addresses are created with a SKU--either Basic or Standard--which determines aspects of their functionality (including allocation method, usage across availability zones, and which resources they can be associated with). 
+Azure public IP addresses are created with a SKU--either Basic or Standard--which determines aspects of their functionality (including allocation method, feature support, and which resources they can be associated with). 
 
 The following scenarios are reviewed in this article:
-* How to upgrade a Basic SKU public IP to a Standard SKU public IP (using Portal, PowerShell, or CLI)
+* How to upgrade a Basic SKU public IP to a Standard SKU public IP (using PowerShell or CLI)
 * How to migrate a Classic Azure Reserved IP to an Azure Resource Manager Basic SKU public IP
 
 ## Upgrade public IP address from Basic to Standard SKU
 
->[!NOTE]
->The ability to upgrade public IPs from Basic to Standard is not available in all regions.  Please see [**Limitations**](#limitations) for more details.
-
-In order to upgrade a public IP, it must not be associated with any resource (see [this page](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) for more information about how to disassociate public IPs).
+In order to upgrade a public IP, it must not be associated with any resource (see [this page](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) for more information about how to disassociate public IPs).
 
 >[!IMPORTANT]
->Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  This means they cannot be associated with an Azure resource that is either zone-redundant or tied to a pre-specified zone in regions where this is offered.
+>Public IPs upgraded from Basic to Standard SKU continue to have no guaranteed [availability zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  Please ensure this is kept in mind when choosing which resources to associate the IP address with.
 
 ---
 # [**Basic to Standard - PowerShell**](#tab/option-upgrade-powershell)
 
-The following example assumes previous creation of a Basic SKU public IP, using the example given on [this page](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-basic) with a Basic public IP **myBasicPublicIP** in **myResourceGroup**.
+The following example assumes previous creation of a Basic SKU public IP, using the example given on [this page](./create-public-ip-powershell.md?tabs=option-create-public-ip-basic) with a Basic public IP **myBasicPublicIP** in **myResourceGroup**.
 
 In order to upgrade the IP, simply execute the commands below using PowerShell.  Note if the IP address is already statically allocated, that section can be skipped.
 
@@ -62,7 +59,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pubIP
 
 # [**Basic to Standard - CLI**](#tab/option-upgrade-cli)
 
-The following example assumes previous creation of a Basic SKU public IP, using the example given on [this page](https://docs.microsoft.com/azure/virtual-network/create-public-ip-cli?tabs=option-create-public-ip-basic) with a Basic public IP **myBasicPublicIP** in **myResourceGroup**.
+The following example assumes previous creation of a Basic SKU public IP, using the example given on [this page](./create-public-ip-cli.md?tabs=option-create-public-ip-basic) with a Basic public IP **myBasicPublicIP** in **myResourceGroup**.
 
 In order to upgrade the IP, simply execute the commands below using the Azure CLI.  Note if the IP address is already statically allocated, that section can be skipped.
 
@@ -94,7 +91,7 @@ To benefit from the new capabilities in Azure Resource Manager, you can migrate 
 
 # [**Reserved to Basic - PowerShell**](#tab/option-migrate-powershell)
 
-The following example assumes previous creation of a classic Azure Reserved IP **myReservedIP** in **myResourceGroup**. Another prerequisite for migration is to ensure the Azure Resource Manager subscription has registered for migration. This is covered in detail on Steps 3 and 4 of [this page](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps).
+The following example assumes previous creation of a classic Azure Reserved IP **myReservedIP** in **myResourceGroup**. Another prerequisite for migration is to ensure the Azure Resource Manager subscription has registered for migration. This is covered in detail on Steps 3 and 4 of [this page](../virtual-machines/migration-classic-resource-manager-ps.md).
 
 In order to migrate the Reserved IP, execute the commands below using PowerShell.  Note if the IP address is not associated with any service (below there is a service named **myService**), that step can be skipped.
 
@@ -118,7 +115,7 @@ A new resource group in Azure Resource Manager is created using the name of the 
 
 # [**Reserved to Basic - CLI**](#tab/option-migrate-cli)
 
-The following example assumes previous creation of a classic Azure Reserved IP **myReservedIP** in **myResourceGroup**. Another prerequisite for migration is to ensure the Azure Resource Manager subscription has registered for migration. This is covered in detail on Steps 3 and 4 of [this page](https://docs.microsoft.com/azure/virtual-machines/linux/migration-classic-resource-manager-cli).
+The following example assumes previous creation of a classic Azure Reserved IP **myReservedIP** in **myResourceGroup**. Another prerequisite for migration is to ensure the Azure Resource Manager subscription has registered for migration. This is covered in detail on Steps 3 and 4 of [this page](../virtual-machines/migration-classic-resource-manager-cli.md).
 
 In order to migrate the Reserved IP, execute the commands below using the Azure CLI.  Note if the IP address is not associated with any service (below there is a service named **myService** and deployment **myDeployment**), that step can be skipped.
 
@@ -144,30 +141,12 @@ A new resource group in Azure Resource Manager is created using the name of the 
 
 ## Limitations
 
-* This capability is currently only available in the following regions:<br>
-West Central US<br>
-North Central US<br>
-West US<br>
-West US 2<br>
-Norway East<br>
-South Africa North<br>
-East US<br>
-North Europe<br>
-Korea Central<br>
-Indian Central<br>
-East US 2<br>
-Switzerland North<br>
-India West<br>
-Germany North<br>
-Canada Central<br>
-France South<br>
-India West
-
-* In order to upgrade a Basic Public IP, it cannot be associated with any Azure resource.  Please review [this page](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) for more information on how to disassociate public IPs.  Similarly, in order to migrate a Reserved IP, it cannot be associated with any Cloud Service.  Please review [this page](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) for more information on how to disassociate reserved IPs.  
-* Public IPs upgraded from Basic to Standard SKU will continue to have no [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) and therefore cannot be associated with an Azure resource that is either zone-redundant or zonal.  Note this only applies to regions that offer availability zones.
+* In order to upgrade a Basic Public IP, it cannot be associated with any Azure resource.  Please review [this page](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) for more information on how to disassociate public IPs.  Similarly, in order to migrate a Reserved IP, it cannot be associated with any Cloud Service.  Please review [this page](./remove-public-ip-address-vm.md) for more information on how to disassociate reserved IPs.  
+* Public IPs upgraded from Basic to Standard SKU will continue to have no [availability zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones) and therefore cannot be associated with an Azure resource that is either zone-redundant or zonal.  Note this only applies to regions that offer availability zones.
+* You cannot downgrade from Standard to Basic.
 
 ## Next Steps
 
-- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure, including the difference between the SKU types, as well as [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Learn how to [Upgrade Azure Public Load Balancers from Basic to Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard).
-- Understand [Classic Azure Reserved IPs](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) and [Migration of Classic resources to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+- Learn more about [public IP addresses](./public-ip-addresses.md#public-ip-addresses) in Azure, including the difference between the SKU types, as well as [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Learn how to [Upgrade Azure Public Load Balancers from Basic to Standard](../load-balancer/upgrade-basic-standard.md).
+- Understand [Classic Azure Reserved IPs](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) and [Migration of Classic resources to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).

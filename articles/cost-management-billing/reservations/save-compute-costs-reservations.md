@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 02/24/2021
 ms.author: banders
 ---
 
@@ -51,15 +51,16 @@ For more information, see [Buy a reservation](prepare-buy-reservation.md).
 
 ## How is a reservation billed? 
 
-The reservation is charged to the payment method tied to the subscription. The reservation cost is deducted from your monetary commitment balance, if available. When your monetary commitment balance doesn't cover the cost of the reservation, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have on your account is billed immediately for up-front purchases. Monthly payments appear on your invoice and your credit card is charged monthly. When you're billed by invoice, you see the charges on your next invoice. 
+The reservation is charged to the payment method tied to the subscription. The reservation cost is deducted from your Azure Prepayment (previously called monetary commitment) balance, if available. When your Azure Prepayment balance doesn't cover the cost of the reservation, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have on your account is billed immediately for up-front purchases. Monthly payments appear on your invoice and your credit card is charged monthly. When you're billed by invoice, you see the charges on your next invoice. 
 
-## Permissions to view and manage reservations 
+## Who can manage a reservation by default
 
-The user who purchases a reservation and the account administrator of the subscription used for billing the reservation get the Owner role on the reservation order and the reservation.
+By default, the following users can view and manage reservations:
 
-You can delegate reservation management by adding people to roles on the reservation order or the reservation. You assign the roles in the Azure portal or by using APIs and PowerShell. 
+- The person who buys a reservation and the account administrator of the billing subscription used to buy the reservation are added to the reservation order.
+- Enterprise Agreement and Microsoft Customer Agreement billing administrators.
 
-For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) 
+To allow other people to manage reservations, see [Manage Reservations for Azure resources](manage-reserved-vm-instance.md).
 
 ## Get reservation details and utilization after purchase
 
@@ -85,7 +86,8 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 - **Reserved Virtual Machine Instance** - A reservation only covers the virtual machine and cloud services compute costs. It doesn't cover additional software, Windows, networking, or storage charges.
 - **Azure Storage reserved capacity** - A reservation covers storage capacity for standard storage accounts for Blob storage or Azure Data Lake Gen2 storage. The reservation doesn't cover bandwidth or transaction rates.
 - **Azure Cosmos DB reserved capacity** - A reservation covers throughput provisioned for your resources. It doesn't cover the storage and networking charges.
-- **SQL Database reserved vCore** - Only the compute costs are included with a reservation. The SQL license is billed separately.
+- **Azure Data Factory data flows** - A reservation covers integration runtime cost for the compute type and number of cores that you buy.
+- **SQL Database reserved vCore** - Covers both SQL Managed Instance and SQL Database Elastic Pool/single database. Only the compute costs are included with a reservation. The SQL license is billed separately.
 - **Azure Synapse Analytics** - A reservation covers cDWU usage. It doesn't cover storage or networking charges associated with the Azure Synapse Analytics usage.
 - **Azure Databricks** - A reservation covers only the DBU usage. Other charges, such as compute, storage, and networking, are applied separately.
 - **App Service stamp fee** - A reservation covers stamp usage. It doesn't apply to workers, so any other resources associated with the stamp are charged separately.
@@ -120,7 +122,7 @@ If you have questions or need help,  [create a support request](https://go.micro
     - [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)
 
 - Learn more about reservations for service plans:
-    - [Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
+    - [Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
     - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
     - [SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
     - [Azure Cache for Redis resources with Azure Cache for Redis reserved capacity](../../azure-cache-for-redis/cache-reserved-pricing.md)

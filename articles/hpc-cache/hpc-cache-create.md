@@ -97,7 +97,7 @@ When creation finishes, a notification appears with a link to the new Azure HPC 
 
 ## Create the cache with Azure CLI
 
-[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+[Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
 > [!NOTE]
 > The Azure CLI currently does not support creating a cache with customer-managed encryption keys. Use the Azure portal.

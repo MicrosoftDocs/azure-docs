@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/09/2020
+ms.date: 03/02/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -26,22 +26,22 @@ Speech containers enable customers to build a speech application architecture th
 > * Standard Speech-to-text
 > * Custom Speech-to-text
 > * Standard Text-to-speech
-> 
+> * Neural Text-to-speech
+>
 > The following speech containers are in gated preview.
 > * Custom Text-to-speech
 > * Speech Language Detection 
-> * Neural Text-to-speech
 >
 > To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
 
 | Container | Features | Latest |
 |--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.6.0 |
-| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.6.0 |
-| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.8.0 |
-| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.8.0 |
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.10.0 |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.10.0 |
+| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.12.0 |
+| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.12.0 |
 | Speech Language Detection | Detect the language spoken in audio files. | 1.0 |
-| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.2.0 |
+| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.4.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
@@ -239,13 +239,13 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-tex
 All tags, except for `latest` are in the following format and are case-sensitive:
 
 ```
-<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>
 ```
 
 The following tag is an example of the format:
 
 ```
-1.2.0-amd64-en-us-arianeural-preview
+1.3.0-amd64-en-us-arianeural
 ```
 
 For all of the supported locales and corresponding voices of the **neural text-to-speech** container, please see [Neural Text-to-speech image tags](../containers/container-image-tags.md#neural-text-to-speech).
@@ -308,6 +308,33 @@ This command:
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
+> [!NOTE]
+> Containers support compressed audio input to Speech SDK using GStreamer.
+> To install GStreamer in a container, 
+> follow Linux instructions for GStreamer in [Use codec compressed audio input with the Speech SDK](how-to-use-codec-compressed-audio-input-streams.md).
+
+#### Diarization on the speech-to-text output
+Diarization is enabled by default. to get diarization in your response, use `diarize_speech_config.set_service_property`.
+
+1. Set the phrase output format to `Detailed`.
+2. Set the mode of diarization. The supported modes are `Identity` and `Anonymous`.
+```python
+diarize_speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Format',
+    value='Detailed',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+
+diarize_speech_config.set_service_property(
+    name='speechcontext-phraseDetection.speakerDiarization.mode',
+    value='Identity',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+> [!NOTE]
+> "Identity" mode returns `"SpeakerId": "Customer"` or `"SpeakerId": "Agent"`.
+> "Anonymous" mode returns `"SpeakerId": "Speaker 1"` or `"SpeakerId": "Speaker 2"`
+
 
 #### Analyze sentiment on the speech-to-text output 
 Starting in v2.6.0 of the speech-to-text container, you should use TextAnalytics 3.0 API endpoint instead of the preview one. For example
@@ -355,7 +382,12 @@ To configure a phrase list, you need to add your own phrases when you make the c
         audio_config=audio_config)
     phrase_list_grammer = speechsdk.PhraseListGrammar.from_recognizer(recognizer)
     phrase_list_grammer.addPhrase(phrase)
-
+    
+    dict_speech_config.set_service_property(
+        name='setflight',
+        value='xonlineinterp',
+        channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+    )
 ```
 
 If you have multiple phrases to add, call `.addPhrase()` for each phrase to add it to the phrase list. 
@@ -364,13 +396,6 @@ If you have multiple phrases to add, call `.addPhrase()` for each phrase to add 
 # [Custom Speech-to-text](#tab/cstt)
 
 The *Custom Speech-to-text* container relies on a custom speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) using the [custom speech portal](https://speech.microsoft.com/customspeech).
-
-> [!IMPORTANT]
-> The Custom Speech model needs to be trained from one of the following model versions:
-> * **20181201 (v3.3 Unified)**
-> * **20190520 (v4.14 Unified)**
-> * **20190701 (v4.17 Unified)**<br>
-> ![Custom Speech train container model](media/custom-speech/custom-speech-train-model-container-scoped.png)
 
 The custom speech **Model ID** is required to run the container. It can be found on the **Training** page of the custom speech portal. From the custom speech portal, navigate to the **Training** page and select the model.
 <br>
@@ -431,7 +456,7 @@ This command:
 * Runs a *Custom Speech-to-text* container from the container image.
 * Check and return the available base models of the target locale.
 
-The output gives you a list of base models with the information locale, model id, and creation date time. You can use the model id to download and use the specific base model you prefer. For example:
+The output gives you a list of base models with the information locale, model ID, and creation date time. You can use the model ID to download and use the specific base model you prefer. For example:
 ```
 Checking available base model for en-us
 2020/10/30 21:54:20 [Info] Searching available base models for en-us
@@ -739,10 +764,6 @@ The Speech containers send billing information to Azure, using a *Speech* resour
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](speech-container-configuration.md).
-
-<!--blogs/samples/video courses -->
-
-[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Summary
 

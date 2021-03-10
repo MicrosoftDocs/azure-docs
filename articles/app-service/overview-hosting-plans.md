@@ -10,7 +10,7 @@ ms.custom: seodec18
 ---
 # Azure App Service plan overview
 
-In App Service (Web Apps, API Apps, or Mobile Apps), an app always runs in an _App Service plan_. In addition, [Azure Functions](../azure-functions/functions-scale.md#app-service-plan) also has the option of running in an _App Service plan_. An App Service plan defines a set of compute resources for a web app to run. These compute resources are analogous to the [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventional web hosting. One or more apps can be configured to run on the same computing resources (or in the same App Service plan).
+In App Service (Web Apps, API Apps, or Mobile Apps), an app always runs in an _App Service plan_. In addition, [Azure Functions](../azure-functions/dedicated-plan.md) also has the option of running in an _App Service plan_. An App Service plan defines a set of compute resources for a web app to run. These compute resources are analogous to the [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventional web hosting. One or more apps can be configured to run on the same computing resources (or in the same App Service plan).
 
 When you create an App Service plan in a certain region (for example, West Europe), a set of compute resources is created for that plan in that region. Whatever apps you put into this App Service plan run on these compute resources as defined by your App Service plan. Each App Service plan defines:
 
@@ -32,7 +32,7 @@ Each tier also provides a specific subset of App Service features. These feature
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> The new **PremiumV3** pricing tier guarantees machines with faster processors (minimum 195 [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) per virtual CPU), SSD storage, and quadruple memory-to-core ratio compared to **Standard** tier. **PremiumV3** also supports higher scale via increased instance count while still providing all the advanced capabilities found in **Standard** tier. All features available in the existing **PremiumV2** tier are included in **PremiumV3**.
+> The new **PremiumV3** pricing tier guarantees machines with faster processors (minimum 195 [ACU](../virtual-machines/acu.md) per virtual CPU), SSD storage, and quadruple memory-to-core ratio compared to **Standard** tier. **PremiumV3** also supports higher scale via increased instance count while still providing all the advanced capabilities found in **Standard** tier. All features available in the existing **PremiumV2** tier are included in **PremiumV3**.
 >
 > Similar to other dedicated tiers, three VM sizes are available for this tier:
 >
@@ -52,7 +52,7 @@ When you create an app in App Service, it is put into an App Service plan. When 
 
 In this way, the App Service plan is the scale unit of the App Service apps. If the plan is configured to run five VM instances, then all apps in the plan run on all five instances. If the plan is configured for autoscaling, then all apps in the plan are scaled out together based on the autoscale settings.
 
-For information on scaling out an app, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md).
+For information on scaling out an app, see [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md).
 
 <a name="cost"></a>
 

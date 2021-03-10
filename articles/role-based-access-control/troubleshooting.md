@@ -45,7 +45,7 @@ $ras.Count
 
 ## Problems with Azure role assignments
 
-- If you are unable to add a role assignment in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled or because you get the permissions error "The client with object id does not have authorization to perform action", check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role.
+- If you are unable to assign a role in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled or because you get the permissions error "The client with object id does not have authorization to perform action", check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role.
 - If you are using a service principal to assign roles, you might get the error "Insufficient privileges to complete the operation." For example, let's say that you have a service principal that has been assigned the Owner role and you try to create the following role assignment as the service principal using Azure CLI:
 
     ```azurecli
@@ -57,7 +57,7 @@ $ras.Count
 
     There are two ways to potentially resolve this error. The first way is to assign the [Directory Readers](../active-directory/roles/permissions-reference.md#directory-readers) role to the service principal so that it can read data in the directory.
 
-    The second way to resolve this error is to create the role assignment by using the `--assignee-object-id` parameter instead of `--assignee`. By using `--assignee-object-id`, Azure CLI will skip the Azure AD lookup. You will need to get the object ID of the user, group, or application that you want to assign the role to. For more information, see [Add or remove Azure role assignments using Azure CLI](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
+    The second way to resolve this error is to create the role assignment by using the `--assignee-object-id` parameter instead of `--assignee`. By using `--assignee-object-id`, Azure CLI will skip the Azure AD lookup. You will need to get the object ID of the user, group, or application that you want to assign the role to. For more information, see [Assign Azure roles using Azure CLI](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -145,7 +145,7 @@ Similarly, if you list this role assignment using Azure CLI, you might see an em
 }
 ```
 
-It isn't a problem to leave these role assignments where the security principal has been deleted. If you like, you can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Azure portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment), or [Azure CLI](role-assignments-cli.md#remove-role-assignment)
+It isn't a problem to leave these role assignments where the security principal has been deleted. If you like, you can remove these role assignments using steps that are similar to other role assignments. For information about how to remove role assignments, see [Remove Azure role assignments](role-assignments-remove.md).
 
 In PowerShell, if you try to remove the role assignments using the object ID and role definition name, and more than one role assignment matches your parameters, you will get the error message: "The provided information does not map to a role assignment". The following output shows an example of the error message:
 
@@ -168,7 +168,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 ## Role assignment changes are not being detected
 
-Azure Resource Manager sometimes caches configurations and data to improve performance. When you add or remove role assignments, it can take up to 30 minutes for changes to take effect. If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
+Azure Resource Manager sometimes caches configurations and data to improve performance. When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect. If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
 
 If you are add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
 
@@ -243,5 +243,5 @@ A reader can click the **Platform features** tab and then click **All settings**
 ## Next steps
 
 - [Troubleshoot for guest users](role-assignments-external-users.md#troubleshoot)
-- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
 - [View activity logs for Azure RBAC changes](change-history-report.md)

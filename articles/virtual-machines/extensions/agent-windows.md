@@ -1,12 +1,13 @@
 ---
 title: Azure Virtual Machine Agent Overview 
 description: Azure Virtual Machine Agent Overview
-services: virtual-machines-windows
-author: mimckitt
-ms.service: virtual-machines-windows
 ms.topic: article
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.author: amjads
+author: amjads1
+ms.collection: windows
 ms.date: 07/20/2019
-ms.author: mimckitt
 ---
 
 # Azure Virtual Machine Agent overview

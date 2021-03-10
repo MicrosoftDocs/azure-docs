@@ -11,5 +11,4 @@ ms.custom: "include file"
 ---
 
 > [!NOTE]
-> This feature is not yet supported in accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2). To learn more, see [Blob storage features available in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-supported-blob-storage-features).
-
+> This feature is not yet supported in accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2). To learn more, see [Blob storage features available in Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-supported-blob-storage-features.md).

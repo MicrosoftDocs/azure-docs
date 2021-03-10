@@ -6,7 +6,7 @@
   items:
   - name: What is the Data Science Virtual Machine (DSVM)?
     href: overview.md
-  - name: Tools Included on the Data Science Virtual Machine
+  - name: Tools in the Data Science Virtual Machine
     href: tools-included.md
 - name: Quickstarts
   expanded: true
@@ -65,7 +65,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm
   - name: R developer guide 
-    href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
+    href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=%2fazure/machine-learning/data-science-virtual-machine/context/ml-context
 - name: Reference
   items:
   - name: Ubuntu Data Science Virtual Machine

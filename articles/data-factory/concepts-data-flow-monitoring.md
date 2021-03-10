@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/19/2020
+ms.date: 11/22/2020
 ---
 
 # Monitor Data Flows
@@ -76,6 +76,16 @@ You can also see detailed timing for each partition transformation step if you o
 
 When you select a sink transformation icon in your map, the slide-in panel on the right will show an additional data point called "post processing time" at the bottom. This is the amount time spent executing your job on the Spark cluster *after* your data has been loaded, transformed, and written. This time can include closing connection pools, driver shutdown, deleting files, coalescing files, etc. When you perform actions in your flow like "move files" and "output to single file", you will likely see an increase in the post processing time value.
   
+## Error rows
+
+Enabling error row handling in your data flow sink will be reflected in the monitoring output. When you set the sink to "report success on error", the monitoring output will show the number of success and failed rows when you click on the sink monitoring node.
+
+![Screenshot shows error rows.](media/data-flow/error-row-2.png "Error Row Monitoring Success")
+
+When you select "report failure on error", the same output will be shown only in the activity monitoring output text. This is because the data flow activity will return failure for execution and the detailed monitoring view will be unavailable.
+
+![Screenshot shows error rows in activity.](media/data-flow/error-rows-4.png "Error Row Monitoring Failure")
+
 ## Monitor Icons
 
 This icon means that the transformation data was already cached on the cluster, so the timings and execution path have taken that into account:

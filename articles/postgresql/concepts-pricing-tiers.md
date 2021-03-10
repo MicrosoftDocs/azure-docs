@@ -46,7 +46,7 @@ The storage you provision is the amount of storage capacity available to your Az
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 
 > [!NOTE]
-> Storage up to 16TB and 20,000 IOPS is supported in the following regions: East US, East US 2, Brazil South, Central US, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2, West Central US, Canada East, and Canada Central.
+> Storage up to 16TB and 20,000 IOPS is supported in the following regions: Australia East, Australia South East, Brazil South, Canada Central, Canada East,  Central US, China East 2, China North 2, East Asia, East US, East US 1, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, Switzerland North, Switzerland West, US Gov East, US Gov SouthCentral, US Gov SouthWest,  UK South, UK West, West Europe, West Central US, West US, and West US 2.
 >
 > All other regions support up to 4TB of storage and 6000 IOPS.
 >

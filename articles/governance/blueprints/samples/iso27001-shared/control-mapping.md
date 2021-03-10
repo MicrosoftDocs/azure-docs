@@ -1,7 +1,7 @@
 ---
 title: ISO 27001 Shared Services blueprint sample controls
 description: Control mapping of the ISO 27001 Shared Services blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 11/05/2020
+ms.date: 02/05/2021
 ms.topic: sample
 ---
 # Control mapping of the ISO 27001 Shared Services blueprint sample
@@ -133,7 +133,7 @@ that should be considered for removal.
 ## A.9.4.2 Secure log-on procedures
 
 This blueprint assigns three Azure Policy definitions to audit accounts that don't have multi-factor
-authentication enabled. Azure Multi-Factor Authentication provides additional security by requiring
+authentication enabled. Azure AD Multi-Factor Authentication provides additional security by requiring
 a second form of authentication and delivers strong authentication. By monitoring accounts without
 multi-factor authentication enabled, you can identify accounts that may be more likely to be
 compromised.

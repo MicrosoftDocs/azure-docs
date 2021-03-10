@@ -1,9 +1,9 @@
 ---
-title: Localization support | Microsoft Azure Maps
+title: Localization support with Microsoft Azure Maps
 description: See which regions Azure Maps supports with services such as maps, search, routing, weather, and traffic incidents. Learn how to set up the View parameter.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -124,10 +124,10 @@ Affected Azure Maps REST Services:
  * Get Search Address Reverse
  * Get Search Address Reverse Cross Street
  * Post Search Inside Geometry
- * Post Search Address Batch Preview
- * Post Search Address Reverse Batch Preview
+ * Post Search Address Batch
+ * Post Search Address Reverse Batch
  * Post Search Along Route
- * Post Search Fuzzy Batch Preview
+ * Post Search Fuzzy Batch
 
  
 ### SDKs

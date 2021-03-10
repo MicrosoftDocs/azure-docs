@@ -1,0 +1,26 @@
+- name: Azure partner solutions documentation
+  href: overview.md
+- name: Partner solutions
+  items:
+  - name: Apache Kafka on Confluent Cloud
+    items:
+    - name: Overview
+      displayName: Apache, Kafka, Confluent
+      href: ./apache-kafka-confluent-cloud/overview.md
+    - name: Create
+      href: ./apache-kafka-confluent-cloud/create.md
+    - name: Manage
+      href: ./apache-kafka-confluent-cloud/manage.md
+    - name: Troubleshoot
+      href: ./apache-kafka-confluent-cloud/troubleshoot.md
+  - name: Datadog
+    items:
+    - name: Overview
+      displayName: Datadog, Monitoring
+      href: ./datadog/overview.md
+    - name: Create
+      href: ./datadog/create.md
+    - name: Manage
+      href: ./datadog/manage.md
+    - name: Troubleshoot
+      href: ./datadog/troubleshoot.md

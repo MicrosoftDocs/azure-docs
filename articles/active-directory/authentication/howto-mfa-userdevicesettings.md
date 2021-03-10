@@ -1,6 +1,6 @@
 ---
-title: Manage authentication methods for Azure Multi-Factor Authentication - Azure Active Directory
-description: Learn how you can configure Azure Active Directory user settings for Azure Multi-Factor Authentication
+title: Manage authentication methods for Azure AD Multi-Factor Authentication - Azure Active Directory
+description: Learn how you can configure Azure Active Directory user settings for Azure AD Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -8,21 +8,21 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/04/2020
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: michmcla, dawoo
 
 ms.collection: M365-identity-device-management
 ---
-# Manage user authentication methods for Azure Multi-Factor Authentication
+# Manage user authentication methods for Azure AD Multi-Factor Authentication
 
 Users in Azure AD have two distinct sets of contact information:  
 
 - Public profile contact information, which is managed in the user profile and visible to members of your organization. For users synced from on-premises Active Directory, this information is managed in on-premises Windows Server Active Directory Domain Services.
 - Authentication methods, which are always kept private and only used for authentication, including multi-factor authentication (MFA). Administrators can manage these methods in a user's authentication method blade and users can manage their methods in Security Info page of MyAccount.
 
-When managing Azure Multi-Factor Authentication methods for your users, Authentication administrators can: 
+When managing Azure AD Multi-Factor Authentication methods for your users, Authentication administrators can: 
 
 1. Add authentication methods for a specific user, including phone numbers used for MFA.
 1. Reset a user's password.
@@ -70,7 +70,7 @@ Get-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com
 Create a mobile phone authentication method for a specific user.
 
 ```powershell
-New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType “mobile” -phoneNumber "+1 7748933135"
+New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType "mobile" -phoneNumber "+1 7748933135"
 ```
 
 Remove a specific phone method for a user
@@ -115,6 +115,6 @@ To delete a user's app passwords, complete the following steps:
 
 ## Next steps
 
-This article showed you how to configure individual user settings. To configure overall Azure Multi-Factor Authentication service settings, see [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
+This article showed you how to configure individual user settings. To configure overall Azure AD Multi-Factor Authentication service settings, see [Configure Azure AD Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
 
-If your users need help, see the [User guide for Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
+If your users need help, see the [User guide for Azure AD Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).

@@ -63,7 +63,7 @@ To make changes to your deployment, see [Modify a deployment](how-to-deploy-at-s
 
 Use the [az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) command to display the details of a single deployment:
 
-```cli
+```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
@@ -81,7 +81,7 @@ Inspect the deployment in the command window. The **metrics** property lists a 
 
 You can show a list of device IDs or objects for each of the metrics with the [az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric) command:
 
-```cli
+```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
 ```
 

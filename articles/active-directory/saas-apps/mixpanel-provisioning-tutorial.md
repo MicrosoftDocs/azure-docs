@@ -30,7 +30,7 @@ This tutorial describes the steps you need to perform in both Mixpanel and Azure
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-* A user account in Azure AD with [permission](../users-groups-roles/directory-assign-admin-roles.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
 * An Enterprise level mixpanel organization
 * A mixpanel account with admin privileges on said org
 * SSO enabled within mixpanel with a claimed domain

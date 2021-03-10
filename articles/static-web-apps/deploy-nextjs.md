@@ -25,9 +25,9 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) generated 
 
 Rather than using the Next.js CLI to create an app, you can use a starter repository that includes an existing Next.js app. This repository features a Next.js app with dynamic routes, which highlights a common deployment issue. Dynamic routes need an extra deployment configuration which you will learn more about in a moment.
 
-To begin, create a new repository under your GitHub account from a template repository. 
+To begin, create a new repository under your GitHub account from a template repository.
 
-1. Navigate to <http://github.com/staticwebdev/nextjs-starter/generate>
+1. Navigate to [https://github.com/staticwebdev/nextjs-starter/generate](https://github.com/login?return_to=/staticwebdev/nextjs-starter/generate)
 1. Name the repository **nextjs-starter**
 1. Next, clone the new repo to your machine. Make sure to replace `<YOUR_GITHUB_ACCOUNT_NAME>` with your account name.
 
@@ -121,7 +121,7 @@ Azure Static Web Apps deploys your app from a GitHub repository and keeps doing 
 1. Push your changes to GitHub.
 
     ```bash
-    git push origin master
+    git push origin main
     ```
 
 ## Deploy your static website
@@ -151,7 +151,7 @@ The new Static Web Apps account needs access to the repository with your Next.js
 1. Click the **Sign in with GitHub button**
 1. Select the **Organization** under which you created the repo for your Next.js project, which may be your GitHub username.
 1. Find and select the name of the repository you created earlier.
-1. Choose **master** as the branch from the *Branch* drop-down.
+1. Choose **main** as the branch from the *Branch* drop-down.
 
    :::image type="content" source="media/deploy-nextjs/connect-github.png" alt-text="Connect GitHub":::
 
@@ -185,7 +185,7 @@ https://github.com/<YOUR_GITHUB_USERNAME>/nextjs-starter/actions
 
 When you created the app, Azure Static Web Apps created a GitHub Actions workflow file in your repository. You need to bring this file down to your local repository so your git history is synchronized.
 
-Return to the terminal and run the following command `git pull origin master`.
+Return to the terminal and run the following command `git pull origin main`.
 
 ## Configure dynamic routes
 

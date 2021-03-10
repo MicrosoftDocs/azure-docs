@@ -3,7 +3,7 @@ title: Preview - Create an image version encrypted with your own keys
 description: Create an image version in a shared image gallery, by using customer-managed encryption keys.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
@@ -22,7 +22,7 @@ Server-side encryption through customer-managed keys uses Azure Key Vault. You c
 
 This article requires you to already have a disk encryption set in each region where you want to replicate your image:
 
-- To use only a customer-managed key, see the articles about enabling customer-managed keys with server-side encryption by using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- To use only a customer-managed key, see the articles about enabling customer-managed keys with server-side encryption by using the [Azure portal](./disks-enable-customer-managed-keys-portal.md) or [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-an-azure-key-vault-and-diskencryptionset-without-automatic-key-rotation).
 
 - To use both platform-managed and customer-managed keys (for double encryption), see the articles about enabling double encryption at rest by using the [Azure portal](./disks-enable-double-encryption-at-rest-portal.md) or [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
 
@@ -216,6 +216,6 @@ You can create a VM from an image version and use customer-managed keys to encry
 
 ## Next steps
 
-Learn more about [server-side disk encryption](./windows/disk-encryption.md).
+Learn more about [server-side disk encryption](./disk-encryption.md).
 
 For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).

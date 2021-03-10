@@ -11,11 +11,11 @@ ms.date: 09/22/2020
 ms.topic: conceptual
 ---
 
-# Connectivity Modes and Requirements
+# Connectivity modes and requirements
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Connectivity Modes
+## Connectivity modes
 
 There are multiple options for the degree of connectivity from your Azure Arc enabled data services environment to Azure. As your requirements vary based on business policy, government regulation, or the availability of network connectivity to Azure, you can choose from the following connectivity modes.
 
@@ -32,16 +32,14 @@ Additionally, Azure Active Directory and Azure Role-Based Access Control can be 
 
 Some Azure-attached services are only available when they can be directly reached such as the Azure Defender security services, Container Insights, and Azure Backup to blob storage.
 
-Currently, in the preview only the indirectly connected mode is supported. 
-
-||**Indirectly connected**|**Directly connected**|**Never Connected**|
+||**Indirectly connected**|**Directly connected**|**Never connected**|
 |---|---|---|---|
 |**Description**|Indirectly connected mode offers most of the management services locally in your environment with no direct connection to Azure.  A minimal amount of data must be sent to Azure for inventory and billing purposes _only_. It is exported to a file and uploaded to Azure at least once per month.  No direct or continuous connection to Azure is required.  Some features and services which require a connection to Azure will not be available.|Directly connected mode offers all of the available services when a direct connection can be established with Azure. Connections are always initiated _from_ your environment to Azure and use standard ports and protocols such as HTTPS/443.|No data can be sent to or from Azure in any way.|
-|**Current availability**| Available in preview.|Planned for preview in the future.|Not currently supported.|
+|**Current availability**| Available in preview.|Available in preview.|Not currently supported.|
 |**Typical use cases**|On-premises data centers that don’t allow connectivity in or out of the data region of the data center due to business or regulatory compliance policies or out of concerns of external attacks or data exfiltration.  Typical examples: Financial institutions, health care, government. <br/><br/>Edge site locations where the edge site doesn’t typically have connectivity to the Internet.  Typical examples: oil/gas or military field applications.  <br/><br/>Edge site locations that have intermittent connectivity with long periods of outages.  Typical examples: stadiums, cruise ships. | Organizations who are using public clouds.  Typical examples: Azure, AWS or Google Cloud.<br/><br/>Edge site locations where Internet connectivity is typically present and allowed.  Typical examples: retail stores, manufacturing.<br/><br/>Corporate data centers with more permissive policies for connectivity to/from their data region of the datacenter to the Internet.  Typical examples: Non-regulated businesses, small/medium sized businesses|Truly "air-gapped" environments where no data under any circumstances can come or go from the data environment. Typical examples: top secret government facilities.|
 |**How data is sent to Azure**|There are three options for how the billing and inventory data can be sent to Azure:<br><br> 1) Data is exported out of the data region by an automated process that has connectivity to both the secure data region and Azure.<br><br>2) Data is exported out of the data region by an automated process within the data region, automatically copied to a less secure region, and an automated process in the less secure region uploads the data to Azure.<br><br>3) Data is manually exported by a user within the secure region, manually brought out of the secure region, and manually uploaded to Azure. <br><br>The first two options are an automated continuous process that can be scheduled to run frequently so there is minimal delay in the transfer of data to Azure subject only to the available connectivity to Azure.|Data is automatically and continuously sent to Azure.|Data is never sent to Azure.|
 
-## Feature Availability by Connectivity Mode
+## Feature availability by connectivity mode
 
 |**Feature**|**Indirectly connected**|**Directly connected**|
 |---|---|---|
@@ -77,7 +75,7 @@ Currently, in the preview only the indirectly connected mode is supported.
 |**Provisioning and configuration changes from Azure portal**|Customer environment -> Azure -> Customer environment|Optional|No|Direct only|Provisioning and configuration changes can be done locally using Azure Data Studio or the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].  In directly connected mode, you will also be able to provision and make configuration changes from the Azure portal. **Pending availability of directly connected mode**|
 
 
-## Details on Internet addresses, ports, encryption and proxy server support
+## Details on internet addresses, ports, encryption, and proxy server support
 
 Currently, in the preview phase, only the indirectly connected mode is supported. In this mode, there are only three connections required to services available on the Internet. These connections include:
 

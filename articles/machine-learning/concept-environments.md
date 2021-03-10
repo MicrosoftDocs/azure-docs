@@ -1,18 +1,17 @@
 ---
 title: About Azure Machine Learning environments
 titleSuffix: Azure Machine Learning
-description: In this article, learn the advantages of machine learning environments, which enable reproducible, auditable, and portable machine learning dependency definitions across a variety of compute targets.
+description: Learn about machine learning environments, which enable reproducible, auditable, & portable machine learning dependency definitions for various compute targets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
-ms.date: 07/08/2020
+ms.date: 11/16/2020
 ---
 
 # What are Azure Machine Learning environments?
-
 
 Azure Machine Learning environments are an encapsulation of the environment where your machine learning training happens. They specify the Python packages, environment variables, and software settings around your training and scoring scripts. They also specify run times (Python, Spark, or Docker). The environments are managed and versioned entities within your Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across a variety of compute targets.
 
@@ -74,13 +73,13 @@ If the environment definition doesn't already exist in the workspace ACR, a new 
  1. Downloading a base image, and executing any Docker steps
  2. Building a conda environment according to conda dependencies specified in the environment definition.
 
-The second step is omitted if you specify [user-managed dependencies](/python/api/azureml-core/azureml.core.environment.pythonsection?preserve-view=true&view=azure-ml-py). In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps within the first step. You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image](how-to-deploy-custom-docker-image.md).
+The second step is omitted if you specify [user-managed dependencies](/python/api/azureml-core/azureml.core.environment.pythonsection). In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps within the first step. You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image](how-to-deploy-custom-docker-image.md).
 
 ### Image caching and reuse
 
 If you use the same environment definition for another run, the Azure Machine Learning service reuses the cached image from the Workspace ACR. 
 
-To view the details of a cached image, use [Environment.get_image_details](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-image-details-workspace-) method.
+To view the details of a cached image, use [Environment.get_image_details](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-) method.
 
 To determine whether to reuse a cached image or build a new one, the service computes [a hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on:
  
@@ -103,10 +102,10 @@ The following diagram shows three environment definitions. Two of them have diff
 To update the package, specify a version number to force image rebuild, for example ```numpy==1.18.1```. New dependencies, including nested ones, will be installed that might break a previously working scenario. 
 
 > [!WARNING]
->  The [Environment.build](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truebuild-workspace--image-build-compute-none-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
+>  The [Environment.build](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
 
 ## Next steps
 
 * Learn how to [create and use environments](how-to-use-environments.md) in Azure Machine Learning.
-* See the Python SDK reference documentation for the [environment class](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py).
+* See the Python SDK reference documentation for the [environment class](/python/api/azureml-core/azureml.core.environment%28class%29).
 * See the R SDK reference documentation for [environments](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments).

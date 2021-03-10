@@ -21,7 +21,7 @@ As an administrator, you may need to lock an Azure Cosmos account, database or c
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about RBAC for Azure Cosmos DB see, [Role-based access control in Azure Cosmos DB](role-based-access-control.md).
+Unlike Azure role-based access control, you use management locks to apply a restriction across all users and roles. To learn about Azure RBAC for Azure Cosmos DB see, [Azure role-based access control in Azure Cosmos DB](role-based-access-control.md).
 
 Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to https://management.azure.com. The locks don't restrict how resources perform their own functions. Resource changes are restricted, but resource operations aren't restricted. For example, a ReadOnly lock on an Azure Cosmos container prevents you from deleting or modifying the container. It doesn't prevent you from creating, updating, or deleting data in the container. Data transactions are permitted because those operations aren't sent to https://management.azure.com.
 

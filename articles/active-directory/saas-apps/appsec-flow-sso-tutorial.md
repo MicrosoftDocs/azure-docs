@@ -74,11 +74,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+    ![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up AppSec Flow SSO** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -117,10 +117,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 1. Click on Test this application in Azure portal and you should be automatically signed in to the AppSec Flow SSO for which you set up the SSO
 
-1. You can use Microsoft Access Panel. When you click the AppSec Flow SSO tile in the Access Panel, you should be automatically signed in to the AppSec Flow SSO for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. You can use Microsoft Access Panel. When you click the AppSec Flow SSO tile in the Access Panel, you should be automatically signed in to the AppSec Flow SSO for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure AppSec Flow SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure AppSec Flow SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

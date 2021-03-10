@@ -17,7 +17,7 @@ ms.date: 04/24/2020
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Python](create-mongodb-flask.md)
+> * [Python](./mongodb-introduction.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
@@ -30,9 +30,7 @@ The sample application is a command-line based `todo` management tool written in
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with the connection string `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.
 - [Go](https://golang.org/) installed on your computer, and a working knowledge of Go.
 - [Git](https://git-scm.com/downloads).
-- If you don't want to use Azure Cloud Shell, [Azure CLI 2.0+](/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Clone the sample application
 
@@ -275,7 +273,7 @@ The `--kind MongoDB` parameter enables MongoDB client connections.
 When the Azure Cosmos DB account is created, the Azure CLI shows information similar to the following example. 
 
 > [!NOTE]
-> This example uses JSON as the Azure CLI output format, which is the default. To use another output format, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli).
+> This example uses JSON as the Azure CLI output format, which is the default. To use another output format, see [Output formats for Azure CLI commands](/cli/azure/format-output-azure-cli). 
 
 ```json
 {
@@ -329,7 +327,7 @@ The Azure CLI outputs information similar to the following example.
 ### Export the connection string, MongoDB database and collection names as environment variables. 
 
 ```bash
-export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PASSWORD>@<COSMOSDB_ACCOUNT_NAME>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@<COSMOSDB_ACCOUNT_NAME>@"
+export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PASSWORD>@<COSMOSDB_ACCOUNT_NAME>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@<COSMOSDB_ACCOUNT_NAME>@"
 ```
 
 > [!NOTE] 
@@ -453,4 +451,4 @@ The `todo` you just deleted should not be present
 In this quickstart, you learned how to create an Azure Cosmos DB MongoDB API account using the Azure Cloud Shell, and create and run a Go command-line app to manage `todo`s. You can now import additional data to your Azure Cosmos DB account.
 
 > [!div class="nextstepaction"]
-> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
+> [Import MongoDB data into Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

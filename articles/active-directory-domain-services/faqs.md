@@ -2,7 +2,7 @@
 title: Frequently asked questions about Azure AD Domain Services | Microsoft Docs
 description: Read and understand some of the frequently asked questions around configuration, administration, and availability for Azure Active Directory Domain Services
 services: active-directory-ds
-author: MicrosoftGuyJFlo
+author: justinha
 manager: daveba
 
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/30/2020
-ms.author: joflore
+ms.date: 02/09/2021
+ms.author: justinha
 
 ---
 # Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
@@ -102,7 +102,7 @@ Any user account that's part of the managed domain can join a VM. Members of the
 No. You aren't granted administrative privileges on the managed domain. *Domain Administrator* and *Enterprise Administrator* privileges aren't available for you to use within the domain. Members of the domain administrator or enterprise administrator groups in your on-premises Active Directory are also not granted domain / enterprise administrator privileges on the managed domain.
 
 ### Can I modify group memberships using LDAP or other AD administrative tools on managed domains?
-Users and groups that are synchronized from Azure Active Directory to Azure AD Domain Services cannot be modified because their source of origin is Azure Active Directory. Any user or group originating in the managed domain may be modified.
+Users and groups that are synchronized from Azure Active Directory to Azure AD Domain Services cannot be modified because their source of origin is Azure Active Directory. This includes moving users or groups from the AADDC Users managed organizational unit to a custom organizational unit. Any user or group originating in the managed domain may be modified.  
 
 ### How long does it take for changes I make to my Azure AD directory to be visible in my managed domain?
 Changes made in your Azure AD directory using either the Azure AD UI or PowerShell are automatically synchronized to your managed domain. This synchronization process runs in the background. There's no defined time period for this synchronization to complete all the object changes.
@@ -148,7 +148,7 @@ Azure AD Domain Services is included in the free trial for Azure. You can sign u
 No. Once you've enabled an Azure AD Domain Services managed domain, the service is available within your selected virtual network until you delete the managed domain. There's no way to pause the service. Billing continues on an hourly basis until you delete the managed domain.
 
 ### Can I fail over Azure AD Domain Services to another region for a DR event?
-No. Azure AD Domain Services doesn't currently provide a geo-redundant deployment model. It's limited to a single virtual network in an Azure region. If you want to utilize multiple Azure regions, you need to run your Active Directory Domain Controllers on Azure IaaS VMs. For architecture guidance, see [Extend your on-premises Active Directory domain to Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
+Yes, to provide geographical resiliency for a managed domain, you can create an additional [replica set](tutorial-create-replica-set.md) to a peered virtual network in any Azure region that supports Azure AD DS. Replica sets share the same namespace and configuration with the managed domain.
 
 ### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)? Do I need Azure AD Premium to use Azure AD Domain Services?
 No. Azure AD Domain Services is a pay-as-you-go Azure service and isn't part of EMS. Azure AD Domain Services can be used with all editions of Azure AD (Free and Premium). You're billed on an hourly basis, depending on usage.

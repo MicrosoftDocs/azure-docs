@@ -6,7 +6,7 @@ description: See how to use Azure Resource Health to check the health of your Az
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 10/6/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.

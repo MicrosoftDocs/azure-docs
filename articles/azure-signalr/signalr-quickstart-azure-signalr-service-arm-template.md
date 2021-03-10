@@ -4,7 +4,7 @@ description: In this Quickstart, learn how to create an Azure SignalR Service us
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.author: zhshang
 ms.date: 10/02/2020
 ---

@@ -22,7 +22,7 @@ This tutorial outlines the steps to build a device side application on Android T
 
 * Latest version of [Git](https://git-scm.com/)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an IoT hub
 

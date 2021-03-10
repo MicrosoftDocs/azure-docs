@@ -89,9 +89,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| Name |   Source Attribute| Namespace  |
 	| --------------- | --------------- | --------------- |
 	| company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| firstName 			  | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| lastName 			  | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| phone 			  | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| firstName | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| lastName | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| phone | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

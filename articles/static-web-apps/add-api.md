@@ -27,7 +27,7 @@ You can add serverless APIs to Azure Static Web Apps via integration with Azure 
 
 The following steps demonstrate how to create a new repository and clone the files to your computer.
 
-1. Make sure you are logged in to GitHub and, navigate to https://github.com/staticwebdev/vanilla-basic/generate to create a new repository.
+1. Make sure you are logged in to GitHub and, navigate to [https://github.com/staticwebdev/vanilla-basic/generate](https://github.com/login?return_to=/staticwebdev/vanilla-basic/generate) to create a new repository.
 1. In the _Repository name_ box, enter **my-vanilla-api**.
 1. Click **Create repository from template**.
 
@@ -229,10 +229,12 @@ Next, add the app-specific settings.
 1. Click the **Sign-in with GitHub** button and authenticate with GitHub
 1. Select your preferred _Organization_
 1. Select **my-vanilla-api** from the _Repository_ drop-down
-1. Select **master** from the _Branch_ drop-down
-1. Click the **Next: Build >** button to edit the build configuration
+1. Select **main** from the _Branch_ drop-down
+1. Select the framework of your choice for build configuration from the _Build Presets_ drop-down
 
-Next, add the following the build details.
+ > These fields will reflect the app type's default project structure. Change the values to suit your app.
+
+Next, add the following build details.
 
 1. Enter **/** for the _App location_.
 1. Enter **api** in the _Api location_ box.

@@ -45,6 +45,9 @@ In SQL Server Management Studio, follow these steps to restore the Wide World Im
 1. Open SSMS and connect to your managed instance.
 2. In **Object Explorer**, right-click your managed instance and select **New Query** to open a new query window.
 3. Run the following SQL script, which uses a pre-configured storage account and SAS key to [create a credential](/sql/t-sql/statements/create-credential-transact-sql) in your managed instance.
+ 
+   > [!IMPORTANT]
+   > `CREDENTIAL` must match the container path, begin with `https`, and can't contain a trailing forward slash. `IDENTITY` must be `SHARED ACCESS SIGNATURE`. `SECRET` must be the Shared Access Signature token and can't contain a leading `?`.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]

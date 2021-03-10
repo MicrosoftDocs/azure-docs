@@ -130,9 +130,9 @@ landingContent:
           - text: Azure CLI
             url: /cli/azure/policy
           - text: Azure PowerShell (Policy)
-            url: /powershell/module/az.resources/#policies
+            url: /powershell/module/az.resources/#policy
           - text: Azure PowerShell (Policy Insights)
-            url: /powershell/module/az.policyinsights#policy_insights
+            url: /powershell/module/az.policyinsights#policy-insights
           - text: REST (Policy Insights)
             url: /rest/api/policy-insights/
           - text: REST (Assignments)

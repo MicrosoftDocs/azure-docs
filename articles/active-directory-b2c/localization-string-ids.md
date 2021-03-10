@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -23,33 +23,44 @@ The **Localization** element enables you to support multiple locales or language
 
 The following IDs are used for a content definition with an ID of `api.signuporsignin`, and [self-asserted technical profile](self-asserted-technical-profile.md).
 
-| ID | Default value |
-| -- | ------------- |
-| **local_intro_email** | Sign in with your existing account |
-| **logonIdentifier_email** | Email Address |
-| **requiredField_email** | Please enter your email |
-| **invalid_email** | Please enter a valid email address |
-| **email_pattern** | ^[a-zA-Z0-9.!#$%&''*+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
-| **local_intro_username** | Sign in with your user name |
-| **logonIdentifier_username** | Username |
-| **requiredField_username** | Please enter your user name |
-| **password** | Password |
-| **requiredField_password** | Please enter your password |
-| **invalid_password** | The password you entered is not in the expected format. |
-| **forgotpassword_link** | Forgot your password? |
-| **createaccount_intro** | Don't have an account? |
-| **createaccount_link** | Sign up now |
-| **divider_title** | OR |
-| **cancel_message** | The user has forgotten their password |
-| **button_signin** | Sign in |
-| **social_intro** | Sign in with your social account |
-  **remember_me** |Keep me signed in. |
-| **unknown_error** | We are having trouble signing you in. Please try again later. |
+| ID | Default value | Page Layout Version |
+| -- | ------------- | ------ |
+| **forgotpassword_link** | Forgot your password? | `All` |
+| **createaccount_intro** | Don't have an account? | `All` |
+| **button_signin** | Sign in | `All` |
+| **social_intro** | Sign in with your social account | `All` |
+| **remember_me** |Keep me signed in. | `All` |
+| **unknown_error** | We are having trouble signing you in. Please try again later. | `All` |
+| **divider_title** | OR | `All` |
+| **local_intro_email** | Sign in with your existing account | `< 2.0.0` |
+| **logonIdentifier_email** | Email Address | `< 2.0.0` |
+| **requiredField_email** | Please enter your email | `< 2.0.0` |
+| **invalid_email** | Please enter a valid email address | `< 2.0.0` |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&''\*+/=?^\_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)\*$ | `< 2.0.0` |
+| **local_intro_username** | Sign in with your user name | `< 2.0.0` |
+| **logonIdentifier_username** | Username | `< 2.0.0` |
+| **requiredField_username** | Please enter your user name | `< 2.0.0` |
+| **password** | Password | `< 2.0.0` |
+| **requiredField_password** | Please enter your password | `< 2.0.0` |
+| **createaccount_link** | Sign up now | `< 2.0.0` |
+| **cancel_message** | The user has forgotten their password | `< 2.0.0` |
+| **invalid_password** | The password you entered is not in the expected format. | `< 2.0.0` |
+| **createaccount_one_link** | Sign up now | `>= 2.0.0` |
+| **createaccount_two_links** | Sign up with {0} or {1} | `>= 2.0.0` |
+| **createaccount_three_links** | Sign up with {0}, {1}, or {2} | `>= 2.0.0` |
+| **local_intro_generic** | Sign in with your {0} | `>= 2.1.0` |
+| **requiredField_generic** | Please enter your {0} | `>= 2.1.0` |
+| **invalid_generic** | Please enter a valid {0} | `>= 2.1.1` |
+| **heading** | Sign in | `>= 2.1.1` |
+
+
+> [!NOTE]
+> * Placeholders like {0} will be filled automatically with the `DisplayName` value of `ClaimType`. 
+> * To learn how to localize `ClaimType`, see [Sign-up or sign-in example](#signupsigninexample).
 
 The following example shows the use of some of the user interface elements in the sign-up or sign-in page:
 
-![Sign-up or sign-in page UX elements](./media/localization-string-ids/localization-susi.png)
-
+:::image type="content" source="./media/localization-string-ids/localization-susi-2.png" alt-text="Screenshot that shows sign-up or sign-in page U X elements.":::
 
 ### Sign-up or sign-in identity providers
 
@@ -91,32 +102,28 @@ The following example localizes the Facebook identity provider to Arabic:
 | **UserMessageIfUserAccountLocked** | Your account is temporarily locked to prevent unauthorized use. Try again later. |
 | **AADRequestsThrottled** | There are too many requests at this moment. Please wait for some time and try again. |
 
+<a name="signupsigninexample"></a>
 ### Sign-up or sign-in example
 
 ```xml
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_email">Email Address</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_email">Please enter your email</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="logonIdentifier_username">Username</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="password">Password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_link">Sign up now</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="requiredField_username">Please enter your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="cancel_message">The user has forgotten their password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="social_intro">Sign in with your social account</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_password">The password you entered is not in the expected format.</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_username">Sign in with your user name</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="local_intro_email">Sign in with your existing account</LocalizedString>
-    <LocalizedString ElementType="UxElement" StringId="invalid_email">Please enter a valid email address</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+    <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
     <!-- Uncomment the remember_me only if the keep me signed in is activated. 
     <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
-    <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
@@ -345,8 +352,8 @@ The following are the IDs for a [Verification display control](display-control-v
 
 | ID | Default value |
 | -- | ------------- |
-|intro_msg| Verification is necessary. Please click Send button.|
-|success_send_code_msg | Verification code has been sent to your inbox. Please copy it to the input box below.|
+|intro_msg <sup>*</sup>| Verification is necessary. Please click Send button.|
+|success_send_code_msg | Verification code has been sent. Please copy it to the input box below.|
 |failure_send_code_msg | We are having trouble verifying your email address. Please enter a valid email address and try again.|
 |success_verify_code_msg | E-mail address verified. You can now continue.|
 |failure_verify_code_msg | We are having trouble verifying your email address. Please try again.|
@@ -354,6 +361,12 @@ The following are the IDs for a [Verification display control](display-control-v
 |but_verify_code | Verify code|
 |but_send_new_code | Send new code|
 |but_change_claims | Change e-mail|
+
+Note: The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customiztion](customize-ui-with-html.md) with Cascading Style Sheets. For example:
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### Verification display control example
 
@@ -429,9 +442,9 @@ The following are the IDs for [Restful service technical profile](restful-techni
 </LocalizedResources>
 ```
 
-## Azure MFA error messages
+## Azure AD MFA error messages
 
-The following are the IDs for an [Azure MFA technical profile](multi-factor-auth-technical-profile.md) error messages:
+The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
 | -- | ------------- |
@@ -442,7 +455,7 @@ The following are the IDs for an [Azure MFA technical profile](multi-factor-auth
 |UserMessageIfThrottled | Your request has been throttled, please try again later.|
 |UserMessageIfWrongCodeEntered|Wrong code entered, please try again.|
 
-### Azure MFA example
+### Azure AD MFA example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -536,5 +549,5 @@ The following are the IDs for claims transformations error messages:
 
 See the following articles for localization examples:
 
-- [Language customization with custom policy in Azure Active Directory B2C](custom-policy-localization.md)
-- [Language customization with user flows in Azure Active Directory B2C](user-flow-language-customization.md)
+- [Language customization with custom policy in Azure Active Directory B2C](language-customization.md)
+- [Language customization with user flows in Azure Active Directory B2C](language-customization.md)

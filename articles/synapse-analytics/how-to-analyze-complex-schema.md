@@ -23,7 +23,7 @@ Data engineers need to understand how to efficiently process complex data types 
 
 ## What are arrays and nested structures?
 
-The following object comes from [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). In this object, there are nested structures and arrays that contain nested structures.
+The following object comes from [Application Insights](../azure-monitor/app/app-insights-overview.md). In this object, there are nested structures and arrays that contain nested structures.
 
 ```json
 {
@@ -216,4 +216,4 @@ There are two different types of operations:
 ## Next steps
 
 * [Learn how to query Synapse Link for Azure Cosmos DB with Spark](./synapse-link/how-to-query-analytical-store-spark.md)
-* [Query Parquet nested types](./sql/query-parquet-nested-types.md) 
+* [Query Parquet nested types](./sql/query-parquet-nested-types.md)

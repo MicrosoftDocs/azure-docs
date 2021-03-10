@@ -6,7 +6,7 @@
  ms.author: normesta
 ---
 
-This table shows [account-level metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts).
+This table shows [account-level metrics](../articles/azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccounts).
 
 | Metric | Description |
 | ------------------- | ----------------- |

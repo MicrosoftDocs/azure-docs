@@ -32,7 +32,7 @@ If no data is appearing in the [Azure Time Series Insights explorer](https://ins
 
 ### Cause A: Event source data isn't in JSON format
 
-Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](./how-to-shape-query-json.md).
+Azure Time Series Insights supports only JSON data. For JSON samples, see [Supported JSON shapes](./concepts-json-flattening-escaping-rules.md).
 
 ### Cause B: The event source key is missing a required permission
 
@@ -80,7 +80,7 @@ Imagine an environment that ingests messages from an event hub. It has a daily i
 
 An S1 SKU environment that has a capacity of 3 can ingress only 2,100 events every minute (1 million events per day = 700 events per minute at three units = 2,100 events per minute).
 
-To get a high-level understanding of how flattening logic works, see [Supported JSON shapes](./how-to-shape-query-json.md).
+To get a high-level understanding of how flattening logic works, see [Supported JSON shapes](./concepts-json-flattening-escaping-rules.md).
 
 #### Recommended resolutions for excessive throttling
 

@@ -68,7 +68,11 @@ You need the following permissions to create subscriptions:
 
 ## Create an additional Azure subscription programmatically
 
-You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure subscriptions](programmatically-create-subscription.md).
+You can also create additional subscriptions programmatically. For more information, see:
+
+- [Create EA subscriptions programmatically with latest API](programmatically-create-subscription-enterprise-agreement.md)
+- [Create MCA subscriptions programmatically with latest API](programmatically-create-subscription-microsoft-customer-agreement.md)
+- [Create MPA subscriptions programmatically with latest API](Programmatically-create-subscription-microsoft-customer-agreement.md)
 
 ## Next steps
 

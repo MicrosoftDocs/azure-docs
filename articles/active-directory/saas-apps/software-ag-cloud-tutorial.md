@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 12/09/2020
 ms.author: jeedes
 
 ---
@@ -73,22 +73,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
+    1. In the **Sign on URL** text box, type a URL using the following pattern:
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.softwareag.cloud/auth/realms/TENANT-NAME`
+        `https://*.softwareag.cloud/auth/realms/TENANT-NAME/broker/IDENTITY-PROVIDER-NAME/endpoint`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Software AG Cloud Client support team](mailto:support@softwareag.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+
+        `https://*.softwareag.cloud/auth/realms/TENANT-NAME`
+
+        > [!NOTE]
+        > These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Software AG Cloud Client support team](mailto:support@softwareag.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up Software AG Cloud** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -119,23 +121,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1.  Click on **Administration**
 
-    ![Configuring Software AG Cloud1](./media/software-ag-cloud-tutorial/admin.png)
+    ![Configuring Software AG Cloud Administration](./media/software-ag-cloud-tutorial/admin.png)
 
 1. Go to the **Single-sign on > Add identity provider**
 
-    ![Configuring Software AG Cloud2](./media/software-ag-cloud-tutorial/add-identity-provider.png)
+    ![Configuring Software AG Cloud identity provider](./media/software-ag-cloud-tutorial/add-identity-provider.png)
 
 1. Perform the following steps in the following page.
 
-    ![Configuring Software AG Cloud3](./media/software-ag-cloud-tutorial/saml-1.png)
+    ![Configuring Software AG Cloud follow steps](./media/software-ag-cloud-tutorial/saml-1.png)
 
     a. In the **Identity provider display name** textbox, give the name like `azure ad`.
 
-    b. In the **Identity provider unique identifier for use in Software AG Cloud redirect URI** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
+    b. In the **Identity provider unique identifier for use in Software AG Cloud redirect URI** textbox, enter a unique name for the Identity Provider. The **Software AG Cloud redirect URI** field will get refreshed and populated with the URI. Copy this URI and use it to configure the **Entity ID** and other information in the Azure portal as per the patterns defined.
 
     c. Import the **Federation Metadata XML** file in **Identity provider configuration** and click on **Next**.
 
-    d. Go to the **Conﬁguration** page and complete the ﬁelds as necessary.
+    d. Go to the **Configuration** page and complete the fields as necessary.
 
 ### Create Software AG Cloud test user
 
@@ -143,16 +145,10 @@ In this section, a user called Britta Simon is created in Software AG Cloud. Sof
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following option. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to Software AG Cloud Sign-on URL where you can initiate the login flow. 
-
-2. Go to Software AG Cloud Sign-on URL directly and initiate the login flow from there.
-
-3. You can use Microsoft Access Panel. When you click the Software AG Cloud tile in the Access Panel, this will redirect to Software AG Cloud Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Assuming that the Microsoft Azure is configured as a provider in Software AG Cloud, navigate to `www.softwareag.cloud` and click on Login button and enter the environment name. In the next screen, click on "Log in with <IDP NAME>" link and enter the credentials. Once authenticated, you will be logged in and taken to the Software AG Cloud home page.
 
 ## Next steps
 
-Once you configure Software AG Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Software AG Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

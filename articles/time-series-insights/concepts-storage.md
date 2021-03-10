@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
 ---
 
@@ -22,7 +22,7 @@ When you create an Azure Time Series Insights Gen2 environment, you have the fol
 
 * Cold data storage:
   * Create a new Azure Storage resource in the subscription and region you’ve chosen for your environment.
-  * Attach a pre-existing Azure Storage account. This option is only available by deploying from an Azure Resource Manager [template](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions), and is not visible in the Azure portal.
+  * Attach a pre-existing Azure Storage account. This option is only available by deploying from an Azure Resource Manager [template](/azure/templates/microsoft.timeseriesinsights/allversions), and is not visible in the Azure portal.
 * Warm data storage:
   * A warm store is optional, and can be enabled or disabled during or after time of provisioning. If you decide to enable warm store at a later time and there is already data in your cold store, review [this](concepts-storage.md#warm-store-behavior) section below to understand the expected behavior. The warm store data retention time can be configured for 7 to 31 days, and this can also be adjusted as needed.
 
@@ -35,14 +35,14 @@ When an event is ingested, it is indexed in both warm store (if enabled) and col
 
 ## Data availability
 
-Azure Time Series Insights Gen2 partitions and indexes data for optimum query performance. Data becomes available to query from both warm (if enabled) and cold store after it's indexed. The amount of data that's being ingested and the per-partition throughput rate can affect availability. Review the event source [throughput limitations](./concepts-streaming-ingress-throughput-limits.md) and [best practices](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) for best performance. You can also configure a lag [alert](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data.
+Azure Time Series Insights Gen2 partitions and indexes data for optimum query performance. Data becomes available to query from both warm (if enabled) and cold store after it's indexed. The amount of data that's being ingested and the per-partition throughput rate can affect availability. Review the event source [throughput limitations](./concepts-streaming-ingress-throughput-limits.md) and [best practices](./concepts-streaming-ingestion-event-sources.md#streaming-ingestion-best-practices) for best performance. You can also configure a lag [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data.
 
 > [!IMPORTANT]
 > You might experience a period of up to 60 seconds before data becomes available. If you experience significant latency beyond 60 seconds, please submit a support ticket through the Azure portal.
 
 ## Warm store
 
-Data in your warm store is available only via the [Time Series Query APIs](./time-series-insights-update-tsq.md), the [Azure Time Series Insights TSI Explorer](./time-series-insights-update-explorer.md), or the [Power BI Connector](./how-to-connect-power-bi.md). Warm store queries are free and there is no quota, but there is a [limit of 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) concurrent requests.
+Data in your warm store is available only via the [Time Series Query APIs](./concepts-query-overview.md), the [Azure Time Series Insights TSI Explorer](./concepts-ux-panels.md), or the [Power BI Connector](./how-to-connect-power-bi.md). Warm store queries are free and there is no quota, but there is a [limit of 30](/rest/api/time-series-insights/reference-api-limits#query-apis---limits) concurrent requests.
 
 ### Warm store behavior
 
@@ -72,9 +72,9 @@ To ensure query performance and data availability, don't edit or delete any blob
 
 #### Accessing cold store data
 
-In addition to accessing your data from the [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) and [Time Series Query APIs](./time-series-insights-update-tsq.md), you may also want to access your data directly from the Parquet files stored in the cold store. For example, you can read, transform, and cleanse data in a Jupyter notebook, then use it to train your Azure Machine Learning model in the same Spark workflow.
+In addition to accessing your data from the [Azure Time Series Insights Explorer](./concepts-ux-panels.md) and [Time Series Query APIs](./concepts-query-overview.md), you may also want to access your data directly from the Parquet files stored in the cold store. For example, you can read, transform, and cleanse data in a Jupyter notebook, then use it to train your Azure Machine Learning model in the same Spark workflow.
 
-To access data directly from your Azure Storage account, you need read access to the account used to store your Azure Time Series Insights Gen2 data. You can then read selected data based on the creation time of the Parquet file located in the `PT=Time` folder described below in the [Parquet file format](#parquet-file-format-and-folder-structure) section.  For more information on enabling read access to your storage account, see [Manage access to your storage account resources](../storage/blobs/storage-manage-access-to-resources.md).
+To access data directly from your Azure Storage account, you need read access to the account used to store your Azure Time Series Insights Gen2 data. You can then read selected data based on the creation time of the Parquet file located in the `PT=Time` folder described below in the [Parquet file format](#parquet-file-format-and-folder-structure) section.  For more information on enabling read access to your storage account, see [Manage access to your storage account resources](../storage/blobs/anonymous-read-access-configure.md).
 
 #### Data deletion
 
@@ -118,6 +118,6 @@ Azure Time Series Insights Gen2 events are mapped to Parquet file contents as fo
 
 ## Next steps
 
-* Read about [data modeling](./time-series-insights-update-tsm.md).
+* Read about [data modeling](./concepts-model-overview.md).
 
-* Plan your [Azure Time Series Insights Gen2 environment](./time-series-insights-update-plan.md).
+* Plan your [Azure Time Series Insights Gen2 environment](./how-to-plan-your-environment.md).

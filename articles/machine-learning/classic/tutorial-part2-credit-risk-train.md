@@ -6,15 +6,14 @@ author: sdgilley
 ms.author: sgilley
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 02/11/2019
 ---
 
 # Tutorial 2: Train credit risk models - Azure Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
-
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classic)   ![This is an X, which means that this article applies to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio (classic).  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part two of a three-part tutorial series**.
 

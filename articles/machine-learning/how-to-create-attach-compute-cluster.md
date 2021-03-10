@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
@@ -29,7 +29,7 @@ In this article, learn how to:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
 ## What is a compute cluster?
 
@@ -75,7 +75,7 @@ To create a persistent Azure Machine Learning Compute resource in Python, specif
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) for details.
+You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute) for details.
 
 
 # [Azure CLI](#tab/azure-cli)
@@ -85,7 +85,7 @@ You can also configure several advanced properties when you create Azure Machine
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-For more information, see [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
+For more information, see [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute).
 
 # [Studio](#tab/azure-studio)
 
@@ -95,7 +95,7 @@ For information on creating a compute cluster in the studio, see [Create compute
 
  ## <a id="low-pri-vm"></a> Lower your compute cluster cost
 
-You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed. 
+You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. You will have to restart a preempted job. 
 
 Use any of these ways to specify a low-priority VM:
     
@@ -206,6 +206,14 @@ See [Set up managed identity in studio](how-to-create-attach-compute-studio.md#m
 ### Managed identity usage
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
+
+## Troubleshooting
+
+There is a chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create AmlCompute in that workspace. You can either raise a support request against the service or create a new workspace through the portal or the SDK to unblock yourself immediately.
+
+If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## Next steps
 

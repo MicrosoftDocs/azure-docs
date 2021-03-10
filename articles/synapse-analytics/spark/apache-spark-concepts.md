@@ -17,15 +17,15 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 Azure Synapse makes it easy to create and configure Spark capabilities in Azure. Azure Synapse provides a different implementation of these Spark capabilities that are documented here.
 
-## Spark pools (preview)
+## Spark pools
 
-A serverless Apache Spark pool (preview) is created in the Azure portal. It's the definition of a Spark pool that, when instantiated, is used to create a Spark instance that processes data. When a Spark pool is created, it exists only as metadata, and no resources are consumed, running, or charged for. A Spark pool has a series of properties that control the characteristics of a Spark instance. These characteristics include but aren't limited to name, size, scaling behavior, time to live.
+A serverless Apache Spark pool is created in the Azure portal. It's the definition of a Spark pool that, when instantiated, is used to create a Spark instance that processes data. When a Spark pool is created, it exists only as metadata, and no resources are consumed, running, or charged for. A Spark pool has a series of properties that control the characteristics of a Spark instance. These characteristics include but aren't limited to name, size, scaling behavior, time to live.
 
 As there's no dollar or resource cost associated with creating Spark pools, any number can be created with any number of different configurations. Permissions can also be applied to Spark pools allowing users only to have access to some and not others.
 
 A best practice is to create smaller Spark pools that may be used for development and debugging and then larger ones for running production workloads.
 
-You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
+You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Azure Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
 ## Spark instances
 
@@ -75,7 +75,7 @@ The following article describes how to request an increase in workspace vCore qu
 - Select "Azure Synapse Analytics" as the service type.
 - In the Quota details window, select Apache Spark (vCore) per workspace
 
-[Request a capacity increase via the Azure portal](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+[Request a capacity increase via the Azure portal](../../azure-portal/supportability/per-vm-quota-requests.md#request-a-standard-quota-increase-from-help--support)
 
 ### Spark pool level
 
@@ -90,5 +90,5 @@ To solve this problem you have to reduce your usage of the pool resources before
 
 ## Next steps
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Apache Spark Documentation](https://spark.apache.org/docs/2.4.5/)

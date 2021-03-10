@@ -1,12 +1,12 @@
 ---
 title: Template functions
-description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
 ms.date: 10/12/2020
 ---
 # ARM template functions
 
-This article describes all the functions you can use in an Azure Resource Manager (ARM) template. For information about using functions in your template, see [template syntax](template-expressions.md).
+This article describes all the functions you can use in an Azure Resource Manager template (ARM template). For information about using functions in your template, see [template syntax](template-expressions.md).
 
 To create your own functions, see [User-defined functions](template-syntax.md#functions).
 
@@ -27,6 +27,10 @@ Most functions work the same when deployed to a resource group, subscription, ma
 <a id="skip" aria-hidden="true"></a>
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
+
+## Any function
+
+The [any function](template-functions-any.md) is available in Bicep to help resolve issues around data type warnings.
 
 ## Array functions
 
@@ -244,7 +248,7 @@ Resource Manager provides the following functions for working with strings:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Authoring ARM templates](template-syntax.md)
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md)
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
-* To see how to deploy the template you've created, see [Deploy an application with ARM templates](deploy-powershell.md)
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
+* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
+* To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

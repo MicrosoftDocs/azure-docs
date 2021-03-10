@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 02/12/2021
 
 ms.author: mimart
 author: msmimart
@@ -20,13 +20,14 @@ ms.collection: M365-identity-device-management
 This article contains recommendations and best practices for business-to-business (B2B) collaboration in Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **Starting March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
+   > **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged ("viral" or "just-in-time") Azure AD accounts and tenants for B2B collaboration scenarios. At that time, the email one-time passcode feature will be turned on for all existing tenants and enabled by default for new tenants. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, you have the option of disabling this feature if you choose not to use it. For details, see [Email one-time passcode authentication](one-time-passcode.md)
+
 
 ## B2B recommendations
 | Recommendation | Comments |
 | --- | --- |
 | For an optimal sign-in experience, federate with identity providers | Whenever possible, federate directly with identity providers to allow invited users to sign in to your shared apps and resources without having to create Microsoft Accounts (MSAs) or Azure AD accounts. You can use the [Google federation feature](google-federation.md) to allow B2B guest users to sign in with their Google accounts. Or, you can use the [Direct federation (preview) feature](direct-federation.md) to set up direct federation with any organization whose identity provider (IdP) supports the SAML 2.0 or WS-Fed protocol. |
-| Use the Email one-time passcode (preview) feature for B2B guests who can’t authenticate by other means | The [Email one-time passcode (preview)](one-time-passcode.md) feature authenticates B2B guest users when they can't be authenticated through other means like Azure AD, a Microsoft account (MSA), or Google federation. When the guest user redeems an invitation or accesses a shared resource, they can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in. |
+| Use the Email one-time passcode  feature for B2B guests who can’t authenticate by other means | The [Email one-time passcode](one-time-passcode.md) feature authenticates B2B guest users when they can't be authenticated through other means like Azure AD, a Microsoft account (MSA), or Google federation. When the guest user redeems an invitation or accesses a shared resource, they can request a temporary code, which is sent to their email address. Then they enter this code to continue signing in. |
 | Add company branding to your sign-in page | You can customize your sign-in page so it's more intuitive for your B2B guest users. See how to [add company branding to sign in and Access Panel pages](../fundamentals/customize-branding.md). |
 | Add your privacy statement to the B2B guest user redemption experience | You can add the URL of your organization's privacy statement to the first time invitation redemption process so that an invited user must consent to your privacy terms to continue. See [How-to: Add your organization's privacy info in Azure Active Directory](../fundamentals/active-directory-properties-area.md). |
 | Use the bulk invite (preview) feature to invite multiple B2B guest users at the same time | Invite multiple guest users to your organization at the same time by using the bulk invite preview feature in the Azure portal. This feature lets you upload a CSV file to create B2B guest users and send invitations in bulk. See [Tutorial for bulk inviting B2B users](tutorial-bulk-invite.md). |

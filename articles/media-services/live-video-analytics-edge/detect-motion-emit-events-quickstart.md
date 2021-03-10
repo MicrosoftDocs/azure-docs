@@ -30,6 +30,17 @@ This quickstart walks you through the steps to get started with Live Video Analy
 [!INCLUDE [prerequisites](includes/detect-motion-emit-events-quickstart/python/prerequisites.md)]
 ::: zone-end
 
+## Review the sample video
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/csharp/review-sample-video.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [review-sample-video](includes/detect-motion-emit-events-quickstart/python/review-sample-video.md)]
+::: zone-end
+
+
 ## Set up Azure resources
 
 ::: zone pivot="programming-language-csharp"

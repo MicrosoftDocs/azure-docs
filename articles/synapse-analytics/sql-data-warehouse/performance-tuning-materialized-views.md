@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 09/05/2019
 ms.author: xiaoyul
-ms.reviewer: nibruno; jrasnick
+ms.reviewer: nibruno; jrasnick; azure-synapse
 ---
 
 # Performance tune with materialized views
 
-Materialized views in Synapse SQL pool provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
+Materialized views in Azure Synapse SQL pool provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
 
 ## Materialized views vs. standard views
 
-SQL pool supports standard and materialized views.  Both are virtual tables created with SELECT expressions and presented to queries as logical tables.  Views encapsulate the complexity of common data computation and add an abstraction layer to computation changes so there's no need to rewrite queries.  
+SQL pool in Azure Synapse supports standard and materialized views.  Both are virtual tables created with SELECT expressions and presented to queries as logical tables.  Views encapsulate the complexity of common data computation and add an abstraction layer to computation changes so there's no need to rewrite queries.  
 
-A standard view computes its data each time when the view is used.  There's no data stored on disk. People typically use standard views as a tool that helps organize the logical objects and queries in a database.  To use a standard view, a query needs to make direct reference to it.
+A standard view computes its data each time when the view is used.  There's no data stored on disk. People typically use standard views as a tool that helps organize the logical objects and queries in a SQL pool.  To use a standard view, a query needs to make direct reference to it.
 
 A materialized view pre-computes, stores, and maintains its data in SQL pool just like a table.  There's no recomputation needed each time when a materialized view is used.  That's why queries that use all or subset of the data in materialized views can get faster performance.  Even better,  queries can use a materialized view without making direct reference to it, so there's no need to change application code.  
 
-Most of the requirements on a standard view still apply to a materialized view. For details on the materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Most of the requirements on a standard view still apply to a materialized view. For details on the materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 | Comparison                     | View                                         | Materialized View
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -50,8 +50,8 @@ The materialized views implemented in SQL pool also provide the following additi
 Comparing to other data warehouse providers, the materialized views implemented in Azure Synapse Analytics also provide the following additional benefits:
 
 - Automatic and synchronous data refresh with data changes in base tables. No user action is required.
-- Broad aggregate function support. See [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
-- The support for query-specific materialized view recommendation.  See [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Broad aggregate function support. See [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- The support for query-specific materialized view recommendation.  See [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## Common scenarios  
 
@@ -74,7 +74,7 @@ In comparison to other tuning options such as scaling and statistics management,
 
 **Need different data distribution strategy for faster query performance**
 
-Synapse SQL is a distributed query processing system.  Data in a SQL table is distributed across 60 nodes using one of three [distribution strategies](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin, or replicated).   
+Azure Synapse Analytics is a distributed query processing system.  Data in a SQL table is distributed across 60 nodes using one of three [distribution strategies](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin, or replicated).   
 
 The data distribution is specified at the table creation time and stays unchanged until the table is dropped. Materialized view being a virtual table on disk supports hash and round_robin data distributions.  Users can choose a data distribution that is different from the base tables but optimal for the performance of queries that use the views most.  
 
@@ -92,11 +92,11 @@ Evaluate these recommendations with your workload needs in mind.  The ideal mate
 
 **Be aware of the tradeoff between faster queries and the cost**
 
-For each materialized view, there's a data storage cost and a cost for maintaining the view.  As data changes in base tables, the size of the materialized view increases and its physical structure also changes.  To avoid query performance degradation, each materialized view is maintained separately by the SQL pool engine.  
+For each materialized view, there's a data storage cost and a cost for maintaining the view.  As data changes in base tables, the size of the materialized view increases and its physical structure also changes.  To avoid query performance degradation, each materialized view is maintained separately by the SQL Analytics engine.  
 
 The maintenance workload gets higher when the number of materialized views and base table changes increase.   Users should check if the cost incurred from all materialized views can be offset by the query performance gain.  
 
-You can run this query for the list of materialized view in a database:
+You can run this query for the list of materialized view in a SQL pool:
 
 ```sql
 SELECT V.name as materialized_view, V.object_id
@@ -136,7 +136,7 @@ GROUP BY A, C
 
 **Not all performance tuning requires query change**
 
-The SQL pool optimizer can automatically use deployed materialized views to improve query performance.  This support is applied transparently to queries that don't reference the views and queries that use aggregates unsupported in materialized views creation.  No query change is needed. You can check a query's estimated execution plan to confirm if a materialized view is used.  
+The SQL Analytics optimizer can automatically use deployed materialized views to improve query performance.  This support is applied transparently to queries that don't reference the views and queries that use aggregates unsupported in materialized views creation.  No query change is needed. You can check a query's estimated execution plan to confirm if a materialized view is used.  
 
 **Monitor materialized views**
 
@@ -146,7 +146,7 @@ To avoid query performance degradation,  it's a good practice to run [DBCC PDW_S
 
 **Materialized view and result set caching**
 
-These two features are introduced in SQL pool around the same time for query performance tuning.  Result set caching is used for getting high  concurrency and fast response from repetitive queries against static data.  
+These two features are introduced in SQL Analytics around the same time for query performance tuning.  Result set caching is used for getting high  concurrency and fast response from repetitive queries against static data.  
 
 To use the cached result, the form of the cache requesting query must match with the query that produced the cache.  In addition, the cached result must apply to the entire query.  
 

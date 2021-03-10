@@ -2,16 +2,11 @@
 title: Integrate security solutions in Azure Security Center | Microsoft Docs
 description: Learn about how Azure Security Center integrates with partners to enhance the overall security of your Azure resources.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/19/2020
+ms.date: 12/10/2020
 ms.author: memildin
 
 ---
@@ -25,7 +20,7 @@ Security Center makes it easy to enable integrated security solutions in Azure. 
 - **Integrated detections**: Security events from partner solutions are automatically collected, aggregated, and displayed as part of Security Center alerts and incidents. These events also are fused with detections from other sources to provide advanced threat-detection capabilities.
 - **Unified health monitoring and management**: Customers can use integrated health events to monitor all partner solutions at a glance. Basic management is available, with easy access to advanced setup by using the partner solution.
 
-Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/) and Microsoft Application Gateway Web application firewall.
+Currently, integrated security solutions include vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/) and [Microsoft Azure Web Application Firewall on Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
 
 > [!NOTE]
 > Security Center does not install the Log Analytics agent on partner virtual appliances because most security vendors prohibit external agents running on their appliances.
@@ -34,7 +29,7 @@ To learn more about the integration of vulnerability scanning tools from Qualys,
 
 Security Center also offers vulnerability analysis for your:
 
-* SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)
+* SQL databases - see [Explore vulnerability assessment reports in the vulnerability assessment dashboard](defender-for-sql-on-machines-vulnerability-assessment.md#explore-vulnerability-assessment-reports)
 * Azure Container Registry images - see [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md)
 
 ## How security solutions are integrated
@@ -83,8 +78,7 @@ Select **VIEW** for additional information and options such as:
 Security Center automatically discovers security solutions running in Azure but not connected to Security Center and displays the solutions in the **Discovered solutions** section. These  solutions include Azure solutions, like [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md), and partner solutions.
 
 > [!NOTE]
-> Enable **Azure Defender** at the subscription level for the discovered solutions feature. See [Pricing](security-center-pricing.md) to learn more about the pricing tiers.
->
+> Enable **Azure Defender** at the subscription level for the discovered solutions feature. Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
 Select **CONNECT** under a solution to integrate with Security Center and be notified of security alerts.
 
@@ -98,7 +92,4 @@ The **Add data sources** section includes other available data sources that can 
 
 ## Next steps
 
-In this article, you learned how to integrate partner solutions in Security Center. For related information, see the following articles:
-
-* [Continuously export Security Center data](continuous-export.md). Learn how to setup an integration with Azure Sentinel, or any other SIEM.
-* [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
+In this article, you learned how to integrate partner solutions in Security Center. To learn how to setup an integration with Azure Sentinel, or any other SIEM, see [Continuously export Security Center data](continuous-export.md).

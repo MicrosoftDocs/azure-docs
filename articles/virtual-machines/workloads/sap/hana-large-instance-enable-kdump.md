@@ -6,9 +6,7 @@ documentationcenter:
 author: prtyag
 manager: hrushib
 editor:
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -31,7 +29,7 @@ Instance(**Type I and Type II**)
 
 ## Supported SKUs
 
-|  Hana Large Instance type   |  OS vendor   |  OS package version   |  SKU	       |
+|  Hana Large Instance type   |  OS vendor   |  OS package version   |  SKU |
 |-----------------------------|--------------|-----------------------|-------------|
 |   Type I                    |  SuSE        |   SLES 12 SP3         |  S224m      |
 |   Type I                    |  SuSE        |   SLES 12 SP4         |  S224m      |
@@ -66,7 +64,7 @@ Instance(**Type I and Type II**)
 
 ## Setup details
 
-- Script to enable Kdump can be found [here](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+- Script to enable Kdump can be found [here](https://github.com/Azure/sap-hana-tools/blob/master/tools/enable-kdump.sh)
 > [!NOTE]
 > this script is made based on our lab setup and Customer is expected to contact OS vendor for any further tuning.
 > Separate LUN is going to be provisioned for the new and existing servers for saving the dumps and script will take care of configuring the file system out of the LUN.

@@ -24,10 +24,10 @@ In order to figure out how many route tables will be needed, you can build a con
 
 | From           | To:      | *VNets*      | *Branches*    | *Internet*   |
 |---             |---       |---           |---            |---           |
-| **VNets**      |   &#8594;|     X        |     AzFW      |     AzFW     |
-| **Branches**   |   &#8594;|    AzFW      |       X       |       X      |
+| **VNets**      |   &#8594;|    Direct    |     AzFW      |     AzFW     |
+| **Branches**   |   &#8594;|    AzFW      |    Direct     |    Direct    |
 
-In the previous table, an "X" represents direct connectivity between two connections without the traffic traversing the Azure Firewall in Virtual WAN, and "AzFW" indicates that the flow will go through the Azure Firewall. Since there are two distinct connectivity patterns in the matrix, we will need two route tables that will be configured as follows:
+In the previous table, an "Direct" represents direct connectivity between two connections without the traffic traversing the Azure Firewall in Virtual WAN, and "AzFW" indicates that the flow will go through the Azure Firewall. Since there are two distinct connectivity patterns in the matrix, we will need two route tables that will be configured as follows:
 
 * Virtual networks:
   * Associated route table: **RT_VNet**

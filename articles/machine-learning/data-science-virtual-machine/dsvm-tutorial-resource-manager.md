@@ -7,8 +7,7 @@ author: lobrien
 ms.author: laobri
 ms.custom: subject-armqs
 ms.date: 06/10/2020
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.topic: quickstart
 ---
 

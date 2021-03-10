@@ -379,7 +379,7 @@ https://docs.microsoft.com/azure/key-vault/service-to-service-authentication
 
 **Guidance**: Enable Azure Active Directory Multi-Factor Authentication and follow Azure Security Center Identity and Access Management (currently in preview) recommendations to help protect your Event Hub-enabled resources.
 
-Planning a cloud-based Azure Multi-Factor Authentication deployment:
+Planning a cloud-based Azure AD Multi-Factor Authentication deployment:
 
 https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
@@ -394,11 +394,11 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
-**Guidance**: Use a Privileged Access Workstation (PAW) with Azure Multi-Factor Authentication (MFA) configured to log into and configure Key Vault enabled resources. 
+**Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication (MFA) configured to log into and configure Key Vault enabled resources. 
 
-Privileged Access Workstations: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
+Privileged Access Workstations: https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/ 
 
-Planning a cloud-based Azure Multi-Factor Authentication deployment: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Planning a cloud-based Azure AD Multi-Factor Authentication deployment: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 

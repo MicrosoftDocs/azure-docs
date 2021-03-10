@@ -12,10 +12,10 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ---
-# Connect to Azure SQL Database with Azure Multi-Factor Authentication
+# Connect to Azure SQL Database with Azure AD Multi-Factor Authentication
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 For more information about Multi-Factor Authentication support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory).
 
@@ -33,7 +33,7 @@ Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](/
 
 * A dialog box that asks for a Multi-Factor Authentication verification code, which the system has sent to a mobile phone.
 
-For information about how to configure Azure AD to require Multi-Factor Authentication, see [Getting started with Azure Multi-Factor Authentication in the cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
+For information about how to configure Azure AD to require Multi-Factor Authentication, see [Getting started with Azure AD Multi-Factor Authentication in the cloud](../../active-directory/authentication/howto-mfa-getstarted.md).
 
 For screenshots of these dialog boxes, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](authentication-mfa-ssms-configure.md).
 

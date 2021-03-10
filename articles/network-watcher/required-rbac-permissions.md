@@ -10,7 +10,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 01/07/2021
 ms.author: damendo
 
 ---
@@ -86,6 +86,7 @@ Azure role-based access control (Azure RBAC) enables you to assign only the spec
 | Action                                                              | Description                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/topology/action                   | Get topology                                                   |
+| Microsoft.Network/networkWatchers/topology/read                     | Same as above                                                  |
 
 ## Reachability report
 
@@ -103,7 +104,7 @@ Network Watcher capabilities also require the following actions:
 | Microsoft.Authorization/\*/Read                                     | Used to fetch Azure role assignments and policy definitions          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | Used to enumerate all the resource groups in a subscription    |
 | Microsoft.Storage/storageAccounts/Read                              | Used to get the properties for the specified storage account   |
-| Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Used to fetch shared access signatures (SAS) enabling [secure access to storage account](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) and write to the storage account |
+| Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Used to fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md) and write to the storage account |
 | Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Used to log in to the VM, do a packet capture and upload it to storage account|
 | Microsoft.Compute/virtualMachines/extensions/Read </br> Microsoft.Compute/virtualMachines/extensions/Write| Used to check if Network Watcher extension is present, and install if required |
 | Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write| Used to access virtual machine scale sets, do packet captures and upload them to storage account|

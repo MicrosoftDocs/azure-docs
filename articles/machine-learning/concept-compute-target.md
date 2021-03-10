@@ -1,7 +1,7 @@
 ---
 title: What are compute targets
 titleSuffix: Azure Machine Learning
-description: Define where you want to train or deploy your model with Azure Machine Learning.
+description: Learn how to designate a compute resource or environment to train or deploy your model with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -97,15 +97,21 @@ See the following table to learn more about supported series and restrictions.
 | **Supported VM series**  | **Restrictions** |
 |------------|------------|
 | D | None. |
+| DDSv4 | None. |
 | Dv2 | None. |  
 | Dv3 | None.|
 | DSv2 | None. | 
 | DSv3 | None.|
+| EAv4 | None. |
+| Ev3 | None. |
 | FSv2 | None. | 
+| H | None. |
+| HB | Requires approval. |
 | HBv2 | Requires approval. |  
 | HCS | Requires approval. |  
 | M | Requires approval. |
-| NC | None. |    
+| NC | None. |  
+| NC Promo | None. |
 | NCsv2 | Requires approval. |
 | NCsv3 | Requires approval. |  
 | NDs | Requires approval. |
@@ -115,6 +121,12 @@ See the following table to learn more about supported series and restrictions.
 
 
 While Azure Machine Learning supports these VM series, they might not be available in all Azure regions. To check whether VM series are available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+> [!NOTE]
+> Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
+> * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
+> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
+>
 
 ### Compute isolation
 

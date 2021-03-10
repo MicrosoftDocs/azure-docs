@@ -29,8 +29,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > [!IMPORTANT]
 > You need to be granted access to the Azure NetApp Files service. To request access to the service, see the [Azure NetApp Files waitlist submission page](https://aka.ms/azurenetappfiles).  You must wait for an official confirmation email from the Azure NetApp Files team before continuing.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ---
 
 ## Register for Azure NetApp Files and NetApp Resource Provider
@@ -60,6 +58,10 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
     ```
 
 # [Azure CLI](#tab/azure-cli)
+
+Prepare your environment for the Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 

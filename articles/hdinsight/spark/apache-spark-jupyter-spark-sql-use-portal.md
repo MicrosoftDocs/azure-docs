@@ -1,9 +1,6 @@
 ---
 title: 'Quickstart: Create Spark cluster in HDInsight using Azure portal'
 description: This quickstart shows how to use the Azure portal to create an Apache Spark cluster in Azure HDInsight, and run a Spark SQL query.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
@@ -13,7 +10,7 @@ ms.date: 02/25/2020
 
 # Quickstart: Create Apache Spark cluster in Azure HDInsight using Azure portal
 
-In this quickstart, you use the Azure portal to create an Apache Spark cluster in Azure HDInsight. You then create a Jupyter notebook, and use it to run Spark SQL queries against Apache Hive tables. Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for HDInsight enables fast data analytics and cluster computing using in-memory processing. Jupyter notebook lets you interact with your data, combine code with markdown text, and do simple visualizations.
+In this quickstart, you use the Azure portal to create an Apache Spark cluster in Azure HDInsight. You then create a Jupyter Notebook, and use it to run Spark SQL queries against Apache Hive tables. Azure HDInsight is a managed, full-spectrum, open-source analytics service for enterprises. The Apache Spark framework for HDInsight enables fast data analytics and cluster computing using in-memory processing. Jupyter Notebook lets you interact with your data, combine code with markdown text, and do simple visualizations.
 
 For in-depth explanations of available configurations, see [Set up clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). For more information regarding the use of the portal to create clusters, see [Create clusters in the portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -48,7 +45,7 @@ You use the Azure portal to create an HDInsight cluster that uses Azure Storage 
     |Region   | From the drop-down list, select a region where the cluster is created. |
     |Cluster type| Select Select cluster type to open a list. From the list, select **Spark**.|
     |Cluster version|This field will auto-populate with the default version once the cluster type has been selected.|
-    |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to login in to the Jupyter notebook later in the quickstart. |
+    |Cluster login username| Enter the cluster login username.  The default name is **admin**. You use this account to login in to the Jupyter Notebook later in the quickstart. |
     |Cluster login password| Enter the cluster login password. |
     |Secure Shell (SSH) username| Enter the SSH username. The SSH username used for this quickstart is **sshuser**. By default, this account shares the same password as the *Cluster Login username* account. |
 
@@ -73,7 +70,7 @@ You use the Azure portal to create an HDInsight cluster that uses Azure Storage 
 
 If you run into an issue with creating HDInsight clusters, it could be that you don't have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## Create a Jupyter notebook
+## Create a Jupyter Notebook
 
 Jupyter Notebook is an interactive notebook environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations.
 

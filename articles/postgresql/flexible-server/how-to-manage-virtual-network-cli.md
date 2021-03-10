@@ -56,22 +56,22 @@ Refer to the Azure CLI reference documentation <!--FIXME --> for the complete li
     ```azurecli-interactive
     az postgres flexible-server create
     ```
-<!--- Create a flexible server using already existing virtual network and subnet
+- Create a flexible server using already existing virtual network and subnet. If provided virtual network and subnet does not exists then virtual network and subnet with default address prefix will be created.
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --subnet mySubnet
-    ```-->
+    ```
 - Create a flexible server using already existing virtual network, subnet, and using the subnet ID. The provided subnet should not have any other resource deployed in it and this subnet will be delegated to **Microsoft.DBforPostgreSQL/flexibleServers**, if not already delegated.
     ```azurecli-interactive
     az postgres flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```
     > [!Note]
     > The virtual network and subnet should be in the same region and subscription as your flexible server.
-<!--  
+
 - Create a flexible server using new virtual network, subnet with non-default address prefix
     ```azurecli-interactive
-    az postgres flexible-server create --vnet myVnet --vnet-address-prefix 10.0.0.0/24 --subnet mySubnet --subnet-address-prefix 10.0.0.0/24
-    ```-->
-Refer to the Azure CLI reference documentation <!--FIXME --> for the complete list of configurable CLI parameters.
+    az postgres flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
+    ```
+Refer to the Azure CLI [reference documentation](/cli/azure/postgres/flexible-server) for the complete list of configurable CLI parameters.
 
 ## Next steps
 - Learn more about [networking in Azure Database for PostgreSQL - Flexible Server](./concepts-networking.md).

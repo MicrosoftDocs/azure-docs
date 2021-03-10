@@ -141,7 +141,7 @@ To achieve the best performance, use Azure Files. SqlPackage operates with the f
 
 To reduce cost, use Azure Blobs, which cost less than a premium Azure file share. However, it will require you to copy the [.BACPAC file](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) between the the blob and the local file system before the import or export operation. As a result the process will take longer.
 
-To upload or download .BACPAC files, see [Transfer data with AzCopy and Blob storage](../../storage/common/storage-use-azcopy-blobs.md), and [Transfer data with AzCopy and file storage](../../storage/common/storage-use-azcopy-files.md).
+To upload or download .BACPAC files, see [Transfer data with AzCopy and Blob storage](../../storage/common/storage-use-azcopy-v10.md#transfer-data), and [Transfer data with AzCopy and file storage](../../storage/common/storage-use-azcopy-files.md).
 
 Depending on your environment, you might need to [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 

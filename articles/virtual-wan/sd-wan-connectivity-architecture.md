@@ -43,7 +43,7 @@ With Virtual WAN, users can get Azure Path Selection, which is policy-based path
 
 :::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Direct interconnect model with NVA-in-VWAN-hub":::
 
-This architecture model supports the deployment of a third-party [Network Virtual Appliance (NVA) directly into the virtual hub](https://docs.microsoft.com/azure/virtual-wan/about-nva-hub). This allows customers who want to connect their branch CPE to the same brand NVA in the virtual hub so that they can take advantage of proprietary end-to-end SD-WAN capabilities when connecting to Azure workloads. 
+This architecture model supports the deployment of a third-party [Network Virtual Appliance (NVA) directly into the virtual hub](./about-nva-hub.md). This allows customers who want to connect their branch CPE to the same brand NVA in the virtual hub so that they can take advantage of proprietary end-to-end SD-WAN capabilities when connecting to Azure workloads. 
 
 Several Virtual WAN Partners have worked to provide an experience that configures the NVA automatically as part of the deployment process. Once the NVA has been provisioned into the virtual hub, any additional configuration that may be required for the NVA must be done via the NVA partners portal or management application. Direct access to the NVA is not available. The NVAs that are available to be deployed directly into the Azure Virtual WAN hub are engineered specifically to be used in the virtual hub. For partners that support NVA in VWAN hub as well as their deployment guides, please see the [Virtual WAN Partners](virtual-wan-locations-partners.md#partners-with-integrated-virtual-hub-offerings) article.
 

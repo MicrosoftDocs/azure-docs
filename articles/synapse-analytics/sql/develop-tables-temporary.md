@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables within Synapse SQL. 
 
-Both the dedicated SQL pool and serverless SQL pool (preview) resources can utilize temporary tables. Serverless SQL pool has limitations that are discussed at the end of this article. 
+Both the dedicated SQL pool and serverless SQL pool resources can utilize temporary tables. Serverless SQL pool has limitations that are discussed at the end of this article. 
 
 ## Temporary tables
 
@@ -221,7 +221,7 @@ Dedicated SQL pool does have a few implementation limitations for temporary tabl
 - Views can't be created on temporary tables.
 - Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution isn't supported. 
 
-## Temporary tables in serverless SQL pool (preview)
+## Temporary tables in serverless SQL pool
 
 Temporary tables in serverless SQL pool are supported but their usage is limited. They can't be used in queries which target files. 
 

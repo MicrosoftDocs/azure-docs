@@ -20,7 +20,7 @@ A fully qualified domain name (FQDN) represents a domain name of a host or IP ad
 
 Once you define which DNS server your organization needs (Azure DNS or your own custom DNS), Azure Firewall translates the FQDN to an IP address(es) based on the selected DNS server. This translation happens for both application and network rule processing.
 
-When a new DNS resolution takes place, new IP addresses are be added to firewall rules. Old IP addresses that are no longer returned by the DNS server expire in 15 minutes. Azure Firewall rules are updated every 15 seconds from DNS resolution of the FQDNs in network rules.
+When a new DNS resolution takes place, new IP addresses are added to firewall rules. Old IP addresses that are no longer returned by the DNS server expire in 15 minutes. Azure Firewall rules are updated every 15 seconds from DNS resolution of the FQDNs in network rules.
 
 ### Differences in application rules vs. network rules
 

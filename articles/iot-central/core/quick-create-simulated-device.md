@@ -3,7 +3,7 @@ title: Quickstart - Add a simulated device to Azure IoT Central
 description: This quickstart shows how to create a device template and add a simulated device to your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/07/2020
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -18,50 +18,56 @@ ms.custom: mvc
 
 A device template defines the capabilities of a device that connects to your IoT Central application. Capabilities include telemetry the device sends, device properties, and the commands a device responds to. From a device template, a builder or operator can add both real and simulated devices to an application. Simulated devices are useful for testing the behavior of your IoT Central application before you connect real devices.
 
-In this quickstart, you add a device template for an [*MXChip IoT DevKit* (DevKit)](https://aka.ms/iot-devkit-purchase) board and create a simulated device. To complete this quickstart you don't need a real device, you work with a simulation of the device. A DevKit device:
+In this quickstart, you add a device template for an ESP32-Azure IoT Kit development board and create a simulated device. To complete this quickstart you don't need a real device, you work with a simulation of the device. An ESP32 device:
 
 * Sends telemetry such as temperature.
-* Reports device-specific properties such as brightness level.
-* Responds to commands such as turn on and turn off.
+* Reports device-specific properties such as the maximum temperature since the device rebooted.
+* Responds to commands such as reboot.
 * Reports generic device properties such as firmware version and serial number.
 
 ## Prerequisites
 
 Complete the [Create an Azure IoT Central application](./quick-deploy-iot-central.md) quickstart to create an IoT Central application using the **Custom app > Custom application** template.
 
-## Create a template
+## Create a device template
 
 As a builder, you can create and edit device templates in your IoT Central application. After you publish a device template, you can generate simulated device or connect real devices from the device template. Simulated devices let you test the behavior of your application before you connect a real device.
 
 To add a new device template to your application, select the **Device Templates** tab in the left pane.
 
-![Device Templates page](./media/quick-create-simulated-device/device-definitions.png)
+:::image type="content" source="media/quick-create-simulated-device/device-definitions.png" alt-text="Screenshot showing empty list of device templates":::
 
-A device template includes a device capability model that defines the telemetry the device sends, device properties, and the commands the device responds to.
+A device template includes a device model that defines:
 
-### Add a device capability model
+* The telemetry the device sends.
+* Device properties.
+* The commands the device responds to.
 
-There are several options for adding a device capability model to your IoT Central application. You can create a model from scratch, import a model from a file, or select a device from the device catalog. IoT Central also supports a *device-first* approach where it automatically imports a model from a repository when a device connects for the first time. In this quickstart, you choose a device from the device catalog to import its device capability model.
+### Add a device template
 
-The following steps show you how to use the device catalog to import the capability model for an **MXChip IoT DevKit** device. These devices send telemetry, such as temperature, to your application:
+There are several options for adding a device model to your IoT Central application. You can create a model from scratch, import a model from a file, or select a device from the device catalog. IoT Central also supports a *device-first* approach where the application automatically imports a model from a repository when a real device connects for the first time.
 
-1. To add a new device template, select **+** on the **Device templates** page.
+In this quickstart, you choose a device from the device catalog to create a device template.
 
-1. On the **Select template type** page, scroll down until you find the **MXChip IoT DevKit** tile.
+The following steps show you how to use the device catalog to import the model for an **ESP32** device. These devices send telemetry, such as temperature, to your application:
 
-1. Select the **MXChip IoT DevKit** tile, and then select **Next: Customize**.
+1. To add a new device template, select **+ New** on the **Device templates** page.
+
+1. On the **Select type** page, scroll down until you find the **ESP32-Azure IoT Kit** tile in the **Use a preconfigured device template** section.
+
+1. Select the **ESP32-Azure IoT Kit** tile, and then select **Next: Review**.
 
 1. On the **Review** page, select **Create**.
 
 1. After a few seconds, you can see your new device template:
 
-    ![MXChip IoT DevKit device template](./media/quick-create-simulated-device/devkit-template.png)
+    :::image type="content" source="media/quick-create-simulated-device/devkit-template.png" alt-text="Screenshot showing device template for ESP32 device":::
 
-    The MXChip IoT DevKit capability model includes interfaces such as **mxchip_sensor**, **mxchip_settings**, and **Device Information**. Interfaces define the capabilities of an MXChip IoT DevKit device. Capabilities include the telemetry a device sends, the properties a device reports, and the commands a device responds to.
+    The name of the template is **Sensor Controller**. The model includes components such as **Sensor Controller**, **SensorTemp**, and **Device Information interface**. Components define the capabilities of an ESP32 device. Capabilities include the telemetry, properties, and commands.
 
 ### Add cloud properties
 
-A device template can include cloud properties. Cloud properties only exist in the IoT Central application and are never sent to, or received from, a device. To add a cloud property:
+A device template can include cloud properties. Cloud properties only exist in the IoT Central application and are never sent to, or received from, a device. To add two cloud properties:
 
 1. Select **Cloud Properties** and then **+ Add cloud property**. Use the information in the following table to add two cloud properties to your device template:
 
@@ -72,7 +78,7 @@ A device template can include cloud properties. Cloud properties only exist in t
 
 1. Select **Save** to save your changes:
 
-    ![Cloud properties](media/quick-create-simulated-device/cloud-properties.png)
+    :::image type="content" source="media/quick-create-simulated-device/cloud-properties.png" alt-text="Screenshot showing two cloud properties":::
 
 ## Views
 
@@ -97,9 +103,9 @@ To add a new **Manage device** form that an operator can use to manage the devic
 
 1. Change the form name to **Manage device**.
 
-1. Select the **Customer Name** and **Last Service Date** cloud properties, and the **Fan Speed** property. Then select **Add section**:
+1. Select the **Customer Name** and **Last Service Date** cloud properties, and the **Target Temperature** property. Then select **Add section**:
 
-    ![Create new form](media/quick-create-simulated-device/new-form.png)
+    :::image type="content" source="media/quick-create-simulated-device/new-form.png" alt-text="Screenshot showing new form added to device template":::
 
 1. Select **Save** to save your new form.
 
@@ -109,25 +115,25 @@ Before you can create a simulated device, or connect a real device, you need to 
 
 To publish a device template:
 
-1. Go to your device template from the **Device Templates** page.
+1. Navigate to your **Sensor Controller** device template from the **Device templates** page.
 
 1. Select **Publish**:
 
-    ![Published model](media/quick-create-simulated-device/published-model.png)
+    :::image type="content" source="media/quick-create-simulated-device/published-model.png" alt-text="Screenshot showing location of publish icon":::
 
-1. On the **Publish this device template to the application** dialog, select **Publish**. 
+1. On the **Publish this device template to the application** dialog, select **Publish**.
 
-After you publish a device template, it's visible on the **Devices** page. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template without versioning. After making any changes, select **Publish**  to push those changes out to your operator.
+After you publish a device template, it's visible on the **Devices** page. In a published device template, you can't edit a device model without creating a new version. However, you can modify cloud properties, customizations, and views in a published device template without versioning. After making any changes, select **Publish**  to push those changes out to your operator.
 
 ## Add a simulated device
 
-To add a simulated device to your application, you use the **MXChip IoT DevKit** device template you created.
+To add a simulated device to your application, you use the **ESP32** device template you created.
 
-1. To add a new device as an operator choose **Devices** in the left pane. The **Devices** tab shows **All devices** and the **MXChip IoT DevKit** device template. Select **MXChip IoT DevKit**.
+1. To add a new device as an operator choose **Devices** in the left pane. The **Devices** tab shows **All devices** and the **Sensor Controller** device template for the ESP32 device. Select **Sensor Controller**.
 
-1. To add a simulated DevKit device, select **+**. Use the suggested **Device ID** or enter your own. A device ID can contain letters, numbers, and the `-` character. You can also enter a name for your new device. Make sure the **Simulated** toggle is **On** and then select **Create**.
+1. To add a simulated DevKit device, select **+ New**. Use the suggested **Device ID** or enter your own. A device ID can contain letters, numbers, and the `-` character. You can also enter a name for your new device. Make sure the **Simulate this device** is set to **Yes** and then select **Create**.
 
-    ![Simulated device](./media/quick-create-simulated-device/simulated-device.png)
+    :::image type="content" source="media/quick-create-simulated-device/simulated-device.png" alt-text="Screenshot that shows the simulated Sensor Controller device":::
 
 Now you can interact with the views that were created by the builder for the device template using simulated data:
 
@@ -135,11 +141,11 @@ Now you can interact with the views that were created by the builder for the dev
 
     * The **Overview** view shows a plot of the simulated telemetry:
 
-        ![Overview view](./media/quick-create-simulated-device/simulated-telemetry.png)
+        :::image type="content" source="media/quick-create-simulated-device/simulated-telemetry.png" alt-text="Screenshot showing overview page for simulated device":::
 
-    * The **About** view shows property values, including the cloud properties you added to the view.
+    * The **About** view shows property values.
 
-    * The **Commands** view lets you run commands, such as **blink** on the device.
+    * The **Commands** view lets you run commands, such as **reboot** on the device.
 
     * The **Manage devices** view is the form you created for the operator to manage the device.
 
@@ -149,17 +155,21 @@ Now you can interact with the views that were created by the builder for the dev
 
 After you create a new simulated device, the builder can use this device to continue to improve and build upon the views for the device template.
 
-1. Choose **Device templates** in the left pane and select the **MXChip IoT DevKit** template.
+1. Choose **Device templates** in the left pane and select the **Sensor Controller** template.
 
-1. Select any of the views you would like to edit, or create a new view. Select **Configure preview device**, then **Select from a running device**. Here you can choose to have no preview device, a real device configured for testing, or an existing device you've added into IoT Central.
+1. Select any of the views you'd like to edit such as **Overview**, or create a new view. Select **Configure preview device**, then **Select from a running device**. Here you can choose to have no preview device, a real device configured for testing, or an existing device you've added into IoT Central.
 
 1. Choose your simulated device in the list. Then select **Apply**. Now you can see the same simulated device in your device template views building experience. This view is useful for charts and other visualizations.
 
-    ![Configure preview device](./media/quick-create-simulated-device/configure-preview.png)
+    :::image type="content" source="media/quick-create-simulated-device/configure-preview.png" alt-text="Screenshot showing a configured preview device":::
+
+## Clean up resources
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## Next steps
 
-In this quickstart, you learned how to you create an **MXChip IoT DevKit** device template and add a simulated device to your application.
+In this quickstart, you learned how to you create a **Sensor Controller** device template for an ESP32 device and add a simulated device to your application.
 
 To learn more about monitoring devices connected to your application, continue to the quickstart:
 

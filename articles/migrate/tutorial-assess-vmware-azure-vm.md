@@ -1,6 +1,9 @@
 ---
 title: Assess VMware VMs for migration to Azure VMs with Server Assessment in Azure Migrate
 description: Learn how to assess VMware VMs for migration to Azure VMs with Server Assessment.
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
@@ -62,14 +65,13 @@ Run an assessment as follows:
     - If you discovered machines using the appliance, select **Machines discovered from Azure Migrate appliance**.
     - If you discovered machines using an imported CSV file, select **Imported machines**. 
     
-1. Specify a name for the assessment. 
-1. Click **View all** to review the assessment properties.
+1. Click **Edit** to review the assessment properties.
 
     ![Location of the View all button to review assessment properties](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
 
 1. In **Assessment properties** > **Target Properties**:
     - In **Target location**, specify the Azure region to which you want to migrate.
-        - Size and cost recommendations are based on the location that you specify.
+        - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
         - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#supported-geographies-azure-government)
     - In **Storage type**,
         - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
@@ -77,20 +79,21 @@ Run an assessment as follows:
     - In **Reserved Instances**, specify whether you want to use reserve instances for the VM when you migrate it.
         - If you select to use a reserved instance, you can't specify  '**Discount (%)**, or **VM uptime**. 
         - [Learn more](https://aka.ms/azurereservedinstances).
- 7. In **VM Size**:
- 
-    - In **Sizing criterion**, select if you want to base the assessment on machine configuration data/metadata, or on performance-based data. If you use performance data:
+ 1. In **VM Size**:
+     - In **Sizing criterion**, select if you want to base the assessment on machine configuration data/metadata, or on performance-based data. If you use performance data:
         - In **Performance history**, indicate the data duration on which you want to base the assessment
         - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
     - In **VM Series**, specify the Azure VM series you want to consider.
         - If you're using performance-based assessment, Azure Migrate suggests a value for you.
         - Tweak settings as needed. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
     - In **Comfort factor**, indicate the buffer you want to use during assessment. This accounts for issues like seasonal usage, short performance history, and likely increases in future usage. For example, if you use a comfort factor of two:
+    
         **Component** | **Effective utilization** | **Add comfort factor (2.0)**
-        Cores | 2 | 4
-        Memory | 8 GB | 16 GB     
+        --- | --- | ---
+        Cores | 2  | 4
+        Memory | 8 GB | 16 GB
    
-8. In **Pricing**:
+1. In **Pricing**:
     - In **Offer**, specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) if you're enrolled. Server Assessment estimates the cost for that offer.
     - In **Currency**, select the billing currency for your account.
     - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
@@ -98,23 +101,30 @@ Run an assessment as follows:
         - This is useful for Azure VMs that won't run continuously.
         - Cost estimates are based on the duration specified.
         - Default is 31 days per month/24 hours per day.
-
     - In **EA Subscription**, specify whether to take an Enterprise Agreement (EA) subscription discount into account for cost estimation. 
     - In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license. If you do and they're covered with active Software Assurance of Windows Server Subscriptions, you can apply for the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) when you bring licenses to Azure.
 
-9. Click **Save** if you make changes.
+1. Click **Save** if you make changes.
 
     ![Assessment properties](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
-10. In **Assess Servers**, click **Next**.
-11. In **Select machines to assess**, select **Create New**, and specify a group name. 
-12. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.
+1. In **Assess Servers** > click **Next**.
 
+1. In **Select machines to assess** > **Assessment name** > specify a name for the assessment. 
+
+1. In **Select or create a group** > select **Create New** and specify a group name. 
+    
      ![Add VMs to a group](./media/tutorial-assess-vmware-azure-vm/assess-group.png)
 
-13. In **Review + create assessment, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
+
+1. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.
 
 
+1. In **Review + create assessment**, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
+
+1. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
+
+1. Click **Export assessment**, to download it as an Excel file.
     > [!NOTE]
     > For performance-based assessments, we recommend that you wait at least a day after starting discovery before you create an assessment. This provides time to collect performance data with higher confidence. Ideally, after you start discovery, wait for the performance duration you specify (day/week/month) for a high-confidence rating.
 

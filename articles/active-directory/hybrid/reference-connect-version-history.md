@@ -32,20 +32,25 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 >[!NOTE]
 >Releasing a new version of Azure AD Connect is a process that requires several quality control step to ensure the operation functionality of the service, and while we go through this process the version number of a new release as well as the release status will be updated to reflect the most recent state.
 While we go through this process, the version number of the release will be shown with an "X" in the minor release number position, as in "1.3.X.0" - this indicates that the release notes in this document are valid for all versions beginning with "1.3.". As soon as we have finalized the release process the release version number will be updated to the most recently released version and the release status will be updated to "Released for download and auto upgrade".
-Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md)
+Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. 
+
+To clarify the use of Auto Upgrade, it is meant to push all important updates and critical fixes to you. This is not necessarily the latest version because not all versions will require/include a fix to a critical security issue (just one example of many). An issue like that would be addressed with a new version provided via Auto Upgrade. If there are no such issues, there are no updates pushed out using Auto Upgrade, and in general if you are using the latest auto upgrade version you should be good.
+However, if you’d like all the latest features and updates, the best way to see if there are any is to check this page and install them as you see fit. 
+
+Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> Starting on November 1st, 2020, we will begin implementing a deprecation process whereby versions of Azure AD Connect that were released more than 18 months ago will be deprecated. At that time we will begin this process by deprecating all releases of Azure AD Connect with version 1.3.20.0 (which was released on 4/24/2019) and older, and we will proceed to evaluate the deprecation of older versions of Azure AD Connect every time a new version releases.
+> Starting on April 1st, 2024, we will retire versions of Azure AD Connect that were released before May 1st, 2018 - version 1.1.751.0 and older. 
 >
 > You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
 >
->If you run a deprecated version of Azure AD Connect you may not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools and service enhancements, and if you require support we may not be able to provide you with the level of service your organization needs.
+>If you run a retired version of Azure AD Connect you may not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools and service enhancements, and if you require support we may not be able to provide you with the level of service your organization needs.
 >
->If you have enabled Azure AD Connect for sync you will soon automatically begin receiving Health notifications that warn you about upcoming deprecations when you are running one of the older versions.
+
 >
 >Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
 >
->For version history information on deprecated versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
+>For version history information on retired versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
 
 ## 1.5.45.0
 

@@ -206,8 +206,10 @@ The following FQDN / application rules are required for AKS clusters that have t
 
 | FQDN                                          | Port      | Use      |
 |-----------------------------------------------|-----------|----------|
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | This address is used for correct operation of Azure Policy. (currently in preview in AKS) |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. (currently in preview in AKS) |
+| **`data.policy.core.windows.net`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
+| **`store.policy.core.windows.net`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
+| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | This address is used for correct operation of Azure Policy.  |
+| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy add-on that sends telemetry data to applications insights endpoint. |
 
 ## Restrict egress traffic using Azure firewall
@@ -403,7 +405,7 @@ Now an AKS cluster can be deployed into the existing virtual network. We'll also
 
 ### Create a service principal with access to provision inside the existing virtual network
 
-A service principal is used by AKS to create cluster resources. The service principal that is passed at create time is used to create underlying AKS resources such as Storage resources, IPs, and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
+A cluster identity (managed identity or service principal) is used by AKS to create cluster resources. A service principal that is passed at create time is used to create underlying AKS resources such as Storage resources, IPs, and Load Balancers used by AKS (you may also use a [managed identity](use-managed-identity.md) instead). If not granted the appropriate permissions below, you won't be able to provision the AKS Cluster.
 
 ```azurecli
 # Create SP and Assign Permission to Virtual Network
@@ -741,7 +743,7 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 
 Get the service IP by running:
 ```bash
-SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Add the NAT rule by running:

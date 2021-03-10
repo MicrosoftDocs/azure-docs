@@ -9,7 +9,7 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 08/27/2020
 ms.author: cherylmc
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 
 ---
 # What is VPN Gateway?

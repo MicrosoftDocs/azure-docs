@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Understand digital twins and their twin graph
 
-In an Azure Digital Twins solution, the entities in your environment are represented by Azure **digital twins**. A digital twin is an instance of one of your custom-defined [models](concepts-models.md). It can be connected to other digital twins via **relationships** to form a **twin graph**: this twin graph is the representation of your entire environment.
+In an Azure Digital Twins solution, the entities in your environment are represented by **digital twins**. A digital twin is an instance of one of your custom-defined [models](concepts-models.md). It can be connected to other digital twins via **relationships** to form a **twin graph**: this twin graph is the representation of your entire environment.
 
 > [!TIP]
 > "Azure Digital Twins" refers to this Azure service as a whole. "Digital twin(s)" or just "twin(s)" refers to individual twin nodes inside your instance of the service.
@@ -26,7 +26,9 @@ In an Azure Digital Twins solution, the entities in your environment are represe
 
 Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [*Concepts: Custom models*](concepts-models.md).
 
-After creating and uploading a model, your client app can create an instance of the type; this is a digital twin. For example, after creating a model of *Floor*, you may create one or several digital twins that use this type (like a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.). 
+After creating and uploading a model, your client app can create an instance of the type; this is a digital twin. For example, after creating a model of *Floor*, you may create one or several digital twins that use this type (like a *Floor*-type twin called *GroundFloor*, another called *Floor2*, etc.).
+
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 ## Relationships: a graph of digital twins
 
@@ -48,7 +50,7 @@ Below is a snippet of client code that uses the [DigitalTwins APIs](/rest/api/di
 
 You can initialize the properties of a twin when it is created, or set them later. To create a twin with initialized properties, create a JSON document that provides the necessary initialization values.
 
-[!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
 You can also use a helper class called `BasicDigitalTwin` to store property fields in a "twin" object more directly, as an alternative to using a dictionary. For more information about the helper class and examples of its use, see the [*Create a digital twin*](how-to-manage-twin.md#create-a-digital-twin) section of *How-to: Manage digital twins*.
 
@@ -57,27 +59,9 @@ You can also use a helper class called `BasicDigitalTwin` to store property fiel
 
 ### Create relationships
 
-Here is some example client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to build a relationship between a *Floor*-type digital twin called *GroundFloor* and a *Room*-type digital twin called *Cafe*.
+Here is some example client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to build a relationship from one digital twin (the "source" twin) to another digital twin (the "target" twin).
 
-```csharp
-// Create Twins, using functions similar to the previous sample
-await CreateRoom("Cafe", 70, 66);
-await CreateFloor("GroundFloor", averageTemperature=70);
-// Create relationships
-var relationship = new BasicRelationship
-{
-    TargetId = "Cafe",
-    Name = "contains"
-};
-try
-{
-    string relId = $"GroundFloor-contains-Cafe";
-    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
-} catch(ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
-}
-```
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## JSON representations of graph elements
 

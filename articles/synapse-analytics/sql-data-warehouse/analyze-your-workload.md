@@ -1,6 +1,6 @@
 ---
-title: Analyze your workload 
-description: Techniques for analyzing query prioritization for your workload in Azure Synapse Analytics.
+title: Analyze your workload for dedicated SQL pool
+description: Techniques for analyzing query prioritization for dedicated SQL pool in Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -13,13 +13,13 @@ ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
-# Analyze your workload in Azure Synapse Analytics
+# Analyze your workload for dedicated SQL pool in Azure Synapse Analytics
 
-Techniques for analyzing your Synapse SQL workload in Azure Synapse Analytics. 
+Techniques for analyzing your dedicated SQL pool workload in Azure Synapse Analytics. 
 
 ## Resource Classes
 
-Synapse SQL provides resource classes to assign system resources to queries.  For more information on resource classes, see [Resource classes & workload management](resource-classes-for-workload-management.md).  Queries will wait if the resource class assigned to a query needs more resources than are currently available.
+Dedicated SQL pool provides resource classes to assign system resources to queries.  For more information on resource classes, see [Resource classes & workload management](resource-classes-for-workload-management.md).  Queries will wait if the resource class assigned to a query needs more resources than are currently available.
 
 ## Queued query detection and other DMVs
 
@@ -58,7 +58,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-Synapse SQL has the following wait types:
+Dedicated SQL pool has the following wait types:
 
 * **LocalQueriesConcurrencyResourceType**: Queries that sit outside of the concurrency slot framework. DMV queries and system functions such as `SELECT @@VERSION` are examples of local queries.
 * **UserConcurrencyResourceType**: Queries that sit inside the concurrency slot framework. Queries against end-user tables represent examples that would use this resource type.
@@ -148,4 +148,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## Next steps
 
-For more information about managing database users and security, see [Secure a database in Synapse SQL](sql-data-warehouse-overview-manage-security.md). For further information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+For more information about managing database users and security, see [Secure a dedicated SQL pool (formerly SQL DW)](sql-data-warehouse-overview-manage-security.md). For further information about how larger resource classes can improve clustered columnstore index quality, see [Rebuilding indexes to improve segment quality](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

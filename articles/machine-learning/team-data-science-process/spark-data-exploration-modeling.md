@@ -10,7 +10,7 @@ ms.subservice: team-data-science-process
 ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
 ---
 # Data exploration and modeling with Spark
 

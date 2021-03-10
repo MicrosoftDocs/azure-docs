@@ -39,8 +39,4 @@ Azure Active Directory is generally available in Azure Germany.
 
 ## Next steps
 For supplemental information and updates, subscribe to the 
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
-
-
-
-
+[Azure Germany blog](/archive/blogs/azuregermany/).

@@ -1,7 +1,7 @@
 ---
 title: Xamarin Android code configuration and troubleshooting (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Learn about considerations for using Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET).
+description: Learn about considerations for using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 # Configuration requirements and troubleshooting tips for Xamarin Android with MSAL.NET
 
-There are several configuration changes you're required to make in your code when using Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET). The following sections describe the required modifications, followed by a [Troubleshooting](#troubleshooting) section to help you avoid some of the most common issues.
+There are several configuration changes you're required to make in your code when using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET). The following sections describe the required modifications, followed by a [Troubleshooting](#troubleshooting) section to help you avoid some of the most common issues.
 
 ## Set the parent activity
 

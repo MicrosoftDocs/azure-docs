@@ -19,6 +19,8 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 ## Prerequisites
 
+- On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) for your platform. Installing this for the first time may require a restart.
+
 - Supported Linux platforms will require certain libraries installed (`libssl` for secure sockets layer support and `libasound2` for sound support). Refer to your distribution below for the commands needed to install the correct versions of these libraries.
 
   - On Ubuntu/Debian, run the following commands to install the required packages:
@@ -85,7 +87,7 @@ Updates to the Speech SDK Python package are distributed via PyPI and announced 
 If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
 Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
 
-If you have a problem, or you're missing a feature, see [Support and help options](../../../../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
+If you have a problem, or you're missing a feature, see [Support and help options](../../../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## Next steps
 

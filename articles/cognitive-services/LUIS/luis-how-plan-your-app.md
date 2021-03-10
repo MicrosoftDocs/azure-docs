@@ -16,7 +16,7 @@ A LUIS app schema contains [intents](luis-glossary.md#intent) and [entities](lui
 A LUIS app is centered around a subject domain. For example, you may have a travel app that handles booking of tickets, flights, hotels, and rental cars. Another app may provide content related to exercising, tracking fitness efforts and setting goals. Identifying the domain helps you find words or phrases that are relevant to your domain.
 
 > [!TIP]
-> LUIS offers [prebuilt domains](luis-how-to-use-prebuilt-domains.md) for many common scenarios. Check to see if you can use a prebuilt domain as a starting point for your app.
+> LUIS offers [prebuilt domains](./howto-add-prebuilt-models.md) for many common scenarios. Check to see if you can use a prebuilt domain as a starting point for your app.
 
 ## Identify your intents
 
@@ -44,7 +44,7 @@ In the example utterances, identify the entities you want extracted. To book a f
 When determining which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between object types. [Entities in LUIS](luis-concept-entity-types.md) provides more detail about the different types.
 
 > [!TIP]
-> LUIS offers [prebuilt entities](luis-prebuilt-entities.md) for common, conversational user scenarios. Consider using prebuilt entities as a starting point for your application development.
+> LUIS offers [prebuilt entities](./howto-add-prebuilt-models.md) for common, conversational user scenarios. Consider using prebuilt entities as a starting point for your application development.
 
 ## Resolution with intent or entity?
 
@@ -74,4 +74,3 @@ To help the extraction add features to the subentities. You will choose your fea
 
 > [!div class="nextstepaction"]
 > [Learning the LUIS development lifecylce](luis-concept-app-iteration.md)
-

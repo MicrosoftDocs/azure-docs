@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 01/11/2021
 ms.author: banders
 ---
 
@@ -35,15 +35,15 @@ A billing profile is used to manage your invoice and payment methods. A monthly 
 
 When your account is updated, a billing profile is automatically created for each subscription. Subscription's charges are billed to its respective billing profile and displayed on its invoice.
 
-Roles on the billing profiles have permissions to view and manage invoices and payment methods. These roles should be assigned to users who pay invoices like members of the accounting team in an organization. For more information, see [billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks). 
+Roles on the billing profiles have permissions to view and manage invoices and payment methods. These roles should be assigned to users who pay invoices like members of the accounting team in an organization. For more information, see [billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-When your account is updated, for each subscription on which you've given others permission to [view invoices](download-azure-invoice.md#allow-others-to-download-the-your-subscription-invoice), users who have an owner, a contributor, a reader, or a billing reader Azure RBAC role are given the reader role on the respective billing profile.
+When your account is updated, for each subscription on which you've given others permission to [view invoices](download-azure-invoice.md#allow-others-to-download-your-subscription-invoice), users who have an owner, a contributor, a reader, or a billing reader Azure role are given the reader role on the respective billing profile.
 
 ## Invoice sections
 
 An invoice section is used to organize the costs on your invoice. For example, you might need a single invoice but want to organize costs by department, team, or project. For this scenario, you have a single billing profile where you create an invoice section for each department, team, or project.
 
-When your account is updated, an invoice section is created for each billing profile and the related subscription is assigned to the invoice section. When you add more subscriptions, you can create additional sections and assign the subscriptions to the invoice sections. You'll see the sections on the billing profile's invoice reflecting the usage of each subscription you've assigned to them.
+When your account is updated, an invoice section is created for each billing profile and the related subscription is assigned to the invoice section. When you add more subscriptions, you can create more sections and assign the subscriptions to the invoice sections. You'll see the sections on the billing profile's invoice reflecting the usage of each subscription you've assigned to them.
 
 Roles on the invoice section have permissions to control who creates Azure subscriptions. The roles should be assigned to users who set up the Azure environment for teams in an organization like engineering leads and technical architects. For more information, see [invoice section roles and tasks](../manage/understand-mca-roles.md#invoice-section-roles-and-tasks).
 
@@ -53,7 +53,7 @@ Your new experience includes the following cost management and billing capabilit
 
 #### Invoice management
 
-**More predictable monthly billing period** - In your new account, the billing period begins from the first day of the month and ends at the last day of the month, regardless of when you sign up to use Azure. An invoice will be generated at the beginning of each month, and will contain all charges from the previous month.
+**More predictable monthly billing period** - In your new account, the billing period begins from the first day of the month and ends at the last day of the month, no matter when you sign up to use Azure. An invoice will be generated at the beginning of each month, and will contain all charges from the previous month.
 
 **Get a single monthly invoice for multiple subscriptions** - You have the flexibility of either getting one monthly invoice for each of your subscriptions or a single invoice for multiple subscriptions.
 
@@ -75,15 +75,15 @@ Your new experience includes the following cost management and billing capabilit
 
 #### Account and subscription management
 
-**Assign multiple administrators to perform billing operations** - Assign billing permissions to multiple users to manage billing for your account. Get flexibility by providing read, write, or both permissions to others.
+**Assign multiple administrators to perform billing operations** - Assign billing permissions to multiple users to manage billing for your account. Get flexibility by giving read, write, or both permissions to others.
 
-**Create additional subscriptions directly in the Azure portal** - Create all your subscriptions with a single click in the Azure portal.
+**Create more subscriptions directly in the Azure portal** - Create all your subscriptions with a single selection in the Azure portal.
 
 #### API support
 
-**Perform billing and cost management operations through APIs, SDK, and PowerShell** - Use cost management, billing, and consumption APIs to pull billing and cost data into your preferred data analysis tools.
+**Do billing and cost management operations through APIs, SDK, and PowerShell** - Use cost management, billing, and consumption APIs to pull billing and cost data into your preferred data analysis tools.
 
-**Perform all subscription operations through APIs, SDK, and PowerShell** - Use Azure subscription APIs to automate the management of your Azure subscriptions, including creating, renaming, and canceling a subscription.
+**Do all subscription operations through APIs, SDK, and PowerShell** - Use Azure subscription APIs to automate the management of your Azure subscriptions, including creating, renaming, and canceling a subscription.
 
 ## Get prepared for your new experience
 
@@ -95,12 +95,63 @@ In the new experience, your invoice will be generated around the ninth day of ea
 
 **New billing and cost management APIs**
 
-If you are using Cost Management or Billing APIs to query and update your billing or cost data, then you must use new APIs. The table below lists the APIs that won't work with the new billing account and the changes that you need to make in your new billing account.
+If you're using Cost Management or Billing APIs to query and update your billing or cost data, then you must use new APIs. The table below lists the APIs that won't work with the new billing account and the changes that you need to make in your new billing account.
 
 |API | Changes  |
 |---------|---------|
-|[Billing Accounts - List](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | In the Billing Accounts - List API, your old billing account has agreementType **MicrosoftOnlineServiceProgram**, your new billing account would have agreementType **MicrosoftCustomerAgreement**. If you take a dependency on agreementType, please update it. |
+|[Billing Accounts - List](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | In the Billing Accounts - List API, your old billing account has agreementType **MicrosoftOnlineServiceProgram**, your new billing account would have agreementType **MicrosoftCustomerAgreement**. If you take a dependency on agreementType, update it. |
 |[Invoices - List By Billing Subscription](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | This API will only return invoices that were generated before your account was updated. You would have to use [Invoices - List By Billing Account](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) API to get invoices that are generated in your new billing account. |
+
+## Cost Management updates after account update
+
+Your updated Azure billing account for your Microsoft Customer Agreement gives you access to new and expanded Cost Management experiences in the Azure portal that you didn't have with your pay-as-you-go account.
+
+### New capabilities
+
+The following new capabilities are available with your Azure billing account.
+
+#### New billing scopes
+
+As part of your updated account, you have new scopes in Cost Management + Billing. Besides aiding with hierarchical organization and invoicing, they are also a way to view combined charges from multiple underlying subscriptions. For more information about billing scopes, see [Microsoft Customer Agreement scopes](../costs/understand-work-scopes.md#microsoft-customer-agreement-scopes).
+
+You can also access Cost Management APIs to get combined cost views at higher scopes. All Cost Management APIs that use the subscription scope are still available with some minor changes in the schema. For more information about the APIs, see [Azure Cost Management APIs](/rest/api/cost-management/) and [Azure Consumption APIs](/rest/api/consumption/).
+
+#### Cost allocation
+
+With your updated account, you can use cost allocation capabilities to distribute costs from shared services in your organization. For more information about allocating costs, see [Create and manage Azure cost allocation rules](../costs/allocate-costs.md).
+
+#### Power BI
+
+The Azure Cost Management connector for Power BI Desktop helps you build custom visualizations and reports of your Azure usage and spending. You access your cost and usage data after you connect to your updated account. For more information about the Azure Cost Management connector for Power BI Desktop, see [Create visuals and reports with the Azure Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+
+### Updated capabilities
+
+The following updated capabilities are available with your Azure billing account.
+
+#### Cost analysis
+
+You can continue to view and trace your month-over-month consumption costs and now you can view reservation and Marketplace purchase costs in Cost analysis.
+
+With your updated account, you receive a single invoice for all Azure charges. You also now have a simplified single monthly calendar view to replace the billing periods view you had earlier.
+
+For example, if your billing period was November 24 to December 23 for your old account, then after the upgrade the period becomes November 1 to November 30, December 1 to December 31 and so on.
+
+:::image type="content" source="./media/mosp-new-customer-experience/billing-periods.png" alt-text="Image showing a comparison between old and new billing periods " lightbox="./media/mosp-new-customer-experience/billing-periods.png" :::
+
+#### Budgets
+
+You can now create budgets for the billing account, allowing you to track costs across subscriptions. You can also stay on top of your purchase charges using budgets. For more information about budgets, see [Create and manage Azure budgets](../costs/tutorial-acm-create-budgets.md).
+
+#### Exports
+
+Your new billing account provides improved export functionality. For example, you can create exports for actual costs that include purchases or amortized costs (reservation purchase costs spread across the purchase term). You can also create an export for the billing account to get usage and charges data across all subscriptions in the billing account. For more information about exports, see [Create and manage exported data](../costs/tutorial-export-acm-data.md).
+
+> [!NOTE]
+> Exports created before your account update with the **Monthly export of last month's costs** type will export data for the last calendar month, not the last billing period.
+
+For example, for a billing period from December 23 to January 22, the exported CSV file would have cost and usage data for that period. After the update, the export will contain data for the calendar month. For example, January 1 to January 31 and so on.
+
+:::image type="content" source="./media/mosp-new-customer-experience/export-amortized-costs.png" alt-text="Image showing a comparison between old and new export details" lightbox="./media/mosp-new-customer-experience/export-amortized-costs.png" :::
 
 ## Additional information
 
@@ -116,7 +167,7 @@ Access to Azure resources that were set using Azure role-based access control (A
 Invoices generated before your account was updated are still available in the Azure portal.
 
 **Invoices for account updated in the middle of the month**
-If your account is updated in the middle of the month, you'll get one invoice for charges accumulated until the day your account is updated. You'll get another invoice for the remainder of the month. For example, your account has one subscription and it is updated on 15 September. You will get one invoice for charges accumulated until 15 September. You'll get another invoice for the period between 15 September through 30 September. After September, you'll get one invoice per month.
+If your account is updated in the middle of the month, you'll get one invoice for charges accumulated until the day your account is updated. You'll get another invoice for the rest of the month. For example, your account has one subscription and it's updated on 15 September. You'll get one invoice for charges accumulated until 15 September. You'll get another invoice for the period between 15 September through 30 September. After September, you'll get one invoice per month.
 
 ## Need help? Contact support.
 

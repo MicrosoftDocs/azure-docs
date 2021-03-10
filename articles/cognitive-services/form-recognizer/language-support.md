@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 10/23/2020
+ms.date: 11/23/2020
 ms.author: erhopf
 ---
 
 # Language support for Form Recognizer
 
-This article lists human languages supported by the Form Recognizer service.
+This table lists the human languages supported by the Form Recognizer service.
 
 
 |Language| Language code | Form Recognizer v2.0 | Form Recognizer v2.1 preview|
@@ -25,5 +25,6 @@ This article lists human languages supported by the Form Recognizer service.
 |French | `fr` | | ✔ |
 |German | `de` | | ✔ |
 |Italian | `it` | | ✔ |
+|Japanese | `ja` |  | ✔|
 |Portuguese | `pt` | | ✔ |
 |Spanish | `es` | | ✔ |

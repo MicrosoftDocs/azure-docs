@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Update an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to update an existing application deployment to AKS with a new version of the application code.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 
 ms.custom: mvc
 
@@ -62,7 +62,7 @@ docker-compose up --build -d
 
 To verify that the updated container image shows your changes, open a local web browser to `http://localhost:8080`.
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Screenshot showing an example of the updated container image Azure Voting App opened with a local web browser and local host.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated.png" alt-text="Screenshot showing an example of the updated container image Azure Voting App running locally opened in a local web browser":::
 
 The updated values provided in the *config_file.cfg* file are displayed in your running application.
 
@@ -141,9 +141,9 @@ To view the update application, first get the external IP address of the `azure-
 kubectl get service azure-vote-front
 ```
 
-Now open a local web browser to the IP address of your service:
+Now open a web browser to the IP address of your service:
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Screenshot showing an example of the updated application Azure Voting App opened in a local web browser.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Screenshot showing an example of the updated image Azure Voting App running in an AKS cluster opened in a local web browser.":::
 
 ## Next steps
 

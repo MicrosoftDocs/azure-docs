@@ -8,9 +8,7 @@ manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -50,7 +48,7 @@ It's also a good idea to be familiar with these articles about SAP HANA:
 - [SAP HANA service auto-restart](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)
 - [Configure SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/676844172c2442f0bf6c8b080db05ae7.html)
 
-Beyond being familiar with deploying VMs in Azure, before you define your availability architecture in Azure, we recommend that you read [Manage the availability of Windows virtual machines in Azure](../../manage-availability.md).
+Beyond being familiar with deploying VMs in Azure, before you define your availability architecture in Azure, we recommend that you read [Manage the availability of Windows virtual machines in Azure](../../availability.md).
 
 ## Service level agreements for Azure components
 

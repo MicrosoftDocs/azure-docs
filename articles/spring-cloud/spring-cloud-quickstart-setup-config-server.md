@@ -37,9 +37,9 @@ Azure Spring Cloud Config server is centralized configuration service for distri
 
 ## Prerequisites
 
-* [Install JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
+* [Install JDK 8](/java/azure/jdk/)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign-in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## Azure Spring Cloud config server procedures
@@ -52,9 +52,19 @@ The following procedure sets up the config server using the Azure portal to depl
 
 2. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
 
-3. Select **Apply** to save your changes.
+3. Click **Validate**.
 
-    ![Screenshot of ASC portal](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+    ![Navigate to config server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
+
+4. When validation is complete, click **Apply** to save your changes.
+
+    ![Validating config server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+
+5. Updating the configuration can take a few minutes.
+ 
+    ![Updating config server](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+
+6. You should get a notification when the configuration is complete.
 
 #### [CLI](#tab/Azure-CLI)
 
@@ -67,6 +77,9 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ```
 ---
 ::: zone-end
+
+> [!TIP]
+> If you are using a private repository for config server, please refer to our [tutorial on setting up authentication](./spring-cloud-tutorial-config-server.md).
 
 ## Troubleshooting of Azure Spring Cloud config server
 

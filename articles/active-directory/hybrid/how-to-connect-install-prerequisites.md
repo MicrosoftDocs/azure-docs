@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -47,7 +47,7 @@ Azure Active Directory Connect runs signed PowerShell scripts as part of the ins
 
 The recommended execution policy during installation is "RemoteSigned".
 
-For more information on setting the PowerShell execution policy, see [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+For more information on setting the PowerShell execution policy, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
 
 ### Azure AD Connect server
@@ -68,6 +68,7 @@ To read more about securing your Active Directory environment, see [Best practic
     - You must configure TLS/SSL certificates. For more information, see [Managing SSL/TLS protocols and cipher suites for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) and [Managing SSL certificates in AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - You must configure name resolution. 
 - If your global administrators have MFA enabled, the URL https://secure.aadcdn.microsoftonline-p.com *must* be in the trusted sites list. You're prompted to add this site to the trusted sites list when you're prompted for an MFA challenge and it hasn't been added before. You can use Internet Explorer to add it to your trusted sites.
+- If you plan to use Azure AD Connect Health for syncing, ensure that the prerequisites for Azure AD Connect Health are also met. For more information, see [Azure AD Connect Health agent installation](how-to-connect-health-agent-install.md).
 
 #### Harden your Azure AD Connect server 
 We recommend that you harden your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment. Following these recommendations will help to mitigate some security risks to your organization.
@@ -77,8 +78,8 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 - Create a [dedicated account for all personnel with privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). Administrators shouldn't be browsing the web, checking their email, and doing day-to-day productivity tasks with highly privileged accounts.
 - Follow the guidance provided in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Deny use of NTLM authentication with the AADConnect server. Here are some ways to do this: [Restricting NTLM on the AADConnect Server](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-outgoing-ntlm-traffic-to-remote-servers) and [Restricting NTLM on a domain](/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain)
-- Ensure every machine has a unique local administrator password. For more information, see [Local Administrator Password Solution (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) can configure unique random passwords on each workstation and server store them in Active Directory protected by an ACL. Only eligible authorized users can read or request the reset of these local administrator account passwords. You can obtain the LAPS for use on workstations and servers from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Additional guidance for operating an environment with LAPS and privileged access workstations (PAWs) can be found in [Operational standards based on clean source principle](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
-- Implement dedicated [privileged access workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations) for all personnel with privileged access to your organization's information systems. 
+- Ensure every machine has a unique local administrator password. For more information, see [Local Administrator Password Solution (LAPS)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) can configure unique random passwords on each workstation and server store them in Active Directory protected by an ACL. Only eligible authorized users can read or request the reset of these local administrator account passwords. You can obtain the LAPS for use on workstations and servers from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899). Additional guidance for operating an environment with LAPS and privileged access workstations (PAWs) can be found in [Operational standards based on clean source principle](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
+- Implement dedicated [privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) for all personnel with privileged access to your organization's information systems. 
 - Follow these [additional guidelines](/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) to reduce the attack surface of your Active Directory environment.
 
 
@@ -96,6 +97,7 @@ We recommend that you harden your Azure AD Connect server to decrease the securi
 
 ### Connectivity
 * The Azure AD Connect server needs DNS resolution for both intranet and internet. The DNS server must be able to resolve names both to your on-premises Active Directory and the Azure AD endpoints.
+* Azure AD Connect requires network connectivity to all configured domains
 * If you have firewalls on your intranet and you need to open ports between the Azure AD Connect servers and your domain controllers, see [Azure AD Connect ports](reference-connect-ports.md) for more information.
 * If your proxy or firewall limit which URLs can be accessed, the URLs documented in [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) must be opened. Also see [Safelist the Azure portal URLs on your firewall or proxy server](../../azure-portal/azure-portal-safelist-urls.md?tabs=public-cloud).
   * If you're using the Microsoft cloud in Germany or the Microsoft Azure Government cloud, see [Azure AD Connect sync service instances considerations](reference-connect-instances.md) for URLs.
@@ -161,6 +163,17 @@ Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypt
     "SchUseStrongCrypto"=dword:00000001
     ```
 1. If you also want to enable TLS 1.2 between the sync engine server and a remote SQL Server, make sure you have the required versions installed for [TLS 1.2 support for Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
+
+### DCOM prerequisites on the synchronization server
+During the installation of the synchronization service, Azure AD Connect checks for the presence of the following registry key:
+
+- HKEY_LOCAL_MACHINE:  Software\Microsoft\Ole
+
+Under this registry key, Azure AD Connect will check to see if the following values are present and uncorrupted: 
+
+- [MachineAccessRestriction](/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](/windows/win32/com/defaultlaunchpermission)
 
 ## Prerequisites for federation installation and configuration
 ### Windows Remote Management

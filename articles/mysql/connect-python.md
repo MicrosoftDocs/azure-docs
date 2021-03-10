@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect using Python - Azure Database for MySQL'
 description: This quickstart provides several Python code samples you can use to connect and query data from Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: [mvc, seo-python-october2019, devx-track-python]
 ms.devlang: python

@@ -40,14 +40,14 @@ The following table describes the connected sources that are supported by this s
 
 | **Connected source** | **Support** | **Description** |
 | --- | --- | --- |
-| [Windows agents](../azure-monitor/platform/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
-| [Linux agents](../azure-monitor/learn/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
-| [System Center Operations Manager management group](../azure-monitor/platform/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
-| [Azure storage account](../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Azure storage isn't used by the solution. |
+| [Windows agents](../azure-monitor/agents/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
+| [Linux agents](../azure-monitor/vm/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
+| [System Center Operations Manager management group](../azure-monitor/agents/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
+| [Azure storage account](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage isn't used by the solution. |
 
 ### Data collection details
 
-The solution collects DNS inventory and DNS event-related data from the DNS servers where a Log Analytics agent is installed. Inventory-related data, such as the number of DNS servers, zones, and resource records, is collected by running the DNS PowerShell cmdlets. The data is updated once every two days. The event-related data is collected near real time from the [analytic and audit logs](https://technet.microsoft.com/library/dn800669.aspx#enhanc) provided by enhanced DNS logging and diagnostics in Windows Server 2012 R2.
+The solution collects DNS inventory and DNS event-related data from the DNS servers where a Log Analytics agent is installed. Inventory-related data, such as the number of DNS servers, zones, and resource records, is collected by running the DNS PowerShell cmdlets. The data is updated once every two days. The event-related data is collected near real time from the [analytic and audit logs](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)#enhanc) provided by enhanced DNS logging and diagnostics in Windows Server 2012 R2.
 
 
 ## Connect your DNS appliance
@@ -73,7 +73,7 @@ In Log Analytics, search for the schema **DnsEvents** and make sure there are ev
 ## Troubleshooting
 
 If Lookup Queries do not show up in Azure Sentinel, follow these steps so the queries are displayed properly:
-1. Turn ON the [DNS Analytics logs on your servers](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
+1. Turn ON the [DNS Analytics logs on your servers](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn800669(v=ws.11)).
 2. Make sure DNSEvents appear in your Log Analytics collection list.
 3. Turn ON [Azure DNS Analytics](../azure-monitor/insights/dns-analytics.md).
 4. In Azure DNS Analytics, under **Configuration**, change any of the settings, save it, then change it back if you need to, and then save it again.

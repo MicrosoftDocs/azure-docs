@@ -4,7 +4,7 @@ description: Automate management and configuration of Azure Application Insights
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 06/26/2019
+ms.date: 02/14/2021
 
 ms.reviewer: mbullwin
 ---
@@ -148,7 +148,7 @@ Below is a table of smart detection rule names as they appear in the portal, alo
 
 ### Failure Anomalies alert rule
 
-This Azure Resource Manager template demonstrates configuring a Failure Anomalies alert rule with a severity of 2. This new version of the Failure Anomalies alert rule is part of the new Azure alerting platform, and replaces the classic version that is being retired as part of the [classic alerts retirement process](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+This Azure Resource Manager template demonstrates configuring a Failure Anomalies alert rule with a severity of 2.
 
 > [!NOTE]
 > Failure Anomalies is a global service therefore rule location is created on the global location.

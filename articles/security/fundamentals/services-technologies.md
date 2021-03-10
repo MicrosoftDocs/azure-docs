@@ -31,7 +31,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](../../security-center/security-center-introduction.md)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
 |[Azure Key Vault](../../key-vault/general/overview.md)| A secure secrets store for the passwords, connection strings, and other information you need to keep your apps working. |
-|[Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Security Center. |
+|[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Security Center. |
 |[Azure Dev/Test Labs](../../devtest-labs/devtest-lab-overview.md)|A service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
@@ -63,11 +63,11 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 ## Identity and access management
 |Service|Description|
 |------|--------|
-| [Azure&nbsp;Role&nbsp;Based&nbsp;Access Control](../../role-based-access-control/role-assignments-portal.md)|An access control feature designed to allow users to access only the resources they are required to access based on their roles within the organization.  |
+| [Azure&nbsp;role-based&nbsp;access control](../../role-based-access-control/role-assignments-portal.md)|An access control feature designed to allow users to access only the resources they are required to access based on their roles within the organization.  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|A cloud-based authentication repository that supports a multi-tenant, cloud-based directory and multiple identity management services within Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|An identity management service that enables control over how customers sign-up, sign-in, and manage their profiles when using Azure-based applications.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| A cloud-based and managed version of Active Directory Domain Services. |
-| [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| A security provision that employs several different forms of authentication and verification before allowing access to secured information. |
+| [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| A security provision that employs several different forms of authentication and verification before allowing access to secured information. |
 
 ## Backup and disaster recovery
 |Service|Description|
@@ -87,5 +87,5 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| A global DNS load balancer.|
 | [Azure Application Proxy](../../active-directory/manage-apps/application-proxy.md)| An authenticating front-end used to secure remote access for web applications hosted on-premises. |
 |[Azure Firewall](../../firewall/overview.md)|A managed, cloud-based network security service that protects your Azure Virtual Network resources.|
-|[Azure DDoS protection](../../virtual-network/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
+|[Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
 |[Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)|Extends your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection.|

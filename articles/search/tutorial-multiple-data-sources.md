@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/13/2020
+ms.date: 01/23/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -346,7 +346,7 @@ await indexerClient.CreateOrUpdateIndexerAsync(blobIndexer);
 try
 {
     // Run the indexer.
-    await searchService.Indexers.RunAsync(cosmosDbIndexer.Name);
+    await searchService.Indexers.RunAsync(blobIndexer.Name);
 }
 catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
 {

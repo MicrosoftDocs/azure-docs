@@ -62,14 +62,14 @@ Azure Databricks is an Apache Spark-based analytics platform with a one-click se
     * Install the library onto a cluster  
       <img src="media/install-library.png" alt="Install Library on Cluster" width="50%"/>
 
-### Synapse Analytics (optional)
+### Azure Synapse Analytics (optional)
 
-Optionally, you can use Synapse Analytics to create a spark cluster. Azure Synapse Analytics brings together enterprise data warehousing and big data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources at scale. To get started using Synapse Analytics, follow these steps:
+Optionally, you can use Synapse Analytics to create a spark cluster. Azure Synapse Analytics brings together enterprise data warehousing and big data analytics. It gives you the freedom to query data on your terms, using either serverless on-demand or provisioned resources at scale. To get started using Azure Synapse Analytics, follow these steps:
 
 1. [Create a Synapse Workspace (preview)](../../synapse-analytics/quickstart-create-workspace.md).
 1. [Create a new serverless Apache Spark pool (preview) using the Azure portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
-In Synapse Analytics, Big Data for Cognitive Services is installed by default.
+In Azure Synapse Analytics, Big Data for Cognitive Services is installed by default.
 
 ### Azure Kubernetes Service
 

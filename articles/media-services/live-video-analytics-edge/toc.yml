@@ -50,7 +50,10 @@
     items:
     - name: With OVMS via HTTP extension
       displayName: intel, OpenVINO 
-      href: use-intel-openvino-tutorial.md  
+      href: use-intel-openvino-tutorial.md
+    - name: With OV DL Streamer via gRPC extension
+      displayName: intel, OpenVINO DL Streamer
+      href: use-intel-grpc-vas-tutorial.md  
     - name: Use Custom Vision
       href: custom-vision-tutorial.md  
     - name: Use Spatial Analysis
@@ -59,13 +62,18 @@
   items:
   - name: C# Direct Method samples
     href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp
+  - name: C# SDK samples
+    href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp-sdk
   - name: Python Direct Method samples
     href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-python
+  - name: Python SDK samples
+    href: https://github.com/Azure-Samples/live-video-analytics-iot-edge-python-sdk
 - name: Concepts
   items:
   - name: Media graph
     href: media-graph-concept.md
   - name: Media graph extension
+    displayName: AI
     href: media-graph-extension-concept.md
   - name: Video recording 
     href: video-recording-concept.md
@@ -85,6 +93,8 @@
     href: create-custom-azure-resource-manager-role-how-to.md
   - name: Deploy to an IoT Edge device
     href: deploy-iot-edge-device.md
+  - name: Deploy to an IoT Edge for Linux on Windows
+    href: deploy-iot-edge-linux-on-windows.md
   - name: Monitoring and logging
     href: monitoring-logging.md
   - name: Playback a recording 
@@ -99,6 +109,10 @@
     href: configure-signal-gate-how-to.md
   - name: Troubleshoot
     href: troubleshoot-how-to.md
+  - name: Upgrading
+    href: upgrading-lva-module.md
+  - name: Develop and deploy a gRPC inference server
+    href: develop-deploy-grpc-inference-srv-how-to.md
 - name: Reference
   items:
   - name: HTTP extension protocol
@@ -119,4 +133,10 @@
     href: production-readiness.md
   - name: Transparency and responsible AI principles
     href: https://azure.microsoft.com/resources/transparency-note-live-video-analytics-lva/
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/updates/?category=media
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/media-services/
 

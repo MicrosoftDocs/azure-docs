@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Deploy models"
 titleSuffix: Azure Machine Learning
-description: This tutorial, second of a two-part series, shows how to use Azure Machine Learning to deploy an image classification model with scikit-learn in a Python Jupyter notebook.
+description: This tutorial shows how to use Azure Machine Learning to deploy an image classification model with scikit-learn in a Python Jupyter notebook.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

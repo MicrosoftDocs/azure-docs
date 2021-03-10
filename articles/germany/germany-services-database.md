@@ -43,4 +43,4 @@ The URLs for accessing and managing Azure Cache for Redis in Azure Germany are d
 
 ## Next steps
 For supplemental information and updates, subscribe to the
-[Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/).
+[Azure Germany blog](/archive/blogs/azuregermany/).

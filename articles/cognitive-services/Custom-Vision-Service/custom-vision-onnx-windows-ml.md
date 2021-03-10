@@ -25,7 +25,7 @@ In this guide, you'll learn how to use an ONNX file exported from the Custom Vis
 * Windows 10 version 1809 or higher
 * Windows SDK for build 17763 or higher
 * Visual Studio 2017 version 15.7 or later with the __Universal Windows Platform development__ workload enabled.
-* Developer mode enabled on your PC. For more information, see [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
+* Developer mode enabled on your PC. For more information, see [Enable your device for development](/windows/uwp/get-started/enable-your-device-for-development).
 
 ## About the example app
 
@@ -44,9 +44,9 @@ The example application is available at the [Cognitive Services ONNX Custom Visi
 
 To use your own image classifier model, follow these steps:
 
-1. Create and train a classifier with the Custom Vision Service. For instructions on how to do this, see [Create and train a classifier](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier). Use one of the **compact** domains such as **General (compact)**. 
+1. Create and train a classifier with the Custom Vision Service. For instructions on how to do this, see [Create and train a classifier](./getting-started-build-a-classifier.md). Use one of the **compact** domains such as **General (compact)**. 
    * If you have an existing classifier that uses a different domain, you can convert it to **compact** in the project settings. Then, re-train your project before continuing.
-1. Export your model. Switch to the Performance tab and select an iteration that was trained with a **compact** domain. Select the **Export** button that appears. Then select **ONNX**, and then **Export**. Once the file is ready, select the **Download** button. For more information on export options, see [Export your model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model).
+1. Export your model. Switch to the Performance tab and select an iteration that was trained with a **compact** domain. Select the **Export** button that appears. Then select **ONNX**, and then **Export**. Once the file is ready, select the **Download** button. For more information on export options, see [Export your model](./export-your-model.md).
 1. Open the downloaded *.zip* file and extract the *model.onnx* file from it. This file contains your classifier model.
 1. In the Solution Explorer in Visual Studio, right-click the **Assets** Folder and select __Add Existing Item__. Select your ONNX file.
 1. In Solution Explorer, right-click the ONNX file and select **Properties**. Change the following properties for the file:
@@ -60,7 +60,7 @@ To use your own image classifier model, follow these steps:
 
 To discover other ways to export and use a Custom Vision model, see the following documents:
 
-* [Export your model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)
+* [Export your model](./export-your-model.md)
 * [Use exported Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Use exported CoreML model in a Swift iOS application](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Use exported CoreML model in an iOS application with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)

@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # How to: Manage your data feeds
 
-Learn how to manage your onboarded data feeds in Metrics Advisor. This article guides you through managing data feeds in Metrics Monitor.
+Learn how to manage your onboarded data feeds in Metrics Advisor. This article guides you through managing data feeds in Metrics Advisor.
 
 ## Edit a data feed
 

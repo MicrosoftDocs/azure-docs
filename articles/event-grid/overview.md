@@ -2,7 +2,7 @@
 title: What is Azure Event Grid? 
 description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
 ms.topic: overview
-ms.date: 09/24/2020
+ms.date: 01/28/2021
 ---
 
 # What is Azure Event Grid?
@@ -15,7 +15,7 @@ Azure Event Grid is deployed to maximize availability by natively spreading acro
 
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). 
 
-:::image type="content" source="./media/overview/functional-model.png" alt-text="Event Grid model of sources and handlers" lightbox="./media/overview/functional-model.png":::
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Event Grid model of sources and handlers" lightbox="./media/overview/functional-model-big.png":::
 
 This image shows how Event Grid connects sources and handlers, and isn't a comprehensive list of supported integrations.
 
@@ -37,6 +37,7 @@ Currently, the following Azure services support sending events to Event Grid. Fo
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Azure subscriptions](event-schema-subscriptions.md)
+- [Azure Cache for Redis](event-schema-azure-cache.md)
 
 ## Event handlers
 
@@ -73,7 +74,7 @@ Here are some of the key features of Azure Event Grid:
 * **Fan-out** - Subscribe several endpoints to the same event to send copies of the event to as many places as needed.
 * **Reliability** - 24-hour retry with exponential backoff to make sure events are delivered.
 * **Pay-per-event** - Pay only for the amount you use Event Grid.
-* **High throughput** - Build high-volume workloads on Event Grid with support for millions of events per second.
+* **High throughput** - Build high-volume workloads on Event Grid.
 * **Built-in Events** - Get up and running quickly with resource-defined built-in events.
 * **Custom Events** - Use Event Grid to route, filter, and reliably deliver custom events in your app.
 

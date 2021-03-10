@@ -50,7 +50,7 @@ To edit a custom control, you must delete the current control and create a new c
 
 ## Known limitations
 
-Custom controls cannot be used with Identity Protection's automation requiring Azure Multi-Factor Authentication, Azure AD self-service password reset (SSPR), satisfying multi-factor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), as part of Intune device enrollment, or when joining devices to Azure AD.
+Custom controls cannot be used with Identity Protection's automation requiring Azure AD Multi-Factor Authentication, Azure AD self-service password reset (SSPR), satisfying multi-factor authentication claim requirements, to elevate roles in Privileged Identity Manager (PIM), as part of Intune device enrollment, or when joining devices to Azure AD.
 
 ## Next steps
 

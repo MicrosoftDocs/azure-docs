@@ -27,7 +27,7 @@ If your internet browser page hangs, try each of the following steps until you c
 - Use a different internet browser.
 - Use the private browsing mode for your browser:
 
-   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/) or [Azure account center](https://account.azure.com/Subscriptions). 
+   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/). 
    - **Chrome:** Choose **Incognito** mode.
    - **Safari:** Choose **File**, then **New Private Window**.
 
@@ -48,7 +48,7 @@ To resolve the issue, try one of the following methods:
    - **Chrome:** Choose **Settings** and select **Clear browsing data** under **Privacy and Security**.
 - Reset your browser settings to defaults.
 - Use the private browsing mode for your browser. 
-   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/) or [Azure account center](https://account.azure.com/Subscriptions). 
+   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/). 
    - **Chrome:** Choose **Incognito** mode.
    - **Safari:** Choose **File**, then **New Private Window**.
 

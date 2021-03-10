@@ -8,13 +8,11 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
-
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/05/2020
+ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -60,13 +58,31 @@ Some guiding principles in selecting your storage configuration for HANA can be 
 - Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../disks-types.md)
 - The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](../../sizes-memory.md)
 - When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. Writing savepoints, SAP HANA can be aggressive issuing I/Os. It is easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
-- If you are using Azure premium storage, the least expensive configuration is to use logical volume managers to build stripe sets to build the **/hana/data** and **/hana/log** volumes
+
 
 > [!IMPORTANT]
 > The suggestions for the storage configurations are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you are not utilizing all the storage bandwidth or IOPS provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
 
+
+## Stripe sets versus SAP HANA data volume partitioning
+Using Azure premium storage you may hit the best price/performance ratio when you stripe the **/hana/data** and/or **/hana/log** volume across multiple Azure disks. Instead of deploying larger disk volumes that provide the more on IOPS or throughput needed. So far this was accomplished with LVM and MDADM volume managers which are part of Linux. The method of striping disks is decades old and well known. As beneficial as those striped volumes are to get to the IOPS or throughput capabilities you may need, it adds complexities around managing those striped volumes. Especially in cases when the volumes need to get extended in capacity. At least for **/hana/data**, SAP introduced an alternative method that achieves the same goal as striping across multiple Azure disks. Since SAP HANA 2.0 SPS03, the HANA indexserver is able to stripe its I/O activity across multiple HANA data files which are located on different Azure disks. The advantage is that you don't have to take care of creating and managing a striped volume across different Azure disks. The SAP HANA functionality of data volume partitioning is described in detail in:
+
+- [The HANA Administrator's Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog about SAP HANA – Partitioning Data Volumes](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [SAP Note #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [SAP Note #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
+Reading through the details, it is apparent that leveraging this functionality takes away complexities of volume manager based stripe sets. You also realize that the HANA data volume partitioning is not only working for Azure block storage, like Azure premium storage. You can use this functionality as well to stripe across NFS shares in case these shares have IOPS or throughput limitations.  
+
+
 ## Linux I/O Scheduler mode
-Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **mq-deadline** or **kyber** mode to the **noop** (non-multiqueue) or **none** for (multiqueue) mode. Details are referenced in [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux has several different I/O scheduling modes. Common recommendation through Linux vendors and SAP is to reconfigure the I/O scheduler mode for disk volumes from the **mq-deadline** or **kyber** mode to the **noop** (non-multiqueue) or **none** for (multiqueue) mode if not done yet by the SLES saptune profiles. Details are referenced in: 
+
+- [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)
+- [SAP Note #2578899](https://launchpad.support.sap.com/#/notes/2578899) 
+- [Issue with noop setting in SLES 12 SP4](https://www.suse.com/support/kb/doc/?id=000019547)
+
+On Red Hat, leave the settings as established by the specific tune profiles for the different SAP applications.
 
 
 ## Solutions with premium storage and Azure Write Accelerator for Azure M-Series virtual machines
@@ -109,7 +125,7 @@ Accumulating a number of Azure VHDs underneath a stripe set, is accumulative fro
 
 
 ### Azure burst functionality for premium storage
-For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](../../linux/disk-bursting.md). When you read the article, you understand the concept of accruing IOPS and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You are going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
+For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](../../disk-bursting.md). When you read the article, you understand the concept of accruing IOPS and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You are going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
 
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
 
@@ -131,7 +147,7 @@ Especially on smaller DBMS systems where your workload is handling a few hundred
 > SAP HANA certification for Azure M-Series virtual machines is exclusively with Azure Write Accelerator for the **/hana/log** volume. As a result, production scenario SAP HANA deployments on Azure M-Series virtual machines are expected to be configured with Azure Write Accelerator for the **/hana/log** volume.  
 
 > [!NOTE]
-> In scenarios that involve Azure premium storage, we are implementing burst capabilities into the configuration. As you are using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](../../linux/disk-bursting.md) in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we are not expecting that all tests will pass the criteria since some of the tests will exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break.
+> In scenarios that involve Azure premium storage, we are implementing burst capabilities into the configuration. As you are using storage test tools of whatever shape or form, keep the way [Azure premium disk bursting works](../../disk-bursting.md) in mind. Running the storage tests delivered through the SAP HWCCT or HCMT tool, we are not expecting that all tests will pass the criteria since some of the tests will exceed the bursting credits you can accumulate. Especially when all the tests run sequentially without break.
 
 
 > [!NOTE]
@@ -270,7 +286,7 @@ For detail on ANF for HANA, read the document [NFS v4.1 volumes on Azure NetApp 
 
 
 ## Cost conscious solution with Azure premium storage
-So far, the Azure premium storage solution described in this document in section [Solutions with premium storage and Azure Write Accelerator for Azure M-Series virtual machines](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) were meant for SAP HANA production supported scenarios. One of the characteristics of production supportable configurations is the separation of the volumes for SAP HANA data and redo log into two different volumes. Reason for such a separation is that the workload characteristics on the volumes are different. And that with the suggested production configurations, different type of caching or even different types of Azure block storage could be necessary. The production supported configurations using Azure block storage target to be compliant with the [single VM SLA for Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) as well.  For non-production scenarios, some of the considerations taken for production systems may not apply to more low end non-production systems. As a result the HANA data and log volume could be combined. Though eventually with some culprits, like eventually not meeting certain throughput or latency KPIs that are required for production systems. Another aspect to reduce costs in such environments can be the usage of [Azure Standard SSD storage](./planning-guide-storage.md#azure-standard-ssd-storage). Though a choice which  invalidates the [single VM SLA for Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+So far, the Azure premium storage solution described in this document in section [Solutions with premium storage and Azure Write Accelerator for Azure M-Series virtual machines](#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) were meant for SAP HANA production supported scenarios. One of the characteristics of production supportable configurations is the separation of the volumes for SAP HANA data and redo log into two different volumes. Reason for such a separation is that the workload characteristics on the volumes are different. And that with the suggested production configurations, different type of caching or even different types of Azure block storage could be necessary. For non-production scenarios, some of the considerations taken for production systems may not apply to more low end non-production systems. As a result the HANA data and log volume could be combined. Though eventually with some culprits, like eventually not meeting certain throughput or latency KPIs that are required for production systems. Another aspect to reduce costs in such environments can be the usage of [Azure Standard SSD storage](./planning-guide-storage.md#azure-standard-ssd-storage). Keep in mind that choosing Standard SSD or Standard HDD Azure storage has impact on your single VM SLAs as documented in the article  [SLA for Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines).
 
 A less costly alternative for such configurations could look like:
 

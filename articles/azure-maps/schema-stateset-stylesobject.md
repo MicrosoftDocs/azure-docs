@@ -1,24 +1,35 @@
 ---
-title:  StylesObject for Dynamic Azure Maps
-description: Reference guide to the JSON schema and syntax for the StylesObject used in creating in dynamic Azure Maps.
+title:  StylesObject Schema reference guide for Dynamic Azure Maps
+description: Reference guide to the dynamic Azure Maps StylesObject schema and syntax.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/19/2020
+ms.date: 12/07/2020
 ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# StylesObject Schema reference guide for Dynamic Maps
+# StylesObject Schema reference guide for dynamic Maps
 
-This article is a reference guide to the JSON schema and syntax for the `StylesObject`. The `StylesObject` is a `StyleObject` array representing stateset styles. Use the Azure Maps Creator [Feature State service](/rest/api/maps/featurestate) to apply your stateset styles to indoor map data features. Once you have created your stateset styles and associated them with indoor map features, you can use them to create dynamic indoor maps. For more information on creating dynamic indoor maps, see [Implement dynamic styling for Creator indoor maps](indoor-map-dynamic-styling.md).
+> [!IMPORTANT]
+> Azure Maps Creator services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+ The `StylesObject` is a `StyleObject` array representing stateset styles. Use the Azure Maps Creator (Preview) [Feature State service](/rest/api/maps/featurestate) to apply your stateset styles to indoor map data features. Once you've created your stateset styles and associated them with indoor map features, you can use them to create dynamic indoor maps. For more information on creating dynamic indoor maps, see [Implement dynamic styling for Creator  indoor maps](indoor-map-dynamic-styling.md).
 
 ## StyleObject
 
-A `StyleObject` is either as a [`BooleanTypeStyleRule`](#booleantypestylerule) or a [`NumericTypeStyleRule`](#numerictypestylerule).
+A `StyleObject` is one of the following style rules:
 
-The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTypeStyleRule` named `temperature`.
+ * [`BooleanTypeStyleRule`](#booleantypestylerule)
+ * [`NumericTypeStyleRule`](#numerictypestylerule)
+ * [`StringTypeStyleRule`](#stringtypestylerule)
+
+The JSON below shows example usage of each of the three style types.  The `BooleanTypeStyleRule` is used to determine the dynamic style for features whose `occupied` property is true and false.  The `NumericTypeStyleRule` is used to determine the style for features whose `temperature` property falls within a certain range. Finally, the `StringTypeStyleRule` is used to match specific styles to `meetingType`.
+
+
 
 ```json
  "styles": [
@@ -51,6 +62,18 @@ The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTyp
               "color": "#eba834"
             }
         ]
+    },
+    {
+      "keyname": "meetingType",
+      "type": "string",
+      "rules": [
+        {
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
+        }
+      ]
     }
 ]
 ```
@@ -61,17 +84,17 @@ The JSON below shows a `BooleanTypeStyleRule` named `occupied` and a `NumericTyp
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
-| `keyName` | string | The *state* or dynamic property name. A `keyName` should be unique inside `StyleObject` array.| Yes |
+| `keyName` | string | The *state* or dynamic property name. A `keyName` should be unique inside the `StyleObject` array.| Yes |
 | `type` | string | Value is "numeric". | Yes |
-| `rules` | [`NumberRuleObject`](#numberruleobject)[]| An array of numeric style ranges with associated colors. Each range defines a color that is to be used when the *state* value satisfies the range.| Yes |
+| `rules` | [`NumberRuleObject`](#numberruleobject)[]| An array of numeric style ranges with associated colors. Each range defines a color that's to be used when the *state* value satisfies the range.| Yes |
 
 ### NumberRuleObject
 
 A `NumberRuleObject` consists of a [`RangeObject`](#rangeobject) and a `color` property. If the *state* value falls into the range, its color for display will be the color specified in the `color` property.
 
-If you define multiple overlapping ranges, the color chosen will be the color that is defined in the first range that is satisfied.
+If you define multiple overlapping ranges, the color chosen will be the color that's defined in the first range that is satisfied.
 
-In the following JSON sample, both ranges will hold true when the *state* value is between 50-60. However, the color that will be used is `#343deb` because it is the first range in the list that has been satisfied.
+In the following JSON sample, both ranges will hold true when the *state* value is between 50-60. However, the color that will be used is `#343deb` because it's the first range in the list that has been satisfied.
 
 ```json
 
@@ -103,7 +126,7 @@ In the following JSON sample, both ranges will hold true when the *state* value 
 
 ### RangeObject
 
-The `RangeObject` defines a numeric range value of a [`NumberRuleObject`](#numberruleobject). For the *state* value to fall into the range, all defined conditions must hold true. 
+The `RangeObject` defines a numeric range value of a [`NumberRuleObject`](#numberruleobject). For the *state* value to fall into the range, all defined conditions must hold true.
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
@@ -139,13 +162,55 @@ The following JSON illustrates a `NumericTypeStyleRule` *state* named `temperatu
 }
 ```
 
+## StringTypeStyleRule
+
+A `StringTypeStyleRule` is a [`StyleObject`](#styleobject) and consists of the following properties:
+
+| Property | Type | Description | Required |
+|-----------|----------|-------------|-------------|
+| `keyName` | string |  The *state* or dynamic property name.  A `keyName` should be unique inside the  `StyleObject` array.| Yes |
+| `type` | string |Value is "string". | Yes |
+| `rules` | [`StringRuleObject`](#stringruleobject)[]| An array of N number of *state* values.| Yes |
+
+### StringRuleObject
+
+A `StringRuleObject` consists of up to N number of state values that are the possible string values of a feature's property. If the feature's property value doesn't match any of the defined state values, that feature won't have a dynamic style. If duplicate state values are given, the first one takes precedence.
+
+The string value matching is case-sensitive.
+
+| Property | Type | Description | Required |
+|-----------|----------|-------------|-------------|
+| `stateValue1` | string | The color when value string is stateValue1. | No |
+| `stateValue2` | string | The color when value string is stateValue. | No |
+| `stateValueN` | string | The color when value string is stateValueN. | No |
+
+### Example of StringTypeStyleRule
+
+The following JSON illustrates a `StringTypeStyleRule` that defines styles associated with specific meeting types.
+
+```json
+    {
+      "keyname": "meetingType",
+      "type": "string",
+      "rules": [
+        {
+          "private": "#FF0000",
+          "confidential": "#FF00AA",
+          "allHands": "#00FF00",
+          "brownBag": "#964B00"
+        }
+      ]
+    }
+
+```
+
 ## BooleanTypeStyleRule
 
 A `BooleanTypeStyleRule` is a [`StyleObject`](#styleobject) and consists of the following properties:
 
 | Property | Type | Description | Required |
 |-----------|----------|-------------|-------------|
-| `keyName` | string |  The *state* or dynamic property name.  A `keyName` should be unique inside style array.| Yes |
+| `keyName` | string |  The *state* or dynamic property name.  A `keyName` should be unique inside the `StyleObject`  array.| Yes |
 | `type` | string |Value is "boolean". | Yes |
 | `rules` | [`BooleanRuleObject`](#booleanruleobject)[1]| A boolean pair with colors for `true` and `false` *state* values.| Yes |
 

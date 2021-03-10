@@ -17,7 +17,7 @@ Although certain application scenarios can result in low utilization by design, 
 The recommended actions are shut down or resize, specific to the resource being evaluated.
 
 The advanced evaluation model in Advisor considers shutting down virtual machines when all of these statements are true: 
-- P95th of the maximum of maximum value of CPU utilization is less than 3%. 
+- P95th of the maximum value of CPU utilization is less than 3%. 
 - Network utilization is less than 2% over a seven-day period.
 - Memory pressure is lower than the threshold values
 
@@ -67,7 +67,7 @@ Advisor analyzes your Azure Blob storage and Azure Data Lake storage usage over 
 ### MariaDB, MySQL, and PostgreSQL reserved capacity
 Advisor analyzes your usage patterns for Azure Database for MariaDB, Azure Database for MySQL, and Azure Database for PostgreSQL over the past 30 days. It then recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase MariaDB, MySQL, and PostgreSQL hourly usage and save over your current costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
-### Azure Synapse Analytics (formerly SQL Data Warehouse) reserved capacity
+### Azure Synapse Analytics reserved capacity
 Advisor analyzes your Azure Synapse Analytics usage patterns over the past 30 days and recommends reserved capacity purchases that optimize costs. By using reserved capacity, you can pre-purchase Synapse Analytics hourly usage and save over your on-demand costs. Reserved capacity is a billing benefit and automatically applies to new and existing deployments. Advisor calculates savings estimates for individual subscriptions by using 3-year reservation pricing and the usage patterns observed over the past 30 days. Shared scope recommendations are available for reserved capacity purchases and can increase savings.
 
 ## Delete unassociated public IP addresses to save money

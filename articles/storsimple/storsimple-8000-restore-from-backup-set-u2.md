@@ -59,7 +59,7 @@ In Update 4, Windows PowerShell cmdlets can be used to query running rehydration
 
 * `Set-HcsRehydrationJob` - This cmdlet allows you to pause, stop, resume the rehydration job, when the rehydration is in progress.
 
-For more information on rehydration cmdlets, go to [Windows PowerShell cmdlet reference for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+For more information on rehydration cmdlets, go to [Windows PowerShell cmdlet reference for StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
 
 With automatic rehydration, typically higher transient read performance is expected. The actual magnitude of improvements depends on various factors such as access pattern, data churn, and data type. 
 
@@ -133,4 +133,3 @@ To complete the restore operation, take the volume offline on the host and retry
 ## Next steps
 * Learn how to [Manage StorSimple volumes](storsimple-8000-manage-volumes-u2.md).
 * Learn how to [use the StorSimple Device Manager service to administer your StorSimple device](storsimple-8000-manager-service-administration.md).
-

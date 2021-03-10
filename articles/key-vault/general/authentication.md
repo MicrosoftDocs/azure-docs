@@ -98,6 +98,9 @@ The following diagram illustrates the process for an application calling a Key V
 
 ![The Azure Key Vault authentication flow](../media/authentication/authentication-flow.png)
 
+> [!NOTE]
+> Key Vault SDK clients for secrets, certificates, and keys make an additional call to Key Vault without access token,  which results in 401 response to retrieve tenant information. For more information see [Authentication, requests and responses](authentication-requests-and-responses.md)
+
 ## Code examples
 
 The following table links to different articles that demonstrate how to work with Key Vault in application code using the Azure SDK libraries for the language in question. Other interfaces such as the Azure CLI and the Azure portal are included for convenience.
@@ -105,11 +108,9 @@ The following table links to different articles that demonstrate how to work wit
 | Key Vault Secrets | Key Vault Keys | Key Vault Certificates |
 |  --- | --- | --- |
 | [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
-| [.NET (SDK v4)](../secrets/quick-create-net.md) | -- | -- |
-| [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
-| [Java](../secrets/quick-create-java.md) | -- | -- |
-| [JavaScript](../secrets/quick-create-node.md) | -- | -- | 
-| | | |
+| [.NET](../secrets/quick-create-net.md) | [.NET](../keys/quick-create-net.md) | [.NET](../certificates/quick-create-net.md) |
+| [Java](../secrets/quick-create-java.md) | [Java](../keys/quick-create-java.md) | [Java](../certificates/quick-create-java.md) |
+| [JavaScript](../secrets/quick-create-node.md) | [JavaScript](../keys/quick-create-node.md) | [JavaScript](../certificates/quick-create-node.md) | 
 | [Azure portal](../secrets/quick-create-portal.md) | [Azure portal](../keys/quick-create-portal.md) | [Azure portal](../certificates/quick-create-portal.md) |
 | [Azure CLI](../secrets/quick-create-cli.md) | [Azure CLI](../keys/quick-create-cli.md) | [Azure CLI](../certificates/quick-create-cli.md) |
 | [Azure PowerShell](../secrets/quick-create-powershell.md) | [Azure PowerShell](../keys/quick-create-powershell.md) | [Azure PowerShell](../certificates/quick-create-powershell.md) |

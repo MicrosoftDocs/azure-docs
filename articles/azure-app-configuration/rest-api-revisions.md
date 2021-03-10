@@ -1,8 +1,8 @@
 ---
-title: Azure App Configuration REST API - Key-value revisions
-description: Reference pages for working with key-value revisions using the Azure App Configuration REST API
-author: lisaguthrie
-ms.author: lcozzens
+title: Azure App Configuration REST API - key-value revisions
+description: Reference pages for working with key-value revisions by using the Azure App Configuration REST API
+author: AlexandraKemperMS
+ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
@@ -10,20 +10,19 @@ ms.date: 08/17/2020
 
 # Key-value revisions
 
-api-version: 1.0
+A *key-value revision* defines the historical representation of a key-value resource. Revisions expire after 7 days for Free tier stores, or 30 days for Standard tier stores. Revisions support the `List` operation.
 
-A **key-value revision** defines the historical representation of a key-value resource. Revisions expire after 7 days for Free tier stores, or 30 days for Standard tier stores. Revisions support the following operations:
+For all operations, ``key`` is an optional parameter. If omitted, it implies any key.
 
-- List
+For all operations, ``label`` is an optional parameter. If omitted, it implies any label.
 
-For all operations, ``key`` is an optional parameter. If omitted, it implies **any** key.
-For all operations, ``label`` is an optional parameter. If omitted, it implies **any** label.
+This article applies to API version 1.0.
 
 ## Prerequisites
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-rest-api-prereqs.md)]
 
-## List Revisions
+## List revisions
 
 ```http
 GET /revisions?label=*&api-version={api-version} HTTP/1.1
@@ -57,7 +56,7 @@ Accept-Ranges: items
 
 ## Pagination
 
-The result is paginated if the number of items returned exceeds the response limit. Follow the optional ``Link`` response header and use ``rel="next"`` for navigation.  Alternatively, the content provides a next link in form of the ``@nextLink`` property.
+The result is paginated if the number of items returned exceeds the response limit. Follow the optional ``Link`` response header and use ``rel="next"`` for navigation. Alternatively, the content provides a next link in the form of the ``@nextLink`` property.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -83,7 +82,7 @@ Link: <{relative uri}>; rel="next"
 
 ## List subset of revisions
 
-Use the `Range` request header. The response will contain a `Content-Range` header. If the server can't satisfy the requested range, it will respond with HTTP `416` (RangeNotSatisfiable)
+Use the `Range` request header. The response contains a `Content-Range` header. If the server can't satisfy the requested range, it responds with HTTP `416` (`RangeNotSatisfiable`).
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1
@@ -109,7 +108,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### Supported filters
 
-|Key Filter|Effect|
+|Key filter|Effect|
 |--|--|
 |`key` is omitted or `key=*`|Matches **any** key|
 |`key=abc`|Matches a key named  **abc**|
@@ -118,7 +117,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 |`key=*abc*`|Matches keys names that contain **abc**|
 |`key=abc,xyz`|Matches keys names **abc** or **xyz** (limited to 5 CSV)|
 
-|Label Filter|Effect|
+|Label filter|Effect|
 |--|--|
 |`label` is omitted or `label=`|Matches entry without label|
 |`label=*`|Matches **any** label|
@@ -130,11 +129,13 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 
 ### Reserved characters
 
+The reserved characters are:
+
 `*`, `\`, `,`
 
-If a reserved character is part of the value, then it must be escaped using `\{Reserved Character}`. Non-reserved characters can also be escaped.
+If a reserved character is part of the value, then it must be escaped by using `\{Reserved Character}`. Non-reserved characters can also be escaped.
 
-### Filter Validation
+### Filter validation
 
 If a filter validation error occurs, the response is HTTP `400` with error details:
 
@@ -155,19 +156,19 @@ Content-Type: application/problem+json; charset=utf-8
 
 ### Examples
 
-- All
+- All:
 
     ```http
     GET /revisions
     ```
 
-- Items where key name starts with **abc**
+- Items where the key name starts with **abc**:
 
     ```http
     GET /revisions?key=abc*&api-version={api-version}
     ```
 
-- Items where key name is either **abc** or **xyz** and labels contain **prod**
+- Items where the key name is either **abc** or **xyz**, and labels contain **prod**:
 
     ```http
     GET /revisions?key=abc,xyz&label=*prod*&api-version={api-version}
@@ -175,15 +176,15 @@ Content-Type: application/problem+json; charset=utf-8
 
 ## Request specific fields
 
-Use the optional `$select` query string parameter and provide comma-separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.
+Use the optional `$select` query string parameter and provide a comma-separated list of requested fields. If the `$select` parameter is omitted, the response contains the default set.
 
 ```http
 GET /revisions?$select=value,label,last_modified&api-version={api-version} HTTP/1.1
 ```
 
-## Time-Based Access
+## Time-based access
 
-Obtain a representation of the result as it was at a past time. See section [2.1.1](https://tools.ietf.org/html/rfc7089#section-2.1)
+Obtain a representation of the result as it was at a past time. For more information, see [HTTP Framework for Time-Based Access to Resource States -- Memento](https://tools.ietf.org/html/rfc7089#section-2.1), section 2.1.1.
 
 ```http
 GET /revisions?api-version={api-version} HTTP/1.1

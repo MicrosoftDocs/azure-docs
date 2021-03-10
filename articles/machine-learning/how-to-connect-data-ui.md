@@ -28,7 +28,7 @@ The following table defines and summarizes the benefits of datastores and datase
 
 To understand where datastores and datasets fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
-For a code first experience, see the following articles to use the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) to:
+For a code first experience, see the following articles to use the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/) to:
 * [Connect to Azure storage services with datastores](how-to-access-data.md). 
 * [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). 
 
@@ -158,7 +158,7 @@ You can find account key, SAS token, and service principal information on your [
 
 ### Permissions
 
-For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  have **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). An account SAS token defaults to no permissions. 
+For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials  have **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). An account SAS token defaults to no permissions. 
 * For data **read access**, your authentication credentials must have a minimum of list and read permissions for containers and objects. 
 
 * For data **write access**, write and add permissions also are required.

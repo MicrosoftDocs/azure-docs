@@ -166,7 +166,7 @@ Beginning with version 3.1, the Storage Emulator supports read-access geo-redund
 Starting in version 3.0, a console window is displayed when you start the Storage Emulator. Use the command line in the console window to start and stop the emulator. You can also query for status and do other operations from the command line.
 
 > [!NOTE]
-> If you have the Microsoft Azure compute emulator installed, a system tray icon appears when you launch the Storage Emulator. Right-click on the icon to reveal a menu that provides a graphical way to start and stop the Storage Emulator.
+> If you have the Microsoft Azure Compute Emulator installed, a system tray icon appears when you launch the Storage Emulator. Right-click on the icon to reveal a menu that provides a graphical way to start and stop the Storage Emulator.
 >
 >
 

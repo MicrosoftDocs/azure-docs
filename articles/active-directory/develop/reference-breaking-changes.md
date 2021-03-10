@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 5/4/2020
+ms.date: 2/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -19,7 +19,7 @@ ms.custom: aaddev
 
 > Get notified of updates to this page by pasting this URL into your RSS feed reader:<br/>`https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us`
 
-The authentication system alters and adds features on an ongoing basis to improve security and standards compliance. To stay up-to-date with the most recent developments, this article provides you with information about the following details:
+The authentication system alters and adds features on an ongoing basis to improve security and standards compliance. To stay up to date with the most recent developments, this article provides you with information about the following details:
 
 - Latest features
 - Known issues
@@ -31,7 +31,28 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
-None scheduled at this time.  Please see below for the changes that are in or are coming to production.
+### Conditional Access will only trigger for explicitly requested scopes
+
+**Effective date**: March 2021
+
+**Endpoints impacted**: v2.0
+
+**Protocol impacted**: All flows using [dynamic consent](v2-permissions-and-consent.md#requesting-individual-user-consent)
+
+Applications using dynamic consent today are given all of the permissions they have consent for, even if they were not requested in the `scope` parameter by name.  This can cause an app requesting e.g. only `user.read`, but with consent to `files.read`, to be forced to pass the Conditional Access assigned for the `files.read` permission. 
+
+In order to reduce the number of unnecessary Conditional Access prompts, Azure AD is changing the way that unrequested scopes are provided to applications so that only explicitly requested scopes trigger Conditional Access. This change may cause apps reliant on Azure AD's previous behavior (namely, providing all permissions even when they were not requested) to break, as the tokens they request will be missing permissions.
+
+Apps will now receive access tokens with a mix of permissions in this - those requested, as well as those they have consent for that do not require Conditional Access prompts.  The scopes of the access token is reflected in the token response's `scope` parameter. 
+
+**Examples**
+
+An app has consent for `user.read`, `files.readwrite`, and `tasks.read`. `files.readwrite` has Conditional Access policies applied to it, while the other two do not. If an app makes a token request for `scope=user.read`, and the currently signed in user has not passed any Conditional Access policies, then the resulting token will be for the `user.read` and `tasks.read` permissions. `tasks.read` is included because the app has consent for it, and it does not require a Conditional Access policy to be enforced. 
+
+If the app then requests `scope=files.readwrite`, the Conditional Access required by the tenant will trigger, forcing the app to show an interactive auth prompt where the Conditional Access policy can be satisfied.  The token returned will have all three scopes in it. 
+
+If the app then makes one last request for any of the three scopes (say, `scope=tasks.read`), Azure AD will see that the user has already completed the Conditional access policies needed for `files.readwrite`, and again issue a token with all three permissions in it. 
+
 
 ## May 2020
 
@@ -61,7 +82,7 @@ For more details, please see the [Azure Government blog post on this migration](
 
 **Protocol impacted**: All user flows.
 
-Users with passwords longer than 256 characters that sign in directly to Azure AD (as opposed to a federated IDP like ADFS) will be unable to sign in starting March 13, 2020, and be asked to reset their password instead.  Admins may recieve requests to help reset the users password.
+Users with passwords longer than 256 characters that sign in directly to Azure AD (as opposed to a federated IDP like ADFS) will be unable to sign in starting March 13, 2020, and be asked to reset their password instead.  Admins may receive requests to help reset the users password.
 
 The error in the sign in logs will be AADSTS 50052: InvalidPasswordExceedsMaxLength
 

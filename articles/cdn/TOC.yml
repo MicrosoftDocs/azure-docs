@@ -27,14 +27,16 @@
     href: cdn-custom-ssl.md
   - name: Set caching rules
     href: cdn-caching-rules-tutorial.md
-  - name: Enforce HTTPS by using the Standard rules engine
-    href: cdn-standard-rules-engine.md
 - name: Samples
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=cdn
 - name: Concepts
   items:
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: How caching works
     href: cdn-how-caching-works.md
   - name: China content delivery
@@ -72,6 +74,8 @@
       href: cdn-improve-performance.md
     - name: Endpoint multi-origin
       href: endpoint-multiorigin.md
+    - name: Enforce HTTPS by using the Standard rules engine
+      href: cdn-standard-rules-engine.md
     - name: Control caching behavior
       items:
       - name: Control caching behavior by using caching rules
@@ -107,8 +111,8 @@
   - name: Analyze
     href: cdn-log-analysis.md
     items:
-    - name: HTTP raw logs
-      href: enable-raw-logs.md
+    - name: Monitoring, metrics, and access Logs
+      href: monitoring-and-access-log.md
     - name: Azure diagnostics logs
       href: cdn-azure-diagnostic-logs.md
     - name: Analytics tools for Azure CDN from Verizon

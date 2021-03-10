@@ -34,6 +34,7 @@ The following sample *host.json* file for version 2.x+ has all possible options 
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -124,7 +125,8 @@ The following sample *host.json* file for version 2.x+ has all possible options 
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 
@@ -156,6 +158,8 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | snapshotConfiguration | n/a | See [applicationInsights.snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### applicationInsights.samplingSettings
+
+For more information about these settings, see [Sampling in Application Insights](../azure-monitor/app/sampling.md). 
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
@@ -208,9 +212,35 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 | thresholdForSnapshotting | 1 | How many times Application Insights needs to see an exception before it asks for snapshots. |
 | uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this setting if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to autodetect the proxy's address by examining System.Net.WebRequest.DefaultWebProxy and passing on the value to the Snapshot Uploader. If this value isn't null, then autodetection isn't used and the proxy server specified here will be used in the Snapshot Uploader. |
 
+## blobs
+
+Configuration settings can be found in [Storage blob triggers and bindings](functions-bindings-storage-blob.md#hostjson-settings).  
+
 ## cosmosDb
 
 Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
+
+## customHandler
+
+Configuration settings for a custom handler. For more information, see [Azure Functions custom handlers](functions-custom-handlers.md#configuration).
+
+```json
+"customHandler": {
+  "description": {
+    "defaultExecutablePath": "server",
+    "workingDirectory": "handler",
+    "arguments": [ "--port", "%FUNCTIONS_CUSTOMHANDLER_PORT%" ]
+  },
+  "enableForwardingHttpRequest": false
+}
+```
+
+|Property | Default | Description |
+| --------- | --------- | --------- |
+| defaultExecutablePath | n/a | The executable to start as the custom handler process. It is a required setting when using custom handlers and its value is relative to the function app root. |
+| workingDirectory | *function app root* | The working directory in which to start the custom handler process. It is an optional setting and its value is relative to the function app root. |
+| arguments | n/a | An array of command line arguments to pass to the custom handler process. |
+| enableForwardingHttpRequest | false | If set, all functions that consist of only an HTTP trigger and HTTP output is forwarded the original HTTP request instead of the custom handler [request payload](functions-custom-handlers.md#request-payload). |
 
 ## durableTask
 
@@ -218,7 +248,7 @@ Configuration setting can be found in [bindings for Durable Functions](durable/d
 
 ## eventHub
 
-Configuration settings can be found in [Event Hub triggers and bindings](functions-bindings-event-hubs-trigger.md#host-json). 
+Configuration settings can be found in [Event Hub triggers and bindings](functions-bindings-event-hubs.md#host-json). 
 
 ## extensions
 
@@ -310,7 +340,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 |Property  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This setting lets you filter logging for specific functions. For more information, see [Log filtering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) in the ASP.NET Core documentation. |
+|logLevel|n/a|Object that defines the log category filtering for functions in the app. This setting lets you filter logging for specific functions. For more information, see [Configure log levels](configure-monitoring.md#configure-log-levels). |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
 
@@ -348,7 +378,7 @@ Managed dependency is a feature that is currently only supported with PowerShell
 
 ## queues
 
-Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue-output.md#host-json).  
+Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue.md#host-json).  
 
 ## retry
 
@@ -415,6 +445,16 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## watchFiles
+
+An array of one or more names of files that are monitored for changes that require your app to restart.  This guarantees that when code in these files are changed, the updates are picked up by your functions.
+
+```json
+{
+    "watchFiles": [ "myFile.txt" ]
 }
 ```
 

@@ -59,7 +59,7 @@ Here's a basic deployment manifest with one module as an example:
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
                 "createOptions": "{}"
               }
             },
@@ -68,7 +68,7 @@ Here's a basic deployment manifest with one module as an example:
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
@@ -185,7 +185,7 @@ You deploy modules to your target devices by creating a deployment that consists
 
 Use the [az iot edge deployment create](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create) command to create a deployment:
 
-```cli
+```azurecli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
@@ -218,7 +218,7 @@ You cannot update the content of a deployment, which includes the modules and ro
 
 Use the [az iot edge deployment update](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update) command to update a deployment:
 
-```cli
+```azurecli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
 ```
 
@@ -239,7 +239,7 @@ When you delete a deployment, any devices take on their next highest priority de
 
 Use the [az iot edge deployment delete](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete) command to delete a deployment:
 
-```cli
+```azurecli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]
 ```
 

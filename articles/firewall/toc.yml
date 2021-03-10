@@ -32,6 +32,12 @@
   items:
     - name: Azure Firewall features
       href: features.md
+    - name: Azure Firewall Premium features
+      href: premium-features.md
+    - name: Azure Firewall Premium in the portal
+      href: premium-portal.md
+    - name: Azure Firewall Premium certificates
+      href: premium-certificates.md
     - name: FQDN tags
       href: fqdn-tags.md
     - name: Infrastructure FQDNs
@@ -58,6 +64,8 @@
       href: fqdn-filtering-network-rules.md
     - name: Security baseline
       href: security-baseline.md
+    - name: Active FTP support
+      href: active-ftp-support.md
 - name: How-to guides
   items:
     - name: Deploy using Azure PowerShell
@@ -87,10 +95,14 @@
     - name: Monitor diagnostic logs
       href: firewall-diagnostics.md
       displayName: Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings
-    - name: Azure Monitor logs
-      href: log-analytics-samples.md
     - name: Azure Firewall Workbook
       href: firewall-workbook.md
+    - name: Deploy and configure Firewall Premium
+      href: premium-deploy.md
+    - name: Deploy Enterprise CA Certificates for Premium
+      href: premium-deploy-certificates-enterprise-ca.md
+    - name: Migrate to Azure Firewall Premium
+      href: premium-migrate.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -112,7 +124,7 @@
 - name: Resources
   items:
   - name: FAQ
-    href: firewall-faq.md
+    href: firewall-faq.yml
   - name: Author templates
     href: ../azure-resource-manager/templates/template-syntax.md
   - name: Azure Roadmap

@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 This article helps you connect virtual networks (VNets) by using the VNet-to-VNet connection type. Virtual networks can be in different regions and from different subscriptions. When you connect VNets from different subscriptions, the subscriptions don't need to be associated with the same Active Directory tenant. 
 
-![v2v diagram](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram":::
 
 The steps in this article apply to the Azure Resource Manager deployment model and use the Azure portal. You can create this configuration with a different deployment tool or model by using options that are described in the following articles:
 
@@ -40,7 +40,7 @@ When you create a VNet-to-VNet connection, the local network gateway address spa
 
 ### Site-to-Site (IPsec)
 
-If you're working with a complicated network configuration, you may prefer to connect your VNets by using a [Site-to-Site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md) instead. When you follow the Site-to-Site IPsec steps, you create and configure the local network gateways manually. The local network gateway for each VNet treats the other VNet as a local site. These steps allow you to specify additional address spaces for the local network gateway to route traffic. If the address space for a VNet changes, you must manually update the corresponding local network gateway.
+If you're working with a complicated network configuration, you may prefer to connect your VNets by using a [Site-to-Site connection](./tutorial-site-to-site-portal.md) instead. When you follow the Site-to-Site IPsec steps, you create and configure the local network gateways manually. The local network gateway for each VNet treats the other VNet as a local site. These steps allow you to specify additional address spaces for the local network gateway to route traffic. If the address space for a VNet changes, you must manually update the corresponding local network gateway.
 
 ### VNet peering
 
@@ -61,7 +61,7 @@ You may want to connect virtual networks by using a VNet-to-VNet connection for 
 
 VNet-to-VNet communication can be combined with multi-site configurations. These configurations lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity, as shown in the following diagram:
 
-![About connections](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "About connections")
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections-diagram.png" alt-text="VNet connections diagram":::
 
 This article shows you how to connect VNets by using the VNet-to-VNet connection type. When you follow these steps as an exercise, you can use the following example settings values. In the example, the virtual networks are in the same subscription, but in different resource groups. If your VNets are in different subscriptions, you can't create the connection in the portal. Use [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) or [CLI](vpn-gateway-howto-vnet-vnet-cli.md) instead. For more information about VNet-to-VNet connections, see [VNet-to-VNet FAQ](#vnet-to-vnet-faq).
 
@@ -196,7 +196,7 @@ Next, create a connection from VNet4 to VNet1. In the portal, locate the virtual
 
 ## Add additional connections
 
-If you want to add additional connections, navigate to the virtual network gateway from which you want to create the connection, then select **Connections**. You can create another VNet-to-VNet connection, or create an IPsec Site-to-Site connection to an on-premises location. Be sure to adjust the **Connection type** to match the type of connection you want to create. Before you create additional connections, verify that the address space for your virtual network doesn't overlap with any of the address spaces you want to connect to. For steps to create a Site-to-Site connection, see [Create a Site-to-Site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+If you want to add additional connections, navigate to the virtual network gateway from which you want to create the connection, then select **Connections**. You can create another VNet-to-VNet connection, or create an IPsec Site-to-Site connection to an on-premises location. Be sure to adjust the **Connection type** to match the type of connection you want to create. Before you create additional connections, verify that the address space for your virtual network doesn't overlap with any of the address spaces you want to connect to. For steps to create a Site-to-Site connection, see [Create a Site-to-Site connection](./tutorial-site-to-site-portal.md).
 
 ## VNet-to-VNet FAQ
 
@@ -206,6 +206,6 @@ View the FAQ details for additional information about VNet-to-VNet connections.
 
 ## Next steps
 
-* For information about how you can limit network traffic to resources in a virtual network, see [Network Security](../virtual-network/security-overview.md).
+* For information about how you can limit network traffic to resources in a virtual network, see [Network Security](../virtual-network/network-security-groups-overview.md).
 
 * For information about how Azure routes traffic between Azure, on-premises, and Internet resources, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).

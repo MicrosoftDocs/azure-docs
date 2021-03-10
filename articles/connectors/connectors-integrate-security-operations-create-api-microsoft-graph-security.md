@@ -3,7 +3,7 @@ title: Integrate and manage security operations & Microsoft Graph Security
 description: Improve your app's threat protection, detection, and response with Microsoft Graph Security & Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: preetikr
+author: ecfan
 ms.author: preetikr
 ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
@@ -25,7 +25,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Microsoft
 
 Your logic app's workflow can use actions that get responses from the Microsoft Graph Security connector and make that output available to other actions in your workflow. You can also have other actions in your workflow use the output from the Microsoft Graph Security connector actions. For example, if you get high severity alerts through the Microsoft Graph Security connector, you can send those alerts in an email message by using the Outlook connector. 
 
-To learn more about Microsoft Graph Security, see the [Microsoft Graph Security API overview](/graph/security-concept-overview). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md). If you're looking for Microsoft Flow or PowerApps, see [What is Flow?](https://flow.microsoft.com/) or [What is PowerApps?](https://powerapps.microsoft.com/)
+To learn more about Microsoft Graph Security, see the [Microsoft Graph Security API overview](/graph/security-concept-overview). If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md). If you're looking for Power Automate or PowerApps, see [What is Power Automate?](https://flow.microsoft.com/) or [What is Power Apps?](https://powerapps.microsoft.com/)
 
 ## Prerequisites
 

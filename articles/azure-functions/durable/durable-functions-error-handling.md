@@ -191,7 +191,11 @@ The activity function call in the previous example takes a parameter for configu
 * **Backoff coefficient**: The coefficient used to determine rate of increase of backoff. Defaults to 1.
 * **Max retry interval**: The maximum amount of time to wait in between retry attempts.
 * **Retry timeout**: The maximum amount of time to spend doing retries. The default behavior is to retry indefinitely.
-* **Handle**: A user-defined callback can be specified to determine whether a function should be retried.
+* **Handle**: A user-defined callback can be specified to determine whether a function should be retried. 
+
+> [!NOTE]
+> User-defined callbacks aren't currently supported by Durable Functions in JavaScript (`context.df.RetryOptions`).
+
 
 ## Function timeouts
 

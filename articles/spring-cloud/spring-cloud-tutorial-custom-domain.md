@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Map an existing custom domain to Azure Spring Cloud
@@ -152,7 +152,7 @@ After you add the CNAME, the DNS records page will resemble the following exampl
 ![DNS records page](./media/custom-dns-tutorial/dns-records.png)
 
 ## Map your custom domain to Azure Spring Cloud app
-If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal?branch=master).
+If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](/azure/spring-cloud/spring-cloud-quickstart-launch-app-portal).
 
 #### [Portal](#tab/Azure-portal)
 Go to application page.

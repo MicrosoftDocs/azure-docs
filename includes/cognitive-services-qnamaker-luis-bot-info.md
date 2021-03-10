@@ -2,14 +2,14 @@
 title: include file
 description: include file 
 services: cognitive-services
-author: diberry
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 06/24/2019
-ms.author: diberry
+ms.date: 12/29/2020
+ms.author: mbullwin
 ---
 
 ## More information about bots

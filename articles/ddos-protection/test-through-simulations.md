@@ -25,6 +25,9 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
 - Document DDoS compliance.
 - Train your network security teams.
 
+> [!NOTE]
+> BreakingPoint Cloud is only available for the Public cloud.
+
 ## Prerequisites
 
 - Before you can complete the steps in this tutorial, you must first create a [Azure DDoS Standard protection plan](manage-ddos-protection.md) with protected public IP addresses.
@@ -38,9 +41,9 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
     |---------      |---------                                          |
     |Target IP address           | Enter one of your public IP address you want to test.                     |
     |Port Number   | Enter _443_.                       |
-    |DDoS Profile | Select **TCP SYN Flood**.|
-    |Test Size       | Select **200K pps, 100 Mbps and 8 source IPs.**                                  |
-    |Test Duration | Select **10 Minutes**.|
+    |DDoS Profile | Possible values include `DNS Flood`, `NTPv2 Flood`, `SSDP Flood`, `TCP SYN Flood`, `UDP 64B Flood`, `UDP 128B Flood`, `UDP 256B Flood`, `UDP 512B Flood`, `UDP 1024B Flood`, `UDP 1514B Flood`, `UDP Fragmentation`, `UDP Memcached`.|
+    |Test Size       | Possible values include `100K pps, 50 Mbps and 4 source IPs`, `200K pps, 100 Mbps and 8 source IPs`, `400K pps, 200Mbps and 16 source IPs`, `800K pps, 400 Mbps and 32 source IPs`.                                  |
+    |Test Duration | Possible values include `10 Minutes`, `15 Minutes`, `20 Minutes`, `25 Minutes`, `30 Minutes`.|
 
 It should now appear like this:
 
@@ -57,8 +60,12 @@ Once the resource is under attack, you should see that the value changes from **
 
 ![DDoS Attack Simulation Example: Portal](./media/ddos-attack-simulation/ddos-attack-simulation-example-2.png)
 
+### BreakingPoint Cloud API Script
+
+This [API script](https://aka.ms/ddosbreakingpoint) can be used to automate DDoS testing by running once or using cron to schedule regular tests. This is useful to validate that your logging is configured properly and that detection and response procedures are effective. The scripts require a Linux OS (tested with Ubuntu 18.04 LTS) and Python 3. Install prerequisites and API client using the included script or by using the documentation on the [BreakingPoint Cloud](http://breakingpoint.cloud/) website.
+
 ## Next steps
 
-- Learn how to [view and configure DDoS protection telemetry](telemetry-monitoring-alerting.md).
-- Learn how to [configure DDoS attack mitigation reports and flow logs](reports-and-flow-logs.md).
+- Learn how to [view and configure DDoS protection telemetry](telemetry.md).
+- Learn how to [view and configure DDoS diagnostic logging](diagnostic-logging.md).
 - Learn how to [engage DDoS rapid response](ddos-rapid-response.md).

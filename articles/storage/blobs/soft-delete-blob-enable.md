@@ -190,5 +190,5 @@ blockBlob.StartCopy(copySource);
 
 ## Next steps
 
-- [Soft delete for Blob storage](soft-delete-overview.md)
+- [Soft delete for Blob storage](./soft-delete-blob-overview.md)
 - [Blob versioning](versioning-overview.md)

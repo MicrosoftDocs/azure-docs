@@ -14,33 +14,44 @@
       href: unity-overview.md
     - name: HoloLens
       href: quickstarts/get-started-unity-hololens.md
+      displayName: Azure CLI, az spatial-anchors-account
     - name: Android
       href: quickstarts/get-started-unity-android.md
+      displayName: Azure CLI, az spatial-anchors-account
     - name: iOS
       href: quickstarts/get-started-unity-ios.md
+      displayName: Azure CLI, az spatial-anchors-account
   - name: Create HoloLens app
     href: quickstarts/get-started-hololens.md
+    displayName: Azure CLI, az spatial-anchors-account
   - name: Create Android app
     href: quickstarts/get-started-android.md
+    displayName: Azure CLI, az spatial-anchors-account
   - name: Create iOS app
     href: quickstarts/get-started-ios.md
+    displayName: Azure CLI, az spatial-anchors-account
   - name: Create Xamarin app
     items:
     - name: Android
       href: quickstarts/get-started-xamarin-android.md
+      displayName: Azure CLI, az spatial-anchors-account
     - name: iOS
       href: quickstarts/get-started-xamarin-ios.md
+      displayName: Azure CLI, az spatial-anchors-account
 - name: Tutorials
   items:
   - name: Sharing across sessions and devices
     href: tutorials/tutorial-share-anchors-across-devices.md
+    displayName: Azure CLI, az spatial-anchors-account
     items:
     - name: Persistent sharing with Azure Cosmos DB
       href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
   - name: Starting a new Unity HoloLens app
     href: tutorials/tutorial-new-unity-hololens-app.md
+    displayName: Azure CLI, az spatial-anchors-account
   - name: Starting a new Android app
     href: tutorials/tutorial-new-android-app.md
+    displayName: Azure CLI, az spatial-anchors-account
 - name: How-to
   items:
   - name: Create and locate anchors
@@ -72,6 +83,8 @@
       href: how-tos/set-up-coarse-reloc-cpp-ndk.md
     - name: In C++/WinRT
       href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+  - name: Use coarse relocalization without an anchor session
+    href: how-tos/use-coarse-relocalization-without-anchor-session.md
   - name: Project setup
     items:
     - name: C++/WinRT
@@ -94,6 +107,8 @@
     href: concepts/logging-diagnostics.md
   - name: Coarse relocalization
     href: concepts/coarse-reloc.md
+  - name: Anchor locate strategy
+    href: concepts/anchor-locate-strategy.md    
 - name: References
   items:
   - name: SDK for Unity

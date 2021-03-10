@@ -3,7 +3,7 @@ title: PowerShell sample - Replace certificate in Application Proxy apps
 description: PowerShell example that bulk replaces a certificate across Azure Active Directory (Azure AD) Application Proxy applications.
 services: active-directory
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -23,7 +23,7 @@ This PowerShell script example allows you to replace the certificate in bulk for
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-This sample requires the [AzureAD V2 PowerShell for Graph module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview) (AzureADPreview).
+This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## Sample script
 
@@ -33,13 +33,13 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](https://docs.m
 
 | Command | Notes |
 |---|---|
-|[Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0) | Gets a service principal. |
-|[Get-AzureADApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0) | Gets an Azure AD application. |
-|[Get-AzureADApplicationProxyApplication](https://docs.microsoft.com/powershell/module/azuread/get-azureadapplicationproxyapplication?view=azureadps-2.0) | Retrieves an application configured for Application Proxy in Azure AD. |
-|[Set-AzureADApplicationProxyApplicationCustomDomainCertificate](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplicationproxyapplicationcustomdomaincertificate?view=azureadps-2.0) | Assigns a certificate to an application configured for Application Proxy in Azure AD. This command uploads the certificate and allows the application to use Custom Domains. |
+|[Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Gets a service principal. |
+|[Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Gets an Azure AD application. |
+|[Get-AzureADApplicationProxyApplication](/powershell/module/azuread/get-azureadapplicationproxyapplication) | Retrieves an application configured for Application Proxy in Azure AD. |
+|[Set-AzureADApplicationProxyApplicationCustomDomainCertificate](/powershell/module/azuread/set-azureadapplicationproxyapplicationcustomdomaincertificate) | Assigns a certificate to an application configured for Application Proxy in Azure AD. This command uploads the certificate and allows the application to use Custom Domains. |
 
 ## Next steps
 
-For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+For more information on the Azure AD PowerShell module, see [Azure AD PowerShell module overview](/powershell/azure/active-directory/overview).
 
 For other PowerShell examples for Application Proxy, see [Azure AD PowerShell examples for Azure AD Application Proxy](../application-proxy-powershell-samples.md).

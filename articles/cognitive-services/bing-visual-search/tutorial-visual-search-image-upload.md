@@ -17,9 +17,9 @@ ms.custom: devx-track-js
 # Tutorial: Upload images to the Bing Visual Search API
 
 > [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 The Bing Visual Search API enables you to search the web for images similar to ones you upload. Use this tutorial to create a web application that can send an image to the API, and display the insights it returns within the webpage. Note that this application does not adhere to all [Bing Use and Display Requirements](../bing-web-search/use-display-requirements.md) for using the API.
 

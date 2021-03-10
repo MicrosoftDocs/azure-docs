@@ -1,13 +1,13 @@
 ---
 title: Import data into the designer
 titleSuffix: Azure Machine Learning
-description: Learn how to import data into Azure Machine Learning designer from various data sources.
+description: Learn how to import data into Azure Machine Learning designer using Azure Machine Learning datasets and the Import Data module.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ---
@@ -42,12 +42,13 @@ If the module output data is in a tabular format, you must choose to register th
  - **File dataset** registers the module's output folder as a file dataset. The output folder contains a data file and meta files that the designer uses internally. Select this option if you want to continue to use the registered dataset in the designer. 
 
  - **Tabular dataset** registers only the module's the output data file as a tabular dataset. This format is easily consumed by other tools, for example in Automated Machine Learning or the Python SDK. Select this option if you plan to use the registered dataset outside of the designer.  
-
-
+ 
 
 ### Use a dataset
 
 Your registered datasets can be found in the module palette, under **Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the canvas. 
+
+If you register a file dataset, the output port type of the dataset is **AnyDirectory**. If you register a Tabular dataset, the output port type of the dataset if **DataFrameDirectory**. Note that if you connect the output port of the dataset to other modules in the designer, the port type of datasets and modules need to be aligned.
 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
@@ -55,6 +56,14 @@ Your registered datasets can be found in the module palette, under **Datasets**.
 > [!NOTE]
 > The designer supports [dataset versioning](how-to-version-track-datasets.md). Specify the dataset version in the property panel of the dataset module.
 
+### Limitations 
+
+- Currently you can only visualize tabular dataset in the designer. If you register a file dataset outside designer, you cannot visualize it in the designer canvas.
+- Your dataset is stored in virtual network (VNet). If you want to visualize, you need to enable workspace managed identity of the datastore.
+    1. Go the the related datastore and click **Update Credentials**
+    :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Update Credentials":::
+    1. Select **Yes** to enable workspace managed identity.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Enable Workspace Managed Identity":::
 
 ## Import data using the Import Data module
 

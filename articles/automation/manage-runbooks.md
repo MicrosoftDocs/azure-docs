@@ -3,7 +3,7 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/23/2020
+ms.date: 02/24/2021
 ms.topic: conceptual
 ---
 # Manage runbooks in Azure Automation
@@ -17,6 +17,7 @@ Create a new runbook in Azure Automation using the Azure portal or Windows Power
 * [Edit textual runbook in Azure Automation](automation-edit-textual-runbook.md)
 * [Learn key Windows PowerShell Workflow concepts for Automation runbooks](automation-powershell-workflow.md)
 * [Manage Python 2 packages in Azure Automation](python-packages.md)
+* [Manage Python 3 packages (preview) in Azure Automation](python-3-packages.md)
 
 ### Create a runbook in the Azure portal
 
@@ -39,7 +40,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## Import a runbook
 
-You can import a PowerShell or PowerShell Workflow (**.ps1**) script, a graphical runbook (**.graphrunbook**), or a Python 2 script (**.py**) to make your own runbook. You must specify the [type of runbook](automation-runbook-types.md) that is created during import, taking into account the following considerations.
+You can import a PowerShell or PowerShell Workflow (**.ps1**) script, a graphical runbook (**.graphrunbook**), or a Python 2 or Python 3 script (**.py**) to make your own runbook. You must specify the [type of runbook](automation-runbook-types.md) that is created during import, taking into account the following considerations.
 
 * You can import a **.ps1** file that doesn't contain a workflow into either a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) or a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks). If you import it into a PowerShell Workflow runbook, it is converted to a workflow. In this case, comments are included in the runbook to describe the changes made.
 
@@ -217,7 +218,7 @@ To use a custom script:
 
 1. Create an Automation account and obtain a [Contributor role](automation-role-based-access-control.md).
 2. [Link the account to the Azure workspace](../security-center/security-center-enable-data-collection.md).
-3. Enable [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Update Management](update-management/update-mgmt-overview.md), or another Automation feature. 
+3. Enable [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [Update Management](./update-management/overview.md), or another Automation feature. 
 4. If on a Linux machine, you need high permissions. Log in to [turn off signature checks](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## Test a runbook

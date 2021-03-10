@@ -3,7 +3,7 @@ title: Copy an image version from another gallery using the CLI
 description: Copy an image version from another gallery with the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
@@ -157,6 +157,6 @@ az sig image-version create \
 
 Create a VM from a [generalized](vm-generalized-image-version-cli.md) or a [specialized](vm-specialized-image-version-cli.md) image version.
 
-Also, try out [Azure Image Builder (preview)](./linux/image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
+Also, try out [Azure Image Builder (preview)](./image-builder-overview.md) can help automate image version creation, you can even use it to update and [create a new image version from an existing image version](./linux/image-builder-gallery-update-image-version.md). 
 
 For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18
 ---
@@ -34,6 +34,8 @@ The container also has the following container-specific configuration settings:
 |No|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | v3.x containers only. The time for a message to be invisible when another worker is processing it. |
 |No|Storage::DocumentStore::MongoDB|v2.0 containers only. Enables MongoDB for permanent result storage. |
 |No|Storage:ObjectStore:AzureBlob:ConnectionString| v3.x containers only. Azure blob storage connection string. |
+|No|Storage:TimeToLiveInDays| v3.x containers only. Result expiration period in days. The setting specifies when the system should clear recognition results. The default is 2 days (48 hours), which means any result live for longer than that period is not guaranteed to be successfully retrieved. |
+|No|Task:MaxRunningTimeSpanInMinutes| v3.x containers only. Maximum running time for a single request. The default is 60 minutes. |
 
 ## ApiKey configuration setting
 
@@ -115,13 +117,13 @@ Replace {_argument_name_} with your own values:
 The following Docker examples are for the Read container.
 
 
-# [Version 3.1-preview](#tab/version-3-1)
+# [Version 3.2-preview](#tab/version-3-2)
 
 ### Basic example
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -132,7 +134,7 @@ ApiKey={API_KEY}
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
