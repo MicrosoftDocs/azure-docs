@@ -28,7 +28,7 @@ Enabling [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-mac
 - Automatic OS image upgrade can be enabled on a scale set of any size.
 
 
-## Automatic VM guest patching (preview)
+## Automatic VM guest patching (Preview)
 
 Enabling [automatic VM guest patching](automatic-vm-guest-patching.md) for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance.
 
@@ -40,7 +40,7 @@ Enabling [automatic VM guest patching](automatic-vm-guest-patching.md) for your 
 - Works for all VM sizes.
 
 
-## Automatic extension upgrade (preview)
+## Automatic extension upgrade (Preview)
 
 [Automatic Extension Upgrade](automatic-extension-upgrade.md) is available in preview for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
 
