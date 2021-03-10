@@ -16,11 +16,11 @@ To insure the security of data in transit to Azure Automation, we strongly encou
 
 * Webhook calls
 
-* Hybrid Runbook Workers, which includes machines managed by Update Management and Change Tracking and Inventory.
+* Hybrid Runbook Workers, which include machines managed by Update Management and Change Tracking and Inventory.
 
 * DSC nodes
 
-Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. We do not recommend explicitly setting your agent to only use TLS 1.2 unless absolutely necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3.
+Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. We do not recommend explicitly setting your agent to only use TLS 1.2 unless its necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3.
 
 For information about TLS 1.2 support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS 1.2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
 
@@ -35,7 +35,7 @@ For information about TLS 1.2 support with the Log Analytics agent for Windows a
 
 ## Data retention
 
-When you delete a resource in Azure Automation, it's retained for a number of days for auditing purposes before permanent removal. You can't see or use the resource during this time. This policy also applies to resources that belong to a deleted Automation account. The retention policy applies to all users and currently can't be customized. However, if you need to keep data for a longer period, you can [forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).
+When you delete a resource in Azure Automation, it's retained for many days for auditing purposes before permanent removal. You can't see or use the resource during this time. This policy also applies to resources that belong to a deleted Automation account. The retention policy applies to all users and currently can't be customized. However, if you need to keep data for a longer period, you can [forward Azure Automation job data to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).
 
 The following table summarizes the retention policy for different resources.
 
@@ -62,7 +62,7 @@ You can export your runbooks to script files using either the Azure portal or th
 
 ### Integration modules
 
-You can't export integration modules from Azure Automation. You must make them available outside the Automation account.
+You can't export integration modules from Azure Automation, they have to be made available outside of the Automation account.
 
 ### Assets
 
