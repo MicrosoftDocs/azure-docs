@@ -48,6 +48,12 @@ Learn more in the [Azure Conditional Access documentation](../active-directory/c
 
 ## Identify accounts without multi-factor authentication (MFA) enabled
 
+You can view the list of user accounts without MFA enabled from either the Security Center recommendations details page, or using Azure Resource Graph.
+
+### View the accounts without MFA enabled in the Azure portal
+From the recommendation details page, select a subscription from the **Unhealthy resources** list or select **Take action** and the list will be displayed.
+
+### View the accounts without MFA enabled using Azure Resource Graph
 To see which accounts don't have MFA enabled, use the following Azure Resource Graph query. The query returns all unhealthy resources - accounts - of the recommendation "MFA should be enabled on accounts with owner permissions on your subscription". 
 
 1. Open **Azure Resource Graph Explorer**.
@@ -79,7 +85,6 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
 - [Why does Security Center show user accounts without permissions on the subscription as "requiring MFA"?](#why-does-security-center-show-user-accounts-without-permissions-on-the-subscription-as-requiring-mfa)
 - [We're enforcing MFA with PIM. Why are PIM accounts shown as noncompliant?](#were-enforcing-mfa-with-pim-why-are-pim-accounts-shown-as-noncompliant)
 - [Can I exempt or dismiss some of the accounts?](#can-i-exempt-or-dismiss-some-of-the-accounts)
-- [Can I customize the number of owners designated for a subscription?](#can-i-customize-the-number-of-owners-designated-for-a-subscription)
 - [Are there any limitations to Security Center's identity and access protections?](#are-there-any-limitations-to-security-centers-identity-and-access-protections)
 
 ### We're already using CA policy to enforce MFA. Why do we still get the Security Center recommendations?
@@ -102,9 +107,6 @@ Security Center's MFA recommendations currently don't support PIM accounts. You 
 
 ### Can I exempt or dismiss some of the accounts?
 The capability to exempt some accounts that don’t use MFA isn't currently supported.  
-
-### Can I customize the number of owners designated for a subscription?
-The **Implement security best practices** security control includes the recommendation ""A maximum of 3 owners should be designated for your subscription"". The number of owners in this recommendation is fixed and cannot be customized. If the recommendation does not match your organization's requirements, consider [disabling the recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations). 
 
 ### Are there any limitations to Security Center's identity and access protections?
 There are some limitations to Security Center's identity and access protections:
