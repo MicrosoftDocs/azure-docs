@@ -163,14 +163,14 @@ Now that you have a destination to export your data to, set up data export in yo
 
 ## Monitor your export
 
-In addition to seeing the status of your exports in IoT Central, you can monitor how much data is flowing through your exports and observe export errors in the Azure Monitor data platform. You can access metrics about your exports and device health in charts in the Azure portal, a REST API, or queries in PowerShell or the Azure CLI. Currently, you can monitor these data export metrics in Azure Monitor:
+In addition to seeing the status of your exports in IoT Central, you can use [Azure Monitor](../../azure-monitor/overview.md) to see how much data you're exporting and any export errors. You can access export and device health metrics in charts in the Azure portal, with a REST API, or with queries in PowerShell or the Azure CLI. Currently, you can monitor the following data export metrics in Azure Monitor:
 
-1. Number of messages incoming to export before filters are applied
-2. Number of messages that pass through filters
-3. Number of messages successfully exported to destinations
-4. Number of errors encountered
- 
-[Learn more about how to access IoT Central metrics.](howto-monitor-application-health.md)
+- Number of messages incoming to export before filters are applied.
+- Number of messages that pass through filters.
+- Number of messages successfully exported to destinations.
+- Number of errors encountered.
+
+To learn more, see [Monitor the overall health of an IoT Central application](howto-monitor-application-health.md).
 
 ## Destinations
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -28,19 +28,19 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Weibo application
 
-To enable sign-in for users with a Weibo account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Weibo developer portal](https://open.weibo.com/). If you don't already have a Weibo account, you can sign up at [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us).
+To enable sign-in for users with a Weibo account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in Weibo developer portal. If you don't already have a Weibo account, you can sign up at [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us).
 
-1. Sign in to the [Weibo developer portal](https://open.weibo.com/) with your Weibo account credentials.
+1. Sign in to the Weibo developer portal with your Weibo account credentials.
 1. After signing in, select your display name in the top-right corner.
 1. In the dropdown, select **编辑开发者信息** (edit developer information).
 1. Enter the required information and select **提交** (submit).
 1. Complete the email verification process.
-1. Go to the [identity verification page](https://open.weibo.com/developers/identity/edit).
+1. Go to the identity verification page.
 1. Enter the required information and select **提交** (submit).
 
 ### Register a Weibo application
 
-1. Go to the [new Weibo app registration page](https://open.weibo.com/apps/new).
+1. Go to the new Weibo app registration page.
 1. Enter the necessary application information.
 1. Select **创建** (create).
 1. Copy the values of **App Key** and **App Secret**. You need both of these to add the identity provider to your tenant.
@@ -72,7 +72,10 @@ To enable sign-in for users with a Weibo account in Azure Active Directory B2C (
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select **Weibo** to sign in with Weibo account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 
@@ -201,6 +204,13 @@ The GitHub technical profile requires the **CreateIssuerUserId** claim transform
 
 [!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
+## Test your custom policy
+
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Weibo** to sign in with Weibo account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end

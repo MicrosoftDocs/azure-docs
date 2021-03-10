@@ -82,7 +82,7 @@ Complete the following tasks before completing steps in any section of this arti
    - **Properties**: Displays settings about the virtual network, including the virtual network's resource ID and the Azure subscription it is in.
    - **Diagram**: The diagram provides a visual representation of all devices that are connected to the virtual network. The diagram has some key information about the devices. To manage a device in this view, in the diagram, select the device.
    - **Common Azure settings**: To learn more about common Azure settings, see the following information:
-     - [Activity log](../azure-monitor/platform/platform-logs-overview.md)
+     - [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
      - [Access control (IAM)](../role-based-access-control/overview.md)
      - [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

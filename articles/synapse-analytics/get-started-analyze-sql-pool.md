@@ -72,11 +72,12 @@ Azure Synapse Analytics provides you with the capability to analyze data with a 
 ## Explore the NYC Taxi data in the dedicated SQL pool
 
 1. In Synapse Studio, go to the **Data** hub.
+1. You should see a database named **SQLPOOL1**. If you do not see it, click **Refresh**.
 1. Go to **SQLPOOL1** > **Tables**. 
-1. Right-click the **dbo.Trip** table and select **New SQL Script** > **Select TOP 100 Rows**.
-1. Wait while a new SQL script is created and runs.
-1. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called **SQLPOOL1**.
-1. Replace the text of the SQL script with this code and run it.
+3. Right-click the **dbo.Trip** table and select **New SQL Script** > **Select TOP 100 Rows**.
+4. Wait while a new SQL script is created and runs.
+5. Notice that at the top of the SQL script **Connect to** is automatically set to the SQL pool called **SQLPOOL1**.
+6. Replace the text of the SQL script with this code and run it.
 
     ```sql
     SELECT PassengerCount,

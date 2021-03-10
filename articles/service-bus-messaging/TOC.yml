@@ -7,7 +7,7 @@
   - name: Compare messaging services
     href: ../event-grid/compare-messaging-services.md
     maintainContext: true
-  - name: Use Service Bus with Java Message Service (JMS) 2.0 (preview)
+  - name: Use Service Bus with Java Message Service (JMS) 2.0
     href: how-to-use-java-message-service-20.md
 - name: Quickstarts
   items:
@@ -90,6 +90,10 @@
     href: service-bus-samples.md
 - name: Concepts
   items:
+  - name: Queues, topics, and subscriptions
+    href: service-bus-queues-topics-subscriptions.md
+  - name: Topic filters and actions
+    href: topic-filters.md
   - name: Premium messaging
     href: service-bus-premium-messaging.md
   - name: Compare Azure Queues and Service Bus queues
@@ -158,12 +162,16 @@
     href: service-bus-create-namespace-portal.md
   - name: Develop
     items:
+    - name: Set subscription filters and actions
+      href: service-bus-filter-examples.md    
     - name: Message handling
       items:
       - name: Queues, topics, and subscriptions
         href: service-bus-queues-topics-subscriptions.md
-      - name: Java message service (JMS) 2.0 entities (preview)
+      - name: Java message service (JMS) 2.0 entities
         href: java-message-service-20-entities.md
+      - name: Java Message Service (JMS) Developer guide.md
+        href: jms-developer-guide.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
       - name: Message transfers, locks, and settlement
@@ -172,8 +180,6 @@
         href: message-sequencing.md
       - name: Message expiration (Time to Live)
         href: message-expiration.md
-    - name: Topic filters and actions
-      href: topic-filters.md
     - name: Migrate from Standard to Premium namespaces
       href: service-bus-migrate-standard-premium.md
     - name: Partitioned queues and topics
@@ -304,7 +310,7 @@
     - name: azure/service-bus version 7 
       href: /javascript/api/overview/azure/service-bus?view=azure-node--preview
     - name: azure/service-bus version 1 
-      href: /javascript/api/overview/azure/service-bus?view=azure-node-latest
+      href: /javascript/api/overview/azure/service-bus
   - name: PHP
     href: https://github.com/Azure/azure-sdk-for-php
   - name: Ruby

@@ -32,7 +32,7 @@ From the settings tab of your Custom Vision project, you can select a domain for
 |Domain|Purpose|
 |---|---|
 |__General__| Optimized for a broad range of object detection tasks. If none of the other domains are appropriate, or you are unsure of which domain to choose, select the General domain. ID: `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
-|__General [A1]__| Optimized for better accuracy with comparable inference time as General domain. Recommended for more accurate region location needs, larger datasets, or more difficult user scenarios. This domain requires more training time, and results are not deterministic: expect a +-1% mAP difference with the same training data provided. ID: `9c616dff-2e7d-ea11-af59-1866da359ce6`|
+|__General [A1]__| Optimized for better accuracy with comparable inference time as General domain. Recommended for more accurate region location needs, larger datasets, or more difficult user scenarios. This domain requires more training time, and results are not deterministic: expect a +-1% mean Average Precision (mAP) difference with the same training data provided. ID: `9c616dff-2e7d-ea11-af59-1866da359ce6`|
 |__Logo__|Optimized for finding brand logos in images. ID: `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
 |__Products on shelves__|Optimized for detecting and classifying products on shelves. ID: `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Compact domains__| Optimized for the constraints of real-time object detection on edge devices.|

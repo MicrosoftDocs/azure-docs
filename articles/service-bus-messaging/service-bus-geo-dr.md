@@ -42,11 +42,7 @@ The following terms are used in this article:
 -  *Alias*: The name for a disaster recovery configuration that you set up. The alias provides a single stable Fully Qualified Domain Name (FQDN) connection string. Applications use this alias connection string to connect to a namespace. Using an alias ensures that the connection string is unchanged when the failover is triggered.
 
 -  *Primary/secondary namespace*: The namespaces that correspond to the alias. The primary namespace is "active" and receives messages (this can be an existing or new namespace). The secondary namespace is "passive" and doesn't receive messages. The metadata between both is in sync, so both can seamlessly accept messages without any application code or connection string changes. To ensure that only the active namespace receives messages, you must use the alias. 
-
-    > [!IMPORTANT]
-    > The geo-disaster recovery feature requires the subscription and the resource group to be the same for primary and secondary namespaces.
 -  *Metadata*: Entities such as queues, topics, and subscriptions; and their properties of the service that are associated with the namespace. Only entities and their settings are replicated automatically. Messages aren't replicated.
-
 -  *Failover*: The process of activating the secondary namespace.
 
 ## Setup
@@ -58,13 +54,13 @@ The following section is an overview to set up pairing between the namespaces.
 You first create or use an existing primary namespace, and a new secondary namespace, then pair the two. This pairing gives you an alias that you can use to connect. Because you use an alias, you don't have to change connection strings. Only new namespaces can be added to your failover pairing. 
 
 1. Create the primary namespace.
-1. Create the secondary namespace in the subscription and the resource group that has the primary namespace, but in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
+1. Create the secondary namespace in a different region. This step is optional. You can create the secondary namespace while creating the pairing in the next step. 
 1. In the Azure portal, navigate to your primary namespace.
 1. Select **Geo-recovery** on the left menu, and select **Initiate pairing** on the toolbar. 
 
     :::image type="content" source="./media/service-bus-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Initiate pairing from the primary namespace":::    
 1. On the **Initiate pairing** page, follow these steps:
-    1. Select an existing secondary namespace or create one in the subscription and the resource group that has the primary namespace. In this example, an existing namespace is used as the secondary namespace.  
+    1. Select an existing secondary namespace or create one in a different region. In this example, an existing namespace is used as the secondary namespace.  
     1. For **Alias**, enter an alias for the geo-dr pairing. 
     1. Then, select **Create**. 
 

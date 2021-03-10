@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 02/22/2021
 ms.author: nitinme
 ms.custom: devx-track-csharp
 ---

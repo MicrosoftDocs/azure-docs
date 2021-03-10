@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 05/11/2020
+ms.date: 03/02/2021
 
 ms.author: mimart
 author: msmimart
@@ -19,7 +19,11 @@ ms.collection: M365-identity-device-management
 
 # Add Google as an identity provider for B2B guest users
 
-By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts. 
+By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts.
+
+After you've added Google as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the email they use to sign in to Google, or they can select **Sign-in options** and choose **Sign in with Google**. In either case, they'll be redirected to the Google sign-in page for authentication.
+
+![Sign in options for Google users](media/google-federation/sign-in-with-google-overview.png)
 
 > [!NOTE]
 > Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [direct federation](direct-federation.md).
@@ -28,13 +32,27 @@ By setting up federation with Google, you can allow invited users to sign in to 
 > **Starting January 4, 2021**, Google is [deprecating WebView sign-in support](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). If you’re using Google federation or self-service sign-up with Gmail, you should [test your line-of-business native applications for compatibility](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## What is the experience for the Google user?
-When you send an invitation to Google Gmail users, the guest users should access your shared apps or resources by using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
-  - Guest users who aren't signed in to Google will be prompted to do so.
-  - Guest users who are already signed in to Google will be prompted to choose the account they want to use. They must choose the account you used to invite them.
+
+When a Google user redeems your invitation, their experience varies depending on whether they're already signed in to Google:
+
+- Guest users who aren't signed in to Google will be prompted to do so.
+- Guest users who are already signed in to Google will be prompted to choose the account they want to use. They must choose the account you used to invite them.
 
 Guest users who see a "header too long" error can clear their cookies or open a private or incognito window and try to sign in again.
 
 ![Screenshot that shows the Google sign-in page.](media/google-federation/google-sign-in.png)
+
+## Sign-in endpoints
+
+Google guest users can now sign in to your multi-tenant or Microsoft first-party apps by using a [common endpoint](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (in other words, a general app URL that doesn't include your tenant context). During the sign-in process, the guest user chooses **Sign-in options**, and then selects **Sign in to an organization**. The user then types the name of your organization and continues signing in using their Google credentials.
+
+Google guest users can also use application endpoints that include your tenant information, for example:
+
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+  * `https://portal.azure.com/<your tenant ID>`
+
+You can also give Google guest users a direct link to an application or resource by including your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`.
 
 ## Deprecation of WebView sign-in support
 
@@ -64,23 +82,13 @@ We’re continuing to test various platforms and scenarios, and will update this
    - If your Windows app uses embedded WebView or the WebAccountManager (WAM) on an older version of Windows, update to the latest version of Windows.
    - Modify your apps to use the system browser for sign-in. For details, see [Embedded vs System Web UI](../develop/msal-net-web-browsers.md#embedded-vs-system-web-ui) in the MSAL.NET documentation.  
 
-## Sign-in endpoints
 
-Teams fully supports Google guest users on all devices. Google users can sign in to Teams from a common endpoint like `https://teams.microsoft.com`.
-
-Other applications' common endpoints might not support Google users. Google guest users must sign in by using a link that includes your tenant information. Following are examples:
-  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
-  * `https://portal.azure.com/<your tenant ID>`
-  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
-
-   If Google guest users try to use a link like `https://myapps.microsoft.com` or `https://portal.azure.com`, they'll get an error.
-
-You can also give Google guest users a direct link to an application or resource, as long as the link includes your tenant information. For example, `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 ## Step 1: Configure a Google developer project
 First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure Active Directory (Azure AD). 
 1. Go to the Google APIs at https://console.developers.google.com, and sign in with your Google account. We recommend that you use a shared team Google account.
 2. Accept the terms of service if you're prompted to do so.
-3. Create a new project: On the dashboard, select **Create Project**, give the project a name (for example, **Azure AD B2B**), and then select **Create**: 
+3. Create a new project: In the upper-left corner of the page, select the project list, and then on the **Select a project** page, select **New Project**.
+4. On the **New Project** page, give the project a name (for example, **Azure AD B2B**), and then select **Create**: 
    
    ![Screenshot that shows a New Project page.](media/google-federation/google-new-project.png)
 

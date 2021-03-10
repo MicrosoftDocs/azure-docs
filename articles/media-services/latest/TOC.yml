@@ -23,12 +23,10 @@
       href: access-api-howto.md
     - name: Set up Azure Cloud Shell
       href: ../../cloud-shell/overview.md
-    - name: Develop with REST
+    - name: Connect to Media Services
       items:
-      - name: Connect with Postman
+      - name: Connect with REST and Postman
         href: media-rest-apis-with-postman.md
-    - name: Develop with SDKs
-      items:
       - name: Connect with Java
         href: configure-connect-java-howto.md
       - name: Connect with .NET 
@@ -50,7 +48,9 @@
   - name: Use an ARM template
     items:
     - name: Create an account with ARM
-      href: quickstart-arm-template-account.md     
+      href: quickstart-arm-template-account.md
+  - name: Python Basic Encoding Quickstart
+    href: quickstart-basic-encoding-python.md    
 - name: Tutorials
   items:
   - name: .NET
@@ -220,10 +220,10 @@
       href: media-services-metrics-diagnostic-logs.md      
     - name: Diagnostic logs schemas
       href: media-services-diagnostic-logs-schema.md          
-  - name: Azure Media Player
+  - name: Compatible players
     items:
-    - name: Azure Media Player overview
-      href: ../azure-media-player/azure-media-player-overview.md
+    - name: Media players for Media Services
+      href: media-players-overview.md
   - name: Developing with v3 APIs
     items:
     - name: Overview
@@ -327,6 +327,8 @@
       href: how-to-create-transform.md
     - name: Create a basic audio transform with REST
       href: how-to-create-basic-audio-transform.md
+    - name: Create thumbnail sprites
+      href: how-to-create-thumbnail-sprites.md 
     - name: Create a copyAllBitrateNonInterleaved transform with REST
       href: how-to-create-copyallbitratenoninterleaved-transform.md
     - name: Copy videos without encoding with REST
@@ -503,5 +505,3 @@
     href: azure-clouds-regions.md
   - name: Regional code names and endpoints
     href: azure-regions-code-names.md
-  - name: Documentation updates
-    href: docs-release-notes.md

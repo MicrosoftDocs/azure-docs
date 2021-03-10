@@ -67,7 +67,7 @@ Within a few minutes of attack detection, you should receive an email from Azure
 
 ![Attack alert](./media/manage-ddos-protection/ddos-alert.png)
 
-You can also learn more about [configuring webhooks](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
+You can also learn more about [configuring webhooks](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
 
 ## View alerts in Azure Security Center
 

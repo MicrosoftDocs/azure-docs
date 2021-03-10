@@ -425,7 +425,7 @@ sections:
 
       - question: Can I set alerts with Application Gateway?
         answer: |
-          Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](../azure-monitor/platform/alerts-overview.md).
+          Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md).
           
       - question: How do I analyze traffic statistics for Application Gateway?
         answer: |

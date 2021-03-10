@@ -19,8 +19,6 @@ ms.custom: include file
 
 * The VNet must be in the same subscription and region as the Batch account you use to create your pool.
 
-* The pool using the VNet can have a maximum of 4096 nodes.
-
 * The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
 
 * Your Azure Storage endpoint needs to be resolved by any custom DNS servers that serve your VNet. Specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and `<account>.blob.core.windows.net` should be resolvable.
@@ -62,23 +60,29 @@ You don't have to specify NSGs at the virtual network subnet level, because Batc
 
 Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access to the compute nodes from outside sources. You may need to enable port 22 rules on Linux if you require support for multi-instance tasks with certain MPI runtimes. Allowing traffic on these ports is not strictly required for the pool compute nodes to be usable.
 
+> [!WARNING]
+> Batch service IP addresses can change over time. Therefore, we highly recommend that you use the `BatchNodeManagement` service tag (or a regional variant) for the NSG rules indicated in the following tables. Avoid populating NSG rules with specific Batch service IP addresses.
+
 **Inbound security rules**
 
 | Source IP addresses | Source service tag | Source ports | Destination | Destination ports | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/A | `BatchNodeManagement` [Service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) (if using regional variant, in the same region as your Batch account) | * | Any | 29876-29877 | TCP | Allow |
+| N/A | `BatchNodeManagement` [service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) (if using a regional variant, in the same region as your Batch account) | * | Any | 29876-29877 | TCP | Allow |
 | User source IPs for remotely accessing compute nodes and/or compute node subnet for Linux multi-instance tasks, if required. | N/A | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |
-
-> [!WARNING]
-> Batch service IP addresses can change over time. Therefore, it is highly recommended to use the `BatchNodeManagement` service tag (or regional variant) for NSG rules. Avoid populating NSG rules with specific Batch service IP addresses.
 
 **Outbound security rules**
 
 | Source | Source ports | Destination | Destination service tag | Destination ports | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
 | Any | * | [Service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (if using regional variant, in the same region as your Batch account) | 443 | TCP | Allow |
+| Any | * | [Service tag](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `BatchNodeManagement` (if using regional variant, in the same region as your Batch account) | 443 | TCP | Allow |
+
+Outbound to `BatchNodeManagement` is required for contacting the Batch service from the compute nodes such as for Job Manager tasks.
 
 ### Pools in the Cloud Services configuration
+
+> [!WARNING]
+> Cloud Service Configuration Pools are deprecated. Please use Virtual Machine Configuration Pools instead.
 
 **Supported VNets** - Classic VNets only
 
