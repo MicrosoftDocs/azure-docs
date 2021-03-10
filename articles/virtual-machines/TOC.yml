@@ -722,7 +722,7 @@
       href: managed-disk-from-image-version.md
     - name: Purchase plan information
       href: marketplace-images.md
-  - name: Image builder (preview)
+  - name: Image builder (Preview)
     items:
     - name: Overview
       href: image-builder-overview.md
@@ -1243,17 +1243,17 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
     - name: Maintenance control for OS image upgrade
       items: 
-      - name: Overview (preview)
+      - name: Overview (Preview)
         href: virtual-machine-scale-sets-maintenance-control.md
-      - name: PowerShell (preview)
+      - name: PowerShell (Preview)
         href: virtual-machine-scale-sets-maintenance-control-powershell.md
-  - name: Automatic VM guest patching (preview)
+  - name: Automatic VM guest patching (Preview)
     items: 
     - name: Overview
       href: automatic-vm-guest-patching.md
     - name: Hotpatch
       href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
-  - name: Automatic extension upgrade (preview)
+  - name: Automatic extension upgrade (Preview)
     href: automatic-extension-upgrade.md
   - name: Update management
     href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
