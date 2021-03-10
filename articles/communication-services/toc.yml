@@ -145,9 +145,9 @@
   - name: Calling libraries
     items:
     - name: Calling (JavaScript)
-      href: /javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
+      href: /javascript/api/azure-communication-services/@azure/communication-calling/
     - name: Calling (Android/Java)
-      href: /java/api/com.azure.communication.calling?view=communication-services-java-android
+      href: /java/api/com.azure.communication.calling
     - name: Calling (iOS)
       href: /objectivec/communication-services/calling/
   - name: Chat libraries
