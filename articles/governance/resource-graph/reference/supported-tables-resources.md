@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 02/04/2021
+ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: generated
 ---
@@ -22,9 +22,18 @@ part of a **table** in Resource Graph.
 
 - microsoft.alertsmanagement/alerts
 
+## extendedlocationresources
+
+- microsoft.extendedlocation/customlocations/enabledresourcetypes
+
 ## guestconfigurationresources
 
 - microsoft.guestconfiguration/guestconfigurationassignments
+
+## kubernetesconfigurationresources
+
+- microsoft.kubernetesconfiguration/extensions
+- microsoft.kubernetesconfiguration/sourcecontrolconfigurations
 
 ## maintenanceresources
 
@@ -114,6 +123,7 @@ part of a **table** in Resource Graph.
 - Microsoft.AzureArcData/postgresInstances (Azure Database for PostgreSQL server groups - Azure Arc)
 - Microsoft.AzureArcData/sqlManagedInstances (SQL managed instances - Azure Arc)
 - Microsoft.AzureArcData/sqlServerInstances (SQL Server - Azure Arc)
+- microsoft.azurecis/autopilotenvironments
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -128,6 +138,7 @@ part of a **table** in Resource Graph.
 - Microsoft.AzureStackHCI/clusters (Azure Stack HCI)
 - microsoft.azurestackhci/galleryimages
 - microsoft.azurestackhci/networkinterfaces
+- Microsoft.AzureStackHCI/virtualmachines (Azure Stack HCI virtual machine - Azure Arc)
 - microsoft.azurestackhci/virtualnetworks
 - microsoft.baremetal/consoleconnections
 - Microsoft.BareMetal/crayServers (Cray Servers)
@@ -147,12 +158,13 @@ part of a **table** in Resource Graph.
 - Microsoft.BotService/botServices (Bot Services)
 - Microsoft.Cache/Redis (Azure Cache for Redis)
 - Microsoft.Cache/RedisEnterprise (Redis Enterprise)
+- microsoft.cascade/sites
 - Microsoft.Cdn/CdnWebApplicationFirewallPolicies (Web application firewall policies (WAF))
-- microsoft.cdn/profiles (CDN profiles)
+- microsoft.cdn/profiles (Front Doors Standard/Premium (Preview))
 - microsoft.cdn/profiles/afdendpoints
 - microsoft.cdn/profiles/endpoints (Endpoints)
 - Microsoft.CertificateRegistration/certificateOrders (App Service Certificates)
-- microsoft.chaos/chaosexperiments
+- Microsoft.chaos/chaosexperiments (Chaos Experiments)
 - microsoft.classicCompute/domainNames (Cloud services (classic))
 - Microsoft.ClassicCompute/VirtualMachines (Virtual machines (classic))
 - Microsoft.ClassicNetwork/networkSecurityGroups (Network security groups (classic))
@@ -165,6 +177,7 @@ part of a **table** in Resource Graph.
 - Microsoft.CloudTest/hostedpools (1ES Hosted Pools)
 - Microsoft.CloudTest/images (CloudTest Images)
 - Microsoft.CloudTest/pools (CloudTest Pools)
+- Microsoft.ClusterStor/nodes (ClusterStors)
 - microsoft.codespaces/plans
 - Microsoft.Cognition/syntheticsAccounts (Synthetics Accounts)
 - Microsoft.CognitiveServices/accounts (Cognitive Services)
@@ -197,9 +210,14 @@ part of a **table** in Resource Graph.
 - microsoft.compute/virtualmachines/extensions
 - microsoft.compute/virtualmachines/runcommands
 - Microsoft.Compute/virtualMachineScaleSets (Virtual machine scale sets)
-- Microsoft.Confluent/organizations (Confluent Organizations)
+- Microsoft.Confluent/organizations (Confluent organizations)
 - Microsoft.ConnectedCache/cacheNodes (Connected Cache Resources)
 - microsoft.connectedvehicle/platformaccounts
+- microsoft.connectedvmwarevsphere/resourcepools
+- microsoft.connectedvmwarevsphere/vcenters
+- microsoft.connectedvmwarevsphere/virtualmachines
+- microsoft.connectedvmwarevsphere/virtualmachinetemplates
+- microsoft.connectedvmwarevsphere/virtualnetworks
 - Microsoft.ContainerInstance/containerGroups (Container instances)
 - Microsoft.ContainerRegistry/registries (Container registries)
 - microsoft.containerregistry/registries/agentpools
@@ -222,7 +240,7 @@ part of a **table** in Resource Graph.
 - Microsoft.Databricks/workspaces (Azure Databricks Services)
 - Microsoft.DataCatalog/catalogs (Data Catalog)
 - microsoft.datacatalog/datacatalogs
-- Microsoft.DataCollaboration/workspaces (Data Collaborations)
+- Microsoft.DataCollaboration/workspaces (Project CI)
 - Microsoft.Datadog/monitors (Datadog)
 - Microsoft.DataFactory/dataFactories (Data factories)
 - Microsoft.DataFactory/factories (Data factories (V2))
@@ -240,6 +258,7 @@ part of a **table** in Resource Graph.
 - Microsoft.DBforMySQL/servers (Azure Database for MySQL servers)
 - Microsoft.DBforPostgreSQL/flexibleServers (Azure Database for PostgreSQL flexible servers)
 - Microsoft.DBforPostgreSQL/serverGroups (Azure Database for PostgreSQL server groups)
+- microsoft.dbforpostgresql/servergroupsv2
 - Microsoft.DBforPostgreSQL/servers (Azure Database for PostgreSQL servers)
 - Microsoft.DBforPostgreSQL/serversv2 (Azure Database for PostgreSQL servers v2)
 - microsoft.dbforpostgresql/singleservers
@@ -254,7 +273,7 @@ part of a **table** in Resource Graph.
 - microsoft.deploymentmanager/steps
 - Microsoft.DesktopVirtualization/ApplicationGroups (Application groups)
 - Microsoft.DesktopVirtualization/HostPools (Host pools)
-- microsoft.desktopvirtualization/scalingplans
+- Microsoft.DesktopVirtualization/ScalingPlans (Scaling plans)
 - Microsoft.DesktopVirtualization/Workspaces (Workspaces)
 - microsoft.devices/elasticpools
 - microsoft.devices/elasticpools/iothubtenants
@@ -270,9 +289,13 @@ part of a **table** in Resource Graph.
 - Microsoft.DevTestLab/labs/virtualMachines (Virtual machines)
 - microsoft.devtestlab/schedules
 - Microsoft.DigitalTwins/digitalTwinsInstances (Azure Digital Twins)
+- Microsoft.DocumentDB/cassandraClusters (Azure Managed Instance for Apache Cassandra)
 - Microsoft.DocumentDb/databaseAccounts (Azure Cosmos DB accounts)
 - Microsoft.DomainRegistration/domains (App Service Domains)
-- Microsoft.Elastic/monitors (Elastic)
+- microsoft.edgeorder/addresses
+- microsoft.edgeorder/ordercollections
+- microsoft.edgeorder/orders
+- Microsoft.Elastic/monitors (Elasticsearch)
 - microsoft.enterpriseknowledgegraph/services
 - Microsoft.EventGrid/domains (Event Grid Domains)
 - Microsoft.EventGrid/partnerNamespaces (Event Grid Partner Namespaces)
@@ -302,8 +325,8 @@ part of a **table** in Resource Graph.
 - microsoft.hybridcompute/machines/extensions
 - Microsoft.HybridCompute/privateLinkScopes (Azure Arc Private Link Scopes)
 - Microsoft.HybridData/dataManagers (StorSimple Data Managers)
-- Microsoft.HybridNetwork/devices (Azure Network Function Manager – Devices)
-- Microsoft.HybridNetwork/networkFunctions (Azure Network Function Manager – Network Functions)
+- Microsoft.HybridNetwork/devices (Azure Network Function Manager – Devices  (Preview))
+- Microsoft.HybridNetwork/networkFunctions (Azure Network Function Manager – Network Functions (Preview))
 - microsoft.hybridnetwork/virtualnetworkfunctions
 - Microsoft.ImportExport/jobs (Import/export jobs)
 - microsoft.industrydatalifecycle/basemodels
@@ -329,10 +352,10 @@ part of a **table** in Resource Graph.
 - microsoft.insights/workbooks (Azure Workbooks)
 - microsoft.insights/workbooktemplates (Azure Workbook Templates)
 - Microsoft.IntelligentITDigitalTwin/digitalTwins (Minervas)
-- microsoft.intelligentitdigitaltwin/digitaltwins/assets
-- microsoft.intelligentitdigitaltwin/digitaltwins/executionplans
-- microsoft.intelligentitdigitaltwin/digitaltwins/testplans
-- microsoft.intelligentitdigitaltwin/digitaltwins/tests
+- Microsoft.IntelligentITDigitalTwin/digitalTwins/assets (Assets)
+- Microsoft.IntelligentITDigitalTwin/digitalTwins/executionPlans (Deployments)
+- Microsoft.IntelligentITDigitalTwin/digitalTwins/testPlans (Suites)
+- Microsoft.IntelligentITDigitalTwin/digitalTwins/tests (Scripts)
 - Microsoft.IoTCentral/IoTApps (IoT Central Applications)
 - Microsoft.IoTSpaces/Graph (Digital Twins (Deprecated))
 - microsoft.keyvault/hsmpools
@@ -347,15 +370,16 @@ part of a **table** in Resource Graph.
 - Microsoft.Logic/integrationServiceEnvironments (Integration Service Environments)
 - Microsoft.Logic/integrationServiceEnvironments/managedApis (Managed Connector)
 - Microsoft.Logic/workflows (Logic apps)
-- Microsoft.Logz/monitors (Logz Main Account)
-- Microsoft.Logz/monitors/accounts (Logz SubAccount)
+- Microsoft.Logz/monitors (Logz main account)
+- Microsoft.Logz/monitors/accounts (Logz sub account)
 - Microsoft.MachineLearning/commitmentPlans (Machine Learning Studio (classic) web service plans)
 - Microsoft.MachineLearning/webServices (Machine Learning Studio (classic) web services)
 - Microsoft.MachineLearning/workspaces (Machine Learning Studio (classic) workspaces)
 - microsoft.machinelearningcompute/operationalizationclusters
 - microsoft.machinelearningservices/modelinventories
 - microsoft.machinelearningservices/modelinventory
-- Microsoft.MachineLearningServices/workspaces (Machine Learning)
+- microsoft.machinelearningservices/virtualclusters
+- Microsoft.MachineLearningServices/workspaces (Machine learning)
 - microsoft.machinelearningservices/workspaces/batchendpoints
 - microsoft.machinelearningservices/workspaces/batchendpoints/deployments
 - microsoft.machinelearningservices/workspaces/inferenceendpoints
@@ -379,16 +403,22 @@ part of a **table** in Resource Graph.
 - microsoft.media/mediaservices/liveevents (Live events)
 - microsoft.media/mediaservices/streamingEndpoints (Streaming Endpoints)
 - microsoft.media/mediaservices/transforms
+- microsoft.media/videoanalyzers
 - microsoft.microservices4spring/appclusters
 - microsoft.migrate/assessmentprojects
 - microsoft.migrate/migrateprojects
 - microsoft.migrate/movecollections
 - Microsoft.Migrate/projects (Migration projects)
 - Microsoft.MixedReality/holographicsBroadcastAccounts (Holographics Broadcast Accounts)
+- Microsoft.MixedReality/objectAnchorsAccounts (Object Anchors Accounts)
 - Microsoft.MixedReality/objectUnderstandingAccounts (Object Understanding Accounts)
 - Microsoft.MixedReality/remoteRenderingAccounts (Remote Rendering Accounts)
 - Microsoft.MixedReality/spatialAnchorsAccounts (Spatial Anchors Accounts)
 - microsoft.mixedreality/surfacereconstructionaccounts
+- microsoft.mobilenetwork/networks
+- microsoft.mobilenetwork/networks/sites
+- microsoft.mobilenetwork/sims
+- microsoft.mobilenetwork/sims/simprofiles
 - Microsoft.NetApp/netAppAccounts (NetApp accounts)
 - microsoft.netapp/netappaccounts/backuppolicies
 - Microsoft.NetApp/netAppAccounts/capacityPools (Capacity pools)
@@ -481,6 +511,7 @@ part of a **table** in Resource Graph.
 - microsoft.powerbi/privatelinkservicesforpowerbi
 - microsoft.powerbi/tenants
 - microsoft.powerbi/workspacecollections
+- microsoft.powerbidedicated/autoscalevcores
 - Microsoft.PowerBIDedicated/capacities (Power BI Embedded)
 - Microsoft.ProjectBabylon/Accounts (Babylon accounts)
 - Microsoft.Purview/Accounts (Purview accounts)
@@ -490,13 +521,13 @@ part of a **table** in Resource Graph.
 - Microsoft.Relay/namespaces (Relays)
 - microsoft.remoteapp/collections
 - microsoft.resiliency/chaosexperiments
-- microsoft.resourceconnector/appliances
+- Microsoft.ResourceConnector/Appliances (Appliances)
 - Microsoft.resourcegraph/queries (Resource Graph queries)
 - Microsoft.Resources/deploymentScripts (Deployment Scripts)
 - Microsoft.Resources/templateSpecs (Template specs)
 - microsoft.resources/templatespecs/versions
 - Microsoft.SaaS/applications (Software as a Service (classic))
-- Microsoft.SaaS/resources (CPX-Placeholder)
+- Microsoft.SaaS/resources (SaaS)
 - Microsoft.Scheduler/jobCollections (Scheduler Job Collections)
 - microsoft.scvmm/clouds
 - Microsoft.scvmm/virtualMachines (SCVMM virtual machine - Azure Arc)
@@ -510,7 +541,7 @@ part of a **table** in Resource Graph.
 - Microsoft.ServiceBus/namespaces (Service Bus Namespaces)
 - Microsoft.ServiceFabric/clusters (Service Fabric clusters)
 - microsoft.servicefabric/containergroupsets
-- Microsoft.ServiceFabric/managedclusters (Managed Service Fabric clusters)
+- Microsoft.ServiceFabric/managedclusters (Service Fabric managed clusters)
 - Microsoft.ServiceFabricMesh/applications (Mesh applications)
 - microsoft.servicefabricmesh/gateways
 - microsoft.servicefabricmesh/networks
@@ -538,6 +569,7 @@ part of a **table** in Resource Graph.
 - Microsoft.SqlVirtualMachine/SqlVirtualMachines (SQL virtual machines)
 - microsoft.sqlvm/dwvm
 - Microsoft.Storage/StorageAccounts (Storage accounts)
+- microsoft.storagecache/amlfilesystems
 - Microsoft.StorageCache/caches (HPC caches)
 - microsoft.storagepool/diskpools
 - Microsoft.StorageSync/storageSyncServices (Storage Sync Services)
@@ -554,12 +586,13 @@ part of a **table** in Resource Graph.
 - microsoft.synapse/workspaces/sqldatabases
 - Microsoft.Synapse/workspaces/sqlPools (Dedicated SQL pools)
 - microsoft.terraformoss/providerregistrations
+- microsoft.testbase/testbases
 - Microsoft.TimeSeriesInsights/environments (Time Series Insights environments)
 - Microsoft.TimeSeriesInsights/environments/eventsources (Time Series Insights event sources)
 - Microsoft.TimeSeriesInsights/environments/referenceDataSets (Time Series Insights reference data sets)
 - microsoft.token/stores
 - microsoft.tokenvault/vaults
-- microsoft.virtualmachineimages/imagetemplates
+- Microsoft.VirtualMachineImages/imageTemplates (Image Templates)
 - microsoft.visualstudio/account (Azure DevOps organizations)
 - microsoft.visualstudio/account/extension
 - microsoft.visualstudio/account/project (DevOps Starter)
@@ -624,7 +657,8 @@ part of a **table** in Resource Graph.
 
 - microsoft.security/assessments
 - microsoft.security/assessments/subassessments
-- microsoft.security/locations/alerts (Security Alerts (Preview))
+- microsoft.security/iotalerts
+- microsoft.security/locations/alerts (Security Alerts)
 - microsoft.security/pricings
 - microsoft.security/regulatorycompliancestandards
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
@@ -635,6 +669,10 @@ part of a **table** in Resource Graph.
 ## servicehealthresources
 
 - microsoft.resourcehealth/events
+
+## workloadmonitorresources
+
+- microsoft.workloadmonitor/monitors
 
 ## Next steps
 
