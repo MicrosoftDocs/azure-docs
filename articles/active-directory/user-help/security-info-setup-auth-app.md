@@ -53,7 +53,7 @@ Depending on your organization’s settings, you might be able to use an authent
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
-2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, which will prompt you for MFA if you are already registered. Then select **Add method** from the **Security info** page.
+2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, which will prompt you for two-factor-authentication if you are already registered. Then select **Add method** from the **Security info** page.
 
     ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
