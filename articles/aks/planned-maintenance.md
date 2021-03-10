@@ -26,7 +26,7 @@ When using Planned Maintenance, the following restrictions apply:
 
 - AKS reserves the right to break these windows for fixes and patches that are urgent or critical.
 - Performing maintenance operations are considered *best-effort only* and are not guaranteed to occur within a specified window.
-- Updates can not be blocked for more than seven days.
+- Updates cannot be blocked for more than seven days.
 
 ### Install aks-preview CLI extension
 
@@ -103,13 +103,13 @@ You can also use a JSON file create a maintenance window instead of using parame
         "notAllowedTime": [
           {
             "start": "2021-05-26T03:00:00Z",
-            "end": "2021-05-30T12:00:00Z"
+            "end": "2021-05-30T012:00:00Z"
           }
         ]
 }
 ```
 
-The above JSON file specifies maintenance windows every Tuesday at 1:00am - 3:00am and every Wednesday at 1:00am - 2:00am as well as at 6:00am - 7:00am. There is also an exception is from *2021-05-26T03:00:00Z* to *2021-05-30T12:00:00Z* where maintenance isn't allowed even if it overlaps with a maintenance window. The following command adds the maintenance windows from `test.json`.
+The above JSON file specifies maintenance windows every Tuesday at 1:00am - 3:00am and every Wednesday at 1:00am - 2:00am and at 6:00am - 7:00am. There is also an exception from *2021-05-26T03:00:00Z* to *2021-05-30T12:00:00Z* where maintenance isn't allowed even if it overlaps with a maintenance window. The following command adds the maintenance windows from `test.json`.
 
 ```azurecli-interactive
 az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSCluster --name default --config-file ./test.json
@@ -199,7 +199,7 @@ The following example output shows the maintenance window for *default*:
 }
 ```
 
-### Delete a certain maintenance configuration window in an existing AKS Cluster
+## Delete a certain maintenance configuration window in an existing AKS Cluster
 
 To delete a certain maintenance configuration window in your AKS Cluster, use the `az aks maintenanceconfiguration delete` command.
 
