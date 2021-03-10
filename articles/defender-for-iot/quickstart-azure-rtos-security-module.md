@@ -55,4 +55,4 @@ The Defender-IoT-micro-agent for Azure RTOS uses Azure IoT Middleware connection
 Advance to the next article to finish configuring and customizing your solution.
 
 > [!div class="nextstepaction"]
-> [Configure Defender-IoT-micro-agent for Azure RTOS](how-to-azure-rtos-security-module.md)
+> [Configure and customize Defender-IoT-micro-agent for Azure RTOS (preview)](how-to-azure-rtos-security-module.md)
