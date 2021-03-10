@@ -64427,6 +64427,16 @@
       "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector//tutorials/anomaly-detection-streaming-databricks.md",
       "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/quickstart-create-nat-gateway-cli.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/tutorial-create-validate-nat-gateway-cli.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli",
+      "redirect_document_id": false
     }
   ]
 }
