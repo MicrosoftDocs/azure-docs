@@ -1580,6 +1580,8 @@
         href: sap-fiori-tutorial.md
       - name: SAP HANA
         href: saphana-tutorial.md
+      - name: Sapient
+        href: sapient-tutorial.md
       - name: SAP NetWeaver
         href: sap-netweaver-tutorial.md
       - name: SAP Qualtrics
