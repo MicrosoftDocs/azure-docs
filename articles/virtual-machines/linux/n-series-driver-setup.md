@@ -1,9 +1,11 @@
 ---
 title: Azure N-series GPU driver setup for Linux 
 description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in Azure
-services: virtual-machines-linux
+services: virtual-machines
 author: vikancha-MSFT
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subervice: vm-sizes-gpu
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/11/2019
@@ -40,7 +42,12 @@ Then run installation commands specific for your distribution.
 
 ### Ubuntu 
 
-1. Download and install the CUDA drivers from the NVIDIA website. For example, for Ubuntu 16.04 LTS:
+1. Download and install the CUDA drivers from the NVIDIA website. 
+    > [!NOTE]
+   >  The example below shows the CUDA package path for Ubuntu 16.04. Replace the path specific to the version you plan to use. 
+   >  
+   >  Visit the [Nvidia Download Center] (https://developer.download.nvidia.com/compute/cuda/repos/) for the full path specific to each version. 
+   > 
    ```bash
    CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
    wget -O /tmp/${CUDA_REPO_PKG} https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
@@ -54,6 +61,7 @@ Then run installation commands specific for your distribution.
    ```
 
    The installation can take several minutes.
+ 
 
 2. To optionally install the complete CUDA toolkit, type:
 

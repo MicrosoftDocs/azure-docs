@@ -53,9 +53,7 @@ Click on the image below to see a larger version.
 
 ### V3 encoding workflow
 
-<Token>
-<object data="./media/migration-guide/v3-pretty2.svg" width="80%"></object>
-</Token>
+[![Encoding workflow for V3](./media/migration-guide/V3-pretty.svg) ](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Set up
     1. Create an asset or use an existing asset. If using a new asset, upload content to that asset. If using an existing asset, you should be encoding files that already exist in the asset. You *shouldn't upload more content to that asset.*

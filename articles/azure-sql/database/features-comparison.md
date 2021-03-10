@@ -28,8 +28,8 @@ Azure SQL Database and SQL Managed Instance share a common code base with the la
 Azure manages your databases and guarantees their high-availability. Some features that might affect high-availability or can't be used in PaaS world have limited functionalities in SQL Database and SQL Managed Instance. These features are described in the tables below.
 
 If you need more details about the differences, you can find them in the separate pages:
-- [Azure SQL Database](transact-sql-tsql-differences-sql-server.md)
-- [Azure SQL Managed Instance](../managed-instance/transact-sql-tsql-differences-sql-server.md)
+- [Azure SQL Database vs. SQL Server differences](transact-sql-tsql-differences-sql-server.md)
+- [Azure SQL Managed Instance vs. SQL Server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## Features of SQL Database and SQL Managed Instance
 
