@@ -3,10 +3,9 @@ title: Perform live streaming using Azure Media Services to create multi-bitrate
 description: This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using the Azure portal.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 # Perform live streaming using Media Services to create multi-bitrate streams with Azure portal
 

@@ -3,10 +3,9 @@ title: Customizing Media Encoder Standard presets | Microsoft Docs
 description: This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets. The topic shows how to use Media Services .NET SDK to create an encoding task and job. It also shows how to supply custom presets to the encoding job.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
 ms.workload: media
@@ -16,7 +15,6 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 
 # Customizing Media Encoder Standard presets

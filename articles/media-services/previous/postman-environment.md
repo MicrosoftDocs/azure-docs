@@ -3,7 +3,7 @@ title: Import the Postman environment for Azure Media Services REST calls
 description: This topic provides a definition of the Postman environment for Azure Media Services REST calls.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services

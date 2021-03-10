@@ -1,12 +1,11 @@
 ---
 title: H264 Multiple Bitrate 720p Audio 5.1 | Microsoft Docs
 description: The topic gives andverview of the **H264 Multiple Bitrate 720p Audio 5.1** task preset.
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 92da14ad-7b04-4bd9-8eb5-9103f38441be
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 
 # H264 Multiple Bitrate 720p Audio 5.1

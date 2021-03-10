@@ -3,10 +3,9 @@ title: Publish content in the Azure portal | Microsoft Docs
 description: This tutorial walks you through the steps of publishing your content in the Azure portal.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 # Publish content in the Azure portal
 

@@ -1,12 +1,11 @@
 ---
 title: Azure Media Services regional availability | Microsoft Docs
-description: This article is an overview of Microsoft Azure Media Services features and service regional availability. 
+description: This article is an overview of Microsoft Azure Media Services features and service regional availability.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na

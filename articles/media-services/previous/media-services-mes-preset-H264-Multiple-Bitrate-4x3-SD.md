@@ -1,12 +1,11 @@
 ---
 title: H264 Multiple Bitrate 4x3 SD | Microsoft Docs
 description: The topic gives an overview of the **H264 Multiple Bitrate 4x3 SD** task preset.
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 13e68b15-d090-4bf5-8e52-872eab025bc6
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 
 # H264 Multiple Bitrate 4x3 SD

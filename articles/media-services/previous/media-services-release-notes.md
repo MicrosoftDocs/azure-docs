@@ -3,10 +3,9 @@ title: Azure Media Services release notes | Microsoft Docs
 description: This article talks about the Microsoft Azure Media Services v2 release notes.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: media
@@ -15,7 +14,6 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Azure Media Services release notes
 

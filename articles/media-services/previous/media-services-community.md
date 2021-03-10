@@ -3,10 +3,9 @@ title: Azure Media Services Community Overview | Microsoft Docs
 description: 'This Azure Media Services (AMS) community page discusses different ways you can get updates about AMS, see new videos and podcasts, ask questions and give feedback. '
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 # Azure Media Services Community
 

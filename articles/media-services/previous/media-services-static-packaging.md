@@ -3,7 +3,7 @@ title: Using  Azure Media Packager to accomplish static packaging tasks | Micros
 description: This topic shows various tasks that are accomplished with Azure Media Packager.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 0582628e-a525-4a78-90ac-9f7fc1cd909f

@@ -6,7 +6,6 @@ documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,7 +14,6 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Redact faces with Azure Media Analytics
 

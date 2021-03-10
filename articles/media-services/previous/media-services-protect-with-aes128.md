@@ -3,10 +3,9 @@ title: Use AES-128 dynamic encryption and the key delivery service | Microsoft D
 description: This topic shows how to dynamically encrypt with AES-128 and use the key delivery service.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
 ms.workload: media
@@ -16,7 +15,6 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Use AES-128 dynamic encryption and the key delivery service
 

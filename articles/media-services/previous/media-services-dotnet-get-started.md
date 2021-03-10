@@ -3,7 +3,7 @@ title: Get started with delivering content on demand using .NET | Microsoft Docs
 description: This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using .NET.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
@@ -15,7 +15,6 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 
 # Get started with delivering content on demand using .NET SDK

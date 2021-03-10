@@ -3,10 +3,9 @@ title: Live stream with on-premises encoders using Azure portal | Microsoft Docs
 description: This tutorial walks you through the steps of creating a Channel that is configured for a pass-through delivery.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 # Perform live streaming with on-premises encoders using Azure portal
 

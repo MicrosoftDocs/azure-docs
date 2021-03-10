@@ -3,10 +3,9 @@ title: Advanced encoding with Media Encoder Premium Workflow | Microsoft Docs
 description: Learn how to encode with Media Encoder Premium Workflow. Code samples are written in C# and use the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,7 +14,6 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Advanced encoding with Media Encoder Premium Workflow
 

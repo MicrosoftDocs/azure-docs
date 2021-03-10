@@ -1,12 +1,11 @@
 ---
 title: H264 Multiple Bitrate 720p Media Encoder Standard preset - Azure| Microsoft Docs
 description: The topic gives an overview of the **H264 Multiple Bitrate 720p** task preset.
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 10dfad38-2112-42ab-b99b-8f74a94513c3
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 
 # H264 Multiple Bitrate 720p

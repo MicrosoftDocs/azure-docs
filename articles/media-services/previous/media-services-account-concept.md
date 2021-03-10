@@ -1,13 +1,11 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Manage Azure Media Services v2 accounts | Microsoft Docs
-description: To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. This article explains how to manage Azure Media Services v2 accounts. 
+description: To start managing, encrypting, encoding, analyzing, and streaming media content in Azure, you need to create a Media Services account. This article explains how to manage Azure Media Services v2 accounts.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: article

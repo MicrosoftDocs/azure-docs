@@ -3,7 +3,7 @@ title: Upload files into an Azure Media Services account using REST  | Microsoft
 description: Learn how to get media content into Media Services by creating and uploading assets using REST.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services

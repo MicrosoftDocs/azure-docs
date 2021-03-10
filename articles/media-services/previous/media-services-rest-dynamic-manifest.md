@@ -3,10 +3,9 @@ title: Creating Filters with Azure Media Services REST API | Microsoft Docs
 description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services REST API creates dynamic manifests to achieve this selective streaming.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: f7d23daf-7cd2-49c7-a195-ab902912ab3c
 ms.service: media-services
 ms.workload: media
@@ -16,7 +15,6 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.reviewr: cenkdin
-
 ---
 # Creating Filters with Azure Media Services REST API
 

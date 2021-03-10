@@ -3,10 +3,9 @@ title: Design of a content protection system with access control using Azure Med
 description: Learn about how to license the Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -16,7 +15,6 @@ ms.date: 03/10/2021
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
-
 ---
 # Design of a content protection system with access control using Azure Media Services
 

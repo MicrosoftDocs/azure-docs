@@ -3,10 +3,9 @@ title: How to check job progress using REST API | Microsoft Docs
 description: This article demonstrates how to check job progress using Azure Media Services v2 REST API.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 # How to: check job progress
 

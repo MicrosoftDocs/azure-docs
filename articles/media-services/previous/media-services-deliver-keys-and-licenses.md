@@ -1,12 +1,11 @@
 ---
-title: Use Azure Media Services to deliver DRM licenses or AES keys | Microsoft Docs 
+title: Use Azure Media Services to deliver DRM licenses or AES keys | Microsoft Docs
 description: This article describes how you can use Azure Media Services to deliver PlayReady and/or Widevine licenses and AES keys but do the rest (encode, encrypt, stream) by using your on-premises servers.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services
 ms.workload: media
@@ -16,7 +15,6 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 
 # Use Media Services to deliver DRM licenses or AES keys

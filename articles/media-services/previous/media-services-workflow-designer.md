@@ -3,7 +3,7 @@ title: Create Advanced Encoding Workflows with Workflow Designer | Microsoft Doc
 description: Learn about how to create advanced encoding workflows with Workflow Designer.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322

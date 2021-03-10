@@ -2,7 +2,7 @@
 title: Delivering content to customers
 description: This topic gives an overview of what is involved in delivering your content with Azure Media Services.
 services: media-services
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services

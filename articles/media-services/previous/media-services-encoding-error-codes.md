@@ -3,10 +3,9 @@ title: Azure Media Services encoding error codes | Microsoft Docs
 description: This topic lists error codes that could be returned in case an error was encountered during the encoding task execution..
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: ce4e939f-5aee-41f9-859d-e4429815e9f2
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 
 # Encoding error codes

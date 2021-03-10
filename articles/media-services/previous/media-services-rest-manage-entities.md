@@ -1,7 +1,7 @@
 ---
 title: Managing Media Services entities with REST  | Microsoft Docs
 description: This article demonstrates how to manage Media Services entities with REST API.
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services

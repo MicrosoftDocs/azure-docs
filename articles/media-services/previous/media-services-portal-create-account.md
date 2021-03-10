@@ -6,7 +6,6 @@ documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 # Create a Media Services account using the Azure portal
 

@@ -1,7 +1,7 @@
 ---
 title: Widevine license template overview | Microsoft Docs
 description: This topic gives an overview of a Widevine license template that is used to configure Widevine licenses.
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services

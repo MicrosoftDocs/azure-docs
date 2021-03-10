@@ -1,12 +1,11 @@
 ---
 title: H264 Multiple Bitrate 16x9 SD| Microsoft Docs
 description: The topic gives an overview of the **H264 Multiple Bitrate 16x9 SD** task preset.
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 8b16385a-9a3d-4939-aef3-ca6ac82f455f
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 
 # H264 Multiple Bitrate 16x9 SD

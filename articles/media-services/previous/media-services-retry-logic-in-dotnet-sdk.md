@@ -1,7 +1,7 @@
 ---
 title: Retry logic in the Media Services SDK for .NET | Microsoft Docs
 description: The topic gives an overview of retry logic in the Media Services SDK for .NET.
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services

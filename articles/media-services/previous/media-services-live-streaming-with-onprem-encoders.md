@@ -1,12 +1,11 @@
 ---
 title: Stream live with on-premises encoders that create multi-bitrate streams - Azure | Microsoft Docs
-description: This topic describes how to set up a channel that receives a multi-bitrate live stream from an on-premises encoder. 
+description: This topic describes how to set up a channel that receives a multi-bitrate live stream from an on-premises encoder.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 # Working with Channels that receive multi-bitrate live stream from on-premises encoders
 

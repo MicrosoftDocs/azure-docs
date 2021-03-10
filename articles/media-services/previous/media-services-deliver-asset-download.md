@@ -3,10 +3,9 @@ title: Download Media Services assets to your computer - Azure | Microsoft Docs
 description: Learn about to download assets to your computer. Code samples are written in C# and use the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
 ms.workload: media
@@ -16,7 +15,6 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # How to: Deliver an asset by download
 

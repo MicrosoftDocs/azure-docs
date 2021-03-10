@@ -3,10 +3,9 @@ title: Configure Postman for Azure Media Services REST API calls
 description: This article describes how to configure Postman for Media Services REST API calls.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,7 +13,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 # Configure Postman for Media Services v2 REST API calls
 

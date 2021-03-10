@@ -3,7 +3,7 @@ title: Migrate from Azure Media Encoder to Media Encoder Standard | Microsoft Do
 description: This topic discusses how to migrate from Azure Media Encoder to the Media Encoder Standard media processor.
 services: media-services
 documentationcenter: ''
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services

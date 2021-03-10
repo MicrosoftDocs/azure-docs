@@ -1,12 +1,11 @@
 ---
 title: H264 Single Bitrate 720p for Android | Microsoft Docs
 description: The topic gives an overview of the **H264 Single Bitrate 720p for Android** task preset.
-author: inhenkel
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 4f9569a3-5aca-4fea-8242-024925a8af90
 ms.service: media-services
 ms.workload: media
@@ -15,7 +14,6 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
-
 ---
 
 # H264 Single Bitrate 720p for Android
