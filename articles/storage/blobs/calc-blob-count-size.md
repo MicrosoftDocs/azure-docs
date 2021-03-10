@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 03/05/2021
+ms.date: 03/10/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -15,7 +15,7 @@ ms.topic: how-to
 
 This article uses the Azure Blob Storage inventory feature and Azure Synapse to calculate the blob count and total size of blobs per container. These values are useful when optimizing blob usage per container.
 
-Blob metadata is not included in this method. The Azure Blob Storage inventory feature uses the [List Blobs](/rest/api/storageservices/list-blobs) REST API with default parameters. So, the example doesn’t support snapshots, '$' containers, soft-deleted blobs, and so on.
+Blob metadata is not included in this method. The Azure Blob Storage inventory feature uses the [List Blobs](/rest/api/storageservices/list-blobs) REST API with default parameters. So, the example doesn’t support snapshots, '$' containers, and so on.
 
 > [!IMPORTANT]
 > Bob inventory is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
