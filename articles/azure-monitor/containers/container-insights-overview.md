@@ -54,7 +54,7 @@ The main differences in monitoring a Windows Server cluster compared to a Linux 
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Container insights.
 
-> [!VIDEO https://youtu.be/XEdwGvS2AwA]
+> [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
 
 ## How do I access this feature?
 

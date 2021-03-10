@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 09/30/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
 ---
@@ -143,7 +143,7 @@ The output of this command is similar to the following JSON:
 ### Virtual network and private endpoint
 
 > [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions or Azure China 21Vianet regions.
+> Using an Azure Machine Learning workspace with private link is not available in the Azure Government regions.
 
 If you want to restrict access to your workspace to a virtual network, you can use the following parameters:
 

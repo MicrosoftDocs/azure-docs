@@ -51,12 +51,12 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Select **Register** to create the application.
 > 1. Under **Manage**, select **Authentication**.
 > 1. Select **Add a platform** > **Mobile and desktop applications**.
-> 1. In the **Redirect URIs** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> 1. In the **Redirect URIs** section, select `https://login.microsoftonline.com/common/oauth2/nativeclient` and in **Custom redirect URIs** add `ms-appx-web://microsoft.aad.brokerplugin/{client_id}` where `{client_id}` is the application (client) ID of your application (the same GUID that appears in the `msal{client_id}://auth` checkbox).
 > 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in Azure portal
-> For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `https://login.microsoftonline.com/common/oauth2/nativeclient` and `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >

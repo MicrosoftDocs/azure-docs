@@ -116,7 +116,7 @@
       href: exempt-resource.md
     - name: Create custom security initiatives and policies
       href: custom-security-policies.md
-  - name: Protect your machines with Defender for servers
+  - name: Protect your machines
     displayName: hybrid, arc, Azure Defender for machines
     items:
     - name: Overview of Azure Defender for servers

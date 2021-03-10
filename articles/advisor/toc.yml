@@ -60,7 +60,7 @@
   - name: Azure CLI
     href: /cli/azure/advisor
   - name: PowerShell
-    href: /powershell/module/az.advisor/?view=azps-1.2.0
+    href: /powershell/module/az.advisor/
 - name: Resources
   items:
   - name: Azure Roadmap

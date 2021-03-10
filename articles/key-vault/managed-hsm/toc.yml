@@ -50,7 +50,7 @@
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    href: /dotnet/api/overview/azure/key-vault
   - name: Java
     href: /java/api/overview/azure/keyvault
   - name: Node.js
