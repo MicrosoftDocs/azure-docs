@@ -27,9 +27,16 @@ After a guest user has redeemed your invitation for B2B collaboration, there mig
 
 To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while retaining the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UPN of the user doesn't change, but the user's sign-in name changes to the new email. The user can subsequently sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
+## Reseting to a new email address
+1. Ensure that you the email address used you are reseting to is on the user object, either in the `mail` or `otherMails` property. 
+2. Perform the reset operation on the user ensuring that the new email is specified in as the `InvitedUserEmailAddress`.
+
+> [!NOTE]
+>During public preview, when you are reseting to another email address, we recommend setting the `mail` property for the new email address as this enables them to redeem through signing into your directory in addition to using the invitation redemption link.
+>
 ## Use PowerShell to reset redemption status
 
-Install the latest AzureADPreview PowerShell module and create a new invitation with `InvitedUserEMailAddress` set to the new email address, and `ResetRedemption` set to `true`.
+Install the latest AzureADPreview PowerShell module and create a new invitation with `InvitedUserEmailAddress` set to the new email address, and `ResetRedemption` set to `true`.
 
 ```powershell  
 Uninstall-Module AzureADPreview 
@@ -42,7 +49,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## Use Microsoft Graph API to reset redemption status
 
-Using the [Microsoft Graph invitation API](/graph/api/resources/invitation), set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property.
+Using the [Microsoft Graph invitation API](/graph/api/resources/invitation?view=graph-rest-1.0), set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  
