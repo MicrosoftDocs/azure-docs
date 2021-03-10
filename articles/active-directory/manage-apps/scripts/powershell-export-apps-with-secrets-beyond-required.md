@@ -28,7 +28,7 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 ## Script explanation
 
 This script is working non-interactively. The admin using it will need to change the values in the "#PARAMETERS TO CHANGE" section with their own App ID, Application Secret, Tenant Name, the period for the apps credentials expiration and the Path where the CSV will be exported.
-This script uses the [Client_Credential Oauth Flow](../develop/v2-oauth2-client-creds-grant-flow.md) 
+This script uses the [Client_Credential Oauth Flow](../../develop/v2-oauth2-client-creds-grant-flow.md) 
 The function "RefreshToken" will build the access token based on the values of the parameters modified by the admin.
 
 The "Add-Member" command is responsible for creating the columns in the CSV file.
