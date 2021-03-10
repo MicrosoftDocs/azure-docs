@@ -56,7 +56,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 To create and start a call, use one of the APIs on `callAgent` and provide a user that you've created through the Communication Services Administration client library.
 
-Call creation and start is synchronous. The call instance allows you to subscribe to call events.
+Call creation and start are synchronous. The call instance allows you to subscribe to call events.
 
 ### Place a 1:n call to a user or PSTN
 
