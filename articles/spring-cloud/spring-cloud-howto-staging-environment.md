@@ -17,7 +17,7 @@ This article explains how to set up a staging deployment by using the blue-green
 
 ## Prerequisites
 
-* Azure Spring Cloud instance on a Standard pricing tier.
+* Azure Spring Cloud instance on a Standard pricing tier
 * [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
 This article uses an application built from Spring Initializr. If you want to use a different application for this example, you'll need to make a simple change in a public-facing portion of the application to differentiate your staging deployment from production.
