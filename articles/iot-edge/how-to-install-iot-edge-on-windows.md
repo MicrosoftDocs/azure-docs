@@ -38,19 +38,11 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
   * Minimum RAM: 4 GB (8 GB recommended)
   * Minimum Storage: 10 GB
 
-* Access to Windows Admin Center insider build with the Azure IoT Edge extension for Windows Admin Center installed:
-   <!-- The link below needs the language localization to work; otherwise broken -->
-   1. Visit the [Windows Insider Preview](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).
+* Access to Windows Admin Center with the Azure IoT Edge extension for Windows Admin Center installed:
 
-   1. In the previews dropdown, select **Windows Admin Center Preview - Build 2012**, and choose **Confirm**.
+   1. Download the [Windows Admin Center installer](https://aka.ms/wacdownload).
 
-      ![Choose the Windows Admin Center Preview - Build 2012 from the dropdown menu of available previews.](./media/how-to-install-iot-edge-on-windows/select-windows-admin-center-preview-build.png)
-
-   1. In the **Select Language** dropdown, choose **English**, and choose **Confirm**.
-
-   1. Choose **Download Now** to download the *WindowsAdminCenterPreview2012.msi*.
-
-   1. Run the *WindowsAdminCenterPreview2012.msi* and follow the install wizard prompts to install Windows Admin Center. Once installed, open Windows Admin Center.
+   1. Run the downloaded installer and follow the install wizard prompts to install Windows Admin Center. Once installed, open Windows Admin Center.
 
    1. On the first use of Windows Admin Center, you will be prompted to select a certificate to use. Select **Windows Admin Center Client** as your certificate.
 

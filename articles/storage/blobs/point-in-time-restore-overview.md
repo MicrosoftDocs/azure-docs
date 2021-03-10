@@ -43,7 +43,7 @@ The **Restore Blob Ranges** operation returns a restore ID that uniquely identif
 > Read operations from the secondary location may proceed during the restore operation if the storage account is geo-replicated.
 
 > [!CAUTION]
-> Point-in-time restore supports restoring operations on block blobs only. Operations on containers cannot be restored. If you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later.
+> Point-in-time restore supports restoring against operations that acted on block blobs only. Any operations that acted on containers cannot be restored. For example, if you delete a container from the storage account by calling the [Delete Container](/rest/api/storageservices/delete-container) operation, that container cannot be restored with a point-in-time restore operation. Rather than deleting an entire container, delete individual blobs if you may want to restore them later.
 
 ### Prerequisites for point-in-time restore
 

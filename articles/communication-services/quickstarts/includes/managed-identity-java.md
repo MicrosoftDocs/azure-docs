@@ -7,12 +7,12 @@ In the pom.xml file, add the following dependency elements to the group of depen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.6</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.4</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -45,7 +45,7 @@ Then, use the client to issue a token for a new user:
      public AccessToken createIdentityAndGetTokenAsync() {
           // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-
+          
           HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -69,7 +69,7 @@ The following code example shows how to create a service client object with mana
      public SendSmsResponse sendSms() {
           // You can find your endpoint and access key from your resource in the Azure portal
           String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
-
+    
           HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
           TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -80,12 +80,12 @@ The following code example shows how to create a service client object with mana
                .buildClient();
 
           // Send the message and check the response for a message id
-          SendSmsResponse response = smsClient.sendMessage(
-               new PhoneNumberIdentifier("<leased-phone-number>"),
-               to,
-               "your message",
-               options /* Optional */
+          SmsSendResult response = smsClient.send(
+               "<from-phone-number>",
+               "<to-phone-number>",
+               "your message"
           );
+
           return response;
     }
 ```
