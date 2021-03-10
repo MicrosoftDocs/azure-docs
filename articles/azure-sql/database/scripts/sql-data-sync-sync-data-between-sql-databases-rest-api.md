@@ -85,7 +85,7 @@ Status code: 201
 
 ## Create sync member
 
-Use the following template to create a sync member: https://docs.microsoft.com/en-us/rest/api/sql/syncmembers/createorupdate
+Use the following template to create a sync member: https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate
 
 Sample request for creating a sync member:
 
@@ -159,11 +159,11 @@ Status code: 200
 
 Status code: 202
 
-List hub schemas: https://docs.microsoft.com/en-us/rest/api/sql/syncgroups/listhubschemas
+List hub schemas: https://docs.microsoft.com/rest/api/sql/syncgroups/listhubschemas
 
 Refresh schema for member: https://docs.microsoft.com/rest/api/sql/syncmembers/refreshmemberschema
 
-List membber schemas: https://docs.microsoft.com/en-us/rest/api/sql/syncmembers/listmemberschemas
+List membber schemas: https://docs.microsoft.com/rest/api/sql/syncmembers/listmemberschemas
 
 Only proceed to the next step once your schema refreshes successfully. 
 
@@ -225,7 +225,7 @@ Sample response for updating sync group:
 ```
 ## Update sync member
 
-Use the following template to update a sync member: https://docs.microsoft.com/en-us/rest/api/sql/syncmembers/createorupdate
+Use the following template to update a sync member: https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate
 
 Sample request for updating a sync member: 
 
@@ -284,7 +284,7 @@ Status code: 201
 
 ## Trigger sync
 
-Use the following template to trigger a sync operation: https://docs.microsoft.com/en-us/rest/api/sql/syncgroups/triggersync
+Use the following template to trigger a sync operation: https://docs.microsoft.com/rest/api/sql/syncgroups/triggersync
 
 Sample request for triggering sync operation: 
 
