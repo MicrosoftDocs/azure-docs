@@ -1113,7 +1113,7 @@
 - name: Networking
   items:
   - name: Overview
-    href: ../virtual-network/network-overview.md
+    href: network-overview.md
   - name: Best practices
     href: /virtual-network/concepts-and-best-practices.md
   - name: Create virtual network
@@ -1121,58 +1121,58 @@
   - name: Filter network traffic
     items:
     - name: Azure portal
-      href: tutorial-filter-network-traffic.md
+      href: ../virtual-network/tutorial-filter-network-traffic.md
     - name: Azure PowerShell
-      href: tutorial-filter-network-traffic-powershell.md
+      href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
     - name: Azure CLI
-      href: tutorial-filter-network-traffic-cli.md
+      href: ../virtual-network/tutorial-filter-network-traffic-cli.md
   - name: Create VM - static public IP
     items:
     - name: Azure portal
-      href: virtual-network-deploy-static-pip-arm-portal.md
+      href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md
     - name: Azure PowerShell
-      href: virtual-network-deploy-static-pip-arm-ps.md
+      href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md
     - name: Azure CLI
-      href: virtual-network-deploy-static-pip-arm-cli.md
+      href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md
     - name: Add public IP address to existing VM
-      href: associate-public-ip-address-vm.md
+      href: ../virtual-network/associate-public-ip-address-vm.md
     - name: Dissociate public IP address from a VM
-      href: remove-public-ip-address-vm.md
+      href: ../virtual-network/remove-public-ip-address-vm.md
   - name: Create VM - static private IP
     items:
     - name: Azure portal
-      href: virtual-networks-static-private-ip-arm-pportal.md
+      href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
     - name: Azure PowerShell
-      href: virtual-networks-static-private-ip-arm-ps.md
+      href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md
     - name: Azure CLI
-      href: virtual-networks-static-private-ip-arm-cli.md
+      href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md
   - name: Create VM - multiple IPs
     items:
     - name: Azure portal
-      href: virtual-network-multiple-ip-addresses-portal.md
+      href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md
     - name: Azure PowerShell
-      href: virtual-network-multiple-ip-addresses-powershell.md
+      href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md
     - name: Azure CLI
-      href: virtual-network-multiple-ip-addresses-cli.md
+      href: ../virtual-network/virtual-network-multiple-ip-addresses-cli.md
     - name: Add or remove network interfaces
-      href: virtual-network-network-interface-vm.md
+      href: ../virtual-network/virtual-network-network-interface-vm.md
     - name: Create VM - multiple NICs
       items:
       - name: Azure PowerShell
-        href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        href: ./windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       - name: Azure CLI
-        href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        href: ./linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
   - name: Create VM - accelerated networking
     items:
     - name: Azure PowerShell
-      href: create-vm-accelerated-networking-powershell.md
+      href: ../virtual-network/create-vm-accelerated-networking-powershell.md
     - name: Azure CLI
-      href: create-vm-accelerated-networking-cli.md
+      href: ../virtual-network/create-vm-accelerated-networking-cli.md
       items:
       - name: Setup DPDK
-        href: setup-dpdk.md
+        href: ../virtual-network/setup-dpdk.md
   - name: TCP/IP Performance Tuning for Azure VMs
-    href: virtual-network-tcpip-performance-tuning.md
+    href: ../virtual-network/virtual-network-tcpip-performance-tuning.md
   - name: Virtual machine network throughput
     href: ../virtual-network/virtual-machine-network-throughput.md
   - name: Create a DDOS protection plan
