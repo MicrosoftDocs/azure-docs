@@ -85,7 +85,7 @@ All partners who have a live offer get to work with a dedicated engagement manag
 
 ![Technical benefits](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* Seats sold threshold applies to Microsoft 365 apps only (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2021.
+Seats sold threshold applies to Microsoft 365 apps only (SaaS applications that have integrations with Microsoft Teams, Office, Outlook, or SharePoint) and benefits must be completed by June 30, 2021.
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 

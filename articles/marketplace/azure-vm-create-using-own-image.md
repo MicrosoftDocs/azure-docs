@@ -57,94 +57,94 @@ The following three sections describe these options.
 1. Upload vhd(s) to Storage Account.
 2. On the Azure portal, search for **Deploy a custom template**.
 3. Select **Build your own template in the editor**.
-4. Copy the following ARM template.
+4. Copy the following Azure Resource Manager (ARM) template.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "sourceStorageAccountResourceId": {
-      "type": "string",
-      "metadata": {
-        "description": "Resource ID of the source storage account that the blob vhd resides in."
-      }
-    },
-    "sourceBlobUri": {
-      "type": "string",
-      "metadata": {
-        "description": "Blob Uri of the vhd blob (must be in the storage account provided.)"
-      }
-    },
-    "sourceBlobDataDisk0Uri": {
-      "type": "string",
-      "metadata": {
-        "description": "Blob Uri of the vhd blob (must be in the storage account provided.)"
-      }
-    },
-    "sourceBlobDataDisk1Uri": {
-      "type": "string",
-      "metadata": {
-        "description": "Blob Uri of the vhd blob (must be in the storage account provided.)"
-      }
-    },
-    "galleryName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Shared Image Gallery."
-      }
-    },
-    "galleryImageDefinitionName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Image Definition."
-      }
-    },
-    "galleryImageVersionName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Image Version - should follow <MajorVersion>.<MinorVersion>.<Patch>."
-      }
-    }
-  },
-  "resources": [
+    ```json
     {
-      "type": "Microsoft.Compute/galleries/images/versions",
-      "name": "[concat(parameters('galleryName'), '/', parameters('galleryImageDefinitionName'), '/', parameters('galleryImageVersionName'))]",
-      "apiVersion": "2020-09-30",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "storageProfile": {
-          "osDiskImage": {
-            "source": {
-              "id": "[parameters('sourceStorageAccountResourceId')]",
-              "uri": "[parameters('sourceBlobUri')]"
-            }
-          },
-
-          "dataDiskImages": [
-            {
-              "lun": 0,
-              "source": {
-                "id": "[parameters('sourceStorageAccountResourceId')]",
-                "uri": "[parameters('sourceBlobDataDisk0Uri')]"
-              }
-            },
-            {
-              "lun": 1,
-              "source": {
-                "id": "[parameters('sourceStorageAccountResourceId')]",
-                "uri": "[parameters('sourceBlobDataDisk1Uri')]"
-              }
-            }
-          ]
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "sourceStorageAccountResourceId": {
+          "type": "string",
+          "metadata": {
+            "description": "Resource ID of the source storage account that the blob vhd resides in."
+          }
+        },
+        "sourceBlobUri": {
+          "type": "string",
+          "metadata": {
+            "description": "Blob Uri of the vhd blob (must be in the storage account provided.)"
+          }
+        },
+        "sourceBlobDataDisk0Uri": {
+          "type": "string",
+          "metadata": {
+            "description": "Blob Uri of the vhd blob (must be in the storage account provided.)"
+          }
+        },
+        "sourceBlobDataDisk1Uri": {
+          "type": "string",
+          "metadata": {
+            "description": "Blob Uri of the vhd blob (must be in the storage account provided.)"
+          }
+        },
+        "galleryName": {
+          "type": "string",
+          "metadata": {
+            "description": "Name of the Shared Image Gallery."
+          }
+        },
+        "galleryImageDefinitionName": {
+          "type": "string",
+          "metadata": {
+            "description": "Name of the Image Definition."
+          }
+        },
+        "galleryImageVersionName": {
+          "type": "string",
+          "metadata": {
+            "description": "Name of the Image Version - should follow <MajorVersion>.<MinorVersion>.<Patch>."
+          }
         }
-      }
+      },
+      "resources": [
+        {
+          "type": "Microsoft.Compute/galleries/images/versions",
+          "name": "[concat(parameters('galleryName'), '/', parameters('galleryImageDefinitionName'), '/', parameters('galleryImageVersionName'))]",
+          "apiVersion": "2020-09-30",
+          "location": "[resourceGroup().location]",
+          "properties": {
+            "storageProfile": {
+              "osDiskImage": {
+                "source": {
+                  "id": "[parameters('sourceStorageAccountResourceId')]",
+                  "uri": "[parameters('sourceBlobUri')]"
+                }
+              },
+    
+              "dataDiskImages": [
+                {
+                  "lun": 0,
+                  "source": {
+                    "id": "[parameters('sourceStorageAccountResourceId')]",
+                    "uri": "[parameters('sourceBlobDataDisk0Uri')]"
+                  }
+                },
+                {
+                  "lun": 1,
+                  "source": {
+                    "id": "[parameters('sourceStorageAccountResourceId')]",
+                    "uri": "[parameters('sourceBlobDataDisk1Uri')]"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
-  ]
-}
-
-```
+    
+    ```
 
 5. Paste the template into the editor.
 
@@ -155,10 +155,10 @@ The following three sections describe these options.
 
 | Parameters | Description |
 | --- | --- |
-| sourceStorageAccountResourceId | Resource ID of the source storage account in which the blob vhd resides.<br><br>To get the Resource ID, go to your **Storage Account** on **Azure Portal**, go to **Properties**, and copy the **ResourceID** value. |
-| sourceBlobUri | Blob Uri of the OS disk vhd blob (must be in the storage account provided).<br><br>To get the blob URL, go to your **Storage Account** on **Azure Portal**, go to your **blob**, and copy the **URL** value. |
-| sourceBlobDataDisk0Uri | Blob Uri of the data disk vhd blob (must be in the storage account provided). If you don't have a data disk, remove this parameter from the template.<br><br>To get the blob URL, go to your **Storage Account** on **Azure Portal**, go to your **blob**, and copy the **URL** value. |
-| sourceBlobDataDisk1Uri | Blob Uri of additional data disk vhd blob (must be in the storage account provided). If you don't have additional data disk, remove this parameter from the template.<br><br>To get the blob URL, go to your **Storage Account** on **Azure Portal**, go to your **blob**, and copy the **URL** value. |
+| sourceStorageAccountResourceId | Resource ID of the source storage account in which the blob vhd resides.<br><br>To get the Resource ID, go to your **Storage Account** on **Azure portal**, go to **Properties**, and copy the **ResourceID** value. |
+| sourceBlobUri | Blob Uri of the OS disk vhd blob (must be in the storage account provided).<br><br>To get the blob URL, go to your **Storage Account** on **Azure portal**, go to your **blob**, and copy the **URL** value. |
+| sourceBlobDataDisk0Uri | Blob Uri of the data disk vhd blob (must be in the storage account provided). If you don't have a data disk, remove this parameter from the template.<br><br>To get the blob URL, go to your **Storage Account** on **Azure portal**, go to your **blob**, and copy the **URL** value. |
+| sourceBlobDataDisk1Uri | Blob Uri of additional data disk vhd blob (must be in the storage account provided). If you don't have additional data disk, remove this parameter from the template.<br><br>To get the blob URL, go to your **Storage Account** on **Azure portal**, go to your **blob**, and copy the **URL** value. |
 | galleryName | Name of the Shared Image Gallery |
 | galleryImageDefinitionName | Name of the Image Definition |
 | galleryImageVersionName | Name of the Image Version to be created, in this format: `<MajorVersion>.<MinorVersion>.<Patch>` |

@@ -11,6 +11,8 @@ ms.date: 02/19/2020
 
 # Test a virtual machine image
 
+This topic will cover the steps to test a virtual machine (VM) image for deployment on Azure Marketplace.
+
 ## Deploy an Azure VM
 
 To deploy a VM from the Shared Image Gallery image:
