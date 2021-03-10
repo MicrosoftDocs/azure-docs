@@ -1159,6 +1159,8 @@
       href: ./machine-learning/tutorial-cognitive-services-sentiment.md
     - name: Anomaly detection with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
+    - name: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
+      href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts
