@@ -49,6 +49,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 Sample response for creating a sync group:
 
+Status code: 200
 ```json
 {
   "properties": {
@@ -65,6 +66,7 @@ Sample response for creating a sync group:
 }
 ```
 
+Status code: 201
 ```json
 {
   "properties": {
@@ -78,6 +80,64 @@ Sample response for creating a sync group:
   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187",
   "name": "syncgroupcrud-3187",
   "type": "Microsoft.Sql/servers/databases/syncGroups"
+}
+```
+
+## Create sync member
+
+Use the following template to create a sync member: https://docs.microsoft.com/en-us/rest/api/sql/syncmembers/createorupdate
+
+Sample request for creating a sync member:
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/syncMembers/syncgroupcrud-4879?api-version=2015-05-01-preview
+```
+
+```json
+{
+  "properties": {
+    "databaseType": "AzureSqlDatabase",
+    "serverName": "syncgroupcrud-3379.database.windows.net",
+    "databaseName": "syncgroupcrud-7421",
+    "userName": "myUser",
+    "syncDirection": "Bidirectional",
+    "syncState": "UnProvisioned"
+  }
+}
+```
+Sample response for creating a sync member:
+
+Status code:200
+```json
+{
+  "properties": {
+    "databaseType": "AzureSqlDatabase",
+    "serverName": "syncgroupcrud-3379.database.windows.net",
+    "databaseName": "syncgroupcrud-7421",
+    "userName": "myUser",
+    "syncDirection": "Bidirectional",
+    "syncState": "UnProvisioned"
+  },
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/syncMembers/syncgroupcrud-4879",
+  "name": "syncgroupcrud-4879",
+  "type": "Microsoft.Sql/servers/databases/syncGroups/syncMembers"
+}
+```
+
+Status code:201
+```json
+{
+  "properties": {
+    "databaseType": "AzureSqlDatabase",
+    "serverName": "syncgroupcrud-3379.database.windows.net",
+    "databaseName": "syncgroupcrud-7421",
+    "userName": "myUser",
+    "syncDirection": "Bidirectional",
+    "syncState": "UnProvisioned"
+  },
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/syncMembers/syncgroupcrud-4879",
+  "name": "syncgroupcrud-4879",
+  "type": "Microsoft.Sql/servers/databases/syncGroups/syncMembers"
 }
 ```
 
@@ -99,7 +159,13 @@ Status code: 200
 
 Status code: 202
 
+List hub schemas: https://docs.microsoft.com/en-us/rest/api/sql/syncgroups/listhubschemas
+
 Refresh schema for member: https://docs.microsoft.com/rest/api/sql/syncmembers/refreshmemberschema
+
+List membber schemas: https://docs.microsoft.com/en-us/rest/api/sql/syncmembers/listmemberschemas
+
+Only proceed to the next step once your schema refreshes successfully. 
 
 ## Update sync group 
 
@@ -157,6 +223,78 @@ Sample response for updating sync group:
   "type": "Microsoft.Sql/servers/databases/syncGroups"
 }
 ```
+## Update sync member
+
+Use the following template to update a sync member: https://docs.microsoft.com/en-us/rest/api/sql/syncmembers/createorupdate
+
+Sample request for updating a sync member: 
+
+```http
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/syncMembers/syncgroupcrud-4879?api-version=2015-05-01-preview
+```
+
+```json
+{
+  "properties": {
+    "databaseType": "AzureSqlDatabase",
+    "serverName": "syncgroupcrud-3379.database.windows.net",
+    "databaseName": "syncgroupcrud-7421",
+    "userName": "myUser",
+    "syncDirection": "Bidirectional",
+    "syncState": "UnProvisioned"
+  }
+}
+```
+
+Sample response for updating a sync member: 
+
+Status code: 200
+```json
+{
+  "properties": {
+    "databaseType": "AzureSqlDatabase",
+    "serverName": "syncgroupcrud-3379.database.windows.net",
+    "databaseName": "syncgroupcrud-7421",
+    "userName": "myUser",
+    "syncDirection": "Bidirectional",
+    "syncState": "UnProvisioned"
+  },
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/syncMembers/syncgroupcrud-4879",
+  "name": "syncgroupcrud-4879",
+  "type": "Microsoft.Sql/servers/databases/syncGroups/syncMembers"
+}
+```
+
+Status code: 201
+```json
+{
+  "properties": {
+    "databaseType": "AzureSqlDatabase",
+    "serverName": "syncgroupcrud-3379.database.windows.net",
+    "databaseName": "syncgroupcrud-7421",
+    "userName": "myUser",
+    "syncDirection": "Bidirectional",
+    "syncState": "UnProvisioned"
+  },
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/syncMembers/syncgroupcrud-4879",
+  "name": "syncgroupcrud-4879",
+  "type": "Microsoft.Sql/servers/databases/syncGroups/syncMembers"
+}
+```
+
+## Trigger sync
+
+Use the following template to trigger a sync operation: https://docs.microsoft.com/en-us/rest/api/sql/syncgroups/triggersync
+
+Sample request for triggering sync operation: 
+
+```http
+POST https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/triggerSync?api-version=2015-05-01-preview
+```
+
+Sample response for triggering sync operation: 
+
+Status code: 200
 
 ## Next steps
 
