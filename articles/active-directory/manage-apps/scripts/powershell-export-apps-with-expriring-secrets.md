@@ -15,7 +15,7 @@ ms.reviewer: mifarca
 
 # Export apps with expiring secrets and certificates
 
-This PowerShell script example exports all apps with expiring secrets and certificates for the specified apps from your directory in a CSV file.
+This PowerShell script example exports all apps with expiring secrets, certificates and owners for the specified app registrations from your directory in a CSV file.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -26,6 +26,8 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 [!code-azurepowershell[main](~/powershell_scripts/application-management/export-apps-with-expiring-secrets.ps1 "Exports all apps with expiring secrets and certificates for the specified apps in your directory.")]
 
 ## Script explanation
+
+The script can be used directly without any modifications. The admin will be asked about the expiration date and whether they would like to see already expired secrets or certificates or not.
 
 The "Add-Member" command is responsible for creating the columns in the CSV file.
 You can modify the "$Path" variable directly in PowerShell, with a CSV file path, in case you'd prefer the export to be non-interactive.
