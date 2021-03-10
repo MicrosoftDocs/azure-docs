@@ -87,6 +87,6 @@ The following code example shows how to create a service client object with mana
             );
 
           return response;
-     }
+    }
 ```
 
