@@ -67,26 +67,26 @@ The following code example shows how to create a service client object with mana
 
 ```java
      public SmsSendResult sendSms() {
-            // You can find your endpoint and access key from your resource in the Azure portal
-            String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+          // You can find your endpoint and access key from your resource in the Azure portal
+          String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
     
-            HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
-            TokenCredential credential = new DefaultAzureCredentialBuilder().build();
+          HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+          TokenCredential credential = new DefaultAzureCredentialBuilder().build();
 
-            SmsClient smsClient = new SmsClientBuilder()
-                .endpoint(endpoint)
-                .credential(credential)
-                .httpClient(httpClient)
-                .buildClient();
+          SmsClient smsClient = new SmsClientBuilder()
+               .endpoint(endpoint)
+               .credential(credential)
+               .httpClient(httpClient)
+               .buildClient();
 
-            // Send the message and check the response for a message id
-            SmsSendResult response = smsClient.send(
-                "<leased-phone-number>",
-                "<to>",
-                "your message"
+          // Send the message and check the response for a message id
+          SmsSendResult response = smsClient.send(
+               "<leased-phone-number>",
+               "<to>",
+               "your message"
             );
 
-            return response;
+           return response;
 }
 ```
 
