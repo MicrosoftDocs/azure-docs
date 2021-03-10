@@ -219,7 +219,7 @@ In this example, curl will be used to to make a POST API call to Azure Active Di
 
    Ensure the correct values are substituted in the curl request.
 
-   ```
+   ```JSON
    curl --location --request POST 'https://login.microsoftonline.com/{TENANT_ID}/oauth2/token' \
    --header 'Content-Type: application/x-www-form-urlencoded' \
    --data-urlencode 'grant_type=client_credentials' \
@@ -227,7 +227,9 @@ In this example, curl will be used to to make a POST API call to Azure Active Di
    --data-urlencode 'client_secret={CLIENT_SECRET}' \
    --data-urlencode 'resource=https://management.core.windows.net'
    ```
+
    Here is an example of the response from the request:
+
    ```JSON
    {
        "token_type": "Bearer",
@@ -244,7 +246,7 @@ In this example, curl will be used to to make a POST API call to Azure Active Di
 
    Ensure the Bearer token and parameters are substituted with the correct values.
 
-   ```
+   ```JSON
    curl --location --request POST 'https://isvapp.azurewebsites.net/selftest-vm' \
    --header 'Content-Type: application/json' \
    --header 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJS…' \
@@ -261,6 +263,7 @@ In this example, curl will be used to to make a POST API call to Azure Active Di
    ```
 
    Example response from the self-test VM api call
+
    ```JSON
    {
        "TrackingId": "9bffc887-dd1d-40dd-a8a2-34cee4f4c4c3",
