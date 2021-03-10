@@ -33,20 +33,16 @@ When using iframe, consider the following:
 
 To allow your Azure AD B2C user interface to be embedded in an iframe, a content security policy `Content-Security-Policy` and frame options `X-Frame-Options` must be included in the Azure AD B2C HTTP response headers. These headers allow the Azure AD B2C user interface to run under your application domain name.
 
-Add a **JourneyFraming** element inside the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. Your **UserJourneyBehaviors** element should look like this example:
-
+Add a **JourneyFraming** element inside the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must follow the **DefaultUserJourney**. Your **UserJourneyBehaviors** element should look like this example:
 
 ```xml
 <!--
 <RelyingParty>
-  <JourneyFraming>
-    <DefaultUserJourney>
-    </DefaultUserJourney> -->
-      <UserJourneyBehaviors> 
-        <JourneyFraming Enabled="true" Sources="https://somesite.com https://anothersite.com" /> 
-      </UserJourneyBehaviors> 
-  <!--
-  </JourneyFraming>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" /> -->
+  <UserJourneyBehaviors> 
+    <JourneyFraming Enabled="true" Sources="https://somesite.com https://anothersite.com" /> 
+  </UserJourneyBehaviors>
+<!--
 </RelyingParty> -->
 ```
 
