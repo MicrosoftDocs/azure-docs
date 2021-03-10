@@ -9,12 +9,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 01/05/2021
 ms.author: aahi
 ---
-# Frequently Asked Questions (FAQ) about the Text Analytics Cognitive Service
+# Frequently Asked Questions (FAQ) about the Text Analytics API
 
- Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API for Microsoft Cognitive Services on Azure.
+ Find answers to commonly asked questions about concepts, code, and scenarios related to the Text Analytics API in Azure Cognitive Services.
 
 ## Can Text Analytics identify sarcasm?
 
@@ -24,11 +24,11 @@ There is always some degree of imprecision in sentiment analysis, but the model 
 
 ## Can I add my own training data or models?
 
-No, the models are pretrained. The only operations available on uploaded data are scoring, key phrase extraction, and language detection. We do not host custom models. If you want to create and host custom machine learning models, consider the [machine learning capabilities in Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+No, the models are pretrained. The only operations available on uploaded data are scoring, key phrase extraction, and language detection. We do not host custom models. If you want to create and host custom machine learning models, consider the [machine learning capabilities in Microsoft R Server](/r-server/r/concept-what-is-the-microsoftml-package).
 
 ## Can I request additional languages?
 
-Sentiment analysis and key phrase extraction are available for a [select number of languages](text-analytics-supported-languages.md). Natural language processing is complex and requires substantial testing before new functionality can be released. For this reason, we avoid pre-announcing support so that no one takes a dependency on functionality that needs more time to mature. 
+Sentiment analysis and key phrase extraction are available for a [select number of languages](./language-support.md). Natural language processing is complex and requires substantial testing before new functionality can be released. For this reason, we avoid pre-announcing support so that no one takes a dependency on functionality that needs more time to mature. 
 
 To help us prioritize which languages to work on next, vote for specific languages on [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
@@ -42,11 +42,21 @@ Generally, output consists of nouns and objects of the sentence. Output is liste
 
 Improvements to models and algorithms are announced if the change is major, or quietly slipstreamed into the service if the update is minor. Over time, you might find that the same text input results in a different sentiment score or key phrase output. This is a normal and intentional consequence of using managed machine learning resources in the cloud.
 
+## Service availability and redundancy
+
+### Is Text Analytics service zone resilient?
+
+Yes. The Text Analytics service is zone-resilient by default.
+
+### How do I configure the Text Analytics service to be zone-resilient?
+
+No customer configuration is necessary to enable zone-resiliency. Zone-resiliency for Text Analytics resources is available by default and managed by the service itself.
+
 ## Next steps
 
 Is your question about a missing feature or functionality? Consider requesting or voting for it on our [UserVoice web site](https://cognitive.uservoice.com/forums/555922-text-analytics).
 
 ## See also
 
- [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
- [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ * [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ * [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

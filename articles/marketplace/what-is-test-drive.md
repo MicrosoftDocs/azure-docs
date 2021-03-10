@@ -4,64 +4,63 @@ description: Explanation of Marketplace test drive feature
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 06/19/2020
 ---
 
 # What is a test drive?
 
-A test drive is a great way to showcase your offer to potential customers by giving them the option to *try before you buy*, resulting in increased conversion and generation of highly qualified leads. A test drive brings your product to life in a real-world implementation scenario while also generating highly qualified leads.
+A test drive is a great way to showcase your offer to potential customers by giving them the option to try before you buy, generating highly qualified leads and resulting in increased conversion. A test drive brings your product to life in a real-world implementation scenario. Customers who try out your product are demonstrating a clear intent to buy a similar solution. Use this to your advantage by following up with more advanced leads.
 
-Test drives are managed instances that deploy your solution or application on-demand for customers who request it. Once a test drive instance is assigned, it is available for use for a set amount of time, then deleted to create room for another customer.
-
-As a publisher, you manage and configure the test drive settings in Partner Center. Technical configuration details vary depending on the type of offer you are working with. For detailed guidance, see the link under [Next step](#next-step) at the end of this topic.
-
-Potential customers discover your test drive on the commercial marketplace. They provide their contact information and agree to your offer's terms and privacy policy, and then gain access your pre-configured environment to try it for a fixed period of time. Customers receive a hands-on, self-guided trial of your product's key features and benefits and you receive a valuable lead.
+Your customers benefit from a test drive as well. By allowing them to try your product first, you are reducing the friction of the purchase process. In addition, test drive is pre-provisioned, i.e., customers don’t have to download, set up or configure the product.
 
 ## How does it work?
 
-As a publisher, you manage and configure the test drive settings within Partner Center. After setup, it becomes a managed instance that will be deployed on-demand for the customer requesting it. Once a test drive instance is assigned, it is available for use for a set amount of time, then deleted to create room for another customer.
+Test drives are managed instances that launch your solution or application on-demand for customers who request it. Once a test drive instance is assigned, it is available for use by that customer for a set period. After the period has ended, it is then deleted to create room for another customer.
+
+As a publisher, you manage and configure the test drive settings in Partner Center. Technical configuration details vary depending on the type of offer. For detailed guidance, see the [Test drive technical configuration](./test-drive-technical-configuration.md).
+
+Potential customers discover your test drive as a CTA on your offer on [AppSource](https://appsource.microsoft.com/en-US/). They provide their contact information and agree to your offer's terms and privacy policy, then gain access to your pre-configured environment to try it for a fixed period. Customers receive a hands-on, self-guided trial of your product's key features and benefits and you receive a valuable lead.
 
 ## Types of test drives
 
 There are different test drives available on the commercial marketplace for select offers depending on the type of product, scenario, and marketplace you are on:
 
 - Azure Resource Manager
+    - Azure Applications
+    - SaaS
+    - Virtual Machines
 - Hosted test drive
-    - Dynamics 365 for Business Central
+    - Dynamics 365 for Business Central (currently not supported)
     - Dynamics 365 for Customer Engagement
     - Dynamics 365 for Operations
-- Logic app
+- Logic app (in support mode only)
 - Power BI
 
-For details on configuring one of these test drives, see the link under [Next step](#next-step) at the end of this topic.
+For details on configuring one of these test drives, see [Test drive technical configuration](./test-drive-technical-configuration.md). 
 
 ### Azure Resource Manager test drive
 
 This deployment template contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. The Azure Resource Manager test drive is available for these offer types: 
 
 - Azure applications
-- Dynamics 365 for Business Central
-- Dynamics 365 for Customer Engagement & PowerApps
-- Dynamics 365 for Operations
 - SaaS
 - Virtual machines
 
 >[!NOTE]
 >This is the only test drive option for virtual machine and Azure application offers.
 
-### Hosted test drive
+### Hosted test drive (Recommended)
 
-A hosted test drive removes the complexity of setup by letting Microsoft host and maintain the service that performs the test drive user provisioning, deployment, and de-provisioning. If you have an offer on Microsoft AppSource, build your test drive to connect with a Dynamics AX/CRM instance or any other resource beyond just Azure. Use this type for AppSource offers to connect with these Dynamics 365 offers:
+A hosted test drive removes the complexity of setup by letting Microsoft host and maintain the service that performs the test drive user provisioning, and de-provisioning. If you have an offer on Microsoft AppSource, build your test drive to connect with a Dynamics AX/CRM instance. You can use the following AppSource offers types:
 
-- Use [Dynamics 365 for Business Central](partner-center-portal/create-new-operations-offer.md) for a Business Central enterprise resource planning system such as finance, operations, supply chain, and CRM.
 - Use [Dynamics 365 for Customer Engagement](partner-center-portal/create-new-customer-engagement-offer.md) for a Customer Engagement system such as sales, service, project service, and field service.
 - Use [Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md) for a Finance and Operations enterprise resource planning system such as finance, operations, and manufacturing, supply chain.
 
 ### Logic app test drive
 
-This type of test drive is not hosted by Microsoft. Use it to connect with a Dynamics 365 offer or other custom resource.
+This type of test drive is not hosted by Microsoft and uses Azure Resource Manager (ARM) templates for Dynamics AX/CRM offer types. You will need to run the ARM template to create required resources in your Azure subscription. Logic App Test Drive is currently on support mode only and is not recommended by Microsoft For details on configuring a Logic App Test Drive, see [Test drive technical configuration](./test-drive-technical-configuration.md).
 
 ### Power BI test drive
 
@@ -87,7 +86,7 @@ If you close a deal with a test drive lead, be sure to register it at [Microsoft
 
 Additional test drive resources:
 
-- [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Test Drive best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; make sure your pop-up blocker is off)
 
 ## Next step

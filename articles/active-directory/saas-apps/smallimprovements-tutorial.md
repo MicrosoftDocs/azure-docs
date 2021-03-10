@@ -21,7 +21,7 @@ Integrating Small Improvements with Azure AD provides you with the following ben
 * You can enable your users to be automatically signed-in to Small Improvements (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -124,15 +124,15 @@ To configure Azure AD single sign-on with Small Improvements, perform the follow
 
 1. From the main dashboard page, click **Administration** button on the left.
 
-    ![Configure Single Sign-On](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
+    ![Screenshot shows the Administration button selected.](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
 1. Click the **SAML SSO** button from **Integrations** section.
 
-    ![Configure Single Sign-On](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
+    ![Screenshot shows the SAML S S O icon selected in Integrations.](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
 1. On the SSO Setup page, perform the following steps:
 
-    ![Configure Single Sign-On](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
+    ![Screenshot shows the S S O Setup page where you can enter the values described.](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
     a. In the **HTTP Endpoint** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
@@ -207,15 +207,15 @@ To enable Azure AD users to log in to Small Improvements, they must be provision
 
 1. Click the **User Directory** button from User Management section.
 
-    ![Creating an Azure AD test user](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
+    ![Screenshot shows the User Directory selected from Administration Overview.](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
 1. Click **Add users**.
 
-    ![Creating an Azure AD test user](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
+    ![Screenshot shows the Add users button.](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
 1. On the **Add Users** dialog, perform the following steps: 
 
-    ![Creating an Azure AD test user](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+    ![Screenshot shows the Add users dialog box where you can enter the values described.](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
 	a. Enter the **first name** of user like **Britta**.
 
@@ -231,12 +231,12 @@ To enable Azure AD users to log in to Small Improvements, they must be provision
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Small Improvements tile in the Access Panel, you should be automatically signed in to the Small Improvements for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Small Improvements tile in the Access Panel, you should be automatically signed in to the Small Improvements for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

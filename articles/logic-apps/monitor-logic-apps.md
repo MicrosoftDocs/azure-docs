@@ -12,7 +12,7 @@ ms.date: 05/04/2020
 
 After you [create and run a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), you can check that logic app's run status, [runs history](#review-runs-history), [trigger history](#review-trigger-history), and performance. To get notifications about failures or other possible problems, set up [alerts](#add-azure-alerts). For example, you can create an alert that detects "when more than five runs fail in an hour."
 
-For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md), you can create [log queries](../azure-monitor/log-query/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
+For real-time event monitoring and richer debugging, set up diagnostics logging for your logic app by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md), you can create [log queries](../azure-monitor/logs/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 > [!NOTE]
 > If your logic apps run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 
@@ -40,19 +40,25 @@ Each time that the trigger fires for an item or event, the Logic Apps engine cre
 
 1. Select your logic app, and then select **Overview**.
 
-   On the overview pane, under **Runs history**, all the past, current, and any waiting runs for your logic app appear. If the list shows many runs, and you can't find the entry that you want, try filtering the list. If you don't find the data that you expect, try selecting **Refresh** on the toolbar.
+   On the overview pane, under **Runs history**, all the past, current, and any waiting runs for your logic app appear. If the list shows many runs, and you can't find the entry that you want, try filtering the list.
+
+   > [!TIP]
+   > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**. 
+   > No run happens for a trigger that's skipped due to unmet criteria or finding no data.
 
    ![Overview, runs history, and other logic app information](./media/monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
 
-   Here are the possible statuses for a logic app run:
+   Here are the possible run statuses:
 
-   | Status | Description |
-   |--------|-------------|
-   | **Cancelled** | The workflow was running but received a cancel request |
-   | **Failed** | At least one action failed, and no later actions in the workflow were set up to handle the failure |
-   | **Running** | The workflow is currently running. <p>This status can also appear for throttled workflows or due to the current pricing plan. For more information, see the [action limits on the pricing page](https://azure.microsoft.com/pricing/details/logic-apps/). If you set up [diagnostics logging](../logic-apps/monitor-logic-apps.md), you can get information about any throttle events that happen. |
-   | **Succeeded** | All actions succeeded. <p>**Note**: If any failures happened in a specific action, a later action in the workflow handled that failure. |
-   | **Waiting** | The workflow hasn't started or is paused, for example, due to an earlier workflow that's still running. |
+   | Run status | Description |
+   |------------|-------------|
+   | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
+   | **Cancelled** | The run was triggered and started but received a cancellation request. |
+   | **Failed** | At least one action in the run failed. No subsequent actions in the workflow were set up to handle the failure. |
+   | **Running** | The run was triggered and is in progress, but this status can also appear for a run that is throttled due to [action limits](logic-apps-limits-and-config.md) or the [current pricing plan](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Tip**: If you set up [diagnostics logging](monitor-logic-apps-log-analytics.md), you can get information about any throttle events that happen. |
+   | **Succeeded** | The run succeeded. If any action failed, a subsequent action in the workflow handled that failure. |
+   | **Timed out** | The run timed out because the current duration exceeded the run duration limit, which is controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits). A run's duration is calculated by using the run's start time and run duration limit at that start time. <p><p>**Note**: If the run's duration also exceeds the current *run history retention limit*, which is also controlled by the [**Run history retention in days** setting](logic-apps-limits-and-config.md#run-duration-retention-limits), the run is cleared from the runs history by a daily cleanup job. Whether the run times out or completes, the retention period is always calculated by using the run's start time and *current* retention limit. So, if you reduce the duration limit for an in-flight run, the run times out. However, the run either stays or is cleared from the runs history based on whether the run's duration exceeded the retention limit. |
+   | **Waiting** | The run hasn't started or is paused, for example, due to an earlier workflow instance that's still running. |
    |||
 
 1. To review the steps and other information for a specific run, under **Runs history**, select that run.
@@ -118,13 +124,13 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
 
    ![Multiple trigger attempts for different items](./media/monitor-logic-apps/logic-app-trigger-history.png)
 
-   Here are the possible statuses for a trigger attempt:
+   Here are the possible trigger attempt statuses:
 
-   | Status | Description |
-   |--------|-------------|
+   | Trigger status | Description |
+   |----------------|-------------|
    | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt and choose **Outputs**. For example, you might find inputs that aren't valid. |
-   | **Skipped** | The trigger checked the endpoint but found no data. |
-   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a "Fired" status also appears alongside this status. If not, the trigger definition might have a condition or `SplitOn` command that wasn't met. <p>This status can apply to a manual trigger, recurrence trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
+   | **Skipped** | The trigger checked the endpoint but found no data that met the specified criteria. |
+   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a **Fired** status also appears alongside this status. If not, the trigger definition might have a condition or `SplitOn` command that wasn't met. <p><p>This status can apply to a manual trigger, recurrence trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
    |||
 
    > [!TIP]
@@ -143,7 +149,7 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
 
 ## Set up monitoring alerts
 
-To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](../azure-monitor/platform/alerts-overview.md). Learn about [metrics in Azure](../azure-monitor/platform/data-platform.md). To set up alerts without using [Azure Monitor](../azure-monitor/log-query/log-query-overview.md), follow these steps.
+To get alerts based on specific metrics or exceeded thresholds for your logic app, set up [alerts in Azure Monitor](../azure-monitor/alerts/alerts-overview.md). Learn about [metrics in Azure](../azure-monitor/data-platform.md). To set up alerts without using [Azure Monitor](../azure-monitor/logs/log-query-overview.md), follow these steps.
 
 1. On your logic app menu, under **Monitoring**, select **Alerts** > **New alert rule**.
 

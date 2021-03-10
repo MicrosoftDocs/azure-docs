@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 01/11/2020
 ms.author: duau
 
 
@@ -31,10 +31,14 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 | --- | --- | --- | --- |
 |ARP Availability|Availability|<ui><li>Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type (Private/Public/Microsoft)</ui></li>|ExpressRoute|
 |Bgp Availability|Availability|<ui><li> Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type</ui></li>|ExpressRoute|
-|BitsInPerSecond|Traffic|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|BitsInPerSecond|Traffic|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct</li><ui><li>ExpressRoute Gateway Connection</ui></li>|
+|BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li><ui><li>ExpressRoute Gateway Connection</ui></li>|
 |CPU Utilization|Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
 |Packets per Second|Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Count of Routes Advertised to Peer |Availability| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Count of Routes Learned from Peer |Availability| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Frequency of Routes change |Availability| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
+|Number of VMs in the Virtual Network |Availability| N/A |ExpressRoute Virtual Network Gateway|
 |GlobalReachBitsInPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
 |AdminState|Physical Connectivity|Link|ExpressRoute Direct|
@@ -67,7 +71,7 @@ You can view near to real-time availability of BGP across peerings and peers (Pr
 
 ### ARP Availability - Split by Peering  
 
-You can view near to real-time availability of [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session up across both peers, but complete down for Microsoft peering across peerings. The default aggregation (Average) was utilized across both peers.  
+You can view near to real-time availability of [ARP](./expressroute-troubleshooting-arp-resource-manager.md) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session up across both peers, but complete down for Microsoft peering across peerings. The default aggregation (Average) was utilized across both peers.  
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="ARP availability per peer":::
 
@@ -123,6 +127,30 @@ You can view packets per second traversing the gateway.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Packets per second - split":::
 
+### Count of Routes Advertised to Peer - Split by Instance
+
+You can view the number of routes advertised to the ExpressRoute circuit.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Count of Routes Advertised to Peer":::
+
+### Count of Routes Learned from Peer - Split by Instance
+
+You can view the number of routes received from the ExpressRoute circuit.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Count of Routes Learned from Peer":::
+
+### Frequency of Routes change - Split by Instance
+
+You can view the frequency of which the route changes on the gateway.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="Frequency of Routes Changed":::
+
+### Number of VMs in the Virtual Network
+
+You can view the number of virtual machines in the virtual network.
+
+:::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Number of virtual machines in the virtual network":::
+
 ## ExpressRoute gateway connections in bits/seconds
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erconnections.jpg" alt-text="gateway connections":::
@@ -161,7 +189,7 @@ You can also view ExpressRoute metrics by navigating to your ExpressRoute circui
 |TimeGrain|string|PT1M (metric values are pushed every minute)|
 |Count|real|Usually equal to 2 (each MSEE pushes a single metric value every minute)|
 |Minimum|real|The minimum of the two metric values pushed by the two MSEEs|
-|Maximum|real|The maxiumum of the two metric values pushed by the two MSEEs|
+|Maximum|real|The maximum of the two metric values pushed by the two MSEEs|
 |Average|real|Equal to (Minimum + Maximum)/2|
 |Total|real|Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried)|
   

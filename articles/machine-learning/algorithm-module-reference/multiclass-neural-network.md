@@ -1,7 +1,7 @@
 ---
 title:  "Multiclass Neural Network: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Multiclass Neural Network module in Azure Machine Learning to create a neural network model that can be used to predict a target that has multiple values. 
+description: Learn how to use the Multiclass Neural Network module in Azure Machine Learning designer to predict a target that has multi-class values. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

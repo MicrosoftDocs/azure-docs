@@ -23,13 +23,9 @@ Data consumers can either have an active share subscription that is idle for DR 
 
 ## Related information
 
-- [Business Continuity and Disaster Recovery](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
-- [Build high availability into your BCDR strategy](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
+- [Business Continuity and Disaster Recovery](../best-practices-availability-paired-regions.md)
+- [Build high availability into your BCDR strategy](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 
 ## Next steps
 
 To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.
-
-
-
-

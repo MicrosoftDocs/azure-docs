@@ -19,7 +19,7 @@ The information you provide on the **Offer listing** page for your software as a
 
 ## Marketplace details
 
-On the **Offer listing** page, under **Marketplace details**, complete the following steps. To learn more about these required details, see [Offer listing details](plan-saas-offer.md#offer-listing-details).
+On the **Offer listing** page, under **Marketplace details**, complete the following steps. To learn more about these required details, see [Offer listing details](plan-azure-application-offer.md#offer-listing-details).
 
 1. The **Name** box is prefilled with the name you entered earlier in the  **New offer** dialog box. You can change the name at any time.
 1. In the **Search results summary** box, enter up to 50 characters of text. This summary is used in the marketplace listing search results.
@@ -28,7 +28,9 @@ On the **Offer listing** page, under **Marketplace details**, complete the follo
 1. (Optional) In the **Search keywords** boxes, enter up to three search keywords that customers can use to find your offer in the commercial marketplace. You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
 1. In the **Privacy policy link** box, enter a link (starting with https) to your organization's privacy policy. You're responsible to ensure your app complies with privacy laws and regulations, and for providing a valid privacy policy.
 
-## Add links to supplemental online documentation (optional)
+## Add supplemental links (optional)
+
+Complete these steps to add links to supplemental online documentation.
 
 1. To add optional supplemental online documents about your app or related services, under **Useful links**, select **Add a link**.
 1. In the fields that appear, enter a title (up to 255 characters) and the link (starting with https) to the online document.
@@ -71,7 +73,7 @@ All three logo sizes are used in different places in the online stores.
 - The **Medium** logo appears when you create a new resource in Microsoft Azure.
 - The **Large** logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
 - The **Small** logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results pages.
-   
+
 ### Add screenshots
 
 You must add a minimum of one and a maximum of five screenshots that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
@@ -98,4 +100,4 @@ Select **Save draft** before continuing to the next tab: Preview audience.
 ## Next steps
 
 - If you’re selling your offer through Microsoft, go to [How to add a preview audience for your SaaS offer](create-new-saas-offer-preview.md). 
-- Otherwise, go to [How to market your SaaS offer](create-new-saas-offer-marketing.md).
+- Otherwise, go to [How to sell your SaaS offer](create-new-saas-offer-marketing.md).

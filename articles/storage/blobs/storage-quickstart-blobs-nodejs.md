@@ -20,7 +20,7 @@ Additional resources:
 * [API reference documentation](/javascript/api/@azure/storage-blob)
 * [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
 * [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Samples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+* [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ From the project directory:
 
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
-    const { v1: uuid} = require('uuid');
+    const { v1: uuidv1} = require('uuid');
 
     async function main() {
         console.log('Azure Blob storage v12 - JavaScript quickstart sample');
@@ -272,7 +272,7 @@ console.log("Container was deleted successfully. requestId: ", deleteContainerRe
 
 This app creates a text string and uploads it to Blob storage. The example then lists the blob(s) in the container, downloads the blob, and displays the downloaded data.
 
-From a console prompt, navigate to the directory containing the *blob-quickstart-v12.py* file, then execute the following `node` command to run the app.
+From a console prompt, navigate to the directory containing the *blob-quickstart-v12.js* file, then execute the following `node` command to run the app.
 
 ```console
 node blob-quickstart-v12.js
@@ -310,6 +310,6 @@ For tutorials, samples, quickstarts, and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for JavaScript developer center](/azure/developer/javascript/)
 
-* To learn how to deploy a web app that uses Azure Blob storage, see [Tutorial: Upload image data in the cloud with Azure Storage](/azure/storage/blobs/storage-upload-process-images?tabs=javascript&preserve-view=true)
+* To learn how to deploy a web app that uses Azure Blob storage, see [Tutorial: Upload image data in the cloud with Azure Storage](./storage-upload-process-images.md?preserve-view=true&tabs=javascript)
 * To see Blob storage sample apps, continue to [Azure Blob storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
 * To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).

@@ -22,7 +22,7 @@ If the QnA Maker knowledge base manager is not the Active Directory manager, you
 
 ## Add supported file types to knowledge base
 
-You can add all QnA Maker-supported [file types](../Concepts/content-types.md) from a SharePoint site to your knowledge base. You may have to grant [permissions](#permissions) if the file resource is secured.
+You can add all QnA Maker-supported [file types](../index.yml) from a SharePoint site to your knowledge base. You may have to grant [permissions](#permissions) if the file resource is secured.
 
 1. From the library with the SharePoint site, select the file's ellipsis menu, `...`.
 1. Copy the file's URL.
@@ -122,12 +122,16 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 
 
-<!--
 
 ## Add SharePoint data source with APIs
 
-You need to get the SharePoint file's URI before adding it to QnA Maker.
+There is a workaround to add latest SharePoint content via API using Azure blob storage, below are the steps: 
+1.  Download the SharePoint files locally. The user calling the API needs to have access to SharePoint. 
+1.  Upload them on the Azure blob storage. This will create a secure shared access by [using SAS token.](../../../storage/common/storage-sas-overview.md#how-a-shared-access-signature-works) 
+1. Pass the blob URL generated with the SAS token to the QnA Maker API. To allow the Question Answers extraction from the files, you need to add the suffix file type as '&ext=pdf' or '&ext=doc' at the end of the URL before passing it to QnA Maker API.
 
+
+<!--
 ## Get SharePoint File URI
 
 Use the following steps to transform the SharePoint URL into a sharing token.
@@ -151,7 +155,7 @@ Use the following steps to transform the SharePoint URL into a sharing token.
 
 ### Add or update a SharePoint File URI to your knowledge base
 
-Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](https://go.microsoft.com/fwlink/?linkid=2092179) or [updating a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
+Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileuri` in the QnA Maker API for [adding a knowledge base](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) or [updating a knowledge base](/rest/api/cognitiveservices/qnamaker/knowledgebase/update). The following fields are mandatory: name, fileuri, filename, source.
 
 ```
 {
@@ -183,4 +187,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Collaborate on your knowledge base](collaborate-knowledge-base.md)
+> [Collaborate on your knowledge base](../index.yml)

@@ -1,19 +1,19 @@
 ---
-title: Migrate a managed image to a Shared Image Gallery
-description: Learn how to use Azure PowerShell to migrate a managed image to a image version in a Shared Image Gallery.
+title: Clone a managed image to a Shared Image Gallery
+description: Learn how to use Azure PowerShell to clone a managed image to a image version in a Shared Image Gallery.
 author: cynthn
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ---
 
-# Migrate from a managed image to a Shared Image Gallery image
+# Clone a managed image to a Shared Image Gallery image
 
-If you have an existing managed image that you would like to migrate into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the managed image. Once you have tested your new image, you can delete the source managed image. You can also migrate from a managed image to a Shared Image Gallery using the [Azure CLI](image-version-managed-image-cli.md).
+If you have an existing managed image that you would like to clone and move into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the managed image. Once you have tested your new image, you can delete the source managed image. You can also migrate from a managed image to a Shared Image Gallery using the [Azure CLI](image-version-managed-image-cli.md).
 
 Images in an image gallery have two components, which we will create in this example:
 - An **Image definition** carries information about the image and requirements for using it. This includes whether the image is Windows or Linux, specialized or generalized, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. 
@@ -49,7 +49,7 @@ Image definitions create a logical grouping for images. They are used to manage 
 
 When making your image definition, make sure is has all of the correct information. Because managed images are always generalized, you should set `-OsState generalized`. 
 
-For more information about the values you can specify for an image definition, see [Image definitions](./windows/shared-image-galleries.md#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
 Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In this example, the image definition is named *myImageDefinition*, and is for a generalized Windows OS. To create a definition for images using a Linux OS, use `-OsType Linux`. 
 
@@ -97,7 +97,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName $imageDefinition.ResourceGroupName `
    -Location $imageDefinition.Location `
    -TargetRegion $targetRegions  `
-   -Source $managedImage.Id.ToString() `
+   -SourceImageId $managedImage.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-31' `
    -asJob 
 ```

@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/22/2020
+ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -36,7 +36,12 @@ For more information, [License requirements](access-reviews-overview.md#license-
 
 ## Create and perform an access review for guests
 
-First, as a global administrator or user administrator, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
+First, you must be assigned one of the following roles:
+- global administrator
+- User administrator
+- (Preview) M365 or AAD Security Group owner of the group to be reviewed
+
+Then, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
 
 Azure AD enables several scenarios for reviewing guest users.
 

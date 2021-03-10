@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18, contperfq4"
+ms.custom: "it-pro, seodec18, contperf-fy20q4"
 ms.collection: M365-identity-device-management
 ---
 
@@ -31,8 +31,6 @@ All of your users have a single *home* directory for authentication. Your users 
 > [!Important]
 > When you associate a subscription with a different directory, users that have roles assigned using [Azure role-based access control](../../role-based-access-control/role-assignments-portal.md) lose their access. Classic subscription administrators, including Service Administrator and Co-Administrators, also lose access.
 >
-> Policy Assignments are also removed from a subscription when the subscription is associated with a different directory.
->
 > Moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principal's rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](../../aks/index.yml).
 
 ## Before you begin
@@ -50,7 +48,7 @@ Before you can associate or add your subscription, do the following tasks:
 
 - Sign in using an account that:
 
-  - Has an [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment for the subscription. For information about how to assign the Owner role, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+  - Has an [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment for the subscription. For information about how to assign the Owner role, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
   - Exists in both the current directory and in the new directory. The current directory is associated with the subscription. You'll associate the new directory with the subscription. For more information about getting access to another directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
 
 - Make sure you're not using an Azure Cloud Service Providers (CSP) subscription (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), a Microsoft Internal subscription (MS-AZR-0015P), or a Microsoft Imagine subscription (MS-AZR-0144P).

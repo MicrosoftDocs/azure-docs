@@ -32,20 +32,15 @@ Running an existing application in a Windows container on a Service Fabric clust
 
   For this article, the version (build) of Windows Server with Containers running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility). 
   
-To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
-
-* If the version contains *x.x.14323.x*, then select *WindowsServer 2016-Datacenter-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md).
-  * If the version contains *x.x.16299.x*, then select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system when [creating a cluster](service-fabric-cluster-creation-via-portal.md).
+    To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine. Refer to [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility) before you [creating a cluster](service-fabric-cluster-creation-via-portal.md).
 
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
 
 > [!NOTE]
 > Deploying containers to a Service Fabric cluster running on Windows 10 is supported.  See [this article](service-fabric-how-to-debug-windows-containers.md) for information on how to configure Windows 10 to run Windows containers.
->   
 
 > [!NOTE]
-> Service Fabric versions 6.2 and later support deploying containers to clusters running on Windows Server version 1709.  
-> 
+> Service Fabric versions 6.2 and later support deploying containers to clusters running on Windows Server version 1709.
 
 ## Define the Docker container
 
@@ -105,10 +100,18 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## Build the image
-Run the `docker build` command to create the image that runs your web application. Open a PowerShell window and navigate to the directory containing the Dockerfile. Run the following command:
+
+## Login to Docker and build the image
+
+Next we'll create the image that runs your web application. When pulling public images from Docker (like `python:2.7-windowsservercore` in our Dockerfile), it's a best practice to authenticate with your Docker Hub account instead of making an anonymous pull request.
+
+> [!NOTE]
+> When making frequent anonymous pull requests you might see Docker errors similar to `ERROR: toomanyrequests: Too Many Requests.` or `You have reached your pull rate limit.` Authenticate to Docker Hub to prevent these errors. See [Manage public content with Azure Container Registry](../container-registry/buffer-gate-public-content.md) for more info.
+
+Open a PowerShell window and navigate to the directory containing the Dockerfile. Then run the following commands:
 
 ```
+docker login
 docker build -t helloworldapp .
 ```
 
@@ -532,7 +535,7 @@ You can configure the Service Fabric cluster to remove unused container images f
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }

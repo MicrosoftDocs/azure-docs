@@ -3,12 +3,14 @@ title: FROM clause in Azure Cosmos DB
 description: Learn about the SQL syntax, and example for FROM clause for Azure Cosmos DB. This article also shows examples to scope results, and get sub items by using the FROM clause.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
 
 ---
 # FROM clause in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The FROM (`FROM <from_specification>`) clause is optional, unless the source is filtered or projected later in the query. A query like `SELECT * FROM Families` enumerates over the entire `Families` container. You can also use the special identifier ROOT for the container instead of using the container name.
 

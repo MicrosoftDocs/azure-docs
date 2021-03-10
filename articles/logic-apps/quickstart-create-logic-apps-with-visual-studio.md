@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/07/2020
+ms.date: 10/27/2020
 
 # Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
 ---
@@ -17,7 +17,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio,
 
 If you're new to Azure Logic Apps and just want the basic concepts, try the [quickstart for creating a logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md). The Logic App Designer works similarly in both the Azure portal and Visual Studio.
 
-In this quickstart, you create the same logic app with Visual Studio as the Azure portal quickstart. This logic app monitors a website's RSS feed and sends email for each new item in that feed. Your finished logic app looks like this high-level workflow:
+In this quickstart, you create the same logic app with Visual Studio as the Azure portal quickstart. You can also learn to [create an example app in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), and [create and manage logic apps through the Azure Command-Line Interface (Azure CLI)](quickstart-logic-apps-azure-cli.md).This logic app monitors a website's RSS feed and sends email for each new item in that feed. Your finished logic app looks like this high-level workflow:
 
 ![Screenshot that shows the high-level workflow of a finished logic app.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
@@ -34,7 +34,7 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
 
-  * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). Learn more about [Azure SDK for .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). Learn more about [Azure SDK for .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -59,6 +59,8 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
   > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* If your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. If your logic app also uses [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app's Azure region.
 
 <a name="azure-government"></a>
 

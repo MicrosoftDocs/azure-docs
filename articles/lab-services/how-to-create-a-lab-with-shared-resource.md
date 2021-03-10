@@ -33,12 +33,12 @@ One of the more common shared resources is a License server, here are a few tips
 The License server will need to be connected to the virtual network that is peered to the lab, so the license server needs to be located in the same region as the lab account.
 
 #### Static private IP and MAC address
-By default virtual machines have a dynamic private ip, [before you setup any software set the private ip to static](https://docs.microsoft.com/azure/virtual-network/virtual-networks-static-private-ip-arm-pportal). This sets the private IP and the MAC address to be static.  
+By default virtual machines have a dynamic private ip, [before you setup any software set the private ip to static](../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). This sets the private IP and the MAC address to be static.  
 
 #### Control Access
 Controlling access to the license server is key.  Once the VM is setup access will still be needed for maintenance, troubleshooting, and updating.  Here are a few different ways to do this.
-- [Setting up Just in Time (JIT) access within Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-asc)
-- [Setting up a Network Security Group to restrict access.](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview)
+- [Setting up Just in Time (JIT) access within Azure Security Center.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
+- [Setting up a Network Security Group to restrict access.](../virtual-network/network-security-groups-overview.md)
 - [Setup Bastion to allow secure access to the license server.](https://azure.microsoft.com/services/azure-bastion/)
 
 ## Lab Account

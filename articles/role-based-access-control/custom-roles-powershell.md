@@ -58,7 +58,7 @@ API Management Service Contributor                   False
 The following example lists just the custom roles that are available for assignment in the selected subscription.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example
@@ -398,4 +398,4 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 
 - [Tutorial: Create an Azure custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Azure custom roles](custom-roles.md)
-- [Azure Resource Manager resource provider operations](resource-provider-operations.md)
+- [Azure resource provider operations](resource-provider-operations.md)

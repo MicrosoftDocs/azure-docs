@@ -17,7 +17,7 @@ ms.author: v-miegge
 This guide helps to resolve the issues in which you can't sign in to the Azure portal or Azure account center.
 
 > [!NOTE]
-> If you are having issues signing up for a new Azure account, see [Troubleshoot Azure subscription sign-up issues](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up).
+> If you are having issues signing up for a new Azure account, see [Troubleshoot Azure subscription sign-up issues](./troubleshoot-azure-sign-up.md).
 
 ## Page hangs in the loading status
 
@@ -27,7 +27,7 @@ If your internet browser page hangs, try each of the following steps until you c
 - Use a different internet browser.
 - Use the private browsing mode for your browser:
 
-   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/) or [Azure account center](https://account.azure.com/Subscriptions). 
+   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/). 
    - **Chrome:** Choose **Incognito** mode.
    - **Safari:** Choose **File**, then **New Private Window**.
 
@@ -48,7 +48,7 @@ To resolve the issue, try one of the following methods:
    - **Chrome:** Choose **Settings** and select **Clear browsing data** under **Privacy and Security**.
 - Reset your browser settings to defaults.
 - Use the private browsing mode for your browser. 
-   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/) or [Azure account center](https://account.azure.com/Subscriptions). 
+   - **Edge:** Open **Settings** (the three dots by your profile picture), select **New InPrivate window**, and then browse and sign in to the [Azure portal](https://portal.azure.com/). 
    - **Chrome:** Choose **Incognito** mode.
    - **Safari:** Choose **File**, then **New Private Window**.
 
@@ -61,7 +61,7 @@ This problem occurs if you selected at the wrong directory, or if your account d
 To fix this issue:
 
 - Verify that the correct Azure directory is selected by selecting your account at the top-right corner.
-- If the correct Azure directory is selected, but you still receive the error message, have your account [added as an Owner](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator).
+- If the correct Azure directory is selected, but you still receive the error message, have your account [added as an Owner](./add-change-subscription-administrator.md).
 
 **Scenario 2:** You receive the error signing into the [Azure Account Center](https://account.windowsazure.com/Subscriptions)
 
@@ -75,11 +75,11 @@ Check whether the account that you used is the Account Administrator. To verify 
 
 Other troubleshooting articles for Azure Billing and Subscriptions
 
-- [Declined card](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Subscription sign-up issues](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up)
-- [No subscriptions found](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Enterprise cost view disabled](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
-- [Azure Billing documentation](https://docs.microsoft.com/azure/cost-management-billing/)
+- [Declined card](./troubleshoot-declined-card.md)
+- [Subscription sign-up issues](./troubleshoot-azure-sign-up.md)
+- [No subscriptions found](./no-subscriptions-found.md)
+- [Enterprise cost view disabled](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Azure Billing documentation](../index.yml)
 
 ## Contact us for help
 

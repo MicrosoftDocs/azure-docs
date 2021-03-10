@@ -1,26 +1,24 @@
 ---
-title: Get a signing key from a policy using Azure Media Services v3 .NET
+title: Get a signing key from a policy  .NET
 description: This topic shows how to get a signing key from the existing policy using Media Services v3 .NET SDK.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-
 ---
 
 # Get a signing key from the existing policy
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. See the detailed explanation here: For more information, see [RBAC and Media Services accounts](rbac-overview.md)
+One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. See the detailed explanation here: For more information, see [Azure RBAC and Media Services accounts](rbac-overview.md)
 
 The example in this article shows how to use .NET to get a signing key from the existing policy. 
  

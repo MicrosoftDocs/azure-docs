@@ -1,17 +1,17 @@
 ---
-title: Connect to Synapse SQL with Azure Data Studio (preview)
-description: Use Azure Data Studio (preview) to connect to and query Synapse SQL in Azure Synapse Analytics. 
+title: Connect to Synapse SQL with Azure Data Studio
+description: Use Azure Data Studio to connect to and query Synapse SQL in Azure Synapse Analytics. 
 services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview 
 ms.subservice: 
 ms.date: 04/15/2020 
-ms.author: v-stazar 
+ms.author: stefanazaric 
 ms.reviewer: jrasnick
 ---
 
-# Connect to Synapse SQL with Azure Data Studio (preview)
+# Connect to Synapse SQL with Azure Data Studio
 
 > [!div class="op_single_selector"]
 >
@@ -21,7 +21,7 @@ ms.reviewer: jrasnick
 > * [sqlcmd](get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-You can use [Azure Data Studio (preview)](/sql/azure-data-studio/download-azure-data-studio?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to connect to and query Synapse SQL in Azure Synapse Analytics. 
+You can use [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio?view=azure-sqldw-latest&preserve-view=true) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 
 ## Connect
 
@@ -37,11 +37,11 @@ The connection requires the following parameters:
 * **Database:** Database name
 
 > [!NOTE]
-> If you would like to use **SQL on-demand (preview)** the URL should look like:
+> If you would like to use **serverless SQL pool** the URL should look like:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> If you would like to use **SQL pool** the URL should look like:
+> If you would like to use **dedicated SQL pool** the URL should look like:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
@@ -69,11 +69,11 @@ After successful login, you should see a dashboard like this:
 
 ## Query
 
-Once connected, you can query Synapse SQL using supported [Transact-SQL (T-SQL)](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) statements against the instance. Select **New query** from the dashboard view to get started.
+Once connected, you can query Synapse SQL using supported [Transact-SQL (T-SQL)](/sql/t-sql/language-reference?view=azure-sqldw-latest&preserve-view=true) statements against the instance. Select **New query** from the dashboard view to get started.
 
 ![New Query](./media/get-started-azure-data-studio/5-new-query.png)
 
-For example, you can use the following Transact-SQL statement to [query Parquet files](query-parquet-files.md) using SQL on-demand:
+For example, you can use the following Transact-SQL statement to [query Parquet files](query-parquet-files.md) using serverless SQL pool:
 
 ```sql
 SELECT COUNT(*)
@@ -90,4 +90,5 @@ Explore other ways to connect to Synapse SQL:
 - [Power BI](get-started-power-bi-professional.md)
 - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [sqlcmd](get-started-connect-sqlcmd.md)
- 
+
+Visit [Use Azure Data Studio to connect and query data using a dedicated SQL pool in Azure Synapse Analytics](/sql/azure-data-studio/quickstart-sql-dw), for more information.

@@ -12,8 +12,9 @@ Use the Log Analytics data model to create custom alerts from Log Analytics.
 
 > [!NOTE]
 >
-> This data model is in reference to the Azure Diagnostics Mode of sending diagnostic
+> * This data model is in reference to the Azure Diagnostics Mode of sending diagnostic
 > events to Log Analytics (LA). To learn the data model for the new Resource Specific Mode, you can refer to the following article: [Data Model for Azure Backup Diagnostic Events](./backup-azure-reports-data-model.md)
+> * For creating custom reporting views, it is recommended to use [system functions on Azure Monitor logs](backup-reports-system-functions.md) instead of working with the raw tables listed below.
 
 ## Using Azure Backup data model
 
@@ -490,4 +491,4 @@ As the V1 schema is on a deprecation path, it's recommended to use only the V2 s
 
 ## Next steps
 
-Once you review the data model, you can start [creating custom queries](../azure-monitor/learn/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.
+Once you review the data model, you can start [creating custom queries](../azure-monitor/visualize/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.

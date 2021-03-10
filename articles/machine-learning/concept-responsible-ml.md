@@ -1,14 +1,15 @@
 ---
 title: What is responsible machine learning (preview)
 titleSuffix: Azure Machine Learning
-description: 'Learn what responsible machine learning is and how to use it in Azure Machine Learning'
+description: Learn what responsible machine learning is and how to use it with Azure Machine Learning to understand models, protect data and control the model lifecycle.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 08/05/2020
+ms.date: 02/25/2021
+ms.custom: responsible-ml
 #intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning
 ---
 
@@ -37,7 +38,7 @@ As artificial intelligence and autonomous systems integrate more into the fabric
 
 Hard to explain or opaque-box systems can be problematic because it makes it hard for stakeholders like system developers, regulators, users, and business decision makers to understand why systems make certain decisions. Some AI systems are more explainable than others and there's sometimes a tradeoff between a system with higher accuracy and one that is more explainable.
 
-To build interpretable AI systems, use [InterpretML](https://github.com/interpretml/interpret), an open-source package built by Microsoft. [InterpretML can be used inside of Azure Machine Learning](how-to-machine-learning-interpretability.md) to [interpret and explain your machine learning models](how-to-machine-learning-interpretability-aml.md), including [automated machine learning models](how-to-machine-learning-interpretability-automl.md).
+To build interpretable AI systems, use [InterpretML](https://github.com/interpretml/interpret), an open-source package built by Microsoft. The InterpretML package supports a wide variety of interpretability techniques such as SHapley Additive exPlanations (SHAP), mimic explainer and permutation feature importance (PFI).  [InterpretML can be used inside of Azure Machine Learning](how-to-machine-learning-interpretability.md) to [interpret and explain your machine learning models](how-to-machine-learning-interpretability-aml.md), including [automated machine learning models](how-to-machine-learning-interpretability-automl.md).
 
 ## Mitigate fairness in machine learning models
 
@@ -58,10 +59,7 @@ When data is used for analysis, it's important that the data remains private and
 
 In traditional scenarios, raw data is stored in files and databases. When users analyze data, they typically use the raw data. This is a concern because it might infringe on an individual's privacy. Differential privacy tries to deal with this problem by adding "noise" or randomness to the data so that users can't identify any individual data points.
 
-Implementing differentially private systems is difficult. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) is an open-source project that contains different components for building global differentially private systems. To learn more about differential privacy and the WhiteNoise project, see the [preserve data privacy by using differential privacy and WhiteNoise](./concept-differential-privacy.md) article.
-
-> [!NOTE]
-> Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
+Implementing differentially private systems is difficult. [SmartNoise](https://github.com/opendifferentialprivacy/smartnoise-core) is an open-source project that contains different components for building global differentially private systems. To learn more about differential privacy and the SmartNoise project, see the [preserve data privacy by using differential privacy and SmartNoise](./concept-differential-privacy.md) article.
 
 ## Work on encrypted data with homomorphic encryption
 
@@ -69,7 +67,7 @@ In traditional cloud storage and computation solutions, the cloud needs to have 
 
 Homomorphic encryption allows for computations to be done on encrypted data without requiring access to a secret (decryption) key. The results of the computations are encrypted and can be revealed only by the owner of the secret key. Using homomorphic encryption, cloud operators will never have unencrypted access to the data they're storing and computing on. Computations are performed directly on encrypted data. Data privacy relies on state-of-the-art cryptography, and the data owner controls all information releases. For more information on homomorphic encryption at Microsoft, see [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
 
-To get started with homomorphic encryption in Azure Machine Learning, use the [encrypted-inference](https://pypi.org/project/encrypted-inference/) Python bindings for [Microsoft SEAL](https://github.com/microsoft/SEAL). Microsoft SEAL is an open-source homomorphic encryption library that allows additions and multiplications to be performed on encrypted integers or real numbers. To learn more about Microsoft SEAL, see the [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) or the [Microsoft Research project page](https://www.microsoft.com/research/project/microsoft-seal/).
+To get started with homomorphic encryption in Azure Machine Learning, use the [encrypted-inference](https://pypi.org/project/encrypted-inference/) Python bindings for [Microsoft SEAL](https://github.com/microsoft/SEAL). Microsoft SEAL is an open-source homomorphic encryption library that allows additions and multiplications to be performed on encrypted integers or real numbers. To learn more about Microsoft SEAL, see the [Azure Architecture Center](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) or the [Microsoft Research project page](https://www.microsoft.com/research/project/microsoft-seal/).
 
 See the following sample to learn [how to deploy an encrypted inferencing web service in Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
 
@@ -92,5 +90,5 @@ See the following sample to learn how to use the Azure Machine Learning SDK to i
 
 ## Additional resources
 
-- For more information, see the [responsible innovation toolkit](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) to learn about best practices.
+- For more information, see the [responsible innovation toolkit](/azure/architecture/guide/responsible-innovation/) to learn about best practices.
 - Learn more about the [ABOUT ML](https://www.partnershiponai.org/about-ml/) set of guidelines for machine learning system documentation.

@@ -56,7 +56,7 @@ The recovery operation impacts the application. It requires changing the SQL con
 
 Depending on your application tolerance to downtime and possible business liability you can consider the following recovery options.
 
-Use the [Get Recoverable Database](https://msdn.microsoft.com/library/dn800985.aspx) (*LastAvailableBackupDate*) to get the latest Geo-replicated restore point.
+Use the [Get Recoverable Database](/previous-versions/azure/reference/dn800985(v=azure.100)) (*LastAvailableBackupDate*) to get the latest Geo-replicated restore point.
 
 ## Wait for service recovery
 
@@ -103,7 +103,7 @@ You need to make sure that all the logins used by your application exist on the 
 
 You need to make sure your existing alert rule settings are updated to map to the recovered database and the different server.
 
-For more information about database alert rules, see [Receive Alert Notifications](../../azure-monitor/platform/alerts-overview.md) and [Track Service Health](../../service-health/service-notifications.md).
+For more information about database alert rules, see [Receive Alert Notifications](../../azure-monitor/alerts/alerts-overview.md) and [Track Service Health](../../service-health/service-notifications.md).
 
 ### Enable auditing
 

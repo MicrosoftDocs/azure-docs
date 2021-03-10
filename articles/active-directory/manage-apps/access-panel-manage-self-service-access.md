@@ -3,7 +3,7 @@ title: How to use self-service application access in Azure AD
 description: Enable self-service so users can find apps in Azure AD
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -62,4 +62,4 @@ These approvals support single approval workflows only, meaning that if you spec
 -   If self-service application access was recently configured, try to sign in and out again into the user’s My Apps after a few minutes to see if the self-service access changes have appeared.
 
 ## Next steps
-[Setting up Azure Active Directory for self-service group management](../users-groups-roles/groups-self-service-management.md)
+[Setting up Azure Active Directory for self-service group management](../enterprise-users/groups-self-service-management.md)

@@ -207,7 +207,7 @@ Now, run a query to return data from the `Inventory` table.
 
 ## Connect from outside the container
 
-You can connect and run SQL queries against your Azure SQL Edge instance from any external Linux, Windows, or macOS tool that supports SQL connections. For more information on connecting to a SQL Edge container from outside, refer [Connect and Query Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+You can connect and run SQL queries against your Azure SQL Edge instance from any external Linux, Windows, or macOS tool that supports SQL connections. For more information on connecting to a SQL Edge container from outside, refer [Connect and Query Azure SQL Edge](./connect.md).
 
 In this quickstart, you deployed a SQL Edge Module on an IoT Edge device. 
 

@@ -4,7 +4,7 @@ description: Describes how to generate Soil Moisture Heatmap in Azure FarmBeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ---
 
 # Generate Soil Moisture Heatmap
@@ -49,7 +49,7 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 2.	Select **MyFarm** > **Add Devices**.
 3.	The **Add Devices** window displays. Select any device that is linked to the soil moisture sensors for your farm.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![Screenshot that shows the Add Devices screen.](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Select **Add Devices**.     
 
@@ -65,7 +65,7 @@ This step is to create a job or a long running operation that will generate Soil
 6.	In the **Select Soil Moisture** **Sensor Measure**, enter the measure you want to use for the map.
     To find the sensor measure, in **Sensors**, select any soil moisture sensor. In **Sensor Properties**, use the **Measure Name** value.
 
-    ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![Screenshot that shows the Soil Moisture screen.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.	Select **Generate Maps**.

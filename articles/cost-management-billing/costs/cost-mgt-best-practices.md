@@ -98,7 +98,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 
 #### [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-- Options for up-front monetary commitments
+- Options for up-front Azure Prepayment (previously called monetary commitment)
 - Access to reduced Azure pricing
 
 #### [Azure in CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)
@@ -121,7 +121,7 @@ For more information, see the [Azure pricing calculator](https://azure.microsoft
 
 Azure Migrate is a service that assesses your organization's current workloads in on-premises datacenters. It gives you insight into what you might need from an Azure replacement solution. First, Migrate analyzes your on-premises machines to determine whether migration is feasible. Then, it recommends VM sizing in Azure to maximize performance. Finally, it also creates a cost estimate for an Azure-based solution.
 
-For more information, see [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview).
+For more information, see [Azure Migrate](../../migrate/migrate-services-overview.md).
 
 ## Analyze and manage your costs
 

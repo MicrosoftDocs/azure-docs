@@ -1,7 +1,7 @@
 ---
 title: Data ingestion & automation 
 titleSuffix: Azure Machine Learning
-description: Learn about data ingestion options  for training your machine learning models.
+description: Learn the pros and cons of the available data ingestion options for training your machine learning models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.custom: devx-track-python
+ms.custom: devx-track-python, data4ml
 
 ---
 
@@ -29,7 +29,7 @@ Data ingestion is the process in which unstructured data is extracted from one o
 
 ## Azure Data Factory
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) offers native support for data source monitoring and triggers for data ingestion pipelines.  
+[Azure Data Factory](../data-factory/introduction.md) offers native support for data source monitoring and triggers for data ingestion pipelines.  
 
 The following table summarizes the pros and cons for using Azure Data Factory for your data ingestion workflows.
 
@@ -37,11 +37,11 @@ The following table summarizes the pros and cons for using Azure Data Factory fo
 ---|---
 Specifically built to extract, load, and transform data.|Currently offers a limited set of Azure Data Factory pipeline tasks 
 Allows you to create data-driven workflows for orchestrating data movement and transformations at scale.|Expensive to construct and maintain. See Azure Data Factory's [pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) for more information.
-Integrated with various Azure tools like [Azure Databricks](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook) and [Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity) | Doesn't natively run scripts, instead relies on separate compute for script runs 
+Integrated with various Azure tools like [Azure Databricks](../data-factory/transform-data-using-databricks-notebook.md) and [Azure Functions](../data-factory/control-flow-azure-function-activity.md) | Doesn't natively run scripts, instead relies on separate compute for script runs 
 Natively supports data source triggered data ingestion| 
 Data preparation and model training processes are separate.|
 Embedded data lineage capability for Azure Data Factory dataflows|
-Provides a low code experience [user interface](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) for non-scripting approaches |
+Provides a low code experience [user interface](../data-factory/quickstart-create-data-factory-portal.md) for non-scripting approaches |
 
 These steps and the following diagram illustrate Azure Data Factory's data ingestion workflow.
 
@@ -56,7 +56,7 @@ Learn how to build a data ingestion pipeline for Machine Learning with [Azure Da
 
 ## Azure Machine Learning Python SDK 
 
-With the [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) step.
+With the [Python SDK](/python/api/overview/azure/ml), you can incorporate data ingestion tasks into an [Azure Machine Learning pipeline](./how-to-create-machine-learning-pipelines.md) step.
 
 The following table summarizes the pros and con for using the SDK and an ML pipelines step for data ingestion tasks.
 

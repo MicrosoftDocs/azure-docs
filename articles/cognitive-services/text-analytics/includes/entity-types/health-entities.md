@@ -11,22 +11,20 @@ ms.date: 10/02/2020
 ms.author: aahi
 ---
 
-## Text Analytics for health categories, entities and attributes
-
 [Text Analytics for health](../../how-tos/text-analytics-for-health.md) detects medical concepts in the following categories.  (Please note that only English text is supported in this container preview and only a single model-version is provided in each container image.)
 
 
 | Category  | Description  |
 |---------|---------|
-| ANATOMY | concepts that capture information about body and anatomic systems, sites, locations or regions. |
- | DEMOGRAPHICS | concepts that capture information about gender and age. |
- | EXAMINATION | concepts that capture information about diagnostic procedures and tests. |
- | GENOMICS | concepts that capture information about genes and variants. |
- | HEALTHCARE | concepts that capture information about administrative events, care environments and healthcare professions. |
- | MEDICAL CONDITION | concepts that capture information about diagnoses, symptoms or signs. |
- | MEDICATION | concepts that capture information about medication including medication names, classes, dosage and route of administration. |
- | SOCIAL | concepts that capture information about medically relevant social aspects such as family relation. |
- | TREATMENT | concepts that capture information about therapeutic procedures. |
+| [ANATOMY](#anatomy) | concepts that capture information about body and anatomic systems, sites, locations or regions. |
+ | [DEMOGRAPHICS](#demographics) | concepts that capture information about gender and age. |
+ | [EXAMINATION](#examinations) | concepts that capture information about diagnostic procedures and tests. |
+ | [GENOMICS](#genomics) | concepts that capture information about genes and variants. |
+ | [HEALTHCARE](#healthcare) | concepts that capture information about administrative events, care environments and healthcare professions. |
+ | [MEDICAL CONDITION](#medical-condition) | concepts that capture information about diagnoses, symptoms or signs. |
+ | [MEDICATION](#medication) | concepts that capture information about medication including medication names, classes, dosage and route of administration. |
+ | [SOCIAL](#social) | concepts that capture information about medically relevant social aspects such as family relation. |
+ | [TREATMENT](#treatment) | concepts that capture information about therapeutic procedures. |
   
 Each category may include two concept groups:
 
@@ -137,11 +135,11 @@ Additionally, the service recognizes relations between the different concepts in
 
 **CARE_ENVIRONMENT** – An environment or location where patients are given care. For example, emergency room, physician’s office, cardio unit, hospice, hospital.
 
-:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="An example of a healthcare environment entity.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="This screenshot shows an example of a healthcare environment entity.":::
 
 **HEALTHCARE_PROFESSION** – A healthcare practitioner licensed or non-licensed. For example, dentist, pathologist, neurologist, radiologist, pharmacist, nutritionist, physical therapist, chiropractor.
 
-:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="An example of a healthcare environment entity.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="This screenshot shows another example of a healthcare environment entity.":::
 
 :::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Another example of a healthcare environment entity.":::
 
@@ -179,9 +177,9 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/conditional-qualifier-symptom-medication.png" alt-text="An example of a condition qualifier attribute with symptom and medication entities.":::
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="Another example of a condition qualifier attribute with a diagnosis entity.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="This screenshot shows another example of a condition qualifier attribute with a diagnosis entity.":::
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="Another example of a condition qualifier attribute with a diagnosis entity.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="This screenshot shows an additional example of a condition qualifier attribute with a diagnosis entity.":::
 
 **DIRECTION** - Directional terms that characterizes a body medical condition.
 
@@ -199,15 +197,15 @@ Additionally, the service recognizes relations between the different concepts in
 
 **MEASUREMENT_VALUE** - The value that characterizes a medical condition. For example, in *1.5x2x1 cm tumor*, the term *1.5x2x1* is the measurement value for the *tumor*. 
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="An example of a direction attribute with a symptom or sign entity.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="Screenshot shows an example of a direction attribute with a symptom or sign entity.":::
 
 **RELATIONAL_OPERATOR** - Phrases that express the relation between medical condition additional information. For example, time or measurement value. 
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="An example of a direction attribute with a symptom or sign entity.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="Screenshot shows another example of a direction attribute with a symptom or sign entity.":::
 
 **TIME** - Temporal terms relating to the beginning and/or length (duration) of a medical condition. For example, when a symptom started (onset) or when a disease occurred.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="An example of a direction attribute with a symptom or sign entity.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="Screenshot shows an additional example of a direction attribute with a symptom or sign entity.":::
 
 ### Supported relations
 
@@ -251,9 +249,9 @@ Additionally, the service recognizes relations between the different concepts in
 
 **RELATIONAL_OPERATOR** - Phrases that express the relation between medication and additional information. For example, the required measurement value.
 
-:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="An example of a relational operator attribute with a medication entity.":::
+:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="Screenshot shows an example of a relational operator attribute with a medication entity.":::
 
-:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="An example of a relational operator attribute with a medication entity.":::
+:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Screenshot shows another example of a relational operator attribute with a medication entity.":::
 
 ### Supported relations
 
@@ -262,7 +260,15 @@ Additionally, the service recognizes relations between the different concepts in
 +	**FREQUENCY_OF_MEDICATION**
 +	**ROUTE_OF_MEDICATION**
 +	**TIME_OF_MEDICATION**
-  
+
+## Social
+
+### Entities
+
+**FAMILY_RELATION** – Mentions of family relatives of the subject. For example, father, daughter, siblings, parents.
+
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Screenshot shows another example of a treatment time attribute.":::
+
 ## Treatment
 
 ### Entities
@@ -275,11 +281,11 @@ Additionally, the service recognizes relations between the different concepts in
 
 **DIRECTION** - Directional terms that characterizes a treatment.
 
-:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="An example of a treatment direction attribute.":::
+:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="Screenshot shows an example of a treatment direction attribute.":::
 
 **FREQUENCY** - How often a treatment occurs or should occur.
 
-:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="An example of a treatment direction attribute.":::
+:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="Screenshot shows another example of a treatment direction attribute.":::
  
 **RELATIONAL_OPERATOR** - Phrases that express the relation between treatment and additional information.  For example, how much time passed from the previous procedure.
 
@@ -287,19 +293,10 @@ Additionally, the service recognizes relations between the different concepts in
 
 **TIME** - Temporal terms relating to the beginning and/or length (duration) of a treatment. For example, the date the treatment was given.
 
-:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="An example of a treatment time attribute.":::
-
+:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Screenshot shows an example of a treatment time attribute.":::
 
 ### Supported relations
 
 + **DIRECTION_OF_TREATMENT**
 +	**TIME_OF_TREATMENT**
 +	**FREQUENCY_OF_TREATMENT**
-
-## Social
-
-### Entities
-
-**FAMILY_RELATION** – Mentions of family relatives of the subject. For example, father, daughter, siblings, parents.
-
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="An example of a treatment time attribute.":::

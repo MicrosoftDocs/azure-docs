@@ -80,6 +80,10 @@
       href: redirect-overview.md
     - name: Rewrite HTTP headers and URL
       href: rewrite-http-headers-url.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
@@ -105,7 +109,7 @@
   - name: Understanding pricing
     href: understanding-pricing.md
   - name: FAQ
-    href: application-gateway-faq.md
+    href: application-gateway-faq.yml
 - name: How-to guides
   items:
   - name: Host single site
@@ -154,6 +158,8 @@
       href: ingress-controller-install-existing.md
     - name: Ingress for AKS via Helm (Greenfield)
       href: ingress-controller-install-new.md
+    - name: Migrate from Helm deployment to AKS add-on 
+      href: ingress-controller-migration.md
     - name: Disable and re-enable AKS Ingress Controller add-on
       href: ingress-controller-disable-addon.md
     - name: Enable cookie affinity 
@@ -283,7 +289,7 @@
     href: ../azure-resource-manager/management/overview.md
   - name: Resource Manager template
     displayName: ARM
-    href: https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways
+    href: /azure/templates/microsoft.network/applicationgateways
 - name: Resources
   items:
   - name: Author templates

@@ -4,17 +4,19 @@ description: Learn how to connect to Azure Cosmos DB and manage its resources by
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
 ---
 # Manage Azure Cosmos DB resources by using Azure Storage Explorer
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 You can use Azure Storage explorer to connect to Azure Cosmos DB. It lets you connect to Azure Cosmos DB accounts hosted on Azure and sovereign clouds from Windows, macOS, or Linux.
 
-Use the same tool to manage your different Azure entities in one place. You can manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like storage blobs and queues.
+Use the same tool to manage your different Azure entities in one place. You can manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like storage blobs and queues. Azure Storage Explorer supports Cosmos accounts configured for SQL, MongoDB, Graph, and Table APIs.
 
-Azure Storage Explorer supports Cosmos accounts configured for SQL, MongoDB, Graph, and Table APIs. Go to [Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) for more information.
+> [!NOTE]
+> The Azure Cosmos DB integration with Storage Explorer has been deprecated. Any existing functionality will not be removed for a minimum of one year from this release. You should use the [Azure Portal](https://portal.azure.com/), [Azure Portal desktop app](https://portal.azure.com/App/Download) or the standalone [Azure Cosmos DB Explorer](data-explorer.md) instead. The alternative options contain many new features that aren’t currently supported in Storage Explorer.
 
 ## Prerequisites
 
@@ -64,12 +66,15 @@ You can use a connection string to connect to an Azure Cosmos DB. This method on
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Screenshot of the Connect to Cosmos D B window, showing the API drop-down menu, the Connection String box and the Account label box.":::
 
+> [!NOTE]
+> If the Azure Storage Explorer shows that the Azure Cosmos DB connection string is in an invalid format, make sure that the connection string has a semicolon (`;`) at the end. An example of a valid Azure Cosmos DB connection string would be: `AccountEndpoint=https://accountname.documents.azure.com:443;AccountKey=accountkey==;`
+
 ## Use a local emulator to connect to Azure Cosmos DB
 
 Use the following steps to connect to an Azure Cosmos DB with an emulator. This method only supports SQL accounts.
 
 1. Install Cosmos DB Emulator, and then open it. For how to install the emulator, see
- [Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
+ [Cosmos DB Emulator](./local-emulator.md).
 
 1. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, and then select **Connect to Cosmos DB Emulator**.
 
@@ -168,7 +173,7 @@ You can right-click a subscription on the Explorer pane to perform many quick ac
 
 #### Query for documents
 
-* To edit the document filter, enter a [SQL query](how-to-sql-query.md), and then select **Apply**.
+* To edit the document filter, enter a [SQL query](./sql-query-getting-started.md), and then select **Apply**.
 
   :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Screenshot of the right pane, showing Filter and Apply buttons, the ID number, and the query box highlighted.":::
 
@@ -348,4 +353,4 @@ Try these suggestions:
 ## Next steps
 
 * Watch this video to see how to use Azure Cosmos DB in Azure Storage Explorer: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
-* Learn more about Storage Explorer and connect more services in [Get started with Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Learn more about Storage Explorer and connect more services in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).

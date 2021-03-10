@@ -1,7 +1,6 @@
 ---
 title: Disaster recovery guidance for Azure Data Lake Analytics
 description: Learn how to plan disaster recovery for your Azure Data Lake Analytics accounts.
-services: data-lake-analytics
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to

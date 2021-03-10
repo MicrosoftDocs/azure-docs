@@ -3,21 +3,19 @@ title: Migrate to V3 - Translator
 titleSuffix: Azure Cognitive Services
 description: This article provides the steps to help you migrate from V2 to V3 of the Azure Cognitive Services Translator.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
+ms.author: lajanuar
 ---
 
 # Translator V2 to V3 Migration
 
 > [!NOTE]
-> V2 was deprecated on April 30, 2018. Please migrate your applications to V3 in order to take advantage of new functionality available exclusively in V3.
-> 
-> The Microsoft Translator Hub will be retired on May 17, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
+> V2 was deprecated on April 30, 2018. Please migrate your applications to V3 in order to take advantage of new functionality available exclusively in V3. V2 will be retired on May 24, 2021. 
 
 The Microsoft Translator team has released Version 3 (V3) of the Translator. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. 
 
@@ -32,7 +30,7 @@ The end of this document contains helpful links for you to learn more.
 * Transliterate - A transliterate method has been added to the API. This method will convert words and sentences in one script (E.g. Arabic) into another script (E.g. Latin).
 * Languages - A new 'languages' method delivers language information, in JSON format, for use with the 'translate', 'dictionary', and 'transliterate' methods.
 * New to Translate - New capabilities have been added to the 'translate' method to support some of the features that were in the V2 API as separate methods. An example is TranslateArray.
-* Speak method - Text to speech functionality is no longer supported in the Microsoft Translator. Text to speech functionality is available in [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* Speak method - Text to speech functionality is no longer supported in the Microsoft Translator. Text to speech functionality is available in [Microsoft Speech Service](../speech-service/text-to-speech.md).
 
 The following list of V2 and V3 methods identifies the V3 methods and APIs that will provide the functionality that came with V2.
 
@@ -42,8 +40,8 @@ The following list of V2 and V3 methods identifies the V3 methods and APIs that 
 | `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
 | `GetLanguageNames`      | [Languages](reference/v3-0-languages.md)         |
 | `GetLanguagesForTranslate`     | [Languages](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `GetLanguagesForSpeak`      | [Microsoft Speech Service](../speech-service/language-support.md#text-to-speech)         |
+| `Speak`     | [Microsoft Speech Service](../speech-service/text-to-speech.md)          |
 | `Detect`     | [Detect](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Feature is no longer supported       |

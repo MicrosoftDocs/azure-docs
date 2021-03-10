@@ -3,6 +3,7 @@ title: Connect Apache Spark to Azure Cosmos DB
 description: Learn about the Azure Cosmos DB Spark connector that enables you to connect Apache Spark to Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
@@ -10,6 +11,7 @@ ms.author: ramkris
 ---
 
 # Accelerate big data analytics by using the Apache Spark to Azure Cosmos DB connector
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 You can run [Spark](https://spark.apache.org/) jobs with data stored in Azure Cosmos DB using the Cosmos DB Spark connector. Cosmos can be used for batch  and stream processing, and as a serving layer for low latency access.
 
@@ -25,12 +27,14 @@ You can use the connector with [Azure Databricks](https://azure.microsoft.com/se
 > This connector supports the core (SQL) API of Azure Cosmos DB.
 > For Cosmos DB for MongoDB API, use the [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/master/).
 > For Cosmos DB Cassandra API, use the [Cassandra Spark connector](https://github.com/datastax/spark-cassandra-connector).
->
+
+> [!IMPORTANT]
+> The Azure Cosmos DB Spark connector is not currently supported on [serverless](serverless.md) accounts. This will be addressed as the serverless offer becomes generally available.
 
 ## Quickstart
 
-* Follow the steps at [Get started with the Java SDK](sql-api-async-java-get-started.md) to set up a Cosmos DB account, and populate some data.
-* Follow the steps at [Azure Databricks getting started](/azure/azure-databricks/quickstart-create-databricks-workspace-portal) to set up an Azure Databricks workspace and cluster.
+* Follow the steps at [Get started with the Java SDK](./create-sql-api-java.md) to set up a Cosmos DB account, and populate some data.
+* Follow the steps at [Azure Databricks getting started](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) to set up an Azure Databricks workspace and cluster.
 * You can now create new Notebooks, and import the Cosmos DB connector library. Jump to [Working with the Cosmos DB connector](#bk_working_with_connector) for details on how to set up your workspace.
 * The following section has snippets on how to read and write using the connector.
 

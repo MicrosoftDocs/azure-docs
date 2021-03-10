@@ -28,4 +28,4 @@ The Metrics Advisor service automatically encrypts your data when persisted it t
 ## Next steps
 
 * [Metrics Advisor Service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
-* [Learn more about Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Learn more about Azure Key Vault](../../key-vault/general/overview.md)

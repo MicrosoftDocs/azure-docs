@@ -129,7 +129,7 @@ For example, follow the steps below to authenticate using a Windows VM,
     ```powershell
     # Get subscription and resource group
     $metadata = curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-06-01 | select -ExpandProperty Content | ConvertFrom-Json 
-    
+
     # Make sure the system identity has at least reader permission on the resource group
     $managementUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "?api-version=2019-10-01"
     $resourceGroupInfo = curl -Headers $Headers $managementUrl | select -ExpandProperty Content | ConvertFrom-Json
@@ -150,5 +150,5 @@ For example, follow the steps below to authenticate using a Windows VM,
 
 ## Next steps
 
-* [Create an Azure application offer](./create-new-azure-apps-offer.md)
+* [Create an Azure application offer](../create-new-azure-apps-offer.md)
 * [Plan a SaaS offer](../plan-saas-offer.md)

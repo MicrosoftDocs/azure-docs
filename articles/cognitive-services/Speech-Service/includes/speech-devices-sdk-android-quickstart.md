@@ -7,9 +7,9 @@ ms.date: 02/20/2020
 ms.author: trbye
 ---
 
-In this quickstart, you'll learn how to use the Speech Devices SDK for Android to build a speech-enabled product or use it as a [Conversation Transcription](../conversation-transcription-service.md) device.
+In this quickstart, you'll learn how to use the Speech Devices SDK for Android to build a speech-enabled product or use it as a [Conversation Transcription](../conversation-transcription.md) device.
 
-This guide requires an [Azure Cognitive Services](../get-started.md) account with a Speech service resource.
+This guide requires an [Azure Cognitive Services](../overview.md#try-the-speech-service-for-free) account with a Speech service resource.
 
 The source code for the sample application is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -19,18 +19,18 @@ Before you start using the Speech Devices SDK, you'll need to:
 
 - Follow the instructions provided with your [development kit](../get-speech-devices-sdk.md) to power on the device.
 
-- Download the latest version of the [Speech Devices SDK](https://aka.ms/sdsdk-download), and extract the .zip to your working directory.
+- Download the latest version of the [Speech Devices SDK](../speech-devices-sdk.md), and extract the .zip to your working directory.
 
   > [!NOTE]
   > This quickstart assumes that the app is extracted to C:\SDSDK\Android-Sample-Release
 
-- To get an [Azure subscription key for Speech service](../get-started.md)
+- To get an [Azure subscription key for Speech service](../overview.md#try-the-speech-service-for-free)
 
 - If you plan to use the Conversation Transcription you must use a [circular microphone device](../get-speech-devices-sdk.md) and this feature is currently only available for "en-US" and "zh-CN" in regions, "centralus" and "eastasia". You must have a speech key in one of those regions to use Conversation Transcription.
 
-- If you plan to use the Speech service to identify intents (or actions) from user utterances, you'll need a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+- If you plan to use the Speech service to identify intents (or actions) from user utterances, you'll need a [Language Understanding Service (LUIS)](../../luis/luis-how-to-azure-subscription.md) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](../how-to-recognize-intents-from-speech-csharp.md).
 
-  You can [create a simple LUIS model](https://docs.microsoft.com/azure/cognitive-services/luis/) or use the sample LUIS model, LUIS-example.json. The sample LUIS model is available from the [Speech Devices SDK download site](https://aka.ms/sdsdk-luis). To upload your model's JSON file to the [LUIS portal](https://www.luis.ai/home), select **Import new app**, and then select the JSON file.
+  You can [create a simple LUIS model](../../luis/index.yml) or use the sample LUIS model, LUIS-example.json. The sample LUIS model is available from the [Speech Devices SDK download site](https://aka.ms/sdsdk-luis). To upload your model's JSON file to the [LUIS portal](https://www.luis.ai/home), select **Import new app**, and then select the JSON file.
 
 - Install [Android Studio](https://developer.android.com/studio/) and [Vysor](https://vysor.io/download/) on your PC.
 
@@ -91,7 +91,7 @@ To validate your development kit setup, build and install the sample application
     Update the **build.gradle(Module:app)** by adding this line to the dependencies section. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.15.0'
     ```
     
 1. Add your speech subscription key to the source code. If you want to try intent recognition, also add your [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) subscription key and application ID.
@@ -117,7 +117,7 @@ To validate your development kit setup, build and install the sample application
 1. The default keyword is "Computer". You can also try one of the other provided keywords, like "Machine" or "Assistant". The resource files for these alternate keywords are in the Speech Devices SDK, in the keyword folder. For example, C:\SDSDK\Android-Sample-Release\keyword\Computer contains the files used for the keyword "Computer".
 
    > [!TIP]
-   > You can also [create a custom keyword](../speech-devices-sdk-create-kws.md).
+   > You can also [create a custom keyword](../custom-keyword-basics.md).
 
    To use a new keyword, update the following two lines in `MainActivity.java`, and copy the keyword package to your app. For example, to use the keyword 'Machine' from the keyword package kws-machine.zip:
 
@@ -157,7 +157,7 @@ To validate your development kit setup, build and install the sample application
 
    ![Sample Speech Devices SDK example application and options](../media/speech-devices-sdk/qsg-8.png)
 
-1. Try the new Conversation Transcription demo. Start transcribing with 'Start Session'. By default everyone is a guest. However, if you have participant's voice signatures they can be put into a file `/video/participants.properties` on the device. To generate the voice signature, look at [Transcribe conversations (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Try the new Conversation Transcription demo. Start transcribing with 'Start Session'. By default everyone is a guest. However, if you have participant's voice signatures they can be put into a file `/video/participants.properties` on the device. To generate the voice signature, look at [Transcribe conversations (SDK)](../how-to-use-conversation-transcription.md).
 
    ![Demo Conversation Transcription application](../media/speech-devices-sdk/qsg-15.png)
 

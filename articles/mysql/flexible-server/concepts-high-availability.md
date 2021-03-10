@@ -1,11 +1,11 @@
 ---
 title: Overview of zone redundant high availability with Azure Database for MySQL Flexible Server
 description: Learn about the concepts of zone redundant high availability with Azure Database for MySQL Flexible Server
-author: kummanish
-ms.author: manishku
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 01/29/2021
 ---
 
 # High availability concepts in Azure Database for MySQL Flexible Server (Preview)
@@ -43,7 +43,7 @@ Here are some advantages for using zone redundancy HA feature:
 -   Standby replica will be deployed in an exact VM configuration as that of primary such as vCores, storage, network settings (VNET, Firewall), etc.
 -   Ability to remove standby replica by disabling high availability.
 -   Automatic backups are snapshot based, performed from the primary database server and stored in a zone redundant storage.
--   If there is a failover event, a new standby replica is provisioned in the original primary availability zone.
+-   In the event of failover, Azure Database for MySQL flexible server will automatically failover to standby replica if high availability is enabled. The high availability setup will monitor the primary server and bring it back online.
 -   Clients always connect to the primary database server.
 -   If there is a database crash or node failure, restarting will be attempted first on the same node. If that fails, then the automatic failover is triggered.
 -   Ability to restart the server to pick up any static server parameter changes.

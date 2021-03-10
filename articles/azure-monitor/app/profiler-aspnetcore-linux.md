@@ -119,7 +119,7 @@ For more deployment options, see [App Service documentation](../../app-service/i
 2. Deploy the project by pushing the changes to Azure:
 
     ```console
-    git push azure master
+    git push azure main
     ```
 
     You should see output similar to the following example:
@@ -130,7 +130,7 @@ For more deployment options, see [App Service documentation](../../app-service/i
     Compressing objects: 100% (8/8), done.
     Writing objects: 100% (9/9), 1.78 KiB | 911.00 KiB/s, done.
     Total 9 (delta 3), reused 0 (delta 0)
-    remote: Updating branch 'master'.
+    remote: Updating branch 'main'.
     remote: Updating submodules.
     remote: Preparing deployment for commit id 'd7369a99d7'.
     remote: Generating deployment script.

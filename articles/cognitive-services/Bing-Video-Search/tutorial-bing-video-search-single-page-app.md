@@ -14,6 +14,11 @@ ms.author: aahi
 ms.custom: devx-track-js
 ---
 # Tutorial: Single-page Video Search app
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 The Bing Video Search API lets you search the Web and get video results relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -37,7 +42,7 @@ This tutorial app illustrates how to:
 
 The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
 
-In this tutorial, we discuss selected portions of the source code. The complete [source code](tutorial-bing-video-search-single-page-app-source.md) is available. To run the example, copy and paste the source code into a text editor and save it as `bing.html`.
+In this tutorial, we discuss selected portions of the source code. The complete [source code]() is available. To run the example, copy and paste the source code into a text editor and save it as `bing.html`.
 
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:

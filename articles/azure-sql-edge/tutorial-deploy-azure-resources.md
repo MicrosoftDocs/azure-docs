@@ -17,15 +17,15 @@ In this three-part tutorial, you'll create a machine learning model to predict i
 ## Prerequisites
 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-2. Install [Python 3.6.8](https://www.python.org/downloads/release/python-368/).
-      * Use the Windows x86-x64 executable installer
-      * Add `python.exe` to the PATH environment variable
-downloads/). You can find the download under "Tools For Visual Studio 2019".
-3. Install [Microsoft ODBC Driver 17 for SQL Server](https://www.microsoft.com/download/details.aspx?id=56567).
-4. Install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
-5. Open Azure Data Studio and configure Python for notebooks. For details, see [Configure Python for Notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks).This step can take several minutes.
-6. Install the latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). The following scripts require that AZ PowerShell be the latest version (3.5.0, Feb 2020).
-7. Download the [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) and [AMD/ARM Docker Image files](https://www.docker.com/blog/multi-arch-images/) that will be utilized in the tutorial.
+2. Install Visual Studio 2019 with 
+      * Azure IoT Edge tools
+      * .NET core cross-platform development
+      * Container development tools
+3. Install [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
+4. Open Azure Data Studio and configure Python for notebooks. For details, see [Configure Python for Notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). This step can take several minutes.
+5. Install the latest version of [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). The following scripts require that AZ PowerShell be the latest version (3.5.0, Feb 2020).
+6. Set up the environment to debug, run, and test IoT Edge solution by installing [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/).
+7. Install Docker.
 
 ## Deploy Azure resources using PowerShell Script
 
@@ -149,26 +149,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
    }
    ```
 
-10. Push the ARM/AMD docker images to the container registry.
-
-    ```powershell
-    $containerRegistryCredentials = Get-AzContainerRegistryCredential -ResourceGroupName $ResourceGroup -Name $containerRegistryName
-    
-    $amddockerimageFile = Read-Host "Please Enter the location to the amd docker tar file:"
-    $armdockerimageFile = Read-Host "Please Enter the location to the arm docker tar file:"
-    $amddockertag = $containerRegistry.LoginServer + "/silicaprediction" + ":amd64"
-    $armdockertag = $containerRegistry.LoginServer + "/silicaprediction" + ":arm64"
-    
-    docker login $containerRegistry.LoginServer --username $containerRegistryCredentials.Username --password $containerRegistryCredentials.Password
-    
-    docker import $amddockerimageFile $amddockertag
-    docker push $amddockertag
-    
-    docker import $armdockerimageFile $armdockertag
-    docker push $armdockertag
-    ```
-
-11. Create the network security group within the resource group.
+10. Create the network security group within the resource group.
 
     ```powershell
     $nsg = Get-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Name $NetworkSecGroup 
@@ -188,7 +169,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
     }
     ```
 
-12. Create an Azure virtual machine enabled with SQL Edge. This VM will act as an Edge device.
+11. Create an Azure virtual machine enabled with SQL Edge. This VM will act as an Edge device.
 
     ```powershell
     $AzVM = Get-AzVM -ResourceGroupName $ResourceGroup -Name $EdgeDeviceId
@@ -221,7 +202,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
     }
     ```
 
-13. Create an IoT hub within the resource group.
+12. Create an IoT hub within the resource group.
 
     ```powershell
     $iotHub = Get-AzIotHub -ResourceGroupName $ResourceGroup -Name $IoTHubName
@@ -236,7 +217,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
     }
     ```
 
-14. Add an Edge device to the IoT hub. This step only creates the device digital identity.
+13. Add an Edge device to the IoT hub. This step only creates the device digital identity.
 
     ```powershell
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
@@ -252,7 +233,7 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
     ```
 
-15. Get the device primary connection string. This will be needed later for the VM. The following command uses Azure CLI for deployments.
+14. Get the device primary connection string. This will be needed later for the VM. The following command uses Azure CLI for deployments.
 
     ```powershell
     $deviceConnectionString = az iot hub device-identity show-connection-string --device-id $EdgeDeviceId --hub-name $IoTHubName --resource-group $ResourceGroup --subscription $SubscriptionName
@@ -260,18 +241,19 @@ Deploy the Azure resources required by this Azure SQL Edge tutorial. These can b
     $connString
     ```
 
-16. Update the connection string in the IoT Edge configuration file on the Edge device. The following commands use Azure CLI for deployments.
+15. Update the connection string in the IoT Edge configuration file on the Edge device. The following commands use Azure CLI for deployments.
 
     ```powershell
     $script = "/etc/iotedge/configedge.sh '" + $connString + "'"
     az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShellScript --script $script
     ```
 
-17. Create an Azure Machine Learning workspace within the resource group.
+16. Create an Azure Machine Learning workspace within the resource group.
 
     ```powershell
     az ml workspace create -w $MyWorkSpace -g $ResourceGroup
     ```
+
 
 ## Next Steps
 

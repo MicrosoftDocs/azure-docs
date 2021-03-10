@@ -12,9 +12,9 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/12/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
 ---
 
@@ -99,6 +99,10 @@ The PNS does not guarantee any SLA for delivering notifications. However, most p
 
 Because of the nature of push notifications (they are delivered by an external, platform-specific PNS), there is no latency guarantee. Typically, the majority of push notifications are delivered within a few minutes.
 
+### Where does Azure Notification Hubs store data?
+
+Azure Notification Hubs stores customer registration data in the region selected by the customer. Notification Hubs provides metadata disaster recovery coverage (the Notification Hubs name, the connection string, and other critical information). For all regions except Brazil South and Southeast Asia, the metadata backup is hosted in a different region (usually the Azure paired region). For the Brazil South and Southeast Asia regions, backups are stored in the same region to accommodate data-residency requirements for these regions.
+
 ### What do I need to consider when designing a solution with namespaces and notification hubs?
 
 #### Mobile app/environment
@@ -155,15 +159,12 @@ We provide metadata disaster recovery coverage on our end (the Notification Hubs
 
 1. Create a secondary notifications hub in a different data center. We recommend creating one from the beginning to shield you from a disaster recovery event that might affect your management capabilities. You can also create one at the time of the disaster recovery event.
 
-2. Populate the secondary notification hub with the registrations from your primary notification hub. We don't recommend trying to maintain registrations on both hubs and keep them in sync as registrations come in. This practice doesn’t work well because of the inherent tendency of registrations to expire on the PNS side. Notification Hubs cleans them up as it receives PNS feedback about expired or invalid registrations.  
+2. Keep the secondary notification hub in sync with the primary notification hub using one of the following options:
 
-We have two recommendations for app backends:
+   * Use an app backend that simultaneously creates and updates installations in both notification hubs. Installations allow you to specify your own unique device identifier, making it more suitable for the replication scenario. For more information, see this [sample code](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
+   * Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub.
 
-* Use an app backend that maintains a given set of registrations at its end. It can then perform a bulk insert into the secondary notification hub.
-* Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub.
-
-> [!NOTE]
-> Registrations Export/Import functionality available in the Standard tier is described in the [Registrations Export/Import] document.
+The secondary notification hub may end up with expired installations/registrations. When the push is made to an expired handle, Notification Hubs automatically cleans the associated installation/registration record based on the response received from the PNS server. To clean expired records from a secondary notification hub, add custom logic that processes feedback from each send. Then, expire installation/registration in the secondary notification hub.
 
 If you don’t have a backend, when the app starts on target devices, they perform a new registration in the secondary notification hub. Eventually the secondary notification hub will have all the active devices registered.
 
@@ -191,7 +192,7 @@ You can also programmatically access metrics. For more information, see the foll
 
 - [Retrieve Azure Monitor metrics with .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). This sample uses the user name and password. To use a certificate, overload the FromServicePrincipal method to provide a certificate as shown in [this example](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Getting metrics and activity logs for a resource](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md)
 
 > [!NOTE]
 > Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNs for iOS and macOS or FCM for Android devices). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
@@ -206,7 +207,7 @@ You can also programmatically access metrics. For more information, see the foll
 [Notification Hubs security model]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
 [Notification Hubs Secure Push tutorial]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [Notification Hubs troubleshooting]: ./notification-hubs-push-notification-fixer.md
-[Notification Hubs Metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Notification Hubs Metrics]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Registrations Export/Import]: ./export-modify-registrations-bulk.md
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

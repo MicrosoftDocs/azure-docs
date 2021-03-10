@@ -4,11 +4,15 @@ description: Learn how to configure customer-managed keys for your Azure Cosmos 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/05/2020
+ms.date: 02/19/2021
 ms.author: thweiss
 ---
 
 # Configure customer-managed keys for your Azure Cosmos account with Azure Key Vault
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+
+> [!NOTE]
+> Using customer-managed keys with the Azure Cosmos DB [analytical store](analytical-store-introduction.md) currently requires additional configuration on your account. Please contact [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) for details.
 
 Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys**).
 
@@ -39,8 +43,8 @@ If you create a new Azure Key Vault instance, enable these properties during cre
 
 If you're using an existing Azure Key Vault instance, you can verify that these properties are enabled by looking at the **Properties** section on the Azure portal. If any of these properties isn't enabled, see the "Enabling soft-delete" and "Enabling Purge Protection" sections in one of the following articles:
 
-- [How to use soft-delete with PowerShell](../key-vault/general/soft-delete-powershell.md)
-- [How to use soft-delete with Azure CLI](../key-vault/general/soft-delete-cli.md)
+- [How to use soft-delete with PowerShell](../key-vault/general/key-vault-recovery.md)
+- [How to use soft-delete with Azure CLI](../key-vault/general/key-vault-recovery.md)
 
 ## Add an access policy to your Azure Key Vault instance
 
@@ -274,7 +278,7 @@ When using customer-managed keys, [Request Units](./request-units.md) consumed b
 
 All the data stored in your Azure Cosmos account is encrypted with the customer-managed keys, except for the following metadata:
 
-- The names of your Azure Cosmos DB [accounts, databases, and containers](./account-overview.md#elements-in-an-azure-cosmos-account)
+- The names of your Azure Cosmos DB [accounts, databases, and containers](./account-databases-containers-items.md#elements-in-an-azure-cosmos-account)
 
 - The names of your [stored procedures](./stored-procedures-triggers-udfs.md)
 
@@ -285,6 +289,10 @@ All the data stored in your Azure Cosmos account is encrypted with the customer-
 ### Are customer-managed keys supported for existing Azure Cosmos accounts?
 
 This feature is currently available only for new accounts.
+
+### Is it possible to use customer-managed keys in conjunction with the Azure Cosmos DB [analytical store](analytical-store-introduction.md)?
+
+Yes, but this currently requires additional configuration on your account. Please contact [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) for details.
 
 ### Is there a plan to support finer granularity than account-level keys?
 

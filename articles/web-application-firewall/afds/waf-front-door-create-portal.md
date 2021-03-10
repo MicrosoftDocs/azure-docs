@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 02/18/2021
 ms.author: victorh
 ---
 
@@ -37,7 +37,7 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
     | Resource group          |Select your Front Door resource group name.|
     | Policy name             |Enter a unique name for your WAF policy.|
 
-   ![Create a WAF policy](../media/waf-front-door-create-portal/basic.png)
+   :::image type="content" source="../media/waf-front-door-create-portal/basic.png" alt-text="Screenshot of the Create a W A F policy page, with a Review + create button and list boxes for the subscription, resource group, and policy name." border="false":::
 
 3. In the **Association** tab of the **Create a WAF policy** page, select **Add frontend host**, enter the following settings, and then select **Add**:
 
@@ -57,19 +57,21 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
 When you create a WAF policy, by the default WAF policy is in **Detection** mode. In **Detection** mode, WAF does not block any requests, instead, requests matching the WAF rules are logged at WAF logs.
 To see WAF in action, you can change the mode settings from **Detection** to **Prevention**. In **Prevention** mode, requests that match rules that are defined in Default Rule Set (DRS) are blocked and logged at WAF logs.
 
- ![Change WAF policy mode](../media/waf-front-door-create-portal/policy.png)
+ :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot of the Policy settings section. The Mode toggle is set to Prevention." border="false":::
 
 ### Custom rules
 
 You can create a custom rule by selecting **Add custom rule** under the **Custom rules** section. This launches the custom rule configuration page. Below is an example of configuring a custom rule to block a request if the query string contains **blockme**.
 
-![Custom rules](../media/waf-front-door-create-portal/customquerystring2.png)
+:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Screenshot of the custom rule configuration page showing settings for a rule that checks whether the QueryString variable contains the value blockme." border="false":::
 
 ### Default Rule Set (DRS)
 
-Azure-managed Default Rule Set is enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group,  select the **check box** in front of the rule number, and select **Disable** on the tab above. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** tab above.
+Azure-managed Default Rule Set is enabled by default. Current default version is DefaultRuleSet_1.0. From WAF **Managed rules**, **Assign**,  recently available ruleset Microsoft_DefaultRuleSet_1.1 is available in the drop down list.
 
- ![Change WAF Rule Set](../media/waf-front-door-create-portal/managed2.png)
+To disable an individual rule within a rule group, expand the rules within that rule group,  select the **check box** in front of the rule number, and select **Disable** on the tab above. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** tab above.
+
+ :::image type="content" source="../media/waf-front-door-create-portal/managed2.png" alt-text="Screenshot of the Managed rules page showing a rule set, rule groups, rules, and Enable, Disable, and Change Action buttons. One rule is checked." border="false":::
 
 ## Clean up resources
 

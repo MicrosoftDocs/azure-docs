@@ -3,12 +3,14 @@ title: SQL keywords for Azure Cosmos DB
 description: Learn about SQL keywords for Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 01/20/2021
 ms.author: tisande
 
 ---
 # Keywords in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article details keywords which may be used in Azure Cosmos DB SQL queries.
 
@@ -100,6 +102,73 @@ Queries with an aggregate system function and a subquery with `DISTINCT` are not
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
+
+## LIKE
+
+Returns a Boolean value depending on whether a specific character string matches a specified pattern. A pattern can include regular characters and wildcard characters. You can write logically equivalent queries using either the `LIKE` keyword or the [RegexMatch](sql-query-regexmatch.md) system function. You’ll observe the same index utilization regardless of which one you choose. Therefore, you should use `LIKE` if you prefer its syntax more than regular expressions.
+
+> [!NOTE]
+> Because `LIKE` can utilize an index, you should [create a range index](./index-policy.md) for properties you are comparing using `LIKE`.
+
+You can use the following wildcard characters with LIKE:
+
+| Wildcard character | Description                                                  | Example                                     |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| %                    | Any   string of zero or more characters                      | WHERE   c.description LIKE   “%SO%PS%”      |
+| _   (underscore)     | Any   single character                                       | WHERE   c.description LIKE   “%SO_PS%”      |
+| [ ]                  | Any single character within the specified range ([a-f]) or   set ([abcdef]). | WHERE   c.description LIKE   “%SO[t-z]PS%”  |
+| [^]                  | Any single character not within the specified range   ([^a-f]) or set ([^abcdef]). | WHERE   c.description LIKE   “%SO[^abc]PS%” |
+
+
+### Using LIKE with the % wildcard character
+
+The `%` character matches any string of zero or more characters. For example, by placing a `%` at the beginning and end of the pattern, the following query returns all items with a description that contains `fruit`:
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "%fruit%"
+```
+
+If you only used a `%` character at the end of the pattern, you’d only return items with a description that started with `fruit`:
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "fruit%"
+```
+
+
+### Using NOT LIKE
+
+The below example returns all items with a description that does not contain `fruit`:
+
+```sql
+SELECT *
+FROM c
+WHERE c.description NOT LIKE "%fruit%"
+```
+
+### Using the escape clause
+
+You can search for patterns that include one or more wildcard characters using the ESCAPE clause. For example, if you wanted to search for descriptions that contained the string `20-30%`, you wouldn’t want to interpret the `%` as a wildcard character.
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE '%20-30!%%' ESCAPE '!'
+```
+
+### Using wildcard characters as literals
+
+You can enclose wildcard characters in brackets to treat them as literal characters. When you enclose a wildcard character in brackets, you remove any special attributes. Here are some examples:
+
+| Pattern           | Meaning |
+| ----------------- | ------- |
+| LIKE   “20-30[%]” | 20-30%  |
+| LIKE   “[_]n”     | _n      |
+| LIKE   “[ [ ]”    | [       |
+| LIKE   “]”        | ]       |
 
 ## IN
 

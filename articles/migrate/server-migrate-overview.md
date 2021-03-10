@@ -1,6 +1,9 @@
 ---
-title: Select a VMware migration option with Azure Migrate Server Migration | Microsoft Docs
+title: Select a VMware migration option with Azure Migrate Server Migration
 description: Provides an overview of options for migrating VMware VMs to Azure with Azure Migrate Server Migration
+author: anvar-ms
+ms.author: anvar
+ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
 ---
@@ -21,13 +24,13 @@ Use these selected comparisons to help you decide which method to use. You can a
 **Setting** | **Agentless** | **Agent-based**
 --- | --- | ---
 **Azure permissions** | You need permissions to create an Azure Migrate project, and to register Azure AD apps created when you deploy the Azure Migrate appliance. | You need Contributor permissions on the Azure subscription. 
-**Replication** | A maximum of 300 VMs can be simultaneously replicated from a vCenter Server.<br/> If you have more than 50 VMs for migration, create multiple batches of VMs.<br/> Replicating more at a single time will impact performance.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.| Replication capacity increases by scaling the replication appliance.
+**Replication** | A maximum of 500 VMs can be simultaneously replicated from a vCenter Server. In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.| Replication capacity increases by scaling the replication appliance.
 **Appliance deployment** | The [Azure Migrate appliance](migrate-appliance.md) is deployed on-premises. | The [Azure Migrate Replication appliance](migrate-replication-appliance.md) is deployed on-premises.
 **Site Recovery compatibility** | Compatible. | You can't replicate with Azure Migrate Server Migration if you've set up replication for a machine using Site Recovery.
 **Target disk** | Managed disks | Managed disks
-**Disk limits** | OS disk: 2 TB<br/><br/> Data disk: 8 TB<br/><br/> Maximum disks: 60 | OS disk: 2 TB<br/><br/> Data disk: 8 TB<br/><br/> Maximum disks: 63
+**Disk limits** | OS disk: 2 TB<br/><br/> Data disk: 32 TB<br/><br/> Maximum disks: 60 | OS disk: 2 TB<br/><br/> Data disk: 32 TB<br/><br/> Maximum disks: 63
 **Passthrough disks** | Not supported | Supported
-**UEFI boot** | Not supported | The migrated VM in Azure will be automatically converted to a BIOS boot VM.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
+**UEFI boot** | Supported. | Supported.
 
 ## Compare deployment steps
 
@@ -36,7 +39,7 @@ After reviewing the limitations, understanding the steps involved in deploying e
 **Task** | **Details** |**Agentless** | **Agent-based**
 --- | --- | --- | ---
 **Deploy the Azure Migrate appliance** | A lightweight appliance that runs on a VMware VM.<br/><br/> The appliance is used to discover and assess machines, and to migrate machines using agentless migration. | Required.<br/><br/> If you've already set up the appliance for assessment,  you can use the same appliance for agentless migration. | Not required.<br/><br/> If you've set up an appliance for assessment, you can leave it in place, or remove it if you're done with assessment.
-**Use the Server Assessment tool** | Assess machines with the Azure Migrate:Server Assessment tool. | You can assess machines before you migrate them, but you don't have to. | Assessment is optional | Assessment is optional.
+**Use the Server Assessment tool** | Assess machines with the Azure Migrate:Server Assessment tool. | Assessment is optional. | Assessment is optional.
 **Use the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
 **Prepare VMware for migration** | Configure settings on VMware servers and VMs. | Required | Required
 **Install the Mobility service on VMs** | Mobility service runs on each VM you want to replicate | Not required | Required

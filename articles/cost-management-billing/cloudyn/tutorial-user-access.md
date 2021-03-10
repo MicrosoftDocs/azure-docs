@@ -131,4 +131,4 @@ In this tutorial, you learned how to:
 If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to the following article.
 
 > [!div class="nextstepaction"]
-> [Activate Azure subscriptions and accounts](../../cost-management/activate-subs-accounts.md)
+> [Activate Azure subscriptions and accounts](./activate-subs-accounts.md)

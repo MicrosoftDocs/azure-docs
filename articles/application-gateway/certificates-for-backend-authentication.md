@@ -100,5 +100,4 @@ The following steps help you export the .cer file for your certificate:
 
 ## Next steps
 
-Now you have the authentication certificate/trusted root certificate in Base-64 encoded X.509(.CER) format. You can add this to the application gateway to allow your backend servers for end to end TLS encryption. See [Configure end to end TLS by using Application Gateway with PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-
+Now you have the authentication certificate/trusted root certificate in Base-64 encoded X.509(.CER) format. You can add this to the application gateway to allow your backend servers for end to end TLS encryption. See [Configure end to end TLS by using Application Gateway with PowerShell](./application-gateway-end-to-end-ssl-powershell.md).

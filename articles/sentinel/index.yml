@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: What is Azure Sentinel?
             url: overview.md
+          - text: What's new in Azure Sentinel?
+            url: whats-new.md
        
   # Card (optional)
   - title: Get started
@@ -75,6 +77,10 @@ landingContent:
             url: tutorial-monitor-your-data.md
           - text: Investigate incidents
             url: tutorial-investigate-cases.md
+      - linkListType: reference
+        links:
+          - text: Commonly used Azure Sentinel workbooks
+            url: top-workbooks.md
             
  # Card (optional)
   - title: Detect threats

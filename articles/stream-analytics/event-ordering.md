@@ -1,22 +1,22 @@
 ---
 title: Configuring event ordering policies for Azure Stream Analytics
 description: This article describes how to go about configuring even ordering settings in Stream Analytics
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
 ---
 # Configuring event ordering policies for Azure Stream Analytics
 
-This article describes how to setup and use late arrival and out-of-order event policies in Azure Stream Analytics. These policies are applied only when you use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query, and they are only applied for cloud input sources.
+This article describes how to setup and use late arrival and out-of-order event policies in Azure Stream Analytics. These policies are applied only when you use the [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query, and they are only applied for cloud input sources.
 
 ## Event time and Arrival Time
 
 Your Stream Analytics job can process events based on either *event time* or *arrival time*. **Event/application time** is the timestamp present in event payload (when the event was generated). **Arrival time** is the timestamp when the event was received at the input source (Event Hubs/IoT Hub/Blob storage). 
 
-By default, Stream Analytics processes events by *arrival time*, but you can choose to process events by *event time* by using [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query. Late arrival and out-of-order policies are applicable only if you process events by event time. Consider latency and correctness requirements for your scenario when configuring these settings. 
+By default, Stream Analytics processes events by *arrival time*, but you can choose to process events by *event time* by using [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query. Late arrival and out-of-order policies are applicable only if you process events by event time. Consider latency and correctness requirements for your scenario when configuring these settings. 
 
 ## What is late arrival policy?
 
@@ -77,4 +77,4 @@ When a partition does not have any data for more than the configured late arriva
 
 ## Next steps
 * [Time handling considerations](stream-analytics-time-handling.md)
-* [Metrics available in Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)
+* [Metrics available in Stream Analytics](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)

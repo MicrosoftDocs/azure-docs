@@ -4,7 +4,7 @@ description: Learn how to connect a Microsoft Azure Red Hat OpenShift cluster
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 04/24/2020
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
@@ -21,7 +21,7 @@ In this tutorial, part two of three, you will connect to an Azure Red Hat OpenSh
 
 In previous tutorials, an Azure Red Hat OpenShift cluster was created. If you have not done these steps, and would like to follow along, start with [Tutorial 1 - Create an Azure Red Hat OpenShift 4 Cluster.](tutorial-create-cluster.md)
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Connect to the cluster
 
@@ -59,7 +59,7 @@ Launch the console URL in a browser and login using the `kubeadmin` credentials.
 
 Once you're logged into the OpenShift Web Console, click on the **?** on the top right and then on **Command Line Tools**. Download the release appropriate to your machine.
 
-![Azure Red Hat OpenShift login screen](media/aro4-download-cli.png)
+![Screenshot that highlights the Command Line Tools option in the list when you select the ? icon.](media/aro4-download-cli.png)
 
 You can also download the latest release of the CLI appropriate to your machine from <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
 

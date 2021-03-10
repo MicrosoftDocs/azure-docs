@@ -12,6 +12,7 @@ ms.custom: devx-track-csharp
 
 ---
 # Quickstart: Build a todo app with Xamarin using Azure Cosmos DB SQL API account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -27,7 +28,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 > [!NOTE]
 > Sample code for an entire canonical sample Xamarin app showcasing multiple Azure offerings, including CosmosDB, can be found on GitHub [here](https://github.com/xamarinhq/app-geocontacts). This app demonstrates viewing geographically dispersed contacts, and allowing those contacts to update their location.
 
-This quickstart demonstrates how to create an Azure Cosmos DB SQL API account, document database, and container using the Azure portal. You'll then build and deploy a todo list mobile app built on the [SQL .NET API](sql-api-sdk-dotnet.md) and [Xamarin](https://docs.microsoft.com/xamarin/) utilizing [Xamarin.Forms](https://docs.microsoft.com/xamarin/) and the [MVVM architectural pattern](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+This quickstart demonstrates how to create an Azure Cosmos DB SQL API account, document database, and container using the Azure portal. You'll then build and deploy a todo list mobile app built on the [SQL .NET API](sql-api-sdk-dotnet.md) and [Xamarin](/xamarin/) utilizing [Xamarin.Forms](/xamarin/) and the [MVVM architectural pattern](/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png" alt-text="Xamarin todo app running on iOS":::
 
@@ -172,7 +173,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 The following steps will demonstrate how to run the app using the Visual Studio for Mac debugger.
 
 > [!NOTE]
-> Usage of the Android version app is exactly the same, any differences will be called out in the steps below. If you wish to debug with Visual Studio on Windows, documentation todo so can be found for [iOS here](https://docs.microsoft.com/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) and [Android here](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/).
+> Usage of the Android version app is exactly the same, any differences will be called out in the steps below. If you wish to debug with Visual Studio on Windows, documentation todo so can be found for [iOS here](/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) and [Android here](/xamarin/android/deploy-test/debugging/).
 
 1. First select the platform you wish to target by clicking on the dropdown highlighted and selecting either ToDoItems.iOS for iOS or ToDoItems.Android for Android.
 

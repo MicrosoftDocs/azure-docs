@@ -12,6 +12,7 @@ ms.custom: devx-track-python
 
 ---
 # Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)

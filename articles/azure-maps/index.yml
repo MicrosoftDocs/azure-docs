@@ -25,7 +25,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Azure Maps Coverage
-            url: render-coverage.md
+            url: geographic-coverage.md
           - text: Localization support
             url: supported-languages.md
           - text: Supported map styles
@@ -42,6 +42,8 @@ landingContent:
         links:
           - text: Create a web application using Azure Maps
             url: quick-demo-map-app.md
+          - text: Create an Android app using Azure Maps
+            url: quick-android-map.md
       - linkListType: concept
         links:
           - text: Choose the right pricing tier for Maps account
@@ -81,17 +83,17 @@ landingContent:
           - text: Use the indoor map module
             url: how-to-use-indoor-module.md
           - text: Use Azure Digital Twins to update indoor map
-            url: https://docs.microsoft.com/azure/digital-twins/how-to-integrate-maps
+            url: ../digital-twins/how-to-integrate-maps.md
       - linkListType: reference
         links:
           - text: Conversion service
-            url: https://docs.microsoft.com/rest/api/maps/conversion
+            url: /rest/api/maps/conversion
           - text: Dataset service
-            url: https://docs.microsoft.com/rest/api/maps/dataset
+            url: /rest/api/maps/dataset
           - text: Tileset service
-            url: https://docs.microsoft.com/rest/api/maps/tileset
+            url: /rest/api/maps/tileset
           - text: Feature stateset service
-            url: https://docs.microsoft.com/rest/api/maps/featurestate
+            url: /rest/api/maps/featurestate
                     
   # Card
   - title: Developing with Web SDK
@@ -127,22 +129,36 @@ landingContent:
       - linkListType: reference
         links:
           - text: Map control
-            url: https://docs.microsoft.com/javascript/api/azure-maps-control/
+            url: /javascript/api/azure-maps-control/
           - text: Drawing tools module
-            url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
+            url: /javascript/api/azure-maps-drawing-tools/
           - text: Service module
-            url: https://docs.microsoft.com/javascript/api/azure-maps-rest/
+            url: /javascript/api/azure-maps-rest/
           - text: Spatial IO module 
-            url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/
+            url: /javascript/api/azure-maps-spatial-io/
   # Card
   - title: Developing with Android SDK
     linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Load GeoJSON data into map
+            url: tutorial-load-geojson-file-android.md
       - linkListType: how-to-guide
         links:
           - text: Getting started with Android map control
             url: how-to-use-android-map-control-library.md
-          - text: Display metadata information of a feature
-            url: display-feature-information-android.md
+          - text: Create a data source
+            url: create-data-source-android-sdk.md
+          - text: Add a bubble layer
+            url: map-add-bubble-layer-android.md
+          - text: Add a symbol layer
+            url: how-to-add-symbol-to-android-map.md
+          - text: Add a line layer
+            url: android-map-add-line-layer.md
+          - text: Add a polygon layer
+            url: how-to-add-shapes-to-android-map.md
+          - text: Use data-driven style expressions
+            url: data-driven-style-expressions-android-sdk.md
           - text: Add a tile layer to a map
             url: how-to-add-tile-layer-android-map.md
           - text: Add a shapes to a map
@@ -174,14 +190,26 @@ landingContent:
       - linkListType: reference
         links:
           - text: Search Service
-            url: https://docs.microsoft.com/rest/api/maps/search
+            url: /rest/api/maps/search
           - text: Route Service
-            url: https://docs.microsoft.com/rest/api/maps/route
+            url: /rest/api/maps/route
           - text: Traffic Service
-            url: https://docs.microsoft.com/rest/api/maps/traffic
+            url: /rest/api/maps/traffic
           - text: Time Zones Service
-            url: https://docs.microsoft.com/rest/api/maps/timezone
+            url: /rest/api/maps/timezone
   
+    # Card
+  - title: Developing with Elevation service
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: How to retrieve and use elevation data
+            url: how-to-request-elevation-data.md
+      - linkListType: reference
+        links:
+          - text: Elevation Service
+            url: /rest/api/maps/elevation/
+
   # Card
   - title: Spatial Analytics
     linkLists:
@@ -198,9 +226,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: Data Service
-            url: https://docs.microsoft.com/rest/api/maps/data
+            url: /rest/api/maps/data
           - text: Spatial Service
-            url: https://docs.microsoft.com/rest/api/maps/spatial
+            url: /rest/api/maps/spatial
 
   # Card
   - title: Spatial analysis with Power BI
@@ -219,7 +247,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Mobility service data structures
+          - text: Mobility services
             url: mobility-service-data-structure.md
       - linkListType: how-to-guide
         links:
@@ -229,21 +257,27 @@ landingContent:
             url: how-to-request-real-time-data.md
       - linkListType: reference
         links:
-          - text: Mobility Service
-            url: https://docs.microsoft.com/rest/api/maps/mobility
+          - text: Mobility services
+            url: /rest/api/maps/mobility
 
   # Card
-  - title: Developing with Weather Services
+  - title: Developing with Weather services
     linkLists:
       - linkListType: concept
         links:
-          - text: Weather Service concept
+          - text: Weather services concepts
             url: weather-services-concepts.md
+          - text: Weather services FAQ
+            url: weather-services-faq.md
       - linkListType: tutorial
         links:
           - text: Analyze weather data using Azure Notebooks (Python)
             url: weather-service-tutorial.md
+      - linkListType: how-to-guide
+        links:
+          - text: Request real-time and forecasted weather data
+            url: how-to-request-weather-data.md
       - linkListType: reference
         links:
-          - text: Weather Service
-            url: https://docs.microsoft.com/rest/api/maps/weather
+          - text: Weather services
+            url: /rest/api/maps/weather

@@ -1,9 +1,8 @@
 ---
 title: Service Bus topics output from Azure Stream Analytics
 description: This article describes Service Bus topics as output for Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
@@ -11,7 +10,7 @@ ms.date: 09/23/2020
 
 # Service Bus Topics output from Azure Stream Analytics
 
-Service Bus queues provide a one-to-one communication method from sender to receiver. [Service Bus topics](https://msdn.microsoft.com/library/azure/hh367516.aspx) provide a one-to-many form of communication.
+Service Bus queues provide a one-to-one communication method from sender to receiver. [Service Bus topics](/previous-versions/azure/hh367516(v=azure.100)) provide a one-to-many form of communication.
 
 The following table lists the property names and their descriptions for creating a Service Bus topic output.
 
@@ -60,8 +59,8 @@ The following image is of the expected output message properties inspected in Ev
 
 ## System properties
 
-You can attach query columns as [system properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) to your outgoing service bus Queue or Topic messages. 
-These columns don't go into the payload instead the corresponding BrokeredMessage [system property](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) is populated with the query column values.
+You can attach query columns as [system properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties) to your outgoing service bus Queue or Topic messages. 
+These columns don't go into the payload instead the corresponding BrokeredMessage [system property](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#properties) is populated with the query column values.
 These system properties are supported - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 String values of these columns are parsed as corresponding system property value type and any parsing failures are treated as data errors.

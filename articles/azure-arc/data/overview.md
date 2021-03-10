@@ -37,7 +37,7 @@ Azure Arc also provides other cloud benefits such as fast deployment and automat
 
 ## Unified management
 
-Using familiar tools such as the Azure portal, Azure Data Studio, and the Azure Data CLI, you can now gain a unified view of all your data assets deployed with Azure Arc. You are able to not only view and manage a variety of relational databases across your environment and Azure, but also get logs and telemetry from Kubernetes APIs to analyze the underlying infrastructure capacity and health. Besides having localized log analytics and performance monitoring, you can now leverage Azure Monitor for comprehensive operational insights across your entire estate.
+Using familiar tools such as the Azure portal, Azure Data Studio, and the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], you can now gain a unified view of all your data assets deployed with Azure Arc. You are able to not only view and manage a variety of relational databases across your environment and Azure, but also get logs and telemetry from Kubernetes APIs to analyze the underlying infrastructure capacity and health. Besides having localized log analytics and performance monitoring, you can now leverage Azure Monitor for comprehensive operational insights across your entire estate.
 
 ## Disconnected scenario support
 
@@ -46,7 +46,7 @@ Many of the services such as self-service provisioning, automated backups/restor
 ## Next steps
 
 > **Just want to try things out?**  
-> Get started quickly with [Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
+> Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 [Install the client tools](install-client-tools.md)
 

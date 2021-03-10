@@ -1,12 +1,13 @@
 ---
 title: Deploy ElasticSearch on a development virtual machine in Azure 
 description: Tutorial - Install the Elastic Stack onto a development Linux VM in Azure
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: rloutlaw
 manager: justhe
 tags: azure-resource-manager
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
@@ -30,9 +31,9 @@ In this tutorial you learn how to:
 
  This deployment is suitable for basic development with the Elastic Stack. For more on the Elastic Stack, including recommendations for a production environment, see the [Elastic documentation](https://www.elastic.co/guide/index.html) and the [Azure Architecture Center](/azure/architecture/elasticsearch/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -206,7 +207,7 @@ You see the syslog entries in your terminal echoed as they are sent to Elasticse
 Edit `/etc/kibana/kibana.yml` and change the IP address Kibana listens on so you can access it from your web browser.
 
 ```bash
-server.host:"0.0.0.0"
+server.host: "0.0.0.0"
 ```
 
 Start Kibana with the following command:
@@ -223,7 +224,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 Open up the Kibana console and select **Create** to generate a default index based on the syslog data you sent to Elasticsearch earlier. 
 
-![Browse Syslog events in Kibana](media/elasticsearch-install/kibana-index.png)
+![Screenshot that shows the Kibana console and highlights the Create button.](media/elasticsearch-install/kibana-index.png)
 
 Select **Discover** on the Kibana console to search, browse, and filter through the syslog events.
 

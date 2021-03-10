@@ -36,7 +36,7 @@ To build a serverless app in Visual Studio, you need:
     > that you select the **Azure development** workload.
 
   * [Microsoft Azure SDK for .NET (version 2.9.1 or later)](https://azure.microsoft.com/downloads/). 
-  Learn more about [Azure SDK for .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Learn more about [Azure SDK for .NET](/dotnet/azure/intro).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 

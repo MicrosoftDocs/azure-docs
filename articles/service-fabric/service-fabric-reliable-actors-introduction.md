@@ -1,11 +1,8 @@
 ---
 title: Service Fabric Reliable Actors Overview 
 description: Introduction to the Service Fabric Reliable Actors programming model, based on the Virtual Actor pattern.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 11/01/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
 ---
 # Introduction to Service Fabric Reliable Actors

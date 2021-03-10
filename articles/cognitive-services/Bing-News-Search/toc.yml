@@ -59,19 +59,19 @@
 - name: Reference
   items:
   - name: Bing News Search API v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference
   - name: Bing News Search API v5
-    href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference
+    href: /rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference
   - name: SDKs
     items:
       - name: .NET
-        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/bing-news-search-readme
       - name: Java
-        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingnewssearch
       - name: Python
-        href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-newssearch/
       - name: Node.js
-        href: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-newssearch/?view=azure-node-latest
+        href: /javascript/api/@azure/cognitiveservices-newssearch/
       - name: Go
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch
   - name: Use and display requirements
@@ -100,6 +100,6 @@
   - name: Language support
     href: language-support.md
   - name: Analytics for Bing News Search API
-    href: bing-news-stats.md
+    href: ../bing-web-search/bing-web-stats.md
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

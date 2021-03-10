@@ -1,55 +1,58 @@
 ---
-title: Event delivery with managed service identity
+title: Event delivery, managed service identity, and private link 
 description: This article describes how to enable managed service identity for an Azure event grid topic. Use it to forward events to supported destinations. 
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 01/28/2021
 ---
 
 # Event delivery with a managed identity
-This article describes how to enable a [managed service identity](../active-directory/managed-identities-azure-resources/overview.md) for Azure event grid topics or domains. Use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
+This article describes how to enable a [managed service identity](../active-directory/managed-identities-azure-resources/overview.md) for Azure event grid custom topics or domains. Use it to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
 
 Here are the steps that are covered in detail in this article:
-1. Create a topic or domain with a system-assigned identity, or update an existing topic or domain to enable identity. 
+1. Create a custom topic or domain with a system-assigned identity, or update an existing custom topic or domain to enable identity. 
 1. Add the identity to an appropriate role (for example, Service Bus Data Sender) on the destination (for example, a Service Bus queue).
 1. When you create event subscriptions, enable the usage of the identity to deliver events to the destination. 
 
-## Create a topic or domain with an identity
+> [!NOTE]
+> Currently, it's not possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). For more information, see the [Private endpoints](#private-endpoints) section at the end of this article. 
+
+## Create a custom topic or domain with an identity
 First, let's look at how to create a topic or a domain with a system-managed identity.
 
 ### Use the Azure portal
-You can enable system-assigned identity for a topic or domain while you create it in the Azure portal. The following image shows how to enable a system-managed identity for a topic. Basically, you select the option **Enable system assigned identity** on the **Advanced** page of the topic creation wizard. You'll see this option on the **Advanced** page of the domain creation wizard too. 
+You can enable system-assigned identity for a custom topic or domain while you create it in the Azure portal. The following image shows how to enable a system-managed identity for a custom topic. Basically, you select the option **Enable system assigned identity** on the **Advanced** page of the topic creation wizard. You'll see this option on the **Advanced** page of the domain creation wizard too. 
 
-![Enable identity while creating a topic](./media/managed-service-identity/create-topic-identity.png)
+![Enable identity while creating a custom topic](./media/managed-service-identity/create-topic-identity.png)
 
 ### Use the Azure CLI
-You can also use the Azure CLI to create a topic or domain with a system-assigned identity. Use the `az eventgrid topic create` command with the `--identity` parameter set to `systemassigned`. If you don't specify a value for this parameter, the default value `noidentity` is used. 
+You can also use the Azure CLI to create a custom topic or domain with a system-assigned identity. Use the `az eventgrid topic create` command with the `--identity` parameter set to `systemassigned`. If you don't specify a value for this parameter, the default value `noidentity` is used. 
 
 ```azurecli-interactive
-# create a topic with a system-assigned identity
+# create a custom topic with a system-assigned identity
 az eventgrid topic create -g <RESOURCE GROUP NAME> --name <TOPIC NAME> -l <LOCATION>  --identity systemassigned
 ```
 
 Similarly, you can use the `az eventgrid domain create` command to create a domain with a system-managed identity.
 
-## Enable an identity for an existing topic or domain
-In the previous section, you learned how to enable a system-managed identity while you created a topic or a domain. In this section, you learn how to enable a system-managed identity for an existing topic or domain. 
+## Enable an identity for an existing custom topic or domain
+In the previous section, you learned how to enable a system-managed identity while you created a custom topic or a domain. In this section, you learn how to enable a system-managed identity for an existing custom topic or domain. 
 
 ### Use the Azure portal
-The following procedure shows you how to enable system-managed identity for a topic. The steps for enabling an identity for a domain are similar. 
+The following procedure shows you how to enable system-managed identity for a custom topic. The steps for enabling an identity for a domain are similar. 
 
 1. Go to the [Azure portal](https://portal.azure.com).
 2. Search for **event grid topics** in the search bar at the top.
-3. Select the **topic** for which you want to enable the managed identity. 
+3. Select the **custom topic** for which you want to enable the managed identity. 
 4. Switch to the **Identity** tab. 
 5. Turn **on** the switch to enable the identity. 
 1. Select **Save** on the toolbar to save the setting. 
 
-    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Identity page for a topic"::: 
+    :::image type="content" source="./media/managed-service-identity/identity-existing-topic.png" alt-text="Identity page for a custom topic"::: 
 
 You can use similar steps to enable an identity for an event grid domain.
 
 ### Use the Azure CLI
-Use the `az eventgrid topic update` command with `--identity` set to `systemassigned` to enable system-assigned identity for an existing topic. If you want to disable the identity, specify `noidentity` as the value. 
+Use the `az eventgrid topic update` command with `--identity` set to `systemassigned` to enable system-assigned identity for an existing custom topic. If you want to disable the identity, specify `noidentity` as the value. 
 
 ```azurecli-interactive
 # Update the topic to assign a system-assigned identity. 
@@ -59,9 +62,9 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 The command for updating an existing domain is similar (`az eventgrid domain update`).
 
 ## Supported destinations and Azure roles
-After you enable identity for your event grid topic or domain, Azure automatically creates an identity in Azure Active Directory. Add this identity to appropriate Azure roles so that the topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid topic can forward events to event hubs in that namespace. 
+After you enable identity for your event grid custom topic or domain, Azure automatically creates an identity in Azure Active Directory. Add this identity to appropriate Azure roles so that the custom topic or domain can forward events to supported destinations. For example, add the identity to the **Azure Event Hubs Data Sender** role for an Azure Event Hubs namespace so that the event grid custom topic can forward events to event hubs in that namespace. 
 
-Currently, Azure event grid supports topics or domains configured with a system-assigned managed identity to forward events to the following destinations. This table also gives you the roles that the identity should be in so that the topic can forward the events.
+Currently, Azure event grid supports custom topics or domains configured with a system-assigned managed identity to forward events to the following destinations. This table also gives you the roles that the identity should be in so that the custom topic can forward the events.
 
 | Destination | Azure role | 
 | ----------- | --------- | 
@@ -71,35 +74,35 @@ Currently, Azure event grid supports topics or domains configured with a system-
 | Azure Queue storage |[Storage Queue Data Message Sender](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
 ## Add an identity to Azure roles on destinations
-This section describes how to add the identity for your topic or domain to an Azure role. 
+This section describes how to add the identity for your custom topic or domain to an Azure role. 
 
 ### Use the Azure portal
-You can use the Azure portal to assign the topic or domain identity to an appropriate role so that the topic or domain can forward events to the destination. 
+You can use the Azure portal to assign the custom topic or domain identity to an appropriate role so that the custom topic or domain can forward events to the destination. 
 
-The following example adds a managed identity for an event grid topic named **msitesttopic** to the **Azure Service Bus Data Sender** role for a Service Bus namespace that contains a queue or topic resource. When you add to the role at the namespace level, the topic can forward events to all entities within the namespace. 
+The following example adds a managed identity for an event grid custom topic named **msitesttopic** to the **Azure Service Bus Data Sender** role for a Service Bus namespace that contains a queue or topic resource. When you add to the role at the namespace level, the event grid custom topic can forward events to all entities within the namespace. 
 
 1. Go to your **Service Bus namespace** in the [Azure portal](https://portal.azure.com). 
 1. Select **Access Control** in the left pane. 
 1. Select **Add** in the **Add a role assignment** section. 
 1. On the **Add a role assignment** page, do the following steps:
     1. Select the role. In this case, it's **Azure Service Bus Data Sender**. 
-    1. Select the **identity** for your topic or domain. 
+    1. Select the **identity** for your event grid custom topic or domain. 
     1. Select **Save** to save the configuration.
 
 The steps are similar for adding an identity to other roles mentioned in the table. 
 
 ### Use the Azure CLI
-The example in this section shows you how to use the Azure CLI to add an identity to an Azure role. The sample commands are for event grid topics. The commands for event grid domains are similar. 
+The example in this section shows you how to use the Azure CLI to add an identity to an Azure role. The sample commands are for event grid custom topics. The commands for event grid domains are similar. 
 
-#### Get the principal ID for the topic's system identity 
-First, get the principal ID of the topic's system-managed identity and assign the identity to appropriate roles.
+#### Get the principal ID for the custom topic's system identity 
+First, get the principal ID of the custom topic's system-managed identity and assign the identity to appropriate roles.
 
 ```azurecli-interactive
 topic_pid=$(az ad sp list --display-name "$<TOPIC NAME>" --query [].objectId -o tsv)
 ```
 
 #### Create a role assignment for event hubs at various scopes 
-The following CLI example shows how to add a topic's identity to the **Azure Event Hubs Data Sender** role at the namespace level or at the event hub level. If you create the role assignment at the namespace level, the topic can forward events to all event hubs in that namespace. If you create a role assignment at the event hub level, the topic can forward events only to that specific event hub. 
+The following CLI example shows how to add a custom topic's identity to the **Azure Event Hubs Data Sender** role at the namespace level or at the event hub level. If you create the role assignment at the namespace level, the custom topic can forward events to all event hubs in that namespace. If you create a role assignment at the event hub level, the custom topic can forward events only to that specific event hub. 
 
 
 ```azurecli-interactive
@@ -115,7 +118,7 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$event
 ```
 
 #### Create a role assignment for a Service Bus topic at various scopes 
-The following CLI example shows how to add a topic's identity to the **Azure Service Bus Data Sender** role at the namespace level or at the Service Bus topic level. If you create the role assignment at the namespace level, the event grid topic can forward events to all entities (Service Bus queues or topics) within that namespace. If you create a role assignment at the Service Bus queue or topic level, the event grid topic can forward events only to that specific Service Bus queue or topic. 
+The following CLI example shows how to add an event grid custom topic's identity to the **Azure Service Bus Data Sender** role at the namespace level or at the Service Bus topic level. If you create the role assignment at the namespace level, the event grid topic can forward events to all entities (Service Bus queues or topics) within that namespace. If you create a role assignment at the Service Bus queue or topic level, the event grid custom topic can forward events only to that specific Service Bus queue or topic. 
 
 ```azurecli-interactive
 role="Azure Service Bus Data Sender" 
@@ -130,7 +133,7 @@ az role assignment create --role "$role" --assignee "$topic_pid" --scope "$sbust
 ```
 
 ## Create event subscriptions that use an identity
-After you have a topic or a domain with a system-managed identity and have added the identity to the appropriate role on the destination, you're ready to create subscriptions that use the identity. 
+After you have an event grid custom topic or a domain with a system-managed identity and have added the identity to the appropriate role on the destination, you're ready to create subscriptions that use the identity. 
 
 ### Use the Azure portal
 When you create an event subscription, you see an option to enable the use of a system-assigned identity for an endpoint in the **ENDPOINT DETAILS** section. 
@@ -149,7 +152,7 @@ First, specify values for the following variables to be used in the CLI command.
 
 ```azurecli-interactive
 subid="<AZURE SUBSCRIPTION ID>"
-rg = "<RESOURCE GROUP of EVENT GRID TOPIC>"
+rg = "<RESOURCE GROUP of EVENT GRID CUSTOM TOPIC>"
 topicname = "<EVENT GRID TOPIC NAME>"
 
 # get the service bus queue resource id
@@ -158,7 +161,7 @@ sb_esname = "<Specify a name for the event subscription>"
 ```
 
 #### Create an event subscription by using a managed identity for delivery 
-This sample command creates an event subscription for an event grid topic with an endpoint type set to **Service Bus queue**. 
+This sample command creates an event subscription for an event grid custom topic with an endpoint type set to **Service Bus queue**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -170,7 +173,7 @@ az eventgrid event-subscription create
 ```
 
 #### Create an event subscription by using a managed identity for delivery and dead-lettering
-This sample command creates an event subscription for an event grid topic with an endpoint type set to **Service Bus queue**. It also specifies that the system-managed identity is to be used for dead-lettering. 
+This sample command creates an event subscription for an event grid custom topic with an endpoint type set to **Service Bus queue**. It also specifies that the system-managed identity is to be used for dead-lettering. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -192,15 +195,15 @@ In this section, you learn how to use the Azure CLI to enable the use of a syste
 #### Define variables
 ```azurecli-interactive
 subid="<AZURE SUBSCRIPTION ID>"
-rg = "<RESOURCE GROUP of EVENT GRID TOPIC>"
-topicname = "<EVENT GRID TOPIC NAME>"
+rg = "<RESOURCE GROUP of EVENT GRID CUSTOM TOPIC>"
+topicname = "<EVENT GRID CUSTOM TOPIC NAME>"
 
 hubid=$(az eventhubs eventhub show --name <EVENT HUB NAME> --namespace-name <NAMESPACE NAME> --resource-group <RESOURCE GROUP NAME> --query id --output tsv)
 eh_esname = "<SPECIFY EVENT SUBSCRIPTION NAME>" 
 ```
 
 #### Create an event subscription by using a managed identity for delivery 
-This sample command creates an event subscription for an event grid topic with an endpoint type set to **Event Hubs**. 
+This sample command creates an event subscription for an event grid custom topic with an endpoint type set to **Event Hubs**. 
 
 ```azurecli-interactive
 az eventgrid event-subscription create  
@@ -212,7 +215,7 @@ az eventgrid event-subscription create
 ```
 
 #### Create an event subscription by using a managed identity for delivery + deadletter 
-This sample command creates an event subscription for an event grid topic with an endpoint type set to **Event Hubs**. It also specifies that the system-managed identity is to be used for dead-lettering. 
+This sample command creates an event subscription for an event grid custom topic with an endpoint type set to **Event Hubs**. It also specifies that the system-managed identity is to be used for dead-lettering. 
 
 ```azurecli-interactive
 storageid=$(az storage account show --name demoStorage --resource-group gridResourceGroup --query id --output tsv)
@@ -229,14 +232,14 @@ az eventgrid event-subscription create
 ```
 
 ### Use the Azure CLI - Azure Storage queue 
-In this section, you learn how to use the Azure CLI to enable the use of a system-assigned identity to deliver events to an Azure Storage queue. The identity must be a member of the **Storage Blob Data Contributor** role on the storage account.
+In this section, you learn how to use the Azure CLI to enable the use of a system-assigned identity to deliver events to an Azure Storage queue. The identity must be a member of the **Storage Queue Data Message Sender** role on the storage account. It must also be a member of the **Storage Blob Data Contributor** role on the storage account that's used for dead-lettering.
 
 #### Define variables  
 
 ```azurecli-interactive
 subid="<AZURE SUBSCRIPTION ID>"
-rg = "<RESOURCE GROUP of EVENT GRID TOPIC>"
-topicname = "<EVENT GRID TOPIC NAME>"
+rg = "<RESOURCE GROUP of EVENT GRID CUSTOM TOPIC>"
+topicname = "<EVENT GRID CUSTOM TOPIC NAME>"
 
 # get the storage account resource id
 storageid=$(az storage account show --name <STORAGE ACCOUNT NAME> --resource-group <RESOURCE GROUP NAME> --query id --output tsv)
@@ -274,6 +277,12 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
+## Private endpoints
+Currently, it's not possible to deliver events using [private endpoints](../private-link/private-endpoint-overview.md). That is, there is no support if you have strict network isolation requirements where your delivered events traffic must not leave the private IP space. 
+
+However, if your requirements call for a secure way to send events using an encrypted channel and a known identity of the sender (in this case, Event Grid) using public IP space, you could deliver events to Event Hubs, Service Bus, or Azure Storage service using an Azure event grid custom topic or a domain with system-managed identity configured as shown in this article. Then, you can use a private link configured in Azure Functions or your webhook deployed on your virtual network to pull events. See the sample: [Connect to private endpoints with Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+
+Under this configuration, the traffic goes over the public IP/internet from Event Grid to Event Hubs, Service Bus, or Azure Storage, but the channel can be encrypted and a managed identity of Event Grid is used. If you configure your Azure Functions or webhook deployed to your virtual network to use an Event Hubs, Service Bus, or Azure Storage via private link, that section of the traffic will evidently stay within Azure.
 
 
 ## Next steps

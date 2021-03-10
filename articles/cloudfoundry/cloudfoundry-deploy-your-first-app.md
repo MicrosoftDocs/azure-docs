@@ -2,7 +2,7 @@
 title: Deploy your first app to Cloud Foundry on Microsoft Azure 
 description: Deploy an application to Cloud Foundry on Azure
 author: seanmck
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
@@ -59,7 +59,7 @@ cf target -o testorg -s dev
 Now, when you deploy an application, it is automatically created in the new org and space. To confirm that there are currently no apps in the new org/space, type `cf apps` again.
 
 > [!NOTE] 
-> For more information about orgs and spaces and how they can be used for role-based access control (RBAC), see the [Cloud Foundry documentation][cf-orgs-spaces-docs].
+> For more information about orgs and spaces and how they can be used for Cloud Foundry role-based access control (Cloud Foundry RBAC), see the [Cloud Foundry documentation][cf-orgs-spaces-docs].
 
 ## Deploy an application
 
@@ -141,7 +141,7 @@ Running the `cf app` command on the application shows that Cloud Foundry is crea
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/pivotalcf/customizing/pcf_azure.html
 [cf-cli]: https://github.com/cloudfoundry/cli
-[cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
+[cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
 [spring-framework]: https://spring.io

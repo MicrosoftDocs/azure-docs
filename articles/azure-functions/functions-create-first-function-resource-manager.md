@@ -33,7 +33,14 @@ Choose one of the following tabs, follow the link, and complete the section to c
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-[Create your local functions project in Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project)
+Create your local functions project in your chosen language in Visual Studio Code:  
+
++ [C#](create-first-function-vs-code-csharp.md)
++ [Java](create-first-function-vs-code-java.md)
++ [JavaScript](create-first-function-vs-code-node.md)
++ [PowerShell](create-first-function-vs-code-powershell.md)
++ [Python](create-first-function-vs-code-python.md)
++ [TypeScript](create-first-function-vs-code-typescript.md)
 
 # [Visual Studio](#tab/visual-studio)
 
@@ -41,7 +48,14 @@ Choose one of the following tabs, follow the link, and complete the section to c
 
 # [Command line](#tab/command-line)
 
-[Create your local functions project from the command line](functions-create-first-azure-function-azure-cli.md#create-a-local-function-project)
+Create your local functions project in your chosen language from the command line:
+
++ [C#](create-first-function-cli-csharp.md)
++ [Java](create-first-function-cli-java.md)
++ [JavaScript](create-first-function-cli-node.md)
++ [PowerShell](create-first-function-cli-powershell.md)
++ [Python](create-first-function-cli-python.md)
++ [TypeScript](create-first-function-cli-typescript.md)
 
 ---
 

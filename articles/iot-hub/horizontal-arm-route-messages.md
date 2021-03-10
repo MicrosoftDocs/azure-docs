@@ -1,6 +1,6 @@
 ---
-title: Use ARM template to publish IoT Hub, storage account, route messages 
-description: Use ARM template to publish IoT Hub, storage account, route messages 
+title: Use ARM template to publish Azure IoT Hub, storage account, route messages
+description: Use ARM template to publish Azure IoT Hub, storage account, route messages
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -16,6 +16,10 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
+
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
@@ -26,9 +30,10 @@ The template used in this quickstart is called `101-iothub-auto-route-messages` 
 
 :::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json":::
 
-Two Azure resources are defined in the template: 
-* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.devices/iothubs)
-* [Microsoft.Storage/](/azure/templates/microsoft.storage/allversions)
+Two Azure resources are defined in the template:
+
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+- [Microsoft.Devices/IotHubs](/azure/templates/microsoft.devices/iothubs)
 
 ## Deploy the template and run the sample app
 
@@ -41,9 +46,9 @@ This section provides the steps to deploy the template, create a virtual device,
 
     [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Download and unzip the [IoT C# Samples](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
+1. Download and unzip the [IoT C# Samples](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
-1. Open a command window and go to the folder where you unzipped the IoT C# Samples. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Log into the [Azure portal](https://portal.azure.com] to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
+1. Open a command window and go to the folder where you unzipped the IoT C# Samples. Find the folder with the arm-read-write.csproj file. You create the environment variables in this command window. Log into the [Azure portal](https://portal.azure.com) to get the keys. Select **Resource Groups** then select the resource group used for this quickstart.
 
    ![Select the resource group](./media/horizontal-arm-route-messages/01-select-resource-group.png)
 
@@ -51,12 +56,12 @@ This section provides the steps to deploy the template, create a virtual device,
 
    ![View resources in the resource group](./media/horizontal-arm-route-messages/02-view-resources-in-group.png)
 
-1. You need the **hub name**. Select the hub in the list of resources. Copy the name of the hub from the top of the IoT Hub section to the Windows clipboard. 
- 
+1. You need the **hub name**. Select the hub in the list of resources. Copy the name of the hub from the top of the IoT Hub section to the Windows clipboard.
+
    ![Copy the hub name](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
 
     Substitute the hub name in this command where noted, and execute this command in the command window:
-   
+
     ```cmd
     SET IOT_HUB_URI=<hub name goes here>.azure-devices-net;
     ```
@@ -67,11 +72,11 @@ This section provides the steps to deploy the template, create a virtual device,
    SET IOT_HUB_URI=ContosoTestHubdlxlud5h.azure-devices-net;
    ```
 
-1. The next environment variable is the IoT Device Key. Add a new device to the hub by selecting **IOT Devices** from the IoT Hub menu for the hub. 
+1. The next environment variable is the IoT Device Key. Add a new device to the hub by selecting **IOT Devices** from the IoT Hub menu for the hub.
 
    ![Select IoT Devices](./media/horizontal-arm-route-messages/04-select-iot-devices.png)
 
-1. On the right side of the screen, select **+ NEW** to add a new device. 
+1. On the right side of the screen, select **+ NEW** to add a new device.
 
    Fill in the new device name. This quickstart uses a name starting with **Contoso-Test-Device**. Save the device and then open that screen again to retrieve the device key. (The key is generated for you when you close the pane.) Select either the primary or secondary key and copy it to the Windows clipboard. In the command window, set the command to execute and then press **Enter**. The command should look like this one but with the device key pasted in:
 
@@ -79,10 +84,10 @@ This section provides the steps to deploy the template, create a virtual device,
    SET IOT_DEVICE_KEY=<device-key-goes-here>
    ```
 
-1. The last environment variable is the **Device ID**. In the command window, set up the command and execute it. 
-   
-   ```cms
-   SET IOT_DEVICE_ID=<device-id-goes-here> 
+1. The last environment variable is the **Device ID**. In the command window, set up the command and execute it.
+
+   ```cmd
+   SET IOT_DEVICE_ID=<device-id-goes-here>
    ```
 
    which will look like this example:
@@ -95,13 +100,13 @@ This section provides the steps to deploy the template, create a virtual device,
 
    ![See environment variables](./media/horizontal-arm-route-messages/06-environment-variables.png)
 
-Now the environment variables are set, run the application from the same command window. Because you're using the same window, the variables will be accessible in memory when you run the application.
+    Now the environment variables are set, run the application from the same command window. Because you're using the same window, the variables will be accessible in memory when you run the application.
 
 1. To run the application, type the following command in the command window and press **Enter**.
 
     `dotnet run arm-read-write`
 
-   The application generates and displays messages on the console as it sends each message to the IoT hub. The hub was configured in the ARM template to have automated routing. Messages containing the text "level = storage" are automatically routed to the storage account. Let the app run for 10 to 15 minutes, then press **Enter** once or twice until it stops running.
+   The application generates and displays messages on the console as it sends each message to the IoT hub. The hub was configured in the ARM template to have automated routing. Messages containing the text `level = storage` are automatically routed to the storage account. Let the app run for 10 to 15 minutes, then press **Enter** once or twice until it stops running.
 
 ## Review deployed resources
 
@@ -111,7 +116,7 @@ Now the environment variables are set, run the application from the same command
 
    ![Look at the storage account files](./media/horizontal-arm-route-messages/07-see-storage.png)
 
-1. Select one of the files and select **Download** and download the file to a location you can find later. It will have a name that's numeric, like 47. Add ".txt" to the end and then double-click on the file to open it.
+1. Select one of the files and select **Download** and download the file to a location you can find later. It will have a name that's numeric, like 47. Add _.txt_ to the end and then double-click on the file to open it.
 
 1. When you open the file, each row is for a different message; the body of each message is also encrypted. It must be in order for you to perform queries against the body of the message.
 
@@ -129,4 +134,4 @@ To remove the resources added during this quickstart, log into the [Azure portal
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Hub device streams Node.js quickstart for SSH and RDP
+title: Quickstart - Azure IoT Hub device streams Node.js quickstart for SSH and RDP
 description: In this quickstart, you run a sample Node.js application that acts as a proxy to enable SSH and RDP scenarios over IoT Hub device streams.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
 ---
@@ -25,13 +25,15 @@ In this quickstart, you enable Secure Shell (SSH) and Remote Desktop Protocol (R
 
 * [Node.js 10+](https://nodejs.org).
 
+    You can verify the current version of Node.js on your development machine by using the following command:
+
+    ```cmd/sh
+    node --version
+    ```
+
 * [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-You can verify the current version of Node.js on your development machine by using the following command:
-
-```cmd/sh
-node --version
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -42,8 +44,6 @@ Microsoft Azure IoT Hub currently supports device streams as a [preview feature]
 > * Central US EUAP
 > * North Europe
 > * Southeast Asia
-  
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### Add Azure IoT Extension
 
@@ -83,7 +83,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
    > Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+    az iot hub connection-string show --policy-name service --hub-name {YourIoTHubName} --output table
     ```
 
    Note the returned service connection string for later use in this quickstart. It looks like the following example:

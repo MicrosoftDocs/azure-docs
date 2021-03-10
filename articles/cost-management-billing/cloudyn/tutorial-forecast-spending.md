@@ -65,4 +65,4 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to manage costs with cost allocation and showback reports.
 
 > [!div class="nextstepaction"]
-> [Manage costs with cost allocation and showback reports](../../cost-management/tutorial-manage-costs.md)
+> [Manage costs with cost allocation and showback reports](./tutorial-manage-costs.md)

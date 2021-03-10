@@ -1,12 +1,12 @@
 ---
 title: DevOps for a data ingestion pipeline
 titleSuffix: Azure Machine Learning
-description: Learn how to apply DevOps practices to build a data ingestion pipeline used to prepare data for use with Azure Machine Learning. The ingestion pipeline uses Azure Data Factory and Azure Databricks. An Azure Pipeline is used to create a continuous integration and delivery process for the ingestion pipeline.
+description: Learn how to apply DevOps practices to build a data ingestion pipeline to prepare data using Azure Data Factory and Azure Databricks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
@@ -121,7 +121,7 @@ There's no continuous integration. A deployable artifact for Azure Data Factory 
 1. Someone with the granted permissions clicks the ***publish*** button to generate Azure Resource Manager templates from the source code in the collaboration branch. 
 1. The workspace validates the pipelines (think of it as of linting and unit testing), generates Azure Resource Manager templates (think of it as of building) and saves the generated templates to a technical branch ***adf_publish*** in the same code repository (think of it as of publishing artifacts). This branch is created automatically by the Azure Data Factory workspace. 
 
-For more information on this process, see [Continuous integration and delivery in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment).
+For more information on this process, see [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-deployment.md).
 
 It's important to make sure that the generated Azure Resource Manager templates are environment agnostic. This means that all values that may differ between environments are parametrized. Azure Data Factory is smart enough to expose the majority of such values as parameters. For example, in the following template the connection properties to an Azure Machine Learning workspace are exposed as parameters:
 
@@ -173,7 +173,7 @@ The pipeline activities may refer to the pipeline variables while actually using
 
 ![Screenshot shows a Notebook called PrepareData and M L Execute Pipeline called M L Execute Pipeline at the top with the Settings tab selected below.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
-The Azure Data Factory workspace ***doesn't*** expose pipeline variables as Azure Resource Manager templates parameters by default. The workspace uses the [Default Parameterization Template](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) dictating what pipeline properties should be exposed as Azure Resource Manager template parameters. To add pipeline variables to the list, update the `"Microsoft.DataFactory/factories/pipelines"` section of the [Default Parameterization Template](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) with the following snippet and place the result json file in the root of the source folder:
+The Azure Data Factory workspace ***doesn't*** expose pipeline variables as Azure Resource Manager templates parameters by default. The workspace uses the [Default Parameterization Template](../data-factory/continuous-integration-deployment.md#default-parameterization-template) dictating what pipeline properties should be exposed as Azure Resource Manager template parameters. To add pipeline variables to the list, update the `"Microsoft.DataFactory/factories/pipelines"` section of the [Default Parameterization Template](../data-factory/continuous-integration-deployment.md#default-parameterization-template) with the following snippet and place the result json file in the root of the source folder:
 
 ```json
 "Microsoft.DataFactory/factories/pipelines": {
@@ -211,18 +211,18 @@ The values in the JSON file are default values configured in the pipeline defini
 
 The Continuous Delivery process takes the artifacts and deploys them to the first target environment. It makes sure that the solution works by running tests. If successful, it continues to the next environment. 
 
-The CD Azure Pipeline consists of multiple stages representing the environments. Each stage contains [deployments](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) and [jobs](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) that perform the following steps:
+The CD Azure Pipeline consists of multiple stages representing the environments. Each stage contains [deployments](/azure/devops/pipelines/process/deployment-jobs) and [jobs](/azure/devops/pipelines/process/phases?tabs=yaml) that perform the following steps:
 
 * Deploy a Python Notebook to Azure Databricks workspace
 * Deploy an Azure Data Factory pipeline 
 * Run the pipeline
 * Check the data ingestion result
 
-The pipeline stages can be configured with [approvals](https://docs.microsoft.com/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass) and [gates](https://docs.microsoft.com/azure/devops/pipelines/release/approvals/gates?view=azure-devops) that provide additional control on how the deployment process evolves through the chain of environments.
+The pipeline stages can be configured with [approvals](/azure/devops/pipelines/process/approvals?tabs=check-pass) and [gates](/azure/devops/pipelines/release/approvals/gates) that provide additional control on how the deployment process evolves through the chain of environments.
 
 ### Deploy a Python Notebook
 
-The following code snippet defines an Azure Pipeline [deployment](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) that copies a Python notebook to a Databricks cluster:
+The following code snippet defines an Azure Pipeline [deployment](/azure/devops/pipelines/process/deployment-jobs) that copies a Python notebook to a Databricks cluster:
 
 ```yaml
 - stage: 'Deploy_to_QA'
@@ -258,7 +258,7 @@ The following code snippet defines an Azure Pipeline [deployment](https://docs.m
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-The artifacts produced by the CI are automatically copied to the deployment agent and are available in the `$(Pipeline.Workspace)` folder. In this case, the deployment task refers to the `di-notebooks` artifact containing the Python notebook. This [deployment](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) uses the [Databricks Azure DevOps extension](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) to copy the notebook files to the Databricks workspace.
+The artifacts produced by the CI are automatically copied to the deployment agent and are available in the `$(Pipeline.Workspace)` folder. In this case, the deployment task refers to the `di-notebooks` artifact containing the Python notebook. This [deployment](/azure/devops/pipelines/process/deployment-jobs) uses the [Databricks Azure DevOps extension](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) to copy the notebook files to the Databricks workspace.
 
 The `Deploy_to_QA` stage contains a reference to the `devops-ds-qa-vg` variable group defined in the Azure DevOps project. The steps in this stage refer to the variables from this variable group (for example, `$(DATABRICKS_URL)` and `$(DATABRICKS_TOKEN)`). The idea is that the next stage (for example, `Deploy_to_UAT`) will operate with the same variable names defined in its own UAT-scoped variable group.
 
@@ -340,7 +340,7 @@ The complete CI/CD Azure Pipeline consists of the following stages:
     * Deploy to Databricks + Deploy to ADF
     * Integration Test
 
-It contains a number of ***Deploy*** stages equal to the number of target environments you have. Each ***Deploy*** stage contains two [deployments](https://docs.microsoft.com/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) that run in parallel and a [job](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) that runs after deployments to test the solution on the environment.
+It contains a number of ***Deploy*** stages equal to the number of target environments you have. Each ***Deploy*** stage contains two [deployments](/azure/devops/pipelines/process/deployment-jobs) that run in parallel and a [job](/azure/devops/pipelines/process/phases?tabs=yaml) that runs after deployments to test the solution on the environment.
 
 A sample implementation of the pipeline is assembled in the following ***yaml*** snippet:
 
@@ -479,6 +479,6 @@ stages:
 
 ## Next steps
 
-* [Source Control in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control)
-* [Continuous integration and delivery in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment)
+* [Source Control in Azure Data Factory](../data-factory/source-control.md)
+* [Continuous integration and delivery in Azure Data Factory](../data-factory/continuous-integration-deployment.md)
 * [DevOps for Azure Databricks](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks)

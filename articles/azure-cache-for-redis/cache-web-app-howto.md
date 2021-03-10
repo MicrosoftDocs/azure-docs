@@ -16,6 +16,10 @@ ms.custom: "devx-track-csharp, mvc"
 
 In this quickstart, you use Visual Studio 2019 to create an ASP.NET web application that connects to Azure Cache for Redis to store and retrieve data from the cache. You then deploy the app to Azure App Service.
 
+## Skip to the code on GitHub
+
+If you want to skip straight to the code, see the [ASP.NET quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet) on GitHub.
+
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
@@ -247,7 +251,7 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
 ## Run the app locally
 
-By default, the project is configured to host the app locally in [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) for testing and debugging.
+By default, the project is configured to host the app locally in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) for testing and debugging.
 
 ### To run the app locally
 1. In Visual Studio, select **Debug** > **Start Debugging** to build and start the app locally for testing and debugging.

@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 
 # Add controls to a map
 
-This article shows you how to add controls to a map. You'll also learn how to create a map with all controls and a [style picker](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+This article shows you how to add controls to a map. You'll also learn how to create a map with all controls and a [style picker](./choose-map-style.md).
 
 ## Add zoom control
 
@@ -53,11 +53,11 @@ Below is the complete running code sample of the above functionality.
 
 ## Add compass control
 
-A compass control adds a button for rotating the map. The following code sample creates an instance of the [Compass Control](/javascript/api/azure-maps-control/atlas.control.compasscontrol) class and adds it the bottom-left corner of the map.
+A compass control adds a button for rotating the map. The following code sample creates an instance of the [CompassControl](/javascript/api/azure-maps-control/atlas.control.compasscontrol) class and adds it the bottom-left corner of the map.
 
 ```javascript
 //Construct a compass control and add it to the map.
-map.controls.add(new atlas.control.Compass(), {
+map.controls.add(new atlas.control.CompassControl(), {
     position: 'bottom-left'
 });
 ```
@@ -138,4 +138,3 @@ See the following articles for full code:
 
 > [!div class="nextstepaction"]
 > [Add a bubble layer](map-add-bubble-layer.md)
-

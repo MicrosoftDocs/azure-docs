@@ -3,42 +3,131 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: ruturajd
+ms.custom: contperf-fy21q1
 ---
 
 # Azure Enterprise enrollment invoices
 
 This article explains how to manage and act on your Azure Enterprise Agreement (Azure EA) invoice. Your invoice is a representation of your bill. Review it for accuracy. You should also get familiar with other tasks that might be needed to manage your invoice.
 
+## View usage summary and download reports
+
+Enterprise administrators can view a summary of their usage data, Azure Prepayment consumed, and charges associated with additional usage in the Azure Enterprise portal. Charges are presented at the summary level across all accounts and subscriptions.
+
+To view detailed usage for specific accounts, download the usage detail report:
+
+1. Sign in to the Azure Enterprise portal.
+1. Select **Reports**.
+1. Select the **Download Usage** tab.
+1. In the list of reports, select **Download** for the monthly report that want to get.
+
+   > [!NOTE]
+   > The usage detail report doesn't include any applicable taxes.
+   >
+   > There may be a latency of up to eight hours from the time usage was incurred to when it's reflected on the report.
+
+To view the usage summary reports and graphs:
+
+1. Sign in to the Azure Enterprise portal.
+1. Select a Prepayment term.
+   To change the date range for **Usage Summary**, you can toggle from **M** (Monthly) to **C** (Custom) on the top right of the page and then enter custom start and end dates.  
+   ![Create and view usage summary and download reports in custom view](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. To view additional details, you can select a period or month on the graph.
+   - The graph shows month-over-month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and Azure Marketplace charges.
+   - For the selected month, you can use the fields below the graph to filter by departments, accounts, and subscriptions.
+   - You can toggle between **Charge by Services** and **Charge by Hierarchy**.
+   - View details from **Azure Service**, **Charges Billed Separately**, and **Azure Marketplace** by expanding the relevant sections.
+
+View this video to see how to view usage:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### Download CSV reports
+
+Enterprise administrators use the Monthly Report Download page to download the following reports as CSV files:
+
+- Balance and charge
+- Usage detail
+- Azure Marketplace charges
+- Price sheet
+
+To download reports:
+
+1. In the Azure Enterprise portal, select **Reports**.
+2. Select **Download Usage** at the top of the page.
+3. Select **Download** next to the month's report.
+
+   > [!NOTE]
+   > There may be a latency of up to 72 hours between the incurred usage date and when usage is shown in the reports.
+   >
+   > Users downloading CSV files with Safari to Excel may experience formatting errors. To avoid errors, open the file using a text editor.
+
+![Example showing Download Usage page](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+View this video to see how to download usage information:
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### Advanced report download
+
+You can use the advance report download to get reports that cover specific date ranges or accounts. The output file is in the CSV format to accommodate large record sets.
+
+1. In the Azure Enterprise portal, select **Advanced Report Download**.
+1. Select an appropriate date range and the appropriate accounts.
+1. Select **Request Usage Data**.
+1. Select the **Refresh** button until the report status updates to **Download**.
+1. Download the report.
+
+### Download usage reports and billing information for a prior enrollment
+
+You can download usage reports and billing information for a prior enrollment after an enrollment transfer has taken place. Historical reporting is available in both the Azure Enterprise portal and cost management.
+
+The Azure Enterprise portal filters inactive enrollments out of view. You'll need to uncheck the **Active** box to view inactive transferred enrollments.  
+
+![Unchecking the active box allows user to see inactive enrollments](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
+
 ## Change a PO number for an upcoming overage invoice
 
-The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email.
+The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email. 
 
-### To update the Azure services purchase order number:
+To prevent automatic generation of PO numbers every month, you can lock the PO number. See [Lock PO number](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+### Update the Azure services purchase order number
 
 1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
 1. Select **Edit PO Numbers** in the upper-right corner.
 1. Select the **Azure Services** radio button.
 1. Select an **Invoice Period** from the date ranges drop-down menu.
-
    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
 1. Enter a new PO number in the **PO Number** field.
 1. Select **Save** to submit your change.
 
-### To update the Azure Marketplace purchase order number:
+### Update the Azure Marketplace purchase order number
 
 1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
 1. Select **Edit PO Numbers** in the upper-right corner.
 1. Select the **Marketplace** radio button.
-1. Select an **Invoice Period** from the date ranges drop-down menu.
-
-   You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
+1. Select an **Invoice Period** from the date ranges drop-down menu.  
+    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
 1. Enter a new PO number in the **PO Number** field.
 1. Select **Save** to submit your change.
+
+### Lock PO number to prevent automatic update in upcoming billing cycles
+
+After you lock the PO number, it remains locked for all new invoices and you don't have to update the PO number.
+
+1.	In the Azure Enterprise portal, select **Report** > **Usage Summary**.
+2.	Select **Edit PO Numbers** in the upper-right corner.
+3.	Type a new PO number in the **PO Number** field.
+4.	Select the **Lock PO number** box.
+5.	Select **Save** to submit your change.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Screenshot showing the View/Edit PO Numbers box." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## Azure enterprise billing frequency
 
@@ -91,7 +180,7 @@ Applicable taxes are computed only on the net amount that exceeds your Prepaymen
 
 Overage invoicing is automated. The timing of notifications and invoices depends on your billing period end date.
 
-- Overage notification is usually sent seven days following your billing end date.
+- Overage notification is normally sent seven days following your billing end date.
 - Overage invoices are sent seven to nine days after notification.
 - You can review charges and update system-generated PO numbers during the seven days between the overage notification and invoicing.
 
@@ -156,11 +245,11 @@ Refer to [Azure services](https://azure.microsoft.com/services/) and [Azure pric
 
 ### Enterprise Agreement units of measure
 
-The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided in the [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) Excel file.
+The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided by submitting a [support request](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Conversion between usage detail report and the usage summary page
 
-In the download usage data report, you can see raw resource usage up to six decimal places. However, usage data shown in the Azure Enterprise portal is rounded to four decimal places for Prepayment units and truncated to zero decimals for overage units. Raw usage data is first rounded to four digits prior to conversion to units used in the Azure Enterprise portal. Then, the converted Enterprise units are rounded again to four digits. You can only see the actual consumed hours before conversion in the download usage report and not within the Azure Enterprise portal.
+In the download usage data report, you can see raw resource usage up to six decimal places. However, usage data shown in the Azure Enterprise portal is rounded to four decimal places for Prepayment units and truncated to zero decimals for overage units. Raw usage data is first rounded to four digits before conversion to units used in the Azure Enterprise portal. Then, the converted Enterprise units are rounded again to four digits. You can only see the actual consumed hours before conversion in the download usage report and not within the Azure Enterprise portal.
 
 For example: If 694.533404 actual SQL Server hours are reported in the usage detail report. These units are converted to 6.94533404 of 100 compute hours, and then rounded to 6.9453 and displayed in the Azure Enterprise portal.
 
@@ -178,7 +267,7 @@ All billed usage is based on minutes converted to partial hours and not on whole
 
 ### Average daily consumption
 
-Some services are priced on a monthly basis, but usage is reported on daily basis. In these cases, the usage is evaluated once per day, divided by 31, and summed across the number of days in that billing month. Thus, rates are never higher than expected for any month and are slightly lower for those months with less than 31 days.
+Some services are priced on a monthly basis, but usage is reported on daily basis. In these cases, the usage is evaluated once per day, divided by 31, and summed across the number of days in that billing month. So, rates are never higher than expected for any month and are slightly lower for those months with less than 31 days.
 
 ### Compute hours conversion
 
@@ -214,7 +303,7 @@ Azure Prepayment is an amount paid up front for Azure services. The Azure Prepay
 
 ### Charges billed separately
 
-Some products and services provided from third-party sources don't consume Azure Azure Prepayment. Instead, these items are billed separately as part of the standard billing cycle's overage invoice.
+Some products and services provided from third-party sources don't consume Azure Prepayment. Instead, these items are billed separately as part of the standard billing cycle's overage invoice.
 
 We've combined all Azure and Azure Marketplace charges into a single invoice that aligns with the enrollment's billing cycle. The combined invoice doesn't apply to customers in Australia, Japan, or Singapore.
 
@@ -242,13 +331,6 @@ If the change of channel partner (COCP) happens in the middle of the month, a cu
 The invoices will be released following the month after the billing period ends. If the billing cadence is monthly, then September's invoice will be released in October for both partners. If the billing cycle is quarterly or annually, the customer can expect an invoice for the previous associated partner for the usage under their period and rest will be to the new partner based on the billing cadence.
 
 ## Next steps
-
-- The following Excel files provide details on Azure services and are updated on the 6th and 20th of every month:
-
-   | Title | Description | File name |
-   | --- | --- | --- |
-   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Lists all active services and includes: <br>  <ul><li>service category</li>   <li>friendly service name</li>   <li>Prepayment name and part number</li> <li>consumption name and part number</li>   <li>units of measure</li>   <li>conversion factors between reported usage and displayed Enterprise portal usage</li></ul> | Friendly\_Service\_Names.xlsx |
-   | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | This spreadsheet provides a listing of all possible combinations of the service-related fields in the Usage Download Report. | Service\_Download\_Fields.xlsx |
 
 - For information about understanding your invoice and charges, see [Understand your Azure Enterprise Agreement bill](../understand/review-enterprise-agreement-bill.md).
 - To start using the Azure Enterprise portal, see [Get started with the Azure EA portal](ea-portal-get-started.md).

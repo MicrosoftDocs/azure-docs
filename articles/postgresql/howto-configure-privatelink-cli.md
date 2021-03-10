@@ -1,8 +1,8 @@
 ---
 title: Private Link - Azure CLI - Azure Database for PostgreSQL - Single server
 description: Learn how to configure private link for Azure Database for PostgreSQL- Single server from Azure CLI
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020 
@@ -45,7 +45,7 @@ az network vnet create \
 ```
 
 ## Disable subnet private endpoint policies 
-Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint [network policies](../private-link/disable-private-endpoint-network-policy.md). Update a subnet configuration named *mySubnet* with [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure deploys resources to a subnet within a virtual network, so you need to create or update the subnet to disable private endpoint [network policies](../private-link/disable-private-endpoint-network-policy.md). Update a subnet configuration named *mySubnet* with [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -62,10 +62,11 @@ az vm create \
   --name myVm \
   --image Win2019Datacenter
 ```
+
  Note the public IP address of the VM. You will use this address to connect to the VM from the internet in the next step.
 
 ## Create an Azure Database for PostgreSQL - Single server 
-Create a Azure Database for PostgreSQL with the az postgres server create command. Remember that the name of your PostgreSQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
+Create a Azure Database for PostgreSQL with the az postgres server create command. Remember that the name of your PostgreSQL Server must be unique across Azure, so replace the placeholder value with your own unique values that you used above: 
 
 ```azurecli-interactive
 # Create a server in the resource group 
@@ -87,13 +88,14 @@ az network private-endpoint create \
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforPostgreSQL/servers" --query "id") \    
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforPostgreSQL/servers" --query "id" -o tsv) \    
     --group-id postgresqlServer \  
     --connection-name myConnection  
  ```
 
 ## Configure the Private DNS Zone 
 Create a Private DNS Zone for PostgreSQL server domain and create an association link with the Virtual Network. 
+
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
    --name  "privatelink.postgres.database.azure.com" 
@@ -121,7 +123,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 > [!NOTE]
 > In some cases the Azure Database for PostgreSQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
-> - Make sure that both the subscription has the **Microsoft.DBforPostgreSQL** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
+> - Make sure that both the subscription has the **Microsoft.DBforPostgreSQL** resource provider registered. For more information, refer to [resource providers](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## Connect to a VM from the internet
 
@@ -154,27 +156,28 @@ Connect to the VM *myVm* from the internet as follows:
 
 2. Enter  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
-    You'll receive a message similar to this:
-    ```azurepowershell
-    Server:  UnKnown
-    Address:  168.63.129.16
-    Non-authoritative answer:
-    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
-    Address:  10.1.3.4
-    ```
+   You'll receive a message similar to this:
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
+   ```azurepowershell
+   Server:  UnKnown
+   Address:  168.63.129.16
+   Non-authoritative answer:
+   Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
+   Address:  10.1.3.4
+   ```
+
+3. Test the private link connection for the PostgreSQL server using any available client. The following example uses [Azure Data studio](/sql/azure-data-studio/download?view=sql-server-ver15&preserve-view=true) to do the operation.
 
 4. In **New connection**, enter or select this information:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
-    |Password |Enter a password provided during the PostgreSQL server creation. |
-    |SSL|Select **Required**.|
-    ||
+   | Setting | Value |
+   | ------- | ----- |
+   | Server type| Select **PostgreSQL**.|
+   | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
+   | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
+   |Password |Enter a password provided during the PostgreSQL server creation. |
+   |SSL|Select **Required**.|
+   ||
 
 5. Select Connect.
 
@@ -192,7 +195,4 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## Next steps
-- Learn more about [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
-
-<!-- Link references, to text, Within this same GitHub repo. -->
-[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md
+- Learn more about [What is Azure private endpoint](../private-link/private-endpoint-overview.md)

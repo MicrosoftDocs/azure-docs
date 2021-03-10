@@ -19,7 +19,7 @@ The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino comp
 
 ## What you need
 
-Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) to:
+Finish the [Getting Started Guide](./iot-hub-arduino-iot-devkit-az3166-get-started.md) to:
 
 * Have your DevKit connected to Wi-Fi
 * Prepare the development environment
@@ -115,7 +115,7 @@ When the sample app runs, DevKit sends sensor data over WiFi to your Azure IoT R
 
 ## Change device ID
 
-If you want to change the hardcoded **AZ3166** to a customized device ID in the code, modify the line of code displayed in the [remote monitoring example](../iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md).
+If you want to change the hardcoded **AZ3166** to a customized device ID in the code, modify the line of code displayed in the [remote monitoring example](/previous-versions/azure/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2).
 
 ## Problems and feedback
 
@@ -128,6 +128,6 @@ If you encounter problems, refer to [the IoT developer kit FAQs](https://microso
 
 Now that you have learned how to connect a DevKit device to your Azure IoT Remote Monitoring solution accelerator and visualize the sensor data, here are the suggested next steps:
 
-* [Azure IoT solution accelerators overview](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT solution accelerators overview](/azure/iot-suite/)
 
-* [IoT developer kit](https://microsoft.github.io/azure-iot-developer-kit/) 
+* [IoT developer kit](https://microsoft.github.io/azure-iot-developer-kit/)

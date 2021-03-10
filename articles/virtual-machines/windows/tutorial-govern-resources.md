@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Manage virtual machines with PowerShell 
-description: In this tutorial, you learn how to use Azure PowerShell to manage Azure virtual machines by applying RBAC, polices, locks and tags
+description: In this tutorial, you learn how to use Azure PowerShell to manage Azure virtual machines by applying Azure RBAC, polices, locks and tags
 author: tfitzmac
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.workload: infrastructure
 ms.topic: tutorial
 ms.date: 12/05/2018
@@ -36,7 +36,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 Currently, the resource group is empty.
 
-## Role-based access control
+## Azure role-based access control
 
 You want to make sure users in your organization have the right level of access to these resources. You don't want to grant unlimited access to users, but you also need to make sure they can do their work. [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) enables you to manage which users have permission to complete specific actions at a scope.
 

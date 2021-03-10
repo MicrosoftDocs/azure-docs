@@ -22,11 +22,11 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 |Use case|General purpose|Ultra performance or migration from NetApp on-premises|Cross-platform|
 |Platform service|Yes, Azure-native solution|Yes, Azure-native solution|No, self-managed|
 |Regional availability|All regions|[Select regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|All regions|
-|Redundancy|Locally redundant/zone-redundant/geo-redundant|Locally redundant|Locally redundant/zone-redundant/geo-redundant|
-|Tiers and performance|Standard<br>Premium<br>Up to max 100k IOPS per share with 5 GBps per share at about 3 ms latency|Standard<br>Premium<br>Ultra<br>Up to 320k (16K) IOPS with 4.5 GBps per volume at about 1 ms latency|Standard HDD: up to 500 IOPS per-disk limits<br>Standard SSD: up to 4k IOPS per-disk limits<br>Premium SSD: up to 20k IOPS per-disk limits<br>We recommend Premium disks for Storage Spaces Direct|
-|Capacity|100 TiB per share|100 TiB per volume, up to 12.5 PiB per subscription|Maximum 32 TiB per disk|
+|Redundancy|Locally redundant/zone-redundant/geo-redundant/geo-zone-redundant|Locally redundant|Locally redundant/zone-redundant/geo-redundant|
+|Tiers and performance| Standard (Transaction optimized)<br>Premium<br>Up to max 100K IOPS per share with 10 GBps per share at about 3 ms latency|Standard<br>Premium<br>Ultra<br>Up to 320k (16K) IOPS with 4.5 GBps per volume at about 1 ms latency|Standard HDD: up to 500 IOPS per-disk limits<br>Standard SSD: up to 4k IOPS per-disk limits<br>Premium SSD: up to 20k IOPS per-disk limits<br>We recommend Premium disks for Storage Spaces Direct|
+|Capacity|100 TiB per share, Upto 5 PiB per general purpose account |100 TiB per volume, up to 12.5 PiB per subscription|Maximum 32 TiB per disk|
 |Required infrastructure|Minimum share size 1 GiB|Minimum capacity pool 4 TiB, min volume size 100 GiB|Two VMs on Azure IaaS (+ Cloud Witness) or at least three VMs without and costs for disks|
-|Protocols|SMB 2.1/3. and REST|NFSv3, NFSv4.1 (preview), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
+|Protocols|SMB 3.0/2.1, NFSv4.1 (preview), REST|NFSv3, NFSv4.1 (preview), SMB 3.x/2.x|NFSv3, NFSv4.1, SMB 3.1|
 
 ## Azure management details
 
@@ -35,7 +35,7 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 |Access|Cloud, on-premises and hybrid (Azure file sync)|Cloud, on-premises (via ExpressRoute)|Cloud, on-premises|
 |Backup|Azure backup snapshot integration|Azure NetApp Files snapshots|Azure backup snapshot integration|
 |Security and compliance|[All Azure supported certificates](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO completed|[All Azure supported certificates](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Azure Active Directory integration|[Native Active Directory and Azure Active Directory Domain Services](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services and Native Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Native Active Directory or Azure Active Directory Domain Services support only|
+|Azure Active Directory integration|[Native Active Directory and Azure Active Directory Domain Services](../storage/files/storage-files-active-directory-overview.md)|[Azure Active Directory Domain Services and Native Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Native Active Directory or Azure Active Directory Domain Services support only|
 
 Once you've chosen your storage method, check out [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/) for information about our pricing plans.
 

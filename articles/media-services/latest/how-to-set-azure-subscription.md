@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: cli,portal
+ms.custom: cli,portal, devx-track-azurecli
 
 ---
 # Find your Azure subscription
@@ -43,7 +43,7 @@ ms.custom: cli,portal
 
 ### See also
 
-* [Azure CLI](/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](/cli/azure/ams)
 
 ---
 

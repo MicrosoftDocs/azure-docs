@@ -35,7 +35,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 ## Install PowerShell
 
-Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](/powershell/azure/).
 
 
 ## Specifying Azure Government as the *environment* to connect to
@@ -45,8 +45,8 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 | Connection type | Command |
 | --- | --- |
 | [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands |`Connect-AzAccount -EnvironmentName AzureUSGovernment` |
-| [Azure Active Directory](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
-| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
+| [Azure Active Directory](/powershell/module/azuread/connect-azuread) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
+| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure.service/add-azureaccount) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
 | [Azure Active Directory (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
 
 ![Connect to Azure Government](./media/connect-with-powershell/connect-with-powershell.png)
@@ -78,4 +78,4 @@ Get-AzureLocation # For classic deployment model
 This quickstart showed you how to use PowerShell to connect to Azure Government. Once you are connected to Azure Government, you may want to explore Azure services. Make sure you check out the variations, described in [Compare Azure Government and global Azure](compare-azure-government-global-azure.md). To learn more about Azure services continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
-> [Azure documentation](https://docs.microsoft.com/azure/).
+> [Azure documentation](../index.yml).

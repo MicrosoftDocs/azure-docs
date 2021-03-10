@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) stores secrets and certificates in the
  This article discusses what you need to know about the policy keys that are used by Azure AD B2C.
 
 > [!NOTE]
-> Currently, configuration of policy keys is limited to [custom policies](active-directory-b2c-get-started-custom.md) only.
+> Currently, configuration of policy keys is limited to [custom policies](./custom-policy-get-started.md) only.
 
 You can configure secrets and certificates for establishing trust between services in the Azure portal under the **Policy keys** menu. Keys can be symmetric or asymmetric. *Symmetric* cryptography, or private key cryptography, is where a shared secret is used to both encrypt and decrypt the data. *Asymmetric* cryptography, or public key cryptography, is a cryptographic system that uses pairs of keys, consisting of public keys that are shared with the relying party application and private keys that are known only to Azure AD B2C.
 
@@ -59,11 +59,11 @@ If an Azure AD B2C keyset has multiple keys, only one of the keys is active at a
   - When the current date and time is greater than a key's activation date, Azure AD B2C will activate the key and stop using the prior active key.
 - When the current key's expiration time has elapsed and the key container contains a new key with valid *not before* and *expiration* times, the new key will become active automatically.
 - When the current key's expiration time has elapsed and the key container *does not* contain a new key with valid *not before* and *expiration* times, Azure AD B2C won't be able to use the expired key. Azure AD B2C will raise an error message within a dependant component of your custom policy. To avoid this issue, you can create a default key without activation and expiration dates as a safety net.
-- The key's endpoint (JWKS URI) of the OpenId Connect well-known configuration endpoint reflects the keys configured in the Key Container, when the Key is referenced in the [JwtIssuer Technical Profile](https://docs.microsoft.com/azure/active-directory-b2c/jwt-issuer-technical-profile). An application using an OIDC library will automatically fetch this metadata to ensure it uses the correct keys to validate tokens. For more information, learn how to use [Microsoft Authentication Library](https://docs.microsoft.com/azure/active-directory/develop/msal-b2c-overview), which always fetches the latest token signing keys automatically.
+- The key's endpoint (JWKS URI) of the OpenId Connect well-known configuration endpoint reflects the keys configured in the Key Container, when the Key is referenced in the [JwtIssuer Technical Profile](./jwt-issuer-technical-profile.md). An application using an OIDC library will automatically fetch this metadata to ensure it uses the correct keys to validate tokens. For more information, learn how to use [Microsoft Authentication Library](../active-directory/develop/msal-b2c-overview.md), which always fetches the latest token signing keys automatically.
 
 ## Policy key management
 
-To get the current active key within a key container, use the Microsoft Graph API [getActiveKey](https://docs.microsoft.com/graph/api/trustframeworkkeyset-getactivekey) endpoint.
+To get the current active key within a key container, use the Microsoft Graph API [getActiveKey](/graph/api/trustframeworkkeyset-getactivekey) endpoint.
 
 To add or delete signing and encryption keys:
 
@@ -75,13 +75,13 @@ To add or delete signing and encryption keys:
     1. To add a new key, select **Add**.
     1. To remove a new key, select the key, and then select **Delete**. To delete the key, type the name of the key container to delete. Azure AD B2C will delete the key and create a copy of the key with the suffix .bak.
 
+### Replace a key
+
+The keys in a keyset are not replaceable or removable. If you need to change an existing key:
+
+- We recommend adding a new key with the **activation date** set to the current date and time. Azure AD B2C will activate the new key and stop using the prior active key.
+- Alternatively, you can create a new keyset with the correct keys. Update your policy to use the new keyset, and then remove the old keyset. 
+
 ## Next steps
 
 - Learn how to use Microsoft Graph to automate a [keyset](microsoft-graph-operations.md#trust-framework-policy-keyset) and [policy keys](microsoft-graph-operations.md#trust-framework-policy-key) deployment.
-
-
-
-
-
-
-

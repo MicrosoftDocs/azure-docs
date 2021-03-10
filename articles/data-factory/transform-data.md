@@ -1,13 +1,10 @@
 ---
 title: Transform data
-description: Transform data or process data in Azure Data Factory using Hadoop, Machine Learning, or Azure Data Lake Analytics.
-services: data-factory
+description: Transform data or process data in Azure Data Factory using Hadoop, Azure Machine Learning Studio (classic), or Azure Data Lake Analytics.
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
 ---
@@ -21,7 +18,7 @@ ms.date: 07/31/2018
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Azure Machine Learning Studio (classic)](transform-data-using-machine-learning.md) 
 > * [Stored Procedure](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Databricks notebook](transform-data-databricks-notebook.md)
@@ -42,9 +39,9 @@ Data Factory supports the following data transformation activities that can be a
 
 Mapping data flows are visually designed data transformations in Azure Data Factory. Data flows allow data engineers to develop graphical data transformation logic without writing code. The resulting data flows are executed as activities within Azure Data Factory pipelines that use scaled-out Spark clusters. Data flow activities can be operationalized via existing Data Factory scheduling, control, flow, and monitoring capabilities. For more information, see [mapping data flows](concepts-data-flow-overview.md).
 
-### Wrangling data flows
+### Data wrangling
 
-Wrangling data flows in Azure Data Factory allow you to do code-free data preparation at cloud scale iteratively. Wrangling data flows integrate with [Power Query Online](https://docs.microsoft.com/power-query/) and makes Power Query M functions available for data wrangling at cloud scale via spark execution. For more information, see [wrangling data flows](wrangling-data-flow-overview.md).
+Power Query in Azure Data Factory enables cloud-scale data wrangling, which allows you to do code-free data preparation at cloud scale iteratively. Data wrangling integrates with [Power Query Online](/power-query/) and makes Power Query M functions available for data wrangling at cloud scale via spark execution. For more information, see [data wrangling in ADF](wrangling-overview.md).
 
 ## External transformations
 
@@ -65,15 +62,15 @@ The HDInsight Streaming activity in a Data Factory pipeline executes Hadoop Stre
 ### HDInsight Spark activity
 The HDInsight Spark activity in a Data Factory pipeline executes Spark programs on your own HDInsight cluster. For details, see [Invoke Spark programs from Azure Data Factory](transform-data-using-spark.md). 
 
-### Machine Learning activities
-Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning web service for predictive analytics. Using the [Batch Execution activity](transform-data-using-machine-learning.md) in an Azure Data Factory pipeline, you can invoke a Machine Learning web service to make predictions on the data in batch.
+### Azure Machine Learning Studio (classic) activities
+Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning Studio (classic) web service for predictive analytics. Using the [Batch Execution activity](transform-data-using-machine-learning.md) in an Azure Data Factory pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
 
-Over time, the predictive models in the Machine Learning scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained Machine Learning model. You can use the [Update Resource activity](update-machine-learning-models.md) to update the web service with the newly trained model.  
+Over time, the predictive models in the Studio (classic) scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained machine learning model. You can use the [Update Resource activity](update-machine-learning-models.md) to update the web service with the newly trained model.  
 
-See [Use Machine Learning activities](transform-data-using-machine-learning.md) for details about these Machine Learning activities. 
+See [Use Azure Machine Learning Studio (classic) activities](transform-data-using-machine-learning.md) for details about these Studio (classic) activities. 
 
 ### Stored procedure activity
-You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
+You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
 
 ### Data Lake Analytics U-SQL activity
 Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) article for details. 

@@ -1,5 +1,5 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart (C) | Microsoft Docs
+title: Quickstart - Send telemetry to Azure IoT Hub quickstart (C) | Microsoft Docs
 description: In this quickstart, you run two sample C applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: wesmc7777
 manager: philmea
@@ -7,7 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: [mvc, mqtt, 'Role: Cloud Development']
+ms.custom: [mvc, mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 04/10/2019
 ms.author: wesmc
 # As a C developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
@@ -23,9 +23,7 @@ The quickstart uses a C sample application from the [Azure IoT device SDK for C]
 
 This article is written for Windows, but you can complete this quickstart on Linux as well.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -35,12 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-
-* Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IoT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
-
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
@@ -89,7 +82,7 @@ However, in this quickstart, you'll prepare a development environment used to cl
     cmake ..
     ```
 
-    If `cmake` doesn't find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    If `cmake` doesn't find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Once the build succeeds, the last few output lines will look similar to the following output:
 
@@ -113,7 +106,7 @@ However, in this quickstart, you'll prepare a development environment used to cl
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this section, you'll use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to register a simulated device.
+A device must be registered with your IoT hub before it can connect. In this section, you'll use the Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot) to register a simulated device.
 
 1. Run the following command in Azure Cloud Shell to create the device identity.
 
@@ -130,7 +123,7 @@ A device must be registered with your IoT hub before it can connect. In this sec
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyCDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyCDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:
@@ -182,7 +175,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
 ## Read the telemetry from your hub
 
-In this section, you'll use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) to monitor the device messages that are sent by the simulated device.
+In this section, you'll use the Azure Cloud Shell with the [IoT extension](/cli/azure/ext/azure-iot/iot) to monitor the device messages that are sent by the simulated device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 

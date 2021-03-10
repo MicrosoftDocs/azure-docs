@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate Watch by Colors with Azure Activ
 * Enable your users to be automatically signed-in to Watch by Colors with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -125,11 +125,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. On the top-right corner of the page, click on **profile** > **Account Settings** > **SSO (Single Sign On)**.
 
-	![Watch by Colors configuration](./media/watch-by-colors-tutorial/config01.png)
+	![Screenshot shows the Account Settings page where S S O is disabled.](./media/watch-by-colors-tutorial/config01.png)
 
 5. On the **SSO (Single Sign On)** page, perform the following steps:
 
-	![Watch by Colors configuration](./media/watch-by-colors-tutorial/config02.png)
+	![Screenshot shows the SAML Setup tab where you can enable SAML.](./media/watch-by-colors-tutorial/config02.png)
 
 	a. Toggle **Enable SAML** to **ON**.
 
@@ -149,11 +149,11 @@ To enable Azure AD users to sign in to Watch by Colors, they must be provisioned
 
 1. On the top-right corner of the page, click on **profile** > **Users** > **Add User**.
 
-	![Watch by Colors configuration](./media/watch-by-colors-tutorial/config03.png)
+	![Screenshot shows the Users page.](./media/watch-by-colors-tutorial/config03.png)
 
 1. On the **User Details** page, perform the following steps:
 
-    ![Watch by Colors configuration](./media/watch-by-colors-tutorial/config04.png)
+    ![Screenshot shows the User Details where you can enter the values described.](./media/watch-by-colors-tutorial/config04.png)
 
     a. In **First Name** text box, enter the first name of user like **B**.
 
@@ -171,15 +171,14 @@ To enable Azure AD users to sign in to Watch by Colors, they must be provisioned
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Watch by Colors tile in the Access Panel, you should be automatically signed in to the Watch by Colors for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Watch by Colors tile in the Access Panel, you should be automatically signed in to the Watch by Colors for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Watch by Colors with Azure AD](https://aad.portal.azure.com/)
-

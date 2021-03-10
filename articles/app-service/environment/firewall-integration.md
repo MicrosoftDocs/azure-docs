@@ -96,7 +96,7 @@ Azure Firewall can send logs to Azure Storage, Event Hub, or Azure Monitor logs.
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
  
 ## Dependencies
 
@@ -222,6 +222,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |rteventservice.trafficmanager.net:443 |
 |ctldl.windowsupdate.com:80 |
 |ctldl.windowsupdate.com:443 |
+|global-dsms.dsms.core.windows.net:443 |
 
 #### Wildcard HTTP/HTTPS dependencies 
 
@@ -250,6 +251,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |security.ubuntu.com:80 |
 |oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
+| \*.data.mcr.microsoft.com:443 |
 |mcr.microsoft.com:443 |
 |\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
@@ -425,6 +427,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |www.microsoft.com:443 |
 |www.msftconnecttest.com:443 |
 |www.thawte.com:443 |
+|global-dsms.dsms.core.usgovcloudapi.net:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

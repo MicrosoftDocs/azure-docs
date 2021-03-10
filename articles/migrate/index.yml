@@ -32,13 +32,13 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Assess VMware VMs with Server Assessment
-            url: ./tutorial-prepare-vmware.md
+            url: ./tutorial-discover-vmware.md
           - text: Assess Hyper-V VMs with Server Assessment
-            url: ./tutorial-prepare-hyper-v.md
+            url: ./tutorial-discover-hyper-v.md
           - text: Assess physical servers with Server Assessment
-            url: ./tutorial-prepare-physical.md
+            url: ./tutorial-discover-physical.md
           - text: Assess servers using imported data
-            url: tutorial-assess-import.md
+            url: ./tutorial-discover-import.md
           - text: Migrate VMware VMs with Server Migration
             url: ./server-migrate-overview.md
           - text: Migrate Hyper-V VMs with Server Migration

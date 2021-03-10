@@ -1,6 +1,6 @@
 ---
 title: About Azure Key Vault secrets - Azure Key Vault
-description: Overview of Azure Key Vault REST interface and developer details for secrets.
+description: Overview of Azure Key Vault secrets.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 # About Azure Key Vault secrets
 
-Key Vault provides secure storage of secrets, such as passwords and database connection strings.
+[Key Vault](../general/overview.md) provides secure storage of generic secrets, such as passwords and database connection strings.
 
 From a developer's perspective, Key Vault APIs accept and return secret values as strings. Internally, Key Vault stores and manages secrets as sequences of octets (8-bit bytes), with a maximum size of 25k bytes each. The Key Vault service doesn't provide semantics for secrets. It merely accepts the data, encrypts it, stores it, and returns a secret identifier ("id"). The identifier can be used to retrieve the secret at a later time.  
 
@@ -39,6 +39,8 @@ There are additional read-only attributes that are included in any response that
 
 - *created*: IntDate, optional. The created attribute indicates when this version of the secret was created. This value is null for secrets created prior to the addition of this attribute. Its value must be a number containing an IntDate value.  
 - *updated*: IntDate, optional. The updated attribute indicates when this version of the secret was updated. This value is null for secrets that were last updated prior to the addition of this attribute. Its value must be a number containing an IntDate value.
+
+For information on common attributes for each key vault object type, see [Azure Key Vault keys, secrets and certificates overview](../general/about-keys-secrets-certificates.md)
 
 ### Date-time controlled operations
 
@@ -64,6 +66,12 @@ The following permissions can be used, on a per-principal basis, in the secrets 
 
 For more information on working with secrets, see [Secret operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
+How-to guides to control access in Key Vault:
+- [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
+- [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
+- [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
+- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
+
 ## Secret tags  
 You can specify additional application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
 
@@ -72,14 +80,17 @@ You can specify additional application-specific metadata in the form of tags. Ke
 
 ## Azure Storage account key management
 
-Key Vault can manage Azure storage account keys:
+Key Vault can manage [Azure storage account](../../storage/common/storage-account-overview.md) keys:
 
 - Internally, Key Vault can list (sync) keys with an Azure storage account. 
 - Key Vault regenerates (rotates) the keys periodically.
 - Key values are never returned in response to caller.
 - Key Vault manages keys of both storage accounts and classic storage accounts.
 
-For more information, see [Azure Key Vault Storage Account Keys](../secrets/overview-storage-keys.md))
+For more information, see:
+- [Storage account access keys](../../storage/common/storage-account-keys-manage.md)
+- [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md))
+
 
 ## Storage account access control
 
@@ -105,11 +116,18 @@ The following permissions can be used when authorizing a user or application pri
 
 For more information, see the [Storage account operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
+How-to guides to control access in Key Vault:
+- [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
+- [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
+- [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
+- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
+
+
 ## Next steps
 
 - [About Key Vault](../general/overview.md)
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
 - [About keys](../keys/about-keys.md)
 - [About certificates](../certificates/about-certificates.md)
-- [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
+- [Secure access to a key vault](../general/secure-your-key-vault.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)

@@ -2,7 +2,7 @@
 title: Azure Event Hubs - exceptions (legacy)
 description: This article provides a list of Azure Event Hubs messaging exceptions and suggested actions.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/10/2021
 ---
 
 # Event Hubs messaging exceptions - .NET (legacy)
@@ -108,16 +108,28 @@ This error can occur for one of two reasons:
 
 - The Event Hubs namespace doesn't have sufficient throughput units (you can check the **Metrics** screen in the Event Hubs namespace window in the [Azure portal](https://portal.azure.com) to confirm). The portal shows aggregated (1 minute) information, but we measure the throughput in real time – so it's only an estimate.
 
-	**Resolution**: Increasing the throughput units on the namespace can help. You can do this operation on the portal, in the **Scale** window of the Event Hubs namespace screen. Or, you can use [Auto-inflate](event-hubs-auto-inflate.md).
+	**Resolution**: Increasing the throughput units on the namespace can help. 
 
-### Error code 50001
+    You can configure throughput units on the **Scale** page or **Overview** page of your **Event Hubs namespace** page in the Azure portal. Or, you can use [Auto-inflate](event-hubs-auto-inflate.md), which automatically scales up by increasing the number of throughput units, to meet usage needs.
+
+    Throughput units (TUs) apply to all event hubs in an Event Hubs namespace. It means that you purchase TUs at the namespace level and are shared among the event hubs under that namespace. Each TU entitles the namespace to the following capabilities:
+
+    - Up to 1 MB per second of ingress events (events sent into an event hub), but no more than 1000 ingress events, management operations, or control API calls per second.
+    - Up to 2 MB per second of egress events (events consumed from an event hub), but no more than 4096 egress events.
+    - Up to 84 GB of event storage (enough for the default 24-hour retention period).
+    
+    On the **Overview** page, in the **Show metrics** section, switch to the **Throughput** tab. Select the chart to open it in a larger window with 1-minute intervals on the x-axis. Look at the peak values and divide them by 60 to get incoming bytes/second or outgoing bytes/second. Use similar approach to calculate number of requests per second at peak times on the **Requests** tab. 
+
+    If you see values higher than number of TUs * limits (1 MB per second for ingress or 1000 requests for ingress/second, 2 MB per second for egress), increase the number of TUs by using the **Scale** (on the left menu) page of an Event Hubs namespace to manually scale higher or to use the [Auto-inflate](event-hubs-auto-inflate.md) feature of Event Hubs. Note that auto-Inflate can only increase up to 20 TUS. To raise it to exactly 40 TUs, submit a [support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+### Error code 50008
 
 This error should rarely occur. It happens when the container running code for your namespace is low on CPU – not more than a few seconds before the Event Hubs load balancer begins.
 
-**Resolution**: Limit on calls to the GetRuntimeInformation method. Azure Event Hubs supports up to 50 calls per second to the GetRuntimeInfo per second. You may receive an exception similar to the following one once the limit is reached:
+**Resolution**: Limit calls to the GetRuntimeInformation method. Azure Event Hubs supports up to 50 calls per second per consumer group to the GetRuntimeInfo per second. You may receive an exception similar to the following one once the limit is reached:
 
 ```
-ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50008. Please wait 10 seconds and try again.
 ```
 
 

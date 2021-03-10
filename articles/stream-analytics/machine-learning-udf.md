@@ -1,12 +1,12 @@
 ---
 title: Integrate Azure Stream Analytics with Azure Machine Learning
 description: This article describes how to integrate an Azure Stream Analytics job with Azure Machine Learning models.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 12/21/2020
 ms.custom: devx-track-js
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning (Preview)
@@ -17,13 +17,13 @@ You can implement machine learning models as a user-defined function (UDF) in yo
 
 Complete the following steps before you add a machine learning model as a function to your Stream Analytics job:
 
-1. Use Azure Machine Learning to [deploy your model as a web service](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+1. Use Azure Machine Learning to [deploy your model as a web service](../machine-learning/how-to-deploy-and-where.md).
 
 2. Your scoring script should have [sample inputs and outputs](../machine-learning/how-to-deploy-and-where.md) which is used by Azure Machine Learning to generate a schema specification. Stream Analytics uses the schema to understand the function signature of your web service. You can use this [sample swagger definition](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) as a reference to ensure you have set it up correctly.
 
 3. Make sure your web service accepts and returns JSON serialized data.
 
-4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are supported only when you use the Azure portal. Models built using [Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) are not yet supported in Stream Analytics.
+4. Deploy your model on [Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) for high-scale production deployments. If the web service is not able to handle the number of requests coming from your job, the performance of your Stream Analytics job will be degraded, which impacts latency. Models deployed on Azure Container Instances are supported only when you use the Azure portal. Models built using [Azure Machine Learning Designer](../machine-learning/concept-designer.md) are not yet supported in Stream Analytics.
 
 ## Add a machine learning model to your job
 
@@ -77,7 +77,7 @@ INTO output
 FROM input
 ```
 
-Stream Analytics only supports passing one parameter for Azure Machine Learning functions. You may need to prepare your data before passing it as an input to machine learning UDF.
+Stream Analytics only supports passing one parameter for Azure Machine Learning functions. You may need to prepare your data before passing it as an input to machine learning UDF. You must ensure the input to ML UDF is not null as null inputs will cause the job to fail.
 
 ## Pass multiple input parameters to the UDF
 
@@ -98,11 +98,18 @@ function createArray(vendorid, weekday, pickuphour, passenger, distance) {
 Once you have added the JavaScript UDF to your job, you can invoke your Azure Machine Learning UDF using the following query:
 
 ```SQL
-SELECT udf.score(
-udf.createArray(vendorid, weekday, pickuphour, passenger, distance)
-)
-INTO output
+WITH 
+ModelInput AS (
+#use JavaScript UDF to construct array that will be used as input to ML UDF
+SELECT udf.createArray(vendorid, weekday, pickuphour, passenger, distance) as inputArray
 FROM input
+)
+
+SELECT udf.score(inputArray)
+INTO output
+FROM ModelInput
+#validate inputArray is not null before passing it to ML UDF to prevent job from failing
+WHERE inputArray is not null
 ```
 
 The following JSON is an example request:

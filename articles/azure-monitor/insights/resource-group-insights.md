@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor Resource Group Insights | Microsoft Docs
 description: Understand the health and performance of your distributed applications and services at the Resource Group level with Azure Monitor
-ms.subservice: 
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
@@ -42,9 +41,9 @@ The resource group insights page provides several other tools scoped to help you
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alerts**](../platform/alerts-overview.md)      |  View, create, and manage your alerts. |
-   | [**Metrics**](../platform/data-platform.md) | Visualize and explore your metric based data.    |
-   | [**Activity logs**](../platform/platform-logs-overview.md) | Subscription level events that have occurred in Azure.  |
+   | [**Alerts**](../alerts/alerts-overview.md)      |  View, create, and manage your alerts. |
+   | [**Metrics**](../data-platform.md) | Visualize and explore your metric based data.    |
+   | [**Activity logs**](../essentials/platform-logs-overview.md) | Subscription level events that have occurred in Azure.  |
    | [**Application map**](../app/app-map.md) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
 
 ## Failures and performance
@@ -113,6 +112,6 @@ Azure Monitor for Resource Groups relies on the Azure Monitor Alerts Management 
 
 ## Next steps
 
-- [Azure Monitor Workbooks](../platform/workbooks-overview.md)
+- [Azure Monitor Workbooks](../visualize/workbooks-overview.md)
 - [Azure Resource Health](../../service-health/resource-health-overview.md)
-- [Azure Monitor Alerts](../platform/alerts-overview.md)
+- [Azure Monitor Alerts](../alerts/alerts-overview.md)

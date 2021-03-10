@@ -22,7 +22,7 @@ In the next article in the series, you update the application, then push the upd
 
 ## Automatic deployment to Web Apps for Containers
 
-Azure Container Registry provides support for deploying containerized applications directly to [Web Apps for Containers](../app-service/containers/index.yml). In this tutorial, you use the Azure portal to deploy the container image created in the previous tutorial to two web app plans located in different Azure regions.
+Azure Container Registry provides support for deploying containerized applications directly to [Web Apps for Containers](../app-service/index.yml). In this tutorial, you use the Azure portal to deploy the container image created in the previous tutorial to two web app plans located in different Azure regions.
 
 When you deploy a web app from a container image in your registry, and you have a geo-replicated registry in the same region, Azure Container Registry creates an image deployment [webhook](container-registry-webhook.md) for you. When you push a new image to your container repository, the webhook picks up the change and automatically deploys the new container image to your web app.
 

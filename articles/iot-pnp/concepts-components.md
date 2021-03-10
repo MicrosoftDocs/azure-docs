@@ -66,13 +66,13 @@ The model ID is stored in a device twin property as the following screenshot sho
 A DTDL model without components is a useful simplification for a device or IoT Edge module with a single set of telemetry, properties, and commands. A model that doesn't use components makes it easy to migrate an existing device or module to be an IoT Plug and Play device or module - you create a DTDL model that describes your actual device or module without the need to define any components.
 
 > [!TIP]
-> A module can be a device [module](../iot-hub/iot-hub-devguide-module-twins.md or an [IoT Edge module](../iot-edge/about-iot-edge.md).
+> A module can be a device [module](../iot-hub/iot-hub-devguide-module-twins.md) or an [IoT Edge module](../iot-edge/about-iot-edge.md).
 
 ## Multiple components
 
 Components let you build a model interface as an assembly of other interfaces.
 
-For example, the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) interface is defined as a model. You can incorporate this interface as one or more components when when you define the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json). In the following example, these components are called `thermostat1` and `thermostat2`.
+For example, the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) interface is defined as a model. You can incorporate this interface as one or more components when you define the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json). In the following example, these components are called `thermostat1` and `thermostat2`.
 
 For a DTDL model with multiple components, there are two or more component sections. Each section has `@type` set to `Component` and explicitly refers to a schema as shown in the following snippet:
 

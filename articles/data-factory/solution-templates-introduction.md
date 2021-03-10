@@ -1,14 +1,10 @@
 ---
 title: Overview of templates
 description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: daperlov
 author: djpmsft
-manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
 ---
@@ -63,9 +59,9 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 
         -   From SQL Server on premises to Azure SQL Database
 
-        -   From SQL Server on premises to Azure Synapse Analytics (formerly SQL Data Warehouse)
+        -   From SQL Server on premises to Azure Synapse Analytics
 
-        -   From Oracle on premises to Azure Synapse Analytics (formerly SQL Data Warehouse)
+        -   From Oracle on premises to Azure Synapse Analytics
 
 -   SSIS templates
 

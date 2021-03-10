@@ -1,5 +1,5 @@
 ---
-title: Use Role-based Access Control for StorSimple | Microsoft Docs
+title: Use Azure role-based access control for StorSimple | Microsoft Docs
 description: Describes how to use Azure role-based access control (Azure RBAC) in the context of StorSimple.
 services: storsimple
 documentationcenter: ''
@@ -17,9 +17,9 @@ ms.date: 10/11/2017
 ms.author: alkohli
 
 ---
-# Role-based Access Control for StorSimple
+# Azure role-based access control for StorSimple
 
-This article provides a brief description of how Azure role-based access control (Azure RBAC) can be used for your StorSimple device. RBAC offers fine-grained access management for Azure. Use RBAC to grant just the right amount of access to the StorSimple users to do their jobs instead of giving everyone unrestricted access. For more information on the basics of access management in Azure, see [Get started with Role-based Access Control in the Azure portal](../role-based-access-control/overview.md).
+This article provides a brief description of how Azure role-based access control (Azure RBAC) can be used for your StorSimple device. Azure RBAC offers fine-grained access management for Azure. Use Azure RBAC to grant just the right amount of access to the StorSimple users to do their jobs instead of giving everyone unrestricted access. For more information on the basics of access management in Azure, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 This article applies to StorSimple 8000 series devices running Update 3.0 or later in the Azure portal.
 
@@ -27,7 +27,7 @@ This article applies to StorSimple 8000 series devices running Update 3.0 or lat
 
 ## Azure roles for StorSimple
 
-RBAC can be assigned based on the roles. The roles ensure certain permission levels based on the available resources in the environment. There are two types of roles that StorSimple users can choose from: built-in or custom.
+Azure RBAC can be assigned based on the roles. The roles ensure certain permission levels based on the available resources in the environment. There are two types of roles that StorSimple users can choose from: built-in or custom.
 
 * **Built-in roles** - The built-in roles can be owner, contributor, reader, or user access administrator. For more information, see [Built-in roles for Azure Role-based Access Control](../role-based-access-control/built-in-roles.md).
 

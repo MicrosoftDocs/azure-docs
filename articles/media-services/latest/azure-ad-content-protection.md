@@ -308,7 +308,7 @@ If you plan to use another IDE/web platform and/or a webserver such as IIS runni
 
 Now that you've completed the tutorial and have a working subsystem, you can try modifying it for the following customer scenarios:
 
-### Role-Based Access Control (RBAC) for license delivery via Azure AD group membership
+### Azure role-based access control (Azure RBAC) for license delivery via Azure AD group membership
 
 So far, the system allows any user who can sign in to get a valid license and play the protected content.
 

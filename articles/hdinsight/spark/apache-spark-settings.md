@@ -1,9 +1,6 @@
 ---
 title: Configure Spark settings - Azure HDInsight 
 description: How to view and configure Apache Spark settings for an Azure HDInsight cluster
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
@@ -18,13 +15,13 @@ The default HDInsight Apache Spark cluster includes the following nodes: three A
 
 ![Spark HDInsight Architecture](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-The number of VMs, and VM sizes, for the nodes in your HDInsight cluster can affect your Spark configuration. Non-default HDInsight configuration values often require non-default Spark configuration values. When you create an HDInsight Spark cluster, you're shown suggested VM sizes for each of the components. Currently the [Memory-optimized Linux VM sizes](../../virtual-machines/linux/sizes-memory.md) for Azure are D12 v2 or greater.
+The number of VMs, and VM sizes, for the nodes in your HDInsight cluster can affect your Spark configuration. Non-default HDInsight configuration values often require non-default Spark configuration values. When you create an HDInsight Spark cluster, you're shown suggested VM sizes for each of the components. Currently the [Memory-optimized Linux VM sizes](../../virtual-machines/sizes-memory.md) for Azure are D12 v2 or greater.
 
 ## Apache Spark versions
 
 Use the best Spark version for your cluster.  The HDInsight service includes several versions of both Spark and HDInsight itself.  Each version of Spark includes a set of default cluster settings.  
 
-When you create a new cluster, there are multiple Spark versions to choose from. To see the full list,  [HDInsight Components and Versions](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+When you create a new cluster, there are multiple Spark versions to choose from. To see the full list,  [HDInsight Components and Versions](../hdinsight-component-versioning.md).
 
 > [!NOTE]  
 > The default version of Apache Spark in the HDInsight service may change without notice. If you have a version dependency, Microsoft recommends that you specify that particular version when you create clusters using .NET SDK, Azure PowerShell, and Azure Classic CLI.
@@ -116,7 +113,7 @@ YARN controls the maximum sum of memory used by the containers on each Spark nod
 
 ![YARN Spark Memory Management](./media/apache-spark-settings/hdi-yarn-spark-memory.png)
 
-## Change parameters for an application running in Jupyter notebook
+## Change parameters for an application running in Jupyter Notebook
 
 Spark clusters in HDInsight include a number of components by default. Each of these components includes default configuration values, which can be overridden as needed.
 
@@ -125,15 +122,15 @@ Spark clusters in HDInsight include a number of components by default. Each of t
 |Spark Core|Spark Core, Spark SQL, Spark streaming APIs, GraphX, and Apache Spark MLlib.|
 |Anaconda|A python package manager.|
 |Apache Livy|The Apache Spark REST API, used to submit remote jobs to an HDInsight Spark cluster.|
-|Jupyter and Apache Zeppelin notebooks|Interactive browser-based UI for interacting with your Spark cluster.|
+|Jupyter Notebooks and Apache Zeppelin Notebooks|Interactive browser-based UI for interacting with your Spark cluster.|
 |ODBC driver|Connects Spark clusters in HDInsight to business intelligence (BI) tools such as Microsoft Power BI and Tableau.|
 
-For applications running in the Jupyter notebook, use the `%%configure` command to make configuration changes from within the notebook itself. These configuration changes will be applied to the Spark jobs run from your notebook instance. Make such changes at the beginning of the application, before you run your first code cell. The changed configuration is applied to the Livy session when it gets created.
+For applications running in the Jupyter Notebook, use the `%%configure` command to make configuration changes from within the notebook itself. These configuration changes will be applied to the Spark jobs run from your notebook instance. Make such changes at the beginning of the application, before you run your first code cell. The changed configuration is applied to the Livy session when it gets created.
 
 > [!NOTE]  
 > To change the configuration at a later stage in the application, use the `-f` (force) parameter. However, all progress in the application will be lost.
 
-The code below shows how to change the configuration for an application running in a Jupyter notebook.
+The code below shows how to change the configuration for an application running in a Jupyter Notebook.
 
 ```
 %%configure

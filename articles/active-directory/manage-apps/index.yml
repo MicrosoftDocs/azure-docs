@@ -93,7 +93,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Plan a My Apps deployment
-            url: access-panel-deployment-plan.md
+            url: my-apps-deployment-plan.md
           - text: Create collections
             url: access-panel-collections.md
   - title: Develop new apps
@@ -101,14 +101,12 @@ landingContent:
       - linkListType: learn
         links:
           - text: Guidance for developers
-            url: developer-guidance-for-integrating-applications.md
+            url: ../develop/v2-howto-app-gallery-listing.md
           - text: Understand the platform
             url: ../develop/v2-overview.md
   - title: New in docs
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Set up SAML-based SSO
-            url: add-application-portal-setup-sso.md
-          - text: Set up OIDC-based SSO
-            url: add-application-portal-setup-oidc-sso.md
+          - text: What's new in docs
+            url: whats-new-docs.md

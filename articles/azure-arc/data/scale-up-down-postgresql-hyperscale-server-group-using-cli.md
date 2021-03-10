@@ -19,7 +19,7 @@ There are times when you may need to change the characteristics or the definitio
 - Scale up or down the number of vCores that each of the coordinator or the worker nodes uses
 - Scale up or down the memory that each of the coordinator or the worker nodes uses
 
-This guide explains you how to scale vCore and/or memory.
+This guide explains how to scale vCore and/or memory.
 
 Scaling up or down the vCore or memory settings of your server group means you have the possibility to set a minimum and/or a maximum for each of the vCore and memory settings. If you want to configure your server group to use a specific number of vCore or a specific amount of memory, you would set the min settings equal to the max settings.
 
@@ -176,9 +176,23 @@ It will show the new definition of the server group:
 To scale down the server group you execute the same command but set lesser values for the settings you want to scale down. 
 To remove the requests and/or limits, specify its value as empty string.
 
+## Reset to default values
+To reset core/memory limits/requests parameters to their default values, edit them and pass an empty string instead of an actual value. For example, if you want to reset the core limit (cl) parameter, run the following commands:
+- on a Linux client:
+
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl ""
+```
+
+- on a Windows client: 
+ 
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl '""'
+```
+
+
 ## Next steps
 
 - [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
-- [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

@@ -1,9 +1,9 @@
 ---
 title: Troubleshooting Inputs for Azure Stream Analytics
 description: This article describes techniques to troubleshoot your input connections in Azure Stream Analytics jobs.
-author: sidram
+author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
@@ -20,9 +20,9 @@ This article describes common issues with Azure Stream Analytics input connectio
 
 2.  Examine your input data.
 
-    1. Use the [**Sample Data**](stream-analytics-sample-data-input.md) button for each input. Download the input sample data.
+    1. Use the [**Sample Data**](./stream-analytics-test-query.md) button for each input. Download the input sample data.
         
-    1. Inspect the sample data to understand the schema and [data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Inspect the sample data to understand the schema and [data types](/stream-analytics-query/data-types-azure-stream-analytics).
     
     1. Check [Event Hub metrics](../event-hubs/event-hubs-metrics-azure-monitor.md) to ensure events are being sent. Message metrics should be greater than zero if Event Hubs is receiving messages.
 
@@ -158,16 +158,16 @@ SELECT foo FROM DataTwo
 
 ## Readers per partition exceeds IoT Hub limit
 
-Stream Analytics jobs use IoT Hub's built-in [Event Hub compatible endpoint](../iot-hub/iot-hub-devguide-messages-read-builtin.md) to connect and read events from IoT Hub. If your read per partition exceeds the limits of IoT Hub, you can use the [solutions for Event Hub](#readers-per-partition-exceeds-event-hubs-limit) to resolve it. You can create a consumer group for the built-in endpoint through IoT Hub portal endpoint session or through the [IoT Hub SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
+Stream Analytics jobs use IoT Hub's built-in [Event Hub compatible endpoint](../iot-hub/iot-hub-devguide-messages-read-builtin.md) to connect and read events from IoT Hub. If your read per partition exceeds the limits of IoT Hub, you can use the [solutions for Event Hub](#readers-per-partition-exceeds-event-hubs-limit) to resolve it. You can create a consumer group for the built-in endpoint through IoT Hub portal endpoint session or through the [IoT Hub SDK](/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
 
 ## Get help
 
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next steps
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)

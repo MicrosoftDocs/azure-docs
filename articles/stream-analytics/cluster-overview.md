@@ -1,16 +1,15 @@
 ---
-title: Overview of Azure Stream Analytics Clusters (Preview)
+title: Overview of Azure Stream Analytics Clusters
 description: Learn about single tenant dedicated offering of Stream Analytics Cluster.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
 ---
 
-# Overview of Azure Stream Analytics Cluster (Preview)
+# Overview of Azure Stream Analytics Cluster
 
 Azure Stream Analytics Cluster offers a single-tenant deployment for complex and demanding streaming scenarios. At full scale, Stream Analytics clusters can process more than 200 MB/second in real time. Stream Analytics jobs running on dedicated clusters can leverage all the features in the Standard offering and includes support for private link connectivity to your inputs and outputs.
 
@@ -64,7 +63,7 @@ Your Stream Analytics clusters are charged based on the chosen SU capacity. Clus
 
 ### Which inputs and outputs can I privately connect to from my Stream Analytics cluster?
 
-Stream Analytics supports various input and output types. Any of these services that support Azure Private Links can connect to your jobs privately. You can [create private endpoints](private-endpoints.md) in your cluster that allow jobs to access the input and output resources.
+Stream Analytics supports various input and output types. You can [create private endpoints](private-endpoints.md) in your cluster that allow jobs to access the input and output resources. Currently Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub and Azure Service Bus are supported services and other types will be added soon. 
 
 ## Next steps
 

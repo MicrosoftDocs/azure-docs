@@ -59,7 +59,7 @@ This error occurs when the service can't read data from the transport connection
 
 To resolve vCenter discovery failures, add the vCenter server to the byPass list proxy settings. 
 
-- Download PsExec tool from [here](https://aka.ms/PsExec) to access System user content.
+- Download PsExec tool from [here](/sysinternals/downloads/psexec) to access System user content.
 - Open Internet Explorer in system user content by running the following command line
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Add proxy settings in IE and restart tmanssvc service.
@@ -192,7 +192,7 @@ You have insufficient permissions to create an application in Azure Active Direc
 
 To resolve the issue, sign in to the Azure portal and do one of the following:
 
-- Request the Application Developer role in AAD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+- Request the Application Developer role in AAD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
 - Verify that the **User can create application** flag is set to *true* in AAD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## Process server/Master Target are unable to communicate with the configuration server 
@@ -256,4 +256,3 @@ This issue can occur when the system time is incorrect.
 To resolve the issue:
 
 Set the correct time on the computer and retry the sign in. 
- 

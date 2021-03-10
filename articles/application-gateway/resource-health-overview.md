@@ -56,4 +56,4 @@ The **Degraded** health status indicates your gateway has detected a loss in per
 
 ## Next steps
 
-To learn about troubleshooting Application Gateway Web Application Firewall (WAF), see [Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway](web-application-firewall-troubleshoot.md).
+To learn about troubleshooting Application Gateway Web Application Firewall (WAF), see [Troubleshoot Web Application Firewall (WAF) for Azure Application Gateway](../web-application-firewall/ag/web-application-firewall-troubleshoot.md).

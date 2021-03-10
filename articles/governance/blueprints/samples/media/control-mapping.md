@@ -1,7 +1,7 @@
 ---
 title: Media blueprint sample controls
 description: Control mapping of the Media blueprint samples. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 08/13/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ---
 # Control mapping of the Media blueprint sample

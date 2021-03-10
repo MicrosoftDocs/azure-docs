@@ -35,7 +35,7 @@ In the **Type** list box of the screenshot, **Basic** is selected. Select **Cust
 
 Windows Defender uses the Windows Update client to download and install signatures. If signature update fails on your build agent, the **HRESULT** error code is likely coming from Windows Update.
 
-For more information on Windows Update errors and their mitigation, see [Windows Update error codes by component](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) and the TechNet article [Windows Update Agent - Error Codes](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
+For more information on Windows Update errors and their mitigation, see [Windows Update error codes by component](/windows/deployment/update/windows-update-error-reference) and the TechNet article [Windows Update Agent - Error Codes](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
 For information about YAML configuration for this task, check our [Anti-Malware YAML options](yaml-configuration.md#anti-malware-scanner-task)
 
@@ -139,7 +139,7 @@ Available options include:
 >
 >   If the new task runs on the same agent as the original task, the new task's output overwrites the original task's output in the *s* sources folder. Although the build output is the same, we advise that you run MSBuild, copy output to the the artifacts staging directory, and then run Roslyn Analyzers.
 
-For additional resources for the Roslyn Analyzers task, check out [The Roslyn-based Analyzers](https://docs.microsoft.com/dotnet/standard/analyzers/api-analyzer) on Microsoft Docs.
+For additional resources for the Roslyn Analyzers task, check out [The Roslyn-based Analyzers](/dotnet/standard/analyzers/api-analyzer) on Microsoft Docs.
 
 You can find the analyzer package installed and used by this build task on the NuGet page [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 

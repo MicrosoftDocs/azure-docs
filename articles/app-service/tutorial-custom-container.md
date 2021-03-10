@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python"
+ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli"
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
@@ -13,7 +13,7 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 ::: zone pivot="container-windows"  
 
-[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service (Preview) lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](../container-registry/index.yml), and then run it in App Service.
+[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](../container-registry/index.yml), and then run it in App Service.
 
 ![Shows the web app running in a Windows container.](media/tutorial-custom-container/app-running.png)
 
@@ -23,7 +23,7 @@ To complete this tutorial:
 
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
     - Install the latest updates in Visual Studio by clicking **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
@@ -206,7 +206,7 @@ The streamed logs looks like this:
 
 ::: zone pivot="container-linux"
 
-Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes --linux'](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
+Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes --linux'](/cli/azure/webapp#az-webapp-list-runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
 
 In this tutorial, you learn how to:
 
@@ -223,31 +223,16 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 
 ## Set up your initial environment
 
-* Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
-* Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+- This tutorial requires version 2.0.80 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-After installing Docker and the Azure CLI, open a terminal window and verify that docker is installed:
+After installing Docker or running Azure Cloud Shell, open a terminal window and verify that docker is installed:
 
 ```bash
 docker --version
 ```
-
-Also verify that your Azure CLI version is 2.0.80 or higher:
-
-```azurecli
-az --version
-```
-
-Then sign in to Azure through the CLI:
-
-```azurecli
-az login
-```
-
-The `az login` command opens a browser to gather your credentials. When the command completes, it shows JSON output containing information about your subscriptions.
-
-Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
 ## Clone or download the sample app
 
@@ -314,6 +299,10 @@ ENTRYPOINT ["init.sh"]
 
 ## Build and test the image locally
 
+> [!NOTE]
+> Docker Hub has [quotas on the number of anonymous pulls per IP and the number of authenticated pulls per free user (see **Data transfer**)](https://www.docker.com/pricing). If you notice your pulls from Docker Hub are being limited, try `docker login` if you're not already logged in.
+> 
+
 1. Run the following command to build the image:
 
     ```bash
@@ -335,13 +324,11 @@ ENTRYPOINT ["init.sh"]
 
     ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
-[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
-
 ## Create a resource group
 
 In this section and those that follow, you provision resources in Azure to which you push the image and then deploy a container to Azure App Service. You start by creating a resource group in which to collect all these resources.
 
-Run the [az group create](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create) command to create a resource group:
+Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group:
 
 ```azurecli-interactive
 az group create --name AppSvc-DockerTutorial-rg --location westus2
@@ -353,7 +340,7 @@ You can change the `--location` value to specify a region near you.
 
 In this section, you push the image to Azure Container Registry from which App Service can deploy it.
 
-1. Run the [`az acr create`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-create) command to create an Azure Container Registry:
+1. Run the [`az acr create`](/cli/azure/acr#az-acr-create) command to create an Azure Container Registry:
 
     ```azurecli-interactive
     az acr create --name <registry-name> --resource-group AppSvc-DockerTutorial-rg --sku Basic --admin-enabled true
@@ -361,7 +348,7 @@ In this section, you push the image to Azure Container Registry from which App S
     
     Replace `<registry-name>` with a suitable name for your registry. The name must contain only letters and numbers and must be unique across all of Azure.
 
-1. Run the [`az acr show`](/cli/azure/acr?view=azure-cli-latest&preserve-view=true#az-acr-show) command to retrieve credentials for the registry:
+1. Run the [`az acr show`](/cli/azure/acr#az-acr-show) command to retrieve credentials for the registry:
 
     ```azurecli-interactive
     az acr credential show --resource-group AppSvc-DockerTutorial-rg --name <registry-name>
@@ -408,7 +395,7 @@ In this section, you push the image to Azure Container Registry from which App S
 
 To deploy a container to Azure App Service, you first create a web app on App Service, then connect the web app to the container registry. When the web app starts, App Service automatically pulls the image from the registry.
 
-1. Create an App Service plan using the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest&preserve-view=true#az-appservice-plan-create) command:
+1. Create an App Service plan using the [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) command:
 
     ```azurecli-interactive
     az appservice plan create --name AppSvc-DockerTutorial-plan --resource-group AppSvc-DockerTutorial-rg --is-linux
@@ -416,7 +403,7 @@ To deploy a container to Azure App Service, you first create a web app on App Se
 
     An App Service plan corresponds to the virtual machine that hosts the web app. By default, the previous command uses an inexpensive [B1 pricing tier](https://azure.microsoft.com/pricing/details/app-service/linux/) that is free for the first month. You can control the tier with the `--sku` parameter.
 
-1. Create the web app with the [`az webpp create`](/cli/azure/webapp?view=azure-cli-latest&preserve-view=true#az-webapp-create) command:
+1. Create the web app with the [`az webpp create`](/cli/azure/webapp#az-webapp-create) command:
 
     ```azurecli-interactive
     az webapp create --resource-group AppSvc-DockerTutorial-rg --plan AppSvc-DockerTutorial-plan --name <app-name> --deployment-container-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -424,7 +411,7 @@ To deploy a container to Azure App Service, you first create a web app on App Se
     
     Replace `<app-name>` with a name for the web app, which must be unique across all of Azure. Also replace `<registry-name>` with the name of your registry from the previous section.
 
-1. Use [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest&preserve-view=true#az-webapp-config-appsettings-set) to set the `WEBSITES_PORT` environment variable as expected by the app code: 
+1. Use [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) to set the `WEBSITES_PORT` environment variable as expected by the app code: 
 
     ```azurecli-interactive
     az webapp config appsettings set --resource-group AppSvc-DockerTutorial-rg --name <app-name> --settings WEBSITES_PORT=8000
@@ -434,7 +421,7 @@ To deploy a container to Azure App Service, you first create a web app on App Se
     
     For more information on this environment variable, see the [readme in the sample's GitHub repository](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Enable [managed identity](./overview-managed-identity.md) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest&preserve-view=true#az-webapp-identity-assign) command:
+1. Enable [managed identity](./overview-managed-identity.md) for the web app by using the [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) command:
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -444,7 +431,7 @@ To deploy a container to Azure App Service, you first create a web app on App Se
 
     Managed identity allows you to grant permissions to the web app to access other Azure resources without needing any specific credentials.
 
-1. Retrieve your subscription ID with the [`az account show`](/cli/azure/account?view=azure-cli-latest&preserve-view=true#az-account-show) command, which you need in the next step:
+1. Retrieve your subscription ID with the [`az account show`](/cli/azure/account#az-account-show) command, which you need in the next step:
 
     ```azurecli-interactive
     az account show --query id --output tsv
@@ -467,7 +454,7 @@ For more information about these permissions, see [What is Azure role-based acce
 
 You can complete these steps once the image is pushed to the container registry and the App Service is fully provisioned.
 
-1. Use the [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest&preserve-view=true#az-webapp-config-container-set) command to specify the container registry and the image to deploy for the web app:
+1. Use the [`az webapp config container set`](/cli/azure/webapp/config/container#az-webapp-config-container-set) command to specify the container registry and the image to deploy for the web app:
 
     ```azurecli-interactive
     az webapp config container set --name <app-name> --resource-group AppSvc-DockerTutorial-rg --docker-custom-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest --docker-registry-server-url https://<registry-name>.azurecr.io

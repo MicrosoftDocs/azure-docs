@@ -72,7 +72,7 @@ In the handshake process above:
 
 An established stream terminates when either of the TCP connections to the gateway are disconnected (by the service or device). This can take place voluntarily by closing the WebSocket on either the device or service programs, or involuntarily in case of a network connectivity timeout or process failure. Upon termination of either device or service's connection to the streaming endpoint, the other TCP connection will also be (forcefully) terminated and the service and device are responsible to re-create the stream, if needed.
 
-## Connectivity Requirements
+## Connectivity requirements
 
 Both the device and the service sides of a device stream must be capable of establishing TLS-enabled connections to IoT Hub and its streaming endpoint. This requires outbound connectivity over port 443 to these endpoints. The hostname associated with these endpoints can be found on the *Overview* tab of IoT Hub, as shown in the figure below:
 
@@ -95,7 +95,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 ```
 
 > [!NOTE]
-> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) page.
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli) page.
 >
 
 ## Allow outbound connectivity to the device streaming endpoints
@@ -112,34 +112,34 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) page.
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version from the [Install Azure CLI](/cli/azure/install-azure-cli) page.
 >
 
-## Troubleshoot via Device Streams Activity Logs
+## Troubleshoot via Device Streams resource logs
 
-You can set up Azure Monitor logs to collect the activity log of device streams in your IoT Hub. This can be very helpful in troubleshooting scenarios.
+You can set up Azure Monitor to collect the [resource logs for device streams](monitor-iot-hub-reference.md#device-streams-preview) emitted by your IoT Hub. This can be very helpful in troubleshooting scenarios.
 
-Follow the steps below to configure Azure Monitor logs for your IoT Hub's device stream activities:
+Follow the steps below to create a diagnostics setting to send device streams logs for your IoT Hub to Azure Monitor Logs:
 
-1. Navigate to the *Diagnostic settings* tab in your IoT Hub, and click on *Turn on diagnostics* link.
+1. In Azure portal, navigate to your IoT hub. On the left pane, under **Monitoring**, select **Diagnostic settings**. Then select **Add diagnostic setting**.
 
-   !["Enabling diagnostics logs"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+2. Provide a name for your diagnostics setting and select **DeviceStreams** from the list of logs. Then select **Send to Log Analytics**. You'll be guided to choose an existing Log Analytics workspace or create a new one.
 
-2. Provide a name for your diagnostics settings, and choose *Send to Log Analytics* option. You will be guided to choose an existing Log Analytics workspace resource or create a new one. Additionally, check the *DeviceStreams* from the list.
+    :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Enable device streams logs":::
 
-    !["Enable device streams logs"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
-
-3. You can now access your device streams logs under the *Logs* tab in your IoT Hub's portal. Device stream activity logs will appear in the `AzureDiagnostics` table and have `Category=DeviceStreams`.
+3. After you create a diagnostic setting to send your device streams logs to a Log Analytics workspace, you can access the logs by selecting **Logs** under **Monitoring** on the left pane of your IoT hub in Azure portal. Device streams logs will appear in the `AzureDiagnostics` table and have `Category=DeviceStreams`. Be aware that it may take several minutes following an operation for logs to appear in the table.
 
    As shown below, the identity of the target device and the result of the operation is also available in the logs.
 
    !["Access device stream logs"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
 
-## Regional Availability
+To learn more about using Azure Monitor with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md). For information about all of the resource logs, metrics, and tables available for IoT Hub, see [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md).
+
+## Regional availability
 
 During public preview, IoT Hub device streams are available in the Central US, Central US EUAP, North Europe, and Southeast Asia regions. Please make sure you create your hub in one of these regions.
 
-## SDK Availability
+## SDK availability
 
 Two sides of each stream (on the device and service side) use the IoT Hub SDK to establish the tunnel. During public preview, customers can choose from the following SDK languages:
 
@@ -149,7 +149,7 @@ Two sides of each stream (on the device and service side) use the IoT Hub SDK to
 
 ## IoT Hub device stream samples
 
-There are two [quickstart samples](/azure/iot-hub) available on the IoT Hub page. These demonstrate the use of device streams by applications.
+There are two [quickstart samples](./index.yml) available on the IoT Hub page. These demonstrate the use of device streams by applications.
 
 * The *echo* sample demonstrates programmatic use of device streams (by calling the SDK API's directly).
 
@@ -157,7 +157,7 @@ There are two [quickstart samples](/azure/iot-hub) available on the IoT Hub page
 
 These samples are covered in greater detail below.
 
-### Echo Sample
+### Echo sample
 
 The echo sample demonstrates programmatic use of device streams to send and receive bytes between service and device applications. Note that you can use service and device programs in different languages. For example, you can use the C device program with the C# service program.
 

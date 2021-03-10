@@ -1,6 +1,6 @@
 ---
 title: Secure access to a managed HSM - Azure Key Vault Managed HSM
-description: Learn how to secure access to Managed HSM using Azure RBAC and local managed HSM RBAC
+description: Learn how to secure access to Managed HSM using Azure RBAC and Managed HSM local RBAC
 services: key-vault
 author: amitbapat
 tags: azure-resource-manager
@@ -17,7 +17,7 @@ ms.author: ambapat
 
 Azure Key Vault Managed HSM is a cloud service that safeguards encryption keys. Because this data is sensitive and business critical, you need to secure access to your managed HSMs by allowing only authorized applications and users to access it. This article provides an overview of the Managed HSM access control model. It explains authentication and authorization, and describes how to secure access to your managed HSMs.
 
-This tutorial will walk you through a simple example that shows how to achieve separation of duties and access control using Azure RBAC and local Managed HSM RBAC. See [Managed HSM access control](access-control.md) to learn about Managed HSM access control model.
+This tutorial will walk you through a simple example that shows how to achieve separation of duties and access control using Azure RBAC and Managed HSM local RBAC. See [Managed HSM access control](access-control.md) to learn about Managed HSM access control model.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ To sign in to Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ## Example
 

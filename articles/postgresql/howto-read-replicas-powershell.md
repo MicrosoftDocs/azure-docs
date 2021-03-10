@@ -23,7 +23,7 @@ You can create and manage read replicas using PowerShell.
 
 To complete this how-to guide, you need:
 
-- The [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) installed
+- The [Az PowerShell module](/powershell/azure/install-az-ps) installed
   locally or [Azure Cloud Shell](https://shell.azure.com/) in the browser
 - An [Azure Database for PostgreSQL server](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
@@ -34,7 +34,7 @@ To complete this how-to guide, you need:
 > PowerShell module releases and available natively from within Azure Cloud Shell.
 
 If you choose to use PowerShell locally, connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -64,7 +64,7 @@ a replica in the **West US** region.
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
-  New-AzMariaDServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
+  New-AzPostgreSQLServerReplica -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -Location westus
 ```
 
 To learn more about which regions you can create a replica in, visit the
@@ -82,15 +82,23 @@ By default, read replicas are created with the same server configuration as the 
 To view all replicas for a given primary server, run the following command:
 
 ```azurepowershell-interactive
-Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
+Get-AzPostgreSQLReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 ```
 
-The `Get-AzMariaDReplica` command requires the following parameters:
+The `Get-AzPostgreSQLReplica` command requires the following parameters:
 
 | Setting | Example value | Description  |
 | --- | --- | --- |
 | ResourceGroupName |  myresourcegroup |  The resource group where the replica server will be created to.  |
 | ServerName | mydemoserver | The name or ID of the primary server. |
+
+### Stop a replica server
+
+Stopping a read replica server promotes the read replica to be an independent server. It can be done by running the `Update-AzPostgreSqlServer` cmdlet and by setting the ReplicationRole value to `None`.
+
+```azurepowershell-interactive
+Update-AzPostgreSqlServer -Name mydemoreplicaserver -ResourceGroupName myresourcegroup -ReplicationRole None
+```
 
 ### Delete a replica server
 

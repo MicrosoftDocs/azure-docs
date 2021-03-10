@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
 ---
@@ -94,7 +94,7 @@ Before you configure Harness for automatic user provisioning with Azure AD, you 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users or groups in Harness based on user or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Harness by following the instructions in the [Harness single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial). You can configure single sign-on independent of automatic user provisioning, although these two features complement each other.
+> You may also choose to enable SAML-based single sign-on for Harness by following the instructions in the [Harness single sign-on tutorial](./harness-tutorial.md). You can configure single sign-on independent of automatic user provisioning, although these two features complement each other.
 
 > [!NOTE]
 > To learn more about the Harness SCIM endpoint, see the Harness [API Keys](https://docs.harness.io/article/smloyragsm-api-keys) article.

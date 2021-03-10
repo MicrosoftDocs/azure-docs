@@ -5,16 +5,16 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 12/11/2020
+ms.custom: "seo-nov-2020"
 ---
 
 # Create Azure Cosmos containers and databases with autoscale throughput
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB allows you to set either standard (manual) or autoscale provisioned throughput on your databases and containers. This article describes the benefits and use cases of autoscale provisioned throughput. 
+In Azure Cosmos DB, you can configure either standard (manual) or autoscale provisioned throughput on your databases and containers. Autoscale provisioned throughput in Azure Cosmos DB allows you to **scale the throughput (RU/s) of your database or container automatically and instantly**. The throughput is scaled based on the usage, without impacting the availability, latency, throughput, or performance of the workload.
 
-Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. 
-
-With autoscale, Azure Cosmos DB **automatically and instantly scales the throughput (RU/s)** of your database or container based on usage, without impacting the availability, latency, throughput, or performance of the workload. 
+Autoscale provisioned throughput is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. This article describes the benefits and use cases of autoscale provisioned throughput.
 
 ## Benefits of autoscale
 
@@ -54,7 +54,7 @@ The entry point for autoscale maximum throughput `Tmax` starts at 4000 RU/s, whi
 
 ## Enable autoscale on existing resources
 
-Use the [Azure portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) to enable autoscale on an existing database or container. You can switch between autoscale and standard (manual) provisioned throughput at any time. See this [documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) for more information. Currently, for all APIs, you can only use the Azure portal to enable autoscale on existing resources.
+Use the [Azure portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container), [Azure Resource Manager template](how-to-provision-autoscale-throughput.md#azure-resource-manager), [CLI](how-to-provision-autoscale-throughput.md#azure-cli) or [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell) to enable autoscale on an existing database or container. You can switch between autoscale and standard (manual) provisioned throughput at any time. See this [documentation](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) for more information.
 
 ## <a id="autoscale-limits"></a> Throughput and storage limits for autoscale
 
@@ -80,6 +80,6 @@ For more detail, see this [documentation](how-to-choose-offer.md) on how to choo
 * Review the [autoscale FAQ](autoscale-faq.md).
 * Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
 * Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
-* Learn more about [partitioning](partition-data.md) in Azure Cosmos DB.
+* Learn more about [partitioning](partitioning-overview.md) in Azure Cosmos DB.
 
 

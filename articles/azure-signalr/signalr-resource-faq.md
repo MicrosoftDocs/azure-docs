@@ -12,7 +12,7 @@ ms.author: zhshang
 
 ## Is Azure SignalR Service ready for production use?
 
-Yes, both the support for [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) and [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) is all generally available.
+Yes, both the support for [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) and [ASP.NET SignalR](/aspnet/signalr/overview/getting-started/introduction-to-signalr) is all generally available.
 
 ## When there are multiple application servers, are client messages sent to all servers or just one of them?
 
@@ -42,14 +42,14 @@ No.
 
 Azure SignalR Service provides all three transports that ASP.NET Core SignalR supports by default. It's not configurable. Azure SignalR Service will handle connections and transports for all client connections.
 
-You can configure client-side transports as documented in [ASP.NET Core SignalR configuration](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1).
+You can configure client-side transports as documented in [ASP.NET Core SignalR configuration](/aspnet/core/signalr/configuration#configure-allowed-transports-1).
 
 ## What is the meaning of metrics like message count or connection count shown in the Azure portal? Which kind of aggregation type should I choose?
 
 You can find details about we calculate these metrics in [Messages and connections in Azure SignalR Service](signalr-concept-messages-and-connections.md).
 
 On the overview pane of Azure SignalR Service resources, we've already chosen the appropriate aggregation type for you. If you go to the metrics pane, you can
-take the aggregation type to [Messages and connections in Azure SignalR Service](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
+take the aggregation type to [Messages and connections in Azure SignalR Service](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) as a reference.
 
 ## What is the meaning of the `Default`, `Serverless`, and `Classic` service modes? How can I choose?
 

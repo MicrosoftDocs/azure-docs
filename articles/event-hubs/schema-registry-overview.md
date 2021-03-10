@@ -45,8 +45,8 @@ The following image shows the information flow of the schema registry with Event
 ## Standard vs. dedicated limits
 For limits (for example: number of schema groups in a namespace) that are the same and different for standard and dedicated tiers of Event Hubs, see [Schema Registry limits](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)
 
-## Role-based access control
-When accessing the schema registry programmatically, you need to register an application in Azure Active Directory (Azure AD) and add the security principal of the application to one of the role-based access control (RBAC) roles:
+## Azure role-based access control
+When accessing the schema registry programmatically, you need to register an application in Azure Active Directory (Azure AD) and add the security principal of the application to one of the Azure role-based access control (Azure RBAC) roles:
 
 | Role | Description | 
 | ---- | ----------- | 

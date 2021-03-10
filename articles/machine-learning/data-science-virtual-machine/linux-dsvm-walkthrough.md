@@ -3,8 +3,7 @@ title: Explore Linux
 titleSuffix: Azure Data Science Virtual Machine 
 description: Learn how to complete several common data science tasks by using the Linux Data Science Virtual Machine.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: lobrien
 ms.author: laobri
@@ -25,8 +24,8 @@ Before you can use a Linux DSVM, you must have the following prerequisites:
 
 * **Azure subscription**. To get an Azure subscription, see [Create your free Azure account today](https://azure.microsoft.com/free/).
 
-* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). For information about provisioning the virtual machine, see [Provision the Ubuntu Data Science Virtual Machine](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](linux-dsvm-intro.md#x2go).
+* [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). For information about provisioning the virtual machine, see [Provision the Ubuntu Data Science Virtual Machine](./release-notes.md).
+* [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](dsvm-ubuntu-intro.md#x2go).
 * For a smoother scrolling experience, in the DSVM's Firefox web browser, toggle the `gfx.xrender.enabled` flag in `about:config`. [Learn more](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider setting `mousewheel.enable_pixel_scrolling` to `False`. [Learn more](https://support.mozilla.org/questions/981140).
 
 ## Download the spambase dataset
@@ -210,7 +209,7 @@ In addition to the framework-based samples, a set of comprehensive walkthroughs 
 
 - [A how-to guide for building an end-to-end solution to detect products within images](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Image detection is a technique that can locate and classify objects within images. The technology has the potential to bring huge rewards in many real-life business domains. For example, retailers can use this technique to determine which product a customer has picked up from the shelf. This information in turn helps stores manage product inventory. 
 
-- [Deep learning for audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): This tutorial shows how to train a deep learning model for audio event detection on the [urban sounds dataset](https://urbansounddataset.weebly.com/). The tutorial provides an overview of how to work with audio data.
+- [Deep learning for audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): This tutorial shows how to train a deep learning model for audio event detection on the [urban sounds dataset](https://urbansounddataset.weebly.com/). The tutorial provides an overview of how to work with audio data.
 
 - [Classification of text documents](https://github.com/anargyri/lstm_han): This walkthrough demonstrates how to build and train two different neural network architectures: Hierarchical Attention Network and Long Short Term Memory (LSTM). These neural networks use the Keras API for deep learning to classify text documents. Keras is a front end to three of the most popular deep learning frameworks: Microsoft Cognitive Toolkit, TensorFlow, and Theano.
 
@@ -325,7 +324,7 @@ rattle()
 > [!NOTE]
 > You don't need to install Rattle on the DSVM. However, you might be prompted to install additional packages when Rattle opens.
 
-Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), like loading data or exploring data. The data science process flows from left to right through the tabs. The last tab contains a log of the R commands that were run by Rattle.
+Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Team Data Science Process](../team-data-science-process/index.yml), like loading data or exploring data. The data science process flows from left to right through the tabs. The last tab contains a log of the R commands that were run by Rattle.
 
 To load and configure the dataset:
 
@@ -535,5 +534,3 @@ GO
 ```
 
 You can also query by using SQuirreL SQL. Follow steps similar to PostgreSQL by using the SQL Server JDBC driver. The JDBC driver is in the /usr/share/java/jdbcdrivers/sqljdbc42.jar folder.
-
-

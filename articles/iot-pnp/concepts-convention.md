@@ -74,7 +74,7 @@ Sample reported property payload:
 
 The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
-DTDL:
+DTDL that references a component:
 
 ```json
 {
@@ -90,7 +90,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL that defines the component:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",
@@ -250,7 +254,7 @@ When a device receives multiple reported properties in a single payload, it can 
 
 The device or module should confirm that it received the properties by sending reported properties:
 
-DTDL:
+DTDL that references a component:
 
 ```json
 {
@@ -266,7 +270,11 @@ DTDL:
     }
   ]
 }
+```
 
+DTDL that defines the component:
+
+```json
 {
   "@context": "dtmi:dtdl:context;2",
   "@id": "dtmi:com:example:Thermostat;1",

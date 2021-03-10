@@ -25,7 +25,7 @@ If you're starting out with Privileged Identity Management (PIM) in your Azure A
 
 Before your organization starts using Privileged Identity Management, all role assignments are permanent. Users are always in their assigned roles even when they don't need their privileges. Discovery and insights (preview), which replaces the former Security Wizard, shows you a list of privileged roles and how many users are currently in those roles. You can list out assignments for a role to learn more about the assigned users if one or more of them are unfamiliar.
 
-:heavy_check_mark: **Microsoft recommends** that you keep two break glass accounts that are permanently assigned to the global administrator role. Make sure that these accounts don't require the same multi-factor authentication mechanism as your normal administrative accounts to sign in, as described in [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md).
+:heavy_check_mark: **Microsoft recommends** that you keep two break glass accounts that are permanently assigned to the global administrator role. Make sure that these accounts don't require the same multi-factor authentication mechanism as your normal administrative accounts to sign in, as described in [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).
 
 Also, keep role assignments permanent if a user has a Microsoft account (in other words, an account they use to sign in to Microsoft services like Skype, or Outlook.com). If you require multi-factor authentication for a user with a Microsoft account to activate a role assignment, the user will be locked out.
 

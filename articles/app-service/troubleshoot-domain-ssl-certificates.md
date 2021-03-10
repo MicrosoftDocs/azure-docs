@@ -17,7 +17,6 @@ This article lists common problems that you might encounter when you configure a
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Certificate problems
@@ -116,7 +115,7 @@ The internet browser might still be caching the old IP address for your domain.
 
 **Solution for Cause 2**
 
-Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the app's IP address. 
+Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the app's IP address.
 
 ### You can't add a subdomain 
 
@@ -181,7 +180,7 @@ The App Service certificate was renewed, but the app that uses the App Service c
 
 #### Cause 
 App Service automatically syncs your certificate within 48 hours. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource hasn't run yet. Click Sync. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
- 
+
 #### Solution
 
 You can force a sync of the certificate:
@@ -197,17 +196,17 @@ The App Service certificate requires domain verification before the certificate 
 
 #### Solution
 Manually verify your domain by adding a TXT record:
- 
-1.	Go to the Domain Name Service (DNS) provider that hosts your domain name.
-2.	Add a TXT record for your domain that uses the value of the domain token that's shown in the Azure portal. 
+
+1. Go to the Domain Name Service (DNS) provider that hosts your domain name.
+1. Add a TXT record for your domain that uses the value of the domain token that's shown in the Azure portal. 
 
 Wait a few minutes for DNS propagation to run, and then select the **Refresh** button to trigger the verification. 
 
 As an alternative, you can use the HTML webpage method to manually verify your domain. This method allows the certificate authority to confirm the domain ownership of the domain that the certificate is issued for.
 
-1.	Create an HTML file that's named {domain verification token}.html. The content of this file should be the value of domain verification token.
-3.	Upload this file at the root of the web server that's hosting your domain.
-4.	Select **Refresh** to check the certificate status. It might take few minutes for verification to finish.
+1. Create an HTML file that's named {domain verification token}.html. The content of this file should be the value of domain verification token.
+1. Upload this file at the root of the web server that's hosting your domain.
+1. Select **Refresh** to check the certificate status. It might take few minutes for verification to finish.
 
 For example, if you're buying a standard certificate for azure.com with the domain verification token 1234abcd, a web request made to https://azure.com/1234abcd.html should return 1234abcd. 
 
@@ -284,7 +283,7 @@ If you have auto-renew enabled, you do not need to take any action. The notice e
 
 The initial cost of domain purchase applies to domain registration only. In addition to the registration cost, there are incurring charges for Azure DNS based on your usage. For more information, see [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/) for more details.
 
-**I purchased my domain earlier from the Azure portal and want to move from GoDaddy hosting to Azure DNS hosting. How can I do this？**
+**I purchased my domain earlier from the Azure portal and want to move from GoDaddy hosting to Azure DNS hosting. How can I do this?**
 
 It is not mandatory to migrate to Azure DNS hosting. If you do want to migrate to Azure DNS, the domain management experience in the Azure portal about provides information on steps necessary to move to Azure DNS. If the domain was purchased through App Service, migration from GoDaddy hosting to Azure DNS is relatively seamless procedure.
 

@@ -1,5 +1,5 @@
 - name: VMware Solution by CloudSimple
-  href: /azure/vmware-cloudsimple
+  href: ./index.md
   items:
   - name: Overview
     items: 
@@ -52,6 +52,8 @@
       href: node-quota.md
     - name: Maintenance and updates
       href: cloudsimple-maintenance-updates.md
+    - name: Forbidden actions 
+      href: forbidden-actions.md
     - name: FAQ
       href: cloudsimple-faq.md
   - name: Tutorials
@@ -150,8 +152,6 @@
         href: configure-server-vrealize-automation-endpoint.md
       - name: Migrating workload VMs to a Private Cloud
         href: migrate-workloads.md
-      - name: Migration using Azure Data Box
-        href: migration-using-azure-data-box.md
       - name: Ensuring Application high availability in VMware on Azure
         href: ensuring-high-availability.md
       - name: Choose a load balancing solution

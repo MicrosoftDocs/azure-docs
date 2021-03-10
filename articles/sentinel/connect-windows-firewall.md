@@ -20,7 +20,7 @@ ms.author: yelevin
 ---
 # Connect Windows Defender Firewall with Advanced Security to Azure Sentinel
 
-The [Windows Defender Firewall with Advanced Security](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) connector allows Azure Sentinel to easily ingest Windows Defender Firewall with Advanced Security logs from any Windows machines in your workspace. This connection enables you to view and analyze Windows Firewall events in your workbooks, to use them in creating custom alerts, and to incorporate them in your security investigations, giving you more insight into your organization’s network and improving your security operations capabilities. 
+The [Windows Defender Firewall with Advanced Security](/windows/security/threat-protection/windows-firewall/windows-firewall-with-advanced-security) connector allows Azure Sentinel to easily ingest Windows Defender Firewall with Advanced Security logs from any Windows machines in your workspace. This connection enables you to view and analyze Windows Firewall events in your workbooks, to use them in creating custom alerts, and to incorporate them in your security investigations, giving you more insight into your organization’s network and improving your security operations capabilities. 
 
 The solution collects Windows firewall events from the Windows machines on which a Log Analytics agent is installed. 
 
@@ -77,10 +77,9 @@ The solution collects Windows firewall events from the Windows machines on which
 
 ## Validate connectivity
  
-Because Windows Firewall logs are sent to Azure Sentinel only when the local log file reaches capacity, leaving the log at its default size of 4096 KB will most likely result in high collection latency. You can lower the latency by lowering the log file size. See the instructions to [configure the Windows Firewall log](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Note that while defining the minimum possible log size (1 KB) will virtually eliminate collection latency, it might also negatively impact the local machine's performance. 
+Because Windows Firewall logs are sent to Azure Sentinel only when the local log file reaches capacity, leaving the log at its default size of 4096 KB will most likely result in high collection latency. You can lower the latency by lowering the log file size. See the instructions to [configure the Windows Firewall log](/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Note that while defining the minimum possible log size (1 KB) will virtually eliminate collection latency, it might also negatively impact the local machine's performance. 
 
 ## Next steps
 In this document, you learned how to connect Windows firewall to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-

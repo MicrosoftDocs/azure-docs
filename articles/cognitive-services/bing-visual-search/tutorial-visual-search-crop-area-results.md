@@ -15,6 +15,11 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Crop an image with the Bing Visual Search SDK for C#
 
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+
 The Bing Visual Search SDK enables you to crop an image before finding similar online images. This application crops a single person from an image containing several people, and then returns search results containing similar images found online.
 
 The full source code for this application is available with additional error handling and annotations on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchCropImage.cs).
@@ -109,4 +114,4 @@ Getting the actual image URLs requires a cast that reads an `ActionType` as `Ima
 > [Create a Visual Search single-page web app](tutorial-bing-visual-search-single-page-app.md)
 
 ## See also
-> [What is the Bing Visual Search API?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)
+> [What is the Bing Visual Search API?](./overview.md)

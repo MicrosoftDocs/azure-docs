@@ -34,7 +34,7 @@ If your pool is using a deprecated internal component, delete and re-create the 
 ## Repair invalid log alert rules
 
 Azure Advisor detects alert rules that have invalid queries specified in their condition section. 
-You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](../azure-monitor/platform/alerts-troubleshoot-log.md)
+You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](../azure-monitor/alerts/alerts-troubleshoot-log.md)
 
 ## Use Azure Policy recommendations
 
@@ -49,6 +49,13 @@ Azure Policy is a service in Azure that you can use to create, assign, and manag
 **Enforce *Audit VMs that do not use managed disks*.**
 
 **Enable *Inherit a tag from resource groups*.** This policy adds or replaces the specified tag and value from the parent resource group when any resource is created or updated. You can remediate existing resources by triggering a remediation task.
+
+Advisor recommends a few individual Azure policies that help customers achieve operational excellence by adopting best practices. If a customer decides to assign a recommended policy, then we will suppress the recommendation. If the customer decides to remove the policy later, then Advisor will continue to suppress the recommendation because we interpret its removal as a strong signal of the following:
+
+1.	The customer removed the policy because, despite Advisor’s recommendation, it does not apply to their specific use case. 
+2.	The customer is aware and familiar with the policy after assigning and removing it, and they can assign or remove it again as necessary without guidance if it later becomes relevant to their use case. 
+If the customer finds it in their best interest to assign the same policy again, they can do so in Azure Policy without requiring a recommendation in Advisor. Please note that this logic applies specifically to the policy recommendation in the Operational Excellence category. These rules do not apply to security recommendations.  
+
 
 ## No validation environment enabled
 Azure Advisor determines that you do not have a validation environment enabled in current subscription. When creating your host pools, you have selected \"No\" for \"Validation environment\" in the properties tab. Having at least one host pool with a validation environment enabled ensures the business continuity through Windows Virtual Desktop service deployments with early detection of potential issues. [Learn more](../virtual-desktop/create-validation-host-pool.md)

@@ -13,7 +13,7 @@ ms.topic: end-user-help
 ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
-metadata ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Common problems with two-factor verification and your work or school account
@@ -70,6 +70,7 @@ Not receiving your verification code is a common problem. The problem is typical
 
 Try this | Guidance info
 --------- | ------------
+Use the Microsoft authenticator app or Verification codes | You are getting “You've hit our limit on verification calls” or “You’ve hit our limit on text verification codes” error messages during sign-in. <br/><br/>Microsoft may limit repeated authentication attempts that are perform by the same user in a short period of time. This limitation does not apply to the Microsoft Authenticator or verification code. If you have hit these limits, you can use the Authenticator App, verification code or try to sign in again in a few minutes. <br/><br/> You are getting "Sorry, we're having trouble verifying your account" error message during sign-in. <br/><br/> Microsoft may limit or block voice or SMS authentication attempts that are performed by the same user, phone number, or organization due to high number of failed voice or SMS authentication attempts. If you are experiencing this error, you can try another method, such as Authenticator App or verification code, or reach out to your admin for support.
 Restart your mobile device | Sometimes your device just needs a refresh. When you restart your device, all background processes and services are ended. The restart also shuts down the core components of your device. Any service or component is refreshed when you restart your device.
 Verify your security information is correct | Make sure your security verification method information is accurate, especially your phone numbers. If you put in the wrong phone number, all of your alerts will go to that incorrect number. Fortunately, that user won't be able to do anything with the alerts, but it also won't help you sign in to your account. To make sure your information is correct, see the instructions in the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
 Verify your notifications are turned on | Make sure your mobile device has notifications turned on. Ensure the following notification modes are allowed: <br/><br/> &bull; Phone calls <br/> &bull; Your authentication app <br/> &bull; Your text messaging app <br/><br/> Ensure these modes create an alert that is _visible_ on your device.

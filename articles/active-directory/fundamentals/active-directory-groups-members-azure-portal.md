@@ -57,6 +57,6 @@ Using Azure Active Directory, you can continue to add and remove group members.
 
 - [Manage access to resources using groups](active-directory-manage-groups.md)
 
-- [Manage dynamic rules for users in a group](../users-groups-roles/groups-create-rule.md)
+- [Manage dynamic rules for users in a group](../enterprise-users/groups-create-rule.md)
 
 - [Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

@@ -3,6 +3,7 @@ title: Write stored procedures, triggers, and UDFs in Azure Cosmos DB
 description: Learn how to define stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
@@ -10,6 +11,7 @@ ms.custom: devx-track-js
 ---
 
 # How to write stored procedures, triggers, and user-defined functions in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB provides language-integrated, transactional execution of JavaScript that lets you write **stored procedures**, **triggers**, and **user-defined functions (UDFs)**. When using the SQL API in Azure Cosmos DB, you can define the stored procedures, triggers, and UDFs in JavaScript language. You can write your logic in JavaScript and execute it inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) and the [Cosmos DB SQL API client SDKs](sql-api-dotnet-samples.md). 
 
@@ -18,7 +20,7 @@ To call a stored procedure, trigger, and user-defined function, you need to regi
 > [!NOTE]
 > For partitioned containers, when executing a stored procedure, a partition key value must be provided in the request options. Stored procedures are always scoped to a partition key. Items that have a different partition key value will not be visible to the stored procedure. This also applied to triggers as well.
 > [!Tip]
-> Cosmos supports deploying containers with stored procedures, triggers and user-defined functions. For more information see [Create an Azure Cosmos DB container with server-side functionality.](manage-sql-with-resource-manager.md#create-sproc)
+> Cosmos supports deploying containers with stored procedures, triggers and user-defined functions. For more information see [Create an Azure Cosmos DB container with server-side functionality.](./manage-with-templates.md#create-sproc)
 
 ## <a id="stored-procedures"></a>How to write stored procedures
 
@@ -277,7 +279,7 @@ function async_sample() {
 
 ## <a id="triggers"></a>How to write triggers
 
-Azure Cosmos DB supports pre-triggers and post-triggers. Pre-triggers are executed before modifying a database item and post-triggers are executed after modifying a database item.
+Azure Cosmos DB supports pre-triggers and post-triggers. Pre-triggers are executed before modifying a database item and post-triggers are executed after modifying a database item. Triggers are not automatically executed, they must be specified for each database operation where you want them to execute. After you define a trigger, you should [register and call a pre-trigger](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) by using the Azure Cosmos DB SDKs.
 
 ### <a id="pre-triggers"></a>Pre-triggers
 

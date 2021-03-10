@@ -21,7 +21,7 @@ When trying to send a cloud-to-device message, the request fails with the error 
 
 ## Cause
 
-When a device receives a cloud-to-device message from the queue (for example, using [`ReceiveAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)) the message is locked by IoT Hub for a lock timeout duration of one minute. If the device tries to complete the message after the lock timeout expires, IoT Hub throws this exception.
+When a device receives a cloud-to-device message from the queue (for example, using [`ReceiveAsync()`](/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync)) the message is locked by IoT Hub for a lock timeout duration of one minute. If the device tries to complete the message after the lock timeout expires, IoT Hub throws this exception.
 
 ## Solution
 

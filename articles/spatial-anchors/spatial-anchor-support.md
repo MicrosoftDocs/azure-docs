@@ -1,11 +1,11 @@
 ---
 title: Support options
 description: Information on how to open a request with the Azure Spatial Anchors support team.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 #Customer intent: Address how to open a support ticket with the Azure Spatial Anchors support team.

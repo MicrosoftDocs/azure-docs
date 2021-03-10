@@ -3,12 +3,13 @@ title: Azure Disk Encryption with Azure AD for Windows VMs (previous release)
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Windows IaaS VMs.
 author: msmbaldwin
 ms.service: virtual-machines
-ms.subservice: security
+ms.subservice: disks
+ms.collection: windows
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 
 ---
 

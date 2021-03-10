@@ -3,7 +3,9 @@ title: Azure N-series AMD GPU driver setup for Windows
 description: How to set up AMD GPU drivers for N-series VMs running Windows Server or Windows in Azure
 author: vikancha-MSFT
 manager: jkabat
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
@@ -27,7 +29,13 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 | OS | Driver |
 | -------- |------------- |
-| Windows 10 Enterprise multi-session - Build 1903 <br/><br/>Windows 10 - Build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (.exe) |
+| Windows 10 Enterprise multi-session - Build 1909 <br/><br/>Windows 10 - Build 1909<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe) |
+
+ > [!NOTE]
+   >  If you use build 1903/1909 then you may need to update the following group policy for optimal performance. These changes are not needed for any other Windows builds.
+   >  
+   >  [Computer Configuration->Policies->Windows Settings->Administrative Templates->Windows Components->Remote Desktop Services->Remote Desktop Session Host->Remote Session    Environment], set the Policy [Use WDDM graphics display driver for Remote Desktop Connections] to Disabled.
+   >  
 
 
 ## Driver installation
@@ -44,11 +52,12 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 
 You can verify driver installation in Device Manager. The following example shows successful configuration of the Radeon Instinct MI25 card on an Azure NVv4 VM.
 <br />
-![GPU driver properties](./media/n-series-amd-driver-setup/device-manager.png)
+
+![Screenshot that shows successful configuration of the Radeon Instinct MI25 card on an Azure NVv4 VM.](./media/n-series-amd-driver-setup/device-manager.png)
 
 You can use dxdiag to verify the GPU display properties including the video RAM. The following example shows a 1/2 partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.
 <br />
-![GPU driver properties](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
+![Screenshot that shows a 1/2 partition of the Radeon Instinct MI25 card on an Azure NVv4 VM.](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 If you are running Windows 10 build 1903 or higher then dxdiag will show no information in the 'Display' tab. Please use the 'Save All Information' option at the bottom and the output file will show the information related to AMD MI25 GPU.
 

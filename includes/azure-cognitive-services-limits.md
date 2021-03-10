@@ -6,7 +6,7 @@ ms.date: 07/30/2019
 ms.author: erhopf
 ---
 
-The following limits are for the number of Cognitive Services resources per Azure subscription. Each of the Cognitive Services may have additional limitations, for more information see [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/).
+The following limits are for the number of Cognitive Services resources per Azure subscription. Each of the Cognitive Services may have additional limitations, for more information see [Azure Cognitive Services](../articles/cognitive-services/index.yml).
 
 | Type | Limit | Example |
 |------|-------|---------|

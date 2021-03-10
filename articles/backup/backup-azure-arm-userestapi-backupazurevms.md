@@ -432,7 +432,7 @@ If the Azure VM is already backed up, you can specify the list of disks to be ba
 > [!IMPORTANT]
 > The request body above is always the final copy of data disks to be excluded or included. This doesn't *add* to the previous configuration. For example: If you first update the protection as "exclude data disk 1" and then repeat with "exclude data disk 2", *only data disk 2 is excluded* in the subsequent backups and data disk 1 will be included. This is always the final list which will be included/excluded in the subsequent backups.
 
-To get the current list of disks which are excluded or included, get the protected item information as mentioned [here](https://docs.microsoft.com/rest/api/backup/protecteditems/get). The response will provide the list of data disk LUNs and indicates whether they are included or excluded.
+To get the current list of disks which are excluded or included, get the protected item information as mentioned [here](/rest/api/backup/protecteditems/get). The response will provide the list of data disk LUNs and indicates whether they are included or excluded.
 
 ### Stop protection but retain existing data
 

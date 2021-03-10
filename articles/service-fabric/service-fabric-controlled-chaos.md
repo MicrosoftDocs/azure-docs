@@ -1,17 +1,14 @@
 ---
 title: Induce Chaos in Service Fabric clusters 
 description: Using Fault Injection and Cluster Analysis Service APIs to manage Chaos in the cluster.
-author: motanv
-
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.author: motanv
 ms.custom: devx-track-csharp
 ---
 # Induce controlled Chaos in Service Fabric clusters
 Large-scale distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric enables developers to write reliable distributed services on top of an unreliable infrastructure. To write robust distributed services on top of an unreliable infrastructure, developers need to be able to test the stability of their services while the underlying unreliable infrastructure is going through complicated state transitions due to faults.
 
-The [Fault Injection and Cluster Analysis Service](./service-fabric-testability-overview.md) (also known as the Fault Analysis Service) gives developers the ability to induce faults to test their services. These targeted simulated faults, like [restarting a partition](/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), can help exercise the most common state transitions. However targeted simulated faults are biased by definition and thus may miss bugs that show up only in hard-to-predict, long and complicated sequence of state transitions. For an unbiased testing, you can use Chaos.
+The [Fault Injection and Cluster Analysis Service](./service-fabric-testability-overview.md) (also known as the Fault Analysis Service) gives developers the ability to induce faults to test their services. These targeted simulated faults, like [restarting a partition](/powershell/module/servicefabric/start-servicefabricpartitionrestart), can help exercise the most common state transitions. However targeted simulated faults are biased by definition and thus may miss bugs that show up only in hard-to-predict, long and complicated sequence of state transitions. For an unbiased testing, you can use Chaos.
 
 Chaos simulates periodic, interleaved faults (both graceful and ungraceful) throughout the cluster over extended periods of time. A graceful fault consists of a set of Service Fabric API calls, for example, restart replica fault is a graceful fault because this is a close followed by an open on a replica. Remove replica, move primary replica, and move secondary replica are the other graceful faults exercised by Chaos. Ungraceful faults are process exits, like restart node and restart code package. 
 
@@ -37,7 +34,7 @@ Chaos induces faults from the following categories:
 
 Chaos runs in multiple iterations. Each iteration consists of faults and cluster validation for the specified period. You can configure the time spent for the cluster to stabilize and for validation to succeed. If a failure is found in cluster validation, Chaos generates and persists a ValidationFailedEvent with the UTC timestamp and the failure details. For example, consider an instance of Chaos that is set to run for an hour with a maximum of three concurrent faults. Chaos induces three faults, and then validates the cluster health. It iterates through the previous step until it is explicitly stopped through the StopChaosAsync API or one-hour passes. If the cluster becomes unhealthy in any iteration (that is, it does not stabilize or it does not become healthy within the passed-in MaxClusterStabilizationTimeout), Chaos generates a ValidationFailedEvent. This event indicates that something has gone wrong and might need further investigation.
 
-To get which faults Chaos induced, you can use GetChaosReport API (powershell, C#, or REST). The API gets the next segment of the Chaos report based on the passed-in continuation token or the passed-in time-range. You can either specify the ContinuationToken to get the next segment of the Chaos report or you can specify the time-range through StartTimeUtc and EndTimeUtc, but you cannot specify both the ContinuationToken and the time-range in the same call. When there are more than 100 Chaos events, the Chaos report is returned in segments where a segment contains no more than 100 Chaos events.
+To get which faults Chaos induced, you can use GetChaosReport API (PowerShell, C#, or REST). The API gets the next segment of the Chaos report based on the passed-in continuation token or the passed-in time-range. You can either specify the ContinuationToken to get the next segment of the Chaos report or you can specify the time-range through StartTimeUtc and EndTimeUtc, but you cannot specify both the ContinuationToken and the time-range in the same call. When there are more than 100 Chaos events, the Chaos report is returned in segments where a segment contains no more than 100 Chaos events.
 
 ## Important configuration options
 * **TimeToRun**: Total time that Chaos runs before it finishes with success. You can stop Chaos before it has run for the TimeToRun period through the StopChaos API.

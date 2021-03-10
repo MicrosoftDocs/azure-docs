@@ -11,7 +11,7 @@ ms.date: 09/10/2020
 ms.author: mbullwin
 ---
 
-Metrics Monitor is a service for time series anomaly detection, diagnostics and analysis. As an AI powered service, it uses your data to train the model used. The service accepts tables of aggregated data with the following columns:
+Metrics Advisor is a service for time series anomaly detection, diagnostics and analysis. As an AI powered service, it uses your data to train the model used. The service accepts tables of aggregated data with the following columns:
 
 * **Measure** (required): one or more columns containing numeric values.
 * **Timestamp** (optional): zero or one column with type of `DateTime` or `String`. When this column is not set, the timestamp is set as the start time of each ingestion period. Format the timestamp into: `yyyy-MM-ddTHH:mm:ssZ`. 

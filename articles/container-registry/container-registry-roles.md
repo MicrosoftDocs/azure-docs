@@ -1,13 +1,13 @@
 ---
-title: Azure roles and permissions
+title: Registry roles and permissions
 description: Use Azure role-based access control (Azure RBAC) and identity and access management (IAM) to provide fine-grained permissions to resources in an Azure container registry.
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 10/14/2020
 ---
 
 # Azure Container Registry roles and permissions
 
-The Azure Container Registry service supports a set of [built-in Azure roles](../role-based-access-control/built-in-roles.md) that provide different levels of permissions to an Azure container registry. Use [Azure role-based access control (Azure RBAC)](../role-based-access-control/index.yml) to assign specific permissions to users, service principals, or other identities that need to interact with a registry. You can also define [custom roles](#custom-roles) with fine-grained permissions to a registry for different operations.
+The Azure Container Registry service supports a set of [built-in Azure roles](../role-based-access-control/built-in-roles.md) that provide different levels of permissions to an Azure container registry. Use [Azure role-based access control (Azure RBAC)](../role-based-access-control/index.yml) to assign specific permissions to users, service principals, or other identities that need to interact with a registry, for example to pull or push container images. You can also define [custom roles](#custom-roles) with fine-grained permissions to a registry for different operations.
 
 | Role/Permission       | [Access Resource Manager](#access-resource-manager) | [Create/delete registry](#create-and-delete-registry) | [Push image](#push-image) | [Pull image](#pull-image) | [Delete image data](#delete-image-data) | [Change policies](#change-policies) |   [Sign images](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -19,13 +19,19 @@ The Azure Container Registry service supports a set of [built-in Azure roles](..
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
+## Assign roles
+
+See [Steps to add a role assignment](../role-based-access-control/role-assignments-steps.md) for high-level steps to add a role assignment to an existing user, group, service principal, or managed identity. You can use the Azure portal, Azure CLI, or other Azure tools.
+
+When creating a service principal, you also configure its access and permissions to Azure resources such as a container registry. For an example script using the Azure CLI, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md#create-a-service-principal).
+
 ## Differentiate users and services
 
 Any time permissions are applied, a best practice is to provide the most limited set of permissions for a person, or service, to accomplish a task. The following permission sets represent a set of capabilities that may be used by humans and headless services.
 
 ### CI/CD solutions
 
-When automating `docker build` commands from CI/CD solutions, you need `docker push` capabilities. For these headless service scenarios, we suggest assigning the **AcrPush** role. This role, unlike the broader **Contributor** role, prevents the account from performing other registry operations or accessing Azure Resource Manager.
+When automating `docker build` commands from CI/CD solutions, you need `docker push` capabilities. For these headless service scenarios, we recommend assigning the **AcrPush** role. This role, unlike the broader **Contributor** role, prevents the account from performing other registry operations or accessing Azure Resource Manager.
 
 ### Container host nodes
 

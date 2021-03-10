@@ -1,6 +1,9 @@
 ---
 title: About Azure Migrate 
 description: Learn about the Azure Migrate service.
+author: ms-psharma
+ms.author: panshar
+ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
@@ -13,7 +16,7 @@ This article provides a quick overview of the Azure Migrate service.
 Azure Migrate provides a centralized hub to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. It provides the following:
 
 - **Unified migration platform**: A single portal to start, run, and track your migration to Azure.
-- **Range of tools**: A range of tools for assessment and migration. Azure Migrate tools include Server Assessment and Azure Migrate: Server Migration. Azure Migrate also integrates with other Azure services and tools, and with independent software vendor (ISV) offerings.
+- **Range of tools**: A range of tools for assessment and migration. Azure Migrate tools include Azure Migrate: Server Assessment and Azure Migrate: Server Migration. Azure Migrate also integrates with other Azure services and tools, and with independent software vendor (ISV) offerings.
 - **Assessment and migration**: In the Azure Migrate hub, you can assess and migrate:
     - **Servers**: Assess on-premises servers and migrate them to Azure virtual machines or Azure VMware Solution (AVS) (Preview).
     - **Databases**: Assess on-premises databases and migrate them to Azure SQL Database or to SQL Managed Instance.
@@ -29,7 +32,7 @@ The Azure Migrate hub includes these tools:
 --- | --- | ---
 **Azure Migrate: Server Assessment** | Assess servers. | Discover and assess on-premises VMware VMs, Hyper-V VMs, and physical servers in preparation for migration to Azure.
 **Azure Migrate: Server Migration** | Migrate servers. | Migrate VMware VMs, Hyper-V VMs, physical servers, other virtualized machines, and public cloud VMs to Azure.
-**Data Migration Assistant** | Assess SQL Server databases for migration to Azure SQL Database, Azure SQL Managed Instance, or Azure VMs running SQL Server. | Data Migration Assistant helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. [Learn more](/sql/dma/dma-overview?view=sql-server-2017).
+**Data Migration Assistant** | Assess SQL Server databases for migration to Azure SQL Database, Azure SQL Managed Instance, or Azure VMs running SQL Server. | Data Migration Assistant helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. [Learn more](/sql/dma/dma-overview).
 **Azure Database Migration Service** | Migrate on-premises databases to Azure VMs running SQL Server, Azure SQL Database, or SQL Managed Instances. | [Learn more](../dms/dms-overview.md) about Database Migration Service.
 **Movere** | Assess servers. | [Learn more](#movere) about Movere.
 **Web app migration assistant** | Assess on-premises web apps and migrate them to Azure. |  Use Azure App Service Migration Assistant to assess on-premises websites for migration to Azure App Service.<br/><br/> Use Migration Assistant to migrate .NET and PHP web apps to Azure. [Learn more](https://appmigration.microsoft.com/) about Azure App Service Migration Assistant.
@@ -71,15 +74,18 @@ Server Assessment uses a lightweight [Azure Migrate appliance](migrate-appliance
 - Appliance discovery is agentless. Nothing is installed on discovered machines.
 - After appliance discovery, you can gather discovered machines into groups and run assessments for each group.
 
+> [!Note]
+> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://go.microsoft.com/fwlink/?linkid=2155668) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
+
 ## Azure Migrate: Server Migration tool
 
 The Azure Migrate: Server Migration tool helps you migrate to Azure:
 
 **Migrate** | **Details**
 --- | ---
-On-premises VMware VMs | Migrate VMs to Azure using agentless or agent-based migration.<br/><br/> For agentless migration, Server Migration uses an Azure Migrate appliance that you deploy on-premises. It's the same type of appliance you use for Server Assessment.<br/><br/> For agent-based migration, Server Assessment uses a replication appliance.
-On-premises Hyper-V VMs | Migrate VMs to Azure.<br/><br/> Server Assessment uses provider agents installed on Hyper-V host for the migration.
-On-premises physical servers | You can migrate physical machines to Azure. You can also migrate other virtualized machines, and VMs from other public clouds, by treating them as virtual machines for the purpose of migration. | Server Assessment uses a replication appliance for the migration.
+On-premises VMware VMs | Migrate VMs to Azure using agentless or agent-based migration.<br/><br/> For agentless migration, Server Migration uses the same Azure Migrate appliance that can also be used by Server Assessment for discovery and assessment of VMware VMs.<br/><br/> For agent-based migration, Server Migration uses a replication appliance.
+On-premises Hyper-V VMs | Migrate VMs to Azure.<br/><br/> Server Migration uses provider agents installed on Hyper-V host for the migration.
+On-premises physical servers | You can migrate physical machines to Azure. You can also migrate other virtualized machines, and VMs from other public clouds, by treating them as physical servers for the purpose of migration. | Server Migration uses a replication appliance for the migration.
 
 
 ## Selecting assessment and migration tools
@@ -113,11 +119,11 @@ If you're looking for expert help to get started, Microsoft has skilled [Azure E
 There are two versions of the Azure Migrate service.
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
-- **Previous version**: The previous version of Azure Migrate supports only assessment of on-premises VMware VMs. If you used the previous version, you should now use the current version. You can no longer create Azure Migrate projects using the previous version. And we recommend that you don't do new discoveries with it.
+- **Previous version**: The previous version of Azure Migrate, also known as classic Azure Migrate, supports only assessment of on-premises VMware VMs. Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported and the inventory metadata in classic projects will be deleted. You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](./create-manage-projects.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a classic project, you can attach it to a project of current version after you delete the classic project.
 
     To access existing projects in the Azure portal, search for and select **Azure Migrate**. The **Azure Migrate** dashboard has a notification and a link to access old Azure Migrate projects.
 
 ## Next steps
 
-- Try our tutorials to assess [VMware VMs](tutorial-prepare-vmware.md), [Hyper-V VMs](tutorial-prepare-hyper-v.md), or [physical servers](tutorial-prepare-physical.md).
+- Try our tutorials to assess [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md).
 - [Review frequently asked questions](resources-faq.md) about Azure Migrate.

@@ -4,7 +4,7 @@ description: Cognitive Services provides two natural language processing service
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 10/20/2020
 ---
 
 # Use Cognitive Services with natural language processing (NLP) to enrich chat bot conversations

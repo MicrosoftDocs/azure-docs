@@ -77,8 +77,8 @@ VMs configured with Azure-managed DNS resolve the hostnames within the same virt
 
 You can assign a private IP address to the **front-end** configuration of an:
 
-* [Azure internal load balancer](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
-* [Azure Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+* [Azure internal load balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
+* [Azure Application Gateway](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 
 This private IP address serves as an internal endpoint. The internal endpoint is accessible only to the resources within its virtual network and the remote networks connected to it. A dynamic or static IP can be assigned.
 

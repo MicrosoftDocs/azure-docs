@@ -18,6 +18,7 @@
     - name: Create a public zone - CLI
       href: dns-getstarted-cli.md
     - name: Create a public zone - ARM Template
+      displayName: Resource Manager
       href: dns-get-started-template.md
   - name: Private DNS
     items:
@@ -79,7 +80,7 @@
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
     - name: FAQ
       href: dns-faq-private.md
-- name: How to
+- name: How-to guides
   items:
   - name: Public DNS
     items:
@@ -150,7 +151,7 @@
     - name: Ruby
       href: https://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0
     - name: Python
-      href: https://azure.github.io/azure-sdk-for-python/ref/DNS.html
+      href: https://azure.github.io/azure-sdk-for-python/dns.html
     - name: REST
       href: /rest/api/dns/
     - name: Resource Manager template
@@ -172,7 +173,7 @@
   - name: Feature requests
     href: https://feedback.azure.com/forums/217313-networking/category/77466-domain-name-service-dns-traffic-manager
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html
+    href: /answers/topics/azure-virtual-network.html
   - name: Networking blog
     href: https://azure.microsoft.com/blog/topics/networking
   - name: Pricing

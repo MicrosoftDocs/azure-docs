@@ -6,7 +6,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/17/2020
 ---
 # Mount or unmount a volume for Windows or Linux virtual machines 
 
@@ -16,11 +16,11 @@ You can mount or unmount a volume for Windows or Linux virtual machines as neces
 
 * You must have at least one export policy to be able to access an NFS volume.
 * To mount an NFS volume successfully, ensure that the following NFS ports are open between the client and the NFS volumes:
-    * 111 = `RPCBIND/Portmapper`
-    * 635 = `mountd`
-    * 2049 = `nfs`
-    * 4045 = `nlockmgr` (NFSv3 only)
-    * 4046 = `status` (NFSv3 only)
+    * 111 TCP/UDP = `RPCBIND/Portmapper`
+    * 635 TCP/UDP = `mountd`
+    * 2049 TCP/UDP = `nfs`
+    * 4045 TCP/UDP = `nlockmgr` (NFSv3 only)
+    * 4046 TCP/UDP = `status` (NFSv3 only)
 
 ## Steps
 

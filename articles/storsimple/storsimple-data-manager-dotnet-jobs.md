@@ -28,7 +28,7 @@ Before you begin, ensure that you have:
 
     - Visual Studio 2012, 2013, 2015, or 2017.
 
-    - Azure Powershell. [Download Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+    - Azure Powershell. [Download Azure Powershell](/powershell/azure/).
 *	A correctly configured job definition in StorSimple Data Manager within a resource group.
 *	All the required dlls. Download these dlls from the [GitHub repository](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
 *	[`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) script from the GitHub repository.

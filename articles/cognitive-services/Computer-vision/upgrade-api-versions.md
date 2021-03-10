@@ -14,7 +14,6 @@ ms.author: pafarley
 ROBOTS: NOINDEX
 ---
 
-
 # Upgrade from Read v2.x to Read v3.x
 
 This guide shows how to upgrade your existing container or cloud API code from Read v2.x to Read v3.0 and v3.1 preview.
@@ -24,11 +23,12 @@ Use the following table to determine the **version string** in the API path base
 
 |Product type| Version | Version string in 3.x API path |
 |:-----|:----|:----|
-|Service | Read 3.0 | **v3.0** |
-|Container | Read 3.0 preview | **v3.0** |
-|Service/Container | Read 3.1 preview | **v3.1-preview.2** |
+|Service | Read 3.0 or 3.1 | **v3.0** or **v3.1** respectively |
+|Service | Read 3.2 preview | **v3.2-preview.1** |
+|Container | Read 3.0 preview or Read 3.1 preview | **v3.0** or **v3.1-preview.2** respectively |
 
-Next, use the following sections to narrow your operations and replace the **version string** in your API path with the value from the table. For example, for **Read v3.1 preview** cloud and container versions, update the API path to **https://{endpoint}/vision/v3.1-preview.2/read/analyze[?language]**.
+
+Next, use the following sections to narrow your operations and replace the **version string** in your API path with the value from the table. For example, for **Read v3.2 preview** cloud and container versions, update the API path to **https://{endpoint}/vision/v3.2-preview.1/read/analyze[?language]**.
 
 ## Service/Container
 

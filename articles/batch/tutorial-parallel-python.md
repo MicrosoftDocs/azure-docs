@@ -1,5 +1,5 @@
 ---
-title: Run a parallel workload using the Python API
+title: Tutorial - Run a parallel workload using the Python API
 description: Tutorial - Process media files in parallel with ffmpeg in Azure Batch using the Batch Python client library
 ms.devlang: python
 ms.topic: tutorial
@@ -263,7 +263,7 @@ When no longer needed, delete the resource group, Batch account, and storage acc
 
 ## Next steps
 
-In this tutorial, you learned about how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Authenticate with Batch and Storage accounts

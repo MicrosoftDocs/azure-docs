@@ -23,4 +23,4 @@ Windows Virtual Desktop is a comprehensive desktop and app virtualization servic
 
 ## Next steps
 
-Learn more about [Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/).
+Learn more about [Windows Virtual Desktop](../virtual-desktop/index.yml).

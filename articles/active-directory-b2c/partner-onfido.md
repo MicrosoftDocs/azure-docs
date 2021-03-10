@@ -25,7 +25,7 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-- [An Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that is linked to your Azure subscription.
+- [An Azure AD B2C tenant](./tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 - An Onfido [trial account](https://onfido.com/signup/).
 
@@ -69,7 +69,7 @@ For more information about Onfido, see [Onfido API documentation](https://docume
 
 ### Part 1 - Deploy the API
 
-- Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+- Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 - Set-up CORS, add **Allowed Origin** as https://{your_tenant_name}.b2clogin.com
 
 >[!NOTE]
@@ -77,7 +77,7 @@ For more information about Onfido, see [Onfido API documentation](https://docume
 
 #### Adding sensitive configuration settings
 
-Application settings can be configured in the [App service in Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). The App service allows for settings to be securely configured without checking them into a repository. The Rest API needs the following settings:
+Application settings can be configured in the [App service in Azure](../app-service/configure-common.md#configure-app-settings). The App service allows for settings to be securely configured without checking them into a repository. The Rest API needs the following settings:
 
 | Application setting name | Source | Notes |
 |:-------------------------|:-------|:-------|
@@ -87,7 +87,7 @@ Application settings can be configured in the [App service in Azure](https://doc
 
 #### Configure your storage location
 
-1. Set up a [blob storage container in your storage account](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
+1. Set up a [blob storage container in your storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 
 2. Store the UI files from the [UI folder](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) to your blob container.
 
@@ -113,7 +113,7 @@ Application settings can be configured in the [App service in Azure](https://doc
 
 1. Store the UI files from the UI folder to your blob container.
 
-2. Use [Azure Storage Explorer](https://docs.microsoft.com/azure/virtual-machines/windows/disks-use-storage-explorer-managed-disks) to manage your files and access permissions.
+2. Use [Azure Storage Explorer](../virtual-machines/disks-use-storage-explorer-managed-disks.md) to manage your files and access permissions.
 
 ### Part 3 - Configure Azure AD B2C
 
@@ -137,7 +137,7 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 
 ### Part 4 - Configure the Azure AD B2C policy
 
-Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
+Refer to this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
 
 >[!NOTE]
 > As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
@@ -164,6 +164,6 @@ Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/c
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

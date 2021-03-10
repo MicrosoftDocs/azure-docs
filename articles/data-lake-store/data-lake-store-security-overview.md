@@ -38,7 +38,7 @@ After Azure Active Directory authenticates a user so that the user can access Da
 * [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) for account management
 * POSIX ACL for accessing data in the store
 
-### RBAC for account management
+### Azure RBAC for account management
 
 Four basic roles are defined for Data Lake Storage Gen1 by default. The roles permit different operations on a Data Lake Storage Gen1 account via the Azure portal, PowerShell cmdlets, and REST APIs. The Owner and Contributor roles can perform a variety of administration functions on the account. You can assign the Reader role to users who only view account management data.
 

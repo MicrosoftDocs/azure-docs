@@ -54,7 +54,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services SMS client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.2
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
 ```
 
 Add a `using` directive to the top of **Program.cs** to include the `Azure.Communication` namespace.
@@ -112,3 +112,7 @@ Run the application from your application directory with the `dotnet run` comman
 ```console
 dotnet run
 ```
+
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS)

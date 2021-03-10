@@ -31,7 +31,7 @@ The viewer can operate in two modes: with live data from the sensor or from reco
 
 Launch the application by running `k4aviewer.exe`.
 
-![Checking device firmware version using viewer](./media/how-to-guides/open-viewer.png)
+![Screenshot that shows the launched viewer application.](./media/how-to-guides/open-viewer.png)
 
 ### Use the viewer with live data
 

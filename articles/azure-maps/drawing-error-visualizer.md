@@ -1,18 +1,24 @@
 ---
 title: Use Azure Maps Drawing Error Visualizer
-description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator Conversion API.
+description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator (Preview) Conversion API.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/12/2020
+ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ---
 
-# Using the Azure Maps Drawing Error Visualizer
+# Using the Azure Maps Drawing Error Visualizer with Creator (Preview)
 
-The Drawing Error Visualizer is a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements](drawing-requirements.md). The [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/conversion) only returns a response with a link to the Error Visualizer only when an error is detected.
+> [!IMPORTANT]
+> Azure Maps Creator services are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+The Drawing Error Visualizer is a stand-alone web application that displays [Drawing package warnings and errors](drawing-conversion-error-codes.md) detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements](drawing-requirements.md). The [Azure Maps Conversion API](/rest/api/maps/conversion) only returns a response with a link to the Error Visualizer only when an error is detected.
 
 ## Prerequisites
 
@@ -20,13 +26,13 @@ Before you can download the Drawing Error Visualizer, you'll need to:
 
 1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
-3. [Create a Creator resource](how-to-manage-creator.md)
+3. [Create a Creator (Preview) resource](how-to-manage-creator.md)
 
 This tutorial uses the [Postman](https://www.postman.com/) application, but you may choose a different API development environment.
 
 ## Download
 
-1. Upload your Drawing package to the Azure Maps Creator service to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
+1. Upload your Drawing package to the Azure Maps Creator service (Preview) to obtain a `udid` for the uploaded package. For steps on how to upload a package, see [Upload a drawing package](tutorial-creator-indoor-maps.md#upload-a-drawing-package).
 
 2. Now that the Drawing package is uploaded, we'll use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package](tutorial-creator-indoor-maps.md#convert-a-drawing-package).
 
@@ -85,13 +91,13 @@ Once the _ConversionWarningsAndErrors.json_ file loads, you'll see a list of you
 
 ## Next steps
 
-Once your [Drawing package meets the requirements](drawing-requirements.md), you can use the [Azure Maps Dataset service](https://docs.microsoft.com/rest/api/maps/conversion) to convert the Drawing package to a dataset. Then, you can use the Indoor Maps web module to develop your application. Learn more by reading the following articles:
+Once your [Drawing package meets the requirements](drawing-requirements.md), you can use the [Azure Maps Dataset service](/rest/api/maps/conversion) to convert the Drawing package to a dataset. Then, you can use the Indoor Maps web module to develop your application. Learn more by reading the following articles:
 
 > [!div class="nextstepaction"]
 > [Drawing Conversion error codes](drawing-conversion-error-codes.md)
 
 > [!div class="nextstepaction"]
-> [Creator for indoor maps](creator-indoor-maps.md)
+> [Creator (Preview) for indoor maps](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Use the Indoor Maps module](how-to-use-indoor-module.md)

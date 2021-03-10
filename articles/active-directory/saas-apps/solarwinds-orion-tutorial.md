@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate SolarWinds Orion with Azure Acti
 * Enable your users to be automatically signed-in to SolarWinds Orion with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SolarWinds Orion supports **SP and IDP** initiated SSO
-* Once you configure SolarWinds Orion you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure SolarWinds Orion you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding SolarWinds Orion from the gallery
 
@@ -142,19 +142,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Log in to the SolarWinds Orion and go to the **Settings** -> **All Settings**.
 
-    ![ Configuration SolarWinds Orion ](./media/solarwinds-orion-tutorial/settings.png)
+    ![Screenshot shows All Settings selected from Settings.](./media/solarwinds-orion-tutorial/settings.png)
 
 1. In the **USER ACCOUNTS** section, select **SAML Configuration**.
 
-    ![ Configuration SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
+    ![Screenshot show SAML Configuration selected from User Accounts.](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
 
 1. Click on **ADD IDENTITY PROVIDER**.
 
-    ![ Configuration SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
+    ![Screenshot shows SAML Configuration where you can select ADD IDENTITY PROVIDER.](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
 
 1. Perform the following steps in the **Add Identity Provider** page:
 
-    ![ Configuration SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
+    ![Screenshot shows the Add Identity Provider page where you can enter the values described.](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
 
     a. Go to the **Configure** tab.
 
@@ -172,43 +172,42 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Log in to the SolarWinds Orion website and go to the **Settings** -> **All Settings**.
 
-    ![ SolarWinds Orion create test user ](./media/solarwinds-orion-tutorial/settings.png)
+    ![Screenshot shows All Settings selected from Settings.](./media/solarwinds-orion-tutorial/settings.png)
 
 1. In the **USER ACCOUNTS** section, select **Manage Accounts**.
 
-    ![ SolarWinds Orion create test user ](./media/solarwinds-orion-tutorial/user-accounts.png)
+    ![Screenshot show SAML Configuration selected.](./media/solarwinds-orion-tutorial/user-accounts.png)
 
 1. In the **INDIVIDUAL ACCOUNTS** tab, click on **ADD NEW ACCOUNT**.
 
-    ![ SolarWinds Orion create test user ](./media/solarwinds-orion-tutorial/create-user.png)
+    ![Screenshot shows ADD NEW ACCOUNT selected in Manage Accounts.](./media/solarwinds-orion-tutorial/create-user.png)
 
 1. Select the type of account, which you need to create either SAML individual users or groups.
 
-    ![ SolarWinds Orion create test user ](./media/solarwinds-orion-tutorial/create-user-new-account.png)
+    ![Screenshot shows Add New Account where you can select the type of account.](./media/solarwinds-orion-tutorial/create-user-new-account.png)
 
 1.  In the **NAME ID** textbox, enter the name that must match with the username or group name exactly as in Azure AD.
 
 1.  Click on **Next** and then submit the page.
 
-    ![ SolarWinds Orion create test user ](./media/solarwinds-orion-tutorial/create-user-name-id.png)
+    ![Screenshot shows Add New Account where you can enter the Name I D from Azure A D.](./media/solarwinds-orion-tutorial/create-user-name-id.png)
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the SolarWinds Orion tile in the Access Panel, you should be automatically signed in to the SolarWinds Orion for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SolarWinds Orion tile in the Access Panel, you should be automatically signed in to the SolarWinds Orion for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try SolarWinds Orion with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect SolarWinds Orion with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [How to protect SolarWinds Orion with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

@@ -1,14 +1,11 @@
 ---
 title: Troubleshoot SSIS Integration Runtime management
 description: "This article provides troubleshooting guidance for management issues of SSIS Integration Runtime (SSIS IR)"
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
 ---
@@ -78,7 +75,7 @@ This kind of error message looks like this: “Invalid object name 'catalog.cata
 
 ## Custom setup issues
 
-Custom setup provides an interface to add your own setup steps during the provisioning or reconfiguration of your SSIS IR. For more information, see [Customize setup for the Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+Custom setup provides an interface to add your own setup steps during the provisioning or reconfiguration of your SSIS IR. For more information, see [Customize setup for the Azure-SSIS Integration Runtime](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 Make sure your container contains only the necessary custom setup files; all the files in the container will be downloaded onto the SSIS IR worker node. We recommend that you test the custom setup script on a local machine to fix any script execution issues before you run the script in SSIS IR.
 
@@ -110,7 +107,7 @@ This error means that the attempt to upload custom setup execution logs to your 
 
 ## Virtual network configuration
 
-When you join SSIS IR to Azure Virtual Network, SSIS IR uses the virtual network that's under the user subscription. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+When you join SSIS IR to Azure Virtual Network, SSIS IR uses the virtual network that's under the user subscription. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md).
 After SSIS IR starts successfully, if you encounter network connection problems, you can try to use [diagnose connectivity tool](ssis-integration-runtime-diagnose-connectivity-faq.md) to diagnose the problem yourself.
 When there's a Virtual Network-related issue, you'll see one of the following errors.
 
@@ -137,7 +134,7 @@ These errors mean the virtual network doesn't exist, the Azure Batch service can
 
 This kind of error message can look like this: “Failed to provision Integration Runtime in VNet. If the DNS server or NSG settings are configured, make sure the DNS server is accessible and NSG is configured properly.”
 
-In this situation, you probably have a customized configuration of DNS server or NSG settings, which prevents the Azure server name required by SSIS IR from being resolved or accessed. For more information, see [SSIS IR Virtual Network configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). If you’re still having problems, contact the Azure Data Factory support team.
+In this situation, you probably have a customized configuration of DNS server or NSG settings, which prevents the Azure server name required by SSIS IR from being resolved or accessed. For more information, see [SSIS IR Virtual Network configuration](./join-azure-ssis-integration-runtime-virtual-network.md). If you’re still having problems, contact the Azure Data Factory support team.
 
 ### VNetResourceGroupLockedDuringUpgrade
 
@@ -147,17 +144,17 @@ SSIS IR will be automatically updated on a regular basis. A new Azure Batch pool
 
 If SSIS IR provisioning fails, all the resources that were created are deleted. However, if there's a resource delete lock at the subscription or resource group level, Virtual Network resources are not deleted as expected. To fix this error, remove the delete lock and restart the IR.
 
-### VNetResourceGroupLockedDuringStop
+### VNetResourceGroupLockedDuringStop/VNetDeleteLock
 
 When you stop SSIS IR, all the resources related to Virtual Network are deleted. But deletion can fail if there's a resource delete lock at the subscription or resource group level. Here, too, the customer controls and sets the delete lock. Therefore, they must remove the delete lock and then stop SSIS IR again.
 
 ### NodeUnavailable
 
-This error occurs when IR is running, and it means that IR has become unhealthy. This error is always caused by a change in the DNS server or NSG configuration that blocks SSIS IR from connecting to a necessary service. Because configuration of DNS server and NSG is controlled by the customer, the customer must fix the blocking issues on their end. For more information, see [SSIS IR Virtual Network configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). If you’re still having problems, contact the Azure Data Factory support team.
+This error occurs when IR is running, and it means that IR has become unhealthy. This error is always caused by a change in the DNS server or NSG configuration that blocks SSIS IR from connecting to a necessary service. Because configuration of DNS server and NSG is controlled by the customer, the customer must fix the blocking issues on their end. For more information, see [SSIS IR Virtual Network configuration](./join-azure-ssis-integration-runtime-virtual-network.md). If you’re still having problems, contact the Azure Data Factory support team.
 
 ## Static public IP addresses configuration
 
-When you join the Azure-SSIS IR to Azure Virtual Network, you are also able to bring your own static public IP addresses for the IR so that the IR can access data sources which limit access to specific IP addresses. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+When you join the Azure-SSIS IR to Azure Virtual Network, you are also able to bring your own static public IP addresses for the IR so that the IR can access data sources which limit access to specific IP addresses. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md).
 
 Besides the above virtual network issues, you may also meet static public IP addresses-related issue. Please check the following errors for help.
 
@@ -170,7 +167,7 @@ This error can occur for a variety of reasons when you start the Azure-SSIS IR:
 | The provided static public IP address is already used, please provide two unused ones for your Azure-SSIS Integration Runtime. | You should select two unused static public IP addresses or remove current references to the specified public IP address, and then restart the Azure-SSIS IR. |
 | The provided static public IP address has no DNS name, please provide two of them with DNS name for your Azure-SSIS Integration Runtime. | You can setup the DNS name of the public IP address in Azure portal, as the picture below shows. Specific steps are as follows: (1) Open Azure portal and goto the resource page of this public IP address; (2) Select the **Configuration** section and set up the DNS name, then click **Save** button; (3) Restart your Azure-SSIS IR. |
 | The provided VNet and static public IP addresses for your Azure-SSIS Integration Runtime must be in the same location. | According to the Azure Network's requirements, the static public IP address and the virtual network should be in the same location and subscription. Please provide two valid static public IP addresses and restart the Azure-SSIS IR. |
-| The provided static public IP address is a basic one, please provide two standard ones for your Azure-SSIS Integration Runtime. | Refer to [SKUs of Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) for help. |
+| The provided static public IP address is a basic one, please provide two standard ones for your Azure-SSIS Integration Runtime. | Refer to [SKUs of Public IP Address](../virtual-network/public-ip-addresses.md#sku) for help. |
 
 ![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
 

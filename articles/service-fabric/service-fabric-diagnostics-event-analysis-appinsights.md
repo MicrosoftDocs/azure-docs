@@ -28,7 +28,7 @@ Application Insights has a rich out of the box experience when using Service Fab
 
 On the right panel in the preceding image, there are two main types of entries in the list: requests and events. Requests are calls made to the app's API through HTTP requests in this case, and events are custom events, which act as telemetry you can add anywhere in your code. You can further explore instrumenting your applications in [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md). Clicking on a request would display further details as shown in the following image, including data specific to Service Fabric, which is collected in the Application Insights Service Fabric NuGet package. This info is useful for troubleshooting and knowing what the state of your application is, and all of this information is searchable within Application Insights
 
-![Application Insights Request Details](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
+![Screenshot that shows further details, including data specific to Service Fabric, which is collected in the Application Insights Service Fabric NuGet package.](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
 Application Insights has a designated view for querying against all the data that comes in. Select "Metrics Explorer" on the top of the Overview page to navigate to the Application Insights portal. Here you can run queries against custom events mentioned before, requests, exceptions, performance counters, and other metrics using the Kusto query language. The following example shows all the requests in the last 1 hour.
 
@@ -63,11 +63,11 @@ If you are developing in .NET and will likely be using some of Service Fabric's 
 
 Once you have configured Application Insights as an output for your events and logs, information should start to show up in your Application Insights resource in a few minutes. Navigate to the Application Insights resource, which will take you to the Application Insights resource dashboard. Select **Search** in the Application Insights taskbar to see the latest traces that it has received, and to be able to filter through them.
 
-*Metrics Explorer* is a useful tool for creating custom dashboards based on metrics that your applications, services, and cluster may be reporting. See [Exploring Metrics in Application Insights](../azure-monitor/platform/metrics-charts.md) to set up a few charts for yourself based on the data you are collecting.
+*Metrics Explorer* is a useful tool for creating custom dashboards based on metrics that your applications, services, and cluster may be reporting. See [Exploring Metrics in Application Insights](../azure-monitor/essentials/metrics-charts.md) to set up a few charts for yourself based on the data you are collecting.
 
-Clicking **Analytics** will take you to the Application Insights Analytics portal, where you can query events and traces with greater scope and optionality. Read more about this at [Analytics in Application Insights](../azure-monitor/log-query/log-query-overview.md).
+Clicking **Analytics** will take you to the Application Insights Analytics portal, where you can query events and traces with greater scope and optionality. Read more about this at [Analytics in Application Insights](../azure-monitor/logs/log-query-overview.md).
 
 ## Next steps
 
-* [Set up Alerts in AI](../azure-monitor/platform/alerts-log.md) to be notified about changes in performance or usage
+* [Set up Alerts in AI](../azure-monitor/alerts/alerts-log.md) to be notified about changes in performance or usage
 * [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) performs a proactive analysis of the telemetry being sent to Application Insights to warn you of potential performance problems

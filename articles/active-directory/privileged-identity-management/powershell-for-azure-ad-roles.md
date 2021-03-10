@@ -51,7 +51,7 @@ This article contains instructions for using Azure Active Directory (Azure AD) P
     ![Find the organization ID in the properties for the Azure AD organization](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> The following sections are simple examples that can help get you up and running. You can find more detailed documentation regarding the following cmdlets at [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true). However, you must replace "azureResources" in the providerID parameter with "aadRoles". You will also need to remember to use the Tenant ID for your Azure AD organization as the resourceId parameter.
+> The following sections are simple examples that can help get you up and running. You can find more detailed documentation regarding the following cmdlets at [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management). However, you must replace "azureResources" in the providerID parameter with "aadRoles". You will also need to remember to use the Tenant ID for your Azure AD organization as the resourceId parameter.
 
 ## Retrieving role definitions
 
@@ -159,4 +159,4 @@ Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a
 - [Assign an Azure AD custom role](azure-ad-custom-roles-assign.md)
 - [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-update-remove.md)
 - [Configure an Azure AD custom role assignment](azure-ad-custom-roles-configure.md)
-- [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Role definitions in Azure AD](../roles/permissions-reference.md)

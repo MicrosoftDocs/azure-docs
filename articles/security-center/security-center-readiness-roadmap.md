@@ -55,9 +55,8 @@ Security Center automatically collects, analyzes, and integrates log data from y
 Use the following resources to assist you to manage security alerts and protect your resources.
 
 Articles    
-- [Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-- [Protecting your network in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-- [Protecting Azure SQL service and data in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+- [Protecting your network in Azure Security Center](./security-center-network-recommendations.md)
+- [Protecting Azure SQL service and data in Azure Security Center](./security-center-remediate-recommendations.md)
 
 
 Video    
@@ -73,8 +72,8 @@ Videos
 * [Respond quickly to threats with next-generation security operation, and investigation](https://youtu.be/e8iFCz5RM4g)
 
 Articles    
-* [Using Azure Security Center for an incident response](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automate response with Workflow Automation](workflow-automation.md)
+* [Using Azure Security Center for an incident response](./tutorial-security-incident.md)
+* [Use automation to respond to Security Center triggers](workflow-automation.md)
 
 ## Advanced cloud defense
 
@@ -87,8 +86,8 @@ Videos
 * [Azure Security Center - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck)
 
 Articles    
-* [Manage virtual machine access using just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
-* [Adaptive Application Controls in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Manage virtual machine access using just-in-time](./security-center-just-in-time.md)
+* [Adaptive Application Controls in Azure Security Center](./security-center-adaptive-application.md)
 
 ## Hands-on activities
 
@@ -97,17 +96,17 @@ Articles
 * [Azure Security Center Playbook: Security Alerts](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## Additional resources
-* [Security Center Documentation Page](https://docs.microsoft.com/azure/security-center/)
-* [Security Center REST API Documentation Page](https://msdn.microsoft.com/library/mt704034.aspx)
-* [Azure Security Center frequently asked questions (FAQ)](https://docs.microsoft.com/azure/security-center/security-center-faq)
+* [Security Center Documentation Page](./index.yml)
+* [Security Center REST API Documentation Page](/previous-versions/azure/reference/mt704034(v=azure.100))
+* [Azure Security Center frequently asked questions (FAQ)](./faq-general.md)
 * [Security Center Pricing Page](https://azure.microsoft.com/pricing/details/security-center/)
-* [Identity security best practices](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
-* [Network security best practices](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
-* [PaaS recommendations](https://docs.microsoft.com/azure/security/security-paas-deployments)
+* [Identity security best practices](../security/fundamentals/identity-management-best-practices.md)
+* [Network security best practices](../security/fundamentals/network-best-practices.md)
+* [PaaS recommendations](../security/fundamentals/paas-deployments.md)
 * [Compliance](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [Log analytics customers can now use Azure Security Center to protect their hybrid cloud workloads](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Log analytics customers can now use Azure Security Center to protect their hybrid cloud workloads](/archive/blogs/msoms/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads)
 
 ## Community Resources
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Q&A page for Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)
+* [Q&A page for Security Center](/answers/topics/azure-security-center.html)

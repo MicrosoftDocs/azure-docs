@@ -26,7 +26,7 @@ A single Speech service subscription key grants access to the following features
 * [Speech-to-text](speech-to-text.md)
 * [Custom speech-to-text](https://cris.ai)
 * [Text-to-speech](text-to-speech.md)
-* [Custom text-to-speech voices](how-to-customize-voice-font.md)
+* [Custom text-to-speech voices](./how-to-custom-voice-create-voice.md)
 * [Speech translation](speech-translation.md) (does not include [Text translation](../translator/translator-info-overview.md))
 
 The [Speech SDK](speech-sdk.md) is a functional replacement for the Bing Speech client libraries, but uses a different API.
@@ -61,7 +61,7 @@ The Speech service uses a time-based pricing model (rather than a transaction-ba
 
 If you or your organization have applications in development or production that use a Bing Speech API, you should update them to use the Speech service as soon as possible. See the [Speech service documentation](index.yml) for available SDKs, code samples, and tutorials.
 
-The Speech service [REST APIs](rest-apis.md) are compatible with the Bing Speech APIs. If you're currently using the Bing Speech REST APIs, you need only change the REST endpoint, and switch to a Speech service subscription key.
+The Speech service [REST APIs](./overview.md#reference-docs) are compatible with the Bing Speech APIs. If you're currently using the Bing Speech REST APIs, you need only change the REST endpoint, and switch to a Speech service subscription key.
 
 If you're using a Bing Speech client library for a specific programming language, migrating to the [Speech SDK](speech-sdk.md) requires changes to your application, because the API is different. The Speech SDK can make your code simpler, while also giving you access to new features. The Speech SDK is available in a wide variety of programming languages. APIs on all platforms are similar, easing multi-platform development.
 
@@ -70,14 +70,14 @@ The Speech service doesn't offer a global endpoint. Determine if your applicatio
 To get started with the Speech SDK:
 
 1. Download the [Speech SDK](speech-sdk.md).
-1. Work through the Speech service [quickstart guides](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) and [tutorials](how-to-recognize-intents-from-speech-csharp.md). Also look at the [code samples](samples.md) to get experience with the new APIs.
+1. Work through the Speech service [quickstart guides](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) and [tutorials](how-to-recognize-intents-from-speech-csharp.md). Also look at the [code samples](./speech-sdk.md#sample-source-code) to get experience with the new APIs.
 1. Update your application to use the Speech service.
 
 ## Support
 
 Bing Speech customers should contact customer support by opening a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also contact us if your support need requires a [technical support plan](https://azure.microsoft.com/support/plans/).
 
-For Speech service, SDK, and API support, visit the Speech service [support page](support.md).
+For Speech service, SDK, and API support, visit the Speech service [support page](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## Next steps
 

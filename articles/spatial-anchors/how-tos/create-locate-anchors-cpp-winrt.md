@@ -1,12 +1,12 @@
 ---
 title: Create & locate anchors in C++/WinRT
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++/WinRT.
-author: ramonarguelles
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: rgarcia
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 11/20/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---

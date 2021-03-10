@@ -1,191 +1,202 @@
 ---
 title: Share and receive data from Azure Blob Storage and Azure Data Lake Storage
-description: Learn how to share and receive data from Azure Blob Storage and Azure Data Lake Storage
+description: Learn how to share and receive data from Azure Blob Storage and Azure Data Lake Storage.
 author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/23/2021
 ---
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
 
 [!INCLUDE[appliesto-storage](includes/appliesto-storage.md)]
 
-Azure Data Share supports snapshot-based sharing from storage account. This article explains how to share and receive data from the following sources: Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2.
+Azure Data Share supports snapshot-based sharing from a storage account. This article explains how to share and receive data from Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2.
 
-Azure Data Share supports sharing of files, folders and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports sharing of blobs, folders and containers from Azure Blob Storage. Only block blob is currently supported. Data shared from these sources can be received into Azure Data Lake Gen2 or Azure Blob Storage.
+Azure Data Share supports the sharing of files, folders, and file systems from Azure Data Lake Gen1 and Azure Data Lake Gen2. It also supports the sharing of blobs, folders, and containers from Azure Blob Storage. Only block blobs are currently supported. Data shared from these sources can be received by Azure Data Lake Gen2 or Azure Blob Storage.
 
-When file systems, containers or folders are shared in snapshot-based sharing, data consumer can choose to make a full copy of the share data, or leverage incremental snapshot capability to copy only new or updated files. Incremental snapshot is based on the last modified time of the files. Existing files with the same name will be overwritten.
+When file systems, containers, or folders are shared in snapshot-based sharing, data consumers can choose to make a full copy of the share data. Or they can use the incremental snapshot capability to copy only new or updated files. The incremental snapshot capability is based on the last modified time of the files. 
+
+Existing files that have the same name are overwritten during a snapshot. A file that is deleted from the source isn't deleted on the target. Empty subfolders at the source aren't copied over to the target. 
 
 ## Share data
 
+Use the information in the following sections to share data by using Azure Data Share. 
 ### Prerequisites to share data
 
-* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Your recipient's Azure login e-mail address (using their e-mail alias won't work).
-* If the source Azure data store is in a different Azure subscription than the one you will use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Find your recipient's Azure sign-in email address. The recipient's email alias won't work for your purposes.
+* If the source Azure data store is in a different Azure subscription than the one where you'll create the Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
 
-### Prerequisites for source storage account
+### Prerequisites for the source storage account
 
-* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role.
-* Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role. 
+* An Azure Storage account. If you don't already have an account, [create one](../storage/common/storage-account-create.md).
+* Permission to write to the storage account. Write permission is in *Microsoft.Storage/storageAccounts/write*. It's part of the Contributor role.
+* Permission to add role assignment to the storage account. This permission is in *Microsoft.Authorization/role assignments/write*. It's part of the Owner role. 
 
 ### Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-### Create a Data Share Account
+### Create a Data Share account
 
 Create an Azure Data Share resource in an Azure resource group.
 
-1. Select the menu button in the upper-left corner of the portal, then select **Create a resource** (+).
+1. In the upper-left corner of the portal, open the menu and then select **Create a resource** (+).
 
 1. Search for *Data Share*.
 
-1. Select Data Share and Select **Create**.
+1. Select **Data Share** and **Create**.
 
-1. Fill out the basic details of your Azure Data Share resource with the following information. 
+1. Provide the basic details of your Azure Data Share resource: 
 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
-    | Subscription | Your subscription | Select the Azure subscription that you want to use for your data share account.|
-    | Resource group | *test-resource-group* | Use an existing resource group or create a new resource group. |
+    | Subscription | Your subscription | Select an Azure subscription for your data share account.|
+    | Resource group | *test-resource-group* | Use an existing resource group or create a resource group. |
     | Location | *East US 2* | Select a region for your data share account.
-    | Name | *datashareaccount* | Specify a name for your data share account. |
+    | Name | *datashareaccount* | Name your data share account. |
     | | |
 
-1. Select **Review + create**, then **Create** to provision your data share account. Provisioning a new data share account typically takes about 2 minutes or less. 
+1. Select **Review + create** > **Create** to provision your data share account. Provisioning a new data share account typically takes about 2 minutes. 
 
-1. When the deployment is complete, select **Go to resource**.
+1. When the deployment finishes, select **Go to resource**.
 
 ### Create a share
 
-1. Navigate to your Data Share Overview page.
+1. Go to your data share **Overview** page.
 
-    ![Share your data](./media/share-receive-data.png "Share your data") 
+   :::image type="content" source="./media/share-receive-data.png" alt-text="Screenshot showing the data share overview.":::
 
 1. Select **Start sharing your data**.
 
 1. Select **Create**.   
 
-1. Fill out the details for your share. Specify a name, share type, description of share contents, and terms of use (optional). 
+1. Provide the details for your share. Specify a name, share type, description of share contents, and terms of use (optional). 
 
-    ![EnterShareDetails](./media/enter-share-details.png "Enter Share details") 
-
-1. Select **Continue**.
-
-1. To add Datasets to your share, select **Add Datasets**. 
-
-    ![Add Datasets to your share](./media/datasets.png "Datasets")
-
-1. Select the dataset type that you would like to add. You will see a different list of dataset types depending on the share type (snapshot or in-place) you have selected in the previous step. 
-
-    ![AddDatasets](./media/add-datasets.png "Add Datasets")    
-
-1. Navigate to the object you would like to share and select 'Add Datasets'. 
-
-    ![SelectDatasets](./media/select-datasets.png "Select Datasets")    
-
-1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'. 
-
-    ![AddRecipients](./media/add-recipient.png "Add recipients") 
+    ![Screenshot showing data share details.](./media/enter-share-details.png "Enter the data share details.") 
 
 1. Select **Continue**.
 
-1. If you have selected snapshot share type, you can configure snapshot schedule to provide updates of your data to your data consumer. 
+1. To add datasets to your share, select **Add Datasets**. 
 
-    ![EnableSnapshots](./media/enable-snapshots.png "Enable snapshots") 
+    ![Screenshot showing how to add datasets to your share.](./media/datasets.png "Datasets.")
+
+1. Select a dataset type to add. The list of dataset types depends on whether you selected snapshot-based sharing or in-place sharing in the previous step. 
+
+    ![Screenshot showing where to select a dataset type.](./media/add-datasets.png "Add datasets.")    
+
+1. Go to the object you want to share. Then select **Add Datasets**. 
+
+    ![Screenshot showing how to select an object to share.](./media/select-datasets.png "Select datasets.")    
+
+1. On the **Recipients** tab, add the email address of your data consumer by selecting **Add Recipient**. 
+
+    ![Screenshot showing how to add recipient email addresses.](./media/add-recipient.png "Add recipients.") 
+
+1. Select **Continue**.
+
+1. If you selected a snapshot share type, you can set up the snapshot schedule to update your data for the data consumer. 
+
+    ![Screenshot showing the snapshot schedule settings.](./media/enable-snapshots.png "Enable snapshots.") 
 
 1. Select a start time and recurrence interval. 
 
 1. Select **Continue**.
 
-1. In the Review + Create tab, review your Package Contents, Settings, Recipients, and Synchronization Settings. Select **Create**.
+1. On the **Review + Create** tab, review your package contents, settings, recipients, and synchronization settings. Then select **Create**.
 
-Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation. 
+You've now created your Azure data share. The recipient of your data share can accept your invitation. 
 
 ## Receive data
 
+The following sections describe how to receive shared data.
 ### Prerequisites to receive data
-Before you can accept a data share invitation, you must provision a number of Azure resources, which are listed below. 
+Before you accept a data share invitation, make sure you have the following prerequisites: 
 
-Ensure that all pre-requisites are complete before accepting a data share invitation. 
+* An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/).
+* An invitation from Azure. The email subject should be "Azure Data Share invitation from *\<yourdataprovider\@domain.com>*".
+* A registered [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in:
+    * The Azure subscription where you'll create a Data Share resource.
+    * The Azure subscription where your target Azure data stores are located.
 
-* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
-* Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you will create a Data Share resource and the Azure subscription where your target Azure data stores are located.
+### Prerequisites for a target storage account
 
-### Prerequisites for target storage account
-
-* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
-* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the Contributor role. 
-* Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role.  
+* An Azure Storage account. If you don't already have one, [create an account](../storage/common/storage-account-create.md). 
+* Permission to write to the storage account. This permission is in *Microsoft.Storage/storageAccounts/write*. It's part of the Contributor role. 
+* Permission to add role assignment to the storage account. This assignment is in *Microsoft.Authorization/role assignments/write*. It's part of the Owner role.  
 
 ### Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-### Open invitation
+### Open an invitation
 
-1. You can open invitation from email or directly from Azure portal. 
+You can open an invitation from email or directly from the Azure portal.
 
-   To open invitation from email, check your inbox for an invitation from your data provider. The invitation is from Microsoft Azure, titled **Azure Data Share invitation from <yourdataprovider@domain.com>**. Click on **View invitation** to see your invitation in Azure. 
+1. To open an invitation from email, check your inbox for an invitation from your data provider. The invitation from Microsoft Azure is titled "Azure Data Share invitation from *\<yourdataprovider\@domain.com>*". Select **View invitation** to see your invitation in Azure. 
 
-   To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This takes you to the list of Data Share invitations.
+   To open an invitation from the Azure portal, search for *Data Share invitations*. You see a list of Data Share invitations.
 
-   ![List of Invitations](./media/invitations.png "List of invitations") 
+   ![Screenshot showing the list of invitations in the Azure portal.](./media/invitations.png "List of invitations.") 
 
-1. Select the share you would like to view. 
+1. Select the share you want to view. 
 
-### Accept invitation
-1. Make sure all fields are reviewed, including the **Terms of Use**. If you agree to the terms of use, you'll be required to check the box to indicate you agree. 
+### Accept an invitation
+1. Review all of the fields, including the **Terms of use**. If you agree to the terms, select the check box. 
 
-   ![Terms of use](./media/terms-of-use.png "Terms of use") 
+   ![Screenshot showing the Terms of use area.](./media/terms-of-use.png "Terms of use.") 
 
-1. Under *Target Data Share Account*, select the Subscription and Resource Group that you'll be deploying your Data Share into. 
+1. Under **Target Data Share account**, select the subscription and resource group where you'll deploy your Data Share. Then fill in the following fields:
 
-   For the **Data Share Account** field, select **Create new** if you don't have an existing Data Share account. Otherwise, select an existing Data Share account that you'd like to accept your data share into. 
+   * In the **Data share account** field, select **Create new** if you don't have a Data Share account. Otherwise, select an existing Data Share account that will accept your data share. 
 
-   For the **Received Share Name** field, you may leave the default specified by the data provide, or specify a new name for the received share. 
+   * In the **Received share name** field, either leave the default that the data provider specified or specify a new name for the received share. 
 
-   Once you've agreed to the terms of use and specified a Data Share account to manage your received share, Select **Accept and configure**. A share subscription will be created. 
+1. Select **Accept and configure**. A share subscription is created. 
 
-   ![Accept options](./media/accept-options.png "Accept options") 
+   ![Screenshot showing where to accept the configuration options.](./media/accept-options.png "Accept options") 
 
-   This takes you to your the received share in your Data Share account. 
+    The received share appears in your Data Share account. 
 
-   If you don't want to accept the invitation, Select *Reject*. 
+    If you don't want to accept the invitation, select **Reject**. 
 
-### Configure received share
-Follow the steps below to configure where you want to receive data.
+### Configure a received share
+Follow the steps in this section to configure a location to receive data.
 
-1. Select **Datasets** tab. Check the box next to the dataset you'd like to assign a destination to. Select **+ Map to target** to choose a target data store. 
+1. On the **Datasets** tab, select the check box next to the dataset where you want to assign a destination. Select **Map to target** to choose a target data store. 
 
-   ![Map to target](./media/dataset-map-target.png "Map to target") 
+   ![Screenshot showing how to map to a target.](./media/dataset-map-target.png "Map to target.") 
 
-1. Select a target data store that you'd like the data to land in. Any data files in the target data store with the same path and name will be overwritten. 
+1. Select a target data store for the data. Files in the target data store that have the same path and name as files in the received data will be overwritten. 
 
-   ![Target storage account](./media/map-target.png "Target storage") 
+   ![Screenshot showing where to select a target storage account.](./media/map-target.png "Target storage.") 
 
-1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**.
+1. For snapshot-based sharing, if the data provider uses a snapshot schedule to regularly update the data, you can enable the schedule from the **Snapshot Schedule** tab. Select the box next to the snapshot schedule. Then select **Enable**.
 
-   ![Enable snapshot schedule](./media/enable-snapshot-schedule.png "Enable snapshot schedule")
+   ![Screenshot showing how to enable a snapshot schedule.](./media/enable-snapshot-schedule.png "Enable snapshot schedule.")
 
 ### Trigger a snapshot
-These steps only apply to snapshot-based sharing.
+The steps in this section apply only to snapshot-based sharing.
 
-1. You can trigger a snapshot by selecting **Details** tab followed by **Trigger snapshot**. Here, you can trigger a full or  incremental snapshot of your data. If it is your first time receiving data from your data provider, select full copy. 
+1. You can trigger a snapshot from the **Details** tab. On the tab, select **Trigger snapshot**. You can choose to trigger a full snapshot or incremental snapshot of your data. If you're receiving data from your data provider for the first time, select **Full copy**. When a snapshot is executing, subsequent snapshots will not start until the previous one complete.
 
-   ![Trigger snapshot](./media/trigger-snapshot.png "Trigger snapshot") 
+   ![Screenshot showing the Trigger snapshot selection.](./media/trigger-snapshot.png "Trigger snapshot.") 
 
-1. When the last run status is *successful*, go to target data store to view the received data. Select **Datasets**, and click on the link in the Target Path. 
+1. When the last run status is *successful*, go to the target data store to view the received data. Select **Datasets**, and then select the target path link. 
 
-   ![Consumer datasets](./media/consumer-datasets.png "Consumer dataset mapping") 
+   ![Screenshot showing a consumer dataset mapping.](./media/consumer-datasets.png "Consumer dataset mapping.") 
 
 ### View history
-This step only applies to snapshot-based sharing. To view history of your snapshots, select **History** tab. Here you'll find history of all snapshots that were generated for the past 30 days. 
+You can view the history of your snapshots only in snapshot-based sharing. To view the history, open the **History** tab. Here you see the history of all of the snapshots that were generated in the past 30 days. 
+
+## Storage snapshot performance
+Storage snapshot performance is impacted by a number of factors in addition to number of files and size of the shared data. It is always recommended to conduct your own performance testing. Below are some example factors impacting performance.
+
+* Concurrent access to the source and target data stores.  
+* Location of source and target data stores. 
+* For incremental snapshot, number of files in the shared dataset can impact the time takes to find the list of files with last modified time after the last successful snapshot. 
+
 
 ## Next steps
-You have learned how to share and receive data from storage account using Azure Data Share service. To learn more about sharing from other data sources, continue to [supported data stores](supported-data-stores.md).
-
+You've learned how to share and receive data from a storage account by using the Azure Data Share service. To learn about sharing from other data sources, see [Supported data stores](supported-data-stores.md).
