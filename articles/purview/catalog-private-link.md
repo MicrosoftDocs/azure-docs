@@ -28,7 +28,7 @@ You can use private endpoints for your Purview accounts to allow clients and use
 
 1. In the Create private endpoint page, set Purview sub-resource to **account**, choose your virtual network and subnet, and select the Private DNS Zone where the DNS will be registered (you can also utilize your won DNS servers or create DNS records using host files on your virtual machines).
 
-    :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="Private Endpoint creation seletions":::
+    :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="Private Endpoint creation selections":::
 
 1. Select **OK**.
 
