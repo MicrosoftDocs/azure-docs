@@ -52,7 +52,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 In this quickstart, you learned how to send SMS messages using Azure Communication Services.
 
 > [!div class="nextstepaction"]
-> [Subscribe to SMS Events](./handle-sms-events.md)
+> [Receive SMS and Delivery Report Events](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
 > [Phone number types](../../concepts/telephony-sms/plan-solution.md)
