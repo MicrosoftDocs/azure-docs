@@ -12,7 +12,7 @@ author: qpetraroia
 
 # Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)
 
-Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows that minimize workload impact. This can be used for the AKS weekly releases, platform maintenance, or any automatic operations like automatic upgrades. Once scheduled, all your maintenance will occur during the window you selected. You can schedule one or more weekly windows on your cluster by specifying a day or time range on a specific day. Maintenance Windows are configured using the Azure CLI.
+Your AKS cluster has regular maintenance performed on it automatically. By default, this work can happen at any time. Planned Maintenance allows you to schedule weekly maintenance windows that will update your control plane and minimize workload impact. Once scheduled, all your maintenance will occur during the window you selected. You can schedule one or more weekly windows on your cluster by specifying a day or time range on a specific day. Maintenance Windows are configured using the Azure CLI.
 
 ## Before you begin
 
@@ -38,28 +38,6 @@ az extension add --name aks-preview
 
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
-```
-
-### Register the `maintenanceconfiguration` preview feature
-
-To create an AKS cluster that uses Planned Maintenance, you must enable the `maintenanceconfiguration` feature flag on your subscription.
-
-Register the `maintenanceconfiguration` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "maintenanceconfiguration"
-```
-
- You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/maintenanceconfiguration')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
 ```
 
 ## Allow maintenance on every Monday at 1:00am to 2:00am
@@ -102,7 +80,7 @@ az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSClust
 
 ## Add a maintenance configuration with a JSON file
 
-You can also use a JSON file create a maintenance window instead of using parameters. Create a test.json file with the following contents:
+You can also use a JSON file create a maintenance window instead of using parameters. Create a `test.json` file with the following contents:
 
 ```json
   {
@@ -153,7 +131,7 @@ To see all current maintenance configuration windows in your AKS Cluster, use th
 az aks maintenanceconfiguration list -g MyResourceGroup --cluster-name myAKSCluster
 ```
 
-In the output below, you can see that there are two maintenance windows configured for myAKSCluster. One on Monday where maintenance will occur at 1:00am and another on Friday where maintenance will occur at 4:00am.
+In the output below, you can see that there are two maintenance windows configured for myAKSCluster. One window is on Mondays at 1:00am and another window is on Friday at 4:00am.
 
 ```json
 [
@@ -200,7 +178,7 @@ To see a specific maintenance configuration window in your AKS Cluster, use the 
 az aks maintenanceconfiguration show -g MyResourceGroup --cluster-name myAKSCluster --name default
 ```
 
-The following example output shows the maintenance window for default:
+The following example output shows the maintenance window for *default*:
 
 ```json
 {
