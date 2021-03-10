@@ -124,7 +124,7 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 |         Azure Alerts  |            No  |            Yes  |            Yes  |
 |         VM Insights  |            No  |            Yes  |            Yes  |
 |         Azure Backup  |            Yes  |            Yes  |            Yes  |
-|         Azure Site Recovery  |       No  |            Yes  |            Yes  |
+|         Azure Site Recovery  |     No  |            No  |            Yes  |
 |         Add/remove existing VM to the group  |            No  |            No  |            No  | 
 
 

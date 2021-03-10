@@ -64,7 +64,7 @@ Call creation and start is synchronous. The Call instance allows you to subscrib
 ## Place a call
 
 ### Place a 1:1 call to a user or PSTN
-To place a call to another Communication Services user, invoke the `startCall` method on `callAgent` and pass the callee's CommunicationUserIdentifier that you've [created with the Communication Services Administration library](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+To place a call to another Communication Services user, invoke the `startCall` method on `callAgent` and pass the callee's CommunicationUserIdentifier that you've [created with the Communication Services Identity  library](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
