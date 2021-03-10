@@ -36,6 +36,9 @@ A new Blob storage target needs an empty Blob container or a container that is p
 
 The Azure portal **Add storage target** page includes the option to create a new Blob container just before you add it.
 
+> [!NOTE]
+> For NFS-mounted blob storage, use the [ADLS-NFS storage target](#) type.
+
 ### [Portal](#tab/azure-portal)
 
 From the Azure portal, open your cache instance and click **Storage targets** on the left sidebar.
@@ -161,11 +164,11 @@ An NFS storage target has different settings from a Blob storage target. The usa
 
 When you create a storage target that uses NFS to reach its storage system, you need to choose a usage model for that target. This model determines how your data is cached.
 
-Read [Understand usage models](cach-usage-models.md) for more details about all of these settings.
+Read [Understand usage models](cache-usage-models.md) for more details about all of these settings.
 
 The built-in usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
 
-These are the most frequently used options:
+These three options cover most situations:
 
 * **Read heavy, infrequent writes** - Speeds up read access to files that are static or rarely changed.
 
@@ -182,6 +185,8 @@ These are the most frequently used options:
 * **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache, or if you want to optimize data consistency.
 
   Files that clients request are cached, but any changes to those files from the client are passed through to the back-end storage system immediately. Files in the cache are frequently checked against the back-end versions for updates. This verification maintains data consistency when files are changed directly on the storage system instead of through the cache.
+
+For details about the other options, read [Understand usage models](cache-usage-models.md).
 
 This table summarizes the differences among all of the usage models:
 
@@ -295,6 +300,43 @@ Output:
 ```
 
 ---
+
+## Add a new ADLS-NFS storage target (PREVIEW)
+
+ADLS-NFS storage targets use Azure Blob containers that support the Network File System (NFS) 3.0 protocol.
+
+> [!NOTE]
+> NFS 3.0 protocol support for Azure Blob storage is in public preview. Availability is restricted, and features might change between now and when the feature becomes generally available. Do not use preview technology in production systems.
+>
+> Read [NFS 3.0 protocol support](../storage/blobs/network-file-system-protocol-support.md) for the latest information.
+
+ADLS-NFS storage targets have some similarities with Blob storage targets and some with NFS storage targets. For example:
+
+* Like a Blob storage target, you need to give Azure HPC Cache permission to [access your storage account](#add-the-access-control-roles-to-your-account).
+* Like an NFS storage target, you need to set a cache [usage model](#choose-a-usage-model).
+* Because NFS-enabled blob containers have an NFS-compatible hierarchical structure, you do not need to use the cache to ingest data, and the containers are readable by other NFS systems. You can pre-load data in an ADLS-NFS container, then add it to an HPC cache as storage target, and then access the data later from outside of an HPC cache. When you use a standard blob container as an HPC cache storage target, the data is written in a proprietary format and can only be accessed from other Azure HPC Cache-compatible products.
+
+Before you can create an ADLS-NFS storage target, you must create an NFS-enabled storage account. Follow the tips in [Prerequisites for Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview) and the instructions in [Mount Blob storage by using NFS](../storage/blobs/network-file-system-protocol-support-how-to). After your storage account is set up you can create a new container when you create the storage target.
+
+To create an ADLS-NFS storage target, Open the **Add storage target** page in the Azure portal. (Additional methods are in development.)
+
+![Screenshot of add storage target page with ADLS-NFS target defined](media/add-adls-target.png)
+
+Enter this information.
+
+* **Storage target name** - Set a name that identifies this storage target in the Azure HPC Cache.
+* **Target type** - Choose **ADLS-NFS**.
+* **Storage account** - Select the account that you want to use. If your NFS-enabled storage account does not appear in the list, check that it conforms to the prerequisites and that the cache can access it.
+
+  You will need to authorize the cache instance to access the storage account as described in [Add the access roles](#add-the-access-control-roles-to-your-account).
+
+* **Storage container** - Select the NFS-enabled blob container for this target, or click **Create new**.
+
+* **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model](#choose-a-usage-model) above.
+
+When finished, click **OK** to add the storage target.
+
+<!-- **** -->
 
 ## View storage targets
 

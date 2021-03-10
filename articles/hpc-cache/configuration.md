@@ -71,7 +71,9 @@ Your cache uses the Azure-based time server time.microsoft.com by default. If yo
 - (stuff about how to configure and why not to - from that email thread)
 - (something about a DNS forwarder?)
 
-??? where to document refresh DNS? ??? 
+### Refresh storage target DNS
+
+If your DNS configuration changes, storage targets will become unavailable. Read how to update your custom DNS system IP address in [Edit storage targets](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
 
 
 ## View snapshots for blob storage targets

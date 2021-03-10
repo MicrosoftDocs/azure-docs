@@ -4,13 +4,13 @@ description: Describes the different cache usage models and how to choose among 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.author: v-erkel
 ---
 
 # Understand cache usage models
 
-Cache usage models let you customize how your Azure HPC Cache stores files to speed up your workflow. 
+Cache usage models let you customize how your Azure HPC Cache stores files to speed up your workflow.
 
 ## Basic file caching concepts
 
@@ -26,7 +26,7 @@ File caching is how Azure HPC Cache expedites client requests. It uses these bas
 
 * **Write-back delay** - For a cache with write caching turned on, write-back delay is the amount of time the cache waits for additional file changes before moving the file to the back-end storage system.
 
-* **Back-end verification** - The back-end verification setting determines how frequently the cache compares its local copy of a file it fetched for a client with the remote version on the back-end storage system. If the back-end copy is newer than the cached copy, the cache fetches the remote copy and stores it for future requests.
+* **Back-end verification** - The back-end verification setting determines how frequently the cache compares its local copy of a file with the remote version on the back-end storage system. If the back-end copy is newer than the cached copy, the cache fetches the remote copy and stores it for future requests.
 
   The back-end verification setting shows when the cache *automatically* compares its files with source files in remote storage. However, you can force Azure HPC Cache to compare files by performing a directory operation that includes a readdirplus request. Readdirplus is a standard NFS API (also called extended read) that returns directory metadata, which causes the cache to compare and update files.
 
@@ -42,7 +42,7 @@ There are several options:
 
 * **Read heavy, infrequent writes** - Use this option if you want to speed up read access to files that are static or rarely changed.
 
-  This option caches client reads but doesn't cache writes (it passes them through to the back-end storage immediately).
+  This option caches client reads but doesn't cache writes. It passes writes through to the back-end storage immediately.
   
   Files stored in the cache are not automatically compared to the files on the NFS storage volume. (Read the description of back-end verification above to learn how to compare them manually.)
 
@@ -52,15 +52,17 @@ There are several options:
 
   In this usage model, files in the cache are only checked against the files on back-end storage every eight hours. The cached version of the file is assumed to be more current. A modified file in the cache is written to the back-end storage system after it has been in the cache for an hour with no additional changes.
 
-* **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache, or if you want to optimize data consistency. Files that clients request are cached, but any changes to those files from the client are passed back to the back-end storage system immediately.
+* **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache, or if you want to optimize data consistency. Files that clients request are cached (reads), but any changes to those files from the client (writes) are not cached. They are passed through directly to the back-end storage system.
 
   With this usage model, the files in the cache are frequently checked against the back-end versions for updates. This verification allows files to be changed outside of the cache while maintaining data consistency.
 
-* **Greater than 15% writes, checking the backing server for changes every 30 seconds** and **Greater than 15% writes, checking the backing server for changes every 60 seconds** - 
+* **Greater than 15% writes, checking the backing server for changes every 30 seconds** and **Greater than 15% writes, checking the backing server for changes every 60 seconds** - These options are designed for workflows where you want to speed up both reads and writes, but there's a chance that another user will write directly to the back-end storage system. For example, if multiple sets of clients are working on the same files from different locations, these usage models might make sense to balance the need for quick file access with low tolerance for stale content from the source.
 
-* **Greater than 15% writes, write back to the server every 30 seconds** (Collaborating cloud workstation) - 
+* **Greater than 15% writes, write back to the server every 30 seconds** (Collaborating cloud workstation) - This option is designed for the scenario where multiple clients are actively modifying the same files, or if some clients access the back-end storage directly instead of mounting the cache.
 
-* **Read heavy, checking the backing server every 3 hours** (Read-only high verification time) - 
+  The frequent back-end writes affect cache performance, so you should consider using the **Greater than 15% writes** usage model if there's a low risk of file conflict - for example, if you know that different clients are working in different areas of the same file set.
+
+* **Read heavy, checking the backing server every 3 hours** (Read-only high verification time) - This option prioritizes fast reads on the client side, but also refreshes cached files from the back-end storage system more quickly than the **Read heavy, infrequent writes** usage model.
 
 This table summarizes the usage model differences:
 
@@ -74,7 +76,8 @@ This table summarizes the usage model differences:
 | Greater than 15% writes, frequent write-back (Collaborating cloud workstation) | Read/write | 30 seconds | 30 seconds |
 | Read heavy, checking the backing server every 3 hours (Read-only high verification time)| Read | 3 hours | None |
 
+If you have questions about the best usage model for your Azure HPC Cache workflow, talk to your Azure representative or open a support request for help.
 
-## Next steps:
+## Next steps
 
-* 
+* [Add storage targets](hpc-cache-add-storage.md) to your Azure HPC Cache
