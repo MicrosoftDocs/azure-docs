@@ -43,6 +43,13 @@ When preparing your text file, make sure it:
   * For plain text, each paragraph is separated by hitting **Enter/Return** - View [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
   * For SSML text, each SSML piece is considered a paragraph. SSML pieces shall be separated by different paragraphs - View [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)
 
+## Sample code
+The remainder of this page will focus on Python, but sample code for the Long Audio API is available on GitHub for the following programming languages:
+
+* [Sample code: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
+* [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
+* [Sample code: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
+
 ## Python example
 
 This section contains Python examples that show the basic usage of the Long Audio API. Create a new Python project using your favorite IDE or editor. Then copy this code snippet into a file named `long_audio_synthesis_client.py`.
@@ -451,10 +458,3 @@ We support flexible audio output formats. You can generate audio outputs per par
 * audio-24khz-48kbitrate-mono-mp3
 * audio-24khz-96kbitrate-mono-mp3
 * audio-24khz-160kbitrate-mono-mp3
-
-## Sample code
-Sample code for Long Audio API is available on GitHub.
-
-* [Sample code: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
-* [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
-* [Sample code: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
