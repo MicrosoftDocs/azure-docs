@@ -84,13 +84,13 @@ Output of a successful twin create command should look like this:
 
 In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT telemetry events from IoT Hub. Follow the steps below to create and publish the function.
 
-#### Step 1: Create a function app in your code editor
+#### Step 1: Create a function app project
 
-First, create a new function app project in Visual Studio. For instructions on how to do this, see the [**Create a function app in Visual Studio**](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data article.*
+First, create a new function app project in Visual Studio. For instructions on how to do this, see the [**Create a function app in Visual Studio**](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data* article.
 
-#### Step 2: Function code
+#### Step 2: Fill in function code
 
-In the newly created function code file, paste in the following code and rename the function app to `IoTHubToTwins.cs`.
+Rename the *Function1.cs* sample function that Visual Studio has generated with the new project to *IoTHubToTwins.cs*. Replace the code in the file with the following code:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
@@ -98,11 +98,11 @@ Save your function code.
 
 #### Step 3: Publish the function app to Azure
 
-Follow the steps in the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
+For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
 
 #### Step 4: Verify function publish
 
-Follow the steps in the section [**Verify function publish**](how-to-create-azure-function.md#verify-function-publish) of the *How-to: Set up a function for processing data* article.
+For instructions on how to do this, see the section [**Verify function publish**](how-to-create-azure-function.md#verify-function-publish) of the *How-to: Set up a function for processing data* article.
 
 #### Step 5: Configure the function app
 
