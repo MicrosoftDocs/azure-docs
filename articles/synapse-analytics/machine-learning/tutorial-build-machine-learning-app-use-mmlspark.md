@@ -13,7 +13,7 @@ ms.author: ruxu
 ---
 
 
-# Tutorial: Build a machine learning app using Microsoft Machine Learning for Apache Spark (Preview)
+# Tutorial: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
 
 In this article, you will learn how to use Microsoft Machine Learning for Apache Spark ([MMLSpark](https://github.com/Azure/mmlspark)) to create machine learning applications. 
 MMLSpark expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/big-data/cognitive-services-for-big-data), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  MMLSpark allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
@@ -41,7 +41,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 - Pre-configuration steps described in the tutorial [Configure Cognitive Services in Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/machine-learning/tutorial-configure-cognitive-services-synapse).
 
 
-## Get Stared
+## Get started
 To get started, import mmlspark and configurate service keys.
 
 ```python
@@ -65,7 +65,7 @@ anomalydetector_key = mssparkutils.credentials.getSecret("keyvaultForSynapse", a
 
 ```
 
-## Text Analytics sample
+## Text analytics sample
 
 The [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment. This sample uses three simple sentences and returns the sentiment for each.
 
@@ -93,7 +93,7 @@ sentiment = (TextSentiment()
 display(sentiment.transform(df_sentences).select("text", col("sentiment")[0].getItem("sentiment").alias("sentiment")))
 ```
 
-### Expected Result
+### Expected results
 
 |text | sentiment|
 |--|--|
@@ -101,7 +101,7 @@ display(sentiment.transform(df_sentences).select("text", col("sentiment")[0].get
 | this is a dog | neutral |
 | I am so happy today, its sunny! | positive |
 
-## Computer Vision sample
+## Computer vision sample
 [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag the follow image. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 
@@ -125,13 +125,13 @@ analysis = (AnalyzeImage()
 # Show the results of what you wanted to pull out of the images.
 display(analysis.transform(df_images).select("image", "analysis_results.description.tags"))
 ```
-### Expected Result
+### Expected results
 
 |image | tags|
 |--|--|
-| https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg| [skating, person, man, outdoor, riding, sport, skateboard, young, board, shirt, air, park, boy, side, jumping, ramp, trick, doing, flying]|
+| `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg` | [skating, person, man, outdoor, riding, sport, skateboard, young, board, shirt, air, park, boy, side, jumping, ramp, trick, doing, flying] |
 
-## Bing Image Search sample
+## Bing image search sample
 [Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) searches the web to retrieve images related to a user's natural language query. In this sample, we use a text query that looks for images with quotes. It returns a list of image URLs that contain photos related to our query.
 
 
@@ -162,26 +162,26 @@ res_bingsearch = pipeline_bingsearch.transform(bingParameters)
 display(res_bingsearch.dropDuplicates())
 ```
 
-### Expected Result
+### Expected results
 
 |image | 
 |--|
-|http://everydaypowerblog.com/wp-content/uploads/2014/01/Martin-Luther-King-Jr.-Quotes-16.jpg |
-|http://www.scrolldroll.com/wp-content/uploads/2017/06/6-25.png |
-| http://abettertodaymedia.com/wp-content/uploads/2017/01/86783bd7a92960aedd058c91a1d10253.jpg |
-| https://weneedfun.com/wp-content/uploads/2016/05/martin-luther-king-jr-quotes-11.jpg |
-| http://www.sofreshandsogreen.com/wp-content/uploads/2012/01/martin-luther-king-jr-quote-sofreshandsogreendotcom.jpg |
-| https://cdn.quotesgram.com/img/72/57/1104209728-martin_luther_king_jr_quotes_16.jpg |
-| http://comicbookandbeyond.com/wp-content/uploads/2019/05/Martin-Luther-King-Jr.-Quotes.jpg |
-| https://exposingthepain.files.wordpress.com/2015/01/martin-luther-king-jr-quotes-08.png |
-| https://topmemes.me/wp-content/uploads/2020/01/Top-10-Martin-Luther-King-jr.-Quotes2-1024x538.jpg |
-| http://img.picturequotes.com/2/581/580286/dr-martin-luther-king-jr-quote-1-picture-quote-1.jpg |
-| http://parryz.com/wp-content/uploads/2017/06/Amazing-Martin-Luther-King-Jr-Quotes.jpg |
-| http://everydaypowerblog.com/wp-content/uploads/2014/01/Martin-Luther-King-Jr.-Quotes1.jpg |
-| https://lessonslearnedinlife.net/wp-content/uploads/2020/05/Martin-Luther-King-Jr.-Quotes-2020.jpg |
-| https://quotesblog.net/wp-content/uploads/2015/10/Martin-Luther-King-Jr-Quotes-Wallpaper.jpg |
+|`http://everydaypowerblog.com/wp-content/uploads/2014/01/Martin-Luther-King-Jr.-Quotes-16.jpg` |
+|`http://www.scrolldroll.com/wp-content/uploads/2017/06/6-25.png` |
+| `http://abettertodaymedia.com/wp-content/uploads/2017/01/86783bd7a92960aedd058c91a1d10253.jpg`|
+| `https://weneedfun.com/wp-content/uploads/2016/05/martin-luther-king-jr-quotes-11.jpg` |
+| `http://www.sofreshandsogreen.com/wp-content/uploads/2012/01/martin-luther-king-jr-quote-sofreshandsogreendotcom.jpg` |
+| `https://cdn.quotesgram.com/img/72/57/1104209728-martin_luther_king_jr_quotes_16.jpg` |
+| `http://comicbookandbeyond.com/wp-content/uploads/2019/05/Martin-Luther-King-Jr.-Quotes.jpg` |
+| `https://exposingthepain.files.wordpress.com/2015/01/martin-luther-king-jr-quotes-08.png` |
+| `https://topmemes.me/wp-content/uploads/2020/01/Top-10-Martin-Luther-King-jr.-Quotes2-1024x538.jpg` |
+| `http://img.picturequotes.com/2/581/580286/dr-martin-luther-king-jr-quote-1-picture-quote-1.jpg` |
+| `http://parryz.com/wp-content/uploads/2017/06/Amazing-Martin-Luther-King-Jr-Quotes.jpg` |
+| `http://everydaypowerblog.com/wp-content/uploads/2014/01/Martin-Luther-King-Jr.-Quotes1.jpg` |
+| `https://lessonslearnedinlife.net/wp-content/uploads/2020/05/Martin-Luther-King-Jr.-Quotes-2020.jpg` |
+| `https://quotesblog.net/wp-content/uploads/2015/10/Martin-Luther-King-Jr-Quotes-Wallpaper.jpg` |
 
-## Anomaly Detector sample
+## Anomaly detector sample
 
 [Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
 
@@ -222,7 +222,7 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 
 ```
 
-### Expected Result
+### Expected results
 
 |timestamp | value | isAnomaly |
 |--|--|--|
@@ -233,7 +233,7 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 |1972-05-01T00:00:00Z|766.0|false|
 |1972-06-01T00:00:00Z|805.0|false|
 |1972-07-01T00:00:00Z|821.0|false|
-|1972-08-01T00:00:00Z||20000.0|true|
+|1972-08-01T00:00:00Z|20000.0|true|
 |1972-09-01T00:00:00Z|883.0|false|
 |1972-10-01T00:00:00Z|898.0|false|
 |1972-11-01T00:00:00Z|957.0|false|
@@ -242,7 +242,7 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 |1973-02-01T00:00:00Z|837.0|false|
 |1973-03-01T00:00:00Z|9000.0|true|
 
-## Next Steps
+## Next steps
 
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks) 
 * [MMLSpark GitHub Repo](https://github.com/Azure/mmlspark)
