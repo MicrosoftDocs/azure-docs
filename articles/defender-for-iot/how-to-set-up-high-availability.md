@@ -111,7 +111,7 @@ This allows the connection between the primary and secondary appliances for back
 
 ### On the secondary
 
-1. Sign in to the CLI as an Defender for IoT user.
+1. Sign in to the CLI as a Defender for IoT user.
 
 2. Run the following command on the secondary. **Do not run with sudo**:
 

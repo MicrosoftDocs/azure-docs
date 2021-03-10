@@ -36,7 +36,7 @@ Use the following tools for building automation workflows for LUIS:
 
 * [Bot Framework Tools LUIS CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) to work with LUIS apps and versions, train, test, and publish them within the LUIS service.
 
-* [Azure CLI](/cli/azure/?view=azure-cli-latest) to query Azure subscriptions, fetch LUIS authoring and prediction keys, and to create an Azure [service principal](/cli/azure/ad/sp?view=azure-cli-latest) used for automation authentication.
+* [Azure CLI](/cli/azure/) to query Azure subscriptions, fetch LUIS authoring and prediction keys, and to create an Azure [service principal](/cli/azure/ad/sp) used for automation authentication.
 
 * [NLU.DevOps](https://github.com/microsoft/NLU.DevOps) tool for [testing a LUIS app](luis-concept-devops-testing.md) and to analyze test results.
 

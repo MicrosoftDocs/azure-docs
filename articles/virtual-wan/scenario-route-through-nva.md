@@ -26,9 +26,9 @@ When working with Virtual WAN virtual hub routing, there are quite a few availab
 
 In this scenario we will use the naming convention:
 
-* "NVA VNets" for virtual networks where users have deployed an NVA and have connected other virtual networks as spokes (VNet 2 and VNet 4 in the **connectivity matrix**, below).
-* "NVA Spokes" for virtual networks connected to an NVA VNet (VNet 5, VNet 6, VNet 7, and VNet 8 in the **connectivity matrix**, below).
-* "Non-NVA VNets" for virtual networks connected to Virtual WAN that do not have an NVA or other VNets peered with them (VNet 1 and VNet 3 in the **connectivity matrix**, below).
+* "NVA VNets" for virtual networks where users have deployed an NVA and have connected other virtual networks as spokes (VNet 2 and VNet 4 in the **Figure 2** further down in the article).
+* "NVA Spokes" for virtual networks connected to an NVA VNet (VNet 5, VNet 6, VNet 7, and VNet 8 in the **Figure 2** further down in the article).
+* "Non-NVA VNets" for virtual networks connected to Virtual WAN that do not have an NVA or other VNets peered with them (VNet 1 and VNet 3 in the **Figure 2** further down in the article).
 * "Hubs" for Microsoft-managed Virtual WAN Hubs, where NVA VNets are connected to. NVA spoke VNets don't need to be connected to Virtual WAN hubs, only to NVA VNets.
 
 The following connectivity matrix, summarizes the flows supported in this scenario:
@@ -45,7 +45,7 @@ The following connectivity matrix, summarizes the flows supported in this scenar
 Each of the cells in the connectivity matrix describes how a VNet or branch (the "From" side of the flow, the row headers in the table) communicates with a destination VNet or branch (the "To" side of the flow, the column headers in italics in the table). "Direct" means that connectivity is provided natively by Virtual WAN, "Peering" means that connectivity is provided by a User-Defined Route int he VNet, "Over NVA VNet" means that the connectivity traverses the NVA deployed in the NVA VNet. Consider the following:
 
 * NVA Spokes are not managed by Virtual WAN. As a result, the mechanisms with which they will communicate to other VNets or branches are maintained by the user. Connectivity to the NVA VNet is provided by a VNet peering, and a Default route to 0.0.0.0/0 pointing to the NVA as next hop should cover connectivity to the Internet, to other spokes, and to branches
-* NVA VNets will know about their own NVA spokes, but not about NVA spokes connected to other NVA VNets. For example, in Table 1, VNet 2 knows about VNet 5 and VNet 6, but not about other spokes such as VNet 7 and VNet 8. A static route is required to inject other spokes' prefixes into NVA VNets
+* NVA VNets will know about their own NVA spokes, but not about NVA spokes connected to other NVA VNets. For example, in the Figure 2 further down in this article, VNet 2 knows about VNet 5 and VNet 6, but not about other spokes such as VNet 7 and VNet 8. A static route is required to inject other spokes' prefixes into NVA VNets
 * Similarly, branches and non-NVA VNets will not know about any NVA spoke, since NVA spokes are not connected to Virtual WAN hubs. As a result, static routes will be needed here as well.
 
 Taking into account that the NVA spokes are not managed by Virtual WAN, all other rows show the same connectivity pattern. As a result, a single route table (the Default one) will do:
@@ -107,7 +107,7 @@ To set up routing via NVA, here are the steps to consider:
    * From VNet 5 and VNet 6 to VNet 2 NVA IP
    * From VNet 7 and VNet 8 to VNet 4 NVA IP 
    
-   You do not need to connect VNets 5,6,7,8 to the virtual hubs directly. Ensure that NSGs in VNets 5,6,7,8 allow traffic for branch (VPN/ER/P2S) or VNets connected to their remote VNets. For example, VNets 5,6 must ensure NSGs allow traffic for on-premise address prefixes and VNets 7,8 that are connected to the remote Hub 2.
+   You do not need to connect VNets 5,6,7,8 to the virtual hubs directly. Ensure that NSGs in VNets 5,6,7,8 allow traffic for branch (VPN/ER/P2S) or VNets connected to their remote VNets. For example, VNets 5,6 must ensure NSGs allow traffic for on-premises address prefixes and VNets 7,8 that are connected to the remote Hub 2.
 
 Virtual WAN  does not support a scenario where VNets 5,6 connect to virtual hub and communicate via VNet 2 NVA IP; therefore the need to connect VNets 5,6 to VNet2 and similarly VNet 7,8 to VNet 4.
 

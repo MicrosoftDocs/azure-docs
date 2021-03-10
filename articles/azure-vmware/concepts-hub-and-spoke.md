@@ -71,7 +71,7 @@ Because an ExpressRoute gateway doesn't provide transitive routing between its c
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution to Hub virtual network traffic flow" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
-You can find more details about Azure VMware Solution networking and connectivity concepts in the [Azure VMware Solution product documentation](./concepts-networking.md).
+For more information on Azure VMware Solution networking and connectivity concepts, see the [Azure VMware Solution product documentation](./concepts-networking.md).
 
 ### Traffic segmentation
 
@@ -98,7 +98,7 @@ A second level of traffic segmentation using the network security groups within 
 
 Azure Application Gateway V1 and V2 have been tested with web apps that run on Azure VMware Solution VMs as a backend pool. Application Gateway is currently the only supported method to expose web apps running on Azure VMware Solution VMs to the internet. It can also expose the apps to internal users securely.
 
-Review Azure VMware Solution-specific article on [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md) for the details and requirements.
+For more information, see the Azure VMware Solution-specific article on [Application Gateway](./protect-azure-vmware-solution-with-application-gateway.md).
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Second level of traffic segmentation using the Network Security Groups" border="false":::
 

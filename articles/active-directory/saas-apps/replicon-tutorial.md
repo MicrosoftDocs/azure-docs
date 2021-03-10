@@ -108,7 +108,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. To display the **EnableSAML Authentication2** dialog, append the following to your URL, after your company key: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
 	* The following shows the schema of the complete URL:
-   `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+   `https://na2.replicon.com/<YourCompanyKey>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
    b. Click the **+** to expand the **v20Configuration** section.
 

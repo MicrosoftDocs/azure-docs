@@ -19,8 +19,8 @@ Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detecto
 ## Prerequisites
 
 * Use an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
-* Install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
-* An [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) and an [IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) device.
+* Install the [Azure CLI](/cli/azure/install-azure-cli).
+* An [IoT Hub](../../../iot-hub/iot-hub-create-through-portal.md) and an [IoT Edge](../../../iot-edge/quickstart-linux.md) device.
 
 [!INCLUDE [Create a Cognitive Services Anomaly Detector resource](../includes/create-anomaly-detector-resource.md)]
 
@@ -63,7 +63,7 @@ Learn how to deploy the Cognitive Services [Anomaly Detector](../anomaly-detecto
 
 11. Scroll down and see the modules listed. Check that the runtime status is running for your new module. 
 
-To troubleshoot the runtime status of your IoT Edge device, consult the [troubleshooting guide](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+To troubleshoot the runtime status of your IoT Edge device, consult the [troubleshooting guide](../../../iot-edge/troubleshoot.md)
 
 ## Test Anomaly Detector on an IoT Edge device
 

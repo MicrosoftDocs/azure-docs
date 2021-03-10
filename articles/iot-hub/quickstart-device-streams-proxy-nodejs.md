@@ -1,12 +1,12 @@
 ---
-title: Azure IoT Hub device streams Node.js quickstart for SSH and RDP
+title: Quickstart - Azure IoT Hub device streams Node.js quickstart for SSH and RDP
 description: In this quickstart, you run a sample Node.js application that acts as a proxy to enable SSH and RDP scenarios over IoT Hub device streams.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
 ---

@@ -52,7 +52,7 @@ After creating the appliance, you check that it can connect to Azure Migrate:Ser
 
 After setting up the appliance and completing discovery, you can begin replication of VMware VMs to Azure. 
 
-- You can run up to 300 replications simultaneously.
+- You can run up to 500 replications simultaneously.
 - In the portal, you can select up to 10 VMs at once for migration. To migrate more machines, add them to groups in batches of 10.
 
 Enable replication as follows:
@@ -83,6 +83,7 @@ Enable replication as follows:
 9. In **Disk encryption type**, select:
     - Encryption-at-rest with platform-managed key
     - Encryption-at-rest with customer-managed key
+    - Double encryption with platform-managed and customer-managed keys
 
    > [!NOTE]
    > To replicate VMs with CMK, you'll need to [create a disk encryption set](https://go.microsoft.com/fwlink/?linkid=2151800) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
@@ -183,7 +184,7 @@ After you've verified that the test migration works as expected, you can migrate
 ## Complete the migration
 
 1. After the migration is done, right-click the VM > **Stop Replication**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
-2. Install the Azure VM [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines if the machine has Linux OS. We automatically install the VM agent for Windows VMs during migration.
+2. We automatically install the VM agent for Windows VMs and Linux during migration. Review the Azure VM Linux agent [requirements](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) on the migrated machines if the machine has Linux OS to ensure Linux VM agent installation is done properly. 
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 5. Cut over traffic to the migrated Azure VM instance.

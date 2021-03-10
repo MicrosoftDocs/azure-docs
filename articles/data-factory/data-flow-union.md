@@ -3,7 +3,6 @@ title: Union transformation in mapping data flow
 description: Azure Data Factory mapping data flow New Branch Transformation
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019

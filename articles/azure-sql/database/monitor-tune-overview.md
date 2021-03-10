@@ -93,11 +93,11 @@ You configure diagnostic settings to stream categories of metrics and resource l
 
 ### Log Analytics workspace in Azure Monitor
 
-You can stream metrics and resource logs to a [Log Analytics workspace in Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace). Data streamed here can be consumed by [SQL Analytics](../../azure-monitor/insights/azure-sql.md), which is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace can be analyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations.
+You can stream metrics and resource logs to a [Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Data streamed here can be consumed by [SQL Analytics](../../azure-monitor/insights/azure-sql.md), which is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace can be analyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations.
 
 ### Azure Event Hubs
 
-You can stream metrics and resource logs to [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs). Streaming diagnostic telemetry to event hubs to provide the following functionality:
+You can stream metrics and resource logs to [Azure Event Hubs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs). Streaming diagnostic telemetry to event hubs to provide the following functionality:
 
 - **Stream logs to third-party logging and telemetry systems**
 
@@ -111,7 +111,7 @@ You can stream metrics and resource logs to [Azure Event Hubs](../../azure-monit
 
 ### Azure Storage
 
-Stream metrics and resource logs to [Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Use Azure storage to archive vast amounts of diagnostic telemetry for a fraction of the cost of the previous two streaming options.
+Stream metrics and resource logs to [Azure Storage](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Use Azure storage to archive vast amounts of diagnostic telemetry for a fraction of the cost of the previous two streaming options.
 
 ## Use extended events 
 

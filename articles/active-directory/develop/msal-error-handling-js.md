@@ -150,4 +150,4 @@ See [Requesting Additional Claims](active-directory-optional-claims.md) for more
 
 ## Next steps
 
-Consider enabling [Logging in MSAL.js](msal-logging.md?tabs=javascript) to help you diagnose and debug issues.
+Consider enabling [Logging in MSAL.js](msal-logging-js.md) to help you diagnose and debug issues.

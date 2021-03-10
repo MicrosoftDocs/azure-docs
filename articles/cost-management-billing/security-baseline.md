@@ -179,7 +179,7 @@ Azure Cost Management offers built-in roles, readers and contributors.
 
 What is Azure role-based access control (Azure RBAC) ../role-based-access-control/overview.md 
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md) 
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md) 
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 

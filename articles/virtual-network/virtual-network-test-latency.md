@@ -44,7 +44,7 @@ You can use this approach to measure network latency between two VMs or even bet
 ### Tools for testing
 To measure latency, you have two different tool options:
 
-* For Windows-based systems: [latte.exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* For Windows-based systems: [latte.exe (Windows)](https://github.com/microsoft/latte/releases/download/v0/latte.exe)
 * For Linux-based systems: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
 By using these tools, you help ensure that only TCP or UDP payload delivery times are measured and not ICMP (Ping) or other packet types that aren't used by applications and don't affect their performance.

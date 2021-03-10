@@ -267,5 +267,5 @@ The count of trace statements logged with the TrackTrace() Application Insights 
 
 ## Next steps
 
-* Learn about [Log-based and pre-aggregated metrics](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
-* [Log-based metrics queries and definitions](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics).
+* Learn about [Log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
+* [Log-based metrics queries and definitions](../essentials/app-insights-metrics.md).

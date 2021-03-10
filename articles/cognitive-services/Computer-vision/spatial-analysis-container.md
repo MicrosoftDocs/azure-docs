@@ -19,7 +19,7 @@ The spatial analysis container enables you to analyze real-time streaming video 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Create a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> for the Standard S1 tier in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to run the spatial analysis container. You'll use your key and endpoint later.
 
 
@@ -57,7 +57,7 @@ In this article, you will download and install the following software packages. 
 * [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) runtime.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
-In our example, we will utilize an [NC series VM](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) that has one K80 GPU.
+In our example, we will utilize an [NC series VM](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that has one K80 GPU.
 
 ---
 
@@ -132,7 +132,7 @@ When the Edge compute role is set up on the Edge device, it creates two devices:
 3. Assign a variable to the device IP address. 
     
     ```powershell
-    $ip = "" Replace with the IP address of your device. 
+    $ip = "<device-IP-address>" 
     ```
     
 4. To add the IP address of your device to the client’s trusted hosts list, use the following command: 
@@ -244,22 +244,31 @@ sudo systemctl --now enable nvidia-mps.service
 
 ## Configure Azure IoT Edge on the host computer
 
-To deploy the spatial analysis container on the host computer, create an instance of an [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) service using the Standard (S1) or Free (F0) pricing tier. If your host computer is an Azure Stack Edge, use the same subscription and resource group that is used by the Azure Stack Edge resource.
+To deploy the spatial analysis container on the host computer, create an instance of an [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) service using the Standard (S1) or Free (F0) pricing tier. 
 
 Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters where appropriate. Alternatively, you can create the Azure IoT Hub on the [Azure portal](https://portal.azure.com/).
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
 sudo az login
-sudo az account set --subscription <name or ID of Azure Subscription>
-sudo az group create --name "test-resource-group" --location "WestUS"
-
-sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
-
-sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+See [Region Support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) for available regions.
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
 ```
 
-If the host computer isn't an Azure Stack Edge device, you will need to install [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Follow these steps to download the correct version:
+You will need to install [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Follow these steps to download the correct version:
 
 Ubuntu Server 18.04:
 ```bash
@@ -275,6 +284,8 @@ Install the Microsoft GPG public key.
 
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 ```
 
@@ -290,7 +301,7 @@ Install the 1.0.9 release:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
+Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-register-device.md).
 
 You need to connect the IoT Edge device to your Azure IoT Hub. You need to copy the connection string from the IoT Edge device you created earlier. Alternatively, you can run the below command in the Azure CLI.
 
@@ -305,13 +316,13 @@ Run this command to restart the IoT Edge service on the host computer.
 sudo systemctl restart iotedge
 ```
 
-Deploy the spatial analysis container as an IoT Module on the host computer, either from the [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows). If you're using the portal, set the image URI to the location of your Azure Container Registry. 
+Deploy the spatial analysis container as an IoT Module on the host computer, either from the [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows). If you're using the portal, set the image URI to the location of your Azure Container Registry. 
 
 Use the below steps to deploy the container using the Azure CLI.
 
 #### [Azure VM with GPU](#tab/virtual-machine)
 
-An Azure Virtual Machine with a GPU can also be used to run spatial analysis. The example below will use an [NC series](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) VM that has one K80 GPU.
+An Azure Virtual Machine with a GPU can also be used to run spatial analysis. The example below will use an [NC series](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) VM that has one K80 GPU.
 
 #### Create the VM
 
@@ -331,7 +342,7 @@ Then, select either **NC6** or **NC6_Promo**.
 
 Next, Create the VM. Once created, navigate to the VM resource in the Azure portal and select `Extensions` from the left pane. The extensions window will appear with all available extensions. Select `NVIDIA GPU Driver Extension`, click create, and complete the wizard.
 
-Once the extension is successfully applied, navigate to the VM main page in the Azure portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpful as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) and opening a remote desktop connection to the VM.
+Once the extension is successfully applied, navigate to the VM main page in the Azure portal and click `Connect`. The VM can be accessed either through SSH or RDP. RDP will be helpful as it will be enable viewing of the visualizer window (explained later). Configure the RDP access by following [these steps](../../virtual-machines/linux/use-remote-desktop.md) and opening a remote desktop connection to the VM.
 
 ### Verify Graphics Drivers are Installed
 
@@ -392,7 +403,85 @@ sudo apt-get install -y docker-ce nvidia-docker2
 sudo systemctl restart docker
 ```
 
-Now that you have set up and configured your VM, follow the steps below to deploy the spatial analysis container. 
+Now that you have set up and configured your VM, follow the steps below to configure Azure IoT Edge. 
+
+## Configure Azure IoT Edge on the VM
+
+To deploy the spatial analysis container on the VM, create an instance of an [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) service using the Standard (S1) or Free (F0) pricing tier.
+
+Use the Azure CLI to create an instance of Azure IoT Hub. Replace the parameters where appropriate. Alternatively, you can create the Azure IoT Hub on the [Azure portal](https://portal.azure.com/).
+
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+```bash
+sudo az login
+```
+```bash
+sudo az account set --subscription "<name or ID of Azure Subscription>"
+```
+```bash
+sudo az group create --name "<resource-group-name>" --location "<your-region>"
+```
+See [Region Support](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) for available regions.
+```bash
+sudo az iot hub create --name "<iothub-group-name>" --sku S1 --resource-group "<resource-group-name>"
+```
+```bash
+sudo az iot hub device-identity create --hub-name "<iothub-name>" --device-id "<device-name>" --edge-enabled
+```
+
+You will need to install [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) version 1.0.9. Follow these steps to download the correct version:
+
+Ubuntu Server 18.04:
+```bash
+curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+```
+
+Copy the generated list.
+```bash
+sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+```
+
+Install the Microsoft GPG public key.
+
+```bash
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+```
+```bash
+sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+```
+
+Update the package lists on your device.
+
+```bash
+sudo apt-get update
+```
+
+Install the 1.0.9 release:
+
+```bash
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
+```
+
+Next, register the VM as an IoT Edge device in your IoT Hub instance, using a [connection string](../../iot-edge/how-to-register-device.md).
+
+You need to connect the IoT Edge device to your Azure IoT Hub. You need to copy the connection string from the IoT Edge device you created earlier. Alternatively, you can run the below command in the Azure CLI.
+
+```bash
+sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+```
+
+On the VM open  `/etc/iotedge/config.yaml` for editing. Replace `ADD DEVICE CONNECTION STRING HERE` with the connection string. Save and close the file. 
+Run this command to restart the IoT Edge service on the VM.
+
+```bash
+sudo systemctl restart iotedge
+```
+
+Deploy the spatial analysis container as an IoT Module on the VM, either from the [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows). If you're using the portal, set the image URI to the location of your Azure Container Registry. 
+
+Use the below steps to deploy the container using the Azure CLI.
 
 ---
 
@@ -422,12 +511,12 @@ The following table shows the various Environment Variables used by the IoT Edge
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-Once you update the Deployment manifest for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179), [a desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270) or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows) command to deploy the container on the host computer, as an IoT Edge Module.
+Once you update the Deployment manifest for [Azure Stack Edge devices](https://go.microsoft.com/fwlink/?linkid=2142179), [a desktop machine](https://go.microsoft.com/fwlink/?linkid=2152270) or [Azure VM with GPU](https://go.microsoft.com/fwlink/?linkid=2152189) with your own settings and selection of operations, you can use the below [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows) command to deploy the container on the host computer, as an IoT Edge Module.
 
 ```azurecli
 sudo az login
 sudo az extension add --name azure-iot
-sudo az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
+sudo az iot edge set-modules --hub-name "<iothub-name>" --device-id "<device-name>" --content DeploymentManifest.json --subscription "<name or ID of Azure Subscription>"
 ```
 
 |Parameter  |Description  |
@@ -453,7 +542,7 @@ You will need to use [spatial analysis operations](spatial-analysis-operations.m
 
 ## Redeploy or delete the deployment
 
-If you need to update the deployment, you need to make sure your previous deployments are successfully deployed, or you need to delete IoT Edge device deployments that did not complete. Otherwise, those deployments will continue, leaving the system in a bad state. You can use the Azure portal, or the [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
+If you need to update the deployment, you need to make sure your previous deployments are successfully deployed, or you need to delete IoT Edge device deployments that did not complete. Otherwise, those deployments will continue, leaving the system in a bad state. You can use the Azure portal, or the [Azure CLI](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ## Use the output generated by the container
 

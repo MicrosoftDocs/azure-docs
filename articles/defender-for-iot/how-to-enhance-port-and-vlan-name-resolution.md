@@ -79,7 +79,8 @@ To configure VLANs:
 
 ## Next steps
 
-View enriched device information in the reports for device inventory and data mining:
+View enriched device information in various reports:
 
 - [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-- [Generate reports](how-to-generate-reports.md)
+- [Sensor trends and statistics reports](how-to-create-trends-and-statistics-reports.md)
+- [Sensor data mining queries](how-to-create-data-mining-queries.md)

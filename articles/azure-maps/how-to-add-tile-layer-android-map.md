@@ -3,11 +3,12 @@ title: Add a tile layer to Android maps | Microsoft Azure Maps
 description: Learn how to add a tile layer to a map. See an example that uses the Azure Maps Android SDK to add a weather radar overlay to a map.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/08/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
+zone_pivot_groups: azure-maps-android
 ---
 
 # Add a tile layer to a map (Android SDK)
@@ -31,6 +32,7 @@ The tile URL passed into a Tile layer must be an http/https URL to a TileJSON re
 * `{quadkey}` - Tile quadkey identifier based on the Bing Maps tile system naming convention.
 * `{bbox-epsg-3857}` - A bounding box string with the format `{west},{south},{east},{north}` in the EPSG 3857 Spatial Reference System.
 * `{subdomain}` - A placeholder for the subdomain values, if the subdomain value is specified.
+* `azmapsdomain.invalid` - A placeholder to align the domain and authentication of tile requests with the same values used by the map. Use this when calling a tile service hosted by Azure Maps.
 
 ## Prerequisites
 
@@ -39,6 +41,8 @@ To complete the process in this article, you need to install [Azure Maps Android
 ## Add a tile layer to the map
 
 This sample shows how to create a tile layer that points to a set of tiles. This sample uses the "x, y, zoom" tiling system. The source of this tile layer is the [OpenSeaMap project](https://openseamap.org/index.php), which contains crowd sourced nautical charts. Often when viewing tile layers it is desirable to be able to clearly see the labels of cities on the map. This behavior can be achieved by inserting the tile layer below the map label layers.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 TileLayer layer = new TileLayer(
@@ -52,16 +56,31 @@ TileLayer layer = new TileLayer(
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+val layer = TileLayer(
+    tileUrl("https://tiles.openseamap.org/seamark/{z}/{x}/{y}.png"),
+    opacity(0.8f),
+    tileSize(256),
+    minSourceZoom(7),
+    maxSourceZoom(17)
+)
+
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 The following screenshot shows the above code displaying a tile layer of nautical information on a map that has a dark grayscale style.
 
 ![Android map displaying tile layer](media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)
 
 ## Next steps
 
-See the following article to learn more about ways to set map styles
+See the following article to learn more about ways to overlay imagery on a map.
 
 > [!div class="nextstepaction"]
-> [Change the map style](set-android-map-styles.md)
-
-> [!div class="nextstepaction"]
-> [Add a heat map](map-add-heat-map-layer-android.md)
+> [Image layer](map-add-image-layer-android.md)

@@ -105,7 +105,7 @@ Yes, during a Git deployment, Kudu should detect that you're deploying a PHP app
 
 **I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.**
 
-If `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is **unspecified** or set to *true*, the `/home/` directory **will be shared** across scale instances, and files written **will persist** across restarts. Explicitly setting `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to *false* will disable the mount.
+If `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is **unspecified** or set to *false*, the `/home/` directory **will not be shared** across scale instances, and files written **will not persist** across restarts. Explicitly setting `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to *true* will enable the mount.
 
 **My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
 
