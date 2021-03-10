@@ -213,9 +213,8 @@ For information on the various servers and workloads that you can protect with D
 
 ### For NTFS volumes
 
-|                              |                                       |                    |                      |
+| Operating   system of protected server  | Operating   system of MABS server  | MABS version  | Dedup support |
 | ------------------------------------------ | ------------------------------------- | ------------------ | -------------------- |
-| **Operating   system of protected server** | **Operating   system of MABS server** | **MABS   version** | **Dedupe   support** |
 | Windows  Server 2019                       | Windows  Server 2019                  | MABS v3            | Y                    |
 | Windows  Server 2016                       | Windows  Server 2019                  | MABS v3            | Y*                   |
 | Windows  Server 2012 R2                    | Windows  Server 2019                  | MABS v3            | N                    |
@@ -225,7 +224,7 @@ For information on the various servers and workloads that you can protect with D
 | Windows  Server 2012 R2                    | Windows  Server 2016                  | MABS v3            | Y                    |
 | Windows  Server 2012                       | Windows  Server 2016                  | MABS v3            | Y                    |
 
-- \* When protecting a WS 2016 NTFS deduped volume with MABS v3 running on WS 2019, the recoveries may be     affected. We have a fix for doing recoveries in a non-deduped way. Reach out to MABS support if you need this fix on MABS v3 UR1.
+- \* When protecting a WS 2016 NTFS deduped volume with MABS v3 running on WS 2019, the recoveries may be affected. We have a fix for doing recoveries in a non-deduped way. Reach out to MABS support if you need this fix on MABS v3 UR1.
 - \** When protecting a WS 2019 NTFS deduped volume with MABS v3 on WS 2016, the backups and restores will be non-deduped. This means that the backups will consume more space on the MABS server than the original NTFS deduped volume.
 
 **Issue**: If you upgrade the protected server operating system from Windows Server 2016 to Windows Server 2019, then the backup of the NTFS deduped volume will be affected due to changes in the deduplication logic.
