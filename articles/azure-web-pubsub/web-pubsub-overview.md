@@ -1,5 +1,5 @@
 ---
-title: What is Azure Web PubSub Service?
+title: What is Azure Web PubSub service?
 description: Better understand what typical use case scenarios to use Azure Web PubSub, and learn the key benefits of Azure Web PubSub.
 author: yjin81
 ms.author: yajin1
@@ -54,4 +54,5 @@ Azure Web PubSub service is a bi-directional messaging service that allows diffe
 
 There are many different ways to program with Azure Web PubSub service, as some of the samples listed here:
 
-- ""Build serverless real-time applications**: Use Azure Functions' integration with Azure Web PubSub service to build serverless real-time applications in languages such as JavaScript, C#, Java and Python. 
+- **Build serverless real-time applications**: Use Azure Functions' integration with Azure Web PubSub service to build serverless real-time applications in languages such as JavaScript, C#, Java and Python. 
+- **Send messages from server to clients via REST API** - Azure Web PubSub service provides REST API to enable applications to post messages to clients connected, in any REST capable programming languages.
