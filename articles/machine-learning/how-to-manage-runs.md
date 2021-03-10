@@ -316,17 +316,10 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     
     1. Navigate to the  **All runs** list.
     
-    1. Use the **Add filter** button and select filter on tags to filter your runs by tag that was assigned to the run(s).
+        1. Use the **Add filter** button and select filter on tags to filter your runs by tag that was assigned to the run(s). <br><br>
+        OR
        
-    ---
-## Run Search 
-
-    1. Navigate to the  **All runs** list. 
-    2. Use the search bar to quickly find runs by searching on the run metadata like the run status, descriptions, experiment names, and submitter name. 
-
-
-:::image type="content" source="media/how-to-manage-runs/runsearch.gif" alt-text="Screenshot: run search"::: 
-    
+        1. Use the search bar to quickly find runs by searching on the run metadata like the run status, descriptions, experiment names, and submitter name. 
 
 ## Cancel or fail runs
 
