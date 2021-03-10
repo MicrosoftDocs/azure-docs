@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Integrate multiple Immersive Reader resources"
+title: "Integrate multiple Immersive Reader resources"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll create a Node.js application that launches the Immersive Reader using multiple Immersive Reader resources.
 author: skamal
@@ -7,16 +7,16 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-js
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---
 
-# Tutorial: Integrate multiple Immersive Reader resources
+# Integrate multiple Immersive Reader resources
 
-In the [overview](./overview.md), you learned about what the Immersive Reader is and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. In the [Node.js quickstart](./quickstarts/client-libraries.md?pivots=programming-language-nodejs), you learned how to use Immersive Reader with a single resource. This tutorial covers how to integrate multiple Immersive Reader resources in the same application. In this tutorial, you learn how to:
+In the [overview](./overview.md), you learned about what the Immersive Reader is and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. In the [quickstart](./quickstarts/client-libraries.md), you learned how to use Immersive Reader with a single resource. This tutorial covers how to integrate multiple Immersive Reader resources in the same application. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create multiple Immersive Reader resource under an existing resource group
