@@ -30,11 +30,13 @@ Configuring a custom skill for maximizing throughput of the indexing process req
 
 ### Skill settings
 
-1. In the skillset definition, set [`batchSize`](cognitive-search-custom-skill-web-api) to configure the number of records sent to the skill in a single invocation of the skill.
+On the [custom skill](cognitive-search-custom-skill-web-api.md) set the following parameters.
 
-2. Set [`degreeOfParallelism`](cognitive-search-custom-skill-web-api) to determine the number of concurrent requests the indexer will make to your skill.
+1. Set `batchSize` of the custom skill to configure the number of records sent to the skill in a single invocation of the skill.
 
-3. Set [`timeout`](cognitive-search-custom-skill-web-api) to a value sufficient for the skill to respond with a valid response.
+2. Set the `degreeOfParallelism` to caliberate the number of concurrent requests the indexer will make to your skill.
+
+3. Set `timeout`to a value sufficient for the skill to respond with a valid response.
 
 4. In the `indexer` definition, set [`batchSize`](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) to the number of documents that should be read from the data source and enriched concurrently.
 
