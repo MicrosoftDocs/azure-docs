@@ -153,7 +153,7 @@ To set up your virtual machine within the host pool setup process:
 
 11. After that, select whether you want the virtual machines to be joined to a specific domain and organizational unit. If you choose **Yes**, specify the domain to join. You can optionally add a specific organizational unit you want the virtual machines to be in. If you choose **No**, the VMs will be joined to the domain matching the suffix of the **AD domain join UPN**.
 
-  - When specifying an OU, make sure you use the full path (Distinguished Name) and without quotation marks.
+   - When you specify an OU, make sure you use the full path (Distinguished Name) and without quotation marks.
 
 12. Under Domain Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected. This account can't have multi-factored authentication (MFA) enabled. When joining to an Azure Active Directory Domain Services (Azure AD DS) domain, the account must be part of the Azure AD DC Administrators group and the account password must work in Azure AD DS.
 
