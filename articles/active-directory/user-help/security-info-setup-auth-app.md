@@ -53,7 +53,7 @@ Depending on your organization’s settings, you might be able to use an authent
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile-page.png)
 
-2. Select **Security info** from the left navigation pane or from the link in the **Security info** pane. If you have already registered, you'll be prompted for two-factor verification. Then, select **Add method** from the **Security info** pane.
+2. Select **Security info** in the left menu or by using the link in the **Security info** pane. If you have already registered, you'll be prompted for two-factor verification. Then, select **Add method** in the **Security info** pane.
 
     ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
