@@ -39,6 +39,8 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
 
     c. Select your *Region*.
 
+    > [!IMPORTANT] Make sure to choose an empty resource group or create a new one.
+
     :::image type="content" source="./media/stig-project-details.png" alt-text="Project details section showing where you select the Azure subscription and the resource group for the virtual machine" border="false":::
 
 1. Under **Instance details**, enter all required information:
@@ -53,9 +55,11 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
 
     e. Select the Authentication type by choosing either *Password* or *Public key*.
 
-    f. Enter a *Password* or *Public key*
+    f. Enter a *Password* or *Public key*.
 
-    g. Confirm *Password* or *Public key*
+    g. Confirm *Password* (*Public key* only needs to be input once).
+
+    > [!NOTE] For instructions on creating an SSH RSA public-private key pair for SSH client connections, see **[Create and manage SSH keys for authentication to a Linux VM in Azure](../virtual-machines/linux/create-ssh-keys-detailed.md).**
 
     :::image type="content" source="./media/stig-linux-instance-details.png" alt-text="Instance details section where you provide a name for the virtual machine and select its region, image, and size" border="false":::
 
@@ -71,7 +75,7 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
 
     a. Select the *Virtual Network*. Either use existing virtual network or select *Create new* (note RDP inbound is disallowed).
 
-    b. Select *Subnet* (using an existing subnet will generate an error and require entering a new subnet).
+    b. Select *Subnet*.
 
     c. Application security group (optional).
 
@@ -83,7 +87,7 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
 
     b. Enter Log Analytics workspace (optional, required to store log analytics).
 
-    c. Enter Custom data (optional, not applicable to RHEL 7.2).
+    c. Enter Custom data (optional, only applicable for RHEL 7.7/7.8, CentOS 7.7/7.8/7.9 and Ubuntu 18.04).
 
     :::image type="content" source="./media/stig-linux-diagnostic-settings.png" alt-text="Management section showing where you select the diagnostic settings for the virtual machine" border="false":::
 

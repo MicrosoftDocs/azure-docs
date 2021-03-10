@@ -38,6 +38,8 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
     b. Create a new *Resource group* or enter an existing resource group.
 
     c. Select your *Region*.
+
+    > [!IMPORTANT] Make sure to choose an empty resource group or create a new one.
     
     :::image type="content" source="./media/stig-project-details.png" alt-text="Project details section showing where you select the Azure subscription and the resource group for the virtual machine" border="false":::
 
@@ -69,7 +71,7 @@ Sign in at the [Azure Government portal](https://portal.azure.us/).
 
     a. Select the *Virtual Network*. Either use existing virtual network or select *Create new* (note RDP inbound is disallowed).
 
-    b. Select *Subnet* (using an existing subnet will generate an error and require entering a new subnet).
+    b. Select *Subnet*.
 
     c. Application security group (optional).
 
