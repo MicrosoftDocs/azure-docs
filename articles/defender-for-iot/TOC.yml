@@ -4,13 +4,13 @@
   displayName: IoT, OT, getting started
   href: overview.md
   items:
-  - name: What's new?
-    href: release-notes.md
   - name: Agentless solution architecture
     displayName: deployment, where to deploy
     href: architecture.md
   - name: Agent-based solution architecture 
     href: architecture-agent-based.md
+- name: What's new?
+  href: release-notes.md
 - name: Quickstarts
   expanded: true
   items:
@@ -59,7 +59,7 @@
     - name: Agent portfolio overview and OS support (Preview)                     
       displayName: standalone agent, micro agent, RTOS
       href: concept-agent-portfolio-overview-os-support.md
-    - name: Standalone micro agent overview (Preview) 
+    - name: Standalone micro agent overview (Preview)
       displayName: endpoint, posture, distribution, flexible, model 
       href: concept-standalone-micro-agent-overview.md
     - name: Security agent authentication (Preview)
@@ -113,12 +113,12 @@
         - name: Identify required appliances 
           displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment
           href: how-to-identify-required-appliances.md
-        - name: Install software
-          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install, deploy
-          href: how-to-install-software.md
         - name: Set up your network
           displayName: passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning
           href: how-to-set-up-your-network.md
+        - name: Install software
+          displayName: virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install
+          href: how-to-install-software.md
     - name: Prepare your sensors
       items:
       - name: Onboard sensors
@@ -155,9 +155,8 @@
     - name: Manage sensors on the cloud
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Manage the on-premises management console
-      displayName: activation, certificate, software update, backup, restore, proxy, password recovery
+      displayName: upgrade, activation, certificate, software update, backup, restore, proxy, password recovery
       href: how-to-manage-the-on-premises-management-console.md
-      displayName: upgrade, activation, certificate, SSL, TLS, connect, sync, backup, restore, software update, failure
     - name: Work with threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
     - name: Work with device inventory information
@@ -250,9 +249,6 @@
       displayName: data, collection, geolocation, log analytics, raw events
       href: how-to-configure-agent-based-solution.md
     - name: Investigate CIS benchmark recommendation
-      displayName: investigation, queries, investigate
-      href: how-to-configure-agent-based-solution.md
-    - name: Investigate CIS benchmark recommendation
       href: how-to-investigate-cis-benchmark.md
     - name: Create custom alerts
       displayName: security group
@@ -294,7 +290,6 @@
       - name: Send your own security messages
         href: how-to-send-security-messages.md
       - name: Access raw security data
-
         displayName: log analytics, alerts, 
         href: how-to-security-data-access.md
       - name: Investigate a device

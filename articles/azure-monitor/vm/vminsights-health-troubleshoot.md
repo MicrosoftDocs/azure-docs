@@ -1,7 +1,6 @@
 ---
-title: Troubleshoot Azure Monitor for VMs guest health (preview)
-description: Describes troubleshooting steps that you can take when you have issues with Azure Monitor for VMs health.
-ms.subservice: 
+title: Troubleshoot VM insights guest health (preview)
+description: Describes troubleshooting steps that you can take when you have issues with VM insights health.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,8 +8,8 @@ ms.date: 09/08/2020
 
 ---
 
-# Troubleshoot Azure Monitor for VMs guest health (preview)
-This article describes troubleshooting steps that you can take when you have issues with Azure Monitor for VMs health.
+# Troubleshoot VM insights guest health (preview)
+This article describes troubleshooting steps that you can take when you have issues with VM insights health.
 
 ## Error message that no data is available 
 
@@ -44,4 +43,4 @@ This error indicates that the **Microsoft.WorkloadMonitor** resource provider wa
 
 ## Next steps
 
-- [Get an overview of the guest health feature of Azure Monitor for VMs](vminsights-health-overview.md)
+- [Get an overview of the guest health feature of VM insights](vminsights-health-overview.md)

@@ -90,15 +90,3 @@ The following code example shows how to create a service client object with mana
     }
 ```
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Learn about authentication](../concepts/authentication.md)
-
-You may also want to:
-
-- [Learn more about Azure role-based access control](../../../../articles/role-based-access-control/index.yml)
-- [Learn more about Azure identity library for Java](/java/api/overview/azure/identity-readme)
-- [Creating user access tokens](../../quickstarts/access-tokens.md)
-- [Send an SMS message](../../quickstarts/telephony-sms/send.md)
-- [Learn more about SMS](../../concepts/telephony-sms/concepts.md)

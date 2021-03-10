@@ -65,7 +65,7 @@ The RouteServerSubnet ID looks like the following one:
 Create the Route Server with this command:
 
 ```azurepowershell-interactive 
-New-AzRouteServer -Name myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
+New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
 ```
 
 The location needs to match the location of your virtual network. The HostedSubnet is the RouteServerSubnet ID you obtained in the previous section.
@@ -75,7 +75,7 @@ The location needs to match the location of your virtual network. The HostedSubn
 Use the following command to establish BGP peering from the Route Server to the NVA:
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName "myNVA” -PeerIp “nva_ip” -PeerAsn “nva_asn” -RouteServerName "myRouteServer -ResourceGroupName ”RouteServerRG”
+Add-AzRouteServerPeer -PeerName "myNVA" -PeerIp "nva_ip" -PeerAsn "nva_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 “nva_ip” is the virtual network IP assigned to the NVA. “nva_asn” is the Autonomous System Number (ASN) configured in the NVA. The ASN can be any 16-bit number other than the ones in the range of 65515-65520. This range of ASNs are reserved by Microsoft.
@@ -83,7 +83,7 @@ Add-AzRouteServerPeer -PeerName "myNVA” -PeerIp “nva_ip” -PeerAsn “nva_a
 To set up peering with different NVA or another instance of the same NVA for redundancy, use this command:
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName “NVA2_name” -PeerIp “nva2_ip” -PeerAsn “nva2_asn” -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Add-AzRouteServerPeer -PeerName "NVA2_name" -PeerIp "nva2_ip" -PeerAsn "nva2_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 ## Complete the configuration on the NVA
@@ -91,7 +91,7 @@ Add-AzRouteServerPeer -PeerName “NVA2_name” -PeerIp “nva2_ip” -PeerAsn �
 To complete the configuration on the NVA and enable the BGP sessions, you need the IP and the ASN of Azure Route Server. You can get this information using this command:
 
 ```azurepowershell-interactive 
-Get-AzRouteServer -RouterName “myRouteServer” -ResourceGroupName “RouteServerRG”
+Get-AzRouteServer -RouterServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 The output has the following information:
@@ -108,13 +108,13 @@ If you have an ExpressRoute gateway and an Azure VPN gateway in the same VNet an
 1. To enable route exchange between Azure Route Server and the gateway(s) use this command:
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” -AllowBranchToBranchTraffic 
+Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -AllowBranchToBranchTraffic 
 ```
 
 2. To disable route exchange between Azure Route Server and the gateway(s) use this command:
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 ## Troubleshooting
@@ -125,20 +125,20 @@ You can view the routes advertised and received by Azure Route Server with this 
 Get-AzRouteServerPeerAdvertisedRoute
 Get-AzRouteServerPeerLearnedRoute
 ```
-## Clean up
+## Clean up resources
 
 If you no longer need the Azure Route Server, use these commands to remove the BGP peering and then remove the Route Server. 
 
 1. Remove the BGP peering between Azure Route Server and an NVA with this command:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 2. Remove Azure Route Server with this command:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServer -RouteServerName “myRouteServer” -ResourceGroupName “RouteServerRG” 
+Remove-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
 ```
 
 ## Next steps

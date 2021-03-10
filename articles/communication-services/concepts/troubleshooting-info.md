@@ -18,12 +18,7 @@ This document will help you troubleshoot issues that you may experience within y
 
 ## Getting help
 
-We encourage developers to submit questions, suggest features, and report problems as issues in the Communication Services [GitHub repository](https://github.com/Azure/communication). Other forums include:
-
-* [Microsoft Q&A](/answers/questions/topics/single/101418.html)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
-
-Depending on your Azure subscription [support plan](https://azure.microsoft.com/support/plans/) you may submit a support ticket directly through the [Azure portal](https://azure.microsoft.com/support/create-ticket/).
+We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a [dedicated support and help options page](../support.md) which lists your options for support.
 
 To help you troubleshoot certain types of issues, you may be asked for any of the following pieces of information:
 
@@ -104,7 +99,6 @@ Log.d(call.getCallId())
 ```
 ---
 
-
 ## Access your SMS message ID
 
 For SMS issues, you can collect the message ID from the response object.
@@ -127,9 +121,6 @@ console.log(result); // your message ID will be in the result
 ---
 
 ## Enable and access call logs
-
-
-
 
 # [JavaScript](#tab/javascript)
 
@@ -163,7 +154,6 @@ On Android Studio, navigate to the Device File Explorer by selecting View > Tool
 
 ---
 
-
 ## Calling client library error codes
 
 The Azure Communication Services calling client library uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
@@ -181,7 +171,6 @@ The Azure Communication Services calling client library uses the following error
 | 490, 491, 496, 487, 498 | Local endpoint network issues. | Check your network. |
 | 500, 503, 504 | Communication Services infrastructure error. | File a support request through the Azure portal. |
 | 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
-
 
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)

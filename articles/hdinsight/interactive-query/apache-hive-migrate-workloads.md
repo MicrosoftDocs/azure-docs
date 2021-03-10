@@ -1,8 +1,8 @@
 ---
 title: Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 description: Learn how to migrate Apache Hive workloads on HDInsight 3.6 to HDInsight 4.0.
-author: kevxmsft, msft-tacox
-ms.author: kevx, tacox
+author: kevxmsft
+ms.author: kevx
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
@@ -66,7 +66,7 @@ This step uses the [`Hive Schema Tool`](https://cwiki.apache.org/confluence/disp
     > [!NOTE]
     > This utility uses client `beeline` to execute SQL scripts in `/usr/hdp/$STACK_VERSION/hive/scripts/metastore/upgrade/mssql/upgrade-*.mssql.sql`.
     >
-    > SQL Syntax in these scripts is not necessarily compatible to other client tools. For example, [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) and [Query Editor on Azure Portal](../../azure-sql/database/connect-query-portal.md) require keyword `GO` after each command.
+    > SQL Syntax in these scripts is not necessarily compatible to other client tools. For example, [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [Query Editor on Azure Portal](../../azure-sql/database/connect-query-portal.md) require keyword `GO` after each command.
     >
     > If any script fails due to resource capacity or transaction timeouts, scale up the SQL Database.
 
@@ -82,7 +82,7 @@ This step uses the [`Hive Schema Tool`](https://cwiki.apache.org/confluence/disp
 
 ### 4. Deploy a new HDInsight 4.0 cluster
 
-Create a new HDInsight 4.0 cluster, [selecting the upgraded Hive metastore](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md) and the same Storage Accounts.
+Create a new HDInsight 4.0 cluster, [selecting the upgraded Hive metastore](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation) and the same Storage Accounts.
 
 * The new cluster doesn't require having the same default filesystem.
 

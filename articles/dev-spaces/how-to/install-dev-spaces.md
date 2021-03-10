@@ -81,7 +81,7 @@ Learn more about how Azure Dev Spaces works.
 > [How Azure Dev Spaces works](../how-dev-spaces-works.md)
 
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
-[install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
+[install-cli]: /cli/azure/install-azure-cli
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [az-portal]: https://portal.azure.com
 [az-portal-create-account]: https://azure.microsoft.com/free

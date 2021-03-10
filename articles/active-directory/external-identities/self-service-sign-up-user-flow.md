@@ -16,17 +16,22 @@ ms.collection: M365-identity-device-management
 
 # Add a self-service sign-up user flow to an app
 
-You can create user flows for apps that are built by your organization. Associating your user flow with an application allows you to enable sign-up on that app. You can choose more than one application to be associated with the user flow. Once you associate the user flow with one or more applications, users who visit that app will be able to sign up and gain a guest account using the options configured in the user flow.
+> [!NOTE]
+> Some of the features mentioned in this article are public preview features of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+For applications you build, you can create user flows that allow a user to sign up for an app and create a new guest account. A self-service sign-up user flow defines the series of steps the user will follow during sign-up, the identity providers you'll allow them to use, and the user attributes you want to collect. You can associate one or more applications with a single user flow.
 
 > [!NOTE]
 > You can associate user flows with apps built by your organization. User flows can't be used for Microsoft apps, like SharePoint or Teams.
 
 ## Before you begin
 
-### Add social identity providers (optional)
+### Add identity providers (optional)
 
-Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. Social identity providers can also be included in these sign-up flows to support Google and Facebook accounts.
+Azure AD is the default identity provider for self-service sign-up. This means that users are able to sign up by default with an Azure AD account. In your self-service sign-up user flows, you can also include social identity providers like Google and Facebook, Microsoft Account (Preview), and Email One-time Passcode (Preview).
 
+- [Microsoft Account (Preview) identity provider](microsoft-account.md)
+- [Email one-time passcode authentication](one-time-passcode.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
 - [Add Google to your list of social identity providers](google-federation.md)
 

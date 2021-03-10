@@ -2,22 +2,20 @@
 title: Bicep language for Azure Resource Manager templates
 description: Describes the Bicep language for deploying infrastructure to Azure through Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ---
 
 # What is Bicep (Preview)?
 
-Bicep is a language for declaratively deploying Azure resources. It simplifies the authoring experience by providing concise syntax, and better support for modularity and code reuse. Bicep is a domain-specific language (DSL), which means it's designed for a particular scenario or domain. Bicep isn't intended as a general programming language for writing applications.
+Bicep is a language for declaratively deploying Azure resources. It simplifies the authoring experience by providing concise syntax and better support for code reuse. Bicep is a domain-specific language (DSL), which means it's designed for a particular scenario or domain. Bicep isn't intended as a general programming language for writing applications.
 
-Bicep is a transparent abstraction over Azure Resource Manager templates (ARM templates). Each Bicep file compiles to a standard ARM template. Resource types, API versions, and properties that are valid in an ARM template are valid in a Bicep file.
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+In the past, you developed Azure Resource Manager templates (ARM templates) with JSON. The JSON syntax for creating template can be verbose and require complicated expression. Bicep improves that experience without losing any of the capabilities of a JSON template. It's a transparent abstraction over the JSON for ARM templates. Each Bicep file compiles to a standard ARM template. Resource types, API versions, and properties that are valid in an ARM template are valid in a Bicep file.
 
 ## Get started
 
 To start with Bicep, [install the tools](https://github.com/Azure/bicep/blob/main/docs/installing.md).
 
-After installing the tools, try the [Bicep tutorial](https://github.com/Azure/bicep/blob/main/docs/tutorial/01-simple-template.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
+After installing the tools, try the [Bicep tutorial](./bicep-tutorial-create-first-bicep.md). The tutorial series walks you through the structure and capabilities of Bicep. You deploy Bicep files, and convert an ARM template into the equivalent Bicep file.
 
 To view equivalent JSON and Bicep files side by side, see the [Bicep Playground](https://aka.ms/bicepdemo).
 
@@ -25,7 +23,26 @@ If you have an existing ARM template that you would like to convert to Bicep, se
 
 ## Bicep improvements
 
-Bicep offers an easier and more concise syntax when compared to the equivalent JSON. You don't use `[...]` expressions. Instead, you directly call functions, get values from parameters and variables, and reference resources. For a full comparison of the syntax, see [Comparing JSON and Bicep for templates](compare-template-syntax.md).
+Bicep offers an easier and more concise syntax when compared to the equivalent JSON. You don't use `[...]` expressions. Instead, you directly call functions, and get values from parameters and variables. You give each deployed resource a symbolic name, which makes it easy to reference that resource in your template.
+
+For example, the following JSON returns an output value from a resource property.
+
+```json
+"outputs": {
+  "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
+}
+```
+
+The equivalent output expression in Bicep is easier to write. The following example returns the same property by using the symbolic name **publicIP** for a resource that is defined within the template:
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+For a full comparison of the syntax, see [Comparing JSON and Bicep for templates](compare-template-syntax.md).
 
 Bicep automatically manages dependencies between resources. You can avoid setting `dependsOn` when the symbolic name of a resource is used in another resource declaration.
 
@@ -63,4 +80,4 @@ When you're ready, you can [convert the JSON files to Bicep](compare-template-sy
 
 ## Next steps
 
-Get started with the [Bicep tutorial](https://github.com/Azure/bicep/blob/main/docs/tutorial/01-simple-template.md).
+Get started with the [Bicep tutorial](./bicep-tutorial-create-first-bicep.md).

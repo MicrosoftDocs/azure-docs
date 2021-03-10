@@ -1,7 +1,6 @@
 ---
 title: Use Data Collector API to create a data pipeline
 description: You can use the Azure Monitor HTTP Data Collector API to add POST JSON data to the Log Analytics workspace from any client that can call the REST API. This article describes how to upload data stored in files in an automated way.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

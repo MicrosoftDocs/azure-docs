@@ -13,6 +13,9 @@ ms.service: azure-communication-services
 ---
 # Client and Server Architecture
 
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
+
 <!--
 > [!WARNING]
 > This document is under construction and needs the following items to be addressed:

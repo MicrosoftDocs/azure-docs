@@ -13,7 +13,9 @@ ms.service: azure-communication-services
 
 # Region availability and data residency
 
-Azure Communication Services is committed to helping our customers meet their privacy and personal data requirements. As a developer using Communication Services with a direct relationship with humans using the application, you are potentially a controller of their data. Since Azure Communication Services is storing this data on your behalf, we are most likely a processor of this data. This page summarizes how the service retains data and how you can identify, export, and delete this data.
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
+Azure Communication Services is committed to helping our customers meet their privacy and personal data requirements. As a developer using Communication Services with a direct relationship with humans using the application, you are potentially a controller of their data. Since Azure Communication Services is storing and encrypting this data at rest on your behalf, we are most likely a processor of this data. This page summarizes how the service retains data and how you can identify, export, and delete this data.
 
 ## Data residency
 
@@ -75,6 +77,6 @@ Azure Communication Services will feed into Azure Monitor logging data for under
 
 ## Additional resources
 
-- [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure?preserve-view=true&view=o365-worldwide)
+- [Azure Data Subject Requests for the GDPR and CCPA](/microsoft-365/compliance/gdpr-dsr-azure)
 - [Microsoft Trust Center](https://www.microsoft.com/trust-center/privacy/data-location)
 - [Azure Interactive Map - Where is my customer data?](https://azuredatacentermap.azurewebsites.net/)

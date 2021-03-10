@@ -13,6 +13,9 @@ ms.service: azure-communication-services
 ---
 # Client libraries and REST APIs
 
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
+
 Azure Communication Services capabilities are conceptually organized into six areas. Some areas have fully open-sourced client libraries. The Calling client library uses proprietary network interfaces and is currently closed-source, and the Chat library includes a closed-source dependency. Samples and additional technical details for client libraries are published in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
 
 ## Client libraries
@@ -79,7 +82,7 @@ The following timeouts apply to the Communication Services calling client librar
 | Action           | Timeout in seconds |
 | -------------- | ---------- |
 | Reconnect/removal participant | 120 |
-| Add or remove new modality from a call (Start/stop video or screensharing) | 40 |
+| Add or remove new modality from a call (Start/stop video or screen sharing) | 40 |
 | Call Transfer operation timeout | 60 |
 | 1:1 call establishment timeout | 85 |
 | Group call establishment timeout | 85 |

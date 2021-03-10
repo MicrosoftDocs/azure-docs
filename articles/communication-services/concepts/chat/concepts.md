@@ -13,6 +13,9 @@ ms.service: azure-communication-services
 ---
 # Chat concepts
 
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+
 Azure Communication Services Chat client libraries can be used to add real-time text chat to your applications. This page summarizes key Chat concepts and capabilities.
 
 See the [Communication Services Chat client library Overview](./sdk-features.md) to learn more about specific client library languages and capabilities.

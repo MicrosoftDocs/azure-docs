@@ -21,7 +21,6 @@ For a ten-minute introduction and demonstration of this feature, watch the follo
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
 
-
 > [!NOTE]
 > The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more info, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the *Microsoft.EventGrid/eventSubscriptions/** action. This action is part of the EventGrid EventSubscription Contributor built-in role.
 
@@ -29,11 +28,11 @@ For a ten-minute introduction and demonstration of this feature, watch the follo
 
 This section shows you how to create a storage event trigger within the Azure Data Factory User Interface.
 
-1. Go to the **Authoring Canvas**
+1. Switch to the **Edit** tab, shown with a pencil symbol. 
 
-1. In the bottom-left corner, click on the **Triggers** button
+1. Select **Trigger** on the menu, then select **New/Edit**. 
 
-1. Click **+ New** which will open up the create trigger side nav
+1. On the **Add Triggers** page, select **Choose trigger...**, then select **+New**. 
 
 1. Select trigger type **Storage Event**
 
@@ -102,4 +101,5 @@ This section provides examples of storage event trigger settings.
 
 ## Next steps
 
-For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
+* For detailed information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Learn how to reference trigger metadata in pipeline, see [Reference Trigger Metadata in Pipeline Runs](how-to-use-trigger-parameterization.md)

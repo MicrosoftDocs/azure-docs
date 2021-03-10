@@ -24,7 +24,7 @@ You cannot share a particular knowledge base in a QnA Maker service. If you want
 
 ### Add a user account to the QnA Maker resource
 
-The following steps use the collaborator role but any of the [roles](../reference-role-based-access-control.md) can be added using these steps
+The following steps use the collaborator role but any of the roles can be added using these steps
 
 1. Sign in to the [Azure](https://portal.azure.com/) portal, and go to your QnA Maker resource.
 

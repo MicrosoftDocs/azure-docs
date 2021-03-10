@@ -5,7 +5,6 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.subservice: alerts
 ---
 # Troubleshooting problems in Azure Monitor alerts
 
@@ -239,7 +238,7 @@ If you received an error while trying to create, update or delete an [action rul
 
 1. **Did you verify the action rule parameters?**  
 
-    Check the [action rule documentation](../alerts/alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) command. 
+    Check the [action rule documentation](../alerts/alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
 
 
 ## Next steps

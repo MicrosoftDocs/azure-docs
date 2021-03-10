@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 03/03/2021
 ms.author: duau
 ---
 
@@ -303,7 +303,7 @@ Traffic View pricing is based on the number of data points used to create the ou
 
 Using endpoints from multiple subscriptions is not possible with Azure Web Apps. Azure Web Apps requires that any custom domain name used with Web Apps is only used within a single subscription. It is not possible to use Web Apps from multiple subscriptions with the same domain name.
 
-For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Endpoints from other subscriptions can be added using [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) or the [Azure CLI](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription. In Resource Manager, endpoints from any subscription can be added to Traffic Manager, as long as the person configuring the Traffic Manager profile has read access to the endpoint. These permissions can be granted using [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md). Endpoints from other subscriptions can be added using [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) or the [Azure CLI](/cli/azure/network/traffic-manager/endpoint#az-network-traffic-manager-endpoint-create).
 
 ### Can I use Traffic Manager with Cloud Service 'Staging' slots?
 
@@ -444,7 +444,18 @@ If no custom host header setting is provided, the host header used by Traffic Ma
 
 ### What are the IP addresses from which the health checks originate?
 
-Click [here](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) to view the JSON file that lists the IP addresses from which Traffic Manager health checks can originate. Review the IPs listed in the JSON file to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+Click [here](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) to learn how to retrieve the lists of IP addresses from which Traffic Manager health checks can originate. You can use REST API, Azure CLI, or Azure PowerShell to retrieve the latest list. Review the IPs listed to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+
+Example using Azure PowerShell:
+
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus
+$result = $serviceTags.Values | Where-Object { $_.Name -eq "AzureTrafficManager" }
+$result.Properties.AddressPrefixes
+```
+
+> [!NOTE]
+> Public IP addresses may change without notice. Ensure to retrieve the latest information using the Service Tag Discovery API or downloadable JSON file.
 
 ### How many health checks to my endpoint can I expect from Traffic Manager?
 

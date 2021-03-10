@@ -14,12 +14,17 @@ With Azure Percept, software developers and data scientists are able to use adva
 
 ## Get started with the advanced development tutorials
 
-This [Jupyter notebook](https://github.com/microsoft/Project-Santa-Cruz-Private-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/Transferlearningusing_SSDLiteV2%20Model.ipynb) performs transfer learning, using a pre-trained TensorFlow model (MobileNetSSDV2Lite) on AzureML in Python with a custom dataset to detect bowls. There are two tutorial options to guide you through working with the notebook to train and deploy your bowl detector to the Project Santa Cruz devkit:
+Learn about all of the available [Azure Percept AI models](./overview-ai-models.md).
 
-- [Cloud development](./advanced-development-cloud.md): in this tutorial, you will run the notebook in the [Azure Machine Learning Portal](https://ml.azure.com) with a remote compute instance.
+Please see the [Azure Percept DK advanced development GitHub](https://github.com/microsoft/azure-percept-advanced-development) for
+up-to-date guidance, tutorials, and examples for things like:
 
-- [Local development](./advanced-development-local.md): in this tutorial, you will run the notebook locally within VS Code with a remote compute instance.
+* Bringing a custom AI model to the device
+* Updating a model we already support with transfer learning
+* And more
 
 ## Next steps
 
-Learn about all of the available [Azure Percept AI models](./overview-ai-models.md).
+Learn about all of the available [Azure Percept AI models](./overview-ai-models.md). If none of these models suit your needs,
+feel free to use the advanced code journey to bring your own model or computer vision pipeline to the Percept DK,
+and if you feel it would help others, open a pull request too!

@@ -77,7 +77,7 @@ Azure Communication Services maintains a lightweight identity directory. Use the
 
 ```python
 identity = client.create_user()
-print("\nCreated an identity with ID: " + identity.identifier + ":")
+print("\nCreated an identity with ID: " + identity.identifier)
 ```
 
 ## Issue access tokens
@@ -93,6 +93,21 @@ print(token_result.token)
 ```
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause disruption of your application's users experience. The `expires_on` response property indicates the lifetime of the access token.
+
+## Create an identity and issue an access token within the same request
+
+Use the `create_user_with_token` method to create a Communication Services identity and issue an access token for it. Parameter `scopes` defines set of primitives, that will authorize this access token. See the [list of supported actions](../../concepts/authentication.md).
+
+```python
+# Issue an identity and an access token with the "voip" scope for the new identity
+identity_token_result = client.create_user_with_token(["voip"])
+identity = identity_token_result[0].identifier
+token = identity_token_result[1].token
+expires_on = identity_token_result[1].expires_on.strftime('%d/%m/%y %I:%M %S %p')
+print("\nCreated an identity with ID: " + identity)
+print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
+print(token)
+```
 
 ## Refresh access tokens
 
