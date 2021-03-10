@@ -41,7 +41,7 @@ $rsg = @{
     Name = 'myResourceGroupNAT'
     Location = 'eastus2'
 }
-  New-AzResourceGroup @rsg
+New-AzResourceGroup @rsg
 ```
 ## Create the NAT gateway
 
@@ -62,6 +62,7 @@ $ip = @{
     ResourceGroupName = 'myResourceGroupNAT'
     Location = 'eastus2'
     Sku = 'Standard'
+    AllocationMethod = 'Static'
 }
 $publicIP = New-AzPublicIpAddress @ip
 
@@ -76,7 +77,7 @@ $nat = @{
 }
 $natGateway = New-AzNatGateway @nat
 
-## Create subnet config and associate NAT gateway to subnet ##
+## Create subnet config and associate NAT gateway to subnet##
 $subnet = @{
     Name = 'mySubnet'
     AddressPrefix = '10.1.0.0/24'
@@ -95,7 +96,7 @@ $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 $net = @{
     Name = 'myVNet'
     ResourceGroupName = 'myResourceGroupNAT'
-    Location = 'eastus'
+    Location = 'eastus2'
     AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
@@ -105,7 +106,7 @@ $vnet = New-AzVirtualNetwork @net
 $ip = @{
     Name = 'myBastionIP'
     ResourceGroupName = 'myResourceGroupNAT'
-    Location = 'eastus'
+    Location = 'eastus2'
     Sku = 'Standard'
     AllocationMethod = 'Static'
 }
