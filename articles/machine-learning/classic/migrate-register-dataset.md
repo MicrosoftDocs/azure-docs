@@ -15,13 +15,13 @@ ms.date: 02/04/2021
 
 In this article, you learn how to migrate a Studio (classic) dataset to Azure Machine Learning. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
 
-You have three options to migrate a dataset to Azure Machine Learning:
+You have three options to migrate a dataset to Azure Machine Learning. Read each section to determine which option is best for your scenario.
 
-1.  [Download the dataset from Studio (classic)](#download-the-dataset-from-studio-classic).
-1.  [Register an Azure Machine Learning dataset from a cloud source](#import-data-from-cloud-sources).
-1.  [Use the Import Data module to get data from a cloud source](#import-data-from-cloud-sources).
 
-Read each section to determine which option is best for your dataset.
+|Where is the data? | Migration option  |
+|---------|---------|
+|In Studio (classic)     |  Option 1: [Download the dataset from Studio (classic) and upload it to Azure Machine Learning](#download-the-dataset-from-studio-classic).      |
+|Cloud storage     | Option 2: [Register a dataset from a cloud source](#import-data-from-cloud-sources). <br><br>  Option 3: [Use the Import Data module to get data from a cloud source](#import-data-from-cloud-sources).        |
 
 > [!NOTE]
 > Azure Machine Learning also supports [code-first workflows](../how-to-create-register-datasets.md) for creating and managing datasets. 

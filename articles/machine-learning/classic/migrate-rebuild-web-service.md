@@ -13,13 +13,14 @@ ms.date: 03/08/2021
 
 # Rebuild a Studio (classic) web service in Azure Machine Learning
 
-In this article, you learn how to rebuild a Studio (classic) web service as a **pipeline endpoint** in Azure Machine Learning.
+In this article, you learn how to rebuild a Studio (classic) web service as an **endpoint** in Azure Machine Learning.
 
 Use Azure Machine Learning pipeline endpoints to make predictions, retrain models, or run any generic pipeline. The REST endpoint lets you run pipelines from any platform. 
 
 This article is part of the Studio (classic) to Azure Machine Learning migration series. For more information on migrating to Azure Machine Learning, see the [migration overview article](migrate-overview.md).
 
-This migration series focuses on the drag-and-drop designer. For more information on deploying models programmatically, see [Deploy machine learning models in Azure](../how-to-deploy-and-where.md)
+> [!NOTE]
+> This migration series focuses on the drag-and-drop designer. For more information on deploying models programmatically, see [Deploy machine learning models in Azure](../how-to-deploy-and-where.md).
 
 ## Prerequisites
 
