@@ -1,7 +1,7 @@
 ---
 title: Extend Azure IoT Central with custom analytics | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
-author: TheJasonAndrew
+author: TheRealJasonAndrew
 ms.author: v-anjaso
 ms.date: 02/18/2020
 ms.topic: how-to
@@ -98,7 +98,7 @@ Your Event Hubs namespace looks like the following screenshot:
 
 On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
-1. Navigate to the **Data Export (Legacy)** page, select **+ New**, and then **Azure Event Hubs**.
+1. Navigate to the **Data Export** page, select **+ New**, and then **Azure Event Hubs**.
 1. Use the following settings to configure the export, then select **Save**:
 
     | Setting | Value |

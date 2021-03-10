@@ -7,8 +7,8 @@ author: karauten
 ms.author: karauten
 ms.date: 11/11/2020
 ms.topic: article
-ms.service: Storage
-ms.subservice: Blob Storage
+ms.service: storage
+ms.subservice: blobs
 ---
 
 # Backup to Azure with Veeam

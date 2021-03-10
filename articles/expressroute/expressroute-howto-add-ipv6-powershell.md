@@ -160,7 +160,7 @@ Follow the steps below if you plan to connect to a new set of Azure resources in
 
 2. [Create the dual-stack gateway subnet](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
 
-3. [Create the virtual network gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) using a zone-redundant SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ). If you plan to use FastPath, use ErGw3AZ.
+3. [Create the virtual network gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) using a zone-redundant SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ). If you plan to use FastPath, use ErGw3AZ (note that this is only available for circuits using ExpressRoute Direct).
 
 4. [Link your virtual network to your ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm).
 
@@ -171,6 +171,8 @@ While IPv6 support is available for connections to deployments in regions with A
 * Connections to deployments in non-AZ regions
 * Global Reach connections between ExpressRoute circuits
 * Use of ExpressRoute with virtual WAN
+* FastPath with non-ExpressRoute Direct circuits
+* Coexistence with VPN Gateway
 
 ## Next steps
 

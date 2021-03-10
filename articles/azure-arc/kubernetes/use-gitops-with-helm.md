@@ -3,7 +3,7 @@ title: "Deploy Helm Charts using GitOps on Arc enabled Kubernetes cluster"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
@@ -132,4 +132,4 @@ kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 
 ## Next steps
 
-- [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
+Apply cluster configurations at scale using [Azure Policy](./use-azure-policy.md).

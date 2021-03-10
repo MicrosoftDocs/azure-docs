@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 02/08/2021
 #Customer intent: As a developer new to Azure Cache for Redis, I want to create an instance of Azure Cache for Redis Enterprise tier.
 ---
-# Quickstart: Create a Redis Enterprise cache (Preview)
+# Quickstart: Create a Redis Enterprise cache
 
 Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. They're currently available as a preview. There are two new tiers in this preview:
 * Enterprise, which uses volatile memory (DRAM) on a virtual machine to store data
@@ -45,13 +45,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
 1. Select **Next: Networking** and skip.
 
-   > [!NOTE] 
-   > Private link option is getting rolled out and may not be available immediately in your region.
-   >
-
-1. Select **Next: Advanced** and set **Clustering policy** to **Enterprise**.
-   
-   You can keep the default settings or change them as appropriate. When turning on **Allow access only via TLS**, you must use TLS to access the new cache from your application.
+1. Select **Next: Advanced** and set **Clustering policy** to **Enterprise**. Enable **Non-TLS access only** if you plan to connect to the new cache without using TLS. This is not recommended, however.
 
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Enterprise tier Advanced tab":::
 
