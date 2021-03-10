@@ -77,26 +77,33 @@ After logging in, you can use the `/.auth/me` endpoint to retrieve the user's [c
 
 ## Debugging
 
-Debugging is possible by allowing the Static Web Apps CLI to use dev servers for static content and the API.
+There are two debugging contexts in a static web app. The first is for the static content site, and the second is for API functions. Local debugging is possible by allowing the Static Web Apps CLI to use development servers for one or both of these contexts.
 
-  `swa start http://localhost:<FRONT-END-SERVER-PORT-NUMBER> http://localhost:7170`
+The following steps show you a common scenario that uses development servers for both debugging contexts.
 
-| Part of application | Description | How to run |
-| --- | --- | --- |
-| *Front-end static site and, or single page application (SPA)* | Many front-end frameworks and libraries have their own CLI that launch development servers.| Start the development server in its own terminal window. |
-| *Azure Functions API* | Open API application in Visual Studio Code. For instance if your API application is in an _api_ folder, open this folder in Visual Studio. | Open the API app in Visual Studio Code, and start debugging. |
+1. Start the static site development server. This command is specific to the front-end framework you are using, but often comes in the form of commands like `npm run build`, `npm start`, or `npm run dev`.
 
-With the front-end application launched, and a Visual Studio Code debugging session started for the API, you can run `swa start` and provide the running servers to debug.
+1. Open the API application folder in Visual Studio Code and start a debugging session.
 
-`swa start http://localhost:<FRONT-END-SERVER-PORT-NUMBER> http://localhost:7170`
+1. Pass the addresses for the static server and API server to the `swa start` command by listing them in order.
 
-The following screenshots show the terminals for a typical debugging scenario.
+    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> http://localhost:7170`
 
-:::image type="content" source="media/local-development/visual-studio-code-debugging.png" alt-text="Visual Studio Code API debugging":::
+The following screenshots show the terminals for a typical debugging scenario:
+
+The static content site is running via `npm run dev`.
 
 :::image type="content" source="media/local-development/run-dev-static-server.png" alt-text="Static site development server":::
 
+The Azure Functions API application is running a debug session in Visual Studio Code.
+
+:::image type="content" source="media/local-development/visual-studio-code-debugging.png" alt-text="Visual Studio Code API debugging":::
+
+The Static Web Apps CLI is launched using both development servers.
+
 :::image type="content" source="media/local-development/static-web-apps-cli-terminal.png" alt-text="Azure Static Web Apps CLI terminal":::
+
+Now requests that go through port `4280` are routed to either the static content development server, or the API debugging session.
 
 ## Next steps
 
