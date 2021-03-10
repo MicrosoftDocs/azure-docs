@@ -81,8 +81,8 @@ The following code example shows how to create a service client object with mana
 
           // Send the message and check the response for a message id
           SmsSendResult response = smsClient.send(
-               "<leased-phone-number>",
-               "<to>",
+               "<from-phone-number>",
+               "<to-phone-number>",
                "your message"
           );
 
