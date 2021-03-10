@@ -15,7 +15,9 @@ This guide shows you how you can attach Kubernetes clusters as a compute to run 
 ## Prerequisites
 
 - Azure account. If you don't have one, sign up
+- Azure Machine Learning Python SDK
 - Kubernetes cluster. If you don't have one, [create a Kubernetes cluster using Azure Kubernetes Service (AKS)](/aks/kubernetes-walkthrough).
+
 
 > [!TIP]
 > [Connect to your Kubernetes cluster using Azure Arc](/azure-arc/kubernetes/quickstart-connect-cluster) if your cluster is hosted outside of Azure.
