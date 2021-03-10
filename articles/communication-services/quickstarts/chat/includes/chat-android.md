@@ -38,7 +38,7 @@ implementation 'com.azure.android:azure-communication-common:1.0.0-beta.7'
 implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.7'
 ```
 
-#### Exclude meta files in packaging options
+#### Exclude meta files in packaging options in root build.gradle
 ```
 android {
    ...
@@ -54,6 +54,17 @@ android {
         exclude("META-INF/*.kotlin_module")
     }
 }
+```
+
+#### Add a maven resource in root build.gradle
+```
+allprojects {
+    repositories {
+        ...
+        maven {
+            url 'https://trouterpublicpackages.z13.web.core.windows.net'
+        }
+    }
 ```
 
 Click 'sync now' in Android Studio.
