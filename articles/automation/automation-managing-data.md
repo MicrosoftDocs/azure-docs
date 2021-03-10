@@ -6,6 +6,7 @@ ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
 ---
+
 # Management of Azure Automation data
 
 This article contains several topics explaining how data is protected and secured in an Azure Automation environment.
