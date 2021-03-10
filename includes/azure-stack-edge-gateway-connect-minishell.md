@@ -90,7 +90,7 @@ Follow these steps to remotely connect from an NFS client.
  
 2. For connecting using the remote client, type:
 
-    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser -UseSSL`
+    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
 
     When prompted, provide the password used to sign into your device.
  
