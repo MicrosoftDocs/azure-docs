@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 11/18/2020
+ms.date: 03/10/2021
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
 
@@ -134,9 +134,12 @@ For both SQL Database and SQL Managed Instance, you can configure full backup lo
 
 For more information about LTR, see [Long-term backup retention](long-term-retention-overview.md).
 
-## Storage costs
+## Backup storage costs
 
 The price for backup storage varies and depends on your purchasing model (DTU or vCore), chosen backup storage redundancy option, and also on your region. The backup storage is charged per GB/month consumed, for pricing see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page and [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/) page.
+
+> [!NOTE]
+> Azure invoice will show only the excess backup storage consumed, not the entire backup storage consumption. For example, if you have provisioned 4TB of data storage, you will get 4TB of free backup storage space. In case that you have used a total of 7.8TB of backup storage space, Azure invoice will show 3.8TB charge on the bill, as only excess backup storage is charged.
 
 ### DTU model
 
@@ -453,4 +456,5 @@ Learn how to assign policies using the [Azure portal](../../governance/policy/as
 - Get more information about how to [restore a database to a point in time by using PowerShell](scripts/restore-database-powershell.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using the Azure portal, see [Manage long-term backup retention by using the Azure portal](long-term-backup-retention-configure.md).
 - For information about how to configure, manage, and restore from long-term retention of automated backups in Azure Blob storage by using PowerShell, see [Manage long-term backup retention by using PowerShell](long-term-backup-retention-configure.md).
+- To learn all about backup storage consumption on Azure SQL Managed Instance, see [Backup storage consumption on Managed Instance explained](http://aka.ms/mi-backup-explained).
 - To learn how to fine-tune backup storage retention and costs for Azure SQL Managed Instance, see [Fine tuning backup storage costs on Managed Instance](https://aka.ms/mi-backup-tuning).
