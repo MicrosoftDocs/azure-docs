@@ -27,7 +27,9 @@ This article describes the semantic ranking algorithm and how a semantic respons
 
 ## Prerequisites
 
-+ Queries formulated using the [semantic query type](semantic-how-to-query-request.md). Required query parameters include queryType, queryLanguage, searchFields, and answers. All semantic query prerequisites also apply to answers, including tier and region.
++ Queries formulated using the [semantic query type](semantic-how-to-query-request.md). Required query parameters include queryType, queryLanguage, searchFields, and answers. 
+
+All prerequisites that apply to semantic queries also apply to answers, including service tier and region.
 
 ## What is a semantic answer?
 
