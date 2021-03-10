@@ -78,6 +78,10 @@
     href: Review-Tool-User-Guide/Configure.md
   - name: Export or delete account data
     href: ./export-delete-data.md
+  - name: Customize Content Moderator
+    items:
+    - name: Reviews, workflows, and jobs
+      href: review-api.md
 - name: Concepts
   items:
   - name: Image moderation
@@ -88,8 +92,6 @@
     href: video-moderation-human-review.md
   - name: Review tool
     href: Review-Tool-User-Guide/human-in-the-loop.md
-  - name: Reviews, workflows, and jobs
-    href: review-api.md
 - name: Tutorials
   items:
   - name: Moderate e-commerce images
