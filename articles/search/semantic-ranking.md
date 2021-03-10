@@ -1,7 +1,7 @@
 ---
 title: Semantic ranking
 titleSuffix: Azure Cognitive Search
-description: 
+description: Describes the semantic ranking algorithm in Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -16,16 +16,26 @@ ms.date: 03/12/2021
 > [!IMPORTANT]
 > Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!-- ## Semantic search architecture
+Semantic ranking improves the precision of search results by reranking the top matches using a semantic ranking model trained for queries expressed in natural language as opposed to keywords.
 
-Components of semantic search are layered on top of the existing query execution pipeline. Spell correction (not shown in the diagram) improves recall by correcting typos in individual query terms. After parsing and analysis are completed, the search engine retrieves the documents that matched the query and scores them using the [default scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms), either BM25 or classic, depending on when the service was created. Scoring profiles are also applied at this stage.
+This article describes the semantic ranking algorithm and how a semantic response is shaped. A response includes captions, both in plain text and with highlights, and answers (optional).
 
-Having received the top 50 matches, the [semantic ranking model](semantic-answers.md) re-evaluates the document corpus. Results can include more than 50 matches, but only the first 50 will be reranked. For ranking, the model uses both machine learning and transfer learning to re-score the documents based on how well each one matches the intent of the query.
+## Semantic ranking workflow
+
+Components of semantic search are layered on top of the existing query execution pipeline. 
+
+Spell correction improves recall by correcting typos in individual query terms.
+
+After parsing and analysis are completed, the search engine retrieves the documents that matched the query and scores them using the [default similarity scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms), either BM25 or classic, depending on when the service was created. Scoring profiles are also applied at this stage.
+
+Having received the top 50 matches, the semantic ranking model re-evaluates the document corpus. Results can include more than 50 matches, but only the first 50 will be reranked. For ranking, the model uses both machine learning and transfer learning to re-score the documents based on how well each one matches the intent of the query.
+
+Internally, the extraction model intakes about 10,000 tokens, which roughly corresponds to about three pages of text. If the fields you specify in searchFields parameter contain text that is in excess of this amount, anything beyond the token limit is ignored. For best results, use semantic ranking on documents and fields that have a workable amount of text.
 
 To create captions and answers, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question, and answers are requested, the response will include a text passage that best answers the question, as expressed by the search query.
 
 :::image type="content" source="media/semantic-search-overview/semantic-query-architecture.png" alt-text="Semantic components in a query pipeline" border="true":::
- -->
+
 ## Next steps
 
 A new query type enables the relevance ranking and response structures of semantic search.
