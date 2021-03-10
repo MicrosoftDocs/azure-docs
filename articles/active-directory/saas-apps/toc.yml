@@ -768,6 +768,8 @@
         href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
+      - name: hCaptcha Enterprise
+        href: hcaptcha-enterprise-tutorial.md
       - name: Helper Helper
         href: helper-helper-tutorial.md
       - name: Help Scout
