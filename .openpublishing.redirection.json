@@ -50640,6 +50640,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-graph-api.md",
+      "redirect_url": "https://docs.microsoft.com/graph/migrate-azure-ad-graph-planning-checklist",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-graph-api-quickstart.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-graph-api-quickstart",
       "redirect_document_id": false
@@ -64406,6 +64411,16 @@
     {
       "source_path": "articles/virtual-network/quickstart-create-nat-gateway-portal.md",
       "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/quickstart-create-nat-gateway-powershell.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/tutorial-create-validate-nat-gateway-powershell.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-powershell",
       "redirect_document_id": false
     },
     {
