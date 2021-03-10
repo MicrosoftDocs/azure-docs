@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.author: memildin
 
 ---
@@ -32,6 +32,7 @@ Updates in March include:
 - [Azure Monitor Workbooks integrated into Security Center and three templates provided](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)
 - [Regulatory compliance dashboard now includes Azure Audit reports (preview)](#regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview)
 - [Updates to the policies for deploying workflow automation](#updates-to-the-policies-for-deploying-workflow-automation)
+- [Two legacy recommendations no longer write data directly to Azure activity log](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
 
 
 ### Azure Firewall management integrated into Security Center
@@ -109,6 +110,19 @@ There are two updates to the features of these policies:
 Get started with [workflow automation templates](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
 Learn more about how to [Automate responses to Security Center triggers](workflow-automation.md).
+
+
+### Two legacy recommendations no longer write data directly to Azure activity log 
+
+Security Center passes the data for almost all security recommendations to Azure Advisor which, in turn, writes it to [Azure activity log](../azure-monitor/essentials/activity-log.md).
+
+For two recommendations, the data is simultaneously written directly to Azure activity log. With this change, Security Center stops writing data for these legacy security recommendations directly to activity Log. Instead, we're exporting the data to Azure Advisor as we do for all the other recommendations.
+
+The two legacy recommendations are:
+- Endpoint protection health issues should be resolved on your machines
+- Vulnerabilities in security configuration on your machines should be remediated
+
+If you've been accessing information for these two recommendations in activity log's "Recommendation of type TaskDiscovery" category, this is no longer available.
 
 
 
