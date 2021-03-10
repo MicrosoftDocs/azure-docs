@@ -68,7 +68,7 @@ VMware 6.7 onwards had TLS enabled as the communication protocol.
 
 1. Copy the following registry settings, and paste them into Notepad. Then save the file as TLS.REG without the .txt extension.
 
-   ```text
+   ```
    
    Windows Registry Editor Version 5.00
    
