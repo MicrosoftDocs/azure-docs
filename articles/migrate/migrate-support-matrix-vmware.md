@@ -85,7 +85,7 @@ In addition to discovering Servers, Server Assessment can discover applications,
 **Windows servers** | Windows Server 2008 and above are supported.
 **Linux Servers** | Not supported currently.
 **Authentication mechanism** | Both Windows and SQL Server authentication are supported. You can provide credentials of both authentication types on the appliance configuration manager.
-**SQL Server access**| Azure Migrate requires a Windows user account that is member of the sysadmin server role.
+**SQL Server access** | Azure Migrate requires a Windows user account that is member of the sysadmin server role.
 **SQL Server versions** | SQL Server 2008 and above are supported.
 **SQL Server editions** | Enterprise, Standard, Developer and Express editions are supported.
 **Supported SQL configuration** | Currently discovery of only standalone SQL Server instances and corresponding databases is supported.<br/> Identification of Failover Cluster and Always On availability groups is not supported.

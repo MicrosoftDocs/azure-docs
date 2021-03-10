@@ -86,7 +86,7 @@ Using PowerShell
 `Get-AzureADServicePrincipal -All:$true` 
 
 
-For more information see [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0)
+For more information see [Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal)
 
 ## Assess service principal security
 
@@ -112,7 +112,7 @@ When using Microsoft Graph, check the documentation of the specific API, [like i
 
 [Create a service principal](../develop/howto-create-service-principal-portal.md)
 
- [Monitor service principal sign-ins](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report)
+ [Monitor service principal sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
 
 **To learn more about securing service accounts:**
 

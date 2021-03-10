@@ -20,6 +20,8 @@
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Form Recognizer with AI Builder
     href: tutorial-ai-builder.md
+  - name: Use Form Recognizer with Azure Functions
+    href: tutorial-azure-function.md
   - name: Extract form data in bulk
     href: tutorial-bulk-processing.md
 - name: Concepts
@@ -64,7 +66,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/ai.formrecognizer-readme
     - name: Python
-      href: /python/api/azure-ai-formrecognizer/?view=azure-python
+      href: /python/api/azure-ai-formrecognizer/
     - name: Java
       href: /java/api/overview/azure/ai-formrecognizer-readme
     - name: JavaScript

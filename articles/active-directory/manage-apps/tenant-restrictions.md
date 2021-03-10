@@ -173,9 +173,9 @@ Fiddler is a free web debugging proxy that can be used to capture and modify HTT
       }
    ```
 
-If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
+   If you need to allow multiple tenants, use a comma to separate the tenant names. For example:
 
-      `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
+   `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 
 4. Save and close the CustomRules file.
 

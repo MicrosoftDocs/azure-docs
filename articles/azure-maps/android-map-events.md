@@ -3,11 +3,12 @@ title: Handle map events in Android maps | Microsoft Azure Maps
 description: Learn which events are fired when users interact with maps. View a list of all supported map events. See how to use the Azure Maps Android SDK to handle events.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/08/2020
+ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
+zone_pivot_groups: azure-maps-android
 ---
 
 # Interact with the map (Android SDK)
@@ -38,6 +39,8 @@ The map manages all events through its `events` property. The following table li
 
 The following code shows how to add the `OnClick`, `OnFeatureClick`, and `OnCameraMove` events to the map.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 map.events.add((OnClick) (lat, lon) -> {
     //Map clicked.
@@ -52,11 +55,33 @@ map.events.add((OnCameraMove) () -> {
 });
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+map.events.add(OnClick { lat: Double, lon: Double -> 
+    //Map clicked.
+})
+
+map.events.add(OnFeatureClick { features: List<Feature?>? -> 
+    //Feature clicked.
+})
+
+map.events.add(OnCameraMove {
+    //Map camera moved.
+})
+```
+
+::: zone-end
+
 For more information, see the [Navigating the map](how-to-use-android-map-control-library.md#navigating-the-map) documentation on how to interact with the map and trigger events.
 
 ## Scope feature events to layer
 
 When adding the `OnFeatureClick` or `OnLongFeatureClick` events to the map, a layer instance or layer ID can be passed in as a second parameter. When a layer is passed in, the event will only fire if the event occurs on that layer. Events scoped to layers are supported by the symbol, bubble, line, and polygon layers.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source.
@@ -80,6 +105,41 @@ map.events.add((OnLongFeatureClick) (features) -> {
     //One or more features long clicked.
 }, layer);
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source.
+val source = DataSource()
+map.sources.add(source)
+
+//Add data to the data source.
+source.add(Point.fromLngLat(0, 0))
+
+//Create a layer and add it to the map.
+val layer = BubbleLayer(source)
+map.layers.add(layer)
+
+//Add a feature click event to the map and pass the layer ID to limit the event to the specified layer.
+map.events.add(
+    OnFeatureClick { features: List<Feature?>? -> 
+        //One or more features clicked.
+    },
+    layer
+)
+
+//Add a long feature click event to the map and pass the layer ID to limit the event to the specified layer.
+map.events.add(
+    OnLongFeatureClick { features: List<Feature?>? -> 
+         //One or more features long clicked.
+    },
+    layer
+)
+```
+
+::: zone-end
 
 ## Next steps
 
