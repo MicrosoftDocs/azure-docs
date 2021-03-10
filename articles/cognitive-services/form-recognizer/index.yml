@@ -155,7 +155,7 @@ landingContent:
           - text: .NET SDK
             url: /dotnet/api/overview/azure/ai.formrecognizer-readme
           - text: Python SDK
-            url: /python/api/azure-ai-formrecognizer/?view=azure-python
+            url: /python/api/azure-ai-formrecognizer/
           - text: Java SDK
             url: /java/api/overview/azure/ai-formrecognizer-readme
           - text: JavaScript SDK

@@ -64,7 +64,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/ai.formrecognizer-readme
     - name: Python
-      href: /python/api/azure-ai-formrecognizer/?view=azure-python
+      href: /python/api/azure-ai-formrecognizer/
     - name: Java
       href: /java/api/overview/azure/ai-formrecognizer-readme
     - name: JavaScript

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 02/12/2021
+ms.date: 03/09/2021
 ---
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
@@ -36,7 +36,6 @@ Currently, only [specific built-in triggers and actions](../logic-apps/logic-app
 * Azure Automation
 * Azure Event Grid
 * Azure Key Vault
-* Azure Monitor Logs
 * Azure Resource Manager
 * HTTP with Azure AD
 
