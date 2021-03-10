@@ -170,7 +170,7 @@
   - name: Node.js
     href: https://www.npmjs.com/package/azure-arm-datalake-store
   - name: Python (Account Mgmt.)
-    href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store?view=azure-python
+    href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store
   - name: Python (Filesystem Mgmt.)
     href: /python/api/azure-mgmt-datalake-store/azure.mgmt.datalake.store
   - name: REST
