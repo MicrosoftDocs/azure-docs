@@ -125,7 +125,7 @@ Refers to messages sent from a connected device to [IoT Hub](#iot-hub). These me
 
 ## Device
 
-In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse. The [device catalog](https://catalog.azureiotsolutions.com/) provides a list of hardware devices certified to work with [IoT Hub](#iot-hub).
+In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse. The [device catalog](https://devicecatalog.azure.com/) provides a list of hardware devices certified to work with [IoT Hub](#iot-hub).
 
 ## Device app
 
