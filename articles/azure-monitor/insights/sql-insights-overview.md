@@ -119,4 +119,4 @@ You can modify which queries are run and data collection frequency when you crea
 ## Next steps
 
 See [Enable SQL insights](sql-insights-enable.md) for the detailed procedure to enable SQL insights.
-See [Frequently asked questions](../faq.md#sql-insights) for frequently asked questions about SQL insights.
+See [Frequently asked questions](../faq.md#sql-insights-preview) for frequently asked questions about SQL insights.

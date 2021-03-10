@@ -14,12 +14,12 @@ To troubleshoot data collection issues in SQL insights, check the status of the 
 - Not collecting 
 - Collecting with errors 
  
-Click the **Status** to drill in to see logs and further details which may help you resolve the problem. 
+Click the **Status** to drill in to see logs and further details, which may help you resolve the problem. 
 
 :::image type="content" source="media/sql-insights-enable/monitoring-machine-status.png" alt-text="Monitoring machine status":::
 
 ## Not collecting state 
-The monitoring machine has a state of *Not collecting* if there is no data in *InsightsMetrics* for SQL in the last 10 minutes. 
+The monitoring machine has a state of *Not collecting* if there's no data in *InsightsMetrics* for SQL in the last 10 minutes. 
 
 SQL insights uses the following query to retrieve this information:
 
@@ -30,10 +30,10 @@ InsightsMetrics
     | where TimeGenerated > ago(10m) and isnotempty(SqlInstance) and Namespace == 'sqlserver_server_properties' and Name == 'uptime' 
 ```
 
-Check if there are any logs from Telegraf that helps identify the root cause the issue. If there are log entries you can click *Not collecting* and check the logs as well as troubleshooting info for common problems. 
+Check if there are any logs from Telegraf that helps identify the root cause the issue. If there are log entries, you can click *Not collecting* and check the logs and troubleshooting info for common problems. 
 
 
-If there are no logs then you must check the logs on the monitoring virtual machine for the following services installed by two virtual machine extensions:
+If there are no logs, then you must check the logs on the monitoring virtual machine for the following services installed by two virtual machine extensions:
 
 - Microsoft.Azure.Monitor.AzureMonitorLinuxAgent 
   - Service: mdsd 
@@ -86,7 +86,7 @@ Service logs:
 
 To see recent errors: `tail -n 100 -f /var/log/mdsd.err`
 
- If you need to contact support collect the following: 
+ If you need to contact support, collect the following information: 
 
 - Logs in `/var/log/azure/Microsoft.Azure.Monitor.AzureMonitorLinuxAgent/` 
 - Log in `/var/log/waagent.log` 
@@ -96,7 +96,7 @@ To see recent errors: `tail -n 100 -f /var/log/mdsd.err`
 
 
 ## Collecting with errors state
-The monitoring machine will be in state *Collecting with errors* if there is at least one *InsightsMetrics* log but there are also errors in the *Operation* table.
+The monitoring machine will be in state *Collecting with errors* if there's at least one *InsightsMetrics* log but there are also errors in the *Operation* table.
 
 SQL insights uses the following queries to retrieve this information:
 
@@ -113,7 +113,7 @@ Operation
  | summarize Errors = countif(OperationStatus == 'Error') 
 ```
 
-For common cases we provide troubleshooting knowledge in our logs view: 
+For common cases, we provide troubleshooting knowledge in our logs view: 
 
 :::image type="content" source="media/sql-insights-enable/troubleshooting-logs-view.png" alt-text="Troubleshooting logs view.":::
 

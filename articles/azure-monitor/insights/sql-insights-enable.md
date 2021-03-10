@@ -215,7 +215,7 @@ To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOn
 ## Profile created 
 Select **Add monitoring virtual machine** to configure the virtual machine to collect data from your SQL deployments. Do not return to the **Overview** tab.  In a few minutes, the Status column should change to say "Collecting", you should see data for the systems you have chosen to monitor.
 
-If you do not see data, see [Troubleshooting SQL insights](sql-insights-troubleshooting.md) to identify the issue. 
+If you do not see data, see [Troubleshooting SQL insights](sql-insights-troubleshoot.md) to identify the issue. 
 
 :::image type="content" source="media/sql-insights-enable/profile-created.png" alt-text="Profile created":::
 
