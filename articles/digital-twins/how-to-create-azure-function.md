@@ -110,6 +110,8 @@ Note that you might have to wait a few min or refresh the page couple of times b
 
     :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="View published functions in the Azure portal." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
 
+For your function app to be able to access Azure Digital Twins, it will need to have a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
+
 ## Set up security access for the function app
 
 You can set up security access for the function app using either the Azure CLI or the Azure portal. Follow the steps for your preferred option below.
