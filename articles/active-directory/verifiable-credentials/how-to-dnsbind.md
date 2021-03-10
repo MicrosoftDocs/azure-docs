@@ -26,20 +26,20 @@ In this article:
 
 To link your DID to your domain, you need to have completed the following.
 
-- Complete the Getting Started and Tutorial.  (WHICH TUTORIAL? ALL OF THEM?)
+- Complete the Getting Started and Tutorial.  (WHICH TUTORIAL? ALL OF THEM? If a customer arrives to this article not having followed the quickstart or tutorials what should they have done already before they can do this?)
 
-## Why should we link our domain to our DID?
+## Why do we link our domain to our DID?
 
-A DID starts out as an identifier that is not anchored to existing systems. A DID is useful because a user or organization can own and control it but if a interacting entity does not know 'who' it belongs to, it is not as useful. 
+A DID starts out as an identifier that is not anchored to existing systems. A DID is useful because a user or organization can own it and control it. If an entity interacting with the organization does not know 'who' the DID belongs to, then the DID is not as useful.
 
-Linking a DID to a domain solves the initial trust problem by allowing any entity to cryptographically verify the relationship between a DID and a Domain. 
+Linking a DID to a domain solves the initial trust problem by allowing any entity to cryptographically verify the relationship between a DID and a Domain.
 
 
-## How we use open standards
+## How do we link DIDs and domains?
 
-To make a link between a domain and a DID possible, we use an open stanard called [Well Known DID Configuration](https://identity.foundation/.well-known/resources/did-configuration/) by the Decentralized Identity Foundation. The Verifiable Credentials Service in AAD helps your organization by doing the following: 
+To make a link between a domain and a DID we follow an open standard written by the Decentralized Identity Foundation called [Well Known DID Configuration](https://identity.foundation/.well-known/resources/did-configuration/). The Verifiable Credentials Service in Azure Active Directory (AAD) helps your organization make the link between the DID and domain by doing the following:
 
-1. During the organization set up in AAD, we asked you for your domain. That domain is written to a Service Endpoint within the DID Document. Now all parties interacting with your DID can see what domain your DID is proclaiming to be associated with.  
+1. AAD uses the domain information you provide during organization setup to write a Service Endpoint within the DID Document. All parties who interact with your DID can see the domain your DID proclaims to be associated with.  
 
 ```json
     "service": [
@@ -48,13 +48,14 @@ To make a link between a domain and a DID possible, we use an open stanard calle
         "type": "LinkedDomains",
         "serviceEndpoint": {
           "origins": [
-            "https://www.vcsatoshi.com/"
+            "https://www.contoso.com/"
           ]
         }
       }
 ```
 
 2. The Verifiable Credential service in AAD will also generate a compliant Well Known Configuration Resource that you can host on your domain. The configuration file includes a self issued Verifiable Credential of credentialType 'DomainLinkageCredential' signed with your DID that has an origin of your domain. Here is an example of the config doc that will be stored at the root domain url.
+
 ```json
 https://www.example.com/.well-known/did-configuration.json
 ```
@@ -70,17 +71,17 @@ https://www.example.com/.well-known/did-configuration.json
 3. The Well Known DID Configuration file needs to be hosted on the root domain, without redirects and https needs to be enabled. 
 
 >[!NOTE]
->Microsoft Authenticator will not honor any redirect, that it has to be the final destination URL. 
+>Microsoft Authenticator will not honor any redirect, that it has to be the final destination URL.
 
 ## User Experience 
 
-When a user is going through an Issuance flow or Presenting a Verifiable Credential, they should know something about the DID they are interacting with. If the domain Our Verifiable Credential Wallet, Microsoft Authenticator, will validate a DID's relationship with the domain in the DID document and present two different user experiences depending on the outcome. 
+When a user is going through an Issuance flow or presenting a Verifiable Credential, they should know something about the DID they are interacting with. If the domain our Verifiable Credential Wallet, Microsoft Authenticator, will validate a DID's relationship with the domain in the DID document and present two different user experiences depending on the outcome. 
 
 ## Verified Domain
 
-In order to receive a Verified icon in Microsoft Authenticator, a few things need to be true. 
+Before Microsoft Authenticator displays a 'Verified' icon, a few things need to be true:
 
-- The DID signing the SIOP request must have a Service endpoint for Linked Domain. 
+- The DID signing the SIOP request must have a Service endpoint for Linked Domain. (WHAT IS THIS? WHAT IS A STOP REQUEST?)
 - The root domain does not have a redirect and uses https. 
 - The domain listed in the DID Document has a resolvable Well Known Resource. 
 - The Well Known Resource's Verifiable Credential is signed with the same DID that was used to sign the SIOP that Microsoft Authenticator used to kick start the flow. 
