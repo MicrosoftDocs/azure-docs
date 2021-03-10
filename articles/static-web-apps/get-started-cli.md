@@ -100,7 +100,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     ---
     
-    > ![IMPORTANT]
+    > [!IMPORTANT]
     > The URL passed to the `s` parameter must not include the `.git` suffix.
 
     - `<RESOURCE_GROUP_NAME>`: Replace this value with an existing Azure resource group name.
