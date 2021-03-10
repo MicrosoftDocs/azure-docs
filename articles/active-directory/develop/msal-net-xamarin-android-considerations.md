@@ -71,7 +71,7 @@ protected override void OnActivityResult(int requestCode,
 }
 ```
 
-## Update the Android Manifest for System WebView Support 
+## Update the Android Manifest for System WebView support 
 
 To support the System WebView, the *AndroidManifest.xml* file should contain the following values:
 
@@ -108,7 +108,7 @@ Here's an example of a class that represents the values of the XML file:
 
 ### Use System WebView in brokered authentication
 
-In order to use System WebView as a fallback for interactive authentication when you have configured your application to use brokered authentication and the device does not have broker installed, you can enable MSAL to capture the authentication response using the brokers redirect URI. MSAL will try to authenticate using the default System WebView on the device when it detects that the broker is unavailable and will fail out of the box because the redirect URI is configured for broker and the System WebView does not know how to use it to navigate back to MSAL. To resolve this, you can configure what is known as an intent filter with the broker redirect URI that you configured previously. You will need to modify your application's manifest to add the intent filter as shown below.
+To use System WebView as a fallback for interactive authentication when you've configured your application to use brokered authentication and the device doesn't have a broker installed, enable MSAL to capture the authentication response using the broker's redirect URI. MSAL will try to authenticate using the default System WebView on the device when it detects that the broker is unavailable and will fail out of the box because the redirect URI is configured for broker and the System WebView doesn't know how to use it to navigate back to MSAL. To resolve this, configure what is known as an _intent filter_ with the broker redirect URI that you configured previously. Add the intent filter by modifying your application's manifest as shown below.
 
 ```XML
 <!--Intent filter to capture System WebView or Authenticator calling back to our app after sign-in-->
@@ -161,7 +161,7 @@ To enable the application to authenticate with both the system browser and broke
 
 Replace `{Package Name}` with the application package name. 
 
-Your completed manifest that $DOES_THING_HERE should appear similar to the following:
+Your completed manifest that enables support for the system browser and brokered authentication should appear similar to the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
