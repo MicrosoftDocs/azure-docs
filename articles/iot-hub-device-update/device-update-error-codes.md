@@ -1,7 +1,7 @@
 ---
 title: Client error codes for Device Update for Azure IoT Hub | Microsoft Docs
 description: This document provides a table of client error codes for various Device Update components.
-author: lichris
+author: chrisjlin
 ms.author: lichris
 ms.date: 2/18/2021
 ms.topic: reference
