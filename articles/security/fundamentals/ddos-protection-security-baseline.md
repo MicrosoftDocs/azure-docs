@@ -408,9 +408,9 @@ Use Azure Resource Graph to query for and discover resources within their subscr
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index)
 
 **Azure Security Center monitoring**: Not applicable
 
