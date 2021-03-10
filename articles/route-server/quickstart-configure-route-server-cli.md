@@ -157,7 +157,7 @@ az network routeserver peering list-advertised-routes -g RouteServerRG --vrouter
 az network routeserver peering list-learned-routes -g RouteServerRG --vrouter-name myRouteServer -n NVA1_name 
 ``` 
 
-## Clean up 
+## Clean up resources
 
 If you no longer need the Azure Route Server, use these commands to remove the BGP peering and then remove the Route Server. 
 
