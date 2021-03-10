@@ -87,4 +87,14 @@ Now we have everything we need to make the changes in our Sample code.
 }
 ```
 
+:::info
+**ISSUE** This is a demo application and you should never give your application the secret. 
+::::
+
+
 Now you have everything in place to issuer and verify your own Verifiable Credential from your AAD with your own keys. 
+
+## Issue and Verify the VC
+
+Follow the same steps to issue the Verifiable Credential and validate it with your app. 
+
