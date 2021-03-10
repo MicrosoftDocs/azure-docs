@@ -145,7 +145,8 @@ Edit the following parameter values and save the template as a JSON file:
 * Job schedule object name: A GUID (Globally Unique Identifier) is used as the name of the job schedule object.
 
    >[!IMPORTANT]
-   > For each job schedule deployed with an ARM template, the GUID must be unique. Even if you're rescheduling an existing schedule, you'll need to change the GUID. This applies even if you've previously deleted an existing job schedule that was created with the same template. Reusing the same GUID results in a failed deployment.
+   > For each job schedule deployed with an ARM template, the GUID must be unique. Even if you're rescheduling an existing schedule, you'll need to change the GUID. This applies even if you've previously deleted an existing job schedule that was created with the same template. Reusing the same GUID results in a failed deployment.</br></br>
+   > There are services online that can generate a new GUID for you, such as this [Free Online GUID Generator](https://guidgenerator.com/).
 
 * Schedule name: Represents the name of the Automation job schedule that will be linked to the specified runbook.
 * Runbook name: Represents the name of the Automation runbook the job schedule is to be associated with.
