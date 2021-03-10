@@ -208,10 +208,6 @@ When a real device connects to your IoT Central application, its device status c
 
     The Operator can associate a device to a device template from the **Devices** page using the **Migrate** button.
 
-## Best practices
-
-Don't persist or cache the device connection string that DPS returns when you first connect the device. To reconnect a device, go through the standard device registration flow to get the correct device connection string. If the device caches the connection string, the device software runs into the risk of having a stale connection string. If IoT Central updates the underlying Azure IoT hub it uses, a device with a stale connection string can't connect.
-
 ## SDK support
 
 The Azure Device SDKs offer the easiest way for you implement your device code. The following device SDKs are available:
@@ -260,8 +256,8 @@ All data exchanged between devices and your Azure IoT Central is encrypted. IoT 
 
 If you're a device developer, some suggested next steps are to:
 
+- Review [best practices](concepts-best-practices.md) for developing devices.
 - Review some sample code that shows how to use SAS tokens in [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md)
 - Learn how to [How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application](how-to-connect-devices-x509.md)
 - Learn how to [Monitor device connectivity using Azure CLI](./howto-monitor-devices-azure-cli.md)
-- Learn how to [Define a new IoT device type in your Azure IoT Central application](./howto-set-up-template.md)
 - Read about [Azure IoT Edge devices and Azure IoT Central](./concepts-iot-edge.md)

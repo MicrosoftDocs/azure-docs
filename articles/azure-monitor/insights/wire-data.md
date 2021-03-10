@@ -1,7 +1,6 @@
 ---
 title: Wire Data solution in Azure Monitor | Microsoft Docs
 description: Wire data is consolidated network and performance data from computers with Log Analytics agents. Network data is combined with your log data to help you correlate data.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -22,7 +21,7 @@ In addition to the Log Analytics agent, the Wire Data solution uses Microsoft De
 > 
 >Existing customers using the Wire Data solution may continue to use it. We will publish guidance for a migration timeline for moving to Service Map.
 >
->New customers should install the [Service Map solution](../vm/service-map.md) or [Azure Monitor for VMs](../vm/vminsights-overview.md).  The Service Map data set is comparable to Wire Data.  Azure Monitor for VMs includes the Service Map data set with additional performance data and features for analysis. 
+>New customers should install the [Service Map solution](../vm/service-map.md) or [VM insights](../vm/vminsights-overview.md).  The Service Map data set is comparable to Wire Data.  VM insights includes the Service Map data set with additional performance data and features for analysis. 
 
 
 By default, Azure Monitor logs data for CPU, memory, disk, and network performance data from counters built into Windows and Linux, as well as other performance counters that you can specify. Network and other data collection is done in real-time for each agent, including subnets and application-level protocols being used by the computer.  Wire Data looks at network data at the application level, not down at the TCP transport layer.  The solution doesn't look at individual ACKs and SYNs.  Once the handshake is completed, it is considered a live connection and marked as Connected. That connection stays live as long as both sides agree the socket is open and data can pass back and forth.  Once either side closes the connection, it is marked as Disconnected.  Therefore, it only counts the bandwidth of successfully completed packets, it doesn't report on resends or failed packets.

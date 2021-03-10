@@ -10,7 +10,7 @@ ms.author: msangapu
 ms.custom: "include file"
 ---
 
-In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) command.
+In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) command.
 
 The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 

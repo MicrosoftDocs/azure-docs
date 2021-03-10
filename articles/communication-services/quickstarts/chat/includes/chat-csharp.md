@@ -14,8 +14,8 @@ ms.author: mikben
 
 ## Prerequisites
 Before you get started, make sure to:
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/) 
+- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
 - A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
 
@@ -41,8 +41,8 @@ dotnet build
 Install the Azure Communication Chat client library for .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0-beta.4
-``` 
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
+```
 
 ## Object model
 
@@ -55,21 +55,33 @@ The following classes handle some of the major features of the Azure Communicati
 
 ## Create a chat client
 
-To create a chat client, you'll use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps. You need to use the `CommunicationIdentityClient` class from the `Administration` client library to create a user and issue a token to pass to your chat client.
+To create a chat client, you'll use your Communication Services endpoint and the access token that was generated as part of the prerequisite steps. You need to use the `CommunicationIdentityClient` class from the Identity client library to create a user and issue a token to pass to your chat client.
 
 Learn more about [User Access Tokens](../../access-tokens.md).
 
 This quickstart does not cover creating a service tier to manage tokens for your chat application, although it is recommended. Learn more about [Chat Architecture](../../../concepts/chat/concepts.md)
 
+Copy the following code snippets and paste into source file: **Program.cs**
 ```csharp
 using Azure.Communication.Identity;
 using Azure.Communication.Chat;
+using Azure;
+using Azure.Communication;
 
-// Your unique Azure Communication service endpoint
-Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
+namespace ChatQuickstart
+{
+    class Program
+    {
+        static async System.Threading.Tasks.Task Main(string[] args)
+        {
+            // Your unique Azure Communication service endpoint
+            Uri endpoint = new Uri("https://<RESOURCE_NAME>.communication.azure.com");
 
-CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
-ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
+            CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(<Access_Token>);
+            ChatClient chatClient = new ChatClient(endpoint, communicationTokenCredential);
+        }
+    }
+}
 ```
 
 ## Start a chat thread
@@ -78,7 +90,7 @@ Use the `createChatThread` method on the chatClient to create a chat thread
 - Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateTopic` function.
 - Use `participants` property to pass a  list of `ChatParticipant` objects to be added to the chat thread. The `ChatParticipant` object is initialized with a `CommunicationIdentifier` object. `CommunicationIdentifier` could be of type `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier`. For example, to get a `CommunicationIdentifier` object, you will need to pass an Access ID which you created by following instruction to [Create a user](../../access-tokens.md#create-an-identity)
 
-The response object from the createChatThread method contains the chatThread details. To interact with the chat thread operations such as adding participants, sending a message, deleting a message, etc., a chatThreadClient client instance needs to instantiated using the GetChatThreadClient method on the ChatClient client. 
+The response object from the `createChatThread` method contains the `chatThread` details. To interact with the chat thread operations such as adding participants, sending a message, deleting a message, etc., a `chatThreadClient` client instance needs to instantiated using the `GetChatThreadClient` method on the `ChatClient` client.
 
 ```csharp
 var chatParticipant = new ChatParticipant(communicationIdentifier: new CommunicationUserIdentifier(id: "<Access_ID>"))
@@ -107,7 +119,7 @@ Use `SendMessage` to send a message to a thread.
 - Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string will be set.
 
 ```csharp
-var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: );
+var messageId = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
 ```
 ## Get a message
 
@@ -128,7 +140,7 @@ You can retrieve chat messages by polling the `GetMessages` method on the chat t
 AsyncPageable<ChatMessage> allMessages = chatThreadClient.GetMessagesAsync();
 await foreach (ChatMessage message in allMessages)
 {
-    Console.WriteLine($"{message.Id}:{message.Sender.Id}:{message.Content}");
+    Console.WriteLine($"{message.Id}:{message.Id}:{message.Content}");
 }
 ```
 

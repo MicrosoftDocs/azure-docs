@@ -1,6 +1,6 @@
 ---
 title: Monitor a new Azure Kubernetes Service (AKS) cluster | Microsoft Docs
-description: Learn how to enable monitoring for a new Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers subscription.
+description: Learn how to enable monitoring for a new Azure Kubernetes Service (AKS) cluster with Container insights subscription.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
@@ -8,7 +8,7 @@ ms.custom: devx-track-terraform, devx-track-azurecli
 
 # Enable monitoring of a new Azure Kubernetes Service (AKS) cluster
 
-This article describes how to set up Azure Monitor for containers to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that you are preparing to deploy in your subscription.
+This article describes how to set up Container insights to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that you are preparing to deploy in your subscription.
 
 You can enable monitoring of an AKS cluster using one of the supported methods:
 
@@ -30,14 +30,14 @@ If you are [deploying a new AKS cluster using Terraform](/azure/developer/terraf
 >[!NOTE]
 >If you choose to use Terraform, you must be running the Terraform Azure RM Provider version 1.17.0 or above.
 
-To add Azure Monitor for containers to the workspace, see [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) and complete the profile by including the [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) and specify **oms_agent**. 
+To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) and complete the profile by including the [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) and specify **oms_agent**. 
 
 After you've enabled monitoring and all configuration tasks are completed successfully, you can monitor the performance of your cluster in either of two ways:
 
 * Directly in the AKS cluster by selecting **Health** in the left pane.
 * By selecting the **Monitor Container insights** tile in the AKS cluster page for the selected cluster. In Azure Monitor, in the left pane, select **Health**. 
 
-  ![Options for selecting Azure Monitor for containers in AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
+  ![Options for selecting Container insights in AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster. 
 
@@ -113,5 +113,5 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 * If you experience issues while attempting to onboard the solution, review the [troubleshooting guide](container-insights-troubleshoot.md)
 
-* With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+* With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
 

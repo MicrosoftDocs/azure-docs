@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 03/01/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
 
 # Connect to Azure Resource Manager on your Azure Stack Edge Pro device
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Azure Resource Manager provides a management layer that enables you to create, update, and delete resources in your Azure subscription. The Azure Stack Edge Pro device supports the same Azure Resource Manager APIs to create, update, and delete VMs in a local subscription. This support lets you manage the device in a manner consistent with the cloud. 
 
@@ -127,7 +127,7 @@ The Windows client where you will invoke the Azure Resource Manager APIs needs t
 
 Your Windows client must meet the following prerequisites:
 
-1. Run PowerShell Version 5.0. You must have PowerShell version 5.0 or higher. To check the version of PowerShell on your system, run the following cmdlet:
+1. Run PowerShell Version 5.0. You must have PowerShell version 5.0. PowerShell core is not supported. To check the version of PowerShell on your system, run the following cmdlet:
 
     ```powershell
     $PSVersionTable.PSVersion

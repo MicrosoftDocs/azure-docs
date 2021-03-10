@@ -29,6 +29,8 @@ landingContent:
             url: dedicated-hosts.md
           - text: Proximity placement groups
             url: co-location.md
+          - text: Virtual Machine Scale Sets Orchestration modes 
+            url: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md
 
   # Card (optional)
   - title: Linux quickstarts

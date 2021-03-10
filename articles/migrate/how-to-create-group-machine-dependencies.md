@@ -10,21 +10,21 @@ ms.date: 11/25/2020
 
 # Set up dependency visualization
 
-This article describes how to set up agent-based dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agent-based dependency analysis in Azure Migrate: Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
 - Review the support and deployment requirements for agent-based dependency analysis for:
     - [VMware VMs](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
     - [Physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
-    - [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements).
+    - [Hyper-V VMs](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements)
 - Make sure you:
     - Have an Azure Migrate project. If you don't, [create](./create-manage-projects.md) one now.
-    - Check that you've [added](how-to-assess.md) the Azure Migrate:Server Assessment tool to the project.
-    - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises machines. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate:Server Assessment. Set up an appliance for:
-        - [VMware](how-to-set-up-appliance-vmware.md) VMs.
-        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) VMs.
-        - [Physical servers](how-to-set-up-appliance-physical.md).
+    - Check that you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool to the project.
+    - Set up an [Azure Migrate appliance](migrate-appliance.md) to discover on-premises machines. The appliance discovers on-premises machines, and sends metadata and performance data to Azure Migrate: Server Assessment. Set up an appliance for:
+        - [VMware](how-to-set-up-appliance-vmware.md) VMs
+        - [Hyper-V](how-to-set-up-appliance-hyper-v.md) VMs
+        - [Physical servers](how-to-set-up-appliance-physical.md)
 - To use dependency visualization, you associate a [Log Analytics workspace](../azure-monitor/logs/manage-access.md) with an Azure Migrate project:
     - You can attach a workspace only after setting up the Azure Migrate appliance, and discovering machines in the Azure Migrate project.
     - Make sure you have a workspace in the subscription that contains the Azure Migrate project.

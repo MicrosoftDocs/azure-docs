@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: victorh
 ---
 
@@ -118,6 +118,18 @@ For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/n
 - Firewall Premium – the complete URL will be examined, so `www.google.com/news` will be categorized as *News*.
 
 The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
+
+### Categorization change
+
+You can request a categorization change if you:
+
+ - think an FQDN or URL should be under a different category 
+ 
+or 
+
+- have a suggested category for an uncategorized FQDN or URL
+
+You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
 
 ### Category exceptions
 
