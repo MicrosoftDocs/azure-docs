@@ -131,7 +131,7 @@ The function app can now access the virtual network. Next, you'll add an HTTP-tr
     }
     ```
 
-    This code calls an external website that returns the IP address of the caller, which in this case is this function. This lets you easily determine the outbound IP address being used by your function app.
+    This code calls an external website that returns the IP address of the caller, which in this case is this function. This method lets you easily determine the outbound IP address being used by your function app.
 
 Now you're ready to run the function and check the current outbound IPs.
 
@@ -180,7 +180,7 @@ Now, you can create a public IP and use a NAT gateway to modify this outbound IP
 
 ## Create NAT gateway
 
-Now, let's create the NAT gateway. If you are leveraging the [previous virtual networking tutorial](functions-create-vnet.md), `Function-Net` was the suggested subnet name and `MyResourceGroup-vnet` was the suggested virtual network name in that tutorial.
+Now, let's create the NAT gateway. When you start with the [previous virtual networking tutorial](functions-create-vnet.md), `Function-Net` was the suggested subnet name and `MyResourceGroup-vnet` was the suggested virtual network name in that tutorial.
 
 1. From your resource group, select **Add**, search the Azure Marketplace for **NAT gateway**, and select **Create**. Use the settings in the table below the image to populate the **Basics** tab:
 
