@@ -42,17 +42,17 @@ First, you must [download the Azure AD preview PowerShell module](https://www.po
 To install the Azure AD PowerShell module, use the following commands:
 
 ``` PowerShell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
 ```
 
 To verify that the module is ready to use, use the following command:
 
 ``` PowerShell
-get-module azuread
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...}
 ```
 
 ### View the assignments of a role

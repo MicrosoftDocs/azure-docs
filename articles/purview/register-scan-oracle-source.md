@@ -34,7 +34,7 @@ The Oracle source supports **Full scan** to extract metadata from an Oracle data
     have it installed, download it from
     [here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-4.  You will have to manually download an Oracle JDBC driver named 'oracle.jdbc.driver.OracleDriver\' on your virtual machine where self-hosted integration runtime is running.
+4.  You will have to manually download an Oracle JDBC driver from [here](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) on your virtual machine where self-hosted integration runtime is running.
 
     > [!Note] 
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
