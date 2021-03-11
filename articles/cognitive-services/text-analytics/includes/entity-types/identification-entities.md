@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 02/17/2021
+ms.date: 03/11/2021
 ms.author: aahi
 ---
 
@@ -32,7 +32,14 @@ This category contains the following entity:
         American Banker Association (ABA) transit routing numbers.
       
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
+
 
 #### Category: SWIFT code
 
@@ -51,6 +58,12 @@ This category contains the following entity:
         SWIFT codes for payment instruction information.
       
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt`, `pt-br`, `ja`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Category: Credit card
@@ -70,6 +83,12 @@ This category contains the following entity:
         Credit card numbers. 
       
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt`, `pt-br`, `ja`,	`zh-hans`, `ja`, `ko`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Category: International Banking Account Number (IBAN) 
@@ -89,6 +108,12 @@ This category contains the following entity:
         IBAN codes for payment instruction information.
       
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
 :::row-end:::
 
 ### Government and country/region-specific identification
@@ -109,6 +134,12 @@ The following entities are grouped and listed by country:
         Argentina National Identity (DNI) Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -121,6 +152,12 @@ The following entities are grouped and listed by country:
         Austria identity card
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `de`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -128,7 +165,11 @@ The following entities are grouped and listed by country:
         Austria tax identification number
 
     :::column-end:::
+    :::column span="2":::
 
+      `de`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -136,6 +177,11 @@ The following entities are grouped and listed by country:
         Austria Value Added Tax (VAT) number
 
     :::column-end:::
+    :::column span="2":::
+
+      `de`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -149,7 +195,12 @@ The following entities are grouped and listed by country:
         Australia bank account number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -157,7 +208,11 @@ The following entities are grouped and listed by country:
         Australian business number
 
     :::column-end:::
+    :::column span="2":::
 
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -165,7 +220,11 @@ The following entities are grouped and listed by country:
         Australia Company Number
 
     :::column-end:::
+    :::column span="2":::
 
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -173,6 +232,11 @@ The following entities are grouped and listed by country:
         Australia driver's license  
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -180,6 +244,11 @@ The following entities are grouped and listed by country:
         Australia medical account number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -187,7 +256,11 @@ The following entities are grouped and listed by country:
         Australia passport number
 
     :::column-end:::
+    :::column span="2":::
 
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -195,7 +268,11 @@ The following entities are grouped and listed by country:
         Australia passport number
 
     :::column-end:::
+    :::column span="2":::
 
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -203,7 +280,11 @@ The following entities are grouped and listed by country:
         Australia tax file number
 
     :::column-end:::
+    :::column span="2":::
 
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -216,6 +297,12 @@ The following entities are grouped and listed by country:
         Belgium national number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `fr`, `de`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -223,7 +310,11 @@ The following entities are grouped and listed by country:
         Belgium Value Added Tax (VAT) number
 
     :::column-end:::
+    :::column span="2":::
 
+      `fr`, `de`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -236,6 +327,12 @@ The following entities are grouped and listed by country:
         Brazil legal entity number (CNPJ)
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `pt-pt`, `pt-br`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -243,7 +340,11 @@ The following entities are grouped and listed by country:
         Brazil CPF number
 
     :::column-end:::
+    :::column span="2":::
 
+      `pt-pt`, `pt-br`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -251,6 +352,11 @@ The following entities are grouped and listed by country:
         Brazil National ID Card (RG)
 
     :::column-end:::
+    :::column span="2":::
+
+      `pt-pt`, `pt-br`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Canada
@@ -262,7 +368,12 @@ The following entities are grouped and listed by country:
         Canada bank account number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
+      `en`, `fr`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -270,6 +381,11 @@ The following entities are grouped and listed by country:
         Canada driver's license number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`, `fr`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -277,6 +393,11 @@ The following entities are grouped and listed by country:
         Canada health service number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`, `fr`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -284,6 +405,11 @@ The following entities are grouped and listed by country:
         Canada passport number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`, `fr`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -291,7 +417,11 @@ The following entities are grouped and listed by country:
         Canada Personal Health Identification Number (PHIN)
 
     :::column-end:::
+    :::column span="2":::
 
+      `en`, `fr`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -299,6 +429,11 @@ The following entities are grouped and listed by country:
         Canada social insurance number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`, `fr`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Chile 
@@ -310,6 +445,12 @@ The following entities are grouped and listed by country:
         Chile identity card number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `es`
+      
+   :::column-end:::
 :::row-end:::
 
 #### China
@@ -321,6 +462,12 @@ The following entities are grouped and listed by country:
         China Resident Identity Card (PRC) number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `zh-hans`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -333,6 +480,12 @@ The following entities are grouped and listed by country:
         EU debit card number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -340,6 +493,23 @@ The following entities are grouped and listed by country:
         EU driver's license number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt` 
+      
+   :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="":::
+
+        EU GPU coordinates
+
+    :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -347,6 +517,11 @@ The following entities are grouped and listed by country:
         EU national identification number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -354,6 +529,11 @@ The following entities are grouped and listed by country:
         EU passport number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -361,6 +541,11 @@ The following entities are grouped and listed by country:
         EU Social Security Number (SSN) or equivalent ID
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -368,13 +553,11 @@ The following entities are grouped and listed by country:
         EU Tax Identification Number (TIN)
 
     :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="":::
+    :::column span="2":::
 
-        EU GPS coordinates
-
-    :::column-end:::
+      `en`, `es`, `fr`, `de`, `it`, `pt-pt` 
+      
+   :::column-end:::
 :::row-end:::
 
 #### France
@@ -386,6 +569,12 @@ The following entities are grouped and listed by country:
         France driver's license number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `fr` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -393,6 +582,11 @@ The following entities are grouped and listed by country:
         France health insurance number
 
     :::column-end:::
+    :::column span="2":::
+
+      `fr` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -400,6 +594,11 @@ The following entities are grouped and listed by country:
         France national ID card (CNI)
 
     :::column-end:::
+    :::column span="2":::
+
+      `fr` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -407,6 +606,11 @@ The following entities are grouped and listed by country:
         France passport number
 
     :::column-end:::
+    :::column span="2":::
+
+      `fr` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -414,6 +618,11 @@ The following entities are grouped and listed by country:
         France Social Security Number (INSEE)
 
     :::column-end:::
+    :::column span="2":::
+
+      `fr` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -421,6 +630,11 @@ The following entities are grouped and listed by country:
         France tax identification number (Numéro SPI)
 
     :::column-end:::
+    :::column span="2":::
+
+      `fr` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -428,6 +642,11 @@ The following entities are grouped and listed by country:
         France Value Added Tax (VAT) number
 
     :::column-end:::
+    :::column span="2":::
+
+      `fr` 
+      
+   :::column-end:::
 :::row-end:::
 
 #### Germany
@@ -439,6 +658,12 @@ The following entities are grouped and listed by country:
         German Driver's License Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `de` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -446,6 +671,11 @@ The following entities are grouped and listed by country:
         Germany Identity Card Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `de`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -453,6 +683,11 @@ The following entities are grouped and listed by country:
         Germany passport number
 
     :::column-end:::
+    :::column span="2":::
+
+      `de` 
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -460,6 +695,11 @@ The following entities are grouped and listed by country:
         Germany Tax Identification Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `de`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -467,6 +707,11 @@ The following entities are grouped and listed by country:
         Germany Value Added Tax Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `de`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Hong Kong
@@ -478,6 +723,12 @@ The following entities are grouped and listed by country:
         Hong Kong Identity Card (HKID) Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Hungary
@@ -489,6 +740,12 @@ The following entities are grouped and listed by country:
         Hungary Personal Identification Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -496,6 +753,11 @@ The following entities are grouped and listed by country:
         Hungary Tax identification Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -503,6 +765,11 @@ The following entities are grouped and listed by country:
         Hungary Value Added Tax Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 #### India
@@ -514,6 +781,12 @@ The following entities are grouped and listed by country:
         India Permanent Account Number (PAN)
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -521,6 +794,11 @@ The following entities are grouped and listed by country:
         India Unique Identification (Aadhaar) Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -533,6 +811,12 @@ The following entities are grouped and listed by country:
         Indonesia Identity Card (KTP) Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Ireland
@@ -544,6 +828,12 @@ The following entities are grouped and listed by country:
         Ireland Personal Public Service (PPS) Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Israel
@@ -555,6 +845,12 @@ The following entities are grouped and listed by country:
         Israel National ID
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -562,6 +858,11 @@ The following entities are grouped and listed by country:
         Israel Bank Account Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Italy
@@ -573,6 +874,12 @@ The following entities are grouped and listed by country:
         Italy Driver's License ID
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `it`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -580,6 +887,11 @@ The following entities are grouped and listed by country:
         Italy Fiscal Code
 
     :::column-end:::
+    :::column span="2":::
+
+      `it`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -587,6 +899,11 @@ The following entities are grouped and listed by country:
         Italy Value Added Tax Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `it`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -599,7 +916,12 @@ The following entities are grouped and listed by country:
         Japan Bank Account Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
 
+      `ja`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -607,6 +929,11 @@ The following entities are grouped and listed by country:
         Japan Driver's License Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `ja`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -614,6 +941,11 @@ The following entities are grouped and listed by country:
         Japan "My Number" (personal)
 
     :::column-end:::
+    :::column span="2":::
+
+      `ja`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -621,6 +953,11 @@ The following entities are grouped and listed by country:
         Japan "My Number" (Corporate)
 
     :::column-end:::
+    :::column span="2":::
+
+      `ja`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -628,6 +965,11 @@ The following entities are grouped and listed by country:
         Japan Resident Registration Number
 
     :::column-end:::
+    :::column span="2":::
+
+     `ja`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -635,6 +977,11 @@ The following entities are grouped and listed by country:
         Japan Residence Card Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `ja`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -642,6 +989,11 @@ The following entities are grouped and listed by country:
         Japan Social Insurance Number (SIN)
 
     :::column-end:::
+    :::column span="2":::
+
+      `ja`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -649,6 +1001,11 @@ The following entities are grouped and listed by country:
         Japan Passport Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `ja`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Luxembourg
@@ -660,6 +1017,12 @@ The following entities are grouped and listed by country:
         Luxembourg National Identification Number (Natural persons)
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `fr`, `de`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -667,6 +1030,11 @@ The following entities are grouped and listed by country:
         Luxembourg National Identification Number (Non-natural persons)
 
     :::column-end:::
+    :::column span="2":::
+
+      `fr`, `de`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Malta
@@ -678,6 +1046,12 @@ The following entities are grouped and listed by country:
         Malta Identity Card Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -685,6 +1059,11 @@ The following entities are grouped and listed by country:
         Malta Tax Identification Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -697,6 +1076,12 @@ The following entities are grouped and listed by country:
         New Zealand Bank Account Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -704,6 +1089,11 @@ The following entities are grouped and listed by country:
         New Zealand Driver's License Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -711,6 +1101,11 @@ The following entities are grouped and listed by country:
         New Zealand Inland Revenue Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -718,6 +1113,11 @@ The following entities are grouped and listed by country:
         New Zealand Ministry of Health Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -725,6 +1125,11 @@ The following entities are grouped and listed by country:
        New Zealand Social Welfare Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -737,6 +1142,12 @@ The following entities are grouped and listed by country:
         Philippines Unified Multi-Purpose ID Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Portugal 
@@ -748,6 +1159,12 @@ The following entities are grouped and listed by country:
         Portugal Citizen Card Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `pt-pt`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -755,6 +1172,11 @@ The following entities are grouped and listed by country:
        Portugal Tax Identification Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `pt-pt`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Singapore
@@ -766,6 +1188,12 @@ The following entities are grouped and listed by country:
         Singapore National Registration ID Card (NRIC) Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `zh-hans`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -778,6 +1206,12 @@ The following entities are grouped and listed by country:
         South Africa Identification Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -790,6 +1224,12 @@ The following entities are grouped and listed by country:
         South Korea Resident Registration Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `ko`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Spain
@@ -801,6 +1241,12 @@ The following entities are grouped and listed by country:
         Spain DNI
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `es`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -808,6 +1254,11 @@ The following entities are grouped and listed by country:
         Spain Social Security Number (SSN)
 
     :::column-end:::
+    :::column span="2":::
+
+      `es`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -815,6 +1266,11 @@ The following entities are grouped and listed by country:
         Spain Tax Identification Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `es`
+      
+   :::column-end:::
 :::row-end:::
  
 #### Switzerland
@@ -826,6 +1282,12 @@ The following entities are grouped and listed by country:
         Swiss Social Security Number AHV
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `fr`, `de`, `it`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -838,6 +1300,12 @@ The following entities are grouped and listed by country:
         Taiwan National ID
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -845,6 +1313,11 @@ The following entities are grouped and listed by country:
        Taiwan Resident Certificate (ARC/TARC)
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -852,6 +1325,11 @@ The following entities are grouped and listed by country:
         Taiwan Passport Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 #### United Kingdom
@@ -863,6 +1341,12 @@ The following entities are grouped and listed by country:
         U.K. Driver's License Number
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -870,6 +1354,11 @@ The following entities are grouped and listed by country:
        U.K. Electoral Roll Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -877,6 +1366,11 @@ The following entities are grouped and listed by country:
        U.K. National Health Service (NHS) Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -884,6 +1378,11 @@ The following entities are grouped and listed by country:
        U.K. National Insurance Number (NINO)
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -891,7 +1390,11 @@ The following entities are grouped and listed by country:
        U.K. or U.S. Passport Number
 
     :::column-end:::
+    :::column span="2":::
 
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -899,7 +1402,11 @@ The following entities are grouped and listed by country:
        U.K. Unique Taxpayer Reference Number
 
     :::column-end:::
+    :::column span="2":::
 
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 
 
@@ -912,6 +1419,12 @@ The following entities are grouped and listed by country:
         U.S. Social Security Number (SSN)
 
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -919,6 +1432,11 @@ The following entities are grouped and listed by country:
        U.S. Driver's License Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -926,6 +1444,11 @@ The following entities are grouped and listed by country:
        U.S. or U.K. Passport Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -933,6 +1456,11 @@ The following entities are grouped and listed by country:
        U.S. Individual Taxpayer Identification Number (ITIN)
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -940,6 +1468,11 @@ The following entities are grouped and listed by country:
        U.S. Drug Enforcement Agency (DEA) Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -947,4 +1480,9 @@ The following entities are grouped and listed by country:
        U.S. Bank Account Number
 
     :::column-end:::
+    :::column span="2":::
+
+      `en`
+      
+   :::column-end:::
 :::row-end:::
