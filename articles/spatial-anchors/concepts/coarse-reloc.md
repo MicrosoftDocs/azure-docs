@@ -124,7 +124,7 @@ Careful deployment of Bluetooth beacons is a good solution for large-scale indoo
 Beacons are typically versatile devices on which everything can be configured, including UUIDs and MAC addresses. Azure Spatial Anchors expects beacons to be uniquely identified by their UUIDs. If you don't ensure this uniqueness, you'll probably get incorrect results. For best results:
 
 * Assign unique UUIDs to your beacons.
-* Deploy beacons in a way that covers your space uniformly, and so that at least three beacons are reachable from any point in space.
+* Deploy beacons in a way that covers your space uniformly and so that at least three beacons are reachable from any point in space.
 * Pass the list of unique beacon UUIDs to the sensor fingerprint provider.
 
 Radio signals like those of Bluetooth are affected by obstacles and can interfere with other radio signals. So it can be hard to guess whether your space is uniformly covered. To guarantee a better customer experience, we recommend that you manually test the coverage of your beacons. You can conduct a test by walking around your space with candidate devices and an application that shows Bluetooth in range. While you test the coverage, make sure you can reach at least three beacons from any strategic position in your space. Having too many beacons can result in more interference between them and won't necessarily improve the accuracy of coarse relocalization.
