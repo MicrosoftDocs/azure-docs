@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 03/12/2021
 ms.custom: devx-track-python
 ---
 
@@ -267,9 +267,9 @@ To load documents, create a documents collection, using an [index action](/pytho
 
 ## 3 - Search an index
 
-This step shows you how to query an index using the [Search Documents (REST)](/rest/api/searchservice/search-documents).
+This step shows you how to query an index using the **search** method of the [search.client class](/python/api/azure-search-documents/azure.search.documents.searchclient).
 
-1. For this operation, use search_client. This query executes an empty search (`search=*`), returning an unranked list (search score = 1.0) of arbitrary documents. Because there are no criteria, all documents are included in results. This query prints just two of the fields in each document. It also adds `include_total_count=True` to get a count of all documents (4) in the results.
+1. The following step executes an empty search (`search=*`), returning an unranked list (search score = 1.0) of arbitrary documents. Because there are no criteria, all documents are included in results. This query prints just two of the fields in each document. It also adds `include_total_count=True` to get a count of all documents (4) in the results.
 
     ```python
     results =  search_client.search(search_text="*", include_total_count=True)
