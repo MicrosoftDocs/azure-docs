@@ -22,8 +22,8 @@ The following ITSM products/services are supported. Select the product to view d
 > We propose our Cherwell and Provance customers to use [Webhook action](./action-groups.md#webhook) to Cherwell and Provance endpoint as another solution to the integration.
 
 # IP ranges for ITSM partners connections
-In order to whitelist the ITSM IP addresses in order to allow ITSM connections from partners ITSM tools, we recommend the  to whitelist the whole public IP range of Azure region where their LogAnalytics workspace belongs. [details here](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
-For regions EUS/WEU/EUS2/WUS2/US South Central the customer can whitelist ActionGroup network tag only.
+In order to whitelist the ITSM IP addresses in order to allow ITSM connections from partners ITSM tools, we recommend the to list the whole public IP range of Azure region where their LogAnalytics workspace belongs. [details here](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
+For regions EUS/WEU/EUS2/WUS2/US South Central the customer can list ActionGroup network tag only.
 
 ## Next steps
 
