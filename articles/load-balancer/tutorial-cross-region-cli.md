@@ -182,7 +182,6 @@ When no longer needed, use the [az group delete](/cli/azure/group#az-group-delet
 In this tutorial, you:
 
 * Created a cross-region load balancer.
-* Created a health probe.
 * Created a load-balancing rule.
 * Added regional load balancers to the backend pool of the cross-region load balancer.
 * Tested the load balancer.
