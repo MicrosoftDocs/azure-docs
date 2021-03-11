@@ -12,7 +12,7 @@ ms.date: 10/21/2020
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various monitoring options to provide insight into the behavior of your server.
 
 ## Metrics
-Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources supporting the PostgreSQL server. Each metric is emitted at a one-minute frequency, and has up to [93 days of history](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics). You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../azure-monitor/platform/data-platform.md).
+Azure Database for PostgreSQL provides various metrics that give insight into the behavior of the resources supporting the PostgreSQL server. Each metric is emitted at a one-minute frequency, and has up to [93 days of history](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics). You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../azure-monitor/data-platform.md).
 
 ### List of metrics
 These metrics are available for Azure Database for PostgreSQL:
@@ -37,7 +37,7 @@ These metrics are available for Azure Database for PostgreSQL:
 |pg_replica_log_delay_in_seconds|Replica Lag|Seconds|The time since the last replayed transaction. This metric is available for replica servers only.|
 
 ## Server logs
-You can enable logging on your server. These resource logs can be sent to [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), Event Hubs, and a Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
+You can enable logging on your server. These resource logs can be sent to [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md), Event Hubs, and a Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.
 
 ## Query Store
 [Query Store](concepts-query-store.md) keeps track of query performance over time including query runtime statistics and wait events. The feature persists query runtime performance information in a system database named **azure_sys** under the query_store schema. You can control the collection and storage of data via various configuration knobs.
@@ -56,6 +56,6 @@ Learn more about how to set up notifications in the [planned maintenance notific
 
 ## Next steps
 - See [how to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
-- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../azure-monitor/platform/data-platform.md)
+- For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../azure-monitor/data-platform.md)
 - Read our blog on [best practices for monitoring your server](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
 - Learn more about [planned maintenance notifications](./concepts-planned-maintenance-notification.md) in Azure Database for PostgreSQL - Single Server.

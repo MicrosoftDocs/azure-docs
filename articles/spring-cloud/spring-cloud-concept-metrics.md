@@ -94,7 +94,7 @@ The following tables show the available metrics and details.
 >|----|----|----|------------|
 >| system.cpu.usage | system.cpu.usage | Percent | Recent CPU usage for the whole system (Obsolete and don't suggest using it). This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
 >| process.cpu.usage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process (Obsolete and don't suggest using it). This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
->| AppCpuUsage | App CPU Usage (preview) | Percent | Recent CPU usage of the JVM process against the CPU allocated to this app, double type value between [0.0,1.0]. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
+>| AppCpuUsage | App CPU Usage | Percent | Recent CPU usage of the JVM process against the CPU allocated to this app, double type value between [0.0,1.0]. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
 >| jvm.memory.used | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
 >| jvm.memory.max | jvm.memory.max | Bytes | Represents the maximum amount of memory that can be used for memory management. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
@@ -168,7 +168,7 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 
 * [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)
+* [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
 
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 

@@ -1,14 +1,10 @@
 ---
 title: Execute Azure Machine Learning pipelines 
 description: Learn how to run your Azure Machine Learning pipelines in your Azure Data Factory pipelines. 
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: daperlov
 author: djpmsft
-manager: anandsub
 ms.date: 07/16/2020
 ---
 

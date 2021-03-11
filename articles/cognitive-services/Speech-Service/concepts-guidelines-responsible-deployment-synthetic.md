@@ -57,14 +57,8 @@ For individuals with speech disorders who record their own voice fonts, inconsis
 Individuals with speech disorders desire to make updates to their synthetic voice to reflect aging (for example, a child reaching puberty). Individuals may also have stylistic preferences that change over time, and may want to make changes to pitch, accent, or other voice characteristics.
 
 
-## Reference docs
+## See also
 
-* [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent)
-* [How to Disclose](concepts-disclosure-guidelines.md)
-* [Disclosure Design Patterns](concepts-disclosure-patterns.md)
-
-## Next steps
-
-* [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent)
+* [Disclosure for Voice Talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 * [Disclosure Design Patterns](concepts-disclosure-patterns.md)

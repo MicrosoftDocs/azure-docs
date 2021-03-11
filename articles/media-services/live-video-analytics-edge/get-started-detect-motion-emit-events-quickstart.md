@@ -64,10 +64,10 @@ For this quickstart, we recommend that you use the [Live Video Analytics resourc
     1. **Network interface** - This enables an Azure Virtual Machine to communicate with internet, Azure, and other resources.
     1. **Bastion connection** - This lets you connect to your virtual machine using your browser and the Azure portal.
     1. **Public IP address** - This enables Azure resources to communicate to Internet and public-facing Azure services
-    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+    1. **Virtual network** - This enables many types of Azure resources, such as your virtual machine, to securely communicate with each other, the internet, and on-premises networks. Learn more about [Virtual networks](../../virtual-network/virtual-networks-overview.md).
     1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
     1. **Media service account** - This helps with managing and streaming media content in Azure.
-    1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see [Azure Storage accounts with Azure Media Services accounts](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Storage account** - You must have one Primary storage account and you can have any number of Secondary storage accounts associated with your Media Services account. For more information, see [Azure Storage accounts with Azure Media Services accounts](../latest/storage-account-concept.md).
     1. **Container registry** - This helps in storing and managing your private Docker container images and related artifacts.
 
 In the script output, a table of resources lists the IoT hub name. Look for the resource type **`Microsoft.Devices/IotHubs`**, and note down the name. You'll need this name in the next step.  
@@ -558,6 +558,12 @@ To observe the results, follow these steps.
 3. Right-click **lva-sample-device** and then select **Start Monitoring Built-in Event Monitoring**.
 
     ![Start monitoring Iot Hub events](./media/quickstarts/start-monitoring-iothub-events.png)
+
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     
 The **OUTPUT** window displays the following message:
 
@@ -590,13 +596,6 @@ The **OUTPUT** window displays the following message:
         }
         }
     ]
-    },
-    "applicationProperties": {
-    "topic": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.media/mediaservices/{amsAccountName}",
-    "subject": "/graphInstances/Sample-Graph-1/processors/motionDetection",
-    "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-05-19T07:45:34.404Z",
-    "dataVersion": "1.0"
     }
 }
 ```

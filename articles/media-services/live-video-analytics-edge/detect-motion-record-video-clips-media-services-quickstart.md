@@ -535,10 +535,15 @@ The media graph you created uses the motion detection processor node to detect m
 
 1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub at the bottom-left corner.
 1. Expand the Devices node
-1. Right-clink on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring"
+1. Right-click on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring"
 
     ![Start Monitoring Built-in Event Monitoring](./media/quickstarts/start-monitoring-iothub-events.png)
     
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     Within seconds, you will see the following messages in the OUTPUT window:
 
 ```

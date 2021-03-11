@@ -1,22 +1,18 @@
 ---
-title: Gain tenant-wide visibility for Azure Security Center | Microsoft Docs
-description: This article explains how to manage your security posture at scale by applying policies to all subscriptions linked to your Azure Active Directory tenant.
+title: Organize subscriptions into management groups and assign roles to users for Azure Security Center
+description: Learn how to organize your Azure subscriptions into management groups in Azure Security Center and assign roles to users in your organization
 services: security-center
 documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/07/2020
+ms.date: 03/04/2021
 ms.author: memildin
 
 ---
 
-# Organize management groups, subscriptions, and tenant-wide visibility
+# Organize subscriptions into management groups and assign roles to users
 
 This article explains how to manage your organization’s security posture at scale by applying security policies to all Azure subscriptions linked to your Azure Active Directory tenant.
 
@@ -75,63 +71,6 @@ You can add subscriptions to the management group that you created.
    > Management groups can contain both subscriptions and child management  groups. When you assign a user an Azure role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
 
 
-## Grant tenant-wide permissions to yourself
-
-A user with the Azure Active Directory role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Azure Security Center. 
-
-> [!TIP]
-> If your organization manages resource access with [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), or any other PIM tool, the global administrator role must be active for the user making these changes.
-
-To assign yourself tenant-level permissions:
-
-1. As a Global Administrator user without an assignment on the root management group of the tenant, open Security Center's **Overview** page and select the **tenant-wide visibility** link in the banner. 
-
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-banner.png" alt-text="Enable tenant-level permissions in Azure Security Center":::
-
-1. Select the new Azure role to be assigned. 
-
-    :::image type="content" source="media/security-center-management-groups/enable-tenant-level-permissions-form.png" alt-text="Form for defining the tenant-level permissions to be assigned to your user":::
-
-    > [!TIP]
-    > Generally, the Security Admin role is required to apply policies on the root level, while Security Reader will suffice to provide tenant-level visibility. For more information about the permissions granted by these roles, see the [Security Admin built-in role description](../role-based-access-control/built-in-roles.md#security-admin) or the [Security Reader built-in role description](../role-based-access-control/built-in-roles.md#security-reader).
-    >
-    > For differences between these roles specific to Security Center, see the table in [Roles and allowed actions](security-center-permissions.md#roles-and-allowed-actions).
-
-    The organizational-wide view is achieved by granting roles on the root management group level of the tenant.  
-
-1. Log out of the Azure portal, and then log back in again.
-
-1. Once you have elevated access, open or refresh Azure Security Center to verify you have visibility into all subscriptions under your Azure AD tenant. 
-
-
-## Request tenant-wide permissions when yours are insufficient
-
-If you login to Security Center and see a banner telling you that your view is limited, you can click through to send a request to the global administrator for your organization. In the request, you can include the role you'd like to be assigned and the global administrator will make a decision about which role to grant. 
-
-It's the global administrator's decision whether to accept or reject these requests. 
-
-> [!IMPORTANT]
-> You can only submit one request every seven days.
-
-To request elevated permissions from your global administrator:
-
-1. From the Azure portal, open Azure Security Center.
-
-1. If you see the banner "You're seeing limited information." select it.
-
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner informing a user they can request tenant-wide permissions.":::
-
-1. In the detailed request form, select the desired role and the justification for why you need these permissions.
-
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Details page for requesting tenant-wide permissions from your Azure global administrator":::
-
-1. Select **Request access**.
-
-    An email is sent to the global administrator. The email contains a link to Security Center where they can approve or reject the request.
-
-    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Email to the global administrator for new permissions":::
-
-    After the global administrator selects **Review the request** and completes the process, the decision is emailed to the requesting user. 
 
 ## Assign Azure roles to other users
 
@@ -189,6 +128,6 @@ Once the Azure roles have been assigned to the users, the tenant administrator s
 
 
 ## Next steps
-In this article, you learned how to gain tenant-wide visibility for Azure Security Center. For related information, see:
+In this article, you learned how to organize subscriptions into management groups and assign roles to users. For related information, see:
 
 - [Permissions in Azure Security Center](security-center-permissions.md)

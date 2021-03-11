@@ -27,7 +27,7 @@ The following diagram shows a suggested pattern for using Azure RBAC.
 
 ![Azure RBAC and least privilege](./media/best-practices/rbac-least-privilege.png)
 
-For information about how to add role assignments, see [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md).
+For information about how to assign roles, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
 ## Limit the number of subscription owners
 
@@ -38,6 +38,10 @@ You should have a maximum of 3 subscription owners to reduce the potential for b
 To protect privileged accounts from malicious cyber-attacks, you can use Azure Active Directory Privileged Identity Management (PIM) to lower the exposure time of privileges and increase your visibility into their use through reports and alerts. PIM helps protect privileged accounts by providing just-in-time privileged access to Azure AD and Azure resources. Access can be time bound after which privileges are revoked automatically. 
 
 For more information, see [What is Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md).
+
+## Assign roles to groups, not users
+
+To make role assignments more manageable, avoid assigning roles directly to users. Instead, assign roles to groups. Assigning roles to groups instead of users also helps minimize the number of role assignments, which has a [limit of 2,000 role assignments per subscription](troubleshooting.md#azure-role-assignments-limit). 
 
 ## Next steps
 

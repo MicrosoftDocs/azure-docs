@@ -19,7 +19,7 @@ git remote add azure <deploymentLocalGitUrl-from-create-step>
 Push to the Azure remote to deploy your app with the following command. When Git Credential Manager prompts you for credentials, make sure you enter the credentials you created in **Configure a deployment user**, not the credentials you use to sign in to the Azure portal.
 
 ```bash
-git push azure master
+git push azure main
 ```
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:

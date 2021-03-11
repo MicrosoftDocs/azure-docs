@@ -30,7 +30,7 @@ Use the following steps to deploy a Defender for IoT security module for IoT Edg
 
 ### Prerequisites
 
-1. In your IoT Hub, make sure your device is [registered as an IoT Edge device](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device).
+1. In your IoT Hub, make sure your device is [registered as an IoT Edge device](../iot-edge/how-to-register-device.md#register-a-new-device).
 
 1. Defender for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
 

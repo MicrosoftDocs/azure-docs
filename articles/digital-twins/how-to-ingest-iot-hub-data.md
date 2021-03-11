@@ -27,7 +27,6 @@ This how-to document walks through the process for writing a function that can i
 
 Before continuing with this example, you'll need to set up the following resources as prerequisites:
 * **An IoT hub**. For instructions, see the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
-* **A function** with the correct permissions to call your digital twin instance. For instructions, see [*How-to: Set up a function in Azure for processing data*](how-to-create-azure-function.md). 
 * **An Azure Digital Twins instance** that will receive your device telemetry. For instructions, see [*How-to: Set up an Azure Digital Twins instance and authentication*](./how-to-set-up-instance-portal.md).
 
 ### Example telemetry scenario
@@ -83,49 +82,29 @@ Output of a successful twin create command should look like this:
 
 ## Create a function
 
-This section uses the same Visual Studio startup steps and function skeleton from [*How-to: Set up a function for processing data*](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
+In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT telemetry events from IoT Hub. Follow the steps below to create and publish the function.
 
-In the steps that follow, you'll add specific code to it for processing IoT telemetry events from IoT Hub.  
+#### Step 1: Create a function app project
 
-### Add telemetry processing
-    
-Telemetry events come in the form of messages from the device. The first step in adding telemetry-processing code is extracting the relevant part of this device message from the Event Grid event. 
+First, create a new function app project in Visual Studio. For instructions on how to do this, see the [**Create a function app in Visual Studio**](how-to-create-azure-function.md#create-a-function-app-in-visual-studio) section of the *How-to: Set up a function for processing data* article.
 
-Different devices may structure their messages differently, so the code for **this step depends on the connected device.** 
+#### Step 2: Fill in function code
 
-The following code shows an example for a simple device that sends telemetry as JSON. This sample is fully explored in [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). The following code finds the device ID of the device that sent the message, as well as the temperature value.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs" id="Find_device_ID_and_temperature":::
-
-The next code sample takes the ID and temperature value and uses them to "patch" (make updates to) that twin.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs" id="Update_twin_with_device_temperature":::
-
-### Update your function code
-
-Now that you understand the code from the earlier samples, open your function from the [*Prerequisites*](#prerequisites) section in Visual Studio. (If you don't have a function that was created in Azure, visit the link in the prerequisites to create one now).
-
-Replace your function's code with this sample code.
+Rename the *Function1.cs* sample function that Visual Studio has generated with the new project to *IoTHubtoTwins.cs*. Replace the code in the file with the following code:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
-Save your function code and publish the function app to Azure. To learn how, see [*Publish the function app*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) in [*How to set up a function in Azure to process data*](how-to-create-azure-function.md).
+Save your function code.
 
-After a successful publish, you will see the output in the Visual Studio command window as shown below:
+#### Step 3: Publish the function app to Azure
 
-```cmd
-1>------ Build started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
-1>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
-2>------ Publish started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
-2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
-2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\Out\
-2>Publishing C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\adtIngestFunctionSample - 20200911112545669.zip to https://adtingestfunctionsample20200818134346.scm.azurewebsites.net/api/zipdeploy...
-========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
-========== Publish: 1 succeeded, 0 failed, 0 skipped ==========
-```
-You can also verify your status of the publish process in the [Azure portal](https://portal.azure.com/). Search for your _resource group_ and navigate to _Activity log_ and look for _Get web app publishing profile_ in the list and verify that the status is Succeeded.
+Publish the project to a function app in Azure.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Screenshot of the Azure portal that shows status of the publish process.":::
+For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
+
+#### Step 4: Configure the function app
+
+Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
 
 ## Connect your function to IoT Hub
 
@@ -144,10 +123,10 @@ In the **Create Event Subscription** page, fill the fields as follows:
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot of the Azure portal to create the event subscription details":::
 
 In the _Select Azure Function_ page that opens up, verify the below details.
- 1. **Subscription**: Your Azure subscription
- 2. **Resource group**: Your resource group
- 3. **Function app**: Your function app name
- 4. **Slot**: _Production_
+ 1. **Subscription**: Your Azure subscription.
+ 2. **Resource group**: Your resource group.
+ 3. **Function app**: Your function app name.
+ 4. **Slot**: _Production_.
  5. **Function**: Select your function from the dropdown.
 
 Save your details by selecting _Confirm Selection_ button.            

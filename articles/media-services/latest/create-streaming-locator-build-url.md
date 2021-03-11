@@ -22,7 +22,7 @@ In Azure Media Services, to build a streaming URL, you need to first create a [S
 
 This article demonstrates how to create a streaming locator and build a streaming URL using Java and .NET SDKs.
 
-## Prerequisite 
+## Prerequisite
 
 Preview [Dynamic packaging](dynamic-packaging-overview.md)
 

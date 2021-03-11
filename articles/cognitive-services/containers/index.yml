@@ -21,7 +21,7 @@ landingContent:
         - text: What are Cognitive Services containers?
           url: ../cognitive-services-container-support.md
         - text: Frequently Asked Questions
-          url: container-faq.md
+          url: container-faq.yml
         - text: Container image tags
           url: container-image-tags.md  
 - title: Container recipes 

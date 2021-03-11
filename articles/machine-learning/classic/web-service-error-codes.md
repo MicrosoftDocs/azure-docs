@@ -9,7 +9,7 @@ ms.author: keli19
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 ms.date: 11/16/2016
 ---

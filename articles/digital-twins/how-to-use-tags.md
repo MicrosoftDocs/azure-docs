@@ -92,7 +92,7 @@ Here is a query to get all entities that are small (value tag), and not red:
 ## Next steps
 
 Read more about designing and managing digital twin models:
-* [*How-to: Manage custom models*](how-to-manage-model.md)
+* [*How-to: Manage DTDL models*](how-to-manage-model.md)
 
 Read more about querying the twin graph:
 * [*How-to: Query the twin graph*](how-to-query-graph.md)
