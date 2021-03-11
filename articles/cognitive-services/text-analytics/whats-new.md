@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 03/11/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -29,10 +29,10 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
    * A new `pii-categories` parameter is now available in the `/pii` endpoint.
       * This parameter lets you to specify select PII entities as well as those not supported by default for the input language.
 * A new model version `2021-03-01` for the `/health` endpoint which provides
-   * A rename of the Gene entity type to GeneOrProtein.
-   * A new Date entity type.
-   * Assertion detection which replaced Negation detection (only available in API v3.1-preview.4).
-   * A new preferred `name` property for linked entities that is normalized from various ontologies and coding systems (only available in API v3.1-preview.4). 
+    * A rename of the `Gene` entity type to `GeneOrProtein`.
+    * A new `Date` entity type.
+    * Assertion detection which replaces negation detection (only available in API v3.1-preview.4).
+    * A new preferred `name` property for linked entities that is normalized from various ontologies and coding systems (only available in API v3.1-preview.4). 
 
 * Updated client libraries, which include asynchronous Analyze, and Text Analytics for health operations. You can find examples on GitHub:
 

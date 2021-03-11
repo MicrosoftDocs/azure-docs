@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/03/2021
+ms.date: 03/11/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -40,7 +40,7 @@ Named Entity Recognition detects words and phrases mentioned in unstructured tex
 
 ### [Relation Extraction](#tab/relation-extraction)
 
-Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description  
+Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description.  
 
 > [!div class="mx-imgBorder"]
 > ![Health RE](../media/ta-for-health/health-relation-extraction.png)
@@ -57,7 +57,11 @@ Text Analytics for health supports linking to the health and biomedical vocabula
 
 ### [Assertion Detection](#tab/assertion-detection) 
 
-The meaning of medical content is highly affected by modifiers such as negative or conditional assertion, which can have critical implication if misrepresented. Text Analytics for health supports assertion detection for  different entities mentioned in the text through three categories: certainty, conditional and association. 
+The meaning of medical content is highly affected by modifiers, such as negative or conditional assertions which can have critical implications if misrepresented. Text Analytics for health supports three categories of assertion detection for entities in the text: 
+
+* certainty
+* conditional
+* association
 
 > [!div class="mx-imgBorder"]
 > ![Health NEG](../media/ta-for-health/health-negation.png)
@@ -139,7 +143,7 @@ To check the job status, make a GET request to the URL in the value of the opera
 
 You can cancel a job with a `NotStarted` or `running` status with a DELETE HTTP call to the same URL as the GET request.  More information on the DELETE call is available in the [Text Analytics for health hosted API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob).
 
-The following is an example of the response of a GET request.  Please note that the output is available for retrieval until the `expirationDateTime` (24 hours from the time the job was created) has passed after which the output is purged.
+The following is an example of the response of a GET request.  The output is available for retrieval until the `expirationDateTime` (24 hours from the time the job was created) has passed after which the output is purged.
 
 ```json
 {
@@ -428,7 +432,7 @@ The following JSON is an example of the Text Analytics for health API response b
 
 ### Assertion output
 
-Negated entities are represented by assertion detection as a negative value for the certainty category, for example:
+Assertion detection represents negated entities as a negative value for the certainty category, for example:
 
 ```json
 {
