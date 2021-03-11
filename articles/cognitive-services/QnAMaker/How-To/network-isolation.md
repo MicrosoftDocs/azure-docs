@@ -68,7 +68,9 @@ The App Service Environment(ASE) can be used to host QnA Maker App service. Plea
 3.  Update the Network Security Group associated with the App Service Environment
     1. Update pre-created Inbound Security Rules as per your requirements.
     2. Add a new Inbound Security Rule with source as 'Service Tag' and source service tag as 'CognitiveServicesManagement'.
-       ![inbound port exceptions](../media/inbound-ports.png)
+       
+    ![inbound port exceptions](../media/inbound-ports.png)
+
 4.  Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to the App Service     Endpoint created above (https:// mywebsite.myase.p.azurewebsite.net).
     
 ---
