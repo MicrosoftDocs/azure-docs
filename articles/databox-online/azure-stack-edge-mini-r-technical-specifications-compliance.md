@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 03/11/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -51,13 +51,15 @@ The Azure Stack Edge Mini R device has 1 data disk and 1 boot disk (that serves 
 
 The Azure Stack Edge Mini R device has the following specifications for network:
 
-
 |Specification  |Value  |
 |---------|---------|
 |Network interfaces    |2 x 10 Gbe SFP+ <br> Shown as PORT 3 and PORT 4 in the local UI           |
 |Network interfaces    |2 x 1 Gbe RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI          |
 |Wi-Fi   |802.11ac         |
 
+## SPF+ requirements
+
+ADD SPF+ SPECS HERE. H2 HEADING?
 
 ## Power supply unit specifications
 
