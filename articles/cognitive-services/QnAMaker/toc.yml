@@ -47,15 +47,17 @@
     href: choose-natural-language-processing-service.md
 - name: How-to guides
   items:
-  - name: Manage Azure resources
-    href: How-To/set-up-qnamaker-service-azure.md
-    displayName: azure, resource, key, upgrade, pricing, tier,
-  - name: Configure QnA Maker resources
-    href: How-To/configure-QnA-Maker-resources.md
-  - name: Network Isolation for Azure resources
-    href: How-To/network-isolation.md
-  - name: Manage QnA Maker resource access
-    href: How-To/manage-qna-maker-app.md
+  - name: Manage QnA Maker resources
+    items:
+    - name: Set up QnA Maker resources
+      href: How-To/set-up-qnamaker-service-azure.md
+      displayName: azure, resource, key, upgrade, pricing, tier,
+    - name: Manage QnA Maker Resource access
+      href: How-To/manage-qna-maker-app.md
+    - name: Configure QnA Maker resources
+      href: How-To/configure-qna-maker-resources.md
+    - name: Network Isolation for Azure resources
+      href: How-To/network-isolation.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
@@ -79,8 +81,12 @@
     - name: Change default answer
       href: How-To/change-default-answer.md
   - name: Query knowledge base
-    href: How-To/metadata-generateanswer-usage.md
-    displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
+    items:
+    - name: Using GenerateAnswer API
+      href: How-To/metadata-generateanswer-usage.md
+      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404
+    - name: Filter QnAs by metadata
+      href: How-To/query-knowledge-base-with-metadata.md 
   - name: Set up Active Learning to enhance Knowledge base
     items:
     - name: Turn on active learning
