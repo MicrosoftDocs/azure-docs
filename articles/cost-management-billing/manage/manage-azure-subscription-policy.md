@@ -19,8 +19,7 @@ This article helps you configure Azure subscription policies for subscription op
 
 ## Prerequisites
 
-There are 2 possible actions available for this experience - write and read. 
-- Only directory [global administrators](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator0) are able to do write operations on subscription policies. Before doing that, the global administrator must [Elevate access to manage all Azure subscriptions and management groups](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) after which they will be able to edit the subscription policies.
+- Only directory [global administrators](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator0) are able to edit subscription policies. Before doing that, the global administrator must [Elevate access to manage all Azure subscriptions and management groups](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) after which they will be able to edit the subscription policies.
 - All other users can only read the current policy setting.
 
 
