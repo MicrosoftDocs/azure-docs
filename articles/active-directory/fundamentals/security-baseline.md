@@ -30,22 +30,28 @@ To see how Azure Active Directory completely maps to the Azure Security Benchmar
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37714).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Azure Active Directory does not support deploying directly into a virtual network, because of this you can not leverage certain networking features with the offering's resources such as network security groups, route tables, or other network dependent appliances such as an Azure Firewall.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-2: Connect private networks together
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37715).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure Active Directory is not designed to deploy into or be secured to a private network, this control is intended to describe network connectivity and does not apply.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-3: Establish private network access to Azure services
 
@@ -60,33 +66,39 @@ Private access is an additional defense in depth measure in addition to authenti
 
 - [Understand Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### NS-4: Protect applications and services from external network attacks
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37717).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Azure Active Directory does not support deploying directly into a virtual network, because of this you can not leverage traditional networking features to prevent denial of service (DDoS) attacks with native Azure network features like DDoS Protection Standard. 
 
 Azure Active Directory is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-5: Deploy intrusion detection/intrusion prevention systems (IDS/IPS)
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37718).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Azure Active Directory does not support deploying into a virtual network and cannot be configured with an IDS or IPS solution for detecting or preventing threats on the network.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### NS-6: Simplify network security rules
 
@@ -97,20 +109,23 @@ Azure Active Directory is not intended to run web applications, and does not req
 
 - [Understand and using Service Tags](../../virtual-network/service-tags-overview.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### NS-7: Secure Domain Name Service (DNS)
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37720).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure Active Directory does not expose its underlying DNS configurations; these settings are maintained by Microsoft.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Identity Management
 
@@ -121,123 +136,216 @@ Azure Active Directory is not intended to run web applications, and does not req
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37700).
 
-**Guidance**: Azure AD recommends using least privilege role to manage the
-directory. For more information see the article, Azure
-AD role descriptions and permissions /
-azure/active-directory/roles/permissions-reference
+**Guidance**: Use Azure Active Directory (Azure AD) as the default identity and access management service. You should standardize Azure AD to govern your organization’s identity and access management in: 
+Microsoft Cloud resources, such as the Azure portal, Azure Storage, Azure Virtual Machine (Linux and Windows), Azure Key Vault, PaaS, and SaaS applications. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+Your organization's resources, such as applications on Azure or your corporate network resources. 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+ 
+Securing Azure AD should be a high priority in your organization’s cloud security practice. Azure AD provides an identity secure score to help you assess identity security posture relative to Microsoft’s best practice recommendations. Use the score to gauge how closely your configuration matches best practice recommendations, and to make improvements in your security posture. 
+
+Note: Azure AD supports external identity that allows users without a Microsoft account to sign in to their applications and resources with their external identity. 
+
+- [Tenancy in Azure Active Directory](../develop/single-and-multi-tenant-apps.md)  
+
+- [How to create and configure an Azure AD instance](active-directory-access-create-new-tenant.md)  
+
+- [Use external identity providers for application](/azure/active-directory/b2b/identity-providers)  
+
+- [What is the identity secure score in Azure Active Directory](identity-secure-score.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### IM-2: Manage application identities securely and automatically
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37701).
 
-**Guidance**: Azure AD recommends creating a service principal with
-restricted permissions at the resource level to configure service principals
-with certificate credentials and fall back to client secrets. 
+**Guidance**: Use Azure-managed identities for non-human accounts such as services or automation, it is recommended to use Azure-managed identity feature instead of creating a more powerful human account to access or execute your resources. You can natively authenticate to Azure services/resources that supports Azure AD authentication through pre-defined access grant rule without using credential hard coded in source code or configuration files.
 
-- [Azure service principal](/powershell/azure/create-azure-service-principal-azureps) 
+ 
+- [Azure-managed identities](../managed-identities-azure-resources/overview.md) 
+ 
 
-- [Create a service principal with certificates](/azure/active-directory/develop/howto-authenticate-service-principal-powershell)
+ 
+- [Services that support managed identities for Azure resources](../managed-identities-azure-resources/services-support-managed-identities.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-3: Use Azure AD single sign-on (SSO) for application access
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37702).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Use Azure Active Directory to provide identity and access management to Azure resources, cloud applications, and on-premises applications. This includes enterprise identities such as employees, as well as external identities such as partners, vendors, and suppliers. This enables single sign-on (SSO) to manage and secure access to your organization’s data and resources on-premises and in the cloud. Connect all your users, applications, and devices to the Azure AD for seamless, secure access and greater visibility and control.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Understand Application SSO with Azure AD](../manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### IM-4: Use strong authentication controls for all Azure Active Directory based access
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37703).
 
-**Guidance**: Azure AD allows both cloud-only and hybrid accounts. Add or delete users /
-azure/active-directory/fundamentals/add-users-azure-active-directory
+**Guidance**: Use Azure Active Directory to support strong authentication controls through multi-factor authentication (MFA), and strong passwordless methods.
 
-- [Azure AD default password policy](/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts) 
+ 
+-- Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
+ 
+-- Passwordless authentication - Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
+ 
 
-Eliminate bad passwords using Azure Active Directory
-- [Password Protection](/azure/active-directory/authentication/concept-password-ban-bad)
+ 
+For administrator and privileged users, ensure the highest level of the strong authentication method is used, followed by rolling out the appropriate strong authentication policy to other users.
+ 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+ 
+- [How to enable MFA in Azure](../authentication/howto-mfa-getstarted.md) 
+ 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+ 
+- [Introduction to passwordless authentication options for Azure Active Directory](../authentication/concept-authentication-passwordless.md) 
+ 
+
+ 
+- [Azure AD default password policy](../authentication/concept-sspr-policy.md#password-policies-that-only-apply-to-cloud-user-accounts) 
+ 
+
+ 
+- [Eliminate bad passwords using Azure AD Password Protection](../authentication/concept-password-ban-bad.md) 
+ 
+Azure AD supports Legacy password-based authentication such as Cloud-only accounts (user accounts created directly in Azure AD) that have a baseline password policy or Hybrid accounts (user accounts that come from on-premises Active Directory) that will follow the on-premises password policies. When using password-based authentication, Azure AD provides a password protection capability the prevents users to set passwords that are easy to guess. Microsoft provides a global list of banned passwords that is updated based on telemetry, and customers can augment the list based on their needs (e.g. branding, cultural references, etc.). This password protection can be used for cloud-only and hybrid accounts.
+
+ 
+Note: Authentication based on password credentials alone are susceptible to popular attack methods. For higher security, use strong authentication such as MFA and a strong password policy. For third-party applications and marketplace services that may have default passwords, you should change them upon the service initial setup.
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### IM-5: Monitor and alert on account anomalies
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37704).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Azure Active Directory provides the following data sources:
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Sign-ins - The sign-ins report provides information about the usage of managed applications and user sign-in activities.
+ 
+Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
+ 
+Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.
+ 
+Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
+ 
+These data sources can be integrated with Azure Monitor, Azure Sentinel or third-party SIEM systems.
+ 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+ 
+Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription.
+ 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+ 
+Azure Advanced Threat Protection (ATP) is a security solution that can use Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions.
+ 
+
+ 
+- [Audit activity reports in the Azure Active Directory](../reports-monitoring/concept-audit-logs.md) 
+ 
+
+ 
+- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+ 
+
+ 
+- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+ 
+
+ 
+- [How to monitor users' identity and access activity in Azure Security Center](../../security-center/security-center-identity-access.md) 
+ 
+
+ 
+- [Alerts in Azure Security Center's threat intelligence protection module](../../security-center/alerts-reference.md) 
+ 
+
+ 
+- [How to integrate Azure Activity Logs into Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+
+**Azure Security Center monitoring**: Yes
+
+**Responsibility**: Customer
 
 ### IM-6: Restrict Azure resource access based on conditions
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37705).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Use Azure AD Conditional Access for a more granular access control based on user-defined conditions, such as user logins from certain IP ranges will need to use MFA for login. Granular authentication session management policy can also be used for different use cases.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+- [Azure AD Conditional Access overview](../conditional-access/overview.md) 
+ 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+ 
+- [Common Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md) 
+ 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+ 
+- [Configure authentication session management with Conditional Access](../conditional-access/howto-conditional-access-session-lifetime.md)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ### IM-7: Eliminate unintended credential exposure
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37706).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not applicable; Azure AD doesn't allow customer to deploy any persisted data into the running environment.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### IM-8: Secure user access to legacy applications
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37742).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+**Guidance**: Ensure you have modern access controls and session monitoring for legacy applications and the data they store and process. While VPNs are commonly used to access legacy applications, they often have only basic access control and limited session monitoring.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
  
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+Azure AD Application Proxy enables you to publish legacy on-premises applications to remote users with SSO while explicitly validating trustworthiness of both remote users and devices with Azure AD Conditional Access.
+ 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+ 
+Alternatively, Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) service that can provide controls for monitoring user’s application sessions and blocking actions (for both legacy on-premises applications and cloud software as a service (SaaS) applications).
+ 
 
-**Responsibility**: Unset. Please provide a value in the work item.
+ 
+- [Azure Active Directory Application Proxy](../manage-apps/application-proxy.md#what-is-application-proxy) 
+ 
+
+ 
+- [Microsoft Cloud App Security best practices](/cloud-app-security/best-practices)
+
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Customer
 
 ## Privileged Access
 
@@ -287,14 +395,14 @@ activity in your Azure AD organization.
 - [AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
 
 - Use Azure Privileged Identity Management
-- [security alerts](/azure/active-directory/privileged-identity-management/pim-how-to-configure-security-alerts) 
+- [security alerts](../privileged-identity-management/pim-how-to-configure-security-alerts.md) 
 
 - Securing privileged access for hybrid and cloud
 - [deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-2: Restrict administrative access to business-critical systems
 
@@ -305,14 +413,14 @@ activity in your Azure AD organization.
 the following controls to restrict administrative access to business critical
 systems:
 - Privileged Identity Management approval of role
-- [activation requests](/azure/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow?tabs=new) 
+- [activation requests](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow?tabs=new) 
 
 - Multi-factor authentication and Conditional
-- [Access](/azure/active-directory/conditional-access/howto-conditional-access-policy-admin-mfa)
+- [Access](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-3: Review and reconcile user access regularly
 
@@ -333,17 +441,17 @@ be configured to alert when an excessive number of administrator accounts are
 created, and to identify administrator accounts that are stale or improperly
 configured.
 - Create an access review of Azure AD roles in
-- [Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review)
+- [Privileged Identity Management (PIM)](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 - Create an access review of Azure resource roles
-- [in Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review) 
+- [in Privileged Identity Management (PIM)](../privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
 - How to use Azure AD identity and access
-- [reviews](/azure/active-directory/governance/access-reviews-overview)
+- [reviews](../governance/access-reviews-overview.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-4: Set up emergency access in Azure AD
 
@@ -362,9 +470,9 @@ certificate, or smart card) for emergency access accounts are kept secure and
 known only to individuals who are authorized to use them only in an emergency.
 - [- Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-5: Automate entitlement management 
 
@@ -374,11 +482,11 @@ known only to individuals who are authorized to use them only in an emergency.
 **Guidance**: Use Azure AD entitlement management features to automate
 access request workflows, including access assignments, reviews, and
 expiration. Dual or multi-stage approval is also supported.
-- [- What is Azure AD entitlement management](/azure/active-directory/governance/entitlement-management-overview)
+- [- What is Azure AD entitlement management](../governance/entitlement-management-overview.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-6: Use privileged access workstations
 
@@ -398,9 +506,9 @@ access.
 
 - [- Privileged access implementation](/security/compass/privileged-access-deployment)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-7: Follow just enough administration (least privilege principle) 
 
@@ -410,13 +518,13 @@ access.
 **Guidance**: Customers can configure their Azure AD deployment for least
 privilege, by assigning users to the roles with the minimum permissions needed
 for users to complete their administrative tasks.
-- [- Administrator role permissions in Azure AD](/azure/active-directory/roles/permissions-reference)
+- [- Administrator role permissions in Azure AD](../roles/permissions-reference.md)
 
-- [- Assign administrative roles in Azure AD](/azure/active-directory/roles/manage-roles-portal)
+- [- Assign administrative roles in Azure AD](../roles/manage-roles-portal.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PA-8: Choose approval process for Microsoft support  
 
@@ -427,9 +535,9 @@ for users to complete their administrative tasks.
 work with customers through non-lockbox methods for approval to access customer
 data.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Shared
 
 ## Data Protection
 
@@ -440,13 +548,16 @@ data.
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37721).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure AD manages
 sensitive data but doesn't have capability to discovery, classify, and labeling
 sensitive data.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### DP-2: Protect sensitive data
 
@@ -457,17 +568,13 @@ sensitive data.
 A directory is the data boundary by which the Azure AD services
 store and process data for a customer. 
 Customers should determine where they want most of their Azure AD Customer
-Data to reside by setting the Country property in their directory.  A customer should use the Ref1
-instructions to determine how their selected country maps to the physical
-location of their directory.  
-Additionally, as the customer uses various Azure AD tools,
-features, and applications that interact with their directory, they would use Ref2
-instructions to determine how their selected country maps to the physical
+Data to reside by setting the Country property in their directory.  To determine how their selected country maps to the physical
+- [location of their directory see the article, Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location)   As the customer uses various Azure AD tools,
+- [features, and applications that interact with their directory, use the article Azure Active Directory – Where is your data located?](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9) to determine how their selected country maps to the physical
 location of any Customer Data stored and/or processed by these Azure AD tools,
-features, and applications.
+features, and applications. 
 
-Segmentation:  The Ref3 documentation
-provides all the product features to enable segmentation.  The global administrators role has full
+- [Segmentation:  The article Azure AD roles documentation](/azure/active-directory/roles/) covers all the product features to enable segmentation.  The global administrators role has full
 control of all directory data, and the rules that govern access and processing
 instructions. A directory may be segmented into administrative units, and
 provisioned with users and groups to be managed by administrators of those
@@ -475,51 +582,41 @@ units, Global administrators may delegate responsibility to other principles in
 their organization by assigning them to pre-defined roles or custom roles they
 can create.
 
+ 
+
 Access: 
-The Ref3 documentation describes the permission model.    Permissions can be applied at a user,
+Permissions can be applied at a user,
 group, role, application, or device.  The
 assignment may be permanent or temporal per Privileged Identity Management
-configuration.
+configuration. 
 
- 
+  
 
 Encryption: 
 Azure AD encrypts
 all data at rest or in transit.  The
 offering does not allow customers to encrypt directory data with their own
-encryption key. 
+encryption key.
 
- 
+**Azure Security Center monitoring**: Not applicable
 
-Ref1
-- [Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location)
-
- 
-
-Ref2
-
-Azure Active Directory – Where is your
-- [data located?](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9)
-
-Ref3
-- [Azure AD roles documentation](/azure/active-directory/roles/)
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### DP-3: Monitor for unauthorized transfer of sensitive data
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37723).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure
 AD transmits sensitive data but does not support
 monitoring for unauthorized transfer of sensitive data.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### DP-4: Encrypt sensitive information in transit
 
@@ -544,33 +641,36 @@ versions and protocols, and weak ciphers should be disabled.
 By default, Azure provides encryption for data in
 transit between Azure data centers.
 
-- [Understand encryption in transit with Azure](/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) 
+- [Understand encryption in transit with Azure](../../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
 
 - [Information on TLS Security](/security/engineering/solving-tls1-problem) 
 Double
-- [encryption for Azure data in transit](/azure/security/fundamentals/double-encryption#data-in-transit)
+- [encryption for Azure data in transit](../../security/fundamentals/double-encryption.md#data-in-transit)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### DP-5: Encrypt sensitive data at rest
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37725).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
+
 **Guidance**: To complement access controls, Azure AD encrypts
 data at rest to protect against ‘out of band’ attacks (such as accessing
 underlying storage) using encryption. This helps ensure that attackers cannot
 easily read or modify the data.
 
-- [Understand encryption at rest in Azure](/azure/security/fundamentals/encryption-atrest#encryption-at-rest-in-microsoft-cloud-services) 
+- [Understand encryption at rest in Azure](../../security/fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services) 
 Data
-- [at rest double encryption in Azure](/azure/security/fundamentals/double-encryption#data-at-rest)
+- [at rest double encryption in Azure](../../security/fundamentals/double-encryption.md#data-at-rest)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Microsoft
 
 ## Asset Management
 
@@ -589,9 +689,9 @@ Security Reader permissions can be applied broadly to an entire tenant (Root Man
 
 Note: Additional permissions might be required to get visibility into workloads and services. 
 
-- [Overview of Security Reader Role](/azure/role-based-access-control/built-in-roles#security-reader)
+- [Overview of Security Reader Role](../../role-based-access-control/built-in-roles.md#security-reader)
 
-- [Overview of Azure Management Groups](/azure/governance/management-groups/overview)
+- [Overview of Azure Management Groups](../../governance/management-groups/overview.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -602,33 +702,42 @@ Note: Additional permissions might be required to get visibility into workloads 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37744).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure AD does not host assets outside of those controlled by identity management processes.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-3: Use only approved Azure services
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37745).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure AD does not host Azure resources, thus does not have capabilities to restrict or limit deployment to only approved Azure services.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-4: Ensure security of asset lifecycle management
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37746).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure AD does not host assets outside of those controlled by identity management processes.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### AM-5: Limit users' ability to interact with Azure Resource Manager
 
@@ -637,22 +746,25 @@ Note: Additional permissions might be required to get visibility into workloads 
 
 **Guidance**: Use Azure AD Conditional Access to limit users' ability to interact with Azure AD via the Azure Portal by configuring "Block access" for the "Microsoft Azure Management" App. 
 
-- [How to configure Conditional Access to block access to Azure Resources Manager](/azure/role-based-access-control/conditional-access-azure-management)
+- [How to configure Conditional Access to block access to Azure Resources Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### AM-6: Use only approved applications in compute resources
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37748).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not applicable; Azure AD does not deploy any customer facing compute resources or does not allow customers to install applications on the service.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Logging and Threat Detection
 
@@ -663,13 +775,16 @@ Note: Additional permissions might be required to get visibility into workloads 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37726).
 
-**Guidance**: Use the Azure AD Identity Protection built-in threat detection capability for your Azure AD resources. For more information see the article What is Azure Active Directory Identity Protection? /azure/active-directory/identity-protection/overview-identity-protection.
+**Guidance**: - [Use the Azure AD Identity Protection built-in threat detection capability for your Azure AD resources. For more information see the article What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md.) 
+ 
+ 
 
-Azure AD produces activity logs that are often used for threat detection and threat hunting. Azure AD sign-in logs provide a record of authentication and authorization activity for users, services, and apps. Azure AD audit logs track changes made to an Azure AD tenant, including changes that improve or diminish security posture. To export Identity Protection and Azure AD Audit Logs to Azure Sentinel follow the guidance in the following articles, Connect Azure AD Identity Protection data to Azure Sentinel /azure/sentinel/connect-azure-ad-identity-protection and Connect Azure Active Directory data to Azure Sentinel  /azure/sentinel/connect-azure-active-directory.
+ 
+- [Azure AD produces activity logs that are often used for threat detection and threat hunting. Azure AD sign-in logs provide a record of authentication and authorization activity for users, services, and apps. Azure AD audit logs track changes made to an Azure AD tenant, including changes that improve or diminish security posture. To export Identity Protection and Azure AD Audit Logs to Azure Sentinel follow the guidance in the following articles, Connect Azure AD Identity Protection data to Azure Sentinel](../../sentinel/connect-azure-ad-identity-protection.md) and Connect Azure Active Directory data to Azure Sentinel:  ../../sentinel/connect-azure-active-directory.md.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
@@ -688,80 +803,94 @@ Risky users - A risky user is an indicator for a user account that might have be
 
 Identity Protection risk detections are enabled by default and require no onboarding process. The granularity or risk data is determined by license SKU. 
 
-- [Audit activity reports in the Azure Active Directory](/azure/active-directory/reports-monitoring/concept-audit-logs)  
+- [Audit activity reports in the Azure Active Directory](../reports-monitoring/concept-audit-logs.md)  
 
-- [Enable Azure Identity Protection](/azure/active-directory/identity-protection/overview-identity-protection)  
+- [Enable Azure Identity Protection](../identity-protection/overview-identity-protection.md)  
 
 - [Threat protection in Azure Security Center](/azure/security-center/threat-protection)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-3: Enable logging for Azure network activities
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37728).
 
-**Guidance**: Not applicable. Azure AD is a managed offering that is not intended to deploy into virtual networks. Because of this you are unable to enable network security group flow logging, route traffic through a firewall or perform packet captures. 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-Not applicable. Azure AD is a managed offering that is not intended to deploy into virtual networks. Azure AD is not intended to deploy into virtual networks and cannot be used with Azure network security groups.  
+**Guidance**: Not applicable. Azure AD is a managed offering that does not expose network traffic to or from its resources.
 
-Not applicable. Azure AD is a managed offering that does not expose network traffic to or from its resources. 
+**Azure Security Center monitoring**: Not applicable
 
-Not applicable. Azure AD is a managed offering that does not expose network traffic to or from its resources.
-
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
-
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### LT-4: Enable logging for Azure resources
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37729).
 
-**Guidance**: Yes, Azure AD produces activity logs. Unlike some Azure services, Azure AD does not have a clear distinction between activity and resource logs. Activity logs are automatically available in the Azure AD section of the Azure Portal, and can be exported to Azure Monitor, Azure Event Hubs, Azure Storage, SIEMs, and other locations.  
+**Guidance**: Azure AD produces activity logs. Unlike some Azure services, Azure AD does not have a clear distinction between activity and resource logs. Activity logs are automatically available in the Azure AD section of the Azure Portal, and can be exported to Azure Monitor, Azure Event Hubs, Azure Storage, SIEMs, and other locations.   
+ 
 
-Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities. 
+Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.  
+ 
 
-Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies. 
+Audit logs - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.  
+ 
 
-- [Activity and security reports in Azure Active Directory](/azure/active-directory/reports-monitoring/overview-reports)
+  
 
-Azure AD provides security-related logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases: 
+- [Activity and security reports in Azure Active Directory](../reports-monitoring/overview-reports.md) 
 
-Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+ 
 
-Risky users - A risky user is an indicator for a user account that might have been compromised. 
+Azure AD provides security-related logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other SIEM/monitoring tools for more sophisticated monitoring and analytics use cases:  
+ 
 
+Risky sign-ins - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account.  
+ 
+
+Risky users - A risky user is an indicator for a user account that might have been compromised.  
+ 
+
+ 
 Identity Protection risk detections are enabled by default and require no onboarding process. The granularity or risk data is determined by license SKU.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-5: Centralize security log management and analysis
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37730).
 
-**Guidance**: Many customers want to centralize their security logs for easier threat hunting and security posture analysis. In general, we recommend the following guidelines.  
+**Guidance**: We recommend the following guidelines when customers want to centralize their security logs for easier threat hunting and security posture analysis.  
+ 
 
-Centralize logging storage and analysis to enable correlation. For each log source within Azure AD, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements. 
+Centralize logging storage and analysis to enable correlation. For each log source within Azure AD, ensure you have assigned a data owner, access guidance, storage location, what tools are used to process and access the data, and data retention requirements.  
+ 
 
-Ensure you are integrating Azure activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage. 
+Ensure you are integrating Azure activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.  
+ 
 
-In addition, enable and onboard data to Azure Sentinel or a third-party SIEM. 
+In addition, enable and onboard data to Azure Sentinel or a third-party SIEM.  
+ 
 
-Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently. 
+Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.  
+ 
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)  
+- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)   
+ 
 
-- [How to onboard Azure Sentinel](/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-6: Configure log storage retention
 
@@ -776,20 +905,23 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 - [Storing resource logs in an Azure Storage Account](/azure/azure-monitor/platform/resource-logs-collect-storage)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### LT-7: Use approved time synchronization sources
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37732).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Microsoft", this section will be omitted from the published baseline.
+
 **Guidance**: Azure AD does not support configuring your own time synchronization sources. The Azure AD service relies on Microsoft time synchronization sources, and is not exposed to customers for configuration.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Microsoft
 
 ## Incident Response
 
@@ -817,7 +949,7 @@ In Azure Monitor, you can set your Log Analytics workspace retention period acco
 
 **Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
-- [How to set the Azure Security Center security contact](/azure/security-center/security-center-provide-security-contact-details)
+- [How to set the Azure Security Center security contact](../../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -836,9 +968,9 @@ Azure Security Center provides high-quality alerts across many Azure assets. You
 
 Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
-- [How to configure export](/azure/security-center/continuous-export)
+- [How to configure export](../../security-center/continuous-export.md)
 
-- [How to stream alerts into Azure Sentinel](/azure/sentinel/connect-azure-security-center)
+- [How to stream alerts into Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -865,13 +997,13 @@ The data sources for investigation include the centralized logging sources that 
 
 Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
 
-- [Snapshot a Windows machine's disk](/azure/virtual-machines/windows/snapshot-copy-managed-disk)
+- [Snapshot a Windows machine's disk](../../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
-- [Snapshot a Linux machine's disk](/azure/virtual-machines/linux/snapshot-copy-managed-disk)
+- [Snapshot a Linux machine's disk](../../virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 - [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Investigate incidents with Azure Sentinel](/azure/sentinel/tutorial-investigate-cases)
+- [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -888,7 +1020,7 @@ Azure Security Center assigns a severity to each alert to help you prioritize wh
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Security alerts in Azure Security Center](/azure/security-center/security-center-alerts-overview)
+- [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
 - [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
 
@@ -904,11 +1036,11 @@ Additionally, mark resources using tags and create a naming system to identify a
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
 Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
 
-- [Configure workflow automation in Security Center](/azure/security-center/workflow-automation)
+- [Configure workflow automation in Security Center](../../security-center/workflow-automation.md)
 
-- [Set up automated threat responses in Azure Security Center](/azure/security-center/tutorial-security-incident#triage-security-alerts)
+- [Set up automated threat responses in Azure Security Center](../../security-center/tutorial-security-incident.md#triage-security-alerts)
 
-- [Set up automated threat responses in Azure Sentinel](/azure/sentinel/tutorial-respond-threats-playbook)
+- [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -934,10 +1066,10 @@ strategy your organization should follow the Microsoft best practice guidance
 to secure your identity infrastructure. 
 
 Azure
-- [Identity Management and access control security best practices](/azure/security/fundamentals/identity-management-best-practices)
+- [Identity Management and access control security best practices](../../security/fundamentals/identity-management-best-practices.md)
 
 Five
-- [steps to securing your identity infrastructure](/azure/security/fundamentals/steps-secure-identity)
+- [steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
 
  
 
@@ -946,11 +1078,11 @@ additionally assess and implement appropriate governance, security, and complian
 configurations to reduce security risk and protect sensitive resources. 
 
 Securing
-- [external collaboration in Azure Active Directory and Microsoft 365](/azure/active-directory/fundamentals/secure-external-access-resources)
+- [external collaboration in Azure Active Directory and Microsoft 365](secure-external-access-resources.md)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PV-2: Sustain secure configurations for Azure services
 
@@ -966,77 +1098,92 @@ routinely review their Secure Score for suggested improvement actions to
 improve their identity security posture. 
 
 What
-- [is the identity secure score in Azure Active Directory?](/azure/active-directory/fundamentals/identity-secure-score)
+- [is the identity secure score in Azure Active Directory?](identity-secure-score.md)
 
 Microsoft
-- [Secure Score](/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide)
+- [Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide)
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Customer
 
 ### PV-3: Establish secure configurations for compute resources
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37755).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not
 applicable; Azure AD doesn't have any secure configurations
 for compute resource.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-4: Sustain secure configurations for compute resources
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37756).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not
 applicable; this recommendation is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-5: Securely store custom operating system and container images
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37757).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not
 applicable; this guideline is intended for compute resources.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-6: Perform software vulnerability assessments
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37758).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not
 applicable; Azure AD doesn't support any vulnerability
 assessments.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-7: Rapidly and automatically remediate software vulnerabilities
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37759).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not
 applicable; Azure AD doesn't provide
 capability to support software remediation automatically.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### PV-8: Conduct regular attack simulation
 
@@ -1046,7 +1193,7 @@ capability to support software remediation automatically.
 **Guidance**: As required, conduct penetration testing or red team activities on your Azure resources and ensure remediation of all critical security findings.
 Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure your penetration tests are not in violation of Microsoft policies. Use Microsoft's strategy and execution of Red Teaming and live site penetration testing against Microsoft-managed cloud infrastructure, services, and applications.
 
-- [Penetration testing in Azure](/azure/security/fundamentals/pen-testing)
+- [Penetration testing in Azure](../../security/fundamentals/pen-testing.md)
 
 - [Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
@@ -1065,45 +1212,45 @@ Follow the Microsoft Cloud Penetration Testing Rules of Engagement to ensure you
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37739).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not applicable; Azure AD is not comprised of any virtual machines or containers which would require Endpoint Detection and Response (EDR) protection.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ES-2: Use centrally managed modern anti-malware software
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37740).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not applicable; Azure AD or its resource does not interact with virtual machines, containers and/or storage which requires anti-malware protection. Thus, there is no need for any configuration changes, additional settings or deployment of any extra services to protect it from malware.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### ES-3: Ensure anti-malware software and signatures are updated
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37741).
 
-**Guidance**: &lt;This placeholder text gives initial instructions, please remove all of the text in this 'ASCB Customer Guidelines' text box and replace it with your customer guidance&gt;
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
 
-Please provide customer guidance for this control specific to your offering. More detail can be found on what guidance to include for this control in the self-service wiki guide.
- 
-Mark this control work item as 'Submitted for Review' when ready for the benchmark team to review.
+**Guidance**: Not applicable; Azure AD is not comprised of any virtual machines or containers which would require anti-malware protection.
+Thus it does not require you to configure any additional settings or deploy any extra services to protect it from malware. 
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+You are completed with the guiding questions and standard recommendations. Please continue to the 'ASC Monitoring &amp; Responsibility Fields' section below to complete this control.
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
+
+**Responsibility**: Not applicable
 
 ## Backup and Recovery
 
@@ -1114,51 +1261,63 @@ Mark this control work item as 'Submitted for Review' when ready for the benchma
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37749).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not
 applicable; Azure AD doesn't support any data
 backup or have no needs for data backup.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-2: Encrypt backup data
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37750).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not
 applicable; Azure AD doesn't support any data
 backup encryption.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-3: Validate all backups including customer-managed keys
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37751).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not
 applicable; Azure AD doesn't support any data
 backup.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ### BR-4: Mitigate risk of lost keys
 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37752).
 
+>[!NOTE]
+>Because the Responsibility field is set to "Not applicable", this section will be omitted from the published baseline.
+
 **Guidance**: Not
 applicable; Azure AD doesn't manage any keys.
 
-**Azure Security Center monitoring**: Unset. Please provide a value in the work item.
+**Azure Security Center monitoring**: Not applicable
 
-**Responsibility**: Unset. Please provide a value in the work item.
+**Responsibility**: Not applicable
 
 ## Governance and Strategy
 
@@ -1170,34 +1329,43 @@ applicable; Azure AD doesn't manage any keys.
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37761).
 
 **Guidance**: Ensure you document and communicate a clear strategy for continuous monitoring and protection of systems and data. Prioritize discovery, assessment, protection, and monitoring of business-critical data and systems. 
+ 
 
+ 
 This strategy should include documented guidance, policy, and standards for the following elements: 
-
+ 
 -	Data classification standard in accordance with the business risks
-
+ 
 -	Security organization visibility into risks and asset inventory 
-
+ 
 -	Security organization approval of Azure services for use 
-
+ 
 -	Security of assets through their lifecycle
-
+ 
 -	Required access control strategy in accordance with organizational data classification
-
+ 
 -	Use of Azure native and third party data protection capabilities
-
+ 
 -	Data encryption requirements for in-transit and at-rest use cases
-
+ 
 -	Appropriate cryptographic standards
+ 
 
-For more information, see the following references:
-- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
+ 
+For more information, see the following references: 
+- [Azure Security Architecture Recommendation - Storage, data, and encryption](/azure/architecture/framework/security/storage-data-encryption)
+ 
 
-- [Azure Security Fundamentals - Azure Data security, encryption, and storage](/azure/security/fundamentals/encryption-overview)
+ 
+- [Azure Security Fundamentals - Azure Data security, encryption, and storage](../../security/fundamentals/encryption-overview.md) 
 
-- [Cloud Adoption Framework - Azure data security and encryption best practices](/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
+ 
+- [Cloud Adoption Framework - Azure data security and encryption best practices](../../security/fundamentals/data-encryption-best-practices.md) 
 
-- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management)
+ 
+- [Azure Security Benchmark - Asset management](/azure/security/benchmarks/security-benchmark-v2-asset-management) 
 
+ 
 - [Azure Security Benchmark - Data Protection](/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
 **Azure Security Center monitoring**: Not applicable
@@ -1281,7 +1449,7 @@ For more information, see the following references:
 
 - [Azure Security Benchmark - Network Security](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
-- [Azure network security overview](/azure/security/fundamentals/network-overview)
+- [Azure network security overview](../../security/fundamentals/network-overview.md)
 
 - [Enterprise network architecture strategy](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
@@ -1316,7 +1484,7 @@ For more information, see the following references:
 
 - [Azure Security Best Practice 11 - Architecture. Single unified security strategy](/azure/cloud-adoption-framework/security/security-top-10#11-architecture-establish-a-single-unified-security-strategy)
 
-- [Azure identity management security overview](/azure/security/fundamentals/identity-management-overview)
+- [Azure identity management security overview](../../security/fundamentals/identity-management-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
