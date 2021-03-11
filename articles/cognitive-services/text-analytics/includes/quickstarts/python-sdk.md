@@ -794,7 +794,7 @@ key_phrase_extraction_example(client)
 
 ---
 
-## Use the API asynchronously with the Analyze operation
+## Use the API asynchronously with the analyze operation
 
 # [Version 3.1 preview](#tab/version-3-1)
 
@@ -853,7 +853,7 @@ Entity: Paul Allen
 ------------------------------------------
 ```
 
-You can also use the Analyze operation to detect PII and key phrase extraction. See the [Analyze sample](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples) on GitHub.
+You can also use the analyze operation to detect PII and key phrase extraction. See the [analyze operation sample](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/async_samples) on GitHub.
 
 # [Version 3.0](#tab/version-3)
 
