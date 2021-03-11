@@ -32,7 +32,7 @@ Before continuing with this example, you'll need to set up the following resourc
 ### Example telemetry scenario
 
 This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, using a function in Azure. There are many possible configurations and matching strategies you can use for sending messages, but the example for this article contains the following parts:
-* A thermometer device in IoT Hub, with a known device ID
+* A thermostat device in IoT Hub, with a known device ID
 * A digital twin to represent the device, with a matching ID
 
 > [!NOTE]
@@ -44,7 +44,7 @@ Whenever a temperature telemetry event is sent by the thermostat device, a funct
 
 ## Add a model and twin
 
-In this section, you'll set up a [digital twin](concepts-twins-graph.md) in Azure Digital Twins that will represent the thermometer device and will be updated with information from IoT Hub.
+In this section, you'll set up a [digital twin](concepts-twins-graph.md) in Azure Digital Twins that will represent the thermostat device and will be updated with information from IoT Hub.
 
 To create a thermostat-type twin, you'll first need to upload the thermostat [model](concepts-models.md) to your instance, which describes the properties of a thermostat and will be used later to create the twin. 
 
@@ -57,13 +57,6 @@ To **upload this model to your twins instance**, run the following Azure CLI com
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
->[!NOTE]
-> If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters in order for the `--models` JSON value to be parsed correctly. With this edit, the model upload command looks like this:
->
-> ```azurecli-interactive
-> az dt model create --models '{  \"@id\": \"dtmi:contosocom:DigitalTwins:Thermostat;1\",  \"@type\": \"Interface\",  \"@context\": \"dtmi:dtdl:context;2\",  \"contents\": [    {      \"@type\": \"Property\",      \"name\": \"Temperature\",      \"schema\": \"double\"    }  ]}' -n {digital_twins_instance_name}
-> ```
-
 You'll then need to **create one twin using this model**. Use the following command to create a thermostat twin named **thermostat67**, and set 0.0 as an initial temperature value.
 
 ```azurecli-interactive
@@ -71,8 +64,14 @@ az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id t
 ```
 
 >[!NOTE]
-> For Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters in the `--properties` JSON value. Here is the command with this edit:
+> If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters on the inline JSON fields for their values to be parsed correctly. Here are the commands to upload the model and create the twin with this modification:
 >
+> Upload model:
+> ```azurecli-interactive
+> az dt model create --models '{  \"@id\": \"dtmi:contosocom:DigitalTwins:Thermostat;1\",  \"@type\": \"Interface\",  \"@context\": \"dtmi:dtdl:context;2\",  \"contents\": [    {      \"@type\": \"Property\",      \"name\": \"Temperature\",      \"schema\": \"double\"    }  ]}' -n {digital_twins_instance_name}
+> ```
+>
+> Create twin:
 > ```azurecli-interactive
 > az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name {digital_twins_instance_name}
 > ```
@@ -129,7 +128,7 @@ Next, **assign an access role** for the function and **configure the application
 
 ## Connect your function to IoT Hub
 
-In this section, you'll set up your function as an event destination for the IoT hub device data. This will ensure that the data from the device in IoT Hub will be sent to the Azure function for processing.
+In this section, you'll set up your function as an event destination for the IoT hub device data. This will ensure that the data from the thermostat device in IoT Hub will be sent to the Azure function for processing.
 
 In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance that you created in the [*Prerequisites*](#prerequisites) section. Under **Events**, create a subscription for your function.
 
@@ -145,7 +144,7 @@ In the **Create Event Subscription** page, fill the fields as follows:
     
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot of the Azure portal to create the event subscription details":::
 
-In the _Select Azure Function_ page that opens up, verify the below details.
+In the _Select Azure Function_ page that opens up, verify or fill in the below details.
  1. **Subscription**: Your Azure subscription.
  2. **Resource group**: Your resource group.
  3. **Function app**: Your function app name.
