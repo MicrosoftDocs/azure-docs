@@ -1,6 +1,6 @@
 ---
-title: Deploy STIG-compliant Linux Virtual Machines
-description: This quickstart shows you how to deploy a STIG-compliant Linux VM from Azure Marketplace
+title: Deploy STIG-compliant Linux Virtual Machines (Preview)
+description: This quickstart shows you how to deploy a STIG-compliant Linux VM (Preview) from Azure Marketplace
 author: stevevi
 ms.author: stevevi
 ms.service: azure-government
@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 03/09/2021
 ---
 
-# Deploy STIG-compliant Linux Virtual Machines
+# Deploy STIG-compliant Linux Virtual Machines (Preview)
 
 Microsoft Azure Security Technical Implementation Guides (STIGs) solution templates help you accelerate your [DoD STIG compliance](https://public.cyber.mil/stigs/) by delivering an automated solution to deploy virtual machines and apply STIGs through the Azure portal.
 
-This quickstart shows how to use the Azure portal to deploy a STIG-compliant Linux virtual machine.
+This quickstart shows how to use the Azure portal to deploy a STIG-compliant Linux virtual machine (Preview).
 
 ## Prerequisites
 
@@ -118,7 +118,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 ## Next steps
 
-This quickstart showed you how to deploy a STIG-compliant Linux virtual machine on Azure Government. For more information about creating virtual machines in Azure Government, see [Tutorial: Create Virtual Machines](./documentation-government-quickstarts-vm.md). To learn more about Azure services, continue to the Azure documentation.
+This quickstart showed you how to deploy a STIG-compliant Linux virtual machine (Preview) on Azure Government. For more information about creating virtual machines in Azure Government, see [Tutorial: Create Virtual Machines](./documentation-government-quickstarts-vm.md). To learn more about Azure services, continue to the Azure documentation.
 
 > [!div class="nextstepaction"]
 > [Azure documentation](../index.yml)
