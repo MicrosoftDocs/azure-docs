@@ -155,9 +155,7 @@ For more information, see:
 - [Hunt for threats with Azure Sentinel](hunting.md)
 - [Visualize and monitor your data](tutorial-monitor-your-data.md)
 
-In today’s cybersecurity landscape, bad actors have almost made a game of trying to breach through various defenses, as defense tools are becoming obsolete. Today, organizations have such a vast and porous digital estate that it has become unmanageable to obtain a comprehensive picture of the risk and posture their environment may be facing. 
-
-As organizations focus heavily on reactive efforts such as analytics and rules, bad actors are quickly finding ways to evade them. This is where UEBA comes to play by providing risk scoring methodologies and algorithms to figure out what is really happening.
+As legacy defense tools become obsolete, organizations may have such a vast and porous digital estate that it becomes unmanageable to obtain a comprehensive picture of the risk and posture their environment may be facing. Relying heavily on reactive efforts, such as analytics and rules, enable bad actors to learn how to evade those efforts. This is where UEBA comes to play, by providing risk scoring methodologies and algorithms to figure out what is really happening.
 
 ## Common methods for using UEBA data
 
