@@ -73,7 +73,6 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > [!div renderon="docs"]
 > [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore3-1.zip)
 
-
 > [!div renderon="portal" class="sxs-lookup"]
 > Run the project.
 

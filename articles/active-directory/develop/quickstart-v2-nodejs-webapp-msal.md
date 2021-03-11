@@ -89,18 +89,17 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 >
-> To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
+>    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Client_Secret_Here` is the **Value** of the **Client secret** for the application you registered.
 >
-> Go under **Certificates & secrets** to retrieve or generate a new **Client secret**.
+>    To retrieve or generate a new **Client secret**, select **Certificates & secrets** under **Manage**.
+>
 > The default `authority` value represents the main (global) Azure cloud:
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
 >
-> 
-> 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
 >
