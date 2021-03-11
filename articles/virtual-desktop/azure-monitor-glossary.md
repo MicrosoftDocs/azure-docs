@@ -1,19 +1,16 @@
 ---
-title: Monitor Windows Virtual Desktop preview glossary - Azure
+title: Monitor Windows Virtual Desktop glossary - Azure
 description: A glossary of terms and concepts related to Azure Monitor for Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
 ---
-# Azure Monitor for Windows Virtual Desktop (preview) glossary
-
->[!IMPORTANT]
->Azure Monitor for Windows Virtual Desktop is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Azure Monitor for Windows Virtual Desktop glossary
 
 This article lists and briefly describes key terms and concepts related to Azure Monitor for Windows Virtual Desktop (preview).
 

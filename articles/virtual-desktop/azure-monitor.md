@@ -1,18 +1,15 @@
 ---
-title: Use Monitor Windows Virtual Desktop Monitor preview - Azure
+title: Use Monitor Windows Virtual Desktop Monitor - Azure
 description: How to use Azure Monitor for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
 ---
-# Use Azure Monitor for Windows Virtual Desktop to monitor your deployment (preview)
+# Use Azure Monitor for Windows Virtual Desktop to monitor your deployment
 
->[!IMPORTANT]
->Azure Monitor for Windows Virtual Desktop is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Monitor for Windows Virtual Desktop (preview) is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Windows Virtual Desktop environments. This topic will walk you through how to set up Azure Monitor for Windows Virtual Desktop to monitor your Windows Virtual Desktop environments.
+Azure Monitor for Windows Virtual Desktop is a dashboard built on Azure Monitor Workbooks that helps IT professionals understand their Windows Virtual Desktop environments. This topic will walk you through how to set up Azure Monitor for Windows Virtual Desktop to monitor your Windows Virtual Desktop environments.
 
 ## Requirements
 
