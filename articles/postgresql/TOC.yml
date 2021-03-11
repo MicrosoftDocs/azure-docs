@@ -581,6 +581,8 @@
         displayName: hyperscale, tutorial, real-time
   - name: Concepts
     items:
+    - name: Starter plan
+      href: concepts-hyperscale-starter-plan.md
     - name: Distributed data
       items:
       - name: Nodes and tables
@@ -617,8 +619,6 @@
         href: concepts-hyperscale-audit.md
     - name: Columnar storage
       href: concepts-hyperscale-columnar.md
-    - name: Starter plan
-      href: concepts-hyperscale-starter-plan.md
     - name: Configuration options
       href: concepts-hyperscale-configuration-options.md
     - name: Prepay for reserved capacity
