@@ -17,8 +17,8 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [Azure Security Benchmark](./azure-security-benchmark.md) | Provides guardrails for compliance to [Azure Security Benchmark](../../../security/benchmarks/overview.md). |
 | [Azure Security Benchmark Foundation](./azure-security-benchmark-foundation/index.md) | Deploys and configures Azure Security Benchmark Foundation. |
 | [Canada Federal PBMM](./canada-federal-pbmm/index.md) | Provides guardrails for compliance to Canada Federal Protected B, Medium Integrity, Medium Availability (PBMM). |
-| [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)| Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark v1.1.0 recommendations. |
 | [CIS Microsoft Azure Foundations Benchmark v1.3.0](./cis-azure-1-3-0.md)| Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark v1.3.0 recommendations. |
+| [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)| Provides a set of policies to help comply with CIS Microsoft Azure Foundations Benchmark v1.1.0 recommendations. |
 | [DoD Impact Level 4](./dod-impact-level-4/index.md) | Provides a set of policies to help comply with DoD Impact Level 4. |
 | [DoD Impact Level 5](./dod-impact-level-5/index.md) | Provides a set of policies to help comply with DoD Impact Level 5. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | Provides a set of policies to help comply with FedRAMP Moderate. |
