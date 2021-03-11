@@ -24560,6 +24560,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-edge/iot-edge-glossary.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-glossary.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-pnp/iot-plug-and-play-glossary.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
       "redirect_url": "/azure/jenkins/container-instances-jenkins",
       "redirect_document_id": false
@@ -64494,7 +64509,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector//tutorials/anomaly-detection-streaming-databricks.md",
+      "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector/tutorials/anomaly-detection-streaming-databricks.md",
       "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
       "redirect_document_id": false
     },
@@ -64506,6 +64521,76 @@
     {
       "source_path": "articles/virtual-network/tutorial-create-validate-nat-gateway-cli.md",
       "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/create-new-kb-csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/create-new-kb-go.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/create-new-kb-java.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/create-new-kb-python.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-knowledge-base-csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-knowledge-base-go.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-knowledge-base-java.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-knowledge-base-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/get-answer-from-knowledge-base-python.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-go.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-java.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-python.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
     }
   ]

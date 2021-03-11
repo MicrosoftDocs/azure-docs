@@ -265,9 +265,9 @@
     - name: PowerShell
       href: ./windows/dedicated-hosts-powershell.md
   - name: Azure Spot Virtual Machines
-    displayName: pre-empt, preempt, spot
     items:
     - name: Overview
+      displayName: pre-empt, preempt, spot
       href: spot-vms.md
     - name: CLI
       href: ./linux/spot-cli.md
@@ -722,7 +722,7 @@
       href: managed-disk-from-image-version.md
     - name: Purchase plan information
       href: marketplace-images.md
-  - name: Image builder (preview)
+  - name: Image builder (Preview)
     items:
     - name: Overview
       href: image-builder-overview.md
@@ -782,6 +782,7 @@
 - name: Availability and scale
   items:
   - name: Overview
+    displayName: availability
     href: availability.md
   - name: Availability sets
     items:
@@ -806,6 +807,7 @@
   - name: Proximity Placement Groups
     items: 
     - name: Overview
+      displayName: proximity placement groups, ppg
       href: co-location.md
     - name: CLI
       href: ./linux/proximity-placement-groups.md
@@ -1233,18 +1235,28 @@
     href: ./linux/login-using-aad.md
 - name: Updates and maintenance
   items:
-  - name: Guest OS updates
-    items: 
-    - name: Guest OS patching
-      items: 
-      - name: Automatic VM guest patching (preview)
-        href: automatic-vm-guest-patching.md
-      - name: Hotpatching
-        href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
-    - name: Automatic OS image upgrade
+  - name: Overview
+    href: updates-maintenance-overview.md
+  - name: Automatic OS image upgrade
+    items:
+    - name: Overview
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
-  - name: Automatic extension upgrade (preview)
+    - name: Maintenance control for OS image upgrade
+      items: 
+      - name: Overview (Preview)
+        href: virtual-machine-scale-sets-maintenance-control.md
+      - name: PowerShell (Preview)
+        href: virtual-machine-scale-sets-maintenance-control-powershell.md
+  - name: Automatic VM guest patching (Preview)
+    items: 
+    - name: Overview
+      href: automatic-vm-guest-patching.md
+    - name: Hotpatch
+      href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
+  - name: Automatic extension upgrade (Preview)
     href: automatic-extension-upgrade.md
+  - name: Update Management in Azure Automation
+    href: ../automation/update-management/overview.md?context=/azure/virtual-machines/context/context
   - name: Maintenance
     items:
     - name: Overview
@@ -1342,10 +1354,8 @@
       items:
       - name: Log Analytics VM Extension
         href: ../azure-monitor/visualize/vmext-troubleshoot.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-        displayname: troubleshoot, troubleshooting
       - name: Log Analytics Linux agent
         href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
-        displayname: troubleshoot, troubleshooting
     - name: Azure Monitor for VMs
       items:
       - name: Overview
