@@ -41,8 +41,8 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.ClassicStorage/storageAccounts/queueServices | Yes | No | [Storage Accounts (classic) - Queues](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
 |Microsoft.ClassicStorage/storageAccounts/tableServices | Yes | No | [Storage Accounts (classic) - Tables](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
 |Microsoft.CognitiveServices/accounts | Yes | No | [Cognitive Services](../essentials/metrics-supported.md#microsoftcognitiveservicesaccounts) |
-|Microsoft.Compute/cloudServices | Yes | No |  [Cloud Services](./metrics-supported.md#microsoftcomputecloudservices) |
-|Microsoft.Compute/cloudServices/roles | Yes | No |  [Cloud Service Roles](./metrics-supported.md#microsoftcomputecloudservicesroles) |
+|Microsoft.Compute/cloudServices | Yes | No |  [Cloud Services](../metrics-supported.md#microsoftcomputecloudservices) |
+|Microsoft.Compute/cloudServices/roles | Yes | No |  [Cloud Service Roles](../metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Yes | Yes<sup>1</sup> | [Virtual Machines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Yes | No |[Virtual machine scale sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ContainerInstance/containerGroups | Yes| No | [Container groups](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
@@ -55,7 +55,7 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.DBforMariaDB/servers | No | No | [DB for MariaDB](../essentials/metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servers | No | No |[DB for MySQL](../essentials/metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/flexibleServers | Yes | No | [DB for PostgreSQL (flexible servers)](../essentials/metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
-|Microsoft.DBforPostgreSQL/serverGroupsv2 | Yes | No | DB for PostgreSQL - Hyperscale |
+|Microsoft.DBforPostgreSQL/serverGroupsv2 | Yes | No | DB for PostgreSQL (hyperscale) |
 |Microsoft.DBforPostgreSQL/servers | No | No | [DB for PostgreSQL](../essentials/metrics-supported.md#microsoftdbforpostgresqlservers)|
 |Microsoft.DBforPostgreSQL/serversv2 | No | No | [DB for PostgreSQL V2](../essentials/metrics-supported.md#microsoftdbforpostgresqlserversv2)|
 |Microsoft.Devices/IotHubs | Yes | No |[IoT Hub](../essentials/metrics-supported.md#microsoftdevicesiothubs) |
