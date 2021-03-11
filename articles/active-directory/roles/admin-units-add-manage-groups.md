@@ -160,7 +160,7 @@ Body
 Run the following command:
 
 ```powershell
-Get-AzureADMSAdministrativeUnit | Where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | Where {$_.ObjectId -eq $groupObjId} }
+Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
 ```
 
 ### Use Microsoft Graph
