@@ -6,7 +6,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/11/2021
 ---
 
 # Continuous integration and delivery in Azure Data Factory
