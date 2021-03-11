@@ -24,11 +24,11 @@ In this article, learn how to request a semantic answer, unpack the response, an
 
 All prerequisites that apply to semantic queries also apply to answers, including service tier and region.
 
-+ Queries formulated using the [semantic query type](semantic-how-to-query-request.md) and include the "answers" parameter. For more information, see [request answers in the query](#query-params).
++ Queries formulated using the [semantic query type](semantic-how-to-query-request.md) and include the "answers" parameter. Required parameters are discussed in this article.
 
-+ Query strings must be formulated in language having the characteristics of a question.
++ Query strings must be formulated in language having the characteristics of a question (what, where, when, how).
 
-+ Search documents must include text having the characteristics of an answer. Text must exist in one of the fields listed in "searchFields".
++ Search documents must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in "searchFields".
 
 ## What is a semantic answer?
 
@@ -67,11 +67,11 @@ The "searchFields" parameter is critical to returning a high quality answer, bot
 
 Answers are provided in the @search.answers array, which appears first in the response. If an answer is indeterminate, the response will show up as `"@search.answers": []`. When designing a search results page that includes answers, be sure to handle cases where answers are not found.
 
-The "key" is the document key or ID of the match. Given a document key, you can use [Lookup Document](/rest/api/searchservice/lookup-document) API to retrieve any or all parts of the search document to include on the search page or a detail page.
+Within @search.answers, the "key" is the document key or ID of the match. Given a document key, you can use [Lookup Document](/rest/api/searchservice/lookup-document) API to retrieve any or all parts of the search document to include on the search page or a detail page.
 
 Both "text" and "highlights" provide identical content, in both plain text and with highlights. By default, highlights are styled as `<em>`, which you can override using the existing highlightPreTag and highlightPostTag parameters. As noted elsewhere, the substance of an answer is verbatim content from a search document. The extraction model looks for characteristics of an answer to find the appropriate content, but does not compose new language in the response.
 
-The "score" is a confidence score that reflects the strength of the answer. If there are multiple answers in the response, this score is used to determine the order. Top answers and top captions can be derived from different search documents, where the top answer originates from one document, and the top caption from another, but in general you will see the same documents in the top positions.
+The "score" is a confidence score that reflects the strength of the answer. If there are multiple answers in the response, this score is used to determine the order. Top answers and top captions can be derived from different search documents, where the top answer originates from one document, and the top caption from another, but in general you will see the same documents in the top positions within each array.
 
 Answers are followed by the "value" array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. For more information about items in the response, see [Create a semantic query](semantic-how-to-query-request.md).
 
