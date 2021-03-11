@@ -11,27 +11,35 @@ ms.date: 10/02/2020
 ms.author: aahi
 ---
 
-[Text Analytics for health](../../how-tos/text-analytics-for-health.md) detects medical concepts in the following categories.  (Please note that only English text is supported in this container preview and only a single model-version is provided in each container image.)
+[Text Analytics for health](../../how-tos/text-analytics-for-health.md) processes and extracts insights from unstructured medical data. The service detects and surfaces medical concepts, assigns assertions to concepts, infers semantic relations between concepts and links them to common medical ontologies.
 
+## ASSERTION DETECTION
+Text Analytics for health surfaces assertion modifiers, which are informative attributes assigned to medical concepts that provide deeper understanding of the concepts’ context within the text. The assertion categories are:
+
+*	**CERTAINTY**  – provides information regarding the presence (present vs. absent) of the concept and how certain the text is regarding its presence (definite vs. possible).
+* **CONDITIONALITY** – provides information regarding whether the existence of a concept depends on certain conditions. 
+*	**ASSOCIATION** – describes whether the concept is associated with the subject of the text or someone else.
+
+## Relation Extraction
+Text Analytics for Health recognizes relations between different concepts, including relations between attribute and entity (for example, direction of body structure, dosage of medication) and between entities (for example, abbreviation detection).
+
+## NAMED ENTITY RECOGNITION
+Text Analytics for health detects medical concepts in the following categories:  (Please note that only English text is supported in this preview and only a single model-version is available.)
 
 | Category  | Description  |
 |---------|---------|
 | [ANATOMY](#anatomy) | concepts that capture information about body and anatomic systems, sites, locations or regions. |
  | [DEMOGRAPHICS](#demographics) | concepts that capture information about gender and age. |
  | [EXAMINATION](#examinations) | concepts that capture information about diagnostic procedures and tests. |
+ | [GENERAL ATTRIBUTES](#general-attributes) | concepts that provide more information about other concepts from the above categories. |
  | [GENOMICS](#genomics) | concepts that capture information about genes and variants. |
  | [HEALTHCARE](#healthcare) | concepts that capture information about administrative events, care environments and healthcare professions. |
  | [MEDICAL CONDITION](#medical-condition) | concepts that capture information about diagnoses, symptoms or signs. |
  | [MEDICATION](#medication) | concepts that capture information about medication including medication names, classes, dosage and route of administration. |
  | [SOCIAL](#social) | concepts that capture information about medically relevant social aspects such as family relation. |
  | [TREATMENT](#treatment) | concepts that capture information about therapeutic procedures. |
-  
-Each category may include two concept groups:
 
-* **Entities** - terms that capture medical concepts such as diagnosis, medication name, or treatment name.  For example, *bronchitis* is a diagnosis and *aspirin* is a medication name.  Mentions in this group may be linked to a UMLS concept ID.
-* **Attributes** - phrases that provide more information about the detected entity, for example, *severe* is a condition qualifier for *bronchitis* or *81 mg* is a dosage for *aspirin*.  Mentions in this category will NOT be linked to a UMLS concept ID.
-
-Additionally, the service recognizes relations between the different concepts including relations between attributes and entities for example, *direction* to *body structure* or *dosage* to *medication name* and relations between entities for example in abbreviation detection.
+For more information and examples, please see below.
 
 ## Anatomy
 
@@ -115,11 +123,21 @@ Additionally, the service recognizes relations between the different concepts in
 +	**UNIT_OF_EXAMINATION**
 +	**VALUE_OF_EXAMINATION**
 
+## General attributes
+
+### Entities
+
+**DIRECTION** – Directional terms that may relate to a body structure, medical condition, examination, or treatment, such as: left, lateral, upper, posterior.
+
+:::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity.":::
+
+**MEASUREMENT_VALUE** – The value related to an examination or a medical condition measurement.
+
 ## Genomics
 
 ### Entities
 
-**GENE** – All mentions of names and symbols of human genes as well as chromosomes and parts of chromosomes. For example, MTRR, F2.
+**GENE_OR_PROTEIN** – All mentions of names and symbols of human genes as well as chromosomes and parts of chromosomes and proteins. For example, MTRR, F2.
 
 :::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity.":::
 
