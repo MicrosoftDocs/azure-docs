@@ -4,17 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: The Azure Form Recognizer service allows you to identify and extract key/value pairs and table data from your form documents, as well as extract major information from sales receipts and business cards.
 author: laujan
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-<<<<<<< HEAD
-ms.date: 11/23/2020
-ms.author: lajanuar
-=======
 ms.date: 03/15/2021
-ms.author: pafarley
->>>>>>> 278f39e93922cc27285a3c35afdade7f86c4f79f
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: automated data processing, document processing, automated data entry, forms processing
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
