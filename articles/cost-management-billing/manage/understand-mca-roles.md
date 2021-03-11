@@ -96,7 +96,7 @@ The following tables show what role you need to complete tasks in the context of
 |Give others permissions to view and manage the billing profile|✔|✘|✘|✘|✔|✘|✘|
 |View billing profile properties like PO number, bill-to, and more|✔|✔|✔|✔|✔|✔|✔|
 |Update billing profile properties |✔|✔|✘|✘|✔|✔|✘|
-|View policies applied on the billing profile like Azure reservation purchases, Azure marketplace purchases, and more|✔|✔|✔|✔|✔|✔|✔|
+|View policies applied on the billing profile like Azure reservation purchases, Azure Marketplace purchases, and more|✔|✔|✔|✔|✔|✔|✔|
 |Apply policies on the billing profile |✔|✔|✘|✘|✔|✔|✘|
 
 ### Manage invoices for billing profile
