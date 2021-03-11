@@ -316,9 +316,6 @@
     - name: Windows
       displayName: Azure Hybrid Benefit, AHB
       href: ./windows/hybrid-use-benefit-licensing.md
-    - name: Multitenant Hosting Rights for Windows 10
-      displayName: MTHR, multi-tenant, multitenant, hosting, rights
-      href: ./windows/windows-desktop-multitenant-hosting-deployment.md
   - name: Reserved instances
     items:
     - name: What are Azure reservations?
@@ -593,6 +590,9 @@
     - name: Windows client images
       displayName: Images, imaging, marketplace, Windows, Client
       href: ./windows/client-images.md
+    - name: Multitenant Hosting Rights for Windows 10
+      displayName: MTHR, multi-tenant, multitenant, hosting, rights
+      href: ./windows/windows-desktop-multitenant-hosting-deployment.md
   - name: Linux custom images
     items:
     - name: Overview
