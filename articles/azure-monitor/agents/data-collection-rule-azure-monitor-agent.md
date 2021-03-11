@@ -81,7 +81,7 @@ The following table shows examples for filtering events using a custom XPath.
 > [!TIP]
 > Use the following PowerShell script to test the validity of a particular XPath.
 > 
-> ```
+> ```powershell
 > $XPath = '*[System[(band(Keywords,13510798882111488)) and (not[EventID=4624])]]'
 > Get-WinEvent -LogName 'System' -FilterXPath $XPath
 > ```
