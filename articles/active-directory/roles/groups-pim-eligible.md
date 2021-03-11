@@ -2,14 +2,14 @@
 title: Assign a role to a group using Privileged Identity Management in Azure AD | Microsoft Docs
 description: Learn how you can assign an Azure Active Directory (Azure AD) role to a group using Azure AD Privileged Identity Management (PIM).
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 
@@ -45,14 +45,14 @@ This article describes how you can assign an Azure Active Directory (Azure AD) r
 To install the Azure AD #PowerShell module, use the following cmdlets:
 
 ```powershell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
 ```
 
 To verify that the module is ready to use, use the following cmdlet:
 
 ```powershell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
 ```
 
 ### Assign a group as an eligible member of a role
@@ -67,34 +67,21 @@ Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId aadRoles -Schedule $sc
 
 ## Using Microsoft Graph API
 
-```powershell
+```http
 POST
-https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequests  
-
+https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequests
 {
-
  "roleDefinitionId": {roleDefinitionId},
-
  "resourceId": {tenantId},
-
  "subjectId": {GroupId},
-
  "assignmentState": "Eligible",
-
  "type": "AdminAdd",
-
  "reason": "reason string",
-
  "schedule": {
-
    "startDateTime": {DateTime},
-
    "endDateTime": {DateTime},
-
    "type": "Once"
-
  }
-
 }
 ```
 

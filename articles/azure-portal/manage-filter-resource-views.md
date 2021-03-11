@@ -45,6 +45,18 @@ To delete a view:
 
 1. In the **Saved views for "All resources"** pane, select the view then select the **Delete** icon ![Delete view icon](media/manage-filter-resource-views/icon-delete.png).
 
+## Export information from a view
+
+You can export the resource information from a view. To export information in CSV format:
+
+1. Select **Export to CSV**.
+
+    :::image type="content" source="media/manage-filter-resource-views/export-csv.png" alt-text="Screenshot of exporting to CSV format":::
+
+1. Save the file locally, then open in Excel or another application that supports the CSV format. 
+
+As you move around the portal, you'll see other areas where you can export information, such as an individual resource group.
+
 ## Summarize resources with visuals
 
 The views we've looked at so far have been _list views_, but there are also _summary views_ that include visuals. You can save and use these views just like you can list views. Filters persist between the two types of views. There are standard views, like the **Location** view shown below, as well as views that are relevant to specific services, such as the **Status** view for Azure Storage.

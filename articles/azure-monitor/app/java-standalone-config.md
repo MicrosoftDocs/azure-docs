@@ -36,14 +36,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.1.jar`.
+By default, Application Insights Java 3.0 expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.0.2.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.1.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.0.2.jar` is located.
 
 ## Connection string
 
@@ -149,9 +149,6 @@ of the JMX MBean that you want to collect.
 
 Numeric and boolean JMX metric values are supported. Boolean JMX metrics are mapped to `0` for false, and `1` for true.
 
-[//]: # "NOTE: Not documenting APPLICATIONINSIGHTS_JMX_METRICS here"
-[//]: # "json embedded in env var is messy, and should be documented only for codeless attach scenario"
-
 ## Custom dimensions
 
 If you want to add custom dimensions to all of your telemetry:
@@ -168,7 +165,7 @@ If you want to add custom dimensions to all of your telemetry:
 `${...}` can be used to read the value from specified environment variable at startup.
 
 > [!NOTE]
-> Starting from version 3.0.1, if you add a custom dimension named `service.version`, the value will be stored
+> Starting from version 3.0.2, if you add a custom dimension named `service.version`, the value will be stored
 > in the `application_Version` column in the Application Insights Logs table instead of as a custom dimension.
 
 ## Telemetry processors (preview)
@@ -219,6 +216,10 @@ These are the valid `level` values that you can specify in the `applicationinsig
 | TRACE (or FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
+> [!NOTE]
+> If an exception object is passed to the logger, then the log message (and exception object details)
+> will show up in the Azure portal under the `exceptions` table instead of the `traces` table.
+
 ## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 
 If your application uses [Micrometer](https://micrometer.io),
@@ -245,7 +246,7 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 
 ## Suppressing specific auto-collected telemetry
 
-Starting from version 3.0.1, specific auto-collected telemetry can be suppressed using these configuration options:
+Starting from version 3.0.2, specific auto-collected telemetry can be suppressed using these configuration options:
 
 ```json
 {
@@ -285,7 +286,8 @@ By default, Application Insights Java 3.0 sends a heartbeat metric once every 15
 ```
 
 > [!NOTE]
-> You cannot decrease the frequency of the heartbeat, as the heartbeat data is also used to track Application Insights usage.
+> You cannot increase the interval to longer than 15 minutes,
+> because the heartbeat data is also used to track Application Insights usage.
 
 ## HTTP Proxy
 
@@ -300,7 +302,33 @@ If your application is behind a firewall and cannot connect directly to Applicat
 }
 ```
 
-[//]: # "NOTE not advertising OpenTelemetry support until we support 0.10.0, which has massive breaking changes from 0.9.0"
+Application Insights Java 3.0 also respects the global `-Dhttps.proxyHost` and `-Dhttps.proxyPort` if those are set.
+
+## Metric interval
+
+This feature is in preview.
+
+By default, metrics are captured every 60 seconds.
+
+Starting from version 3.0.3-BETA, you can change this interval:
+
+```json
+{
+  "preview": {
+    "metricIntervalSeconds": 300
+  }
+}
+```
+
+The setting applies to all of these metrics:
+
+* Default performance counters, e.g. CPU and Memory
+* Default custom metrics, e.g. Garbage collection timing
+* Configured JMX metrics ([see above](#jmx-metrics))
+* Micrometer metrics ([see above](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics))
+
+
+[//]: # "NOTE OpenTelemetry support is in private preview until OpenTelemetry API reaches 1.0"
 
 [//]: # "## Support for OpenTelemetry API pre-1.0 releases"
 
@@ -344,11 +372,13 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.0.1.jar` is located.
+`applicationinsights-agent-3.0.2.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 
 `maxHistory` is the number of rolled over log files that are retained (in addition to the current log file).
+
+Starting from version 3.0.2, you can also set the self-diagnostics `level` using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`.
 
 ## An example
 

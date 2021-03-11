@@ -3,7 +3,6 @@ title: Create Azure HDInsight - Azure Data Lake Storage Gen2 - portal
 description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight clusters using the portal.
 author: guyhay
 ms.author: guyhay
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020

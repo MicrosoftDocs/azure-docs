@@ -34,7 +34,7 @@ If your pool is using a deprecated internal component, delete and re-create the 
 ## Repair invalid log alert rules
 
 Azure Advisor detects alert rules that have invalid queries specified in their condition section. 
-You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](../azure-monitor/platform/alerts-troubleshoot-log.md)
+You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](../azure-monitor/alerts/alerts-troubleshoot-log.md)
 
 ## Use Azure Policy recommendations
 

@@ -3,7 +3,7 @@ title: Clone a managed image to an image version with the Azure CLI
 description: Learn how to clone a managed image to an image version in a Shared Image Gallery using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
@@ -37,11 +37,11 @@ Because managed images are always generalized images, you will create a an image
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. 
 
-For more information about the values you can specify for an image definition, see [Image definitions](./linux/shared-image-galleries.md#image-definitions).
+For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
 Create an image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-In this example, the image definition is named *myImageDefinition*, and is for a [generalized](./linux/shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
+In this example, the image definition is named *myImageDefinition*, and is for a [generalized](./shared-image-galleries.md#generalized-and-specialized-images) Linux OS image. To create a definition for images using a Windows OS, use `--os-type Windows`. 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG

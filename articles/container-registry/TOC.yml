@@ -62,6 +62,9 @@
       href: zone-redundancy.md
     - name: Registry best practices
       href: container-registry-best-practices.md
+    - name: Multi-arch images
+      href: push-multi-architecture-images.md
+      displayName: multi-architecture
     - name: Manage public images
       href: buffer-gate-public-content.md
   - name: How-to guides
@@ -101,6 +104,8 @@
         href: container-registry-access-selected-networks.md
       - name: Restrict access using service endpoint (preview)
         href: container-registry-vnet.md
+      - name: Allow access by trusted services
+        href: allow-access-trusted-services.md
       - name: Encrypt with customer-managed key
         href: container-registry-customer-managed-keys.md
       - name: Access behind a firewall
@@ -157,6 +162,7 @@
           href: container-registry-troubleshoot-performance.md
         - name: Detect common issues
           href: container-registry-check-health.md
+          displayName: check, health
         - name: FAQ
           href: container-registry-faq.md
 - name: Tasks

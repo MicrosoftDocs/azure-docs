@@ -2,14 +2,14 @@
 title: Create a group for assigning roles in Azure Active Directory | Microsoft Docs
 description: Learn how to create a role-assignable group in Azure AD. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 
@@ -47,14 +47,14 @@ The group is created with any roles you might have assigned to it.
 ### Install the Azure AD preview module
 
 ```powershell
-install-module azureadpreview
-import-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
 ```
 
 To verify that the module is ready to use, issue the following command:
 
 ```powershell
-get-module azureadpreview
+Get-Module -Name AzureADPreview
 ```
 
 ### Create a group that can be assigned to role
@@ -69,9 +69,9 @@ For this type of group, `isPublic` will always be false and `isSecurityEnabled` 
 
 ```powershell
 #Basic set up
-install-module azureadpreview
-import-module azureadpreview
-get-module azureadpreview
+Install-Module -Name AzureADPreview
+Import-Module -Name AzureADPreview
+Get-Module -Name AzureADPreview
 
 #Connect to Azure AD. Sign in as Privileged Role Administrator or Global Administrator. Only these two roles can create a role-assignable group.
 Connect-AzureAD
@@ -103,7 +103,7 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 
 ### Create a role-assignable group in Azure AD
 
-```powershell
+```http
 POST https://graph.microsoft.com/beta/groups
 {
 "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",

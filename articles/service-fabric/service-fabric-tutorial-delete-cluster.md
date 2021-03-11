@@ -38,7 +38,7 @@ Before you begin this tutorial:
 ## Delete the resource group containing the Service Fabric cluster
 The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
-Sign in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](https://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet or [az group delete](/cli/azure/group?view=azure-cli-latest) command.
+Sign in to Azure and select the subscription ID with which you want to remove the cluster.  You can find your subscription ID by logging in to the [Azure portal](https://portal.azure.com). Delete the resource group and all the cluster resources using the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet or [az group delete](/cli/azure/group) command.
 
 ```powershell
 Connect-AzAccount

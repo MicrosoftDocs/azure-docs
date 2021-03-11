@@ -1,6 +1,6 @@
 ---
-title: Synchronize device state from Azure IoT Hub | Microsoft Docs
-description: Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
+title: Tutorial - Synchronize device state from Azure IoT Hub | Microsoft Docs
+description: Tutorial - Learn how to use device twins to configure your devices from the cloud, and receive status and compliance data from your devices.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -63,11 +63,11 @@ az extension add --name azure-iot
 # Create a resource group:
 az group create --name tutorial-iot-hub-rg --location $location
 
-# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription:
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
+# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription.
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --partition-count 2 --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --name $hubname --policy-name service -o table
+az iot hub connection-string show --name $hubname --policy-name service -o table
 
 ```
 
@@ -81,7 +81,7 @@ hubname=tutorial-iot-hub
 az iot hub device-identity create --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg
 
 # Retrieve the device connection string, you need this later:
-az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
+az iot hub device-identity connection-string show --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
 
 ```
 
@@ -108,7 +108,7 @@ The following code gets a twin from the client object:
 
 ### Sample desired properties
 
-You can structure your desired properties in any way that's convenient to your application. This example uses one top-level property called **fanOn** and groups the remaining properties into separate **components**. The following JSON snippet shows the structure of the desired properties this tutorial uses:
+You can structure your desired properties in any way that's convenient to your application. This example uses one top-level property called **fanOn** and groups the remaining properties into separate **components**. The following JSON snippet shows the structure of the desired properties this tutorial uses. The JSON is in the desired.json file.
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 

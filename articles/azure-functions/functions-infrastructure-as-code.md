@@ -208,9 +208,11 @@ If you do explicitly define your Consumption plan, you will need to set the `ser
 
 ### Create a function app
 
+The settings required by a function app running in Consumption plan defer between Windows and Linux. 
+
 #### Windows
 
-On Windows, a Consumption plan requires two additional settings in the site configuration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE`. These properties configure the storage account and file path where the function app code and configuration are stored.
+On Windows, a Consumption plan requires an additional setting in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). This property configures the storage account where the function app code and configuration are stored.
 
 ```json
 {
@@ -234,10 +236,6 @@ On Windows, a Consumption plan requires two additional settings in the site conf
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -255,9 +253,12 @@ On Windows, a Consumption plan requires two additional settings in the site conf
 }
 ```
 
+> [!IMPORTANT]
+> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.  
+
 #### Linux
 
-On Linux, the function app must have its `kind` set to `functionapp,linux`, and it must have the `reserved` property set to `true`:
+On Linux, the function app must have its `kind` set to `functionapp,linux`, and it must have the `reserved` property set to `true`. 
 
 ```json
 {
@@ -295,8 +296,9 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 }
 ```
 
-<a name="premium"></a>
+The [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) and [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) settings aren't supported on Linux.
 
+<a name="premium"></a>
 ## Deploy on Premium plan
 
 The Premium plan offers the same scaling as the Consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan](./functions-premium-plan.md).
@@ -328,7 +330,7 @@ A Premium plan is a special type of "serverfarm" resource. You can specify it by
 
 ### Create a function app
 
-A function app on a Premium plan must have the `serverFarmId` property set to the resource ID of the plan created earlier. In addition, a Premium plan requires two additional settings in the site configuration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE`. These properties configure the storage account and file path where the function app code and configuration are stored.
+A function app on a Premium plan must have the `serverFarmId` property set to the resource ID of the plan created earlier. In addition, a Premium plan requires an additional setting in the site configuration: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring). This property configures the storage account where the function app code and configuration are stored.
 
 ```json
 {
@@ -354,10 +356,6 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -374,6 +372,8 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
     }
 }
 ```
+> [!IMPORTANT]
+> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.  
 
 <a name="app-service-plan"></a>
 
@@ -469,7 +469,7 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
 |------------------|-------------------------------------------------------|
 | Python           | `python|3.7`      |
 | JavaScript       | `node|12`          |
-| .NET             | `dotnet|3.0` |
+| .NET             | `dotnet|3.1` |
 
 ```json
 {
@@ -688,7 +688,7 @@ Learn more about how to develop and configure Azure Functions.
 
 * [Azure Functions developer reference](functions-reference.md)
 * [How to configure Azure function app settings](functions-how-to-use-azure-function-app-settings.md)
-* [Create your first Azure function](functions-create-first-azure-function.md)
+* [Create your first Azure function](./functions-get-started.md)
 
 <!-- LINKS -->
 

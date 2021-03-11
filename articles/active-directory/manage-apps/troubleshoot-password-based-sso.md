@@ -2,7 +2,7 @@
 title: Troubleshoot password-based single sign-on in Azure Active Directory
 description: Troubleshoot issues with an Azure AD app that's configured for password-based single sign-on.
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -17,7 +17,7 @@ ms.reviewer: asteen
 To use password-based single sign-on (SSO) in My Apps, the browser extension must be installed. The extension downloads automatically when you select an app that's configured for password-based SSO. To learn about using My Apps from an end-user perspective, see [My Apps portal help](../user-help/my-apps-portal-end-user-access.md).
 
 ## My Apps browser extension not installed
-Make sure the browser extension is installed. To learn more, see [Plan an Azure Active Directory My Apps deployment](access-panel-deployment-plan.md). 
+Make sure the browser extension is installed. To learn more, see [Plan an Azure Active Directory My Apps deployment](my-apps-deployment-plan.md). 
 
 ## Single sign-on not configured
 Make sure password-based single sign-on is configured. To learn more, see [Configure password-based single sign-on](configure-password-single-sign-on-non-gallery-applications.md).
@@ -243,4 +243,4 @@ The following information explains what each notification item means and provide
 
 ## Next steps
 * [Quickstart Series on Application Management](view-applications-portal.md)
-* [Plan a My Apps deployment](access-panel-deployment-plan.md)
+* [Plan a My Apps deployment](my-apps-deployment-plan.md)

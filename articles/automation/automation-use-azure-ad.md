@@ -34,9 +34,9 @@ Before installing the Azure AD modules on your computer:
 >[!NOTE]
 >To work with these modules, you must use PowerShell version 5.1 or later with a 64-bit version of Windows. 
 
-1. Install Windows Management Framework (WMF) 5.1. See [Install and Configure WMF 5.1](/powershell/scripting/wmf/setup/install-configure?view=powershell-7).
+1. Install Windows Management Framework (WMF) 5.1. See [Install and Configure WMF 5.1](/powershell/scripting/wmf/setup/install-configure).
 
-2. Install AzureRM and/or Az using instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0).
+2. Install AzureRM and/or Az using instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps).
 
 ### Install the MSOnline module
 
@@ -45,7 +45,7 @@ Before installing the Azure AD modules on your computer:
 
 1. Ensure that the Microsoft .NET Framework 3.5.x feature is enabled on your computer. It's likely that your computer has a newer version installed, but backward compatibility with older versions of the .NET Framework can be enabled or disabled. 
 
-2. Install the 64-bit version of the [Microsoft Online Services Sign-in Assistant](https://www.microsoft.com/download/details.aspx?id=41950).
+2. Install the 64-bit version of the [Microsoft Online Services Sign-in Assistant](https://www.microsoft.com/Download/details.aspx?id=28177).
 
 3. Run Windows PowerShell as an administrator to create an elevated Windows PowerShell command prompt.
 
@@ -57,7 +57,7 @@ Before installing the Azure AD modules on your computer:
 
 ### Install support for PSCredential
 
-Azure Automation uses the [PSCredential](/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) class to represent a credential asset. Your scripts retrieve `PSCredential` objects using the `Get-AutomationPSCredential` cmdlet. For more information, see [Credential assets in Azure Automation](shared-resources/credentials.md).
+Azure Automation uses the [PSCredential](/dotnet/api/system.management.automation.pscredential) class to represent a credential asset. Your scripts retrieve `PSCredential` objects using the `Get-AutomationPSCredential` cmdlet. For more information, see [Credential assets in Azure Automation](shared-resources/credentials.md).
 
 ## Assign a subscription administrator
 
@@ -75,7 +75,7 @@ To change the Azure AD user's password:
 
 ## Configure Azure Automation to manage the Azure subscription
 
-For Azure Automation to communicate with Azure AD, you must retrieve the credentials associated with the Azure connection to Azure AD. Examples of these credentials are tenant ID, subscription ID, and the like. For more about the connection between Azure and Azure AD, see [Connect your organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops).
+For Azure Automation to communicate with Azure AD, you must retrieve the credentials associated with the Azure connection to Azure AD. Examples of these credentials are tenant ID, subscription ID, and the like. For more about the connection between Azure and Azure AD, see [Connect your organization to Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## Create a credential asset
 
@@ -87,11 +87,11 @@ You can use the Azure portal to create the credential asset. Do this operation f
 
 ### Create the credential asset with Windows PowerShell
 
-To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned user name and password. The script then uses this object to create the asset through a call to the [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential?view=azuresmps-4.0.0) cmdlet. Alternatively, the script can call the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](shared-resources/credentials.md). 
+To prepare a new credential asset in Windows PowerShell, your script first creates a `PSCredential` object using the assigned user name and password. The script then uses this object to create the asset through a call to the [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure.service/new-azureautomationcredential) cmdlet. Alternatively, the script can call the [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential) cmdlet to prompt the user to type in a name and password. See [Credential assets in Azure Automation](shared-resources/credentials.md). 
 
 ## Manage Azure resources from an Azure Automation runbook
 
-You can manage Azure resources from Azure Automation runbooks using the credential asset. Below is an example PowerShell runbook that collects the credential asset to use for stopping and starting virtual machines in an Azure subscription. This runbook first uses `Get-AutomationPSCredential` to retrieve the credential to use to authenticate to Azure. It then calls the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) cmdlet to connect to Azure using the credential. The script uses the [Select-AzureSubscription](/powershell/module/servicemanagement/azure.service/select-azuresubscription?view=azuresmps-4.0.0) cmdlet to choose the subscription to work with. 
+You can manage Azure resources from Azure Automation runbooks using the credential asset. Below is an example PowerShell runbook that collects the credential asset to use for stopping and starting virtual machines in an Azure subscription. This runbook first uses `Get-AutomationPSCredential` to retrieve the credential to use to authenticate to Azure. It then calls the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet to connect to Azure using the credential. The script uses the [Select-AzureSubscription](/powershell/module/servicemanagement/azure.service/select-azuresubscription) cmdlet to choose the subscription to work with. 
 
 ```azurepowershell
 Workflow Stop-Start-AzureVM 

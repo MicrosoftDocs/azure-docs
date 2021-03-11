@@ -4,7 +4,7 @@ description: Learn how to use Wildcard applications in the Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

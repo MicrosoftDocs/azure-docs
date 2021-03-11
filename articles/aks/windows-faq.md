@@ -51,6 +51,8 @@ To get the latest patches for Windows nodes, you can either [upgrade the node po
 
 AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
 
+Windows nodes on AKS clusters also have [Direct Server Return (DSR)][dsr] enabled by default when Calico is enabled.
+
 ## Is preserving the client source IP supported?
 
 At this time, [client source IP preservation][client-source-ip] is not supported with Windows nodes.
@@ -88,7 +90,7 @@ You have to keep the name to a maximum of 6 (six) characters. This is a current 
 
 ## Are all features supported with Windows nodes?
 
-Network policies and kubenet are currently not supported with Windows nodes.
+Kubenet is currently not supported with Windows nodes.
 
 ## Can I run ingress controllers on Windows nodes?
 
@@ -186,7 +188,7 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
-[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [windows-rdp]: rdp.md
@@ -194,3 +196,4 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [managed-identity]: use-managed-identity.md
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
+[dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

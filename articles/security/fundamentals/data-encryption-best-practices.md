@@ -98,7 +98,7 @@ For data moving between your on-premises infrastructure and Azure, consider appr
 Following are best practices specific to using Azure VPN Gateway, SSL/TLS, and HTTPS.
 
 **Best practice**: Secure access from multiple workstations located on-premises to an Azure virtual network.   
-**Detail**: Use [site-to-site VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+**Detail**: Use [site-to-site VPN](../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 **Best practice**: Secure access from an individual workstation located on-premises to an Azure virtual network.   
 **Detail**: Use [point-to-site VPN](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).

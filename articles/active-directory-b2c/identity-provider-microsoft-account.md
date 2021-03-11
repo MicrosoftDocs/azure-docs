@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -32,7 +32,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Microsoft account application
 
-To enable sign-in for users with a Microsoft account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). If you don't already have a Microsoft account, you can get one at [https://www.live.com/](https://www.live.com/).
+To enable sign-in for users with a Microsoft account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Azure portal](https://portal.azure.com). For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). If you don't already have a Microsoft account, you can get one at [https://www.live.com/](https://www.live.com/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD tenant.
@@ -71,7 +71,10 @@ To enable sign-in for users with a Microsoft account in Azure Active Directory B
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select **Microsoft** to sign in with Microsoft account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 
@@ -177,11 +180,20 @@ You've now configured your policy so that Azure AD B2C knows how to communicate 
 <OrchestrationStep Order="2" Type="ClaimsExchange">
   ...
   <ClaimsExchanges>
-    <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MicrosoftAccount-OpenIdConnect" />
+    <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-MicrosoftAccount-OpenIdConnect" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
 
-[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+
+## Test your custom policy
+
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Microsoft** to sign in with Microsoft account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end

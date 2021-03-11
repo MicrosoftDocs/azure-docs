@@ -55,7 +55,7 @@ If you've already configured the backup and must move from GRS to LRS, then see 
 
 ### How can I move data from the Recovery Services vault to on-premises?
 
-Exporting data directly from the Recovery Services vault to on-premises using Data Box is not supported. Data must be restored to a storage account, and then it can be moved to on-premises via [Data Box](../databox/data-box-overview.md) or [Import/Export](../storage/common/storage-import-export-service.md).
+Exporting data directly from the Recovery Services vault to on-premises using Data Box is not supported. Data must be restored to a storage account, and then it can be moved to on-premises via [Data Box](../databox/data-box-overview.md) or [Import/Export](../import-export/storage-import-export-service.md).
 
 ### What is the difference between a geo-redundant storage (GRS) vault with and without the Cross-Region Restore (CRR) capability enabled?
 
@@ -65,7 +65,7 @@ In the case of a [GRS](azure-backup-glossary.md#grs) vault without [CRR](azure-b
 
 ### Where can I find common questions about the Azure Backup agent for Azure VM backup?
 
-- For the agent running on Azure VMs, read this [FAQ](backup-azure-vm-backup-faq.md).
+- For the agent running on Azure VMs, read this [FAQ](backup-azure-vm-backup-faq.yml).
 - For the agent used to back up Azure file folders, read this [FAQ](backup-azure-file-folder-backup-faq.md).
 
 ## General backup
@@ -231,5 +231,5 @@ The key used to encrypt the backup data is present only on your site. Microsoft 
 
 Read the other FAQs:
 
-- [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups.
+- [Common questions](backup-azure-vm-backup-faq.yml) about Azure VM backups.
 - [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent

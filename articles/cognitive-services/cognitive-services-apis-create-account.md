@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ---

@@ -63,9 +63,6 @@ This API is not supported in V3 prediction endpoint - continue to use V2 API pre
 
 Continue to use the V2 API prediction endpoint until the V4.7 of the Bot Framework is released.
 
-## V2 API Deprecation
-
-The V2 prediction API will not be deprecated for at least 9 months after the V3 preview, June 8th, 2020.
 
 ## Endpoint URL changes
 
@@ -265,9 +262,6 @@ In V3, the same result with the `verbose` flag to return entity metadata:
 
 Learn [concepts](schema-change-prediction-runtime.md) about how to extend the app at prediction runtime.
 
-## Deprecation
-
-The V2 API will not be deprecated for at least 9 months after the V3 preview.
 
 ## Next steps
 

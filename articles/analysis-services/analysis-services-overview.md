@@ -4,7 +4,7 @@ description: Learn about Azure Analysis Services, a fully managed platform as a 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/07/2021
+ms.date: 01/20/2021
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -78,6 +78,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |---------|---------|:---------:|
 |Brazil South     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
+|Canada Central     |     S8v2, S9v2   |    1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |East US 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |East US 2     |     S8v2, S9v2   |    1    |
@@ -233,7 +234,7 @@ Modern data exploration and visualization tools like Power BI, Excel, Reporting 
 
 ## Monitoring and diagnostics
 
-Azure Analysis Services is integrated with Azure Monitor metrics, providing an extensive number of resource-specific metrics to help you monitor the performance and health of your servers. To learn more, see [Monitor server metrics](analysis-services-monitor.md). Record metrics with [resource platform logs](../azure-monitor/platform/platform-logs-overview.md). Monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). To learn more, see [Setup diagnostic logging](analysis-services-logging.md).
+Azure Analysis Services is integrated with Azure Monitor metrics, providing an extensive number of resource-specific metrics to help you monitor the performance and health of your servers. To learn more, see [Monitor server metrics](analysis-services-monitor.md). Record metrics with [resource platform logs](../azure-monitor/essentials/platform-logs-overview.md). Monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/), a service of [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). To learn more, see [Setup diagnostic logging](analysis-services-logging.md).
 
 Azure Analysis Services also supports using [Dynamic Management Views (DMVs)](/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Based on SQL syntax, DMVs interface schema rowsets that return metadata and monitoring information about server instance.
 

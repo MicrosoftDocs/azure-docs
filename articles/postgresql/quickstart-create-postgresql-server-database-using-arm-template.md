@@ -6,7 +6,7 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 05/14/2020
+ms.date: 02/11/2021
 ---
 
 # Quickstart: Use an ARM template to create an Azure Database for PostgreSQL - single server
@@ -169,6 +169,34 @@ read -p "Press [ENTER] to continue: "
 ```
 
 ---
+
+## Exporting ARM template from the portal
+You can [export an ARM template](../azure-resource-manager/templates/export-template-portal.md) from the Azure portal. There are two ways to export a template:
+
+- [Export from resource group or resource](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). This option generates a new template from existing resources. The exported template is a "snapshot" of the current state of the resource group. You can export an entire resource group or specific resources within that resource group.
+- [Export before deployment or from history](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). This option retrieves an exact copy of a template used for deployment.
+
+When exporting the template, in the ```"properties":{ }```  section of the PostgreSQL server resource you will notice that ```administratorLogin``` and ```administratorLoginPassword``` will not be included for security reasons. You **MUST** add these parameters to your template before deploying the template or the template will fail.
+
+```
+"resources": [
+    {
+      "type": "Microsoft.DBforPostgreSQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('servers_name')]",
+      "location": "southcentralus",
+      "sku": {
+                "name": "B_Gen5_1",
+                "tier": "Basic",
+                "family": "Gen5",
+                "capacity": 1
+            },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+```
+
+
 
 ## Clean up resources
 

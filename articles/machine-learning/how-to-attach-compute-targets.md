@@ -37,7 +37,7 @@ To use compute targets managed by Azure Machine Learning, see:
 
 * An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
+* The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](tutorial-setup-vscode-extension.md).
 
 ## Limitations
 
@@ -54,15 +54,11 @@ With Azure Machine Learning, you can train your model on a variety of resources 
 
 When you use your local computer for **training**, there is no need to create a compute target.  Just [submit the training run](how-to-set-up-training-targets.md) from your local machine.
 
-When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+When you use your local computer for **inference**, you must have Docker installed. To perform the deployment, use [LocalWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) to define the port that the web service will use. Then use the normal deployment process as described in [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a id="vm"></a>Remote virtual machines
 
-Azure Machine Learning also supports bringing your own compute resource and attaching it to your workspace. One such resource type is an arbitrary remote VM, as long as it's accessible from Azure Machine Learning. The resource can be an Azure VM, a remote server in your organization, or on-premises. Specifically, given the IP address and credentials (user name and password, or SSH key), you can use any accessible VM for remote runs.
-
-You can use a system-built conda environment, an already existing Python environment, or a Docker container. To execute on a Docker container, you must have a Docker Engine running on the VM. This functionality is especially useful when you want a more flexible, cloud-based dev/experimentation environment than your local machine.
-
-Use the Azure Data Science Virtual Machine (DSVM) as the Azure VM of choice for this scenario. This VM is a pre-configured data science and AI development environment in Azure. The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](./how-to-configure-environment.md#dsvm).
+Azure Machine Learning also supports attaching an Azure Virtual Machine. The VM must be an Azure Data Science Virtual Machine (DSVM). This VM is a pre-configured data science and AI development environment in Azure. The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](./how-to-configure-environment.md#dsvm).
 
 1. **Create**: Create a DSVM before using it to train your model. To create this resource, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](./data-science-virtual-machine/dsvm-ubuntu-intro.md).
 
@@ -219,7 +215,7 @@ To attach Azure Databricks as a compute target, provide the following informatio
 
 * __Databricks compute name__: The name you want to assign to this compute resource.
 * __Databricks workspace name__: The name of the Azure Databricks workspace.
-* __Databricks access token__: The access token used to authenticate to Azure Databricks. To generate an access token, see the [Authentication](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html) document.
+* __Databricks access token__: The access token used to authenticate to Azure Databricks. To generate an access token, see the [Authentication](/azure/databricks/dev-tools/api/latest/authentication) document.
 
 The following code demonstrates how to attach Azure Databricks as a compute target with the Azure Machine Learning SDK (__The Databricks workspace need to be present in the same subscription as your AML workspace__):
 
@@ -319,7 +315,7 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 > Do not create multiple, simultaneous attachments to the same ADLA from your workspace. Each new attachment will break the previous existing attachment(s).
 
 > [!TIP]
-> Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?preserve-view=true&view=azure-ml-py) to copy the data before training.
+> Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep) to copy the data before training.
 
 ## <a id="aci"></a>Azure Container Instance
 

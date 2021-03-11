@@ -13,7 +13,7 @@ The [knowledge base development lifecycle](../Concepts/development-lifecycle-kno
 
 ## Extraction
 
-The QnA Maker service is continually improving the algorithms that extract QnAs from content and expanding the list of supported file and HTML formats. Follow the [guidelines](../index.yml) for data extraction based on your document type.
+The QnA Maker service is continually improving the algorithms that extract QnAs from content and expanding the list of supported file and HTML formats. Follow the [guidelines](../Concepts/data-sources-and-content.md) for data extraction based on your document type.
 
 In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page.
 
@@ -38,7 +38,7 @@ Your user may enter questions with either a conversational style of text, `How d
 
 The best answers are simple answers but not too simple. Do not use answers such as `yes` and `no`. If your answer should link to other sources or provide a rich experience with media and links, use [metadata tagging](../how-to/edit-knowledge-base.md#add-metadata) to distinguish between answers, then [submit the query](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) with metadata tags in the `strictFilters` property to get the correct answer version.
 
-|Answer|Follup-up prompts|
+|Answer|Follow-up prompts|
 |--|--|
 |Power down the Surface laptop with the power button on the keyboard.|* Key-combinations to sleep, shut down, and restart.<br>* How to hard-boot a Surface laptop<br>* How to change the BIOS for a Surface laptop<br>* Differences between sleep, shut down and restart|
 |Customer service is available via phone, Skype, and text message 24 hours a day.|* Contact information for sales.<br> * Office and store locations and hours for an in-person visit.<br> * Accessories for a Surface laptop.|
@@ -136,13 +136,13 @@ For example, you might have two separate QnAs with the following questions:
 Since these two QnAs are phrased with very similar words, this similarity could cause very similar scores for many user queries that are phrased like  *"where is the `<x>` location"*. Instead, try to clearly differentiate with queries like  *"where is the parking lot"* and *"where is the ATM"*, by avoiding words like "location" that could be in many questions in your KB.
 
 ## Collaborate
-QnA Maker allows users to [collaborate](../index.yml) on a knowledge base. Users need access to the Azure QnA Maker resource group in order to access the knowledge bases. Some organizations may want to outsource the knowledge base editing and maintenance, and still be able to protect access to their Azure resources. This editor-approver model is done by setting up two identical [QnA Maker services](../How-to/set-up-qnamaker-service-azure.md) in different subscriptions and selecting one for the edit-testing cycle. Once testing is finished, the knowledge base contents are transferred with an [import-export](../Tutorials/migrate-knowledge-base.md) process to the QnA Maker service of the approver that will finally publish the knowledge base and update the endpoint.
+QnA Maker allows users to collaborate on a knowledge base. Users need access to the Azure QnA Maker resource group in order to access the knowledge bases. Some organizations may want to outsource the knowledge base editing and maintenance, and still be able to protect access to their Azure resources. This editor-approver model is done by setting up two identical [QnA Maker services](../How-to/set-up-qnamaker-service-azure.md) in different subscriptions and selecting one for the edit-testing cycle. Once testing is finished, the knowledge base contents are transferred with an [import-export](../Tutorials/migrate-knowledge-base.md) process to the QnA Maker service of the approver that will finally publish the knowledge base and update the endpoint.
 
 
 
 ## Active learning
 
-[Active learning](../How-to/use-active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** then review and accept or reject those suggestions.
+[Active learning](../How-to/use-active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md)** then review and accept or reject those suggestions.
 
 ## Next steps
 

@@ -1,5 +1,6 @@
 ---
-title: Configure desktop apps that call web APIs - Microsoft identity platform | Azure
+title: Configure desktop apps that call web APIs | Azure
+titleSuffix: Microsoft identity platform 
 description: Learn how to configure the code of a desktop app that calls web APIs
 services: active-directory
 author: jmprieur
@@ -12,23 +13,18 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform for developers.
+#Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
 # Desktop app that calls web APIs: Code configuration
 
 Now that you've created your application, you'll learn how to configure the code with the application's coordinates.
 
-## Microsoft Authentication Libraries
+## Microsoft libraries supporting desktop apps
 
-The following Microsoft Authentication Libraries (MSALs) support desktop applications.
+The following Microsoft libraries support desktop apps:
 
-  Microsoft Authentication Library | Description
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supports building a desktop application in multiple platforms, such as Linux, Windows, and macOS.
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Supports building a desktop application in multiple platforms.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Supports building a desktop application in multiple platforms.
-  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Supports desktop applications that run on macOS only.
+[!INCLUDE [active-directory-develop-libraries-desktop](../../../includes/active-directory-develop-libraries-desktop.md)]
 
 ## Public client application
 

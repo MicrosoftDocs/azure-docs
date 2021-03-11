@@ -3,7 +3,7 @@ title: Understand admin role delegation - Azure Active Directory | Microsoft Doc
 description: Delegation models, examples, and role security in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.subservice: roles
 ms.topic: conceptual
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, I want to know how to organize my approach to delegating roles
@@ -35,7 +35,7 @@ As an organization grows, it can be difficult to keep track of which users have 
 
 In the Azure AD portal, you can [view all the members of any role](manage-roles-portal.md), which can help you quickly check your deployment and delegate permissions.
 
-If you’re interested in delegating access to Azure resources instead of administrative access in Azure AD, see [Assign an Azure role](../../role-based-access-control/role-assignments-portal.md).
+If you’re interested in delegating access to Azure resources instead of administrative access in Azure AD, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Delegation planning
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -32,7 +32,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a LinkedIn application
 
-To enable sign-in for users with a LinkedIn account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [LinkedIn Developers website](https://www.developer.linkedin.com/). For more information, see [Authorization Code Flow](https://docs.microsoft.com/linkedin/shared/authentication/authorization-code-flow). If you don't already have a LinkedIn account, you can sign up at [https://www.linkedin.com/](https://www.linkedin.com/).
+To enable sign-in for users with a LinkedIn account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [LinkedIn Developers website](https://www.developer.linkedin.com/). For more information, see [Authorization Code Flow](/linkedin/shared/authentication/authorization-code-flow). If you don't already have a LinkedIn account, you can sign up at [https://www.linkedin.com/](https://www.linkedin.com/).
 
 1. Sign in to the [LinkedIn Developers website](https://www.developer.linkedin.com/) with your LinkedIn account credentials.
 1. Select **My Apps**, and then click **Create app**.
@@ -65,7 +65,10 @@ To enable sign-in for users with a LinkedIn account in Azure Active Directory B2
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select **LinkedIn** to sign in with LinkedIn account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 
@@ -207,7 +210,16 @@ Add the **BuildingBlocks** element near the top of the *TrustFrameworkExtensions
 </OrchestrationStep>
 ```
 
-[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+
+## Test your custom policy
+
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **LinkedIn** to sign in with LinkedIn account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ## Migration from v1.0 to v2.0
 
