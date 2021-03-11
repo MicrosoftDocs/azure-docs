@@ -18,12 +18,12 @@ To realize the full benefits of IoT-enabled digital transformation, customers ne
 
 ## Support for a wide range of IoT devices
 
-Device Update for IoT Hub is designed to offer optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). This integration makes it easy to adopt Device Update on any existing solution. It provides a cloud-hosted solution to connect virtually any device. Device Update supports a broad range of IoT operating systems—including Linux and [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (real-time operating system)—and is extensible via open source. 
+Device Update for IoT Hub is designed to offer optimized update deployment and streamlined operations through integration with [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/). This integration makes it easy to adopt Device Update on any existing solution. It provides a cloud-hosted solution to connect virtually any device. Device Update supports a broad range of IoT operating systems—including Linux and [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (real-time operating system)—and is extensible via open source. We are codeveloping Device Update for IoT Hub offerings with our semiconductor partners, including STMicroelectronics, NXP, Renesas, and Microchip. See the [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that includes the get started guides to learn how to configure, build, and deploy the over-the-air (OTA) updates to MCU class devices.
 
 Both a Device Update Agent Simulator binary and Raspberry Pi reference Yocto images are provided.
 Device Update for IoT Hub also supports updating Azure IoT Edge devices. A Device Update Agent is provided for Ubuntu Server 18.04 amd64
 platform. Device Update for IoT Hub also provides open-source code if you are not
-running one of the above platforms. This allows you to port the agent to the distribution you
+running one of the above platforms. You can port the agent to the distribution you
 are running.
 
 Device Update works with IoT Plug and Play (PnP) and can manage any device that supports
