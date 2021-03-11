@@ -154,11 +154,13 @@ Optionally, you can customize the highlight style applied to captions. Captions 
 
 ## Evaluate the response
 
-A response includes the original relevance score, the new semantically ranked relevance score, captions in plain text and with highlights, followed by other fields listed in the select parameter. Answers is omitted because one could not be determined for this particular query.
+As with all queries, a response is composed of all fields marked as retrievable, or just those fields listed in the select parameter. It includes the original relevance score, and might also include a count, or batched results, depending on how you formulated the request.
+
+In a semantic query, the response has additional elements: a new semantically ranked relevance score, captions in plain text and with highlights, and optionally an answer.
 
 In a client app, you can structure the search page to include a caption as the description of the match, rather than the entire contents of a specific field. This is useful when individual fields are too dense for the search results page.
 
-The response for the above query returns the following match as the top pick. Captions are returned automatically, with plain text and highlighted versions.
+The response for the above example query returns the following match as the top pick. Captions are returned automatically, with plain text and highlighted versions. Answers are omitted from the example because one could not be determined for this particular query and corpus.
 
 ```json
 "@odata.count": 35,

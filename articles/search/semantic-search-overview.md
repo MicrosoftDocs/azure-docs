@@ -36,7 +36,7 @@ Semantic search improves precision and recall with the addition of these capabil
 
 + [Semantic queries](semantic-how-to-query-request.md) invoke semantic ranking, and return highlighted captions that summarize key passages from a result for easy scanning.
 
-  *Semantic captions* are text passages relevant to the query. They can help to summarize a result when individual content fields are too large or cumbersome for the results page. *Semantic highlights* add styles to the most relevant terms and phrases, allowing users to quickly skim query results to learn why a match was considered relevant.
+  Semantic queries return captions. Captions are passages from the document that summarize the result. They can help to summarize a result when individual content fields are too large or cumbersome for the results page. *Semantic highlights* apply style to the most relevant terms and phrases, allowing users to quickly skim query results to learn why a match was considered relevant.
 
 + [Semantic answers](semantic-answers.md) is an optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question.
 

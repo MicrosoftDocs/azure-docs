@@ -1,8 +1,7 @@
 ---
-title: Configure ranking Similarity Algorithm
+title: Configure the similarity algorithm
 titleSuffix: Azure Cognitive Search
-description: How to set the similarity algorithm to try new similarity algorithm for ranking
-
+description: Learn how to enable BM25 on older search services, and how BM25 parameters can be modified to better accommodate the content of your indexes.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -11,7 +10,7 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ---
 
-# Configure ranking algorithms in Azure Cognitive Search
+# Configure the similarity ranking algorithm in Azure Cognitive Search
 
 Azure Cognitive Search supports two similarity ranking algorithms:
 

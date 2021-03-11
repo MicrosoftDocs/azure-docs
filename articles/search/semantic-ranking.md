@@ -18,31 +18,21 @@ ms.date: 03/12/2021
 
 Semantic ranking is an extension of the query execution pipeline that improves the precision and recall by reranking the top matches. Semantic ranking is backed by a pretrained machine reading comprehension model, trained for queries expressed in natural language as opposed to keyword search. In contrast with the [default ranking algorithm](index-ranking-similarity.md), the semantic ranker uses the context and meaning of words to determine relevance. 
 
-Whereas a keyword algorithm might give equal weight to any term in the query, the semantic algorithm recognizes the interdependency and relationships among words that are otherwise unrelated on the surface.
+Conceptual similarity and relatedness are established through vector representation and term clusters. Whereas a keyword similarity algorithm might give equal weight to any term in the query, the semantic model has been trained to recognize the interdependency and relationships among words that are otherwise unrelated on the surface. As a result, if a query string includes terms from the same cluster, a document containing both will rank higher than one that doesn't.
 
 :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
 
-## Key points
+## Inputs to semantic ranking
 
-+ Reranks an initial result set, up to 50 documents, as determined by the default ranking model. Semantic ranking is resource intensive. Evaluating a smaller result set ensure that semantic ranking can be computed quickly.
+The semantic ranking model evaluates the document corpus at the sentence and paragraph level, which is both resource intensive and time consuming. In order to complete processing within the expected latency of a query operation, the model takes as an input just the top 50 documents returned from the default similarity ranking algorithm.
 
-+ Semantic ranking is offered on Standard services only. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+Having received the top 50 matches, the semantic ranking model re-evaluates the document corpus, focusing on the fields specified in the searchFields parameter. Results from the initial ranking can include more than 50 matches, but only the first 50 will be reranked semantically. For semantic ranking, the model uses both machine reading comprehension and transfer learning to re-score the documents based on how well each one matches the intent of the query.
 
-Having received the top 50 matches, the semantic ranking model re-evaluates the document corpus. Results can include more than 50 matches, but only the first 50 will be reranked. For ranking, the model uses both machine learning and transfer learning to re-score the documents based on how well each one matches the intent of the query.
-
-Internally, the extraction model intakes about 10,000 tokens, which roughly correspond to about three pages of text. If the fields you specify in searchFields parameter contain text that is in excess of this amount, anything beyond the token limit is ignored. For best results, use semantic ranking on documents and fields that have a workable amount of text.
-
-## Improve precision
-
-<!-- A semantic response includes new properties for scores, captions, and answers. A semantic response is built from the standard response, using the top 50 results returned by the [full text search engine](search-lucene-query-architecture.md), which are then re-ranked using the semantic ranker. If more than 50 are specified, the additional results are returned, but they won’t be semantically re-ranked.
-
-As with all queries, a response is composed of all fields marked as retrievable, or just those fields listed in the select statement. It also includes an "answer" field and "captions".
-
-+ For each semantic result, by default, there is one "answer", returned as a distinct field that you can choose to render in a search page. You can specify up to five. Formulation of answer is automated: reading through all the documents in the initial results, running extractive summarization, followed by machine reading comprehension, and finally promoting a direct answer to the user’s question in the answer field.
-
-+ A "caption" is an extraction-based summarization of document content, returned in plain text or with highlights. Captions are included automatically and cannot be suppressed. Highlights are applied using machine reading comprehension to identify which strings should be emphasized. Highlights draw your attention to the most relevant passages, so that you can quickly scan a page of results to find the right document. -->
+Internally, the extraction model intakes about 10,000 tokens per document, which roughly correspond to about three pages of text. Collectively, if the fields you specify in searchFields contain text that is in excess of the maximum limit, the excess text is ignored. For best results, use semantic ranking on documents and fields that have a workable amount of text.
 
 ## Next steps
+
+Semantic ranking is offered on Standard services only. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 A new query type enables the relevance ranking and response structures of semantic search.
 
