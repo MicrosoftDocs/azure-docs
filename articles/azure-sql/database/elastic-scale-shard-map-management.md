@@ -15,7 +15,7 @@ ms.date: 01/25/2019
 # Scale out databases with the shard map manager
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-To easily scale out databases on Azure SQL Database, use a shard map manager. The shard map manager is a special database that maintains a global mapping information about all shards (databases) in a shard set. The metadata allows an application to connect to the correct database based upon the value of the **sharding key**. In addition, every shard in the set contains maps that track the local shard data (known as **shardlets**).
+To easily scale out databases on Azure SQL Database, use a shard map manager. The shard map manager is a special database that maintains global mapping information about all shards (databases) in a shard set. The metadata allows an application to connect to the correct database based upon the value of the **sharding key**. In addition, every shard in the set contains maps that track the local shard data (known as **shardlets**).
 
 ![Shard map management](./media/elastic-scale-shard-map-management/glossary.png)
 
@@ -30,7 +30,7 @@ For each shard, you must select the type of shard map to create. The choice depe
    1. List mapping
    2. Range mapping
 
-For a single-tenant model, create a **list-mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies the management.
+For a single-tenant model, create a **list-mapping** shard map. The single-tenant model assigns one database per tenant. This is an effective model for SaaS developers as it simplifies shard map management.
 
 ![List mapping][1]
 
