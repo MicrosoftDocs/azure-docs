@@ -9,7 +9,7 @@ ms.author: fauhse
 ms.subservice: files
 ---
 
-# Move Azure File Sync resources to a different resource group, subscription or AAD tenant
+# Move Azure File Sync resources to a different resource group, subscription, or AAD tenant
 
 This article describes how to make changes to resource group, subscription, or Azure Active Directory (AAD) tenant for your Azure File Sync cloud resources and Azure storage accounts.
 
@@ -66,7 +66,7 @@ Individual resources like a Storage Sync Service or storage accounts, cannot mov
 
 1. Create an Azure subscription (or determine an existing one in the old tenant that should move.
 1. [Perform a subscription move within the same AAD tenant](#move-within-the-same-azure-active-directory-tenant) of your Storage Sync Service and all associated storage accounts.
-1. Sync will stop. Complete your tenant move immediately or [restore sync's ability to access the storage accounts that moved](#azure-file-sync-storage-access-authorization) into the subscription before you move to the new AAD tenant later.
+1. Sync will stop. Complete your tenant move immediately or [restore sync's ability to access the storage accounts that moved](#azure-file-sync-storage-access-authorization) before you move to the new AAD tenant later.
 
 Once all related Azure File Sync resources have been sequestered into their own subscription, you are ready to move the entire subscription to the target AAD tenant. The [transfer subscription guide](../../role-based-access-control/transfer-subscription.md) allows you to plan and execute such a transfer.
 
@@ -92,7 +92,7 @@ When storage accounts are moved to either a new subscription or are moved within
         :::image type="content" source="media/storage-sync-resource-move/storage-sync-resource-move-afs-rp-registered-small.png" alt-text="An image showing the Azure portal, subscription management, registered resource providers." lightbox="media/storage-sync-resource-move/storage-sync-resource-move-afs-rp-registered.png":::
     :::column-end:::
     :::column:::
-        The Azure File Sync service principal must exist in your AAD tenant before you can authorize sync access to a storage account. </br></br> When you create a new Azure subscription today, the Azure File Sync resource provider *Microsoft.StorageSync* is automatically registered with your subscription. Resource provider registration will make a *service principal* for sync available in the Azure Active Directory tenant that governs the subscription. A service principal is similar to a user account in your AAD. You can use the Azure File Sync service principal to authorize access to resources via role-based access control (RBAC). The only resource sync needs access to is your storage accounts containing the file shares that are supposed to sync. *Microsoft.StorageSync* needs to be assigned to the built-in role **Reader and Data access** on the storage account. </br></br> This assignment is done automatically through the user context of the logged on user when you add a file share to a sync group, or in other words, you create a cloud endpoint. When a storage account moves to a new subscription, or AAD tenant, this role assignment is lost and [must be manually reestablished](#establish-sync-access-to-a-storage-account).
+        The Azure File Sync service principal must exist in your AAD tenant before you can authorize sync access to a storage account. </br></br> When you create a new Azure subscription today, the Azure File Sync resource provider *Microsoft.StorageSync* is automatically registered with your subscription. Resource provider registration will make a *service principal* for sync available in the Azure Active Directory tenant that governs the subscription. A service principal is similar to a user account in your AAD. You can use the Azure File Sync service principal to authorize access to resources via role-based access control (RBAC). The only resource sync needs access to is your storage accounts containing the file shares that are supposed to sync. *Microsoft.StorageSync* must be assigned to the built-in role **Reader and Data access** on the storage account. </br></br> This assignment is done automatically through the user context of the logged on user when you add a file share to a sync group, or in other words, you create a cloud endpoint. When a storage account moves to a new subscription, or AAD tenant, this role assignment is lost and [must be manually reestablished](#establish-sync-access-to-a-storage-account).
     :::column-end:::
 :::row-end:::
 
@@ -101,13 +101,18 @@ When storage accounts are moved to either a new subscription or are moved within
 
 ### Establish sync access to a storage account
 
-The [Azure File Sync service principal](#azure-file-sync-service-principal) must be used to authorize access to a storage account via role-based access control (RBAC). *Microsoft.StorageSync* needs to be assigned to the built-in role **Reader and Data access** on the storage account. 
+The [Azure File Sync service principal](#azure-file-sync-service-principal) must be used to authorize access to a storage account via role-based access control (RBAC). *Microsoft.StorageSync* must be assigned to the built-in role **Reader and Data access** on the storage account. 
 
 This assignment is typically done automatically through the user context of the logged on user when you add a file share to a sync group, or in other words, you create a cloud endpoint. However, when a storage account moves to a new subscription or AAD tenant, this role assignment is lost and must be manually reestablished.
 
-|   |   |
-|---------|---------|
-|:::image type="content" source="media/storage-sync-resource-move/storage-sync-resource-move-assign-rbac.png" alt-text="An image displaying the Microsoft.StorageSync service principal assigned to the Reader and Data access role on a storage account":::  | In the Azure portal, navigate to the storage account you need to reauthorize sync access to. <ol><li>Select **Access control (IAM)** on the left-hand table of contents.</li><li>Select the Role assignments tab to the list the users and applications (service principals) that have access to your storage account.</li><li>Select **Add**</li><li>In the **Role field**, select **Reader and Data Access**.</li><li>In the **Select field**, type *Microsoft.StorageSync*, select the role and click **Save**.</li></ol> |
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-sync-resource-move/storage-sync-resource-move-assign-rbac.png" alt-text="An image displaying the Microsoft.StorageSync service principal assigned to the Reader and Data access role on a storage account":::
+    :::column-end:::
+    :::column:::
+        In the Azure portal, navigate to the storage account you need to reauthorize sync access to. <ol><li>Select **Access control (IAM)** on the left-hand table of contents.</li><li>Select the Role assignments tab to the list the users and applications (service principals) that have access to your storage account.</li><li>Select **Add**</li><li>In the **Role field**, select **Reader and Data Access**.</li><li>In the **Select field**, type *Microsoft.StorageSync*, select the role and click **Save**.</li></ol>
+    :::column-end:::
+:::row-end:::
 
 ## Move to a different Azure region
 
@@ -122,7 +127,7 @@ Assigning a different region to a resource is different from a [region fail-over
 > [!CAUTION]
 > Fail-over is never an appropriate substitute to provisioning your resources in the correct Azure region. If your resources are in the "wrong" region, you need to consider stopping sync and set up sync again to new Azure file shares that are deployed in your desired region.
 
-A regional fail-over was originally designed to be started by Microsoft in a catastrophic event that will render data centers in an Azure region incapacitated for an extended period of time. The definition of downtime your business can sustain might be less than the time Microsoft is prepared to let pass before starting a regional fail-over. For a situation like that, [fail-overs can also be initiated by customers](../common/storage-initiate-account-failover.md).
+A regional fail-over can be started by Microsoft in a catastrophic event that will render data centers in an Azure region incapacitated for an extended period of time. The definition of downtime your business can sustain might be less than the time Microsoft is prepared to let pass before starting a regional fail-over. For a situation like that, [fail-overs can also be initiated by customers](../common/storage-initiate-account-failover.md).
 
 > [!IMPORTANT]
 > In the event of a fail-over, you need to file a support ticket for your impacted Storage Sync Services to get sync operational again.
