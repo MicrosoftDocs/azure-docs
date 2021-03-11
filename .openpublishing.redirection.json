@@ -49660,6 +49660,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/saas-apps/templafy-provisioning-tutorial.md",
+      "redirect_url": "/azure",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/application-provisioning-config-problem-storage-limit.md",
       "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
       "redirect_document_id": true
