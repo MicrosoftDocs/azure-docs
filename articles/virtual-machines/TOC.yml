@@ -1433,7 +1433,7 @@
       displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?context=/azure/virtual-machines/context/context
     - name: REST
-    - displayName: Configured managed identies
+      displayName: Configured managed identies
       href: ../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?context=/azure/virtual-machines/context/context
     - name: Azure SDKs
       displayName: Configured managed identies
