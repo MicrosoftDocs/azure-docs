@@ -1,13 +1,13 @@
 ---
 title: Manage Azure subscription policies
-description: Learn how to manage Azure subscription policies to control the movement of Azure subscriptions from and into directories
+description: Learn how to manage Azure subscription policies to control the movement of Azure subscriptions from and into directories.
 author: anuragdalmia
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 03/10/2021
 ms.reviewer: banders
-ms.author: andalmia 
+ms.author: andalmia
 ---
 
 # Manage Azure subscription policies
@@ -15,39 +15,44 @@ ms.author: andalmia
 >[!NOTE]
 >This feature is currently in preview and is being gradually rolled out, so not everyone may see this experience on the Azure portal yet. We expect it to be available to everyone shortly.
 
-This article helps you configure Azure subscription policies for subscription operations. 
+This article helps you configure Azure subscription policies for subscription operations to control the movement of Azure subscriptions from and into directories.
 
 ## Prerequisites
 
-- Only directory [global administrators](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator0) are able to edit subscription policies. Before doing that, the global administrator must [Elevate access to manage all Azure subscriptions and management groups](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) after which they will be able to edit the subscription policies.
+- Only directory [global administrators](../../active-directory/roles/permissions-reference.md#global-administrator0) are able to edit subscription policies. Before editing subscription policies, the global administrator must [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md). Then they can edit subscription policies.
 - All other users can only read the current policy setting.
 
-
 ## Available subscription policy settings
+
+Use the following policy settings to control the movement of Azure subscriptions from and into directories.
+
 ### Subscriptions leaving AAD directory
-This policy controls if users are able to move subscriptions out of the current directory. [Subscription owners](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) have  capability today to [change the directory of an Azure subscription](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory) to another one where they are a member. This poses some governance challenges so global administrators may choose to allow/dis-allow directory users from being able to do so.
+
+The policy allows or stops users from moving subscriptions out of the current directory. [Subscription owners](../../role-based-access-control/built-in-roles.md#owner) can [change the directory of an Azure subscription](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to another one where they are a member. It poses governance challenges, so global administrators can allow or disallow directory users from changing the directory.
 
 ### Subscriptions entering AAD directory
-This policy controls if users from other directories (and having presence in the current directory) are able to move subscriptions into the current directory. The mechanism to do this is the same as [before](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory) and has similar governance concerns. Global administrators may choose to allow/dis-allow this operation as well.
+
+The policy allows or stops users from other directories, who have access in the current directory, to move subscriptions into the current directory. [Subscription owners](../../role-based-access-control/built-in-roles.md#owner) can [change the directory of an Azure subscription](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) to another one where they are a member. It poses governance challenges, so global administrators can allow or disallow directory users from changing the directory.
 
 ### Exempted Users
-Global Administrators may decide that for governance reasons they may want to block all subscription directory moves - into our out of the current directory. But they may want some special users to be able to do either of these operations if business so demands it. For these scenarios, they can configure an exempted users list which allows these users to bypass the policy setting for everyone else.
+
+Global administrators, for governance reasons, can block all subscription directory moves - in to our out of the current directory. However, they might want specific users to be able to do either operations. For either situation, they can configure a list of exempted users that allows the users to bypass the policy setting that applies to everyone else.
 
 ## Setting subscription policy
 
-1. Login to [Azure portal](https://portal.azure.com/).
-1. Navigate to the subscriptions blade. You will find `Manage Policies` on the command bar.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Navigate to the subscriptions blade. **Manage Policies** is shown on the command bar.  
+    :::image type="content" source="./media/manage-azure-subscription-policy/subscription-blade-manage-policies.png" alt-text="Screenshot showing Manage Polices in Subscriptions." lightbox="./media/manage-azure-subscription-policy/subscription-blade-manage-policies.png" :::
+1. Select **Manage Policies** to view details about the current subscription policies set for the directory. A global administrator with [elevated permissions](../../role-based-access-control/elevate-access-global-admin.md) can make edits to the settings including adding or removing exempted users.  
+    :::image type="content" source="./media/manage-azure-subscription-policy/subscription-blade-policies.png" alt-text="Screenshot showing specific policy settings and exempted users." lightbox="./media/manage-azure-subscription-policy/subscription-blade-policies.png" :::
+1. Select **Save changes** at the bottom to save changes. The changes are effective immediately.
 
-![Subscription blade manage policies](./media/manage-azure-subscription-policy/subscription-blade-manage-policies.png)
+## Read subscription policy
 
-3. Clicking on this will take you to the details of the current subscription policies set for this directory. Global Administrator with [elevated permissions](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin) are able to make edits to these settings including adding/removing exempted users.
+Non-global administrators can still navigate to the subscription policy area to view the directory's policy settings. They can't make any edits. They can't see the list of exempted users for privacy reasons. They have an option to view their global administrators in case to want to put in requests for policy changes (as long as the directory settings allows them to do so).
 
-![Subscription policy blade](./media/manage-azure-subscription-policy/subscription-blade-policies.png)
+:::image type="content" source="./media/manage-azure-subscription-policy/subscription-blade-policies-reader.png" alt-text="Screenshot showing the Manage policies in Subscriptions as a reader." lightbox="./media/manage-azure-subscription-policy/subscription-blade-policies-reader.png" :::
 
-4. Click on `Save changes` at the bottom to persist any edits made. The changes go into effect immediately. 
+## Next steps
 
-## Reading subscription policy
-
-Non-global administrators can still navigate to the subscription policy blade to read the directory's policy settings but they will be unable to make any edits. They will also be unable to see the list of exempted users for privacy reasons. They have an option to view their global administrators in case to want to put in requests for policy changes (as long as the directory settings allows them to do so)
-
-![Subscription policy reader blade](./media/manage-azure-subscription-policy/subscription-blade-policies-reader.png)
+- 
