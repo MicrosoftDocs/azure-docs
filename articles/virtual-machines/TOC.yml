@@ -580,28 +580,12 @@
         href: ./linux/time-sync.md
       - name: Windows
         href: ./windows/time-sync.md
-    - name: Run scripts on a VM
-      items:
-      - name: Custom Script Extension
-        items:
-        - name: Linux
-          href: ./extensions/custom-script-linux.md
-        - name: Windows
-          href: ./extensions/custom-script-windows.md
       - name: Run Command
         items:
         - name: Linux
           href: ./linux/run-command.md
         - name: Windows
           href: ./windows/run-command.md
-      - name: Hybrid Runbook Worker
-        href: ../automation/automation-hybrid-runbook-worker.md
-      - name: Serial console
-        items:
-        - name: Linux
-          href: ./troubleshooting/serial-console-linux.md
-        - name: Windows
-          href: ./troubleshooting/serial-console-windows.md
     - name: Enable nested virtualization
       href: ./windows/nested-virtualization.md
     - name: File storage
@@ -610,10 +594,6 @@
         href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
       - name: Copy files to a Linux VM
         href: ./linux/copy-files-to-linux-vm-using-scp.md
-    - name: Updates and patches
-      items:
-      - name: Red Hat Update Infrastructure
-        href: ./workloads/redhat/redhat-rhui.md
 - name: Images
   items:
   - name: Find Azure Marketplace images
