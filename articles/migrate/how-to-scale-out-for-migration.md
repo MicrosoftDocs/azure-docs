@@ -144,10 +144,10 @@ To complete the registration of the scale-out appliance, click **import** to get
 1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and click **Save**.
 
 Once the files have been successfully imported, the registration of the scale-out appliance will complete and it will show you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.
-:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Import successful":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Screenshot shows scale-out appliance registration with Azure Migrate project.":::
 
 At this point you should revalidate that the scale-out appliance is able to connect to your vCenter server. Click **revalidate** to validate vCenter Server connectivity from scale-out appliance.
-:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Import successful":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Screenshot shows view credentials and discovery sources to be validated.":::
 
 > [!IMPORTANT]
 > If you edit the vCenter Server credentials on the primary appliance, ensure that you import the configuration files again to the scale-out appliance to get the latest configuration and continue any ongoing replications.<br/> If you do not need the scale-out appliance any longer, make sure that you disable the scale-out appliance. [**Learn more**](./common-questions-appliance.md) on how to disable the scale-out appliance when not needed.

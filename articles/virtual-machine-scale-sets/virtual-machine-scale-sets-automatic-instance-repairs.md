@@ -273,7 +273,7 @@ az vmss set-orchestration-service-state \
 ```
 ### Azure PowerShell
 
-Use [Get-AzVmss](/powershell/module/az.compute/get-azvmss?view=azps-3.7.0) cmdlet with parameter *InstanceView* to view the *ServiceState* for automatic instance repairs.
+Use [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet with parameter *InstanceView* to view the *ServiceState* for automatic instance repairs.
 
 ```azurepowershell-interactive
 Get-AzVmss `

@@ -30,7 +30,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - This article requires version 2.0.61 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. Alternatively, you can use a [managed identity](use-managed-identity.md) instead of a service principal for permissions. If you need either of these resources, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
+- To create an AKS cluster using a Resource Manager template, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
 
 ### Create an SSH key pair
 
@@ -45,28 +45,6 @@ ssh-keygen -t rsa -b 2048
 ```
 
 For more information about creating SSH keys, see [Create and manage SSH keys for authentication in Azure][ssh-keys].
-
-### Create a service principal
-
-To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command. The `--skip-assignment` parameter limits any additional permissions from being assigned. By default, this service principal is valid for one year. Note that you can use a managed identity instead of a service principal. For more information, see [Use managed identities](use-managed-identity.md).
-
-```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
-```
-
-The output is similar to the following example:
-
-```json
-{
-  "appId": "8b1ede42-d407-46c2-a1bc-6b213b04295f",
-  "displayName": "azure-cli-2019-04-19-21-42-11",
-  "name": "http://azure-cli-2019-04-19-21-42-11",
-  "password": "27e5ac58-81b0-46c1-bd87-85b4ef622682",
-  "tenant": "73f978cf-87f2-41bf-92ab-2e7ce012db57"
-}
-```
-
-Make a note of the *appId* and *password*. These values are used in the following steps.
 
 ## Review the template
 
@@ -93,13 +71,10 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
     * **DNS prefix**: Enter a unique DNS prefix for your cluster, such as *myakscluster*.
     * **Linux Admin Username**: Enter a username to connect using SSH, such as *azureuser*.
     * **SSH RSA Public Key**: Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*).
-    * **Service Principal Client Id**: Copy and paste the *appId* of your service principal from the `az ad sp create-for-rbac` command.
-    * **Service Principal Client Secret**: Copy and paste the *password* of your service principal from the `az ad sp create-for-rbac` command.
-    * **I agree to the terms and conditions state above**: Check this box to agree.
 
     ![Resource Manager template to create an Azure Kubernetes Service cluster in the portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Select **Purchase**.
+3. Select **Review + Create**.
 
 It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
