@@ -29,34 +29,14 @@ Select "Empty Activity" project template under "Phone and Tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
 
-Select Minimum client library of "API 21: Android 5.0 (Lollipop)" or greater.
+Name the project `TeamsEmbedAndroidGettingStarted` and select Minimum client library of "API 21: Android 5.0 (Lollipop)" or greater.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen 2.":::
 
 
 ### Install the Azure package
 
-Locate your project level build.gradle and make sure to add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`
-```groovy
-buildscript {
-    repositories {
-    ...
-        mavenCentral()
-    ...
-    }
-}
-```
-
-```groovy
-allprojects {
-    repositories {
-    ...
-        mavenCentral()
-    ...
-    }
-}
-```
-Then, in your module level build.gradle add the following lines to the dependencies and android sections
+In your module level build.gradle add the following lines to the dependencies and android sections
 
 ```groovy
 android {
@@ -71,47 +51,65 @@ android {
 }
 
 dependencies {
+
     ...
-    implementation 'com.azure.android:azure-communication-common:1.0.0-beta.4'
+    implementation 'com.azure.android:azure-communication-common:1.0.0-beta.6'
     ...
 }
 ```
 
 ### Install the Teams Embed package
 
-Download the `MicrosoftTeamsSDK` package here 'Insert link once posted'.
+Download the `MicrosoftTeamsSDK` package.
 
 Then unzip the MicrosoftTeamsSDK folder into your projects app folder. Ex. `TeamsEmbedAndroidGettingStarted/app/MicrosoftTeamsSDK`.
 
+### Add Teams Embed package to your build.gradle
+
+In your module level build.gradle add the following line at the end of the file.
+
+```groovy
+apply from: 'MicrosoftTeamsSDK/MicrosoftTeamsSDK.gradle'
+```
+
+Sync project with gradle files.
+
 ### Add permissions to application manifest
 
-In order to request permissions required to join a meeting, they must first be declared in the Application Manifest (`app/src/main/AndroidManifest.xml`). Replace the content of file with the following:
+In order to request permissions required to join a meeting, they must first be declared in the Application Manifest (`app/src/main/AndroidManifest.xml`). 
+
+Add the `RECORD_AUDIO` permission.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.microsoft.TeamsEmbedAndroidGettingStarted">
+    package="com.yourcompany.TeamsEmbedAndroidGettingStarted">
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <application
-        android:name=".TeamsEmbedAndroidGettingStarted"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:replace="android:name">
-        <activity android:name="com.microsoft.TeamsEmbedAndroidGettingStarted.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+```
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-</manifest>
-    
+### Add app name and theme to application manifest
+
+Add `xmlns:tools="http://schemas.android.com/tools" to the manifest.
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.yourcompany.TeamsEmbedAndroidGettingStarted">
+```
+
+Add the app name to `android:name`, add `android:name` to `tools:replace`, and change the `android:theme` to `@style/AppTheme`
+
+```xml
+<application
+    android:name=".TeamsEmbedAndroidGettingStarted"
+    tools:replace="android:name"
+    android:theme="@style/AppTheme"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true">
 ```
 
 ### Update themes
@@ -120,7 +118,9 @@ Set the style name to `AppTheme` in both your `theme.xml` and `theme.xml (night)
 
 :::image type="content" source="../media/android/theme-settings.png" alt-text="Screenshot showing the theme.xml files in Android Studio":::
 
-```xml<style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">```
+```xml
+<style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+```
 
 ### Set up the layout for the app
 
@@ -154,7 +154,7 @@ Create new java class file named `TeamsEmbedAndroidGettingStarted`. This will be
 :::image type="content" source="../media/android/application-class-location.png" alt-text="Screenshot showing where to create application class in Android Studio":::
 
 ```java
-package com.microsoft.TeamsEmbedAndroidGettingStarted;
+package com.microsoft.teamsembedandroidgettingstarted;
 
 import com.microsoft.teamssdk.app.TeamsSDKApplication;
 
@@ -169,7 +169,7 @@ With the layout created the bindings can be added as well as the basic scaffoldi
 Navigate to **MainActivity.java** and replace the content with the following code:
 
 ```java
-package com.microsoft.TeamsEmbedAndroidGettingStarted;
+package com.yourcompany.teamsembedandroidgettingstarted;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -182,11 +182,11 @@ import android.widget.Toast;
 
 import com.azure.android.communication.common.CommunicationTokenCredential;
 import com.azure.android.communication.common.CommunicationTokenRefreshOptions;
-import com.azure.android.communication.ui.meetings.CallState;
 import com.azure.android.communication.ui.meetings.MeetingJoinOptions;
 import com.azure.android.communication.ui.meetings.MeetingUIClient;
 
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 
 public class MainActivity extends AppCompatActivity {
 
