@@ -64,10 +64,15 @@ You can modify the values that are enclosed in quotation marks, as required.
 
 ### Use Microsoft Graph
 
+Request
+
 ```http
-Http Request
 POST /administrativeUnits
-Request body
+```
+
+Body
+
+```http
 {
   "displayName": "North America Operations",
   "description": "North America Operations administration"
@@ -89,18 +94,23 @@ In Azure AD, you can remove an administrative unit that you no longer need as a 
 ### Use PowerShell
 
 ```powershell
-$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
+$adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $adminUnitObj.ObjectId
 ```
 
 You can modify the values that are enclosed in quotation marks, as required for the specific environment.
 
 ### Use the Graph API
 
+Request
+
 ```http
-HTTP request
-DELETE /administrativeUnits/{Admin id}
-Request body
+DELETE /administrativeUnits/{admin-unit-id}
+```
+
+Body
+
+```http
 {}
 ```
 
