@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/11/2021
 ---
 
 # What's new in Azure Sentinel
@@ -29,6 +29,15 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 - [Microsoft 365 Defender incident integration](#microsoft-365-defender-incident-integration) (public preview)
 - [New Microsoft service connectors using Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
+- [Incident filters and sort preferences now saved in your session](#incident-filters-and-sort-preferences-now-saved-in-your-session)
+ 
+## Incident filters and sort preferences now saved in your session
+
+Now your incident filters and sorting is saved throughout your Azure Sentinel session, even while navigating to other areas of the product.
+As long as you're still in the same session, navigating back to the [Incidents](tutorial-investigate-cases.md) area in Azure Sentinel shows your filters and sorting just as you left it.
+
+> [!NOTE]
+> Incident filters and sorting are not saved after leaving Azure Sentinel or refreshing your browser.
 
 ### Microsoft 365 Defender incident integration
 
