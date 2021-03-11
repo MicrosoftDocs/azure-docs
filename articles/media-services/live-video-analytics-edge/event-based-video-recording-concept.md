@@ -7,7 +7,9 @@ ms.date: 05/27/2020
 
 ---
 # Event-based video recording  
- 
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 ## Suggested pre-reading  
 
 * [Continuous video recording](continuous-video-recording-concept.md)

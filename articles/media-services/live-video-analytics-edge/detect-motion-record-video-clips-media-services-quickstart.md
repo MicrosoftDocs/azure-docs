@@ -7,6 +7,8 @@ ms.date: 04/27/2020
 ---
 # Quickstart: Detect motion, record video to Media Services
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This article walks you through the steps to use Live Video Analytics on IoT Edge for [event-based recording](event-based-video-recording-concept.md). It uses a Linux VM in Azure as an IoT Edge device and a simulated live video stream. This video stream is analyzed for the presence of moving objects. When motion is detected, events are sent to Azure IoT Hub, and the relevant part of the video stream is recorded as an asset in Azure Media Services.
 
 This article builds on top of the [Getting Started quickstart](get-started-detect-motion-emit-events-quickstart.md).

@@ -8,6 +8,8 @@ ms.date: 05/27/2020
 
 # Create custom Azure Resource Manager role and assign to service principal
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 Live Video Analytics on IoT Edge module instance needs an active Azure Media Services account for it to function properly. The relationship between the Live Video Analytics on IoT Edge module and the Azure Media Service account is established via a set of module twin properties. One of those twin properties is a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) that enables the module instance to communicate with and trigger necessary operations on the Media Services account. To minimize potential misuse and/or accidental data exposure from the edge device, this service principal should have the least amount of privileges.
 
 This article shows you the steps for creating a custom Azure Resource Manager role with Azure Cloud Shell, which then is used to create a service principal.
