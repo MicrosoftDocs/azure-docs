@@ -3,14 +3,14 @@ title: Receipts - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to receipt analysis with the Form Recognizer API - usage and limits.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 # Form Recognizer prebuilt receipt model

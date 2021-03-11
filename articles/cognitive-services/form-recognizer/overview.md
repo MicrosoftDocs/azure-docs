@@ -2,14 +2,14 @@
 title: What is Form Recognizer?
 titleSuffix: Azure Cognitive Services
 description: The Azure Form Recognizer service allows you to identify and extract key/value pairs and table data from your form documents, as well as extract major information from sales receipts and business cards.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 11/23/2020
-ms.author: pafarley
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: automated data processing, document processing, automated data entry, forms processing
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
@@ -66,15 +66,15 @@ You have the following options when you train custom models: training with label
 
 ### Train without labels
 
-Form Recognizer train without labels uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. When you submit your input forms, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. This doesn't require manual data labeling or intensive coding and maintenance, and we recommend you try this method first.
+Form Recognizer uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. When you submit your input forms, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. Training without labels doesn't require manual data labeling or intensive coding and maintenance, and we recommend you try this method first.
 
 See [Build a training data set](./build-training-data-set.md) for tips on how to collect your training documents.
 
 ### Train with labels
 
-When you train with labeled data, the model does supervised learning to extract values of interest, using the labeled forms you provide. This results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
+When you train with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
-Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model and add more labeled data as needed to improve the model accuracy. Form Recognizer enbales training a model to extract key value pairs and tables using supervised learning capabilities. 
+Form Recognizer uses the [Layout API](#layout-api) to learn the expected sizes and positions of printed and handwritten text elements and extract tables. Then it uses user-specified labels to learn the key/value associations and tables in the documents. We recommend that you use five manually labeled forms of the same type (same structure) to get started when training a new model and add more labeled data as needed to improve the model accuracy. Form Recognizer enables training a model to extract key value pairs and tables using supervised learning capabilities. 
 
 [Get started with Train with labels](./quickstarts/label-tool.md)
 
@@ -86,7 +86,7 @@ Form Recognizer also includes Prebuilt models for automated data processing of u
 
 ### Prebuilt Invoice model
 
-The Prebuilt Invoice model extracts data from invoices in a variety of formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal, line items and more. In addition, the prebuilt invoice model is trained to analyze and return all of the text and tables on the invoice. See the [Invoices](./concept-invoices.md) conceptual guide for more info.
+The Prebuilt Invoice model extracts data from invoices in various formats and returns structured data. This model extracts key information such as the invoice ID, customer details, vendor details, ship to, bill to, total, tax, subtotal, line items and more. In addition, the prebuilt invoice model is trained to analyze and return all of the text and tables on the invoice. See the [Invoices](./concept-invoices.md) conceptual guide for more info.
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="sample invoice" lightbox="./media/overview-invoices.jpg":::
 
@@ -98,7 +98,7 @@ The Prebuilt Receipt model is used for reading English sales receipts from Austr
 
 ### Prebuilt Identification (ID) cards model
 
-The Identification (ID) cards model enables you to extract key information from world wide passports and US driver licenses. It extracts data such as the document ID, expiration date of birth, date of expiration, name, country, region, machine readable zone and more. See the [Identification (ID) cards](./concept-identification-cards.md) conceptual guide for more info.
+The Identification (ID) cards model enables you to extract key information from world-wide passports and US driver licenses. It extracts data such as the document ID, expiration date of birth, date of expiration, name, country, region, machine-readable zone and more. See the [Identification (ID) cards](./concept-identification-cards.md) conceptual guide for more info.
 
 :::image type="content" source="./media/overview-id.jpg" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
@@ -123,11 +123,11 @@ Use the Sample Form Recognizer Tool to try out Layout, Pre-built models and trai
 > [Try Form Recognizer](https://fott.azurewebsites.net/)
 
 ---
-Follow the [Client library / REST API quickstart](./quickstarts/client-library.md) to get started extracting data from your docuements. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
+Follow the [Client library / REST API quickstart](./quickstarts/client-library.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 You can also use the REST samples (GitHub) to get started - 
 
-* Extract text, selection marks and table structure from documents
+* Extract text, selection marks, and table structure from documents
   * [Extract layout data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
 * Train custom models and extract form data
   * [Train without labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
@@ -145,10 +145,10 @@ You'll use the following APIs to train models and extract structured data from f
 
 |Name |Description |
 |---|---|
-| **Analyze Layout** | Analyze a document passed in as a stream to extract text, selection marks, tables and structure from the document |
+| **Analyze Layout** | Analyze a document passed in as a stream to extract text, selection marks, tables, and structure from the document |
 | **Train Custom Model**| Train a new model to analyze your forms by using five forms of the same type. Set the _useLabelFile_ parameter to `true` to train with manually labeled data. |
 | **Analyze Form** |Analyze a form passed in as a stream to extract text, key/value pairs, and tables from the form with your custom model.  |
-| **Analyze Invoice** | Analyze a invoice to extract key information, tables, and other invoice text.|
+| **Analyze Invoice** | Analyze an invoice to extract key information, tables, and other invoice text.|
 | **Analyze Receipt** | Analyze a receipt document to extract key information, and other receipt text.|
 | **Analyze ID** | Analyze an ID card document to extract key information, and other identification card text.|
 | **Analyze Business Card** | Analyze a business card to extract key information and text.|
@@ -169,7 +169,7 @@ Explore the [REST API reference documentation](https://westus2.dev.cognitive.mic
 
 ## Deploy on premises using Docker containers
 
-[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security or other operational reasons. (Form Recognzer 2.1 container release comming soon, stay tuned)
+[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security, or other operational reasons. (Form Recognizer 2.1 container release coming soon—stay tuned)
 
 ## Service availability and redundancy
 
@@ -189,5 +189,5 @@ As with all the cognitive services, developers using the Form Recognizer service
 
 Complete the following: 
 
-1. [Form Recognizer tool] (https://fott-preview.microsoft.com/) to try our the Form Recognizer service
-2. [client libarary and REST API quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
+1. [Form Recognizer tool] (https://fott-preview.microsoft.com/) to try our Form Recognizer service
+2. [client library and REST API quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.

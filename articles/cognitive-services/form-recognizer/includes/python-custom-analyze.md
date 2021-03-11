@@ -1,10 +1,10 @@
 ---
-author: PatrickFarley
+author: laujan
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/14/2019
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 ## Analyze forms for key-value pairs and tables

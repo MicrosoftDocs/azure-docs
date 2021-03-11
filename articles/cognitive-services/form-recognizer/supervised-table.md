@@ -2,14 +2,14 @@
 title: "How to label and train Custom Form models using table tags - Form Recognizer"
 titleSuffix: Azure Cognitive Services
 description: Learn how to used supervised table labeling effectively.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.author: pafarley
+ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
 ---
 

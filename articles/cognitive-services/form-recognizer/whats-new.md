@@ -2,14 +2,14 @@
 title: What's new in Form Recognizer?
 titleSuffix: Azure Cognitive Services
 description: Understand the latest changes to the Form Recognizer API.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: pafarley
+ms.author: lajanuar
 
 ---
 <!-- markdownlint-disable MD024 -->

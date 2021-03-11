@@ -3,20 +3,19 @@ title: IDs - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to data extraction from identity documents with the Form Recognizer Pre-built IDs API.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 02/25/2021
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 # Form Recognizer prebuilt identification card (ID) model
 
 Azure Form Recognizer can analyze and extract information from government identification cards (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 preview as a cloud service and as an on-premise container.
-
 
 ## What does the ID service do? 
 
@@ -25,7 +24,6 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 ![Sample Driver's License](./media/id-example-driverslicense.JPG)
 
 ![Sample Passport](./media/id-example-passport-result.JPG)
-
 
 ### Fields Extracted
 
@@ -40,7 +38,7 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 |  Nationality | country | Country code compliant with ISO 3166 standard | "USA" |
 |  Sex | gender | Possible extracted values include "M", "F" and "X" | "F" | 
 |  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | string | Document type, e.g. Passport, Driver's License | "passport" |  
+|  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |  
 |  Address | string | Extracted address (Driver's License only) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
 |  Region | string | Extracted region, state, province, etc. (Driver's License only) | "Washington" | 
 
@@ -67,18 +65,16 @@ To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 
 ## Input requirements
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## Supported ID types  
 
 * **Pre-built IDs v2.1-preview.3** Extracts key values from worldwide passports, and U.S. Driver's Licenses. 
 
-
   > [!NOTE]
   > ID type support 
   >
   > Currently supported ID types include worldwide passport and U.S. Driver's Licenses. We are actively seeking to expand our ID support to other identity documents around the world.
-
 
 ## The Analyze idDocument operation
 
@@ -105,14 +101,14 @@ The second step is to call the [Get Analyze idDocument Result](https://westcentr
 | |  | failed: The analysis operation has failed. |
 | |  | succeeded: The analysis operation has succeeded. |
 
-When the **status** field has the **succeeded** value, the JSON response will include the receipt understanding and text recognition results. The IDs result are organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
+When the **status** field has the **succeeded** value, the JSON response will include the receipt understanding and text recognition results. The IDs result are organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence, and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
 
 ![sample receipt results](./media/id-example-passport-result.JPG)
 
 ### Sample JSON output
 
 See the following example of a successful JSON response:
-The "readResults" node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The "documentResults" node contains the IDs values that the model discovered. This is where you'll find useful key/value pairs like the first name, last name, document number and more.
+The `readResults` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `documentResults` node contains the ID values that the model discovered. This node is also where you'll find useful key/value pairs like the first name, last name, document number, and more.
 
 ```json
 { 

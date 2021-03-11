@@ -3,14 +3,14 @@ title: Business cards - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to business card analysis with the Form Recognizer API - usage and limits.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 # Form Recognizer prebuilt business cards model 
@@ -48,7 +48,7 @@ The Business Card API can also return all recognized text from the Business Card
 
 ### Input Requirements 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## The Analyze Business Card operation
 
@@ -66,7 +66,7 @@ The second step is to call the [Get Analyze Business Card Result](https://westce
 |:-----|:----:|:----|
 |status | string | notStarted: The analysis operation has not started.<br /><br />running: The analysis operation is in progress.<br /><br />failed: The analysis operation has failed.<br /><br />succeeded: The analysis operation has succeeded.|
 
-When the **status** field has the **succeeded** value, the JSON response will include the business card understanding and optional text recognition results, if requested. The business card understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
+When the **status** field has the **succeeded** value, the JSON response will include the business card understanding and optional text recognition results, if requested. The business card understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence, and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
 
 ![sample business card output](./media/business-card-results.png)
 
@@ -382,7 +382,7 @@ Follow the [quickstart](./QuickStarts/client-library.md) quickstart to implement
 
 ## Customer Scenarios  
 
-The data extracted with the Business Card API can be used to perform a variety of tasks. Extracting this contact info automatically saves time for those in client-facing roles. The following are a few examples of what our customers have accomplished with the Business Card API:
+The data extracted with the Business Card API can be used to perform various tasks. Extracting this contact info automatically saves time for users in client-facing roles. The following are a few examples of what our customers have accomplished with the Business Card API:
 
 * Extract contact info from Business cards and quickly create phone contacts. 
 * Integrate with CRM to automatically create contact using business card images. 

@@ -3,14 +3,14 @@ title: "Tutorial: Extract form data in bulk using Azure Data Factory - Form Reco
 titleSuffix: Azure Cognitive Services
 description: Set up Azure Data Factory activities to trigger the training and running of Form Recognizer models and digitize a large backlog of documents.
 
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 # Tutorial: Extract form data in bulk by using Azure Data Factory

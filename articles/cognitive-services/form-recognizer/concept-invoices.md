@@ -3,14 +3,14 @@ title: Invoices - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to invoice analysis with the Form Recognizer API - usage and limits.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 # Form Recognizer prebuilt invoice model
