@@ -90,6 +90,11 @@ First, create a new function app project in Visual Studio. For instructions on h
 
 #### Step 2: Fill in function code
 
+Add the following packages to your project:
+* [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
+* [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
+* [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
+
 Rename the *Function1.cs* sample function that Visual Studio has generated with the new project to *IoTHubtoTwins.cs*. Replace the code in the file with the following code:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
