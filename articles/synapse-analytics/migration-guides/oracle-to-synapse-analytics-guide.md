@@ -58,7 +58,7 @@ Performing a successful migration requires you to migrate your table schemas, co
 - 
 ## Migration assets from real-world engagements
 For additional assistance with completing this migration scenario, please see the following resources, which were developed in support of a real-world migration project engagement.
-
+[!div class="mx-tdBreakAll"]
 | Title/link                              | Description                                                                                                                       |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | [Data Workload Assessment Model and Tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | This tool provides suggested “best fit” target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that greatly helps to accelerate large estate assessments by providing and automated and uniform target platform decision process. |
