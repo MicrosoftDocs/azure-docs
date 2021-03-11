@@ -88,3 +88,4 @@ For information on Scheduled Events, see [Scheduled Events for Windows VMs](./wi
 
 ## Next steps
 
+Review the [Availability and scale](availability.md) documentation for more ways to increase the uptime of your applications and services. 
