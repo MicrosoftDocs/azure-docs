@@ -13,6 +13,8 @@ ms.custom: mvc, devx-track-azurecli
 
 # Quickstart: Deploy your first IoT Edge module to a virtual Linux device
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Test out Azure IoT Edge in this quickstart by deploying containerized code to a virtual Linux IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using an Azure virtual machine for your IoT Edge device, which allows you to quickly create a test machine with the IoT Edge service installed and then delete it when you're finished.
 
 In this quickstart you learn how to:
