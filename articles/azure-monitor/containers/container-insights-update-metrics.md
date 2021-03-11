@@ -1,15 +1,15 @@
 ---
-title: How to update Azure Monitor for containers for metrics | Microsoft Docs
-description: This article describes how you update Azure Monitor for containers to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
+title: How to update Container insights for metrics | Microsoft Docs
+description: This article describes how you update Container insights to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
 ms.topic: conceptual
 ms.date: 10/09/2020 
 ms.custom: devx-track-azurecli
 
 ---
 
-# How to update Azure Monitor for containers to enable metrics
+# How to update Container insights to enable metrics
 
-Azure Monitor for containers is introducing support for collecting metrics from Azure Kubernetes Services (AKS) and Azure Arc enabled Kubernetes clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, support pinning performance charts in Azure portal dashboards, and support metric alerts.
+Container insights is introducing support for collecting metrics from Azure Kubernetes Services (AKS) and Azure Arc enabled Kubernetes clusters nodes and pods and writing them to the Azure Monitor metrics store. This change is intended to deliver improved timeliness when presenting aggregate calculations (Avg, Count, Max, Min, Sum) in performance charts, support pinning performance charts in Azure portal dashboards, and support metric alerts.
 
 >[!NOTE]
 >This feature does not currently support Azure Red Hat OpenShift clusters.
@@ -43,7 +43,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 ## Upgrade a cluster from the Azure portal
 
-For existing AKS clusters monitored by Azure Monitor for containers, after selecting the cluster to view its health from the multi-cluster view in Azure Monitor or directly from the cluster by selecting **Insights** from the left-hand pane, you should see a banner at the top of the portal.
+For existing AKS clusters monitored by Container insights, after selecting the cluster to view its health from the multi-cluster view in Azure Monitor or directly from the cluster by selecting **Insights** from the left-hand pane, you should see a banner at the top of the portal.
 
 ![Upgrade AKS cluster banner in Azure portal](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 

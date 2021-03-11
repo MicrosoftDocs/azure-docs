@@ -7,10 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/08/2021
 ms.author: alkohli
 ---
 # Connect to and manage a Kubernetes cluster via kubectl on your Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 On your Azure Stack Edge Pro device, a Kubernetes cluster is created when you configure compute role. Once the Kubernetes cluster is created, then you can connect to and manage the cluster locally from a client machine via a native tool such as *kubectl*.
 
@@ -98,7 +100,7 @@ In this approach, you create a namespace and a user. You then associate the user
 
 4. The config file should live in the `.kube` folder of your user profile on the local machine. Copy the file to that folder in your user profile.
 
-    ![Location of config file on client](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![Location of config file on client](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 
 5. Associate the namespace with the user you created. Type:
 
@@ -162,9 +164,9 @@ You can now deploy your applications in the namespace, then view those applicati
 
 To remove the Kubernetes cluster, you will need to remove the IoT Edge configuration.
 
-For detailed instructions, go to [Remove IoT Edge configuration](azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+For detailed instructions, go to [Manage IoT Edge configuration](azure-stack-edge-gpu-manage-compute.md#manage-iot-edge-configuration).
    
 
 ## Next steps
 
-- [Deploy a stateless application on your Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Deploy a stateless application on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor Resource Logs supported services and categories
 description: Reference of Azure Monitor Understand the supported services and event schema for Azure resource logs.
-ms.subservice: logs
 ms.topic: reference
 ms.date: 01/29/2021
 ---

@@ -16,6 +16,15 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## March 2021
+
+### Computer Vision 3.2 Public Preview update
+
+The Computer Vision API v3.2 public preview has been updated. The preview release has all Computer Vision features along with updated Read and Analyze APIs.
+
+> [!div class="nextstepaction"]
+> [See Computer Vision v3.2 public preview 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
+
 ## February 2021
 
 ### Read API v3.2 Public Preview with OCR support for 73 languages
@@ -29,7 +38,7 @@ Computer Vision's Read API v3.2 public preview, available as cloud service and D
 [Learn more](concept-recognizing-text.md) about the Read API.
 
 > [!div class="nextstepaction"]
-> [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+> [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## January 2021
@@ -45,8 +54,8 @@ A new version of the [spatial analysis container](spatial-analysis-container.md)
 * **Breaking change**: The *personZoneEvent* event has been renamed to *personZoneEnterExitEvent*. This event is raised by the *personcrossingpolygon* operation when a person enters or exits the zone and provides directional info with the numbered side of the zone that was crossed.
 * Video URL can be provided as "Private Parameter/obfuscated" in all operations. Obfuscation is optional now and it will only work if `KEY` and `IV` are provided as environment variables.
 * Calibration is enabled by default for all operations. Set the `do_calibration: false` to disable it.
-* Added support for auto recalibration (by default disabled) via the `enable_recalibration` parameter, please refer to [Spatial analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) for details
-* Camera calibration parameters to the `DETECTOR_NODE_CONFIG`. Refer to [Spatial analysis operations](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) for details.
+* Added support for auto recalibration (by default disabled) via the `enable_recalibration` parameter, please refer to [Spatial analysis operations](./spatial-analysis-operations.md) for details
+* Camera calibration parameters to the `DETECTOR_NODE_CONFIG`. Refer to [Spatial analysis operations](./spatial-analysis-operations.md) for details.
 
 
 ## October 2020

@@ -149,9 +149,6 @@ of the JMX MBean that you want to collect.
 
 Numeric and boolean JMX metric values are supported. Boolean JMX metrics are mapped to `0` for false, and `1` for true.
 
-[//]: # "NOTE: Not documenting APPLICATIONINSIGHTS_JMX_METRICS here"
-[//]: # "json embedded in env var is messy, and should be documented only for codeless attach scenario"
-
 ## Custom dimensions
 
 If you want to add custom dimensions to all of your telemetry:
@@ -219,6 +216,10 @@ These are the valid `level` values that you can specify in the `applicationinsig
 | TRACE (or FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
+> [!NOTE]
+> If an exception object is passed to the logger, then the log message (and exception object details)
+> will show up in the Azure portal under the `exceptions` table instead of the `traces` table.
+
 ## Auto-collected Micrometer metrics (including Spring Boot Actuator metrics)
 
 If your application uses [Micrometer](https://micrometer.io),
@@ -285,7 +286,8 @@ By default, Application Insights Java 3.0 sends a heartbeat metric once every 15
 ```
 
 > [!NOTE]
-> You cannot decrease the frequency of the heartbeat, as the heartbeat data is also used to track Application Insights usage.
+> You cannot increase the interval to longer than 15 minutes,
+> because the heartbeat data is also used to track Application Insights usage.
 
 ## HTTP Proxy
 
@@ -301,6 +303,30 @@ If your application is behind a firewall and cannot connect directly to Applicat
 ```
 
 Application Insights Java 3.0 also respects the global `-Dhttps.proxyHost` and `-Dhttps.proxyPort` if those are set.
+
+## Metric interval
+
+This feature is in preview.
+
+By default, metrics are captured every 60 seconds.
+
+Starting from version 3.0.3-BETA, you can change this interval:
+
+```json
+{
+  "preview": {
+    "metricIntervalSeconds": 300
+  }
+}
+```
+
+The setting applies to all of these metrics:
+
+* Default performance counters, e.g. CPU and Memory
+* Default custom metrics, e.g. Garbage collection timing
+* Configured JMX metrics ([see above](#jmx-metrics))
+* Micrometer metrics ([see above](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics))
+
 
 [//]: # "NOTE OpenTelemetry support is in private preview until OpenTelemetry API reaches 1.0"
 

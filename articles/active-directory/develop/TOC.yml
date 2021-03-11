@@ -24,10 +24,14 @@
     items:
     - name: Angular
       href: quickstart-v2-angular.md
+    - name: Angular - Auth code flow
+      href: quickstart-v2-javascript-auth-code-angular.md
     - name: JavaScript - Auth code flow
       href: quickstart-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
       href: quickstart-v2-javascript.md
+    - name: React - Auth code flow
+      href: quickstart-v2-javascript-auth-code-react.md 
   - name: Web app
     items:
     - name: ASP.NET
