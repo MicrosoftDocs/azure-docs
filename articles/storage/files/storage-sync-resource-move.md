@@ -66,20 +66,24 @@ Individual resources like a Storage Sync Service or storage accounts, cannot mov
 
 1. Create an Azure subscription (or determine an existing one in the old tenant that should move.
 1. [Perform a subscription move within the same AAD tenant](#move-within-the-same-azure-active-directory-tenant) of your Storage Sync Service and all associated storage accounts.
-1. Sync will stop. Complete your tenant move immediately or [restore sync's ability to access the storage accounts that moved](#azure-file-sync-storage-access-authorization) before you move to the new AAD tenant later.
+1. Sync will stop. Complete your tenant move immediately or [restore sync's ability to access the storage accounts that moved](#azure-file-sync-storage-access-authorization). You can then move to the new AAD tenant later.
 
 Once all related Azure File Sync resources have been sequestered into their own subscription, you are ready to move the entire subscription to the target AAD tenant. The [transfer subscription guide](../../role-based-access-control/transfer-subscription.md) allows you to plan and execute such a transfer.
 
 > [!WARNING]
 > When you transfer a subscription from one tenant to another, sync will stop immediately. You have to manually authorize sync to access the relevant storage accounts in the new subscription. The [Azure File Sync storage access authorization](#azure-file-sync-storage-access-authorization) section will provide the necessary steps.
 
-:::image type="content" source="media/storage-sync-resource-move/storage-sync-resource-move-aad-tenant.png" alt-text="A picture showing the Azure portal, Subscription Overview blade, highlighting the Change directory toolbar command in the center, top of the page." lightbox="media/storage-sync-resource-move/storage-sync-resource-move-aad-tenant-expanded.png":::
-
-You are ready to start the migration once you have a plan and the required permissions in both subscription and both source, and target AD tenants:
-
-1. In the Azure portal, navigate to your subscription, **Overview** blade.
-1. Select **Change directory**
-1. Follow the wizard steps to assign the new AAD tenant.
+:::row:::
+    :::column:::
+        :::image type="content" source="media/storage-sync-resource-move/storage-sync-resource-move-aad-tenant.png" alt-text="A picture showing the Azure portal, Subscription Overview blade, highlighting the Change directory toolbar command in the center, top of the page." lightbox="media/storage-sync-resource-move/storage-sync-resource-move-aad-tenant-expanded.png":::
+    :::column-end:::
+    :::column:::
+        You are ready to start the migration once you have a plan and the required permissions:
+        1. In the Azure portal, navigate to your subscription, **Overview** blade.
+        1. Select **Change directory**
+        1. Follow the wizard steps to assign the new AAD tenant.
+    :::column-end:::
+:::row-end:::
 
 ## Azure File Sync storage access authorization
 
