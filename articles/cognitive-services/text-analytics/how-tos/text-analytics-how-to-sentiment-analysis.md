@@ -146,11 +146,11 @@ Output is returned immediately. You can stream the results to an application tha
 
 Sentiment Analysis v3.1 can return response objects for both Sentiment Analysis and Opinion Mining.
   
-Sentiment analysis returns a sentiment label and confidence score for the entire document, and each sentence within it. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. A document can have multiple sentences, and the confidence scores within each document or sentence add up to 1.
+Sentiment analysis returns a sentiment label and confidence score for the entire document, and each sentence within it. Scores closer to 1 indicate a higher confidence in the label's classification, while lower scores indicate lower confidence. A document can have multiple sentences, and the confidence scores within each document or sentence add up to 1. assessments 
 
-Opinion Mining will locate targets (nouns or verbs) in the text, and their associated assessment (adjective). In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two targets: *food* and *waiter*. Each taregt's `relations` property contains a `ref` value with the URI-reference to the associated `documents`, `sentences`, and `assesments` objects.
+Opinion Mining will locate targets (nouns or verbs) in the text, and their associated assessment (adjective). In the below response, the sentence *The restaurant had great food and our waiter was friendly* has two targets: *food* and *waiter*. Each target's `relations` property contains a `ref` value with the URI-reference to the associated `documents`, `sentences`, and `assessments` objects.
 
-The API surfaces opinions as a target (noun or verb) and an assessment (adjective).
+The API returns opinions as a target (noun or verb) and an assessment (adjective).
 
 ```json
 {
