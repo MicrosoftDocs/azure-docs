@@ -46,19 +46,20 @@ Your cache uses the Azure-based time server time.microsoft.com by default. If yo
 
 ## Set a custom DNS configuration
 
-> [!NOTE]
-> Do not change your cache DNS configuration if you don't need to. Configuration mistakes can cause the cache to become unreachable permanently.
+> [!CAUTION]
+> Do not change your cache DNS configuration if you don't need to. Configuration mistakes can have dire consequences. If your configuration can't resolve Azure service names, the HPC cache instance will become permanently unreachable.
 
-Azure HPC Cache is automatically configured to use a secure and convenient Azure DNS system. However, a few unusual configurations require the cache to use a separate, on-premises DNS system instead of the Azure system. The **DNS configuration** section of the **Networking** page is used to specify this kind of system.
+Azure HPC Cache is automatically configured to use the secure and convenient Azure DNS system. However, a few unusual configurations require the cache to use a separate, on-premises DNS system instead of the Azure system. The **DNS configuration** section of the **Networking** page is used to specify this kind of system.
 
 Check with your Azure representatives or consult Microsoft Service and Support to determine whether or not you need to use a custom cache DNS configuration.
 
-If you configure your own on-premises DNS system for the Azure HPC Cache to use, you must make sure that the configuration can resolve private and public names inside the Azure service. You must use a rule to conditionally forward an Azure DNS server for these names.
+If you configure your own on-premises DNS system for the Azure HPC Cache to use, you must make sure that the configuration can resolve Azure endpoint names for Azure services. You must configure your custom DNS environment to forward certain name resolution requests to Azure DNS or to another server as needed.
 
-This is a partial list of items that need to be forwarded to an Azure DNS system:
+Check that your DNS configuration can successfully resolve these items before using it for an Azure HPC Cache:
 
-* ``*.core.windows.com``
+* ``*.core.windows.net``
 * Certificate revocation list (CRL) download and online certificate status protocol (OCSP) verification services. A partial list is provided in the [firewall rules item](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) at the end of this [Azure TLS article](../security/fundamentals/tls-certificate-changes.md) but you should consult a Microsoft technical representative to understand all of the requirements.
+* The fully qualified domain name of your NTP server (time.microsoft.com or a custom server)
 
 If you need to set a custom DNS server for your cache, fill in the provided fields:
 
