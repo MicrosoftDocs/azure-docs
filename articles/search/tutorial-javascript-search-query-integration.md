@@ -24,7 +24,7 @@ The Function app uses the Azure SDK for Cognitive Search:
 
 The Function app authenticates through the SDK to the cloud-based Search API using the Search resource name, resource key, and index name. The secrets are stored in the Static Web App settings and pulled in to the Function as environment variables. 
 
-## Search the catalog
+## Azure Function: Search the catalog
 
 The `Search` API takes a search term and searches across the documents in the Search Index, returning a list of matches. 
 
@@ -152,6 +152,8 @@ module.exports = async function (context, req) {
 };
 ```
 
+## Client: Search the catalog
+
 This function API is called in the React app at `\src\pages\Search\Search.js` as part of component initialization: 
 
 ```javascript
@@ -169,7 +171,7 @@ axios.post( '/api/search', body)
     });
 ```
 
-## Suggestions from the catalog
+## Azure Function: Suggestions from the catalog
 
 The `Suggest` API takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the Search Index, returning a small list of matches. 
 
@@ -224,6 +226,8 @@ module.exports = async function (context, req) {
 };
 ```
 
+## Client: Suggestions from the catalog
+
 This function API is called in the React app at `\src\components\SearchBar\SearchBar.js` as part of component initialization:
 
 ```javascript
@@ -236,7 +240,7 @@ axios.post( '/api/suggest', body)
     });
 ```
 
-## Lookup a specific document from the Search Index
+## Azure Function: Get specific document 
 
 The `Lookup` API takes a id and returns the document object from the Search Index. 
 
@@ -286,6 +290,8 @@ module.exports = async function (context, req) {
     
 };
 ```
+
+## Client: Get specific document 
 
 This function API is called in the React app at `\src\pages\Details\Detail.js` as part of component initialization:
 

@@ -27,9 +27,11 @@ Deploy the search-enabled website as an Azure Static web app. This means both th
 1. Select a location close to you.
 1. The resource is created, select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 
 
+    The list of actions indicates your web app, both client and functions, were successfully pushed to your Azure static web app. 
+
 ## Add configuration settings in Visual Studio Code
 
-Set the Search settings for the Static Web App. 
+The Azure Function app won't return Search data until the Search secrets are in settings. 
 
 1. Select **Azure** from the Activity Bar, then select **Static Web Apps** from the Side bar. 
 1. Expand your new Static Web App until the **Application Settings** display.
@@ -44,7 +46,7 @@ Set the Search settings for the Static Web App.
     |SearchApiKey|954AF98D40C4DFBD072194F70E949940|Returned from [Azure CLI command]()|
     |SearchServiceName|diberry-cog-search-js|YOUR-RESOURCE-NAME|
     |SearchIndexName|good-books|good-books|
-    |SearchFacets|authors*,language_code|
+    |SearchFacets|authors*,language_code|authors*,language_code|
 
 ## Next steps
 
