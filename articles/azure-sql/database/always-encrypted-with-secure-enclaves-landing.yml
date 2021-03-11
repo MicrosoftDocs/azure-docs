@@ -131,3 +131,13 @@ landingContent:
         links:
           - text: Develop applications using Always Encrypted with secure enclaves
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-client-development
+            
+  # Card
+  - title: Videos
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Inside Azure Datacenter Architecture with Mark Russinovich
+            url: https://youtu.be/69PrhWQorEM?t=4704
+          - text: A webinar including a section on secure enclaves
+            url: https://info.microsoft.com/ww-ondemand-azure-webinar-series-four-ways-to-take-your-data-security-to-the-next-level.html
