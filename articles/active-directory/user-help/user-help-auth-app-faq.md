@@ -256,7 +256,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 **Q**: Will my employees or students get to use password autofill in Authenticator app?
 
-**A**: Yes, Autofill now works for most enterprise users even when a work or school account is added to the Authenticator app. You can fill out a form to configure (allow or deny) Autofill for your organization and [send it to the Authenticator team](https://aka.ms/ConfigureAutofillInAuthenticator).
+**A**: Yes, Autofill now works for most enterprise users even when a work or school account is added to the Authenticator app. You can fill out a form to configure (allow or deny) Autofill for your organization and [send it to the Authenticator team](https://aka.ms/ConfigureAutofillInAuthenticator). Please note that this functionality is available only for [personal Microsoft accounts](link: https://go.microsoft.com/fwlink/?linkid=2144423)
 
 **Q**: Will my users’ work or school account password get automatically synced?
 
