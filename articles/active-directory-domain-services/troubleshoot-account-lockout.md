@@ -85,11 +85,14 @@ AADDomainServicesAccountManagement
 **Note**
 
 You may find on 4776 and 4740 event details of "Source Workstation: " empty. This is because the bad password happened over Network logon via some other devices.
-
 For Example: If you have RADIUS server, which can forward the auth to AAD DS. To confirm that Enable RDP to DC backend configure netlogon logs.
+
 03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Entered 
+
 03/04 19:07:29 [LOGON] [10752] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Returns 0xC000006A
+
 03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Entered 
+
 03/04 19:07:35 [LOGON] [10753] contoso: SamLogon: Transitive Network logon of contoso\Nagappan.Veerappan from  (via LOB11-RADIUS) Returns 0xC000006A
 
 Enable RDP to your DCs in NSG to backend to configure diagnostics capture (i.e netlogon)
