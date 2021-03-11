@@ -475,8 +475,6 @@
       items:
       - name: Manage metric alerts
         href: alerts/alerts-metric.md
-      - name: Availability
-        href: app/monitor-web-app-availability.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
