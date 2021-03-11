@@ -156,11 +156,11 @@ This section provides a brief guide to adding Azure Storage to an on-premises Co
 
 9. Next, navigate to "Storage" --> "Cloud" in Commvault Command Center. Choose to "Add." Enter a friendly name for the Storage Account and then select "Microsoft Azure Storage" from the "Type" list. Select a Media Agent server to be used to transfer backups to Azure Storage. Add the container you created, choose the Storage Tier to leverage within the Azure Storage account, and select the Credentials created in Step #8. Finally, choose whether or not to transfer deduplicated backups or not and a location for the deduplication database.
     
-     ![Commvault Add Storage](../media/commvault-add-storage.png)
+     ![Screenshot of the Add cloud user interface. In the Archive drop-down menu, **Archive** is selected.](../media/commvault-add-storage.png)
 
 10. Finally, add your new Azure Storage resource to an existing or new Plan in Commvault Command Center via "Manage" --> "Plans" as a "Backup Destination."
 
-    ![Commvault Add Storage](../media/commvault-plan.png)
+    ![Screenshot of the COMMVAULT Command Center user interface. In the left navigation, under **Manage**, **Plans** is selected.](../media/commvault-plan.png)
 
 11. ***(Optional)*** If you plan to leverage Azure as a Recovery site or Commvault to migrate servers and applications to Azure, it is a best practice to deploy a VSA Proxy in Azure. You can find detailed instructions [here](https://documentation.commvault.com/commvault/v11/article?p=106208.htm).  
 
