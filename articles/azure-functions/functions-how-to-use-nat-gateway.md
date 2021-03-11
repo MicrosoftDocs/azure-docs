@@ -54,7 +54,7 @@ If you've already completed the [integrate Functions with an Azure virtual netwo
 
 1. Select **Add subnet**, then enter *Tutorial-Net* for **Subnet name** and *10.10.1.0/24* for **Subnet address range**.
 
-![IP Addresses tab for creating a vnet](./media/functions-how-to-use-nat-gateway/create-vnet-2-ip-space.png)
+    ![IP Addresses tab for creating a vnet](./media/functions-how-to-use-nat-gateway/create-vnet-2-ip-space.png)
 
 1. Select **Add**, then select **Review + create**. Leave the rest as default and select **Create**.
 
@@ -73,15 +73,11 @@ Next, you create a function app in the [Premium plan]. This plan provides server
 
 You can now connect your function app to the virtual network.
 
-1. In your function app, select **Networking** in the left menu.
-
-1. Under **VNet Integration**, select **Click here to configure**.
+1. In your function app, select **Networking** in the left menu, then under **VNet Integration**, select **Click here to configure**.
 
     :::image type="content" source="./media/functions-how-to-use-nat-gateway/networking-0.png" alt-text="Choose networking in the function app":::
 
 1. On the **VNET Integration** page, select **Add VNet**.
-
-    :::image type="content" source="./media/functions-how-to-use-nat-gateway/networking-2.png" alt-text="Add the VNet Integration preview":::
 
 1. In **Network Feature Status**, use the settings in the table below the image:
 
@@ -108,8 +104,6 @@ The function app can now access the virtual network. Next, you'll add an HTTP-tr
     ![Choose HTTP trigger function](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
 1. In the **New Function** window, accept the default name for **New Function**, or enter a new name. 
-
-    Azure creates the HTTP trigger function. Now, you can run the new function by testing in the Azure portal. Make a note of the function name, you'll need it later.
 
 1. In **Code + Test**, replace the template-generated C# script (.csx) code with the following code: 
 
@@ -155,7 +149,7 @@ Now, you can run the function. But first, check in the portal and see what outbo
 
 1. Verify that IP address in the HTTP response body is one of the values from the outbound IP addresses you viewed earlier.
 
-NOw, you can create a public IP and use a NAT gateway to modify this outbound IP address.
+Now, you can create a public IP and use a NAT gateway to modify this outbound IP address.
 
 ## Create public IP
 
@@ -190,10 +184,10 @@ Now, let's create the NAT gateway. If you are leveraging the [previous virtual n
 
     | Setting      | Suggested value  |
     | ------------ | ---------------- |  
-    | **Subscription** | ensure your subscription is displayed | 
+    | **Subscription** | Your subscription | 
     | **Resource group** | myResourceGroup (or name you assigned to your resource group) |
     | **NAT gateway name** | myNatGateway |
-    | **Location** | East US (or location you assigned to your other resources) |
+    | **Region** | East US (or location you assigned to your other resources) |
     | **Availability Zone** | None |
 
 1. Select **Next: Outbound IP**. In the **Public IP addresses** field, select the previously created public IP address. Leave **Public IP Prefixes** unselected
