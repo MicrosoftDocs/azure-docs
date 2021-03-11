@@ -507,6 +507,8 @@
         href: ./linux/create-ssh-secured-vm-from-template.md
       - name: REST
         href: ./linux/create-vm-rest-api.md
+      - name: LAMP stack
+        href: ./linux/tutorial-lamp-stack.md
       - name: Continuous delivery
         items: 
         - name: Configure Rolling deployment strategy
@@ -517,34 +519,30 @@
           href: ./linux/tutorial-azure-devops-blue-green-strategy.md
         - name: CI/CD with Azure Pipelines(YAML)
           href: ./linux/tutorial-build-deploy-azure-pipelines.md
-      - name: Create LAMP stack
-        href: ./linux/tutorial-lamp-stack.md
       - name: Secure web server with TLS\SSL
         href: ./linux/tutorial-secure-web-server.md
     - name: Windows
       items:
-      - name: Use specialized disk
-        items:
-        - name: Portal
-          href: ./windows/create-vm-specialized-portal.md
-        - name: PowerShell
-          href: ./windows/create-vm-specialized.md
-        - name: ARM template
-          href: ./windows/ps-template.md
+      - name: Specialized disk - Portal
+        href: ./windows/create-vm-specialized-portal.md
+      - name: Specialized disk - PowerShell
+        href: ./windows/create-vm-specialized.md
+      - name: ARM template
+        href: ./windows/ps-template.md
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
   - name: Connect to Virtual Machines
     items:
     - name: Linux
       items: 
+      - name: Create and manage SSH keys locally
+        href: ./linux/create-ssh-keys-detailed.md
+      - name: Create and manage SSH keys in the portal
+        href: ssh-keys-portal.md
       - name: SSH on Linux or macOS
         href: ./linux/mac-create-ssh-keys.md
       - name: SSH on Windows
         href: ./linux/ssh-from-windows.md
-      - name: Use the portal
-        href: ssh-keys-portal.md
-      - name: SSH key details
-        href: ./linux/create-ssh-keys-detailed.md
       - name: Remote Desktop for Linux
         href: ./linux/use-remote-desktop.md
     - name: Windows
