@@ -57,9 +57,9 @@ For Azure App Service and Azure Functions, see [configure TLS mutual authenticat
 It's recommended you set reminder alerts for when your certificate will expire. To upload a new certificate to an existing API connector, select the API connector under **API connectors (preview)** and click on **Upload new certificate**. The most recently uploaded certificate which is not expired and is past the start date will be used automatically by Azure AD B2C.
 
 ### API Key
-Some services use an "API key" mechanism to make it harder to access your HTTP endpoints during development. For [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL**. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
+Some services use an "API key" mechanism to obfuscate access to your HTTP endpoints during development. For [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), you can accomplish this by including the `code` as a query parameter in the **Endpoint URL**. For example, `https://contoso.azurewebsites.net/api/endpoint`<b>`?code=0123456789`</b>). 
 
-This is not a mechanism that should be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you do wish to implement any authentication method (not recommended) for development purposes, you can choose basic authentication and use temporary values for `username` and `password` that your API can disregard while you implement the authorization in your API.
+This is not a mechanism that should be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you do not wish to implement any authentication method (not recommended) for development purposes, you can choose basic authentication and use temporary values for `username` and `password` that your API can disregard while you implement the authorization in your API.
 
 ## The request sent to your API
 An API connector materializes as an **HTTP POST** request, sending user attributes ('claims') as key-value pairs in a JSON body. Attributes are serialized similarly to [Microsoft Graph](/graph/api/resources/user#properties) user properties. 

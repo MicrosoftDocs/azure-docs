@@ -3,20 +3,18 @@ title: Smooth Streaming Plugin for the Open Source Media Framework
 description: Learn how to use the Azure Media Services Smooth Streaming plugin for the Adobe Open Source Media Framework.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework
 
