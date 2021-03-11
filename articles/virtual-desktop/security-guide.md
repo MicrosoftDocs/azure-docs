@@ -199,7 +199,7 @@ Windows Defender Credential Guard uses VBS to isolate and protect secrets so tha
 
 ### Deploy Trusted Launch in your Windows Virtual Desktop environment
 
-Windows Virtual Desktop doesn't currently support automatically configuring Trusted Launch during the host pool setup process. To use trusted launch in your Windows Virtual Desktop environment, you'll need to deploy Trusted Taunch normally and then manually add the virtual machine to your desired host pool.
+Windows Virtual Desktop doesn't currently support automatically configuring Trusted Launch during the host pool setup process. To use trusted launch in your Windows Virtual Desktop environment, you'll need to deploy Trusted Launch normally and then manually add the virtual machine to your desired host pool.
 
 ## Nested virtualization
 
