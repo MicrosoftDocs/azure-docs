@@ -65,87 +65,87 @@ This table summarizes the availability of the sensor data on supported platforms
 <sup>2</sup> Supported through [LocationManager][3] APIs (both GPS and NETWORK).<br/>
 <sup>3</sup> Supported through [CLLocationManager][4] APIs.<br/>
 <sup>4</sup> Supported at a rate of approximately one scan every 3 seconds. <br/>
-<sup>5</sup> Starting with API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5].<br/>
+<sup>5</sup> Starting with API level 28, Wi-Fi scans are throttled to four calls every 2 minutes. Starting with Android 10, you can disable this throttling from the **Developer settings** menu. For more information, see the [Android documentation][5].<br/>
 <sup>6</sup> Limited to [Eddystone][1] and [iBeacon][2].
 
 ### Which sensor to enable
 
-The choice of sensor is specific to the application you are developing and the platform.
-The following diagram provides a starting point on which combination of sensors can be enabled depending on the localization scenario:
+The choice of sensor depends on the application you're developing and the platform.
+This diagram provides a starting point for determining which combination of sensors you can enable, depending on the localization scenario:
 
-![Diagram of enabled sensors selection](media/coarse-relocalization-enabling-sensors.png)
+![Diagram that shows enabled sensors for various scenarios.](media/coarse-relocalization-enabling-sensors.png)
 
-The following sections give more insights on the advantages and limitations for each sensor type.
+The following sections provide more insight on the advantages and limitations of each sensor type.
 
 ### GPS
 
 GPS is the go-to option for outdoor scenarios.
-When using GPS in your application, keep in mind that the readings provided by the hardware are typically:
+When you use GPS in your application, keep in mind that the readings provided by the hardware are typically:
 
-* asynchronous and low frequency (less than 1 Hz).
-* unreliable / noisy (on average 7-m standard deviation).
+* Asynchronous and low frequency (less than 1 Hz).
+* Unreliable/noisy (on average, 7-m standard deviation).
 
-In general, both the device OS and Azure Spatial Anchors will do some filtering and extrapolation on the raw GPS signal in an attempt to mitigate these issues. This extra-processing requires time for convergence, so for best results you should try to:
+In general, both the device OS and Azure Spatial Anchors will do some filtering and extrapolation of the raw GPS signal in an attempt to mitigate these problems. This extra processing requires time for convergence, so, for best results, you should try to:
 
-* create one sensor fingerprint provider as early as possible in your application
-* keep the sensor fingerprint provider alive between multiple sessions
-* share the sensor fingerprint provider between multiple sessions
+* Create one sensor fingerprint provider as early as possible in your application.
+* Keep the sensor fingerprint provider alive between multiple sessions.
+* Share the sensor fingerprint provider between multiple sessions.
 
-Consumer-grade GPS devices are typically imprecise. A study by [Zandenbergen and Barbeau (2011)][6] reports the median accuracy of mobile phones with assisted GPS (A-GPS) to be around 7 meters - quite a large value to be ignored! To account for these measurement errors, the service treats the anchors as probability distributions in GPS space. As such, an anchor is now the region of space that most likely (that is, with more than 95% confidence) contains its true, unknown GPS position.
+Consumer-grade GPS devices are typically imprecise. A study by [Zandenbergen and Barbeau (2011)][6] reports that the median accuracy of mobile phones that have assisted GPS (A-GPS) is about 7 meters. That's quite a large value to ignore! To account for these measurement errors, the service treats anchors as probability distributions in GPS space. So an anchor is the region of space that most likely (with more than 95% confidence) contains its true, unknown GPS position.
 
-The same reasoning is applied when querying with GPS. The device is represented as another spatial confidence region around its true, unknown GPS position. Discovering nearby anchors translates into simply finding the anchors with confidence regions *close enough* to the device's confidence region, as illustrated in the image below:
+The same reasoning applies when you query by using GPS. The device is represented as another spatial confidence region around its true, unknown GPS position. Discovering nearby anchors translates to finding the anchors with confidence regions *close enough* to the device's confidence region, as illustrated here:
 
-![Selection of anchor candidates with GPS](media/coarse-reloc-gps-separation-distance.png)
+![Diagram that illustrates finding anchor candidates by using GPS.](media/coarse-reloc-gps-separation-distance.png)
 
-### WiFi
+### Wi-Fi
 
-On HoloLens and Android, WiFi signal strength can be a good option to enable indoor coarse relocalization.
-Its advantage is the potential immediate availability of WiFi access points (common in, e.g.,  office spaces or shopping malls) with no extra set-up needed.
+On HoloLens and Android, Wi-Fi signal strength can be a good way to enable indoor coarse relocalization.
+The advantage is the potential immediate availability of Wi-Fi access points (common in office spaces and shopping malls, for example) with no extra setup needed.
 
 > [!NOTE]
-> iOS does not provide any API to read WiFi signal strength, and as such cannot be used for WiFi-enabled coarse relocalization.
+> iOS doesn't provide an API for reading Wi-Fi signal strength, so it can't be used for coarse relocalization enabled via Wi-Fi.
 
-When using WiFi in your application, keep in mind that the readings provided by the hardware are typically:
+When you use Wi-Fi in your application, keep in mind that the readings provided by the hardware are typically:
 
-* asynchronous and low frequency (less than 0.1 Hz).
-* potentially throttled at the OS level.
-* unreliable / noisy (on average 3-dBm standard deviation).
+* Asynchronous and low frequency (less than 0.1 Hz).
+* Potentially throttled at the OS level.
+* Unreliable/noisy (on average, 3-dBm standard deviation).
 
-Azure Spatial Anchors will attempt to build a filtered WiFi signal strength map during a session in an attempt to mitigate these issues. For best results you should try to:
+Azure Spatial Anchors will try to build a filtered map of Wi-Fi signal strength during a session in an attempt to mitigate these issues. For best results, try to:
 
-* create the session well before placing the first anchor.
-* keep the session alive for as long as possible (that is, create all anchors and query in one session).
+* Create the session well before you place the first anchor.
+* Keep the session alive for as long as possible. (That is, create all anchors and query in one session.)
 
 ### Bluetooth beacons
 <a name="beaconsDetails"></a>
 
-Carefully deploying bluetooth beacons is a good solution for large scale indoor coarse relocalization scenarios, where GPS is absent or inaccurate. It is also the only indoor method that is supported on all three platforms.
+Careful deployment of Bluetooth beacons is a good solution for large-scale indoor coarse relocalization scenarios, where GPS is absent or inaccurate. It's also the only indoor method that's supported on all three platforms.
 
-Beacons are typically versatile devices, where everything - including UUIDs and MAC addresses - can be configured. Azure Spatial Anchors expects beacons to be uniquely identified by their UUIDs. Failing to ensure this uniqueness will most likely cause incorrect results. For best results you should:
+Beacons are typically versatile devices on which everything can be configured, including UUIDs and MAC addresses. Azure Spatial Anchors expects beacons to be uniquely identified by their UUIDs. If you don't ensure this uniqueness, you'll probably get incorrect results. For best results:
 
-* assign unique UUIDs to your beacons.
-* deploy them in a way that covers your space uniformly, and so that at least 3 beacons are reachable from any point in space.
-* pass the list of unique beacon UUIDs to the sensor fingerprint provider
+* Assign unique UUIDs to your beacons.
+* Deploy beacons in a way that covers your space uniformly, and so that at least three beacons are reachable from any point in space.
+* Pass the list of unique beacon UUIDs to the sensor fingerprint provider.
 
-Radio signals such as bluetooth are affected by obstacles and can interfere with other radio signals. For these reasons it can be difficult to guess whether your space is uniformly covered. To guarantee a better customer experience we recommend that you manually test the coverage of your beacons. This can be done by walking around your space with candidate devices and an application showing bluetooth in range. While testing the coverage, make sure that you can reach at least 3 beacons from any strategic position of your space. Setting up too many beacons can result in more interference between them and will not necessarily improve coarse relocalization accuracy.
+Radio signals like those of Bluetooth are affected by obstacles and can interfere with other radio signals. So it can be difficult to guess whether your space is uniformly covered. To guarantee a better customer experience, we recommend that you manually test the coverage of your beacons. You can conduct a test by walking around your space with candidate devices and an application that shows Bluetooth in range. While you test the coverage, make sure that you can reach at least three beacons from any strategic position in your space. Having too many beacons can result in more interference between them and won't necessarily improve the accuracy of course relocalization.
 
-Bluetooth beacons typically have a coverage of 80 meters if no obstacles are present in the space.
-This means that for a space that has no big obstacles, one could deploy beacons on a grid pattern every 40 meters.
+Bluetooth beacons typically cover 80 meters if no obstacles are present in the space.
+So, for a space that has no big obstacles, you could deploy beacons in a grid pattern every 40 meters.
 
-A beacon running out of battery will affect the results negatively, so make sure you monitor your deployment periodically for low or dead batteries.
+A beacon that's running out of battery will affect the results, so be sure to monitor your deployment periodically for low or uncharged batteries.
 
-Azure Spatial Anchors will only track Bluetooth beacons that are in the known beacon proximity UUIDs list. Malicious beacons programmed to have allow-listed UUIDs can negatively impact the quality of the service though. For that reason, you will obtain best results in curated spaces where you can control their deployment.
+Azure Spatial Anchors will track only Bluetooth beacons that are in the known-beacon proximity UUIDs list. But malicious beacons programmed to have allowlisted UUIDs can negatively affect the quality of the service. So you'll get the best results in curated spaces where you can control beacon deployment.
 
-### Sensors accuracy
+### Sensor accuracy
 
-The accuracy of the GPS signal, both on anchor creation as well as during queries, has a large influence over the set of returned anchors. In contrast, queries based on WiFi / beacons will consider all anchors that have at least one access point / beacon in common with the query. In that sense, the result of a query based on WiFi / beacons is mostly determined by the physical range of the access points / beacons, and environmental obstructions.
-The table below estimates the expected search space for each sensor type:
+The accuracy of the GPS signal, both during anchor creation and during queries, has a big influence on the set of returned anchors. In contrast, queries based on Wi-Fi/beacons will consider all anchors that have at least one access point / beacon in common with the query. In that sense, the result of a query based on Wi-Fi/beacons is mostly determined by the physical range of the access points / beacons and environmental obstructions.
+This table estimates the expected search space for each sensor type:
 
-| Sensor      | Search space radius (approx.) | Details |
+| Sensor      | Search-space radius (approximate) | Details |
 |-------------|:-------:|---------|
-| GPS         | 20 m - 30 m | Determined by the GPS uncertainty among other factors. The reported numbers are estimated for the median GPS accuracy of mobile phones with A-GPS, that is 7 meters. |
-| WiFi        | 50 m - 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
-| BLE beacons |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
+| **GPS**         | 20 to 30 m | Determined by the GPS uncertainty among other factors. The reported numbers are estimated for the median GPS accuracy of mobile phones with A-GPS, that is 7 meters. |
+| **Wi-Fi**        | 50 to 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
+| **BLE beacons** |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
 
 <!-- Reference links in article -->
 [1]: https://developers.google.com/beacons/eddystone
