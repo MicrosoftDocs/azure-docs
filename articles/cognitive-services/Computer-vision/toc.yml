@@ -96,34 +96,32 @@
           href: spatial-analysis-camera-placement.md
 - name: Concepts
   items:
-  - name: Modes
-    items:
-    - name: Optical Character Recognition (OCR)
-      href: concept-recognizing-text.md
-    - name: Object detection
-      href: concept-object-detection.md
-    - name: Brand detection
-      href: concept-brand-detection.md
-    - name: Content tags
-      href: concept-tagging-images.md
-    - name: Image categorization
-      href: concept-categorizing-images.md
-    - name: Category taxonomy
-      href: Category-Taxonomy.md
-    - name: Image descriptions
-      href: concept-describing-images.md
-    - name: Face detection
-      href: concept-detecting-faces.md
-    - name: Image type detection
-      href: concept-detecting-image-types.md
-    - name: Domain-specific content
-      href: concept-detecting-domain-content.md
-    - name: Color scheme detection
-      href: concept-detecting-color-schemes.md
-    - name: Smart-cropped thumbnails
-      href: concept-generating-thumbnails.md
-    - name: Adult content detection
-      href: concept-detecting-adult-content.md
+  - name: Optical Character Recognition (OCR)
+    href: concept-recognizing-text.md
+  - name: Object detection
+    href: concept-object-detection.md
+  - name: Brand detection
+    href: concept-brand-detection.md
+  - name: Content tags
+    href: concept-tagging-images.md
+  - name: Image categorization
+    href: concept-categorizing-images.md
+  - name: Category taxonomy
+    href: Category-Taxonomy.md
+  - name: Image descriptions
+    href: concept-describing-images.md
+  - name: Face detection
+    href: concept-detecting-faces.md
+  - name: Image type detection
+    href: concept-detecting-image-types.md
+  - name: Domain-specific content
+    href: concept-detecting-domain-content.md
+  - name: Color scheme detection
+    href: concept-detecting-color-schemes.md
+  - name: Smart-cropped thumbnails
+    href: concept-generating-thumbnails.md
+  - name: Adult content detection
+    href: concept-detecting-adult-content.md
 - name: Tutorials
   items:
   - name: Generate metadata for images
