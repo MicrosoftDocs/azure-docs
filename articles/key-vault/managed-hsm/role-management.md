@@ -165,11 +165,13 @@ az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
 
 ## Delete custom role definition
 
-Use `az keyvault role definition delete` command to see details of a specific role definition using name (a GUID).
-
+Use `az keyvault role definition delete` command to see details of a specific role definition using name (a GUID). 
 ```azurecli-interactive
 az keyvault role definition delete --hsm-name ContosoMHSM --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
+
+> [!NOTE]
+> Built-in roles cannot be deleted. When custom roles are deleted, all the role assignments using that custom role become defunct.
 
 
 ## Next steps
