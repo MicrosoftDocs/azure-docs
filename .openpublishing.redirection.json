@@ -64597,6 +64597,11 @@
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-python.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-fabric/service-fabric-best-practices-overview.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+      "redirect_document_id": false
     }
   ]
 }
