@@ -55,7 +55,7 @@ In Azure Machine Learning, creating and using a machine learning model is typica
     > [!TIP] 
     > If you have trouble using the Column Selector, see the article [Select Columns in Dataset](./select-columns-in-dataset.md) for tips. It describes some common scenarios and tips for using the **WITH RULES** and **BY NAME** options.
   
-1.  Submit the pipeline. If you have a lot of data, this can take a while.
+1.  Submit the pipeline. If you have a lot of data, it can take a while.
 
     > [!IMPORTANT] 
     > If you have an ID column which is the ID of each row, or a text column, which contains too many unique values, **Train Model** may hit an error like "Number of unique values in column: "{column_name}" is greater than allowed.
@@ -74,7 +74,7 @@ Currently **Train Model** module supports [using interpretability package to exp
 - Two-Class Support Vector Machine
 - Multi-class Decision Forest
 
-To generate model explanations, you can select **True** in the drop down list of **Model Explanation** in Train Model module. By default it is set to False in the **Train Model** module. Please note that generating explanation requires extra compute cost.
+To generate model explanations, you can select **True** in the drop-down list of **Model Explanation** in Train Model module. By default it is set to False in the **Train Model** module. Please note that generating explanation requires extra compute cost.
 
 ![Screenshot showing model explanation checkbox](./media/module/train-model-explanation-checkbox.png)
 
@@ -82,7 +82,7 @@ After the pipeline run completed, you can visit **Explanations** tab in the righ
 
 ![Screenshot showing model explanation checkbox](./media/module/train-model-explanations-tab.gif)
 
-To learn more about using model explanations in Azure Machine Learning, please refer to the how-to article about [Interpret ML models](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
+To learn more about using model explanations in Azure Machine Learning, refer to the how-to article about [Interpret ML models](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
 
 ## Results
 
