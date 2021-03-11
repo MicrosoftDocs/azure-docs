@@ -1176,7 +1176,7 @@
         displayName: Unmanaged VM to Managed Disks
         href: ./linux/convert-unmanaged-to-managed-disks.md
       - name: PowerShell
-        Unmanaged VM to Managed Disks
+        displayName: Unmanaged VM to Managed Disks
         href: ./windows/convert-unmanaged-to-managed-disks.md
   - name: Add a data disk
     items:
