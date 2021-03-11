@@ -75,15 +75,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	Upload the metadata file with XML file provided by SharingCloud. Contact the [SharingCloud Client support team](mailto:support@sharingcloud.com) to get the file.
 
-	![screenshot to upload metadata](common/upload-metadata.png)
+	![Screenshot of the Basic SAML Configuration user interface with the **Upload metadata file** link highlighted.](common/upload-metadata.png)
 	
 	Select the metadata file provided and click on **Upload**.
 
-	![browse to upload the metadata](common/browse-upload-metadata.png)
+	![Screenshot of the metadata file provided user interface, with the select file icon and **Upload** button highlighted.](common/browse-upload-metadata.png)
 
 1. SharingCloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![screenshot for edit attribute icon](common/edit_attribute.png)
+	![Screenshot of the User Attributes user interface with the edit icon highlighted.](common/edit_attribute.png)
 
 1. In addition to above, SharingCloud application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
 
