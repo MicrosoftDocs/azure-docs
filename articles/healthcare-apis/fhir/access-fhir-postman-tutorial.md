@@ -113,7 +113,7 @@ It is also possible to [get a token for the Azure API for FHIR using the Azure C
 
 Now that you have a valid access token. You can insert a new patient. Switch to method "POST" and add the following JSON document in the body of the request:
 
-[!code-json[](samples/sample-patient.json)]
+[!code-json[](../samples/sample-patient.json)]
 
 Hit "Send" and you should see that the patient is successfully created:
 
