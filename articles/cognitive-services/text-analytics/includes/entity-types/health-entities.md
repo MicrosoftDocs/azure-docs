@@ -14,7 +14,7 @@ ms.author: aahi
 [Text Analytics for health](../../how-tos/text-analytics-for-health.md) processes and extracts insights from unstructured medical data. The service detects and surfaces medical concepts, assigns assertions to concepts, infers semantic relations between concepts and links them to common medical ontologies.
 
 ## Assertion Detection
-Text Analytics for health surfaces assertion modifiers, which are informative attributes assigned to medical concepts that provide deeper understanding of the concepts’ context within the text. These modifiers are divided into three categories, each focusing on a different aspect and contains a set of mutually exclusive values. Only one value per category is assigned to each entity. The most common value for each category is the Default value. The service’s output response contains only assertion modifiers that are different from the default value.
+Text Analytics for health surfaces assertion modifiers, which are informative attributes assigned to medical concepts that provide deeper understanding of the concepts’ context within the text. These modifiers are divided into three categories, each focusing on a different aspect, and containing a set of mutually exclusive values. Only one value per category is assigned to each entity. The most common value for each category is the Default value. The service’s output response contains only assertion modifiers that are different from the default value.
 
 **CERTAINTY**  – provides information regarding the presence (present vs. absent) of the concept and how certain the text is regarding its presence (definite vs. possible).
 *	**Positive** [Default]: the concept exists or happened.
@@ -76,30 +76,29 @@ Text Analytics for Health recognizes relations between different concepts, inclu
 
 **VALUE_OF_EXAMINATION**
 
-Please note that:
-
-* Relations referring to CONDITION may refer to either the DIAGNOSIS entity type or the SYMPTOM_OR_SIGN entity type.
-* Relations referring to MEDICATION may refer to either the MEDICATION_NAME entity type or the MEDICATION_CLASS entity type.
-* Relations referring to TIME may refer to either the TIME entity type or the DATE entity type.
+> [!NOTE]
+> * Relations referring to CONDITION may refer to either the DIAGNOSIS entity type or the SYMPTOM_OR_SIGN entity type.
+> * Relations referring to MEDICATION may refer to either the MEDICATION_NAME entity type or the MEDICATION_CLASS entity type.
+> * Relations referring to TIME may refer to either the TIME entity type or the DATE entity type.
 
 
 ## Named Entity Recognition
-Text Analytics for health detects medical concepts in the following categories:  (Please note that only English text is supported in this preview and only a single model-version is available.)
+Text Analytics for health detects medical concepts in the following categories. Only English text is supported in this preview and only a single model-version is available.
 
 | Category  | Description  |
 |---------|---------|
-| [ANATOMY](#anatomy) | concepts that capture information about body and anatomic systems, sites, locations or regions. |
+| [ANATOMY](#anatomy) | concepts that capture information about body and anatomic systems, sites, locations, or regions. |
  | [DEMOGRAPHICS](#demographics) | concepts that capture information about gender and age. |
  | [EXAMINATION](#examinations) | concepts that capture information about diagnostic procedures and tests. |
  | [GENERAL ATTRIBUTES](#general-attributes) | concepts that provide more information about other concepts from the above categories. |
  | [GENOMICS](#genomics) | concepts that capture information about genes and variants. |
- | [HEALTHCARE](#healthcare) | concepts that capture information about administrative events, care environments and healthcare professions. |
- | [MEDICAL CONDITION](#medical-condition) | concepts that capture information about diagnoses, symptoms or signs. |
- | [MEDICATION](#medication) | concepts that capture information about medication including medication names, classes, dosage and route of administration. |
+ | [HEALTHCARE](#healthcare) | concepts that capture information about administrative events, care environments, and healthcare professions. |
+ | [MEDICAL CONDITION](#medical-condition) | concepts that capture information about diagnoses, symptoms, or signs. |
+ | [MEDICATION](#medication) | concepts that capture information about medication including medication names, classes, dosage, and route of administration. |
  | [SOCIAL](#social) | concepts that capture information about medically relevant social aspects such as family relation. |
  | [TREATMENT](#treatment) | concepts that capture information about therapeutic procedures. |
 
-For more information and examples, please see below.
+You will find more information and examples below.
 
 ## Anatomy
 
@@ -116,7 +115,7 @@ For more information and examples, please see below.
 
 ### Entities
 
-**AGE** - All age terms and phrases, including those of a patient, family members, and others. For example, 40-year-old, 51 yo, 3 months old, adult, infant, elderly, young, minor, middle-aged.
+**AGE** - All age terms and phrases, including ones for patients, family members, and others. For example, 40-year-old, 51 yo, 3 months old, adult, infant, elderly, young, minor, middle-aged.
 
 :::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="An example of an age entity.":::
 
@@ -141,11 +140,11 @@ For more information and examples, please see below.
 
 ### Entities
 
-**DATE** - Full date relating to a medical condition, examination, treatment, medication or administrative event.
+**DATE** - Full date relating to a medical condition, examination, treatment, medication, or administrative event.
 
 **DIRECTION** – Directional terms that may relate to a body structure, medical condition, examination, or treatment, such as: left, lateral, upper, posterior.
 
-**FREQUENCY** - Describes how often a medical condition, examination, treatment or medication occurred, occurs, or should occur.
+**FREQUENCY** - Describes how often a medical condition, examination, treatment, or medication occurred, occurs, or should occur.
 
 **MEASUREMENT_VALUE** – The value related to an examination or a medical condition measurement.
 
@@ -153,7 +152,7 @@ For more information and examples, please see below.
 
 **RELATIONAL_OPERATOR** - Phrases that express the quantitative relation between an entity and some additional information.
 
-**TIME** - Temporal terms relating to the beginning and/or length (duration) of a medical condition, examination, treatment, medication or administrative event. 
+**TIME** - Temporal terms relating to the beginning and/or length (duration) of a medical condition, examination, treatment, medication, or administrative event. 
 
 ## Genomics
 
@@ -163,7 +162,7 @@ For more information and examples, please see below.
 
 :::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity.":::
 
-**VARIANT** – All mentions of gene variations and mutations. For example, c.524C>T, (MTRR):r.1462_1557del96
+**VARIANT** – All mentions of gene variations and mutations. For example, `c.524C>T`, `(MTRR):r.1462_1557del96`
   
 ## Healthcare
 
@@ -199,7 +198,7 @@ For more information and examples, please see below.
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity-2.png" alt-text="Another example of a medical condition sign or symptom entity.":::
 
-**CONDITION_QUALIFIER** - Qualitative terms that are used to describe a medical condition. All the following sub-categories are considered qualifiers:
+**CONDITION_QUALIFIER** - Qualitative terms that are used to describe a medical condition. All the following subcategories are considered qualifiers:
 
 1.	Time-related expressions: those are terms that describe the time dimension qualitatively, such as sudden, acute, chronic, longstanding. 
 2.	Quality expressions:  Those are terms that describe the “nature” of the medical condition, such as burning, sharp.
@@ -227,7 +226,7 @@ For more information and examples, please see below.
 
 :::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="An example of a medication class entity.":::
 
-**MEDICATION_NAME** – Medication mentions, including copyrighted brand names, and non-brand names. For example, Advil, Ibuprofen.
+**MEDICATION_NAME** – Medication mentions, including copyrighted brand names, and non-brand names. For example, Ibuprofen.
 
 :::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="An example of a medication name entity.":::
 
