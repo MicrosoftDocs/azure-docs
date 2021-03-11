@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -169,9 +169,13 @@ The [UserJourney](userjourneys.md) element defines the path that the user takes 
 To include the UserInfo endpoint in the relying party application, add an [Endpoint](relyingparty.md#endpoints) element to the *SocialAndLocalAccounts/SignUpOrSignIn.xml* file. 
 
 ```xml
-<Endpoints>
-  <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
-</Endpoints>
+<!--
+<RelyingParty> -->
+  <Endpoints>
+    <Endpoint Id="UserInfo" UserJourneyReferenceId="UserInfoJourney" />
+  </Endpoints>
+<!-- 
+</RelyingParty> -->
 ```
 
 The completed relying party element will be as follows:
@@ -244,7 +248,7 @@ https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/policy-name/v2.0/.wel
 ```http
 GET /yourtenant.onmicrosoft.com/b2c_1a_signup_signin/openid/v2.0/userinfo
 Host: b2cninja.b2clogin.com
-Authorization: Bearer <your ID token>
+Authorization: Bearer <your access token>
 ```
 
 A successful response would look like:

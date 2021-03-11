@@ -40,4 +40,4 @@ The main components of Azure Percept are:
 
 ## Next steps
 
-Get started with [Azure Percept DK](./overview-azure-percept-dk.md).
+Get started with [Azure Percept DK](./overview-azure-percept-dk.md). 

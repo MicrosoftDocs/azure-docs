@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
+ms.date: 03/08/2021
 tags: connectors
 ---
 
@@ -170,7 +170,15 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
 ## Considerations
 
-This section describes considerations to review for this connector's triggers and actions.
+This section describes considerations to review when you use this connector's triggers and actions.
+
+<a name="different-folders-trigger-processing-file-storage"></a>
+
+### Use different SFTP folders for file upload and processing
+
+On your SFTP server, make sure that you use separate folders for where you store uploaded files and where the trigger monitors those files for processing, which means that you need a way to move files between those folders. Otherwise, the trigger won't fire and behaves unpredictably, for example, skipping a random number of files that the trigger processes.
+
+If this problem happens, remove the files from the folder that the trigger monitors, and use a different folder to store the uploaded files.
 
 <a name="create-file"></a>
 
