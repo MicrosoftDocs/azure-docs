@@ -28,17 +28,14 @@ The following video provides an overview of the capabilities.
 
 ## Components and workflow
 
-Semantic search improves precision and recall with the addition of these capabilities:
+Semantic search improves precision and recall with the addition of the following capabilities:
 
-+ [Spell check](speller-how-to-add.md) corrects typos before the query terms reach the search engine. 
-
-+ [Semantic re-ranking](semantic-ranking.md) uses the context or semantic meaning to compute a new relevance score.
-
-+ [Semantic queries](semantic-how-to-query-request.md) invoke semantic ranking, and return highlighted captions that summarize key passages from a result for easy scanning.
-
-  Semantic queries return captions. Captions are passages from the document that summarize the result. They can help to summarize a result when individual content fields are too large or cumbersome for the results page. *Semantic highlights* apply style to the most relevant terms and phrases, allowing users to quickly skim query results to learn why a match was considered relevant.
-
-+ [Semantic answers](semantic-answers.md) is an optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question.
+| Feature | Description |
+|---------|-------------|
+| [Spell check](speller-how-to-add.md) | Corrects typos before the query terms reach the search engine. |
+| [Semantic ranking](semantic-ranking.md) | Uses the context or semantic meaning to compute a new relevance score. |
+| [Semantic queries](semantic-how-to-query-request.md) | Invokes semantic ranking, and returns highlighted captions that summarize key passages from a result for easy scanning. Captions are verbatim passages from the document that best summarize the result. They can help to summarize a result when individual content fields are too dense for the results page. Semantic highlights elevate the most relevant terms and phrases, allowing users to quickly skim query results to learn why a match was considered relevant. |
+| [Semantic answers](semantic-answers.md) | An optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. |
 
 ### Order of operations
 
@@ -50,7 +47,7 @@ Query execution proceeds as usual, with term parsing, analysis, and scans over t
 
 In the preparation step, the document corpus returned from the initial result set is analyzed at the sentence and paragraph level to find semantic and conceptual similarity among terms provided in the query. In contrast with keyword search, this step uses machine reading and comprehension to evaluate the content.
 
-Results are then re-scored based on the conceptual similarity of query terms. As part of result composition, a semantic query returns captions and answers. To formulate them, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question - and answers are requested - the response will include a text passage that best answers the question, as expressed by the search query.
+Results are then re-scored based on the conceptual similarity of query terms. As part of result composition, a semantic query returns captions and answers. To formulate them, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question - and answers are requested - the response will also include a text passage that best answers the question, as expressed by the search query. For both captions and answers, existing text is used in the formulation. The semantic models do not compose new sentences or phrases from the available content. The system will never return content that doesn't already exist.
 
 To use semantic capabilities in queries, you'll need to make small modifications to the search request, but no extra configuration or reindexing is required.
 
@@ -69,5 +66,5 @@ A new query type enables the relevance ranking and response structures of semant
 [Create a semantic query](semantic-how-to-query-request.md) to get started. Or, review the following articles for related information.
 
 + [Add spell check to query terms](speller-how-to-add.md)
-+ [Return a semantic answers](semantic-answers.md)
++ [Return a semantic answer](semantic-answers.md)
 + [Semantic ranking](semantic-ranking.md)

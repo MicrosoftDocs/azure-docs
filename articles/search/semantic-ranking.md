@@ -32,11 +32,11 @@ Internally, the extraction model intakes about 10,000 tokens per document, which
 
 ## Next steps
 
-Semantic ranking is offered on Standard services only. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+Semantic ranking is offered on the Standard tier, in specific regions. For more information and to sign up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-A new query type enables the relevance ranking and response structures of semantic search.
+A new query type enables the relevance ranking and response structures of semantic search. [Create a semantic query](semantic-how-to-query-request.md) to get started.
 
-First, [create a semantic query](semantic-how-to-query-request.md) to get started. Or, review either of the following articles for related information.
+Alternatively, review either of the following articles for related information.
 
 + [Add spell check to query terms](speller-how-to-add.md)
 + [Return a semantic answer](semantic-answers.md)
