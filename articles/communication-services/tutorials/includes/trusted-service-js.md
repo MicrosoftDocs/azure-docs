@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 ## Download Code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Trusted%20Authentication%20Service)
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/trusted-authentication-service)
 
 ## Prerequisites
 
