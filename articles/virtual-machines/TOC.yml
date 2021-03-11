@@ -1150,7 +1150,7 @@
     - name: Azure Disk Backup
       items:
       - name: Overview
-        displayName: Azure disk backup
+        displayName: Azure disk backup, backup
         href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
       - name: Configure Azure Disk Backup
         href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
