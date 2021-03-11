@@ -27,9 +27,9 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## March 2021
 
+- [Incident filters and sort preferences now saved in your session](#incident-filters-and-sort-preferences-now-saved-in-your-session)
 - [Microsoft 365 Defender incident integration](#microsoft-365-defender-incident-integration) (public preview)
 - [New Microsoft service connectors using Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
-- [Incident filters and sort preferences now saved in your session](#incident-filters-and-sort-preferences-now-saved-in-your-session)
  
 ## Incident filters and sort preferences now saved in your session
 
