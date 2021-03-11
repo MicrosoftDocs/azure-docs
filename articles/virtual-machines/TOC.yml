@@ -185,7 +185,7 @@
     - name: GPU - accelerated compute
       items:
       - name: Overview
-        href: sizes-gpu.md?context=/azure/virtual-machines/context/context
+        href: sizes-gpu.md
       - name: NC-series
         href: nc-series.md
       - name: NCv2-series
@@ -215,7 +215,7 @@
     - name: FPGA - accelerated compute
       items:
       - name: Overview
-        href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+        href: sizes-field-programmable-gate-arrays.md
       - name: NP-series
         href: np-series.md
     - name: High performance compute
@@ -1115,77 +1115,77 @@
   - name: Overview
     href: network-overview.md
   - name: Best practices
-    href: /virtual-network/concepts-and-best-practices.md
+    href: /virtual-network/concepts-and-best-practices.md?context=/azure/virtual-machines/context/context
   - name: Create virtual network
     href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
   - name: Filter network traffic
     items:
     - name: Azure portal
-      href: ../virtual-network/tutorial-filter-network-traffic.md
+      href: ../virtual-network/tutorial-filter-network-traffic.md?context=/azure/virtual-machines/context/context
     - name: Azure PowerShell
-      href: ../virtual-network/tutorial-filter-network-traffic-powershell.md
+      href: ../virtual-network/tutorial-filter-network-traffic-powershell.md?context=/azure/virtual-machines/context/context
     - name: Azure CLI
-      href: ../virtual-network/tutorial-filter-network-traffic-cli.md
+      href: ../virtual-network/tutorial-filter-network-traffic-cli.md?context=/azure/virtual-machines/context/context
   - name: Create VM - static public IP
     items:
     - name: Azure portal
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md
+      href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md
+      href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
     - name: Azure CLI
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md
+      href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
     - name: Add public IP address to existing VM
-      href: ../virtual-network/associate-public-ip-address-vm.md
+      href: ../virtual-network/associate-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
     - name: Dissociate public IP address from a VM
-      href: ../virtual-network/remove-public-ip-address-vm.md
+      href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
   - name: Create VM - static private IP
     items:
     - name: Azure portal
-      href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+      href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md
+      href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context
     - name: Azure CLI
-      href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md
+      href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
   - name: Create VM - multiple IPs
     items:
     - name: Azure portal
-      href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md
+      href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md
+      href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context
     - name: Azure CLI
-      href: ../virtual-network/virtual-network-multiple-ip-addresses-cli.md
+      href: ../virtual-network/virtual-network-multiple-ip-addresses-cli.md?context=/azure/virtual-machines/context/context
     - name: Add or remove network interfaces
-      href: ../virtual-network/virtual-network-network-interface-vm.md
+      href: ../virtual-network/virtual-network-network-interface-vm.md?context=/azure/virtual-machines/context/context
     - name: Create VM - multiple NICs
       items:
       - name: Azure PowerShell
-        href: ./windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        href: ./windows/multiple-nics.md
       - name: Azure CLI
-        href: ./linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+        href: ./linux/multiple-nics.md
   - name: Create VM - accelerated networking
     items:
     - name: Azure PowerShell
-      href: ../virtual-network/create-vm-accelerated-networking-powershell.md
+      href: ../virtual-network/create-vm-accelerated-networking-powershell.md?context=/azure/virtual-machines/context/context
     - name: Azure CLI
-      href: ../virtual-network/create-vm-accelerated-networking-cli.md
+      href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
       items:
       - name: Setup DPDK
-        href: ../virtual-network/setup-dpdk.md
+        href: ../virtual-network/setup-dpdk.md?context=/azure/virtual-machines/context/context
   - name: TCP/IP Performance Tuning for Azure VMs
-    href: ../virtual-network/virtual-network-tcpip-performance-tuning.md
+    href: ../virtual-network/virtual-network-tcpip-performance-tuning.md?context=/azure/virtual-machines/context/context
   - name: Virtual machine network throughput
-    href: ../virtual-network/virtual-machine-network-throughput.md
+    href: ../virtual-network/virtual-machine-network-throughput.md?context=/azure/virtual-machines/context/context
   - name: Create a DDOS protection plan
     items:
     - name: Portal
-      href: ../ddos-protection/manage-ddos-protection.md
+      href: ../ddos-protection/manage-ddos-protection.md?context=/azure/virtual-machines/context/context
     - name: PowerShell
-      href: ../ddos-protection/manage-ddos-protection-powershell.md
+      href: ../ddos-protection/manage-ddos-protection-powershell.md?context=/azure/virtual-machines/context/context
     - name: CLI
-      href: ../ddos-protection/manage-ddos-protection-cli.md
+      href: ../ddos-protection/manage-ddos-protection-cli.md?context=/azure/virtual-machines/context/context
     - name: ARM template
       displayName: Resource Manager
-      href: ../ddos-protection/manage-ddos-protection-template.md
+      href: ../ddos-protection/manage-ddos-protection-template.md?context=/azure/virtual-machines/context/context
   - name: Find and delete unattached NICs
     href: ./linux/find-unattached-nics.md
   - name: Assign public DNS name
