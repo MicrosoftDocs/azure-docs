@@ -135,7 +135,8 @@ helm install cert-manager jetstack/cert-manager \
 
 For more information on cert-manager configuration, see the [cert-manager project][cert-manager].
 
-## Create a CA cluster issuer
+## Create a CA cluster 
+
 
 Before certificates can be issued, cert-manager requires an [Issuer][cert-manager-issuer] or [ClusterIssuer][cert-manager-cluster-issuer] resource. These Kubernetes resources are identical in functionality, however `Issuer` works in a single namespace, and `ClusterIssuer` works across all namespaces. For more information, see the [cert-manager issuer][cert-manager-issuer] documentation.
 
@@ -165,7 +166,7 @@ spec:
 To create the issuer, use the `kubectl apply` command.
 
 ```console
-kubectl apply -f cluster-issuer.yaml
+kubectl apply -f cluster-issuer.yaml --namespace ingress-basic
 ```
 
 ## Run demo applications
