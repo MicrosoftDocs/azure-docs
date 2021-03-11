@@ -19,12 +19,26 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## March 2021
 
-* API v3.1-preview.4, which includes includes:
- * Changes in the opinion mining JSON response. `aspects` is now `target`. `opinions` is now `assessment`. 
- * New entity types, relations and assertions in Text Analytics for health.
- * Entity linking can now be called asynchronously. 
- * New `piicategories` parameter for PII extraction. 
-    * This parameter lets you to specify the PII entities that will be returned by the API.
+* Release of the new API v3.1-preview.4 which includes 
+   * Changes in the Opinion Mining JSON response body: 
+      * `aspects` is now `targets` and `opinions` is now `assessments`. 
+   * Changes in the JSON response body of the hosted web API of Text Analytics for health: 
+      * The `isNegated` boolean name of a detected entity object for Negation is deprecated and replaced by Assertion Detection.
+   * Entity linking is now available as an asynchronous task in the `/analyze` endpoint.
+   * A new `pii-categories` parameter is now available in the `/pii` endpoint.
+      * This parameter lets you to specify select PII entities as well as those not supported by default for the input language.
+* A new model version `2021-03-01` for the `/health` endpoint which provides
+   * A rename of the Gene entity type to Gene_or_Protein.
+   * A new Date entity type.
+   * Assertion detection which replaced Negation detection.
+   * A new property called `role` which is part of the extracted relation between an attribute and an entity as well as the relation between entities.  This adds specificity to the detected relation type.
+   * A new preferred `name` property for linked entities that is normalized from various ontologies and coding systems.
+
+* Updated client libraries, which include asynchronous Analyze, and Text Analytics for health operations. You can find examples on GitHub:
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
 
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3.1-Preview.4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
@@ -66,7 +80,9 @@ These model versions are currently unavailable in the East US region.
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-
+    * 
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3.1-Preview.3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
 ## October 2020
 
