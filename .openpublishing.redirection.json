@@ -16840,8 +16840,78 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/databox-online/azure-stack-edge-k-series-overview.md",
-      "redirect_url": "/azure/databox-online/azure-stack-edge-mini-r-overview",
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-users.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-users",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-shares",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-storage-accounts.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-storage-accounts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-bandwidth-schedules.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-bandwidth-schedules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-configure-gpu-modules.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-configure-gpu-modules",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-configure-tls-settings.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-configure-tls-settings",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-connect-resource-manager.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-connect-resource-manager",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-add-shares.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-add-shares",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-add-storage-accounts.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-add-storage-accounts",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-stateless-application-kubernetes",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-deploy-virtual-machine-cli-python.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-deploy-virtual-machine-cli-python",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-manage-compute.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-manage-compute",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-pro-r-overview",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-set-azure-resource-manager-password.md",
+      "redirect_url": "/azure/azure-stack-edge-gpu-set-azure-resource-manager-password",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-j-series-create-iot-edge-module.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-gpu-create-iot-edge-module",
       "redirect_document_id": false
     },
     {
@@ -50640,6 +50710,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/develop/active-directory-graph-api.md",
+      "redirect_url": "https://docs.microsoft.com/graph/migrate-azure-ad-graph-planning-checklist",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/active-directory-graph-api-quickstart.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-graph-api-quickstart",
       "redirect_document_id": false
@@ -64421,6 +64496,16 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Anomaly-Detector//tutorials/anomaly-detection-streaming-databricks.md",
       "redirect_url": "/azure/cognitive-services/Anomaly-Detector/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/quickstart-create-nat-gateway-cli.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-network/tutorial-create-validate-nat-gateway-cli.md",
+      "redirect_url": "/azure/virtual-network/tutorial-create-nat-gateway-cli",
       "redirect_document_id": false
     }
   ]
