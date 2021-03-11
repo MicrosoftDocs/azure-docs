@@ -7,6 +7,8 @@ ms.date: 12/01/2020
 
 # Live Video Analytics on IoT Edge FAQ
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This article answers commonly asked questions about Live Video Analytics on Azure IoT Edge.
 
 ## General
