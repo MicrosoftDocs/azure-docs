@@ -1227,10 +1227,10 @@
       href: ./windows/azure-to-guest-disk-mapping.md
     - name: File storage
       items:
-    - name: Linux mount using SMB
-      href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
-    - name: Copy files to a Linux VM
-      href: ./linux/copy-files-to-linux-vm-using-scp.md
+      - name: Linux mount using SMB
+        href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
+      - name: Copy files to a Linux VM
+        href: ./linux/copy-files-to-linux-vm-using-scp.md
     - name: Find unattached disks
       items:
       - name: CLI
