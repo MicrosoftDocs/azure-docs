@@ -98,7 +98,7 @@ When the twin is created successfully, the CLI output from the command should lo
 
 ## Create a function
 
-In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT telemetry events from IoT Hub. Follow the steps below to create and publish the function.
+In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT telemetry events that it receives. Follow the steps below to create and publish the function.
 
 #### Step 1: Create a function app project
 
@@ -129,17 +129,19 @@ Next, **assign an access role** for the function and **configure the application
 
 ## Connect your function to IoT Hub
 
-Set up an event destination for hub data.
+In this section, you'll set up your function as an event destination for the IoT hub device data. This will ensure that the data from the device in IoT Hub will be sent to the Azure function for processing.
+
 In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance that you created in the [*Prerequisites*](#prerequisites) section. Under **Events**, create a subscription for your function.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Screenshot of the Azure portal that shows Adding an event subscription.":::
 
 In the **Create Event Subscription** page, fill the fields as follows:
-  1. Under **Name**, name the subscription what you would like.
-  2. Under **Event Schema**, choose _Event Grid Schema_.
-  3. Under **Event Types**, choose the _Device Telemetry_ checkbox and uncheck other event types.
-  4. Under **Endpoint Type**, Select _Azure Function_.
-  5. Under **Endpoint**, Choose _Select an endpoint_ link to create an endpoint.
+  1. For **Name**, choose whatever name you want for the event subscription.
+  2. For **Event Schema**, choose _Event Grid Schema_.
+  3. For **System Topic Name**, choose whatever name you want.
+  1. For **Filter to Event Types**, choose the _Device Telemetry_ checkbox and uncheck other event types.
+  1. For **Endpoint Type**, Select _Azure Function_.
+  1. For **Endpoint**, use the _Select an endpoint_ link to choose what Azure Function to use for the endpoint.
     
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot of the Azure portal to create the event subscription details":::
 
@@ -148,13 +150,13 @@ In the _Select Azure Function_ page that opens up, verify the below details.
  2. **Resource group**: Your resource group.
  3. **Function app**: Your function app name.
  4. **Slot**: _Production_.
- 5. **Function**: Select your function from the dropdown.
+ 5. **Function**: Select the function from earlier, *IoTHubtoTwins*, from the dropdown.
 
-Save your details by selecting _Confirm Selection_ button.            
+Save your details with the _Confirm Selection_ button.            
       
 :::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Screenshot of the Azure portal to select the function.":::
 
-Select _Create_ button to create event subscription.
+Select the _Create_ button to create the event subscription.
 
 ## Send simulated IoT data
 
