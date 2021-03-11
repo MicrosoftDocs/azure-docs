@@ -1464,6 +1464,7 @@
       displayName: Automatic VM guest patching, guest, OS, patching
       href: automatic-vm-guest-patching.md
     - name: Hotpatch
+      displayName: patching, patch, update
       href: ../automanage/automanage-hotpatch.md?context=/azure/virtual-machines/context/context
   - name: Automatic extension upgrade (Preview)
     href: automatic-extension-upgrade.md
