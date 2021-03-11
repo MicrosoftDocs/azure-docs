@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/18/2020
+ms.date: 03/10/2021
 ms.author: b-juche
 ---
 # Troubleshoot cross-region replication
@@ -65,6 +65,12 @@ This article describes error messages and resolutions that can help you troubles
 |-|-|
 |     `Snapshot   cannot be deleted, parent volume is a Data Protection volume with a   replication object`    |     Validate that   you have broken the volume's replication if you want to delete this   snapshot.    |
 |     `Cannot delete   volume replication generated snapshot`    |     Deletion of   replication baseline snapshots is not allowed.    |
+
+## Errors resizing volumes
+
+|     Error Message    |     Resolution    |
+|-|-|
+|   Attempt to resize a source volume is failing with the error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |     Ensure that you have enough headroom in the capacity pools for both the source volume and the destination volumes of cross-region replication.  When you resize the source volume, the destination volume is automatically resized. But if the capacity pool doesn’t have enough headroom, the automatic resizing will fail.    |
 
 ## Next steps  
 

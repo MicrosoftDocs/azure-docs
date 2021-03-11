@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 03/10/2021
 ms.author: b-juche
 ---
 # Resize a capacity pool or a volume
@@ -34,6 +34,13 @@ You can change the size of a volume as necessary. A volume's capacity consumptio
 1. From the Manage NetApp Account blade, click **Volumes**. 
 2. Right-click the name of the volume that you want to resize or click the "…" icon at the end of the volume's row to display the context menu.
 3. Use the context menu options to resize or delete the volume.
+
+## Resize a volume in cross-region replication  
+
+In [cross-region replication](cross-region-replication-introduction.md), a destination volume is automatically resized based on the size of the source volume. As such, you don’t need to resize the destination volume separately. This automatic resizing behavior is applicable when the volumes are in a replication relationship or when replication peering is broken. 
+
+> [!IMPORTANT]
+> Ensure that you have enough headroom in the capacity pools for both the source volume and the destination volumes of cross-region replication.  When you resize the source volume, the destination volume is automatically resized. But if the capacity pool doesn’t have enough headroom, the automatic resizing of the destination volume will fail. 
 
 ## Next steps
 
