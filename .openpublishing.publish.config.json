@@ -1,7 +1,8 @@
 {
   "build_entry_point": "docs",
   "redirection_files": [
-    ".openpublishing.redirection.json"
+    ".openpublishing.redirection.json",
+    ".openpublishing.redirection.healthcare-apis.json"
   ],
   "docsets_to_publish": [
     {

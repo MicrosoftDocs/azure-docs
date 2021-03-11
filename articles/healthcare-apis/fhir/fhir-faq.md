@@ -26,7 +26,7 @@ Yes, the data is stored in managed databases in Azure. The Azure API for FHIR do
 We currently support Microsoft Azure Active Directory as the identity provider.
 
 ### What is the Recovery Point Objective (RPO) for the Azure API for FHIR?
-The Azure API for FHIR is backed by Cosmos DB as our persistence provider. Because of this, the RPO for the service equals [Cosmos DB (single region)](../cosmos-db/consistency-levels.md) and is < 240 minutes.
+The Azure API for FHIR is backed by Cosmos DB as our persistence provider. Because of this, the RPO for the service equals [Cosmos DB (single region)](../../cosmos-db/consistency-levels.md) and is < 240 minutes.
 
 ### What FHIR version do you support?
 
@@ -50,7 +50,7 @@ To see some of what is releasing into the Azure API for FHIR, please refer to th
 
 ### In which regions is Azure API for FHIR Available?
 
-Currently, we have general availability for both public and government in [multiple geo-regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For information about government cloud services at Microsoft, check out [Azure services by FedRAMP](../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
+Currently, we have general availability for both public and government in [multiple geo-regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For information about government cloud services at Microsoft, check out [Azure services by FedRAMP](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md).
 
 ### Where can I see what is releasing into the Azure API for FHIR?
 
@@ -99,7 +99,7 @@ Some examples of this are below:
 
 ### What is the default sort when searching for resources in Azure API for FHIR?
 
-We support sorting by the date last updated: _sort=_lastUpdated. For more information about other supported search parameters, check out our [supported features page](./fhir-features-supported.md#search).
+We support sorting by the date last updated: _sort=_lastUpdated. For more information about other supported search parameters, check out our [supported features page](fhir-features-supported.md#search).
 
 ### Does the Azure API for FHIR support $everything? 
 
@@ -109,7 +109,7 @@ You can see more details at this [community post](https://chat.fhir.org/#narrow/
 
 ### How does $export work?
 
-$export is part of the FHIR specification: https://hl7.org/fhir/uv/bulkdata/export/index.html. If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](./export-data.md).
+$export is part of the FHIR specification: https://hl7.org/fhir/uv/bulkdata/export/index.html. If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account - you can simply call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, check out our [article on $export](export-data.md).
 
 ### Is de-identified export available at Patient and Group level as well?
 Anonymized export is currently supported only on a full system export (/$export), and not for Patient export (/Patient/$export). We are working on making it available at the Patient level as well.
@@ -118,7 +118,7 @@ Anonymized export is currently supported only on a full system export (/$export)
 
 ### How do I enable log analytics for Azure API for FHIR?
 
-We enable diagnostic logging and allow reviewing sample queries for these logs. For details on enabling audit logs and sample queries, check out [this section](./enable-diagnostic-logging.md). If you want to include additional information in the logs, check out [using custom HTTP headers](./use-custom-headers.md).
+We enable diagnostic logging and allow reviewing sample queries for these logs. For details on enabling audit logs and sample queries, check out [this section](enable-diagnostic-logging.md). If you want to include additional information in the logs, check out [using custom HTTP headers](use-custom-headers.md).
 
 ### Where can I see some examples of using the Azure API for FHIR within a workflow?
 
@@ -132,7 +132,7 @@ We have a [Health Architecture GitHub page](https://aka.ms/health-architectures)
 
 ### Is there a way to encrypt my data using my personal key not a default key?
 
-Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key, check out [this section](./customer-managed-key.md).
+Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Cosmos DB. For more information about encrypting your data with a personal key, check out [this section](customer-managed-key.md).
 
 ## Azure API for FHIR: Preview Features
 

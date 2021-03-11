@@ -13,7 +13,7 @@ ms.date: 03/03/2021
 
 # Enable Diagnostic Logging in Azure API for FHIR
 
-In this article, you will learn how to enable diagnostic logging in Azure API for FHIR and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements (such as HIPAA) is a must. The feature in Azure API for FHIR that enables diagnostic logs is the [**Diagnostic settings**](../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
+In this article, you will learn how to enable diagnostic logging in Azure API for FHIR and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements (such as HIPAA) is a must. The feature in Azure API for FHIR that enables diagnostic logs is the [**Diagnostic settings**](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
 
 ## View and Download FHIR Metrics Data
 
@@ -47,7 +47,7 @@ You can view the metrics under Monitoring | Metrics from the portal. The metrics
 > [!Note] 
 > It might take up to 15 minutes for the first Logs to show in Log Analytics. Also, if Azure API for FHIR is moved from one resource group or subscription to another, update the setting once the move is complete. 
  
-For more information on how to work with diagnostic logs, please refer to the [Azure Resource Log documentation](../azure-monitor/essentials/platform-logs-overview.md)
+For more information on how to work with diagnostic logs, please refer to the [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md)
 
 ## Audit log details
 At this time, the Azure API for FHIR service returns the following fields in the audit log: 

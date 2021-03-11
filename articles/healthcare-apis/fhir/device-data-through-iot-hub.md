@@ -18,7 +18,7 @@ Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*
 
 - An active Azure subscription - [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Azure API for FHIR resource with at least one Azure IoT Connector for FHIR - [Deploy Azure IoT Connector for FHIR (preview) using Azure portal](iot-fhir-portal-quickstart.md)
-- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT hub using the Azure portal](../iot-hub/quickstart-send-telemetry-dotnet.md)
+- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT hub using the Azure portal](../../iot-hub/quickstart-send-telemetry-dotnet.md)
 
 > [!TIP]
 > If you are using an Azure IoT Hub simulated device application, feel free to pick the application of your choice amongst different supported languages and systems.
@@ -31,10 +31,10 @@ Azure IoT Connector for FHIR uses an Azure Event Hub instance under the hood to 
 
 ## Connect Azure IoT Hub with the Azure IoT Connector for FHIR (preview)
 
-Azure IoT Hub supports a feature called [message routing](../iot-hub/iot-hub-devguide-messages-d2c.md) that provides capability to send device data to various Azure services like Event Hub, Storage Account, and Service Bus. Azure IoT Connector for FHIR leverages this feature to connect and send device data from Azure IoT Hub to its Event Hub endpoint.
+Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) that provides capability to send device data to various Azure services like Event Hub, Storage Account, and Service Bus. Azure IoT Connector for FHIR leverages this feature to connect and send device data from Azure IoT Hub to its Event Hub endpoint.
 
 > [!NOTE] 
-> At this time you can only use PowerShell or CLI command to [create message routing](../iot-hub/tutorial-routing.md) because Azure IoT Connector for FHIR's Event Hub is not hosted on the customer subscription, hence it won't be visible to you through the Azure portal. Though, once the message route objects are added using PowerShell or CLI, they are visible on the Azure portal and can be managed from there.
+> At this time you can only use PowerShell or CLI command to [create message routing](../../iot-hub/tutorial-routing.md) because Azure IoT Connector for FHIR's Event Hub is not hosted on the customer subscription, hence it won't be visible to you through the Azure portal. Though, once the message route objects are added using PowerShell or CLI, they are visible on the Azure portal and can be managed from there.
 
 Setting up a message routing consists of two steps.
 

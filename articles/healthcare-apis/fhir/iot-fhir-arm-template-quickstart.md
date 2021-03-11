@@ -13,11 +13,11 @@ ms.date: 01/21/2021
 
 In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*, a feature of Azure API for FHIR. To deploy a working instance of Azure IoT Connector for FHIR, this template also deploys a parent Azure API for FHIR service and an Azure IoT Central application that  exports telemetry from a device simulator to Azure IoT Connector for FHIR. You can execute ARM template to deploy Azure IoT Connector for FHIR through the Azure portal, PowerShell, or CLI.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal once you sign in.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fiomt-fhir%2Fmaster%2Fdeploy%2Ftemplates%2Fmanaged%2Fazuredeploy.json)
+[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fiomt-fhir%2Fmaster%2Fdeploy%2Ftemplates%2Fmanaged%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ The [template](https://raw.githubusercontent.com/microsoft/iomt-fhir/master/depl
 
 Select the following link to deploy the Azure IoT Connector for FHIR using the ARM template in the Azure portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR service using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fiomt-fhir%2Fmaster%2Fdeploy%2Ftemplates%2Fmanaged%2Fazuredeploy.json)
+[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure an Azure IoT Connector for FHIR service using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fiomt-fhir%2Fmaster%2Fdeploy%2Ftemplates%2Fmanaged%2Fazuredeploy.json)
 
 On the **Deploy Azure API for FHIR** page:
 
@@ -243,7 +243,7 @@ az iot central app show -g $resourceGroupName -n $iotCentralName &&
 
 IoT Central application currently doesn't provide ARM template or PowerShell and CLI commands to set data export. So, follow the instructions below using Azure portal.  
 
-Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial, we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the Azure IoT Connector for FHIR. To export your IoT data to the Azure IoT Connector for FHIR, we'll want to [set up a Data export (legacy) within IoT Central](../iot-central/core/howto-export-data-legacy.md). On the Data export (legacy) page:
+Once you've deployed your IoT Central application, your two out-of-the-box simulated devices will start generating telemetry. For this tutorial, we'll ingest the telemetry from *Smart Vitals Patch* simulator into FHIR via the Azure IoT Connector for FHIR. To export your IoT data to the Azure IoT Connector for FHIR, we'll want to [set up a Data export (legacy) within IoT Central](../../iot-central/core/howto-export-data-legacy.md). On the Data export (legacy) page:
 - Pick *Azure Event Hubs* as the export destination.
 - Select *Use a connection string* value for **Event Hubs namespace** field.
 - Provide Azure IoT Connector for FHIR's connection string obtained in a previous step for the **Connection String** field.
@@ -294,7 +294,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-For a step-by-step tutorial that guides you through the process of creating an ARM template, see the [tutorial to create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+For a step-by-step tutorial that guides you through the process of creating an ARM template, see the [tutorial to create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 ## Next steps
 

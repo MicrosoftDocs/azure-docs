@@ -15,9 +15,9 @@ ms.custom: devx-track-azurecli
 
 In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Add HealthcareAPIs extension
 

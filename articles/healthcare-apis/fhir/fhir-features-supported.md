@@ -123,9 +123,9 @@ All the operations that are supported that extend the RESTful API.
 
 The Microsoft FHIR Server has a pluggable persistence module (see [`Microsoft.Health.Fhir.Core.Features.Persistence`](https://github.com/Microsoft/fhir-server/tree/master/src/Microsoft.Health.Fhir.Core/Features/Persistence)).
 
-Currently the FHIR Server open-source code includes an implementation for [Azure Cosmos DB](../cosmos-db/index-overview.md) and [SQL Database](https://azure.microsoft.com/services/sql-database/).
+Currently the FHIR Server open-source code includes an implementation for [Azure Cosmos DB](../../cosmos-db/index-overview.md) and [SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) database. It supports different [consistency levels](../cosmos-db/consistency-levels.md). The default deployment template configures the FHIR Server with `Strong` consistency, but the consistency policy can be modified (generally relaxed) on a request by request basis using the `x-ms-consistency-level` request header.
+Cosmos DB is a globally distributed multi-model (SQL API, MongoDB API, etc.) database. It supports different [consistency levels](../../cosmos-db/consistency-levels.md). The default deployment template configures the FHIR Server with `Strong` consistency, but the consistency policy can be modified (generally relaxed) on a request by request basis using the `x-ms-consistency-level` request header.
 
 ## Role-based access control
 
@@ -135,7 +135,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Service limits
 
-* [**Request Units (RUs)**](../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
+* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 10 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
 
 * **Concurrent connections** and **Instances** - By default, you have five concurrent connections on two instances in the cluster (for a total of 10 concurrent requests). If you believe you need more concurrent requests, open a support ticket with details on your needs.
 
@@ -154,7 +154,7 @@ The performance of the system is dependent on the number of RUs, concurrent conn
 | 10,000   | 225-400       |      1,000  |
 | 100,000  | 2,500-4,000   |      10,000  |
 
-Note: Per Cosmos DB requirement, there is a requirement of a minimum throughput of 10 RU/s per GB of storage. For more information, check out [Cosmos DB service quotas](../cosmos-db/concepts-limits.md).
+Note: Per Cosmos DB requirement, there is a requirement of a minimum throughput of 10 RU/s per GB of storage. For more information, check out [Cosmos DB service quotas](../../cosmos-db/concepts-limits.md).
 
 ## Next steps
 
