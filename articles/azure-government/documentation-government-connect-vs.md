@@ -29,26 +29,27 @@ This quickstart shows how to connect to your Azure Government accounts and subsc
 - Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>.
 
 ## Sign in to Azure Government
-Open up Visual Studio and click **Tools** > **Options**. 
 
-![VS-1](./media/connect-to-vs-1.png)
+1. Open up Visual Studio and click **Tools** > **Options**. 
 
-Then navigate to **Environment** > **Accounts** and under *Registered Azure Clouds* you can see which cloud endpoints you already have registered. In order to add Azure Government, you must click the *Add* button and you will see the dropdown below:
+   ![VS-1](./media/connect-to-vs-1.png)
 
-![VS-2](./media/connect-to-vs-2.png)
-![VS-3](./media/connect-to-vs-3.png)
+2. Then navigate to **Environment** > **Accounts** and under *Registered Azure Clouds* you can see which cloud endpoints you already have registered. In order to add Azure Government, you must click the *Add* button and you will see the dropdown below:
 
-From this dropdown, you can choose *Azure U.S. Government* and click add. Once you have done this, you should be able to see *Azure U.S. Government* under *Registered Azure Clouds*. 
+   ![VS-2](./media/connect-to-vs-2.png)
+   ![VS-3](./media/connect-to-vs-3.png)
 
-![VS-4](./media/connect-to-vs-4.png)
-![VS-5](./media/connect-to-vs-5.png)
+3. From this dropdown, you can choose *Azure U.S. Government* and click add. Once you have done this, you should be able to see *Azure U.S. Government* under *Registered Azure Clouds*. 
 
-Then you can click on the blue *Manage Accounts* link in the top-left corner and choose *Azure U.S. Government* to access an Azure Government account. 
+   ![VS-4](./media/connect-to-vs-4.png)
+   ![VS-5](./media/connect-to-vs-5.png)
 
-![VS-6](./media/connect-to-vs-6.png)
-![VS-7](./media/connect-to-vs-7.png)
+4. Then you can click on the blue *Manage Accounts* link in the top-left corner and choose *Azure U.S. Government* to access an Azure Government account. 
 
-You are prompted to sign in. Once you have entered your credentials, you will be able to see your account and subscriptions populate on the left-hand side. Now you are free to manage and interact with your Azure Government resources in Visual Studio!
+   ![VS-6](./media/connect-to-vs-6.png)
+   ![VS-7](./media/connect-to-vs-7.png)
+
+5. You are prompted to sign in. Once you have entered your credentials, you will be able to see your account and subscriptions populate on the left-hand side. Now you are free to manage and interact with your Azure Government resources in Visual Studio!
 
 ## Next steps
 

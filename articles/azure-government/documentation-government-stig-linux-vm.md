@@ -10,7 +10,7 @@ ms.date: 03/09/2021
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
 
-Microsoft Azure Security Technical Implementation Guides (STIGs) solution templates help you accelerate your [DoD STIG compliance](https://public.cyber.mil/stigs/) by delivering an automated solution to deploy virtual machines and apply STIGs through the Azure portal.
+Microsoft Azure Security Technical Implementation Guides (STIGs) solution templates help you accelerate your [DoD STIG compliance](https://public.cyber.mil/stigs/) by delivering an automated solution to deploy virtual machines and apply STIGs through the Azure portal. For questions about this offering, contact [Azure STIG Support](mailto:azurestigsupport@microsoft.com).
 
 This quickstart shows how to use the Azure portal to deploy a STIG-compliant Linux virtual machine (Preview).
 
