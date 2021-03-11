@@ -105,7 +105,7 @@ The following example shows a relying party with [UserInfo endpoint](userinfo-en
 
 ## DefaultUserJourney
 
-The `DefaultUserJourney` element specifies a reference to the identifier of the user journey that is usually defined in the Base or Extensions policy. The following examples show the sign-up or sign-in user journey specified in the **RelyingParty** element:
+The `DefaultUserJourney` element specifies a reference to the identifier of the user journey that is defined in the Base or Extensions policy. The following examples show the sign-up or sign-in user journey specified in the **RelyingParty** element:
 
 *B2C_1A_signup_signin* policy:
 
@@ -215,6 +215,21 @@ The **Protocol** element contains the following attribute:
 | --------- | -------- | ----------- |
 | Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OpenIdConnect` or `SAML2`. The `OpenIdConnect` value represents the OpenID Connect 1.0 protocol standard as per OpenID foundation specification. The `SAML2` represents the SAML 2.0 protocol standard as per OASIS specification. |
 
+### Metadata
+
+When the protocol is `SAML`, a metadata element contains the following elements. For more information, see [Options for registering a SAML application in Azure AD B2C](saml-service-provider-options.md).
+
+| Attribute | Required | Description |
+| --------- | -------- | ----------- |
+| IdpInitiatedProfileEnabled | No | Indicates whether the IDP initiated flow is supported. Possible values: `true` or `false` (default). | 
+| XmlSignatureAlgorithm | No | The method that Azure AD B2C uses to sign the SAML Response. Possible values: `Sha256`, `Sha384`, `Sha512`, or `Sha1`. Make sure you configure the signature algorithm on both sides with same value. Use only the algorithm that your certificate supports. To configure the SAML Assertion, see [SAML issuer technical profile metadata](saml-issuer-technical-profile.md#metadata). |
+| DataEncryptionMethod | No | Indicates the method that Azure AD B2C uses to encrypt the data, using Advanced Encryption Standard (AES) algorithm. The metadata controls the value of the `<EncryptedData>` element in the SAML response. Possible values: `Aes256` (default), `Aes192`, `Sha512`, or ` Aes128`. |
+| KeyEncryptionMethod| No | Indicates the method that Azure AD B2C uses to encrypt the copy of the key that was used to encrypt the data. The metadata controls the value of the  `<EncryptedKey>` element in the SAML response. Possible values: ` Rsa15` (default) - RSA Public Key Cryptography Standard (PKCS) Version 1.5 algorithm, ` RsaOaep` - RSA Optimal Asymmetric Encryption Padding (OAEP) encryption algorithm. |
+| UseDetachedKeys | No |  Possible values: `true`, or `false` (default). When the value is set to `true`, Azure AD B2C changes the format of the encrypted assertions. Using detached keys adds the encrypted assertion as a child of the EncrytedAssertion as opposed to the EncryptedData. |
+| WantsSignedResponses| No | Indicates whether Azure AD B2C signs the `Response` section of the SAML response. Possible values: `true` (default) or `false`.  |
+| RemoveMillisecondsFromDateTime| No | Indicates whether the milliseconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter, and AuthnInstant). Possible values: `false` (default) or `true`.  |
+
+
 ### OutputClaims
 
 The **OutputClaims** element contains the following element:
@@ -234,8 +249,9 @@ The **OutputClaim** element contains the following attributes:
 ### SubjectNamingInfo
 
 With the **SubjectNameingInfo** element, you control the value of the token subject:
+
 - **JWT token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](session-behavior.md).
-- **SAML token** - the `<Subject><NameID>` element which identifies the subject element. The NameId format can be modified.
+- **SAML token** - the `<Subject><NameID>` element, which identifies the subject element. The NameId format can be modified.
 
 The **SubjectNamingInfo** element contains the following attribute:
 

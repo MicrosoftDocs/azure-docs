@@ -50,7 +50,7 @@ Having root and signing keys allows Microsoft to periodically roll the signing k
 ### JSON Web Signature (JWS)
 
 The `updateManifestSignature` is used to ensure that the information contained within the `updateManifest` has
-not been tampered with. The `updateManifestSignature` is produced using a JSON Web Signature with JSON Web Keys, allowing for source verification. The signature is a Base64Url Encoded string with three sections delineated by ".".  Refer to the jws_util.h helper methods for parsing and verifying JSON keys and tokens.
+not been tampered with. The `updateManifestSignature` is produced using a JSON Web Signature with JSON Web Keys, allowing for source verification. The signature is a Base64Url Encoded string with three sections delineated by ".".  Refer to the [jws_util.h helper methods](https://github.com/Azure/iot-hub-device-update/tree/main/src/utils/jws_utils) for parsing and verifying JSON keys and tokens.
 
 JSON Web Signature is a widely used [proposed IETF standard](https://tools.ietf.org/html/rfc7515) for signing
 content using JSON-based data structures. It is a way of ensuring integrity of data by verifying the signature

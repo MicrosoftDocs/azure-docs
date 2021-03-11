@@ -30,7 +30,9 @@
       - name: Academy Attendance
         href: academy-attendance-tutorial.md
       - name: Acadia
-        href: acadia-tutorial.md  
+        href: acadia-tutorial.md
+      - name: Accenture Academy
+        href: accenture-academy-tutorial.md  
       - name: Accredible
         href: accredible-tutorial.md
       - name: Achieve3000
@@ -39,6 +41,8 @@
         href: aclp-tutorial.md
       - name: AcquireIO
         href: acquireio-tutorial.md
+      - name: Acunetix 360
+        href: acunetix-360-tutorial.md
       - name: Adaptive Insights
         href: adaptivesuite-tutorial.md
       - name: Adobe Captivate Prime
@@ -87,7 +91,7 @@
         href: ally-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
-      - name: Amazon Web Services (AWS)
+      - name: AWS Single-Account Access
         href: amazon-web-service-tutorial.md
       - name: Amazon Web Services (AWS) to connect multiple accounts
         href: aws-multi-accounts-tutorial.md
@@ -603,6 +607,8 @@
         href: evidence-tutorial.md
       - name: ExactCare SSO
         href: exactcare-sso-tutorial.md
+      - name: Exceed.ai
+        href: exceed-ai-tutorial.md
       - name: ExcelityGlobal
         href: excelityglobal-tutorial.md
       - name: ExpenseIn
@@ -1612,6 +1618,8 @@
         href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
+      - name: SendPro Enterprise
+        href: sendpro-enterprise-tutorial.md
       - name: SendSafely
         href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
@@ -1706,6 +1714,8 @@
         href: smartkargo-tutorial.md
       - name: SmartLPA
         href: smartlpa-tutorial.md
+      - name: Smartlook
+        href: smartlook-tutorial.md
       - name: SmartRecruiters
         href: smartrecruiters-tutorial.md
       - name: smartvid.io
@@ -2117,6 +2127,8 @@
         href: bonusly-provisioning-tutorial.md
       - name: Box
         href: box-userprovisioning-tutorial.md
+      - name: Bpanda
+        href: bpanda-provisioning-tutorial.md
       - name: Brivo Onair Identity Connector
         href: brivo-onair-identity-connector-provisioning-tutorial.md       
       - name: Cerner Central
@@ -2173,6 +2185,8 @@
         href: github-provisioning-tutorial.md
       - name: GitHub AE
         href: github-ae-provisioning-tutorial.md
+      - name: GitHub Enterprise Managed User
+        href: github-enterprise-managed-user-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: GroupTalk
