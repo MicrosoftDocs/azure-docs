@@ -40,7 +40,7 @@ Named Entity Recognition detects words and phrases mentioned in unstructured tex
 
 ### [Relation Extraction](#tab/relation-extraction)
 
-Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time. 
+Relation extraction identifies meaningful connections between concepts mentioned in text. For example, a "time of condition" relation is found by associating a condition name with a time or between an abbreviation and the full description  
 
 > [!div class="mx-imgBorder"]
 > ![Health RE](../media/ta-for-health/health-relation-extraction.png)
@@ -48,14 +48,14 @@ Relation extraction identifies meaningful connections between concepts mentioned
 
 ### [Entity Linking](#tab/entity-linking)
 
-Entity Linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined database of concepts. For example, the Unified Medical Language System (UMLS).
+Entity Linking disambiguates distinct entities by associating named entities mentioned in text to concepts found in a predefined database of concepts including the Unified Medical Language System (UMLS). Medical concepts are also assigned preferred naming, as an additional form of normalization.
 
 > [!div class="mx-imgBorder"]
 > ![Health EL](../media/ta-for-health/health-entity-linking.png)
 
 Text Analytics for health supports linking to the health and biomedical vocabularies found in the Unified Medical Language System ([UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)) Metathesaurus Knowledge Source.
 
-### [Assertion](#tab/assertion) 
+### [Assertion Detection](#tab/assertion-detection) 
 
 The meaning of medical content is highly affected by modifiers such as negative or conditional assertion, which can have critical implication if misrepresented. Text Analytics for health supports assertion detection for  different entities mentioned in the text through three categories: certainty, conditional and association. 
 
