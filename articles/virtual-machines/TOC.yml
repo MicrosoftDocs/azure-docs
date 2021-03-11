@@ -343,16 +343,16 @@
         href: ./linux/create-ssh-secured-vm-from-template.md
       - name: REST
         href: ./linux/create-vm-rest-api.md
-      - name: Copy a VM using CLI
-        href: ./linux/copy-vm.md
-      - name: Configure Rolling deployment strategy
-        href: ./linux/tutorial-devops-azure-pipelines-classic.md
-      - name: Configure Canary deployment strategy
-        href: ./linux/tutorial-azure-devops-canary-strategy.md
-      - name: Configure Blue-Green deployment strategy
-        href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-      - name: CI/CD with Azure Pipelines(YAML)
-        href: ./linux/tutorial-build-deploy-azure-pipelines.md
+      - name: Continuous delivery
+        items: 
+        - name: Configure Rolling deployment strategy
+          href: ./linux/tutorial-devops-azure-pipelines-classic.md
+        - name: Configure Canary deployment strategy
+          href: ./linux/tutorial-azure-devops-canary-strategy.md
+        - name: Configure Blue-Green deployment strategy
+          href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+        - name: CI/CD with Azure Pipelines(YAML)
+          href: ./linux/tutorial-build-deploy-azure-pipelines.md
       - name: Create LAMP stack
         href: ./linux/tutorial-lamp-stack.md
       - name: Secure web server with TLS\SSL
@@ -574,26 +574,20 @@
         href: ./linux/tutorial-govern-resources.md
       - name: Windows
         href: ./windows/tutorial-govern-resources.md
-    - name: Time sync
-      items:
-      - name: Linux
-        href: ./linux/time-sync.md
-      - name: Windows
-        href: ./windows/time-sync.md
-      - name: Run Command
-        items:
-        - name: Linux
-          href: ./linux/run-command.md
-        - name: Windows
-          href: ./windows/run-command.md
-    - name: Enable nested virtualization
-      href: ./windows/nested-virtualization.md
-    - name: File storage
-      items:
-      - name: Linux mount using SMB
-        href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
-      - name: Copy files to a Linux VM
-        href: ./linux/copy-files-to-linux-vm-using-scp.md
+  - name: Time sync
+    items:
+    - name: Linux
+      href: ./linux/time-sync.md
+    - name: Windows
+      href: ./windows/time-sync.md
+  - name: Run Command
+    items:
+    - name: Linux
+      href: ./linux/run-command.md
+    - name: Windows
+      href: ./windows/run-command.md
+  - name: Enable nested virtualization
+    href: ./windows/nested-virtualization.md
 - name: Images
   items:
   - name: Find Azure Marketplace images
@@ -1160,6 +1154,8 @@
       - name: PowerShell
         displayName: Unmanaged VM to Managed Disks
         href: ./windows/convert-unmanaged-to-managed-disks.md
+    - name: Copy a VM using CLI
+      href: ./linux/copy-vm.md
   - name: Add a data disk
     items:
     - name: Linux
@@ -1229,6 +1225,12 @@
       href: ./linux/azure-to-guest-disk-mapping.md
     - name: Map managed disk to guest disk - Windows
       href: ./windows/azure-to-guest-disk-mapping.md
+    - name: File storage
+      items:
+    - name: Linux mount using SMB
+      href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
+    - name: Copy files to a Linux VM
+      href: ./linux/copy-files-to-linux-vm-using-scp.md
     - name: Find unattached disks
       items:
       - name: CLI
