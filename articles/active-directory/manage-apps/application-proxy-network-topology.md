@@ -44,10 +44,12 @@ In order to optimize the traffic flow and reduce latency to a connector group as
 1. Select **New Connector Group**, provide a **Name** for the connector group.
 1. Next, under **Advanced Settings** and select the drop down under Optimize for a specific region and select the region closest to the connectors.
 1. Select **Create**.
+    
     :::image type="content" source="./media/application-proxy-network-topology/geo-routing.png" alt-text="Configure a new connector group." lightbox="./media/application-proxy-network-topology/geo-routing.png":::
+
 1. Once the new connector group is created, you can select which connectors to assign to this connector group. 
-   1. You can only move connectors to your connector group if it is in a connector group using the default region. The best approach is to always start with your connectors placed in the “Default group” and then move it to the appropriate connector group.
-   2. You can only change the region of a connector group if there are **no** connectors assigned to it or apps assigned to it.
+   - You can only move connectors to your connector group if it is in a connector group using the default region. The best approach is to always start with your connectors placed in the “Default group” and then move it to the appropriate connector group.
+   - You can only change the region of a connector group if there are **no** connectors assigned to it or apps assigned to it.
 1. Next assign the connector group to your applications. When accessing the apps, traffic should now go to the Application Proxy cloud service in the region the connector group is optimized for.
 
 ## Considerations for reducing latency
@@ -171,7 +173,7 @@ The connector can be placed in the Azure datacenter. Since the connector still h
 
 **Scenario:** The app is in an organization's network in Europe, default tenant region is US, with most users in the Europe.
 
-**Recommendation:** Place the connector near the app. Update the connector group so it is optimized to use Europe Application Proxy service instances. For steps see, [Optimize connector groups to use closest Application Proxy cloud service](/application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service).
+**Recommendation:** Place the connector near the app. Update the connector group so it is optimized to use Europe Application Proxy service instances. For steps see, [Optimize connector groups to use closest Application Proxy cloud service](application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service).
 
 Because Europe users are accessing an Application Proxy instance that happens to be in the same region, hop 1 is not expensive. Hop 3 is optimized. Consider using ExpressRoute to optimize hop 2.
 
