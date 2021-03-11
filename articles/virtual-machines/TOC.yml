@@ -49,6 +49,8 @@
       href: ./linux/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./linux/tutorial-virtual-network.md
+    - name: 9 - Manage resources
+      href: ./linux/tutorial-govern-resources.md
   - name: Windows
     items:
     - name: 1 - Create / manage a VM
@@ -67,6 +69,8 @@
       href: ./windows/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./windows/tutorial-virtual-network.md
+    - name: 9 - Manage resources
+      href: ./windows/tutorial-govern-resources.md
 - name: Workloads
   items:
   - name: Red Hat
@@ -310,85 +314,37 @@
       displayName: Azure Hybrid Benefit, Linux, AHB
       href: ./linux/azure-hybrid-benefit-linux.md
     - name: Windows
-      items:
-      - name: Use Azure Hybrid Benefit license
-        displayName: Azure Hybrid Benefit, AHB
-        href: ./windows/hybrid-use-benefit-licensing.md
-      - name: Use Multitenant Hosting Rights for Windows 10
-        displayName: MTHR, multi-tenant, multitenant, hosting, rights
-        href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+      displayName: Azure Hybrid Benefit, AHB
+      href: ./windows/hybrid-use-benefit-licensing.md
+    - name: Multitenant Hosting Rights for Windows 10
+      displayName: MTHR, multi-tenant, multitenant, hosting, rights
+      href: ./windows/windows-desktop-multitenant-hosting-deployment.md
   - name: Reserved instances
     items:
+    - name: What are Azure reservations?
+      displayName: Reserved Instances, RI, prepay, flexibility
+      href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
     - name: Prepay for VMs
       displayName: Reserved Instances, RI, prepay, flexibility
       href: ./prepay-reserved-vm-instances.md
     - name: Prepay for Dedicated Hosts
       displayName: Reserved Instances, RI, prepay, flexibility
       href: prepay-dedicated-hosts-reserved-instances.md
-    - name: What are Azure reservations?
-      displayName: Reserved Instances, RI, prepay, flexibility
-      href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
     - name: VM instance size flexibility
       displayName: Reserved Instances, RI, prepay
       href: reserved-vm-instance-size-flexibility.md
-  - name: Create Virtual Machines
-    items: 
-    - name: Linux
-      items: 
-      - name: Endorsed distributions
-        href: ./linux/endorsed-distros.md
-      - name: CLI
-        href: ./linux/create-cli-complete.md
-      - name: ARM template
-        href: ./linux/create-ssh-secured-vm-from-template.md
-      - name: REST
-        href: ./linux/create-vm-rest-api.md
-      - name: Continuous delivery
-        items: 
-        - name: Configure Rolling deployment strategy
-          href: ./linux/tutorial-devops-azure-pipelines-classic.md
-        - name: Configure Canary deployment strategy
-          href: ./linux/tutorial-azure-devops-canary-strategy.md
-        - name: Configure Blue-Green deployment strategy
-          href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-        - name: CI/CD with Azure Pipelines(YAML)
-          href: ./linux/tutorial-build-deploy-azure-pipelines.md
-      - name: Create LAMP stack
-        href: ./linux/tutorial-lamp-stack.md
-      - name: Secure web server with TLS\SSL
-        href: ./linux/tutorial-secure-web-server.md
-    - name: Windows
-      items:
-      - name: Use specialized disk
-        items:
-        - name: Portal
-          href: ./windows/create-vm-specialized-portal.md
-        - name: PowerShell
-          href: ./windows/create-vm-specialized.md
-        - name: ARM template
-          href: ./windows/ps-template.md
-      - name: Secure web server with TLS\SSL
-        href: ./windows/tutorial-secure-web-server.md
-  - name: Connect to Virtual Machines
+  - name: Time sync
     items:
     - name: Linux
-      items: 
-      - name: SSH on Linux or macOS
-        href: ./linux/mac-create-ssh-keys.md
-      - name: SSH on Windows
-        href: ./linux/ssh-from-windows.md
-      - name: Use the portal
-        href: ssh-keys-portal.md
-      - name: SSH key details
-        href: ./linux/create-ssh-keys-detailed.md
-      - name: Remote Desktop for Linux
-        href: ./linux/use-remote-desktop.md
+      href: ./linux/time-sync.md
     - name: Windows
-      items:
-      - name: Remote Desktop for Windows
-        href: ./windows/connect-logon.md
-      - name: WinRM
-        href: ./windows/winrm.md
+      href: ./windows/time-sync.md
+  - name: Run Command
+    items:
+    - name: Linux
+      href: ./linux/run-command.md
+    - name: Windows
+      href: ./windows/run-command.md
   - name: Extensions
     items:
     - name: Overview
@@ -537,6 +493,66 @@
       href: ./extensions/troubleshoot.md
     - name: Issues with Python 3-enabled Linux systems
       href: ./extensions/issues-using-vm-extensions-python-3.md
+  - name: Nested virtualization
+    href: ./windows/nested-virtualization.md
+  - name: Create Virtual Machines
+    items: 
+    - name: Linux
+      items: 
+      - name: Endorsed distributions
+        href: ./linux/endorsed-distros.md
+      - name: CLI
+        href: ./linux/create-cli-complete.md
+      - name: ARM template
+        href: ./linux/create-ssh-secured-vm-from-template.md
+      - name: REST
+        href: ./linux/create-vm-rest-api.md
+      - name: Continuous delivery
+        items: 
+        - name: Configure Rolling deployment strategy
+          href: ./linux/tutorial-devops-azure-pipelines-classic.md
+        - name: Configure Canary deployment strategy
+          href: ./linux/tutorial-azure-devops-canary-strategy.md
+        - name: Configure Blue-Green deployment strategy
+          href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+        - name: CI/CD with Azure Pipelines(YAML)
+          href: ./linux/tutorial-build-deploy-azure-pipelines.md
+      - name: Create LAMP stack
+        href: ./linux/tutorial-lamp-stack.md
+      - name: Secure web server with TLS\SSL
+        href: ./linux/tutorial-secure-web-server.md
+    - name: Windows
+      items:
+      - name: Use specialized disk
+        items:
+        - name: Portal
+          href: ./windows/create-vm-specialized-portal.md
+        - name: PowerShell
+          href: ./windows/create-vm-specialized.md
+        - name: ARM template
+          href: ./windows/ps-template.md
+      - name: Secure web server with TLS\SSL
+        href: ./windows/tutorial-secure-web-server.md
+  - name: Connect to Virtual Machines
+    items:
+    - name: Linux
+      items: 
+      - name: SSH on Linux or macOS
+        href: ./linux/mac-create-ssh-keys.md
+      - name: SSH on Windows
+        href: ./linux/ssh-from-windows.md
+      - name: Use the portal
+        href: ssh-keys-portal.md
+      - name: SSH key details
+        href: ./linux/create-ssh-keys-detailed.md
+      - name: Remote Desktop for Linux
+        href: ./linux/use-remote-desktop.md
+    - name: Windows
+      items:
+      - name: Remote Desktop for Windows
+        href: ./windows/connect-logon.md
+      - name: WinRM
+        href: ./windows/winrm.md
   - name: Migrate to Azure Resource Manager
     items:
     - name: Retirement starting March 1, 2023
@@ -566,28 +582,6 @@
     - name: FAQ
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
       href: migration-classic-resource-manager-faq.md
-  - name: Management basics
-    items:
-    - name: Manage resources
-      items:
-      - name: Linux
-        href: ./linux/tutorial-govern-resources.md
-      - name: Windows
-        href: ./windows/tutorial-govern-resources.md
-  - name: Time sync
-    items:
-    - name: Linux
-      href: ./linux/time-sync.md
-    - name: Windows
-      href: ./windows/time-sync.md
-  - name: Run Command
-    items:
-    - name: Linux
-      href: ./linux/run-command.md
-    - name: Windows
-      href: ./windows/run-command.md
-  - name: Enable nested virtualization
-    href: ./windows/nested-virtualization.md
 - name: Images
   items:
   - name: Find Azure Marketplace images
