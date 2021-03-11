@@ -25,6 +25,7 @@
 - name: Concepts
   items:
   - name: Layout API
+    expanded: true
     items:
     - name: Extract form data    
       href: concept-layout.md
