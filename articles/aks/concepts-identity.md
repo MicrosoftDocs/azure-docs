@@ -99,7 +99,7 @@ A ClusterRole grants and applies permissions to resources across the entire clus
 
 ### RoleBindings and ClusterRoleBindings
 
-Once you've defined roles to grant permissions to resources, you assign those Kubernetes RBAC permissions with a *RoleBinding*. If your AKS cluster [integrates with Azure Active Directory (Azure AD)](#azure-active-directory-integration), RoleBindings grant permissions to Azure AD users to perform actions within the cluster. See how in [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities](azure-ad-rbac.md).
+Once you've defined roles to grant permissions to resources, you assign those Kubernetes RBAC permissions with a *RoleBinding*. If your AKS cluster [integrates with Azure Active Directory (Azure AD)](#azure-ad-integration), RoleBindings grant permissions to Azure AD users to perform actions within the cluster. See how in [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities](azure-ad-rbac.md).
 
 #### RoleBindings
 
@@ -179,7 +179,7 @@ There are two levels of access needed to fully operate an AKS cluster:
   * Control scaling or upgrading your cluster using the AKS APIs.
   * Pull your `kubeconfig`.
 * Access to the Kubernetes API. This access is controlled by either:
-  * [Kubernetes RBAC](#kubernetes-role-based-access-control-kubernetes-rbac) (traditionally).
+  * [Kubernetes RBAC](#kubernetes-rbac) (traditionally).
   * [Integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization-preview).
 
 ### Azure RBAC to authorize access to the AKS resource
@@ -196,7 +196,7 @@ With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook
 
 ![Azure RBAC for Kubernetes authorization flow](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-As shown in the above diagram, when using the Azure RBAC integration, all requests to the Kubernetes API will follow the same authentication flow as explained on the [Azure Active Directory integration section](#azure-active-directory-integration). 
+As shown in the above diagram, when using the Azure RBAC integration, all requests to the Kubernetes API will follow the same authentication flow as explained on the [Azure Active Directory integration section](#azure-ad-integration). 
 
 If the identity making the request exists in Azure AD, Azure will team with Kubernetes RBAC to authorize the request. If the identity exists outside of Azure AD (i.e., a Kubernetes service account), authorization will deter to the normal Kubernetes RBAC.
 
