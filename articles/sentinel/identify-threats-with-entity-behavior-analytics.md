@@ -161,12 +161,12 @@ As organizations focus heavily on reactive efforts such as analytics and rules, 
 
 ## Common methods for using UEBA data
 
-The following sections describes common methods for using UEBA analytics data in your regular workflows.
+The following sections describe common methods for using UEBA analytics data in your regular workflows.
 ### Proactive, routine searches in entity data
 
 We recommend running regular, proactive searches through user activity to create leads for further investigation.
 
-Use the Azure Sentinel **User and Entity Behavior Analytics** workbook to query your data, such as for:
+Use the Azure Sentinel [User and Entity Behavior Analytics workbook](#hunting-queries-and-exploration-queries) to query your data, such as for:
 
 - **Top risky users**, with anomalies or attached incidents
 - **Data on specific users**, to determine whether subject has indeed been compromised, or whether there is an insider threat due to action deviating from the user's profile.
@@ -179,7 +179,7 @@ Sometimes, an incident captured in an investigation is a false positive.
 
 A common example of a false positive is when impossible travel activity is detected, such as a user who signed into an application or portal from both New York and London within the same hour. While Azure Sentinel notes the impossible travel as an anomaly, an investigation with the user might clarify that a VPN was used with an alternative location to where the user actually was.
 
-In such cases, use the user page and timeline to drill down to a specific user with anomalous activity and determine whether the locations capture are included in their commonly known locations.
+In such cases, use the *user* [entity page](#entity-pages) and [timeline](#the-timeline) to drill down to a specific user with anomalous activity, and determine whether the locations capture are included in their commonly known locations.
 
 > [!TIP]
 > - When dealing with an impossible travel detection, you can also use the **Anomalous Geo Location** UEBA hunting query, which picks up any critical information such as user insights, device insights, and activity insights for defined users.
