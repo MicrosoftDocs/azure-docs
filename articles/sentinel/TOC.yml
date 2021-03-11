@@ -311,10 +311,10 @@
     items:
     - name: Kusto query overview
       href: /azure/data-explorer/kusto/query/
-    - name: Azure Monitor log query optimizations
-      href: /azure/azure-monitor/logs/query-optimization
     - name: Kusto Query Language quick reference
       href: /azure/data-explorer/kql-quick-reference
+    - name: Azure Monitor log query optimizations
+      href: /azure/azure-monitor/logs/query-optimization
   - name: UEBA enrichments
     href: ueba-enrichments.md
 - name: Resources
