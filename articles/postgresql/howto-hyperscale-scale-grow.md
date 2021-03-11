@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 3/11/2021
 ---
 
 # Scale a Hyperscale (Citus) server group
@@ -24,13 +24,10 @@ To add nodes, go to the **Compute + storage** tab in your Hyperscale (Citus) ser
 group.  Dragging the slider for **Worker node count** changes the value.
 
 > [!NOTE]
-> The Hyperscale (Citus) [starter plan](concepts-hyperscale-starter-plan.md) is
-> a deployment option that runs without worker nodes. If you're using a server
-> group on the starter plan, you'll need to graduate to the standard plan in
-> order to add worker nodes.
->
-> To graduate, select the **Standard** radio button for **Plan** at the top of
-> the **Compute + storage** page.
+> A Hyperscale (Citus) server group created with the [starter plan
+> (preview)](concepts-hyperscale-starter-plan.md) has no workers. Increasing
+> the worker count automatically graduates the server group to the standard
+> plan.
 
 :::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
 
