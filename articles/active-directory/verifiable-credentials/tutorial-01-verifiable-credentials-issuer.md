@@ -16,7 +16,7 @@ ms.author: barclayn
 
 # Tutorial 1 - Set up Verifiable Credentials (VC) in Azure
 
-In this tutorial we build on the work done in the [quickstart](quickstart-verifiable-credentials.md). We set up your own issuer and verifier in your tenant. In a few simple steps, we configure your Azure AD to produce the same Ninja credential from the sample code using your tenant's Distributed ID (DID).
+In this tutorial, we build on the work done in the [quickstart](quickstart-verifiable-credentials.md). We set up your own issuer and verifier in your tenant. In a few simple steps, we configure your Azure AD to produce the same Ninja credential from the sample code using your tenant's Distributed ID (DID).
 
 
 > [!IMPORTANT]
@@ -26,28 +26,25 @@ In this tutorial we build on the work done in the [quickstart](quickstart-verifi
 
 In this article:
 
-1. [Create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md)
-1. [Create a vault](../../key-vault/general/quick-create-portal.md)
-1. Go to  https://aka.ms/vcpreviewportal
-1. Requirements to issue credentials  WHERE IS THIS?
-1. Create your directory (ISN'T ONE CREATED WITH EVERY TEST SUB CREATED?)
-1. Set up Azure Key Vault
-
+1. Review prerequisites.
+2. [Create a vault](../../key-vault/general/quick-create-portal.md) and a [resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md)
+3. Go to  https://aka.ms/vcpreviewportal
+4. 
 
 ## Prerequisites
 
-To issue Verifiable Credentials, you need the following services.
+To issue Verifiable Credentials, you need the following:
 
 - Complete the [Quick start](quickstart-verifiable-credentials.md).
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure AD with a premium [license](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+- Azure AD with a P2 [license](https://azure.microsoft.com/pricing/details/active-directory/).
 - An instance of [Azure Key Vault](../../key-vault/general/overview.md) where you have rights to create keys and secrets.
 - Access to  Azure Blob storage that you can use to create containers and blobs.
-- Any identity provider that supports the OpenID Connect standard for federation. Examples include Azure AD and Azure AD B2C. More detail is available in Credential Structure.
+- Any identity provider that supports the OpenID Connect standard for federation. Examples include Azure AD and Azure AD B2C.
 
 ## Azure Active Directory
 
-Before we can get started, we first need an Azure AD tenant. When your tenant is enabled for Verifiable Credentials, it is assigned a decentralized identifier (DID) and it is equipped with an issuer service for issuing verifiable  credentials. Any verifiable credential you issue is issued by your tenant and its DID. The DID is also used when verifying Verifiable Credentials.
+Before we can start, we need an Azure AD tenant. When your tenant is enabled for Verifiable Credentials, it is assigned a decentralized identifier (DID) and it is equipped with an issuer service for issuing verifiable  credentials. Any verifiable credential you issue is issued by your tenant and its DID. The DID is also used when verifying Verifiable Credentials.
 
 >[!NOTE]
 >The Verifiable Credentials preview also requires an Azure AD Premium license P2.
@@ -56,7 +53,7 @@ If you just created a test Azure subscription, keep in mind that your tenant doe
 
 ## Create a Key Vault
 
-In Verifiable Credentials you have complete control and management of the cryptographic keys your tenant will use to digitally sign Verifiable Credentials. To issue and verify credentials, you must provide Azure AD with access to your own instance of Azure Key Vault.
+When working with Verifiable Credentials, you have complete control and management of the cryptographic keys your tenant uses to digitally sign Verifiable Credentials. To issue and verify credentials, you must provide Azure AD with access to your own instance of Azure Key Vault.
 
 1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
 2. In the Search box, enter **Key Vault**.
@@ -72,7 +69,7 @@ In Verifiable Credentials you have complete control and management of the crypto
 
     ![create a key vault page](media/tutorial-verifiable-credentials-issuer/create-key-vault.png)
 
-7. In the **Access Policy** screen choose **Add Access Policy**
+7. In the Access Policy screen, choose **Add Access Policy**
 
     >[!NOTE]
     > By default the account that creates the Key Vault is the only one with access. The Verifiable Credential service needs access to key vault to get started. The key vault used needs an access policy allowing the Admin to create keys, have the ability to delete them if you opt out (DO WE WANT TO SAY ANYTHING ABOUT OPTING OUT???) and sign in to create the domain binding for Verifiable Credential. (WHAT DO WE MEAN BY DOMAIN BINDING?) If you are using the same account while testing make sure to modify the default policy to grant the account **sign** in addition to the default permissions granted to vault creators.
@@ -87,30 +84,30 @@ In Verifiable Credentials you have complete control and management of the crypto
 
 Take note of the two properties listed below:
 
-- **Vault Name**: In the example, this is **Contoso-VC-vault**. You will use this name for other steps.
-- **Vault URI**: In the example, this is https://contoso-vc.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **Vault Name**: In the example, the value name is **Contoso-VC-vault**. You use this name for other steps.
+- **Vault URI**: In the example, this value is https://contoso-vc.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 >[!NOTE]
 > Each Key Vault transaction results in additional Azure subscription costs. Review the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/) for more details.
 
 >[!IMPORTANT]
-> During the Verifiable Credentials preview, keys and secrets created in your vault should not be modified once created. Deleting, disabling, or updating your keys and secrets will invalidate any credentials issued in the future. Do not modify your keys or secrets during the preview.
+> During the Verifiable Credentials preview, keys and secrets created in your vault should not be modified once created. Deleting, disabling, or updating your keys and secrets invalidates any issued credentials. Do not modify your keys or secrets during the preview.
 
 ## Set up Verifiable Credentials Preview
 
-There are two ways to get to the Verifiable Credentials blade in the Azure Portal. 
+There are two ways to get to the Verifiable Credentials blade in the Azure portal. 
 
-1. Search for Verifiable Credentials 
-1. Navigate to AAD>Security, then you will see Verifiable Credentials in the left menu.
+1. Search for **Verifiable Credentials**. 
+1. Navigate to AAD>Security, and choose **Verifiable Credentials** one the left menu.
 
 >[!IMPORTANT]
 > During Private Preview use the link https://aka.ms/vcpreviewportal
 
-To get started with the AAD Verifiable Credentials service, you need to set up your organization and provide your organization name, domain and key vault. Let's look at each one. 
+To get started with the AAD Verifiable Credentials service, you need to set up your organization and provide your organization name, domain, and key vault. Let's look at each one. 
 
--  **organization name**: This is how you will reference your business within the Verifiable Credential service. This will not be customer facing.
+- **organization name**: This name is how you reference your business within the Verifiable Credential service. This value is not customer facing.
 
-- **Domain:** (DOES THIS NEED TO RESOLVE OR IS IT JUST AN IDENTIFIER?) The domain entered is added to a service endpoint in your DID document. Microsoft Authenticator and other VC Wallets validate that your DID is linked to your domain and display to the user a Verified symbol or tell the user this is an untrusted session. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below. 
+- **Domain:** The domain entered is added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other VC Wallets attempt validate that your DID is linked to your domain. If the wallet can verify the DID it displays a verified symbol. Whenever the wallet is unable to verify the DID in use it informs users that the credential presented was issued by an organization it could not validate. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below.
 
 >[!IMPORTANT]
 > The domain can not be a redirect, otherwise the DID and domain cannot be linked. Make sure to use https://www.domain.com format. 
