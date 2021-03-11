@@ -8,7 +8,7 @@ manager: luisca
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/12/2021
+ms.date: 03/10/2021
 ---
 
 # Get started with Azure Cognitive Search using Visual Studio Code
