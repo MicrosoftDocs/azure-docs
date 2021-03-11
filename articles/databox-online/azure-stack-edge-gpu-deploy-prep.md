@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 03/11/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -98,7 +98,7 @@ Before you begin, make sure that:
 
 If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
-### [Portal](#tab/azure-portal)
+<!--### [Portal](#tab/azure-portal)-->
 
 To create an Azure Stack Edge resource, take the following steps in the Azure portal.
 
@@ -169,7 +169,7 @@ After the order is placed, Microsoft reviews the order and contacts you (via ema
 
 If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
-### [Azure CLI](#tab/azure-cli)
+<!--### [Azure CLI](#tab/azure-cli)
 
 If necessary, prepare your environment for Azure CLI.
 
@@ -212,7 +212,7 @@ az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1
 
 After you place an order, Microsoft reviews the order and contacts you by email with shipping details.
 
----
+--- -->
 
 ## Get the activation key
 
