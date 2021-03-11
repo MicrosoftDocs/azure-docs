@@ -62,7 +62,7 @@ The initial cost analysis view includes the following areas.
 
 ### Understand forecast
 
-Based on your recent usage, cost forecasts show a projection of your estimated costs for the selected time period. If a budget is set up in Cost analysis, you can view when forecasted spend is likely to exceed budget threshold. The forecast model can predict costs for up to a year in future. Select filters to view the granular forecasted cost for your selected dimension.
+Based on your recent usage, cost forecasts show a projection of your estimated costs for the selected time period. If a budget is set up in Cost analysis, you can view when forecasted spend is likely to exceed budget threshold. The forecast model can predict future costs for up to a year. Select filters to view the granular forecasted cost for your selected dimension.
 
 The forecast model is based on a time series regression model. It requires at least 10 days of recent cost and usage data to accurately forecast costs. For a given time period, the forecast model requires equal parts of training data for the forecast period. For example, a projection of three months requires at least three months of recent cost and usage data.
 
