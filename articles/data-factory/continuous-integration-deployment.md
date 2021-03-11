@@ -330,7 +330,7 @@ Here's an explanation of how the preceding template is constructed, broken down 
 * Although type-specific customization is available for datasets, you can provide configuration without explicitly having a \*-level configuration. In the preceding example, all dataset properties under `typeProperties` are parameterized.
 
 > [!NOTE]
-> **Azure alerts and matrices**  if configured for a pipeline are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring,Alerts and Matrices](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> **Azure alerts and matrices**  if configured for a pipeline are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring, Alerts and Matrices.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
 > 
 
 ### Default parameterization template
@@ -677,6 +677,8 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 -   You can't publish from private branches.
 
 -   You can't currently host projects on Bitbucket.
+
+-   You can't currently export and import alerts and matrices as parameters. 
 
 ## <a name="script"></a> Sample pre- and post-deployment script
 
