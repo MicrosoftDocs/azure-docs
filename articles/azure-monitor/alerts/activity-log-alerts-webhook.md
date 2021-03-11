@@ -3,7 +3,6 @@ title: Understand the webhook schema used in activity log alerts
 description: Learn about the schema of the JSON that is posted to a webhook URL when an activity log alert activates.
 ms.topic: conceptual
 ms.date: 03/31/2017
-ms.subservice: alerts
 ---
 
 # Webhooks for Azure activity log alerts

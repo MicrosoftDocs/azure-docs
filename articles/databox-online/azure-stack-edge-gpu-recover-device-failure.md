@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Recover from a failed Azure Stack Edge Pro GPU device 
+
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
 
 This article describes how to recover from a non-tolerable failure on your Azure Stack Edge Pro GPU device. A non-tolerable failure on Azure Stack Edge Pro GPU device requires a device replacement.
 
@@ -46,10 +48,10 @@ You are now ready to deploy the workloads that you were running on the old devic
 
 Follow these steps to restore the data on the Edge cloud shares on your device:
 
-1. [Add shares](azure-stack-edge-j-series-manage-shares.md#add-a-share) with the same share names created previously on the failed device. Make sure that while creating shares, **Select blob container** is set to **Use existing** option and then select the container that was used with the previous device.
-1. [Add users](azure-stack-edge-j-series-manage-users.md#add-a-user) that had access to the previous device.
-1. [Add storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#add-an-edge-storage-account) associated with the shares previously on the device. While creating Edge storage accounts, select from an existing container and point to the container that was mapped to the Azure Storage account mapped on the previous device. Any data from the device that was written to the Edge storage account on the previous device was uploaded to the selected storage container in the mapped Azure Storage account.
-1. [Refresh the share](azure-stack-edge-j-series-manage-shares.md#refresh-shares) data from Azure. This pulls down all the cloud data from the existing container to the shares.
+1. [Add shares](azure-stack-edge-gpu-manage-shares.md#add-a-share) with the same share names created previously on the failed device. Make sure that while creating shares, **Select blob container** is set to **Use existing** option and then select the container that was used with the previous device.
+1. [Add users](azure-stack-edge-gpu-manage-users.md#add-a-user) that had access to the previous device.
+1. [Add storage accounts](azure-stack-edge-gpu-manage-storage-accounts.md#add-an-edge-storage-account) associated with the shares previously on the device. While creating Edge storage accounts, select from an existing container and point to the container that was mapped to the Azure Storage account mapped on the previous device. Any data from the device that was written to the Edge storage account on the previous device was uploaded to the selected storage container in the mapped Azure Storage account.
+1. [Refresh the share](azure-stack-edge-gpu-manage-shares.md#refresh-shares) data from Azure. This pulls down all the cloud data from the existing container to the shares.
 
 ## Restore Edge local shares
 
@@ -67,7 +69,7 @@ After the replacement device is fully configured, enable the device for local st
 Follow these steps to recover the data from local shares:
 
 1. [Configure compute on the device](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. [Add a local share](azure-stack-edge-j-series-manage-shares.md#add-a-local-share) back.
+1. [Add a local share](azure-stack-edge-gpu-manage-shares.md#add-a-local-share) back.
 1. Run the recovery procedure provided by the data protection solution of choice. See references from the preceding table.
 
 ## Restore VM files and folders

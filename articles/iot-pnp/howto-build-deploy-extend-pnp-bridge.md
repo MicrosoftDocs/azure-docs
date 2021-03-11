@@ -224,7 +224,7 @@ The steps in this section assume you have the following development environment 
   sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
   ```
 
-- The [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest&preserve-view=true) installed in your WSL 2 environment to manage your Azure resources.
+- The [Azure CLI](/cli/azure/install-azure-cli-apt) installed in your WSL 2 environment to manage your Azure resources.
 
   > [!TIP]
   > If you prefer, you can run the `az` commands in the [Azure Cloud Shell](https://shell.azure.com/) where the CLI is pre-installed.

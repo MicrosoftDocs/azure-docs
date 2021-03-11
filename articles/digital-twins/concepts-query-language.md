@@ -34,12 +34,17 @@ You can use the Azure Digital Twins query language to retrieve digital twins acc
 
 To submit a query to the service from a client app, you will use the Azure Digital Twins [**Query API**](/rest/api/digital-twins/dataplane/query). One way to use the API is through one of the [SDKs](how-to-use-apis-sdks.md#overview-data-plane-apis) for Azure Digital Twins.
 
+### Considerations for querying
+
+When writing queries for Azure Digital Twins, keep the following considerations in mind:
+* **Remember case sensitivity**: All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
+* **Escape single quotes**: If your query text includes a single quote character in the data, the quote will need to be escaped with the `\` character. Here is an example that deals with a property value of *D'Souza*:
+
+  :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="EscapedSingleQuote":::
+
 ## Reference: Expressions and conditions
 
 This section describes the operators and functions that are available to write Azure Digital Twins queries. For example queries that illustrate use of these features, see [*How-to: Query the twin graph*](how-to-query-graph.md).
-
-> [!NOTE]
-> All Azure Digital Twins query operations are case-sensitive, so take care to use the exact names defined in the models. If property names are misspelled or incorrectly cased, the result set is empty with no errors returned.
 
 ### Operators
 

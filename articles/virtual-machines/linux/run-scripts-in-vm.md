@@ -2,7 +2,8 @@
 title: Run scripts in an Azure Linux VM
 description: This topic describes how to run scripts within a virtual machine
 services: automation
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 author: bobbytreed
 ms.author: robreed
 ms.date: 05/02/2018

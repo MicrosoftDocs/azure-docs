@@ -1,11 +1,11 @@
 ---
- title: Enclave aware containers on Azure
- description: enclave ready application containers support on Azure Kubernetes Service (AKS)
- author: agowdamsft
- ms.service: container-service
- ms.topic: overview
- ms.date: 9/22/2020
- ms.author: amgowda
+title: Enclave aware containers on Azure
+description: enclave ready application containers support on Azure Kubernetes Service (AKS)
+author: agowdamsft
+ms.service: container-service
+ms.topic: overview
+ms.date: 9/22/2020
+ms.author: amgowda
 ---
 
 # Enclave Aware Containers

@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: riroloff
-ms.subservice: metrics
 ---
 
 # View multiple resources in the Azure metrics explorer

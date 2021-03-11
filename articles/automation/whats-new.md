@@ -51,7 +51,7 @@ Automation account and State Configuration availability in the Switzerland West 
 
 **Type:** New feature
 
-The script is available for download from our (GitHub organization)[https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py]. 
+The script is available for download from our [GitHub repository](https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py). 
  
 ### Hybrid Runbook Worker role support for Centos 8.x/RHEL 8.x/SLES 15
 
