@@ -32,7 +32,7 @@ The fast lookup of anchors enabled by coarse relocalization is designed to simpl
 Here's the typical workflow to create and query Azure Spatial Anchors with coarse relocalization:
 1.  Create and configure a sensor fingerprint provider to collect the sensor data that you want.
 2.  Start an Azure Spatial Anchors session and create the anchors. Because sensor fingerprinting is enabled, the anchors are spatially indexed by coarse relocalization.
-3.  Query surrounding anchors by using coarse relocalization via the dedicated search criteria in the Azure Spatial Anchors session.
+3.  Query surrounding anchors by using coarse relocalization via the dedicated search criteria in the Spatial Anchors session.
 
 You can refer to one of these tutorials to set up coarse relocalization in your application:
 * [Coarse relocalization in Unity](../how-tos/set-up-coarse-reloc-unity.md)
@@ -85,7 +85,7 @@ When you use GPS in your application, keep in mind that the readings provided by
 * Asynchronous and low frequency (less than 1 Hz).
 * Unreliable/noisy (on average, 7-m standard deviation).
 
-In general, both the device OS and Azure Spatial Anchors will do some filtering and extrapolation of the raw GPS signal in an attempt to mitigate these problems. This extra processing requires time for convergence, so, for best results, you should try to:
+In general, both the device OS and Spatial Anchors will do some filtering and extrapolation of the raw GPS signal in an attempt to mitigate these problems. This extra processing requires time for convergence, so, for best results, you should try to:
 
 * Create one sensor fingerprint provider as early as possible in your application.
 * Keep the sensor fingerprint provider alive between multiple sessions.
@@ -111,7 +111,7 @@ When you use Wi-Fi in your application, keep in mind that the readings provided 
 * Potentially throttled at the OS level.
 * Unreliable/noisy (on average, 3-dBm standard deviation).
 
-Azure Spatial Anchors will try to build a filtered map of Wi-Fi signal strength during a session in an attempt to mitigate these issues. For best results, try to:
+Spatial Anchors will try to build a filtered map of Wi-Fi signal strength during a session in an attempt to mitigate these issues. For best results, try to:
 
 * Create the session well before you place the first anchor.
 * Keep the session alive for as long as possible. (That is, create all anchors and query in one session.)
@@ -127,10 +127,10 @@ Beacons are typically versatile devices on which everything can be configured, i
 * Deploy beacons in a way that covers your space uniformly, and so that at least three beacons are reachable from any point in space.
 * Pass the list of unique beacon UUIDs to the sensor fingerprint provider.
 
-Radio signals like those of Bluetooth are affected by obstacles and can interfere with other radio signals. So it can be difficult to guess whether your space is uniformly covered. To guarantee a better customer experience, we recommend that you manually test the coverage of your beacons. You can conduct a test by walking around your space with candidate devices and an application that shows Bluetooth in range. While you test the coverage, make sure that you can reach at least three beacons from any strategic position in your space. Having too many beacons can result in more interference between them and won't necessarily improve the accuracy of course relocalization.
+Radio signals like those of Bluetooth are affected by obstacles and can interfere with other radio signals. So it can be hard to guess whether your space is uniformly covered. To guarantee a better customer experience, we recommend that you manually test the coverage of your beacons. You can conduct a test by walking around your space with candidate devices and an application that shows Bluetooth in range. While you test the coverage, make sure you can reach at least three beacons from any strategic position in your space. Having too many beacons can result in more interference between them and won't necessarily improve the accuracy of course relocalization.
 
 Bluetooth beacons typically cover 80 meters if no obstacles are present in the space.
-So, for a space that has no big obstacles, you could deploy beacons in a grid pattern every 40 meters.
+So, for a space that has no large obstacles, you could deploy beacons in a grid pattern every 40 meters.
 
 A beacon that's running out of battery will affect the results, so be sure to monitor your deployment periodically for low or uncharged batteries.
 
@@ -138,13 +138,13 @@ Azure Spatial Anchors will track only Bluetooth beacons that are in the known-be
 
 ### Sensor accuracy
 
-The accuracy of the GPS signal, both during anchor creation and during queries, has a big influence on the set of returned anchors. In contrast, queries based on Wi-Fi/beacons will consider all anchors that have at least one access point / beacon in common with the query. In that sense, the result of a query based on Wi-Fi/beacons is mostly determined by the physical range of the access points / beacons and environmental obstructions.
+The accuracy of the GPS signal, both during anchor creation and during queries, has a significant influence on the set of returned anchors. In contrast, queries based on Wi-Fi/beacons will consider all anchors that have at least one access point / beacon in common with the query. In that sense, the result of a query that's based on Wi-Fi/beacons is determined mostly by the physical range of the access points / beacons and environmental obstructions.
 This table estimates the expected search space for each sensor type:
 
 | Sensor      | Search-space radius (approximate) | Details |
 |-------------|:-------:|---------|
-| **GPS**         | 20 to 30 m | Determined by the GPS uncertainty among other factors. The reported numbers are estimated for the median GPS accuracy of mobile phones with A-GPS, that is 7 meters. |
-| **Wi-Fi**        | 50 to 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
+| **GPS**         | 20 m to 30 m | Determined by the GPS uncertainty, among other factors. The reported numbers are estimated for the median GPS accuracy of mobile phones with A-GPS: 7 meters. |
+| **Wi-Fi**        | 50 m to 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
 | **BLE beacons** |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
 
 <!-- Reference links in article -->
