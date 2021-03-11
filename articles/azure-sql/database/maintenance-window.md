@@ -78,6 +78,7 @@ Choosing a maintenance window other than the default is currently available in t
 - Central US
 - East US
 - East US2
+- East Asia
 - Japan East
 - NorthCentral US
 - North Europe
