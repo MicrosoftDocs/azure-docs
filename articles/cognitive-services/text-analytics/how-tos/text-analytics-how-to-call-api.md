@@ -114,8 +114,9 @@ The following is an example of an API request for the synchronous Text Analytics
 
 The `/analyze` endpoint lets you choose which of the supported Text Analytics features you want to use in a single API call. This endpoint currently supports:
 
-* key phrase extraction 
+* Key Phrase Extraction 
 * Named Entity Recognition (including PII and PHI)
+* Entity Linking
 
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
@@ -124,7 +125,7 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
 |`documents` | Includes the `id` and `text` fields below | Required | Contains information for each document being sent, and the raw text of the document. |
 |`id` | String | Required | The IDs you provide are used to structure the output. |
 |`text` | Unstructured raw text, up to 125,000 characters. | Required | Must be in the English language, which is the only language currently supported. |
-|`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`, `keyPhraseExtractionTasks` or `entityRecognitionPiiTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi`. If unspecified, the system defaults to `pii`. |
+|`tasks` | Includes the following Text Analytics features: `entityRecognitionTasks`,`entityLinkingTasks`,`keyPhraseExtractionTasks` or `entityRecognitionPiiTasks`. | Required | One or more of the Text Analytics features you want to use. Note that `entityRecognitionPiiTasks` has an optional `domain` parameter that can be set to `pii` or `phi` and the `pii-categories` for detection of selected entity types. If the `domain` parameter is unspecified, the system defaults to `pii`. |
 |`parameters` | Includes the `model-version` and `stringIndexType` fields below | Required | This field is included within the above feature tasks that you choose. They contain information about the model version that you want to use and the index type. |
 |`model-version` | String | Required | Specify which version of the model being called that you want to use.  |
 |`stringIndexType` | String | Required | Specify the text decoder that matches your programming environment.  Types supported are `textElement_v8` (default), `unicodeCodePoint`, `utf16CodeUnit`. Please see the [Text offsets article](../concepts/text-offsets.md#offsets-in-api-version-31-preview) for more information.  |
@@ -154,6 +155,14 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
                 }
             }
         ],
+        "entityLinkingTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElements_v8"
+                }
+            }
+        ],
         "keyPhraseExtractionTasks": [{
             "parameters": {
                 "model-version": "latest"
@@ -161,7 +170,10 @@ The `/analyze` endpoint lets you choose which of the supported Text Analytics fe
         }],
         "entityRecognitionPiiTasks": [{
             "parameters": {
-                "model-version": "latest"
+                "model-version": "latest",
+                "stringIndexType": "TextElements_v8",
+                "domain": "phi",
+                "pii-categories":"default"
             }
         }]
     }
