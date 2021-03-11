@@ -108,7 +108,7 @@ This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 >
-> To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
+>    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, enter `https://login.microsoftonline.com/`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` is set to one of the following:
 >   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.

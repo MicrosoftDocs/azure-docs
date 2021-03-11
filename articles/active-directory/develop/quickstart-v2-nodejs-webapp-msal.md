@@ -92,7 +92,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 >    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Client_Secret_Here` is the **Value** of the **Client secret** for the application you registered.
 >
->    To retrieve or generate a new **Client secret**, select **Certificates & secrets** under **Manage**.
+>    To retrieve or generate a new **Client secret**, under **Manage**, select **Certificates & secrets** .
 >
 > The default `authority` value represents the main (global) Azure cloud:
 >
