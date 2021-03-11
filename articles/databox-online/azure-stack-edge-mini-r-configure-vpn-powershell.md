@@ -300,7 +300,7 @@ Follow these steps on the local UI of your Azure Stack Edge device.
 
 ## Validate data transfer through VPN
 
-To confirm that VPN is working, copy data to an SMB share. Follow the steps in [Add a share](azure-stack-edge-j-series-manage-shares.md#add-a-share) on your Azure Stack Edge device. 
+To confirm that VPN is working, copy data to an SMB share. Follow the steps in [Add a share](azure-stack-edge-gpu-manage-shares.md#add-a-share) on your Azure Stack Edge device. 
 
 1. Copy a file, for example \data\pictures\waterfall.jpg to the SMB share that you mounted on your client system. 
 2. To validate that the data is going through VPN, while the data is being copied:
