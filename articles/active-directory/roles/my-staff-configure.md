@@ -111,9 +111,9 @@ To manage a user's phone number, you must be assigned one of the following roles
 
 ## Search
 
-You can search for administrative units and users in your organization using the search bar in My Staff. You can search across all administrative units and users in your organization, but you can only make changes to users who are in a AU over which you have been given admin permissions.
+You can search for administrative units and users in your organization using the search bar in My Staff. You can search across all administrative units and users in your organization, but you can only make changes to users who are in an administrative unit over which you have been given admin permissions.
 
-You can also search for a user within an AU. To do this, use the search bar at the top of the user list.
+You can also search for a user within an administrative unit. To do this, use the search bar at the top of the user list.
 
 ## Audit logs
 
