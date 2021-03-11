@@ -87,12 +87,11 @@ The estimated time for the recovery of the server depends on several factors:
 * The amount of activity that needs to be replayed to recover to the restore point
 * The network bandwidth if the restore is to a different region
 * The number of concurrent restore requests being processed in the target region
-
-For a large or very active database, the restore might take several hours. If there is a prolonged outage in a region, it's possible that a high number of geo-restore requests will be initiated for disaster recovery. When there are many requests, the recovery time for individual databases can increase. Most database restores finish in less than 12 hours.
-
-The restore performance is also dependent on the presence of primary key in the tables in the database. For best restore performance, consider adding primary key for all the tables in your database. To check if the table have primary key, you can use the query:
-
+* The presence of primary key in the tables in the database. For faster recovery, consider adding primary key for all the tables in your database. To check if your tables have primary key, you can use the following query:
+```sql
 select tab.table_schema as database_name, tab.table_name from information_schema.tables tab left join information_schema.table_constraints tco on tab.table_schema = tco.table_schema and tab.table_name = tco.table_name and tco.constraint_type = 'PRIMARY KEY' where tco.constraint_type is null and tab.table_schema not in('mysql', 'information_schema', 'performance_schema', 'sys') and tab.table_type = 'BASE TABLE' order by tab.table_schema, tab.table_name;
+```
+For a large or very active database, the restore might take several hours. If there is a prolonged outage in a region, it's possible that a high number of geo-restore requests will be initiated for disaster recovery. When there are many requests, the recovery time for individual databases can increase. Most database restores finish in less than 12 hours.
 
 > [!IMPORTANT]
 > Deleted servers can be restored only within **five days** of deletion after which the backups are deleted. The database backup can be accessed and restored only from the Azure subscription hosting the server. To restore a dropped server, refer [documented steps](howto-restore-dropped-server.md). To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../azure-resource-manager/management/lock-resources.md).
