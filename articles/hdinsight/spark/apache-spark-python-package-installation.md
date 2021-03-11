@@ -1,9 +1,6 @@
 ---
 title: Script action for Python packages with Jupyter on Azure HDInsight
 description: Step-by-step instructions on how to use script action to configure Jupyter Notebooks available with HDInsight Spark clusters to use external python packages.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python

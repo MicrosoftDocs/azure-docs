@@ -50,7 +50,7 @@ The following table shows benefits and limitations of previous user profile tech
 
 #### Performance
 
-UPD requires [Storage Spaces Direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) to address performance requirements. UPD uses Server Message Block (SMB) protocol. It copies the profile to the VM in which the user is being logged. UPD with S2D is the solution we recommend for Windows Virtual Desktop.
+UPD requires [Storage Spaces Direct (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) to address performance requirements. UPD uses Server Message Block (SMB) protocol. It copies the profile to the VM in which the user is being logged.
 
 #### Cost
 

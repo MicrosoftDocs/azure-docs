@@ -26,7 +26,7 @@ Also, Azure Resource Manager has the ability to export the template in JavaScrip
 
 You may also use recommendations from Azure Security Center as a secure configuration baseline for your Azure resources.
 
-- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Tutorial: Create and manage policies to enforce compliance](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -84,9 +84,9 @@ Also, note that Azure Marketplace Virtual Machine Images published by Microsoft 
 
 - [Create a Windows virtual machine in the Azure portal](../../virtual-machines/windows/quick-create-portal.md)
 
-- [Information on how to download the VM template](../../virtual-machines/windows/download-template.md)
+- [Information on how to download the VM template](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Sample script to upload a VHD to Azure and create a new VM](../../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Sample script to upload a VHD to Azure and create a new VM](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 ## 7.5: Securely store configuration of Azure resources
 
@@ -96,7 +96,7 @@ Also, note that Azure Marketplace Virtual Machine Images published by Microsoft 
 
 Use Azure DevOps to securely store and manage your code like custom Azure policies, Azure Resource Manager templates and Desired State Configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -114,7 +114,7 @@ If using custom images, use Azure role-based access control (Azure RBAC) to ensu
 
 - [How to configure Azure RBAC](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Shared Image Gallery overview](../../virtual-machines/windows/shared-image-galleries.md)
+- [Shared Image Gallery overview](../../virtual-machines/shared-image-galleries.md)
 
 ## 7.7: Deploy configuration management tools for Azure resources
 

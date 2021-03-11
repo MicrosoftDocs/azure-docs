@@ -40,7 +40,7 @@ When you create a VNet-to-VNet connection, the local network gateway address spa
 
 ### Site-to-Site (IPsec)
 
-If you're working with a complicated network configuration, you may prefer to connect your VNets by using a [Site-to-Site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md) instead. When you follow the Site-to-Site IPsec steps, you create and configure the local network gateways manually. The local network gateway for each VNet treats the other VNet as a local site. These steps allow you to specify additional address spaces for the local network gateway to route traffic. If the address space for a VNet changes, you must manually update the corresponding local network gateway.
+If you're working with a complicated network configuration, you may prefer to connect your VNets by using a [Site-to-Site connection](./tutorial-site-to-site-portal.md) instead. When you follow the Site-to-Site IPsec steps, you create and configure the local network gateways manually. The local network gateway for each VNet treats the other VNet as a local site. These steps allow you to specify additional address spaces for the local network gateway to route traffic. If the address space for a VNet changes, you must manually update the corresponding local network gateway.
 
 ### VNet peering
 
@@ -196,7 +196,7 @@ Next, create a connection from VNet4 to VNet1. In the portal, locate the virtual
 
 ## Add additional connections
 
-If you want to add additional connections, navigate to the virtual network gateway from which you want to create the connection, then select **Connections**. You can create another VNet-to-VNet connection, or create an IPsec Site-to-Site connection to an on-premises location. Be sure to adjust the **Connection type** to match the type of connection you want to create. Before you create additional connections, verify that the address space for your virtual network doesn't overlap with any of the address spaces you want to connect to. For steps to create a Site-to-Site connection, see [Create a Site-to-Site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+If you want to add additional connections, navigate to the virtual network gateway from which you want to create the connection, then select **Connections**. You can create another VNet-to-VNet connection, or create an IPsec Site-to-Site connection to an on-premises location. Be sure to adjust the **Connection type** to match the type of connection you want to create. Before you create additional connections, verify that the address space for your virtual network doesn't overlap with any of the address spaces you want to connect to. For steps to create a Site-to-Site connection, see [Create a Site-to-Site connection](./tutorial-site-to-site-portal.md).
 
 ## VNet-to-VNet FAQ
 

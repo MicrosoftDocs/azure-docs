@@ -39,7 +39,7 @@ No, it isn't possible to perform certificate operations by using an Azure Resour
 
 ### When I import a certificate via the Azure portal, I get a "Something went wrong" error. How can I investigate further?
  	
-To view a more descriptive error, import the certificate file by using [the Azure CLI](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-import) or [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
+To view a more descriptive error, import the certificate file by using [the Azure CLI](/cli/azure/keyvault/certificate#az-keyvault-certificate-import) or [PowerShell](/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate?view=azurermps-6.13.0).
 
 ### How can I resolve "Error type: Access denied or user is unauthorized to import certificate"?
 	
@@ -58,6 +58,10 @@ For more information, see [Get Deleted Certificate operation](/rest/api/keyvault
 This error could be caused by either of two reasons:	
 * The certificate subject name is limited to 200 characters.
 * The certificate password is limited to 200 characters.
+
+
+### Error "The specified PEM X.509 certificate content is in an unexpected format. Please check if certificate is in valid PEM format."
+Please verify that the content in the PEM file is uses UNIX-style line separators `(\n)`
 
 ### Can I import an expired certificate to Azure Key Vault?
 	

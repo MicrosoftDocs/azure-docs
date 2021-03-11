@@ -2,14 +2,14 @@
 title: Assign custom roles using Azure AD PowerShell - Azure AD | Microsoft Docs
 description: Manage members of an Azure AD administrator custom role with Azure AD PowerShell.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management

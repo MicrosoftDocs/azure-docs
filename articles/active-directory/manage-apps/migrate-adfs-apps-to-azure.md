@@ -1,19 +1,16 @@
 ---
-title: 'Moving application authentication from AD FS to Azure Active Directory'
-description: This article is intended to help organizations understand how to move applications to Azure AD, with a focus on federated SaaS applications.
+title: Moving application authentication from AD FS to Azure Active Directory
+description: This article is intended to help organizations understand how to move applications to Azure Active Directory, with a focus on federated SaaS applications.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.date: 04/01/2020
+ms.date: 02/10/2021
 ms.author: kenwith
 ms.reviewer: baselden
-ms.collection: M365-identity-device-management
 ---
 
 # Moving application authentication from Active Directory Federation Services to Azure Active Directory
@@ -21,7 +18,7 @@ ms.collection: M365-identity-device-management
 [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) offers a universal identity platform that provides your people, partners, and customers a single identity to access applications and collaborate from any platform and device. Azure AD has a [full suite of identity management capabilities](../fundamentals/active-directory-whatis.md). Standardizing your application (app) authentication and authorization to Azure AD enables the benefits these capabilities provide.
 
 > [!TIP]
-> This article is written for a developer audience. Project managers and administrators planning an application's move to Azure AD should consider reading our [Migrating application authentication to Azure AD](https://aka.ms/migrateapps/whitepaper) white paper (PDF).
+> This article is written for a developer audience. Project managers and administrators planning an application's move to Azure AD should consider reading our [Migrating application authentication to Azure AD](migrate-application-authentication-to-azure-active-directory.md) article.
 
 ## Introduction
 

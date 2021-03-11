@@ -113,7 +113,7 @@ Here's a list of tools that you can use to run data analysis jobs on data that i
 |Tool | Guidance |
 |---|--|
 |Azure HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks | [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)<br><br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](./data-lake-storage-use-databricks-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extract, transform, and load data by using Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## Visualize the data
 
@@ -136,4 +136,4 @@ Here's a list of tools that you can use to download data from Data Lake Storage 
 |Azure Data Factory | [Copy Activity in Azure Data Factory](../../data-factory/copy-activity-overview.md) |
 |Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](./data-lake-storage-use-distcp.md) |
 |Azure Storage Explorer|[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md)|
-|AzCopy tool|[Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-blobs.md)|
+|AzCopy tool|[Transfer data with AzCopy and Blob storage](../common/storage-use-azcopy-v10.md#transfer-data)|

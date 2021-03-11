@@ -47,15 +47,6 @@ It's also possible for custom templates to be produced, from scratch or by modif
 
 The 'Data' section in Batch Explorer allows files to be copied between a local file system and Azure Storage accounts.
 
-## Client application plug-ins
-
-Plug-ins are available for some of the client applications.  The plug-ins allow pools and jobs to be created directly from the application or invoke Batch Explorer.
-
-* [Blender 2.79](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-* [Blender 2.8+](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender28)
-* [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
-* [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
-
 ## Next steps
 
 For examples of Batch rendering try out the two tutorials:

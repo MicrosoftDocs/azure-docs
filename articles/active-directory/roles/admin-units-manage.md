@@ -3,14 +3,14 @@ title: Add and remove administrative units - Azure Active Directory | Microsoft 
 description: Use administrative units to restrict the scope of role permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
     ![Screenshot showing the "Grant admin consent for Graph explorer" link.](./media/admin-units-manage/select-graph-explorer.png)
 
 
-1. Use the preview version of Azure AD PowerShell.
+1. Use [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## Add an administrative unit
 
@@ -53,7 +53,7 @@ You can add an administrative unit by using either the Azure portal or PowerShel
 
 ### Use PowerShell
 
-Install Azure AD PowerShell (preview) before you try to run the following commands:
+Install [Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) before you try to run the following commands:
 
 ```powershell
 Connect-AzureAD

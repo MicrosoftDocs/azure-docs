@@ -31,7 +31,7 @@ ms.date: 07/16/2020
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Test knowledge base with batch file](../index.yml)
+> [Test knowledge base with batch file](../how-to/test-knowledge-base.md#batch-test-with-tool)
 
 Learn more about metadata:
 * [Authoring - add metadata to QnA pair](../How-To/edit-knowledge-base.md#add-metadata)

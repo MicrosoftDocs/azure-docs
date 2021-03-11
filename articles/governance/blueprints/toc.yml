@@ -42,6 +42,14 @@
   - name: Azure Security Benchmark
     displayName: standards, azure, benchmark
     href: ./samples/azure-security-benchmark.md
+  - name: Azure Security Benchmark Foundation
+    items:
+    - name: Overview
+      displayName: standards, azure, benchmark, foundation
+      href: ./samples/azure-security-benchmark-foundation/index.md
+    - name: Steps to deploy
+      displayName: standards, azure, benchmark, foundation, deploy
+      href: ./samples/azure-security-benchmark-foundation/deploy.md
   - name: Australian Government ISM PROTECTED
     items:
     - name: Overview
@@ -126,16 +134,8 @@
       displayName: standards, irs, 1075
       href: ./samples/irs-1075/deploy.md
   - name: ISO 27001
-    items:
-    - name: Overview
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001/index.md
-    - name: Control mapping
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001/control-mapping.md
-    - name: Steps to deploy
-      displayName: standards, iso, 27001
-      href: ./samples/iso27001/deploy.md
+    displayName: standards, iso, 27001, 2013
+    href: ./samples/iso-27001-2013.md
   - name: ISO 27001 - Shared Services
     items:
     - name: Overview

@@ -227,6 +227,7 @@ module.exports = async function(context, instanceId) {
 
     const status = await client.getStatus(instanceId);
     // do something based on the current status.
+    // example: if status.runtimeStatus === df.OrchestrationRuntimeStatus.Running: ...
 }
 ```
 
@@ -243,6 +244,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
     status = await client.get_status(instance_id)
     # do something based on the current status
+    # example: if (existing_instance.runtime_status is df.OrchestrationRuntimeStatus.Running) { ...
 ```
 
 ---
@@ -277,7 +279,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 Rather than query one instance in your orchestration at a time, you might find it more efficient to query all of them at once.
 
-You can use the [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusall--) (JavaScript), or `get_status_all` (Python) method to query the statuses of all orchestration instances. In .NET, you can pass a `CancellationToken` object in case you want to cancel it. The method returns a list of objects that represent the orchestration instances matching the query parameters.
+You can use the [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient#getstatusall--) (JavaScript), or `get_status_all` (Python) method to query the statuses of all orchestration instances. In .NET, you can pass a `CancellationToken` object in case you want to cancel it. The method returns a list of objects that represent the orchestration instances matching the query parameters.
 
 # [C#](#tab/csharp)
 
@@ -360,7 +362,7 @@ func durable get-instances
 
 What if you don't really need all the information that a standard instance query can provide? For example, what if you're just looking for the orchestration creation time, or the orchestration runtime status? You can narrow your query by applying filters.
 
-Use the [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync?view=azure-dotnet#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET) or [getStatusBy](/javascript/api/durable-functions/durableorchestrationclient?view=azure-node-latest#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (JavaScript) method to get a list of orchestration instances that match a set of predefined filters.
+Use the [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_) (.NET) or [getStatusBy](/javascript/api/durable-functions/durableorchestrationclient#getstatusby-date---undefined--date---undefined--orchestrationruntimestatus---) (JavaScript) method to get a list of orchestration instances that match a set of predefined filters.
 
 # [C#](#tab/csharp)
 

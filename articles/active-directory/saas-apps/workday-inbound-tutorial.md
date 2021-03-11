@@ -151,7 +151,7 @@ In this step, you'll grant "domain security" policy permissions for the worker d
 
 1. Search and select the security group created in the previous step. 
    >[!div class="mx-imgBorder"]
-   >![Select Security Group](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+   >![Select Security Group](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
 1. Click on the ellipsis (...) next to the group name and from the menu, select **Security Group > Maintain Domain Permissions for Security Group**
    >[!div class="mx-imgBorder"]
@@ -222,7 +222,7 @@ In this step, you'll grant "business process security" policy permissions for th
 
 ## Provisioning Agent installation prerequisites
 
-Review the [provisioning agent installation prerequisites](../cloud-provisioning/how-to-prerequisites.md) before proceeding to the next section. 
+Review the [provisioning agent installation prerequisites](../cloud-sync/how-to-prerequisites.md) before proceeding to the next section. 
 
 ## Configuring user provisioning from Workday to Active Directory
 
@@ -261,7 +261,7 @@ This section provides steps for user account provisioning from Workday to each A
 
 To provision to Active Directory on-premises, the Provisioning agent must be installed on a domain-joined server that has network access to the desired Active Directory domain(s).
 
-Transfer the downloaded agent installer to the server host and follow the steps listed [in the **Install agent** section](../cloud-provisioning/how-to-install.md) to complete the agent configuration.
+Transfer the downloaded agent installer to the server host and follow the steps listed [in the **Install agent** section](../cloud-sync/how-to-install.md) to complete the agent configuration.
 
 ### Part 3: In the provisioning app, configure connectivity to Workday and Active Directory
 In this step, we establish connectivity with Workday and Active Directory in the Azure portal. 
@@ -331,7 +331,7 @@ In this section, you will configure how user data flows from Workday to Active D
       * Operator: IS NOT NULL
 
    > [!TIP]
-   > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from Workday. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
+   > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using [scoping filters](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) under **Source Object Scope** and [on-demand provisioning](../app-provisioning/provision-on-demand.md) to test your mappings with a few test users from Workday. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
    > [!CAUTION] 
    > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your Workday to AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../app-provisioning/skip-out-of-scope-deletions.md)
@@ -1066,7 +1066,8 @@ With respect to data retention, the Azure AD provisioning service does not gener
 
 ## Next steps
 
+* [Learn more about Azure AD and Workday integration scenarios and web service calls](../app-provisioning/workday-integration-reference.md)
 * [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 * [Learn how to configure single sign-on between Workday and Azure Active Directory](workday-tutorial.md)
-* [Learn how to integrate other SaaS applications with Azure Active Directory](tutorial-list.md)
+* [Learn how to configure Workday Writeback](workday-writeback-tutorial.md)
 * [Learn how to use Microsoft Graph APIs to manage provisioning configurations](/graph/api/resources/synchronization-overview)
