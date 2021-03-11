@@ -166,4 +166,4 @@ For more information, see [Overview of Backup Center (Preview)](backup-center-ov
 
 ## Next steps
 
-- [Restore Azure Blobs](blob-backup-support-matrix.md)
+- [Restore Azure Blobs](blob-restore.md)

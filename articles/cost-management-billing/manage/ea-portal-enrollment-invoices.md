@@ -3,11 +3,11 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
 ---
 
@@ -93,29 +93,41 @@ The Azure Enterprise portal filters inactive enrollments out of view. You'll nee
 
 ## Change a PO number for an upcoming overage invoice
 
-The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email.
+The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email. 
 
-### To update the Azure services purchase order number:
+To prevent automatic generation of PO numbers every month, you can lock the PO number. See [Lock PO number](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+### Update the Azure services purchase order number
 
 1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
 1. Select **Edit PO Numbers** in the upper-right corner.
 1. Select the **Azure Services** radio button.
 1. Select an **Invoice Period** from the date ranges drop-down menu.
-
    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
 1. Enter a new PO number in the **PO Number** field.
 1. Select **Save** to submit your change.
 
-### To update the Azure Marketplace purchase order number:
+### Update the Azure Marketplace purchase order number
 
 1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
 1. Select **Edit PO Numbers** in the upper-right corner.
 1. Select the **Marketplace** radio button.
-1. Select an **Invoice Period** from the date ranges drop-down menu.
-
-   You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
+1. Select an **Invoice Period** from the date ranges drop-down menu.  
+    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
 1. Enter a new PO number in the **PO Number** field.
 1. Select **Save** to submit your change.
+
+### Lock PO number to prevent automatic update in upcoming billing cycles
+
+After you lock the PO number, it remains locked for all new invoices and you don't have to update the PO number.
+
+1.	In the Azure Enterprise portal, select **Report** > **Usage Summary**.
+2.	Select **Edit PO Numbers** in the upper-right corner.
+3.	Type a new PO number in the **PO Number** field.
+4.	Select the **Lock PO number** box.
+5.	Select **Save** to submit your change.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Screenshot showing the View/Edit PO Numbers box." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## Azure enterprise billing frequency
 

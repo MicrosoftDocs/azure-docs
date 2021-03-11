@@ -6,7 +6,7 @@ author: dcstwh
 ms.author: weetok
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
+ms.date: 02/26/2021
 ---
 
 # Source control in Azure Data Factory
@@ -50,19 +50,19 @@ There are four different ways to connect a Git repository to your data factory f
 
 ### Configuration method 1: Home page
 
-In the Azure Data Factory home page, select **Set up Code Repository**.
+In the Azure Data Factory home page, select **Set up code repository**.
 
 ![Configure a code repository from home page](media/author-visually/configure-repo.png)
 
 ### Configuration method 2: Authoring canvas
 
-In the Azure Data Factory UX authoring canvas, select the **Data Factory** drop-down menu, and then select **Set up Code Repository**.
+In the Azure Data Factory UX authoring canvas, select the **Data Factory** drop-down menu, and then select **Set up code repository**.
 
 ![Configure the code repository settings from authoring](media/author-visually/configure-repo-2.png)
 
 ### Configuration method 3: Management hub
 
-Go to the management hub in the ADF UX. Select **Git configuration** in the **Source control** section. If you have no repository connected, click **Set up code repository**.
+Go to the management hub in the ADF UX. Select **Git configuration** in the **Source control** section. If you have no repository connected, click **Configure**.
 
 ![Configure the code repository settings from management hub](media/author-visually/configure-repo-3.png)
 

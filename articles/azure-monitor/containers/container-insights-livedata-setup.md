@@ -1,6 +1,6 @@
 ---
-title: Set up Azure Monitor for containers Live Data (preview) | Microsoft Docs
-description: This article describes how to set up the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
+title: Set up Container insights Live Data (preview) | Microsoft Docs
+description: This article describes how to set up the real-time view of container logs (stdout/stderr) and events without using kubectl with Container insights.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # How to set up the Live Data (preview) feature
 
-To view Live Data (preview) with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real-time access to your data through the Kubernetes API directly in the Azure portal.
+To view Live Data (preview) with Container insights from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real-time access to your data through the Kubernetes API directly in the Azure portal.
 
 This feature supports the following methods to control access to the logs, events, and metrics:
 
@@ -41,7 +41,7 @@ The Azure portal prompts you to validate your login credentials for an Azure Act
 
 To eliminate the need to apply additional configuration changes to allow the Kubernetes user role binding **clusterUser** access to the Live Data (preview) feature after [enabling Kubernetes RBAC](#configure-kubernetes-rbac-authorization) authorization, AKS has added a new Kubernetes cluster role binding called **clusterMonitoringUser**. This cluster role binding has all the necessary permissions out-of-the-box to access the Kubernetes API and the endpoints for utilizing the Live Data (preview) feature.
 
-In order to utilize the Live Data (preview) feature with this new user, you need to be a member of the [Azure Kubernetes Service Cluster User](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the AKS cluster resource. Azure Monitor for containers, when enabled, is configured to authenticate using the clusterMonitoringUser by default. If the clusterMonitoringUser role binding does not exist on a cluster, **clusterUser** is used for authentication instead. Contributor gives you access to the clusterMonitoringUser (if it exists) and Azure Kuberenetes Service Cluster User gives you access to the clusterUser. Any of these two roles give sufficient access to use this feature.
+In order to utilize the Live Data (preview) feature with this new user, you need to be a member of the [Azure Kubernetes Service Cluster User](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on the AKS cluster resource. Container insights, when enabled, is configured to authenticate using the clusterMonitoringUser by default. If the clusterMonitoringUser role binding does not exist on a cluster, **clusterUser** is used for authentication instead. Contributor gives you access to the clusterMonitoringUser (if it exists) and Azure Kuberenetes Service Cluster User gives you access to the clusterUser. Any of these two roles give sufficient access to use this feature.
 
 AKS released this new role binding in January 2020, so clusters created before January 2020 do not have it. If you have a cluster that was created before January 2020, the new **clusterMonitoringUser** can be added to an existing cluster by performing a PUT operation on the cluster, or performing any other operation on the cluster that performs a PUT operation on the cluster, such as updating the cluster version.
 
@@ -101,7 +101,7 @@ Azure AD client registration must be re-configured to allow the Azure portal to 
 For more information on advanced security setup in Kubernetes, review the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->If you are creating a new Kubernetes RBAC-enabled cluster, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration-cli.md) and follow the steps to configure Azure AD authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Azure Monitor for containers matching those specified in Step 3 below.
+>If you are creating a new Kubernetes RBAC-enabled cluster, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration-cli.md) and follow the steps to configure Azure AD authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Container insights matching those specified in Step 3 below.
 
 ### Client registration reconfiguration
 

@@ -1,6 +1,6 @@
 ---
 title: Monitor an Azure Kubernetes Service (AKS) cluster deployed | Microsoft Docs
-description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers already deployed in your subscription.
+description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Container insights already deployed in your subscription.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
@@ -8,7 +8,7 @@ ms.custom: devx-track-terraform, devx-track-azurecli
 
 # Enable monitoring of Azure Kubernetes Service (AKS) cluster already deployed
 
-This article describes how to set up Azure Monitor for containers to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that have already been deployed in your subscription.
+This article describes how to set up Container insights to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that have already been deployed in your subscription.
 
 You can enable monitoring of an AKS cluster that's already deployed using one of the supported methods:
 
@@ -108,7 +108,7 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
 
 4. From the list of unmonitored clusters, find the container in the list and click **Enable**.
 
-5. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.
+5. On the **Onboarding to Container insights** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
 
     ![Enable AKS Container insights monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -132,7 +132,7 @@ To enable monitoring directly from one of your AKS clusters in the Azure portal,
 
 5. On the Kubernetes service overview page, select **Monitoring - Insights**.
 
-6. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it in the drop-down list.
+6. On the **Onboarding to Container insights** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it in the drop-down list.
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
 
     ![Enable AKS container health monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
@@ -375,4 +375,4 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 * If you experience issues while attempting to onboard the solution, review the [troubleshooting guide](container-insights-troubleshoot.md)
 
-* With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+* With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Container insights.
