@@ -41,8 +41,8 @@ Here's the full list of Azure Monitor metric sources supported by the newer aler
 |Microsoft.ClassicStorage/storageAccounts/queueServices | Yes | No | [Storage Accounts (classic) - Queues](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
 |Microsoft.ClassicStorage/storageAccounts/tableServices | Yes | No | [Storage Accounts (classic) - Tables](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
 |Microsoft.CognitiveServices/accounts | Yes | No | [Cognitive Services](../essentials/metrics-supported.md#microsoftcognitiveservicesaccounts) |
-|Microsoft.Compute/cloudServices | Yes | No |  [Cloud Services](../metrics-supported.md#microsoftcomputecloudservices) |
-|Microsoft.Compute/cloudServices/roles | Yes | No |  [Cloud Service Roles](../metrics-supported.md#microsoftcomputecloudservicesroles) |
+|Microsoft.Compute/cloudServices | Yes | No |  [Cloud Services](../essentials/metrics-supported.md#microsoftcomputecloudservices) |
+|Microsoft.Compute/cloudServices/roles | Yes | No |  [Cloud Service Roles](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
 |Microsoft.Compute/virtualMachines | Yes | Yes<sup>1</sup> | [Virtual Machines](../essentials/metrics-supported.md#microsoftcomputevirtualmachines) |
 |Microsoft.Compute/virtualMachineScaleSets | Yes | No |[Virtual machine scale sets](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ContainerInstance/containerGroups | Yes| No | [Container groups](../essentials/metrics-supported.md#microsoftcontainerinstancecontainergroups) |
