@@ -3,7 +3,8 @@ title: Monitor Azure Container Registry
 description: Start here to learn how to monitor your Azure container registry 
 author: dlepow
 ms.author: danlep
-ms.topic: subject-monitoring 
+ms.topic: how-to
+ms.custom: subject-monitoring 
 ms.service: container-registry
 ms.date: 03/10/2021
 ---
@@ -104,7 +105,7 @@ You can analyze metrics for an Azure container registry with metrics from other 
 > You can also go to the metrics explorer by navigating to your registry in the portal. Then, select **Metrics (preview)** under **Monitoring**.
 
 <!-- Point to the list of metrics available in your monitor-service-reference article. -->
-For a list of the platform metrics collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference metrics](monitor-service-reference#metrics)  
+For a list of the platform metrics collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference metrics](monitor-service-reference.md#metrics)  
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
@@ -121,9 +122,9 @@ All resource logs in Azure Monitor have the same fields followed by service-spec
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-For a list of the types of resource logs collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference](monitor-service-reference.md#logs)  
+For a list of the types of resource logs collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference](monitor-service-reference.md#resource-logs)  
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Container Reference data reference](monitor-service-reference#azuremonitorlogstables)  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Container Reference data reference](monitor-service-reference.md#azure-monitor-logs-tables)  
 
 <!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
 
@@ -213,6 +214,24 @@ The following table lists common and recommended alert rules for Azure Container
 |:---|:---|:---|
 | metric | Signal: Storage used<br/>Operator: Greater than<br/>Aggregation type: Average<br/>Threshold value: 5 GB|  Alerts if the registry storage used exceeds a specified value.|
 | | | |
+
+### Example: Send email alert when registry storage used exceeds a set value
+
+1. In the Azure portal, navigate to your registry.
+1. Select **Metrics (preview)** under **Monitoring**.
+1. In the metrics explorer, in **Metric**, select **Storage used**.
+1. Select **New alert rule**.
+1. In **Scope**, confirm the registry resource for which you want to create an alert rule.
+1. In **Condition**, select **Add condition**.
+    1. In **Signal name**, select **Storage used**.
+    1. In **Chart period**, select **Over the last 24 hours**.
+    1. In **Alert logic**, in **Threshold value**, select **5**. In **Unit**, select **GB**.
+    1. Accept default values for the remaining settings, and select **Done**.
+1. In **Actions**, select **Add action groups** > **+ Create action group**.
+    1. Enter details of the action group.
+    1. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter a recipient such as *admin@contoso.com*. Select **Review + create**.
+1. Enter a name and description of the alert rule and select the severity level.
+1. Select **Create alert rule**.
 
 ## Next steps
 

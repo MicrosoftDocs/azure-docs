@@ -3,7 +3,8 @@ title: Monitoring Azure Container Registry data reference
 description: Important reference material needed when you monitor your Azure container registry 
 author: dlepow
 ms.author: danlep
-ms.topic: subject-monitoring
+ms.topic: reference
+ms.custom: subject-monitoring
 ms.service: container-registry
 ms.date: 03/10/2021
 ---
@@ -227,5 +228,5 @@ Q: How to get the schema descriptions added/improved.
 ## See Also
 
 <!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitor Azure Container Registry](monitor-service-name.md) for a description of monitoring an Azure container registry.
+- See [Monitor Azure Container Registry](monitor-service.md) for a description of monitoring an Azure container registry.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
