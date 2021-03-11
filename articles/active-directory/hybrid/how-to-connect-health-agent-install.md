@@ -28,7 +28,7 @@ The following table lists requirements for using Azure AD Connect Health.
 
 | Requirement | Description |
 | --- | --- |
-| Azure AD Premium is installed. |Azure AD Connect Health is a feature of Azure AD Premium. For more information, see [Sign up for Azure AD Premium](../fundamentals/active-directory-get-started-premium.md). <br /><br />To start a free 30-day trial, see [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/). |
+| There is an Azure AD Premium (P1 or P2) Subsciption.  |Azure AD Connect Health is a feature of Azure AD Premium (P1 or P2). For more information, see [Sign up for Azure AD Premium](../fundamentals/active-directory-get-started-premium.md). <br /><br />To start a free 30-day trial, see [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/). |
 | You're a global administrator in Azure AD. |By default, only global administrators can install and configure the health agents, access the portal, and do any operations within Azure AD Connect Health. For more information, see [Administering your Azure AD directory](../fundamentals/active-directory-whatis.md). <br /><br /> By using Azure role-based access control (Azure RBAC), you can allow other users in your organization to access Azure AD Connect Health. For more information, see [Azure RBAC for Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-azure-rbac). <br /><br />**Important**: Use a work or school account to install the agents. You can't use a Microsoft account. For more information, see [Sign up for Azure as an organization](../fundamentals/sign-up-organization.md). |
 | The Azure AD Connect Health agent is installed on each targeted server. | Health agents must be installed and configured on targeted servers so that they can receive data and provide monitoring and analytics capabilities. <br /><br />For example, to get data from your Active Directory Federation Services (AD FS) infrastructure, you must install the agent on the AD FS server and the Web Application Proxy server. Similarly, to get data from your on-premises Azure AD Domain Services (Azure AD DS) infrastructure, you must install the agent on the domain controllers.  |
 | The Azure service endpoints have outbound connectivity. | During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If firewalls block outbound connectivity, add the [outbound connectivity endpoints](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) to the allow list. |
@@ -189,7 +189,7 @@ To verify the agent has been installed, look for the following services on the s
 ![Screenshot showing the running Azure AD Connect Health for Sync services on the server.](./media/how-to-connect-health-agent-install/services.png)
 
 > [!NOTE]
-> Remember that you must have Azure AD Premium to use Azure AD Connect Health. If you don't have Azure AD Premium, you can't complete the configuration in the Azure portal. For more information, see the [requirements](how-to-connect-health-agent-install.md#requirements).
+> Remember that you must have Azure AD Premium (P1 or P2) to use Azure AD Connect Health. If you don't have Azure AD Premium, you can't complete the configuration in the Azure portal. For more information, see the [requirements](how-to-connect-health-agent-install.md#requirements).
 >
 >
 

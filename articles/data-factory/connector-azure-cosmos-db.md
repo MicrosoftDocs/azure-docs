@@ -1,13 +1,9 @@
 ---
 title: Copy and transform data in Azure Cosmos DB (SQL API)
 description: Learn how to copy data to and from Azure Cosmos DB (SQL API), and transform data in Azure Cosmos DB (SQL API) by using Data Factory.
-services: data-factory, cosmosdb
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
-ms.service: multiple
-ms.workload: data-services
+ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/29/2021

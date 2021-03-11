@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 03/03/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 Point-in-time restore provides protection against accidental deletion or corruption by enabling you to restore block blob data to an earlier state. Point-in-time restore is useful in scenarios where a user or application accidentally deletes data or where an application error corrupts data. Point-in-time restore also enables testing scenarios that require reverting a data set to a known state before running further tests.
 
-Point-in-time restore is supported for general-purpose v2 storage accounts only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
+Point-in-time restore is supported for general-purpose v2 storage accounts in the standard performance tier only. Only data in the hot and cool access tiers can be restored with point-in-time restore.
 
 To learn how to enable point-in-time restore for a storage account, see [Perform a point-in-time restore on block blob data](point-in-time-restore-manage.md).
 
@@ -28,6 +28,10 @@ To enable point-in-time restore, you create a management policy for the storage 
 To initiate a point-in-time restore, call the [Restore Blob Ranges](/rest/api/storagerp/storageaccounts/restoreblobranges) operation and specify a restore point in UTC time. You can specify lexicographical ranges of container and blob names to restore, or omit the range to restore all containers in the storage account. Up to 10 lexicographical ranges are supported per restore operation.
 
 Azure Storage analyzes all changes that have been made to the specified blobs between the requested restore point, specified in UTC time, and the present moment. The restore operation is atomic, so it either succeeds completely in restoring all changes, or it fails. If there are any blobs that cannot be restored, then the operation fails, and read and write operations to the affected containers resume.
+
+The following diagram shows how point-in-time restore works. One or more containers or blob ranges is restored to its state *n* days ago, where *n* is less than or equal to the retention period defined for point-in-time restore. The effect is to revert write and delete operations that happened during the retention period.
+
+:::image type="content" source="media/point-in-time-restore-overview/point-in-time-restore-diagram.png" alt-text="Diagram showing how point-in-time restores containers to a previous state":::
 
 Only one restore operation can be run on a storage account at a time. A restore operation cannot be canceled once it is in progress, but a second restore operation can be performed to undo the first operation.
 

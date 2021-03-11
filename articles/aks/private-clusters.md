@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 7/17/2020
+ms.date: 3/5/2021
 
 ---
 
@@ -62,23 +62,30 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 > [!NOTE]
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
 
-## Configure Private DNS Zone
+## Configure Private DNS Zone 
 
 The following parameters can be leveraged to configure Private DNS Zone.
 
-1. "System" is the default value. If the --private-dns-zone argument is omitted, AKS will create a Private DNS Zone in the Node Resource Group.
-2. "None" means AKS will not create a Private DNS Zone.  This requires you to Bring Your Own DNS Server and configure the DNS resolution for the Private FQDN.  If you don't configure DNS resolution, DNS is only resolvable within the agent nodes and will cause cluster issues after deployment.
-3. "Custom private dns zone name" should be in this format for azure global cloud: `privatelink.<region>.azmk8s.io`. You will need the Resource Id of that Private DNS Zone.  Additionally, you will need a user assigned identity or service principal with at least the `private dns zone contributor` role to the custom private dns zone.
+- "System" is the default value. If the --private-dns-zone argument is omitted, AKS will create a Private DNS Zone in the Node Resource Group.
+- "None" means AKS will not create a Private DNS Zone.  This requires you to Bring Your Own DNS Server and configure the DNS resolution for the Private FQDN.  If you don't configure DNS resolution, DNS is only resolvable within the agent nodes and will cause cluster issues after deployment. 
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" requires you to create a Private DNS Zone in this format for azure global cloud: `privatelink.<region>.azmk8s.io`. You will need the Resource Id of that Private DNS Zone going forward.  Additionally, you will need a user assigned identity or service principal with at least the `private dns zone contributor` role.
+- "fqdn-subdomain" can be utilized with "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" only to provide subdomain capabilities to `privatelink.<region>.azmk8s.io`
 
 ### Prerequisites
 
-* The AKS Preview version 0.4.71 or later
+* The AKS Preview version 0.5.3 or later
 * The api version 2020-11-01 or later
 
-### Create a private AKS cluster with Private DNS Zone
+### Create a private AKS cluster with Private DNS Zone (Preview)
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [none|system|custom private dns zone ResourceId]
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
+```
+
+### Create a private AKS cluster with a Custom Private DNS Zone (Preview)
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
 ```
 ## Options for connecting to the private cluster
 
@@ -130,13 +137,13 @@ As mentioned, virtual network peering is one way to access your private cluster.
 * In the case of maintenance on the control plane, your [AKS IP](./limit-egress-traffic.md) might change. In this case you must update the A record pointing to the API server private IP on your custom DNS server and restart any custom pods or deployments using hostNetwork.
 
 <!-- LINKS - internal -->
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
-[az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [private-link-service]: ../private-link/private-link-service-overview.md#limitations
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/tutorial-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-[devops-agents]: /azure/devops/pipelines/agents/agents?view=azure-devops
+[devops-agents]: /azure/devops/pipelines/agents/agents
 [availability-zones]: availability-zones.md

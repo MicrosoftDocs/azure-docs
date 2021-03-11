@@ -2,7 +2,7 @@
 title: Use the Shared Image Gallery to create a custom image pool
 description: Custom image pools are an efficient way to configure compute nodes to run your Batch workloads.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
 ---
 
@@ -64,12 +64,15 @@ If you are creating a new VM for the image, use a first party Azure Marketplace 
 > [!NOTE]
 > You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) or [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) VMs.
 
+Follow these guidelines when creating VMs:
+
 - Ensure the VM is created with a managed disk. This is the default storage setting when you create a VM.
 - Do not install Azure extensions, such as the Custom Script extension, on the VM. If the image contains a pre-installed extension, Azure may encounter problems when deploying the Batch pool.
 - When using attached data disks, you need to mount and format the disks from within a VM to use them.
 - Ensure that the base OS image you provide uses the default temp drive. The Batch node agent currently expects the default temp drive.
 - Ensure that the OS disk is not encrypted.
-- Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.  
+- Once the VM is running, connect to it via RDP (for Windows) or SSH (for Linux). Install any necessary software or copy desired data.
+- For faster pool provisioning, use the [ReadWrite disk cache setting](../virtual-machines/premium-storage-performance.md#disk-caching) for the VM's OS disk.
 
 ### Create a VM snapshot
 

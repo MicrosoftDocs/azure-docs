@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Tutorial: Coding with the Azure Digital Twins APIs
 
-It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). It walks you through writing a C# console client app step by step, starting from scratch.
+It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure Digital Twins SDK for .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client). It walks you through writing a C# console client app step by step, starting from scratch.
 
 > [!div class="checklist"]
 > * Set up project
@@ -58,7 +58,7 @@ This will create several files inside your directory, including one called *Prog
 
 Keep the command window open, as you'll continue to use it throughout the tutorial.
 
-Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), the second provides tools to help with authentication against Azure.
+Next, **add two dependencies to your project** that will be needed to work with Azure Digital Twins. The first is the package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client), the second provides tools to help with authentication against Azure.
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core

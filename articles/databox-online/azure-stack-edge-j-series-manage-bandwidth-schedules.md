@@ -7,12 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 # Use the Azure portal to manage bandwidth schedules on your Azure Stack Edge Pro GPU 
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes how to manage bandwidth schedules on your Azure Stack Edge Pro. Bandwidth schedules allow you to configure network bandwidth usage across multiple time-of-day schedules. These schedules can be applied to the upload and download operations from your device to the cloud.
 
@@ -39,7 +39,7 @@ Do the following steps in the Azure portal to add a schedule.
 
    1. Provide the **Start day**, **End day**, **Start time**, and **End time** of the schedule.
    2. Check the **All day** option if this schedule should run all day.
-   3. **Bandwidth rate** is the bandwidth in Megabits per second (Mbps) used by your device in operations involving the cloud (both uploads and downloads). Supply a number between 20 and 2,147,483,647 for this field.
+   3. **Bandwidth rate** is the bandwidth in Megabits per second (Mbps) used by your device in operations involving the cloud (both uploads and downloads). Supply a number between 64 and 2,147,483,647 for this field.
    4. Select **Unlimited bandwidth** if you do not want to throttle the date upload and download.
    5. Select **Add**.
 

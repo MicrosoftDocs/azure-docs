@@ -12,10 +12,6 @@ ms.date: 11/09/2020
 QnA Maker allows you to collaborate with different authors and content editors by offering a capability to restrict collaborator access based on the collaborator's role.
 Learn more about [QnA Maker collaborator authentication concepts](../Concepts/role-based-access-control.md).
 
-You can also improve the quality of your knowledge base by suggesting alternative questions through [active learning](../Concepts/active-learning-suggestions.md). User-submissions are taken into consideration and appear as suggestions in the alternate questions list. You have the flexibility to either add those suggestions as alternate questions or reject them.
-
-Your knowledge base doesn't change automatically. In order for any change to take effect, you must accept the suggestions. These suggestions add questions but don't change or remove existing questions.
-
 ## Add Azure role-based access control (Azure RBAC)
 
 QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/role-assignments-portal.md).
@@ -28,7 +24,7 @@ You cannot share a particular knowledge base in a QnA Maker service. If you want
 
 ### Add a user account to the QnA Maker resource
 
-The following steps use the collaborator role but any of the [roles](../reference-role-based-access-control.md) can be added using these steps
+The following steps use the collaborator role but any of the roles can be added using these steps
 
 1. Sign in to the [Azure](https://portal.azure.com/) portal, and go to your QnA Maker resource.
 

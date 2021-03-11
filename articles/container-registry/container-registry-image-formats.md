@@ -15,11 +15,11 @@ The following Docker container image formats are supported:
 
 * [Docker Image Manifest V2, Schema 1](https://docs.docker.com/registry/spec/manifest-v2-1/)
 
-* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - includes Manifest Lists which allow registries to store multiplatform images under a single "image:tag" reference
+* [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - includes Manifest Lists which allow registries to store [multi-architecture images](push-multi-architecture-images.md) under a single `image:tag` reference
 
 ## OCI images
 
-Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md). Packaging formats include [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
+Azure Container Registry supports images that meet the [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md), including the optional [image index](https://github.com/opencontainers/image-spec/blob/master/image-index.md) specification. Packaging formats include [Singularity Image Format (SIF)](https://github.com/sylabs/sif).
 
 ## OCI artifacts
 

@@ -232,7 +232,7 @@ az eventgrid event-subscription create
 ```
 
 ### Use the Azure CLI - Azure Storage queue 
-In this section, you learn how to use the Azure CLI to enable the use of a system-assigned identity to deliver events to an Azure Storage queue. The identity must be a member of the **Storage Blob Data Contributor** role on the storage account.
+In this section, you learn how to use the Azure CLI to enable the use of a system-assigned identity to deliver events to an Azure Storage queue. The identity must be a member of the **Storage Queue Data Message Sender** role on the storage account. It must also be a member of the **Storage Blob Data Contributor** role on the storage account that's used for dead-lettering.
 
 #### Define variables  
 

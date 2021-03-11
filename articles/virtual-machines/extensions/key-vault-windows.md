@@ -1,11 +1,12 @@
 ---
 title: Azure Key Vault VM Extension for Windows 
 description: Deploy an agent performing automatic refresh of Key Vault secrets on virtual machines using a virtual machine extension.
-services: virtual-machines-windows
+services: virtual-machines
 author: msmbaldwin
 tags: keyvault
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
@@ -30,27 +31,31 @@ The Key Vault VM extension is also supported on custom local VM that is uploaded
 - PKCS #12
 - PEM
 
-## Prerequisities
+## Prerequisites
+
   - Key Vault instance with certificate. See [Create a Key Vault](../../key-vault/general/quick-create-portal.md)
   - VM must have assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md)
   - The Key Vault Access Policy must be set with secrets `get` and `list` permission for VM/VMSS managed identity to retrieve a secret's portion of certificate. See [How to Authenticate to Key Vault](../../key-vault/general/authentication.md) and [Assign a Key Vault access policy](../../key-vault/general/assign-access-policy-cli.md).
-  -  VMSS should have the following identity setting:
-  ` 
+  -  Virtual Machine Scale Sets should have the following identity setting:
+
+  ``` 
   "identity": {
-  "type": "UserAssigned",
-  "userAssignedIdentities": {
-  "[parameters('userAssignedIdentityResourceId')]": {}
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "[parameters('userAssignedIdentityResourceId')]": {}
+    }
   }
-  }
-  `
+  ```
   
-- AKV extension should have this setting:
-  `
-                  "authenticationSettings": {
-                    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
-                    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
-                  }
-   `
+  - AKV extension should have this setting:
+
+  ```
+  "authenticationSettings": {
+    "msiEndpoint": "[parameters('userAssignedIdentityEndpoint')]",
+    "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
+  }
+  ```
+
 ## Extension schema
 
 The following JSON shows the schema for the Key Vault VM extension. The extension does not require protected settings - all its settings are considered public information. The extension requires a list of monitored certificates, polling frequency, and the destination certificate store. Specifically:  
@@ -161,7 +166,9 @@ To turn this on set the following:
     ...
 }
 ```
-> [Note] Using this feature is not compatible with an ARM template that creates a system assigned identity and updates a Key Vault access policy with that identity. Doing so will result in a deadlock as the vault access policy cannot be updated until all extensions have started. You should instead use a *single user assigned MSI identity* and pre-ACL your vaults with that identity before deploying.
+
+> [!Note] 
+> Using this feature is not compatible with an ARM template that creates a system assigned identity and updates a Key Vault access policy with that identity. Doing so will result in a deadlock as the vault access policy cannot be updated until all extensions have started. You should instead use a *single user assigned MSI identity* and pre-ACL your vaults with that identity before deploying.
 
 ## Azure PowerShell deployment
 > [!WARNING]
@@ -230,9 +237,9 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
 
    ```azurecli
         # Start the deployment
-        az vmss extension set --name "KeyVaultForWindows" `
+        az vmss extension set -name "KeyVaultForWindows" `
          --publisher Microsoft.Azure.KeyVault `
-         --resource-group "<resourcegroup>" `
+         -resource-group "<resourcegroup>" `
          --vmss-name "<vmName>" `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```

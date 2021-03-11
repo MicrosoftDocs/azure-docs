@@ -235,9 +235,9 @@ Auto-scale based on Memory metrics for a Cloud Services is not currently support
 
 To work around this problem, you can use Application Insights. Auto-Scale supports Application Insights as a Metrics Source and can scale the role instance count based on guest metric like "Memory".  You have to configure Application Insights in your Cloud Service project package file (*.cspkg) and enable Azure Diagnostics extension on the service to implement this feat.
 
-For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../azure-monitor/platform/autoscale-custom-metric.md)
+For more details on how to utilize a custom metric via Application Insights to configure Auto-Scale on  Cloud Services, see [Get started with auto scale by custom metric in Azure](../azure-monitor/autoscale/autoscale-custom-metric.md)
 
-For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+For more information on how to integrate Azure Diagnostics with Application Insights for Cloud Services, see [Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)
 
 For more information about to enable Application Insights for Cloud Services, see [Application Insights for Azure Cloud Services](../azure-monitor/app/cloudservices.md)
 

@@ -154,7 +154,9 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 5. Select **Add**. 
 
-    Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault.
+> [!NOTE]
+> Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault. Any CDN instance created in this subscription will have access to the certificates in this key vault. 
+
  
 ### Select the certificate for Azure CDN to deploy
  

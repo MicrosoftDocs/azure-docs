@@ -21,27 +21,27 @@ When visualizing many data points on the map, data points may overlap over each 
 
 ## Enabling clustering on a data source
 
-Enable clustering in the `DataSource` class by setting the `cluster` option to true. Set `ClusterRadius` to selects nearby points and combines them into a cluster. The value of `ClusterRadius` is in pixels. Use `clusterMaxZoom` to Specify a zoom level at which to disable the clustering logic. Here is an example of how to enable clustering in a data source.
+Enable clustering in the `DataSource` class by setting the `cluster` option to true. Set `clusterRadius` to select nearby points and combines them into a cluster. The value of `clusterRadius` is in pixels. Use `clusterMaxZoom` to specify a zoom level at which to disable the clustering logic. Here is an example of how to enable clustering in a data source.
 
 ```javascript
 //Create a data source and enable clustering.
 var datasource = new atlas.source.DataSource(null, {
-	//Tell the data source to cluster point data.
-	cluster: true,
-
-	//The radius in pixels to cluster points together.
-	clusterRadius: 45,
-
-	//The maximum zoom level in which clustering occurs.
-	//If you zoom in more than this, all points are rendered as symbols.
-	clusterMaxZoom: 15
+    //Tell the data source to cluster point data.
+    cluster: true,
+    
+    //The radius in pixels to cluster points together.
+    clusterRadius: 45,
+    
+    //The maximum zoom level in which clustering occurs.
+    //If you zoom in more than this, all points are rendered as symbols.
+    clusterMaxZoom: 15
 });
 ```
 
 > [!TIP]
 > If two data points are close together on the ground, it's possible the cluster will never break apart, no matter how close the user zooms in. To address this, you can set the `clusterMaxZoom` option to disable the clustering logic and simply display everything.
 
-Here are additional methods that the `DataSource` class provides for clustering:
+The `DataSource` class provides the following methods related to clustering as well.
 
 | Method | Return type | Description |
 |--------|-------------|-------------|

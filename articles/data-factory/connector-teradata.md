@@ -1,13 +1,8 @@
 ---
 title: Copy data from Teradata Vantage by using Azure Data Factory 
 description: The Teradata Connector of the Data Factory service lets you copy data from a Teradata Vantage to data stores supported by Data Factory as sinks. 
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: jingwang

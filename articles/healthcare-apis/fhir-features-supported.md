@@ -30,7 +30,7 @@ Previous versions also currently supported include: `3.0.2`
 | update with optimistic locking | Yes       | Yes       | Yes       |                                                     |
 | update (conditional)           | Yes       | Yes       | Yes       |                                                     |
 | patch                          | No        | No        | No        |                                                     |
-| delete                         | Yes       | Yes       | Yes       |                                                     |
+| delete                         | Yes       | Yes       | Yes       |  See Note Below                                                   |
 | delete (conditional)           | No        | No        | No        |                                                     |
 | history                        | Yes       | Yes       | Yes       |                                                     |
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
@@ -43,6 +43,9 @@ Previous versions also currently supported include: `3.0.2`
 | transaction                    | No        | Yes       | No        |                                                     |
 | paging                         | Partial   | Partial   | Partial   | `self` and `next` are supported                     |
 | intermediaries                 | No        | No        | No        |                                                     |
+
+> [!Note]
+> Delete defined by the FHIR spec requires that after deleting, subsequent non-version specific reads of a resource returns a 410 HTTP status code and the resource is no longer found through searching. The Azure API for FHIR also enables you to fully delete (including all history) the resource. To fully delete the resource, you can pass a parameter settings `hardDelete` to true (`DELETE {server}/{resource}/{id}?hardDelete=true`). If you do not pass this parameter or set `hardDelete` to false, the historic versions of the resource will still be available.
 
 ## Search
 
@@ -84,7 +87,7 @@ All search parameter types are supported.
 | `_list`                 | Yes       | Yes       | Yes       |         |
 | `_type`                 | Yes       | Yes       | Yes       | Issue [#1562](https://github.com/microsoft/fhir-server/issues/1562)        |
 | `_security`             | Yes       | Yes       | Yes       |         |
-| `_profile`              | Partial   | Partial   | Partial   | Only supported in STU3, no support in R4 |
+| `_profile`              | Partial   | Partial   | Partial   | Supported in STU3. If you created your database **after** February 20th, 2021, you will have support in R4 as well. We are working to enable _profile on databases created prior to February 20th, 2021. |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
 | `_has`                  | No        | No        | No        |         |
@@ -94,7 +97,7 @@ All search parameter types are supported.
 | Search result parameters | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_elements`             | Yes       | Yes       | Yes       | Issue [#1256](https://github.com/microsoft/fhir-server/issues/1256)        |
-| `_count`                | Yes       | Yes       | Yes       | `_count` is limited to 100 characters. If set to higher than 100, only 100 will be returned and a warning will be returned in the bundle. |
+| `_count`                | Yes       | Yes       | Yes       | `_count` is limited to 1000 characters. If set to higher than 1000, only 1000 will be returned and a warning will be returned in the bundle. |
 | `_include`              | Yes       | Yes       | Yes       |Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does not include :iterate support.|
 | `_revinclude`           | Yes       | Yes       | Yes       | Included items are limited to 100. Include on PaaS and OSS on Cosmos DB does [not include :iterate support](https://github.com/microsoft/fhir-server/issues/1313). Issue [#1319](https://github.com/microsoft/fhir-server/issues/1319)|
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |

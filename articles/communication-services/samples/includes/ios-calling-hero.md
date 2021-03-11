@@ -69,8 +69,8 @@ For demonstration purposes, this sample uses a publicly accessible endpoint by d
 With additional configuration, this sample supports connecting to an **Azure Active Directory** (Azure AD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. See steps below:
 
 1. Enable Azure Active Directory authentication in your app.  
-   - [Register your app under Azure Active Directory (using iOS / macOS platform settings)](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-ios) 
-	- [Configure your App Service or Azure Functions app to use Azure AD login](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+   - [Register your app under Azure Active Directory (using iOS / macOS platform settings)](../../../active-directory/develop/tutorial-v2-ios.md) 
+	- [Configure your App Service or Azure Functions app to use Azure AD login](../../../app-service/configure-authentication-provider-aad.md)
 2. Go to your registered app overview page under Azure Active Directory App Registrations. Take note of the `Application (client) ID`, `Directory (tenant) ID`, `Application ID URI`
 
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure Active Directory configuration on Azure portal.":::

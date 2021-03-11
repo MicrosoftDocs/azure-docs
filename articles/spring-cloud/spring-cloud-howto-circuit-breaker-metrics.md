@@ -2,7 +2,7 @@
 title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics 
 description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics. 
 author:  MikeDodaro
-ms.author: brendanm
+ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
@@ -37,9 +37,9 @@ cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
 2. Create applications with endpoints
 
 ```azurecli
-az spring-cloud app create --name resilience4j --is-public \
+az spring-cloud app create --name resilience4j --assign-endpoint \
     -s ${asc-service-name} -g ${asc-resource-group}
-az spring-cloud app create --name reactive-resilience4j --is-public \
+az spring-cloud app create --name reactive-resilience4j --assign-endpoint \
     -s ${asc-service-name} -g ${asc-resource-group}
 ```
 

@@ -11,10 +11,16 @@ ms.reviewer: mbullwin
 
 # Troubleshoot problems enabling or viewing Application Insights Profiler
 
-> [!CAUTION]
-> There is a bug running profiler for ASP.NET Core apps on Azure App Service. We have a fix, but it will take a few weeks to deploy world wide. You can work around the bug by adding the Application Insights SDK to your application with instructions [here](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
-
 ## <a id="troubleshooting"></a>General troubleshooting
+
+### Make sure you're using the appropriate Profiler Endpoint
+
+Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+|App Setting    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
+|ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |
 
 ### Profiles are uploaded only if there are requests to your application while Profiler is running
 
@@ -63,6 +69,7 @@ Usually, the thread that quickly goes into a wait state is simply waiting on the
 Submit a support ticket in the portal. Be sure to include the correlation ID from the error message.
 
 ## Troubleshoot Profiler on Azure App Service
+
 For Profiler to work properly:
 * Your web app service plan must be Basic tier or higher.
 * Your web app must have Application Insights enabled.
@@ -91,6 +98,10 @@ If Profiler isn't working for you, you can download the log and send it to our t
 
 ### Check the Diagnostic Services site extension' Status Page
 If Profiler was enabled through the [Application Insights pane](profiler.md) in the portal, it was enabled by the Diagnostic Services site extension.
+
+> [!NOTE]
+> Codeless installation of Application Insights Profiler follows the .NET Core support policy.
+> For more information about supported runtimes, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 You can check the Status Page of this extension by going to the following url:
 `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
@@ -138,7 +149,7 @@ If you're redeploying your web app to a Web Apps resource with Profiler enabled,
 
 *Directory Not Empty 'D:\\home\\site\\wwwroot\\App_Data\\jobs'*
 
-This error occurs if you run Web Deploy from scripts or from the Azure Pipelines. The solution is to add the following additional deployment parameters to the Web Deploy task:
+This error occurs if you run Web Deploy from scripts or from the Azure Pipelines. The solution is to add the following deployment parameters to the Web Deploy task:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

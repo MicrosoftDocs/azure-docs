@@ -3,30 +3,27 @@ title: IDs - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to data extraction from identity documents with the Form Recognizer Pre-built IDs API.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/25/2021
-ms.author: pafarley
+ms.date: 03/15/2021
+ms.author: lajanuar
 ---
 
-# Form Recognizer prebuilt IDs model
+# Form Recognizer prebuilt identification card (ID) model
 
-Azure Form Recognizer can analyze and extract information from government IDs using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 preview as a cloud service and as an on-premise container.
+Azure Form Recognizer can analyze and extract information from government identification cards (IDs) using its prebuilt IDs model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with ID recognition capabilities to extract key information from Worldwide Passports and U.S. Driver's Licenses (all 50 states and D.C.). The IDs API extracts key information from these identity documents, such as first name, last name, date of birth, document number, and more. This API is available in the Form Recognizer v2.1 preview as a cloud service and as an on-premise container.
 
+## What does the ID service do? 
 
-## What does the IDs service do? 
-
-The prebuilt IDs service extracts the key values from worldwide passports and U.S. Driver's Licenses. Since the service is based on a prebuilt model, the model has a set list of extracted key values. 
-
-![Sample Passport](./media/id-example-uspassport.JPG)
+The prebuilt IDs service extracts the key values from worldwide passports and U.S. Driver's Licenses and returns them in an organized structured JSON response. 
 
 ![Sample Driver's License](./media/id-example-driverslicense.JPG)
 
-
+![Sample Passport](./media/id-example-passport-result.JPG)
 
 ### Fields Extracted
 
@@ -41,11 +38,9 @@ The prebuilt IDs service extracts the key values from worldwide passports and U.
 |  Nationality | country | Country code compliant with ISO 3166 standard | "USA" |
 |  Sex | gender | Possible extracted values include "M", "F" and "X" | "F" | 
 |  MachineReadableZone | object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-|  DocumentType | string | Document type, e.g. Passport, Driver's License | "passport" |  
+|  DocumentType | string | Document type, for example, Passport, Driver's License | "passport" |  
 |  Address | string | Extracted address (Driver's License only) | "123 STREET ADDRESS YOUR CITY WA 99999-1234"|
 |  Region | string | Extracted region, state, province, etc. (Driver's License only) | "Washington" | 
-
-
 
 ### Additional features
 
@@ -70,30 +65,26 @@ To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 
 ## Input requirements
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## Supported ID types  
 
-* **Pre-built IDs v2.1-preview.3** Extracts key values from worldwide passports (all passports are supported regardless of country), and U.S. Driver's Licenses. 
-
+* **Pre-built IDs v2.1-preview.3** Extracts key values from worldwide passports, and U.S. Driver's Licenses. 
 
   > [!NOTE]
   > ID type support 
   >
   > Currently supported ID types include worldwide passport and U.S. Driver's Licenses. We are actively seeking to expand our ID support to other identity documents around the world.
 
-
 ## The Analyze idDocument operation
 
-<!---
-Need to update this with updated APIM links when available
--->
+## The Analyze Invoice operation
 
-The [Analyze ID](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync) takes an image or PDF of a receipt as the input and extracts the values of interest and text. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
+The [Analyze ID](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291) operation takes an image or PDF of an ID as the input and extracts the values of interest. The call returns a response header field called `Operation-Location`. The `Operation-Location` value is a URL that contains the Result ID to be used in the next step.
 
 |Response header| Result URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/idDocument/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## The Get Analyze idDocument Result operation
 
@@ -101,7 +92,7 @@ The [Analyze ID](https://westcentralus.dev.cognitive.microsoft.com/docs/services
 Need to update this with updated APIM links when available
 -->
 
-The second step is to call the [Get Analyze idDocument Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) operation. This operation takes as input the Result ID that was created by the Analyze Receipt operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
+The second step is to call the [Get Analyze idDocument Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeReceiptResult) operation. This operation takes as input the Result ID that was created by the Analyze ID operation. It returns a JSON response that contains a **status** field with the following possible values. You call this operation iteratively until it returns with the **succeeded** value. Use an interval of 3 to 5 seconds to avoid exceeding the requests per second (RPS) rate.
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
@@ -110,14 +101,14 @@ The second step is to call the [Get Analyze idDocument Result](https://westcentr
 | |  | failed: The analysis operation has failed. |
 | |  | succeeded: The analysis operation has succeeded. |
 
-When the **status** field has the **succeeded** value, the JSON response will include the receipt understanding and text recognition results. The receipt understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
+When the **status** field has the **succeeded** value, the JSON response will include the receipt understanding and text recognition results. The IDs result are organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence, and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
 
 ![sample receipt results](./media/id-example-passport-result.JPG)
 
 ### Sample JSON output
 
 See the following example of a successful JSON response:
-The "readResults" node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The "documentResults" node contains the business-card-specific values that the model discovered. This is where you'll find useful key/value pairs like the first name, last name, document number and more.
+The `readResults` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `documentResults` node contains the ID values that the model discovered. This node is also where you'll find useful key/value pairs like the first name, last name, document number, and more.
 
 ```json
 { 
@@ -254,9 +245,10 @@ The "readResults" node contains all of the recognized text. Text is organized by
 
 ## Next steps
 
-- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the development language of your choice.
+- Try your own IDs and samples in the [Form Recognizer Sample UI](https://fott-preview.azurewebsites.net/).
+- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing an ID processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 
 * [What is Form Recognizer?](./overview.md)
-* [REST API reference docs](./index.yml)
+* [REST API reference docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)

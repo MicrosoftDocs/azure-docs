@@ -3,14 +3,14 @@ title: Receipts - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to receipt analysis with the Form Recognizer API - usage and limits.
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/17/2019
-ms.author: pafarley
+ms.date: 03/15/2021
+ms.author: lajanuar
 ---
 
 # Form Recognizer prebuilt receipt model
@@ -111,8 +111,12 @@ When the **status** field has the **succeeded** value, the JSON response will in
 
 ### Sample JSON output
 
+
+The response to the Get Analyze Receipt Result operation will be the structured representation of the receipt with all the information extracted.  See here for a [sample receipt file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) and its structured output [sample receipt output](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json).
+
 See the following example of a successful JSON response:
-The "readResults" node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The "documentResults" node contains the business-card-specific values that the model discovered. This is where you'll find useful key/value pairs like the first name, last name, company name and more.
+* The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. 
+* The `"documentResults"` node contains the business-card-specific values that the model discovered. This is where you'll find useful key/value pairs like the first name, last name, company name and more.
 
 ```json
 { 

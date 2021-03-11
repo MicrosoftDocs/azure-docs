@@ -97,7 +97,7 @@ Here is a list of queries you can use to see the logs:
 
 The entries may be long. Export to CSV for a closer look.
 
-For more information about querying, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+For more information about querying, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## Configure Application Insights in Production
 
