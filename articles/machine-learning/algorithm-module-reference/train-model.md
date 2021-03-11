@@ -80,7 +80,7 @@ To generate model explanations, you can select **True** in the drop-down list of
 
 After the pipeline run completed, you can visit **Explanations** tab in the right pane of **Train Model** module, and explore the model performance, dataset and feature importance.
 
-![Screenshot showing model explanation checkbox](./media/module/train-model-explanations-tab.gif)
+![Screenshot showing model explanation charts](./media/module/train-model-explanations-tab.gif)
 
 To learn more about using model explanations in Azure Machine Learning, refer to the how-to article about [Interpret ML models](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
 
