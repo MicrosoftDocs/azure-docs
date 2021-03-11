@@ -13,7 +13,7 @@ ms.author: zarhoads
 
 As you develop and run applications in Azure Kubernetes Service (AKS), there are a few key areas to consider. How you manage your application deployments can negatively impact the end-user experience of services that you provide. To succeed, keep in mind some best practices you can follow as you develop and run applications in AKS.
 
-This best practices article focuses on running your cluster and workloads from an application developer perspective. For information about administrative best practices, see [Cluster operator best practices for isolation and resource management in Azure Kubernetes Service (AKS)][operator-best-practices-isolation]. In this article, you learn:
+This article focuses on running your cluster and workloads from an application developer perspective. For information about administrative best practices, see [Cluster operator best practices for isolation and resource management in Azure Kubernetes Service (AKS)][operator-best-practices-isolation]. In this article, you learn:
 
 > [!div class="checklist"]
 > * Pod resource requests and limits.
@@ -29,11 +29,13 @@ This best practices article focuses on running your cluster and workloads from a
 Use pod requests and limits to manage the compute resources within an AKS cluster. Pod requests and limits inform the Kubernetes scheduler which compute resources to assign to a pod.
 
 ### Pod CPU/Memory requests
-*Pod requests* define a set amount of CPU and memory that the pod needs on a regular basis.
+*Pod requests* define a set amount of CPU and memory that the pod needs regularly.
 
 When the Kubernetes scheduler places a pod on a node, the pod requests determine which node has sufficient resources available for scheduling. Not setting a pod request will default it to the limit defined.
 
-Monitor the performance of your application to adjust pod requests. If you underestimate pod requests, your application may receive degraded performance due to over-scheduling a node. If requests are overestimated, your application may have increased difficulty getting scheduled.
+Monitor the performance of your application to adjust pod requests. 
+* If you underestimate pod requests, your application may receive degraded performance due to over-scheduling a node. 
+* If requests are overestimated, your application may have increased difficulty getting scheduled.
 
 ### Pod CPU/Memory limits** 
 *Pod limits* set the maximum amount of CPU and memory that a pod can use. 
@@ -41,7 +43,7 @@ Monitor the performance of your application to adjust pod requests. If you under
 * *Memory limits* define which pods should be killed when nodes are unstable due to insufficient resources. Without proper limits set, pods will be killed until resource pressure is lifted. 
 * While a pod may exceed the *CPU limit* periodically, the pod will not be killed for exceeding the CPU limit. 
 
-Pod limits define when a pod has lost control of resource consumption. When it exceeds the limit, the pod is prioritized for killing. This behavior maintains node health and minimizes impact to pods sharing the node. Not setting a pod limit defaults it to the highest available value on a given node.
+Pod limits define when a pod has lost control of resource consumption. When it exceeds the limit, the pod is marked for killing. This behavior maintains node health and minimizes impact to pods sharing the node. Not setting a pod limit defaults it to the highest available value on a given node.
 
 Avoid setting a pod limit higher than your nodes can support. Each AKS node reserves a set amount of CPU and memory for the core Kubernetes components. Your application may try to consume too many resources on the node for other pods to successfully run.
 
@@ -110,17 +112,17 @@ The [Visual Studio Code extension for Kubernetes][vscode-kubernetes] helps you d
 
 > **Best practice guidance** 
 > 
-> Regularly run the latest version of `kube-advisor` open source tool to detect issues in your cluster. Run `kube-advisor` before applying resource quotas on an existing AKS cluster to find pods that don't have resource requests and limits defined.
+> Regularly run the latest version of `kube-advisor` open-source tool to detect issues in your cluster. Run `kube-advisor` before applying resource quotas on an existing AKS cluster to find pods that don't have resource requests and limits defined.
 
-The [kube-advisor][kube-advisor] tool is an associated AKS open source project that scans a Kubernetes cluster and reports on identified issues. One useful check is to identify pods without resource requests and limits in place.
+The [kube-advisor][kube-advisor] tool is an associated AKS open-source project that scans a Kubernetes cluster and reports on identified issues. One useful check is to identify pods without resource requests and limits in place.
 
-While the `kube-advisor` tool can report on resource requests and limits missing in PodSpecs for Windows and Linux applications, `kube-advisor` itself must be scheduled on a Linux pod. You can schedule a pod to run on a node pool with a specific OS using a [node selector][k8s-node-selector] in the pod's configuration.
+While the `kube-advisor` tool can report on resource requests and limits missing in PodSpecs for Windows and Linux applications, `kube-advisor` itself must be scheduled on a Linux pod. Use a [node selector][k8s-node-selector] in the pod's configuration to schedule a pod to run on a node pool with a specific OS.
 
 In an AKS cluster that hosts many development teams and applications, you'll find it easier to track pods using resource requests and limits. As a best practice, regularly run `kube-advisor` on your AKS clusters.
 
 ## Next steps
 
-This best practices article focused on how to run your cluster and workloads from a cluster operator perspective. For information about administrative best practices, see [Cluster operator best practices for isolation and resource management in Azure Kubernetes Service (AKS)][operator-best-practices-isolation].
+This article focused on how to run your cluster and workloads from a cluster operator perspective. For information about administrative best practices, see [Cluster operator best practices for isolation and resource management in Azure Kubernetes Service (AKS)][operator-best-practices-isolation].
 
 To implement some of these best practices, see the following articles:
 

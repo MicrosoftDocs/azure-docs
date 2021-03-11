@@ -3,15 +3,17 @@ title: Concepts - Storage in Azure Kubernetes Services (AKS)
 description: Learn about storage in Azure Kubernetes Service (AKS), including volumes, persistent volumes, storage classes, and claims
 services: container-service
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 03/11/2021
 
 ---
 
 # Storage options for applications in Azure Kubernetes Service (AKS)
 
-Applications running in Azure Kubernetes Service (AKS) may need to store and retrieve data. While some application workloads can use local, fast storage on unnecessary, emptied nodes, other application workloads require storage that persists on more regular data volumes within the Azure platform. 
+Applications running in Azure Kubernetes Service (AKS) may need to store and retrieve data. While some application workloads can use local, fast storage on unneeded, emptied nodes, others require storage that persists on more regular data volumes within the Azure platform. 
 
-Multiple pods may need to share the same data volumes, or reattach data volumes if the pod is rescheduled on a different node. 
+Multiple pods may need to:
+* Share the same data volumes. 
+* Reattach data volumes if the pod is rescheduled on a different node. 
 
 Finally, you may need to inject sensitive data or application configuration information into pods.
 
@@ -26,7 +28,7 @@ This article introduces the core concepts that provide storage to your applicati
 
 ## Volumes
 
-As Kubernetes typically treats individual pods as ephemeral, disposable resources, applications have different available approaches for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
+Kubernetes typically treats individual pods as ephemeral, disposable resources. Applications have different approaches available to them for using and persisting data. A *volume* represents a way to store, retrieve, and persist data across pods and through the application lifecycle.
 
 Traditional volumes are created as Kubernetes resources backed by Azure Storage. You can manually create data volumes to be assigned to pods directly, or have Kubernetes automatically create them. Data volumes can use Azure Disks or Azure Files.
 
@@ -49,11 +51,11 @@ Use *Azure Files* to mount an SMB 3.0 share backed by an Azure Storage account t
 ### Volume types
 Kubernetes volumes represent more than just a traditional disk for storing and retrieving information. Kubernetes volumes can also be used as a way to inject data into a pod for use by the containers. 
 
-Common additional volume types in Kubernetes include:
+Common volume types in Kubernetes include:
 
 #### emptyDir
 
-Commonly used as temporary space for a pod. All containers within a pod can access the data on the volume. Data written to this volume type persists only for the lifespan of the pod. Once the pod is deleted, the volume is deleted. This volume typically uses the underlying local node disk storage, though it can also exist only in the node's memory.
+Commonly used as temporary space for a pod. All containers within a pod can access the data on the volume. Data written to this volume type persists only for the lifespan of the pod. Once you delete the pod, the volume is deleted. This volume typically uses the underlying local node disk storage, though it can also exist only in the node's memory.
 
 #### secret
 
@@ -67,7 +69,7 @@ You can use *secret* volumes to inject sensitive data into pods, such as passwor
 
 #### configMap
 
-You can use *configMap* to inject key-value pair properties into pods, such as application configuration information. Rather than defining application configuration information within a container image, you define it as a Kubernetes resource, easily updated and applied to new instances of pods as they are deployed. 
+You can use *configMap* to inject key-value pair properties into pods, such as application configuration information. Define application configuration information as a Kubernetes resource, easily updated and applied to new instances of pods as they're deployed. 
 
 Like using a Secret:
 1. Create a ConfigMap using the Kubernetes API. 
@@ -76,7 +78,7 @@ Like using a Secret:
 
 ## Persistent volumes
 
-Volumes defined and created as part of the pod lifecycle only exist until the pod is deleted. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod.
+Volumes defined and created as part of the pod lifecycle only exist until you delete the pod. Pods often expect their storage to remain if a pod is rescheduled on a different host during a maintenance event, especially in StatefulSets. A *persistent volume* (PV) is a storage resource created and managed by the Kubernetes API that can exist beyond the lifetime of an individual pod.
 
 You can use Azure Disks or Files to provide the PersistentVolume. As noted in the [Volumes](#volumes) section, the choice of Disks or Files is often determined by the need for concurrent access to the data or the performance tier.
 
@@ -88,7 +90,7 @@ A PersistentVolume can be *statically* created by a cluster administrator, or *d
 
 To define different tiers of storage, such as Premium and Standard, you can create a *StorageClass*. 
 
-The StorageClass also defines the *reclaimPolicy*. When the pod is deleted and the persistent volume is no longer required, the reclaimPolicy controls the behavior of the underlying Azure storage resource. The underlying storage resource can either be deleted or retained for use with a future pod.
+The StorageClass also defines the *reclaimPolicy*. When you delete the pod and the persistent volume is no longer required, the reclaimPolicy controls the behavior of the underlying Azure storage resource. The underlying storage resource can either be deleted or kept for use with a future pod.
 
 In AKS, four initial `StorageClasses` are created for cluster using the in-tree storage plugins:
 
@@ -99,7 +101,7 @@ In AKS, four initial `StorageClasses` are created for cluster using the in-tree 
 | `azurefile` | Uses Azure Standard storage to create an Azure File Share. The reclaim policy ensures that the underlying Azure File Share is deleted when the persistent volume that used it is deleted. |
 | `azurefile-premium` | Uses Azure Premium storage to create an Azure File Share. The reclaim policy ensures that the underlying Azure File Share is deleted when the persistent volume that used it is deleted.|
 
-For clusters using the new Container Storage Interface (CSI) external plugins (preview) the following additional`StorageClasses` are created:
+For clusters using the new Container Storage Interface (CSI) external plugins (preview) the following extra `StorageClasses` are created:
 
 | Permission | Reason |
 |---|---|
@@ -110,7 +112,7 @@ For clusters using the new Container Storage Interface (CSI) external plugins (p
 
 Unless you specify a StorageClass for a persistent volume, the default StorageClass will be used. Ensure volumes use the appropriate storage you need when requesting persistent volumes. 
 
-You can create a StorageClass for additional needs using `kubectl`. The following example uses Premium Managed Disks and specifies that the underlying Azure Disk should be *retained* when the pod is deleted:
+You can create a StorageClass for additional needs using `kubectl`. The following example uses Premium Managed Disks and specifies that the underlying Azure Disk should be *retained* when you delete the pod:
 
 ```yaml
 kind: StorageClass
@@ -200,7 +202,7 @@ To see how to create dynamic and static volumes that use Azure Disks or Azure Fi
 - [Create a dynamic volume using Azure Disks][aks-dynamic-disks]
 - [Create a dynamic volume using Azure Files][aks-dynamic-files]
 
-For additional information on core Kubernetes and AKS concepts, see the following articles:
+For more information on core Kubernetes and AKS concepts, see the following articles:
 
 - [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
 - [Kubernetes / AKS identity][aks-concepts-identity]

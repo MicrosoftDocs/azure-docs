@@ -3,7 +3,7 @@ title: Operator best practices - Container image management in Azure Kubernetes 
 description: Learn the cluster operator best practices for how to manage and secure container images in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 03/11/2021
 
 ---
 
@@ -13,7 +13,7 @@ Container and container image security is a major priority while you develop and
 
 Minimize risks by integrating and running scan and remediation tools in your containers at build and runtime. The earlier you catch the vulnerability or outdated base image, the more secure your cluster. 
 
-In this article, *containers* means both:
+In this article, *"containers"* means both:
 * The container images stored in a container registry.
 * The running containers.
 
@@ -25,7 +25,7 @@ This article focuses on how to secure your containers in AKS. You learn how to:
 
 You can also read the best practices for [cluster security][best-practices-cluster-security] and for [pod security][best-practices-pod-security].
 
-You can also use [Container security in Security Center][security-center-containers] to help scan your containers for vulnerabilities.  There is also [Azure Container Registry integration][security-center-acr] with Security Center to help protect your images and registry from vulnerabilities.
+You can also use [Container security in Security Center][security-center-containers] to help scan your containers for vulnerabilities. [Azure Container Registry integration][security-center-acr] with Security Center helps protect your images and registry from vulnerabilities.
 
 ## Secure the images and run time
 
@@ -47,9 +47,9 @@ For example, you can use a continuous integration and continuous deployment (CI/
 >
 > As you use base images for application images, use automation to build new images when the base image is updated. Since updated base images typically include security fixes, update any downstream application container images.
 
-Each time a base image is updated, you should also update any downstream container images. Integrate this build process into validation and deployment pipelines such as [Azure Pipelines][azure-pipelines] or Jenkins. These pipelines makes sure that your applications continue to run on the updated based images. Once your application container images are validated, the AKS deployments can then be updated to run the latest, secure images.
+Each time a base image is updated, you should also update any downstream container images. Integrate this build process into validation and deployment pipelines such as [Azure Pipelines][azure-pipelines] or Jenkins. These pipelines make sure that your applications continue to run on the updated based images. Once your application container images are validated, the AKS deployments can then be updated to run the latest, secure images.
 
-Azure Container Registry Tasks can also automatically update container images when the base image is updated. With this feature, you build a small number of base images and keep them updated with bug and security fixes.
+Azure Container Registry Tasks can also automatically update container images when the base image is updated. With this feature, you build a few base images and keep them updated with bug and security fixes.
 
 For more information about base image updates, see [Automate image builds on base image update with Azure Container Registry Tasks][acr-base-image-update].
 
