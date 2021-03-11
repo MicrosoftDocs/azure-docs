@@ -11,27 +11,95 @@ ms.date: 10/02/2020
 ms.author: aahi
 ---
 
-[Text Analytics for health](../../how-tos/text-analytics-for-health.md) detects medical concepts in the following categories.  (Please note that only English text is supported in this container preview and only a single model-version is provided in each container image.)
+[Text Analytics for health](../../how-tos/text-analytics-for-health.md) processes and extracts insights from unstructured medical data. The service detects and surfaces medical concepts, assigns assertions to concepts, infers semantic relations between concepts and links them to common medical ontologies.
 
+## Assertion Detection
+Text Analytics for health surfaces assertion modifiers, which are informative attributes assigned to medical concepts that provide deeper understanding of the concepts’ context within the text. These modifiers are divided into three categories, each focusing on a different aspect and contains a set of mutually exclusive values. Only one value per category is assigned to each entity. The most common value for each category is the Default value. The service’s output response contains only assertion modifiers that are different from the default value.
+
+**CERTAINTY**  – provides information regarding the presence (present vs. absent) of the concept and how certain the text is regarding its presence (definite vs. possible).
+*	**Positive** [Default]: the concept exists or happened.
+* **Negative**: the concept does not exist now or never happened.
+* **Positive_Possible**: the concept likely exists but there is some uncertainty.
+* **Negative_Possible**: the concept’s existence is unlikely but there is some uncertainty.
+* **Neutral_Possible**: the concept may or may not exist without a tendency to either side.
+
+**CONDITIONALITY** – provides information regarding whether the existence of a concept depends on certain conditions. 
+*	**None** [Default]: the concept is a fact and not hypothetical and does not depend on certain conditions.
+*	**Hypothetical**: the concept may develop or occur in the future.
+*	**Conditional**: the concept exists or occurs only under certain conditions.
+
+**ASSOCIATION** – describes whether the concept is associated with the subject of the text or someone else.
+*	**Subject** [Default]: the concept is associated with the subject of the text, usually the patient.
+*	**Someone_Else**: the concept is associated with someone who is not the subject of the text.
+
+## Relation Extraction
+Text Analytics for Health recognizes relations between different concepts, including relations between attribute and entity (for example, direction of body structure, dosage of medication) and between entities (for example, abbreviation detection).
+**ABBREVIATION**
+
+**DIRECTION_OF_BODY_STRUCTURE**
+
+**DIRECTION_OF_CONDITION**
+
+**DIRECTION_OF_EXAMINATION**
+
+**DIRECTION_OF_TREATMENT**
+
+**DOSAGE_OF_MEDICATION**
+
+**FORM_OF_MEDICATION**
+
+**FREQUENCY_OF_MEDICATION**
+
+**FREQUENCY_OF_TREATMENT**
+
+**QUALIFIER_OF_CONDITION**
+
+**RELATION_OF_EXAMINATION**
+
+**ROUTE_OF_MEDICATION**	
+
+**TIME_OF_CONDITION**
+
+**TIME_OF_EVENT**
+
+**TIME_OF_EXAMINATION**
+
+**TIME_OF_MEDICATION**
+
+**TIME_OF_TREATMENT**
+
+**UNIT_OF_CONDITION**
+
+**UNIT_OF_EXAMINATION**
+
+**VALUE_OF_CONDITION**	
+
+**VALUE_OF_EXAMINATION**
+
+Please note that:
+
+* Relations referring to CONDITION may refer to either the DIAGNOSIS entity type or the SYMPTOM_OR_SIGN entity type.
+* Relations referring to MEDICATION may refer to either the MEDICATION_NAME entity type or the MEDICATION_CLASS entity type.
+* Relations referring to TIME may refer to either the TIME entity type or the DATE entity type.
+
+
+## Named Entity Recognition
+Text Analytics for health detects medical concepts in the following categories:  (Please note that only English text is supported in this preview and only a single model-version is available.)
 
 | Category  | Description  |
 |---------|---------|
 | [ANATOMY](#anatomy) | concepts that capture information about body and anatomic systems, sites, locations or regions. |
  | [DEMOGRAPHICS](#demographics) | concepts that capture information about gender and age. |
  | [EXAMINATION](#examinations) | concepts that capture information about diagnostic procedures and tests. |
+ | [GENERAL ATTRIBUTES](#general-attributes) | concepts that provide more information about other concepts from the above categories. |
  | [GENOMICS](#genomics) | concepts that capture information about genes and variants. |
  | [HEALTHCARE](#healthcare) | concepts that capture information about administrative events, care environments and healthcare professions. |
  | [MEDICAL CONDITION](#medical-condition) | concepts that capture information about diagnoses, symptoms or signs. |
  | [MEDICATION](#medication) | concepts that capture information about medication including medication names, classes, dosage and route of administration. |
  | [SOCIAL](#social) | concepts that capture information about medically relevant social aspects such as family relation. |
  | [TREATMENT](#treatment) | concepts that capture information about therapeutic procedures. |
-  
-Each category may include two concept groups:
 
-* **Entities** - terms that capture medical concepts such as diagnosis, medication name, or treatment name.  For example, *bronchitis* is a diagnosis and *aspirin* is a medication name.  Mentions in this group may be linked to a UMLS concept ID.
-* **Attributes** - phrases that provide more information about the detected entity, for example, *severe* is a condition qualifier for *bronchitis* or *81 mg* is a dosage for *aspirin*.  Mentions in this category will NOT be linked to a UMLS concept ID.
-
-Additionally, the service recognizes relations between the different concepts including relations between attributes and entities for example, *direction* to *body structure* or *dosage* to *medication name* and relations between entities for example in abbreviation detection.
+For more information and examples, please see below.
 
 ## Anatomy
 
@@ -43,16 +111,6 @@ Additionally, the service recognizes relations between the different concepts in
 
 
 :::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure-2.png" alt-text="An expanded example of the body structure entity.":::
-
-### Attributes
-
-**DIRECTION** - Directional terms, such as: left, lateral, upper, posterior, that characterizes a body structure.
-
-:::image type="content" source="../../media/ta-for-health/anatomy-attributes.png" alt-text="An example of a directional attribute.":::
-
-### Supported relations
-
-* **DIRECTION_OF_BODY_STRUCTURE**
 
 ## Demographics
 
@@ -69,57 +127,39 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="An example of a gender entity.":::
 
-### Attributes
-
-**RELATIONAL_OPERATOR** - Phrases that express the relation between a demographic entity and additional information.
-
-:::image type="content" source="../../media/ta-for-health/relational-operator.png" alt-text="An example of a relational operator.":::
-
 ## Examinations
 
 ### Entities
 
-**EXAMINATION_NAME** – Diagnostic procedures and tests. For example, MRI, ECG, HIV test, hemoglobin, platelets count, scale systems such as *Bristol stool scale*.
+**EXAMINATION_NAME** – Diagnostic procedures and tests, including vital signs and body measurements. For example, MRI, ECG, HIV test, hemoglobin, platelets count, scale systems such as *Bristol stool scale*.
 
 :::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="An example of an exam entity.":::
 
 :::image type="content" source="../../media/ta-for-health/exam-name-entities-2.png" alt-text="Another example of an examination name entity.":::
 
-### Attributes
+## General attributes
 
-**DIRECTION** – Directional terms that characterizes an examination.
+### Entities
 
-:::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="An example of a direction attribute with an examination name entity.":::
+**DATE** - Full date relating to a medical condition, examination, treatment, medication or administrative event.
 
-**MEASUREMENT_UNIT** – The unit of the examination. For example, in *hemoglobin > 9.5 g/dL*, the term *g/dL* is the unit for the *hemoglobin* test.
+**DIRECTION** – Directional terms that may relate to a body structure, medical condition, examination, or treatment, such as: left, lateral, upper, posterior.
 
-:::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="An example of a measurement unit attribute with an examination name entity.":::
+**FREQUENCY** - Describes how often a medical condition, examination, treatment or medication occurred, occurs, or should occur.
 
-**MEASUREMENT_VALUE** – The value of the examination. For example, in *hemoglobin > 9.5 g/dL*, the term *9.5* is the value for the *hemoglobin* test.
+**MEASUREMENT_VALUE** – The value related to an examination or a medical condition measurement.
 
-:::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="An example of a measurement value attribute with an examination name entity.":::
+**MEASUREMENT_UNIT** – The unit of measurement related to an examination or a medical condition measurement.
 
-**RELATIONAL_OPERATOR** – Phrases that express the relation between an examination and additional information. For example, the required measurement value for a target examination.
+**RELATIONAL_OPERATOR** - Phrases that express the quantitative relation between an entity and some additional information.
 
-:::image type="content" source="../../media/ta-for-health/exam-relational-operator-attribute.png" alt-text="An example of a relational operator with an examination name entity.":::
-
-**TIME** – Temporal terms relating to the beginning and/or length (duration) of an examination. For example, the duration of the MRI scan.
-
-:::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="An example of a time attribute with an examination name entity.":::
-
-### Supported relations
-
-+ **DIRECTION_OF_EXAMINATION**
-+	**RELATION_OF_EXAMINATION**
-+	**TIME_OF_EXAMINATION**
-+	**UNIT_OF_EXAMINATION**
-+	**VALUE_OF_EXAMINATION**
+**TIME** - Temporal terms relating to the beginning and/or length (duration) of a medical condition, examination, treatment, medication or administrative event. 
 
 ## Genomics
 
 ### Entities
 
-**GENE** – All mentions of names and symbols of human genes as well as chromosomes and parts of chromosomes. For example, MTRR, F2.
+**GENE_OR_PROTEIN** – All mentions of names and symbols of human genes as well as chromosomes and parts of chromosomes and proteins. For example, MTRR, F2.
 
 :::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="An example of a gene entity.":::
 
@@ -143,14 +183,6 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Another example of a healthcare environment entity.":::
 
-### Attributes
-
-**TIME** – Temporal terms relating to the beginning and/or length (duration) of an administrative event. For example, the time of admission into a hospital.
-
-### Supported relations
-
-+ **TIME_OF_ADMINISTRATIVE_EVENT**
-
 ## Medical condition
 
 ### Entities
@@ -167,9 +199,7 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity-2.png" alt-text="Another example of a medical condition sign or symptom entity.":::
 
-### Attributes
-
-**CONDITION_QUALIFIER** - Quality terms that are used to describe a medical condition. All the following sub-categories are considered qualifiers:
+**CONDITION_QUALIFIER** - Qualitative terms that are used to describe a medical condition. All the following sub-categories are considered qualifiers:
 
 1.	Time-related expressions: those are terms that describe the time dimension qualitatively, such as sudden, acute, chronic, longstanding. 
 2.	Quality expressions:  Those are terms that describe the “nature” of the medical condition, such as burning, sharp.
@@ -189,40 +219,6 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="This screenshot shows an additional example of a condition qualifier attribute with a diagnosis entity.":::
 
-**DIRECTION** - Directional terms that characterizes a body medical condition.
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-direction-attribute.png" alt-text="An example of a direction attribute with a medical condition entity.":::
-
-**FREQUENCY** - How often a medical condition occurred, occurs, or should occur.
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute.png" alt-text="An example of a frequency attribute with a medical condition entity.":::
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Another example of a direction attribute with a symptom or sign entity.":::
-
-**MEASUREMENT_UNIT** - The unit that characterizes a medical condition. For example, in *1.5x2x1 cm tumor*, the term *cm* is the measurement unit for the *tumor*. 
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="An example of a measurement unit attribute with medical condition entity.":::
-
-**MEASUREMENT_VALUE** - The value that characterizes a medical condition. For example, in *1.5x2x1 cm tumor*, the term *1.5x2x1* is the measurement value for the *tumor*. 
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="Screenshot shows an example of a direction attribute with a symptom or sign entity.":::
-
-**RELATIONAL_OPERATOR** - Phrases that express the relation between medical condition additional information. For example, time or measurement value. 
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="Screenshot shows another example of a direction attribute with a symptom or sign entity.":::
-
-**TIME** - Temporal terms relating to the beginning and/or length (duration) of a medical condition. For example, when a symptom started (onset) or when a disease occurred.
-
-:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="Screenshot shows an additional example of a direction attribute with a symptom or sign entity.":::
-
-### Supported relations
-
-+ **DIRECTION_OF_CONDITION**
-+	**QUALIFIER_OF_CONDITION**
-+	**TIME_OF_CONDITION**
-+	**UNIT_OF_CONDITION**
-+	**VALUE_OF_CONDITION**
-
 ## Medication
 
 ### Entities
@@ -235,17 +231,9 @@ Additionally, the service recognizes relations between the different concepts in
 
 :::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="An example of a medication name entity.":::
 
-### Attributes
-
 **DOSAGE** - Amount of medication ordered. For example, Infuse Sodium Chloride solution *1000 mL*.
 
 :::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="An example of a medication dosage attribute.":::
-
-**FREQUENCY** - How often a medication should be taken.
-
-:::image type="content" source="../../media/ta-for-health/medication-frequency.png" alt-text="An example of a medication frequency attribute.":::
-
-:::image type="content" source="../../media/ta-for-health/medication-frequency-2.png" alt-text="Another example of a medication frequency attribute.":::
 
 **MEDICATION_FORM** - The form of the medication. For example, solution, pill, capsule, tablet, patch, gel, paste, foam, spray, drops, cream, syrup.
 
@@ -254,22 +242,6 @@ Additionally, the service recognizes relations between the different concepts in
 **MEDICATION_ROUTE** - The administration method of medication. For example, oral, vaginal, IV, epidural, topical, inhaled.
 
 :::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="An example of a medication route attribute.":::
-
-**RELATIONAL_OPERATOR** - Phrases that express the relation between medication and additional information. For example, the required measurement value.
-
-:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="Screenshot shows an example of a relational operator attribute with a medication entity.":::
-
-:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Screenshot shows another example of a relational operator attribute with a medication entity.":::
-
-**TIME** - Temporal terms relating to the time when a medication was administered. For example, the time when the patient took 800mg of extra-strength acetaminophen.
-
-### Supported relations
-
-+ **DOSAGE_OF_MEDICATION**
-+	**FORM_OF_MEDICATION**
-+	**FREQUENCY_OF_MEDICATION**
-+	**ROUTE_OF_MEDICATION**
-+	**TIME_OF_MEDICATION**
 
 ## Social
 
@@ -286,27 +258,3 @@ Additionally, the service recognizes relations between the different concepts in
 **TREATMENT_NAME** – Therapeutic procedures. For example, knee replacement surgery, bone marrow transplant, TAVI, diet.
 
 :::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="An example of a treatment name entity.":::
-
-### Attributes
-
-**DIRECTION** - Directional terms that characterizes a treatment.
-
-:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="Screenshot shows an example of a treatment direction attribute.":::
-
-**FREQUENCY** - How often a treatment occurs or should occur.
-
-:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="Screenshot shows another example of a treatment direction attribute.":::
- 
-**RELATIONAL_OPERATOR** - Phrases that express the relation between treatment and additional information.  For example, how much time passed from the previous procedure.
-
-:::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="An example of a treatment relational operator attribute.":::
-
-**TIME** - Temporal terms relating to the beginning and/or length (duration) of a treatment. For example, the time the treatment was given.
-
-:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Screenshot shows an example of a treatment time attribute.":::
-
-### Supported relations
-
-+ **DIRECTION_OF_TREATMENT**
-+	**TIME_OF_TREATMENT**
-+	**FREQUENCY_OF_TREATMENT**
