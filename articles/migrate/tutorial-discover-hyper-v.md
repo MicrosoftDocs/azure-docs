@@ -1,5 +1,5 @@
 ---
-title: Discover Hyper-V VMs with Azure Migrate Server Assessment 
+title: Discover servers on Hyper-V with Azure Migrate Server Assessment 
 description: Learn how to discover on-premises Hyper-V VMs with the Azure Migrate Server Assessment tool.
 author: vineetvikram
 ms.author: vivikram
