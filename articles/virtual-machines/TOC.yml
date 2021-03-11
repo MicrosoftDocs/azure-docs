@@ -333,14 +333,18 @@
   - name: Time sync
     items:
     - name: Linux
+      displayName: Time sync
       href: ./linux/time-sync.md
     - name: Windows
+      displayName: Time sync
       href: ./windows/time-sync.md
   - name: Run Command
     items:
     - name: Linux
+      displayName: Run command
       href: ./linux/run-command.md
     - name: Windows
+      displayName: Run command
       href: ./windows/run-command.md
   - name: Extensions
     items:
@@ -499,10 +503,13 @@
       - name: Endorsed distributions
         href: ./linux/endorsed-distros.md
       - name: CLI
+        displayName: Create VM, Create
         href: ./linux/create-cli-complete.md
       - name: ARM template
+        displayName: Create VM, Create, ARM
         href: ./linux/create-ssh-secured-vm-from-template.md
       - name: REST
+        displayName: Create VM, Create, REST
         href: ./linux/create-vm-rest-api.md
       - name: LAMP stack
         href: ./linux/tutorial-lamp-stack.md
@@ -521,10 +528,13 @@
     - name: Windows
       items:
       - name: Specialized disk - Portal
+        displayName: Create VM, Create
         href: ./windows/create-vm-specialized-portal.md
       - name: Specialized disk - PowerShell
+        displayName: Create VM, Create
         href: ./windows/create-vm-specialized.md
       - name: ARM template
+        displayName: Create VM, Create, ARM
         href: ./windows/ps-template.md
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
