@@ -207,7 +207,7 @@ For more information, read [Automate user provisioning to SaaS applications with
  
 10 Azure AD built-in roles have been renamed so that they're aligned across the [Microsoft 365 admin center](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), [Azure AD portal](https://portal.azure.com/), and [Microsoft Graph](https://developer.microsoft.com/graph/). To learn more about the new roles, refer to [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
-![Table of new role names](media/whats-new/roles-table-rbac.png)
+![Table showing role names in MS Graph API and the Azure portal, and the proposed final name across API, Azure portal, and Mac.](media/whats-new/roles-table-rbac.png)
 
 ---
 
@@ -967,7 +967,7 @@ You can now allow application owners to monitor activity by the provisioning ser
  
 Some Azure Active Directory (AD) built-in roles have names that differ from those that appear in Microsoft 365 admin center, the Azure AD portal, and Microsoft Graph. This inconsistency can cause problems in automated processes. With this update, we're renaming 10 role names to make them consistent. The following table has the new role names:
 
-![Table of new role names](media/whats-new/azure-role.png)
+![Table showing role names in MS Graph API and the Azure portal, and the proposed new role name in M365 Admin Center, Azure portal, and API.](media/whats-new/azure-role.png)
 
 ---
 
