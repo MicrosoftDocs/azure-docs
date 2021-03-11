@@ -85,6 +85,8 @@ IDictionary<string, string> models = client.GetModels("dtmi:com:example:Temperat
 models.Keys.ToList().ForEach(k => Console.WriteLine(k));
 ```
 
+There are more samples available within the source code in the Azure SDK GitHub repository: [Azure.Iot.ModelsRepository/samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/modelsrepository/Azure.Iot.ModelsRepository/samples)
+
 ## Publish a model
 
 > [!Important]
