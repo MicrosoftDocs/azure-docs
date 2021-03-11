@@ -294,6 +294,7 @@
         href: core/troubleshoot-connection.md
     - name: FAQ
       href: core/howto-faq.md
+
 - name: Reference
   items:
   - name: Azure CLI
@@ -306,6 +307,9 @@
     href: /samples/browse/?expanded=azure&products=azure-iot-central
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+
   - name: Azure IoT services
     items:
     - name: IoT Hub
