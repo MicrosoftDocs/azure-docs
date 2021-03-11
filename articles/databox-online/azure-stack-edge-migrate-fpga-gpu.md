@@ -152,10 +152,10 @@ You will now copy data from the source device to the Edge cloud shares and Edge 
 
 Follow these steps to sync the data on the Edge cloud shares on your target device:
 
-1. [Add shares](azure-stack-edge-j-series-manage-shares.md#add-a-share) corresponding to the share names created on the source device. Make sure that while creating shares, **Select blob container** is set to **Use existing** option and then select the container that was used with the previous device.
-1. [Add users](azure-stack-edge-j-series-manage-users.md#add-a-user) that had access to the previous device.
-1. [Refresh the share](azure-stack-edge-j-series-manage-shares.md#refresh-shares) data from Azure. This pulls down all the cloud data from the existing container to the shares.
-1. Recreate the bandwidth schedules to be associated with your shares. See [Add a bandwidth schedule](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) for detailed steps.
+1. [Add shares](azure-stack-edge-gpu-manage-shares.md#add-a-share) corresponding to the share names created on the source device. Make sure that while creating shares, **Select blob container** is set to **Use existing** option and then select the container that was used with the previous device.
+1. [Add users](azure-stack-edge-gpu-manage-users.md#add-a-user) that had access to the previous device.
+1. [Refresh the share](azure-stack-edge-gpu-manage-shares.md#refresh-shares) data from Azure. This pulls down all the cloud data from the existing container to the shares.
+1. Recreate the bandwidth schedules to be associated with your shares. See [Add a bandwidth schedule](azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule) for detailed steps.
 
 
 ### 2. From Edge local shares
@@ -167,7 +167,7 @@ After the replacement device is fully configured, enable the device for local st
 Follow these steps to recover the data from local shares:
 
 1. [Configure compute on the device](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. Add all the local shares on the target device. See the detailed steps in [Add a local share](azure-stack-edge-j-series-manage-shares.md#add-a-local-share).
+1. Add all the local shares on the target device. See the detailed steps in [Add a local share](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
 1. Accessing the SMB shares on the source device will use the IP addresses whereas on the target device, you'll use device name. See [Connect to an SMB share on Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). To connect to NFS shares on the target device, you'll need to use the new IP addresses associated with the device. See [Connect to an NFS share on Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
 
     If you copied over your share data to an intermediate server over SMB/NFS, you can copy this data over to shares on the target device. You can also copy the data over directly from the source device if both the source and the target device are *online*.
