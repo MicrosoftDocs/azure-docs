@@ -30,8 +30,8 @@
     href: luis-get-started-get-intent-from-browser.md
   - name: Use the client libraries and REST API
     href: client-libraries-rest-api.md
-  - name: Samples
-    href: https://github.com/Azure-Samples/cognitive-services-language-understanding
+- name: Samples
+  href: https://github.com/Azure-Samples/cognitive-services-language-understanding
 - name: How-to guides
   items:
   - name: Sign in to LUIS portal
@@ -243,8 +243,8 @@
     - name: With Node.js
       displayName: bot framework, framework, sdk, abs
       href: luis-nodejs-tutorial-bf-v4.md
-    - name: Build app programmatically using Node.js
-      href: luis-tutorial-node-import-utterances-csv.md
+  - name: Build app programmatically using Node.js
+    href: luis-tutorial-node-import-utterances-csv.md
 - name: Reference
   items:
   - name: Developer reference
