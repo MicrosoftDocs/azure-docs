@@ -64577,11 +64577,6 @@
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-python.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-csharp.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
-      "redirect_document_id": false
     }
   ]
 }
