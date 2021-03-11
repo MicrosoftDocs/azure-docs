@@ -420,11 +420,13 @@
       href: partner-whoiam.md
     - name: Zscaler
       href: partner-zscaler.md
-  - name: Use b2clogin.com
+  - name: Domain name
     items:
     - name: b2clogin.com overview
       href: b2clogin.md
-    - name: Migrate web API to b2clogin.com
+    - name: Configure custom domain
+      href: custom-domain.md
+    - name: Configure web API domains 
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin
   - name: Automation

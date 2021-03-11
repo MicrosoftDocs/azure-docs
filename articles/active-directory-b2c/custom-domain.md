@@ -245,22 +245,22 @@ After you add the custom domain and configure your application, users will still
 
 ### Using Azure Front Door advance configuration 
 
-- **Question** - Can I use Azure Front Door advance configuration, such as *Web application firewall Rules*  
+- **Question** - Can I use Azure Front Door advance configuration, such as *Web application firewall Rules*?  
 - **Answer** - It's not officially supported. But you can on your own risk. 
 
 ### Domain in Run Now
 
-- **Question** - When I try to run my policy, why I can't see the custom domain.
+- **Question** - When I try to run my policy, why I can't see the custom domain?
 - **Answer** - Copy the URL, change the domain name manually, and paste it back to your browser.
 
 ### User's IP address
 
-- **Question** - Which IP address is presented to Azure AD B2C, the user's, or the Azure Front Door.
+- **Question** - Which IP address is presented to Azure AD B2C, the user's, or the Azure Front Door?
 - **Answer** - Azure Front Door passes the user's original IP address. And this is the IP that you will see in the auditing, or your custom policy.
 
-### Using third-party WAF doesn't work
+### Using third-party WAF
 
-- **Question** - Can I use a third-party wab application firewall (WAF) with B2C.  
+- **Question** - Can I use a third-party wab application firewall (WAF) with B2C?  
 - **Answer** - Currently Azure AD B2C supports custom domain only with Azure Front Door. Don't add another WAF in front of the Azure Front Door.
 
 
