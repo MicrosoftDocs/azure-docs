@@ -154,9 +154,9 @@ Optionally, you can customize the highlight style applied to captions. Captions 
 
 ## Evaluate the response
 
-A response includes the original relevance score, the new semantically ranking relevance score, captions in plain text and with highlights, followed by other fields listed in the select clause. Answer is omitted because one could not be determined for the query.
+A response includes the original relevance score, the new semantically ranked relevance score, captions in plain text and with highlights, followed by other fields listed in the select parameter. Answers is omitted because one could not be determined for this particular query.
 
-In a client app, you can structure the search page to include a caption as the decription of the match, rather than the entire contents of a specific field.
+In a client app, you can structure the search page to include a caption as the description of the match, rather than the entire contents of a specific field. This is useful when individual fields are too dense for the search results page.
 
 The response for the above query returns the following match as the top pick. Captions are returned automatically, with plain text and highlighted versions.
 

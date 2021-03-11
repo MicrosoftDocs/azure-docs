@@ -14,17 +14,17 @@ ms.date: 03/12/2021
 # Return a semantic answer in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic ranking and semantic answers are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Semantic ranking and semantic answers are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During the initial preview launch, there is no charge for semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 When formulating a [semantic query](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
-In this article, learn how to request a semantic answer, unpack the response, and what content characteristics are most conducive to producing high quality answers.
+In this article, learn how to request a semantic answer, unpack the response, and learn what content characteristics are most conducive to producing high quality answers.
 
 ## Prerequisites
 
-All prerequisites that apply to semantic queries also apply to answers, including service tier and region.
+All prerequisites that apply to [semantic queries](semantic-how-to-query-request.md) also apply to answers, including service tier and region.
 
-+ Queries formulated using the [semantic query type](semantic-how-to-query-request.md) and include the "answers" parameter. Required parameters are discussed in this article.
++ Queries formulated using the semantic query parameters, and include the "answers" parameter. Required parameters are discussed in this article.
 
 + Query strings must be formulated in language having the characteristics of a question (what, where, when, how).
 
@@ -32,9 +32,9 @@ All prerequisites that apply to semantic queries also apply to answers, includin
 
 ## What is a semantic answer?
 
-Semantic answers are produced from machine reading comprehension models that can formulate answers to queries that look like questions. The model identifies possible answers from the available documents, and when it reaches a high enough confidence level, it will propose an answer.
+A semantic answer is an artifact of a [semantic query](semantic-how-to-query-request.md). It consists of one or more verbatim passages from a search document, formulated as an answer to a query that looks like a question. For an answer to be returned, phrases or sentences must exist in a search document that have the language characteristics of an answer, and the query itself must be posed as a question.
 
-The answers are composed of verbatim passages, as extracted from documents in an initial result set. For an answer to be returned, phrases or sentences must exist in a search document that have the language characteristics of an answer, and the query itself must be posed as a question. 
+Cognitive Search uses a machine reading comprehension model to formulate answers. The model produces a set of potential answers from the available documents, and when it reaches a high enough confidence level, it will propose an answer.
 
 Answers are returned as an independent, top-level object in the query response payload that you can choose to render on  search pages, along side search results. Structurally, it's an array element of a response that includes text, a document key, and a confidence score.
 

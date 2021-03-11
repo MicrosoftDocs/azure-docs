@@ -14,11 +14,11 @@ ms.date: 03/12/2021
 # Semantic ranking in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During the initial preview launch, there is no charge for semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-Semantic ranking is an add-on extension of the query execution pipeline that improves the precision by reranking the top matches. Semantic ranking is backed by a pretrained machine reading comprehension model, trained for queries expressed in natural language as opposed to keyword search. In contrast with the [default ranking algorithm](index-ranking-similarity.md), the semantic ranker uses the context and meaning of words to determine relevance. 
+Semantic ranking is an extension of the query execution pipeline that improves the precision and recall by reranking the top matches. Semantic ranking is backed by a pretrained machine reading comprehension model, trained for queries expressed in natural language as opposed to keyword search. In contrast with the [default ranking algorithm](index-ranking-similarity.md), the semantic ranker uses the context and meaning of words to determine relevance. 
 
-Whereas a keyword algorithm might give equal weight to any term in the query, the semantic algorithm recognizes the dependency and relationships among words that are otherwise unrelated on the surface.
+Whereas a keyword algorithm might give equal weight to any term in the query, the semantic algorithm recognizes the interdependency and relationships among words that are otherwise unrelated on the surface.
 
 :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
 
@@ -27,6 +27,10 @@ Whereas a keyword algorithm might give equal weight to any term in the query, th
 + Reranks an initial result set, up to 50 documents, as determined by the default ranking model. Semantic ranking is resource intensive. Evaluating a smaller result set ensure that semantic ranking can be computed quickly.
 
 + Semantic ranking is offered on Standard services only. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+
+Having received the top 50 matches, the semantic ranking model re-evaluates the document corpus. Results can include more than 50 matches, but only the first 50 will be reranked. For ranking, the model uses both machine learning and transfer learning to re-score the documents based on how well each one matches the intent of the query.
+
+Internally, the extraction model intakes about 10,000 tokens, which roughly correspond to about three pages of text. If the fields you specify in searchFields parameter contain text that is in excess of this amount, anything beyond the token limit is ignored. For best results, use semantic ranking on documents and fields that have a workable amount of text.
 
 ## Improve precision
 
@@ -38,27 +42,11 @@ As with all queries, a response is composed of all fields marked as retrievable,
 
 + A "caption" is an extraction-based summarization of document content, returned in plain text or with highlights. Captions are included automatically and cannot be suppressed. Highlights are applied using machine reading comprehension to identify which strings should be emphasized. Highlights draw your attention to the most relevant passages, so that you can quickly scan a page of results to find the right document. -->
 
-## Semantic ranking workflow
-
-Components of semantic search are layered on top of the existing query execution pipeline. 
-
-Spell correction improves recall by correcting typos in individual query terms.
-
-After parsing and analysis are completed, the search engine retrieves the documents that matched the query and scores them using the [default similarity scoring algorithm](index-similarity-and-scoring.md#similarity-ranking-algorithms), either BM25 or classic, depending on when the service was created. Scoring profiles are also applied at this stage.
-
-Having received the top 50 matches, the semantic ranking model re-evaluates the document corpus. Results can include more than 50 matches, but only the first 50 will be reranked. For ranking, the model uses both machine learning and transfer learning to re-score the documents based on how well each one matches the intent of the query.
-
-Internally, the extraction model intakes about 10,000 tokens, which roughly corresponds to about three pages of text. If the fields you specify in searchFields parameter contain text that is in excess of this amount, anything beyond the token limit is ignored. For best results, use semantic ranking on documents and fields that have a workable amount of text.
-
-To create captions and answers, semantic search uses language representation to extract and highlight key passages that best summarize a result. If the search query is a question, and answers are requested, the response will include a text passage that best answers the question, as expressed by the search query.
-
-:::image type="content" source="media/semantic-search-overview/semantic-workflow.png" alt-text="Semantic components in query execution" border="true":::
-
 ## Next steps
 
 A new query type enables the relevance ranking and response structures of semantic search.
 
-[Create a semantic query](semantic-how-to-query-request.md) to get started. Or, review either of the following articles for related information.
+First, [create a semantic query](semantic-how-to-query-request.md) to get started. Or, review either of the following articles for related information.
 
 + [Add spell check to query terms](speller-how-to-add.md)
-+ [Semantic ranking and answers](semantic-answers.md)
++ [Return a semantic answer](semantic-answers.md)
