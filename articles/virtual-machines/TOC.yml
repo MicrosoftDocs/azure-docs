@@ -11,30 +11,22 @@
   - name: Create a Linux VM
     items:
     - name: CLI
-      displayName: Linux, command line
       href: ./linux/quick-create-cli.md
     - name: Portal
-      displayName: Linux, Portal, Azure portal
       href: ./linux/quick-create-portal.md
     - name: PowerShell
-      displayName: Linux, PowerShell
       href: ./linux/quick-create-powershell.md
     - name: ARM template
-      displayName: Linux, Resource Manager, template, json, ARM
       href: ./linux/quick-create-template.md
   - name: Create a Windows VM
     items:
     - name: CLI
-      displayName: Windows, Command line
       href: ./windows/quick-create-cli.md
     - name: Portal
-      displayName: Windows, Portal, Azure portal
       href: ./windows/quick-create-portal.md
     - name: PowerShell
-      displayName: Windows, PowerShell
       href: ./windows/quick-create-powershell.md
     - name: ARM template
-      displayName: Resource Manager, template, json, Windows, ARM
       href: ./windows/quick-create-template.md
   expanded: true
 - name: Tutorials
@@ -124,9 +116,9 @@
       items:
       - name: CLI
         href: ./linux/change-vm-size.md
-        displayName: Change, Linux, resize, command line
+        displayName: Change, resize, update size
       - name: Portal or PowerShell
-        displayName: Change, Windows, resize, command line
+        displayName: Change, resize, update size
         href: ./windows/resize-vm.md
     - name: Generation 2 VMs
       displayName: Gen2, generation, gen1
@@ -223,10 +215,10 @@
       - name: Setup NVIDIA GPU drivers
         items:
         - name: Linux
-          displayName: NVIDIA GPU drivers, Linux, GPU drivers, GPU
+          displayName: NVIDIA GPU drivers, GPU drivers, GPU
           href: ./linux/n-series-driver-setup.md
         - name: Windows
-          displayName: NVIDIA GPU drivers, Windows, GPU drivers, GPU
+          displayName: NVIDIA GPU drivers, GPU drivers, GPU
           href: ./windows/n-series-driver-setup.md
       - name: Setup AMD GPU drivers
         displayName: AMD GPU drivers, AMD, GPU drivers, GPU
@@ -254,10 +246,10 @@
     - name: vCPU quotas
       items:
       - name: CLI
-        displayName: vCPU, quota, Linux, CLI, command line
+        displayName: vCPU, quota, limit
         href: ./linux/quotas.md
       - name: PowerShell
-        displayName: vCPU, quota, Linux, CLI, command line
+        displayName: vCPU, quota, limit
         href: ./windows/quotas.md
     - name: Azure VMs with no temp disk
       href: azure-vms-no-temp-disk.md
@@ -273,10 +265,10 @@
     - name: Benchmark scores
       items:
       - name: Linux
-        displayName: Benchmark scores, Linux
+        displayName: Benchmark scores, score, acu
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
-        displayName: Benchmark scores, Linux
+        displayName: Benchmark scores, score, acu
         href: ./windows/compute-benchmark-scores.md
   - name: Dedicated hosts
     items:
@@ -284,18 +276,18 @@
       displayName: Dedicated hosts, ADH
       href: dedicated-hosts.md
     - name: CLI
-      displayName: Dedicated hosts, ADH, command line
+      displayName: Dedicated hosts, ADH
       href: ./linux/dedicated-hosts-cli.md
     - name: Portal
-      displayName: Dedicated hosts, ADH, portal
+      displayName: Dedicated hosts, ADH
       href: dedicated-hosts-portal.md
     - name: PowerShell
-      displayName: Dedicated hosts, ADH, PowerShell
+      displayName: Dedicated hosts, ADH
       href: ./windows/dedicated-hosts-powershell.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview
-      displayName: pre-empt, preempt, spot, low priority, low-priority
+      displayName: pre-empt, preempt, spot, low priority, low-priority, Azure Spot Virtual Machines
       href: spot-vms.md
     - name: CLI
       displayName: pre-empt, preempt, spot, low priority, low-priority, cli
@@ -320,7 +312,7 @@
     - name: Windows
       items:
       - name: Use Azure Hybrid Benefit license
-        displayName: Azure Hybrid Benefit, Windows, AHB
+        displayName: Azure Hybrid Benefit, AHB
         href: ./windows/hybrid-use-benefit-licensing.md
       - name: Use Multitenant Hosting Rights for Windows 10
         displayName: MTHR, multi-tenant, multitenant, hosting, rights
@@ -431,14 +423,18 @@
     - name: Azure Disk Encryption
       items:
       - name: Linux
+        displayName: Azure Disk Encryption, ADE
         href: ./extensions/azure-disk-enc-linux.md
       - name: Windows
+        displayName: Azure Disk Encryption, ADE
         href: ./extensions/azure-disk-enc-windows.md
     - name: Azure Key Vault
       items:
       - name: Linux
+        displayName: Azure Key Vault, key vault, encryption
         href: ./extensions/key-vault-linux.md
       - name: Windows
+        displayName: Azure Key Vault, key vault, encryption
         href: ./extensions/key-vault-windows.md
     - name: Azure Backup for SQL Server
       items:
@@ -447,40 +443,52 @@
     - name: Custom Script
       items:
       - name: Linux - version 2
+        displayName: Custom Script, extension
         href: ./extensions/custom-script-linux.md
       - name: Windows
+        displayName: Custom Script, extension
         href: ./extensions/custom-script-windows.md
     - name: IaaS antimalware for Windows
       href: ./extensions/iaas-antimalware-windows.md
     - name: VM snapshot
       items:
       - name: Linux
+        displayName: VM snapshot, snapshot
         href: ./extensions/vmsnapshot-linux.md
       - name: Windows
+        displayName: VM snapshot, snapshot
         href: ./extensions/vmsnapshot-windows.md
     - name: Network Watcher Extension
       items:
       - name: Linux
+        displayName: Network Watcher, extension, Azure Network Watcher
         href: ./extensions/network-watcher-linux.md
       - name: Windows
+        displayName: Network Watcher, extension, Azure Network Watcher
         href: ./extensions/network-watcher-windows.md
       - name: Update to latest version
+        displayName: Network Watcher, extension, Azure Network Watcher
         href: ./extensions/network-watcher-update.md
     - name: InfiniBand Drivers
       items:
       - name: Linux
+        displayName: InfiniBand Drivers, Infiband, drivers
         href: ./extensions/hpc-compute-infiniband-linux.md
       - name: Windows
+        displayName: InfiniBand Drivers, Infiband, drivers
         href: ./extensions/hpc-compute-infiniband-windows.md
     - name: NVIDIA GPU Drivers
       items:
       - name: Linux
+        displayName: NVIDIA GPU Drivers, NVIDIA, GPU, drivers
         href: ./extensions/hpccompute-gpu-linux.md
       - name: Windows
+        displayName: NVIDIA GPU Drivers, NVIDIA, GPU, drivers
         href: ./extensions/hpccompute-gpu-windows.md
     - name: AMD GPU Drivers
       items:
       - name: Windows
+        displayName: AMD GPU Drivers, AMD, GPU, drivers
         href: ./extensions/hpccompute-amd-gpu-windows.md
     - name: Azure Monitor
       items:
@@ -491,25 +499,33 @@
       - name: Log Analytics
         items:
         - name: Linux
+          displayName: Log Analytics, extension
           href: ./extensions/oms-linux.md
         - name: Windows
+          displayName: Log Analytics, extension
           href: ./extensions/oms-windows.md
       - name: Azure Monitor for VMs
         items:
         - name: Linux Dependency agent
+          displayName: Azure Monitor
           href: ./extensions/agent-dependency-linux.md
         - name: Windows Dependency agent
+          displayName: Azure Monitor
           href: ./extensions/agent-dependency-windows.md
     - name: PowerShell DSC
       href: ./extensions/dsc-overview.md
       items:
       - name: DSC and Linux
+        displayName: Desired state configuration, dsc
         href: ./extensions/dsc-linux.md
       - name: DSC and Windows
+        displayName: Desired state configuration, dsc
         href: ./extensions/dsc-windows.md
       - name: Handle credentials
+        displayName: Desired state configuration, dsc
         href: ./extensions/dsc-credentials.md
       - name: Use templates
+        displayName: Desired state configuration, dsc
         href: ./extensions/dsc-template.md
     - name: Virtual machine access
       href: ./extensions/vmaccess.md
@@ -617,10 +633,10 @@
   - name: Find Azure Marketplace images
     items:
     - name: CLI
-      displayName: Images, imaging, marketplace, CLI, command line
+      displayName: Images, imaging, marketplace
       href: ./linux/cli-ps-findimage.md
     - name: PowerShell
-      displayName: Images, imaging, marketplace, PowerShell
+      displayName: Images, imaging, marketplace
       href: ./windows/cli-ps-findimage.md
     - name: Windows client images
       displayName: Images, imaging, marketplace, Windows, Client
@@ -628,7 +644,7 @@
   - name: Linux custom images
     items:
     - name: Overview
-      displayName: Linux custom images, custom, image, linux
+      displayName: Linux custom images, custom, image
       href: ./linux/imaging.md
     - name: Linux provisioning
       href: ./linux/provisioning.md
@@ -722,7 +738,7 @@
     - name: CLI
       items:
       - name: Create a gallery
-        displayName: Shared Image Gallery, SIG, sig, gallery, image, cli
+        displayName: Shared Image Gallery, SIG, sig, gallery, image
         href: shared-images-cli.md
       - name: Create an image
         items:
