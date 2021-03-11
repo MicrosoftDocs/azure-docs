@@ -67,7 +67,7 @@ For example, **Severity = Sev1** means that the rule will apply only to alerts w
 For example, **Monitor Service = “Azure Backup”** means that the rule will apply only to backup alerts (coming from  Azure Backup).
 * **Resource Type**:  this rule will apply only to alerts on the selected resource types.  
 For example, **Resource Type = “Virtual Machines”** means that the rule will apply only to alerts on virtual machines.
-* **Alert Rule ID**: this rule will appy only to alerts coming from a specific alert rule. The value should be the Resource Manager ID of the alert rule.  
+* **Alert Rule ID**: this rule will apply only to alerts coming from a specific alert rule. The value should be the Resource Manager ID of the alert rule.  
 For example, **Alert Rule ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/providers/microsoft.insights/metricalerts/MyAPI-highLatency"** means this rule will apply only to alerts coming from "MyAPI-highLatency" metric alert rule.
 * **Monitor Condition**:  this rule will apply only to alert events with the specified monitor condition -  either **Fired** or **Resolved**.
 * **Description**: this rule will apply only to alerts that contains a specific string in the alert description field. That field contains the alert rule description.  
