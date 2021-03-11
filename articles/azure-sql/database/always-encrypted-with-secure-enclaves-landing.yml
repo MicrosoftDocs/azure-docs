@@ -135,7 +135,7 @@ landingContent:
   # Card
   - title: Videos
     linkLists:
-      - linkListType: learn
+      - linkListType: video
         links:
           - text: Inside Azure Datacenter Architecture with Mark Russinovich
             url: https://youtu.be/69PrhWQorEM?t=4704
