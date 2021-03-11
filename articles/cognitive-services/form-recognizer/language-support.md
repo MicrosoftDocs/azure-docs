@@ -79,7 +79,7 @@ This table lists the human languages supported by the Form Recognizer service.
 |Slovenian  | `slv` |  ✔ | |
 |Spanish | `es` |✔ | ✔ |
 |Swahili (Latin)  | `sw` | ✔ | |
-|Swedish | `sv` | |✔ ||
+|Swedish | `sv` | ✔ ||
 |Tatar (Latin)  | `tat` |  ✔ | |
 |Tetum    | `tet` |  ✔ | |
 |Turkish | `tr` |  ✔ | |
@@ -91,3 +91,4 @@ This table lists the human languages supported by the Form Recognizer service.
 |Yucatec Maya | `yua` | ✔ | |
 |Zhuang | `za` |  ✔ | |
 |Zulu  | `zu` |  ✔ | |
+||||
