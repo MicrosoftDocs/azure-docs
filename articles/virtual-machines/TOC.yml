@@ -199,7 +199,7 @@
           href: ./windows/storage-performance.md
     - name: GPU - accelerated compute
       items:
-      - name: 
+      - name: Overview
         displayName: GPU, sizes, size, accelerated compute, compute, nvidia
         href: sizes-gpu.md?context=/azure/virtual-machines/context/context
       - name: NC-series
@@ -308,7 +308,6 @@
       href: ./windows/spot-powershell.md
     - name: ARM template
       displayName: pre-empt, preempt, spot, low priority, low-priority, ARM, template
-      displayName: template ARM
       href: ./linux/spot-template.md
     - name: Error codes
       displayName: pre-empt, preempt, spot, low priority, low-priority
