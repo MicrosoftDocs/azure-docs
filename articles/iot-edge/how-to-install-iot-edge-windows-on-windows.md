@@ -10,6 +10,8 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: kgremban
+monikerRange: "iotedge-2018-06"
+
 ---
 
 # Install and manage Azure IoT Edge with Windows containers
