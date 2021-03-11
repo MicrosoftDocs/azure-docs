@@ -32,6 +32,9 @@ The migration helps produce the following results:
 * Data monitoring:
    * **Data in Log Analytics**: Before migration, the data remains in the workspace in which NPM is configured in the NetworkMonitoring table. After the migration, the data goes to the NetworkMonitoring table, NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table in the same workspace. After the tests are disabled in NPM, the data is stored only in the NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table.
    * **Log-based alerts, dashboards, and integrations**: You must manually edit the queries based on the new NWConnectionMonitorTestResult table and NWConnectionMonitorPathResult table. To re-create the alerts in metrics, see [Network connectivity monitoring with Connection Monitor](./connection-monitor-overview.md#metrics-in-azure-monitor).
+* For ExpressRoute Monitoring:
+	* **End to end loss and latency**:  Connection Monitor will power this, and it will easier than NPM as users do not need to configure which circuits and peerings to monitor. Circuits in the path will automatically be discovered , data will be available in metrics (faster than LA which was where NPM stored the results). Topology will work as is as well.
+	* **Bandwidth measurements**: With the launch of bandwidth related metrics, NPM’s log analytics based approach was not effective in bandwidth monitoring for ExpressRoute customers. This capability is now not available in Connection Monitor.
 	
 ## Prerequisites
 
