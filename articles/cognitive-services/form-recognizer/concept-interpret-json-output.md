@@ -1,7 +1,7 @@
 ---
-title: Interpret JSON response from Form Recognizer
+title: Interpret JSON response from Form Recognizer Layout API
 titleSuffix: Azure Cognitive Services
-description: Learn how to interpert and understand the Form Recognizer JSON output - Form Recognizer API
+description: Learn how to interpert and understand the Form Recognizer JSON output - Form Recognizer Layout API
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ---
 
-# Interpret Layout extraction JSON response
+# Interpret Layout API JSON response
 
 In this article, we'll discuss how to analyze and interpret the JSON object returned by Form Recognizer's Layout API. Form Recognizer can extract text, tables, selection marks, and structure information from documents using its Layout service. The Layout API extracts form data and returns an organized, structured JSON response using two operations:
 
