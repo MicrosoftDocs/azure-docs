@@ -4,13 +4,17 @@ description: Learn about security in Azure Kubernetes Service (AKS), including m
 services: container-service
 author: mlearned
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/11/2021
 ms.author: mlearned
 ---
 
 # Security concepts for applications and clusters in Azure Kubernetes Service (AKS)
 
-Cluster security plays a key role in protecting your customer data as you run application workloads in Azure Kubernetes Service (AKS). Kubernetes includes security components, such as *network policies* and *Secrets*, while Azure includes components like network security groups and orchestrated cluster upgrades. AKS combines these security components to keep your AKS cluster running the latest OS security updates and Kubernetes releases, with secure pod traffic and access to sensitive credentials.
+Cluster security protects your customer data as you run application workloads in Azure Kubernetes Service (AKS). 
+
+Kubernetes includes security components, such as *network policies* and *Secrets*. Meanwhile, Azure includes components like network security groups and orchestrated cluster upgrades. AKS combines these security components to:
+* Keep your AKS cluster running the latest OS security updates and Kubernetes releases.
+* Provide secure pod traffic and access to sensitive credentials.
 
 This article introduces the core concepts that secure your applications in AKS:
 
@@ -49,7 +53,7 @@ When an AKS cluster is created or scaled up, the nodes are automatically deploye
 ### Node security patches
 
 #### Linux nodes
-The Azure platform automatically applies OS security patches to Linux nodes on a nightly basis. If a Linux OS security update requires a host reboot, it will not automatically reboot. You can either:
+The Azure platform automatically applies OS security patches to Linux nodes on a nightly basis. If a Linux OS security update requires a host reboot, it won't automatically reboot. You can either:
 * Manually reboot the Linux nodes.
 * Use [Kured][kured], an open-source reboot daemon for Kubernetes. Kured runs as a [DaemonSet][aks-daemonsets] and monitors each node for a file indicating that a reboot is required. 
 
@@ -57,7 +61,7 @@ Reboots are managed across the cluster using the same [cordon and drain process]
 
 #### Windows Server nodes
 
-For Windows Server nodes, Windows Update does not automatically run and apply the latest updates. Schedule Windows Server node pool upgrades in your AKS cluster around the regular Windows Update release cycle and your own validation process. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
+For Windows Server nodes, Windows Update doesn't automatically run and apply the latest updates. Schedule Windows Server node pool upgrades in your AKS cluster around the regular Windows Update release cycle and your own validation process. This upgrade process creates nodes that run the latest Windows Server image and patches, then removes the older nodes. For more information on this process, see [Upgrade a node pool in AKS][nodepool-upgrade].
 
 ### Node deployment
 Nodes are deployed into a private virtual network subnet, with no public IP addresses assigned. For troubleshooting and management purposes, SSH is enabled by default and only accessible using the internal IP address.
@@ -67,7 +71,7 @@ To provide storage, the nodes use Azure Managed Disks. For most VM node sizes, A
 
 ### Hostile multi-tenant workloads
 
-Currently, Kubernetes environments aren't completely safe for hostile multi-tenant usage. Additional security features, like *Pod Security Policies* or Kubernetes RBAC for nodes, efficiently block exploits. For true security when running hostile multi-tenant workloads, only trust a hypervisor. The security domain for Kubernetes becomes the entire cluster, not an individual node. 
+Currently, Kubernetes environments aren't safe for hostile multi-tenant usage. Extra security features, like *Pod Security Policies* or Kubernetes RBAC for nodes, efficiently block exploits. For true security when running hostile multi-tenant workloads, only trust a hypervisor. The security domain for Kubernetes becomes the entire cluster, not an individual node. 
 
 For these types of hostile multi-tenant workloads, you should use physically isolated clusters. For more information on ways to isolate workloads, see [Best practices for cluster isolation in AKS][cluster-isolation].
 
@@ -81,7 +85,7 @@ Select [one of the isolated VMs sizes](../virtual-machines/isolation.md) as the 
 
 Azure provides upgrade orchestration tools to upgrade of an AKS cluster and components, maintain security and compliance, and access the latest features. This upgrade orchestration includes both the Kubernetes master and agent components. 
 
-To start the upgrade process, specify one of the [listed available Kubernetes versions](supported-kubernetes-versions.md). Azure then safely cordons and drains each AKS node and performs the upgrade.
+To start the upgrade process, specify one of the [listed available Kubernetes versions](supported-kubernetes-versions.md). Azure then safely cordons and drains each AKS node and upgrades.
 
 ### Cordon and drain
 
@@ -102,9 +106,9 @@ For connectivity and security with on-premises networks, you can deploy your AKS
 
 ### Azure network security groups
 
-To filter virtual network traffic flow, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server. As you create services with load balancers, port mappings, or ingress routes, AKS automatically modifies the network security group for traffic flow.
+To filter virtual network traffic flow, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server. You create services with load balancers, port mappings, or ingress routes. AKS automatically modifies the network security group for traffic flow.
 
-If you provide your own subnet for your AKS cluster and you wish to modify the flow of traffic, **do not** modify the subnet-level network security group managed by AKS. Instead, create additional subnet-level network security groups to modify the flow of traffic, as long as they do not interfere with necessary traffic managing the cluster, such as load balancer access, communication with the control plane, and [egress][aks-limit-egress-traffic].
+If you provide your own subnet for your AKS cluster, **do not** modify the subnet-level network security group managed by AKS. Instead, create more subnet-level network security groups to modify the flow of traffic. Make sure they don't interfere with necessary traffic managing the cluster, such as load balancer access, communication with the control plane, and [egress][aks-limit-egress-traffic].
 
 ### Kubernetes network policy
 
@@ -133,7 +137,7 @@ To get started with securing your AKS clusters, see [Upgrade an AKS cluster][aks
 
 For associated best practices, see [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security] and [Best practices for pod security in AKS][developer-best-practices-pod-security].
 
-For additional information on core Kubernetes and AKS concepts, see the following articles:
+For more information on core Kubernetes and AKS concepts, see:
 
 - [Kubernetes / AKS clusters and workloads][aks-concepts-clusters-workloads]
 - [Kubernetes / AKS identity][aks-concepts-identity]
