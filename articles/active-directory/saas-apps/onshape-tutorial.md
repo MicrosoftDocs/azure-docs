@@ -70,7 +70,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Onshape** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. If prompted to "Save single sign-on setting", select **Yes**. 
+1. If prompted to save your single sign-on setting, select **Yes**. 
 1. The Onshape application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/default-attributes.png)
@@ -84,7 +84,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| companyName | <COMPANY_NAME> |
 
     > [!NOTE]
-    > You _must_ change the setting for the _companyName_ attribute to be the “domain prefix” of your Onshape enterprise. E.g., if you access the Onshape application using a URL like https://acme.onshape.com, then your domain prefix is “acme”. The attribute value must be only the prefix, not the entire DNS name.
+    > You _must_ change the value of the **companyName** attribute to the *domain prefix* of your Onshape enterprise. For example, if you access the Onshape application by using a URL like `https://acme.onshape.com`, your domain prefix is *acme*. The attribute value must be only the prefix, not the entire DNS name.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -119,7 +119,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Onshape SSO
 
-To configure single sign-on on the **Onshape** side, please read [this page](https://cad.onshape.com/help/Content/MS_AzureAD.htm).
+For information about how to configure single sign-on on the **Onshape** side, see [Integrating with Microsoft Azure AD](https://cad.onshape.com/help/Content/MS_AzureAD.htm).
 
 ### Create Onshape test user
 
