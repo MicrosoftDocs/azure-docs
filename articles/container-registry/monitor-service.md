@@ -37,7 +37,7 @@ The **Overview** page in the Azure portal for each registry includes a brief vie
 <!-- REQUIRED. Please keep headings in this order -->
 <!-- Most services can use this section unchanged. Edit it if there are any unique charges if your service has significant monitoring beyond Azure Monitor. -->
 
-Azure Container Registrycreates monitoring data using [Azure Monitor](/azure/azure-monitor/overview), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
+Azure Container Registry creates monitoring data using [Azure Monitor](/azure/azure-monitor/overview), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
 Start with the article [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource), which describes the following concepts:
 
@@ -70,7 +70,7 @@ Some services in Azure have a special focused pre-built monitoring dashboard in 
 <!-- REQUIRED. Please keep headings in this order -->
 Azure Container Registry collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). 
 
-See [Monitoring Azure Container Registry data reference](monitor-service-reference.md) for detailed information on the metrics and logs metrics created by Azure Container Registry.
+See [Monitoring Azure Container Registry data reference](monitor-service-reference.md) for detailed information on the metrics and logs created by Azure Container Registry.
 
 <!-- If your service has additional non-Azure Monitor monitoring data then outline and refer to that here. Also include that information in the data reference as appropriate. -->
 
@@ -85,6 +85,9 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 <!-- Include any additional information on collecting logs.  The number of things that diagnostics settings control is expanding -->
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Container Registry are listed in [Azure Container Registry monitoring data reference](monitor-service-reference.md#resource-logs).
+
+> [!TIP]
+> You can also create registry diagnostic settings by navigating to your registry in the portal. Then, select **Diagnostic settings** under **Monitoring**.
 
 <!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
 
@@ -120,7 +123,7 @@ The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform log
 
 For a list of the types of resource logs collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference](monitor-service-reference.md#logs)  
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azue Container Reference data reference](monitor-service-reference#azuremonitorlogstables)  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Container Reference data reference](monitor-service-reference#azuremonitorlogstables)  
 
 <!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
 
@@ -130,7 +133,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 <!-- Add sample Log Analytics Kusto queries for your service. -->
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Container Registry menu, Log Analytics is opened with the query scope set to the current registry. This means that log queries will only include data from that resource. If you want to run a query that includes data from other registries or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
+> When you select **Logs** from the **Azure Container Registry** menu, Log Analytics is opened with the query scope set to the current registry. This means that log queries will only include data from that resource. If you want to run a query that includes data from other registries or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
 <!-- REQUIRED: Include queries that are helpful for figuring out the health and state of your service. Ideally, use some of these queries in the alerts section. It's possible that some of your queries may be in the Log Analytics UI (sample or example queries). Check if so.  -->
 
@@ -215,6 +218,5 @@ The following table lists common and recommended alert rules for Azure Container
 
 <!-- Add additional links. You can change the wording of these and add more if useful.   -->
 
-- See [Monitoring Azure Container Registry data reference](monitor-service-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
-*>.
+- See [Monitoring Azure Container Registry data reference](monitor-service-reference.md) for a reference of the metrics, logs, and other important values created by Azure Container Registry.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.

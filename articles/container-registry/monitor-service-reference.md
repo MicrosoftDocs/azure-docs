@@ -26,7 +26,7 @@ See [Monitor Azure Container Registry](monitor-service.md) for details on collec
 <!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported, which is auto generated from the metrics REST API.  Not all metrics are published depending on whether your product group wants them to be.  If the metric is published, but descriptions are wrong of missing, contact your PM and tell them to update them  in the Azure Monitor "shoebox" manifest.  If this article is missing metrics that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
 -->
 
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
+<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. 
 
 This section lists all the automatically collected platform metrics collected for Azure Container Registry.  
 
@@ -43,27 +43,25 @@ This section lists all the automatically collected platform metrics collected fo
 <!-- Example format. 
 
 Mimic the setup of metrics supported, but add extra information 
-
-
-
-### Virtual Machine metrics
-
-Resource Provider and Type: [Microsoft.Compute/virtualMachines](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachines)
-
-| Metric | Unit | Description | *TODO replace this label with other information*  |
-|:-------|:-----|:------------|:------------------|
-|        |      |             | Use this metric for put your specific information in here   |
-|        |      |             |  |
-
-### Virtual machine scale set metrics
-
-Namespace- [Microsoft.Compute/virtualMachinesscaleset](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachinescalesets) 
-
-| Metric | Unit | Description | *TODO replace this label with other information*  |
-|:-------|:-----|:------------|:------------------|
-|        |      |             | Use this metric for <!-- put your specific information in here   |
-|        |      |             |  |
+Question: What is the granularity of the metrics - 1 min?
+Question: Do we want to add quick usage blurbs?
+ 
 -->
+### Container Registry metrics
+
+Resource Provider and Type: [Microsoft.ContainerRegistry/registries](/azure/azure-monitor/platform/metrics-supported#microsoftcontainerregistryregistries)
+
+| Metric | Exportable via Diagnostic Settings? | Unit | Aggregation Type | Description | Dimensions  | Usage | 
+|:-------|:-----|:-----|:-----|:------------|:------------------|:----- |
+|     AgentPoolCPUTime   | Yes |   Seconds   | Total |   Total CPU time in seconds used by [ACR tasks](container-registry-tasks-overview.md) running on dedicated [agent pools](tasks-agent-pools.md)	         | None | |
+|     RunDuration   | Yes |  Milliseconds   |  Total |  Total duration in milliseconds of [ACR tasks](container-registry-tasks-overview.md) runs       | None | |
+|     StorageUsed   |  No | Bytes   |   Average | Storage used by the container registry: sum of capacity used by shared layers, manifest files, and replica copies in all repositories.	         | Geo-location | |
+|     SuccessfulPullCount | Yes  |   Count   | Total | Number of successful pulls of container images and other artifacts from the registry	           | None | |
+|     SuccessfulPushCount   | Yes |   Count   | Total | Number of successful pushes of container images and other artifacts to the registry          | None | |
+|     TotalPullCount   |   Yes | Count   |     Total |  Total number of pulls of container images and other artifacts from the registry	      | None | |
+|     TotalPushCount   | Yes |  Seconds   |   Total |  Total number of pushes of container images and other artifacts to the registry	        | None | |
+
+
 
 <!-- Add additional explanation of reference information as needed here. Link to other articles such as your Monitor [servicename] article as appropriate. -->
 
@@ -91,14 +89,12 @@ Azure Container Registry has the following dimensions associated with its metric
 
 **--------------EXAMPLE format when you have dimensions------------------**
 
-Azure Storage supports following dimensions for metrics in Azure Monitor.
+Azure Storage supports following dimensions for metrics in Azure Monitor. -->
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
-| **BlobType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append blobs are included in **BlockBlob**. |
-| **BlobTier** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](azure/storage/blobs/storage-blob-storage-tiers). The supported values include: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Archive**: Archive tier</li> <li>**Premium**: Premium tier for block blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob</li> <li>**Standard**: Tier type for standard page Blob</li> <li>**Untiered**: Tier type for general purpose v1 storage account</li> |
-| **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
- -->
+| **Geo-location** | The Azure region for a registry or [geo-replica](container-registry-geo-replication.md). |
+
 
 ## Resource logs
 <!-- REQUIRED. Please  keep headings in this order -->
@@ -116,7 +112,7 @@ For reference, see a list of [all resource logs category types supported in Azur
 
 <!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
 
-This section lists all the resource log category types collected for Azure Container Registry.  
+
 
 
 
@@ -132,7 +128,7 @@ Resource Provider and Type: [Microsoft.ContainerRegistry/registries](/azure/azur
 | Category | Display Name | Details  |
 |:---------|:-------------|------------------|
 | ContainerRegistryLoginEvents  | Login Events | Registry authentication events and status, including the incoming identity and IP address |
-| ContainerRegistryRepositoryEvents | Repository Events           | Operations on images and other artifacts in registry repositories: push, pull, untag, delete (including repository delete), purge tag, and purge manifet |
+| ContainerRegistryRepositoryEvents | Repository Events           | Operations on images and other artifacts in registry repositories: push, pull, untag, delete (including repository delete), purge tag, and purge manifest |
 |
 
 ## Azure Monitor Logs tables
@@ -162,22 +158,28 @@ NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays 
 
 ### Container Registry
 
-| Table |  Description | *TODO replace this label with proper title for your additional information*  |
-|:---------|:-------------|------------------|
-| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | <!-- description copied from previous link --> Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. | *TODO other important information about this type |
-| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
-|  [ContainerRegistryLoginEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents)               | Azure Container Registry Login Auditing Logs                             |                                                   |  
-|  [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents)               | Azure Container Registry Repoitory Auditing Logs                         |                                                   | 
+| Table |  Description | 
+|:---------|:-------------|
+| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | <!-- description copied from previous link --> Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. | 
+| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> Metric data emitted by Azure services that measure their health and performance.    |  
+|  [ContainerRegistryLoginEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents)               | Azure Container Registry Login Auditing Logs                             |                                                     
+|  [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents)               | Azure Container Registry Repository Auditing Logs                         |                                                    
 
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 
+To enable diagnostic settings for log collection, see [Collection and routing](monitor-service.md#collection-and-routing).
+
+
+
+<!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com --
 
 ### Diagnostics tables
-<!-- REQUIRED. Please keep heading in this order -->
-<!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
 
+Q: Pretty sure this doesn't apply to ACR
+-->
+<!--
 [TODO-replace-with-service-name] uses the [Azure Diagnostics](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
 
 **Azure Diagnostics**
@@ -194,10 +196,13 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 |  |  |
 |  |  |
 
+-->
 ## Activity log
-<!-- REQUIRED. Please keep heading in this order -->
+<!-- REQUIRED. Please keep heading in this order 
+Need PM input
+-->
 
-The following table lists the operations related to [TODO-replace-with-service-name] that may be created in the Activity log.
+The following table lists the operations related to Azure Container Registry that may be created in the Activity log.
 
 <!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
 | Operation | Description |
@@ -210,10 +215,15 @@ The following table lists the operations related to [TODO-replace-with-service-n
 ## Schemas
 <!-- REQUIRED. Please keep heading in this order -->
 
-The following schemas are in use by Azure Container Registry.
+The following schemas are in use by Azure Container Registry's resource logs.
 
-<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
-
+<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. 
+Q: How to get the schema descriptions added/improved.
+-->
+| Schema | Description |
+|:--- |:---|
+| [ContainerRegistryLoginEvents](/azure/azure-monitor/reference/tables/ContainerRegistryLoginEvents)  | Schema for registry authentication events and status, including the incoming identity and IP address |
+| [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/ContainerRegistryRepositoryEvents) | Schema for operations on images and other artifacts in registry repositories |
 ## See Also
 
 <!-- replace below with the proper link to your main monitoring service article -->
