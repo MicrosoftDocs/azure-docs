@@ -82,7 +82,7 @@ Start by testing your custom skill with a REST API client to validate:
 
 * Returns a valid HTTP status code
 
-Create a [debug session](cognitive-search-debug-session) to add your skill to the skillset and make sure it produces a valid enrichment. While a debug session does not allow you to tune the performance of the skill, it enables you to ensure that the skill is configured with valid values and returns the expected enriched objects.
+Create a [debug session](cognitive-search-debug-session.md) to add your skill to the skillset and make sure it produces a valid enrichment. While a debug session does not allow you to tune the performance of the skill, it enables you to ensure that the skill is configured with valid values and returns the expected enriched objects.
 
 ## Best practices
 
