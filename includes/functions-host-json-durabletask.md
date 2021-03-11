@@ -103,7 +103,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |controlQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued control queue messages.|
 |workItemQueueVisibilityTimeout |5 minutes|The visibility timeout of dequeued work item  queue messages.|
 |maxConcurrentActivityFunctions |10X the number of processors available on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
-|maxConcurrentOrchestratorFunctions | **Consumption plan**: 5 <br> **Dedicated/Premium plan**: 10X the number of processors on the current machine elsewhere|The maximum number of orchestrator functions that can be processed concurrently on a single host instance.|
+|maxConcurrentOrchestratorFunctions | **Consumption plan**: 5 <br> **Dedicated/Premium plan**: 10X the number of processors on the current machine |The maximum number of orchestrator functions that can be processed concurrently on a single host instance.|
 |maxQueuePollingInterval|30 seconds|The maximum control and work-item queue polling interval in the *hh:mm:ss* format. Higher values can result in higher message processing latencies. Lower values can result in higher storage costs because of increased storage transactions.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|The name of the app setting that has the Azure Storage connection string used to manage the underlying Azure Storage resources.|
 |trackingStoreConnectionStringName||The name of a connection string to use for the History and Instances tables. If not specified, the `connectionStringName` (Durable 2.x) or `azureStorageConnectionStringName` (Durable 1.x) connection is used.|
