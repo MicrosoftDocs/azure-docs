@@ -344,9 +344,6 @@
       href: ./linux/create-vm-rest-api.md
     - name: Copy a VM using CLI
       href: ./linux/copy-vm.md
-    - name: Build with Jenkins
-      href: /azure/developer/jenkins/pipeline-with-github-and-docker
-    - name: Integrate Jenkins with Azure DevOps
       href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
     - name: Configure Rolling deployment strategy
       href: ./linux/tutorial-devops-azure-pipelines-classic.md
