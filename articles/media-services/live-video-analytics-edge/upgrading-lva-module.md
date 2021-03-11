@@ -10,6 +10,8 @@ ms.date: 12/14/2020
 
 # Upgrading Live Video Analytics on IoT Edge from 1.0 to 2.0
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This article covers the differences and the different things to consider when upgrading the Live Video Analytics (LVA) on Azure IoT Edge module.
 
 ## Change List

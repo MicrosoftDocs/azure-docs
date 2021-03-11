@@ -7,6 +7,8 @@ ms.date: 04/27/2020
 ---
 # Video recording
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 In the context of a video management system for CCTV cameras, video recording refers to the process of capturing video from the cameras and recording it for viewing via mobile and browser apps. Video recording can be categorized as continuous video recording and event-based video recording. 
 
 ## Continuous video recording  
