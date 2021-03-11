@@ -260,12 +260,12 @@ The `userMessage` in the response is displayed to the user, for example:
 
 After obtaining manual approval, the custom approval system creates a [user](/graph/azuread-users-concept-overview) account by using [Microsoft Graph](/graph/use-the-api). The way your approval system provisions the user account depends on the identity provider that was used by the user.
 
-### For a federated Google or Facebook user and Email one-time passcode
+### For a federated Google or Facebook user and email one-time passcode
 
 > [!IMPORTANT]
 > The approval system should explicitly check that `identities`, `identities[0]` and `identities[0].issuer` are present and that `identities[0].issuer` equals 'facebook', 'google' or 'mail' to use this method.
 
-If your user signed in with a Google or Facebook account or Email one-time passcode, you can use the [User creation API](/graph/api/user-post-users?tabs=http).
+If your user signed in with a Google or Facebook account or email one-time passcode, you can use the [User creation API](/graph/api/user-post-users?tabs=http).
 
 1. The approval system uses receives the HTTP request from the user flow.
 
