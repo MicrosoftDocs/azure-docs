@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lagayhar
 ms.reviewer: Dale.Koetke
-ms.subservice: ""
 ---
 # Monitoring usage and estimated costs in Azure Monitor
 

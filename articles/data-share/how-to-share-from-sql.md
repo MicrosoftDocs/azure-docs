@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 11/12/2020
+ms.date: 02/24/2021
 ---
 # Share and receive data from Azure SQL Database and Azure Synapse Analytics
 
@@ -269,7 +269,7 @@ Follow the steps below to configure where you want to receive data.
 ### Trigger a snapshot
 These steps only apply to snapshot-based sharing.
 
-1. You can trigger a snapshot by selecting **Details** tab followed by **Trigger snapshot**. Here, you can trigger a full or  incremental snapshot of your data. If it is your first time receiving data from your data provider, select full copy. For SQL sources, only full snapshot is supported.
+1. You can trigger a snapshot by selecting **Details** tab followed by **Trigger snapshot**. Here, you can trigger a full or  incremental snapshot of your data. If it is your first time receiving data from your data provider, select full copy. For SQL sources, only full snapshot is supported. When a snapshot is executing, subsequent snapshots will not start until the previous one complete.
 
    ![Trigger snapshot](./media/trigger-snapshot.png "Trigger snapshot") 
 

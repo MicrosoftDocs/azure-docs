@@ -6,7 +6,6 @@ ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/25/2021
-ms.subservice: metrics
 ---
 # Custom metrics in Azure Monitor (Preview)
 

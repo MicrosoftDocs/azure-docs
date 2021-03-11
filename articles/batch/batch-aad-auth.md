@@ -36,7 +36,7 @@ To authenticate with Azure AD, you use this endpoint together with the tenant ID
 >
 > The tenant-specific endpoint is optional when you authenticate using integrated authentication, but recommended. However, you can also use the Azure AD common endpoint. The common endpoint provides a generic credential gathering interface when a specific tenant is not provided. The common endpoint is `https://login.microsoftonline.com/common`.
 
-For more information about Azure AD endpoints, see [Authentication vs. authorization]()../active-directory/develop/authentication-vs-authorization.md).
+For more information about Azure AD endpoints, see [Authentication vs. authorization](../active-directory/develop/authentication-vs-authorization.md).
 
 ### Batch resource endpoint
 
