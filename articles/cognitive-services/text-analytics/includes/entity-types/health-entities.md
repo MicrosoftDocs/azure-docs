@@ -76,6 +76,12 @@ Text Analytics for Health recognizes relations between different concepts, inclu
 
 **VALUE_OF_EXAMINATION**
 
+Please note that:
+
+* Relations referring to CONDITION may refer to either the DIAGNOSIS entity type or the SYMPTOM_OR_SIGN entity type.
+* Relations referring to MEDICATION may refer to either the MEDICATION_NAME entity type or the MEDICATION_CLASS entity type.
+* Relations referring to TIME may refer to either the TIME entity type or the DATE entity type.
+
 
 ## Named Entity Recognition
 Text Analytics for health detects medical concepts in the following categories:  (Please note that only English text is supported in this preview and only a single model-version is available.)
