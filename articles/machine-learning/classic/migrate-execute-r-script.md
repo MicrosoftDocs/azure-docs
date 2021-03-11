@@ -102,7 +102,6 @@ Use the following code to install CRAN packages in the designer's **Execute R Sc
 
 In this article, you learned how to migrate Execute R Script modules to Azure Machine Learning.
 
-
 See the other articles in the Studio (classic) migration series:
 
 1. [Migration overview](migrate-overview.md).
