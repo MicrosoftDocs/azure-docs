@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: github-2407
 ms.author: krsh
-ms.date: 02/19/2020
+ms.date: 03/10/2021
 ---
 
 # Test a virtual machine image
