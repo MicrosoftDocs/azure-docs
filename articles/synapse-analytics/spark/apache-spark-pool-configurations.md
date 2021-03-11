@@ -4,7 +4,7 @@ description: Introduction to Apache Spark pool sizes and configurations in Azure
 services: synapse-analytics 
 author: mlee3gsd
 ms.service:  synapse-analytics 
-ms.topic: overview
+ms.topic: conceptual
 ms.subservice: spark
 ms.date: 12/2/2020 
 ms.author: martinle
@@ -44,5 +44,5 @@ The automatic pause feature releases resources after a set idle period reducing 
 
 ## Next steps
 
-* [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+* [Azure Synapse Analytics](/azure/synapse-analytics)
 * [Apache Spark Documentation](https://spark.apache.org/docs/2.4.5/)
