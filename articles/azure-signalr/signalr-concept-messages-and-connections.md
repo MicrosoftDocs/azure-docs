@@ -50,7 +50,7 @@ Client connections is the connection that connects Azure SignalR service and cli
 
 Diagnostic connection is a special kind of client connection which can produce more detailed log that might impact performance. This kind of client is designed for troubleshooting.
 
-Live trace connection is the client that connects to live trace endpoint and receive live traces of Azure SignalR service. 
+Live trace connection is the connection that connects to live trace endpoint and receive live traces of Azure SignalR service. Note that live trace connection is not counted as client nor server connection. 
 
 For example, assume that you have two application servers and you define five hubs in code. The server connection count will be 50: 2 app servers * 5 hubs * 5 connections per hub.
 
