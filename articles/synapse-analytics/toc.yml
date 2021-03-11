@@ -191,6 +191,12 @@
         href: troubleshoot/workspaces-created-by-sdk.md
       - name: Troubleshoot reading UTF-8 text
         href: troubleshoot/reading-utf8-text.md
+- name: Migration guides
+  items:
+  - name: SQL Server to Azure Synapse Analytics
+    href: migration-guides/sql-server-to-synapse-analytics-guide.md
+  - name: Oracle to Azure Synapse Analytics
+    href: migration-guides/oracle-to-synapse-analytics-guide.md
 - name: Synapse SQL
   items:
   - name: Overview
