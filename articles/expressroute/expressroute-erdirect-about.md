@@ -22,15 +22,6 @@ Key features that ExpressRoute Direct provides include, but aren't limited to:
 * Physical isolation for industries that are regulated and require dedicated and isolated connectivity like: Banking, Government, and Retail
 * Granular control of circuit distribution based on business unit
 
-## Onboard to ExpressRoute Direct
-
-Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
-
-* Scenarios you're looking to accomplish with **ExpressRoute Direct**
-* Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
-* Timeline for implementation
-* Any other questions
-
 ## ExpressRoute using a service provider and ExpressRoute Direct
 
 | **ExpressRoute using a service provider** | **ExpressRoute Direct** | 
