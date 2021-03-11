@@ -47,7 +47,7 @@ Click the **Save** button to make the changed value take effect.
 
 In addition to adding new nodes, you can increase the capabilities of existing
 nodes. Adjusting compute capacity up and down can be useful for performance
-experiments as well as short- or long-term changes to traffic demands.
+experiments, and short- or long-term changes to traffic demands.
 
 To change the vCores for all worker nodes, adjust the **vCores** slider under
 **Configuration (per worker node)**. The coordinator node's vCores can be
