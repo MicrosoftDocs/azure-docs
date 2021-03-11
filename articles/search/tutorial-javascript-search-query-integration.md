@@ -301,4 +301,4 @@ axios.get('/api/lookup?id=' + id)
 
 ## Next steps
 
-* [Index Azure SQL data](search-indexer-tutorial)
+* [Index Azure SQL data](search-indexer-tutorial.md)

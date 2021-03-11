@@ -48,4 +48,4 @@ Set the Search settings for the Static Web App.
 
 ## Next steps
 
-* [Understand Search integration for the search-enabled website](tutorial-javascript-query-integration.md)
+* [Understand Search integration for the search-enabled website](tutorial-javascript-search-query-integration.md)
