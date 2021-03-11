@@ -92,3 +92,12 @@ Here is an example of the expiration data from the GetModel API call. The "DEPRE
 }
 ```
 Note that you can upgrade the model on a custom speech endpoint without downtime by changing the model used by the endpoint in the deployment section of the Speech Studio, or via the custom speech API.
+
+## Next steps
+
+* [Train and deploy a model](how-to-custom-speech-train-model.md)
+
+## Additional resources
+
+* [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
+* [Inspect your data](how-to-custom-speech-inspect-data.md)
