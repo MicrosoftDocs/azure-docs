@@ -23,7 +23,7 @@ Apache Spark pool instance consists of one head node and two or more worker node
 
 ## Node Sizes
 
-A Spark pool can be defined with node sizes that range from a Small compute node with 8 vCore and 64 GB of memory up to a XXXLarge compute node with 80 vCore and 504 GB of memory per node. Node sizes can be altered after pool creation although the instance may need to be restarted.
+A Spark pool can be defined with node sizes that range from a Small compute node with 8 vCore and 64 GB of memory up to a XXLarge compute node with 64 vCore and 432 GB of memory per node. Node sizes can be altered after pool creation although the instance may need to be restarted.
 |Size | vCore | Memory|
 |-----|------|-------|
 |Small|4|32 GB|
@@ -39,7 +39,7 @@ When the autoscale feature is disabled, the number of nodes set will remain fixe
 
 ## Automatic pause
 
-The automatic pause feature releases resources after a set idle period reducing the overall cost of an Apache Spark pool.  The number of minutes of idle time can be set once this feature is enabled.  The automatic pause feature is independent of the autoscale feature. Resources can be paused whether the autoscale is enabled or disabled.  This setting can be altered after pool creation although the instance may need to be restarted. 
+The automatic pause feature releases resources after a set idle period reducing the overall cost of an Apache Spark pool.  The number of minutes of idle time can be set once this feature is enabled.  The automatic pause feature is independent of the autoscale feature. Resources can be paused whether the autoscale is enabled or disabled.  This setting can be altered after pool creation although the instance may need to be restarted.
 
 ## Next steps
 
