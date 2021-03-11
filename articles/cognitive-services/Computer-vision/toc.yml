@@ -55,45 +55,45 @@
     href: /azure/cognitive-services/authentication?tabs=powershell?context=/azure/cognitive-services/computer-vision/context/context
   - name: How to use customer managed keys
     href: /azure/cognitive-services/encryption/cognitive-services-encryption-keys-portal?context=/azure/cognitive-services/computer-vision/context/context
-- name: Deploy Computer Vision
-  items:
-  - name: Containers
+  - name: Deploy Computer Vision
     items:
-    - name: Cognitive Services containers documentation
-      href: ../containers/index.yml
-    - name: Read API container
-      items: 
-      - name: Install and run containers
-        href: computer-vision-how-to-install-containers.md
-        displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
-      - name: Configure containers
-        href: computer-vision-resource-container-config.md
-      - name: Migrate to v3 of the Read container
-        href: read-container-migration-guide.md
-        displayName: docker, container, billing, apikey, pull, logging, on-premises
-      - name: Use with Kubernetes and Helm
-        href: deploy-computer-vision-on-premises.md
-        displayName: kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises
-      - name: Use container instances
-        maintainContext: true
-        href: ../containers/azure-container-instance-recipe.md
-        displayName: container instances, container, containers, images
-    - name: Spatial Analysis container
+    - name: Containers
       items:
-      - name: Overview of Spatial Analysis 
-        href: intro-to-spatial-analysis-public-preview.md  
-      - name: Setup the host machine and run the container
-        href: spatial-analysis-container.md
-      - name: Configure operations
-        href: spatial-analysis-operations.md
-      - name: Deploy a people counting web app
-        href: Spatial-analysis-web-app.md
-      - name: Logging and troubleshooting
-        href: spatial-analysis-logging.md
-      - name: Zone and line placement
-        href: spatial-analysis-zone-line-placement.md
-      - name: Camera placement
-        href: spatial-analysis-camera-placement.md
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
+      - name: Read API container
+        items: 
+        - name: Install and run containers
+          href: computer-vision-how-to-install-containers.md
+          displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises
+        - name: Configure containers
+          href: computer-vision-resource-container-config.md
+        - name: Migrate to v3 of the Read container
+          href: read-container-migration-guide.md
+          displayName: docker, container, billing, apikey, pull, logging, on-premises
+        - name: Use with Kubernetes and Helm
+          href: deploy-computer-vision-on-premises.md
+          displayName: kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises
+        - name: Use container instances
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
+          displayName: container instances, container, containers, images
+      - name: Spatial Analysis container
+        items:
+        - name: Overview of Spatial Analysis 
+          href: intro-to-spatial-analysis-public-preview.md  
+        - name: Setup the host machine and run the container
+          href: spatial-analysis-container.md
+        - name: Configure operations
+          href: spatial-analysis-operations.md
+        - name: Deploy a people counting web app
+          href: Spatial-analysis-web-app.md
+        - name: Logging and troubleshooting
+          href: spatial-analysis-logging.md
+        - name: Zone and line placement
+          href: spatial-analysis-zone-line-placement.md
+        - name: Camera placement
+          href: spatial-analysis-camera-placement.md
 - name: Concepts
   items:
   - name: Modes
