@@ -1,7 +1,6 @@
 {
   "redirections": [
 
-// Legacy redirection entries, move to this file from the large traditional file (2021-March-11, re PR 150042, GeneMi).
     {
         "source_path_from_root": "/articles/healthcare-apis/configure-cosmos-db.md",
         "redirect_url": "/azure/healthcare-apis/configure-database",
@@ -51,8 +50,7 @@
         "source_path_from_root": "/articles/healthcare-apis/tutorial-3-connect-to-endpoint.md",
         "redirect_url": "/azure/healthcare-apis/tutorial-web-app-fhir-server",
         "redirect_document_id": false
-     },
-// End of legacy redirection entries.
+    },
 
     {
         "source_path_from_root": "/articles/healthcare-apis/access-fhir-postman-tutorial.md",
