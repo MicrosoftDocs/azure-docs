@@ -3,19 +3,17 @@ title: Create an Azure Media Services encoding task that generates fMP4 chunks |
 description: This topic shows how to create an encoding task that generates fMP4 chunks. When this task is used with the Media Encoder Standard or Media Encoder Premium Workflow encoder, the output asset will contain fMP4 chunks instead of ISO MP4 files.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Create an encoding task that generates fMP4 chunks
 
