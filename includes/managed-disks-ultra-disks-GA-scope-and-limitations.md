@@ -33,7 +33,7 @@ The following table outlines the regions ultra disks are available in, as well a
 |Australia Central    |Single VMs only (Availability sets and virtual machine scale sets are not supported)|
 |Australia East     |Three availability zones         |
 |Southeast Asia    |Three availability zones        |
-|Canada Central*     |Three availability zones          |
+|Canada Central     |Three availability zones          |
 |Central US     |Three availability zones          |
 |East US     |Three availability zones          |
 |East US 2     |Three availability zones         |
@@ -43,8 +43,6 @@ The following table outlines the regions ultra disks are available in, as well a
 |UK South    |Three availability zones        |
 |West Europe    | Three availability zones|
 |West US 2    |Three availability zones|
-
-\* Contact Azure Support to get access to Availability Zones for this region.
 
 - Are only supported on the following VM series:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
