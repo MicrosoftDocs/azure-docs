@@ -144,7 +144,8 @@ Apple provides no easy way to get bundle IDs from the App Store. The easiest way
 1. When this flag is on, sign in to iOS apps on the device for which you want to know the bundle ID. 
 1. In the Authenticator app, select **Help** > **Send logs** > **View logs**. 
 1. In the log file, look for following line: `[ADMIN MODE] SSO extension has captured following app bundle identifiers`. This line should capture all application bundle IDs that are visible to the SSO extension. 
-1. Use those IDs to configure SSO for those apps. 
+
+Use the bundle IDs to configure SSO for the apps. 
 
 #### Allow users to sign in from unknown applications and the Safari browser
 
@@ -192,7 +193,7 @@ We recommend enabling this flag to get a consistent experience across all apps. 
 
 A few apps might be incompatible with the SSO extension. Specifically, apps that have advanced network settings might experience unexpected issues when they're enabled for SSO. For example, you might see an error indicating that network request was canceled or interrupted. 
 
-If you have problems signing in by using the method described in the [Applications that don't use MSAL](#applications-that-don-t-use-msal) section, try an alternative configuration. Use these parameters to configure the plug-in:
+If you have problems signing in by using the method described in the [Applications that don't use MSAL](#applications-that-dont-use-msal) section, try an alternative configuration. Use these parameters to configure the plug-in:
 
 - **Key**: `AppCookieSSOAllowList`
 - **Type**: `String`
