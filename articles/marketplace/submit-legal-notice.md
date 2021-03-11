@@ -11,9 +11,9 @@ ms.date: 03/08/2021
 
 # Notifying Microsoft regarding the Publisher Agreement
 
-## Overview
-
 Use a support ticket to submit legal notices to Microsoft regarding the Microsoft Publisher Agreement to ensure proper action and tracking.
+
+## Submit notice regarding the Publisher Agreement
 
 1. Go to the [Contractual or legal questions](https://partner.microsoft.com/support/?stage=2&topicid=05a1a389-1256-d441-89c9-a140217de6b9) section of Partner Center support.
 
