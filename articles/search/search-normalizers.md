@@ -9,25 +9,26 @@ ms.author: ishansri
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/23/2020
-ms.custom: devx-track-csharp
 ---
 
 # Text normalization for case-insensitive filtering, faceting and sorting
 
-## Overview
-Searching and retrieving documents from an Azure Cognitive Search index requires matching the query to the contents of the document. The content can be analyzed to produce tokens for matching as is the case when `search` parameter is used, or can be used as-is for strict keyword matching as seen with `$filter`, `facets`, and `$orderby`. This all-or-nothing approach covers most scenarios but falls short where simple pre-processing like casing, accent removal, asciifolding etc. is required without undergoing through the entire analysis chain.
+>[!IMPORTANT]
+Normalizer is in public preview, available through the **2020-06-30-preview REST API**. Preview features are offered as-is, under Supplemental Terms of Use.
 
-Consider the following examples -
+Searching and retrieving documents from an Azure Cognitive Search index requires matching the query to the contents of the document. The content can be analyzed to produce tokens for matching as is the case when `search` parameter is used, or can be used as-is for strict keyword matching as seen with `$filter`, `facets`, and `$orderby`. This all-or-nothing approach covers most scenarios but falls short where simple pre-processing like casing, accent removal, asciifolding and so forth is required without undergoing through the entire analysis chain.
 
-+ `$filter=City eq 'Las Vegas'` will only return documents that contain the exact text **Las Vegas** and exclude documents with **LAS VEGAS** and **las vegas** which is inadequate when the use-case requires all documents regardless of the casing.
+Consider the following examples:
 
-+ `search=*&facet=City,count:5` will return **Las Vegas**, **LAS VEGAS** and **las vegas** as distinct values despite being the same city.
++ `$filter=City eq 'Las Vegas'` will only return documents that contain the exact text "Las Vegas" and exclude documents with "LAS VEGAS" and "las vegas" which is inadequate when the use-case requires all documents regardless of the casing.
 
-+ `search=usa&$orderby=City` will return the cities in lexicographical order: **Las Vegas**, **Seattle**, **las vegas**, even if the intent is to order the same cities together irrespective of the case. 
++ `search=*&facet=City,count:5` will return "Las Vegas", "LAS VEGAS" and "las vegas" as distinct values despite being the same city.
+
++ `search=usa&$orderby=City` will return the cities in lexicographical order: "Las Vegas", "Seattle", "las vegas", even if the intent is to order the same cities together irrespective of the case. 
 
 ## Normalizers
 
-An *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching. Normalizers are similar to analyzers except they do not tokenize the query. Some of the transformations that can be achieved using normalizers are -
+An *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching. Normalizers are similar to analyzers except they do not tokenize the query. Some of the transformations that can be achieved using normalizers are:
 
 + Convert to lowercase or upper-case.
 + Normalize accents and diacritics like ö or ê.
@@ -48,7 +49,7 @@ Azure Cognitive Search supports predefined normalizers for common use-cases alon
 
 ## How to specify normalizers
 
-Normalizers can be specified per-field on text fields (`Edm.String` and `Collection(Edm.String)`) that have at least one of `filterable`, `sortable`, or `facetable` properties set to true. Setting a normalizer is optional and it's `null` by default. Depending on the scenario, a suitable normalizer can be chosen. It's recommended to evaluate predefined ones first before configuring a custom normalizer for ease of use. Try a different normalizer if results are not expected.
+Normalizers can be specified per-field on text fields (`Edm.String` and `Collection(Edm.String)`) that have at least one of `filterable`, `sortable`, or `facetable` properties set to true. Setting a normalizer is optional and it's `null` by default. We recommended evaluating predefined normalizers before configuring a custom one for ease of use. Try a different normalizer if results are not expected.
 
 1. When creating a field definition in the [index](/rest/api/searchservice/create-index), set the  **normalizer** property to one of the following: a [predefined normalizer](#predefined-normalizers) such as `lowercase`, or a custom normalizer (defined in the same index schema).  
  
