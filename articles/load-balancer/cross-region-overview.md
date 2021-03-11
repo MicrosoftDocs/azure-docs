@@ -103,7 +103,7 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 * East Asia
 
 > [!NOTE]
-> You can only deploy your cross-region load balancer in one of the 8 regions above.
+> You can only deploy your cross-region load balancer in one of the 7 regions above.
 
 A **participating region** is where the global public IP of the load balancer is available. 
 
