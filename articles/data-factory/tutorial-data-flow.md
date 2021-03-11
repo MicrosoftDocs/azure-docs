@@ -12,7 +12,7 @@ ms.date: 03/11/2021
 
 # Transform data using mapping data flows
 
-[!INCLUDE[appliesto-adf-xxx-asa-md](includes/appliesto-xxx-asa-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
