@@ -15,7 +15,7 @@ ms.author: jasteppe
 In this article, you'll learn how to display and configure Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* metrics.
 
 > [!TIP]
-> To learn how to set up the export of metrics data, follow the guidance in [Export Azure IoT Connector for FHIR (preview) metrics through diagnostics settings](./iot-metrics-diagnostics-export.md).
+> To learn how to set up the export of metrics data, follow the guidance in [Export Azure IoT Connector for FHIR (preview) metrics through diagnostics settings](iot-metrics-diagnostics-export.md).
 
 ## Display metrics for Azure IoT Connector for FHIR (preview)
 
@@ -38,7 +38,7 @@ In this article, you'll learn how to display and configure Azure IoT Connector f
 ## Metric types for Azure IoT Connector for FHIR (preview) 
 
 > [!TIP]
-> To learn about data flow in Azure IoT Connector for FHIR, view [Azure IoT Connector for FHIR (preview) data flow](./iot-data-flow.md) and [Azure IoT Connector for FHIR (preview) troubleshooting guide](./iot-troubleshoot-guide.md) to learn more about error messages and fixes.
+> To learn about data flow in Azure IoT Connector for FHIR, view [Azure IoT Connector for FHIR (preview) data flow](iot-data-flow.md) and [Azure IoT Connector for FHIR (preview) troubleshooting guide](iot-troubleshoot-guide.md) to learn more about error messages and fixes.
 
 The IoT Connector metrics you can display are listed in the following table:
 

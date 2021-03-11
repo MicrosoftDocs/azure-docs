@@ -16,10 +16,10 @@ When you create a new Azure API for FHIR account, your data is encrypted using M
 
 In Azure, this is typically accomplished using an encryption key in the customer's Azure Key Vault. Azure SQL, Azure Storage, and Cosmos DB are some examples that provide this capability today. Azure API for FHIR leverages this support from Cosmos DB. When you create an account, you will have the option to specify an Azure Key Vault key URI. This key will be passed on to Cosmos DB when the DB account is provisioned. When a FHIR request is made, Cosmos DB fetches your key and uses it to encrypt/decrypt the data. To get started, you can refer to the following links:
 
-- [Register the Azure Cosmos DB resource provider for your Azure subscription](../cosmos-db/how-to-setup-cmk.md#register-resource-provider) 
-- [Configure your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#configure-your-azure-key-vault-instance)
-- [Add an access policy to your Azure Key Vault instance](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)
-- [Generate a key in Azure Key Vault](../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
+- [Register the Azure Cosmos DB resource provider for your Azure subscription](../../cosmos-db/how-to-setup-cmk.md#register-resource-provider) 
+- [Configure your Azure Key Vault instance](../../cosmos-db/how-to-setup-cmk.md#configure-your-azure-key-vault-instance)
+- [Add an access policy to your Azure Key Vault instance](../../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)
+- [Generate a key in Azure Key Vault](../../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
 
 ## Using Azure portal
 
@@ -135,4 +135,4 @@ New-AzResourceGroupDeployment `
 In this article, you learned how to configure customer-managed keys at rest using Azure portal, PowerShell, CLI, and Resource Manager Template. You can check out the Azure Cosmos DB FAQ section for additional questions you might have: 
  
 >[!div class="nextstepaction"]
->[Cosmos DB: how to setup CMK](../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)
+>[Cosmos DB: how to setup CMK](../../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)

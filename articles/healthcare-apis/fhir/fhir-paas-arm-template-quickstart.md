@@ -14,7 +14,7 @@ ms.date: 10/06/2020
 
 In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy Azure API for Fast Healthcare Interoperability Resources (FHIR®). You can deploy Azure API for FHIR through the Azure portal, PowerShell, or CLI.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal once you sign in.
 
@@ -219,7 +219,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-For a step-by-step tutorial that guides you through the process of creating an ARM template, see the [tutorial to create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+For a step-by-step tutorial that guides you through the process of creating an ARM template, see the [tutorial to create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
 
 ## Next steps
 
