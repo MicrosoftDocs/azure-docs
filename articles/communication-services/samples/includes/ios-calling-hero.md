@@ -12,7 +12,7 @@ ms.custom: include file
 ms.author: mikben
 ---
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 The Azure Communication Services **Group Calling Hero Sample for iOS** demonstrates how the Communication Services Calling iOS client library can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
 
@@ -24,7 +24,7 @@ Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start new call" button, the iOS application creates a new call and joins it. The application also allows you to join an existing Azure Communication Services call by specifying the existing call's ID.
+When you press the "Start new call" button, the iOS application creates a new call and joins it. The application also allows you to join an existing Azure Communication Services call by specifying the existing call's ID or a Teams Meeting by providing the join link found in the Meeting's invite.  (Join link has the following format: `https://teams.microsoft.com/l/meetup-join/`)
 
 After joining a call, you'll be prompted to give the application permission to access your camera and microphone. You'll also be asked to provide a display name.
 
@@ -46,7 +46,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 - An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
 - An Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md).
-- An Azure Function running [Trusted Service logic](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
+- An Azure Function running the [Authentication Endpoint](../../tutorials/trusted-service-tutorial.md) to fetch access tokens.
 
 ## Running sample locally
 
