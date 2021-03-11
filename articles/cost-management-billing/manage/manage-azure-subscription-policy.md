@@ -29,9 +29,9 @@ There are 2 possible actions available for this experience - write and read.
 This policy controls if users are able to move subscriptions out of the current directory. [Subscription owners](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) have  capability today to [change the directory of an azure subscription](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory) to another one where they are a member. This poses some governance challenges so global administrators may choose to allow/dis-allow directory users from being able to do so.
 
 ### Subscriptions entering AAD directory
-This policy controls if users from other directories (and having presence in the current directory) are able to move subscriptions into the current directory. The mechanism to do this is the same as [before](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory) and has similiar governance concerns. Global administrators may choose to allow/dis-allow this operation as well.
+This policy controls if users from other directories (and having presence in the current directory) are able to move subscriptions into the current directory. The mechanism to do this is the same as [before](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory) and has similar governance concerns. Global administrators may choose to allow/dis-allow this operation as well.
 
-### Exempted USers
+### Exempted Users
 Global Administrators may decide that for governance reasons they may want to block all subscription directory moves - into our out of the current directory. But they may want some special users to be able to do either of these operations if business so demands it. For these scenarios, they can configure an exempted users list which allows these users to bypass the policy setting for everyone else.
 
 ## Setting subscription policy
