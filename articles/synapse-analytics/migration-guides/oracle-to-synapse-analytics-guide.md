@@ -55,7 +55,7 @@ Performing a successful migration requires you to migrate your table schemas, co
 - The CAT (Customer Advisory Team) has some great Azure Synapse Analytics (formerly SQL Data Warehouse) guidance published as blog postings. Be sure to take a look at their article, [Migrating data to Azure SQL Data Warehouse in practice](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), for additional guidance on migration.
 - Check out the white paper [Choosing your database migration path to Azure](https://azure.microsoft.com/mediahandler/files/resourcefiles/choosing-your-database-migration-path-to-azure/Choosing_your_database_migration_path_to_Azure.pdf) for additional information and recommendations.
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see the article [Service and tools for data migration](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
-- 
+
 ## Migration assets from real-world engagements
 For additional assistance with completing this migration scenario, please see the following resources, which were developed in support of a real-world migration project engagement.
 
