@@ -49,22 +49,24 @@ Your cache uses the Azure-based time server time.microsoft.com by default. If yo
 > [!NOTE]
 > Do not change your cache DNS configuration if you don't need to. Configuration mistakes can cause the cache to become unreachable permanently.
 
-Azure HPC Cache is automatically configured to use a secure and convenient Azure DNS system. Only a few unusual use cases require a separate DNS configuration. Check with your Azure representatives or consult Microsoft Service and Support to determine if you need a custom DNS configuration.
+Azure HPC Cache is automatically configured to use a secure and convenient Azure DNS system. However, a few unusual configurations require the cache to use a separate, on-premises DNS system instead of the Azure system. The **DNS configuration** section of the **Networking** page is used to specify this kind of system.
 
-<!-- If configuring your own DNS system, make sure it meets these requirements:
+Check with your Azure representatives or consult Microsoft Service and Support to determine whether or not you need to use a custom cache DNS configuration.
 
-* Azure DNS forwarding -->
+If you configure your own on-premises DNS system for the Azure HPC Cache to use, you must make sure that the configuration can resolve private and public names inside the Azure service. You must use a rule to conditionally forward an Azure DNS server for these names.
+
+This is a partial list of items that need to be forwarded to an Azure DNS system:
+
+* ``*.core.windows.com``
+* Certificate revocation list (CRL) download and online certificate status protocol (OCSP) verification services. A partial list is provided in the [firewall rules item](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) at the end of this [Azure TLS article](../security/fundamentals/tls-certificate-changes.md) but you should consult a Microsoft technical representative to understand all of the requirements.
 
 If you need to set a custom DNS server for your cache, fill in the provided fields:
 
-* **DNS search domain** - Enter your search domain, for example, company.com. A single value is allowed.
+* **DNS search domain** - Enter your search domain, for example, *company.com*. A single value is allowed.
 * **DNS server(s)** - Enter up to three DNS servers. Specify them by IP address.
   
   > [!NOTE]
   > The cache will use only the first DNS server it successfully finds.
-
-<!-- - (stuff about how to configure and why not to - from that email thread)
-- (something about a DNS forwarder?) -->
 
 ### Refresh storage target DNS
 
