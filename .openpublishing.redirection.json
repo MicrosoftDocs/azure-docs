@@ -24560,6 +24560,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-edge/iot-edge-glossary.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-devguide-glossary.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-pnp/iot-plug-and-play-glossary.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
       "redirect_url": "/azure/jenkins/container-instances-jenkins",
       "redirect_document_id": false
