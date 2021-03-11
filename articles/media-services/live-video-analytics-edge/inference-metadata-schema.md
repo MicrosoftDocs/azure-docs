@@ -8,6 +8,8 @@ ms.date: 09/14/2020
 
 # Inference metadata schema 
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 Each Inference object regardless of using HTTP based contract or gRPC based contract follows the object model described in this topic.
 
 ## Object model

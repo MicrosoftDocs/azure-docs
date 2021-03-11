@@ -7,6 +7,8 @@ ms.date: 05/01/2020
 ---
 # Media graph
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 ## Suggested pre-reading
 
 * [Live Video Analytics on IoT Edge overview](overview.md)

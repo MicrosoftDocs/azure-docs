@@ -7,6 +7,8 @@ ms.date: 09/14/2020
 ---
 # Media graph extension
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 Live Video Analytics on IoT Edge allows you to extend the media graph processing capabilities through a graph extension node. Your analytics extension plugin can make use of traditional image-processing techniques or computer vision AI models. Graph extensions are enabled by including an extension processor node in a media graph. The extension processor node relays video frames to the configured  endpoint and acts as the interface to your extension. The connection can be made to a local or remote endpoint and it can be secured by authentication and TLS encryption, if required. Additionally, the graph extension processor node allows for optional scaling and encoding of the video frames before they are submitted to your custom extension. 
 
 Live Video Analytics supports two kinds of media graph extension processors:
