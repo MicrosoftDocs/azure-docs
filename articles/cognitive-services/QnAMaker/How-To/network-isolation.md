@@ -13,7 +13,7 @@ You should follow the follow the steps below to restrict public access to QnA Ma
 
 ## Restrict access to App Service (QnA Runtime)
 
-You can add IPs to App service allowlist to restrict access or Configure App Service Environemnt to host QnA Maker App Service.
+You can add IPs to App service allowlist to restrict access or Configure App Service Environment to host QnA Maker App Service.
 
 #### Add IPs to App Service allowlist
 
