@@ -4,7 +4,7 @@ description: This article includes a checklist and other information you will fi
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 03/2/2021
+ms.date: 03/11/2021
 ms.topic: checklist
 ms.service: azure
 ---
@@ -28,7 +28,7 @@ Provide a global network diagram of the industrial OT environment
 
 :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="Diagram of the industrial OT environment for the global network.":::
 
-Note: Defender for IoT appliance should be connected to a lower level switch that sees the traffic between the ports on the switch. 
+Note: Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch. 
 
 ### 2. Committed devices
 
@@ -67,7 +67,7 @@ To verify that the switches have port mirroring capability, provide the switch m
 | 3 |  |  |
 | 4 |  |  |
 
-### 6. Third party switch management
+### 6. Third-party switch management
 
 Does a third party manage the switches? Y or N 
 
