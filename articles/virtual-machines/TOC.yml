@@ -331,75 +331,64 @@
     - name: VM instance size flexibility
       displayName: Reserved Instances, RI, prepay
       href: reserved-vm-instance-size-flexibility.md
-  - name: Create Linux VMs
-    items:
-    - name: Endorsed distros
-      href: ./linux/endorsed-distros.md
-    - name: Use the CLI
-      href: ./linux/create-cli-complete.md
-    - name: Use an ARM template
-      displayName: Azure Resource Manager
-      href: ./linux/create-ssh-secured-vm-from-template.md
-    - name: Use REST API
-      href: ./linux/create-vm-rest-api.md
-    - name: Copy a VM using CLI
-      href: ./linux/copy-vm.md
-      href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-    - name: Configure Rolling deployment strategy
-      href: ./linux/tutorial-devops-azure-pipelines-classic.md
-    - name: Configure Canary deployment strategy
-      href: ./linux/tutorial-azure-devops-canary-strategy.md
-    - name: Configure Blue-Green deployment strategy
-      href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-    - name: CI/CD with Azure Pipelines(YAML)
-      href: ./linux/tutorial-build-deploy-azure-pipelines.md
-    - name: Create LAMP stack
-      href: ./linux/tutorial-lamp-stack.md
-    - name: Secure web server with TLS\SSL
-      items:
-      - name: Linux
+  - name: Create Virtual Machines
+    items: 
+    - name: Linux
+      items: 
+      - name: Endorsed distributions
+        href: ./linux/endorsed-distros.md
+      - name: CLI
+        href: ./linux/create-cli-complete.md
+      - name: ARM template
+        href: ./linux/create-ssh-secured-vm-from-template.md
+      - name: REST
+        href: ./linux/create-vm-rest-api.md
+      - name: Copy a VM using CLI
+        href: ./linux/copy-vm.md
+      - name: Configure Rolling deployment strategy
+        href: ./linux/tutorial-devops-azure-pipelines-classic.md
+      - name: Configure Canary deployment strategy
+        href: ./linux/tutorial-azure-devops-canary-strategy.md
+      - name: Configure Blue-Green deployment strategy
+        href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+      - name: CI/CD with Azure Pipelines(YAML)
+        href: ./linux/tutorial-build-deploy-azure-pipelines.md
+      - name: Create LAMP stack
+        href: ./linux/tutorial-lamp-stack.md
+      - name: Secure web server with TLS\SSL
         href: ./linux/tutorial-secure-web-server.md
-      - name: Windows
+    - name: Windows
+      items:
+      - name: Use specialized disk
+        items:
+        - name: Portal
+          href: ./windows/create-vm-specialized-portal.md
+        - name: PowerShell
+          href: ./windows/create-vm-specialized.md
+        - name: ARM template
+          href: ./windows/ps-template.md
+      - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
-      displayname: SSL TLS
-  - name: Connect to Linux VMs
+  - name: Connect to Virtual Machines
     items:
-    - name: SSH for Linux VMs
-      items:
-      - name: On Linux or macOS
+    - name: Linux
+      items: 
+      - name: SSH on Linux or macOS
         href: ./linux/mac-create-ssh-keys.md
-      - name: On Windows
+      - name: SSH on Windows
         href: ./linux/ssh-from-windows.md
-      - name: In the portal
+      - name: Use the portal
         href: ssh-keys-portal.md
-      - name: Detailed steps
+      - name: SSH key details
         href: ./linux/create-ssh-keys-detailed.md
-    - name: Remote Desktop for Linux
-      href: ./linux/use-remote-desktop.md
-  - name: Create Windows VMs
-    items:
-    - name: Use C#
-      href: ../azure-resource-manager/templates/deploy-rest.md?context=/azure/virtual-machines/context/context
-    - name: Use specialized disk
+      - name: Remote Desktop for Linux
+        href: ./linux/use-remote-desktop.md
+    - name: Windows
       items:
-      - name: Portal
-        href: ./windows/create-vm-specialized-portal.md
-      - name: PowerShell
-        href: ./windows/create-vm-specialized.md
-    - name: Create VM with Chef
-      href: /azure/developer/chef/windows-vm-configure
-    - name: Use Java
-      href: ./windows/java.md
-    - name: Python
-      href: /samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
-    - name: Use ARM template
-      displayName: Azure Resource Manager template
-      href: ./windows/ps-template.md
-  - name: Connect to Windows VMs
-    href: ./windows/connect-logon.md
-    items:
-    - name: WinRM
-      href: ./windows/winrm.md
+      - name: Remote Desktop for Windows
+        href: ./windows/connect-logon.md
+      - name: WinRM
+        href: ./windows/winrm.md
   - name: Extensions
     items:
     - name: Overview
