@@ -69,7 +69,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 | South Central US |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
 | South East Asia | 40.78.233.2, 23.98.80.12	 | 104.43.15.0 | |
 | Switzerland North | 51.107.56.0 ||
-| Switzerland West | 51.107.152.0| ||
+| Switzerland West | 51.107.152.0||
 | UAE Central | 20.37.72.64	 | | |
 | UAE North | 65.52.248.0	 | | |
 | UK South | 51.140.184.11	 | | |
@@ -82,7 +82,7 @@ The following table lists the gateway IP addresses of the Azure Database for MyS
 
 ## Connection redirection
 
-Azure Database for MySQL supports an additional connection policy, **redirection**, that helps to reduce network latency between client applications and MySQL servers. With this feature, after the initial TCP session is established to the Azure Database for MySQL server, the server returns the backend address of the node hosting the MySQL server to the client. Thereafter, all subsequent packets flow directly to the server, bypassing the gateway. As packets flow directly to the server, latency and throughput have improved performance.
+Azure Database for MySQL supports an additional connection policy, **redirection**, that helps to reduce network latency between client applications and MySQL servers. With redirection, and after the initial TCP session is established to the Azure Database for MySQL server, the server returns the backend address of the node hosting the MySQL server to the client. Thereafter, all subsequent packets flow directly to the server, bypassing the gateway. As packets flow directly to the server, latency and throughput have improved performance.
 
 This feature is supported in Azure Database for MySQL servers with engine versions 5.6, 5.7, and 8.0.
 
@@ -95,31 +95,31 @@ Support for redirection is available in the PHP [mysqlnd_azure](https://github.c
 ## Frequently asked questions
 
 ### What you need to know about this planned maintenance?
-This is a DNS change only which makes it transparent to clients. While the IP address for FQDN is changed in the DNS server, the local DNS cache will be refreshed within 5 minutes, and it is automatically done by the operating systems. After the local DNS refresh, all the new connections will connect to the new IP address, all existing connections will remain connected to the old IP address with no interruption until the old IP addresses are fully decommissioned. The old IP address will roughly take three to four weeks before getting decommissioned; therefore, it should have no impact on the client applications.
+This is a DNS change only which makes it transparent to clients. While the IP address for FQDN is changed in the DNS server, the local DNS cache will be refreshed within 5 minutes, and it is automatically done by the operating systems. After the local DNS refresh, all the new connections will connect to the new IP address, all existing connections will remain connected to the old IP address with no interruption until the old IP addresses are fully decommissioned. The old IP address will roughly take three to four weeks before getting decommissioned; therefore, it should have no effect on the client applications.
 
 ### What are we decommissioning?
-Only Gateway nodes will be decommissioned. When users connect to their servers, the first stop of the connection is to gateway node, before connection is forwarded to server. We are decommissioning old gateway rings (not tenant rings where the server is running) please refer to the [connectivity architecture](#connectivity-architecture) for more clarification.
+Only Gateway nodes will be decommissioned. When users connect to their servers, the first stop of the connection is to gateway node, before connection is forwarded to server. We are decommissioning old gateway rings (not tenant rings where the server is running) refer to the [connectivity architecture](#connectivity-architecture) for more clarification.
 
 ### How can you validate if your connections are going to old gateway nodes or new gateway nodes?
-Simply ping your server’s FQDN, for example  ``ping xxx.mysql.database.azure.com``. If the returned IP address is one of the IPs listed under Gateway IP addresses (decommissioning) in the document above, it means your connection is going through the old gateway; If the returned Ip address is one of the IPs listed under Gateway IP addresses, it means your connection is going through the new gateway.
+Ping your server’s FQDN, for example  ``ping xxx.mysql.database.azure.com``. If the returned IP address is one of the IPs listed under Gateway IP addresses (decommissioning) in the document above, it means your connection is going through the old gateway. Contrarily, if the returned Ip address is one of the IPs listed under Gateway IP addresses, it means your connection is going through the new gateway.
 
-You may also test by [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) or TCPPing the database server from your client application with port 3306 and ensure that return IP address is not one of the decommissioning IP addresses
+You may also test by [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) or TCPPing the database server from your client application with port 3306 and ensure that return IP address isn't one of the decommissioning IP addresses
 
-### How do I know when the maintenance is over and will I get another notification when old IP addresses are actually decommissioned?
-You will receive an email to inform you when we will start the maintenance work. The maintenance can take up to one month depending on the amount of servers we need to migrate in al regions. Please prepare your client to connect to the database server using the FQDN or using the new IP address from the table above. 
+### How do I know when the maintenance is over and will I get another notification when old IP addresses are decommissioned?
+You will receive an email to inform you when we will start the maintenance work. The maintenance can take up to one month depending on the number of servers we need to migrate in al regions. Please prepare your client to connect to the database server using the FQDN or using the new IP address from the table above. 
 
 ### What do I do if my client applications are still connecting to old gateway server ?
-This indicates that your application connect to server using static IP address instead of FQDN. Please review connection strings and connection pooling setting, AKS setting, or even in the source code.
+This indicates that your applications connect to server using static IP address instead of FQDN. Review connection strings and connection pooling setting, AKS setting, or even in the source code.
 
 ### Is there any impact for my application connections?
-This maintenance is just a DNS change, so it is transparent to the client. When the DNS cache is refresh in the client (it is automatically done by operation system), all the new connection will connect to the new IP address and all the existing connection will still working fine until the old IP address fully get decommissioned, which usually several weeks later. And the retry logic is not required for this case, but it is good to see the application have retry logic configured. Please either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
+This maintenance is just a DNS change, so it is transparent to the client. Once the DNS cache is refreshed in the client (automatically done by operation system), all the new connection will connect to the new IP address and all the existing connection will still working fine until the old IP address fully get decommissioned, which usually several weeks later. And the retry logic is not required for this case, but it is good to see the application have retry logic configured. Please either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
 This maintenance operation will not drop the existing connections. It only makes the new connection requests go to new gateway ring.
 
 ### Can I request for a specific time window for the maintenance? 
-As the migration should be transparent and no impact to customer's connectivity, we expect there will be no issue for majority of users. Please review your application proactively and ensure that you either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
+As the migration should be transparent and no impact to customer's connectivity, we expect there will be no issue for majority of users. Review your application proactively and ensure that you either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
 
-### I am using private link will my connections get impacted.
-No, this is a gateway hardware decommission and have no relation to private link or private IP addresses, it will only impact public IP addresses mentioned under the decommissioning IP addresses.
+### I am using private link, will my connections get affected?
+No, this is a gateway hardware decommission and have no relation to private link or private IP addresses, it will only affect public IP addresses mentioned under the decommissioning IP addresses.
 
 
 
