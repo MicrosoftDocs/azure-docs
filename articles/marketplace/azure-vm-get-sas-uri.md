@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 02/19/2021
+ms.date: 01/10/2021
 ---
 
 # How to generate a SAS URI for a VM image
