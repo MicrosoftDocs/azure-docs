@@ -43,7 +43,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### Create zone-enabled registry
 
-Run the [az acr create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) command to create a zone-redundant registry in the Premium service tier. Choose a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry. In the following example, zone redundancy is enabled in the *eastus* region. See the `az acr create` command help for more registry options.
+Run the [az acr create](/cli/azure/acr#az_acr_create) command to create a zone-redundant registry in the Premium service tier. Choose a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry. In the following example, zone redundancy is enabled in the *eastus* region. See the `az acr create` command help for more registry options.
 
 ```azurecli
 az acr create \
@@ -65,7 +65,7 @@ In the command output, note the `zoneRedundancy` property for the registry. When
 
 ### Create zone-redundant replication
 
-Run the [az acr replication create](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) command to create a zone-redundant registry replica in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *westus2*. 
+Run the [az acr replication create](/cli/azure/acr/replication#az_acr_replication_create) command to create a zone-redundant registry replica in a region that [supports availability zones](../availability-zones/az-region.md) for Azure Container Registry, such as *westus2*. 
 
 ```azurecli
 az acr replication create \
@@ -215,7 +215,7 @@ Copy the following contents to a new file and save it using a filename such as `
   }
 ```
 
-Run the following [az deployment group create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) command to create the registry using the preceding template file. Where indicated, provide:
+Run the following [az deployment group create](/cli/azure/group/deployment#az_group_deployment_create) command to create the registry using the preceding template file. Where indicated, provide:
 
 * a unique registry name, or deploy the template without parameters and it will create a unique name for you
 * a location for the replica that supports availability zones, such as *westus2*

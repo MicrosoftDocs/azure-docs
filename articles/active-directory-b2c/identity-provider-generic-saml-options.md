@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -40,8 +40,8 @@ You can also include claims that aren't returned by the identity provider, as lo
 The output claim element contains the following attributes:
 
 - **ClaimTypeReferenceId** is the reference to a claim type. 
-- **PartnerClaimType** is the name of the property that appears in Azure Insights. Use the syntax `{property:NAME}`, where `NAME` is property being added to the event.
-- **DefaultValue** is a predefined value to be recorded, such as event name. A claim that is used in the user journey, such as the identity provider name. If the claim is empty, the default value will be used. For example, the `identityProvider` claim is set by the federation technical profiles, such as Facebook. If the claim is empty, it indicates the user sign-in with a local account. Thus, the default value is set to *Local*. You can also record a [claim resolvers](claim-resolver-overview.md) with a contextual value, such as the application ID, or the user IP address.
+- **PartnerClaimType** is the name of the property that appears SAML assertion. 
+- **DefaultValue** is a predefined default value. If the claim is empty, the default value will be used. You can also use a [claim resolvers](claim-resolver-overview.md) with a contextual value, such as the correlation ID, or the user IP address.
 
 ### Subject name
 

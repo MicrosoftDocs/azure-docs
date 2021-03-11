@@ -31,7 +31,7 @@ To execute the sample scripts, you need a functional setup of [Azure PowerShell]
     1. Open a PowerShell window with admin rights.
     1. Run: `Install-Module -Name Az -AllowClobber`
 
-1. If you get errors about running scripts, ensure your [execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) is set appropriately:
+1. If you get errors about running scripts, ensure your [execution policy](/powershell/module/microsoft.powershell.core/about/about_execution_policies) is set appropriately:
     1. Open a PowerShell window with admin rights.
     1. Run: `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 

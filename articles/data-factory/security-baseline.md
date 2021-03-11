@@ -21,14 +21,13 @@ provides recommendations on how you can secure your cloud solutions on Azure.
 The content is grouped by the **security controls** defined by the Azure
 Security Benchmark and the related guidance applicable to Azure Data Factory. **Controls** not applicable to Azure Data Factory have been excluded.
 
- 
 To see how Azure Data Factory completely maps to the Azure
-Security Benchmark, see the [full Azure Data Factory security baseline mapping
+Security Benchmark, see [full Azure Data Factory security baseline mapping
 file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 
-*For more information, see the [Azure Security Benchmark: Network Security](../security/benchmarks/security-control-network-security.md).*
+*For more information, see [Azure Security Benchmark: Network Security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -46,7 +45,7 @@ Where Private Link is available, use private endpoints to secure any resources b
 
 - [How to create an NSG with a security configuration](../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Join an Azure-SSIS IR to a virtual network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#virtual-network-configuration)
+- [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md#virtual-network-configuration)
 
 - [Understand Azure Private Link](../private-link/private-link-overview.md)
 
@@ -174,7 +173,7 @@ You may use Azure PowerShell or Azure CLI to look up or perform actions on resou
 
 ## Logging and Monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
+*For more information, see [Azure Security Benchmark: Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.2: Configure central security log management
 
@@ -294,7 +293,7 @@ Additionally, ensure that you enable diagnostic settings for services related to
 
 ## Identity and Access Control
 
-*For more information, see the [Azure Security Benchmark: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
+*For more information, see [Azure Security Benchmark: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -497,7 +496,7 @@ If you are running your Integration Runtime in an Azure Virtual Machine (VM), on
 
 ## Data Protection
 
-*For more information, see the [Azure Security Benchmark: Data Protection](../security/benchmarks/security-control-data-protection.md).*
+*For more information, see [Azure Security Benchmark: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -639,7 +638,7 @@ You can store credentials or secret values in an Azure Key Vault and use them du
 
 ## Vulnerability Management
 
-*For more information, see the [Azure Security Benchmark: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
+*For more information, see [Azure Security Benchmark: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -709,7 +708,7 @@ When Security Center identifies vulnerabilities, it presents findings and relate
 
 ## Inventory and Asset Management
 
-*For more information, see the [Azure Security Benchmark: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
+*For more information, see [Azure Security Benchmark: Inventory and Asset Management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -889,7 +888,7 @@ Note that this only applies if your Integration Runtime is running in an Azure V
 
 ## Secure Configuration
 
-*For more information, see the [Azure Security Benchmark: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
+*For more information, see [Azure Security Benchmark: Secure Configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -1062,7 +1061,7 @@ You can also store credentials or secret values in an Azure Key Vault and use th
 
 ## Malware Defense
 
-*For more information, see the [Azure Security Benchmark: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
+*For more information, see [Azure Security Benchmark: Malware Defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally-managed anti-malware software
 
@@ -1104,7 +1103,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 ## Data Recovery
 
-*For more information, see the [Azure Security Benchmark: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
+*For more information, see [Azure Security Benchmark: Data Recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back-ups
 
@@ -1162,7 +1161,7 @@ For any of your data stores, refer to that service's security baseline for guida
 
 ## Incident Response
 
-*For more information, see the [Azure Security Benchmark: Incident Response](../security/benchmarks/security-control-incident-response.md).*
+*For more information, see [Azure Security Benchmark: Incident Response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -1234,7 +1233,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Penetration Tests and Red Team Exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*For more information, see [Azure Security Benchmark: Penetration Tests and Red Team Exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -1250,5 +1249,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
+- see [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
 - Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)

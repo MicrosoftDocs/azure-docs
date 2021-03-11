@@ -71,11 +71,37 @@ Use the `displayName` property to identify the billing account for which you wan
 we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
 -->
 
-<!--
 ### [Azure CLI](#tab/azure-cli-getBillingAccounts-MPA)
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+```azurecli
+> az billing account list
+```
+You will get back a list of all billing accounts that you have access to 
+
+```json
+[
+  {
+    "accountStatus": "Active",
+    "accountType": "Partner",
+    "agreementType": "MicrosoftPartnerAgreement",
+    "billingProfiles": {
+      "hasMoreResults": false,
+      "value": null
+    },
+    "departments": null,
+    "displayName": "Contoso",
+    "enrollmentAccounts": null,
+    "enrollmentDetails": null,
+    "hasReadAccess": true,
+    "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "name": "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx",
+    "soldTo": null,
+    "type": "Microsoft.Billing/billingAccounts"
+  }
+]
+```
+
+Use the displayName property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is MicrosoftPartnerAgreement. Copy the name for the account. For example, to create a subscription for the Contoso billing account, copy 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx. Paste the value somewhere so that you can use it in the next step.
 
 ---
 
@@ -128,11 +154,40 @@ Use the `displayName` property to identify the customer for which you want to cr
 we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
 -->
 
-<!--
+
 ### [Azure CLI](#tab/azure-cli-getCustomers)
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+```json
+> az billing customer list --account-name 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
+```
+
+The API response lists the customers in the billing account with Azure plans. You can create subscriptions for these customers.
+
+```json
+[
+  {
+    "billingProfileDisplayName": "Fabrikam toys Billing Profile",
+    "billingProfileId": "providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "displayName": "Fabrikam toys",
+    "id": "providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "resellers": null,
+    "type": "Microsoft.Billing/billingAccounts/customers"
+  },
+  {
+    "billingProfileDisplayName": "Contoso toys Billing Profile",
+    "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "displayName": "Contoso toys",
+    "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "d49c364c-f866-4cc2-a284-d89f369b7951",
+    "resellers": null,
+    "type": "Microsoft.Billing/billingAccounts/customers"
+  }
+]
+
+```
+
+Use the `displayName` property to identify the customer for which you want to create subscriptions. Copy the `id` for the customer. For example, to create a subscription for `Fabrikam toys`, copy `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Paste the value somewhere to use it in later steps.
 
 ---
 
@@ -142,9 +197,9 @@ This section is optional for Indirect providers only.
 
 If you're an Indirect provider in the CSP two-tier model, you can specify a reseller while creating subscriptions for customers.
 
-Make the following request, with the `id` copied from the second step (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) to list all resellers that are available for a customer.
-
 ### [REST](#tab/rest-getIndirectResellers)
+
+Make the following request, with the `id` copied from the second step (```/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx```) to list all resellers that are available for a customer.
 
 ```json
 GET "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx?$expand=resellers&api-version=2020-05-01"
@@ -180,11 +235,41 @@ Use the `description` property to identify the reseller who is associated with t
 we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
 -->
 
-<!--
 ### [Azure CLI](#tab/azure-cli-getIndirectResellers)
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+Make the following request, with the `name` copied from the first step (```99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```) and customer `name` copied from the previous step (```acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx```).
+
+```azurecli-interactive
+ > az billing customer show --expand "enabledAzurePlans,resellers" --account-name "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --name "acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+```
+
+The API response lists the resellers for the customer:
+
+```json
+{
+  "billingProfileDisplayName": "Fabrikam toys Billing Profile",
+  "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/YL4M-xxxx-xxx-xxx",
+  "displayName": "Fabrikam toys",
+  "enabledAzurePlans": [
+    {
+      "skuDescription": "Microsoft Azure Plan",
+      "skuId": "0001"
+    }
+  ],
+  "id": "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "2ed2c490-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "resellers": [
+    {
+      "description": "Wingtip",
+      "resellerId": "3xxxxx"
+    }
+  ],
+  "type": "Microsoft.Billing/billingAccounts/customers"
+}
+
+```
+
+Use the `description` property to identify the reseller who is associated with the subscription. Copy the `resellerId` for the reseller. For example, to associate `Wingtip`, copy `3xxxxx`. Paste the value somewhere so that you can use it in the next step.
 
 ---
 
@@ -280,7 +365,7 @@ Pass the optional *resellerId* copied from the second step in the `New-AzSubscri
 
 First, install the extension by running `az extension add --name account` and `az extension add --name alias`.
 
-Run the following [az account alias create](/cli/azure/ext/account/account/alias?view=azure-cli-latest#ext_account_az_account_alias_create&preserve-view=true) command. 
+Run the following [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create) command. 
 
 ```azurecli-interactive
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --display-name "Dev Team Subscription" --workload "Production"

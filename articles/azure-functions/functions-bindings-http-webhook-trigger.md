@@ -592,7 +592,7 @@ Using this configuration, the function is now addressable with the following rou
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-This configuration allows the function code to support two parameters in the address, _category_ and _id_.
+This configuration allows the function code to support two parameters in the address, _category_ and _id_. For more information on how route parameters are tokenized in a URL, see [Routing in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/routing#route-constraint-reference).
 
 # [C#](#tab/csharp)
 

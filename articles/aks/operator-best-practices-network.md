@@ -46,15 +46,15 @@ Azure CNI is a vendor-neutral protocol that lets the container runtime make requ
 
 Notably, Azure CNI networking for production allows for separation of control and management of resources. From a security perspective, you often want different teams to manage and secure those resources. With Azure CNI networking, you connect to existing Azure resources, on-premises resources, or other services directly via IP addresses assigned to each pod.
 
-When you use Azure CNI networking, the virtual network resource is in a separate resource group to the AKS cluster. Delegate permissions for the AKS service principal to access and manage these resources. At minimum, the service principal used by the AKS cluster must have [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. 
+When you use Azure CNI networking, the virtual network resource is in a separate resource group to the AKS cluster. Delegate permissions for the AKS cluster identity to access and manage these resources. The cluster identity used by the AKS cluster must have at least [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) permissions on the subnet within your virtual network. 
 
 If you wish to define a [custom role](../role-based-access-control/custom-roles.md) instead of using the built-in Network Contributor role, the following permissions are required:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
-For more information about AKS service principal delegation, see [Delegate access to other Azure resources][sp-delegation]. 
-
-Instead of a service principal, you can also use the system-assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md).
+By default, AKS uses a managed identity for its cluster identity. However, you are able to use a service principal instead. For more information about:
+* AKS service principal delegation, see [Delegate access to other Azure resources][sp-delegation]. 
+* Managed identities, see [Use managed identities](use-managed-identity.md).
 
 As each node and pod receives its own IP address, plan out the address ranges for the AKS subnets. Keep in mind:
 * The subnet must be large enough to provide IP addresses for every node, pods, and network resource that you deploy. 

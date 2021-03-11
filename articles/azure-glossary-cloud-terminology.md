@@ -37,7 +37,7 @@ The compute resources that [Azure App Service](app-service/overview.md) provides
 
 ## availability set
 A collection of virtual machines that are managed together to provide application redundancy and reliability. The use of an availability set ensures that during either a planned or unplanned maintenance event at least one virtual machine is available.  
-See [Manage the availability of Windows virtual machines](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Manage the availability of Linux virtual machines](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="classic-model"></a>Azure classic deployment model
 One of two [deployment models](./azure-resource-manager/management/deployment-models.md) used to deploy resources in Azure (the new model is Azure Resource Manager). Some Azure services support only the Resource Manager deployment model, some support only the classic deployment model, and some support both. The documentation for each Azure service specifies which model(s) they support.
@@ -54,7 +54,7 @@ One of two [deployment models](./azure-resource-manager/management/deployment-mo
 
 ## fault domain
 The collection of virtual machines in an availability set that can possibly fail at the same time. An example is a group of machines in a rack that share a common power source and network switch. In Azure, the virtual machines in an availability set are automatically separated across multiple fault domains.  
-See [Manage the availability of Windows virtual machines](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of Linux virtual machines](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
+See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
 ## geo
 A defined boundary for data residency that typically contains two or more regions. The boundaries may be within or beyond national borders and are influenced by tax regulation. Every geo has at least one region. Examples of geos are Asia Pacific and Japan. Also called *geography*.  
@@ -131,7 +131,7 @@ See [Using tags to organize your Azure resources](./azure-resource-manager/manag
 
 ## update domain
 The collection of virtual machines in an availability set that are updated at the same time. Virtual machines in the same update domain are restarted together during planned maintenance. Azure never restarts more than one update domain at a time. Also referred to as an upgrade domain.  
-See [Manage the availability of Windows virtual machines](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Manage the availability of Linux virtual machines](./virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+See [Manage the availability of Windows virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Manage the availability of Linux virtual machines](./virtual-machines/availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vm"></a>virtual machine
 The software implementation of a physical computer that runs an operating system. Multiple virtual machines can run simultaneously on the same hardware. In Azure, virtual machines are available in a variety of sizes.  

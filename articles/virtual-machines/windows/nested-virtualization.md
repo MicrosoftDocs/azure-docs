@@ -5,7 +5,8 @@ author: cynthn
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: how-to
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure
 ---
 
