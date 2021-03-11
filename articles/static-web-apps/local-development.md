@@ -14,9 +14,9 @@ ms.custom: devx-track-js
 
 When published to the cloud, an Azure Static Web Apps site has many services that work together as if they're the same application. These services include:
 
-- Static web app
-- Authentication and authorization services
+- The static web app
 - Azure Functions API
+- Authentication and authorization services
 
 Running locally, however, these services aren't automatically tied together.
 
@@ -42,8 +42,8 @@ The following chart shows how requests are handled locally.
 ## Prerequisites
 
 - **[Visual Studio Code](https://code.visualstudio.com/)**: Used to debug the API application.
-- **Existing Azure Static Web Apps site**: If you don't have one, begin with the [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) starter.
-- **[Node.js](https://nodejs.org) with npm**: Run the [Node.js LTS](https://nodejs.org) version, which includes access [npm](https://www.npmjs.com/).
+- **Existing Azure Static Web Apps site**: If you don't have one, begin with the [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) starter app.
+- **[Node.js](https://nodejs.org) with npm**: Run the [Node.js LTS](https://nodejs.org) version, which includes access to [npm](https://www.npmjs.com/).
   - _Required_ even if you're developing Blazor apps.
 
 ## Get started
@@ -71,11 +71,13 @@ For instance, when you try to navigate to `/.auth/login/github`, a page is retur
 
 :::image type="content" source="media/local-development/auth-emulator.png" alt-text="Local authentication and authorization emulator":::
 
-This page gives you the chance to provide an account username, user ID, and a list of roles.
+The emulator provides a page allowing you to provide an account username, user ID, and a list of roles.
 
-After logging in, you can use the `/.auth/me` endpoint to retrieve the user's [client principal](./user-information.md).
+Once logged in:
 
-Navigating to `./auth/logout` clears the client principal and logs out the mock user.
+- You can use the `/.auth/me` endpoint to retrieve the user's [client principal](./user-information.md).
+
+- Navigating to `./auth/logout` clears the client principal and logs out the mock user.
 
 ## Debugging
 
@@ -106,6 +108,8 @@ The Static Web Apps CLI is launched using both development servers.
 :::image type="content" source="media/local-development/static-web-apps-cli-terminal.png" alt-text="Azure Static Web Apps CLI terminal":::
 
 Now requests that go through port `4280` are routed to either the static content development server, or the API debugging session.
+
+For more details on additional debugging scenarios, and how to customize ports and server addresses, see the [Azure Static Web Apps CLI repository](https://github.com/Azure/static-web-apps-cli).
 
 ## Next steps
 
