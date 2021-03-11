@@ -14,7 +14,7 @@ ms.date: 03/12/2021
 # Return a semantic answer in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic ranking and semantic answers are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During the initial preview launch, there is no charge for semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic ranking and semantic answers are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 When formulating a [semantic query](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
@@ -75,11 +75,13 @@ The "score" is a confidence score that reflects the strength of the answer. If t
 
 Answers are followed by the "value" array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. For more information about items in the response, see [Create a semantic query](semantic-how-to-query-request.md).
 
+Given the query "how do clouds form", the following answer is returned in the response:
+
 ```json
 {
     "@search.answers": [
         {
-            "key": "aHR0cHM6Ly9oZWlkaXN0YmxvYnN0b3JhZ2UuYmxvYi5jb3JlLndpbmRvd3MubmV0L25hc2EtZWJvb2stMS01MC9wYWdlLTQ1LnBkZg2",
+            "key": "4123",
             "text": "Sunlight heats the land all day, warming that moist air and causing it to rise high into the   atmosphere until it cools and condenses into water droplets. Clouds generally form where air is ascending (over land in this case),   but not where it is descending (over the river).",
             "highlights": "Sunlight heats the land all day, warming that moist air and causing it to rise high into the   atmosphere until it cools and condenses into water droplets. Clouds generally form<em> where air is ascending</em> (over land in this case),   but not where it is<em> descending</em> (over the river).",
             "score": 0.94639826

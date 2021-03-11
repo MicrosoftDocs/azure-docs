@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 03/12/2021
 ---
 # Create a semantic query in Cognitive Search
 
 > [!IMPORTANT]
-> Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During the initial preview launch, there is no charge for semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 In this article, learn how to formulate a search request that uses semantic ranking. The request will return semantic captions, and optionally [semantic answers](semantic-answers.md), with highlights over the most relevant terms and phrases.
 
@@ -57,7 +57,7 @@ Only the top 50 matches from the initial results can be semantically ranked, and
 
 ## Query with Search explorer
 
-[Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after you sign up for the preview. Query options can enable semantic queries, searchFields, and spell correction.
+[Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after you get access to the preview. Query options can enable semantic queries, searchFields, and spell correction.
 
 You can also paste the required query parameters into the query string.
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 03/12/2021
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search

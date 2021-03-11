@@ -69,7 +69,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-## BM25 parameters
+## Set BM25 parameters
 
 BM25 similarity adds two user customizable parameters to control the calculated relevance score. You can set BM25 parameters during index creation, or as an index update if the BM25 algorithm was specified during index creation.
 

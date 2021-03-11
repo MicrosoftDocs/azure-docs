@@ -14,7 +14,7 @@ ms.date: 03/12/2021
 # Semantic ranking in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During the initial preview launch, there is no charge for semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 Semantic ranking is an extension of the query execution pipeline that improves the precision and recall by reranking the top matches. Semantic ranking is backed by a pretrained machine reading comprehension model, trained for queries expressed in natural language as opposed to keyword search. In contrast with the [default ranking algorithm](index-ranking-similarity.md), the semantic ranker uses the context and meaning of words to determine relevance. 
 
