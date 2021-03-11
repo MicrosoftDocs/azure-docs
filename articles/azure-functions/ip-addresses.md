@@ -95,10 +95,12 @@ The set of available outbound IP addresses for a function app might change when 
 
 When your function app runs in a [Consumption plan](consumption-plan.md) or in a [Premium plan](functions-premium-plan.md), the outbound IP address might also change even when you haven't taken any actions such as the ones [listed above](#inbound-ip-address-changes).
 
-To deliberately force an outbound IP address change:
+Use the following procedure to deliberately force an outbound IP address change:
 
 1. Scale your App Service plan up or down between Standard and Premium v2 pricing tiers.
+
 2. Wait 10 minutes.
+
 3. Scale back to where you started.
 
 ## IP address restrictions
@@ -107,7 +109,15 @@ You can configure a list of IP addresses that you want to allow or deny access t
 
 ## Dedicated IP addresses
 
-If you need static, dedicated IP addresses, we recommend [App Service Environments](../app-service/environment/intro.md) (the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) of App Service plans). For more information, see [App Service Environment IP addresses](../app-service/environment/network-info.md#ase-ip-addresses) and [How to control inbound traffic to an App Service Environment](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
+There are a several strategies to explore when your function app requires static, dedicated IP addresses. 
+
+### Virtual network NAT gateway for outbound static IP
+
+You can control the IP address of outbound traffic from your functions by using a virtual network NAT gateway to direct traffic through a static public IP address. You can use this topology when running in a [Premium plan](functions-premium-plan.md). To learn more, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md).
+
+### App Service Environments
+
+For full control over the IP addresses, both inbound and outbound, we recommend [App Service Environments](../app-service/environment/intro.md) (the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) of App Service plans). For more information, see [App Service Environment IP addresses](../app-service/environment/network-info.md#ase-ip-addresses) and [How to control inbound traffic to an App Service Environment](../app-service/environment/app-service-app-service-environment-control-inbound-traffic.md).
 
 To find out if your function app runs in an App Service Environment:
 
