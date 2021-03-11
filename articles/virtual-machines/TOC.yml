@@ -3,6 +3,7 @@
 - name: Overview
   items:
   - name: About Linux Virtual Machines
+    displayName: Linux
     href: ./linux/overview.md
   - name: About Windows Virtual Machines
     href: ./windows/overview.md
