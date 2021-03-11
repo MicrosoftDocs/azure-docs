@@ -14,7 +14,7 @@ ms.author: mikben
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-The Azure Communication Services **Group Calling Hero Sample for Android** demonstrates how the Communication Services Calling iOS client library can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
+The Azure Communication Services **Group Calling Hero Sample for Android** demonstrates how the Communication Services Calling Android client library can be used to build a group calling experience that includes voice and video. In this sample quickstart, you will learn how to set up and run the sample. An overview of the sample is provided for context.
 
 ## Overview
 
@@ -57,11 +57,10 @@ The group calling sample can be run locally using Android Studio. Developers can
 1. Open Android Studio and select `Open an Existing Project`
 2. Open the `ACSCall` folder inside downloaded release for the sample.
 3. Expand app/assets to update `config.properties`. Set the value for the key `token_generation_addr` to be the URL for your Authentication Endpoint set up as a prerequisite.
-4. Build/Run
 
 ### Run sample
 
-Build and run the sample in XCode.
+Build and run the sample in Android Studio.
 
 ## (Optional) Securing an authentication endpoint
 
