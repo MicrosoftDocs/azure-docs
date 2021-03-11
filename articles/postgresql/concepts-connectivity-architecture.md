@@ -69,6 +69,8 @@ The following table lists the gateway IP addresses of the Azure Database for Pos
 | South Africa West	| 102.133.24.0	 | | |
 | South Central US |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
 | South East Asia | 40.78.233.2, 23.98.80.12	 | 104.43.15.0 | |
+| Switzerland North | 51.107.56.0 ||
+| Switzerland West | 51.107.152.0| ||
 | UAE Central | 20.37.72.64	 | | |
 | UAE North | 65.52.248.0	 | | |
 | UK South | 51.140.184.11	 | | |
