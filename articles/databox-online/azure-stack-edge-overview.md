@@ -7,19 +7,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/10/2021
+ms.date: 03/11/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 # What is Azure Stack Edge Pro with FPGA?
-
-[!INCLUDE [data-box-edge-gateway-rename-note](../../includes/data-box-edge-gateway-rename-note.md)]
 
 [!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 Azure Stack Edge Pro with FPGA is an AI-enabled edge computing device with network data transfer capabilities. This article provides you an overview of the Azure Stack Edge Pro with FPGA solution, benefits, key capabilities, and deployment scenarios.
 
 Azure Stack Edge Pro with FPGA is a Hardware-as-a-service solution. Microsoft ships you a cloud-managed device with a built-in Field Programmable Gate Array (FPGA) that enables accelerated AI-inferencing and has all the capabilities of a network storage gateway. 
+
+[!INCLUDE [data-box-edge-gateway-rename-note](../../includes/data-box-edge-gateway-rename-note.md)]
 
 ## Use cases
 
@@ -63,9 +63,12 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
     
 * **Azure Stack Edge resource** – a resource in the Azure portal that lets you manage an Azure Stack Edge Pro device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
 
-    <!--![The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
+   <!--[The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    For more information, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md#create-a-new-resource).
+   For more information, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md#create-a-new-resource).
+
+   > [!IMPORTANT]
+   > Existing customers who need to reset or replace their device can use this procedure to create a new order for the existing device. To order a new device, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal.md#create-a-new-resource). For more information, see [What is Azure Stack Edge Pro with GPU?](https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-overview).<!--Revisit transition from sentence 2 to sentence 3.-->
 
 * **Azure Stack Edge Pro local web UI** - Use the local web UI to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
 
