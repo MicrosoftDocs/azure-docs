@@ -135,10 +135,10 @@ If you created the certificates on a different machine, copy them over to your I
 
 1. Save and close the file.
 
-1. Restart IoT Edge.
+1. Apply your changes.
 
    ```bash
-   sudo iotedge system restart
+   sudo iotedge config apply
    ```
 
 :::moniker-end
