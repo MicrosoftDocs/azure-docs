@@ -24,10 +24,9 @@ To add nodes, go to the **Compute + storage** tab in your Hyperscale (Citus) ser
 group.  Dragging the slider for **Worker node count** changes the value.
 
 > [!NOTE]
-> A Hyperscale (Citus) server group created with the [starter plan
-> (preview)](concepts-hyperscale-starter-plan.md) has no workers. Increasing
-> the worker count automatically graduates the server group to the standard
-> plan.
+> A Hyperscale (Citus) server group created with the [basic tier
+> (preview)](concepts-hyperscale-tiers.md) has no workers. Increasing the
+> worker count automatically graduates the server group to the standard tier.
 
 :::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
 

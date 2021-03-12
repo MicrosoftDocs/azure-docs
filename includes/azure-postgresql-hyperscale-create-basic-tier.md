@@ -33,7 +33,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
    > The server admin password that you specify here is required to log in to the server and its databases. Remember or record this information for later use.
 
 5. Click **Configure server group**.
-   - Select the **Starter** radio button for the **Plan**.
+   - Select the **Basic** radio button for the **Tier**.
    - Click **Save**.
 6. Click **Next : Networking >** at the bottom of the screen.
 

@@ -53,7 +53,7 @@ options](concepts-hyperscale-configuration-options.md) article.
 ## Choosing a Hyperscale (Citus) plan
 
 > [!IMPORTANT]
-> The Hyperscale (Citus) starter plan is currently in public preview.  This
+> The Hyperscale (Citus) basic tier is currently in public preview.  This
 > preview version is provided without a service level agreement, and it's not
 > recommended for production workloads. Certain features might not be supported
 > or might have constrained capabilities.  For more information, see
@@ -62,16 +62,16 @@ options](concepts-hyperscale-configuration-options.md) article.
 
 The sections above give an idea how many vCores and how much RAM are needed for
 each use case. You can meet these demands through a choice between two
-Hyperscale (Citus) plans: the starter plan and the standard plan.
+Hyperscale (Citus) tiers: the basic tier and the standard tier.
 
-The starter plan uses a single database node to perform processing, while the
-standard plan allows more nodes. The plans are otherwise identical, offering
+The basic tier uses a single database node to perform processing, while the
+standard tier allows more nodes. The tiers are otherwise identical, offering
 the same features. In some cases, a single node's vCores and disk space can be
 scaled to suffice, and in other cases it requires the cooperation of multiple
 nodes.
 
-For a comparison of the plans, see the [starter
-plan](concepts-hyperscale-starter-plan.md) concepts page.
+For a comparison of the tiers, see the [basic
+tier](concepts-hyperscale-basic-tier.md) concepts page.
 
 ## Next steps
 

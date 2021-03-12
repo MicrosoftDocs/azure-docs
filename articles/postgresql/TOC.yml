@@ -560,9 +560,9 @@
     items:
     - name: Create server group
       items:
-      - name: Starter plan (preview)
-        href: quickstart-create-hyperscale-starter-plan.md
-      - name: Standard plan
+      - name: Basic tier (preview)
+        href: quickstart-create-hyperscale-basic-tier.md
+      - name: Standard tier
         href: quickstart-create-hyperscale-portal.md
         displayName: portal, create hyperscale
   - name: Tutorials
@@ -581,8 +581,8 @@
         displayName: hyperscale, tutorial, real-time
   - name: Concepts
     items:
-    - name: Starter plan
-      href: concepts-hyperscale-starter-plan.md
+    - name: Basic tier
+      href: concepts-hyperscale-tiers.md
     - name: Distributed data
       items:
       - name: Nodes and tables
