@@ -18,25 +18,21 @@ In this tutorial, you configure continuous deployment for a custom container ima
 
 ## 1. Go to Deployment Center
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the management page for your App Service app.
+In the [Azure portal](https://portal.azure.com), navigate to the management page for your App Service app.
 
-1. From the left menu, click **Deployment Center** > **Settings**. 
+From the left menu, click **Deployment Center** > **Settings**. 
 
 ::: zone pivot="container-linux"
 ## 2. Choose deployment source
 
-Linux containers support CI/CD from the container registry directly. They also support CI/CD from farther upstream, at the source repository for the container registry.
+The **GitHub Actions** option is for you if you maintain the source code for your container image in GitHub. Triggered by new commits to your GitHub repository, the deploy action can run `docker build` and `docker push` directly to your container registry, then update your App Service app to run the new image. As an alternative, you can deploy continuously with **Azure Pipelines** (see [Deploy an Azure Web App Container from Azure Pipelines](/devops/pipelines/targets/webapp-on-container-linux)).
 
-1. Choose the deployment source. 
+> [!NOTE]
+> For a Docker Compose app, select **Container Registry**.
 
-     The **GitHub Actions** option is for you if you maintain the source code for your container image in GitHub. Triggered by new commits to your GitHub repository, the deploy action can run `docker build` and `docker push` directly to your container registry, then update your App Service app to run the new image. As an alternative, you can deploy continuously with **Azure Pipelines** (see [Deploy an Azure Web App Container from Azure Pipelines](/devops/pipelines/targets/webapp-on-container-linux)).
+If you choose GitHub Actions, click **Authorize** and follow the authorization prompts. If you've already authorized with GitHub before, you can deploy from a different user's repository by clicking **Change Account**.
 
-    > [!NOTE]
-    > For a Docker Compose app, select **Container Registry**.
-
-1. If you choose GitHub Actions, click **Authorize** and follow the authorization prompts. If you've already authorized with GitHub before, you can deploy from a different user's repository by clicking **Change Account**.
-
-1. Once you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to deploy from.
+Once you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to deploy from.
 
 For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-with-github-actions).
 ::: zone-end  
@@ -47,86 +43,76 @@ For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-
 ::: zone pivot="container-linux"
 ## 3. Configure registry settings
 
-1. To deploy a multi-container (Docker Compose) app, select **Docker Compose** in **Container Type**.
+To deploy a multi-container (Docker Compose) app, select **Docker Compose** in **Container Type**.
 
-    If you don't see the **Container Type** dropdown, scroll back up to **Source** and select **Container Registry**.
+If you don't see the **Container Type** dropdown, scroll back up to **Source** and select **Container Registry**.
 ::: zone-end
 
-1. In **Registry source**, choose where your container registry is. If it's neither Azure Container Registry nor Docker Hub, select **Private Registry**.
+In **Registry source**, choose where your container registry is. If it's neither Azure Container Registry nor Docker Hub, select **Private Registry**.
 
 ::: zone pivot="container-linux"
-   > [!NOTE]
-   > If your multi-container (Docker Compose) app uses more than one private image, the private images should be in the same private registry and accessible with the same user credentials. If your multi-container app only uses public images, choose **Docker Hub**, even if some images are not in Docker Hub.
+> [!NOTE]
+> If your multi-container (Docker Compose) app uses more than one private image, the private images should be in the same private registry and accessible with the same user credentials. If your multi-container app only uses public images, choose **Docker Hub**, even if some images are not in Docker Hub.
 ::: zone-end  
 
-   Follow the next steps by selecting the tab that matches your choice.
+Follow the next steps by selecting the tab that matches your choice.
 
 # [Azure Container Registry](#tab/acr)
 
-::: zone pivot="container-windows"
-2. The **Registry** dropdown displays the registries in the same subscription as your app. Select the registry you want.
-::: zone-end
-::: zone pivot="container-linux"
-3. The **Registry** dropdown displays the registries in the same subscription as your app. Select the registry you want.
-::: zone-end
+The **Registry** dropdown displays the registries in the same subscription as your app. Select the registry you want.
 
-   > [!NOTE]
-   > To deploy from a registry in a different subscription, choose **Private Registry** in **Registry source** instead.
+> [!NOTE]
+> To deploy from a registry in a different subscription, choose **Private Registry** in **Registry source** instead.
 
 ::: zone pivot="container-windows"
-1. Select the **Image** and **Tag** to deploy. If you want, type the start up command in **Startup File**. 
+Select the **Image** and **Tag** to deploy. If you want, type the start up command in **Startup File**. 
 ::: zone-end
 ::: zone pivot="container-linux"
-1. Follow the next step depending on the **Container Type**:
-    - For **Docker Compose**, choose the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just paste the content of your Docker Compose file into **Config**.
-    - For **Single Container**, select the **Image** and **Tag** to deploy. If you want, type the start up command in **Startup File**. 
+Follow the next step depending on the **Container Type**:
+- For **Docker Compose**, choose the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just paste the content of your Docker Compose file into **Config**.
+- For **Single Container**, select the **Image** and **Tag** to deploy. If you want, type the start up command in **Startup File**. 
 ::: zone-end
 
-   App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
+App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
 
 # [Docker Hub](#tab/dockerhub)
 
 ::: zone pivot="container-windows"
-2. In **Repository Access**, select whether the image to deploy is public or private.
+In **Repository Access**, select whether the image to deploy is public or private.
 ::: zone-end
 ::: zone pivot="container-linux"
-3. In **Repository Access**, select whether the image to deploy is public or private. For a Docker Compose app with one or more private images, select **Private**.
+In **Repository Access**, select whether the image to deploy is public or private. For a Docker Compose app with one or more private images, select **Private**.
 ::: zone-end
 
-1. If you select a private image, specify the **Login** (username) and **Password** of the Docker account.
+If you select a private image, specify the **Login** (username) and **Password** of the Docker account.
 
 ::: zone pivot="container-windows"
-1. Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
+Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
 ::: zone-end
 ::: zone pivot="container-linux"
-1. Follow the next step depending on the **Container Type**:
-    - For **Docker Compose**, choose the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just paste the content of your Docker Compose file into **Config**.
-    - For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
+Follow the next step depending on the **Container Type**:
+- For **Docker Compose**, choose the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just paste the content of your Docker Compose file into **Config**.
+- For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
 ::: zone-end
 
-   App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
+App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
 
 # [Private Registry](#tab/private)
 
-::: zone pivot="container-windows"
-2. In **Server URL**, type the URL of the server, beginning with **https://**.
-::: zone-end
-::: zone pivot="container-linux"
-3. In **Server URL**, type the URL of the server, beginning with **https://**.
-::: zone-end
+In **Server URL**, type the URL of the server, beginning with **https://**.
 
-1. In **Login**, and **Password** type your login credentials for your private registry.
+In **Login**, and **Password** type your login credentials for your private registry.
 
 ::: zone pivot="container-windows"
-1. Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
+Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
 ::: zone-end
 ::: zone pivot="container-linux"
-1. Follow the next step depending on the **Container Type**:
-    - For **Docker Compose**, choose the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just paste the content of your Docker Compose file into **Config**.
-    - For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
+Follow the next step depending on the **Container Type**:
+- For **Docker Compose**, choose the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just paste the content of your Docker Compose file into **Config**.
+- For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
 ::: zone-end
 
-   App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
+App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
 
 -----
 
