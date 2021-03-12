@@ -105,6 +105,8 @@
       href: ./samples/nist-sp-800-171-r2.md
   - name: Guest Configuration baselines
     items:
+    - name: Linux baseline for Azure Security Benchmark
+      href: ./samples/guestconfig-baseline-linux.md
     - name: Windows baseline for Azure Security Benchmark
       href: ./samples/guestconfig-baseline-windows.md
 - name: Concepts
