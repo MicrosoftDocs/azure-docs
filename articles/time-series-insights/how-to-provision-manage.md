@@ -36,5 +36,5 @@ You can manage your Azure Time Series Insights Gen2 environment by using the [Az
 
 ## Next steps
 
-* Review the list of [streaming ingestion best practices](./concepts-streaming-ingestion-event-source.mds#streaming-ingestion-best-practices)
+* Review the list of [streaming ingestion best practices](./concepts-streaming-ingestion-event-source.md#streaming-ingestion-best-practices)
 * Understand how to [diagnose and troubleshoot](./how-to-diagnose-troubleshoot.md)
