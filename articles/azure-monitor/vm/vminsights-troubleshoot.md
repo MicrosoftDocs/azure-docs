@@ -10,7 +10,10 @@ ms.custom: references_regions
 ---
 
 # Troubleshoot VM insights
-When onboarding an Azure cirtual machine from the Azure portal, the following steps occur:
+This article provides troubleshooting information for when you have problems enabling or using VM insights.
+
+## Cannot enable VM Insights on a machine
+When onboarding an Azure virtual machine from the Azure portal, the following steps occur:
 
 - A default Log Analytics workspace is created if that option was selected.
 - The Log Analytics agent is installed on Azure virtual machines using a VM extension if the agent is already installed.
@@ -18,17 +21,15 @@ When onboarding an Azure cirtual machine from the Azure portal, the following st
   
 During the onboarding process, each of these steps is verified and a notification status shown in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. It will take another 5 to 10 minutes for data to become available to view in the portal.
 
-If you receive a message that the virtual machine needs to be onboarded after you've performed the onboarding process, allow for up to 30 minutes for the process to be completed.
+If you receive a message that the virtual machine needs to be onboarded after you've performed the onboarding process, allow for up to 30 minutes for the process to be completed. If the issue persists, then see the following sections for possible causes.
 
-If the issue persists, then see the following sections for possible causes.
-
-## Is the virtual machine is running?
+### Is the virtual machine running?
  If the virtual machine has been turned off for a while, is off currently, or was only recently turned on then you won't have data to display for a bit until data arrives.
 
-## Is the operating system supported?
+### Is the operating system supported?
 If the operating system is not in the list of [supported operating systems](vminsights-enable-overview.md#supported-operating-systems) then the extension will fail to install and you will see this message that we are waiting for data to arrive.
 
-## Did the extension install properly?
+### Did the extension install properly?
 If you still see a message  that the virtual machine needs to be onboarded, it may mean that one or both of the extensions failed to install correctly. Check the **Extensions** page for your virtual machine in the Azure portal to verify that the following extensions are listed.
 
 | Operating system | Agents | 
@@ -36,16 +37,36 @@ If you still see a message  that the virtual machine needs to be onboarded, it m
 | Windows | MicrosoftMonitoringAgent<br>Microsoft.Azure.Monitoring.DependencyAgent |
 | Linux | OMSAgentForLinux<br>DependencyAgentForLinux |
 
-- If you do not see the both extensions for your operating system in the list of installed extensions, then they need to be installed. 
-- If the status does not appear as *Provisioning succeeded* then the extension should be removed and reinstalled.
+If you do not see the both extensions for your operating system in the list of installed extensions, then they need to be installed. If the extensions are listed but their status does not appear as *Provisioning succeeded*, then the extension should be removed and reinstalled.
 
-## Do you have connectivity issues?
+### Do you have connectivity issues?
 For Windows machines, you can use the  *TestCloudConnectivity* tool to identify connectivity issue. This tool is installed by default with the agent in the folder *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. Run the tool from an elevated command prompt. It will return results and highlight where the test fails. 
 
+### More agent troubleshooting
 
+See the following articles for troubleshooting issues with the Log Analytics agent:
 
+- [How to troubleshoot issues with the Log Analytics agent for Windows](../agents/agent-windows-troubleshoot.md)
+- [How to troubleshoot issues with the Log Analytics agent for Linux](../agents/agent-linux-troubleshoot.md)
 
-For more information refer [Troubleshoot Connectivity issues.
+## Performance view has no data
+If the agents appear to be installed correctly but you don't see any data in the Performance view, then see the following sections for possible causes.
+
+### Has your Log Analytics workspace reached its data limit?
+Check the [capacity reservations and the pricing for data ingestion](https://azure.microsoft.com/pricing/details/monitor/).
+
+### Is your virtual machine sending log and performance data to Azure Monitor Logs?
+
+Open Log Analytics from **Logs** in the Azure Monitor menu in the Azure portal. Run the following query for your computer:
+
+```kuso
+Usage 
+| where Computer == "admdemo-appsvr" 
+| summarize sum(Quantity), any(QuantityUnit) by DataType
+```
+
+If you don't see any data, then you may have problems with your agent. See the section above for agent troubleshooting information.
+
 ## Next steps
 
-To learn how to use the Performance monitoring feature, see [View VM insights Performance](../vm/vminsights-performance.md). To view discovered application dependencies, see [View VM insights Map](../vm/vminsights-maps.md).
+- For details on onboarding VM insights agents, see [Enable VM insights overview](vminsights-enable-overview.md).
