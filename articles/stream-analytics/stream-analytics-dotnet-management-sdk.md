@@ -204,8 +204,8 @@ The **TestConnection** method tests whether the Stream Analytics job is able to 
    ```
 The result of the TestConnection call is a *ResourceTestResult* object that contains two properties:
 
-1. *status*: it can be one of the following strings: ["TestNotAttempted", "TestSucceeded", "TestFailed"]
-2. *error*: is of type ErrorResponse containing the following properties:
+- *status*: It can be one of the following strings: ["TestNotAttempted", "TestSucceeded", "TestFailed"]
+- *error*: It's of type ErrorResponse containing the following properties:
    - *code*: a required property of type string. The value is standard System.Net.HttpStatusCode received while testing.
    - *message*: a required property of type string representing the error. 
 
