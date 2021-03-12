@@ -46530,11 +46530,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-container-faq.md",
-      "redirect_url": "http://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/concepts-gating-overview.md",
       "redirect_url": "http://docs.microsoft.com/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice",
       "redirect_document_id": false
@@ -64596,6 +64591,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-python.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-fabric/service-fabric-best-practices-overview.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
       "redirect_document_id": false
     }
   ]
