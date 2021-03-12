@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/01/2021
+ms.date: 03/12/2021
 ---
 
 # Copy data from an SAP table by using Azure Data Factory
