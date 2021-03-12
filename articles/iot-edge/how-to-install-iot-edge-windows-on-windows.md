@@ -16,6 +16,8 @@ monikerRange: "iotedge-2018-06"
 
 # Install and manage Azure IoT Edge with Windows containers
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 The Azure IoT Edge runtime is what turns a device into an IoT Edge device. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud. To learn more, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
 There are two steps to setting up an IoT Edge device. The first step is to install the runtime and its dependencies. The second step is to connect the device to its identity in the cloud and set up authentication with IoT Hub.
