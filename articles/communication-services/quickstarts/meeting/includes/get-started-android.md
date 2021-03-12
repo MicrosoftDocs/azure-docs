@@ -29,14 +29,14 @@ Select "Empty Activity" project template under "Phone and Tablet".
 
 :::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen.":::
 
-Name the project `TeamsEmbedAndroidGettingStarted` and select Minimum client library of "API 21: Android 5.0 (Lollipop)" or greater.
+Name the project `TeamsEmbedAndroidGettingStarted`, set language to java and select Minimum client library of "API 21: Android 5.0 (Lollipop)" or greater.
 
 :::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Screenshot showing the 'Empty Activity' option selected in the Project Template Screen 2.":::
 
 
 ### Install the Azure package
 
-In your module level build.gradle add the following lines to the dependencies and android sections
+In your app level build.gradle add the following lines to the dependencies and android sections
 
 ```groovy
 android {
@@ -44,14 +44,11 @@ android {
     packagingOptions {
         pickFirst  'META-INF/*'
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 }
+```
 
+```groovy
 dependencies {
-
     ...
     implementation 'com.azure.android:azure-communication-common:1.0.0-beta.6'
     ...
@@ -66,13 +63,42 @@ Then unzip the MicrosoftTeamsSDK folder into your projects app folder. Ex. `Team
 
 ### Add Teams Embed package to your build.gradle
 
-In your module level build.gradle add the following line at the end of the file.
+In your app level build.gradle add the following line at the end of the file.
 
 ```groovy
 apply from: 'MicrosoftTeamsSDK/MicrosoftTeamsSDK.gradle'
 ```
 
 Sync project with gradle files.
+
+### Create application class
+
+Create new java class file named `TeamsEmbedAndroidGettingStarted`. This will be the application class which must extend `TeamsSDKApplication`. [Android Documentation](https://developer.android.com/reference/android/app/Application)
+
+:::image type="content" source="../media/android/application-class-location.png" alt-text="Screenshot showing where to create application class in Android Studio":::
+
+```java
+package com.microsoft.teamsembedandroidgettingstarted;
+
+import com.microsoft.teamssdk.app.TeamsSDKApplication;
+
+public class TeamsEmbedAndroidGettingStarted extends TeamsSDKApplication {
+}
+```
+
+### Update themes
+
+Set the style name to `AppTheme` in both your `theme.xml` and `theme.xml (night)` files.
+
+:::image type="content" source="../media/android/theme-settings.png" alt-text="Screenshot showing the theme.xml files in Android Studio":::
+
+```xml
+<style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+```
+
+```xml
+<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+```
 
 ### Add permissions to application manifest
 
@@ -98,7 +124,7 @@ Add `xmlns:tools="http://schemas.android.com/tools" to the manifest.
     package="com.yourcompany.TeamsEmbedAndroidGettingStarted">
 ```
 
-Add the app name to `android:name`, add `android:name` to `tools:replace`, and change the `android:theme` to `@style/AppTheme`
+Add `.TeamsEmbedAndroidGettingStarted` to `android:name`, `android:name` to `tools:replace`, and change the `android:theme` to `@style/AppTheme`
 
 ```xml
 <application
@@ -110,16 +136,6 @@ Add the app name to `android:name`, add `android:name` to `tools:replace`, and c
     android:label="@string/app_name"
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true">
-```
-
-### Update themes
-
-Set the style name to `AppTheme` in both your `theme.xml` and `theme.xml (night)` files.
-
-:::image type="content" source="../media/android/theme-settings.png" alt-text="Screenshot showing the theme.xml files in Android Studio":::
-
-```xml
-<style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
 ```
 
 ### Set up the layout for the app
@@ -145,21 +161,6 @@ Create a button with an ID of `join_meeting`. Navigate to (`app/src/main/res/lay
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-```
-
-### Create application class
-
-Create new java class file named `TeamsEmbedAndroidGettingStarted`. This will be the application class which must extend `TeamsSDKApplication`.
-
-:::image type="content" source="../media/android/application-class-location.png" alt-text="Screenshot showing where to create application class in Android Studio":::
-
-```java
-package com.microsoft.teamsembedandroidgettingstarted;
-
-import com.microsoft.teamssdk.app.TeamsSDKApplication;
-
-public class TeamsEmbedAndroidGettingStarted extends TeamsSDKApplication {
-}
 ```
 
 ### Create the main activity scaffolding and bindings
