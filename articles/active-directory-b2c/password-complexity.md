@@ -209,7 +209,7 @@ The following technical profiles are [Active Directory technical profiles](activ
 </ClaimsProviders>-->
 ```
 
-If you use the [username based sign-in](https://github.com/azure-ad-b2c/samples/tree/master/policies/username-signup-or-signin) poilcy, update the `AAD-UserWriteUsingLogonEmail`, `AAD-UserWritePasswordUsingObjectId`, and `LocalAccountWritePasswordUsingObjectId` technical profiles with the *DisableStrongPassword* policy.
+If you use the [username based sign-in](https://github.com/azure-ad-b2c/samples/tree/master/policies/username-signup-or-signin) policy, update the `AAD-UserWriteUsingLogonEmail`, `AAD-UserWritePasswordUsingObjectId`, and `LocalAccountWritePasswordUsingObjectId` technical profiles with the *DisableStrongPassword* policy.
 
 Save the policy file.
 
