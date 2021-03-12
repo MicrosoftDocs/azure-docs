@@ -6,7 +6,7 @@ ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 03/11/2021
+ms.date: 03/12/2021
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---
@@ -122,7 +122,8 @@ Now that you have completed the issuance portion of the tutorial and you have a 
 5. Open Authenticator in the Credentials tab and tap on the QR code icon.
 
     >[!IMPORTANT]
-    >On iOS, it is the top right and on Android it is the bottom right. Scan the QR code and choose **Allow** on the new permission request screen in Authenticator.  
+    >On iOS, it is the top right and on Android it is the bottom right. Scan the QR code and choose 
+6. **Allow** on the new permission request screen in Authenticator.  
 
 After a successful presentation three things should have been updated:
 
