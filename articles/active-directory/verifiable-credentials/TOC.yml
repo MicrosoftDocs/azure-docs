@@ -8,10 +8,10 @@
 - name: Tutorials
   expanded: true
   items:
+  - name: Try verifiable credentials using our sample app
+    href: tutorial-0-setup-verifiable-credentials-using-our-sample-app.md
   - name: Configure verifiable credentials in your tenant
     items:
-    - name: Try verifiable credentials using our sample app
-      href: tutorial-0-setup-verifiable-credentials-using-our-sample-app.md
     - name: Set up Verifiable Credentials issuer in your own Azure AD
       href: tutorial-01-verifiable-credentials-issuer.md
     - name: Create a sample credential in your issuer
