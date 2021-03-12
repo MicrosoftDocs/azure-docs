@@ -346,6 +346,8 @@
     items: 
     - name: From DB2
       href: migration-guides/database/db2-to-sql-database-guide.md
+    - name: From Oracle
+      href: migration-guides/database/oracle-to-sql-database-guide.md
     - name: From SQL Server
       items: 
       - name: Overview
@@ -789,6 +791,8 @@
     items: 
     - name: From DB2
       href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+    - name: From Oracle
+      href: migration-guides/managed-instance/oracle-to-managed-instance-guide.md
     - name: From SQL Server
       items: 
       - name: Overview
@@ -1303,10 +1307,13 @@
     items: 
       - name: Overview
         href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
-      - name: From SQL Server
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
       - name: From DB2
         href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
+      - name: From Oracle
+        href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md
+      - name: From SQL Server
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+
         
 - name: Reference
   items:
