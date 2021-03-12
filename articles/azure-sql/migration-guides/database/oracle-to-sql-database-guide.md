@@ -60,7 +60,7 @@ To create an assessment, follow these steps:
 
    For example: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2020_11_12T02_47_55\`
 
-   ![Assessment Report](./media/oracle-to-sql-database-guide/assessment-report.png)
+   ![Assessment Report](./media/oracle-to-sql-database-guide/assessment-report.png) 
 
 
 ### Validate data types
