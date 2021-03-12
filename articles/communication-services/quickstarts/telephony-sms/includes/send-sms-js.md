@@ -25,7 +25,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- A SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
+- An SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
 
 ### Prerequisite check
 
@@ -89,14 +89,14 @@ const smsClient = new SmsClient(connectionString);
 
 ## Send a 1:N SMS message
 
-To send a SMS message to a list of recipients, call the `send` function from the SmsClient with a list of recipients phone numbers (if you wish to send a message to a single recipient, only include one number in the list). Add this code to the end of the **send-sms.js**:
+To send an SMS message to a list of recipients, call the `send` function from the SmsClient with a list of recipients phone numbers (if you wish to send a message to a single recipient, only include one number in the list). Add this code to the end of the **send-sms.js**:
 
 ```javascript
 async function main() {
   const sendResults = await smsClient.send({
     from: "<from-phone-number>",
     to: ["<to-phone-number-1>", "<to-phone-number-2>"],
-    message: "Hello World 👋🏻 via Sms"
+    message: "Hello World 👋🏻 via SMS"
   });
 
   // individual messages can encounter errors during sending
