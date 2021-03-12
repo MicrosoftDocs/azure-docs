@@ -27,10 +27,10 @@ landingContent:
         url: https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement
     - linkListType: how-to-guide
       links:
-      - text: Get started with your agreement (placeholder)
-        url: ../manage/create-subscription.md
-      - text: Access subscriptions (placeholder)
-        url: ../manage/create-subscription.md
+#      - text: Get started with your agreement (placeholder)
+#        url: ../manage/create-subscription.md
+#      - text: Access subscriptions (placeholder)
+#        url: ../manage/create-subscription.md
       - text: Move from credit card to invoice
         url: ../manage/mca-request-billing-ownership.md
       - text: Access subscriptions with domain ID
@@ -47,34 +47,41 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: What is a billing profile and how do I manage it?
-        url: ../manage/mca-section-invoice.md
       - text: Understand my billing cycle
         url: ../understand/mca-understand-your-invoice.md#billing-period
+    - linkListType: tutorial
+      links:
       - text: Receive a bill under my agreement
         url: ../understand/review-customer-agreement-bill.md
-      - text: Pay my bill
-        url: /microsoft-365/commerce/billing-and-payments/pay-for-your-subscription?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
-      - text: Move from credit card to invoice (placeholder)
+    - linkListType: how-to-guide
+      links:
+      - text: What is a billing profile and how do I manage it?
         url: ../manage/mca-section-invoice.md
+      - text: Pay my bill (why point to M365 article? We need to link to Azure docs)
+        url: /microsoft-365/commerce/billing-and-payments/pay-for-your-subscription?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+#      - text: Move from credit card to invoice (placeholder)
+#        url: ../manage/mca-section-invoice.md
       - text: Set up an administrator to manage billing
         url: ../manage/understand-mca-roles.md
       - text: Start billing for my agreement
         url: ../manage/mca-request-billing-ownership.md
-      - text: View my agreement invoice (video)
+      - text: Find my subscription owner
+        url: ../manage/add-change-subscription-administrator.md#assign-a-subscription-administrator
+    - linkListType: video
+      links:
+      - text: View my agreement invoice
         url: https://www.youtube.com/watch?v=e2LGZZ7GubA
-      - text: Find my subscription owner (not good)
-        url: ../../role-based-access-control/classic-administrators.md#view-the-account-administrator
+
 
   # Card (optional)
   - title: Manage subscriptions
     linkLists:
-    - linkListType: how-to-guide
+    - linkListType: overview
       links:
       - text: What is a tenant?
         url: ../../active-directory/fundamentals/active-directory-whatis.md
-      - text: Manage multiple tenants (placeholder)
-        url: ../manage/create-subscription.md
-      - text: Manage subscriptions in multiple tenants (placeholder)
-        url: ../manage/create-subscription.md
+#      - text: Manage multiple tenants (placeholder)
+#        url: ../manage/create-subscription.md
+#      - text: Manage subscriptions in multiple tenants (placeholder)
+#        url: ../manage/create-subscription.md
 
