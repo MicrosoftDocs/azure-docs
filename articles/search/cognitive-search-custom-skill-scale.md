@@ -34,7 +34,7 @@ On the [custom skill](cognitive-search-custom-skill-web-api.md) set the followin
 
 1. Set `batchSize` of the custom skill to configure the number of records sent to the skill in a single invocation of the skill.
 
-2. Set the `degreeOfParallelism` to caliberate the number of concurrent requests the indexer will make to your skill.
+2. Set the `degreeOfParallelism` to calibrate the number of concurrent requests the indexer will make to your skill.
 
 3. Set `timeout`to a value sufficient for the skill to respond with a valid response.
 
@@ -46,9 +46,9 @@ Setting these variables to optimize the indexers performance requires determinin
 
 * What is the skill invocation cardinality? Does the skill execute once for each document, for instance a document classification skill, or could the skill execute multiple times per document, a paragraph classification skill?
 
-* On average how many documents are read from the data source to fill out a skill request based on the skill batch size? Ideally, this should be less than the indexer batch size. With batch sizes greater than 1 your skill can recieve records from multiple source documents. For example if the indexer batch count is 5 and the skill batch count is 50 and each document generates only 5 records, the indexer will need to fill a custom skill request across multiple indexer batches.
+* On average how many documents are read from the data source to fill out a skill request based on the skill batch size? Ideally, this should be less than the indexer batch size. With batch sizes greater than 1 your skill can receive records from multiple source documents. For example if the indexer batch count is 5 and the skill batch count is 50 and each document generates only five records, the indexer will need to fill a custom skill request across multiple indexer batches.
 
-* The average number of requests an indexer batch can generate should give you an optimal setting for the degrees of parallelism. If your infrastructure hosting the skill cannot support that level of concurrency, consider dialing down the degreees of parallelism. As a best practice, test your configuration with a small number of documents to validate your choices on the parameters.
+* The average number of requests an indexer batch can generate should give you an optimal setting for the degrees of parallelism. If your infrastructure hosting the skill cannot support that level of concurrency, consider dialing down the degrees of parallelism. As a best practice, test your configuration with a few documents to validate your choices on the parameters.
 
 * Testing with a smaller sample of documents, evaluate the execution time of your skill to the overall time taken to process the subset of documents. Does your indexer spend more time building a batch or waiting for a response from your skill? 
 
@@ -70,7 +70,7 @@ Any status code over 299 is evaluated as an error and all the enrichments are fa
 
 * `Could not execute skill because the Web Api request failed.` Most likely caused by authorization errors or exceptions.
 
-* `Could not execute skill.` Commonly the result of the skill response being mapped to an existing property in the ocument hierarchy.
+* `Could not execute skill.` Commonly the result of the skill response being mapped to an existing property in the document hierarchy.
 
 ## Testing custom skills
 
