@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/11/2021
+ms.date: 03/12/2021
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -87,16 +87,6 @@ The API response lists all enrollment accounts you have access to:
 ```
 
 The values for a billing scope and `id` are the same thing. The `id` for your enrollment account is the billing scope under which the subscription request is initiated. It’s important to know the ID because it’s a required parameter that you use later in the article to create a subscription.
-
-### [PowerShell](#tab/azure-powershell)
-
-To get a list of all enrollments accounts you have access to, use the [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) command.
-
-```azurepowershell-interactive
-Get-AzEnrollmentAccount
-```
-
-The command returns an `ObjectId` property. To get the ID you'll use for the billing scope, concatenate the `ObjectId` value to the end of `/providers/Microsoft.Billing/enrollmentAccounts/`. You'll use this ID to create a subscription.
 
 ### [Azure CLI](#tab/azure-cli)
 
