@@ -120,7 +120,7 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 This quickstart showed you how to deploy a STIG-compliant Linux virtual machine (Preview) on Azure or Azure Government. For more information about creating virtual machines in:
 
-- Azure, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
+- Azure, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
 - Azure Government, see [Tutorial: Create virtual machines](./documentation-government-quickstarts-vm.md).
 
 To learn more about Azure services, continue to the Azure documentation.
