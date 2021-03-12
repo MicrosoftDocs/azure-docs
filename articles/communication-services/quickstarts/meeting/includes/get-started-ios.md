@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Add joining a teams meeting to an iOS app using Azure Communication Services
-description: In this quickstart, you learn how to use the Azure Communication Services Teams Embed library for iOS.
+description: In this quickstart, you'll learn how to use the Azure Communication Services Teams Embed library for iOS.
 author: palatter
 ms.author: palatter
 ms.date: 01/25/2021
@@ -18,6 +18,7 @@ To complete this tutorial, you’ll need the following prerequisites:
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A [User Access Token](../../access-tokens.md) for your Azure Communication Service.
+- [CocoaPods](https://cocoapods.org/) installed for your build environment.
 
 ## Setting up
 
@@ -26,6 +27,8 @@ To complete this tutorial, you’ll need the following prerequisites:
 In Xcode, create a new iOS project and select the **App** template. We will be using UIKit storyboards. You're not going to create tests during this quick start. Feel free to uncheck **Include Tests**.
 
 :::image type="content" source="../media/ios/xcode-new-project-template-select.png" alt-text="Screenshot showing the New Project template selection within Xcode.":::
+
+Name the project `TeamsEmbedGettingStarted`.
 
 :::image type="content" source="../media/ios/xcode-new-project-details.png" alt-text="Screenshot showing the New Project details within Xcode.":::
 
@@ -74,18 +77,16 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 
 ### Add the Teams Embed framework
 
-1. Download the framework from the latest release. [You can find the latest version of the Teams Embed Framework here.](https://github.com/Azure/communication-preview)
+1. Download the framework.
 2. Create a `Frameworks` folder in the the project root. Ex. `\TeamsEmbedGettingStarted\Frameworks\`
 3. Copy the downloaded `TeamsAppSDK.framework` and `MeetingUIClient.framework` frameworks to this folder.
-4. Add the `TeamsAppSDK.framework` and the `MeetingUIClient.framework` to the project target under the general tab. Use the 'Add Other' Option to specify the file location.
+4. Add the `TeamsAppSDK.framework` and the `MeetingUIClient.framework` to the project target under the general tab. Use the `Add Other` -> `Add Files...` to navigate to the framework files and add them.
 
 :::image type="content" source="../media/ios/xcode-add-frameworks.png" alt-text="Screenshot showing the added frameworks in Xcode.":::
 
-5. Add `$(PROJECT_DIR)/Frameworks` to `Framework Search Paths` under the project target build settings tab.
+5. If it isn't already, add `$(PROJECT_DIR)/Frameworks` to `Framework Search Paths` under the project target build settings tab. To find the setting, you have change the filter from `basic` to `all`, you can also use the search bar on the right.
 
 :::image type="content" source="../media/ios/xcode-add-framework-search-path.png" alt-text="Screenshot showing the framework search path in Xcode.":::
-
-
 
 ### Add a window reference to AppDelegate
 
@@ -179,13 +180,15 @@ Create a `fetchTokenAsync` method. Then add your fetchToken logic to get the use
 ```swift
 private func fetchTokenAsync(completionHandler: @escaping TokenRefreshOnCompletion) {
     func getTokenFromServer(completionHandler: @escaping (String) -> Void) {
-        completionHandler(self.acsToken)
+        completionHandler("<USER_ACCESS_TOKEN>")
     }
     getTokenFromServer { newToken in
         completionHandler(newToken, nil)
     }
 }
 ```
+
+You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource.
 
 ## Join a meeting
 
@@ -205,9 +208,9 @@ private func joinMeeting() {
 
 Replace `<MEETING URL>` with a teams meeting link.
 
-### Get the Teams meeting link
+### Get a Teams meeting link
 
-The Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+A Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
 The Communication Services Calling SDK accepts a full Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
