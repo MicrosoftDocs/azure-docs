@@ -132,11 +132,11 @@ To create an Azure Stack Edge resource for your existing device, take the follow
 
 1. The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-   ![Go to the Azure Stack Edge resource](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
+   ![Go to the Azure Stack Edge resource](media/azure-stack-edge-deploy-prep/data-box-edge-resource-01.png)
 
 After the order is placed, Microsoft reviews the order and contacts you (via email) with shipping details.
 
-![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
+![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-deploy-prep/data-box-edge-resource-02.png)
 
 
 ## Get the activation key
@@ -145,7 +145,7 @@ After the Azure Stack Edge resource is up and running, you'll need to get the ac
 
 1. Go to the resource that you created, and select **Overview**. You'll see a notification to the effect that your order is being processed.
 
-    ![Select Overview](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![Select Overview](media/azure-stack-edge-deploy-prep/data-box-edge-select-device-setup.png)
 
 2. After the order is processed and the device is on your way, the **Overview** updates. Accept the default **Azure Key Vault name** or enter a new one. Select **Generate activation key**. Select the copy icon to copy the key and save it for later use.
 
