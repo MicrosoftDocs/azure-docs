@@ -239,6 +239,10 @@ This article provides answers to some of the most common questions about running
 1. **Are distributed transactions with MSDTC supported on SQL Server VMs?**
    
     Yes. Local DTC is supported for SQL Server 2016 SP2 and greater. However, applications must be tested when utilizing Always On availability groups, as transactions in-flight during a failover will fail and must be retried. Clustered DTC is available starting with Windows Server 2019. 
+    
+1. **Does Azure SQL virtual machine move or store customer data out of region?**
+
+   No. In fact, Azure SQL virtual machine and the SQL IaaS Agent Extension do not store any customer data.
 
 ## SQL Server IaaS Agent extension
 
