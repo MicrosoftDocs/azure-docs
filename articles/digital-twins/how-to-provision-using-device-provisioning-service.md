@@ -26,9 +26,9 @@ For more information about the _provision_ and _retire_ stages, and to better un
 ## Prerequisites
 
 Before you can set up the provisioning, you'll need to set up the following:
-* an **Azure Digital Twins instance**. Follow the instructions in [Set up an instance and authentication](../articles/digital-twins/how-to-set-up-instance-portal.md) to create an Azure digital twins instance. Gather the instance's **_host name_** in the Azure portal ([instructions](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
-* an **IoT hub**. For instructions, see the *Create an IoT Hub* section of this [IoT Hub quickstart](../articles/iot-hub/quickstart-send-telemetry-cli.md).
-* an [Azure function](../../articles/azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow the instructions in [*How to: Ingest IoT hub data*](how-to-ingest-iot-hub-data.md) to create an Azure function. Gather the function **_name_** to use it in this article.
+* an **Azure Digital Twins instance**. Follow the instructions in [Set up an instance and authentication](how-to-set-up-instance-portal.md) to create an Azure digital twins instance. Gather the instance's **_host name_** in the Azure portal ([instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+* an **IoT hub**. For instructions, see the *Create an IoT Hub* section of this [IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
+* an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow the instructions in [*How to: Ingest IoT hub data*](how-to-ingest-iot-hub-data.md) to create an Azure function. Gather the function **_name_** to use it in this article.
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
@@ -96,9 +96,6 @@ Publish the project with *DpsAdtAllocationFunc.cs* function to a function app in
 
 For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
 
-:::image type="content" source="media/how-to-provision-using-dps/azure-functions-app.png" alt-text="The Azure portal function app view to verify that your function is successfully published-1":::
-
-
 > [!NOTE]
 > Verify the section [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) is done before proceeding further in this article.
 
@@ -133,7 +130,7 @@ The device simulator is a thermostat-type device that uses the model: [*Thermost
 
 First, get the model file on your machine by navigating to the model link above and copying the file body into a local .json file on your machine, and rename it to *ThermostatModel.json*.
 
-1. If you are using [Azure Cloud Shell](https://shell.azure.com) to run the commands, you'll need to upload your json file to the cloud shell and use the following Azure CLI command to upload the model.
+1. If you are using [Azure Cloud Shell](https://shell.azure.com) to run the commands, you'll need to upload your json file to the Cloud Shell window and use the following Azure CLI command to upload the model:
 
 ```azurecli-interactive
 az dt model create -n <your-Azure-digital-twins-instance-name> --models ThermostatModel.json
