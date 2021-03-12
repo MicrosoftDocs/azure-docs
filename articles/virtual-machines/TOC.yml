@@ -851,8 +851,12 @@
         displayName: Image builder, images, building, cli, Windows
         href: ./windows/image-builder.md
     - name: PowerShell
-      displayName: Image builder, images, building, PowerShell
-      href: ./windows/image-builder-powershell.md
+      items:
+      - name: Windows 
+        displayName: Image builder, images, building, PowerShell
+        href: ./windows/image-builder-powershell.md
+      - name: Windows Virtual Desktop
+        href: ./windows/image-builder-virtual-desktop.md
     - name: Security
       items:
       - name: Security controls by Azure Policy
