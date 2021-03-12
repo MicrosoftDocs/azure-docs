@@ -42,7 +42,7 @@ To take advantage of the GPU capabilities of Azure NCasT4_v3-series VMs running 
 
 To install Nvidia GPU drivers manually, see [N-series GPU driver setup for Windows](./windows/n-series-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
 
-The Azure Nvidia GPU driver extension will deploy CUDA drivers on the NCasT4_v3-series VMs. For graphics and visualization worklaods manually install the GRID drivers supported by Azure.
+The Azure Nvidia GPU driver extension will deploy CUDA drivers on the NCasT4_v3-series VMs. For graphics and visualization workloads manually install the GRID drivers supported by Azure.
 
 ## Other sizes
 
