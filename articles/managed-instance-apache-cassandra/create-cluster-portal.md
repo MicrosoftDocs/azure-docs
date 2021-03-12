@@ -58,20 +58,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Configure networking details." lightbox="./media/create-cluster-portal/networking.png" border="true":::
 
-1. If you created a new VNet in the last step, skip to step 9. If you selected an existing VNet, before creating your cluster, you need to apply some special permissions to the Virtual Network and the subnet. To do so, you have to get the resource ID for your existing Virtual Network. Run the following command in [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
+1. If you created a new VNet in the last step, skip to step 8. If you selected an existing VNet, before creating your cluster, you need to apply some special permissions to the Virtual Network and the subnet. To do so, use the `az role assignment create` command, replacing `<subscription ID>`, `<resource group name>`, `<VNet name>`, and `<subnet name>` with the appropriate values:
 
    ```azurecli-interactive
-   # get the resource ID of the Virtual Network
-   az network vnet show -n <VNet_name> -g <Resource_Group_Name> --query "id" --output tsv
-
-1. Now apply the special permissions by using the `az role assignment create` command. Replace `<Resource ID>` with the output of previous command:
-
-   ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope <Resource ID>
+   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
    ```
 
    > [!NOTE]
-   > The `assignee` and `role` values in the previous command are fixed service principle and role identifiers respectively.
+   > The `assignee` and `role` values in the previous command are fixed values, enter these values exactly as mentioned in the command. Not doing so will lead to errors when creating the cluster. If you encounter any errors when executing this command, you may not have permissions to run it, please reach out to your admin for permissions.
 
 1. Now that you are finished with networking, click **Review + create** > **Create**
 

@@ -35,7 +35,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
   ### [Java](#tab/java)
 
-  - [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true) version 8 or above
+  - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
 
   - [Apache Maven](https://maven.apache.org/download.cgi) 
 

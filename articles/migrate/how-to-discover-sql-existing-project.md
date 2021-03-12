@@ -41,9 +41,9 @@ Discovering SQL Server instances and databases running on on-premises machines h
         :::image type="content" source="./media/how-to-discover-sql-existing-project/discovery-upgrade-appliance.png" alt-text="Button to upgrade the Azure Migrate appliance":::
     - Validate that the services running on the appliance are updated to the latest versions. To do so, launch the Appliance configuration manager from your appliance server and select view appliance services from the Set up prerequisites panel.
         - Appliance and its components are automatically updated
-         :::image type="content" source="./media/how-to-discover-sql-existing-project/discovery-appliance-version.png" alt-text="Check the appliance version":::
+         :::image type="content" source="./media/how-to-discover-sql-existing-project/appliance-services-version.png" alt-text="Check the appliance version":::
     - In the manage credentials and discovery sources panel of the Appliance configuration manager, add Domain or SQL Server Authentication credentials that have Sysadmin access on the SQL Server instance and databases to be discovered. 
-    You can leverage either the automatic credential mapping feature of the appliance, or manually map the credentials to the respective server as highlighted [here](https://review.docs.microsoft.com/azure/migrate/tutorial-discover-vmware?branch=release-migrate-sql-scenario#start-continuous-discovery).
+    You can leverage either the automatic credential mapping feature of the appliance, or manually map the credentials to the respective server as highlighted [here](/azure/migrate/tutorial-discover-vmware#start-continuous-discovery).
         
     Some points to note:
     - Please ensure that software inventory is enabled already, or provide Domain or Non-domain credentials to enable the same. Software inventory must be performed to discover SQL Server instances.

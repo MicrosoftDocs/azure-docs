@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 01/06/2021
 ms.author: mjbrown
 ---
 
@@ -201,7 +201,7 @@ Please see [Set failover priority with PowerShell](manage-with-powershell.md#mod
 The process for performing a manual failover involves changing the account's write region (failover priority = 0) to another region configured for the account.
 
 > [!NOTE]
-> Accounts with multiple write regions cannot be manually failed over. For applications using the Azure Cosmos SDK, the SDK will detect when a region becomes unavailable, then redirect automatically to the next closest region if using multi-homing API in the SDK.
+> Accounts with multiple write regions cannot be manually failed over. For applications using the Azure Cosmos SDK, the SDK will detect when a region becomes unavailable, then redirect automatically to the next closest region.
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 
