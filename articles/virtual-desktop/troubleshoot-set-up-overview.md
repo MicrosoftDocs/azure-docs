@@ -47,6 +47,7 @@ Use the following table to identify and resolve issues you may encounter when se
 
 - To troubleshoot issues while creating a host pool in a Windows Virtual Desktop environment, see [host pool creation](troubleshoot-set-up-issues.md).
 - To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues related to the Windows Virtual Desktop agent or session connectivity, see [Troubleshoot common Windows Virtual Desktop Agent issues](troubleshoot-agent.md).
 - To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
 - To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).

@@ -14,8 +14,10 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Create your first access package
+    - name: Manage access to resources - Azure portal
       href: entitlement-management-access-package-first.md
+    - name: Manage access to resources - Microsoft Graph
+      href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
 - name: Concepts
   expanded: true
   items:

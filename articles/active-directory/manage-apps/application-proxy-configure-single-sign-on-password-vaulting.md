@@ -4,7 +4,7 @@ description: Turn on single sign-on for your published on-premises applications 
 services: active-directory
 documentationcenter: ''
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

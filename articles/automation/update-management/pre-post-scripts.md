@@ -3,7 +3,7 @@ title: Manage pre-scripts and post-scripts in your Update Management deployment 
 description: This article tells how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 12/17/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
 ---
 
@@ -14,6 +14,8 @@ Pre-scripts and post-scripts are runbooks to run in your Azure Automation accoun
 ## Pre-script and post-script requirements
 
 For a runbook to be used as a pre-script or post-script, you must import it into your Automation account and [publish the runbook](../manage-runbooks.md#publish-a-runbook).
+
+Currently, only PowerShell and Python 2 runbooks are supported as Pre/Post scripts. Other runbook types like Python 3, Graphical, PowerShell Workflow, Graphical PowerShell Workflow are currently not supported as Pre/Post scripts.
 
 ## Pre-script and post-script parameters
 
@@ -54,40 +56,37 @@ In addition to your standard runbook parameters, the `SoftwareUpdateConfiguratio
 The following example is a JSON string passed in to the **SoftwareUpdateConfigurationRunContext** parameter:
 
 ```json
-"SoftwareUpdateConfigurationRunContext":{
-      "SoftwareUpdateConfigurationName":"sampleConfiguration",
-      "SoftwareUpdateConfigurationRunId":"00000000-0000-0000-0000-000000000000",
-      "SoftwareUpdateConfigurationSettings":{
-         "operatingSystem":"Windows",
-         "duration":"PT2H0M",
-         "windows":{
-            "excludedKbNumbers":[
-               "168934",
-               "168973"
-            ],
-            "includedUpdateClassifications":"Critical",
-            "rebootSetting":"IfRequired"
-         },
-         "azureVirtualMachines":[
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
-         ],
-         "nonAzureComputerNames":[
-            "box1.contoso.com",
-            "box2.contoso.com"
-         ]
-      }
-   }
+"SoftwareUpdateConfigurationRunContext": {
+    "SoftwareUpdateConfigurationName": "sampleConfiguration",
+    "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
+    "SoftwareUpdateConfigurationSettings": {
+      "operatingSystem": "Windows",
+      "duration": "PT2H0M",
+      "windows": {
+        "excludedKbNumbers": [
+          "168934",
+          "168973"
+        ],
+        "includedUpdateClassifications": "Critical",
+        "rebootSetting": "IfRequired"
+      },
+      "azureVirtualMachines": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
+      ],
+      "nonAzureComputerNames": [
+        "box1.contoso.com",
+        "box2.contoso.com"
+      ]
+    }
+  }
 ```
 
 A full example with all properties can be found at: [Get software update configuration by name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
 
 > [!NOTE]
 > The `SoftwareUpdateConfigurationRunContext` object can contain duplicate entries for machines. This can cause pre-scripts and post-scripts to run multiple times on the same machine. To work around this behavior, use `Sort-Object -Unique` to select only unique VM names.
-
-> [!NOTE]
-> Currently only PowerShell runbooks are supported as Pre/Post scripts. Other runbook types like Python, Graphical, PowerShell Workflow, Graphical PowerShell Workflow are currently not supported as Pre/Post scripts.
 
 ## Use a pre-script or post-script in a deployment
 
@@ -115,7 +114,7 @@ By selecting the update deployment run, you're shown additional details of pre-s
 
 ## Stop a deployment
 
-If you want to stop a deployment based on a pre-script, you must [throw](../automation-runbook-execution.md#throw) an exception. If you don't, the deployment and post-script will still run. The following code snippet shows how to throw an exception.
+If you want to stop a deployment based on a pre-script, you must [throw](../automation-runbook-execution.md#throw) an exception. If you don't, the deployment and post-script will still run. The following code snippet shows how to throw an exception using PowerShell.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -129,6 +128,8 @@ foreach($summary in $finalStatus)
     }
 }
 ```
+
+In Python 2, exception handling is managed in a [try](https://www.python-course.eu/exception_handling.php) block.
 
 ## Interact with machines
 
@@ -164,6 +165,13 @@ if (<My custom error logic>)
     #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
+```
+
+In Python 2, if you want to throw an error when a certain condition occurs, use a [raise](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement) statement.
+
+```python
+If (<My custom error logic>)
+   raise Exception('Something happened.')
 ```
 
 ## Samples

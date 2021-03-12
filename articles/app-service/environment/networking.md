@@ -47,7 +47,7 @@ Unlike the ASEv2, with ASEv3 you can set Network Security Groups (NSGs) and Rout
 
 ## DNS
 
-The apps in your ASE will use the DNS that your VNet is configured with. Follow the instructions in [Using an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) to configure your DNS server to point to your ASE. If you want some apps to use a different DNS server than what your VNet is configured with, you can manually set it on a per app basis with the app settings WEBSITE_DNS_SERVER and WEBSITE_DNS_ALT_SERVER. The app setting WEBSITE_DNS_ALT_SERVER configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server. 
+The apps in your ASE will use the DNS that your VNet is configured with. Follow the instructions in [Using an App Service Environment](./using.md#dns-configuration) to configure your DNS server to point to your ASE. If you want some apps to use a different DNS server than what your VNet is configured with, you can manually set it on a per app basis with the app settings WEBSITE_DNS_SERVER and WEBSITE_DNS_ALT_SERVER. The app setting WEBSITE_DNS_ALT_SERVER configures the secondary DNS server. The secondary DNS server is only used when there is no response from the primary DNS server. 
 
 ## Preview limitation
 
@@ -64,4 +64,3 @@ There are a few networking features that aren't available with ASEv3.  The thing
 • Use of Network Watcher or NSG Flow on outbound traffic
 	
 	
-

@@ -11,7 +11,14 @@ services: iot-edge
 ---
 # Create and provision an IoT Edge device with a TPM on Linux
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 This article shows how to test auto-provisioning on a Linux IoT Edge device using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Device Provisioning Service](../iot-dps/index.yml). If you're unfamiliar with the process of auto-provisioning, review the [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) overview before continuing.
+
+:::moniker range=">=iotedge-2020-11"
+> [!NOTE]
+> Currently, automatic provisioning using TPM authentication is not supported in IoT Edge version 1.2.
+:::moniker-end
 
 The tasks are as follows:
 
@@ -199,7 +206,11 @@ Once the runtime is installed on your device, configure the device with the info
      attestation:
        method: "tpm"
        registration_id: "<REGISTRATION_ID>"
+   # always_reprovision_on_startup: true
+   # dynamic_reprovisioning: false
    ```
+
+   Optionally, use the `always_reprovision_on_startup` or `dynamic_reprovisioning` lines to configure your device's reprovisioning behavior. If a device is set to reprovision on startup, it will always attempt to provision with DPS first and then fall back to the provisioning backup if that fails. If a device is set to dynamically reprovision itself, IoT Edge will restart and reprovision if a reprovisioning event is detected. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
 1. Update the values of `scope_id` and `registration_id` with your DPS and device information.
 

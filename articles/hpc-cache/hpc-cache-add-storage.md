@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 01/28/2021
 ms.author: v-erkel
 ---
 
@@ -161,19 +161,21 @@ An NFS storage target has different settings from a Blob storage target. The usa
 
 When you create a storage target that points to an NFS storage system, you need to choose the usage model for that target. This model determines how your data is cached.
 
+The built-in usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize file read speed, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
+
 There are three options:
 
 * **Read heavy, infrequent writes** - Use this option if you want to speed up read access to files that are static or rarely changed.
 
-  This option caches files that clients read, but passes writes through to the back-end storage immediately. Files stored in the cache are never compared to the files on the NFS storage volume.
+  This option caches files that clients read, but passes writes through to the back-end storage immediately. Files stored in the cache are not automatically compared to the files on the NFS storage volume. (Read the note below about back-end verification to learn more.)
 
-  Do not use this option if there is a risk that a file might be modified directly on the storage system without first writing it to the cache. If that happens, the cached version of the file will never be updated with changes from the back end, and the data set can become inconsistent.
+  Do not use this option if there is a risk that a file might be modified directly on the storage system without first writing it to the cache. If that happens, the cached version of the file will be out of sync with the back-end file.
 
 * **Greater than 15% writes** - This option speeds up both read and write performance. When using this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly. The cached files will have recent changes that are not stored on the back end.
 
-  In this usage model, files in the cache are not checked against the files on back-end storage. The cached version of the file is assumed to be more current. A modified file in the cache is written to the back-end storage system after it has been in the cache for an hour with no additional changes.
+  In this usage model, files in the cache are only checked against the files on back-end storage every eight hours. The cached version of the file is assumed to be more current. A modified file in the cache is written to the back-end storage system after it has been in the cache for an hour with no additional changes.
 
-* **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache. Files that clients request are cached, but any changes to those files from the client are passed back to the back-end storage system immediately.
+* **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache, or if you want to optimize data consistency. Files that clients request are cached, but any changes to those files from the client are passed back to the back-end storage system immediately.
 
   With this usage model, the files in the cache are frequently checked against the back-end versions for updates. This verification allows files to be changed outside of the cache while maintaining data consistency.
 
@@ -182,8 +184,11 @@ This table summarizes the usage model differences:
 | Usage model                   | Caching mode | Back-end verification | Maximum write-back delay |
 |-------------------------------|--------------|-----------------------|--------------------------|
 | Read heavy, infrequent writes | Read         | Never                 | None                     |
-| Greater than 15% writes       | Read/write   | Never                 | 1 hour                   |
+| Greater than 15% writes       | Read/write   | 8 hours               | 1 hour                   |
 | Clients bypass the cache      | Read         | 30 seconds            | None                     |
+
+> [!NOTE]
+> The **Back-end verification** value shows when the cache automatically compares its files with source files in remote storage. However, you can force Azure HPC Cache to compare files by performing a directory operation that includes a readdirplus request. Readdirplus is a standard NFS API (also called extended read) that returns directory metadata, which causes the cache to compare and update files.
 
 ### Create an NFS storage target
 

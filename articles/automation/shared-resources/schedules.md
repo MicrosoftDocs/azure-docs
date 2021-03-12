@@ -116,6 +116,47 @@ $StartTime = (Get-Date "18:00:00").AddDays(1)
 New-AzAutomationSchedule -AutomationAccountName "TestAzureAuto" -Name "1st, 15th and Last" -StartTime $StartTime -DaysOfMonth @("One", "Fifteenth", "Last") -ResourceGroupName "TestAzureAuto" -MonthInterval 1
 ```
 
+## Create a schedule with a Resource Manager template
+
+In this example, we use an Automation Resource Manager (ARM) template that creates a new job schedule. For general information about this template to manage Automation job schedules, see [Microsoft.Automation automationAccounts/jobSchedules template reference](/templates/microsoft.automation/automationaccounts/jobschedules#quickstart-templates).
+
+Copy this template file into a text editor:
+
+```json
+{
+  "name": "5d5f3a05-111d-4892-8dcc-9064fa591b96",
+  "type": "Microsoft.Automation/automationAccounts/jobSchedules",
+  "apiVersion": "2015-10-31",
+  "properties": {
+    "schedule": {
+      "name": "scheduleName"
+    },
+    "runbook": {
+      "name": "runbookName"
+    },
+    "runOn": "hybridWorkerGroup",
+    "parameters": {}
+  }
+}
+```
+
+Edit the following parameter values and save the template as a JSON file:
+
+* Job schedule object name: A GUID (Globally Unique Identifier) is used as the name of the job schedule object.
+
+   >[!IMPORTANT]
+   > For each job schedule deployed with an ARM template, the GUID must be unique. Even if you're rescheduling an existing schedule, you'll need to change the GUID. This applies even if you've previously deleted an existing job schedule that was created with the same template. Reusing the same GUID results in a failed deployment.</br></br>
+   > There are services online that can generate a new GUID for you, such as this [Free Online GUID Generator](https://guidgenerator.com/).
+
+* Schedule name: Represents the name of the Automation job schedule that will be linked to the specified runbook.
+* Runbook name: Represents the name of the Automation runbook the job schedule is to be associated with.
+
+Once the file has been saved, you can create the runbook job schedule with the following PowerShell command. The command uses the `TemplateFile` parameter to specify the path and filename of the template.
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "<path>\RunbookJobSchedule.json"
+```
+
 ## Link a schedule to a runbook
 
 A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it. If a runbook has parameters, you can provide values for them. You must provide values for any mandatory parameters, and you also can provide values for any optional parameters. These values are used each time the runbook is started by this schedule. You can attach the same runbook to another schedule and specify different parameter values.

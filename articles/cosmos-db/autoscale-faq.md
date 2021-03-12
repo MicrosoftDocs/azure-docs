@@ -43,7 +43,7 @@ Yes. When you purchase reserved capacity for accounts with single write regions,
 Multi-write region reserved capacity works the same for autoscale and standard (manual) provisioned throughput. See [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)
 
 ### Does autoscale work with free tier?
-Yes. In free tier, you can use autoscale throughput on a container. Support for autoscale shared throughput databases with custom max RU/s is not yet available. See how [free tier billing works with autoscale](understand-your-bill.md#billing-examples-with-free-tier-accounts).
+Yes. In free tier, you can use autoscale throughput on a container. Support for autoscale shared throughput databases with custom max RU/s is not yet available. See how [free tier billing works with autoscale](understand-your-bill.md#azure-free-tier).
 
 ### Is autoscale supported for all APIs?
 Yes, autoscale is supported for all APIs: Core (SQL), Gremlin, Table, Cassandra, and API for MongoDB.

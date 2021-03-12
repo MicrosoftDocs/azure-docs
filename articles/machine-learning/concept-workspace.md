@@ -50,7 +50,7 @@ You can interact with your workspace in the following ways:
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
-+ In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
++ In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 + In any R environment with the [Azure Machine Learning SDK for R (preview)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + On the command line using the Azure Machine Learning [CLI extension](./reference-azure-machine-learning-cli.md)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
@@ -134,6 +134,5 @@ To get started with Azure Machine Learning, see:
 + [Create and manage a workspace](how-to-manage-workspace.md)
 + [Tutorial: Get started with Azure Machine Learning in your development environment](tutorial-1st-experiment-sdk-setup-local.md)
 + [Tutorial: Get started creating your first ML experiment on a compute instance](tutorial-1st-experiment-sdk-setup.md)
-+ [Tutorial: Get started with Azure Machine Learning with the R SDK](tutorial-1st-r-experiment.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)

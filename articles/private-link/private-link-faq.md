@@ -22,7 +22,7 @@ ms.author: allensu
 ### How is traffic being sent when using Private Link?
 Traffic is sent privately using Microsoft backbone. It doesn’t traverse the internet. Azure Private Link doesn't store customer data.
  
-### What is the difference between a Service Endpoints and a Private Endpoints?
+### What is the difference between Service Endpoints and Private Endpoints?
 - Private Endpoints grant network access to specific resources behind a given service providing granular segmentation. Traffic can reach the service resource from on premises without using public endpoints.
 - A service endpoint remains a publicly routable IP address.  A private endpoint is a private IP in the address space of the virtual network where the private endpoint is configured.
 
@@ -30,6 +30,9 @@ Traffic is sent privately using Microsoft backbone. It doesn’t traverse the in
 Multiple private link resource types support access via Private Endpoint. Resources include Azure PaaS services and your own Private Link Service. It's a one-to-many relationship. 
 
 A Private Link service receives connections from multiple private endpoints. A private endpoint connects to one Private Link service.    
+
+### Do I need to disable network policies for Private Link
+Yes. Both Private endpoint and Private Link Service need to disable Network policies to function properly. They both have properties independent of one another.
 
 ## Private Endpoint 
  
@@ -58,6 +61,12 @@ You can scale your Private Link service in a few different ways:
 - Add Backend VMs to the pool behind your Standard Load Balancer 
 - Add an IP to the Private Link service. We allow up to 8 IPs per Private Link service.  
 - Add new Private Link service to Standard Load Balancer. We allow up to eight Private Link services per load balancer.   
+
+### What is NAT(Network Address Translation) IP Configuration used in Private Link Service? How can I scale in terms of available ports and connections? 
+
+The NAT IP configuration ensures that there is no IP conflict between source (consumer side) and destination (service provider) address space by providing source NAT on the Private Link traffic on the  destination side (service provider side). The NAT IP address will show up as Source IP for all packets received by your service and destination IP for all packets sent by your service.  NAT IP can be chosen from any subnet in a service provider's virtual network. 
+
+Each NAT IP provides 64k TCP connections (64k ports) per VM behind the Standard Load Balancer. In order to scale and add more connections, you can either add new NAT IPs or add more VMs behind the Standard Load Balancer. Doing so will scale the port availability and allow for more connections. Connections will be distributed across NAT IPs and VMs behind the Standard Load Balancer.
 
 ### Can I connect my service to multiple Private Endpoints?
 Yes. One Private Link service can receive connections from multiple Private Endpoints. However one Private Endpoint can only connect to one Private Link service.  

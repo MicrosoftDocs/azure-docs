@@ -60,6 +60,10 @@ zone_pivot_groups: programming-languages-set-twenty-six
 
 :::zone-end
 
+## Clean up resources
+
+If you've finished with the quickstarts and tutorials, see [Clean up resources](set-up-environment.md#clean-up-resources).
+
 ## Next steps
 
 In this quickstart, you've learned how to connect an IoT Plug and Play device to an IoT hub. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:

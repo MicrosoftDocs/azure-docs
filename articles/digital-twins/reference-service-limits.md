@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Service limits
+# Azure Digital Twins service limits
 
 These are the service limits of Azure Digital Twins.
 

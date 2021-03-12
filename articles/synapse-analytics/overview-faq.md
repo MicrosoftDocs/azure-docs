@@ -40,7 +40,7 @@ To secure your Synapse workspace, assign the RBAC Roles to these RBAC scopes:
 
 Additionally, with dedicated SQL pools you have all the same security features that you know and love.
 
-### Q: How do I control cont dedicated SQL pools, serverless SQL pools, and serverless Spark pools?
+### Q: How do I control dedicated SQL pools, serverless SQL pools, and serverless Spark pools?
 
 A: As a starting point, Azure Synapse works with the built-in cost analysis and cost alerts available at the Azure subscription level.
 
@@ -135,11 +135,6 @@ You can choose to enable new workspace features on your existing pools. If you d
 ### Q: What is the default deployment of dedicated SQL pools now? 
 
 A: By Default, all new dedicated SQL pools will be deployed to a workspace; however, if you need to you can still create a dedicated SQL pool (formerly SQL DW) in a standalone form factor. 
-
-
-### Q: What are the functional differences between dedicated SQL pools and serverless SQL pools?
-
-A: You can find a full list of differences in [T-SQL feature differences in Synapse SQL](./sql/overview-features.md).
 
 ## Next steps
 

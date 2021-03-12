@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 02/05/2021
 ms.author: b-juche
 ---
 # How Azure NetApp Files snapshots work
@@ -156,7 +156,7 @@ See [Delete snapshots](azure-netapp-files-manage-snapshots.md#delete-snapshots) 
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw)
-* [NetApp Snapshot - NetApp Video Library](https://tv.netapp.com/detail/video/2579133646001/snapshot)
+* [Azure NetApp Files Snapshot Overview](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
 
 
 

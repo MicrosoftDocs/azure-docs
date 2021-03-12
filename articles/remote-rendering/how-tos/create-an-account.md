@@ -66,35 +66,26 @@ The value for **`arrAccountKey`** can either be primary or secondary key.
 
 This paragraph explains how to link storage accounts to your Remote Rendering account. When a storage account is linked it is not necessary to generate a SAS URI every time you want to interact with the data in your account, for instance when loading a model. Instead, you can use the storage account names directly as described in the [loading a model section](../concepts/models.md#loading-models).
 
-The steps in this paragraph have to be performed for each storage account that should use this alternative access method. If you haven't created storage accounts yet, you can walk through the respective step in the [convert a model for rendering quickstart](../quickstarts/convert-model.md#storage-account-creation).
+The steps in this paragraph have to be performed for each storage account that should use this access method. If you haven't created storage accounts yet, you can walk through the respective step in the [convert a model for rendering quickstart](../quickstarts/convert-model.md#storage-account-creation).
 
 Now it is assumed you have a storage account. Navigate to the storage account in the portal and go to the **Access Control (IAM)** tab for that storage account:
 
 ![Storage account IAM](./media/azure-storage-account.png)
 
- Ensure you have owner permissions over this storage account to ensure that you can add role assignments. If you don't have access, the **Add a role assignment** option will be disabled.
+Ensure you have owner permissions over this storage account to ensure that you can add role assignments. If you don't have access, the **Add a role assignment** option will be disabled.
 
- You need to add three distinct roles as described in the next steps. If you do not provide all three levels of access, there will be permission issues while trying to access the storage account.
-
- Click on the **Add** button in the "Add a role assignment" tile to add the first role:
+Click on the **Add** button in the "Add a role assignment" tile to add the role.
 
 ![Storage account IAM add role assignment](./media/azure-add-role-assignment.png)
 
-* The first role to assign is **Owner** as shown in the screenshot above.
-* Select **Remote Rendering Account** from the **Assign access to** dropdown.
+* Assign **Storage Blob Data Contributor** role as shown in the screenshot above.
+* Select **Remote Rendering Account**  system assigned managed identity from the **Assign access to** dropdown.
 * Select your subscription and Remote Rendering account in the last dropdowns.
+* Click "Save" to save your changes.
 
 > [!WARNING]
 > In case your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
-Repeat adding new roles two more times for the respective selections from the **Role** dropdown:
-
-* **Storage Account Contributor**
-* **Storage Blob Data Contributor**
-
-The other dropdowns are selected as in the first step.
-
-If you have added all three roles, your Azure Remote Rendering account has access to your storage account using system assigned Managed Service Identities.
 > [!IMPORTANT]
 > Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30 minutes between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Azure role-based access control (Azure RBAC) documentation](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) for details.
 

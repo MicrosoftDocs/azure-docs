@@ -194,8 +194,8 @@ The Azure services that support each encryption model:
 | Azure Databricks                 | Yes                | Yes                | -                  |
 | Azure Database Migration Service | Yes                | N/A\*              | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps Services            | Yes                | -                  | Yes                |
-| Azure Repos                      | Yes                | -                  | Yes                |
+| Azure DevOps Services            | Yes                | -                  | -                  |
+| Azure Repos                      | Yes                | -                  | -                  |
 | **Identity**                     |                    |                    |                    |
 | Azure Active Directory           | Yes                | -                  | -                  |
 | Azure Active Directory Domain Services | Yes          | Yes                | -                  |

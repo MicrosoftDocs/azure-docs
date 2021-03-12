@@ -190,10 +190,6 @@ Internationalized domain names (IDNs) encode each DNS name by using [punycode](h
 
 To configure IDNs in Azure DNS, convert the zone name or record set name to punycode. Azure DNS doesn't currently support built-in conversion to or from punycode.
 
-### Does Azure DNS private zones store any customer content?
-
-No, Azure DNS private zones doesn't store any customer content.
-
 ## Next steps
 
 - [Learn more about Azure DNS](dns-overview.md).

@@ -1,14 +1,10 @@
 ---
 title: Self-hosted integration runtime auto-update and expire notification
 description: Learn about self-hosted integration runtime auto-update and expire notification
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
 ---
@@ -28,7 +24,7 @@ The most convenient way is to enable auto-update when you create or edit self-ho
 
 You can check the last update datetime in your self-hosted integration runtime client.
 
-![Enable auto-update](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
+![Screenshot of checking the update time](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
 
 > [!NOTE]
 > To ensure the stability of self-hosted integration runtime, although we release two versions, we will only update it automatically once every month. So sometimes you will find that the auto-updated version is the previous version of the actual latest version. If you want to get the latest version, you can go to [download center](https://www.microsoft.com/download/details.aspx?id=39717).

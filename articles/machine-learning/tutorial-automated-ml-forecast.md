@@ -236,7 +236,7 @@ In this tutorial, you used automated ML in the Azure Machine Learning studio to 
 See this article for steps on how to create a Power BI supported schema to facilitate consumption of your newly deployed web service:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Consume a web service](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + Learn more about [automated machine learning](concept-automated-ml.md).
 + For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.

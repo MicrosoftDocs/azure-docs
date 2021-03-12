@@ -23,7 +23,7 @@ The dashboard allows you to quickly view the security status of your network. It
 
 - Warnings
 
-- The two gauges in the center of the page indicate the Packets per Second (PPS), and Unacknowledged Alerts (UA). **PPS** is the number of packets acknowledged by the system per second. **UA** is the number of alerts that have not been acknowledged yet.
+- The two indicators in the center of the page show the Packets per Second (PPS), and Unacknowledged Alerts (UA). **PPS** is the number of packets acknowledged by the system per second. **UA** is the number of alerts that have not been acknowledged yet.
 
 - List of unacknowledged alerts with their description.
 
@@ -73,23 +73,23 @@ Select the down arrow **V** at the bottom of an alert box to display the alert e
 
 :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/extended-alert-screen.png" alt-text="Alert entry and devices information":::
 
-- Select the device or **Show Devices** to display the physical mode map. The subjected devices are highlighted.
+- Select the device to display the physical mode map. The subjected devices are highlighted.
+
+- Click anywhere in the alert box to display additional details regarding the alert. A popup will display similar to the one below
 
 - Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/excel-icon.png" alt-text="Excel"::: to export a CSV file about the alert.
 
 - Administrators and Security Analysts Only — Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/approve-all-icon.png" alt-text="Acknowledge all"::: to **Acknowledge All** associated alerts.
 
-- Select the alert entry to view the type and the description of the alert:
-
 - Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pdf-icon.png" alt-text="PDF":::to download an alert report as a PDF file.
 
-- Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="Pin":::to pin or unpin the alert.
+- Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/pin-icon.png" alt-text="Pin":::to pin or unpin the alert. Selecting to pin will add it to the **Pinned Alerts** window on the **Alerts** screen.
 
-- Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="Download"::: to investigate the alert by downloading the PCAP file containing a network protocol analysis.
+- Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/download-icon.png" alt-text="Download"::: to investigate the alert by downloading the related PCAP file containing a network protocol analysis.
 
-- Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="Cloud"::: to download a filtered PCAP file that contains only the alert-relevant packets, thereby reducing output file size and allowing a more focused analysis. You can view it using [Wireshark](https://www.wireshark.org/).
+- Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/cloud-download-icon.png" alt-text="Cloud"::: to download a related filtered PCAP file that contains only the alert-relevant packets, thereby reducing output file size and allowing a more focused analysis. You can view it using [Wireshark](https://www.wireshark.org/).
 
-- Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="Navigation"::: to navigate to the event timeline at the time of the requested alert.
+- Select :::image type="content" source="media/how-to-work with-the-sensor-console-dashboard/navigate-icon.png" alt-text="Navigation"::: to navigate to the event timeline at the time of the requested alert. This allows you to assess other events that may be happening around the specific alert.
 
 - Administrators and Security Analysts only - change the status of the alert from unacknowledged to acknowledged. Select Learn to approve detected activity.
 

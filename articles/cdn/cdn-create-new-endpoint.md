@@ -1,17 +1,9 @@
 ---
 title: Quickstart - Create an Azure CDN profile and endpoint
 description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and CDN endpoint.
-services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
@@ -77,7 +69,4 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use CDN to server static content from a web app](cdn-add-to-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)

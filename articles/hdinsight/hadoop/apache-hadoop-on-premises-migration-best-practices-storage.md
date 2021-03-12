@@ -1,8 +1,6 @@
 ---
 title: 'Storage: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn storage best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
@@ -72,7 +70,7 @@ For more information, see the following articles:
 - [Scalability and performance targets for Blob storage](../../storage/blobs/scalability-targets.md)
 - [Microsoft Azure Storage Performance and Scalability Checklist](../../storage/blobs/storage-performance-checklist.md)
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
-- [Monitor a storage account in the Azure portal](../../storage/common/storage-monitor-storage-account.md)
+- [Monitor a storage account in the Azure portal](../../storage/common/manage-storage-analytics-logs.md)
 
 ### Azure Data Lake Storage Gen1
 
