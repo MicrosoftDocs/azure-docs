@@ -29,7 +29,7 @@ If you prefer, you can complete this tutorial using the [Azure CLI](tutorial-con
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Before you begin, you require an Azure account with an active subscription. If you do not have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Log in to Azure
 

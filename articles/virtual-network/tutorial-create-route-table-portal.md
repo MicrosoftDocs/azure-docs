@@ -31,7 +31,7 @@ This tutorial uses the [Azure portal](https://portal.azure.com). You can also us
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Before you begin, you require an Azure account with an active subscription. If you do not have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create an NVA
 
