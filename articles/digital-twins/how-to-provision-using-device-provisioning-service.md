@@ -26,9 +26,9 @@ For more information about the _provision_ and _retire_ stages, and to better un
 ## Prerequisites
 
 Before you can set up the provisioning, you'll need to set up the following:
-* an **Azure Digital Twins instance**. Follow the instructions in [Set up an instance and authentication](how-to-set-up-instance-portal.md) to create an Azure digital twins instance. Gather the instance's **_host name_** in the Azure portal ([instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+* an **Azure Digital Twins instance**. Follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md) to create an Azure digital twins instance. Gather the instance's **_host name_** in the Azure portal ([instructions](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 * an **IoT hub**. For instructions, see the *Create an IoT Hub* section of this [IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md).
-* an [Azure function](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow the instructions in [*How to: Ingest IoT hub data*](how-to-ingest-iot-hub-data.md) to create an Azure function. Gather the function **_name_** to use it in this article.
+* an [**Azure function**](../azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow the instructions in [*How to: Ingest IoT hub data*](how-to-ingest-iot-hub-data.md) to create this Azure function. Gather the function **_name_** to use it in this article.
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
@@ -67,20 +67,22 @@ When a new device is provisioned using Device Provisioning Service, a new twin f
 
 Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal*](../iot-dps/quick-setup-auto-provision.md).
 
-The following Azure CLI command will create a Device Provisioning Service. You'll need to specify a device provisioning service name, resource group, and region. To see what regions support device provisioning service, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+The following Azure CLI command will create a Device Provisioning Service. You'll need to specify a Device Provisioning Service name, resource group, and region. To see what regions support Device Provisioning Service, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli-interactive
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region>
 ```
 
-#### Add a function to use with Device Provisioning Service
+### Add a function to use with Device Provisioning Service
 
-Inside your function app project that you created for a function in the [prerequisites](#prerequisites) section, you'll create a new function to use with the Device Provisioning Service.
+Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to use with the Device Provisioning Service. This function will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device.
 
 #### Step 1: Add a new function 
 
-Add a new function of type *HTTP request-triggered* to the function app project in Visual Studio.
+Add a new function of type *HTTP-trigger* to the function app project in Visual Studio.
+
+:::image type="content" source="media/how-to-provision-using-dps/add-http-trigger-function-visual-studio.png" alt-text="Add an Azure function of type Http Trigger in your function app project" lightbox="media/how-to-provision-using-dps/add-http-trigger-function-visual-studio.png":::
 
 #### Step 2: Fill in function code
 
@@ -96,8 +98,9 @@ Publish the project with *DpsAdtAllocationFunc.cs* function to a function app in
 
 For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
 
-> [!NOTE]
-> Verify the section [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) is done before proceeding further in this article.
+> [!IMPORTANT]
+> When creating the function app for the first time in the [Prerequisites](#prerequisistes) section, you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How to: Ingest IoT hub data article.*
+
 
 ### Create Device Provisioning enrollment
 
@@ -105,20 +108,20 @@ Next, you'll need to create an enrollment in Device Provisioning Service using a
 
 While going through that flow, make sure you select the following options to link the enrollment to the function you just created.
 
-* *Select how you want to assign devices to hubs*: Custom (Use Azure Function)
-* *Select the IoT hubs this group can be assigned to:* Choose your IoT hub name or select *Link a new IoT hub* button, and choose your IoT hub from the dropdown
+* **Select how you want to assign devices to hubs**: Custom (Use Azure Function).
+* **Select the IoT hubs this group can be assigned to:** Choose your IoT hub name or select *Link a new IoT hub* button, and choose your IoT hub from the dropdown.
 
-Next, choose *Select a new function* button to link your function app to the enrollment group.
+Next, choose *Select a new function* button to link your function app to the enrollment group. Then, fill in the following values:
 
-* *Subscription*: Your Azure subscription is auto populated. Make sure it is the right subscription 
-* *Function App*: Choose your function app name 
-* *Function*: Choose DpsAdtAllocationFunc 
+* **Subscription**: Your Azure subscription is auto-populated. Make sure it is the right subscription.
+* **Function App**: Choose your function app name.
+* **Function**: Choose DpsAdtAllocationFunc.
 
 Save your details.                  
 
 :::image type="content" source="media/how-to-provision-using-dps/link-enrollment-group-to-iot-hub-and-function-app.png" alt-text="Select Custom(Use Azure Function) and your IoT hub name in the sections Select how you want to assign devices to hubs and Select the IoT hubs this group can be assigned to. Also, select your subscription, function app from the dropdown and make sure to select DpsAdtAllocationFunc":::
 
-After creating the enrollment, the enrollment primary SAS key will be used later to configure the device simulator for this article.
+After creating the enrollment, the **Primary Key** for the enrollment will be used later to configure the device simulator for this article.
 
 ### Set up the device simulator
 
@@ -126,23 +129,9 @@ This sample uses a device simulator that includes provisioning using the Device 
 
 #### Upload the model
 
-The device simulator is a thermostat-type device that uses the model: [*ThermostatModel.json*](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/ThermostatModel.json). You'll need to upload this model to Azure Digital Twins before you can create a twin of this type for the device.
+The device simulator is a thermostat-type device that uses the model: *ThermostatModel.json*. You'll need to upload this model to Azure Digital Twins before you can create a twin of this type for the device.
 
-First, get the model file on your machine by navigating to the model link above and copying the file body into a local .json file on your machine, and rename it to *ThermostatModel.json*.
-
-1. If you are using [Azure Cloud Shell](https://shell.azure.com) to run the commands, you'll need to upload your json file to the Cloud Shell window and use the following Azure CLI command to upload the model:
-
-```azurecli-interactive
-az dt model create -n <your-Azure-digital-twins-instance-name> --models ThermostatModel.json
-```
-
-2. If you are using local Azure CLI, use the command:
-
-```azurecli-interactive
-az dt model create -n <your-Azure-digital-twins-instance-name> --models <file_path>
-```
-
-For more information about models, refer to [*How-to: Manage models*](how-to-manage-model.md#upload-models).
+[!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
 #### Configure and run the simulator
 
@@ -154,12 +143,12 @@ npm install
 
 Next, in your device simulator directory, copy the .env.template file to a new file called .env, and gather the following values to fill in the settings:
 
-* PROVISIONING_IDSCOPE: To get this value, navigate to your device provisioning service in the Azure portal, then select *Overview* in the menu options and look for the field *ID Scope*.
+* PROVISIONING_IDSCOPE: To get this value, navigate to your device provisioning service in the [Azure portal](https://portal.azure.com/), then select *Overview* in the menu options and look for the field *ID Scope*.
 
     :::image type="content" source="media/how-to-provision-using-dps/id-scope.png" alt-text="The Azure portal view of the device provisioning overview page to copy the ID Scope value" lightbox="media/how-to-provision-using-dps/id-scope.png":::
 
 * PROVISIONING_REGISTRATION_ID: You can choose a registration ID for your device.
-* ADT_MODEL_ID: "dtmi:contosocom:DigitalTwins:Thermostat;1"
+* ADT_MODEL_ID: `dtmi:contosocom:DigitalTwins:Thermostat;1`
 * PROVISIONING_SYMMETRIC_KEY: This is the primary key for the enrollment you set up earlier. To get this value again, navigate to your device provisioning service in the Azure portal, select *Manage enrollments*, then select the enrollment group that you created earlier and copy the *Primary Key*.
 
     :::image type="content" source="media/how-to-provision-using-dps/sas-primary-key.png" alt-text="The Azure portal view of the device provisioning service manage enrollments page to copy the SAS primary key value" lightbox="media/how-to-provision-using-dps/sas-primary-key.png":::
@@ -221,7 +210,7 @@ Go through the steps described in the [*Create an event hub*](../event-hubs/even
 
 ### Create an Azure function
 
-Next, you'll create an Event Hub-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), or your own. 
+Next, you'll create an Event Hubs-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), or your own. 
 
 Name your event hub trigger *lifecycleevents*, and connect the event hub trigger to the event hub you created in the previous step. If you used a different event hub name, change it to match in the trigger name below.
 
