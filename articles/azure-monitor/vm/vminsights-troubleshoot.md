@@ -42,6 +42,8 @@ If you do not see the both extensions for your operating system in the list of i
 ### Do you have connectivity issues?
 For Windows machines, you can use the  *TestCloudConnectivity* tool to identify connectivity issue. This tool is installed by default with the agent in the folder *%SystemRoot%\Program Files\Microsoft Monitoring Agent\Agent*. Run the tool from an elevated command prompt. It will return results and highlight where the test fails. 
 
+![TestCloudConnectivity tool](media/vminsights-troubleshoot/test-cloud-connectivity.png)
+
 ### More agent troubleshooting
 
 See the following articles for troubleshooting issues with the Log Analytics agent:
