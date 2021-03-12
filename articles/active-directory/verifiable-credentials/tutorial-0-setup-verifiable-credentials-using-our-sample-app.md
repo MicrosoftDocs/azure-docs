@@ -1,20 +1,20 @@
 ---
-title: Quickstart- Issue verifiable credentials using a sample app (preview)
-description: In this quickstart, you learn how Issue Verifiable Credentials using a sample app
+title: Tutorial - Issue verifiable credentials using a sample app (preview)
+description: In this tutorial, you learn how Issue Verifiable Credentials using a sample app
 ms.service: identity
 ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 03/11/2021
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---
 
 
-# Quickstart: Issue and Validate verifiable credentials using a sample app (Preview)
+# Tutorial 0: Issue and Validate verifiable credentials using a sample app (Preview)
 
-In this quickstart, we go over the steps needed to issue your first verifiable credential: a Verified Credential Ninja Card. You can then use this card to prove to a verifier that you are a Verified Credential Ninja, mastered in the art of digital credentialing. Get started with Azure Active Directory Verifiable Credentials by using the Verifiable Credentials sample app to issue your first verifiable credential.
+In this tutorial, we go over the steps needed to issue your first verifiable credential: a Verified Credential Ninja Card. You can then use this card to prove to a verifier that you are a Verified Credential Ninja, mastered in the art of digital credentialing. Get started with Azure Active Directory Verifiable Credentials by using the Verifiable Credentials sample app to issue your first verifiable credential.
 
 ![This is an image of an example card](media/quickstart-verifiable-credentials/ninja-card.png)
 
@@ -95,7 +95,7 @@ Congratulations! You are now a verified credentialing Ninja. Now it is time to v
 
 ## Validate credentials
 
-Now that you have completed the issuance portion of the quickstart and you have a verifiable credential in Authenticator, it is time to validate it in your own verifier app.
+Now that you have completed the issuance portion of the tutorial and you have a verifiable credential in Authenticator, it is time to validate it in your own verifier app.
 
 1. Stop running your issuer ngrok service.
 

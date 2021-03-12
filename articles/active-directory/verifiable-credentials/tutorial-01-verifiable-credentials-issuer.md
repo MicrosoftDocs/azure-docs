@@ -35,7 +35,7 @@ In this article:
 
 Before you can successfully complete this tutorial, you must first:
 
-- Complete the [quickstart](quickstart-verifiable-credentials.md).
+- Complete the [first tutorial](tutorial-0-setup-verifiable-credentials-using-our-sample-app.md).
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure AD with a P2 [license](https://azure.microsoft.com/pricing/details/active-directory/).
 - An instance of [Azure Key Vault](../../key-vault/general/overview.md) where you have rights to create keys and secrets.

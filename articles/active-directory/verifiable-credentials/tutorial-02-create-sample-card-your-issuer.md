@@ -210,7 +210,7 @@ ngrok http 8081
 ```
 
 >[!IMPORTANT]
-> Delete or Archive the Verifiable Credential in your wallet before you issue a credential to yourself. At this time, there is a limitation of only one credential type in Authenticator at a time. You will also see a warning about your issuer not having yet configured [DNS binding](how-to-dnsbind.md). When testing, use the same email and password that you used during the quickstart. You need that information because while you are issuing the credential authentication is still handled by the same Azure AD that we used earlier.
+> Delete or Archive the Verifiable Credential in your wallet before you issue a credential to yourself. At this time, there is a limitation of only one credential type in Authenticator at a time. You will also see a warning about your issuer not having yet configured [DNS binding](how-to-dnsbind.md). When testing, use the same email and password that you used during the first tutorial. You need that information because while you are issuing the credential authentication is still handled by the same Azure AD that we used earlier.
 
 6. Open up your url from ngrok and test issuing the VC to yourself.
 
