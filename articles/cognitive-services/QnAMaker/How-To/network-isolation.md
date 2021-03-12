@@ -9,7 +9,7 @@ ms.date: 11/09/2020
 
 # Recommended settings for network isolation
 
-You should follow the follow the steps below to restrict public access to QnA Maker resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
+You should follow the steps below to restrict public access to QnA Maker resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ## Restrict access to App Service (QnA Runtime)
 
