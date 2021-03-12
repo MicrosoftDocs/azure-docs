@@ -169,7 +169,7 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 The previous JSON requested only answers that are at 30% or above the threshold score.
 
-# Get precise answers with GenerateAnswer API
+## Get precise answers with GenerateAnswer API
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
