@@ -85,7 +85,7 @@ Because manufacturing and operation processes are separated, consider the follow
 
 ## Dev/Test implications
 
-To ease development and test scenarios, Microsoft provides a set of [convenience scripts](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) for generating non-production certificates suitable for IoT Edge in the transparent gateway scenario. For examples of how the scripts work, see [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
+To ease development and test scenarios, Microsoft provides a set of [convenience scripts](https://github.com/Azure/iotedge/tree/master/tools/CACertificates) for generating non-production certificates suitable for IoT Edge in the transparent gateway scenario. For examples of how the scripts work, see [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
 
 >[!Tip]
 > To connect your device IoT "leaf" devices and applications that use our IoT device SDK through IoT Edge, you must add the optional GatewayHostName parameter on to the end of the device's connection string. When the Edge Hub Server Certificate is generated, it is based on a lower-cased version of the hostname from the config file, therefore, for the names to match and the TLS certificate verification to succeed, you should enter the GatewayHostName parameter in lower case.
