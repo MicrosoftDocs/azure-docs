@@ -230,6 +230,8 @@
     href: ../../virtual-wan/security-baseline.md
   - name: VPN Gateway security baseline
     href: ../../vpn-gateway/security-baseline.md
+  - name: Windows compute security baseline
+    href: ../../governance/policy/samples/guestconfig-baseline-windows.md?toc=/azure/security/benchmarks/toc.json
   - name: Windows Virtual Desktop security baseline
     href: ../../virtual-desktop/security-baseline.md
 - name: Resources
