@@ -262,6 +262,14 @@
       href: use-azure-ad-pod-identity.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
+    - name: Enable Open Service Mesh (Preview)
+      items: 
+        - name: About Open Service Mesh (OSM)
+          href: about-open-service-mesh.md
+        - name: Install and Configure
+          href: install-configure-open-service-mesh.md
+        - name: Tasks and Usage Scenarios
+          href: tasks-usage-scenarios-open-service-mesh.md
     - name: Secure pod traffic with network policies
       href: use-network-policies.md
     - name: Use Azure Policy
