@@ -11,8 +11,8 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ---
-# Migration guide: Oracle to SQL Managed Instance
-[!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
+# Migration guide: Oracle to Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 This guide teaches you to migrate your Oracle schemas to Azure SQL Managed Instance using SQL Server Migration Assistant for Oracle. 
 
@@ -25,6 +25,7 @@ To migrate your Oracle schema to SQL Managed Instance you need:
 - To verify your source environment is supported. 
 - To download [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 - A target [Azure SQL Managed Instance](../../managed-instance/instance-create-quickstart.md). 
+- The [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
  
 
 ## Pre-migration
@@ -35,9 +36,7 @@ After you have met the prerequisites, you are ready to discover the topology of 
 
 ### Assess 
 
-
 Use the SQL Server Migration Assistant (SSMA) for Oracle to review database objects and data, assess databases for migration, migrate database objects to Azure SQL Managed Instance, and then finally migrate data to the database. 
-
 
 To create an assessment, follow these steps: 
 
@@ -121,6 +120,8 @@ To publish your schema and migrate your data, follow these steps:
 
    ![Synchronize with Database](./media/oracle-to-managed-instance-guide/synchronize-with-database.png)
 
+   Review the synchronization with the database: 
+
    ![Synchronize with Database Review](./media/oracle-to-managed-instance-guide/synchronize-with-database-review.png)
 
 1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. 
@@ -144,10 +145,6 @@ Alternatively, you can also use SQL Server Integration Services (SSIS) to perfor
 - [SQL Server Integration Services: SSIS for Azure and Hybrid Data Movement](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
 
     
-> [!NOTE]
-> If you are interested in participating in a Private preview of online migrations for Oracle to Azure SQL Managed Instance (or to Azure SQL Managed Instance Managed Instance) using the Azure Database Migration Service, submit a nomination on the Azure Database Migration Service [preview site](https://aka.ms/dms-preview).
-
-
 
 
 ## Post-migration 
@@ -170,9 +167,6 @@ The test approach for database migration consists of performing the following ac
 
 4.  **Run performance tests**. Run performance test against the source and the target, and then analyze and compare the results.
 
-> [!NOTE]
-> For assistance with developing and running post-migration validation tests, consider the Data Quality Solution available from the partner [QuerySurge](http://www.querysurge.com/company/partners/microsoft).
-
 ### Optimize
 
 The post-migration phase is crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload.
@@ -193,8 +187,7 @@ For additional assistance with completing this migration scenario, please see th
 | [SSMA for Oracle Common Errors and how to fix them](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | With Oracle, you can assign a non-scalar condition in the WHERE clause. However, SQL Server doesn’t support this type of condition. As a result, SQL Server Migration Assistant (SSMA) for Oracle doesn’t convert queries with a non-scalar condition in the WHERE clause, instead generating an error O2SS0001. This white paper provides more details on the issue and ways to resolve it.          |
 | [Oracle to SQL Server Migration Handbook](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | This document focuses on the tasks associated with migrating an Oracle schema to the latest version of SQL Serverbase. If the migration requires changes to features/functionality, then the possible impact of each change on the applications that use the database must be considered carefully.                                                     |
 
-> [!NOTE]
-> These resources were developed as part of the Data Migration Jumpstart Program (DM Jumpstart), which is sponsored by the Azure Data Group engineering team. The core charter DM Jumpstart is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft’s Azure Data platform. If you think your organization would be interested in participating in the DM Jumpstart program, please contact your account team and ask that they submit a nomination.
+These resources were developed as part of the Data SQL Ninja Program, which is sponsored by the Azure Data Group engineering team. The core charter of the Data SQL Ninja program is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft's Azure Data platform. If you think your organization would be interested in participating in the Data SQL Ninja program, please contact your account team and ask them to submit a nomination.
 
 ## Next steps
 
@@ -206,8 +199,8 @@ For additional assistance with completing this migration scenario, please see th
 
 
 - To learn more about the framework and adoption cycle for Cloud migrations, see
-    - [Cloud Adoption Framework for Azure](/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-    - [Best practices for costing and sizing workloads migrate to Azure](/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs)
+   -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
+   -  [Best practices for costing and sizing workloads migrate to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) s)
 
 - For video content, see: 
     - [How to Use the Database Migration Guide](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)

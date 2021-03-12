@@ -190,7 +190,7 @@ The test approach for database migration consists of performing the following ac
 
 > [!TIP]
 > Use the [Database Experimentation Assistant (DEA)](/sql/dea/database-experimentation-assistant-overview) to assist with evaluating the target SQL Server performance.
->
+
 
 ### Optimize
 

@@ -96,9 +96,6 @@ The test approach for database migration consists of performing the following ac
 
 4. **Run performance tests**. Run performance test against the source and the target, and then analyze and compare the results.
 
-> [!NOTE]
-> For assistance with developing and running post-migration validation tests, consider the Data Quality Solution available from the partner [QuerySurge](http://www.querysurge.com/company/partners/microsoft).
-
 ### Optimize
 
 The post-migration phase is crucial for reconciling any data accuracy issues and verifying completeness, as well as addressing performance issues with the workload.
