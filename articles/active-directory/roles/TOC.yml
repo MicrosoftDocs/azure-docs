@@ -105,7 +105,8 @@
     - name: App consent permissions
       href: custom-consent-permissions.md
   - name: Azure AD service limits
-    href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context  - name: Graph API
-    href: /graph/api/overview
+    href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
   - name:  Azure AD PowerShell
     href: /powershell/azure/active-directory/overview
+  - name: Graph API
+    href: /graph/api/overview
