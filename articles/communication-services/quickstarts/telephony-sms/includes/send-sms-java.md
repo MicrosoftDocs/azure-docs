@@ -23,7 +23,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- An SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
+- A SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
 
 ### Prerequisite check
 
@@ -179,7 +179,7 @@ for (SmsSendResult result : sendResults) {
 }
 ```
 
-You should replace `<from-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number or a list of phone numbers you wish to send a message to.
+You should replace `<from-phone-number>` with a SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number or a list of phone numbers you wish to send a message to.
 
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 
