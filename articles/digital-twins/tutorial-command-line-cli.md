@@ -101,6 +101,9 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     
     The output from each command will show information about the successfully uploaded model.
 
+    >[!TIP]
+    >You can also upload all models within a directory at the same time, by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for *az dt model create*](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_create-optional-parameters).
+
 1. Verify the models were created with the [**az dt model list**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_list) command as shown below. This will print a list of all models that have been uploaded to the Azure Digital Twins instance with their full information. 
 
     ```azurecli-interactive
