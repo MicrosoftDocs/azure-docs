@@ -91,7 +91,7 @@ If not specified, the default `AzureWebJobsStorage` storage account is used. For
 
 While activity functions can be scaled out infinitely by adding more VMs elastically, orchestrators and entities are constrained to inhabit a single partition and the maximum number of partitions is bounded by the `partitionCount` setting in your `host.json`. This means the maximum number of orchestrator instances _executing code_ concurrently (this doesn't include suspended orchestrators) is equal to your number of partitions.
 
-> ![NOTE]
+> [!NOTE]
 > Generally speaking, orchestrator functions are intended to be lightweight and should not require large amounts of computing power. It is therefore not necessary to create a large number of control queue partitions to get great throughput for orchestrations. Most of the heavy work should be done in stateless activity functions, which can be scaled out infinitely.
 
 The number of control queues is defined in the **host.json** file. The following example host.json snippet sets the `durableTask/storageProvider/partitionCount` property (or `durableTask/partitionCount` in Durable Functions 1.x) to `3`. Note that there are as many control queues as there are partitions.
@@ -124,17 +124,34 @@ The number of control queues is defined in the **host.json** file. The following
 
 A task hub can be configured with between 1 and 16 partitions. If not specified, the default partition count is **4**.
 
-When scaling out to multiple function host instances (typically on different VMs), each instance acquires a lock on one of the control queues. These locks are internally implemented as blob storage leases and ensure that an orchestration instance or entity only runs on a single host instance at a time. If a task hub is configured with three control queues, orchestration instances and entities can be load-balanced across as many as three VMs. Additional VMs can be added to increase capacity for activity function execution.
+During low traffic scenarios, your application will be scaled-in, so partitions will be managed by a small number of workers. As an example, consider the diagram below.
+
+![Scale-in orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progressions-1.png)
+
+In it, we see orchestrators 1 through 6 are load balanced across partitions but all partitions are within one worker, due to low-traffic. Activity functions, on the other hand, make full use of all two allocated workers.
+
+As traffic increases, more workers will get allocated and partitions will eventually load balance across workers as well. If we continue to scale out, eventually each partition of orchestrators will be managed by a single worker. Activities, on the other hand, will continue scaling out to as many workers as necessary to handle the traffic. This is shown in the image below.
+
+![First scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-2.png)
+
+Finally, as more orchestrations are started, they will continue to be load-balanced across partitions. Since orchestrators defer most of their computation to activities, it's unlikely many of them will need to execute at the same time. This is illustrated in our image below, where we represented inactive orchestrations in grey.
+
+![Second scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progressions-3.png)
+
+During scale-out, each functions host instance (typically on different VMs) acquires a lock on one of the control queues. These locks are internally implemented as blob storage leases and ensure that an orchestration instance or entity only runs on a single host instance at a time. If a task hub is configured with three control queues, orchestration instances and entities can be load-balanced across as many as three VMs. Additional VMs can be added to increase capacity for activity function execution.
 
 The following diagram illustrates how the Azure Functions host interacts with the storage entities in a scaled out environment.
 
-![Scale diagram](./media/durable-functions-perf-and-scale/scale-diagram.png)
+![Scale diagram](./media/durable-functions-perf-and-scale/scale-interactions-diagram.png)
 
 As shown in the previous diagram, all VMs compete for messages on the work-item queue. However, only three VMs can acquire messages from control queues, and each VM locks a single control queue.
 
 Orchestration instances and entities are distributed across all control queue instances. The distribution is done by hashing the instance ID of the orchestration or the entity name and key pair. Orchestration instance IDs by default are random GUIDs, ensuring that instances are equally distributed across all control queues.
 
 Generally speaking, orchestrator functions are intended to be lightweight and should not require large amounts of computing power. It is therefore not necessary to create a large number of control queue partitions to get great throughput for orchestrations. Most of the heavy work should be done in stateless activity functions, which can be scaled out infinitely.
+
+> [!NOTE]
+> Some of these diagrams were community contributions from a [thread](https://github.com/Azure/azure-functions-durable-extension/issues/1686) in our GitHub repository.
 
 ## Auto-scale
 
