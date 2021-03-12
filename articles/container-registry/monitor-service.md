@@ -90,7 +90,10 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](/a
 > [!TIP]
 > You can also create registry diagnostic settings by navigating to your registry in the portal. Then, select **Diagnostic settings** under **Monitoring**.
 
+
 <!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
+
+:::image type="content" source="media/monitor-service/diagnostic-settings.png" alt-text="Diagnostic settings for container registry":::
 
 The metrics and logs you can collect are discussed in the following sections.
 
@@ -109,6 +112,11 @@ For a list of the platform metrics collected for Azure Container Registry, see [
 
 For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
+### REST API 
+You can also use the Azure Monitor REST API to get information programmatically about the Azure Container Registry metrics.
+
+* [List metric definitions and dimensions](/rest/api/monitor/metricdefinitions/list)
+* [Retrieve metric values](/rest/api/monitor/metrics/list)
 <!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about how to use metrics explorer specifically for your service. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
 
 ## Analyzing logs

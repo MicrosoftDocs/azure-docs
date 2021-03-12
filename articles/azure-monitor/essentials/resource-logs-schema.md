@@ -51,7 +51,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Automation |[Log analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch logging](../../batch/batch-diagnostics.md) |
 | Cognitive Services | [Logging for Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
-| Container Registry | [Logging for Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| Container Registry | [Monitor Azure Container Registry](../../container-registry/monitor-service.md) |
 | Content Delivery Network | [Azure Logs for CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB Logging](../../cosmos-db/monitor-cosmos-db.md) |
 | Data Factory | [Monitor Data Factories using Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |

@@ -224,7 +224,7 @@ You can use Azure Blueprints to simplify large-scale Azure deployments by packag
 
 **Guidance**: If using a cloud-based private registry like Azure container registry with Azure Container Instances, use Azure Log Analytics workspace for monitoring and alerting on anomalous activities in security logs and events related to your Azure container registry.
 
-- [Azure Container Registry logs for diagnostic evaluation and auditing](../container-registry/container-registry-diagnostics-audit-logs.md)
+- [Monitor Azure Container Registry](../container-registry/monitor-service.md)
 
 - [How to alert on log analytics log data](/azure/azure-monitor/learn/tutorial-response)
 
@@ -668,7 +668,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: If using a cloud-based private registry like Azure Container Registry (ACR) with Azure Container Instances, analyze and monitor Azure Container Registry logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics Workspace to review logs and perform queries on log data.
 
-- [Azure Container Registry logs for diagnostic evaluation and auditing](../container-registry/container-registry-diagnostics-audit-logs.md)
+- [Monitor Azure Container Registry](../container-registry/monitor-service.md)
 
 - [Understand Log Analytics Workspace](/azure/azure-monitor/log-query/log-analytics-tutorial)
 
