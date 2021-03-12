@@ -16,7 +16,7 @@ ms.date: 08/25/2020
 
 This guide teaches you to migrate your Oracle databases to Azure SQL Database using SQL Server Migration Assistant for Oracle.
 
-For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+For other scenarios, see the [Database Migration Guide](https://docs.microsoft.com/data-migration/).
 
 ## Prerequisites
 
@@ -50,7 +50,11 @@ To create an assessment, follow these steps:
 
 1. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
 
+   ![Connect to Oracle](./media/oracle-to-sql-database-guide/oracle-data-provider.png)
+
    ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
+
+   ![Connect to Oracle](./media/oracle-to-sql-database-guide/select-schema.png)
 
 1. Right-click the Oracle database you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
 
@@ -93,6 +97,8 @@ To convert the schema, follow these steps:
 
 1. After the conversion completes, compare and review the structure of the schema to identify potential problems and address them based on the recommendations.
 
+   ![Review recommendations schema](./media/oracle-to-sql-database-guide/convert-schema-review.png)
+
    ![Review recommendations](./media/oracle-to-sql-database-guide/review-recommendations.png)
 
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu.
@@ -106,6 +112,8 @@ To publish your schema and migrate your data, follow these steps:
 1. Publish the schema: Right-click the database from the **Databases** node in the **Azure SQL Database Metadata Explorer** and choose **Synchronize with Database**.
 
    ![Synchronize with Database](./media/oracle-to-sql-database-guide/synchronize-with-database.png)
+
+   ![Synchronize with Database](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
 
 1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. 
 
