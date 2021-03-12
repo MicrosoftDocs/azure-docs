@@ -203,14 +203,14 @@ In order to do sentiment analysis with opinion mining, create an array of string
 ```javascript
 async function sentimentAnalysisWithOpinionMining(client){
 
-	const sentimentInput = [
-			{
-					text: "The food and service were unacceptable, but the concierge were nice",
-					id: "0",
-					language: "en"
-			}
-	];
-	const results = await client.analyzeSentiment(sentimentInput, { includeOpinionMining: true });
+  const sentimentInput = [
+    {
+      text: "The food and service were unacceptable, but the concierge were nice",
+      id: "0",
+      language: "en"
+    }
+  ];
+  const results = await client.analyzeSentiment(sentimentInput, { includeOpinionMining: true });
 
   for (let i = 0; i < results.length; i++) {
     const result = results[i];
@@ -712,9 +712,9 @@ Create a new function called `analyze_example()`, which calls the `beginAnalyze(
 
 ```javascript
 async function analyze_example(client) {
-	const documents = [
-		"Microsoft was founded by Bill Gates and Paul Allen.",
-	];	
+  const documents = [
+    "Microsoft was founded by Bill Gates and Paul Allen.",
+  ];
 
   const actions = {
     recognizeEntitiesActions: [{ modelVersion: "latest" }],
