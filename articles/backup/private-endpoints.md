@@ -294,7 +294,7 @@ But if you remove private endpoints for the vault after a MARS agent has been re
 
 ## Deleting Private EndPoints
 
-See [this section](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) to learn how to delete Private EndPoints
+See [this section](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) to learn how to delete Private EndPoints.
 
 ## Additional topics
 
@@ -557,4 +557,4 @@ A. After following the process detailed in this article, you don't need to do ad
 
 ## Next steps
 
-- Read about all the [security features in Azure Backup](security-overview.md)
+- Read about all the [security features in Azure Backup](security-overview.md).
