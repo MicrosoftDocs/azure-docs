@@ -424,7 +424,7 @@
     items:
     - name: b2clogin.com overview
       href: b2clogin.md
-    - name: Configure custom domain
+    - name: Configure a custom domain
       href: custom-domain.md
     - name: Configure web API domains 
       href: multiple-token-endpoints.md
