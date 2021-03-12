@@ -32,6 +32,7 @@ ms.custom: include file
 | Maximum request URL size<sup>9</sup> | 4096 bytes |
 | Maximum length of URL path segment<sup>10</sup> | 260 characters |
 | Maximum size of API schema used by [validation policy](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 MB |
+| Maximum size of request or response body in [validate-content policy](../articles/api-management/validation-policies.md#validate-content) | 100 KB |
 | Maximum number of self-hosted gateways<sup>11</sup> | 25 |
 
 <sup>1</sup>Scaling limits depend on the pricing tier. For details on the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>

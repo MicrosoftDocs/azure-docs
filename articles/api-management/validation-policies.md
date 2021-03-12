@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: apimpm
 ---
 
@@ -53,6 +53,8 @@ Adding validation policies may affect API throughput. The following general prin
 * The size of the API schema has a larger impact on performance than the size of the payload. 
 * Validation against an API schema that is several megabytes in size may cause request or response timeouts under some conditions. The effect is more pronounced in the  **Consumption** and **Developer** tiers of the service. 
 
+We recommend performing load tests with your expected production workloads to assess the impact of validation policies on API throughput.
+
 ## Validate content
 
 The `validate-content` policy validates the size or JSON schema of a request or response body against the API schema. Formats other than JSON aren't supported.
@@ -67,10 +69,10 @@ The `validate-content` policy validates the size or JSON schema of a request or 
 
 ### Example
 
-In the following example, the JSON payload in requests and responses is validated in detection mode. Messages with payloads larger than 10 MB are blocked. 
+In the following example, the JSON payload in requests and responses is validated in detection mode. Messages with payloads larger than 100 KB are blocked. 
 
 ```xml
-<validate-content unspecified-content-type-action="prevent" max-size="10000000" size-exceeded-action="prevent" errors-variable-name="requestBodyValidation">
+<validate-content unspecified-content-type-action="prevent" max-size="102400" size-exceeded-action="prevent" errors-variable-name="requestBodyValidation">
     <content type="application/json" validate-as="json" action="detect" />
     <content type="application/hal+json" validate-as="json" action="detect" />
 </validate-content>
@@ -89,11 +91,11 @@ In the following example, the JSON payload in requests and responses is validate
 | Name                       | Description                                                                                                                                                            | Required | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | unspecified-content-type-action | [Action](#actions) to perform for requests or responses with a content type that isn’t specified in the API schema. |  Yes     | N/A   |
-| max-size | Maximum length of the body of the request or response, checked against the Content-Length header. If this attribute is specified, the `size-exceeded-action` attribute also needs to be specified.  | No       | N/A   |
-| size-exceeded-action | [Action](#actions) to perform for requests or responses whose body exceeds the specified maximum size. If this attribute is specified, the `max-size` attribute also needs to be specified. |  No     | N/A   |
+| max-size | Maximum length of the body of the request or response, checked against the `Content-Length` header. If the request body or response body is compressed, this value is the decompressed length. Maximum allowed value: 102,400 bytes (100 KB).  | Yes       | N/A   |
+| size-exceeded-action | [Action](#actions) to perform for requests or responses whose body exceeds the size specified in `max-size`. |  Yes     | N/A   |
 | errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   Yes    | N/A   |
 | type | Content type to execute body validation for, checked against the `Content-Type` header. This value is case insensitive. If empty, it applies to every content type specified in the API schema. |   No    |  N/A  |
-| validate-as | Validation engine to use for validation of the body of a request or response with a matching content type. Currently, the only supported value is “json”.   |  Yes     |  N/A  |
+| validate-as | Validation engine to use for validation of the body of a request or response with a matching content type. Currently, the only supported value is "json".   |  Yes     |  N/A  |
 | action | [Action](#actions) to perform for requests or responses whose body doesn't match the specified content type.  |  Yes      | N/A   |
 
 ### Usage
@@ -107,6 +109,10 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## Validate parameters
 
 The `validate-parameters` policy validates the header, query, or path parameters in requests against the API schema.
+
+> [!IMPORTANT]
+> If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-parameters` policy might not work. You may need to reimport your API using management API version `2021-01-01-preview` or later.
+
 
 ### Policy statement
 
@@ -169,6 +175,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 ## Validate headers
 
 The `validate-headers` policy validates the response headers against the API schema.
+
+> [!IMPORTANT]
+> If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-headers` policy might not work. You may need to reimport your API using management API version `2021-01-01-preview` or later.
 
 ### Policy statement
 
@@ -265,7 +274,6 @@ The following table lists all possible errors of the validation policies.
 | {messageContentType}                 | RequestBody                                                     | Unspecified         | Unspecified content type {messageContentType} is not allowed.                                                                                     | Unspecified content type {messageContentType} is not allowed.                                                                             | detect / prevent |
 | {messageContentType}                 | ResponseBody                                                    | Unspecified         | Unspecified content type {messageContentType} is not allowed.                                                                                     | The request could not be processed due to an internal error. Contact the API owner.                                                       | detect / prevent |
 | | ApiSchema                                                       |                     | API's schema does not exist or it could not be resolved.                                                                                          | The request could not be processed due to an internal error. Contact the API owner.                                                       | detect / prevent |
-| |ApiSchema                                                       |                     | API's schema is not available for validation. This can happen if its size exceeds the limit of 4 MB or if it does not adhere to the specification. | The request could not be processed due to an internal error. Contact the API owner.                                                       | detect / prevent |
 |                                      | ApiSchema                                                       |                     | API's schema does not specify definitions.                                                                                                        | The request could not be processed due to an internal error. Contact the API owner.                                                       | detect / prevent |
 | {messageContentType}                 | RequestBody / ResponseBody                                      | MissingDefinition   | API's schema does not contain definition {definitionName}, which is associated with the content type {messageContentType}.                        | The request could not be processed due to an internal error. Contact the API owner.                                                       | detect / prevent |
 | {messageContentType}                 | RequestBody                                                     | IncorrectMessage    | Body of the request does not conform to the definition {definitionName}, which is associated with the content type {messageContentType}.<br/><br/>{valError.Message} Line: {valError.LineNumber}, Position: {valError.LinePosition}                  | Body of the request does not conform to the definition {definitionName}, which is associated with the content type {messageContentType}.<br/><br/>{valError.Message} Line: {valError.LineNumber}, Position: {valError.LinePosition}            | detect / prevent |
@@ -276,7 +284,6 @@ The following table lists all possible errors of the validation policies.
 | {paramName} / {headerName}           | QueryParameter / PathParameter / RequestHeader                  | Unspecified         | Unspecified {path parameter / query parameter / header} {paramName} is not allowed.                                                               | Unspecified {path parameter / query parameter / header} {paramName} is not allowed.                                                       | detect / prevent |
 | {headerName}                         | ResponseHeader                                                  | Unspecified         | Unspecified header {headerName} is not allowed.                                                                                                   | The request could not be processed due to an internal error. Contact the API owner.                                                       | detect / prevent |
 |                                      |ApiSchema                                                       |                     | API's schema doesn't exist or it couldn't be resolved.                                                                                            | The request could not be processed due to an internal error. Contact the API owner.                                                       | detect / prevent |
-|                           |           ApiSchema                                                       |                     | API's schema is not available for validation. This can happen if its size exceeds the limit of 4 MB or if it does not adhere to the specification. | The request could not be processed due to an internal error. Contact the API owner.                                                       | detect / prevent |
 |                                       | ApiSchema                                                       |                     | API schema does not specify definitions.                                                                                                          | The request could not be processed due to an internal error. Contact the API owner.                                                       | detect / prevent |
 | {paramName}                          | QueryParameter / PathParameter / RequestHeader / ResponseHeader | MissingDefinition   | API's schema does not contain definition {definitionName}, which is associated with the {query parameter / path parameter / header} {paramName}.  | The request could not be processed due to an internal error. Contact the API owner.                                                       | detect / prevent |
 | {paramName}                          | QueryParameter / PathParameter / RequestHeader                  | IncorrectMessage    | Request cannot contain multiple values for the {query parameter / path parameter / header} {paramName}.                                           | Request cannot contain multiple values for the {query parameter / path parameter / header} {paramName}.                                   | detect / prevent |
