@@ -91,7 +91,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 The queryLanguage parameter required for speller must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. 
 
-+ queryLanguage determines which lexicons are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using "queryType=semantic".
++ queryLanguage determines which lexicons are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-answers.md) if you are using "queryType=semantic".
 
 + Language analyzers are used during indexing and query execution to find matching documents in the search index. An example of a field definition that uses a language analyzer is `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"`.
 
