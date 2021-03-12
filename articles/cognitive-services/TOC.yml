@@ -9,6 +9,8 @@
     href: whats-new-docs.md
   - name: Language support
     href: language-support.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/
 - name: Quickstarts
   items:
   - name: Create a new resource using the Azure portal
@@ -70,6 +72,14 @@
       href: security-baseline.md
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
+- name: Concepts
+  items:
+  - name: Cognitive Services development options
+    href: cognitive-services-development-options.md
+  - name: Cognitive Services and Machine learning
+    href: cognitive-services-and-machine-learning.md 
+  - name: Custom subdomains for Cognitive Services
+    href: cognitive-services-custom-subdomains.md
 - name: Tutorial
   items:
   - name: Big data
@@ -90,14 +100,6 @@
         href: ./big-data/recipes/anomaly-detection.md
       - name: "Recipe: Art Explorer"
         href: ./big-data/recipes/art-explorer.md
-- name: Concepts
-  items:
-  - name: Cognitive Services development options
-    href: cognitive-services-development-options.md
-  - name: Cognitive Services and Machine learning
-    href: cognitive-services-and-machine-learning.md 
-  - name: Custom subdomains for Cognitive Services
-    href: cognitive-services-custom-subdomains.md
 - name: Reference
   items:
   - name: Azure Policy built-ins
@@ -107,10 +109,10 @@
   items:
   - name: Support & help options
     href: cognitive-services-support-options.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=cognitive-services
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/
+  - name: Region support
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/?query=cognitive%20services
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Compliance
@@ -121,9 +123,3 @@
     href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/cognitive-services/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=cognitive-services
-  - name: Provide product feedback
-    href: https://cognitive.uservoice.com/
-  - name: Code of conduct
-    href: https://go.microsoft.com/fwlink/?LinkId=698895
