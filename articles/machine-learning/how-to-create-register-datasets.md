@@ -182,9 +182,113 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 To reuse and share datasets across experiments in your workspace, [register your dataset](#register-datasets).
 
+## Wrangle data
+After you create and [register](#register-datasets) your dataset, you can load it into your notebook for data wrangling and [exploration](#explore-data) prior to model training. 
+
+If you don't need to do any data wrangling or exploration, see how to consume datasets in your training scripts for submitting ML experiments in [Train with datasets](how-to-train-with-datasets.md).
+
+### Filter datasets (preview)
+Filtering capabilities depends on the type of dataset you have. 
+> [!IMPORTANT]
+> Filtering datasets with the public preview method, [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time. 
+> 
+**For TabularDatasets**, you can keep or remove columns with the [keep_columns()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) and [drop_columns()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-) methods.
+
+To filter out rows by a specific column value in a TabularDataset, use the [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) method (preview). 
+
+The following examples return an unregistered dataset based on the specified expressions.
+
+```python
+# TabularDataset that only contains records where the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter(tabular_dataset['age'] > 15)
+
+# TabularDataset that contains records where the name column value contains 'Bri' and the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter((tabular_dataset['name'].contains('Bri')) & (tabular_dataset['age'] > 15))
+```
+
+**In FileDatasets** each row corresponds to a path of a file, so filtering by column value is not helpful. But, you can [filter()](/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py#filter-expression-) out rows by metadata like, CreationTime, Size etc.
+
+The following examples return an unregistered dataset based on the specified expressions.
+
+```python
+# FileDataset that only contains files where Size is less than 100000
+file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
+
+# FileDataset that only contains files that were either created prior to Jan 1, 2020 or where 
+file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
+```
+
+**Labeled datasets** created from [data labeling projects](how-to-create-labeling-projects.md) are a special case. These datasets are a type of TabularDataset made up of image files. For these types of datasets, you can [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) images by metadata, as well as by column values like `label` and `image_details`.
+
+```python
+# Dataset that only contains records where the label column value is dog
+labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
+
+# Dataset that only contains records where the label and isCrowd columns are True and where the file size is larger than 100000
+labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
+```
+
+### Partition data (preview)
+After you create and [register](#register-datasets) your dataset, you can load it into your notebook for data wrangling and [exploration](#explore-data) prior to model training.
+
+You can partition a dataset by including the `partitions_format` parameter when creating a TabularDataset or FileDataset. 
+
+> [!IMPORTANT]
+> Creating dataset partitions with the `partitioned_format` parameter is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time. 
+
+When you partition a dataset, the partition information of each file path is extracted into columns based on the specified format. The format should start from the position of first partition key until the end of file path. 
+
+For example, given the path `../Accounts/2019/01/01/data.jsonl` where the partition is by department name and time. The `partition_format='/{Department}/{PartitionDate:yyyy/MM/dd}/data.jsonl'` creates a string column 'Department' with the value 'Accounts' and a datetime column 'PartitionDate' with the value `2019-01-01`.
+
+For TabularDatasets, include `partitioned_format` parameter in the [from_parquet_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) or the
+[from_delimited_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--) method. 
+
+The following example creates an indexed dataset from partitioned tabular data.
+
+```Python
+tabular_dataset = Dataset.Tabular.from_parquet_files(data_paths, partition_format = '{country}/{state}/{partition_date:yyyy/MM/dd}/customer_*.parquet')
+tabular_dataset.register(name='test')
+
+# access partition_keys
+indexes = tabular_dataset.partition_keys # ['country', 'state', 'partition_date']
+
+# get all partition key value pairs
+partitions = tabular_dataset.get_partition_key_values()
+# return [{'country': 'US', 'state': 'WA', 'partition_date': datetime('2020-1-1')}]
+
+partitions = tabular_dataset.get_partition_key_values(['country'])
+# return [{'country': 'US'}]
+
+# filter API, this will only load data from US/WA/2020-1-1/ folder
+new_tabular_dset = tabular_dataset.filter(ds['state'] == 'WA' and ds['country'] == 'US' and ds['partition_date'] >= datetime(2020, 1, 1))
+
+```
+
+For FileDatasets, include `partitioned_format` in the [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true--partition-format-none-) method. 
+
+The following example creates an indexed dataset from partitioned files.
+ 
+```Python
+file_dataset = Dataset.File.from_files(data_paths, partition_format = '{userid}/*.wav')
+ds.register(name='speech_dataset')
+
+# access partition_keys
+indexes = file_dataset.partition_keys # ['userid']
+
+# get all partition key value pairs
+partitions = file_dataset.get_partition_key_values()
+# return [{'userid': 'user1'}, {'userid': 'user2'}]
+
+partitions = file_dataset.get_partition_key_values(['userid'])
+# return [{'userid': 'user1'}, {'userid': 'user2'}]
+
+# filter API, this will only download data from user1/ folder
+new_file_dataset = file_dataset.filter(ds['userid'] == 'user1').download()
+
+```
 ## Explore data
 
-After you create and [register](#register-datasets) your dataset, you can load it into your notebook for data exploration prior to model training. If you don't need to do any data exploration, see how to consume datasets in your training scripts for submitting ML experiments in [Train with datasets](how-to-train-with-datasets.md).
+After you're done wrangling your data,you can [register](#register-datasets) your dataset and then load it into your notebook for data exploration prior to model training.
 
 For FileDatasets, you can either **mount** or **download** your dataset, and apply the python libraries you'd normally use for data exploration. [Learn more about mount vs download](how-to-train-with-datasets.md#mount-vs-download).
 
