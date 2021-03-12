@@ -113,7 +113,7 @@ Add the following code to the `main` method:
 
 ```java
 // You can find your endpoint and access key from your resource in the Azure Portal
-String endpoint =  "https://<resource-name>.communication.azure.com/";
+String endpoint = "https://<resource-name>.communication.azure.com/";
 AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key-credential>");
 
 // Create an HttpClient builder of your choice and customize it
