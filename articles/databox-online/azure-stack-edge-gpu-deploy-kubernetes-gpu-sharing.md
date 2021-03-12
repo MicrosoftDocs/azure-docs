@@ -7,12 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 0312/2021
+ms.date: 03/12/2021
 ms.author: alkohli
 ---
 # Deploy a Kubernetes workload using GPU sharing on your Azure Stack Edge Pro
 
-This article describes how containerized workloads can share the GPUs on your Azure Stack Edge Pro GPU device. In this article, you will run two jobs, one when the Multi-Process Service (MPS) is enabled on the device and the second, when the service is disabled. For more information, see the [Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
+This article describes how containerized workloads can share the GPUs on your Azure Stack Edge Pro GPU device. In this article, you will run two jobs, one without the GPU context-sharing and one with the context-sharing enabled via the the Multi-Process Service (MPS) on the device. For more information, see the [Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
 
 ## Prerequisites
 

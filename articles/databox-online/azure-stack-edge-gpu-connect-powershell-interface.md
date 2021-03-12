@@ -190,9 +190,9 @@ NAME         STATUS  DESCRIPTION CONFIG                                         
 edgehub      Running Up 5 days   mcr.microsoft.com/azureiotedge-hub:1.0          10.57.48.62 443:31457/TCP,5671:308
                                                                                              81/TCP,8883:31753/TCP
 iotedged     Running Up 7 days   azureiotedge/azureiotedge-iotedged:0.1.0-beta13 <none>      35000/TCP,35001/TCP
-cuda-sample2 Running Up 1 days   nvcr.io/nvidia/k8s/cuda-sample:nbody
+cuda-sample2 Running Up 1 days   nvidia/samples:nbody
 edgeagent    Running Up 7 days   azureiotedge/azureiotedge-agent:0.1.0-beta13
-cuda-sample1 Running Up 1 days   nvcr.io/nvidia/k8s/cuda-sample:nbody
+cuda-sample1 Running Up 1 days   nvidia/samples:nbody
 
 [10.100.10.10]: PS>iotedge restart cuda-sample1
 [10.100.10.10]: PS>iotedge list
@@ -203,9 +203,9 @@ edgehub      Running Up 5 days    mcr.microsoft.com/azureiotedge-hub:1.0        
                                                                                               881/TCP,8883:31753/TC
                                                                                               P
 iotedged     Running Up 7 days    azureiotedge/azureiotedge-iotedged:0.1.0-beta13 <none>      35000/TCP,35001/TCP
-cuda-sample2 Running Up 1 days    nvcr.io/nvidia/k8s/cuda-sample:nbody
+cuda-sample2 Running Up 1 days    nvidia/samples:nbody
 edgeagent    Running Up 7 days    azureiotedge/azureiotedge-agent:0.1.0-beta13
-cuda-sample1 Running Up 4 minutes nvcr.io/nvidia/k8s/cuda-sample:nbody
+cuda-sample1 Running Up 4 minutes nvidia/samples:nbody
 
 [10.100.10.10]: PS>
 

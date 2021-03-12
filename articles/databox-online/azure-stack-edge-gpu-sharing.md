@@ -27,17 +27,17 @@ On your Azure Stack Edge Pro device, a GPU can't be shared when deploying VM wor
 
 ## Using GPU with containers
 
-If you are deploying containerized workloads, a GPU can be shared and can be mapped to multiple containers. GPUs can be shared in two different ways:
+If you are deploying containerized workloads, a GPU can be shared in more than one ways at the hardware and software layer. With the Tesla T4 GPU on your Azure Stack Edge Pro device, we are limited to software sharing. On your device, the following two approaches for software sharing of GPU are used: 
 
 - The first approach involves using environment variables to specify the number of GPUs that can be time shared. Consider the following caveats when using this approach:
 
     - You can specify one or both or no GPUs with this method. It is not possible to specify fractional usage.
     - Multiple modules can map to one GPU but the same module cannot be mapped to more than one GPU.
-    - There is no easy way to monitor how much GPU memory is consumed by one module. With the Nvidia SMI output, you can see the overall GPU utilization.
+    - With the Nvidia SMI output, you can see the overall GPU utilization including the memory utilization.
     
     For more information, see how to [Deploy an IoT Edge module that uses GPU](azure-stack-edge-j-series-configure-gpu-modules.md) on your device.
 
-- The second approach requires you to enable the Multi-Process Service on your Nvidia GPUs. MPS  is  a runtime service that lets multiple processes using CUDA to run concurrently on a single shared GPU. MPS allows overlapping of kernel and memory copy operations from different processes on the GPU to achieve maximum utilization. For more information, see [Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
+- The second approach requires you to enable the Multi-Process Service on your Nvidia GPUs. MPS  is  a runtime service that lets multiple processes using CUDA to run concurrently on a single shared GPU. MPS allows overlapping of kernel and memcopy operations from different processes on the GPU to achieve maximum utilization. For more information, see [Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
 
     Consider the following caveats when using this approach:
     
