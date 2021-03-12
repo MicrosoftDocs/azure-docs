@@ -69,7 +69,7 @@ Learn more about [Azure Arc enabled servers](../azure-arc/servers/overview.md).
 
     From here, choose the relevant procedure below depending on the type of machines you're onboarding:
 
-    - [Onboard your Azure Stack Hub VMs](#onboard-your-azure-stack-vms)
+    - [Onboard your Azure Stack Hub VMs](#onboard-your-azure-stack-hub-vms)
     - [Onboard your Linux machines](#onboard-your-linux-machines)
     - [Onboard your Windows machines](#onboard-your-windows-machines)
 
