@@ -123,7 +123,7 @@ You may also pass in an options object to specify whether the delivery report sh
 async function main() {
   await smsClient.send({
     from: "<from-phone-number>",
-    to: ["<to-phone-number>"],
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
     message: ""Weekly Promotion!"
   }, {
     //Optional parameter
