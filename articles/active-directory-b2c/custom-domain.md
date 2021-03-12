@@ -216,7 +216,7 @@ https://<domain-name>/11111111-1111-1111-1111-111111111111/v2.0/
 
 ## Block access to the default domain name
 
-After you add the custom domain and configure your application, users will still be able to access the <tenant-name>.b2clogin.com domain. To prevent access, you can configure the policy to check the authorization request 'host name' against an allowed list of domains. The host name is the domain name that appears in the URL. The host name is available through `{Context:HostName}` [claim resolvers](claim-resolver-overview.md). Then you can present a custom error message. 
+After you add the custom domain and configure your application, users will still be able to access the <tenant-name>.b2clogin.com domain. To prevent access, you can configure the policy to check the authorization request "host name" against an allowed list of domains. The host name is the domain name that appears in the URL. The host name is available through `{Context:HostName}` [claim resolvers](claim-resolver-overview.md). Then you can present a custom error message. 
 
 1. Get the example of a conditional access policy that checks the host name from [GitHub](https://github.com/azure-ad-b2c/samples/blob/master/policies/check-host-name).
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
@@ -226,42 +226,38 @@ After you add the custom domain and configure your application, users will still
 
 ## Troubleshooting
 
-### Azure AD B2C returns page not found error
+### Azure AD B2C returns a page not found error
 
-- **Symptom** - After you configure custom domain, when I try to sign-in with the custom domain, I get HTTP 404 error message.
-- **Possible reasons** - It might related to the DNS configuration. Or might be related Azure Front Door backend configuration. 
-- **Resolutions**:  
-    1. Make sure the [custom domain](../frontdoor/front-door-custom-domain.md) is well configured. The `CNAME` record for your custom domain, must point to your Front Door's default frontend host (say contoso.azurefd.net)
+- **Symptom** - After you configure a custom domain, when you try to sign in with the custom domain, you get an HTTP 404 error message.
+- **Possible causes** - This issue could be related to the DNS configuration or the Azure Front Door backend configuration. 
+- **Resolution**:  
+    1. Make sure the [custom domain](../frontdoor/front-door-custom-domain.md) is configured properly. The `CNAME` record for your custom domain must point to your Azure Front Door default frontend host (for example, contoso.azurefd.net).
     1. Make sure the [Azure Front Door backend pool configuration](#set-up-your-custom-domain-on-azure-front-door) points to the tenant where you set up the custom domain name, and where your user flow or custom policies are stored.
 
-### Identify provider returns error
+### Identify provider returns an error
 
-- **Symptom** - After you configure custom domain, you manage to sign-in with local accounts. But, when you sign-in with credentials from external [social or enterprise identity providers](add-identity-provider.md), the identity providers presents and error message.
-- **Possible reason** - When Azure AD B2C takes the user to sign-in with a federate identity provider, it specifies the redirect URI. The redirect URI is the endpoint where the identity provider returns the token to. The redirect URI is the same domain your application uses with the authorization request. If the redirect URI is not yet registered in the identity provider, it may not trust the new redirect URI, and raises and error message. 
-- **Resolution** -  Follow the steps [Configure your identity provider](#configure-your-identity-provider) to add the new redirect URI. 
+- **Symptom** - After you configure a custom domain, you're able to sign in with local accounts. But when you sign in with credentials from external [social or enterprise identity providers](add-identity-provider.md), the identity providers presents an error message.
+- **Possible causes** - When Azure AD B2C takes the user to sign in with a federated identity provider, it specifies the redirect URI. The redirect URI is the endpoint to where the identity provider returns the token. The redirect URI is the same domain your application uses with the authorization request. If the redirect URI is not yet registered in the identity provider, it may not trust the new redirect URI, which results in an error message. 
+- **Resolution** -  Follow the steps in [Configure your identity provider](#configure-your-identity-provider) to add the new redirect URI. 
 
 
 ## Frequently asked questions
 
-### Using Azure Front Door advance configuration 
+### Can I use Azure Front Door advanced configuration, such as *Web application firewall Rules*? 
+  
+While Azure Front Door advanced configuration settings are not officially supported, you can use them at your own risk. 
 
-- **Question** - Can I use Azure Front Door advance configuration, such as *Web application firewall Rules*?  
-- **Answer** - It's not officially supported. But you can on your own risk. 
+### When I use Run Now to try to run my policy, why I can't see the custom domain?
 
-### Domain in Run Now
+Copy the URL, change the domain name manually, and then paste it back to your browser.
 
-- **Question** - When I try to run my policy, why I can't see the custom domain?
-- **Answer** - Copy the URL, change the domain name manually, and paste it back to your browser.
+### Which IP address is presented to Azure AD B2C? The user's IP address, or the Azure Front Door IP address?
 
-### User's IP address
+Azure Front Door passes the user's original IP address. This is the IP address that you'll see in the audit reporting or your custom policy.
 
-- **Question** - Which IP address is presented to Azure AD B2C, the user's, or the Azure Front Door?
-- **Answer** - Azure Front Door passes the user's original IP address. And this is the IP that you will see in the auditing, or your custom policy.
+### Can I use a third-party wab application firewall (WAF) with B2C?
 
-### Using third-party WAF
-
-- **Question** - Can I use a third-party wab application firewall (WAF) with B2C?  
-- **Answer** - Currently Azure AD B2C supports custom domain only with Azure Front Door. Don't add another WAF in front of the Azure Front Door.
+Currently, Azure AD B2C supports a custom domain through the use of Azure Front Door only. Don't add another WAF in front of Azure Front Door.
 
 
 ## Next steps
