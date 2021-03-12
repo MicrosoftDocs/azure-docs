@@ -65,7 +65,7 @@ Use the `displayName` property to identify the billing account for which you wan
 
 ### [PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Get-AzBillingAccount
 ```
 You will get back a list of all billing accounts that you have access to 
@@ -82,6 +82,7 @@ Use the `displayName` property to identify the billing account for which you wan
 
 
 ### [Azure CLI](#tab/azure-cli)
+
 ```azurecli
 az billing account list
 ```
@@ -121,6 +122,7 @@ The charges for your subscription appear on a section of a billing profile's inv
 First you get the list of billing profiles under the billing account that you have access to (Use the `name` that you got from the previous step)
 
 ### [REST](#tab/rest)
+
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingaccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingprofiles/?api-version=2020-05-01
 ```
@@ -203,7 +205,7 @@ Use the `id` property to identify the invoice section for which you want to crea
 
 ### [PowerShell](#tab/azure-powershell)
 
-```powershell-interactive
+```azurepowershell
 Get-AzBillingProfile -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
 ```
 
@@ -231,7 +233,7 @@ PostalCode        : 98052
 
 Note the `name` of the billing profile from the above response. The next step is to get the invoice section that you have access to underneath this billing profile. You will need the `name` of the billing account and billing profile
 
-```powershell-interactive
+```azurepowershell
 Get-AzInvoiceSection -BillingAccountName 5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx -BillingProfileName AW4F-xxxx-xxx-xxx
 ```
 
@@ -246,9 +248,10 @@ The `name` above is the Invoice section name you need to create a subscription u
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az billing profile list --account-name "5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --expand "InvoiceSections"
 ```
+
 This API will return the list of billing profiles and invoice sections under the provided billing account.
 
 ```json
@@ -384,13 +387,13 @@ To install the latest version of the module that contains the `New-AzSubscriptio
 
 Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) command and the billing scope `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload 'Production"
 ```
 
 You get the subscriptionId as part of the response from the command.
 
-```azurepowershell
+```json
 {
   "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
   "name": "sampleAlias",
@@ -408,13 +411,13 @@ First, install the extension by running `az extension add --name account` and `a
 
 Run the [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create) following command.
 
-```azurecli-interactive
+```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" --display-name "Dev Team Subscription" --workload "Production"
 ```
 
 You get the subscriptionId as part of the response from the command.
 
-```azurecli
+```json
 {
   "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
   "name": "sampleAlias",
@@ -511,7 +514,7 @@ With a request body:
 
 ### [PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzManagementGroupDeployment `
   -Name exampledeployment `
   -Location eastus `
@@ -524,7 +527,7 @@ New-AzManagementGroupDeployment `
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az deployment mg create \
   --name exampledeployment \
   --location eastus \

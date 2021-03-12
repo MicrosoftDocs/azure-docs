@@ -67,14 +67,19 @@ Use the `displayName` property to identify the billing account for which you wan
 
 ### [PowerShell](#tab/azure-powershell)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+```azurepowershell
+Get-AzBillingAccount
+```
+You'll get back a list of all billing accounts that you have access to.
+
+Use the displayName property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is MicrosoftPartnerAgreement. Copy the name for the account.
 
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-> az billing account list
+az billing account list
 ```
-You will get back a list of all billing accounts that you have access to 
+You will get back a list of all billing accounts that you have access to.
 
 ```json
 [
@@ -149,13 +154,13 @@ Use the `displayName` property to identify the customer for which you want to cr
 
 ### [PowerShell](#tab/azure-powershell)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+We're still working on enabling PowerShell SDK for billing APIs. Check back soon.
 
 
 
 ### [Azure CLI](#tab/azure-cli)
 
-```json
+```azurecli
 az billing customer list --account-name 99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx
 ```
 
@@ -230,13 +235,13 @@ Use the `description` property to identify the reseller who is associated with t
 
 ### [PowerShell](#tab/azure-powershell)
 
-we're still working on enabling PowerShell SDK for billing APIs. Check back soon.
+We're still working on enabling PowerShell SDK for billing APIs. Check back soon.
 
 ### [Azure CLI](#tab/azure-cli)
 
 Make the following request, with the `name` copied from the first step (```99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx```) and customer `name` copied from the previous step (```acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx```).
 
-```azurecli-interactive
+```azurecli
  az billing customer show --expand "enabledAzurePlans,resellers" --account-name "99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx" --name "acba85c9-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
@@ -338,13 +343,13 @@ To install the latest version of the module that contains the `New-AzSubscriptio
 
 Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) command, using the billing scope `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`. 
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"
 ```
 
 You get the subscriptionId as part of the response from the command.
 
-```azurepowershell
+```json
 {
   "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
   "name": "sampleAlias",
@@ -364,13 +369,13 @@ First, install the extension by running `az extension add --name account` and `a
 
 Run the following [az account alias create](/cli/azure/ext/account/account/alias#ext_account_az_account_alias_create) command. 
 
-```azurecli-interactive
+```azurecli
 az account alias create --name "sampleAlias" --billing-scope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --display-name "Dev Team Subscription" --workload "Production"
 ```
 
 You get the subscriptionId as part of the response from command.
 
-```azurecli
+```json
 {
   "id": "/providers/Microsoft.Subscription/aliases/sampleAlias",
   "name": "sampleAlias",
@@ -469,7 +474,7 @@ With a request body:
 
 ### [PowerShell](#tab/azure-powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 New-AzManagementGroupDeployment `
   -Name exampledeployment `
   -Location eastus `
@@ -482,7 +487,7 @@ New-AzManagementGroupDeployment `
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az deployment mg create \
   --name exampledeployment \
   --location eastus \
