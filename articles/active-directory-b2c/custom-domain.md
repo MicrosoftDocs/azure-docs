@@ -198,7 +198,7 @@ https://custom-domain-name/tenant-name/policy-name/Samlp/metadata
 ### (Optional) Use tenant ID
 
 You can replace your B2C tenant name in the URL with your tenant ID GUID so as to remove all references to “b2c” in the URL. You can find your tenant ID GUID in the B2C Overview page in Azure portal.
-For example, change `https://account.contosobank.co.uk/contosobank.b2clogin.com/` 
+For example, change `https://account.contosobank.co.uk/contosobank.onmicrosoft.com/` 
 to 
 `https://account.contosobank.co.uk/<tenant ID GUID>/`
 
@@ -231,6 +231,7 @@ After you add the custom domain and configure your application, users will still
 - **Symptom** - After you configure a custom domain, when you try to sign in with the custom domain, you get an HTTP 404 error message.
 - **Possible causes** - This issue could be related to the DNS configuration or the Azure Front Door backend configuration. 
 - **Resolution**:  
+    1. Make sure the custom domain is [registered and successfully verified](#add-a-custom-domain-name-to-your-tenant) in your Azure AD B2C tenant.
     1. Make sure the [custom domain](../frontdoor/front-door-custom-domain.md) is configured properly. The `CNAME` record for your custom domain must point to your Azure Front Door default frontend host (for example, contoso.azurefd.net).
     1. Make sure the [Azure Front Door backend pool configuration](#set-up-your-custom-domain-on-azure-front-door) points to the tenant where you set up the custom domain name, and where your user flow or custom policies are stored.
 
