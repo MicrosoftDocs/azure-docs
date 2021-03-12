@@ -2,9 +2,7 @@
 title: "SQL Server to Azure Synapse Analytics: Migration guide"
 description: Follow this guide to migrate your SQL databases to Azure Synapse Analytics SQL pool. 
 ms.service: synapse-analytics
-ms.subservice:
-ms.custom: 
-ms.devlang: 
+ms.subservice: sql
 ms.topic: conceptual
 author: julieMSFT
 ms.author: jrasnick
@@ -12,10 +10,10 @@ ms.reviewer: jrasnick
 ms.date: 03/10/2021
 ---
 # Migration guide: SQL Server to a dedicated SQL pool in Azure Synapse Analytics 
-The following sections provide an overview of what's involved with migrating an existing SQL Server data warehouse solution to Azure Synapse Analytics SQL pool
+The following sections provide an overview of what's involved with migrating an existing SQL Server data warehouse solution to Azure Synapse Analytics SQL pool.
 
 ## Overview
-Before migrating, you should verify that Azure Synapse Analytics is the best solution for your workload. Azure Synapse Analytics is a distributed system designed to perform analytics on large data. Migrating to Azure Synapse Analytics requires some design changes that are not difficult to understand but that might take some time to implement. If your business requires an enterprise-class data warehouse, the benefits are worth the effort. However, if you don't need the power of Azure Synapse Analytics, it is more cost-effective to use [SQL Server](https://docs.microsoft.com/sql/sql-server/) or [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/).
+Before migrating, you should verify that Azure Synapse Analytics is the best solution for your workload. Azure Synapse Analytics is a distributed system designed to perform analytics on large data. Migrating to Azure Synapse Analytics requires some design changes that aren't difficult to understand but that might take some time to implement. If your business requires an enterprise-class data warehouse, the benefits are worth the effort. However, if you don't need the power of Azure Synapse Analytics, it's more cost-effective to use [SQL Server](/sql/sql-server/) or [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
 Consider using Azure Synapse Analytics when you:
 - Have one or more Terabytes of data.
@@ -38,10 +36,10 @@ To migrate your SQL Server to Azure Synapse Analytics, make sure you have the fo
 - A [dedicated SQL pool](../get-started-create-workspace.md) in Azure Synapse workspace. 
 
 ## Pre-migration
-After you make the decision to migrate an existing solution to Azure Synapse Analytics, it is important to plan the migration before you get started. A primary goal of planning is to ensure that your data, table schemas, and code are compatible with Azure Synapse Analytics. There are some compatibility differences between your current system and SQL Data Warehouse that you will need to work around. In addition, migrating large amounts of data to Azure takes time. Careful planning will speed up the process of getting your data to Azure. Another key goal of planning is to adjust your design to ensure that your solution takes full advantage of the high query performance that Azure Synapse Analytics is designed to provide. Designing data warehouses for scale introduces unique design patterns, so traditional approaches aren't always the best. While some design adjustments can be made after migration, making changes earlier in the process will save you time later.
+After you make the decision to migrate an existing solution to Azure Synapse Analytics, it's important to plan the migration before you get started. A primary goal of planning is to ensure that your data, table schemas, and code are compatible with Azure Synapse Analytics. There are some compatibility differences between your current system and SQL Data Warehouse that you'll need to work around. Also, migrating large amounts of data to Azure takes time. Careful planning will speed up the process of getting your data to Azure. Another key goal of planning is to adjust your design to ensure that your solution takes full advantage of the high query performance that Azure Synapse Analytics is designed to provide. Designing data warehouses for scale introduces unique design patterns, so traditional approaches aren't always the best. While some design adjustments can be made after migration, making changes earlier in the process will save you time later.
 
 ## Azure Synapse Pathway
-One of the critical blockers customers face is translating their SQL code when migrating from one system to another. [Azure Synapse Pathway](https://docs.microsoft.com/sql/tools/synapse-pathway/azure-synapse-pathway-overview) helps you upgrade to a modern data warehouse platform by automating the code translation of your existing data warehouse. It's a free, intuitive, and easy to use tool that automates the code translation enabling a quicker migration to Azure Synapse Analytics.
+One of the critical blockers customers face is translating their SQL code when migrating from one system to another. [Azure Synapse Pathway](/sql/tools/synapse-pathway/azure-synapse-pathway-overview) helps you upgrade to a modern data warehouse platform by automating the code translation of your existing data warehouse. It's a free, intuitive, and easy to use tool that automates the code translation enabling a quicker migration to Azure Synapse Analytics.
 
 ## Migrate
 Performing a successful migration requires you to migrate your table schemas, code, and data. For more detailed guidance on these topics, see:
