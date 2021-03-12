@@ -713,21 +713,23 @@ There are some [limits on the number of properties, property values, and metrics
 *JavaScript*
 
 ```javascript
-appInsights.trackEvent
-    ("WinGame",
-        // String properties:
-        {Game: currentGame.name, Difficulty: currentGame.difficulty},
-        // Numeric metrics:
-        {Score: currentGame.score, Opponents: currentGame.opponentCount}
-        );
+appInsights.trackEvent({
+  name: 'some event',
+  properties: { // accepts any type
+    prop1: 'string',
+    prop2: 123.45,
+    prop3: { nested: 'objects are okay too' }
+  }
+});
 
-appInsights.trackPageView
-    ("page name", "http://fabrikam.com/pageurl.html",
-        // String properties:
-        {Game: currentGame.name, Difficulty: currentGame.difficulty},
-        // Numeric metrics:
-        {Score: currentGame.score, Opponents: currentGame.opponentCount}
-        );
+appInsights.trackPageView({
+  name: 'some page',
+  properties: { // accepts any type
+    prop1: 'string',
+    prop2: 123.45,
+    prop3: { nested: 'objects are okay too' }
+  }
+});
 ```
 
 *C#*
