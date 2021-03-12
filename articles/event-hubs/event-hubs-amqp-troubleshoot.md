@@ -31,4 +31,4 @@ Error{condition=amqp:connection:forced, description='The connection was inactive
 ```
 
 ## Next steps
-To learn more about AMQP, see [AMQP 1.0 protocol guide].
+To learn more about AMQP, see [AMQP 1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md).
