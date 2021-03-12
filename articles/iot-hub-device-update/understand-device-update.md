@@ -95,7 +95,7 @@ deployment. If there are no updates in progress, the status is returned as “Id
 
 ### Importing
 
-Importing is the ability to import your update into Device Update. Device Update supports rolling out a single update per device. This makes it ideal for
+Importing is how your updates are ingested into Device Update so they can be deployed to devices. Device Update supports rolling out a single update per device. This makes it ideal for
 full-image updates that update an entire OS partition at once, or an apt Manifest that describes all the packages you want to update
 on your device. To import updates into Device Update, you first create an import manifest 
 describing the update, then upload the update file(s) and the import 
