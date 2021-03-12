@@ -4,7 +4,7 @@ description: Azure Security Benchmark V2 Incident Response
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -13,6 +13,8 @@ ms.custom: security-benchmark
 # Security Control V2: Incident Response
 
 Incident Response covers controls in the incident response life cycle - preparation, detection and analysis, containment, and post-incident activities. This includes using Azure services such as Azure Security Center and Sentinel to automate the incident response process.
+
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Incident Response](../../governance/policy/samples/azure-security-benchmark.md#incident-response)
 
 ## IR-1: Preparation – update incident response process for Azure
 
@@ -60,7 +62,7 @@ Set up security incident contact information in Azure Security Center. This cont
 |--|--|--|--|
 | IR-3 | 19.6 | IR-4, IR-5 |
 
-Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don’t waste time on false positives. 
+Ensure you have a process to create high quality alerts and measure the quality of alerts. This allows you to learn lessons from past incidents and prioritize alerts for analysts, so they don't waste time on false positives. 
 
 High quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
 
@@ -88,7 +90,7 @@ Export your Azure Security Center alerts and recommendations using the export fe
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
-Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots.  You should also ensure insights and learnings are captured for other analysts and for future historical reference.  
+Ensure analysts can query and use diverse data sources as they investigate potential incidents, to build a full view of what happened. Diverse logs should be collected to track the activities of a potential attacker across the kill chain to avoid blind spots. You should also ensure insights and learnings are captured for other analysts and for future historical reference.
 
 The data sources for investigation include the centralized logging sources that are already being collected from the in-scope services and running systems, but can also include:
 
@@ -132,7 +134,7 @@ Provide context to analysts on which incidents to focus on first based on alert 
 
 Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytic used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
-Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data.  It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
+Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
 - [Security alerts in Azure Security Center](../../security-center/security-center-alerts-overview.md)
 

@@ -20,18 +20,18 @@ The following table describes some of the different ways that you can use Logs i
 
 |  |  |
 |:---|:---|
-| **Analyze** | Use [Log Analytics](../log-query/log-analytics-tutorial.md) in the Azure portal to write [log queries](../log-query/log-query-overview.md) and interactively analyze log data using a powerful analysis engine |
+| **Analyze** | Use [Log Analytics](./log-analytics-tutorial.md) in the Azure portal to write [log queries](./log-query-overview.md) and interactively analyze log data using a powerful analysis engine |
 | **Alert** | Configure a [log alert rule](../alerts/alerts-log.md) that sends a notification or takes [automated action](../alerts/action-groups.md) when the results of the query match a particular result. |
-| **Visualize** | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../visualize/workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](../platform/powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](../platform/grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
+| **Visualize** | Pin query results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).<br>Create a [workbook](../visualize/workbooks-overview.md) to combine with multiple sets of data in an interactive report. <br>Export the results of a query to [Power BI](../visualize/powerbi.md) to use different visualizations and share with users outside of Azure.<br>Export the results of a query to [Grafana](../visualize/grafana-plugin.md) to leverage its dashboarding and combine with other data sources.|
 | **Insights** | Support [insights](../monitor-reference.md#insights-and-core-solutions) that provide a customized monitoring experience for particular applications and services.  |
 | **Retrieve** | Access log query results from a command line using [Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Access log query results from a command line using [PowerShell cmdlets](/powershell/module/az.operationalinsights).<br>Access log query results from a custom application using [REST API](https://dev.loganalytics.io/). |
-| **Export** | Configure [automated export of log data](../platform/logs-data-export.md) to Azure storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location using [Logic Apps](../platform/logicapp-flow-connector.md). |
+| **Export** | Configure [automated export of log data](./logs-data-export.md) to Azure storage account or Azure Event Hubs.<br>Build a workflow to retrieve log data and copy it to an external location using [Logic Apps](./logicapp-flow-connector.md). |
 
 ![Logs overview](media/data-platform-logs/logs-overview.png)
 
 
 ## Data collection
-Once you create a Log Analytics workspace, you must configure different sources to send their data. No data is collected automatically. This configuration will be different depending on the data source. For example, [create diagnostic settings](../essentials/diagnostic-settings.md) to send resource logs from Azure resources to the workspace. [Enable Azure Monitor for VMs](../vm/vminsights-enable-overview.md) to collect data from virtual machines. Configure [data sources on the workspace](../agents/data-sources.md) to collect additional events and performance data.
+Once you create a Log Analytics workspace, you must configure different sources to send their data. No data is collected automatically. This configuration will be different depending on the data source. For example, [create diagnostic settings](../essentials/diagnostic-settings.md) to send resource logs from Azure resources to the workspace. [Enable VM insights](../vm/vminsights-enable-overview.md) to collect data from virtual machines. Configure [data sources on the workspace](../agents/data-sources.md) to collect additional events and performance data.
 
 - See [What is monitored by Azure Monitor?](../monitor-reference.md) for a complete list of data sources that you can configure to send data to Azure Monitor Logs.
 
@@ -41,7 +41,7 @@ Data collected by Azure Monitor Logs is stored in one or more [Log Analytics wor
 
 You must create at least one workspace to use Azure Monitor Logs. A single workspace may be sufficient for all of your monitoring data, or may choose to create multiple workspaces depending on your requirements. For example, you might have one workspace for your production data and another for testing. 
 
-- See [Create a Log Analytics workspace in the Azure portal](../learn/quick-create-workspace.md) to create a new workspace.
+- See [Create a Log Analytics workspace in the Azure portal](./quick-create-workspace.md) to create a new workspace.
 - See [Designing your Azure Monitor Logs deployment](design-logs-deployment.md) on considerations for creating multiple workspaces.
 
 ## Data structure
@@ -54,7 +54,7 @@ Log data from Application Insights is also stored in Azure Monitor Logs, but it'
 
 
 > [!NOTE]
-> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](../app/apm-tables.md) you must first navigate to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. See [Query scope](../log-query/scope.md) for more details.
+> We still provide full backwards compatibility for your Application Insights classic resource queries, workbooks, and log-based alerts within the Application Insights experience. To query/view against the [new workspace-based table structure/schema](../app/apm-tables.md) you must first navigate to your Log Analytics workspace. During the preview, selecting **Logs** from within the Application Insights panes will give you access to the classic Application Insights query experience. See [Query scope](./scope.md) for more details.
 
 
 [![Azure Monitor Logs structure for Application Insights](media/data-platform-logs/logs-structure-ai.png)](media/data-platform-logs/logs-structure-ai.png#lightbox)
@@ -63,15 +63,15 @@ Log data from Application Insights is also stored in Azure Monitor Logs, but it'
 ## Log queries
 Data is retrieved from a Log Analytics workspace using a log query which is a read-only request to process data and return results. Log queries are written in [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), which is the same query language used by Azure Data Explorer. You can write log queries in Log Analytics to interactively analyze their results, use them in alert rules to be proactively notified of issues, or include their results in workbooks or dashboards. Insights include prebuilt queries to support their views and workbooks.
 
-- See [Log queries in Azure Monitor](log-query/../../log-query/log-query-overview.md) for a list of where log queries are used and references to tutorials and other documentation to get you started.
+- See [Log queries in Azure Monitor](./log-query-overview.md) for a list of where log queries are used and references to tutorials and other documentation to get you started.
 
 ![Log Analytics](media/data-platform-logs/log-analytics.png)
 
 ## Log Analytics
 Use Log Analytics, which is a tool in the Azure portal, to edit and run log queries and interactively analyze their results. You can then use the queries that you create to support other features in Azure Monitor such as log query alerts and workbooks. Access Log Analytics from the **Logs** option in the Azure Monitor menu or from most other services in the Azure portal.
 
-- See [Overview of Log Analytics in Azure Monitor](../log-query/log-analytics-overview.md) for a description of Log Analytics. 
-- See [Log Analytics tutorial](../log-query/log-analytics-tutorial.md) to walk through using Log Analytics features to create a simple log query and analyze its results.
+- See [Overview of Log Analytics in Azure Monitor](./log-analytics-overview.md) for a description of Log Analytics. 
+- See [Log Analytics tutorial](./log-analytics-tutorial.md) to walk through using Log Analytics features to create a simple log query and analyze its results.
 
 
 
@@ -81,6 +81,6 @@ Azure Monitor Logs is based on Azure Data Explorer. A Log Analytics workspace is
 
 ## Next steps
 
-- Learn about [log queries](../log-query/log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
+- Learn about [log queries](./log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
 - Learn about [metrics in Azure Monitor](../essentials/data-platform-metrics.md).
 - Learn about the [monitoring data available](../agents/data-sources.md) for different resources in Azure.

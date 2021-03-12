@@ -32,6 +32,9 @@ You can specify two different modes in which Service Bus receives messages.
 
         If the application crashes after it processes the message, but before it requests the Service Bus service to complete the message, Service Bus redelivers the message to the application when it restarts. This process is often called **at-least once** processing. That is, each message is processed at least once. However, in certain situations the same message may be redelivered. If your scenario can't tolerate duplicate processing, add additional logic in your application to detect duplicates. For more information, see [Duplicate detection](duplicate-detection.md). This feature is known as **exactly once** processing.
 
+        > [!NOTE]
+        > For more information about these two modes, see [Settling receive operations](message-transfers-locks-settlement.md#settling-receive-operations).
+
 ## Topics and subscriptions
 A queue allows processing of a message by a single consumer. In contrast to queues, topics and subscriptions provide a one-to-many form of communication in a **publish and subscribe** pattern. It's useful for scaling to large numbers of recipients. Each published message is made available to each subscription registered with the topic. Publisher sends a message to a topic and one or more subscribers receive a copy of the message, depending on filter rules set on these subscriptions. The subscriptions can use additional filters to restrict the messages that they want to receive. Publishers send messages to a topic in the same way that they send messages to a queue. But, consumers don't receive messages directly from the topic. Instead, consumers receive messages from subscriptions of the topic. A topic subscription resembles a virtual queue that receives copies of the messages that are sent to the topic. Consumers receive messages from a subscription identically to the way they receive messages from a queue.
 

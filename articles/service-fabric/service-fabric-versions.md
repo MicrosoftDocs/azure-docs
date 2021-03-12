@@ -59,9 +59,9 @@ Azure Service Fabric clusters that run on unchanged versions later than 6.3 will
   
   - **For clusters running a version of Service Fabric greater than 6.3 NOT using Open Networking feature**, the cluster will remain up.
 
- - **For clusters running a version of Service Fabric greater than 6.3 and use [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** ,the cluster could become unavailable and will cease functioning which could cause service interruptions for your workloads.
+ - **For clusters running a version of Service Fabric greater than 6.3 and use [Open Networking feature for Containers](./service-fabric-networking-modes.md#set-up-open-networking-mode)** ,the cluster could become unavailable and will cease functioning which could cause service interruptions for your workloads.
  
- -   **For clusters running [Windows Versions between 7.0.457 and 7.0.466 (both versions included) ](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) and the Windows OS has the Windows Containers Feature enabled. NOTE: Linux versions 7.0.457, 7.0.464 and  7.0.465 are NOT  impacted**.
+ -   **For clusters running [Windows Versions between 7.0.457 and 7.0.466 (both versions included) ](#supported-version-names) and the Windows OS has the Windows Containers Feature enabled. NOTE: Linux versions 7.0.457, 7.0.464 and  7.0.465 are NOT  impacted**.
     - **Impact**: The cluster will cease functioning which could cause service interruptions for your workloads.
     
 #### Required action

@@ -209,9 +209,9 @@ You access console tools from the side menu.
 |----|---|---|
 | Support | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Contact [Microsoft Support](https://support.microsoft.com/) for help. |
 
-### See also
+## See also
 
-[Onboard a sensor](getting-started.md#4-onboard-a-sensor)
+[Onboard a sensor](getting-started.md#onboard-a-sensor)
 
 [Manage sensor activation files](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 

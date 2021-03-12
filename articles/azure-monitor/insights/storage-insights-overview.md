@@ -1,7 +1,6 @@
 ---
 title: Monitor Azure Storage services with Azure Monitor for Storage | Microsoft Docs
 description: This article describes the Azure Monitor for Storage feature that provides storage admins with a quick understanding of performance and utilization issues with their Azure Storage accounts.
-ms.subservice: 
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
@@ -81,7 +80,7 @@ When you select a value under any one of the columns in the workbook, you drill 
 
 ## View from a storage account
 
-To access Azure Monitor for VMs directly from a storage account:
+To access VM insights directly from a storage account:
 
 1. In the Azure portal, select Storage accounts.
 

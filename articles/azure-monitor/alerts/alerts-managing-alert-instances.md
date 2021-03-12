@@ -1,7 +1,6 @@
 ---
 title: Manage alert instances in Azure Monitor
 description: Managing alert instances across Azure
-ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/24/2018
 
@@ -9,7 +8,7 @@ ms.date: 09/24/2018
 
 # Manage alert instances with unified alerts
 
-With the [unified alerts experience](../platform/alerts-overview.md) in Azure Monitor, you can see all your different types of alerts across Azure. This spans multiple subscriptions, in a single pane. This article shows how you can view your alert instances, and how to find specific alert instances for troubleshooting.
+With the [unified alerts experience](./alerts-overview.md) in Azure Monitor, you can see all your different types of alerts across Azure. This spans multiple subscriptions, in a single pane. This article shows how you can view your alert instances, and how to find specific alert instances for troubleshooting.
 
 > [!NOTE]
 > You can only access alerts generated in the last 30 days.

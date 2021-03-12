@@ -155,7 +155,7 @@ If you're trying to access resources in another subscription, follow these steps
 
 1. Copy the name of the subscription.
 
-1. You can now use the following runbook code to test the permissions from your Automation account to the other subscription. Replace `"\<CertificateThumbprint\>"` with the value copied in step 1. Replace `"\<SubscriptionName\>"` with the value copied in step 4.
+1. You can now use the following runbook code to test the permissions from your Automation account to the other subscription. Replace `<CertificateThumbprint>` with the value copied in step 1. Replace `"<SubscriptionName>"` with the value copied in step 4.
 
     ```powershell
     $Conn = Get-AutomationConnection -Name AzureRunAsConnection
