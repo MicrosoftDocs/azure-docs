@@ -107,7 +107,7 @@ Console.WriteLine($"Sms id: {sendResult.MessageId}");
 ```
 
 ## Send a 1:N SMS message with options
-To send a SMS message to a list of recipients, call the `Send` or `SendAsync` function from the SmsClient with a list of recipient's phone numbers. You may also pass in an options object to specify whether the delivery report should be enabled and to set custom tags.
+To send a SMS message to a list of recipients, call the `Send` or `SendAsync` function from the SmsClient with a list of recipient's phone numbers. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.
 
 ```csharp
 Response<IEnumerable<SmsSendResult>> response = smsClient.Send(
