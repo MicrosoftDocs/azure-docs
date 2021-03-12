@@ -25,7 +25,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- A SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
+- An SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
 
 ### Prerequisite check
 
@@ -94,7 +94,7 @@ SmsClient smsClient = new SmsClient(connectionString);
 
 ## Send a 1:1 SMS message
 
-To send a SMS message, call the `Send` or `SendAsync` function from the SmsClient. Add this code to the end of `Main` method in **Program.cs**:
+To send an SMS message to a single recipient, call the `Send` or `SendAsync` function from the SmsClient. Add this code to the end of `Main` method in **Program.cs**:
 
 ```csharp
 SmsSendResult sendResult = smsClient.Send(
@@ -107,7 +107,7 @@ Console.WriteLine($"Sms id: {sendResult.MessageId}");
 ```
 
 ## Send a 1:N SMS message with options
-To send a SMS message to a list of recipients, call the `Send` or `SendAsync` function from the SmsClient with a list of recipient's phone numbers. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.
+To send an SMS message to a list of recipients, call the `Send` or `SendAsync` function from the SmsClient with a list of recipient's phone numbers. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.
 
 ```csharp
 Response<IEnumerable<SmsSendResult>> response = smsClient.Send(
@@ -127,7 +127,7 @@ foreach (SmsSendResult result in results)
 }
 ```
 
-You should replace `<from-phone-number>` with a SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to.
+You should replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number you wish to send a message to.
 
 The `EnableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 
