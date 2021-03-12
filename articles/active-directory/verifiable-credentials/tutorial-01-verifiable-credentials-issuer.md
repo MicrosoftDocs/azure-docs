@@ -1,5 +1,5 @@
 ---
-title: Step 1 - Set up Verifiable Credentials issuer in your own Azure AD (preview)
+title: Step 1 - Set up verifiable credentials issuer in your own Azure AD (preview)
 description: Set up your own verifiable credentials issuer in Azure
 documentationCenter: ''
 author: barclayn
@@ -7,73 +7,66 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/09/2021
+ms.date: 03/11/2021
 ms.author: barclayn
 
 # Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure AD
 
 ---
 
-# Tutorial 1 - Set up Verifiable Credentials (VC) in Azure
+# Tutorial 1 - Set up verifiable credentials (VCs) in Azure
+
+In this tutorial, we build on the work done in the [quickstart](quickstart-verifiable-credentials.md). We set up your own issuer and verifier in your tenant. In a few simple steps, we configure your Azure AD to produce the same Ninja credential from the sample code using your tenant's Distributed ID (DID).
+
 
 > [!IMPORTANT]
-> Azure Verifiable Credentials is currently in public preview.
+> Azure verifiable credentials is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In this article:
 
-1. [Create a resource group](../../azure-resource-manager/management/manage-resource-groups-portal.md)
-1. [Create a vault](../../key-vault/general/quick-create-portal.md)
-1. Go to  https://aka.ms/vcpreviewportal
-1. Requirements to issue credentials  WHERE IS THIS?
-1. Create your directory (ISN'T ONE CREATED WITH EVERY TEST SUB CREATED?)
-1. Set up Azure Key Vault
-
-In this tutorial we build on the work done in the tutorial. We will set up your own Issuer and Verifier in your tenant. In a few simple steps, we will configure your Azure AD to produce the same Ninja credential from the Sample code using your tenant's Distributed ID (DID).
+> [!div class="checklist"]
+> * You create the necessary services to onboard your Azure Active Directory (AAD) for verifiable credentials 
+> * Configure verifiable credentials in AAD.
+> * Go to  https://aka.ms/vcpreviewportal
 
 ## Prerequisites
 
-To issue Verifiable Credentials, you need the following services.
+Before you can successfully complete this tutorial, you must first:
 
-- Complete the [Quick start](quickstart-verifiable-credentials.md).
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure AD with a premium [license](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+- Complete the [quickstart](quickstart-verifiable-credentials.md).
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure AD with a P2 [license](https://azure.microsoft.com/pricing/details/active-directory/).
 - An instance of [Azure Key Vault](../../key-vault/general/overview.md) where you have rights to create keys and secrets.
-- Access to  Azure Blob storage that you can use to create containers and blobs.
-- Any identity provider that supports the OpenID Connect standard for federation. Examples include Azure AD and Azure AD B2C. More detail is available in Credential Structure.
 
 ## Azure Active Directory
 
-Before we can get started, we first need an Azure AD tenant. In the world of Verifiable Credentials, your Azure AD tenant represents your organization. When your tenant is enabled for Verifiable Credentials, it is assigned a decentralized identifier (DID) and it is equipped with an issuer service for issuing verifiable  credentials. Any verifiable credential you issue is issued by your tenant and its DID. The DID is also used when verifying Verifiable Credentials.
-
->[!NOTE]
->The Verifiable Credentials preview also requires an Azure AD Premium license. 
-
-If you just created a test Azure subscription keep in mind that your tenant does not need to be populated with user accounts.
+Before we can start, we need an Azure AD tenant. When your tenant is enabled for verifiable credentials, it is assigned a decentralized identifier (DID) and it is enabled with an issuer service for issuing verifiable credentials. Any verifiable credential you issue is issued by your tenant and its DID. The DID is also used when verifying verifiable credentials.
+If you just created a test Azure subscription, your tenant does not need to be populated with user accounts but you will need to have at least one user test account to complete later tutorials.
 
 ## Create a Key Vault
 
-In the Verifiable Credentials preview, (IS THIS GOING TO CHANGE LATER?) you have complete control and management of the cryptographic keys your tenant will use to digitally sign Verifiable Credentials. To issue and verify credentials, you must provide Azure AD with access to your own instance of Azure Key Vault.
+When working with verifiable credentials, you have complete control and management of the cryptographic keys your tenant uses to digitally sign verifiable credentials. To issue and verify credentials, you must provide Azure AD with access to your own instance of Azure Key Vault.
 
 1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
 2. In the Search box, enter **Key Vault**.
 3. From the results list, choose **Key Vault**.
 4. On the Key Vault section, choose **Create**.
 5. On the **Create key vault** section provide the following information:
-    - **Name**: A unique name is required. We use **Contoso-VC-Vault** so replace this value with your own unique name.
     - **Subscription**: Choose a subscription.
     - Under **Resource Group**, choose **Create new** and enter a resource group name such as **vc-resource-group**. We are using the same resource group name across multiple articles.
+    - **Name**: A unique name is required. We use **Contoso-VC-Vault** so replace this value with your own unique name.
     - In the **Location** pull-down menu, choose a location.
     - Leave the other options to their defaults.
 6. After providing the information above, select **Access Policy**
 
     ![create a key vault page](media/tutorial-verifiable-credentials-issuer/create-key-vault.png)
 
-7. In the **Access Policy** screen choose **Add Access Policy**
+7. In the Access Policy screen, choose **Add Access Policy**
 
     >[!NOTE]
-    > By default the account that creates the Key Vault is the only one with access. The Verifiable Credential service needs access to key vault to get started. The key vault used needs an access policy allowing the Admin to create keys, have the ability to delete them if you opt out (DO WE WANT TO SAY ANYTHING ABOUT OPTING OUT???) and sign in to create the domain binding for Verifiable Credential. (WHAT DO WE MEAN BY DOMAIN BINDING?) If you are using the same account while testing make sure to modify the default policy to grant the account **sign** in addition to the default permissions granted to vault creators.
+    > By default the account that creates the key vault is the only one with access. The verifiable credential service needs access to key vault to get started. The key vault used needs an access policy allowing the Admin to **create keys***, have the ability to **delete keys** if you opt out, and **sign** to create the domain binding for verifiable credential. If you are using the same account while testing make sure to modify the default policy to grant the account **sign** in addition to the default permissions granted to vault creators.
 
 8. In the key permissions section choose **Create**, **Delete**, and **Sign**.
 
@@ -85,44 +78,43 @@ In the Verifiable Credentials preview, (IS THIS GOING TO CHANGE LATER?) you have
 
 Take note of the two properties listed below:
 
-- **Vault Name**: In the example, this is **Contoso-VC-vault**. You will use this name for other steps.
-- **Vault URI**: In the example, this is https://contoso-vc.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **Vault Name**: In the example, the value name is **Contoso-VC-vault**. You use this name for other steps.
+- **Vault URI**: In the example, this value is https://contoso-vc.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
 >[!NOTE]
 > Each Key Vault transaction results in additional Azure subscription costs. Review the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/) for more details.
 
 >[!IMPORTANT]
-> During the Verifiable Credentials preview, keys and secrets created in your vault should not be modified once created. Deleting, disabling, or updating your keys and secrets will invalidate any credentials issued in the future. Do not modify your keys or secrets during the preview.
+> During the verifiable credentials preview, keys and secrets created in your vault should not be modified once created. Deleting, disabling, or updating your keys and secrets invalidates any issued credentials. Do not modify your keys or secrets during the preview.
 
-## Set up Verifiable Credentials Preview
+## Set up verifiable credentials Preview
 
-There are two ways to get to the Verifiable Credentials blade in the Azure Portal. 
+There are two ways to get to the verifiable credentials blade in the Azure portal. 
 
-1. Search for Verifiable Credentials 
-1. Navigate to AAD>Security, then you will see Verifiable Credentials in the left menu.
+1. Search for **verifiable credentials**. 
+2. Navigate to AAD>Security, and choose **verifiable credentials** one the left menu.
 
->[!IMPORTANT]
-> During Private Preview use the link https://aka.ms/vcpreviewportal
+    >[!IMPORTANT]
+    > During Private Preview use the link https://aka.ms/vcpreviewportal
 
-To get started with the AAD Verifiable Credentials service, you need to set up your organization and provide your organization name, domain and key vault. Let's look at each one. 
+3. To get started with the verifiable credentials service, you need to set up your organization and provide your organization name, domain, and key vault. Let's look at each one.
 
--  **organization name**: This is how you will reference your business within the Verifiable Credential service. This will not be customer facing.
+      - **organization name**: This name is how you reference your business within the Verifiable Credential service. This value is not customer facing.
+      - **Domain:** The domain entered is added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. Whenever the wallet is unable to verify the DID it informs users that the credential presented was issued by an organization it could not validate. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below.
+      - **Key vault:** Provide the name of the Key Vault that we created earlier.
 
-- **Domain:** (DOES THIS NEED TO RESOLVE OR IS IT JUST AN IDENTIFIER?) The domain entered is added to a service endpoint in your DID document. Microsoft Authenticator and other VC Wallets validate that your DID is linked to your domain and display to the user a Verified symbol or tell the user this is an untrusted session. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below. 
-
->[!IMPORTANT]
-> The domain can not be a redirect, otherwise the DID and domain cannot be linked. Make sure to use https://www.domain.com format. 
-
-![new permission request](media/tutorial-verifiable-credentials-issuer/e5EKExG.png)
-
-- **Key vault:** Provide the name of the Key Vault that we created earlier.
-- Choose **Save and create credential**
+    ![new permission request](media/tutorial-verifiable-credentials-issuer/e5EKExG.png)
+    
+   >[!IMPORTANT]
+   > The domain can not be a redirect, otherwise the DID and domain cannot be linked. Make sure to use https://www.domain.com format.
+    
+4. Choose **Save and create credential**
 
     ![set up your organizational identity](media/tutorial-verifiable-credentials-issuer/save-create.png)
 
 ## Next Steps
 
-At this point, your tenant has been successfully enabled for the Verifiable Credentials preview. Continue onto the next section to set up your credential issuer service.
+At this point, your tenant is enabled for the verifiable credentials preview. Continue onto the next section to set up your credential issuer service.
 
 > [!div class="nextstepaction"]
 > [Create Sample Ninja Credential in your Issuer](tutorial-02-create-sample-card-your-issuer.md)

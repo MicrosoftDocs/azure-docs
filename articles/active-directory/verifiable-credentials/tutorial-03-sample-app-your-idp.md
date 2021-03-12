@@ -7,14 +7,14 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.author: barclayn
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure AD
 
 ---
 
-# Tutorial 3 - Configure AAD to work with the Verifiable Credential service
+# Tutorial 3 - Configure Azure Active Directory (AAD) to work with the Verifiable Credential service
 
 > [!IMPORTANT]
 > Azure Verifiable Credentials is currently in public preview.
@@ -29,10 +29,10 @@ In this article you learn how to:
 > * Connect your AAD tenant
 > * Create the Ninja Credential Rules and Display File
 > * Upload Rules and Display files
-> * Set up Issuer service to Azure Key Vault
-> * Update Sample Code with your tenant.
+> * Set up your Verifiable Credentials Issuer service to use Azure Key Vault
+> * Update Sample Code with your tenant's information.
 
-The sample code we are using in the tutorials requires that we authenticate to an IdP before Ninja Verifiable Credential can be issued. Not all Verifiable Credentials require IdP login.
+Our sample code requires users to authenticate to an identity provider (IdP) before Ninja Verifiable Credential can be issued. Not all Verifiable Credentials issuers require authentication before issuing credentials.
 
 Authenticating ID Tokens allows users to prove who they are before receiving their credential. When users successfully log in, the identity provider returns a security token containing claims about the user. The issuer service then transforms these security tokens and their claims into Verifiable Credentials.
 
@@ -47,19 +47,19 @@ Register an application called 'VC Wallet App' in your identity provider and obt
 
 1. Follow the instructions for registering an application with [Azure AD](../develop/quickstart-register-app.md) When registering, use the values below.
 
-    - Name: "VC Wallet App"
-    - Supported account types: Accounts in this organizational directory only
-    - Redirect URI: vcclient://openid/
+   - Name: "VC Wallet App"
+   - Supported account types: Accounts in this organizational directory only
+   - Redirect URI: vcclient://openid/
 
-    ![register an application](/media/tutorial-sample-app-your-IdP/MUnp9lS.png)
+![register an application](media/tutorial-sample-app-your-idp/MUnp9lS.png)
 
 Now that you've completed registering the application, write down the Application (client) ID. You need this value later.
 
-![application client ID](/media/tutorial-sample-app-your-IdP/aWyalLO.png)
+![application client ID](media/tutorial-sample-app-your-IdP/aWyalLO.png)
 
 Now select the Endpoints button and copy the OpenID Connect metadata document URI. You will need this information for the next section. 
 
-![issuer endpoints](/media/tutorial-sample-app-your-IdP/aGCw9I7.png)
+![issuer endpoints](media/tutorial-sample-app-your-IdP/aGCw9I7.png)
 
 ## Your IdP with the Ninja Credential 
 
@@ -111,7 +111,7 @@ https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a
 
 To authenticate a credential issuance request to the user, the issuer website will use your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website will need a client ID and client secret that can be used to authenticate to Azure Key Vault.
 
-![Register node app](/media/tutorial-sample-app-your-IdP/cvkoirk.png)
+![Register node app](media/tutorial-sample-app-your-IdP/cvkoirk.png)
 
 Copy down your Application (client) ID as you will need this later to update your Sample Node app.
 
@@ -119,7 +119,7 @@ Copy down your Application (client) ID as you will need this later to update you
 622d0251-9735-4ce2-b9cd-c09f69c2ff00
 ```
 
-![application client id](/media/tutorial-sample-app-your-IdP/jq6a7lv.png)
+![application client id](media/tutorial-sample-app-your-IdP/jq6a7lv.png)
 
 
 ### Generate a client secret
@@ -133,7 +133,7 @@ Copy down your Application (client) ID as you will need this later to update you
 >[!WARNING]
 > You have one chance to copy down the secret. The secret is one way hashed after this. Do not copy the ID. 
 
-![Certificates and secrets](/media/tutorial-sample-app-your-IdP/nfskid8.png)
+![Certificates and secrets](media/tutorial-sample-app-your-IdP/nfskid8.png)
 
 After creating your application and client secret in Azure AD, you need to grant the application permission to perform operations on your Key Vault. Making these permission changes is required to enable the website to access and use the private keys stored there.
 
@@ -147,7 +147,7 @@ After creating your application and client secret in Azure AD, you need to grant
 
 For more information about Key Vault permissions 
 
-![assign key vault permissions](/media/tutorial-sample-app-your-IdP/si53el7.png)
+![assign key vault permissions](media/tutorial-sample-app-your-IdP/si53el7.png)
 
 ## Summary
 
