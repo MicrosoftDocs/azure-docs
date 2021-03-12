@@ -85,15 +85,7 @@ To concatenate strings:
 [concat(parameters('namePrefix'), '-vm')]
 ```
 
-To set resource property:
-
-```bicep
-sku: '2016-Datacenter'
-```
-
-```json
-"sku": "2016-Datacenter",
-```
+## Logical operators
 
 To return the logical **AND**:
 
@@ -103,44 +95,6 @@ isMonday && isNovember
 
 ```json
 [and(parameter('isMonday'), parameter('isNovember'))]
-```
-
-To get resource ID of resource in the template:
-
-```bicep
-nic1.id
-```
-
-```json
-[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]
-```
-
-## Reference resources
-
-To get a property from a resource in the template:
-
-```bicep
-diagsAccount.properties.primaryEndpoints.blob
-```
-
-```json
-[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]
-```
-
-To get a property from an existing resource that isn't deployed in the template:
-
-```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
-  name: storageAccountName
-}
-
-// use later in template as often as needed
-stg.properties.primaryEndpoints.blob
-```
-
-```json
-// required every time it is needed
-"[reference(resourceId(parameters('storageAccountResourceGroupName'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2017-06-01').primaryEndpoints.blob]"
 ```
 
 To conditionally set a value:
@@ -153,6 +107,8 @@ isMonday ? 'valueIfTrue' : 'valueIfFalse'
 [if(parameters('isMonday'), 'valueIfTrue', 'valueIfFalse')]
 ```
 
+## Deployment scope
+
 To set the target scope of the deployment:
 
 ```bicep
@@ -162,6 +118,8 @@ targetScope = 'subscription'
 ```json
 "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#"
 ```
+
+## Resources
 
 To declare a resource:
 
@@ -200,6 +158,26 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = if(deployVM) {
 ]
 ```
 
+To set resource property:
+
+```bicep
+sku: '2016-Datacenter'
+```
+
+```json
+"sku": "2016-Datacenter",
+```
+
+To get resource ID of resource in the template:
+
+```bicep
+nic1.id
+```
+
+```json
+[resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]
+```
+
 ## Loops
 
 To iterate over items in an array or count:
@@ -230,6 +208,34 @@ dependsOn: [ stg ]
 
 ```json
 "dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]
+```
+
+## Reference resources
+
+To get a property from a resource in the template:
+
+```bicep
+diagsAccount.properties.primaryEndpoints.blob
+```
+
+```json
+[reference(resourceId('Microsoft.Storage/storageAccounts', variables('diagStorageAccountName'))).primaryEndpoints.blob]
+```
+
+To get a property from an existing resource that isn't deployed in the template:
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+  name: storageAccountName
+}
+
+// use later in template as often as needed
+stg.properties.primaryEndpoints.blob
+```
+
+```json
+// required every time it is needed
+"[reference(resourceId(parameters('storageAccountResourceGroupName'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2017-06-01').primaryEndpoints.blob]"
 ```
 
 ## Outputs
