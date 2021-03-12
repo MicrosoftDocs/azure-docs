@@ -15,15 +15,13 @@ ms.author: lajanuar
 
 # Form Recognizer prebuilt receipt model
 
-Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with receipt understanding deep learning models to extract key information from receipts in English. The Receipt API extracts key information from sales receipts in English, such as merchant name, transaction date, transaction total, line items, and more. 
+Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/concept-recognizing-text.md) capabilities with deep learning models to extract key information from receipts written in English.
 
-## Understanding Receipts 
+## Understanding Receipts
 
-Many businesses and individuals still rely on manually extracting data from their sales receipts, whether for business expense reports, reimbursements, auditing, tax purposes, budgeting, marketing or other purposes. Often in these scenarios, images of the physical receipt are required for validation purposes.  
+Many businesses and individuals still rely on manually extracted data from sales receipts. Automatically extracting data from these receipts can be complicated. Receipts may be crumpled, hard to read, have handwritten parts and contain low-quality smartphone images. Also, receipt templates and fields can vary greatly by market, region, and merchant. These data extraction and field detection challenges make receipt processing a unique problem.  
 
-Automatically extracting data from these Receipts can be complicated. Receipts may be crumpled and hard to read, printed or handwritten parts and smartphone images of receipts may be low quality. Also, receipt templates and fields can vary greatly by market, region, and merchant. These challenges in both data extraction and field detection make receipt processing a unique problem.  
-
-Using Optical Character Recognition (OCR) and our prebuilt receipt model, the Receipt API enables these receipt processing scenarios and extract data from the receipts e.g merchant name, tip, total, line items and more. With this API there is no need to train a model, just send the receipt image to the Analyze Receipt API and the data is extracted.
+The Receipt API uses Optical Character Recognition (OCR) and our prebuilt model to enable vast receipt processing scenarios. With Receipt API there is no need to train a model. Send the receipt image to the Analyze Receipt API and the data is extracted.
 
 ![sample receipt](./media/receipts-example.jpg)
 
@@ -69,7 +67,7 @@ To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 
 ## Input requirements
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## Supported locales 
 
@@ -100,12 +98,12 @@ The second step is to call the [Get Analyze Receipt Result](https://westcentralu
 
 |Field| Type | Possible values |
 |:-----|:----:|:----|
-|status | string | notStarted: The analysis operation has not started. |
+|status | string | notStarted: The operation hasn't started. |
 | |  | running: The analysis operation is in progress. |
 | |  | failed: The analysis operation has failed. |
 | |  | succeeded: The analysis operation has succeeded. |
 
-When the **status** field has the **succeeded** value, the JSON response will include the receipt understanding and text recognition results. The receipt understanding result is organized as a dictionary of named field values, where each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
+When the **status** field has the **succeeded** value, the JSON response will include the receipt understanding and text recognition results. The receipt understanding result is organized as a dictionary of named field values. Each value contains the extracted text, normalized value, bounding box, confidence and corresponding word elements. The text recognition result is organized as a hierarchy of lines and words, with text, bounding box and confidence information.
 
 ![sample receipt results](./media/contoso-receipt-2-information.png)
 
@@ -443,18 +441,17 @@ See the following example of a successful JSON response:
 }
 ```
 
-
 ## Customer scenarios  
 
-The data extracted with the Receipt API can be used to perform a variety of tasks. The following are a few examples of what our customers have accomplished with the Receipt API. 
+The data extracted with the Receipt API can be used to perform a variety of tasks. Below are a few examples of what customers have accomplished with the Receipt API.
 
 ### Business expense reporting  
 
 Often filing business expenses involves spending time manually entering data from images of receipts. With the Receipt API, you can use the extracted fields to partially automate this process and analyze your receipts quickly.  
 
-Because the Receipt API has a simple JSON output, you can use the extracted field values in multiple ways. Integrate with internal expense applications to pre-populate expense reports. For more on this scenario, read about how Acumatica is utilizing Receipt API to [make expense reporting a less painful process](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
+The Receipt API is a simple JSON output allowing you to use the extracted field values in multiple ways. Integrate with internal expense applications to pre-populate expense reports. For more on this scenario, read about how Acumatica is utilizing Receipt API to [make expense reporting a less painful process](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
-### Auditing and accounting 
+### Auditing and accounting
 
 The Receipt API output can also be used to perform analysis on a large number of expenses at various points in the expense reporting and reimbursement process. You can process receipts to triage them for manual audit or quick approvals.  
 
@@ -468,9 +465,13 @@ The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-buil
 
 ## Next steps
 
-- Complete a [Form Recognizer quickstart](quickstarts/client-library.md) to get started writing a receipt processing app with Form Recognizer in the development language of your choice.
+ .Get started writing a receipt processing app with Form Recognizer in the development language of your choice.
+
+> [!div class="nextstepaction"]
+> [Complete a Form Recognizer quickstart](quickstarts/client-library.md)
 
 ## See also
 
-* [What is Form Recognizer?](./overview.md)
-* [REST API reference docs](./index.yml)
+* [What is Form Recognizer?](overview.md)
+* [Form Recognizer API v2.2 preview](.https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+*[For Recognizer API v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)
