@@ -25,6 +25,10 @@ To restrict access to only [private endpoint for your IoT hub in your VNet](virt
 
 To turn on public network access, selected **All networks**, then **Save**.
 
+## Accessing the IoT Hub after disabling public network access
+
+After public network access is disabled, the IoT Hub is only accessible through [its VNet private endpoint using Azure private link](virtual-network-support.md). This restriction includes accessing through Azure portal, because API calls to the IoT Hub service are made directly using your browser with your credentials. 
+
 ## IoT Hub endpoint, IP address, and ports after disabling public network access
 
 IoT Hub is a multi-tenant Platform-as-a-Service (PaaS), so different customers share the same pool of compute, networking, and storage hardware resources. IoT Hub's hostnames map to a public endpoint with a publicly routable IP address over the internet. Different customers share this IoT Hub public endpoint, and IoT devices in over wide-area networks and on-premises networks can all access it. 
