@@ -126,7 +126,7 @@ A task hub can be configured with between 1 and 16 partitions. If not specified,
 
 During low traffic scenarios, your application will be scaled-in, so partitions will be managed by a small number of workers. As an example, consider the diagram below.
 
-![Scale-in orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progressions-1.png)
+![Scale-in orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-1.png)
 
 In it, we see orchestrators 1 through 6 are load balanced across partitions but all partitions are within one worker, due to low-traffic. Activity functions, on the other hand, make full use of all two allocated workers.
 
@@ -136,7 +136,7 @@ As traffic increases, more workers will get allocated and partitions will eventu
 
 Finally, as more orchestrations are started, they will continue to be load-balanced across partitions. Since orchestrators defer most of their computation to activities, it's unlikely many of them will need to execute at the same time. This is illustrated in our image below, where we represented inactive orchestrations in grey.
 
-![Second scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progressions-3.png)
+![Second scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-3.png)
 
 During scale-out, each functions host instance (typically on different VMs) acquires a lock on one of the control queues. These locks are internally implemented as blob storage leases and ensure that an orchestration instance or entity only runs on a single host instance at a time. If a task hub is configured with three control queues, orchestration instances and entities can be load-balanced across as many as three VMs. Additional VMs can be added to increase capacity for activity function execution.
 
