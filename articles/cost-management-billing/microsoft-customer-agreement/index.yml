@@ -54,7 +54,7 @@ landingContent:
       - text: Receive a bill under my agreement
         url: ../understand/review-customer-agreement-bill.md
       - text: Pay my bill
-        url: /microsoft-365/commerce/billing-and-payments/pay-for-your-subscription
+        url: /microsoft-365/commerce/billing-and-payments/pay-for-your-subscription?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
       - text: Move from credit card to invoice (placeholder)
         url: ../manage/mca-section-invoice.md
       - text: Set up an administrator to manage billing
