@@ -353,7 +353,7 @@
     - name: Filter by language
       href: search-filters-language.md
     - name: Text Normalization in filtering, faceting and sorting
-    - href: search-normalizers.md
+      href: search-normalizers.md
   - name: Results
     items:
     - name: Work with results
