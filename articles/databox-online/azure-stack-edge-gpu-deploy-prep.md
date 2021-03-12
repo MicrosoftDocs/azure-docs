@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/11/2021
+ms.date: 03/03/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -87,37 +87,26 @@ Before you deploy a physical device, make sure that:
 
 Before you begin, make sure that:
 
-- The network in your datacenter is configured per the networking requirements for your Azure Stack Edge Pro device. For more information, see [Azure Stack Edge Pro System Requirements](azure-stack-edge-system-requirements.md). 
+- The network in your datacenter is configured per the networking requirements for your Azure Stack Edge Pro device. For more information, see [Azure Stack Edge Pro System Requirements](azure-stack-edge-system-requirements.md).
 
 - For normal operating conditions of your Azure Stack Edge Pro, you have:
 
     - A minimum of 10-Mbps download bandwidth to ensure the device stays updated.
     - A minimum of 20-Mbps dedicated upload and download bandwidth to transfer files.
 
-## Create new resource for existing device
+## Create a new resource
 
-Use the following procedure to create a new resource if you need to reset or replace an existing Azure Stack Edge Pro device.
+If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
-> [!IMPORTANT]
-> For all new Azure Stack Edge Pro devices, you need to order a resource using Azure Stack Edge Pro with GPU. For instructions, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal.md#create-a-new-resource). For more information about Azure Stack Edge Pro with GPU, see [What is Azure Stack Edge Pro with GPU?](https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-overview).
+### [Portal](#tab/azure-portal)
 
-<!--If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key). - No longer applicable?-->
-
-<!--### [Portal](#tab/azure-portal)-->
-
-To create a new resource for an existing Azure Stack Edge Pro device, take the following steps in the Azure portal.
+To create an Azure Stack Edge resource, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-2. In the left pane, select **+ Create a resource**. 
+2. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**. 
 
-   ![Create a resource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-01)
-
-3. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**.
-
-   ![Create a resource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-01)
-
-3. Pick the subscription that you want are using for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
+3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
 
     ![Create a resource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
@@ -180,7 +169,7 @@ After the order is placed, Microsoft reviews the order and contacts you (via ema
 
 If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
-<!--### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 If necessary, prepare your environment for Azure CLI.
 
@@ -223,7 +212,7 @@ az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1
 
 After you place an order, Microsoft reviews the order and contacts you by email with shipping details.
 
---- -->
+---
 
 ## Get the activation key
 
