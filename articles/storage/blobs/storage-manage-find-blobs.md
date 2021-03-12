@@ -283,6 +283,8 @@ Blob index pricing is in public preview and subject to change for general availa
 
 Blob index tags are only available on General Purpose v2 (GPv2) accounts with hierarchical namespace (HNS) disabled. General Purpose (GPV1) accounts aren't supported but you can upgrade any GPv1 account to a GPv2 account.
 
+Blob index tags are currently in PREVIEW and is **available in all public regions**
+
 Index tags aren't supported on Premium storage accounts. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 In public preview, blob index tags are only available in the following regions:
