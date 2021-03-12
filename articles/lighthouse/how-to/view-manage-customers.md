@@ -56,8 +56,7 @@ For more information, see [Remove access to a delegation](remove-delegation.md).
 
 The **Activity log** section of the **My customers** page keeps track of every time customer subscriptions or resource groups are delegated to your tenant, and every time previously delegated resources are removed. This information can only be viewed by users who have been [assigned the Monitoring Reader role at root scope](monitor-delegation-changes.md).
 
-For more information, see [View delegation changes in the Azure portal]
-(monitor-delegation-changes.md#view-delegation-changes-in-the-azure-portal).
+For more information, see [View delegation changes in the Azure portal](monitor-delegation-changes.md#view-delegation-changes-in-the-azure-portal).
 
 ## Work in the context of a delegated subscription
 
