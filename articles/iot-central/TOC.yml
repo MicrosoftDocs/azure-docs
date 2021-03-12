@@ -246,7 +246,7 @@
           href: core/howto-manage-devices.md
         - name: Run a job
           href: core/howto-run-a-job.md
-        - name: Move devices from IoT Hub
+        - name: Move devices from IoT Hub  
           href: core/how-to-move-device-to-iot.md
     - name: Administer your solution
       items:
