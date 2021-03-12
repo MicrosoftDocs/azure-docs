@@ -7,6 +7,7 @@ services: firewall
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: victorh
+ms.custom: references_regions
 ---
 
 # Azure Firewall Premium Preview features
