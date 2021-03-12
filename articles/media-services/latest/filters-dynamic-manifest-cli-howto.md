@@ -25,7 +25,7 @@ When delivering your content to customers (streaming Live events or Video on Dem
 
 For detailed description of this feature and scenarios where it is used, see [Dynamic Manifests](filters-dynamic-manifest-overview.md) and [Filters](filters-concept.md).
 
-This topic shows how to configure a filter for a Video on-Demand asset and use CLI for Media Services v3 to create [Account Filters](/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](/cli/azure/ams/asset-filter?view=azure-cli-latest).
+This topic shows how to configure a filter for a Video on-Demand asset and use CLI for Media Services v3 to create [Account Filters](/cli/azure/ams/account-filter) and [Asset Filters](/cli/azure/ams/asset-filter).
 
 > [!NOTE]
 > Make sure to review [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -76,7 +76,7 @@ The following example defines the track selection conditions that are added to t
 
 ## Create account filters
 
-The following [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter).
+The following [az ams account-filter](/cli/azure/ams/account-filter) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter).
 
 The command allows you to pass an optional `--tracks` parameter that contains JSON representing the track selections.  Use @{file} to load JSON from a file. If you are using the Azure CLI locally, specify the whole file path:
 
@@ -88,7 +88,7 @@ Also, see [JSON examples for filters](/rest/api/media/accountfilters/createorupd
 
 ## Create asset filters
 
-The following [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
+The following [az ams asset-filter](/cli/azure/ams/asset-filter) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
@@ -128,4 +128,4 @@ The following table shows some examples of URLs with filters:
 
 ## See also
 
-[Azure CLI](/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](/cli/azure/ams)

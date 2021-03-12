@@ -36,7 +36,7 @@ Using an App Service plan, you can manually scale out by adding more VM instance
 
 ## App Service Environments
 
-Running in an [App Service Environment](../app-service/environment/intro.md) (ASE) lets you fully isolate your functions and take advantage of higher numbers of instances than an App Service Plan. To get started, see .
+Running in an App Service Environment (ASE) lets you fully isolate your functions and take advantage of higher numbers of instances than an App Service Plan. To get started, see [Introduction to the App Service Environments](../app-service/environment/intro.md).
 
 If you just want to run your function app in a virtual network, you can do this using the [Premium plan](functions-premium-plan.md). To learn more, see [Establish Azure Functions private site access](functions-create-private-site-access.md). 
 

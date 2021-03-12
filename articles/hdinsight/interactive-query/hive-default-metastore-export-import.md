@@ -41,7 +41,7 @@ The action is similar to replacing symlinks with their full paths.
 
 An HDInsight cluster created only after 2020-10-15 supports SQL Export/Import for the Hive default metastore DB by using `sqlpackage`.
 
-1. Install [sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage-download?view=sql-server-ver15#get-sqlpackage-net-core-for-linux) to the cluster.
+1. Install [sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage-download#get-sqlpackage-net-core-for-linux) to the cluster.
 
 2. Export the default metastore DB to BACPAC file by executing the following command.
 
@@ -61,13 +61,13 @@ An HDInsight cluster created only after 2020-10-15 supports SQL Export/Import fo
 
 4. Import the BACPAC file to a new database with steps listed [here](../../azure-sql/database/database-import.md).
 
-5. The new database is ready to be [configured as external metastore DB on a new HDInsight cluster](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md).
+5. The new database is ready to be [configured as external metastore DB on a new HDInsight cluster](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation).
 
 ## Migrate using Hive script
 
 Clusters created before 2020-10-15 do not support export/import of the default metastore DB.
 
-For such clusters, follow the guide [Copy Hive tables across Storage Accounts](./hive-migration-across-storage-accounts.md), using a second cluster with an [external Hive metastore DB](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation.md). The second cluster can use the same storage account but must use a new default filesystem.
+For such clusters, follow the guide [Copy Hive tables across Storage Accounts](./hive-migration-across-storage-accounts.md), using a second cluster with an [external Hive metastore DB](../hdinsight-use-external-metadata-stores.md#select-a-custom-metastore-during-cluster-creation). The second cluster can use the same storage account but must use a new default filesystem.
 
 ### Option to "shallow" copy
 Storage consumption would double when tables are "deep" copied using the above guide. You need to manually clean the data in the source storage container.

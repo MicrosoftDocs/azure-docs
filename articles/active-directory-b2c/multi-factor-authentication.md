@@ -39,7 +39,7 @@ This feature helps applications handle scenarios such as:
 1. In the **Multifactor authentication** section, select the desired **MFA method**, and then under **MFA enforcement** select **Always on**, or **Conditional (Recommended)**.
    > [!NOTE]
    >
-   > - If you select **Conditional (Recommended)**, you'll also need to [add a Conditional Access policy](conditional-access-identity-protection-setup.md#add-a-conditional-access-policy) and specify the apps you want the policy to apply to.
+   > - If you select **Conditional (Recommended)**, you'll also need to [add Conditional Access to user flows](conditional-access-user-flow.md), and specify the apps you want the policy to apply to.
    > - Multi-factor authentication (MFA) is disabled by default for sign-up user flows. You can enable MFA in user flows with phone sign-up, but because a phone number is used as the primary identifier, email one-time passcode is the only option available for the second authentication factor.
 
 1. Select **Save**. MFA is now enabled for this user flow.

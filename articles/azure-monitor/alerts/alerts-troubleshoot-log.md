@@ -4,7 +4,6 @@ description: Common issues, errors, and resolutions for log alert rules in Azure
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 09/22/2020
 
 ---
