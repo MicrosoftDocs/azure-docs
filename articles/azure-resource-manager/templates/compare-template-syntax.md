@@ -12,6 +12,36 @@ This article compares Bicep syntax with JSON syntax for Azure Resource Manager t
 
 If you're familiar with using JSON to develop ARM templates, use the following table to learn about the equivalent syntax for Bicep.
 
+To author an expression:
+
+```bicep
+func()
+```
+
+```json
+"[func()]"
+```
+
+* To get a parameter value:
+
+  ```bicep
+  exampleParameter
+  ```
+
+  ```json
+  [parameters('exampleParameter'))]
+  ```
+
+* To get a variable value:
+
+  ```bicep
+  exampleVar
+  ```
+
+  ```json
+  [variables('exampleVar'))]
+  ```
+
 | Scenario | Bicep | JSON |
 | -------- | ------------ | ----- |
 | Author an expression | `func()` | `"[func()]"` |
