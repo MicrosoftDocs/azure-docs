@@ -217,9 +217,9 @@
       - name: Monitor with Azure Monitor
         items:
         - name: Monitor Media Services
-          href: monitor-media-services.md
+          href: monitoring/monitor-media-services.md
         - name: Monitoring Media Services data reference
-          href: monitor-media-services-data-reference.md
+          href: monitoring/monitor-media-services-data-reference.md
       - name: Monitor with Event Grid
         items:
         - name: Events with Event Grid

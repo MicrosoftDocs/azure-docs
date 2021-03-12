@@ -72,7 +72,7 @@ Media Services supports the following diagnostic logs:
 
 |Name|Description|
 |---|---|
-|Key delivery service request|Logs that show the key delivery service request information. For more information, see [schemas](media-services-diagnostic-logs-schema.md).|
+|Key delivery service request|Logs that show the key delivery service request information. For more information, see [schemas](monitor-media-data-reference.md).|
 
 ## Schemas
 
