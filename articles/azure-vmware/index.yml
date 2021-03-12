@@ -8,9 +8,9 @@ metadata:
   description: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
   ms.service: azure-vmware 
   ms.topic: landing-page 
-  author: dikamath 
-  ms.author: dikamath 
-  ms.date: 11/19/2020 
+  author: shortpatti 
+  ms.author: v-patsho 
+  ms.date: 03/12/2021 
 
 # card 1
 landingContent:
@@ -150,11 +150,11 @@ landingContent:
         links:
           - text: Playlist
             url: https://youtube.com/playlist?list=PL1NLwHeM6ewbZu0dC0guj-OSpIoZnnJin
-          - text: Demystify DNS and Secure Communication 
+          - text: Integration with Azure Service
             url: https://youtu.be/m26iLu6DHbU
-          - text: Integrate with Azure Application Gateway
+          - text: Integration with Azure Application Gateway
             url: https://youtu.be/BoQYvqzb6Y8
-          - text: Migrate and capacity planning
+          - text: Migration and capacity planning
             url: https://youtu.be/NoNG-hkksrA
                             
 
