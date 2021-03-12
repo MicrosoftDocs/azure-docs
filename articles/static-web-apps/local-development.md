@@ -18,9 +18,13 @@ When published to the cloud, an Azure Static Web Apps site has many services tha
 - Azure Functions API
 - Authentication and authorization services
 
+These services must communicate with each other. Azure Static Web Apps handles this for you.
+
 Running locally, however, these services aren't automatically tied together.
 
-To provide the same integrated local experience, the [Azure Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) provides direct access your Azure Functions API, and a mock authentication and authorization server.
+To provide the same  experience you get in Azure, the [Azure Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) provides direct access your local Azure Functions API, and a local mock authentication and authorization server.
+
+## How it works
 
 The following chart shows how requests are handled locally.
 
@@ -29,19 +33,19 @@ The following chart shows how requests are handled locally.
 > [!IMPORTANT]
 > Navigate to [http://localhost:4280](http://localhost:4280) to access the application served by the CLI.
 
-1. **Requests** made against port `4280` are forwarded to the appropriate server depending on the type of request.
+1. **Requests** made to port `4280` are forwarded to the appropriate server depending on the type of request.
 
-2. **Static content** requests are either handled by the internal CLI static content server, or by the front-end framework server for debugging.
+2. **Static content** requests, such as HTML or CSS,  are either handled by the internal CLI static content server, or by the front-end framework server for debugging.
 
 3. **Authentication and authorization** requests are handled by an emulator, which provides a fake identity profile to your app.
 
 4. **Functions Core Tools runtime** handles requests to the site's API.
 
-5. **Responses** from all servers are returned to the browser as if they were all a single application.
+5. **Responses** from all services are returned to the browser as if they were all a single application.
 
 ## Prerequisites
 
-- **[Visual Studio Code](https://code.visualstudio.com/)**: Used to debug the API application.
+- **[Visual Studio Code](https://code.visualstudio.com/)**: Debugs the API application.
 - **Existing Azure Static Web Apps site**: If you don't have one, begin with the [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) starter app.
 - **[Node.js](https://nodejs.org) with npm**: Run the [Node.js LTS](https://nodejs.org) version, which includes access to [npm](https://www.npmjs.com/).
   - _Required_ even if you're developing Blazor apps.
