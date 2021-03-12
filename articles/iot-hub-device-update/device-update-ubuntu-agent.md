@@ -102,7 +102,7 @@ The following manual steps to install and configure the device are equivalent to
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-  * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+  * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
 
 Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
 
