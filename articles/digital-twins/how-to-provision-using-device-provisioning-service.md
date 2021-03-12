@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an automated process to provision and retire IoT devices in Azure Digital Twins using Device Provisioning Service (DPS).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/24/2021
+ms.date: 3/11/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -26,8 +26,9 @@ For more information about the _provision_ and _retire_ stages, and to better un
 ## Prerequisites
 
 Before you can set up the provisioning, you'll need to set up the following:
-[!INCLUDE [digital-twins-prereq-instance-and-iot-hub.md](../../includes/digital-twins-prereq-instance-and-iot-hub.md)]
-* an [Azure function](../../articles/azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow [*How to: Ingest IoT hub data*](how-to-ingest-iot-hub-data.md) to create an Azure function. Gather the function **_name_** to use it in this article.
+* an **Azure Digital Twins instance**. Follow the instructions in [Set up an instance and authentication](../articles/digital-twins/how-to-set-up-instance-portal.md) to create an Azure digital twins instance. Gather the instance's **_host name_** in the Azure portal ([instructions](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+* an **IoT hub**. For instructions, see the *Create an IoT Hub* section of this [IoT Hub quickstart](../articles/iot-hub/quickstart-send-telemetry-cli.md).
+* an [Azure function](../../articles/azure-functions/functions-overview.md) that updates digital twin information based on IoT Hub data. Follow the instructions in [*How to: Ingest IoT hub data*](how-to-ingest-iot-hub-data.md) to create an Azure function. Gather the function **_name_** to use it in this article.
 
 This sample also uses a **device simulator** that includes provisioning using the Device Provisioning Service. The device simulator is located here: [Azure Digital Twins and IoT Hub Integration Sample](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Get the sample project on your machine by navigating to the sample link and selecting the *Download ZIP* button underneath the title. Unzip the downloaded folder.
 
@@ -62,44 +63,44 @@ The following sections walk through the steps to set up this auto-provision devi
 
 ### Create a Device Provisioning Service
 
-When a new device is provisioned using Device Provisioning Service, a new twin for that device can be created in Azure Digital Twins.
+When a new device is provisioned using Device Provisioning Service, a new twin for that device can be created in Azure Digital Twins with the same name as the registration ID.
 
 Create a Device Provisioning Service instance, which will be used to provision IoT devices. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal*](../iot-dps/quick-setup-auto-provision.md).
 
-The following Azure CLI command will create a Device Provisioning Service. You will need to specify a device provisioning service name, resource group, and region. To see what regions support device provisioning service, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+The following Azure CLI command will create a Device Provisioning Service. You'll need to specify a device provisioning service name, resource group, and region. To see what regions support device provisioning service, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli-interactive
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region>
 ```
 
-### Create an Azure function
-
-In this section, you are going to create a new function that will be used by the Device Provisioning Service in a [Custom Allocation Policy](../iot-dps/how-to-use-custom-allocation-policies.md) to provision a new device. You can do this by creating a new project or use your existing project in Visual Studio or any other code editor.
-
-If you are creating a new project, make sure you have a function that updates digital twin information based on IoT Hub data as mentioned in the [prerequisites section](#prerequisites).
-
 #### Add a function to use with Device Provisioning Service
 
-Inside your function app project, do the following steps:
+Inside your function app project that you created for a function in the [prerequisites](#prerequisites) section, you'll create a new function to use with the Device Provisioning Service.
 
-1. Add a new function of type *HTTP request-triggered* and rename the function to *DpsAdtAllocationFunc*.
-2. Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add additional packages to your project as well, if the packages used in the code aren't part of the project already.
-3. In the newly created function code file, paste in the following code and save the file.
+#### Step 1: Add a new function 
+
+Add a new function of type *HTTP request-triggered* to the function app project in Visual Studio.
+
+#### Step 2: Fill in function code
+
+Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add additional packages to your project as well, if the packages used in the code aren't part of the project already.
+
+In the newly created function code file, paste in the following code, rename the function to *DpsAdtAllocationFunc.cs*, and save the file.
+
 :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DpsAdtAllocationFunc.cs":::
-4. Publish your function app. For instructions on publishing the function app, see the [*Publish the app*](tutorial-end-to-end.md#publish-the-app) section of the Azure Digital Twins *Tutorial: Connect an end-to-end solution.*
 
-For more information about using HTTP requests with Azure functions, see [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
+#### Step 3: Publish the function app to Azure
 
-#### Verify function publish
+Publish the project with *DpsAdtAllocationFunc.cs* function to a function app in Azure.
 
-[!INCLUDE [digital-twins-verify-function-app-publish.md](../../includes/digital-twins-verify-function-app-publish.md)]
+For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
 
 :::image type="content" source="media/how-to-provision-using-dps/azure-functions-app.png" alt-text="The Azure portal function app view to verify that your function is successfully published-1":::
 
-### Configure your function
 
-[!INCLUDE [digital-twins-configure-azure-function.md](../../includes/digital-twins-configure-azure-function.md)]
+> [!NOTE]
+> Verify the section [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) is done before proceeding further in this article.
 
 ### Create Device Provisioning enrollment
 
@@ -128,7 +129,7 @@ This sample uses a device simulator that includes provisioning using the Device 
 
 #### Upload the model
 
-The device simulator is a thermostat-type device that uses the following model: [*ThermostatModel.json*](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/ThermostatModel.json). You'll need to upload this model to Azure Digital Twins before you can create a twin of this type for the device.
+The device simulator is a thermostat-type device that uses the model: [*ThermostatModel.json*](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/ThermostatModel.json). You'll need to upload this model to Azure Digital Twins before you can create a twin of this type for the device.
 
 First, get the model file on your machine by navigating to the model link above and copying the file body into a local .json file on your machine, and rename it to *ThermostatModel.json*.
 
@@ -229,14 +230,14 @@ Name your event hub trigger *lifecycleevents*, and connect the event hub trigger
 
 This function will use the IoT Hub device lifecycle event to retire an existing device. For more about lifecycle events, see [*IoT Hub Non-telemetry events*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-Inside your published function app, 
+Inside your published function app, do the following steps:
 
-1. Add a new function class of type *Event Hub Trigger*
-2. Paste in the code below in your function class and save the project
+1. Add a new function class of type *Event Hub Trigger* and rename the function to *DeleteDeviceInTwinFunc.cs*.
+2. Paste in the code below in your function class and save the project.
 
 :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
-3. Publish the function app again. For instructions on publishing the function app, see the [*Publish the app*](tutorial-end-to-end.md#publish-the-app) section of the end-to-end tutorial.
+3. Publish the project to a function app in Azure. For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
 
 #### Verify function publish
 
@@ -267,14 +268,14 @@ To trigger the process of retirement, you need to manually delete the device fro
 
 In the [first half of this article](#auto-provision-device-using-device-provisioning-service), you created a device in IoT Hub and a corresponding digital twin. 
 
-Now, go to the IoT Hub and delete that device (you can do this with an [Azure CLI command](/cli/azure/ext/azure-iot/iot/hub/module-identity#ext_azure_iot_az_iot_hub_module_identity_delete) or in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Now, go to the IoT Hub and delete that device (you can do this with an [Azure CLI command](/cli/azure/ext/azure-iot/iot/hub/module-identity#ext_azure_iot_az_iot_hub_module_identity_delete) or in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)).
 
 The device will be automatically removed from Azure Digital Twins. 
 
 Use the following [Azure Digital Twins CLI](how-to-use-cli.md) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
 
 ```azurecli-interactive
-az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
+az dt twin show -n <Digital Twins instance name> --twin-id "<Device Registration ID>"
 ```
 
 You should see that the twin of the device cannot be found in the Azure Digital Twins instance anymore.
@@ -295,11 +296,16 @@ az group delete --name <your-resource-group>
 
 Then, delete the project sample folder you downloaded from your local machine.
 
+
 ## Next steps
 
 The digital twins created for the devices are stored as a flat hierarchy in Azure Digital Twins, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more about this concept, read:
 
 * [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md)
+
+For more information about using HTTP requests with Azure functions, see
+
+* [*Azure Http request trigger for Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
 You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following:
 

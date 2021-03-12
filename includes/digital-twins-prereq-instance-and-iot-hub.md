@@ -1,2 +1,0 @@
-* an **Azure Digital Twins instance**. Follow the instructions in [Set up an instance and authentication](../articles/digital-twins/how-to-set-up-instance-portal.md) to create an Azure digital twins instance. Gather the instance's **_host name_** in the Azure portal ([instructions](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
-* **an IoT hub**. For instructions, see the *Create an IoT Hub* section of [this IoT Hub quickstart](../articles/iot-hub/quickstart-send-telemetry-cli.md).
