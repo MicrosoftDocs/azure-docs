@@ -51,7 +51,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    ```
 
    > [!NOTE]
-   > The `assignee` and `role` values in the previous command are fixed service principle and role identifiers respectively.
+   > The `assignee` and `role` values in the previous command are fixed values, enter these values exactly as mentioned in the command. Not doing so will lead to errors when creating the cluster. If you encounter any errors when executing this command, you may not have permissions to run it, please reach out to your admin for permissions.
 
 1. Next create the cluster in your newly created Virtual Network. Run the following command and make sure that you use the `Resource ID` value retrieved in the previous command as the value of `delegatedManagementSubnetId` variable:
 
