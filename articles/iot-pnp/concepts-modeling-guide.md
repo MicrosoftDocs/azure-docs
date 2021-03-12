@@ -1,6 +1,6 @@
 ---
 title: Understand IoT Plug and Play device models | Microsoft Docs
-description: Understand the Digital Twins Definition Language (DTDL) modeling language for IoT Plug and Play devices. The article describes primitive and complex types, reuse patterns that use components and inheritance, and semantic types. The article provides guidance on the choice of device twin model identifier and tooling support for model authoring.
+description: Understand the Digital Twins Definition Language (DTDL) modeling language for IoT Plug and Play devices. The article describes primitive and complex datatypes, reuse patterns that use components and inheritance, and semantic types. The article provides guidance on the choice of device twin model identifier and tooling support for model authoring.
 author: dominicbetts
 ms.author: dobett
 ms.date: 03/09/2021
@@ -17,211 +17,116 @@ services: iot-pnp
 At the core of IoT Plug and Play, is a device _model_ that describes a device's capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of interfaces that define:
 
 - _Properties_ that represent the read-only or writable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writable property.
-- _Telemetry_ that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
+- _Telemetry_ fields that define the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
 - _Commands_ that describe a function or operation that can be done on a device. For example, a command could reboot a gateway or take a picture using a remote camera.
+
+To learn more about how IoT Plug and Play uses device models, see [IoT Plug and Play device developer guide](concepts-developer-guide-device.md) and [IoT Plug and Play service developer guide](concepts-developer-guide-service.md).
+
+To define a model, you use the Digital Twins Definition Language (DTDL). DTDL uses a JSON variant called [JSON-LD](https://json-ld.org/). The following snippet shows the model for a thermostat device that:
+
+- Has a unique model ID: `dtmi:com:example:Thermostat;1`.
+- Sends temperature telemetry.
+- Has a writable property to set the target temperature.
+- Has a read-only property to report the maximum temperature since the last reboot.
+- Responds to a command that requests maximum, minimum and average temperatures over a time period.
+
+```json
+{
+  "@context": "dtmi:dtdl:context;2",
+  "@id": "dtmi:com:example:Thermostat;1",
+  "@type": "Interface",
+  "displayName": "Thermostat",
+  "description": "Reports current temperature and provides desired temperature control.",
+  "contents": [
+    {
+      "@type": [
+        "Telemetry",
+        "Temperature"
+      ],
+      "name": "temperature",
+      "displayName": "Temperature",
+      "description": "Temperature in degrees Celsius.",
+      "schema": "double",
+      "unit": "degreeCelsius"
+    },
+    {
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "targetTemperature",
+      "schema": "double",
+      "displayName": "Target Temperature",
+      "description": "Allows to remotely specify the desired target temperature.",
+      "unit": "degreeCelsius",
+      "writable": true
+    },
+    {
+      "@type": [
+        "Property",
+        "Temperature"
+      ],
+      "name": "maxTempSinceLastReboot",
+      "schema": "double",
+      "unit": "degreeCelsius",
+      "displayName": "Max temperature since last reboot.",
+      "description": "Returns the max temperature since last device reboot."
+    },
+    {
+      "@type": "Command",
+      "name": "getMaxMinReport",
+      "displayName": "Get Max-Min report.",
+      "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+      "request": {
+        "name": "since",
+        "displayName": "Since",
+        "description": "Period to return the max-min report.",
+        "schema": "dateTime"
+      },
+      "response": {
+        "name": "tempReport",
+        "displayName": "Temperature Report",
+        "schema": {
+          "@type": "Object",
+          "fields": [
+            {
+              "name": "maxTemp",
+              "displayName": "Max temperature",
+              "schema": "double"
+            },
+            {
+              "name": "minTemp",
+              "displayName": "Min temperature",
+              "schema": "double"
+            },
+            {
+              "name": "avgTemp",
+              "displayName": "Average Temperature",
+              "schema": "double"
+            },
+            {
+              "name": "startTime",
+              "displayName": "Start Time",
+              "schema": "dateTime"
+            },
+            {
+              "name": "endTime",
+              "displayName": "End Time",
+              "schema": "dateTime"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+The thermostat model has a single interface. Later examples in this article show more complex models that use components and inheritance.
 
 This article describes how to design and author your own models and covers topics such as data types, model structure, and tools.
 
-To learn more, see the [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) specification.
-
-## Data types
-
-Use data types to define telemetry, properties, and command parameters. Data types can be primitive or complex. Complex data types use primitives or other complex types. The maximum depth for complex types is five levels.
-
-### Primitive types
-
-The following table shows the set of primitive types you can use:
-
-| Primitive type | Description |
-| --- | --- |
-| `boolean` | A boolean value |
-| `date` | A full-date as defined in [section 5.6 of RFC 3339](https://tools.ietf.org/html/rfc3339#section-5.6) |
-| `dateTime` | A date-time as defined in [RFC 3339](https://tools.ietf.org/html/rfc3339) |
-| `double` | An IEEE 8-byte floating point |
-| `duration` | A duration in ISO 8601 format |
-| `float` | An IEEE 4-byte floating point |
-| `integer` | A signed 4-byte integer |
-| `long` | A signed 8-byte integer |
-| `string` | A UTF8 string |
-| `time` | A full-time as defined in [section 5.6 of RFC 3339](https://tools.ietf.org/html/rfc3339#section-5.6) |
-
-The following snippet shows an example telemetry definition that uses the `double` type in the `schema` field:
-
-```json
-{
-  "@type": "Telemetry",
-  "name": "temperature",
-  "displayName": "Temperature",
-  "schema": "double"
-}
-```
-
-### Complex objects
-
-Complex objects are one of *array*, *enumeration*, *map*, *object*, or one of the geospatial types.
-
-#### Arrays
-
-An array is an indexable data type where all elements are the same type. The element type can be a primitive or complex type.
-
-The following snippet shows an example telemetry definition that uses the `Array` type in the `schema` field. The elements of the array are booleans:
-
-```json
-{
-  "@type": "Telemetry",
-  "name": "ledState",
-  "schema": {
-    "@type": "Array",
-    "elementSchema": "boolean"
-  }
-}
-```
-
-#### Enumerations
-
-An enumeration describes a type with a set of named labels that map to values. The values can be either integers or strings, but the labels are always strings.
-
-The following snippet shows an example telemetry definition that uses the `Enum` type in the `schema` field. The values in the enumeration are integers:
-
-```json
-{
-  "@type": "Telemetry",
-  "name": "state",
-  "schema": {
-    "@type": "Enum",
-    "valueSchema": "integer",
-    "enumValues": [
-      {
-        "name": "offline",
-        "displayName": "Offline",
-        "enumValue": 1
-      },
-      {
-        "name": "online",
-        "displayName": "Online",
-        "enumValue": 2
-      }
-    ]
-  }
-}
-```
-
-#### Maps
-
-A map is a type with key-value pairs where the values all have the same type. The key in a map must be a string. The values in a map can be any type, including another complex type.
-
-The following snippet shows an example property definition that uses the `Map` type in the `schema` field. The values in the map are strings:
-
-```json
-{
-  "@type": "Property",
-  "name": "modules",
-  "writable": true,
-  "schema": {
-    "@type": "Map",
-    "mapKey": {
-      "name": "moduleName",
-      "schema": "string"
-    },
-    "mapValue": {
-      "name": "moduleState",
-      "schema": "string"
-    }
-  }
-}
-```
-
-### Objects
-
-An object type is made up of named fields. The types of the fields in an object map can be primitive or complex types.
-
-The following snippet shows an example telemetry definition that uses the `Object` type in the `schema` field. The fields in the object are all doubles:
-
-```json
-{
-  "@type": "Telemetry",
-  "name": "accelerometer",
-  "schema": {
-    "@type": "Object",
-    "fields": [
-      {
-        "name": "x",
-        "schema": "double"
-      },
-      {
-        "name": "y",
-        "schema": "double"
-      },
-      {
-        "name": "z",
-        "schema": "double"
-      }
-    ]
-  }
-}
-```
-
-#### Geospatial types
-
-DTDL provides a set of geospatial types, based on [GeoJSON](https://geojson.org/), for modeling geographic data structures: `point`, `multiPoint`, `lineString`, `multiLineString`, `polygon`, and `multiPolygon`.
-
-The following snippet shows an example telemetry definition that uses the `point` type in the `schema` field:
-
-```json
-{
-  "@type": "Telemetry",
-  "name": "location",
-  "schema": "point"
-}
-```
-
-Because the geospatial types are array-based, they can't currently be used in property definitions.
-
-## Semantic types
-
-Semantic types provide information about telemetry and properties that an application can use to determine how to process or display a value. Each semantic type has one or more associated units. For example, celsius and fahrenheit are units for the temperature semantic type. IoT Central dashboards and analytics can use the semantic type information to determine how to plot telemetry or property values and display units.
-
-The following snippet shows an example telemetry definition that includes semantic type information. The semantic type `Temperature` is added to the `@type` array, and the `unit` value, `degreeCelsius` is one of the valid units for the semantic type:
-
-```json
-{
-  "@type": [
-    "Telemetry",
-    "Temperature"
-  ],
-  "name": "temperature",
-  "schema": "double",
-  "unit": "degreeCelsius"
-}
-```
-
-## Localization
-
-Applications, such as IoT Central, use information in the model to dynamically build a UI around the data that's exchanged with an IoT Plug and Play device. For example, tiles on a dashboard can display names and descriptions for telemetry, properties, and commands.
-
-The optional `description` and `displayName` fields in the model hold strings intended for use in a UI. These fields can hold localized strings that an application can use to render a localized UI.
-
-The following snippet shows an example temperature telemetry definition that includes localized strings:
-
-```json
-{
-  "@type": [
-    "Telemetry",
-    "Temperature"
-  ],
-  "description": {
-    "en": "Temperature in degrees Celsius.",
-    "it": "Temperatura in gradi Celsius."
-  },
-  "displayName": {
-    "en": "Temperature",
-    "it": "Temperatura"
-  },
-  "name": "temperature",
-  "schema": "double",
-  "unit": "degreeCelsius"
-}
-```
+To learn more, see the [Digital Twins Definition Language v2](https://github.com/Azure/opendigitaltwins-dtdl) specification.
 
 ## Model structure
 
@@ -256,7 +161,7 @@ The following snippet shows the outline of an interface definition with its uniq
 
 ### No components
 
-A simple model doesn't use embedded or cascaded components. It includes header information and a contents section to define telemetry, properties, and commands.
+A simple model, such as the thermostat shown previously, doesn't use embedded or cascaded components. It includes header information and a contents section to define telemetry, properties, and commands.
 
 The following example shows part of a simple model that doesn't use components:
 
@@ -464,9 +369,224 @@ The following snippet shows a DTML model that uses the `extends` and `component`
 ]
 ```
 
+## Data types
+
+Use data types to define telemetry, properties, and command parameters. Data types can be primitive or complex. Complex datatypes use primitives or other complex types. The maximum depth for complex types is five levels.
+
+### Primitive types
+
+The following table shows the set of primitive types you can use:
+
+| Primitive type | Description |
+| --- | --- |
+| `boolean` | A boolean value |
+| `date` | A full-date as defined in [section 5.6 of RFC 3339](https://tools.ietf.org/html/rfc3339#section-5.6) |
+| `dateTime` | A date-time as defined in [RFC 3339](https://tools.ietf.org/html/rfc3339) |
+| `double` | An IEEE 8-byte floating point |
+| `duration` | A duration in ISO 8601 format |
+| `float` | An IEEE 4-byte floating point |
+| `integer` | A signed 4-byte integer |
+| `long` | A signed 8-byte integer |
+| `string` | A UTF8 string |
+| `time` | A full-time as defined in [section 5.6 of RFC 3339](https://tools.ietf.org/html/rfc3339#section-5.6) |
+
+The following snippet shows an example telemetry definition that uses the `double` type in the `schema` field:
+
+```json
+{
+  "@type": "Telemetry",
+  "name": "temperature",
+  "displayName": "Temperature",
+  "schema": "double"
+}
+```
+
+### Complex datatypes
+
+Complex datatypes are one of *array*, *enumeration*, *map*, *object*, or one of the geospatial types.
+
+#### Arrays
+
+An array is an indexable data type where all elements are the same type. The element type can be a primitive or complex type.
+
+The following snippet shows an example telemetry definition that uses the `Array` type in the `schema` field. The elements of the array are booleans:
+
+```json
+{
+  "@type": "Telemetry",
+  "name": "ledState",
+  "schema": {
+    "@type": "Array",
+    "elementSchema": "boolean"
+  }
+}
+```
+
+#### Enumerations
+
+An enumeration describes a type with a set of named labels that map to values. The values can be either integers or strings, but the labels are always strings.
+
+The following snippet shows an example telemetry definition that uses the `Enum` type in the `schema` field. The values in the enumeration are integers:
+
+```json
+{
+  "@type": "Telemetry",
+  "name": "state",
+  "schema": {
+    "@type": "Enum",
+    "valueSchema": "integer",
+    "enumValues": [
+      {
+        "name": "offline",
+        "displayName": "Offline",
+        "enumValue": 1
+      },
+      {
+        "name": "online",
+        "displayName": "Online",
+        "enumValue": 2
+      }
+    ]
+  }
+}
+```
+
+#### Maps
+
+A map is a type with key-value pairs where the values all have the same type. The key in a map must be a string. The values in a map can be any type, including another complex type.
+
+The following snippet shows an example property definition that uses the `Map` type in the `schema` field. The values in the map are strings:
+
+```json
+{
+  "@type": "Property",
+  "name": "modules",
+  "writable": true,
+  "schema": {
+    "@type": "Map",
+    "mapKey": {
+      "name": "moduleName",
+      "schema": "string"
+    },
+    "mapValue": {
+      "name": "moduleState",
+      "schema": "string"
+    }
+  }
+}
+```
+
+### Objects
+
+An object type is made up of named fields. The types of the fields in an object map can be primitive or complex types.
+
+The following snippet shows an example telemetry definition that uses the `Object` type in the `schema` field. The fields in the object are `dateTime`, `duration`, and `string` types:
+
+```json
+{
+  "@type": "Telemetry",
+  "name": "monitor",
+  "schema": {
+    "@type": "Object",
+    "fields": [
+      {
+        "name": "start",
+        "schema": "dateTime"
+      },
+      {
+        "name": "interval",
+        "schema": "duration"
+      },
+      {
+        "name": "status",
+        "schema": "string"
+      }
+    ]
+  }
+}
+```
+
+#### Geospatial types
+
+DTDL provides a set of geospatial types, based on [GeoJSON](https://geojson.org/), for modeling geographic data structures: `point`, `multiPoint`, `lineString`, `multiLineString`, `polygon`, and `multiPolygon`. These types are predefined nested structures of arrays, objects, and enumerations.
+
+The following snippet shows an example telemetry definition that uses the `point` type in the `schema` field:
+
+```json
+{
+  "@type": "Telemetry",
+  "name": "location",
+  "schema": "point"
+}
+```
+
+Because the geospatial types are array-based, they can't currently be used in property definitions.
+
+## Semantic types
+
+The datatype of a property or telemetry definition specifies the format of the data that a device exchanges with a service. The semantic type provides information about telemetry and properties that an application can use to determine how to process or display a value. Each semantic type has one or more associated units. For example, celsius and fahrenheit are units for the temperature semantic type. IoT Central dashboards and analytics can use the semantic type information to determine how to plot telemetry or property values and display units. To learn how you can use the model parser to read the semantic types, see [Understand the digital twins model parser](concepts-model-parser.md).
+
+The following snippet shows an example telemetry definition that includes semantic type information. The semantic type `Temperature` is added to the `@type` array, and the `unit` value, `degreeCelsius` is one of the valid units for the semantic type:
+
+```json
+{
+  "@type": [
+    "Telemetry",
+    "Temperature"
+  ],
+  "name": "temperature",
+  "schema": "double",
+  "unit": "degreeCelsius"
+}
+```
+
+## Localization
+
+Applications, such as IoT Central, use information in the model to dynamically build a UI around the data that's exchanged with an IoT Plug and Play device. For example, tiles on a dashboard can display names and descriptions for telemetry, properties, and commands.
+
+The optional `description` and `displayName` fields in the model hold strings intended for use in a UI. These fields can hold localized strings that an application can use to render a localized UI.
+
+The following snippet shows an example temperature telemetry definition that includes localized strings:
+
+```json
+{
+  "@type": [
+    "Telemetry",
+    "Temperature"
+  ],
+  "description": {
+    "en": "Temperature in degrees Celsius.",
+    "it": "Temperatura in gradi Celsius."
+  },
+  "displayName": {
+    "en": "Temperature",
+    "it": "Temperatura"
+  },
+  "name": "temperature",
+  "schema": "double",
+  "unit": "degreeCelsius"
+}
+```
+
+Adding localized strings is optional. The following example has only a single, default language:
+
+```json
+{
+  "@type": [
+    "Telemetry",
+    "Temperature"
+  ],
+  "description": "Temperature in degrees Celsius.",
+  "displayName": "Temperature",
+  "name": "temperature",
+  "schema": "double",
+  "unit": "degreeCelsius"
+}
+```
+
 ## Lifecycle and tools
 
-The three lifecycle stages for a device model are authoring, publication, and versioning:
+The four lifecycle stages for a device model are authoring, publication, use, and versioning:
 
 ### Author
 
@@ -489,6 +609,12 @@ Before you publish a model in the public repository, you can use the `dmr-client
 
 To learn more, see [Device models repository](concepts-model-repository.md).
 
+### Use
+
+Applications, such as IoT Central, use device models. In IoT Central, a model is part of the device template that describes the capabilities of the device. IoT Central uses the device template to dynamically build a UI for the device, including dashboards and analytics.
+
+A custom solution can use the [digital twins model parser](concepts-model-parser.md) to understand the capabilities of a device that implements the model. To learn more, see [Use IoT Plug and Play models in an IoT solution](concepts-model-discovery.md).
+
 ### Version
 
 To ensure devices and server-side solutions that use models continue to work, published models are immutable.
@@ -504,6 +630,7 @@ The following list summarizes some key constraints and limits on models:
 - Currently, the maximum depth for arrays, maps, and objects is five levels of depth.
 - You can't use arrays in property definitions.
 - You can extend interfaces to a depth of 10 levels.
+- An interface can extend at most two other interfaces.
 - A component can't contain another component.
 
 ## Next steps
