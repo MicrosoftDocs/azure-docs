@@ -81,7 +81,7 @@ The following section describes how to enable selective password hashword synchr
  5. No further changes are required. **Join rules** and **Transformations** should be left with the default copied settings so you can click **Save** now.
  Click **OK** in the warning dialog box informing a full synchronization will be run on the next synchronization cycle of the connector.
 
-  ![Edit inbound](media/how-to-connect-selective-phs/exclude5.png)
+  ![Save rule](media/how-to-connect-selective-phs/exclude5.png)
  6.	Next, create another custom rule with password hash synchronization enabled. Select again the default rule **In from AD – User AccountEnabled** for the Active Directory forest you want to configure selective password had synchronization on and click **Edit**. Select **yes** in the next dialog box to create an editable copy of the original rule.
 
   ![Custom rule](media/how-to-connect-selective-phs/exclude6.png)
@@ -131,7 +131,7 @@ The following section describes how to enable selective password hashword synchr
 
  1.	Start the Ssynchronization Rules Editor and set the filters **Password Sync** **On** and **Rule Type** **Standard**.
  
- ![Edit inbound](media/how-to-connect-selective-phs/include1.png)
+ ![Rule type](media/how-to-connect-selective-phs/include1.png)
  2.	Select the rule **In from AD – User AccountEnabled** for the Active Directory forest you want to configure selective password had synchronization on and click **Edit**. Select **yes** in the next dialog box to create an editable copy of the original rule.
 
  ![In from AD](media/how-to-connect-selective-phs/include2.png)
