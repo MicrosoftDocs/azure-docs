@@ -74,7 +74,7 @@ landingContent:
       - text: What is a tenant?
         url: ../../active-directory/fundamentals/active-directory-whatis.md
       - text: Manage multiple tenants (placeholder)
-        url: ../manage/manage/create-subscription.md
+        url: ../manage/create-subscription.md
       - text: Manage subscriptions in multiple tenants (placeholder)
-        url: ../manage/manage/create-subscription.md
+        url: ../manage/create-subscription.md
 
