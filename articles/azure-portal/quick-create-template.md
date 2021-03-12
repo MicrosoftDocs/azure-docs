@@ -25,9 +25,13 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The dashboard you create in the next part of this quickstart requires an existing VM. Create a VM by following these steps.
 
-1. In the Azure portal, select Cloud Shell.
+1. In the Azure portal, select **Cloud Shell**.
 
     ![Select Cloud shell from the Azure portal ribbon](media/quick-create-template/cloud-shell.png)
+
+1. In the **Cloud Shell** window, select **PowerShell**.
+
+    ![Copy a command into the command prompt](media/quick-create-template/powershell.png)
 
 1. Copy the following command and enter it at the command prompt to create a resource group.
 
