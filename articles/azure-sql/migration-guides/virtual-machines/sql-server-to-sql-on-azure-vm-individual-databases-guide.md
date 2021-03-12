@@ -9,7 +9,7 @@ ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
-ms.date: 11/06/2020
+ms.date: 03/19/2021
 ---
 
 # Migration guide: SQL Server to SQL Server on Azure VMs 
