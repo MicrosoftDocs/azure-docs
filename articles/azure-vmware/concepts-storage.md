@@ -2,7 +2,7 @@
 title: Concepts - Storage
 description: Learn about the key storage capabilities in  Azure VMware Solution private clouds.
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 03/11/2021
 ---
 
 #  Azure VMware Solution storage concepts
@@ -27,7 +27,7 @@ vSAN datastores use data-at-rest encryption by default. The encryption solution 
 
 ## Scaling
 
-Native cluster storage capacity is scaled by adding hosts to a cluster. For clusters that use HE hosts, the raw cluster-wide capacity is increased by 15.4 TB with each added host. Clusters that are built with GP hosts have their raw capacity increased by 7.7 TB with each added host. In both types of clusters, hosts take about 10 minutes to be added to a cluster. For instructions on scaling clusters, see the [scale private cloud tutorial][tutorial-scale-private-cloud].
+Native cluster storage capacity is scaled by adding hosts to a cluster. For clusters that use AVS36 hosts, the raw cluster-wide capacity is increased by 15.4 TB with each added host. Hosts take about 10 minutes to be added to a cluster. For instructions on scaling clusters, see the [scale private cloud tutorial][tutorial-scale-private-cloud].
 
 ## Azure storage integration
 
