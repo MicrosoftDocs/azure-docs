@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ---
 
 # Create stateful and stateless workflows in the Azure portal with Azure Logic Apps Preview
@@ -245,7 +245,33 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 1. Save your work. On the designer toolbar, select **Save**.
 
-Next, to test your workflow, manually trigger a run.
+1. If your environment has strict network requirements or firewalls that limit traffic, you have to set up permissions for any trigger or action connections that exist in your workflow. To find the fully qualified 
+
+   Otherwise, to test your workflow, [manually trigger a run](#trigger-workflow).
+
+<a name="firewall-setup"></a>
+
+##  Find domain names for firewall access
+
+Before you deploy your logic app and run your workflow in the Azure portal, if your environment has strict network requirements or firewalls that limit traffic, you have to set up network or firewall permissions for any trigger or action connections in the workflows that exist in your logic app.
+
+To find the fully qualified domain names (FQDNs) for these connections, follow these steps:
+
+1. On your logic app menu, under **Workflows**, select **Connections**. On the **API Connections** tab, select the connection's resource name, for example:
+
+   ![Screenshot that shows the Azure portal and logic app menu with the "Connections" and "offic365" connection resource name selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connections.png)
+
+1. Expand your browser wide enough so that when **JSON View** appears in the browser's upper right corner, select **JSON View**.
+
+   ![Screenshot that shows the Azure portal and API Connection pane with "JSON View" selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-view-json.png)
+
+1. Find, copy, and save the `connectionRuntimeUrl` property value somewhere safe so that you can set up your firewall with this information.
+
+   ![Screenshot that shows the "connectionRuntimeUrl" property value selected.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-runtime-url.png)
+
+1. For each connection, repeat the relevant steps.
+
+<a name="trigger-workflow"></a>
 
 ## Trigger the workflow
 

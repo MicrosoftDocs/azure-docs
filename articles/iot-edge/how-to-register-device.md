@@ -14,6 +14,8 @@ ms.author: kgremban
 
 # Register an IoT Edge device in IoT Hub
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 This article provides the steps to register a new IoT Edge device in IoT Hub.
 
 Every device that connects to an IoT hub has a device ID that's used to track cloud-to-device or device-to-cloud communications. You configure a device with its connection information, which includes the IoT hub hostname, the device ID, and the information the device uses to authenticate to IoT Hub.
