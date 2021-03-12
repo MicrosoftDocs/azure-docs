@@ -48,9 +48,7 @@
   - name: Use an ARM template
     items:
     - name: Create an account with ARM
-      href: quickstart-arm-template-account.md
-  - name: Python Basic Encoding Quickstart
-    href: quickstart-basic-encoding-python.md    
+      href: quickstart-arm-template-account.md    
 - name: Tutorials
   items:
   - name: .NET
@@ -86,6 +84,10 @@
     items:
     - name: Encode and stream a remote file Node.js
       href: stream-files-nodejs-quickstart.md
+  - name: Python
+    items:
+    - name: Python Basic Encoding Quickstart
+      href: quickstart-basic-encoding-python.md
   - name: Azure portal
     items:
     - name: Customer managed keys or BYOK tutorial

@@ -2,7 +2,7 @@
 title: Tutorial - Export JSON template from the Azure portal for Bicep development
 description: Learn how to use an exported JSON template to complete your Bicep development.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -74,7 +74,7 @@ Currently, the Azure portal only supports exporting JSON templates. There are to
 
 The decomplied exported template gives you most of the Bicep you need, but you need to customize it for your Bicep file. Pay particular attention to differences in parameters and variables between your Bicep file and the exported Bicep file. Obviously, the export process doesn't know the parameters and variables that you've already defined in your Bicep file.
 
-The following example highlights the additions to your Bicep file. It contains the exported code plus some changes. First, it changes the name of the parameter to match your naming convention. Second, it uses your location parameter for the location of the app service plan. Third, it removes some of the properties where the default value is fine.
+The following example shows the additions to your Bicep file. It contains the exported code plus some changes. First, it changes the name of the parameter to match your naming convention. Second, it uses your location parameter for the location of the app service plan. Third, it removes some of the properties where the default value is fine.
 
 Copy the whole file and replace your Bicep file with its contents.
 
