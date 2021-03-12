@@ -136,7 +136,7 @@ Follow these guidelines to ensure optimum results when two or more searchFields 
 
 + Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
 
-If only one field specified, use a descriptive field where the answer to semantic queries may be found, such as the main content of a document. Choose a field that provides sufficient content. To ensure timely processing, only the first 20,000 tokens of the collective contents of searchFields undergo semantic evaluation and ranking.
+If only one field specified, use a descriptive field where the answer to semantic queries may be found, such as the main content of a document. Choose a field that provides sufficient content. To ensure timely processing, only about 8,000 tokens of the collective contents of searchFields undergo semantic evaluation and ranking.
 
 #### Step 3: Remove orderBy clauses
 

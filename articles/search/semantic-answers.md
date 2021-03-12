@@ -59,7 +59,7 @@ The "searchFields" parameter is critical to returning a high quality answer, bot
 
 + A query string must not be null and should be formulated as question. In this preview, the "queryType" and "queryLanguage" must be set exactly as shown in the example.
 
-+ The "searchFields" parameter determines which fields provide tokens to the extraction model. A maximum of 20,000 tokens are used during token intake, so start the field list with concise fields, and then progress to text-rich fields. For precise guidance on how to set this field, see [Set searchFields](semantic-how-to-query-request.md#searchfields).
++ The "searchFields" parameter determines which fields provide tokens to the extraction model. Be sure to set this parameter. You must have at least one string field, but include any string field that you think is useful in providing an answer. Only about 8,000 tokens per document are passed into the model. Start the field list with concise fields, and then progress to text-rich fields. For precise guidance on how to set this field, see [Set searchFields](semantic-how-to-query-request.md#searchfields).
 
 + For "answers", the basic parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a count, up to a maximum of five.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
