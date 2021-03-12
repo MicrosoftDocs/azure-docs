@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2021
+ms.date: 03/12/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -65,10 +65,10 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
 
    <!--[The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-   For more information, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md#create-a-new-resource).
+   For more information, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md#create-a-new-resource). Existing customers who need to reset or replace their device can use that procedure to create a new order for the existing device. 
 
    > [!IMPORTANT]
-   > Existing customers who need to reset or replace their device can use this procedure to create a new order for the existing device. To order a new device, you'll need to create a resource in Azure Stack Edge Pro with GPU. For insturctions, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal.md#create-a-new-resource). For more information, see [What is Azure Stack Edge Pro with GPU?](https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-overview).
+   > To order a new device, you'll need to create a resource in Azure Stack Edge Pro with GPU. For insturctions, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal.md#create-a-new-resource). For more information, see [What is Azure Stack Edge Pro with GPU?](https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-overview).
 
 * **Azure Stack Edge Pro local web UI** - Use the local web UI to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
 
