@@ -132,7 +132,7 @@ Now that some models have been uploaded to your Azure Digital Twins instance, yo
 
 To create a digital twin, you use the [**az dt twin create**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_create) command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
 
-1. Run this code in the Cloud Shell to create several twins, based on the *Room* model you updated earlier and another model, *Floor*. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
+1. Run this code in the Cloud Shell to create several twins, based on the *Room* model you updated earlier and another model, *Floor*. Recall that *Room* has three properties, so you can provide arguments with the initial values for these. (Initializing property values is optional in general, but they're needed for this tutorial.)
 
     ```azurecli-interactive
     az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
@@ -142,7 +142,7 @@ To create a digital twin, you use the [**az dt twin create**](/cli/azure/ext/azu
     ```
 
     >[!NOTE]
-    > If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters in order for the `--properties` JSON value to be parsed correctly. With this edit, the commands to create the room twins look like this:
+    > If you're using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters in order for the `--properties` JSON value to be parsed correctly. With this edit, the commands to create the room twins look like this:
     >
     > ```azurecli-interactive
     > az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{\"RoomName\":\"Room0\", \"Temperature\":70, \"HumidityLevel\":30}'
@@ -173,7 +173,7 @@ You can also modify the properties of a twin you've created.
     ```
     
     >[!NOTE]
-    > If you are using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters in order for the `--json-patch` JSON value to be parsed correctly. With this edit, the command to update the twin looks like this:
+    > If you're using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters in order for the `--json-patch` JSON value to be parsed correctly. With this edit, the command to update the twin looks like this:
     >
     > ```azurecli-interactive
     > az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{\"op\":\"add\", \"path\":\"/RoomName\", \"value\": \"PresidentialSuite\"}'
@@ -196,17 +196,26 @@ You can also modify the properties of a twin you've created.
 
 Next, you can create some **relationships** between these twins, to connect them into a [**twin graph**](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
-To add a relationship, use the [**az dt twin relationship create**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_create) command. Specify the twin that the relationship is coming from, the type of relationship, and the twin that the relationship is connecting to. Lastly, give the relationship a unique ID.
+The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for *Floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have 
+a type of relationship called *contains*. This makes it possible to create a *contains*-type relationship from each *Floor* twin to the corresponding room that it contains.
 
-1. Run the following code to add a "contains" relationship from each of the *Floor* twins you created earlier to a corresponding *Room* twin.
+To add a relationship, use the [**az dt twin relationship create**](/cli/azure/ext/azure-iot/dt/twin/relationship?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_relationship_create) command. Specify the twin that the relationship is coming from, the type of relationship, and the twin that the relationship is connecting to. Lastly, give the relationship a unique ID. If a relationship was defined to have properties, you can initialize the relationship properties in this command as well.
+
+1. Run the following code to add a *contains*-type relationship from each of the *Floor* twins you created earlier to the corresponding *Room* twin. The relationships are named *relationship0* and *relationship1*.
 
     ```azurecli-interactive
     az dt twin relationship create -n <ADT_instance_name> --relationship-id relationship0 --relationship contains --twin-id floor0 --target room0
     az dt twin relationship create -n <ADT_instance_name> --relationship-id relationship1 --relationship contains --twin-id floor1 --target room1
     ```
-
-    >[!NOTE]
-    > The types of relationships you can create from a twin are bound by the relationships defined in its model. In this case, you are able to create a "contains" relationship from the *Floor*-type twins because the [*Floor* model](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that this is an allowed relationship type for these twins.
+    
+    >[!TIP]
+    >The *contains* relationship in the [*Floor* model](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) was also defined with two properties, `ownershipUser` and `ownershipDepartment`, so you can also provide arguments with the initial values for these when you create the relationships.
+    > To create a relationship with these properties initialized, add the `--properties` option to either of the above commands, like this:
+    > ```azurecli-interactive
+    > ... --properties '{"ownershipUser":"MyUser", "ownershipDepartment":"MyDepartment"}'
+    > ``` 
+    > 
+    > If you're using Cloud Shell in the PowerShell environment, you may need to escape the quotation mark characters in order for the `--properties` JSON value to be parsed correctly.
     
     The output from each command will show information about the successfully created relationship.
 

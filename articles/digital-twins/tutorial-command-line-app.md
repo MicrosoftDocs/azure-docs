@@ -118,7 +118,7 @@ Now that some models have been uploaded to your Azure Digital Twins instance, yo
 
 To create a digital twin, you use the `CreateDigitalTwin` command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You do not have to pass any relationship information at this stage.
 
-1. Run this code in the running project console to create several twins, based on the *Room* model you updated earlier and another model, *Floor*. Recall that *Room* has three properties, so you can provide arguments with the initial values for these.
+1. Run this code in the running project console to create several twins, based on the *Room* model you updated earlier and another model, *Floor*. Recall that *Room* has three properties, so you can provide arguments with the initial values for these. (Initializing property values is optional in general, but they're needed for this tutorial.)
 
     ```cmd/sh
     CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
@@ -161,6 +161,9 @@ You can also modify the properties of a twin you've created.
 
 Next, you can create some **relationships** between these twins, to connect them into a [**twin graph**](concepts-twins-graph.md). Twin graphs are used to represent an entire environment. 
 
+The types of relationships that you can create from one twin to another are defined within the [models](#model-a-physical-environment-with-dtdl) that you uploaded earlier. The [model definition for *Floor*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that floors can have 
+a type of relationship called *contains*. This makes it possible to create a *contains*-type relationship from each *Floor* twin to the corresponding room that it contains.
+
 To add a relationship, use the `CreateRelationship` command. Specify the twin that the relationship is coming from, the type of relationship, and the twin that the relationship is connecting to. Lastly, give the relationship a unique ID.
 
 1. Run the following code to add a "contains" relationship from each of the *Floor* twins you created earlier to a corresponding *Room* twin.
@@ -170,8 +173,12 @@ To add a relationship, use the `CreateRelationship` command. Specify the twin th
     CreateRelationship floor1 contains room1 relationship1
     ```
 
-    >[!NOTE]
-    > The types of relationships you can create from a twin are bound by the relationships defined in its model. In this case, you are able to create a "contains" relationship from the *Floor*-type twins because the [*Floor* model](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) specifies that this is an allowed relationship type for these twins.
+    >[!TIP]
+    >The *contains* relationship in the [*Floor* model](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) was also defined with two string properties, `ownershipUser` and `ownershipDepartment`, so you can also provide arguments with the initial values for these when you create the relationships.
+    > Here's an alternate version of the command above to create *relationship0* that also specifies initial values for these properties:
+    > ```cmd/sh
+    > CreateRelationship floor0 contains room0 relationship0 ownershipUser string MyUser ownershipDepartment string myDepartment
+    > ``` 
     
     The output from these commands confirms that the relationships were created successfully:
     
