@@ -55,11 +55,11 @@ For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-
 1. In **Registry source**, choose where your container registry is. If it's neither Azure Container Registry nor Docker Hub, select **Private Registry**.
 
 ::: zone pivot="container-linux"
-    > [!NOTE]
-    > If your multi-container (Docker Compose) app uses more than one private image, the private images should be in the same private registry and accessible with the same user credentials. If your multi-container app only uses public images, choose **Docker Hub**, even if some images are not in Docker Hub.
+   > [!NOTE]
+   > If your multi-container (Docker Compose) app uses more than one private image, the private images should be in the same private registry and accessible with the same user credentials. If your multi-container app only uses public images, choose **Docker Hub**, even if some images are not in Docker Hub.
 ::: zone-end  
 
-    Follow the next steps by selecting the tab that matches your choice.
+   Follow the next steps by selecting the tab that matches your choice.
 
 # [Azure Container Registry](#tab/acr)
 
@@ -70,8 +70,8 @@ For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-
 3. The **Registry** dropdown displays the registries in the same subscription as your app. Select the registry you want.
 ::: zone-end
 
-    > [!NOTE]
-    > To deploy from a registry in a different subscription, choose **Private Registry** in **Registry source** instead.
+   > [!NOTE]
+   > To deploy from a registry in a different subscription, choose **Private Registry** in **Registry source** instead.
 
 ::: zone pivot="container-windows"
 1. Select the **Image** and **Tag** to deploy. If you want, type the start up command in **Startup File**. 
@@ -82,7 +82,7 @@ For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-
     - For **Single Container**, select the **Image** and **Tag** to deploy. If you want, type the start up command in **Startup File**. 
 ::: zone-end
 
-    App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
+   App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
 
 # [Docker Hub](#tab/dockerhub)
 
@@ -104,7 +104,7 @@ For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-
     - For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
 ::: zone-end
 
-    App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
+   App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
 
 # [Private Registry](#tab/private)
 
@@ -126,7 +126,7 @@ For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-
     - For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
 ::: zone-end
 
-    App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
+   App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
 
 -----
 
@@ -168,7 +168,7 @@ Click **Save**.
 
 ## How CI/CD works with GitHub Actions
 
-If you choose **GitHub Actions** in **Source** (see [Choose deployment source](#choose-deployment-source)), App Service sets up CI/CD in the following ways:
+If you choose **GitHub Actions** in **Source** (see [Choose deployment source](#2-choose-deployment-source)), App Service sets up CI/CD in the following ways:
 
 - Deposits a GitHub Actions workflow file into your GitHub repository to handle build and deploy tasks to App Service.
 - Adds the credentials for your private registry as GitHub secrets. The generated workflow file runs the [Azure/docker-login](https://github.com/Azure/docker-login) action to sign in with your private registry, then runs `docker push` to deploy to it.
