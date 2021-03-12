@@ -50,7 +50,7 @@ The users and permissions associated with each delegation appear in the **Role a
 
 If you included users with the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when onboarding a customer to Azure Lighthouse, those users can remove a delegation by selecting the trash can icon that appears in the row for that delegation. When they do so, no users in the service provider's tenant will be able to access the resources that had been previously delegated.
 
-For more information, see [Remove access to a delegation](../remove-delegation.md).
+For more information, see [Remove access to a delegation](remove-delegation.md).
 
 ## View delegation change activity
 
