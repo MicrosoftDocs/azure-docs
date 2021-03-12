@@ -63,12 +63,33 @@ Open Log Analytics from **Logs** in the Azure Monitor menu in the Azure portal. 
 
 ```kuso
 Usage 
-| where Computer == "admdemo-appsvr" 
+| where Computer == "my-computer" 
 | summarize sum(Quantity), any(QuantityUnit) by DataType
 ```
 
 If you don't see any data, then you may have problems with your agent. See the section above for agent troubleshooting information.
 
+## Virtual machine doesn't appear in map view
+
+### Is the Dependency agent installed?
+ Use the information in the sections above to determine if the Dependency agent is installed and working properly.
+
+### Are you on the Log Analytics free tier?
+The [Log Analytics free tier](https://azure.microsoft.com/pricing/details/monitor/) This is a legacy pricing plan that allows for up to five unique Service Map machines. Any subsequent machines won't appear in Service Map, even if the prior five are no longer sending data.
+
+### Is your virtual machine sending log and performance data to Azure Monitor Logs?
+Use the log query in the [Performance view has no data](#performance-view-has-no-data) section to determine if data is being collected for the virtual machine. If not data is being collected, use the TestCloudConnectivity tool described above to determine if you have connectivity issues.
+
+
+## Virtual machine appears in map view but has no processes
+If the virtual machine is in the map view, then the Dependency agent is installed and running, but the kernel driver didn't load. Check the log file at the following locations:
+
+| Operating system | Log | 
+|:---|:---|
+| Windows | C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log |
+| Linux | /var/opt/microsoft/dependency-agent/log/service.log |
+
+The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
 ## Next steps
 
 - For details on onboarding VM insights agents, see [Enable VM insights overview](vminsights-enable-overview.md).
