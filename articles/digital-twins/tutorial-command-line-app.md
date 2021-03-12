@@ -81,9 +81,6 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     ```
     
     The output should indicate the models were created successfully.
-    
-    > [!TIP]
-    > If you designed your own model earlier, you can also upload it here, by adding its file name (you can leave out the extension) to the `Room Floor` list in the command above.
 
 1. Verify the models were created by running the command `GetModels true`. This will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited *Room* model in the results:
 
@@ -135,9 +132,6 @@ To create a digital twin, you use the `CreateDigitalTwin` command. You must refe
     :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Excerpt from the results of CreateDigitalTwin commands, showing floor0, floor1, room0, and room1":::
 
 1. You can verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *room0*, *room1*, *floor0*, and *floor1* twins in the results.
-
-> [!TIP]
-> If you uploaded your own model earlier, try making your own `CreateDigitalTwin` command based on the commands above to add a twin of your own model type.
 
 ### Modify a digital twin
 

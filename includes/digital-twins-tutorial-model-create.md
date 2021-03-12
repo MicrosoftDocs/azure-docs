@@ -21,6 +21,3 @@ When you are finished, the updated model should match this:
 :::code language="json" source="~/digital-twins-docs-samples/models/Room.json":::
 
 Make sure to save the file before moving on.
-
-> [!TIP]
-> If you want to try creating your own model, you can paste the *Room* model code into a new file that you save with a *.json* extension. Then, play around with adding properties and relationships to represent whatever you'd like. You can also look at more sample models in the [Azure Digital Twins end-to-end samples](https://github.com/Azure-Samples/digital-twins-samples/tree/master/AdtSampleApp/SampleClientApp/Models) repository for ideas.

@@ -100,9 +100,6 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     ```
     
     The output from each command will show information about the successfully uploaded model.
-    
-    > [!TIP]
-    > If you designed your own model earlier, you can also upload it here with this command.
 
 1. Verify the models were created with the [**az dt model list**](/cli/azure/ext/azure-iot/dt/model?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_model_list) command as shown below. This will print a list of all models that have been uploaded to the Azure Digital Twins instance with their full information. 
 
@@ -161,9 +158,6 @@ To create a digital twin, you use the [**az dt twin create**](/cli/azure/ext/azu
     Look for the *room0*, *room1*, *floor0*, and *floor1* twins in the results. Here is an excerpt showing part of the result of this query.
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Partial results of twin query, showing room0 and room1" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
-
-> [!TIP]
-> If you uploaded your own model earlier, try making your own `az dt twin create` command based on the commands above to add a twin of your own model type.
 
 ### Modify a digital twin
 
