@@ -16,7 +16,7 @@ ms.date: 08/25/2020
 
 This guide teaches you to migrate your Oracle databases to Azure SQL Database using SQL Server Migration Assistant for Oracle.
 
-For other scenarios, see the [Database Migration Guide](https://docs.microsoft.com/data-migration/).
+For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
 
 ## Prerequisites
 
@@ -48,13 +48,20 @@ To create an assessment, follow these steps:
 
    ![New Project](./media/oracle-to-sql-database-guide/new-project.png)
 
+
 1. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
 
-   ![Connect to Oracle](./media/oracle-to-sql-database-guide/oracle-data-provider.png)
+    Choose the appropriate Oracle Data Provider: 
+
+   ![Choose Oracle data provider](./media/oracle-to-sql-database-guide/oracle-data-provider.png)
+
+    Connect to Oracle: 
 
    ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
 
-   ![Connect to Oracle](./media/oracle-to-sql-database-guide/select-schema.png)
+   Select the Oracle schema you want to migrate: 
+
+   ![Select Oracle schema](./media/oracle-to-sql-database-guide/select-schema.png)
 
 1. Right-click the Oracle database you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
 
@@ -113,7 +120,9 @@ To publish your schema and migrate your data, follow these steps:
 
    ![Synchronize with Database](./media/oracle-to-sql-database-guide/synchronize-with-database.png)
 
-   ![Synchronize with Database](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
+   Review the synchronization with the database: 
+
+   ![Synchronize with Database review](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
 
 1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. 
 
@@ -129,7 +138,7 @@ To publish your schema and migrate your data, follow these steps:
    ![Validate in SSMA](./media/oracle-to-sql-database-guide/validate-data.png)
 
 
-Alternatively, you can also use SQL Server Integration Services (SSIS) to perfrom the migration. To learn more, see: 
+Alternatively, you can also use SQL Server Integration Services (SSIS) to perform the migration. To learn more, see: 
 
 - [SQL Server Migration Assistant: How to assess and migrate data from non-Microsoft data platforms to SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/11/16/sql-server-migration-assistant-how-to-assess-and-migrate-databases-from-non-microsoft-data-platforms-to-sql-server/)
 - [Getting Started with SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)

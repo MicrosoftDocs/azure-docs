@@ -103,9 +103,21 @@ To create an assessment, follow these steps:
 
    ![New project](./media/oracle-to-sql-on-azure-vm-guide/new-project.png)
 
-1. Select **Connect to Oracle**, provide the connection details, and then select **Connect**.
+1. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
+
+    Choose the appropriate Oracle Data Provider: 
+
+   ![Choose Oracle data provider](./media/oracle-to-sql-on-azure-vm-guide/oracle-data-provider.png)
+
+    Connect to Oracle: 
 
    ![Connect to Oracle](./media/oracle-to-sql-on-azure-vm-guide/connect-to-oracle.png)
+
+   Select the Oracle schema you want to migrate: 
+
+   ![Select Oracle schema](./media/oracle-to-sql-on-azure-vm-guide/select-schema.png)
+
+1. Right-click the Oracle database you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
 
 1. In **Oracle Metadata Explorer**, select the Oracle schema, and then select **Create Report** to generate an HTML report with conversion statistics and error/warnings, if any..
 

@@ -50,9 +50,15 @@ To create an assessment, follow these steps:
 
 1. Enter in values for the Oracle connection details on the Connect to **Connect to Oracle** dialog box.
 
-   ![Connect to Oracle](./media/oracle-to-managed-instance-guide/connect-oracle-driver.png)
+    Choose the appropriate Oracle Data Provider: 
+
+   ![Choose Oracle data provider](./media/oracle-to-managed-instance-guide/connect-oracle-driver.png)
+
+   Connect to Oracle:
 
    ![Connect to Oracle](./media/oracle-to-managed-instance-guide/connect-to-oracle.png)
+
+   Select the Oracle schema you want to migrate: 
 
    ![Connect to Oracle](./media/oracle-to-managed-instance-guide/connect-select-schema.png)
 

@@ -15,7 +15,7 @@ ms.date: 03/19/2021
 
 This migration guide teaches you to migrate your Microsoft Access databases to Azure SQL Database. 
 
-For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration/). 
+For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
 
 ## Prerequisites
 
@@ -86,7 +86,9 @@ To migrate data by using SSMA for Access, follow these steps:
 
    ![Synchronize with Database](./media/access-to-sql-database-guide/synchronize-with-database.png)
 
-   ![Synchronize with Database](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
+   Review the synchronization with the database: 
+
+   ![Review the synchronization with the database](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
 
 1. Use **Access Metadata Explorer** to check boxes next to the items you want to migrate. If you want to migrate the entire database, check the box next to the database. 
 1. Right-click the database or object you want to migrate, and choose **Migrate data**. 
