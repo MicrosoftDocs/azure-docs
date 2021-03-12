@@ -28,9 +28,9 @@ landingContent:
     - linkListType: how-to-guide
       links:
       - text: Get started with your agreement (placeholder)
-        url: ../manage/manage/create-subscription.md
+        url: ../manage/create-subscription.md
       - text: Access subscriptions (placeholder)
-        url: ../manage/manage/create-subscription.md
+        url: ../manage/create-subscription.md
       - text: Move from credit card to invoice
         url: ../manage/mca-request-billing-ownership.md
       - text: Access subscriptions with domain ID
@@ -38,7 +38,7 @@ landingContent:
       - text: Set up administrator to manage subscription users
         url: ../manage/add-change-subscription-administrator.md
       - text: Create new subscriptions
-        url: ../manage/manage/create-subscription.md
+        url: ../manage/create-subscription.md
 
 
 
