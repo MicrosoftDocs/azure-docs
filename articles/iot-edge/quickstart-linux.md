@@ -4,7 +4,7 @@ description: In this quickstart, learn how to create an IoT Edge device on Linux
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/02/2020
+ms.date: 03/12/2021
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -297,7 +297,15 @@ Open the command prompt on your IoT Edge device again, or use the SSH connection
    sudo iotedge list
    ```
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
    ![View three modules on your device](./media/quickstart-linux/iotedge-list-2.png)
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+   ![View three modules on your device](./media/quickstart-linux/iotedge-list-2-version12.png)
+:::moniker-end
 
 View the messages being sent from the temperature sensor module:
 
