@@ -9,27 +9,21 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.author: msangapu
 ms.custom: seodec18
+zone_pivot_groups: app-service-containers-windows-linux
 
 ---
 # Continuous deployment with custom containers in Azure App Service
 
 In this tutorial, you configure continuous deployment for a custom container image from managed [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
-#### Go to Deployment Center
+## 1. Go to Deployment Center
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the management page for your App Service app.
 
 1. From the left menu, click **Deployment Center** > **Settings**. 
 
-#### Choose deployment source
-
-Select the tab that matches your container platform.
-
-# [Windows container](#tab/wincontainer)
-
-Windows containers support CI/CD from the container registry directly.
-
-# [Linux container](#tab/lincontainer)
+::: zone pivot="container-linux"
+## 2. Choose deployment source
 
 Linux containers support CI/CD from the container registry directly. They also support CI/CD from farther upstream, at the source repository for the container registry.
 
@@ -44,85 +38,135 @@ Linux containers support CI/CD from the container registry directly. They also s
 
 1. Once you authorize your Azure account with GitHub, select the **Organization**, **Repository**, and **Branch** to deploy from.
 
-For more information, see [How CI/CD works with GitHub Actions](#how-ci-cd-works-with-github-actions).
+For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-with-github-actions).
+::: zone-end  
 
------
-
-#### Configure registry settings
+::: zone pivot="container-windows"
+## 2. Configure registry settings
+::: zone-end  
+::: zone pivot="container-linux"
+## 3. Configure registry settings
 
 1. To deploy a multi-container (Docker Compose) app, select **Docker Compose** in **Container Type**.
 
     If you don't see the **Container Type** dropdown, scroll back up to **Source** and select **Container Registry**.
+::: zone-end
 
 1. In **Registry source**, choose where your container registry is. If it's neither Azure Container Registry nor Docker Hub, select **Private Registry**.
 
+::: zone pivot="container-linux"
     > [!NOTE]
     > If your multi-container (Docker Compose) app uses more than one private image, the private images should be in the same private registry and accessible with the same user credentials. If your multi-container app only uses public images, choose **Docker Hub**, even if some images are not in Docker Hub.
+::: zone-end  
 
     Follow the next steps by selecting the tab that matches your choice.
 
 # [Azure Container Registry](#tab/acr)
 
+::: zone pivot="container-windows"
+2. The **Registry** dropdown displays the registries in the same subscription as your app. Select the registry you want.
+::: zone-end
+::: zone pivot="container-linux"
 3. The **Registry** dropdown displays the registries in the same subscription as your app. Select the registry you want.
+::: zone-end
 
     > [!NOTE]
     > To deploy from a registry in a different subscription, choose **Private Registry** in **Registry source** instead.
 
+::: zone pivot="container-windows"
+1. Select the **Image** and **Tag** to deploy. If you want, type the start up command in **Startup File**. 
+::: zone-end
+::: zone pivot="container-linux"
 1. Follow the next step depending on the **Container Type**:
     - For **Docker Compose**, choose the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just paste the content of your Docker Compose file into **Config**.
     - For **Single Container**, select the **Image** and **Tag** to deploy. If you want, type the start up command in **Startup File**. 
-    
+::: zone-end
+
     App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
 
 # [Docker Hub](#tab/dockerhub)
 
+::: zone pivot="container-windows"
+2. In **Repository Access**, select whether the image to deploy is public or private.
+::: zone-end
+::: zone pivot="container-linux"
 3. In **Repository Access**, select whether the image to deploy is public or private. For a Docker Compose app with one or more private images, select **Private**.
+::: zone-end
 
 1. If you select a private image, specify the **Login** (username) and **Password** of the Docker account.
 
+::: zone pivot="container-windows"
+1. Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
+::: zone-end
+::: zone pivot="container-linux"
 1. Follow the next step depending on the **Container Type**:
     - For **Docker Compose**, choose the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just paste the content of your Docker Compose file into **Config**.
     - For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
-    
+::: zone-end
+
     App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
 
 # [Private Registry](#tab/private)
 
+::: zone pivot="container-windows"
+2. In **Server URL**, type the URL of the server, beginning with **https://**.
+::: zone-end
+::: zone pivot="container-linux"
 3. In **Server URL**, type the URL of the server, beginning with **https://**.
+::: zone-end
 
 1. In **Login**, and **Password** type your login credentials for your private registry.
 
+::: zone pivot="container-windows"
+1. Supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
+::: zone-end
+::: zone pivot="container-linux"
 1. Follow the next step depending on the **Container Type**:
     - For **Docker Compose**, choose the registry for your private images. Select **Choose file** to upload your [Docker Compose file](https://docs.docker.com/compose/compose-file/), or just paste the content of your Docker Compose file into **Config**.
     - For **Single Container**, supply the image and tag name in **Full Image Name and Tag**, separated by a `:` (for example, `nginx:latest`). If you want, type the start up command in **Startup File**. 
-    
+::: zone-end
+
     App Service appends the string in **Startup File** to [the end of the `docker run` command (as the `[COMMAND] [ARG...]` segment)](https://docs.docker.com/engine/reference/run/) when starting your container.
 
 -----
 
-#### Enable CI/CD
+::: zone pivot="container-windows"
+## 3. Enable CI/CD
+::: zone-end
+::: zone pivot="container-linux"
+## 4. Enable CI/CD
+::: zone-end
 
 App Service supports CI/CD integration with Azure Container Registry and Docker Hub. To enable it, select **On** in **Continuous deployment**.
 
+::: zone pivot="container-linux"
 > [!NOTE]
-> **For Linux containers:**  If you select **GitHub Actions** in **Source**, you don't get this option because CI/CD is handled by GitHub Actions directly. Instead, you see a **Workflow Configuration** section, where you can click **Preview file** to inspect the workflow file. Azure commits this file into your selected GitHub source repository to handle build and deploy tasks. For more information, see [How CI/CD works with GitHub Actions](#how-ci-cd-works-with-github-actions).
+> If you select **GitHub Actions** in **Source**, you don't get this option because CI/CD is handled by GitHub Actions directly. Instead, you see a **Workflow Configuration** section, where you can click **Preview file** to inspect the workflow file. Azure commits this file into your selected GitHub source repository to handle build and deploy tasks. For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-with-github-actions).
+::: zone-end
 
 When you enable this option, App Service adds a webhook to your repository in Azure Container Registry or Docker Hub. Your repository posts to this webhook whenever your selected image is updated with `docker push`. The webhook causes your App Service app to restart and run `docker pull` to get the updated image.
 
 **For other private registries**, your can post to the webhook manually or as a step in a CI/CD pipeline. In **Webhook URL**, click the **Copy** button to get the webhook URL.
 
+::: zone pivot="container-linux"
 > [!NOTE]
 > Support for multi-container (Docker Compose) apps is limited: 
-> - For Azure Container Registry, App Service creates a webhook in the selected registry with the registry as the scope. A `docker push` to any repository in the registry triggers an app restart. You may want to [modify the webhook](../container-registry/container-registry-webhook.md) to a narrower scope.
+> - For Azure Container Registry, App Service creates a webhook in the selected registry with the registry as the scope. A `docker push` to any repository in the registry (including the ones not referenced by your Docker Compose file) triggers an app restart. You may want to [modify the webhook](../container-registry/container-registry-webhook.md) to a narrower scope.
 > - Docker Hub doesn't support webhooks at the registry level. You must add the webhooks manually to the images specified in your Docker Compose file.
+::: zone-end
 
-#### Save your configuration
+::: zone pivot="container-windows"
+## 4. Save your settings
+::: zone-end
+::: zone pivot="container-linux"
+## 5. Save your settings
+::: zone-end
 
 Click **Save**.
 
-## How CI/CD works with GitHub Actions
+::: zone pivot="container-linux"
 
-> [!NOTE] CI/CD with GitHub Actions is supported for Linux containers only.
+## How CI/CD works with GitHub Actions
 
 If you choose **GitHub Actions** in **Source** (see [Choose deployment source](#choose-deployment-source)), App Service sets up CI/CD in the following ways:
 
@@ -176,6 +220,8 @@ You can customize the GitHub Actions build provider in the following ways:
         az logout
     ```
 
+::: zone-end
+
 ## Automate with CLI
 
 To configure the container registry and the Docker image, run [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set).
@@ -203,6 +249,14 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 ```
 
 -----
+
+::: zone pivot="container-linux"
+To configure a multi-container (Docker Compose) app, prepare a Docker Compose file locally, then run [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set) with the `--multicontainer-config-file` parameter. If your Docker Compose file contains private images, add `--docker-registry-server-*` parameters as shown in the previous example.
+
+```azurecli-interactive
+az webapp config container set --resource-group <group-name> --name <app-name> --multicontainer-config-file <docker-compose-file>
+```
+::: zone-end
 
 To configure CI/CD from the container registry to your app, run [az webapp deployment container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config). The command outputs the webhook URL, but you must create the webhook in your registry manually in a separate step. The following example enables CI/CD on your app, then uses the webhook URL in the output to create the webhook in Azure Container Registry.
 
