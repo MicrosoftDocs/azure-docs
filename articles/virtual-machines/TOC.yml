@@ -259,6 +259,7 @@
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
     - name: Isolated sizes
+      displayName: isolated VM, sole-tenant, sole
       href: isolation.md
     - name: Azure compute units (ACU)
       href: acu.md
@@ -850,8 +851,12 @@
         displayName: Image builder, images, building, cli, Windows
         href: ./windows/image-builder.md
     - name: PowerShell
-      displayName: Image builder, images, building, PowerShell
-      href: ./windows/image-builder-powershell.md
+      items:
+      - name: Windows 
+        displayName: Image builder, images, building, PowerShell
+        href: ./windows/image-builder-powershell.md
+      - name: Windows Virtual Desktop
+        href: ./windows/image-builder-virtual-desktop.md
     - name: Security
       items:
       - name: Security controls by Azure Policy
@@ -1364,7 +1369,7 @@
   - name: Trusted launch 
     items:
     - name: Overview
-      DisplayName: Trusted Launch Overview
+      DisplayName: Trusted Launch, shielded VM
       href: trusted-launch.md
     - name: Deploy using the portal
       href: trusted-launch-portal.md

@@ -19,7 +19,7 @@ After installing the tools, try the [Bicep tutorial](./bicep-tutorial-create-fir
 
 To view equivalent JSON and Bicep files side by side, see the [Bicep Playground](https://aka.ms/bicepdemo).
 
-If you have an existing ARM template that you would like to convert to Bicep, see [Decompile JSON to Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+If you have an existing ARM template that you would like to convert to Bicep, see [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
 
 ## Bicep improvements
 
@@ -84,7 +84,7 @@ Bicep is a DSL focused on deploying complete solutions to Azure. Meeting that go
 
 They continue to function exactly as they always have. You don't need to make any changes. We'll continue to support the underlying ARM template JSON language. Bicep files compile to JSON, and that JSON is sent to Azure for deployment.
 
-When you're ready, you can [convert the JSON files to Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+When you're ready, you can [convert the JSON files to Bicep](bicep-decompile.md).
 
 ## Next steps
 
