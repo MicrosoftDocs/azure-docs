@@ -1,5 +1,5 @@
 ---
-title: Azure HPC Cache Usage Models
+title: Azure HPC Cache usage models
 description: Describes the different cache usage models and how to choose among them to set read-only or read/write caching and control other caching settings
 author: ekpgh
 ms.service: hpc-cache
