@@ -31,7 +31,7 @@ After you have met the prerequisites, you are ready to discover the topology of 
 
 ### Assess
 
-Use [SQL Server Migration Assistant (SSMA) for SAP Adaptive Server Enterprise (formally SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256) to review database objects and data, assess databases for migration, migrate Sybase database objects to Azure SQL Database, and then migrate data to Azure SQL Database. To learn more, see [SQL Server Migration Assistant for Sybase (SybaseToSQL)](../../../ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql.md).
+Use [SQL Server Migration Assistant (SSMA) for SAP Adaptive Server Enterprise (formally SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256) to review database objects and data, assess databases for migration, migrate Sybase database objects to Azure SQL Database, and then migrate data to Azure SQL Database. To learn more, see [SQL Server Migration Assistant for Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
 
 To create an assessment, follow these steps: 
 
