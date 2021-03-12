@@ -20,7 +20,7 @@ This document will guide you through creating a new Time Series Insights Gen2 En
 
 ## Prerequisites
 
-* Create an Azure storage account for your environment's [cold store](concepts-storage.md#cold-store). This account is designed for long-term retention and analytics for historical data.
+* Create an Azure storage account for your environment's [cold store](./concepts-storage.md#cold-store). This account is designed for long-term retention and analytics for historical data.
 
 > [!NOTE]
 > In your code, replace `mytsicoldstore` with a unique name for your cold storage account.
@@ -47,7 +47,7 @@ Now that the storage account is created and its name and management key are assi
 > [!IMPORTANT]
 > Your environment's Time Series ID is like a database partition key. The Time Series ID also acts as the primary key for your Time Series Model.
 >
-> For more information, see [Best practices for choosing a Time Series ID.](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid)
+> For more information, see [Best practices for choosing a Time Series ID.](./how-to-select-tsid.md)
 
 ```azurecli-interactive
 az tsi environment gen2 create --name "my-tsi-env" --location eastus2 --resource-group $rg --sku name="L1" capacity=1 --time-series-id-properties name=my-ts-id-prop type=String --warm-store-configuration data-retention=P7D --storage-configuration account-name=$storage management-key=$key
@@ -57,13 +57,13 @@ az tsi environment gen2 create --name "my-tsi-env" --location eastus2 --resource
 
 You can use the Azure CLI to delete an individual resource, such as a Time Series Insights Environment, or delete a Resource Group and all its resources, including any Time Series Insights Environments.
 
-To [delete a Time Series Insights Environments](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/environment?view=azure-cli-latest#ext_timeseriesinsights_az_tsi_environment_delete), run the following command:
+To [delete a Time Series Insights Environments](/cli/azure/ext/timeseriesinsights/tsi/environment?view=azure-cli-latest#ext_timeseriesinsights_az_tsi_environment_delete), run the following command:
 
 ```azurecli-interactive
 az tsi environment delete --name "my-tsi-env" --resource-group $rg
 ```
 
-To [delete the storage account](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete), run the following command:
+To [delete the storage account](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_delete), run the following command:
 
 ```azurecli-interactive
 az storage account delete --name $storage --resource-group $rg
@@ -77,5 +77,5 @@ az group delete --name $rg
 
 ## Next steps
 
-* Learn about [streaming ingestion event sources](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources) for your Azure Time Series Insights Gen2 environment.
-* Learn how to connect to an [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/how-to-ingest-data-iot-hub)
+* Learn about [streaming ingestion event sources](./concepts-streaming-ingestion-event-sources.md) for your Azure Time Series Insights Gen2 environment.
+* Learn how to connect to an [IoT Hub](./how-to-ingest-data-iot-hub.md)

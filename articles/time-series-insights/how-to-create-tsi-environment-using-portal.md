@@ -83,3 +83,5 @@ Alternatively, you can also bring your own storage (BYOS) through an [Azure Reso
 ## Next steps
 
 * Learn more about Azure Time Series Insights generally available environments and Gen2 environments by reading [Plan your environment](./how-to-plan-your-environment.md).
+* Learn about [streaming ingestion event sources](./concepts-streaming-ingestion-event-sources.md) for your Azure Time Series Insights Gen2 environment.
+* Learn more about [how to manage your environment](./how-to-provision-manage.md).
