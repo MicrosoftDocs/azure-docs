@@ -768,6 +768,8 @@
         href: harmony-tutorial.md
       - name: Harness
         href: harness-tutorial.md
+      - name: hCaptcha Enterprise
+        href: hcaptcha-enterprise-tutorial.md
       - name: Helper Helper
         href: helper-helper-tutorial.md
       - name: Help Scout
@@ -1068,6 +1070,8 @@
         href: lensesio-tutorial.md
       - name: Lesson.ly
         href: lessonly-tutorial.md
+      - name: Lexonis TalentScape
+        href: lexonis-talentscape-tutorial.md
       - name: Lifesize Cloud
         href: lifesize-cloud-tutorial.md
       - name: LIFT
@@ -1580,6 +1584,8 @@
         href: sap-fiori-tutorial.md
       - name: SAP HANA
         href: saphana-tutorial.md
+      - name: Sapient
+        href: sapient-tutorial.md
       - name: SAP NetWeaver
         href: sap-netweaver-tutorial.md
       - name: SAP Qualtrics
@@ -1838,6 +1844,8 @@
         href: thoughtworks-mingle-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-tutorial.md
+      - name: Thrive LXP
+        href: thrive-lxp-tutorial.md
       - name: TicketManager
         href: ticketmanager-tutorial.md
       - name: TickitLMS Learn
@@ -1890,6 +1898,8 @@
         href: tripactions-tutorial.md
       - name: Trisotech Digital Enterprise Server
         href: trisotechdigitalenterpriseserver-tutorial.md
+      - name: TrueChoice
+        href: truechoice-tutorial.md
       - name: Torii
         href: torii-tutorial.md
       - name: TruNarrative

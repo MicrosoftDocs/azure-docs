@@ -23,7 +23,7 @@ If your run Custom Commands application from [client application (with Speech SD
 | Error code | Details |
 | ------- | -------- |
 | [401](#error-401) | AuthenticationFailure: WebSocket Upgrade failed with an authentication error |
-| [1002](#error-1002)] | The server returned status code '404' when status code '101' was expected. |
+| [1002](#error-1002) | The server returned status code '404' when status code '101' was expected. |
 
 ### Error 401
 - The region specified in client application does not match with the region of the custom command application
