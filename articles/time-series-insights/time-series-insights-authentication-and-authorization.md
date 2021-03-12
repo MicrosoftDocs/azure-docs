@@ -15,10 +15,7 @@ ms.custom: seodec18, has-adal-ref
 
 # Authentication and authorization for Azure Time Series Insights API
 
-Depending on your business needs, your solution might include one or more client applications that you use to interact with your Azure Time Series Insights environment's [APIs](/rest/api/time-series-insights/reference-data-access-overview). Azure Time Series Insights performs authentication using [Azure AD Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). To authenticate your client(s), you'll need to get a bearer token with the right permissions, and pass it along with your API calls. This document describes several credential-obtaining methods that you can use to get a bearer token and authenticate.
-
-
-  how to register an app in Azure Active Directory using the new Azure Active Directory blade. Apps registered in Azure Active Directory enable users to authenticate to and be authorized to use the Azure Time Series Insight API associated with an Azure Time Series Insights environment.
+Depending on your business needs, your solution might include one or more client applications that you use to interact with your Azure Time Series Insights environment's [APIs](/rest/api/time-series-insights/reference-data-access-overview). Azure Time Series Insights performs authentication using [Azure AD Security Tokens based on OAUTH 2.0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). To authenticate your client(s), you'll need to get a bearer token with the right permissions, and pass it along with your API calls. This document describes several methods for getting credentials that you can use to get a bearer token and authenticate, including using managed identity and Azure Active Directory app registration.
 
 ## Managed identities
 
@@ -103,10 +100,7 @@ Once your managed identity or app registration has been provisioned and assigned
 
 When accessing from Azure App Service or Functions follow the guidance in the [Obtain tokens for Azure resources](../app-service/overview-managed-identity.md).
 
-> [!TIP]
-> For .NET applications and functions, the simplest way to work with a managed identity is through the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme) for .NET. 
-
-For .NET applications and functions, the simplest way to work with a managed identity is through the Microsoft.Azure.Services.AppAuthentication package. This package is popular due to its simplicity and security benefits. Developers can write code once and let the client library determine how to authenticate based on the application environment - whether on a developer workstation using a developer's account or deployed in Azure using a managed service identity. For migration guidance from the predecessor AppAuthentication library read [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration).
+For .NET applications and functions, the simplest way to work with a managed identity is through the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme) for .NET. This client library is popular due to its simplicity and security benefits. Developers can write code once and let the client library determine how to authenticate based on the application environment - whether on a developer workstation using a developer's account or deployed in Azure using a managed service identity. For migration guidance from the predecessor AppAuthentication library read [AppAuthentication to Azure.Identity Migration Guidance](/dotnet/api/overview/azure/app-auth-migration).
 
 Request a token for Azure Time Series Insights using C# and the Azure Identity client library for .NET:
 
