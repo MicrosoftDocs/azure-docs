@@ -1,19 +1,21 @@
 ---
-title: Start/Stop VMs overview
-description: This article describes the Start/Stop VMs version two feature, which starts or stops Azure Resource Manager and classic VMs on a schedule.
-ms.topic: article
-ms.date: 03/10/2021
+title: Start/Stop VMs (preview) overview
+description: This article describes the Start/Stop VMs (preview) version two feature, which starts or stops Azure Resource Manager and classic VMs on a schedule.
+ms.topic: conceptual
+ms.service: azure-functions
+ms.subservice: start-stop-vms
+ms.date: 03/12/2021
 ---
 
-# Start/Stop VMs overview
+# Start/Stop VMs (preview) overview
 
-The Start/Stop VMs during off-hours V2 feature start or stops enabled Azure virtual machines (VMs). It starts or stops Azure VMs on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager VMs and classic VMs for most scenarios.
+The Start/Stop VMs (preview) version two (V2) feature start or stops enabled Azure virtual machines (VMs) across multiple subscriptions. It starts or stops Azure VMs on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager VMs and classic VMs for most scenarios.
 
-This version of Start/Stop VMs provides a decentralized low-cost automation option for users who want to optimize their VM costs. You can use this feature to schedule VMs to start and stop across multiple subscriptions.
+This version of Start/Stop VMs (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs.
 
 ## Overview
 
-Start/Stop VMs has been redesigned where it does not depend on Azure Automation or Azure Monitor Logs. This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
+Start/Stop VMs (preview) has been redesigned where it doesn't depend on Azure Automation or Azure Monitor Logs. This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
 
 An HTTP trigger endpoint function is created to support the schedule and sequence scenarios included with the feature, as shown in the following table.
 
@@ -35,58 +37,38 @@ The queue-based trigger functions are required in support of this feature. All t
 
  [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) is used to configure and manage the start and stop schedules for the VM take action by calling the function using JSON payload. By default, during initial deployment it creates a total of five Logic Apps for the following scenarios:
 
-- Scheduled - To configure the scheduled start and stop, you can use the two Logic Apps **ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop**.
+- Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs.**ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
 
-- Sequenced - To configure the sequenced start and stop, you can use the two Logic Apps **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop**.
+- Sequenced - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two specifically named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
 
-- AutoStop - To configure the auto-stop functionality, you can use the **ststv2_vms_AutoStop** Logic App.
+    > [!NOTE]
+    > This scenario only supports Azure Resource Manager VMs.
 
-If you need additional schedules, you can duplicate one of the Logic Apps included using the **Clone** option in the Azure portal.
+- AutoStop - This functionality is only used for performing a stop action against both Azure Resource Manager and classic VMs based on its CPU utilization. It can also be a scheduled-based *take action*, which creates alerts on VMs and based on the condition, the alert is triggered to perform the stop action.**ststv2_vms_AutoStop** configures the auto-stop functionality.
 
-All telemetry data, that is trace logs from the function app execution, is sent to your connected Application Insights instance. You can view the telemetry data in Application Insights from a set of visualizations and send email notifications as a result of the actions performed on the VMs.
+Each Start/Stop action supports assignment to a one or more subscriptions, resource groups, or a list of VMs.
 
-### New releases
+All telemetry data, that is trace logs from the function app execution, is sent to your connected Application Insights instance. You can view the telemetry data in Application Insights from a set of visualizations, and send email notifications as a result of the actions performed on the VMs.
 
- When a new version of Start/Stop VMs is released, your instance is auto-updated without having to manually redeploy.
+## New releases
 
-## Supported scenarios and options
+ When a new version of Start/Stop VMs (preview) is released, your instance is auto-updated without having to manually redeploy.
 
-Start/Stop VMs supports the following scenarios:
+## Supported scoping options
 
-* Scheduled start/stop
-
-   Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs.
-
-* Sequenced start/stop
-
-   Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two specifically named tags are supported - **sequencestart** and **sequencestop**.
-
-   > [!NOTE]
-   > This scenario only supports Azure Resource Manager VMs.
-
-* AutoStop
-
-   This functionality is only used for performing a stop action against both Azure Resource Manager and classic VMs based on its CPU utilization.
-
-   It can also be a scheduled-based *take action*, which creates alerts on VMs and based on the condition, the alert is triggered to perform the stop action.
-
-### Action assignment
-
-Each Start/Stop action supports assignment to a subscription, resource group, or a list of VMs. See the following below for further details.
-
-#### Subscription
+### Subscription
 
 Scoping to a subscription can be used when you need to perform the start and stop action on all the VMs in an entire subscription, and you can select multiple subscriptions if required.  
 
 You can also specify a list of VMs to exclude and it will ignore them from the action. You can also use wildcard characters to specify all the names that simultaneously can be ignored.
 
-#### Resource group
+### Resource group
 
 Scoping to a resource group can be used when you need to perform the start and stop action on all the VMs by specifying one or more resource group names, and across one or more subscriptions.
 
 You can also specify a list of VMs to exclude and it will ignore them from the action. You can also use wildcard characters to specify all the names that simultaneously can be ignored.
 
-#### VMList
+### VMList
 
 Specifying a list of VMs can be used when you need to perform the start and stop action on a specific set of virtual machines, and across multiple subscriptions. This option does not support specifying a list of VMs to exclude.
 
@@ -102,4 +84,12 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
     1. Uses Azure Queue Storage to support the Azure Functions queue-based triggers.
 
-- Start/Stop VMs is available in all Azure global regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions. For the Azure Government cloud, it is only available in the US Government Virginia region.
+- Start/Stop VMs (preview) is available in all Azure global regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions. For the Azure Government cloud, it is only available in the US Government Virginia region.
+
+- You have an Application Insights instance.
+
+   You can create an Application Insights instance when you enable Start/Stop VMs, or you can let the onboarding experience create a one in the specified resource group in your subscription. Application Insights supports a [workspace-based Application Insights instance](../../azure-monitor/app/create-workspace-resource.md).
+
+## Next steps
+
+To enable the feature on VMs in your environment, see [Enable Start/Stop VMs](enable.md) (preview).
