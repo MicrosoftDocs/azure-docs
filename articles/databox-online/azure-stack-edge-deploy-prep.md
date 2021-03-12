@@ -84,7 +84,7 @@ Before you begin, make sure that:
 
 ## Create new resource for existing device
 
-If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
+<!--Updates to intro related to FPGA EoL - send users to ASE Pro - GPU for a new device - will be made on Mon, 03/15.-->If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
 To create an Azure Stack Edge resource for your existing device, take the following steps in the Azure portal.
 
