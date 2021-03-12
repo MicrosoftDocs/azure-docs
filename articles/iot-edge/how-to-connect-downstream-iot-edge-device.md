@@ -14,6 +14,8 @@ monikerRange: ">=iotedge-2020-11"
 
 # Connect a downstream IoT Edge device to an Azure IoT Edge gateway (Preview)
 
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+
 This article provides instructions for establishing a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
 
 >[!NOTE]
