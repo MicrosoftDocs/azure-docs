@@ -76,20 +76,25 @@ To learn how to set up virtual network integration, see [Integrate a function ap
 
 ## Connect to service endpoint secured resources
 
-To provide a higher level of security, you can restrict a number of Azure services to a virtual network by using service endpoints. You must then integrate your function app with that virtual network to access the resource. This configuration is supported on all plans that support virtual network integration.
+To provide a higher level of security, you can restrict a number of Azure services to a virtual network by using service endpoints. You must then integrate your function app with that virtual network to access the resource. This configuration is supported on all [plans](functions-scale.md#networking-features) that support virtual network integration.
 
 To learn more, see [Virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## Restrict your storage account to a virtual network 
 
-When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoint. This feature currently works for all virtual network supported skus which includes Standard and Premium, except for on flex stamps where virtual networks are available only for Premium sku. To set up a function with a storage account restricted to a private network:
+When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoint. 
+
+> [!NOTE]  
+> This feature currently works for all virtual network-supported SKUs in the Dedicated (App Service) plan and for Premium plans. Consumption plan isn't supported. 
+
+To set up a function with a storage account restricted to a private network:
 
 1. Create a function with a storage account that does not have service endpoints enabled.
 1. Configure the function to connect to your virtual network.
 1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
 1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
 1. Enable service endpoints or private endpoint for the storage account.  
-    * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` subresources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
+    * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` sub-resources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
     * If using service endpoints, enable the subnet dedicated to your function apps for storage accounts.
 1. Copy the file and blob content from the function app storage account to the secured storage account and file share.
 1. Copy the connection string for this storage account.
@@ -168,6 +173,8 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 Outbound IP restrictions are available in a Premium plan, App Service plan, or App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
 When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding the application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
+
+To learn how to control the outbound IP using a virtual network, see [Tutorial: Control Azure Functions outbound IP with an Azure virtual network NAT gateway](functions-how-to-use-nat-gateway.md). 
 
 ## Automation
 The following APIs let you programmatically manage regional virtual network integrations:
