@@ -1,7 +1,6 @@
 ---
 title: Standard columns in Azure Monitor log records | Microsoft Docs
 description: Describes columns that are common to multiple data types in Azure Monitor logs.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

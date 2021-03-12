@@ -112,11 +112,26 @@ The SQL discovery is performed once every 24 hours and you might need to wait up
 
 ## My assessment is in Outdated state
 
+### Azure VM/AVS assessment
+If there are on-premises changes to VMs that are in a group that's been assessed, the assessment is marked outdated. An assessment can be marked as “Outdated” because of one or more changes in below properties:
+- Number of processor cores
+- Allocated memory
+- Boot type or firmware
+- Operating system name, version and architecture
+- Number of disks
+- Number of network adaptor
+- Disk size change(GB Allocated)
+- Nic properties update. Example: Mac address changes, IP address addition etc.
+
+Please **Recalculate** the assessment to reflect the latest changes in the assessment.
+
+### Azure SQL assessment
 If there are changes to on-premises SQL instances and databases that are in a group that's been assessed, the assessment is marked **outdated**:
 - SQL instance was added or removed from a server
 - SQL database was added or removed from a SQL instance
 - Total database size in a SQL instance changed by more than 20%
 - Change in number of processor cores and/or allocated memory
+
 Please **Recalculate** the assessment to reflect the latest changes in the assessment.
 
 ## Why was I recommended a particular target deployment type?

@@ -19,10 +19,11 @@ In Cognitive Search, a query is a full specification of a round-trip **`search`*
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "searchFields": "Description, Address/City, Tags",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
+    "queryType": "simple",
+    "searchMode": "all",
+    "search": "restaurant +view",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "top": "10",
     "count": "true",
     "orderby": "Rating desc"
@@ -33,9 +34,11 @@ Parameters used during query execution include:
 
 + **`queryType`** sets the parser, which is either the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
 
++ **`searchMode`** specifies whether matches are based on "all" criteria or "any" criteria in the expression. The default is any.
+
 + **`search`** provides the match criteria, usually whole terms or phrases, with or without operators. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter.
 
-+ **`searchFields`** constrains query execution to specific searchable fields.
++ **`searchFields`** constrains query execution to specific searchable fields. During development, it's helpful to use the same field list for select and search. Otherwise a match might be based on field values that you can't see in the results, creating uncertainty as to why the document was returned.
 
 Parameters used to shape the response:
 
@@ -109,4 +112,4 @@ For a closer look at query implementation, review the examples for each syntax. 
 
 + [Simple query examples](search-query-simple-examples.md)
 + [Lucene syntax query examples for building advanced queries](search-query-lucene-examples.md)
-+ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)
++ [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)git

@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 02/14/2021
 ms.author: yalavi
 author: yalavi
-ms.subservice: alerts
 ---
 # Understand migration options to newer alerts
 

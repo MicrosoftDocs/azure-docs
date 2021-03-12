@@ -55,7 +55,8 @@ To create an Azure Migrate project and register the Azure Migrate appliance, you
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
 1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
-:::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Search box to search for the Azure subscription":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/search-subscription.png" alt-text="Search box to search for the Azure subscription":::
 
 
 2. In the **Subscriptions** page, select the subscription in which you want to create an Azure Migrate project.
@@ -65,12 +66,14 @@ If you just created a free Azure account, you're the owner of your subscription.
 :::image type="content" source="./media/tutorial-discover-vmware/azure-account-access.png" alt-text="Search for a user account to check access and assign a role":::
     
 6. In **Add role assignment**, select the Contributor or Owner role, and select the account (azmigrateuser in our example). Then click **Save**.
-:::image type="content" source="./media/tutorial-discover-vmware/assign-role.png" alt-text="Opens the Add Role assignment page to assign a role to the account":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/assign-role.png" alt-text="Opens the Add Role assignment page to assign a role to the account":::
 
 1. To register the appliance, your Azure account needs **permissions to register AAD apps.**
 1. In Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
 1. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
-:::image type="content" source="./media/tutorial-discover-vmware/register-apps.png" alt-text="Verify in User Settings that users can register Active Directory apps":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/register-apps.png" alt-text="Verify in User Settings that users can register Active Directory apps":::
 
 9. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -90,7 +93,8 @@ In vSphere Web Client, set up an account as follows:
 4. In **New User**, type in the account details. Then click **OK**.
 5. In **Global Permissions**, select the user account, and assign the **Read-only** role to the account. Then click **OK**.
 6.  If you also want to perform discovery of installed applications and agentless dependency analysis, go to **Roles** > select the **Read-only** role, and in **Privileges**, select **Guest Operations**. You can propagate the privileges to all objects under the vCenter Server by selecting "Propagate to children" checkbox.
-:::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Checkbox to allow guest operations on the read-only role":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Checkbox to allow guest operations on the read-only role":::
 
 
 > [!NOTE]
@@ -116,7 +120,8 @@ Set up a new Azure Migrate project.
 3. In **Overview**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
-:::image type="content" source="./media/tutorial-discover-vmware/new-project.png" alt-text="Boxes for project name and region":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/new-project.png" alt-text="Boxes for project name and region":::
 
 7. Select **Create**.
 8. Wait a few minutes for the Azure Migrate project to deploy.The **Azure Migrate: Server Assessment** tool is added by default to the new project.
@@ -205,13 +210,13 @@ Set up the appliance for the first time.
 
 1. In the vSphere Client console, right-click the server, and then select **Open Console**.
 2. Provide the language, time zone, and password for the appliance.
-3. Open a browser on any machine that can connect to the appliance server, and open the URL of the appliance configuration manager: **https://*appliance name or IP address*: 44368**.
+3. Open a browser on any machine that can connect to the appliance server, and open the URL of the appliance configuration manager: `https://appliance name or IP address: 44368`.
 
    Alternately, you can open the configuration manager from the appliance server desktop by selecting the shortcut for the configuration manager.
 1. Accept the **license terms**, and read the third-party information.
 1. In the configuration manager > **Set up prerequisites**, do the following:
    - **Connectivity**: The appliance checks that the server has internet access. If the server uses a proxy:
-     - Click on **Set up proxy** to specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
+     - Click on **Set up proxy** to specify the proxy address `http://ProxyIPAddress` or `http://ProxyFQDN` and listening port.
      - Specify credentials if the proxy needs authentication.
      - Only HTTP proxy is supported.
      - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
@@ -221,14 +226,16 @@ Set up the appliance for the first time.
 
      Azure Migrate Server Migration uses the VDDK to replicate servers during migration to Azure. 
 1. If you want, you can **rerun prerequisites** at any time during appliance configuration to check if the appliance meets all the prerequisites.
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 on appliance configuration manager":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-prerequisites.png" alt-text="Panel 1 on appliance configuration manager":::
 
 
 ### Register the appliance with Azure Migrate
 
 1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
-:::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 1. On the new tab, paste the device code and sign in by using your Azure username and password.
@@ -238,7 +245,8 @@ Set up the appliance for the first time.
 1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
 1. If the Azure user account used for logging has the right permissions on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-registration.png" alt-text="Panel 2 on appliance configuration manager":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-registration.png" alt-text="Panel 2 on appliance configuration manager":::
 
 ## Start continuous discovery
 
@@ -252,11 +260,14 @@ The appliance needs to connect to vCenter Server to discover the configuration a
 1. In **Step 2: Provide vCenter Server details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the vCenter Server. You can leave the **Port** to default (443) or specify a custom port on which vCenter Server listens and click on **Save**.
 1. On clicking **Save**, appliance will try validating the connection to the vCenter Server with the credentials provided and show the **Validation status** in the table against the vCenter Server IP address/FQDN.
 1. You can **revalidate** the connectivity to vCenter Server any time before starting the discovery.
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
+
+    :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
 
 ### Provide server credentials
 
 In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases**, you can either choose to provide multiple server credentials or if you do not want to leverage these features, you can choose to skip the step and proceed with vCenter Server discovery. You can change your intent any time later.
+
+:::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Panel 3 on appliance configuration manager for server details":::
 
 > [!Note]
 > Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.

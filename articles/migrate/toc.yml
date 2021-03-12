@@ -70,6 +70,12 @@
       href: tutorial-migrate-aws-virtual-machines.md
     - name: Migrate GCP instances
       href: tutorial-migrate-gcp-virtual-machines.md
+  - name: Containerize
+    items:
+    - name: Containerize ASP.NET apps and migrate to AKS
+      href: tutorial-containerize-aspnet-kubernetes.md
+    - name: Containerize Java web apps and migrate to AKS
+      href: tutorial-containerize-java-kubernetes.md
 - name: Concepts
   items:
   - name: General
@@ -180,6 +186,8 @@
     items:
     - name: Add migration tools
       href: how-to-migrate.md
+    - name: Replicate using ExpressRoute
+      href: replicate-using-expressroute.md
     - name: Prepare machines for migration
       href: prepare-for-migration.md
     - name: Prepare Windows 2003 servers for migration
@@ -190,6 +198,8 @@
         href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Scale migration
       items:
+      - name: How to migrate VMware VMs at scale using the agentless replication method
+        href: how-to-scale-out-for-migration.md
       - name: Automate migration of large number of VMs
         href: how-to-migrate-at-scale.md
       - name: How to automate VMware migration

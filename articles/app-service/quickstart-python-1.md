@@ -238,7 +238,7 @@ Once deployment is complete, switch back to the browser window open to `http://<
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
-To stream logs, run the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail) command:
+To stream logs, run the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command:
 
 ```azurecli
 az webapp log tail

@@ -10,8 +10,8 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/19/2021
-ms.author: gunnarcms
+ms.date: 3/5/2021
+ms.author: gunnarc
 ---
 
 # Azure Guest OS
@@ -62,7 +62,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4566426]: https://support.microsoft.com/kb/4566426
 [4566425]: https://support.microsoft.com/kb/4566425
 [4578013]: https://support.microsoft.com/kb/4578013
-[4601392]: https://support.microsoft.com/kb/4601392
+[4601392]: https://support.microsoft.com/en-us/topic/february-9-2021-kb4601318-os-build-14393-4225-c5e3de6c-e3e6-ffb5-6197-48b9ce16446e
 [4592510]: https://support.microsoft.com/kb/4592510
 [4601393]: https://support.microsoft.com/kb/4601393
 [4494175]: https://support.microsoft.com/kb/4494175

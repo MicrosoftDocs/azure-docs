@@ -41,7 +41,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 Alternatively, you can navigate to your AKS cluster in Portal using this [link](https://portal.azure.com/?feature.aksagic=true) and enable the AGIC add-on in the Networking tab of your cluster. Select your existing Application Gateway from the dropdown menu when you choose which Application Gateway the add-on should target. 
 
-![Application Gateway Ingress Controller Portal](./media/tutorial-ingress-controller-add-on-existing/portal_ingress_controller_addon.png)
+![Application Gateway Ingress Controller Portal](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## Next Steps
 - [**Application Gateway Ingress Controller Troubleshooting**](ingress-controller-troubleshoot.md): Troubleshooting guide for AGIC 
