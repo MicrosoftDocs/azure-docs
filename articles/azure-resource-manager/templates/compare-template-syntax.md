@@ -36,6 +36,5 @@ If you're familiar with using JSON to develop ARM templates, use the following t
 
 ## Next steps
 
-For information about the Bicep, see [Bicep tutorial](./bicep-tutorial-create-first-bicep.md).
-
-To learn about converting templates between the languages, see [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
+* For information about the Bicep, see [Bicep tutorial](./bicep-tutorial-create-first-bicep.md).
+* To learn about converting templates between the languages, see [Converting ARM templates between JSON and Bicep](bicep-decompile.md).
