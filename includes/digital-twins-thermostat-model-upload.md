@@ -53,4 +53,4 @@ When the twin is created successfully, the CLI output from the command should lo
   "Temperature": 0.0
 }
 ```
-For more information about models, refer to [*How-to: Manage models*](how-to-manage-model.md#upload-models).
+For more information about models, refer to [*How-to: Manage models*](../articles/digital-twins/how-to-manage-model.md#upload-models).
