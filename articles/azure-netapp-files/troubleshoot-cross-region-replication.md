@@ -70,7 +70,7 @@ This article describes error messages and resolutions that can help you troubles
 
 |     Error Message    |     Resolution    |
 |-|-|
-|   Attempt to resize a source volume is failing with the error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |     Ensure that you have enough headroom in the capacity pools for both the source volume and the destination volumes of cross-region replication.  When you resize the source volume, the destination volume is automatically resized. But if the capacity pool doesn’t have enough headroom, the automatic resizing will fail.    |
+|   Attempt to resize a source volume is failing with the error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |     Ensure that you have enough headroom in the capacity pools for both the source volume and the destination volumes of cross-region replication.  When you resize the source volume, the destination volume is automatically resized. But if the capacity pool doesn’t have enough headroom, the automatic resizing will fail. See [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume) for details.   |
 
 ## Next steps  
 
@@ -79,4 +79,5 @@ This article describes error messages and resolutions that can help you troubles
 * [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
