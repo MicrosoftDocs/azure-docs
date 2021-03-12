@@ -13,7 +13,7 @@ The precise answering feature introduced in QnA Maker managed (Preview), allows 
 detects the precise short answer from the answer passage, if there is a short answer present as a fact in the answer passage. 
 
 This feature is on by-default in the test pane, so that you can test the functionality specific to your scenario. This feature is extremely beneficial for both content developers as well as 
-end users. Now, content developers don't need to manually curate specific QnA pairs for every fact present in the knowledge-base, and the end user doesn't need to look through the whole answer passage returned from the service to find the actual fact that answers the user's query. You can fetch [precise answers via the Generate Answer API].(../How-To/metadata-generateanswer-usage.md#get-precise-answers-with-generateanswer-api)
+end users. Now, content developers don't need to manually curate specific QnA pairs for every fact present in the knowledge-base, and the end user doesn't need to look through the whole answer passage returned from the service to find the actual fact that answers the user's query. You can fetch [precise answers via the Generate Answer API](How-To/metadata-generateanswer-usage.md#get-precise-answers-with-generateanswer-api).
 
 ## Precise answering on QnA Maker portal
 
