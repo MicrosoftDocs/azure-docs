@@ -12,7 +12,7 @@ ms.date: 03/11/2021
 
 Microsoft Azure Security Technical Implementation Guides (STIGs) solution templates help you accelerate your [DoD STIG compliance](https://public.cyber.mil/stigs/) by delivering an automated solution to deploy virtual machines and apply STIGs through the Azure portal. For questions about this offering, contact [Azure STIG support](mailto:azurestigsupport@microsoft.com).
 
-This quickstart shows how to use the Azure portal to deploy a STIG-compliant Windows virtual machine (Preview).
+This quickstart shows how to deploy a STIG-compliant Windows virtual machine (Preview) on Azure or Azure Government using the corresponding portal.
 
 ## Prerequisites
 
