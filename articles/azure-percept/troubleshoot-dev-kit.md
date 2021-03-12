@@ -48,7 +48,7 @@ For additional information on the Azure IoT Edge commands, see the [Azure IoT Ed
 |Wi-Fi             |```sudo journalctl -u systemd-networkd``` |check Mariner Network stack logs |
 |Wi-Fi             |```sudo cat /etc/hostapd/hostapd-wlan1.conf``` |check wifi access point configuration details |
 |OOBE              |```sudo journalctl -u oobe -b```       |check OOBE logs |
-|Telemetry         |```audo azure-device-health-id```      |find unique telemetry HW_ID |
+|Telemetry         |```sudo azure-device-health-id```      |find unique telemetry HW_ID |
 |Azure IoT Edge          |```sudo iotedge check```          |run configuration and connectivity checks for common issues |
 |Azure IoT Edge          |```sudo iotedge logs [container name]``` |check container logs, such as speech and vision modules |
 |Azure IoT Edge          |```sudo iotedge support-bundle --since 1h``` |collect module logs, Azure IoT Edge security manager logs, container engine logs, ```iotedge check``` JSON output, and other useful debug information from the past hour |
