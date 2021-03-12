@@ -104,6 +104,8 @@
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
+    - name: Configure VMware Cloud Director
+      href: configure-vmware-cloud-director-azure-vmware-solution.md
   - name: VMware ecosystem
     items:
     - name: Backup solutions for VMs
