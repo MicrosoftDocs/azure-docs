@@ -7,7 +7,7 @@ metadata:
   title: Azure Video Analyzer documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Learn how to use Azure Video Analyzer # Required; article description that is displayed in search results. < 160 chars.
   services: media-services
-  ms.service: media-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: azure-video-analyzer  #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
   author: Juliako #Required; your GitHub user alias, with correct capitalization.
