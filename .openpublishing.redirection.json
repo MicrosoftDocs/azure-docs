@@ -24525,6 +24525,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-pnp/concepts-components.md",
+      "redirect_url": "/azure/iot-pnp/concepts-modeling-guide",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
       "redirect_url": "/azure/jenkins/container-instances-jenkins",
       "redirect_document_id": false

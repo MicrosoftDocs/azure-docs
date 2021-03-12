@@ -161,7 +161,7 @@ The following snippet shows the outline of an interface definition with its uniq
 
 ### No components
 
-A simple model, such as the thermostat shown previously, doesn't use embedded or cascaded components. It includes header information and a contents section to define telemetry, properties, and commands.
+A simple model, such as the thermostat shown previously, doesn't use embedded or cascaded components. Telemetry, properties, and commands are defined in the `contents` node of the interface.
 
 The following example shows part of a simple model that doesn't use components:
 
@@ -190,7 +190,7 @@ The following example shows part of a simple model that doesn't use components:
 ...
 ```
 
-Although the model doesn't explicitly define a component, it behaves as if there's a single, _default component_. The default component contains all the telemetry, property, and command definitions.
+Tools such as Azure IoT Explorer and the IoT Central device template designer label a standalone interface like the the thermostat as a _default component_.
 
 The following screenshot shows how the model displays in the Azure IoT explorer tool:
 
@@ -229,7 +229,36 @@ For a DTDL model with multiple components, there are two or more component secti
   "displayName": "Temperature Controller",
   "description": "Device with two thermostats and remote reboot.",
   "contents": [
-...
+    {
+      "@type": [
+        "Telemetry",
+        "DataSize"
+      ],
+      "name": "workingSet",
+      "displayName": "Working Set",
+      "description": "Current working set of the device memory in KiB.",
+      "schema": "double",
+      "unit": "kibibyte"
+    },
+    {
+      "@type": "Property",
+      "name": "serialNumber",
+      "displayName": "Serial Number",
+      "description": "Serial number of the device.",
+      "schema": "string"
+    },
+    {
+      "@type": "Command",
+      "name": "reboot",
+      "displayName": "Reboot",
+      "description": "Reboots the device after waiting the number of seconds specified.",
+      "request": {
+        "name": "delay",
+        "displayName": "Delay",
+        "description": "Number of seconds to wait before rebooting the device.",
+        "schema": "integer"
+      }
+    },
     {
       "@type" : "Component",
       "schema": "dtmi:com:example:Thermostat;1",
@@ -251,10 +280,17 @@ For a DTDL model with multiple components, there are two or more component secti
       "displayName": "Device Information interface",
       "description": "Optional interface with basic device hardware information."
     }
-...
+  ]
+}
 ```
 
-This model has three components defined in the contents section -  two `Thermostat` components and a `DeviceInformation` component. There's also a default component that can define properties, telemetry, and commands.
+This model has three components defined in the contents section -  two `Thermostat` components and a `DeviceInformation` component. The contents section also includes property, telemetry, and command definitions.
+
+The following screenshots show how this model appears in IoT Central. The property, telemetry, and command definitions in the temperature controller appear in the top-level **Default component**. The property, telemetry, and command definitions for each thermostat appear in the component definitions:
+
+:::image type="content" source="media/concepts-modeling-guide/temperature-controller.png" alt-text="Screenshot showing the temperature controller device template in IoT Central.":::
+
+:::image type="content" source="media/concepts-modeling-guide/temperature-controller-components.png" alt-text="Screenshot showing the thermostat components in the temperature controller device template in IoT Central.":::
 
 To learn how to write device code that interacts with components, see [IoT Plug and Play device developer guide](concepts-developer-guide-device.md).
 
