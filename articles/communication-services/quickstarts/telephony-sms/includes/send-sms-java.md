@@ -64,6 +64,11 @@ Add the `azure-core-http-netty` dependency to your **pom.xml** file.
     <artifactId>azure-core-http-netty</artifactId>
     <version>1.8.0</version>
 </dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-core</artifactId>
+    <version>1.13.0</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
+</dependency>
 ```
 
 Open **/src/main/java/com/communication/quickstart/App.java** in a text editor, add import directives and remove the `System.out.println("Hello world!");` statement:
@@ -71,19 +76,19 @@ Open **/src/main/java/com/communication/quickstart/App.java** in a text editor, 
 ```java
 package com.communication.quickstart;
 
-import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
+import com.azure.communication.sms.models.SmsSendOptions;
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.communication.sms.models.SmsSendResult;
 import com.azure.communication.sms.SmsClient;
 import com.azure.communication.sms.SmsClientBuilder;
 import com.azure.core.http.HttpClient;
 import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
+import com.azure.core.util.Context;
+import java.util.Arrays;
 
 public class App
 {
-    public static void main( String[] args ) throws IOException, NoSuchAlgorithmException, InvalidKeyException
+    public static void main( String[] args )
     {
         // Quickstart code goes here
     }
