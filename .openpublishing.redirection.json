@@ -64552,6 +64552,11 @@
       "source_path_from_root": "/articles/service-fabric/service-fabric-best-practices-overview.md",
       "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/media-services-diagnostic-logs-schema.md",
+      "redirect_url": "/azure/media-services/monitoring/monitor-media-services-data-reference",
+      "redirect_document_id": false
     }
   ]
 }
