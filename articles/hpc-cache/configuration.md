@@ -4,7 +4,7 @@ description: Explains how to configure additional settings for the cache like MT
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 03/11/2021
 ms.author: v-erkel
 ---
 
@@ -19,7 +19,7 @@ To see the settings, open the cache's **Networking** page in the Azure portal.
 ![screenshot of networking page in Azure portal](media/networking-page.png)
 
 > [!NOTE]
-> A previous version of this page included a cache-level root squash setting, but this feature has been moved to client access policies.
+> A previous version of this page included a cache-level root squash setting, but this setting has been moved to [client access policies](access-policies.md).
 
 <!-- >> [!TIP]
 > The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows the networking page and its settings. -->
@@ -58,20 +58,21 @@ If you configure your own on-premises DNS system for the Azure HPC Cache to use,
 Check that your DNS configuration can successfully resolve these items before using it for an Azure HPC Cache:
 
 * ``*.core.windows.net``
-* Certificate revocation list (CRL) download and online certificate status protocol (OCSP) verification services. A partial list is provided in the [firewall rules item](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) at the end of this [Azure TLS article](../security/fundamentals/tls-certificate-changes.md) but you should consult a Microsoft technical representative to understand all of the requirements.
+* Certificate revocation list (CRL) download and online certificate status protocol (OCSP) verification services. A partial list is provided in the [firewall rules item](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me) at the end of this [Azure TLS article](../security/fundamentals/tls-certificate-changes.md), but you should consult a Microsoft technical representative to understand all of the requirements.
 * The fully qualified domain name of your NTP server (time.microsoft.com or a custom server)
 
 If you need to set a custom DNS server for your cache, fill in the provided fields:
 
-* **DNS search domain** - Enter your search domain, for example, *company.com*. A single value is allowed.
+* **DNS search domain** - Enter your search domain, for example, ``contoso.com``. A single value is allowed.
 * **DNS server(s)** - Enter up to three DNS servers. Specify them by IP address.
-  
+
+<!-- 
   > [!NOTE]
-  > The cache will use only the first DNS server it successfully finds.
+  > The cache will use only the first DNS server it successfully finds. -->
 
 ### Refresh storage target DNS
 
-If your DNS configuration changes, storage targets will become unavailable. Read how to update your custom DNS system IP address in [Edit storage targets](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
+If your DNS server updates IP addresses, the associated NFS storage targets will become temporarily unavailable. Read how to update your custom DNS system IP addresses in [Edit storage targets](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
 
 ## View snapshots for blob storage targets
 

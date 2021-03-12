@@ -36,7 +36,7 @@ The usage models built into Azure HPC Cache have different values for these sett
 
 You must choose a usage model for each NFS-mounted storage target that you use. Azure Blob storage targets have a built-in usage model that can't be customized.
 
-The built-in usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
+HPC cache usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
 
 There are several options:
 
@@ -50,7 +50,7 @@ There are several options:
 
 * **Greater than 15% writes** - This option speeds up both read and write performance. When using this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly. The cached files will have recent changes that are not stored on the back end.
 
-  In this usage model, files in the cache are only checked against the files on back-end storage every eight hours. The cached version of the file is assumed to be more current. A modified file in the cache is written to the back-end storage system after it has been in the cache for an hour with no additional changes.
+  In this usage model, files in the cache are only checked against the files on back-end storage every eight hours. The cached version of the file is assumed to be more current. A modified file in the cache is written to the back-end storage system after it has been in the cache for 20 minutes<!-- an hour --> with no additional changes.
 
 * **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache, or if you want to optimize data consistency. Files that clients request are cached (reads), but any changes to those files from the client (writes) are not cached. They are passed through directly to the back-end storage system.
 
@@ -58,11 +58,11 @@ There are several options:
 
 * **Greater than 15% writes, checking the backing server for changes every 30 seconds** and **Greater than 15% writes, checking the backing server for changes every 60 seconds** - These options are designed for workflows where you want to speed up both reads and writes, but there's a chance that another user will write directly to the back-end storage system. For example, if multiple sets of clients are working on the same files from different locations, these usage models might make sense to balance the need for quick file access with low tolerance for stale content from the source.
 
-* **Greater than 15% writes, write back to the server every 30 seconds** (Collaborating cloud workstation) - This option is designed for the scenario where multiple clients are actively modifying the same files, or if some clients access the back-end storage directly instead of mounting the cache.
+* **Greater than 15% writes, write back to the server every 30 seconds** - This option is designed for the scenario where multiple clients are actively modifying the same files, or if some clients access the back-end storage directly instead of mounting the cache.
 
   The frequent back-end writes affect cache performance, so you should consider using the **Greater than 15% writes** usage model if there's a low risk of file conflict - for example, if you know that different clients are working in different areas of the same file set.
 
-* **Read heavy, checking the backing server every 3 hours** (Read-only high verification time) - This option prioritizes fast reads on the client side, but also refreshes cached files from the back-end storage system more quickly than the **Read heavy, infrequent writes** usage model.
+* **Read heavy, checking the backing server every 3 hours** - This option prioritizes fast reads on the client side, but also refreshes cached files from the back-end storage system regularly, unlike the **Read heavy, infrequent writes** usage model.
 
 This table summarizes the usage model differences:
 
@@ -73,8 +73,8 @@ This table summarizes the usage model differences:
 | Clients bypass the cache      | Read         | 30 seconds            | None                     |
 | Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
 | Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
-| Greater than 15% writes, frequent write-back (Collaborating cloud workstation) | Read/write | 30 seconds | 30 seconds |
-| Read heavy, checking the backing server every 3 hours (Read-only high verification time)| Read | 3 hours | None |
+| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
+| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None |
 
 If you have questions about the best usage model for your Azure HPC Cache workflow, talk to your Azure representative or open a support request for help.
 

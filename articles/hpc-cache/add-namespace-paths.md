@@ -4,7 +4,7 @@ description: How to create client-facing paths for back-end storage with Azure H
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 03/11/2021
 ms.author: v-erkel
 ---
 
@@ -130,11 +130,11 @@ The options used for the update command are similar to the "create" command, exc
 
 ### ADLS-NFS namespace paths (PREVIEW)
 
-Like a regular blob storage target an ADLS-NFS storage target only has one export, so it can only have one one namespace path.
+Like a regular blob storage target, an ADLS-NFS storage target only has one export, so it can only have one namespace path.
 
 Follow the instructions below to set or change the path with the Azure portal.
 
-From the Azure portal, load the **Namespace** settings page. You can add, change, or delete namespace paths from this page.
+Load the **Namespace** settings page.
 
 * **Add a new path:** Click the **+ Add** button at the top and fill in information in the edit panel.
 

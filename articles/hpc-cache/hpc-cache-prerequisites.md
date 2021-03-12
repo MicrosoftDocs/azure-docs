@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
 ---
 
@@ -88,7 +88,7 @@ Check these permission-related prerequisites before starting to create your cach
 ## Storage infrastructure
 <!-- heading is linked in create storage target GUI as aka.ms/hpc-cache-prereq#storage-infrastructure - make sure to fix that if you change the wording of this heading -->
 
-The cache supports Azure Blob containers and NFS hardware storage exports. Add storage targets after you create the cache.
+The cache supports Azure Blob containers, NFS hardware storage exports, and NFS-mounted ADLS blob containers (currently in preview). Add storage targets after you create the cache.
 
 Each storage type has specific prerequisites.
 
@@ -192,11 +192,13 @@ This is a general overview of the steps:
 
    * Instead of the using the storage account settings for a standard blob storage account, follow the instructions in the [how-to document](../storage/blobs/network-file-system-protocol-support-how-to.md). The type of storage account supported might vary by Azure region.
 
-   * In the **Networking** section, choose a private endpoint in the secure virtual network you created (recommended), or choose a public endpoint with restricted access from the secure VNet. <!-- private endpoint might not be possible actually -->
+   * In the **Networking** section, choose a private endpoint in the secure virtual network you created (recommended), or choose a public endpoint with restricted access from the secure VNet.
 
    * Do not forget to complete the **Advanced** section, where you enable NFS access.
 
-   * Give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. You can do this the first time you create a storage target. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles. If you are not the storage account owner, have the owner do this step.
+   * Give the cache application access to your Azure storage account as mentioned in [Permissions](#permissions), above. You can do this the first time you create a storage target. Follow the procedure in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to give the cache the required access roles.
+
+     If you are not the storage account owner, have the owner do this step.
 
 ## Set up Azure CLI access (optional)
 
