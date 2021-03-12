@@ -77,23 +77,6 @@ Create a cross-region load balancer with [az network cross-region-lb create](/cl
     --backend-pool-name myBackEndPool-CR     
 ```
 
-### Create the health probe
-
-Create a cross-region load balancer health probe with [az network cross-region lb probe create](/cli/azure/network/cross-region-lb/probe#az_network_cross_region_lb_probe_create):
-
-* Named **myHealthProbe-CR**.
-* Protocol **Tcp**.
-* Port **80**.
-
-```azurecli-interactive
-  az network cross-region lb probe create \
-    --lb-name myLoadBalancer-CR \
-    --name myHealthProbe-CR \
-    --port 80 \
-    --protocol Tcp \
-    --resource-group myResourceGroupLB-CR
-```
-
 ### Create the load balancer rule
 
 A load balancer rule defines:
@@ -118,8 +101,7 @@ Create a load balancer rule with [az network cross-region-lb rule create](/cli/a
     --protocol tcp \
     --resource-group myResourceGroupLB-CR \
     --backend-pool-name myBackEndPool-CR \
-    --frontend-ip-name myFrontEnd-CR \
-    --probe-name myHealthProbe-CR
+    --frontend-ip-name myFrontEnd-CR
 ```
 
 ## Create backend pool
@@ -200,7 +182,6 @@ When no longer needed, use the [az group delete](/cli/azure/group#az-group-delet
 In this tutorial, you:
 
 * Created a cross-region load balancer.
-* Created a health probe.
 * Created a load-balancing rule.
 * Added regional load balancers to the backend pool of the cross-region load balancer.
 * Tested the load balancer.
