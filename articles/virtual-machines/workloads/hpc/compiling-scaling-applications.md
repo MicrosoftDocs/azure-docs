@@ -5,15 +5,42 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-
 ---
 
 # Scaling HPC applications
 
 Optimal scale-up and scale-out performance of HPC applications on Azure requires performance tuning and optimization experiments for the specific workload. This section and the VM series-specific pages offer general guidance for scaling your applications.
+
+## Optimally scaling MPI 
+
+The following suggestions apply for optimal application scaling efficiency, performance, and consistency:
+
+- For smaller scale jobs (i.e. < 256K connections) use the option:
+```bash
+UCX_TLS=rc,sm
+```
+
+- For larger scale jobs (i.e. > 256K connections) use the option:
+```bash
+UCX_TLS=dc,sm
+```
+
+In the above, to calculate the number of connections for your MPI job, use:
+```bash
+Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
+```
+
+## Process pinning
+
+- Pin processes to cores using a sequential pinning approach (as opposed to an auto-balance approach). 
+- Binding by Numa/Core/HwThread is better than default binding.
+- For hybrid parallel applications (OpenMP+MPI), use 4 threads and 1 MPI rank per CCX on HB and HBv2 VM sizes.
+- For pure MPI applications, experiment with 1-4 MPI ranks per CCX for optimal performance on HB and HBv2 VM sizes.
+- Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using 3 or 2 cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. In particular, MPI Allreduce may benefit from this.
+- For significantly larger scale runs, it is recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
 
 ## Compiling applications
 
@@ -65,17 +92,6 @@ For HPC, AMD recommends GCC compiler 7.3 or newer. Older versions, such as 4.8.5
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
-
-## Scaling applications 
-
-The following suggestions apply for optimal application scaling efficiency, performance, and consistency:
-
-* Pin processes to cores 0-59 using a sequential pinning approach (as opposed to an auto-balance approach). 
-* Binding by Numa/Core/HwThread is better than default binding.
-* For hybrid parallel applications (OpenMP+MPI), use 4 threads and 1 MPI rank per CCX.
-* For pure MPI applications, experiment with 1-4 MPI ranks per CCX for optimal performance.
-* Some applications with extreme sensitivity to memory bandwidth may benefit from using a reduced number of cores per CCX. For these applications, using 3 or 2 cores per CCX may reduce memory bandwidth contention and yield higher real-world performance or more consistent scalability. In particular, MPI Allreduce may benefit from this.
-* For significantly larger scale runs, it is recommended to use UD or hybrid RC+UD transports. Many MPI libraries/runtime libraries do this internally (such as UCX or MVAPICH2). Check your transport configurations for large-scale runs.
 
 ## Next steps
 
