@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
+      "redirect_url": "/azure/container-registry/monitor-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-percept/advanced-development-cloud.md",
       "redirect_url": "/azure/azure-percept/overview-advanced-code",
       "redirect_document_id": false
