@@ -57,6 +57,10 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
     `npm install -g @azure/static-web-apps-cli`
 
+1. Build your app if required by your application.
+
+    Run `npm build`, or the equivalent command for your project.
+
 1. Start the CLI.
 
     `swa start`
@@ -78,9 +82,9 @@ The emulator provides a page allowing you to provide the following [client princ
 
 | Value | Description |
 | --- | --- |
-| **Username** | The account name associated with the security provider. |
+| **Username** | The account name associated with the security provider. This appears as the `userDetails` property in the client principal. |
 | **User ID** | Any alpha numeric value to act as the Azure Static Web Apps unique identifier. |
-| **Roles**| A list of role names, where each name is on a new line.  |
+| **Roles** | A list of role names, where each name is on a new line.  |
 
 Once logged in:
 
