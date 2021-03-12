@@ -1,6 +1,6 @@
 ---
-title: 'Set up a Gen2 environment using Azure CLI- Azure Time Series Insights Gen2| Microsoft Docs'
-description: 'Learn how to set up an environment in Azure Time Series Insights Gen2 using Azure CLI.'
+title: 'Create an Azure Time Series Insights Gen2 environment using the Azure CLI - Azure Time Series Insights Gen2 | Microsoft Docs'
+description: 'Learn how to set up an environment in Azure Time Series Insights Gen2 using the Azure CLI.'
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -12,7 +12,7 @@ ms.date: 03/15/2021
 ms.custom: seodec18
 ---
 
-# Create a Gen2 environment using Azure CLI- Azure Time Series Insights Gen2
+# Create an Azure Time Series Insights Gen2 environment using the Azure CLI
 
 This document will guide you through creating a new Time Series Insights Gen2 Environment.
 
@@ -55,7 +55,7 @@ az tsi environment gen2 create --name "my-tsi-env" --location eastus2 --resource
 
 ## Remove an Azure Time Series Insights Environment
 
-You can use Azure CLI to delete an individual resource, such as a Time Series Insights Environment, or delete a Resource Group and all its resources, including any Time Series Insights Environments.
+You can use the Azure CLI to delete an individual resource, such as a Time Series Insights Environment, or delete a Resource Group and all its resources, including any Time Series Insights Environments.
 
 To [delete a Time Series Insights Environments](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/environment?view=azure-cli-latest#ext_timeseriesinsights_az_tsi_environment_delete), run the following command:
 

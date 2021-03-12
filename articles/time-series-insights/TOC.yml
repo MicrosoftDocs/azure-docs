@@ -99,7 +99,9 @@
       items:
       - name: How to create an environment using Azure CLI
         href: how-to-create-tsi-environment-using-cli.md
-      - name: How to provision & manage
+      - name: How to create an environment using the Azure portal
+        href: how-to-create-tsi-environment-using-portal.md
+      - name: How to manage an environment
         href: how-to-provision-manage.md
       - name: How to select a TSID
         href: how-to-select-tsid.md
