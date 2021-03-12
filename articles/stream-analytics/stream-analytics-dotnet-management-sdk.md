@@ -6,7 +6,7 @@ ms.author: jeanb
 
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 2/25/2021
+ms.date: 3/12/2021
 ms.custom: "seodec18, devx-track-csharp"
 ---
 # Management .NET SDK: Set up and run analytics jobs using the Azure Stream Analytics API for .NET
