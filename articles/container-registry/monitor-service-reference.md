@@ -57,8 +57,9 @@ Resource Provider and Type: [Microsoft.ContainerRegistry/registries](/azure/azur
 | Category | Display Name | Details  |
 |:---------|:-------------|------------------|
 | ContainerRegistryLoginEvents  | Login Events | Registry authentication events and status, including the incoming identity and IP address |
-| ContainerRegistryRepositoryEvents | Repository Events           | Operations on images and other artifacts in registry repositories<br/><br/> The following operations are logged: push, pull, untag, delete (including repository delete), purge tag, and purge manifest |
-|
+| ContainerRegistryRepositoryEvents | Repository Events           | Operations on images and other artifacts in registry repositories<br/><br/> The following operations are logged: push, pull, untag, delete (including repository delete), purge tag, and purge manifest<sup>1</sup> |
+
+<sup>1</sup>Purge events are logged only if a registry [retention policy](container-registry-retention-policy.md) is configured.
 
 ## Azure Monitor Logs tables
 
@@ -68,7 +69,7 @@ This section refers to all of the Azure Monitor Logs Kusto tables relevant to Az
 
 | Table |  Description | 
 |:---------|:-------------|
-| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. | 
+| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | Entries from the Azure Activity log that provide insight into any subscription-level or management group level events that have occurred in Azure. | 
 | [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | Metric data emitted by Azure services that measure their health and performance.    |  
 |  [ContainerRegistryLoginEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents)               | Azure Container Registry Login Auditing Logs                             |                                                     
 |  [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/containerregistryloginevents)               | Azure Container Registry Repository Auditing Logs                         |                                                    
