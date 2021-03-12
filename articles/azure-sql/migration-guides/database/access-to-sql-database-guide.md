@@ -15,7 +15,7 @@ ms.date: 03/19/2021
 
 This migration guide teaches you to migrate your Microsoft Access databases to Azure SQL Database. 
 
-For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
+For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration/). 
 
 ## Prerequisites
 
@@ -66,6 +66,8 @@ To convert database objects, follow these steps:
 
    ![Right-click the database and choose convert schema](./media/access-to-sql-database-guide/convert-schema.png)
 
+   ![Converted items can be compared with source code](./media/access-to-sql-database-guide/converted-items-comparison.png)
+
 1. (Optional) To convert an individual object, right-click the object and choose **Convert schema**. An object that has been converted appears bold in the **Access Metadata Explorer**: 
 
    ![Bold objects in metadata explorer have been converted](./media/access-to-sql-database-guide/converted-items.png)
@@ -80,9 +82,19 @@ After you have completed assessing your databases and addressing any discrepanci
 To migrate data by using SSMA for Access, follow these steps: 
 
 1. If you haven't already, select **Connect to Azure SQL Database** and provide connection details. 
+1. Right-click the database from the **Azure SQL Database Metadata Explorer** and choose **Synchronize with Database**. This action publishes the MySQL schema to Azure SQL Database.
+
+   ![Synchronize with Database](./media/access-to-sql-database-guide/synchronize-with-database.png)
+
+   ![Synchronize with Database](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
+
 1. Use **Access Metadata Explorer** to check boxes next to the items you want to migrate. If you want to migrate the entire database, check the box next to the database. 
 1. Right-click the database or object you want to migrate, and choose **Migrate data**. 
    To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand Tables, and then select the check box next to the table. To omit data from individual tables, clear the check box.
+
+    ![Migrate Data](./media/access-to-sql-database-guide/migrate-data.png)
+
+    ![Migrate Data Review](./media/access-to-sql-database-guide/migrate-data-review.png)
 
 
 ## Post-migration 

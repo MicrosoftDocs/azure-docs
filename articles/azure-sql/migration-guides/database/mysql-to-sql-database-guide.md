@@ -16,7 +16,7 @@ ms.date: 03/19/2021
 
 This guide teaches you to migrate your MySQL database to Azure SQL Database. 
 
-For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
+For other migration guides, see [Database Migration](https://docs.microsoft.com/data-migration/). 
 
 ## Prerequisites
 
@@ -44,6 +44,9 @@ To create an assessment, perform the following steps.
    ![New Project](./media/mysql-to-sql-database-guide/new-project.png)
 
 1. Choose **Connect to MySQL** and provide connection details to connect your MySQL server. 
+
+   ![Connect to MySQL](./media/mysql-to-sql-database-guide/connect-to-mysql.png)
+
 1. Right-click the MySQL schema in **MySQL Metadata Explorer** and choose **Create report**. Alternatively, you can select **Create report** from the top-line navigation bar. 
 
    ![Create Report](./media/mysql-to-sql-database-guide/create-report.png)
@@ -95,11 +98,12 @@ To publish the schema and migrate the data, follow these steps:
 
    ![Synchronize with Database](./media/mysql-to-sql-database-guide/synchronize-database.png)
 
+   ![Synchronize with Database Review](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
+
 1. Right-click the MySQL schema from the **MySQL Metadata Explorer** and choose **Migrate Data**. Alternatively, you can select **Migrate Data** from the top-line navigation. 
 
-   ![Migrate Data](./media/mysql-to-sql-database-guide/migrate-data.png)
+   ![Data Migration Report](./media/mysql-to-sql-database-guide/migrate-data.png)
 
-1. Provide connection details for MySQL and Azure SQL Database at the dialog box. 
 1. After migration completes, view the **Data Migration** report: 
 
    ![Data Migration Report](./media/mysql-to-sql-database-guide/data-migration-report.png)

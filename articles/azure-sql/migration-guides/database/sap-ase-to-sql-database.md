@@ -16,7 +16,7 @@ ms.date: 03/19/2021
 
 This guide teaches you to migrate your SAP ASE databases to Azure SQL Database using SQL Server Migration Assistant for SAP Adapter Server Enterprise.
 
-For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+For other scenarios, see the [Database Migration Guide](https://docs.microsoft.com/data-migration/).
 
 ## Prerequisites 
 
@@ -105,19 +105,6 @@ The post-migration phase is crucial for reconciling any data accuracy issues and
 
 > [!NOTE]
 > For additional detail about these issues and specific steps to mitigate them, see the [Post-migration Validation and Optimization Guide](/sql/relational-databases/post-migration-validation-and-optimization-guide).
-
-
-## Migration assets
-
-For additional assistance with completing this migration scenario, please see the following resources, which were developed in support of a real-world migration project engagement.
-
-| **Title/link**                                                                                                        | **Description**                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Optimization Guide for Mainframe App/Data recompiled to .NET & Azure SQL Database](https://aka.ms/dmj-wp-mainframe-optimize) | This guide offers optimization advice for executing point-lookups against Azure SQL Database from .NET as efficiently as possible. Customers wishing to migrate from mainframe databases to Azure SQL Database may desire to migrate existing mainframe-optimized design patterns, especially when using 3rd party tools (such as Raincode Compiler) to automatically migrate mainframe code (COBOL/JCL etc) to T-SQL and C# .NET. |
-
-> [!NOTE]
-> These resources were developed as part of the Data Migration Jumpstart Program (DM Jumpstart), which is sponsored by the Azure Data Group engineering team. The core charter DM Jumpstart is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft’s Azure Data platform. If you think your organization would be interested in participating in the DM Jumpstart program, please contact your account team and ask that they submit a nomination.
-
 
 
 ## Next steps
