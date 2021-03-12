@@ -152,7 +152,7 @@ To use AD FS as an identity provider in Azure AD B2C, you need to create an AD F
 https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
-When using [custom domain](custom-domain.md), use the following format:
+When using a [custom domain](custom-domain.md), use the following format:
 
 ```
 https://your-domain/your-tenant-name.onmicrosoft.com/your-policy/samlp/metadata?idptp=your-technical-profile
