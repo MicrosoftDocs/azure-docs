@@ -132,13 +132,14 @@ We need a storage account to hold the two files we created in the previous step.
 Before creating the credential, we need to first give the signed in user the correct role assignment so that they can access the files in Storage Blob.
 
 1. Navigate to **Storage** > **Container**.
-2. Choose **Access Control (IAM)** from the menu on the left.
-3. Choose **Role Assignments**.
-4. Select **Add**.
-5. In the **Role** section, choose **Storage Blob Data Reader**.
-6. Under **Assign access to** choose **User, group, or service principle**.
-7. In the **Select**: specify the account of the user that you are signed in with.
-8. Select **Save** to complete the role assignment.
+1. Select the Container we created **vc-container** 
+1. Choose **Access Control (IAM)** from the menu on the left.
+1. Choose **Role Assignments**.
+1. Select **Add**.
+1. In the **Role** section, choose **Storage Blob Data Reader**.
+1. Under **Assign access to** choose **User, group, or service principle**.
+1. In the **Select**: specify the account of the user that you are signed in with.
+1. Select **Save** to complete the role assignment.
 
 
   ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/role_assignment.jpg)
