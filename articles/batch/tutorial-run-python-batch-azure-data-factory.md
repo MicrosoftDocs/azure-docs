@@ -120,7 +120,7 @@ In this section, you'll create and validate a pipeline using your Python script.
         1. For the **Resource Linked Service**, add the storage account that was created in the previous steps. Test the connection to ensure it is successful.
         1. In the **Folder Path**, select the name of the **Azure Blob Storage** container that contains the Python script and the associated inputs. This will download the selected files from the container to the pool node instances before the execution of the Python script.
 
-    ![In the Folder Path, select the name of the Azure Blob Storage container](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
+        ![In the Folder Path, select the name of the Azure Blob Storage container](./media/run-python-batch-azure-data-factory/create-custom-task-py-script-command.png)
 
 1. Click **Validate** on the pipeline toolbar above the canvas to validate the pipeline settings. Confirm that the pipeline has been successfully validated. To close the validation output, select the &gt;&gt; (right arrow) button.
 1. Click **Debug** to test the pipeline and ensure it works accurately.
