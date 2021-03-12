@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/07/2021
+ms.date: 03/12/2021
 ms.author: duau
 
 ---
@@ -100,6 +100,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Multi-factor Authentication Server (legacy)
 * Traffic Manager
+* Logic Apps
 
 ### Public peering
 

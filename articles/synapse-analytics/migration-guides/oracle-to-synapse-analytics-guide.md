@@ -2,9 +2,7 @@
 title: "Oracle to Azure Synapse Analytics: Migration guide" 
 description: The following sections provide an overview of what's involved with migrating an existing Oracle database solution to Azure Synapse Analytics.
 ms.service: synapse-analytics
-ms.subservice: 
-ms.custom: 
-ms.devlang: 
+ms.subservice: sql
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
