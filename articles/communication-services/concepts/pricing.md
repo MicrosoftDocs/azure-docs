@@ -43,6 +43,39 @@ Alice made a group call with her colleagues, Bob and Charlie. Alice and Bob used
 
 **Total cost for the group call**: $0.48 + $0.172 = $0.652
 
+### Pricing example: Outbound Call from app using JS client library to a PSTN number
+
+Alice makes a PSTN Call from an app to Bob on his US phone number +1 425 555 xyz.
+
+- Alice used the JS client libary to build the app.
+- The call lasts a total of 5 minutes.
+
+**Cost calculations**
+
+- 1 participant on the VoIP leg (Alice) from App to ACS servers x 5 minutes x $0.004 per participant leg per minute = $0.02
+- 1 participant on the PSTN OB leg (Charlie) from ACS servers to US Telephone number x 5 minutes x $0.013 per participant leg per minute = $0.065
+(Note: USA mixed rates to +1-425 is $0.013; refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+**Total cost for the group call**: $0.065 + $0.02 = $0.085
+
+
+### Pricing example: Group audio call using JS client library  and 1 PSTN leg
+
+Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on his PSTN number (a US phone number: +1 425 555 xyz).
+
+- Alice used the JS client libary to build the app. They spoke for 20 minutes before calling Charlie on the PSTN number
+- Once Bob escalated the call to Charlie on his PSTN number, the three of them spoke for another 20 mins
+
+**Cost calculations**
+
+- 2 participant on the VoIP leg (Alice and Bob) from App to ACS servers x 40 minutes x $0.004 per participant leg per minute = $0.32
+- 1 participant on the PSTN OB leg (Charlie) from ACS servers to US Telephone number x 20 minutes x $0.013 per participant leg per minute = $0.26
+(Note: USA mixed rates to +1-425 is $0.013; refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
+**Total cost for the VoIP + escalation call**: $0.32 + $0.26 = $0.58
+
+
+
 ### Pricing example: A user of the Communication Services JS client library joins a scheduled Microsoft Teams meeting
 
 Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit from the Teams Desktop application. Bob will receive a link to join using the healthcare provider website, which connects to the meeting using the Communication Services JS client library. Bob will use his mobile phone to enter the meeting using a web browser (iPhone with Safari). Chat will be available during the virtual visit.
