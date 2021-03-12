@@ -32,6 +32,8 @@
     href: Concepts/data-sources-and-content.md
   - name: Azure role-based access control (Azure RBAC)
     href: Concepts/role-based-access-control.md
+  - name: Precise answering
+    href: reference-precise-answering.md
   - name: Turn on active learning
     href: How-To/use-active-learning.md
   - name: Ranker Process
@@ -40,8 +42,6 @@
   - name: Development lifecycle
     href: Concepts/development-lifecycle-knowledge-base.md
     displayName: version control, test, index, publish, monitor usage, create
-  - name: Precise answering
-    href: reference-precise-answering.md
   - name: Best practices
     href: Concepts/best-practices.md
     displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
