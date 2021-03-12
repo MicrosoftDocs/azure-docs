@@ -234,8 +234,8 @@ stg.properties.primaryEndpoints.blob
 ```
 
 ```json
-// required every time it is needed
-"[reference(resourceId(parameters('storageAccountResourceGroupName'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2017-06-01').primaryEndpoints.blob]"
+// required every time the property is needed
+"[reference(resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
 ```
 
 ## Outputs
