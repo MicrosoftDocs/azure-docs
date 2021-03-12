@@ -65,6 +65,10 @@ The API response lists the billing accounts.
 
 Use the `displayName` property to identify the billing account for which you want to create subscriptions. Ensure, the agreementType of the account is *MicrosoftPartnerAgreement*. Copy the `name` for the account. For example, to create a subscription for the `Contoso` billing account, copy `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Paste the value somewhere so that you can use it in the next step.
 
+### [PowerShell](#tab/azure-powershell)
+
+Please use either Azure CLI or REST API to get this value.
+
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -142,6 +146,10 @@ The API response lists the customers in the billing account with Azure plans. Yo
 
 Use the `displayName` property to identify the customer for which you want to create subscriptions. Copy the `id` for the customer. For example, to create a subscription for `Fabrikam toys`, copy `/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/7d15644f-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Paste the value somewhere to use it in later steps.
 
+### [PowerShell](#tab/azure-powershell)
+
+Please use either Azure CLI or REST API to get this value.
+
 ### [Azure CLI](#tab/azure-cli)
 
 ```azurecli
@@ -215,6 +223,10 @@ The API response lists the resellers for the customer:
 ```
 
 Use the `description` property to identify the reseller who is associated with the subscription. Copy the `resellerId` for the reseller. For example, to associate `Wingtip`, copy `3xxxxx`. Paste the value somewhere so that you can use it in the next step.
+
+### [PowerShell](#tab/azure-powershell)
+
+Please use either Azure CLI or REST API to get this value.
 
 ### [Azure CLI](#tab/azure-cli)
 

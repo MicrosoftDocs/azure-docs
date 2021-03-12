@@ -88,6 +88,10 @@ The API response lists all enrollment accounts you have access to:
 
 The values for a billing scope and `id` are the same thing. The `id` for your enrollment account is the billing scope under which the subscription request is initiated. It’s important to know the ID because it’s a required parameter that you use later in the article to create a subscription.
 
+### [PowerShell](#tab/azure-powershell)
+
+Please use either Azure CLI or REST API to get this value.
+
 ### [Azure CLI](#tab/azure-cli)
 
 Request to list all enrollment accounts you have access to:
