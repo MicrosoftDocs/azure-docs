@@ -6,3 +6,8 @@
   - name: About Azure Web PubSub service
     href: web-pubsub-overview.md
 
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Serverless Application
+    href: web-pubsub-quickstart-serverless.md
