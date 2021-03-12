@@ -13,7 +13,7 @@ ms.author: inhenkel
 
 ### How To guides
 
-- [View Media Services metrics with Azure Monitor](..media-services-metrics-howto.md)
+- [View Media Services metrics with Azure Monitor](../media-services-metrics-howto.md)
 - [Route monitoring data to a storage account](../media-services-diagnostic-logs-howto.md)
 
 ### Reference
