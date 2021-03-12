@@ -373,7 +373,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 ### Error code: DF-Excel-InvalidRange
 - **Message**: Invalid range is provided.
-- **Recommendation**: Check the parameter value and specify the valid range by the following reference: [Excel format in Azure Data Factory-Dataset properties](https://docs.microsoft.com/en-us/azure/data-factory/format-excel#dataset-properties).
+- **Recommendation**: Check the parameter value and specify the valid range by the following reference: [Excel format in Azure Data Factory-Dataset properties](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
 
 ### Error code: DF-Excel-WorksheetNotExist
 - **Message**: Excel worksheet does not exist.
