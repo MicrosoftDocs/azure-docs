@@ -561,7 +561,7 @@ console.log(result.video);
 
 ## Call recording management
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include-section.md)]
+[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
 
 Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
 
