@@ -30,7 +30,7 @@ For an offer to achieve co-sell ready status, you must meet the following requir
 **All partners**:
 
 - Have an MPN ID and an active [commercial marketplace account in Partner Center](./partner-center-portal/create-account.md).
-- Make sure you have a complete [business profile](/partner-center/create-a-marketing-profile.md) in Partner Center. As a qualified Microsoft partner, your business profile helps to showcase your business to customers who are looking for your unique solutions and expertise to address their business needs, resulting in [referrals](/partner-center/referrals.md).
+- Make sure you have a complete [business profile](/partner-center/create-a-marketing-profile) in Partner Center. As a qualified Microsoft partner, your business profile helps to showcase your business to customers who are looking for your unique solutions and expertise to address their business needs, resulting in [referrals](/partner-center/referrals).
 - Complete the **Co-sell with Microsoft** tab and publish the offer to the commercial marketplace.
 - Provide a sales contact for each co-sell eligible geography and required bill of materials)
 
@@ -55,7 +55,7 @@ We provide templates to help you create these documents. For more information ab
 
 To qualify for co-sell ready status, your offer or solution must be published live to at least one of the commercial marketplace online stores: Azure Marketplace or Microsoft AppSource. For information about publishing offers to the commercial marketplace, see [Publishing guide by offer type](publisher-guide-by-offer-type.md). If you haven’t published an offer in the commercial marketplace before, make sure you have a [commercial marketplace account](./partner-center-portal/create-account.md).
 
-## Requirements for IP Co-sell incentivized status
+## Requirements for Azure IP Co-sell incentivized status
 
 Azure IP Co-sell incentivized status applies to the following offer types:
 
