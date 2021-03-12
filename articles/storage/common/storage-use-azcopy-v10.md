@@ -96,6 +96,9 @@ To learn more about SAS tokens and how to obtain one, see [Using shared access s
 
 After you've authorized your identity or obtained a SAS token, you can begin transferring data.
 
+> [!NOTE]
+> The [Secure transfer required](storage-require-secure-transfer.md) setting of a storage account determines whether the connection to a storage account is secured with Transport Layer Security (TLS). This setting is enabled by default.   
+
 To find example commands, see any of these articles.
 
 | Service | Article |

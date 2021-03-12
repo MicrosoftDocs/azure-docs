@@ -12,6 +12,8 @@ services: iot-edge
 
 # How to install IoT Edge on Kubernetes (Preview)
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 IoT Edge can integrate with Kubernetes using it as a resilient, highly available infrastructure layer. Here is where this support fits in a high level IoT Edge solution:
 
 ![k8s intro](./media/how-to-install-iot-edge-kubernetes/kubernetes-model.png)
