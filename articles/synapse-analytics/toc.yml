@@ -191,6 +191,12 @@
         href: troubleshoot/workspaces-created-by-sdk.md
       - name: Troubleshoot reading UTF-8 text
         href: troubleshoot/reading-utf8-text.md
+- name: Migration guides
+  items:
+  - name: SQL Server to Azure Synapse Analytics
+    href: migration-guides/sql-server-to-synapse-analytics-guide.md
+  - name: Oracle to Azure Synapse Analytics
+    href: migration-guides/oracle-to-synapse-analytics-guide.md
 - name: Synapse SQL
   items:
   - name: Overview
@@ -579,6 +585,8 @@
     items:
     - name: Apache Spark 
       href: ./spark/apache-spark-concepts.md
+    - name: Apache Spark pool configurations
+      href: ./spark/apache-spark-pool-configurations.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior

@@ -46,6 +46,15 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.  Leave the description blank and default expiration, and then select **Add**.
 > 1. Note the **Value** of the **Client Secret** for later use.
 
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 1: Configure the application in Azure portal
+> For the code sample for this quickstart to work, you need to create a client secret and add a reply URL as **http://localhost:3000/redirect**.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Make this change for me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
+
 #### Step 2: Download the project
 
 > [!div renderon="docs"]
