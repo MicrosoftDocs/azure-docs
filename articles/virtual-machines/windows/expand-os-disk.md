@@ -45,21 +45,21 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 
     :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot that shows the Disks pane with a disk name selected.":::
 
-4. In the left menu under **Settings**, select **Configuration**.
+4. In the left menu under **Settings**, select **Size + performance**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot that shows the Configuration option selected in the Settings section of the menu.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot that shows the Size and performance option selected in the Settings section of the menu.":::
 
-5. In **Size (GiB)**, select the disk size you want.
+5. In **Size + performance**, select the disk size you want.
    
    > [!WARNING]
    > The new size should be greater than the existing disk size. The maximum allowed is 2,048 GB for OS disks. (It's possible to expand the VHD blob beyond that size, but the OS works only with the first 2,048 GB of space.)
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot that shows the Configuration pane with the disk size selected.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot that shows the Size and performance pane with the disk size selected.":::
 
-6. Select **Save**.
+6. Select **Resize** at the bottom of the page.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot that shows the Configuration pane with the Save button selected.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot that shows the Size and performance pane with the Resize button selected.":::
 
 
 ## Resize a managed disk by using PowerShell

@@ -124,12 +124,22 @@ The following table compares the Flexible orchestration mode, Uniform orchestrat
 |         Azure Alerts  |            No  |            Yes  |            Yes  |
 |         VM Insights  |            No  |            Yes  |            Yes  |
 |         Azure Backup  |            Yes  |            Yes  |            Yes  |
-|         Azure Site Recovery  |            No  |            No  |            Yes  |
+|         Azure Site Recovery  |     No  |            No  |            Yes  |
 |         Add/remove existing VM to the group  |            No  |            No  |            No  | 
 
 
 ## Register for Flexible orchestration mode
 Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. The registration may take several minutes to complete. You can use the following Azure PowerShell or Azure CLI commands to register.
+
+### Azure Portal
+Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode, and select Preview Features from the menu. Select the two orchestrator features to enable: _VMOrchestratorSingleFD_ and _VMOrchestratorMultiFD_, and press the Register button. Feature registration can take up to 15 minutes.
+
+![Feature registration.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
+
+Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. Navigate to the Resource providers tab for your subscription, select Microsoft.compute, and click Re-register.
+
+![Re-register](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
+
 
 ### Azure PowerShell 
 Use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet to enable the preview for your subscription. 
