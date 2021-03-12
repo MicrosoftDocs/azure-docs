@@ -19,15 +19,11 @@ ms.custom: aaddev, devx-track-python
 
 Learn how to configure the code for your daemon application that calls web APIs.
 
-## MSAL libraries that support daemon apps
+## Microsoft libraries supporting daemon apps
 
-These Microsoft libraries support daemon apps:
+The following Microsoft libraries support daemon apps:
 
-  MSAL library | Description
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | The .NET Framework and .NET Core platforms are supported for building daemon applications. (UWP, Xamarin.iOS, and Xamarin.Android aren't supported because those platforms are used to build public client applications.)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Support for daemon applications in Python.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Support for daemon applications in Java.
+[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
 
 ## Configure the authority
 
