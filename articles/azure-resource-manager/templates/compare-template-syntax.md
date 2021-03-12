@@ -8,9 +8,9 @@ ms.date: 03/12/2021
 
 This article compares Bicep syntax with JSON syntax for Azure Resource Manager templates (ARM templates). In most cases, Bicep provides syntax that is less verbose than the equivalent in JSON.
 
-## Syntax equivalents
+If you're familiar with using JSON to develop ARM templates, use the following examples to learn about the equivalent syntax for Bicep.
 
-If you're familiar with using JSON to develop ARM templates, use the following table to learn about the equivalent syntax for Bicep.
+## Expressions
 
 To author an expression:
 
@@ -21,6 +21,8 @@ func()
 ```json
 "[func()]"
 ```
+
+## Parameters
 
 To declare a parameter with a default value:
 
@@ -47,6 +49,8 @@ demoParam
 [parameters('demoParam'))]
 ```
 
+## Variables
+
 To declare a variable:
 
 ```bicep
@@ -68,6 +72,8 @@ demoVar
 ```json
 [variables('demoVar'))]
 ```
+
+## Strings
 
 To concatenate strings:
 
@@ -108,6 +114,8 @@ nic1.id
 ```json
 [resourceId('Microsoft.Network/networkInterfaces', variables('nic1Name'))]
 ```
+
+## Reference resources
 
 To get a property from a resource in the template:
 
@@ -192,6 +200,8 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = if(deployVM) {
 ]
 ```
 
+## Loops
+
 To iterate over items in an array or count:
 
 ```bicep
@@ -208,6 +218,8 @@ To iterate over items in an array or count:
 ...
 ```
 
+## Resource dependencies
+
 To set dependency between resources:
 
 For Bicep, either rely on automatic detection of dependencies or manually set dependency.
@@ -219,6 +231,8 @@ dependsOn: [ stg ]
 ```json
 "dependsOn": ["[resourceId('Microsoft.Storage/storageAccounts', 'parameters('storageAccountName'))]"]
 ```
+
+## Outputs
 
 To output a property from a resource in the template:
 
@@ -234,6 +248,8 @@ output hostname string = publicIP.properties.dnsSettings.fqdn
   },
 }
 ```
+
+## Code reuse
 
 To separate a solution into multiple files:
 
