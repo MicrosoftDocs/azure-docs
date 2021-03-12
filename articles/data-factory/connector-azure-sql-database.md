@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
+ms.date: 03/12/2021
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory

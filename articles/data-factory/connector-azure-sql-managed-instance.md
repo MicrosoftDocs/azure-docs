@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
+ms.date: 03/12/2021
 ---
 
 # Copy and transform data in Azure SQL Managed Instance by using Azure Data Factory
