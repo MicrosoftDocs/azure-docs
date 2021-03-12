@@ -14,7 +14,7 @@ ms.date: 03/12/2021
 # Return a semantic answer in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic ranking and semantic answers are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 When formulating a [semantic query](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
@@ -44,7 +44,7 @@ Answers are returned as an independent, top-level object in the query response p
 
 To return a semantic answer, the query must have the semantic query type, language, search fields, and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
 
-The "searchFields" parameter is critical to returning a high quality answer, both in terms of content and order.
+The "searchFields" parameter is critical to returning a high quality answer, both in terms of content and order. 
 
 ```json
 {
@@ -59,7 +59,7 @@ The "searchFields" parameter is critical to returning a high quality answer, bot
 
 + A query string must not be null and should be formulated as question. In this preview, the "queryType" and "queryLanguage" must be set exactly as shown in the example.
 
-+ The "searchFields" parameter determines which fields provide tokens to the extraction model. A maximum of 10,000 tokens are used during token intake, so start the field list with concise fields, and then progress to text-rich fields.
++ The "searchFields" parameter determines which fields provide tokens to the extraction model. A maximum of 20,000 tokens are used during token intake, so start the field list with concise fields, and then progress to text-rich fields. For precise guidance on how to set this field, see [Set searchFields](semantic-how-to-query-request.mdsearchfields).
 
 + For "answers", the basic parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a count, up to a maximum of five.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
@@ -113,7 +113,7 @@ For best results, return semantic answers on a document corpus having the follow
 
 + "searchFields" should include one or more fields that provides sufficient text in which an answer is likely to be found.
 
-+ Fields should not contain more than 10,000 tokens (approximately three pages in length on a printed page). Fields can contain more content, but the extraction model will ignore it.
++ Semantic extraction and summarization have limits over how much content can be analyzed in a timely fashion. Collectively, only the first 20,000 tokens are analyzed. Anything beyond that is ignored. In practical terms, if you have large documents that run into hundreds of pages, you should try to break the content up into manageable parts first.
 
 + query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
 

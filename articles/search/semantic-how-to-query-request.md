@@ -95,7 +95,7 @@ The following table summarizes the query parameters used in a semantic query so 
 | queryLanguage | String | Required for semantic queries. Currently, only "en-us" is implemented. |
 | searchFields | String | A comma-delimited list of searchable fields. Optional but recommended. Specifies the fields over which semantic ranking occurs. </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence. For more usage instructions, see [Step 2: Set searchFields](#searchfields). |
 | speller | String | Optional parameter, not specific to semantic queries, that corrects misspelled terms before they reach the search engine. For more information, see [Add spell correction to queries](speller-how-to-add.md). |
-| answers |String | Optional parameters that specifies whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. The default is one. This example shows a count of three answers: "extractive\|count3"`. For more information, see [Return semantic answers](semantic-answers.md).|
+| answers |String | Optional parameters that specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. The default is one. This example shows a count of three answers: "extractive\|count3"`. For more information, see [Return semantic answers](semantic-answers.md).|
 
 ### Formulate the request
 
@@ -124,7 +124,7 @@ This parameter is optional in that there is no error if you leave it out, but pr
 
 The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to what fields are the most important to process.
 
-The order of the searchFields is critical. If you already use searchFields in existing simple or full Lucene queries, be sure that you revisit this parameter when switching to a semantic query type.
+The order of the searchFields is critical. If you already use searchFields in existing simple or full Lucene queries, be sure that you revisit this parameter to check for field order when switching to a semantic query type.
 
 Follow these guidelines to ensure optimum results when two or more searchFields are specified:
 
@@ -136,7 +136,7 @@ Follow these guidelines to ensure optimum results when two or more searchFields 
 
 + Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
 
-If only one field specified, use a descriptive fields where the answer to semantic queries may be found, such as the main content of a document. Choose a field that provides sufficient content.
+If only one field specified, use a descriptive field where the answer to semantic queries may be found, such as the main content of a document. Choose a field that provides sufficient content. To ensure timely processing, only the first 20,000 tokens of the collective contents of searchFields undergo semantic evaluation and ranking.
 
 #### Step 3: Remove orderBy clauses
 
