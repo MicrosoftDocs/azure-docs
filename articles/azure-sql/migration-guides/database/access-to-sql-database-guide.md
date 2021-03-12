@@ -2,7 +2,7 @@
 title: "Migration guide: Access to Azure SQL Database"
 description: A migration guide for migrating your Microsoft Access database over to Azure SQL Database. 
 ms.service: sql-database
-ms.subservice: migration
+ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

@@ -2,7 +2,7 @@
 title: "Oracle to SQL Database: Migration guide"
 description: 'Follow this guide to migrate your Oracle databases to Azure SQL Database. '
 ms.service: sql-database
-ms.subservice: migration
+ms.subservice: migration-guide
 ms.custom:
 ms.devlang:
 ms.topic: conceptual

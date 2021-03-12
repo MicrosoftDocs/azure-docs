@@ -2,7 +2,7 @@
 title: "MySQL to Azure SQL Database:  Migration guide"
 description: This guide teaches you to migrate your MySQL database to Azure SQL Database. n.
 ms.service: sql-database
-ms.subservice: migration
+ms.subservice: migration-guide
 ms.custom:
 ms.devlang:
 ms.topic: conceptual

@@ -1,7 +1,7 @@
 ---
 title: "Oracle to SQL Server on Azure VM: Migration guide"
 description: Follow this guide to migrate your Oracle databases to SQL Server on Azure VMs. 
-ms.service: sql-database
+ms.service: virtual-machines-sql
 ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
