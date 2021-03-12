@@ -59,5 +59,5 @@ At any time, you can view a list of all the custom models under your subscriptio
 
 ## Next steps
 
-View **[Form Recognizer API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)** documentation to learn more.
+View **[Form Recognizer API reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9843c2794cbb1a96291)** documentation to learn more.
 >

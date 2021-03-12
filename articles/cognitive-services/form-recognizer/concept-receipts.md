@@ -473,5 +473,5 @@ The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-buil
 ## See also
 
 * [What is Form Recognizer?](overview.md)
-* [Form Recognizer API](.https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)
-*[For Recognizer API v2.1-preview.3](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)
+* [Form Recognizer API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)
+>
