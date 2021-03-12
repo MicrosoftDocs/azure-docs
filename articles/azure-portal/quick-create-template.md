@@ -80,19 +80,7 @@ The Azure portal was used to deploy the template. In addition to the Azure porta
 
 ## Review deployed resources
 
-Check that the dashboard was created successfully and that you can see data from the VM.
-
-1. In the Azure portal, select **Dashboard**.
-
-    ![Azure portal navigation to dashboard](media/quick-create-template/navigate-to-dashboards.png)
-
-1. On the dashboard page, select **Simple VM Dashboard**.
-
-    ![Navigate to Simple VM Dashboard](media/quick-create-template/select-simple-vm-dashboard.png)
-
-1. Review the dashboard that the ARM template created. You can see that some of the content is static, but there are also charts that show the performance of the VM you created at the beginning.
-
-    ![Review Simple VM Dashboard](media/quick-create-template/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## Clean up resources
 
