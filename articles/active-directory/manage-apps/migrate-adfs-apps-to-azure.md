@@ -26,14 +26,14 @@ If you have an on-premises directory that contains user accounts, you likely hav
 
 Users may also authenticate directly with your on-premises Active Directory. Active Directory Federation Services (AD FS) is a standards-based on-premises identity service. It extends the ability to use single sign-on (SSO) functionality between trusted business partners so that users aren't required to sign in separately to each application. This is known as federated identity.
 
-Many organizations have Software as a Service (SaaS) or custom Line-of-Business (LOB) apps federated directly to AD FS, alongside Microsoft 365 and Azure AD-based apps.
+Many organizations have Software as a Service (SaaS) or custom line-of-business apps federated directly to AD FS, alongside Microsoft 365 and Azure AD-based apps.
 
-  ![Applications connected directly on-premises](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
+  ![Applications connected directly on-premises](media/migrate-adfs-apps-to-azure/app-integration-before-migration-1.png)
 
 > [!Important]
 > To increase application security, your goal is to have a single set of access controls and policies across your on-premises and cloud environments.
 
-  ![Applications connected through Azure AD](media/migrate-adfs-apps-to-azure/app-integration-after-migration1.png)
+  ![Applications connected through Azure AD](media/migrate-adfs-apps-to-azure/app-integration-after-migration-1.png)
 
 ## Types of apps to migrate
 
@@ -70,7 +70,7 @@ If it isn't feasible to set up a separate test tenant, skip this stage and point
 
 #### Stage 3 – Point a test instance of the app to the production Azure AD tenant
 
-Update the configuration to point your test instance of the app to your production Azure AD tenant. You can now test with users in your production tenant. If necessary review the section of this article on transitioning users.
+Update the configuration to point your test instance of the app to your production Azure AD tenant. You can now test with users in your production tenant. If necessary, review the section of this article on transitioning users.
 
   ![Migration stage 3 ](media/migrate-adfs-apps-to-azure/stage3.jpg)
 
@@ -84,9 +84,9 @@ Update the configuration of your production app to point to your production Azur
 
 ### Line of business apps
 
-Your line of business (LOB) apps are those that your organization developed or those that are a standard packaged product. Examples include apps built on Windows Identity Foundation and SharePoint apps (not SharePoint Online).
+Your line-of-business apps are those that your organization developed or those that are a standard packaged product. Examples include apps built on Windows Identity Foundation and SharePoint apps (not SharePoint Online).
 
-LOB apps that use OAuth 2.0, OpenID Connect, or WS-Federation can be integrated with Azure AD as [app registrations](../develop/quickstart-register-app.md). Integrate custom apps that use SAML 2.0 or WS-Federation as [non-gallery applications](add-application-portal.md) on the enterprise applications page in the [Azure portal](https://portal.azure.com/).
+Line-of-business apps that use OAuth 2.0, OpenID Connect, or WS-Federation can be integrated with Azure AD as [app registrations](../develop/quickstart-register-app.md). Integrate custom apps that use SAML 2.0 or WS-Federation as [non-gallery applications](add-application-portal.md) on the enterprise applications page in the [Azure portal](https://portal.azure.com/).
 
 ## SAML-based single sign-on
 
@@ -199,7 +199,7 @@ The following table describes some of the most common mapping of settings betwee
 
 ### Map Identity Provider (IdP) settings
 
-Configure your applications to point to Azure AD versus AD FS for SSO. Here, we're focusing on SaaS apps that use the SAML protocol. However, this concept extends to custom LOB apps as well.
+Configure your applications to point to Azure AD versus AD FS for SSO. Here, we're focusing on SaaS apps that use the SAML protocol. However, this concept extends to custom line-of-business apps as well.
 
 > [!NOTE]
 > The configuration values for Azure AD follows the pattern where your Azure Tenant ID replaces {tenant-id} and the Application ID replaces {application-id}. You find this information in the [Azure portal](https://portal.azure.com/) under **Azure Active Directory > Properties**:
@@ -302,7 +302,7 @@ Specify MFA rules for a user or a group in Azure AD:
 1. Select **Assignments**. Add the user(s) or group(s) for which you want to enforce MFA.
 1. Configure the **Access controls** options as shown below:
 
-    ‎![Screenshot shows the Grant pane where you can grant access.](media/migrate-adfs-apps-to-azure/mfa-usersorgroups.png)
+    ‎![Screenshot shows the Grant pane where you can grant access.](media/migrate-adfs-apps-to-azure/mfa-users-groups.png)
 
  #### Example 2: Enforce MFA for unregistered devices
 
@@ -335,27 +335,27 @@ Specify MFA rules based on a user's location in Azure AD:
 
 Emit attributes as Claims rule in AD FS:
 
-  ![Screenshot shows the Edit Rule dialog box for Emit attributes as Claims.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-1.png)
+  ![Screenshot shows the Edit Rule dialog box for Emit attributes as Claims.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claims-rule-1.png)
 
 To map the rule to Azure AD:
 
 1. In the [Azure portal](https://portal.azure.com/), select **Enterprise Applications** and then **Single sign-on** to view the SAML-based sign-on configuration:
 
-    ![Screenshot shows the Single sign-on page for your Enterprise Application.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-2.png)
+    ![Screenshot shows the Single sign-on page for your Enterprise Application.](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claims-rule-2.png)
 
 1. Select **Edit** (highlighted) to modify the attributes:
 
-    ![This is the page to edit User Attributes and Claims](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claimsrule-3.png)
+    ![This is the page to edit User Attributes and Claims](media/migrate-adfs-apps-to-azure/map-emit-attributes-as-claims-rule-3.png)
 
 ### Map built-In access control policies
 
 Built-in access control policies in AD FS 2016:
 
-  ![Azure AD built in access control](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-1.png)
+  ![Azure AD built in access control](media/migrate-adfs-apps-to-azure/map-built-in-access-control-policies-1.png)
 
 To implement built-in policies in Azure AD, use a [new conditional access policy](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) and configure the access controls, or use the custom policy designer in AD FS 2016 to configure access control policies. The Rule Editor has an exhaustive list of Permit and Except options that can help you make all kinds of permutations.
 
-  ![Azure AD access control policies](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-2.png)
+  ![Azure AD access control policies](media/migrate-adfs-apps-to-azure/map-built-in-access-control-policies-2.png)
 
 In this table, we've listed some useful Permit and Except options and how they map to Azure AD.
 
@@ -368,7 +368,7 @@ In this table, we've listed some useful Permit and Except options and how they m
 
 Here's an example of how to configure the Exclude option for trusted locations in the Azure portal:
 
-  ![Screenshot of mapping access control policies](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-3.png)
+  ![Screenshot of mapping access control policies](media/migrate-adfs-apps-to-azure/map-built-in-access-control-policies-3.png)
 
 ## Transition users from AD FS to Azure AD
 
@@ -433,7 +433,7 @@ Once deployment is complete, you can inform users of the successful deployment a
 * Remind users they might need to update their MFA settings.
 * If Self-Service Password Reset is deployed, users might need to update or verify their authentication methods. See [MFA](https://aka.ms/mfatemplates) and [SSPR](https://aka.ms/ssprtemplates) end-user communication templates.
 
-### External user communicatioon
+### External user communication
 
 This group of users is usually the most critically impacted in case of issues. This is especially true if your security posture dictates a different set of Conditional Access rules or risk profiles for external partners. Ensure that external partners are aware of the cloud migration schedule and have a timeframe during which they are encouraged to participate in a pilot deployment that tests out all flows unique to external collaboration. Finally, ensure they have a way to access your helpdesk in case there are problems.
 
