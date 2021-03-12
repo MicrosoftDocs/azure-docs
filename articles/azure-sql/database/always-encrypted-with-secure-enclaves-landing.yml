@@ -110,16 +110,8 @@ landingContent:
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-query-columns
           - text: Troubleshoot common issues for Always Encrypted with secure enclaves
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-troubleshooting
-
-
-  # Card
-  - title: Using Indexes
-    linkLists:
-      - linkListType: how-to-guide
-        links:
           - text: Create and use indexes on columns using Always Encrypted with secure enclaves
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-create-use-indexes
-
 
   # Card
   - title: Develop applications
