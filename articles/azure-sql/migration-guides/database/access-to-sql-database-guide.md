@@ -60,11 +60,13 @@ To convert database objects, follow these steps:
 
 1. Select **Connect to Azure SQL Database** and provide connection details. 
 
-   ![Connect to Azure SQl Database](./media/access-to-sql-database-guide/connect-to-sqldb.png)
+   ![Connect to Azure SQL Database](./media/access-to-sql-database-guide/connect-to-sqldb.png)
 
 1. Right-click the database in **Access Metadata Explorer** and choose **Convert schema**.  
 
    ![Right-click the database and choose convert schema](./media/access-to-sql-database-guide/convert-schema.png)
+
+   Compare converted items: 
 
    ![Converted items can be compared with source code](./media/access-to-sql-database-guide/converted-items-comparison.png)
 
@@ -95,6 +97,8 @@ To migrate data by using SSMA for Access, follow these steps:
    To migrate data for an entire database, select the check box next to the database name. To migrate data from individual tables, expand the database, expand Tables, and then select the check box next to the table. To omit data from individual tables, clear the check box.
 
     ![Migrate Data](./media/access-to-sql-database-guide/migrate-data.png)
+
+    Review the migrated data: 
 
     ![Migrate Data Review](./media/access-to-sql-database-guide/migrate-data-review.png)
 

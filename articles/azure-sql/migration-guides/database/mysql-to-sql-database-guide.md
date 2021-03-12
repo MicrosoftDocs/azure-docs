@@ -87,7 +87,6 @@ To convert the schema, follow these steps:
 
 
 
-
 ## Migrate 
 
 After you have completed assessing your databases and addressing any discrepancies, the next step is to execute the migration process. Migration involves two steps – publishing the schema and migrating the data. SSMA for MySQL is the correct tool to use for this process.

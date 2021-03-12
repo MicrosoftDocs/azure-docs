@@ -106,6 +106,8 @@ To convert the schema, follow these steps:
 
    ![Review recommendations schema](./media/oracle-to-sql-database-guide/convert-schema-review.png)
 
+   Review the recommendations: 
+
    ![Review recommendations](./media/oracle-to-sql-database-guide/review-recommendations.png)
 
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu.

@@ -89,8 +89,6 @@ To use the MAP Toolkit to perform an inventory scan, follow these steps:
 1. Select **Options** to generate a report about the Oracle Assessment and database details. Select both options (one by one) to generate the report.
 
 
-
-
 ### Assess
 
 After identifying the data sources, use the [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258) to assess the Oracle instance(s) migrating to the SQL Server VM so that you understand the gaps between the two. Using the migration assistant, you can review database objects and data, assess databases for migration, migrate database objects to SQL Server, and then migrate data to SQL Server.
@@ -155,7 +153,7 @@ To convert the schema, follow these steps:
 1. (Optional) To convert dynamic or ad-hoc queries, right-click the node and choose **Add statement**.
 1. Choose **Connect to SQL Server** from the top-line navigation bar and provide connection details for your SQL Server on Azure VM. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
 
-   ![Connect to SQL](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql.png)
+   ![Connect to SQL](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql-vm.png)
 
 1. Right-click the schema and choose **Convert Schema**.
 

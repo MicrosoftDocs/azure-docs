@@ -105,6 +105,8 @@ To convert the schema, follow these steps:
 
    ![Review recommendations](./media/oracle-to-managed-instance-guide/review-recommendations.png)
 
+   Review the recommendations: 
+
    ![Review recommendations code](./media/oracle-to-managed-instance-guide/review-recommendations-sourcecode.png)
 
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu.
