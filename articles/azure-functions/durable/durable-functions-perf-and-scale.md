@@ -89,7 +89,7 @@ If not specified, the default `AzureWebJobsStorage` storage account is used. For
 
 ## Orchestrator scale-out
 
-While activity functions can be scaled out infinitely by adding more VMs elastically, orchestrators and entities are constrained to inhabit a single partition and the maximum number of partitions is bounded by the `partitionCount` setting in your `host.json`. This means the maximum number of orchestrator instances _executing code_ concurrently (this doesn't include suspended orchestrators) is equal to your number of partitions.
+While activity functions can be scaled out infinitely by adding more VMs elastically, orchestrators and entities are constrained to inhabit a single partition and the maximum number of partitions is bounded by the `partitionCount` setting in your `host.json`. 
 
 > [!NOTE]
 > Generally speaking, orchestrator functions are intended to be lightweight and should not require large amounts of computing power. It is therefore not necessary to create a large number of control queue partitions to get great throughput for orchestrations. Most of the heavy work should be done in stateless activity functions, which can be scaled out infinitely.
@@ -134,7 +134,7 @@ As traffic increases, more workers will get allocated and partitions will eventu
 
 ![First scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-2.png)
 
-Finally, as more orchestrations are started, they will continue to be load-balanced across partitions. Since orchestrators defer most of their computation to activities, it's unlikely many of them will need to execute at the same time. This is illustrated in our image below, where we represented inactive orchestrations in grey.
+Finally, as more orchestrations are started, they will continue to be load-balanced across partitions. Since orchestrators defer most of their computation to activities, it's unlikely many of them will need to execute at the same time. Since each worker will have only a single functions host instance when fully scaled-out, the maximum number of orchestrator instances _executing code_ concurrently (this doesn't include suspended orchestrators) is equal to your number of partitions _times_ your value for `maxConcurrentOrchestratorFunctions`. Our image below illustrates a fully scaled-out scenario where more orchestrators are added but some are inactive, shown in grey.
 
 ![Second scaled-out orchestrations diagram](./media/durable-functions-perf-and-scale/scale-progression-3.png)
 
