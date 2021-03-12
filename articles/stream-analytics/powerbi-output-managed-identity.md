@@ -2,8 +2,8 @@
 title: Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI output
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Power BI output.
 ms.service: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: enkrumah
+ms.author: ebnkruma
 ms.topic: how-to
 ms.date: 3/10/2020
 ---

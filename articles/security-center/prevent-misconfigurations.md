@@ -1,7 +1,6 @@
 ---
 title: How to prevent misconfigurations with Azure Security Center
 description: Learn how to use Security Center's 'Enforce' and 'Deny' options on the recommendations details pages
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center

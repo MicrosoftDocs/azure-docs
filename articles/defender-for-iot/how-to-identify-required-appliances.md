@@ -33,13 +33,13 @@ Defender for IoT supports both physical and virtual deployments.
 
 This section provides an overview of physical sensor models that are available. You can purchase sensors with preconfigured software or purchase sensors that are not preconfigured.
 
-| Deployment type | Corporate | Enterprise | SMB |
-|--|--|--|--|
-| Image | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="The corporate-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The enterprise-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The SMB-level model."::: |
-| Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 |
-| Monitoring ports | Up to 15 RJ45 or 8 OPT | Up to 8 RJ45 or 6 OPT | 4 RJ45 |
-| Maximum bandwidth [1](#anchortext) | 3 Gb per second | 1 Gb per second | 200 Mb per second |
-| Maximum protected devices | 30,000 | 15,000 | 1,000 |
+| Deployment type | Corporate | Enterprise | SMB rack mount| SMB ruggedized|
+|--|--|--|--|--|
+| Image | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="The corporate-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The enterprise-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="The SMB-level model."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="The SMB-ruggedized level model."::: |
+| Model | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
+| Monitoring ports | Up to 15 RJ45 or 8 OPT | Up to 8 RJ45 or 6 OPT | 4 RJ45 | Up to 5 |
+| Maximum bandwidth [1](#anchortext) | 3 Gb/sec | 1 Gb/sec | 200 Mb/Sec | 100 Mb/sec |
+| Maximum protected devices | 30,000 | 15,000 | 1,000 | 800 |
 
 See [Appliance specifications](#appliance-specifications) for vendor details.
 
@@ -190,6 +190,45 @@ This section describes hardware specifications for the following appliances:
 | 512485-B21 | HPE iLO Adv 1-Server License 1 Year Support | 1 |
 | 775612-B21 | HPE 1U Short Friction Rail Kit | 1 |
 
+## SMB Rugged: HPE Edgeline EL300
+
+| Component | Technical specifications |
+|--|--|
+| Construction | Aluminum, Fanless & Dust-proof Design |
+| Dimensions (height x width x depth) | 200.5mm (7.9”) tall, 232mm (9.14”) wide by 100mm (3.9”) deep |
+| Weight | 4.91 KG (10.83 lbs.) |
+| CPU | Intel Core i7-8650U (1.9GHz/4-core/15W) |
+| Chipset | Intel® Q170 Platform Controller Hub |
+| Memory | 8GB DDR4 2133MHz Wide Temperature SODIMM |
+| Storage | 128GB 3ME3 Wide Temperature mSATA SSD |
+| Network controller | 6x Gigabit Ethernet ports by Intel® I219 |
+| Device access  | 4 USBs: 2 fronts; 2 rears; 1 internal |
+| Power Adapter | 250V/10A |
+| Mounting | Mounting kit, Din Rail |
+| Operating Temperature | 0C to +70C  |
+| Humidity | 10%~90%, non-condensing |
+| Vibration | 0.3 grms 10Hz to 300Hz, 15 minutes per axis - Din rail   |
+| Shock | 10G 10ms, half-sine, three for each axis. (Both positive & negative pulse) – Din Rail |
+
+### Appliance BOM
+| Product | Description |
+|--|--|
+| P25828-B21 | HPE Edgeline EL300 v2 Converged Edge System |
+| P25828-B21 B19 | HPE EL300 v2 Converged Edge System |
+| P25833-B21 | Intel Core i7-8650U (1.9GHz/4-core/15W) FIO Basic Processor Kit for HPE Edgeline EL300 |
+| P09176-B21 | HPE Edgeline 8GB (1x8GB) Dual Rank x8 DDR4-2666 SODIMM WT CAS-19-19-19 Registered Memory FIO Kit |
+| P09188-B21 | HPE Edgeline 256GB SATA 6G Read Intensive M.2 2242 3yr Wty Wide Temp SSD |
+| P04054-B21 | HPE Edgeline EL300 SFF to M.2 Enablement Kit |
+| P08120-B21 | HPE Edgeline EL300 12VDC FIO Transfer Board |
+| P08641-B21 | HPE Edgeline EL300 80W 12VDC Power Supply |
+| AF564A | HPE C13 - SI-32 IL 250V 10Amp 1.83m Power Cord |
+| P25835-B21 | HPE EL300 v2 FIO Carrier Board |
+| R1P49AAE | HPE EL300 iSM Adv 3yr 24x7 Sup_Upd E-LTU |
+| P08018-B21 optional | HPE Edgeline EL300 Low Profile Bracket Kit  |
+| P08019-B21 optional | HPE Edgeline EL300 DIN Rail Mount Kit |
+| P08020-B21 optional | HPE Edgeline EL300 Wall Mount Kit |
+| P03456-B21 optional | HPE Edgeline 1GbE 4-port TSN FIO Daughter Card |
+
 ## Virtual appliance specifications
 
 ### Sensors
@@ -233,7 +272,7 @@ After you purchase the appliance, go to **Defender for IoT** > **Network Sensors
 
 | Component | Technical specifications |
 |--|--|
-| Chassis | 1U rack server |
+| Chassis | 1U rack server
 | Dimensions | 42.8 x 434.0 x 596 (mm) /1.67" x 17.09" x 23.5" (in) |
 | Weight | Max 29.98 lb/13.6 kg |
 | Processor | Intel Xeon E-2144G 3.6 GHz, 8M cache, 4C/8T, turbo (71 W) |
@@ -255,3 +294,4 @@ After you purchase the appliance, go to **Defender for IoT** > **Network Sensors
 [About Azure Defender for IoT installation](how-to-install-software.md)
 
 [About Azure Defender for IoT network setup](how-to-set-up-your-network.md)
+

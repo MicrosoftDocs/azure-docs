@@ -187,7 +187,7 @@ Now that you have created a FileStorage account and configured the networking, y
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell)
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
     
 1. Install the latest version of the PowershellGet module.
 
@@ -203,7 +203,7 @@ Now that you have created a FileStorage account and configured the networking, y
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.0.0&preserve-view=true)
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
    
 1. To create a premium file share with the Azure PowerShell module, use the [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet.
 

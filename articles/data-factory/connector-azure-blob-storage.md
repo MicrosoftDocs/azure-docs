@@ -224,7 +224,7 @@ These properties are supported for an Azure Blob storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
-| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/> When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
+| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering over the upper-right corner of the Azure portal. | Yes |
@@ -232,7 +232,9 @@ These properties are supported for an Azure Blob storage linked service:
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 >[!NOTE]
->If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), service principal authentication is not supported in Data Flow.
+>
+>- If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), service principal authentication is not supported in Data Flow.
+>- If you access the blob storage through private endpoint using Data Flow, note when service principal authentication is used Data Flow connects to the ADLS Gen2 endpoint instead of Blob endpoint. Make sure you create the corresponding private endpoint in ADF to enable access.
 
 >[!NOTE]
 >Service principal authentication is supported only by the "AzureBlobStorage" type linked service, not the previous "AzureStorage" type linked service.
@@ -284,11 +286,13 @@ These properties are supported for an Azure Blob storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureBlobStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Blob storage service endpoint with the pattern of `https://<accountName>.blob.core.windows.net/`. | Yes |
-| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/> When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
+| accountKind | Specify the kind of your storage account. Allowed values are: **Storage** (general purpose v1), **StorageV2** (general purpose v2), **BlobStorage**, or **BlockBlobStorage**. <br/><br/>When using Azure Blob linked service in data flow, managed identity or service principal authentication is not supported when account kind as empty or "Storage". Specify the proper account kind, choose a different authentication, or upgrade your storage account to general purpose v2. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | No |
 
 > [!NOTE]
-> If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), managed identity authentication is not supported in Data Flow.
+>
+> - If your blob account enables [soft delete](../storage/blobs/soft-delete-blob-overview.md), managed identity authentication is not supported in Data Flow.
+> - If you access the blob storage through private endpoint using Data Flow, note when managed identity authentication is used Data Flow connects to the ADLS Gen2 endpoint instead of Blob endpoint . Make sure you create the corresponding private endpoint in ADF to enable access.
 
 > [!NOTE]
 > Managed identities for Azure resource authentication are supported only by the "AzureBlobStorage" type linked service, not the previous "AzureStorage" type linked service.

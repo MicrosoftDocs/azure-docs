@@ -21,7 +21,7 @@ ms.author: inhenkel
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
-> Even though this tutorial uses [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event), or other supported [SDKs](media-services-apis-overview.md#sdks).
+> Even though this tutorial uses [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent) examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
 Azure Media Services lets you encode your media files into formats that play on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For help with encoding, see [Encoding concept](encoding-concept.md). This tutorial uploads a local video file and encodes the uploaded file. You can also encode content that you make accessible via an HTTPS URL. For more information, see [Create a job input from an HTTP(s) URL](job-input-from-http-how-to.md).
 

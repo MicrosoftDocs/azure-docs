@@ -191,6 +191,12 @@
         href: troubleshoot/workspaces-created-by-sdk.md
       - name: Troubleshoot reading UTF-8 text
         href: troubleshoot/reading-utf8-text.md
+- name: Migration guides
+  items:
+  - name: SQL Server to Azure Synapse Analytics
+    href: migration-guides/sql-server-to-synapse-analytics-guide.md
+  - name: Oracle to Azure Synapse Analytics
+    href: migration-guides/oracle-to-synapse-analytics-guide.md
 - name: Synapse SQL
   items:
   - name: Overview
@@ -346,15 +352,12 @@
         - name: Stored procedures
           href: sql/develop-stored-procedures.md
         - name: Transactions
-          href: sql/develop-transactions.md
-        - name: Transactions
           items:
-          - name: Serverless SQL pool
+          - name: Dedicated SQL pool transactions
+            href: sql/develop-transactions.md
+          - name: Dedicated SQL pool best practices transactions
             displayname: Transaction, best, practices
             href: sql/develop-transaction-best-practices.md
-          - name: Dedicated SQL pool
-            displayname: Transactions, best, practices
-            href: ./sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: User-defined schemas
           href: sql/develop-user-defined-schemas.md
         - name: Variable assignment
@@ -582,6 +585,8 @@
     items:
     - name: Apache Spark 
       href: ./spark/apache-spark-concepts.md
+    - name: Apache Spark pool configurations
+      href: ./spark/apache-spark-pool-configurations.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior
@@ -1162,6 +1167,8 @@
       href: ./machine-learning/tutorial-cognitive-services-sentiment.md
     - name: Anomaly detection with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
+    - name: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
+      href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts
