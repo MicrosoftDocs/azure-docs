@@ -217,6 +217,7 @@ The following table provides a brief description and the unique ID of each built
 > | [Management Group Reader](#management-group-reader) | Management Group Reader Role | ac63b705-f282-497d-ac71-919bf39d939d |
 > | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. | 5d28c62d-5b37-4476-8438-e587778df237 |
 > | [Policy Insights Data Writer (Preview)](#policy-insights-data-writer-preview) | Allows read access to resource policies and write access to resource component policy events. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
+> | [Quota Request Operator](#quota-request-operator) | Role with permissions to read and create quota requests, get quota request status, and create support tickets.| 797f4846-ba00-4fd7-ba43-dac1f8f63013 | 
 > | [Reservation Purchaser](#reservation-purchaser) | Lets you purchase reservations | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
 > | [Resource Policy Contributor](#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Site Recovery Contributor](#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
@@ -9873,6 +9874,73 @@ Allows read access to resource policies and write access to resource component p
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
+```
+
+### Quota Request Operator
+
+Role with permissions to read and create quota requests, get quota request status, and create support tickets. [Learn more](https://docs.microsoft.com/en-us/rest/api/reserved-vm-instances/quotaapi)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/read | Read the quota information. |
+> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations/serviceLimits/write | Create and update quota requests. |
+> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/resourceProviders/locations//serviceLimitsRequests/read | List the quota requests. |
+> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/register/action | Registers Capacity with the Microsoft.Capacity resource provider and enables the creation of Capacity resources.|
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/\*/read | Get information about roles and role assignments. |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+[
+  {
+    "ApplicationId": "797f4846-ba00-4fd7-ba43-dac1f8f63013",
+    "NormalizedName": "QUOTA REQUEST OPERATOR ROLE",
+    "NormalizedScopes": [
+      "/"
+    ],
+    "Version": 0,
+    "Description": "Role to read and create Quota Requests and get Quota Request Status.",
+    "Metadata": {
+      "CreatedBy": null,
+      "CreatedOn": "2021-02-03T00:06:35.8404575Z",
+      "UpdatedBy": null,
+      "UpdatedOn": "2021-02-03T00:06:35.8404575Z"
+    },
+    "IsBuiltIn": true,
+    "AdminSecurityClaim": "Microsoft.Capacity",
+    "Id": "0e5f05e59ab9446bb98d1e2157c94125",
+    "Name": "Quota Request Operator Role",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Capacity/resourceProviders/locations/serviceLimits/read",
+          "Microsoft.Capacity/resourceProviders/locations/serviceLimits/write",
+          "Microsoft.Capacity/resourceProviders/locations/serviceLimitsRequests/read",
+          "Microsoft.Capacity/register/action",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": []
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
 ```
 
 ### Reservation Purchaser
