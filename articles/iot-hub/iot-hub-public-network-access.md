@@ -6,7 +6,7 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 03/12/2021
 ---
 
 # Managing public network access for your IoT hub
