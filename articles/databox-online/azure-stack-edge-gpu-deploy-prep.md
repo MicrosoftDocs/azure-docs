@@ -87,26 +87,37 @@ Before you deploy a physical device, make sure that:
 
 Before you begin, make sure that:
 
-- The network in your datacenter is configured per the networking requirements for your Azure Stack Edge Pro device. For more information, see [Azure Stack Edge Pro System Requirements](azure-stack-edge-system-requirements.md).
+- The network in your datacenter is configured per the networking requirements for your Azure Stack Edge Pro device. For more information, see [Azure Stack Edge Pro System Requirements](azure-stack-edge-system-requirements.md). 
 
 - For normal operating conditions of your Azure Stack Edge Pro, you have:
 
     - A minimum of 10-Mbps download bandwidth to ensure the device stays updated.
     - A minimum of 20-Mbps dedicated upload and download bandwidth to transfer files.
 
-## Create a new resource
+## Create new resource for existing device
 
-If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
+Use the following procedure to create a new resource if you need to reset or replace an existing Azure Stack Edge Pro device.
+
+> [!IMPORTANT]
+> For all new Azure Stack Edge Pro devices, you need to order a resource using Azure Stack Edge Pro with GPU. For instructions, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep?tabs=azure-portal.md#create-a-new-resource). For more information about Azure Stack Edge Pro with GPU, see [What is Azure Stack Edge Pro with GPU?](https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-overview).
+
+<!--If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key). - No longer applicable?-->
 
 <!--### [Portal](#tab/azure-portal)-->
 
-To create an Azure Stack Edge resource, take the following steps in the Azure portal.
+To create a new resource for an existing Azure Stack Edge Pro device, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-2. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**. 
+2. In the left pane, select **+ Create a resource**. 
 
-3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
+   ![Create a resource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-01)
+
+3. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**.
+
+   ![Create a resource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-01)
+
+3. Pick the subscription that you want are using for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
 
     ![Create a resource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
