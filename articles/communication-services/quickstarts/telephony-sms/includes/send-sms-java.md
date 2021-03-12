@@ -7,7 +7,7 @@ manager: ankita
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
@@ -23,7 +23,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- A SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
+- An SMS enabled telephone number. [Get a phone number](../get-phone-number.md).
 
 ### Prerequisite check
 
@@ -76,11 +76,9 @@ Open **/src/main/java/com/communication/quickstart/App.java** in a text editor, 
 ```java
 package com.communication.quickstart;
 
-import com.azure.communication.sms.models.SmsSendOptions;
+import com.azure.communication.sms.models.*;
 import com.azure.core.credential.AzureKeyCredential;
-import com.azure.communication.sms.models.SmsSendResult;
-import com.azure.communication.sms.SmsClient;
-import com.azure.communication.sms.SmsClientBuilder;
+import com.azure.communication.sms.*;
 import com.azure.core.http.HttpClient;
 import com.azure.core.http.netty.NettyAsyncHttpClientBuilder;
 import com.azure.core.util.Context;
@@ -144,9 +142,9 @@ SmsClient smsClient = new SmsClientBuilder()
             .buildClient();
 ```
 
-## Send an 1:1 message
+## Send a 1:1 SMS message
 
-To send a SMS message to a list of recipients, call the `Send` method from the SmsClient with a list of recipient's phone numbers. You may also add pass in an options object to specify whether the delivery report should be enabled and set custom tags.
+To send an SMS message to a list of recipients, call the `send` method from the SmsClient with a single recipient phone number. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.
 
 ```java
 SmsSendResult sendResult = smsClient.send(
@@ -158,8 +156,8 @@ System.out.println("Message Id: " + sendResult.getMessageId());
 System.out.println("Recipient Number: " + sendResult.getTo());
 System.out.println("Send Result Successful:" + sendResult.isSuccessful());
 ```
-## Send a 1:N message with options
-To send a SMS message to a list of recipients, call the `send` function with a list of recipient phone numbers. You may also add pass in an options object to specify whether the delivery report should be enabled and set custom tags.
+## Send a 1:N SMS message with options
+To send an SMS message to a list of recipients, call the `send` method with a list of recipient phone numbers. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.
 ```java
 SmsSendOptions options = new SmsSendOptions();
 options.setDeliveryReportEnabled(true);
@@ -179,9 +177,13 @@ for (SmsSendResult result : sendResults) {
 }
 ```
 
-You should replace `<from-phone-number>` with a SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number or a list of phone numbers you wish to send a message to.
+You should replace `<from-phone-number>` with an SMS enabled phone number associated with your Communication Services resource and `<to-phone-number>` with the phone number or a list of phone numbers you wish to send a message to.
 
-The `enableDeliveryReport` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
+## Optional Parameters
+
+The `enable_delivery_report` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
+
+The `tag` parameter is an optional parameter that you can use to configure custom tagging.
 
 ## Run the code
 
