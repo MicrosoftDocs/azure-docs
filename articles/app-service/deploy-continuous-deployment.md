@@ -112,6 +112,8 @@ You can customize the GitHub Actions build provider in the following ways:
 
 #### Authenticate with a service principal
 
+This optional configuration replaces the default authentication with publishing profiles in the generated workflow file.
+
 1. Generate a service principal with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). In the following example, replace *\<subscription-id>*, *\<group-name>*, and *\<app-name>* with your own values:
 
     ```azurecli-interactive
