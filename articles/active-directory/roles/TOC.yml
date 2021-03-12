@@ -10,30 +10,14 @@
     href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concepts
   items:
+  - name: Understand Azure AD roles
+    href: concept-understand-roles.md
   - name: Compare roles
     items:
-    - name: Understand Azure AD roles
-      href: concept-understand-roles.md
     - name: Compare Azure and Azure AD roles    
       href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Microsoft 365 roles
       href: m365-workload-docs.md
-  - name: Built-in roles
-    items:
-    - name: Built-in roles
-      href: permissions-reference.md
-    - name: Least-privileged roles by task   
-      href: delegate-by-task.md
-    - name: Default user permissions    
-      href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-  - name: Custom role permissions
-    items:
-    - name: App registration permissions
-      href: custom-available-permissions.md
-    - name: Enterprise app permissions
-      href: custom-enterprise-app-permissions.md
-    - name: App consent permissions
-      href: custom-consent-permissions.md
   - name: Group-based role assignments
     href: groups-concept.md
   - name: Administrative units  
@@ -44,12 +28,6 @@
       href: security-planning.md
     - name: Create emergency accounts
       href: security-emergency-access.md
-  - name: Delegate
-    items:
-    - name: Delegate app admin role
-      href: delegate-app-roles.md
-    - name: My Staff delegation
-      href: my-staff-configure.md
 - name: How-to guides
   items:
   - name: List role definitions
@@ -96,6 +74,12 @@
       href: admin-units-add-manage-groups.md
     - name: Assign a role with scope
       href: admin-units-assign-roles.md
+  - name: Delegate
+    items:
+    - name: Delegate app admin role
+      href: delegate-app-roles.md
+    - name: My Staff delegation
+      href: my-staff-configure.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot roles assigned to groups
@@ -106,9 +90,22 @@
       href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Reference
   items:
-  - name: Graph API
-    href: /graph/api/overview
-  - name:  Azure AD PowerShell for Graph
-    href: /powershell/azure/active-directory/overview
+  - name: Built-in roles
+    href: permissions-reference.md
+  - name: Least-privileged roles by task   
+    href: delegate-by-task.md
+  - name: Default user permissions    
+    href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+  - name: Custom role permissions
+    items:
+    - name: App registration permissions
+      href: custom-available-permissions.md
+    - name: Enterprise app permissions
+      href: custom-enterprise-app-permissions.md
+    - name: App consent permissions
+      href: custom-consent-permissions.md
   - name: Azure AD service limits
-    href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context  - name: Graph API
+    href: /graph/api/overview
+  - name:  Azure AD PowerShell
+    href: /powershell/azure/active-directory/overview
