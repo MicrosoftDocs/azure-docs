@@ -115,13 +115,13 @@ Add the following code to the `main` method:
 
 ```java
 // You can find your endpoint and access key from your resource in the Azure Portal
- String endpoint =  "https://<resource-name>.communication.azure.com/";
- AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key-credential>");
+String endpoint =  "https://<resource-name>.communication.azure.com/";
+AzureKeyCredential azureKeyCredential = new AzureKeyCredential("<access-key-credential>");
 
 // Create an HttpClient builder of your choice and customize it
- HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
- SmsClient smsClient = new SmsClientBuilder()
+SmsClient smsClient = new SmsClientBuilder()
                 .endpoint(endpoint)
                 .credential(azureKeyCredential)
                 .httpClient(httpClient)
@@ -133,12 +133,12 @@ You can initialize the client with any custom HTTP client the implements the `co
 You can also provide the entire connection string using the connectionString() function instead of providing the endpoint and access key. 
 ```java
 // You can find your connection string from your resource in the Azure Portal
- String connectionString = "https://<resource-name>.communication.azure.com/;<access-key>";
+String connectionString = "https://<resource-name>.communication.azure.com/;<access-key>";
 
 // Create an HttpClient builder of your choice and customize it
- HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
+HttpClient httpClient = new NettyAsyncHttpClientBuilder().build();
 
- SmsClient smsClient = new SmsClientBuilder()
+SmsClient smsClient = new SmsClientBuilder()
             .connectionString(connectionString)
             .httpClient(httpClient)
             .buildClient();
