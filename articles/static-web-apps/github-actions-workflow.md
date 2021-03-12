@@ -147,7 +147,7 @@ The deployment always calls `npm install` before any custom command.
 
 | Command            | Description |
 |---------------------|-------------|
-| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:Azure` commands.  |
+| `app_build_command` | Defines a custom command to run during deployment of the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands.  |
 | `api_build_command` | Defines a custom command to run during deployment of the Azure Functions API application. |
 
 ## Route file location

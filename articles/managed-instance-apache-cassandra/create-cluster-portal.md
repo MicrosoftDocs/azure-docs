@@ -65,7 +65,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    ```
 
    > [!NOTE]
-   > The `assignee` and `role` values in the previous command are fixed service principle and role identifiers respectively.
+   > The `assignee` and `role` values in the previous command are fixed values, enter these values exactly as mentioned in the command. Not doing so will lead to errors when creating the cluster. If you encounter any errors when executing this command, you may not have permissions to run it, please reach out to your admin for permissions.
 
 1. Now that you are finished with networking, click **Review + create** > **Create**
 

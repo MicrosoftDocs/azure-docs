@@ -1884,6 +1884,8 @@
         href: trakopolis-tutorial.md
       - name: Trakstar
         href: trakstar-tutorial.md
+      - name: TransPerfect GlobalLink Dashboard
+        href: transperfect-globallink-dashboard-tutorial.md
       - name: Trelica
         href: trelica-tutorial.md
       - name: Trello
@@ -2140,7 +2142,9 @@
       - name: Bpanda
         href: bpanda-provisioning-tutorial.md
       - name: Brivo Onair Identity Connector
-        href: brivo-onair-identity-connector-provisioning-tutorial.md       
+        href: brivo-onair-identity-connector-provisioning-tutorial.md
+      - name: Britive
+        href: britive-provisioning-tutorial.md       
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
       - name: Cisco Webex
