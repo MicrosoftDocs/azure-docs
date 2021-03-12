@@ -107,15 +107,19 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > [!div renderon="docs"]
 >
 > Where:
-> - *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
-> - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
-> - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
->    - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
->    - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
->    - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
+> - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 >
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>    To find the value of **Application (client) ID**, go to the app's **Overview** page in the Azure portal.
+> - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, simply enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
+> - `Enter_the_Tenant_info_here` is set to one of the following options:
+>    - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, `contoso.microsoft.com`).
+>
+>    To find the value of the **Directory (tenant) ID**, go to the app registration's **Overview** page in the Azure portal.
+>    - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
+>    - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
+>
+>    To find the value of **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
+>
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
