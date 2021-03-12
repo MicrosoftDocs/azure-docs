@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: include 
-ms.date: 01/27/2021
+ms.date: 03/11/2021
 ---
 
 ## Sign in to Azure
