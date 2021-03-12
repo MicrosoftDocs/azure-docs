@@ -22,12 +22,18 @@ Install the [.NET Core SDK](https://dotnet.microsoft.com/download).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-Install a code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-
-- [Node.js](https://nodejs.org/en/download/), version 10.x
+Install a code editor, such as [Visual Studio Code](https://code.visualstudio.com/), and also the library [Node.js](https://nodejs.org/en/download/), version 10.x
 
    > [!NOTE]
    > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
+::: zone-end
+
+::: zone pivot="programming-language-java"
+Install a code editor, such as [Visual Studio Code](https://code.visualstudio.com/), and also the library [Java Developer Kit](https://www.azul.com/downloads/zulu/) and [Apache Maven](https://maven.apache.org).
+::: zone-end
+
+::: zone pivot="programming-language-python"
+Install a code editor, such as [Visual Studio Code](https://code.visualstudio.com/), and also the library [Python 3.6 or 3.7](https://www.python.org/downloads/).
 ::: zone-end
 
 Install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2.7.1505 or higher) to run Azure Function apps locally.
@@ -62,6 +68,14 @@ While the service is deploying, let's switch to working with code. Clone the [sa
 - Open the *src/chat/csharp* folder in the cloned repository.
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+- Open the *src/chat/java* folder in the cloned repository.
+::: zone-end
+
+::: zone pivot="programming-language-python"
+- Open the *src/chat/python* folder in the cloned repository.
+::: zone-end
+
 - Rename *local.settings.sample.json* to *local.settings.json*
 - In *local.settings.json*, paste the connection string into the value of the **AzureWebPubSubConnectionString** setting. Save the file.
 
@@ -89,6 +103,60 @@ While the service is deploying, let's switch to working with code. Clone the [sa
     - **messages** - Receives a chat message in the request body and uses the *Web PubSub* output binding to broadcast the message to all connected client applications.
 
 - In the terminal, ensure that you are in the *src/chat/javascript* folder. Run the function app.
+
+    ```bash
+    func start
+    ```
+::: zone-end
+
+::: zone pivot="programming-language-java"
+- The main file that contains the functions are in *src/chat/java/src/main/java/com/function/Functions.java*:
+
+    - **negotiate** - Uses the *WebPubSubConnectionInfo* input binding to generate and return valid connection information.
+    - **sendMessage** - Receives a chat message in the request body and uses the *Web PubSub* output binding to broadcast the message to all connected client applications.
+
+- In the terminal, ensure that you are in the *src/chat/java* folder. Build the function app.
+
+    ```bash
+    mvn clean package
+    ```
+
+- Run the function app locally.
+
+    ```bash
+    mvn azure-functions:run
+    ```
+::: zone-end
+
+::: zone pivot="programming-language-python"
+- To locally develop and test Python functions, you must work in a Python 3.6 or 3.7 environment. Run the following commands to create and activate a virtual environment named `.venv`.
+
+    **Linux or macOS:**
+
+    ```bash
+    python3.7 -m venv .venv
+    source .venv/bin/activate
+    ```
+
+    **Windows:**
+
+    ```powershell
+    py -3.7 -m venv .venv
+    .venv\scripts\activate
+    ```
+
+- Python functions are organized into folders. In each folder are two files: *function.json* defines the bindings that are used in the function, and *\_\_init\_\_.py* is the body of the function. There are two HTTP triggered functions in this function app:
+
+    - **negotiate** - Uses the *WebPubSubConnectionInfo* input binding to generate and return valid connection information.
+    - **messages** - Receives a chat message in the request body and uses the *Web PubSub* output binding to broadcast the message to all connected client applications.
+
+- In the terminal with the virtual environment activated, ensure that you are in the *src/chat/python* folder. Install the necessary Python packages using PIP.
+
+    ```bash
+    python -m pip install -r requirements.txt
+    ```
+
+- Run the function app.
 
     ```bash
     func start
