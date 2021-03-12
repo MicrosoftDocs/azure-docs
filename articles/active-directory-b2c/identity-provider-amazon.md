@@ -35,16 +35,16 @@ zone_pivot_groups: b2c-policy-type
 To enable sign-in for users with an Amazon account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Amazon Developer Services and Technologies](https://developer.amazon.com). For more information, see [Register for Login with Amazon](https://developer.amazon.com/docs/login-with-amazon/register-web.html). If you don't already have an Amazon account, you can sign up at [https://www.amazon.com/](https://www.amazon.com/).
 
 1. Sign in to the [Amazon Developer Console](https://developer.amazon.com/dashboard) with your Amazon account credentials.
-1. If you have not already done so, click **Sign Up**, follow the developer registration steps, and accept the policy.
+1. If you have not already done so, select **Sign Up**, follow the developer registration steps, and then accept the policy.
 1. From the Dashboard, select **Login with Amazon**.
 1. Select **Create a New Security Profile**.
-1. Enter a **Security Profile Name**, **Security Profile Description**, and **Consent Privacy Notice URL**, for example `https://www.contoso.com/privacy` The privacy notice URL is a page that you manage that provides privacy information to users. Then click **Save**.
-1. In the **Login with Amazon Configurations** section, select the **Security Profile Name** you created, click on the **Manage** icon and select **Web Settings**.
-1. In the **Web Settings** section, copy the values of **Client ID**. Select **Show Secret** to get the client secret and then copy it. You need both of them to configure an Amazon account as an identity provider in your tenant. **Client Secret** is an important security credential.
+1. Enter a **Security Profile Name**, **Security Profile Description**, and **Consent Privacy Notice URL**, for example `https://www.contoso.com/privacy` The privacy notice URL is a page you manage that provides privacy information to users. Then click **Save**.
+1. In the **Login with Amazon Configurations** section, select the **Security Profile Name** you created, select the **Manage** icon, and then select **Web Settings**.
+1. In the **Web Settings** section, copy the values of **Client ID**. Select **Show Secret** to get the client secret, and then copy it. You need both values to configure an Amazon account as an identity provider in your tenant. **Client Secret** is an important security credential.
 1. In the **Web Settings** section, select **Edit**. 
-    1. In **Allowed Origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your tenant. If you use [custom domain](custom-domain.md), enter `https://your-domain-name`.
-    1.  **Allowed Return URLs** , enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.  If you use [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.  Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
-1. Click **Save**.
+    1. In **Allowed Origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your tenant. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name`.
+    1.  **Allowed Return URLs** , enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.  If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`.  Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
+1. Select **Save**.
 
 ::: zone pivot="b2c-user-flow"
 
