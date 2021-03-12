@@ -140,6 +140,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 - Teams on Windows Virtual Desktop only supports one incoming video input at a time. This means that whenever someone tries to share their screen, their screen will appear instead of the meeting leader's screen.
 - Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.
 - The Teams app doesn't support HID buttons or LED controls with other devices.
+- New Meeting Experience (NME) is not currently supported in VDI environments.
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues)
 

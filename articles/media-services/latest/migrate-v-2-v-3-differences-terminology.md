@@ -1,10 +1,9 @@
 ---
-title: Terminology and entity changes between Azure Media Services v2 to v3 | Microsoft Docs
+title: Media Services v3 terminology and entity changes
 description: This article describes the terminology differences between Azure Media Services v2 to v3.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.devlang: multiple
 ms.topic: conceptual
@@ -69,7 +68,7 @@ Review the naming conventions that are applied to Media Services V3 resources. A
 | **Encoding** <!--new row --> |||
 | Encoding bit rates <!--new row --> | bit rates measured in kbps ex: 128 (kbps)| bits per second  ex: 128000 (bits/second)|
 | Encoding DRM FairPlay <!--new row --> | In Media Services V2, initialization vector (IV) can be specified. | In Media Services V3, the FairPlay IV cannot be specified.|
-| Premium encoder <!--new row --> | Premium encoder and Legacy Indexer| The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset) and the legacy [media analytics processors](https://docs.microsoft.com/azure/media-services/previous/legacy-components) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via V3. We added support for audio channel mapping to the Standard encoder.  See [Audio in the Media Services Encoding Swagger documentation](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | See encoding topics in [scenario based encoding](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
+| Premium encoder <!--new row --> | Premium encoder and Legacy Indexer| The [Premium Encoder](../previous/media-services-encode-asset.md) and the legacy [media analytics processors](../previous/legacy-components.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via V3. We added support for audio channel mapping to the Standard encoder.  See [Audio in the Media Services Encoding Swagger documentation](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json).  | See encoding topics in [scenario based encoding](migrate-v-2-v-3-migration-scenario-based-encoding.md) |
 | **Transforms and jobs** <!--new row -->|||
 | Job based processing HTTPS <!--new row --> |<!-- empty -->| For file-based Job processing, you can use a HTTPS URL as the input. You don't need to have content already stored in Azure, nor do you need to create Assets. |
 | ARM templates for jobs <!--new row --> | ARM templates didn't exist in V2. | A transform can be used to build reusable configurations, to create Azure Resource Manager templates, and isolate processing settings between multiple customers or tenants. |

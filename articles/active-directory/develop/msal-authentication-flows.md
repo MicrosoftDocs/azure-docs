@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/08/2020
+ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
 # Customer intent: As an application developer, I want to learn about the authentication flows supported by MSAL.
@@ -220,7 +220,7 @@ This means that one of the following is true:
 - You've provided a way for users to consent to the application; see [Requesting individual user consent](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - You've provided a way for the tenant admin to consent for the application; see [admin consent](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-The IWA flow is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps. On .NET Core you must provide the username to IWA, because .NET Core can't obtain usernames from the operating system.
+The IWA flow is enabled for .NET desktop, .NET Core, and Windows Universal Platform apps.
 
 For more information on consent, see [v2.0 permissions and consent](v2-permissions-and-consent.md).
 

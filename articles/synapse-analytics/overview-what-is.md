@@ -21,9 +21,8 @@ Enterprise analytics must work at massive scale on any kind of data, whether raw
 
 ### Industry-leading SQL
 
-* **Synapse SQL** is a distributed query system that enables enterprises to implement data warehousing and data virtualization 
-scenarios using standard and familiar T-SQL experiences. It also expands the capabilities of SQL to address streaming and machine learning scenarios.
-
+* **Synapse SQL** is a distributed query system for T-SQL that enables data warehousing and data virtualization 
+scenarios and extends T-SQL to address streaming and machine learning scenarios.
 * Synapse SQL offers both **serverless** and **dedicated** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
 * Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -61,13 +60,13 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 * Fine-grained access control on data and code
 * A single dashboard to monitor resources, usage, and users across SQL and Spark
 
-### Synapse Studio
+### Unified experience
 
-**Synapse Studio** is the web-native experience that ties everything together for data engineers, allowing them in one location to do every task they need to build a complete solution.
+**Synapse Studio** is the user experience that ties everything together for data engineers. It allows them to do every task they need to build a complete analytics solution.
 
-* Build an end-to-end analytics solution in one place: ingest, explore, prepare, orchestrate, visualize
-* Industry-leading productivity for data engineers writing SQL or Spark code: authoring, debugging, and performance optimization
-* Integrate with enterprise CI/CD processes
+* Key data engingeer tasks in one place: ingest, explore, prepare, orchestrate, visualize
+* Industry-leading productivity for writing SQL or Spark code: authoring, debugging, and performance optimization
+* Integrate with enterprise CI/CD process
 
 ## Engage with the Synapse engineering team
 

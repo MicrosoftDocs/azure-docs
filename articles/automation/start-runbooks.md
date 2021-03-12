@@ -16,7 +16,7 @@ The following table helps you determine the method to start a runbook in Azure A
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Call from command line with Windows PowerShell cmdlets.<br> <li>Can be included in automated feature with multiple steps.<br> <li>Request is authenticated with certificate or OAuth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state.<br> <li>Client required to support PowerShell cmdlets. |
 | [Azure Automation API](/rest/api/automation/) |<li>Most flexible method but also most complex.<br> <li>Call from any custom code that can make HTTP requests.<br> <li>Request authenticated with certificate, or Oauth user principal / service principal.<br> <li>Provide simple and complex parameter values. *If you're calling a Python runbook using the API, the JSON payload must be serialized.*<br> <li>Track job state. |
 | [Webhooks](automation-webhooks.md) |<li>Start runbook from single HTTP request.<br> <li>Authenticated with security token in URL.<br> <li>Client can't override parameter values specified when webhook created. Runbook can define single parameter that is populated with the HTTP request details.<br> <li>No ability to track job state through webhook URL. |
-| [Respond to Azure Alert](../azure-monitor/platform/alerts-overview.md) |<li>Start a runbook in response to Azure alert.<br> <li>Configure webhook for runbook and link to alert.<br> <li>Authenticated with security token in URL. |
+| [Respond to Azure Alert](../azure-monitor/alerts/alerts-overview.md) |<li>Start a runbook in response to Azure alert.<br> <li>Configure webhook for runbook and link to alert.<br> <li>Authenticated with security token in URL. |
 | [Schedule](./shared-resources/schedules.md) |<li>Automatically start runbook on hourly, daily, weekly, or monthly schedule.<br> <li>Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.<br> <li>Provide parameter values to be used with schedule. |
 | [From Another Runbook](automation-child-runbooks.md) |<li>Use a runbook as an activity in another runbook.<br> <li>Useful for functionality used by multiple runbooks.<br> <li>Provide parameter values to child runbook and use output in parent runbook. |
 
@@ -139,13 +139,13 @@ jsmith
 
 ## Start a runbook with PowerShell
 
-You can use the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) to start a runbook with Windows PowerShell. The following sample code starts a runbook called **Test-Runbook**.
+You can use the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) to start a runbook with Windows PowerShell. The following sample code starts a runbook called **Test-Runbook**.
 
 ```azurepowershell-interactive
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-`Start-AzAutomationRunbook` returns a job object that you can use to track status once the runbook is started. You can then use this job object with [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) to determine the status of the job and [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) to retrieve its output. The following example starts a runbook called **Test-Runbook**, waits until it has completed, and then displays its output.
+`Start-AzAutomationRunbook` returns a job object that you can use to track status once the runbook is started. You can then use this job object with [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob) to determine the status of the job and [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) to retrieve its output. The following example starts a runbook called **Test-Runbook**, waits until it has completed, and then displays its output.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"

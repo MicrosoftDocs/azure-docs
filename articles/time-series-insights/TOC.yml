@@ -176,11 +176,11 @@
   - name: Monitor data reference
     href: how-to-monitor-tsi-reference.md
   - name: Azure CLI
-    href: /cli/azure/ext/timeseriesinsights/timeseriesinsights?view=azure-cli-latest
+    href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/time-series-insights/toc.json&bc=/azure/time-series-insights/breadcrumb/toc.json
   - name: Customer data requests
     href: time-series-insights-customer-data-requests.md
   - name: Developer resources

@@ -52,11 +52,9 @@ The following distributions are supported out of the box from the Azure Gallery:
 ## Limitations and Constraints
 
 ### Supported VM instances
-Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs
+Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. 
 
-On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms and Ms/Mmsv2.
-
-For more information on VM instances, see [Linux VM sizes](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation. 
 
 ### Custom Images
 If you are using a custom image, and your image supports Accelerated Networking, please make sure to have the required drivers to work with Mellanox ConnectX-3 and ConnectX-4 Lx NICs on Azure.

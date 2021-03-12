@@ -54,7 +54,7 @@ In addition to the best practices above, we recommend that you implement the fol
 
 - Increase your IoT Hub or Event Hub data retention time to the maximum of 7 days.
 
-- Create environment alerts in the Azure portal. Alerts based on platform [metrics](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) allow you to validate end-to-end pipeline behavior. The instructions for creating and managing alerts are [here](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts). Suggested alert conditions:
+- Create environment alerts in the Azure portal. Alerts based on platform [metrics](./how-to-monitor-tsi-reference.md#metrics) allow you to validate end-to-end pipeline behavior. The instructions for creating and managing alerts are [here](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts). Suggested alert conditions:
 
   - IngressReceivedMessagesTimeLag is greater than 5 minutes
   - IngressReceivedBytes is 0

@@ -3,7 +3,7 @@ title: Troubleshoot common problem adding or removing an application to Azure Ac
 description: Troubleshoot the common problems people face when adding or removing an app to Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

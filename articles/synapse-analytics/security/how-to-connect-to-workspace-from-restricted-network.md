@@ -69,7 +69,7 @@ After the private link endpoint is created, you can access the sign-in page of t
 
 To access the resources inside your Azure Synapse Analytics Studio workspace resource, you need to create the following:
 
-- At least one private link endpoint with a **Dev** type of **Target sub-resource**.
+- At least one private link endpoint with a **Target sub-resource** type of **Dev**.
 - Two other optional private link endpoints with types of **Sql** or **SqlOnDemand**, depending on what resources in the workspace you want to access.
 
 Creating these is similar to how you create the endpoint in the previous step.  

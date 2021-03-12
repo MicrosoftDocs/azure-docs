@@ -29,7 +29,7 @@ Spatial queries are powered by the [Havok Physics](https://www.havok.com/product
 A *ray cast* is a spatial query where the runtime checks which objects are intersected by a ray, starting at a given position and pointing into a certain direction. As an optimization, a maximum ray distance is also given, to not search for objects that are too far away.
 
 ```cs
-async void CastRay(AzureSession session)
+async void CastRay(RenderingSession session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
     RayCast rayCast = new RayCast(new Double3(0, 0, 0), new Double3(0, 0, 1), 10);
@@ -37,8 +37,8 @@ async void CastRay(AzureSession session)
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy.ClosestHit;
 
-    RayCastHit[] hits = await session.Actions.RayCastQueryAsync(rayCast).AsTask();
-
+    RayCastQueryResult result = await session.Connection.RayCastQueryAsync(rayCast);
+    RayCastHit[] hits = result.Hits;
     if (hits.Length > 0)
     {
         var hitObject = hits[0].HitObject;
@@ -51,23 +51,23 @@ async void CastRay(AzureSession session)
 ```
 
 ```cpp
-void CastRay(ApiHandle<AzureSession> session)
+void CastRay(ApiHandle<RenderingSession> session)
 {
     // trace a line from the origin into the +z direction, over 10 units of distance.
     RayCast rayCast;
-    rayCast.StartPos = { 0, 0, 0 };
-    rayCast.EndPos = { 0, 0, 1 };
+    rayCast.StartPos = {0, 0, 0};
+    rayCast.EndPos = {0, 0, 1};
     rayCast.MaxHits = 10;
 
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy::ClosestHit;
 
-    ApiHandle<RaycastQueryAsync> castQuery = *session->Actions()->RayCastQueryAsync(rayCast);
-
-    castQuery->Completed([](const ApiHandle<RaycastQueryAsync>& async)
+    session->Connection()->RayCastQueryAsync(rayCast, [](Status status, ApiHandle<RayCastQueryResult> result)
+    {
+        if (status == Status::OK)
         {
             std::vector<RayCastHit> hits;
-            async->GetResult(hits);
+            result->GetHits(hits);
 
             if (hits.size() > 0)
             {
@@ -77,7 +77,8 @@ void CastRay(ApiHandle<AzureSession> session)
 
                 // do something with the hit information
             }
-        });
+        }
+    });
 }
 ```
 
@@ -110,8 +111,8 @@ A Hit has the following properties:
 
 ## API documentation
 
-* [C# RemoteManager.RayCastQueryAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.raycastqueryasync)
-* [C++ RemoteManager::RayCastQueryAsync()](/cpp/api/remote-rendering/remotemanager#raycastqueryasync)
+* [C# RenderingConnection.RayCastQueryAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.raycastqueryasync)
+* [C++ RenderingConnection::RayCastQueryAsync()](/cpp/api/remote-rendering/renderingconnection#raycastqueryasync)
 
 ## Next steps
 

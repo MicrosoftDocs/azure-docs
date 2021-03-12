@@ -1,21 +1,17 @@
 ---
-title: Use portal to upload, encode, and stream content  - Azure
+title: Use portal to upload, encode, and stream content
 description: This quickstart shows you how to use portal to upload, encode, and stream content with Azure Media Services.
 ms.topic: quickstart
 ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
- 
 ---
 # Quickstart: Upload, encode, and stream content with portal
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This quickstart shows you how to use the Azure portal to upload, encode, and stream content with Azure Media Services.
-
-> [!NOTE]
-> Make sure to review: [the Azure portal limitations for Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
   
 ## Overview
 

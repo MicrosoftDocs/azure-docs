@@ -56,7 +56,7 @@ Some of the metrics that you might want to monitor for your app are
 For more information, see:
 
 * [Monitor apps in Azure App Service](web-sites-monitor.md)
-* [Receive alert notifications](../azure-monitor/platform/alerts-overview.md)
+* [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md)
 
 <a name="collect"></a>
 

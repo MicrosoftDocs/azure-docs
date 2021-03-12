@@ -1,9 +1,6 @@
 ---
 title: Manage logs for an HDInsight cluster - Azure HDInsight 
 description: Determine the types, sizes, and retention policies for HDInsight activity log files.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive

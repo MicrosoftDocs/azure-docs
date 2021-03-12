@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 03/07/2021
 ms.author: duau
 
 ---
@@ -36,9 +36,9 @@ Check [pricing details](https://azure.microsoft.com/pricing/details/expressroute
 
 Yes, the ExpressRoute circuit bandwidth is duplex. For example, if you purchase a 200 mbps ExpressRoute circuit, you are procuring 200 mbps for ingress traffic and 200 mbps for egress traffic.
 
-### If I pay for an ExpressRoute circuit of a given bandwidth, does the VPN connection I purchase from my network service provider have to be the same speed?
+### If I pay for an ExpressRoute circuit of a given bandwidth, does the private connection I purchase from my network service provider have to be the same speed?
 
-No. You can purchase a VPN connection of any speed from your service provider. However, your connection to Azure is limited to the ExpressRoute circuit bandwidth that you purchase.
+No. You can purchase a private connection of any speed from your service provider. However, your connection to Azure is limited to the ExpressRoute circuit bandwidth that you purchase.
 
 ### If I pay for an ExpressRoute circuit of a given bandwidth, do I have the ability to use more than my procured bandwidth?
 
@@ -56,7 +56,7 @@ The ExpressRoute gateway will advertise the *Address Space(s)* of the Azure VNet
 
 ### How many prefixes can be advertised from a VNet to on-premises on ExpressRoute Private Peering?
 
-There is a maximum of 200 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 199 address spaces on a single VNet connected to an ExpressRoute circuit, all 199 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 150 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 151 prefixes to on-premises.
+There is a maximum of 1000 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 199 address spaces on a single VNet connected to an ExpressRoute circuit, all 199 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 150 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 151 prefixes to on-premises.
 
 ### What happens if I exceed the prefix limit on an ExpressRoute connection?
 
@@ -252,11 +252,15 @@ If you advertise default routes, we force traffic to services offered over Micro
 
 ### Can virtual networks linked to the same ExpressRoute circuit talk to each other?
 
-Yes. Virtual machines deployed in virtual networks connected to the same ExpressRoute circuit can communicate with each other. We recommend setting up [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) to facilitate this communication.
+Yes. Virtual machines deployed in virtual networks connected to the same ExpressRoute circuit can communicate with each other. We recommend setting up [virtual network peering](../virtual-network/virtual-network-peering-overview.md) to facilitate this communication.
 
-### Can I use site-to-site connectivity for virtual networks in conjunction with ExpressRoute?
+### Can I set up a site-to-site VPN connection to my virtual network in conjunction with ExpressRoute?
 
 Yes. ExpressRoute can coexist with site-to-site VPNs. See [Configure ExpressRoute and site-to-site coexisting connections](expressroute-howto-coexist-resource-manager.md).
+
+### How do I enable routing between my site-to-site VPN connection and my ExpressRoute?
+
+If you want to enable routing between your branch connected to Expressoute and your branch connected to a site-to-site VPN connection, you'll need to set up [Azure Route Server](../route-server/expressroute-vpn-support.md).
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 

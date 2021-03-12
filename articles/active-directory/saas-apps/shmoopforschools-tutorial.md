@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| role      | user.assignedroles |
 
 	> [!NOTE]
-	> Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+	> Shmoop for School supports two roles for users: **Teacher** and **Student**. Set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
 
 1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -140,7 +140,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Shmoop For Schools Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Shmoop For Schools tile in the My Apps, this will redirect to Shmoop For Schools Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Shmoop For Schools tile in the My Apps, this will redirect to Shmoop For Schools Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps

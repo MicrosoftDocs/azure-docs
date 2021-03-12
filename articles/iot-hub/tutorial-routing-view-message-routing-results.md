@@ -43,7 +43,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
    **Location**: Use your location. This tutorial uses **West US**.
 
-   **Log Analytics**: This toggle should be turned off.
+   **Enable Log Analytics**: This toggle should be turned off.
 
    ![The Create Logic App screen](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
@@ -146,6 +146,8 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
    **Dataset name**: Name of the dataset to be used in Power BI. This tutorial uses **contosodataset**. 
 
    **Table name**: Name of the table to be used in Power BI. This tutorial uses **contosotable**.
+
+  **Authentication mode**: Select the mode to use.
 
    Accept the defaults for the rest of the fields.
 
@@ -275,7 +277,7 @@ Sign in to your [Power BI](https://powerbi.microsoft.com/) account. Go to your w
 
 ### Use the Azure CLI to clean up resources
 
-To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
+To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command. `$resourceGroup` was set to **ContosoResources** back at the beginning of this tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

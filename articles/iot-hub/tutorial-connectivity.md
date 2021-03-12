@@ -56,15 +56,15 @@ A device must authenticate with your hub before it can exchange any data with th
 
 Sign in to the portal and navigate to your IoT hub. Then navigate to the **IoT Devices** tool:
 
-![IoT Devices tool](media/tutorial-connectivity/iot-devices-tool.png)
+:::image type="content" source="media/tutorial-connectivity/iot-devices-tool.png" alt-text="IoT Devices tool":::
 
-To register a new device, click **+ Add**, set **Device ID** to **MyTestDevice**, and click **Save**:
+To register a new device, click **+ New**, set **Device ID** to **MyTestDevice**, and click **Save**.
 
-![Add new device](media/tutorial-connectivity/add-device.png)
+:::image type="content" source="media/tutorial-connectivity/add-device.png" alt-text="Add new device":::
 
-To retrieve the connection string for **MyTestDevice**, click on it in the list of devices and then copy the **Connection string-primary key** value. The connection string includes the *shared access key* for the device.
+To retrieve the connection string for **MyTestDevice**, click on it in the list of devices and then copy the **Primary Connection String** value. The connection string includes the *shared access key* for the device.
 
-![Retrieve device connection string](media/tutorial-connectivity/copy-connection-string.png)
+:::image type="content" source="media/tutorial-connectivity/copy-connection-string.png" alt-text="Retrieve device connection string}":::
 
 To simulate **MyTestDevice** sending telemetry to your IoT hub, run the Node.js simulated device application you downloaded previously.
 
@@ -166,7 +166,7 @@ After a device connects, it typically tries to send telemetry to your IoT hub. T
 First, retrieve the current connection string for your simulated device using the following command:
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
+az iot hub device-identity connection-string show --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
 To run a simulated device that sends messages, navigate to the **iot-hub\Tutorials\ConnectivityTests** folder in the code you downloaded.
@@ -208,7 +208,7 @@ The simulated device prints a message to the console when it receives a direct m
 
 ![Simulated device receives direct method call](media/tutorial-connectivity/receive-method-call.png)
 
-When the simulated device successfully receives the direct method call, it sends an acknowledgement back to the hub:
+When the simulated device successfully receives the direct method call, it sends an acknowledgment back to the hub:
 
 ![Receive direct method acknowledgment](media/tutorial-connectivity/method-acknowledgement.png)
 

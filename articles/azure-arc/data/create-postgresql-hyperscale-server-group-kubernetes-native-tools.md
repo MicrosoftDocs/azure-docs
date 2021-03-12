@@ -39,14 +39,14 @@ data:
   password: <your base64 encoded password>
 kind: Secret
 metadata:
-  name: example-login-secret
+  name: pg1-login-secret
 type: Opaque
 ---
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: postgresql-12
 metadata:
   generation: 1
-  name: example
+  name: pg1
 spec:
   engine:
     extensions:
@@ -94,15 +94,15 @@ PowerShell
 Linux/macOS
 
 ```console
-echo '<your string to encode here>' | base64
+echo -n '<your string to encode here>' | base64
 
 #Example
-# echo 'example' | base64
+# echo -n 'example' | base64
 ```
 
 ### Customizing the name
 
-The template has a value of 'example' for the name attribute.  You can change this but it must be characters that follow the DNS naming standards.  You must also change the name of the secret to match.  For example, if you change the name of the PostgreSQL Hyperscale server group to 'postgres1', you must change the name of the secret from 'example-login-secret' to 'postgres1-login-secret'
+The template has a value of 'pg1' for the name attribute.  You can change this but it must be characters that follow the DNS naming standards.  You must also change the name of the secret to match.  For example, if you change the name of the PostgreSQL Hyperscale server group to 'pg2', you must change the name of the secret from 'pg1-login-secret' to 'pg2-login-secret'
 
 ### Customizing the engine version
 
@@ -147,10 +147,10 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 Creating the PostgreSQL Hyperscale server group will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 
 > [!NOTE]
->  The example commands below assume that you created a PostgreSQL Hyperscale server group named 'postgres1' and Kubernetes namespace with the name 'arc'.  If you used a different namespace/PostgreSQL Hyperscale server group name, you can replace 'arc' and 'postgres1' with your names.
+>  The example commands below assume that you created a PostgreSQL Hyperscale server group named 'pg1' and Kubernetes namespace with the name 'arc'.  If you used a different namespace/PostgreSQL Hyperscale server group name, you can replace 'arc' and 'pg1' with your names.
 
 ```console
-kubectl get postgresql-12/postgres1 --namespace arc
+kubectl get postgresql-12/pg1 --namespace arc
 ```
 
 ```console
@@ -163,7 +163,7 @@ You can also check on the creation status of any particular pod by running a com
 kubectl describe po/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/postgres1-0 --namespace arc
+#kubectl describe po/pg1-0 --namespace arc
 ```
 
 ## Troubleshooting creation problems

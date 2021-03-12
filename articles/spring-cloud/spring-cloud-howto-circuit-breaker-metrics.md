@@ -2,7 +2,7 @@
 title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics 
 description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics. 
 author:  MikeDodaro
-ms.author: brendanm
+ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
@@ -17,9 +17,9 @@ We use the [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-s
 
 ## Prerequisites
 
-* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights#enable-java-in-process-agent-for-application-insights). 
+* Enable Java In-Process agent from the [Java In-Process Agent for Application Insights guide](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights). 
 
-* Enable dimension collection for resilience4j metrics from the [Application Insights guide](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation).
+* Enable dimension collection for resilience4j metrics from the [Application Insights guide](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 * Install git, Maven, and Java, if not already in use by the development computer.
 
@@ -37,9 +37,9 @@ cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
 2. Create applications with endpoints
 
 ```azurecli
-az spring-cloud app create --name resilience4j --is-public \
+az spring-cloud app create --name resilience4j --assign-endpoint \
     -s ${asc-service-name} -g ${asc-resource-group}
-az spring-cloud app create --name reactive-resilience4j --is-public \
+az spring-cloud app create --name reactive-resilience4j --assign-endpoint \
     -s ${asc-service-name} -g ${asc-resource-group}
 ```
 
@@ -120,6 +120,6 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## See also
 
-* [Application insights](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-application-insights)
+* [Application insights](./spring-cloud-howto-application-insights.md)
 * [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
 * [Circuit breaker dashboard](spring-cloud-tutorial-circuit-breaker.md)

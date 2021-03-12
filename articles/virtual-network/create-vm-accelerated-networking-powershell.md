@@ -57,11 +57,9 @@ The following distributions are supported directly from the Azure Gallery:
 
 ### Supported VM instances
 
-Accelerated networking is supported on most general purpose and compute-optimized instance sizes with two or more virtual CPUs (vCPUs).  These supported series are: Dv2/DSv2 and F/Fs.
+Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. 
 
-On instances that support hyperthreading, accelerated networking is supported on VM instances with four or more vCPUs. Supported series are: D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms, and Ms/Mmsv2.
-
-For more information on VM instances, see [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation. 
 
 ### Custom images
 

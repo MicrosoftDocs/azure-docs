@@ -1,9 +1,6 @@
 ---
 title: 'Tutorial: ETL operations with Interactive Query - Azure HDInsight'
 description: Tutorial - Learn how to extract data from a raw CSV dataset. Transform it using Interactive Query on HDInsight. Then load the transformed data into Azure SQL Database by using Apache Sqoop.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc

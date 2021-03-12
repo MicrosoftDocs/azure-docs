@@ -81,18 +81,18 @@ A runbook requires appropriate [credentials](shared-resources/credentials.md) to
 
 ## Azure Monitor
 
-Azure Automation makes use of [Azure Monitor](../azure-monitor/overview.md) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md).
+Azure Automation makes use of [Azure Monitor](../azure-monitor/overview.md) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md).
 
 ### Log Analytics agent for Windows
 
-The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
+The [Log Analytics agent for Windows](../azure-monitor/agents/agent-windows.md) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
 
 >[!NOTE]
 >The Log Analytics agent for Windows was previously known as the Microsoft Monitoring Agent (MMA).
 
 ### Log Analytics agent for Linux
 
-The [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with a **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password.
+The [Log Analytics agent for Linux](../azure-monitor/agents/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with a **nxautomation** user account that allows execution of commands requiring root permissions, for example, on a Hybrid Runbook Worker. The **nxautomation** account is a system account that doesn't require a password.
 
 The **nxautomation** account with the corresponding sudo permissions must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker and the account is not present or doesn’t have the appropriate permissions, the installation fails.
 
@@ -108,7 +108,7 @@ The logs available for the Log Analytics agent and the **nxautomation** account 
 
 ## Runbook permissions
 
-A runbook needs permissions for authentication to Azure, through credentials. See [Manage Azure Automation Run As accounts](manage-runas-account.md).
+A runbook needs permissions for authentication to Azure, through credentials. See [Azure Automation authentication overview](automation-security-overview.md).
 
 ## Modules
 
@@ -135,6 +135,7 @@ The following table describes the statuses that are possible for a job. You can 
 
 | Status | Description |
 |:--- |:--- |
+| Activating |The job is being activated. |
 | Completed |The job completed successfully. |
 | Failed |A graphical or PowerShell Workflow runbook failed to compile. A PowerShell runbook failed to start or the job had an exception. See [Azure Automation runbook types](automation-runbook-types.md).|
 | Failed, waiting for resources |The job failed because it reached the [fair share](#fair-share) limit three times and started from the same checkpoint or from the start of the runbook each time. |

@@ -1,16 +1,12 @@
 ---
 title: Copy and transform data in Azure SQL Managed Instance
 description: Learn how to copy and transform data in Azure SQL Managed Instance by using Azure Data Factory.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
+ms.date: 03/12/2021
 ---
 
 # Copy and transform data in Azure SQL Managed Instance by using Azure Data Factory
@@ -760,7 +756,7 @@ More specifically:
         Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
         ```
 
-    - To use **Data Factory Managed Identity authentication**: 
+    - If you run Self-hosted Integration Runtime on Azure Virtual Machine, you can use **Managed Identity authentication** with Azure VM's identity: 
 
         1. Follow the same [prerequisites](#managed-identity) to create database user for the managed identity and grant the proper role in your database.
         2. In linked service, specify the ODBC connection string as below, and select **Anonymous** authentication as the connection string itself indicates`Authentication=ActiveDirectoryMsi`.

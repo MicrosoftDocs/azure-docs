@@ -34,7 +34,7 @@ To run this sample, you need:
 >
 > ### Option 1: Register and automatically configure your app, and then download the code sample
 >
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application, and then select **Register**.
 > 1. Follow the instructions in the portal's quickstart experience to download the automatically configured application code.
 >
@@ -44,7 +44,7 @@ To run this sample, you need:
 >
 > To register your application and manually add the app's registration information to it, follow these steps:
 >
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations**.
@@ -64,7 +64,7 @@ To run this sample, you need:
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
 >
-> To use the code sample in this quickstart, you need to:
+> To use the code sample in this quickstart:
 >
 > 1. Add reply URLs `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me`.
 > 1. Create a client secret.
@@ -157,7 +157,7 @@ To run the web application from an IDE, select run, and then go to the home page
 
 ##### Running the project from Tomcat
 
-If you want to deploy the web sample to Tomcat, you need to make a couple changes to the source code.
+If you want to deploy the web sample to Tomcat, make a couple changes to the source code.
 
 1. Open *ms-identity-java-webapp/pom.xml*.
     - Under `<name>msal-web-sample</name>`, add `<packaging>war</packaging>`.

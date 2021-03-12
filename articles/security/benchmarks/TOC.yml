@@ -77,7 +77,7 @@
   - name: Azure Bastion security baseline
     href: ../../bastion/security-baseline.md
   - name: Azure Bot Network security baseline
-    href: /azure/bot-service/security-baseline?view=azure-bot-service-4.0
+    href: /azure/bot-service/security-baseline
   - name: Azure Cache for Redis security baseline
     href: ../../azure-cache-for-redis/security-baseline.md
   - name: Azure Cognitive Search security baseline
@@ -192,12 +192,14 @@
     href: ../../iot-hub/security-baseline.md
   - name: Key Vault security baseline
     href: ../../key-vault/general/security-baseline.md
+  - name: Linux compute security baseline
+    href: ../../governance/policy/samples/guest-configuration-baseline-linux.md?toc=/azure/security/benchmarks/toc.json
   - name: Logic Apps security baseline
     href: ../../logic-apps/security-baseline.md
   - name: Microsoft Cloud App Security baseline
-    href: https://docs.microsoft.com/cloud-app-security/security-baseline
+    href: /cloud-app-security/security-baseline
   - name: Microsoft Defender for Identity security baseline
-    href: https://docs.microsoft.com/defender-for-identity/security-baseline
+    href: /defender-for-identity/security-baseline
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
   - name: Power BI baseline
@@ -230,3 +232,20 @@
     href: ../../virtual-wan/security-baseline.md
   - name: VPN Gateway security baseline
     href: ../../vpn-gateway/security-baseline.md
+  - name: Windows compute security baseline
+    href: ../../governance/policy/samples/guest-configuration-baseline-windows.md?toc=/azure/security/benchmarks/toc.json
+  - name: Windows Virtual Desktop security baseline
+    href: ../../virtual-desktop/security-baseline.md
+- name: Resources
+  items:
+  - name: Mapping between ASB and CIS Benchmark
+    href: v2-cis-benchmark.md
+  - name: Azure Security Fundamentals
+    href: ../fundamentals/index.yml
+  - name: Shared responsibility in the cloud
+    href: ../fundamentals/shared-responsibility.md
+  - name: Azure Security Center
+    href: ../../security-center/index.yml
+  - name: Azure Security Benchmark Foundation blueprint sample
+    href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md
+

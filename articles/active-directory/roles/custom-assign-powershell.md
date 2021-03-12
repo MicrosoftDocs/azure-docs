@@ -2,14 +2,14 @@
 title: Assign custom roles using Azure AD PowerShell - Azure AD | Microsoft Docs
 description: Manage members of an Azure AD administrator custom role with Azure AD PowerShell.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -29,16 +29,16 @@ Connect to your Azure AD organization using a global administrator account to as
 Install the Azure AD PowerShell module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview). Then import the Azure AD PowerShell preview module, using the following command:
 
 ``` PowerShell
-Import-Module AzureADPreview
+Import-Module -Name AzureADPreview
 ```
 
 To verify that the module is ready to use, match the version returned by the following command to the one listed here:
 
 ``` PowerShell
-Get-Module AzureADPreview
+Get-Module -Name AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
+  Binary     2.0.0.115    AzureADPreview               {Add-AzureADMSAdministrati...}
 ```
 
 Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, see the online reference documentation for [Azure AD preview module](https://www.powershellgallery.com/packages/AzureADPreview).

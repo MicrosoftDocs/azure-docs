@@ -19,7 +19,7 @@ Data Wrangling in Azure Data Factory allows you to do code-free agile data prepa
 
 Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your mash-ups, you'll be prompted with the following error message if a function isn't supported:
 
-`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
+`UserQuery : Expression.Error: The transformation logic is not supported as it requires dynamic access to rows of data, which cannot be scaled out.`
 
 Below is a list of supported Power Query M functions.
 
@@ -122,7 +122,7 @@ Keep and Remove Top, Keep Range (corresponding M functions,
 | Table.Distinct | Remove duplicate rows isn't supported. |
 | Table.RemoveLastN | Remove bottom rows isn't supported. |
 | Table.RowCount | Not supported, but can be achieved by adding a custom column containing the value 1, then aggregating that column with List.Sum. Table.Group is supported. | 
-| Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in wrangling data flow. |
+| Row level error handling | Row level error handling is currently not supported. For example, to filter out non-numeric values from a column, one approach would be to transform the text column to a number. Every cell which fails to transform will be in an error state and need to be filtered. This scenario isn't possible in scaled-out M. |
 | Table.Transpose | Not supported |
 | Table.Pivot | Not supported |
 
