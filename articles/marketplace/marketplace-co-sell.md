@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 3/08/2021
+ms.date: 3/12/2021
 ---
 
 # Co-sell with Microsoft sales teams and partners overview
@@ -28,7 +28,7 @@ A co-sell opportunity is any type of collaboration with Microsoft sales teams, M
 - **Co-sell with Microsoft sales teams** – Work with one or more Microsoft sales teams to actively fulfill customer needs. This can include selling your offers, Microsoft’s offers, or both. You and Microsoft sales teams can identify and share customer opportunities in which your solutions may be a good fit.
 - **Partner to Partner (P2P)** – Work with another Microsoft partner to actively solve a customer problem.
 - **Private deal** – Share what you are independently working on with Microsoft so it will be reflected in the Microsoft reporting system for analysis and forecasting.
-- **Solution Assessment (SA)** – Work with partners who are vetted by the solution assessments business team to access the technology needs of customers who are using or planning to use Microsoft technologies.
+- **Solution Assessment (SA)** – Work with partners who are vetted by the solution assessments business team to assess the technology needs of customers who are using or planning to use Microsoft technologies.
 
 ## Co-sell statuses
 
