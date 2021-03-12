@@ -721,7 +721,7 @@ async function analyze_example(client) {
   };
   const poller = await client.beginAnalyzeBatchActions(documents, actions, "en");
 
-	console.log(
+  console.log(
     `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
   );
   console.log(
