@@ -21,7 +21,7 @@ landingContent:
   # Card (optional)
   - title: Get started
     linkLists:
-    - linkListType: concept
+    - linkListType: overview
       links:
       - text: What is a Microsoft Customer Agreement?
         url: https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement
@@ -76,7 +76,7 @@ landingContent:
   # Card (optional)
   - title: Manage subscriptions
     linkLists:
-    - linkListType: overview
+    - linkListType: concept
       links:
       - text: What is a tenant?
         url: ../../active-directory/fundamentals/active-directory-whatis.md
