@@ -18,11 +18,11 @@ When published to the cloud, an Azure Static Web Apps site has many services tha
 - Azure Functions API
 - Authentication and authorization services
 
-These services must communicate with each other. Azure Static Web Apps handles this for you.
+These services must communicate with each other, and Azure Static Web Apps handles this integration for you in the cloud.
 
 Running locally, however, these services aren't automatically tied together.
 
-To provide the same  experience you get in Azure, the [Azure Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) provides direct access your local Azure Functions API, and a local mock authentication and authorization server.
+To provide the same experience you get in Azure, the [Azure Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) provides direct access your local Azure Functions API, and a local mock authentication and authorization server.
 
 ## How it works
 
@@ -48,7 +48,6 @@ The following chart shows how requests are handled locally.
 - **[Visual Studio Code](https://code.visualstudio.com/)**: Debugs the API application.
 - **Existing Azure Static Web Apps site**: If you don't have one, begin with the [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) starter app.
 - **[Node.js](https://nodejs.org) with npm**: Run the [Node.js LTS](https://nodejs.org) version, which includes access to [npm](https://www.npmjs.com/).
-  - _Required_ even if you're developing Blazor apps.
 
 ## Get started
 
@@ -75,7 +74,13 @@ For instance, when you try to navigate to `/.auth/login/github`, a page is retur
 
 :::image type="content" source="media/local-development/auth-emulator.png" alt-text="Local authentication and authorization emulator":::
 
-The emulator provides a page allowing you to provide an account username, user ID, and a list of roles.
+The emulator provides a page allowing you to provide the following [client principal](./user-information.md#client-principal-data) values:
+
+| Value | Description |
+| --- | --- |
+| **Username** | The account name associated with the security provider. |
+| **User ID** | Any alpha numeric value to act as the Azure Static Web Apps unique identifier. |
+| **Roles**| A list of role names, where each name is on a new line.  |
 
 Once logged in:
 
@@ -89,7 +94,7 @@ There are two debugging contexts in a static web app. The first is for the stati
 
 The following steps show you a common scenario that uses development servers for both debugging contexts.
 
-1. Start the static site development server. This command is specific to the front-end framework you are using, but often comes in the form of commands like `npm run build`, `npm start`, or `npm run dev`.
+1. Start the static site development server. This command is specific to the front-end framework you're using, but often comes in the form of commands like `npm run build`, `npm start`, or `npm run dev`.
 
 1. Open the API application folder in Visual Studio Code and start a debugging session.
 
@@ -113,7 +118,7 @@ The Static Web Apps CLI is launched using both development servers.
 
 Now requests that go through port `4280` are routed to either the static content development server, or the API debugging session.
 
-For more details on additional debugging scenarios, and how to customize ports and server addresses, see the [Azure Static Web Apps CLI repository](https://github.com/Azure/static-web-apps-cli).
+For more information on different debugging scenarios, with guidance on how to customize ports and server addresses, see the [Azure Static Web Apps CLI repository](https://github.com/Azure/static-web-apps-cli).
 
 ## Next steps
 
