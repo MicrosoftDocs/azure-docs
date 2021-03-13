@@ -22,6 +22,14 @@ the link in the **Version** column to view the source on the
 
 [!INCLUDE [azure-policy-reference-service-storage](../../../includes/policy/reference/byrp/microsoft.storage.md)]
 
+## Microsoft.StorageCache
+
+[!INCLUDE [azure-policy-reference-service-storagecache](../../../includes/policy/reference/byrp/microsoft.storagecache.md)]
+
+## Microsoft.StorageSync
+
+[!INCLUDE [azure-policy-reference-service-storagesync](../../../includes/policy/reference/byrp/microsoft.storagesync.md)]
+
 ## Microsoft.ClassicStorage
 
 [!INCLUDE [azure-policy-reference-service-storageclassic](../../../includes/policy/reference/byrp/microsoft.classicstorage.md)]
