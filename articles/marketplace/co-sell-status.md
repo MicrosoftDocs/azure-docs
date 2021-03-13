@@ -27,7 +27,7 @@ The following table shows all possible co-sell statuses. To learn about the requ
 | ------------ | ------------- |
 | Not co-sell ready | The minimum [requirements for Co-sell ready status](co-sell-requirements.md#requirements-for-co-sell-ready-status) have not been met. |
 | Co-sell ready | All [requirements for Co-sell ready status](co-sell-requirements.md#requirements-for-co-sell-ready-status) have been met. |
-| Azure IP Co-sell incentivized | Co-sell ready requirements have been met in addition to [these additional requirements](co-sell-requirements.md#requirements-for-ip-co-sell-incentivized-status). |
+| Azure IP Co-sell incentivized | Co-sell ready requirements have been met in addition to [these additional requirements](co-sell-requirements.md#requirements-for-azure-ip-co-sell-incentivized-status). |
 | Biz Apps ISV Connect Premium incentive  | This status applies to Dynamics 365 and Power Apps offers and indicates that all [requirements for this status](co-sell-requirements.md#requirements-for-biz-apps-isv-connect-premium-incentive-status) have been met. |
 |||
 
