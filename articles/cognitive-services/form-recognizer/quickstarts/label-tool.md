@@ -186,7 +186,7 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
 ### [v2.0](#tab/v2-1)  
 
 1. First, use the tags editor pane to create the tags you'd like to identify.
-   1. Select ➕ to create a new tag.
+   1. Select **+** to create a new tag.
    1. Enter the tag name.
    1. Press Enter to save the tag.
 1. In the main editor, select words from the highlighted text elements or a region you drew in.
@@ -207,7 +207,7 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
 ### [v2.0](#tab/v2-0)
 
 1. First, use the tags editor pane to create the tags you'd like to identify.
-   1. Select ➕ to create a new tag.
+   1. Select **+** to create a new tag.
    1. Enter the tag name.
    1. Press Enter to save the tag.
 1. In the main editor, select words from the highlighted text elements.

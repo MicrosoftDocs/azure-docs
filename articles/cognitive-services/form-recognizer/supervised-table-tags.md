@@ -1,5 +1,5 @@
 ---
-title: "How to se table tags to train your custom Form model - Form Recognizer"
+title: "How to use table tags to train your custom form model - Form Recognizer"
 titleSuffix: Azure Cognitive Services
 description: Learn how to effectively use supervised table tag labeling.
 author: laujan

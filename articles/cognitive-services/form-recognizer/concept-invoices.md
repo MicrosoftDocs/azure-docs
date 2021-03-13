@@ -69,7 +69,7 @@ The JSON output has 3 parts:
 
 ## Example output
 
-The Invoice service will extract the text, tables and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the output below uses this [sample invoice](./media/sample-invoice.jpg)
+The Invoice service will extract the text, tables and 26 invoice fields. Following are the fields extracted from an invoice in the JSON output response (the output below uses this [sample invoice](media/sample-invoice.jpg)).
 
 |Name| Type | Description | Text | Value (standardized output) |
 |:-----|:----|:----|:----| :----|

@@ -47,6 +47,8 @@ To try out the Form Recognizer Service, go to the online Sample UI Tool:
 
 ### [v2.0](#tab/v2-0)
 
+> [!div class="nextstepaction"]
+> [Try Form Recognizer](https://fott.azurewebsites.net/)
 ---
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
@@ -168,7 +170,7 @@ Explore the [REST API reference documentation](https://westus.dev.cognitive.micr
 
 ## Deploy on premises using Docker containers
 
-[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security, or other operational reasons. (Form Recognizer 2.1 container release coming soon—stay tuned)
+[Use Form Recognizer containers (preview)](form-recognizer-container-howto.md) to deploy API features on-premises. This Docker container enables you to bring the service closer to your data for compliance, security, or other operational reasons.
 
 ## Service availability and redundancy
 
@@ -186,7 +188,7 @@ As with all the cognitive services, developers using the Form Recognizer service
 
 ## Next steps
 
-Complete the following: 
+Try our online tool and quickstart to learn more about the Form Recognizer service.
 
-1. [Form Recognizer tool] (https://fott-preview.microsoft.com/) to try our Form Recognizer service
-2. [client library and REST API quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
+* [**Form Recognizer tool**](https://fott-preview.microsoft.com/)
+* [**Client library and REST API quickstart**](quickstarts/client-library.md)

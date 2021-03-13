@@ -23,23 +23,23 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 - **New prebuilt ID model** The new prebuilt ID model enables customers to take IDs and return structured data to automate processing. It combines our powerful Optical Character Recognition (OCR) capabilities with ID understanding models to extract key information from passports and U.S. driver licenses, such as name, date of birth, issue date, expiration date, and more.
 
- > [Learn more about the prebuilt ID model](concept-identification-cards.md)
+  [Learn more about the prebuilt ID model](concept-identification-cards.md)
 
- :::image type="content" source="./media/id-canpassport-example.png" alt-text="passport example" lightbox="./media/id-canpassport-example.png":::
+   :::image type="content" source="./media/id-canada-passport-example.png" alt-text="passport example" lightbox="./media/id-canada-passport-example.png":::
 
 - **Line-item extraction for prebuilt invoice model** - Prebuilt Invoice model now supports line item extraction; it now extracts full items and their parts - description, amount, quantity, product ID, date and more. With a simple API/SDK call you can extract useful data from your invoices - text, table, key-value pairs, and line items.
 
- > [Learn more about the prebuilt invoice model](concept-invoices.md)
+   [Learn more about the prebuilt invoice model](concept-invoices.md)
 
 - **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model will extract line items as part of the JSON output in the documentResults section.
 
- :::image type="content" source="./media/table-labeling.png" alt-text="Table labeling" lightbox="./media/table-labeling.png":::
+    :::image type="content" source="./media/table-labeling.png" alt-text="Table labeling" lightbox="./media/table-labeling.png":::
 
- In addition to labeling tables, you and now label empty values and regions; if some documents in your training set do not have values for certain fields, you can use this so that your model will know to extract values properly  from analyzed documents.
+    In addition to labeling tables, you and now label empty values and regions; if some documents in your training set do not have values for certain fields, you can use this so that your model will know to extract values properly  from analyzed documents.
 
 - **Support for 66 new languages** - Form Recognizer's Layout API and Custom Models now support 73 languages.
 
- > [Learn more about Form Recognizer's language support](language-support.md)
+  [Learn more about Form Recognizer's language support](language-support.md)
 
 - **Natural reading order, handwriting classification, and page selection** - With this update, you can choose to get the text line outputs in the natural reading order instead of the default left-to-right and to-to-bottom ordering. Use the new readingOrder query parameter and set it to "natural" value for a more human-friendly reading order output. In addition, for Latin languages, Form Recognizer will classify text lines as handwritten style or not and give a confidence score.
 

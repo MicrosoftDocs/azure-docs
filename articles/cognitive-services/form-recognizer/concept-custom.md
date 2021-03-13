@@ -1,5 +1,5 @@
 ---
-title: Custom Models - Form Recognizer
+title: Custom models - Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to Form Recognizer API custom models- usage and limits.
 services: cognitive-services
