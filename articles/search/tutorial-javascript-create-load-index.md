@@ -17,47 +17,34 @@ Continue to build your Search-enabled website. Import data into a new Azure Cogn
 
 ## Create an Azure Search resource 
 
-Create a new Search resource with the Azure CLI.  
+Create a new Search resource with the [Azure Cognitive Search](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) extension for Visual Studio Code.
 
-1. Login to the Azure CLI with the following command: 
+1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
 
-    ```bash
-    az login
-    ```
+1. In the Side bar, right-click on your Azure subscription under the **Azure: Cognitive Search** area and select **Create new search service**.
 
-1. Run the Azure command, [az search service create](/cli/azure/search/service#az_search_service_create), to create a Search resource, filling in your own values:
+    :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource.png" alt-text="In the Side bar, right-click on your Azure subscription under the **Azure: Cognitive Search** area and select **Create new search service**.":::
 
-    ```azurecli
-    az search service create \
-        --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
-        --resource-group YOUR-RESOURCE-GROUP \
-        --name YOUR-RESOURCE_NAME \
-        --location westus \
-        --sku Standard
-    ```
+1. Follow the prompts to provide the following information:
 
-1. Keep the value of `YOUR-RESOURCE_NAME`, you will use this later in the tutorial. 
+    |Prompt|Enter|
+    |--|--|
+    |Enter a globally unique name for the new Search Service.|This resource name becomes part of your resource endpoint.|
+    |Select a resource group for new resources|Create a new resource group. Deleting all resources created in this tutorial is easy if they are all in a single resource group.|
+    |Select the SKU for your search service.|Select **Free** for this tutorial. You can't change a SKU pricing tier after the service is created.|
+    |Select a location for new resources.|Select a region close to you.|
 
-## Get your resource key
+1. Once the prompts complete, the Search resource is created. 
 
-Get your Search resource key with the Azure CLI.  
+## Get your Search resource admin key
 
-1. Login to the Azure CLI with the following command: 
+Get your Search resource admin key with the Visual Studio Code extension. 
 
-    ```bash
-    az login
-    ```
+1. In the Side bar, right-click on your Search resource and select **Copy Admin Key**.
 
-1. Run the Azure command, [az search service create](/cli/azure/search/admin-key#az_search_admin_key_show), filling in your own values, to get an **admin key**:
+    :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-copy-admin-key.png" alt-text="In the Side bar, right-click on your Search resource and select **Copy Admin Key**.":::
 
-    ```azurecli
-    az search admin-key show \
-        --subscription YOUR-SUBSCRIPTION-ID-OR-NAME \
-        --resource-group YOUR-RESOURCE-GROUP \
-        --name YOUR-RESOURCE_NAME \
-        --location westus \
-        --sku Standard
-    ```
+1. Keep this admin key, you will need to use it in the next section. The admin key is able to create/delete indexes. 
 
 ## Load the book catalog into an Index
 
@@ -83,6 +70,8 @@ In Visual Studio Code, create a new file, `books.schema.json` and copy the data 
 The schema file defines how the data is stored in the Search Index and determines what functionality is provided with the index.
 
 When you examine the `bulk_insert_books.js` code file below, you can see in the insertData function's loop that each value is either passed directly or altered to better fit the datatype defined in the schema file. 
+
+:::code language="json" source="~/js-e2e/search/bulk-insert-books-from-csv/bulk_insert_books.js" highlight="6,7" :::
 
 ## Create the bulk import script
 
@@ -124,14 +113,9 @@ Once the upload completes, the Search Index is ready to use. Review your new Ind
  
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
 
-## Copy your Search index information before moving to next step
+## Copy your Search resource name
 
-Copy these settings, you will need to use them so the Function app can connect to the Search Index
-
-```json
-"SearchServiceName": "YOUR-RESOURCE-NAME",
-"SearchApiKey": "YOUR-RESOURCE-KEY",
-```
+Note your **Search resource name**. You will need this to connect the Azure Function app to your Search resource. You could also use your Search admin key in the Azure Function but that isn't following the principle of least privilege. The Azure Function will use the query key instead to conform to least privilege. 
 
 ## Next steps
 

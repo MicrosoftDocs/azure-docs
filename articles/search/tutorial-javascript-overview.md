@@ -54,7 +54,6 @@ Install the following for your local development environment.
 - [Visual Studio Code](https://code.visualstudio.com/) and the following extensions
     - [Azure Cognitive Search](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
     - [Azure Static web apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
-- [Azure CLI](/cli/azure/install-azure-cli)
 
 
 ## Download the sample app
