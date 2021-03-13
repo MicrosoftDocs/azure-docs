@@ -21,11 +21,11 @@ Use the following steps to enable the alerts in Azure Monitor from the Azure por
 
 Select **SQL (preview)** from the **Insights** section of the Azure Monitor menu in the Azure portal. Click **Alerts**
 
-:::image type="content" source="media/sql-insights-alerts/alert-button.png" alt-text="Alerts button":::
+:::image type="content" source="media/sql-insights-alerts/alerts-button.png" alt-text="Alerts button":::
 
 The **Alerts** pane opens on the right side of the page. By default, it will display fired alerts for SQL resources in the selected monitoring profile based on the alert rules you've already created. Select **Alert templates**, which will display the list of available templates you can use to create an alert rule.
 
-:::image type="content" source="media/sql-insights-alerts/alerts-templates.png" alt-text="Alert templates":::
+:::image type="content" source="media/sql-insights-alerts/alert-templates.png" alt-text="Alert templates":::
 
 On the **Create Alert rule** page, review the default settings for the rule and edit them as needed. You can also select an [action group](../alerts/action-groups.md) to create notifications and actions when the alert rule is triggered. Click **Enable alert rule** to create the alert rule once you've verified all of its properties.
 
