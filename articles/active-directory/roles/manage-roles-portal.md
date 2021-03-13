@@ -31,6 +31,8 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 1. Select a role to see its assignments.
 
+    To help you find the role you need, Azure AD can show you subsets of the roles based on role categories. Check out the **Type** filter to show you only the roles in the selected type.
+
 1. Select **Add assignments** and then select the users you want to assign to this role.
 
     If you see something different from the following picture, read the Note in [Privileged Identity Management (PIM)](#privileged-identity-management-pim) to verify whether you are using PIM.
@@ -41,7 +43,7 @@ You can now see and manage all the members of the administrator roles in the Azu
 
 ## Privileged Identity Management (PIM)
 
-You can select **Manage in PIM** for additional management capabilities. Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have Privileged Identity Management, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license plan](../privileged-identity-management/subscription-requirements.md).
+You can select **Manage in PIM** for additional management capabilities using [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md). Privileged Role Administrators can change “Permanent” (always active in the role) assignments to “Eligible” (in the role only when elevated). If you don't have Privileged Identity Management, you can still select **Manage in PIM** to sign up for a trial. Privileged Identity Management requires an [Azure AD Premium P2 license plan](../privileged-identity-management/subscription-requirements.md).
 
 ![Screenshot that shows the "User administrator - Assignments" page with the "Manage in PIM" action selected](./media/manage-roles-portal/member-list-pim.png)
 
