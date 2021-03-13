@@ -199,8 +199,8 @@ For more information about your logic app resource definition, see [Overview: Au
 
   | Name | Limit | Notes |
   |------|-------|-------|
-  | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
-  | Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month | |
+  | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month |
+  | Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month |
   | Maximum scale units that you can add | 10 | |
   ||||
 
@@ -240,11 +240,11 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 #### Character limits
 
-| Name | Notes |
-|------|-------|
+| Name | Limit | Notes |
+|------|-------|-------|
 | Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
-| Request URL character limit | 16,384 characters |
-|||
+| Request URL character limit | 16,384 characters | |
+||||
 
 <a name="retry-policy-limits"></a>
 
