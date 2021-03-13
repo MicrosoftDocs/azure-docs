@@ -13,8 +13,7 @@ ms.date: 12/08/2020
 
    :::image type="content" source="../media/expressroute-global-reach/start-request-auth-key.png" alt-text="Copy the authorization key. If there isn't an authorization key, you need to create one, select + Request an authorization key." border="true" lightbox="../media/expressroute-global-reach/start-request-auth-key.png":::
 
-1. Navigate to the Virtual Network Gateway you created
-in the previous step and under **Settings**, select **Connections**. On the **Connections** page, select **+ Add**.
+1. Navigate to the Virtual Network Gateway you created in the previous step and under **Settings**, select **Connections**. On the **Connections** page, select **+ Add**.
 
 1. On the **Add connection** page, provide values for the fields, and select **OK**. 
 
