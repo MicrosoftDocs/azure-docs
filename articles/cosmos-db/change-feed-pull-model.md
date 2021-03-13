@@ -60,19 +60,19 @@ The `FeedIterator` comes in two flavors. In addition to the examples below that 
 Here's an example for obtaining a `FeedIterator` that returns entity objects, in this case a `User` object:
 
 ```csharp
-FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning());
+FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 ```
 
 Here's an example for obtaining a `FeedIterator` that returns a `Stream`:
 
 ```csharp
-FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Beginning());
+FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 ```
 
 If you don't supply a `FeedRange` to a `FeedIterator`, you can process an entire container's change feed at your own pace. Here's an example which starts reading all changes starting at the current time:
 
 ```csharp
-FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedMode.Incremental, ChangeFeedStartFrom.Now());
+FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Now(), ChangeFeedMode.Incremental);
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
