@@ -690,8 +690,10 @@ In next section, you can find the typical set of failover tests to execute.
 
 Be aware of the second virtual IP behavior, while testing a HANA cluster configured with read-enabled secondary:
 
-1. When testing a server crash, the second virtual IP resources (**rsc_secip_HN1_HDB03**) and azure load balancer port resource (**rsc_secnc_HN1_HDB03**) will run on primary server alongside the primary virtual IP resources.  So while the secondary server is down, application that are connected to read-enabled HANA database will connect to primary HANA database. The behavior is expected as you do not want applications that are connected to read-enabled HANA database to be inaccessible while the secondary server is unavailable.  
+1. When testing a server crash, the second virtual IP resources (**rsc_secip_HN1_HDB03**) and azure load balancer port resource (**rsc_secnc_HN1_HDB03**) will run on primary server alongside the primary virtual IP resources.  So while the secondary server is down, application that are connected to read-enabled HANA database will connect to primary HANA database. The behavior is expected as you do not want applications that are connected to read-enabled HANA database to be inaccessible while the secondary server is unavailable.
+  
 2. When the secondary server is available and the cluster services are online, the second virtual IP and port resources will automatically move to the secondary server, even though HANA system replication is not registered as secondary. You need to make sure that you register secondary HANA database as read enabled before you start cluster services on that server. You can configure the cluster to automatically register the secondary by setting parameter AUTOMATED_REGISTER=true.       
+
 3. During failover and fallback, the existing connections for applications, using the second virtual IP to connect to HANA database may be interrupted.  
 
 ## Test the cluster setup
