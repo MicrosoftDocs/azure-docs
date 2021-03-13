@@ -5,8 +5,8 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-
 ---
+
 # Azure Functions networking options
 
 This article describes the networking features available across the hosting options for Azure Functions. All the following networking options give you some ability to access resources without using internet-routable addresses or to restrict internet access to a function app.
@@ -84,31 +84,7 @@ To learn more, see [Virtual network service endpoints](../virtual-network/virtua
 
 When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoint. 
 
-> [!NOTE]  
-> This feature currently works for all Windows virtual network-supported SKUs in the Dedicated (App Service) plan and for Premium plans. Consumption plan isn't supported. 
-
-To set up a function with a storage account restricted to a private network:
-
-1. Create a function with a storage account that does not have service endpoints enabled.
-1. Configure the function to connect to your virtual network.
-1. Create or configure a different storage account.  This will be the storage account we secure with service endpoints and connect our function.
-1. [Create a file share](../storage/files/storage-how-to-create-file-share.md#create-file-share) in the secured storage account.
-1. Enable service endpoints or private endpoint for the storage account.  
-    * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` sub-resources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
-    * If using service endpoints, enable the subnet dedicated to your function apps for storage accounts.
-1. Copy the file and blob content from the function app storage account to the secured storage account and file share.
-1. Copy the connection string for this storage account.
-1. Update the **Application Settings** under **Configuration** for the function app to the following:
-    - `AzureWebJobsStorage` to the connection string for the secured storage account.
-    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` to the connection string for the secured storage account.
-    - `WEBSITE_CONTENTSHARE` to the name of the file share created in the secured storage account.
-    - Create a new setting with the name `WEBSITE_CONTENTOVERVNET` and value of `1`.
-    - If the storage account is using private endpoint connections, verify or add the following settings
-        - `WEBSITE_VNET_ROUTE_ALL` with a value of `1`.
-        - `WEBSITE_DNS_SERVER` with a value of `168.63.129.16` 
-1. Save the application settings.  
-
-After the function app restarts, it's now connected to a secured storage account.
+This feature currently works for all Windows virtual network-supported SKUs in the Dedicated (App Service) plan and for the Premium plan. The Consumption plan isn't supported. To learn how to set up a function with a storage account restricted to a private network, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 ## Use Key Vault references
 
