@@ -43,6 +43,8 @@ If there are no logs, then you must check the logs on the monitoring virtual mac
   - Service: td-agent-bit-wli 
   - Extension log to check install failures: /var/log/azure/Microsoft.Azure.Monitor.Workloads.Workload.WLILinuxExtension/wlilogs.log 
 
+
+
 ### wli service logs 
 
 Service logs: `/var/log/wli.log`
@@ -93,6 +95,63 @@ To see recent errors: `tail -n 100 -f /var/log/mdsd.err`
 - Logs in `/var/log/mdsd*`
 - Files in `/etc/mdsd.d/`
 - File `/etc/default/mdsd`
+
+### Invalid monitoring virtual machine configuration
+
+One cause of the *Not Collecting* state is when you have an invalid monitoring virtual machine configuration.  Following is the default configuration:
+
+```json
+{
+    "version": 1,
+    "secrets": {
+        "telegrafPassword": {
+            "keyvault": "https://mykeyvault.vault.azure.net/",
+            "name": "sqlPassword"
+        }
+    },
+    "parameters": {
+        "sqlAzureConnections": [
+            "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=telegraf;Password=$telegrafPassword;"
+        ],
+        "sqlVmConnections": [
+        ],
+        "sqlManagedInstanceConnections": [
+        ]
+    }
+}
+```
+
+This configuration specifies the replacement tokens to be used in the profile configuration on your monitoring virtual machine. It also allows you to reference secrets from Azure Key Vault, so you don't have keep secret values in any configuration, which is strongly recommended.
+
+#### Secrets
+Secrets are tokens whose values are retrieved at run time from an Azure Key Vault. A secret is defined by a pair of a Key Vault reference and secret name. This allows Azure Monitor to get the dynamic value of the secret and use it is downstream config references.
+
+You can define as many secrets as needed in the configuration, including secrets stored in separate Key Vaults.
+
+```json
+   "secrets": {
+        "<secret-token-name-1>": {
+            "keyvault": "<key-vault-uri>",
+            "name": "<key-vault-secret-name>"
+        },
+        "<secret-token-name-2>": {
+            "keyvault": "<key-vault-uri-2>",
+            "name": "<key-vault-secret-name-2>"
+        }
+    }
+```
+
+The permissions to access the Key Vault is provided to a Managed Service Identity on the monitoring virtual machine. Azure Monitor expects the Key Vault to provide at least secrets get permission to the virtual machine. You can enable it from the Azure portal, PowerShell, CLI, or Resource Manager template.
+
+#### Parameters
+Parameters are tokens that can be referenced in the profile configuration via JSON templating. Parameters have a name and a value. Values can be any JSON type including objects and arrays. A parameter is referenced in the profile config using its name in this convention `.Parameters.<name>`.
+
+Parameters can reference secrets in Key Vault using the same convention. For example, `sqlAzureConnections` references the secret `telegrafPassword` using the convention `$telegrafPassword`.
+
+At run time, all parameters and secrets will be resolved and merged with the profile configuration to construct the actual configuration to be used on the machine.
+
+> [!NOTE]
+> The parameter names of `sqlAzureConnections`, `sqlVmConnections`, and `sqlManagedInstanceConnections` are all required in the configuration even if you do not have connection strings you will be providing for some of them.
 
 
 ## Collecting with errors state

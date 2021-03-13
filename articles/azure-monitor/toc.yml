@@ -1136,6 +1136,8 @@
         href: faq.md#sql-insights-preview
       - name: Enable
         href: insights/sql-insights-enable.md
+      - name: Alerts
+        href: insights/sql-insights-alerts.md
       - name: Troubleshoot
         href: insights/sql-insights-troubleshoot.md
     - name: Storage
