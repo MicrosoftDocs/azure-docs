@@ -15,7 +15,7 @@ There are two ways to interconnectivity in the Azure VMware Solution private clo
 
 1. [**Full on-premises to private cloud interconnectivity**](#on-premises-interconnectivity) extends the basic Azure-only implementation to include interconnectivity between on-premises and Azure VMware Solution private clouds.
  
-In this article, we'll cover a the key concepts that establish networking and interconnectivity, including requirements and limitations. This article provides you with the information you need to know to configure your networking to work with Azure VMware Solution.
+In this article, we'll cover the key concepts that establish networking and interconnectivity, including requirements and limitations. This article provides you with the information you need to know to configure your networking to work with Azure VMware Solution.
 
 ## Azure VMware Solution private cloud use cases
 
@@ -44,7 +44,7 @@ The diagram below shows the basic network interconnectivity established at the t
 
 ## On-premises interconnectivity
 
-In the fully interconnected scenario you can access the Azure VMware Solution from your Azure virtual network(s) and on-premises. This implementation is an extension of the basic implementation described in the previous section. An ExpressRoute circuit is required to connect from on-premises to your Azure VMware Solution private cloud in Azure.
+In the fully interconnected scenario, you can access the Azure VMware Solution from your Azure virtual network(s) and on-premises. This implementation is an extension of the basic implementation described in the previous section. An ExpressRoute circuit is required to connect from on-premises to your Azure VMware Solution private cloud in Azure.
 
 The diagram below shows the on-premises to private cloud interconnectivity, which enables the following use cases:
 
@@ -53,7 +53,7 @@ The diagram below shows the on-premises to private cloud interconnectivity, whic
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Virtual network and on-premises full private cloud connectivity" border="false":::
 
-For full interconnectivity to your private cloud you need to enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud. For more information on the procedures, see the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](tutorial-expressroute-global-reach-private-cloud.md).
+For full interconnectivity to your private cloud, you need to enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud. For more information on the procedures, see the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](tutorial-expressroute-global-reach-private-cloud.md).
 
 ## Limitations
 [!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
