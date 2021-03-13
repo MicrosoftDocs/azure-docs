@@ -29,6 +29,16 @@ Deploy the search-enabled website as an Azure Static web app. This means both th
 
     The list of actions indicates your web app, both client and functions, were successfully pushed to your Azure static web app. 
 
+## Get Cognitive Search query key in Visual Studio Code
+
+1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
+
+1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**. 
+
+    :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource.png" alt-text="In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**.":::
+
+1. Keep this query key, you will need to use it in the next section. The query key is able to query your Index. 
+
 ## Add configuration settings in Visual Studio Code
 
 The Azure Function app won't return Search data until the Search secrets are in settings. 
@@ -41,11 +51,11 @@ The Azure Function app won't return Search data until the Search secrets are in 
 
 1. Add the following settings:
 
-    |Setting|Sample Value|Your own custom Search Index|
+    |Setting|Your Search resource value|
     |--|--|--|
-    |SearchApiKey|954AF98D40C4DFBD072194F70E949940|Returned from [Azure CLI command]()|
-    |SearchServiceName|diberry-cog-search-js|YOUR-RESOURCE-NAME|
-    |SearchIndexName|good-books|good-books|
+    |SearchApiKey|Your query key|
+    |SearchServiceName|Your resource name|
+    |SearchIndexName|`good-books`|
     |SearchFacets|authors*,language_code|authors*,language_code|
 
 ## Next steps
