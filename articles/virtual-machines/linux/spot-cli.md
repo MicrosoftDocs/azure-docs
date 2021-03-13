@@ -62,13 +62,19 @@ az vm list \
 
 ## Simulate an eviction
 
-You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine, to testing how well your application will repond to a sudden eviction. 
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine, to test how well your application will respond to a sudden eviction. 
 
-Replace the following with your information: 
+Simulate an eviction using [az vm simulate-eviction](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_simulate_eviction). Replace the following with your information: 
+
+https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_simulate_eviction
 
 - `subscriptionId`
 - `resourceGroupName`
 - `vmName`
+
+```azurecli-interactive
+az vm simulate-eviction --resource-group MyResourceGroup --name MyVm
+```
 
 
 ```rest

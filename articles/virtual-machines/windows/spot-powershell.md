@@ -71,13 +71,17 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 
 ## Simulate an eviction
 
-You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine, to testing how well your application will repond to a sudden eviction. 
+You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine, to test how well your application will respond to a sudden eviction. 
 
-Replace the following with your information: 
+Simulate an eviction using [Set-AzVM](https://docs.microsoft.com/en-us/powershell/module/az.compute/set-azvm). Replace the following with your information: 
 
 - `subscriptionId`
 - `resourceGroupName`
 - `vmName`
+
+```azurepowershell-interactive
+Set-AzVM -ResourceGroupName "ResourceGroup11" -Name "VirtualMachine07" -SimulateEviction
+```
 
 
 ```rest
