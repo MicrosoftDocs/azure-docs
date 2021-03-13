@@ -37,7 +37,7 @@ Starting with versions released after August 2018, we are making the following c
 * Versions that have passed their manufacturer's end-of-support date are not supported.
 * Only support VM images; containers, even those derived from official distro publishers' images, are not supported.
 * New versions of AMI are not supported.  
-* Only versions that run SSL 1.x by default are supported.
+* Only versions that run OpenSSL 1.x by default are supported.
 
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
