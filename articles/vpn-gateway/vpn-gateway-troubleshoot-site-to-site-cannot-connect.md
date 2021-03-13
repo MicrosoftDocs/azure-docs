@@ -107,5 +107,5 @@ The perfect forward secrecy feature can cause disconnection problems. If the VPN
 
 ## Next steps
 
--	[Configure a site-to-site connection to a virtual network](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+-	[Configure a site-to-site connection to a virtual network](./tutorial-site-to-site-portal.md)
 -	[Configure an IPsec/IKE policy for site-to-site VPN connections](vpn-gateway-ipsecikepolicy-rm-powershell.md)

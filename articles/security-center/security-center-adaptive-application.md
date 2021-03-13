@@ -1,18 +1,11 @@
 ---
 title: Adaptive application controls in Azure Security Center
 description: This document helps you use adaptive application control in Azure Security Center to allow list applications running in Azure machines.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-
-ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/06/2020
+ms.date: 02/07/2021
 ms.author: memildin
 
 ---
@@ -40,13 +33,13 @@ By defining lists of known-safe applications, and generating alerts when anythin
 - Prevent specific software that's banned by your organization
 - Increase oversight of apps that access sensitive data
 
-
+No enforcement options are currently available. Adaptive application controls are intended to provide security alerts if any application runs other than the ones you've defined as safe.
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally available (GA)|
+|Release state:|General Availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Supported machines:|![Yes](./media/icons/yes-icon.png) Azure and non-Azure machines running Windows and Linux<br>![Yes](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) machines|
 |Required roles and permissions:|**Security Reader** and **Reader** roles can both view groups and the lists of known-safe applications<br>**Contributor** and **Security Admin** roles can both edit groups and the lists of known-safe applications|
@@ -189,6 +182,12 @@ To remediate the issues:
 
 1. For further details, and the list of affected machines, select an alert.
 
+    The alerts page shows the more details of the alerts and provides a **Take action** link with recommendations of how to mitigate the threat.
+
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="The start time of adaptive application controls alerts is the ":::
+
+    > [!NOTE]
+    > Adaptive application controls calculates events once every twelve hours. The "activity start time" shown in the alerts page is the time that adaptive application controls created the alert, **not** the time that the suspicious process was active.
 
 
 ## Move a machine from one group to another
@@ -215,7 +214,7 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programatically, use our REST API. 
 
-The full API documentation is [here](/rest/api/securitycenter/adaptiveapplicationcontrols).
+The relevant API documentation is available in [the Adaptive Application Controls section of Security Center's API docs](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Some of the functions that are available from the REST API:
 
@@ -231,7 +230,12 @@ Some of the functions that are available from the REST API:
    > Remove the following properties before using the JSON in the Put request: recommendationStatus, configurationStatus, issues, location, and sourceSystem.
 
 
+## FAQ - Adaptive application controls
 
+### Are there any options to enforce the application controls?
+No enforcement options are currently available. Adaptive application controls are intended to provide **security alerts** if any application runs other than the ones you've defined as safe. They have a range of benefits ([What are the benefits of adaptive application controls?](#what-are-the-benefits-of-adaptive-application-controls)) and are extremely customizable as shown on this page.
+
+ 
 
 ## Next steps
 In this document, you learned how to use adaptive application control in Azure Security Center to define allow lists of applications running on your Azure and non-Azure machines. To learn more about some of Security Center's other cloud workload protection features, see:

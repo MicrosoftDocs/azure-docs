@@ -19,7 +19,7 @@ ms.reviewer: marsma, aragra, lenalepa, sureshja
 
 # How to remove an application registered with the Microsoft identity platform
 
-Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with Microsoft identity platform may need to remove an application's registration.
+Enterprise developers and software-as-a-service (SaaS) providers who have registered applications with the Microsoft identity platform may need to remove an application's registration.
 
 In the following sections, you learn how to:
 
@@ -34,19 +34,24 @@ In the following sections, you learn how to:
 
 Applications that you or your organization have registered are represented by both an application object and service principal object in your tenant. For more information, see [Application Objects and Service Principal Objects](./app-objects-and-service-principals.md).
 
-To delete an application, you need to be listed as an owner of the application or have admin privileges.
+> [!NOTE]
+> Deleting an application will also delete its service principal object in the application's home directory. For multi-tenant applications, service principal objects in other directories will not be deleted.
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a> using either a work or school account or a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service, then select **App registrations**. Find and select the application that you want to configure. Once you've selected the app, you'll see the application's **Overview** page.
+To delete an application, be listed as an owner of the application or have admin privileges.
+
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which the app is registered.
+1. Search and select the **Azure Active Directory**. 
+1. Under **Manage**, select **App registrations**  and select the application that you want to configure. Once you've selected the app, you'll see the application's **Overview** page.
 1. From the **Overview** page, select **Delete**.
-1. Select **Yes** to confirm that you want to delete the app.
+1. Read the deletion consequences.  Check the box if one appears at the bottom of the pane.
+1. Select **Delete** to confirm that you want to delete the app.
 
 ## Remove an application authored by another organization
 
 If you are viewing **App registrations** in the context of a tenant, a subset of the applications that appear under the **All apps** tab are from another tenant and were registered into your tenant during the consent process. More specifically, they are represented by only a service principal object in your tenant, with no corresponding application object. For more information on the differences between application and service principal objects, see [Application and service principal objects in Azure AD](./app-objects-and-service-principals.md).
 
-In order to remove an application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have global admin access, and can remove the application through the Azure portal or use the [Azure AD PowerShell Cmdlets](/previous-versions/azure/jj151815(v=azure.100)) to remove access.
+In order to remove an application’s access to your directory (after having granted consent), the company administrator must remove its service principal. The administrator must have Global Admininstrator access, and can remove the application through the Azure portal or use the [Azure AD PowerShell Cmdlets](/previous-versions/azure/jj151815(v=azure.100)) to remove access.
 
 ## Next steps
 

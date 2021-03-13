@@ -5,7 +5,7 @@ manager: evansma
 author: rayne-wiselman 
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
@@ -14,9 +14,7 @@ ms.custom: mvc
 # Tutorial: Move Azure VMs across regions
 
 In this article, learn how to move Azure VMs, and related network/storage resources, to a different Azure region, using [Azure Resource Mover](overview.md).
-
-> [!NOTE]
-> Azure Resource Mover is currently in public preview.
+.
 
 
 In this tutorial, you learn how to:
@@ -36,26 +34,22 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin. Then sign in to the [Azure portal](https://portal.azure.com).
 
 ## Prerequisites
-
--  Check you have *Owner* access on the subscription containing the resources that you want to move.
-    - The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription.
-    - To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles.
-- The subscription needs enough quota to create the resources you're moving in the target region. If it doesn't have quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you.
+**Requirement** | **Description**
+--- | ---
+**Resource Mover support** | [Review](common-questions.md) supported regions and other common questions.
+**Subscription permissions** | Check you have *Owner* access on the subscription containing the resources that you want to move<br/><br/> **Why do I need Owner access?** The first time you add a resource for a  specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) (formerly known as Managed Service Identify (MSI)) that's trusted by the subscription. To create the identity, and to assign it the required role (Contributor or User Access administrator in the source subscription), the account you use to add resources needs *Owner* permissions on the subscription. [Learn more](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) about Azure roles.
+**VM support** |  Check that the VMs you want to move are supported.<br/><br/> - [Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<br/><br/> - [Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<br/><br/> - Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.
+**Destination subscription** | The subscription in the destination region needs enough quota to create the resources you're moving in the target region. If it doesn't have quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
+**Destination region charges** | Verify pricing and charges associated with the target region to which you're moving VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help you.
     
 
-## Check VM requirements
+## Prepare VMs
 
-1. Check that the VMs you want to move are supported.
-
-    - [Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.
-    - [Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.
-    - Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.
-2. Check that VMs you want to move are turned on.
-3. Make sure VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do this:
+1. After checking that VMs meet requirements, make sure that VMs you want to move are turned on. All VMs disks that you want to be available in the destination region must be attached and initialized in the VM.
+1. Make sure VMs have the latest trusted root certificates, and an updated certificate revocation list (CRL). To do this:
     - On Windows VMs, install the latest Windows updates.
     - On Linux VMs, follow distributor guidance so that machines have the latest certificates and CRL. 
-4. Allow outbound connectivity from VMs:
+1. Allow outbound connectivity from VMs:
     - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these [URLs](support-matrix-move-region-azure-vm.md#url-access)
     - If you're using network security group (NSG) rules to control outbound connectivity, create these [service tag rules](support-matrix-move-region-azure-vm.md#nsg-rules).
 
@@ -81,12 +75,12 @@ Select resources you want to move.
     ![Page to select source and destination region](./media/tutorial-move-region-virtual-machines/source-target.png)
 
 6. In **Resources to move**, click **Select resources**.
-7. In **Select resources**, select the VM. You can only add [resources supported for move](#check-vm-requirements). Then click **Done**.
+7. In **Select resources**, select the VM. You can only add [resources supported for move](#prepare-vms). Then click **Done**.
 
     ![Page to select VMs to move](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  In **Resources to move**, click **Next**.
-9. In **Review + Add**, check the source and destination settings. 
+9. In **Review**, check the source and destination settings. 
 
     ![Page to review settings and proceed with move](./media/tutorial-move-region-virtual-machines/review.png)
 10. Click **Proceed**, to begin adding the resources.
@@ -95,25 +89,27 @@ Select resources you want to move.
 
 > [!NOTE]
 > - Added resources are in a *Prepare pending* state.
+> - The resource group for the VMs is added automatically.
 > - If you want to remove an resource from a move collection, the method for doing that depends on where you are in the move process. [Learn more](remove-move-resources.md).
 
 ## Resolve dependencies
 
 1. If resources show a *Validate dependencies* message in the **Issues** column, click the **Validate dependencies** button. The validation process begins.
 2. If dependencies are found, click **Add dependencies**. 
-3. In **Add dependencies**, select the dependent resources > **Add dependencies**. Monitor progress in the notifications.
+3. In **Add dependencies**, leave the default **Show all dependencies** option.
+
+    - Show all dependencies iterates through all of the direct and indirect dependencies for a resource. For example, for a VM it shows the NIC, virtual network, network security groups (NSGs) etc.
+    - Show first level dependencies only shows only direct dependencies. For example, for a VM it shows the NIC, but not the virtual network.
+
+
+4. Select the dependent resources you want to add > **Add dependencies**. Monitor progress in the notifications.
 
     ![Add dependencies](./media/tutorial-move-region-virtual-machines/add-dependencies.png)
 
-4. Add additional dependencies if needed, and validate dependencies again. 
+4. Validate dependencies again. 
     ![Page to add additional dependencies](./media/tutorial-move-region-virtual-machines/add-additional-dependencies.png)
 
-4. On the **Across regions** page, verify that resources are now in a *Prepare pending* state, with no issues.
 
-    ![Page showing resources in prepare pending state](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
-
-> [!NOTE]
-> If you want to edit target settings before beginning the move, select the link in the **Destination configuration** column for the resource, and edit the settings. If you edit the target VM settings, the target VM size shouldn't be smaller than the source VM size.  
 
 ## Move the source resource group 
 
@@ -154,9 +150,17 @@ To commit and finish the move process:
 
 ## Prepare resources to move
 
+Now that the source resource group is moved, you can prepare to move other resources that are in the *Prepare pending* state.
+
+1. In **Across regions**, verify that resources are now in a *Prepare pending* state, with no issues. If they're not, validate again and resolve any outstanding issues.
+
+    ![Page showing resources in prepare pending state](./media/tutorial-move-region-virtual-machines/prepare-pending.png)
+
+2. If you want to edit target settings before beginning the move, select the link in the **Destination configuration** column for the resource, and edit the settings. If you edit the target VM settings, the target VM size shouldn't be smaller than the source VM size.  
+
 Now that the source resource group is moved, you can prepare to move the other resources.
 
-1. In **Across regions**, select the resources you want to prepare. 
+3. Select the resources you want to prepare. 
 
     ![Page to select prepare for other resources](./media/tutorial-move-region-virtual-machines/prepare-other.png)
 
@@ -234,12 +238,16 @@ If you want to complete the move process, commit the move.
 - The Mobility service isn't uninstalled automatically from VMs. Uninstall it manually, or leave it if you plan to move the server again.
 - Modify Azure role-based access control (Azure RBAC) rules after the move.
 
+
 ## Delete source resources after commit
 
 After the move, you can optionally delete resources in the source region. 
 
-1. In **Across Regions**, click the name of each source resource that you want to delete.
-2. In the properties page for each resource, select **Delete**.
+> [!NOTE]
+> A few resources, for example key vaults and SQL Server servers, can't be deleted from the portal, and must be deleted from the resource property page.
+
+1. In **Across Regions**, click the name of the source resource that you want to delete.
+2. Select **Delete source**.
 
 ## Delete additional resources created for move
 

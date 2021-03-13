@@ -12,9 +12,6 @@ ms.reviewer: jrasnick
 
 # Discover, connect, and explore data in Synapse using Azure Purview 
 
-> [!IMPORTANT]
-> The integration between Azure Synapse Analytics and Azure Purview is currently under Preview. If you are interested to try Azure Purview in Synapse, please connect with your Microsoft Sales Representative. 
-
 In this document, you will learn the type of interactions that you can perform when registering an Azure Purview Account into Synapse. 
 
 ## Prerequisites 
@@ -30,6 +27,8 @@ The use Azure Purview in Synapse requires you to have access to that Purview acc
 ### Data discovery: search datasets 
 
 To discover data registered and scanned by Azure Purview, you can use the Search bar at the top center of Synapse workspace. Make sure that you select Azure Purview to search for all of your organization data. 
+
+[![Search for Azure Purview assets](./media/purview-access.png)](./media/purview-access.png#lightbox)
 
 ## Azure Purview actions 
 

@@ -1,10 +1,9 @@
 ---
 title: NCas T4 v3-series 
 description: Specifications for the NCas T4 v3-series VMs.
-services: virtual-machines
-ms.subservice: sizes
-author: vikancha-MSFT
 ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+author: vikancha-MSFT
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: vikancha
@@ -22,8 +21,9 @@ The NCasT4_v3-series virtual machines are powered by [Nvidia Tesla T4](https://w
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-Accelerated Networking: Supported<br>
-Nvidia NVLink Interconnect: Not Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+Nvidia NVLink Interconnect: Supported<br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs / Expected network bandwidth (Mbps) |
@@ -41,6 +41,8 @@ Nvidia NVLink Interconnect: Not Supported<br>
 To take advantage of the GPU capabilities of Azure NCasT4_v3-series VMs running Windows or Linux, Nvidia GPU drivers must be installed.
 
 To install Nvidia GPU drivers manually, see [N-series GPU driver setup for Windows](./windows/n-series-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
+
+The Azure Nvidia GPU driver extension will deploy CUDA drivers on the NCasT4_v3-series VMs. For graphics and visualization workloads manually install the GRID drivers supported by Azure.
 
 ## Other sizes
 

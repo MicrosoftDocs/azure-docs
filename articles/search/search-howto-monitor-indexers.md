@@ -6,62 +6,35 @@ description: Monitor the status, progress, and results of Azure Cognitive Search
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.custom: devx-track-csharp
+ms.date: 01/28/2021
 ---
 
 # How to monitor Azure Cognitive Search indexer status and results
 
-Azure Cognitive Search provides status and monitoring information about current and historical runs of every indexer.
+You can monitor indexer processing in the Azure portal, or programmatically through REST calls or an Azure SDK. In addition to status about the indexer itself, you can review start and end times, and detailed errors and warnings from a particular run.
 
-Indexer monitoring is useful when you want to:
+## Monitor using Azure portal
 
-* Track the progress of an indexer during an ongoing run.
-* Review the results of ongoing or previous indexer run.
-* Identify top-level indexer errors, and errors or warnings about individual documents being indexed.
-
-## Get status and history
-
-You can access indexer monitoring information in various ways, including:
-
-* In the [Azure portal](#portal)
-* Using the [REST API](#restapi)
-* Using the [.NET SDK](#dotnetsdk)
-
-Available indexer monitoring information includes all the following (though the data formats differ based on the access method used):
-
-* Status information about the indexer itself
-* Information about the most recent run of the indexer, including its status, start and end times, and detailed errors and warnings.
-* A list of historical indexer runs, and their statuses, results, errors, and warnings.
-
-Indexers that process large volumes of data can take a long time to run. For example, indexers that handle millions of source documents can run for 24 hours, and then restart almost immediately. The status for high-volume indexers might always say **In Progress** in the portal. Even when an indexer is running, details are available about ongoing progress and previous runs.
-
-<a name="portal"></a>
-
-## Monitor using the portal
-
-You can see the current status of all of your indexers in the **Indexers** list on your search service Overview page.
+You can see the current status of all of your indexers in your search service Overview page. Portal pages refresh every few minutes, so you won't see evidence of a new indexer run right away.
 
    ![Indexers list](media/search-monitor-indexers/indexers-list.png "Indexers list")
 
-When an indexer is executing, the status in the list shows **In Progress**, and the **Docs Succeeded** value shows the number of documents processed so far. It can take a few minutes for the portal to update indexer status values and document counts.
+| Status | Description |
+|--------|-------------|
+| **In Progress** | Indicates active execution. The portal will report on partial information. As indexing progresses, you can watch the **Docs Succeeded** value grow in response. Indexers that process large volumes of data can take a long time to run. For example, indexers that handle millions of source documents can run for 24 hours, and then restart almost immediately. The status for high-volume indexers might always say **In Progress** in the portal. Even when an indexer is running, details are available about ongoing progress and previous runs. |
+| **Success** | Indicates the run was successful. An indexer run can be successful even if individual documents have errors, if the number of errors is less than the indexer's **Max failed items** setting. |
+| **Failed** | The number of errors exceeded **Max failed items** and indexing has stopped. |
+| **Reset** | The indexer's internal change tracking state was reset. The indexer will run in full, refreshing all documents, and not just those with newer timestamps. |
 
-An indexer whose most recent run was successful shows **Success**. An indexer run can be successful even if individual documents have errors, if the number of errors is less than the indexer's **Max failed items** setting.
-
-If the most recent run ended with an error, the status shows **Failed**. A status of **Reset** means that the indexer's change tracking state was reset.
-
-Click on an indexer in the list to see more details about the indexer's current and recent runs.
+You can click on an indexer in the list to see more details about the indexer's current and recent runs.
 
    ![Indexer summary and execution history](media/search-monitor-indexers/indexer-summary.png "Indexer summary and execution history")
 
 The **Indexer summary** chart displays a graph of the number of documents processed in its most recent runs.
 
-The **Execution details** list shows up to 50 of the most recent execution results.
-
-Click on an execution result in the list to see specifics about that run. This includes its start and end times, and any errors and warnings that occurred.
+The **Execution details** list shows up to 50 of the most recent execution results. Click on an execution result in the list to see specifics about that run. This includes its start and end times, and any errors and warnings that occurred.
 
    ![Indexer execution details](media/search-monitor-indexers/indexer-execution.png "Indexer execution details")
 
@@ -69,13 +42,11 @@ If there were document-specific problems during the run, they will be listed in 
 
    ![Indexer details with errors](media/search-monitor-indexers/indexer-execution-error.png "Indexer details with errors")
 
-Warnings are common with some types of indexers, and do not always indicate a problem. For example indexers that use cognitive services can report warnings when image or PDF files don't contain any text to process.
+Warnings are common with some types of indexers, and do not always indicate a problem. For example indexers that use cognitive services can report warnings when image or PDF files don't contain any text to process. 
 
 For more information about investigating indexer errors and warnings, see [Troubleshooting common indexer issues in Azure Cognitive Search](search-indexer-troubleshooting.md).
 
-<a name="restapi"></a>
-
-## Monitor using REST APIs
+## Monitor using Get Indexer Status (REST API)
 
 You can retrieve the status and execution history of an indexer using the [Get Indexer Status command](/rest/api/searchservice/get-indexer-status):
 
@@ -122,11 +93,9 @@ Each run of the indexer also has its own status that indicates whether that spec
 
 When an indexer is reset to refresh its change tracking state, a separate execution history entry is added with a **Reset** status.
 
-For more details about status codes and indexer monitoring data, see [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
+For more details about status codes and indexer monitoring data, see [Get Indexer Status](/rest/api/searchservice/get-indexer-status).
 
-<a name="dotnetsdk"></a>
-
-## Monitor using the .NET SDK
+## Monitor using .NET
 
 Using the Azure Cognitive Search .NET SDK, the following C# example writes information about an indexer's status and the results of its most recent (or ongoing) run to the console.
 

@@ -40,7 +40,7 @@ Users also need one of the following Log Analytics workspace roles:
 
 If you have not integrated Azure AD logs with Azure Monitor logs, you will need to take the following steps before the workbook will load:  
 
-1. [Create a Log Analytics workspace in Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Create a Log Analytics workspace in Azure Monitor](../../azure-monitor/logs/quick-create-workspace.md).
 1. [Integrate Azure AD logs with Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ## How it works 

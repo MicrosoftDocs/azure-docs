@@ -68,7 +68,7 @@
       - name: Basics
         href: data-lake-analytics-u-sql-get-started.md
       - name: Language reference
-        href: https://docs.microsoft.com/u-sql
+        href: /u-sql
       - name: Catalog
         href: data-lake-analytics-u-sql-catalog.md
       - name: User-defined operators

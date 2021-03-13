@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -78,7 +78,10 @@ The email signature contains the Azure AD B2C tenant's name that you provided wh
 1. Change the **Name** field.
 1. Click **Save** at the top of the page.
 
-Currently there is no way to change the "From:" field on the email.
+Currently you cannot change the "From:" field on the email.
+
+> [!TIP]
+> With Azure AD B2C [custom policy](custom-policy-overview.md), you can customize the email Azure AD B2C sends to users, including the "From:" field on the email. The custom email verification requires the use of a third-party email provider like [Mailjet](custom-email-mailjet.md), [SendGrid](custom-email-sendgrid.md), or [SparkPost](https://sparkpost.com).
 
 ### How can I migrate my existing user names, passwords, and profiles from my database to Azure AD B2C?
 
@@ -92,7 +95,7 @@ For information about account lockouts and passwords, see [Manages threats to re
 
 ### Can I use Azure AD Connect to migrate consumer identities that are stored on my on-premises Active Directory to Azure AD B2C?
 
-No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Microsoft Graph API](manage-user-accounts-graph-api.md) for user migration. See the [User migration guide](user-migration.md) for details.
+No, Azure AD Connect is not designed to work with Azure AD B2C. Consider using the [Microsoft Graph API](microsoft-graph-operations.md) for user migration. See the [User migration guide](user-migration.md) for details.
 
 ### Can my app open up Azure AD B2C pages within an iFrame?
 
@@ -138,13 +141,13 @@ You can use our new unified **App registrations** experience or our legacy  **Ap
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Delete all **User flows (policies)** in your Azure AD B2C tenant.
+1. Delete all **Identity Providers** in your Azure AD B2C tenant.
 1. Select **App registrations**, then select the **All applications** tab.
 1. Delete all applications that you registered.
 1. Delete the **b2c-extensions-app**.
 1. Under **Manage**, select **Users**.
 1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **Yes** when prompted.
 1. Select **Azure Active Directory** on the left-hand menu.
-1. Under **Manage**, select **User settings**.
 1. Under **Manage**, select **Properties**
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.

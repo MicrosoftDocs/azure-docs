@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: image recognition, image recognition app, custom vision
@@ -64,9 +64,9 @@ In your web browser, navigate to the [Custom Vision web page](https://customvisi
 
 ## Upload and tag images
 
-In this section you will upload and manually tag images to help train the detector. 
+In this section, you will upload and manually tag images to help train the detector. 
 
-1. To add images, click the __Add images__ button and then select __Browse local files__. Select __Open__ to upload the images.
+1. To add images, select __Add images__ and then select __Browse local files__. Select __Open__ to upload the images.
 
     ![The add images control is shown in the upper left, and as a button at bottom center.](./media/get-started-build-detector/add-images.png)
 
@@ -74,7 +74,7 @@ In this section you will upload and manually tag images to help train the detect
 
     ![Images uploaded, in Untagged section](./media/get-started-build-detector/images-untagged.png)
 
-1. Click and drag a rectangle around the object in your image. Then, enter a new tag name with the **+** button, or select an existing tag from the drop-down list. It's very important to tag every instance of the object(s) you want to detect, because the detector uses the untagged background area as a negative example in training. When you're done tagging, click the arrow on the right to save your tags and move on to the next image.
+1. Click and drag a rectangle around the object in your image. Then, enter a new tag name with the **+** button, or select an existing tag from the drop-down list. It's important to tag every instance of the object(s) you want to detect, because the detector uses the untagged background area as a negative example in training. When you're done tagging, click the arrow on the right to save your tags and move on to the next image.
 
     ![Tagging an object with a rectangular selection](./media/get-started-build-detector/image-tagging.png)
 
@@ -110,7 +110,7 @@ The **Overlap Threshold** slider deals with how correct an object prediction mus
 
 ## Manage training iterations
 
-Each time you train your detector, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. In the left pane you will also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
+Each time you train your detector, you create a new _iteration_ with its own updated performance metrics. You can view all of your iterations in the left pane of the **Performance** tab. In the left pane you'll also find the **Delete** button, which you can use to delete an iteration if it's obsolete. When you delete an iteration, you delete any images that are uniquely associated with it.
 
 See [Use your model with the prediction API](./use-prediction-api.md) to learn how to access your trained models programmatically.
 

@@ -3,7 +3,7 @@ title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Ser
 description: Learn how to use AAD pod-managed managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 3/12/2021
 
 ---
 
@@ -11,19 +11,22 @@ ms.date: 12/01/2020
 
 Azure Active Directory pod-managed identities uses Kubernetes primitives to associate [managed identities for Azure resources][az-managed-identities] and identities in Azure Active Directory (AAD) with pods. Administrators create identities and bindings as Kubernetes primitives that allow pods to access Azure resources that rely on AAD as an identity provider.
 
+> [!NOTE]
+> If you have an existing installation of AADPODIDENTITY, you must remove the existing installation. Enabling this feature means that the MIC component isn't needed.
+
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
 
 You must have the following resource installed:
 
-* The Azure CLI, version 2.8.0 or later
-* The `azure-preview` extension version 0.4.68 or later
+* The Azure CLI, version 2.20.0 or later
+* The `azure-preview` extension version 0.5.5 or later
 
 ### Limitations
 
-* A maximum of 50 pod identities are allowed for a cluster.
-* A maximum of 50 pod identity exceptions are allowed for a cluster.
+* A maximum of 200 pod identities are allowed for a cluster.
+* A maximum of 200 pod identity exceptions are allowed for a cluster.
 * Pod-managed identities are available on Linux node pools only.
 
 ### Register the `EnablePodIdentityPreview`
@@ -60,6 +63,21 @@ Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS clus
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
+## Create an AKS cluster with Kubenet network plugin
+
+Create an AKS cluster with Kubenet network plugin and pod-managed identity enabled.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## Update an existing AKS cluster with Kubenet network plugin
+
+Update an existing AKS cluster with Kubnet network plugin to include pod-managed identity.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
 
 ## Create an identity
 
@@ -72,6 +90,16 @@ export IDENTITY_NAME="application-identity"
 az identity create --resource-group ${IDENTITY_RESOURCE_GROUP} --name ${IDENTITY_NAME}
 export IDENTITY_CLIENT_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query clientId -otsv)"
 export IDENTITY_RESOURCE_ID="$(az identity show -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME} --query id -otsv)"
+```
+
+## Assign permissions for the managed identity
+
+The *IDENTITY_CLIENT_ID* managed identity must have Reader permissions in the resource group that contains the virtual machine scale set of your AKS cluster.
+
+```azurecli-interactive
+NODE_GROUP=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
+NODES_RESOURCE_ID=$(az group show -n $NODE_GROUP -o tsv --query "id")
+az role assignment create --role "Reader" --assignee "$IDENTITY_CLIENT_ID" --scope $NODES_RESOURCE_ID
 ```
 
 ## Create a pod identity
@@ -169,11 +197,11 @@ az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
 For more information on managed identities, see [Managed identities for Azure resources][az-managed-identities].
 
 <!-- LINKS - external -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-extension-add]: /cli/azure/extension?view=azure-cli-latest#az-extension-add&preserve-view=true
-[az-extension-update]: /cli/azure/extension?view=azure-cli-latest#az-extension-update&preserve-view=true
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
-[az-identity-create]: /cli/azure/identity?view=azure-cli-latest#az_identity_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
 [az-managed-identities]: ../active-directory/managed-identities-azure-resources/overview.md
-[az-role-assignment-create]: /cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

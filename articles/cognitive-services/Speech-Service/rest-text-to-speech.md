@@ -55,9 +55,11 @@ The `voices/list` endpoint allows you to get a full list of voices for a specifi
 | Korea Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | North Central US | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | North Europe | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| South Africa North | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | South Central US | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Southeast Asia | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | UK South | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| West Central US | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West Europe | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West US | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -223,6 +225,8 @@ audio-16khz-64kbitrate-mono-mp3     audio-16khz-32kbitrate-mono-mp3
 raw-24khz-16bit-mono-pcm            riff-24khz-16bit-mono-pcm
 audio-24khz-160kbitrate-mono-mp3    audio-24khz-96kbitrate-mono-mp3
 audio-24khz-48kbitrate-mono-mp3     ogg-24khz-16bit-mono-opus
+raw-48khz-16bit-mono-pcm            riff-48khz-16bit-mono-pcm
+audio-48khz-96kbitrate-mono-mp3     audio-48khz-192kbitrate-mono-mp3
 ```
 
 > [!NOTE]
@@ -273,5 +277,5 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 ## Next steps
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
-- [Asynchronous synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Asynchronous synthesis for long-form audio](./long-audio-api.md)
 - [Get started with Custom Voice](how-to-custom-voice.md)

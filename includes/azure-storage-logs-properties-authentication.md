@@ -8,7 +8,7 @@
 
 | Property | Description |
 |:--- |:---|
-|**identity / type** | The type of authentication that was used to make the request. For example: `OAuth`, `SAS Key`, `Account Key`, or `Anonymous` |
+|**identity / type** | The type of authentication that was used to make the request. For example: `OAuth`, `Kerberos`, `SAS Key`, `Account Key`, or `Anonymous` |
 |**identity / tokenHash**|This field is reserved for internal use only. |
 |**authorization / action** | The action that is assigned to the request. |
 |**authorization / roleAssignmentId** | The role assignment ID. For example: `4e2521b7-13be-4363-aeda-111111111111`.|

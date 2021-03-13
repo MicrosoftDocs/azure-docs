@@ -24,4 +24,4 @@ ROBOTS: NOINDEX
 - For more depth, learn how resource applications expose [scopes](developer-glossary.md#scopes) and [application roles](developer-glossary.md#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal. 
 
 ## Next steps
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: tracking-python
 ---
 
@@ -78,23 +78,24 @@ optimizer = optim.SGD(
 Your script now accepts _data path_ as an argument. To start with, test it
 locally. Add to your tutorial directory structure a folder called `data`. Your directory structure should look like:
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-|  └──pytorch-env.yml
-└──data
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-└──04-run-pytorch.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="Directory structure shows .azureml, data, and src sub-directories":::
+
 
 If you didn't run `train.py` locally in the previous tutorial, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with `download=True` in your `train.py` script.
+
+Also, to run on local, make sure you exit the tutorial environment and activate the new conda environment:
+
+```bash
+conda deactivate				# If you are still using the tutorial environment, exit it
+```
+
+```bash
+conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
+```
+
+```bash
+conda activate pytorch-aml-env			# activate new conda environment
+```
 
 To run the modified training script locally, call:
 
@@ -195,7 +196,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      A [dataset](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) is used to reference the data you uploaded to Azure Blob Storage. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
+      A [dataset](/python/api/azureml-core/azureml.core.dataset.dataset) is used to reference the data you uploaded to Azure Blob Storage. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -203,7 +204,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) is modified to include a list of arguments that will be passed into `train.py`. The `dataset.as_named_input('input').as_mount()` argument means the specified directory will be _mounted_ to the compute target.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) is modified to include a list of arguments that will be passed into `train.py`. The `dataset.as_named_input('input').as_mount()` argument means the specified directory will be _mounted_ to the compute target.
    :::column-end:::
 :::row-end:::
 

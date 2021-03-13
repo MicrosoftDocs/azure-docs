@@ -6,7 +6,7 @@ ms.author: rohitna
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
 ms.topic: overview 
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
 ms.date: 03/09/2020
 ---
@@ -57,6 +57,8 @@ With Private Link, customers can enable cross-premises access to the private end
 Clients can connect to the Private endpoint from the same virtual network, peered virtual network in same region, or via virtual network to virtual network connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
 
  ![Diagram of connectivity options][1]
+
+In addition, services that are not running directly in the virtual network but are integrated with it (for example, App Service web apps or Functions) can also achieve private connectivity to the database. For more information on this specific use case, see the [Web app with private connectivity to Azure SQL database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) architecture scenario.
 
 ## Test connectivity to SQL Database from an Azure VM in same virtual network
 
@@ -179,6 +181,7 @@ PolyBase and the COPY statement is commonly used to load data into Azure Synapse
 
 - For an overview of Azure SQL Database security, see [Securing your database](security-overview.md)
 - For an overview of Azure SQL Database connectivity, see [Azure SQL Connectivity Architecture](connectivity-architecture.md)
+- You may also be interested in the [Web app with private connectivity to Azure SQL database](https://docs.microsoft.com/azure/architecture/example-scenario/private-web-app/private-web-app) architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 
 <!--Image references-->
 [1]: media/quickstart-create-single-database/pe-connect-overview.png

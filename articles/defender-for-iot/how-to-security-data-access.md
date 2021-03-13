@@ -33,7 +33,7 @@ To access your alerts and recommendations in your Log Analytics workspace after 
 1. Choose an alert or recommendation in Defender for IoT.
 1. Click **further investigation**, then click **To see which devices have this alert click here and view the DeviceId column**.
 
-For details on querying data from Log Analytics, see [Get started with queries in Log Analytics](../azure-monitor/log-query/get-started-queries.md).
+For details on querying data from Log Analytics, see [Get started with queries in Log Analytics](../azure-monitor/logs/get-started-queries.md).
 
 ## Security alerts
 

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -65,8 +65,8 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 |passwordPolicies     |String|Policy of the password. It's a string consisting of different policy name separated by comma. For example, "DisablePasswordExpiration, DisableStrongPassword".|No|No|Persisted, Output|
 |physicalDeliveryOfficeName (officeLocation)|String|The office location in the user's place of business. Max length 128.|Yes|No|Persisted, Output|
 |postalCode      |String|The postal code for the user's postal address. The postal code is specific to the user's country/region. In the United States of America, this attribute contains the ZIP code. Max length 40.|Yes|No|Persisted, Output|
-|preferredLanguage    |String|The preferred language for the user. Should follow ISO 639-1 Code. Example: "en-US".|No|No|Persisted, Output|
-|refreshTokensValidFromDateTime|DateTime|Any refresh tokens issued before this time are invalid, and applications will get an error when using an invalid refresh token to acquire a new access token. If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
+|preferredLanguage    |String|The preferred language for the user. The preferred language format is based on RFC 4646. The name is a combination of an ISO 639 two-letter lowercase culture code associated with the language, and an ISO 3166 two-letter uppercase subculture code associated with the country or region. Example: "en-US", or "es-ES".|No|No|Persisted, Output|
+|refreshTokensValidFromDateTime (signInSessionsValidFromDateTime)|DateTime|Any refresh tokens issued before this time are invalid, and applications will get an error when using an invalid refresh token to acquire a new access token. If this happens, the application will need to acquire a new refresh token by making a request to the authorize endpoint. Read-only.|No|No|Output|
 |signInNames ([Identities](#identities-attribute)) |String|The unique sign-in name of the local account user of any type in the directory. Use this attribute to get a user with sign-in value without specifying the local account type.|No|No|Input|
 |signInNames.userName ([Identities](#identities-attribute)) |String|The unique username of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in username. Specifying this in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
 |signInNames.phoneNumber ([Identities](#identities-attribute)) |String|The unique phone number of the local account user in the directory. Use this attribute to create or get a user with a specific sign-in phone number. Specifying this attribute in PersistedClaims alone during Patch operation will remove other types of signInNames. If you would like to add a new type of signInNames, you also need to persist existing signInNames.|No|No|Input, Persisted, Output|
@@ -97,9 +97,9 @@ A customer account, which could be a consumer, partner, or citizen, can be assoc
 - **Local** identity - The username and password are stored locally in the Azure AD B2C directory. We often refer to these identities as "local accounts."
 - **Federated** identity - Also known as a *social* or *enterprise* accounts, the identity of the user is managed by a federated identity provider like Facebook, Microsoft, ADFS, or Salesforce.
 
-A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social, with the same password.
+A user with a customer account can sign in with multiple identities. For example, username, email, employee ID, government ID, and others. A single account can have multiple identities, both local and social, with the same password. 
 
-In the Microsoft Graph API, both local and federated identities are stored in the user `identities` attribute, which is of type [objectIdentity][graph-objectIdentity]. The `identities` collection represents a set of identities used to sign in to a user account. This collection enables the user to sign in to the user account with any of its associated identities.
+In the Microsoft Graph API, both local and federated identities are stored in the user `identities` attribute, which is of type [objectIdentity](/graph/api/resources/objectidentity). The `identities` collection represents a set of identities used to sign in to a user account. This collection enables the user to sign in to the user account with any of its associated identities. The identities attribute can contain up to ten [objectIdentity](/graph/api/resources/objectidentity) objects. Each object contains the following properties:
 
 | Name   | Type |Description|
 |:---------------|:--------|:----------|
@@ -133,7 +133,7 @@ For federated identities, depending on the identity provider, the **issuerAssign
 
 ## Password profile property
 
-For a local identity, the **passwordProfile** attribute is required, and contains the user's password. The `forceChangePasswordNextSignIn` attribute must set to `false`.
+For a local identity, the **passwordProfile** attribute is required, and contains the user's password. The `forceChangePasswordNextSignIn` attribute indicates whether a user must reset the password at the next sign-in. To handle a forced password reset, [set up forced password reset flow](force-password-reset.md).
 
 For a federated (social) identity, the **passwordProfile** attribute is not required.
 
@@ -156,7 +156,7 @@ In user migration scenarios, if the accounts you want to migrate have weaker pas
 
 ## MFA phone number attribute
 
-When using a phone for multi-factor authentication (MFA), the mobile phone is used to verify the user identity. To [add](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) a new phone number programatically, [update](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get), or [delete](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) the phone number, use MS Graph API [phone authentication method](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod).
+When using a phone for multi-factor authentication (MFA), the mobile phone is used to verify the user identity. To [add](/graph/api/authentication-post-phonemethods) a new phone number programatically, [update](/graph/api/b2cauthenticationmethodspolicy-update), [get](/graph/api/b2cauthenticationmethodspolicy-get), or [delete](/graph/api/phoneauthenticationmethod-delete) the phone number, use MS Graph API [phone authentication method](/graph/api/resources/phoneauthenticationmethod).
 
 In Azure AD B2C [custom policies](custom-policy-overview.md), the phone number is available through `strongAuthenticationPhoneNumber` claim type.
 

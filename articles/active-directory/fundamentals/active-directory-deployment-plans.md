@@ -35,7 +35,7 @@ From any of the plan pages, use your browser's Print to PDF capability to create
 | Capability | Description|
 | -| - |
 | [Single sign-on](../manage-apps/plan-sso-deployment.md)| Single sign-on helps your users access the apps and resources they need to do business while signing in only once. After they've signed in, they can go from Microsoft Office to SalesForce to Box to internal applications without being required to enter credentials a second time. |
-| [Access panel](../manage-apps/access-panel-deployment-plan.md)| Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others. |
+| [My Apps](../manage-apps/my-apps-deployment-plan.md)| Offer your users a simple hub to discover and access all their applications. Enable them to be more productive with self-service capabilities, like requesting access to apps and groups, or managing access to resources on behalf of others. |
 | [Devices](../devices/plan-device-deployment.md) | This article helps you evaluate the methods to integrate your device with Azure AD, choose the implementation plan, and provides key links to supported device management tools. |
 
 

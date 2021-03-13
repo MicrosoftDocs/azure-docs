@@ -141,11 +141,11 @@ conceptualContent:
           itemType: get-started
           text: Azure Monitor overview
 
-        - url: ../azure-monitor/platform/data-platform-metrics.md
+        - url: ../azure-monitor/essentials/data-platform-metrics.md
           itemType: get-started
           text: Metrics with Azure Monitor
 
-        - url: ../azure-monitor/platform/data-platform-logs.md
+        - url: ../azure-monitor/logs/data-platform-logs.md
           itemType: get-started
           text: Logs with Azure Monitor
 
@@ -174,13 +174,13 @@ conceptualContent:
           itemType: get-started
           text: GitHub Actions
 
-        - url:  /azure/devops/pipelines/index?view=azure-devops
+        - url:  /azure/devops/pipelines/index
           itemType: get-started
           text: Azure Pipelines
     # Card
     - title: Scaling
       links:
-        - url: ../azure-monitor/platform/autoscale-overview.md
+        - url: ../azure-monitor/autoscale/autoscale-overview.md
           itemType: get-started
           text: Overview of autoscale
 

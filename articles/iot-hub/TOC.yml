@@ -1,4 +1,4 @@
-﻿- name: IoT Hub Documentation
+﻿- name: IoT Hub documentation
   href: index.yml
 - name: Overview
   items:
@@ -175,8 +175,6 @@
               href: iot-hub-mqtt-5-reference.md
         - name: AMQP support
           href: iot-hub-amqp-support.md
-        - name: Glossary
-          href: iot-hub-devguide-glossary.md
     - name: Security
       items:
         - name: Security baseline
@@ -349,6 +347,16 @@
           href: iot-hub-azure-service-health-integration.md
         - name: Order device connection state events from Event Grid
           href: iot-hub-how-to-order-connection-state-events.md
+    - name: Deploy updates
+      items:
+        - name: Create a device update account
+          href: ../iot-hub-device-update/create-device-update-account.md
+        - name: Import an update
+          href: ../iot-hub-device-update/import-update.md
+        - name: Create an update group
+          href: ../iot-hub-device-update/create-update-group.md
+        - name: Deploy an update
+          href: ../iot-hub-device-update/deploy-update.md
     - name: Use real devices
       items:
         - name: Use an online simulator
@@ -481,10 +489,14 @@
           href: iot-hub-migrate-to-diagnostics-settings.md
         - name: TLS 1.0 and 1.1 deprecation
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
+        - name: Classic IP filter
+          href: iot-hub-ip-filter-classic.md
 - name: Resources
   items:
     - name: Support and help options
-      href: ../iot-fundamentals/iot-support-help.md
+      href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+    - name: IoT Glossary
+      href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Azure IoT services
       items:
       - name: IoT Hub
@@ -495,10 +507,10 @@
         href: /microsoft-iot-central/
       - name: IoT Edge
         href: ../iot-edge/index.yml
-      - name: IoT solution accelerators
-        href: ../iot-accelerators/index.yml
       - name: IoT Plug and Play
         href: ../iot-pnp/index.yml
+      - name: IoT solution accelerators
+        href: ../iot-accelerators/index.yml
       - name: Azure Maps
         href: ../azure-maps/index.yml
       - name: Time Series Insights

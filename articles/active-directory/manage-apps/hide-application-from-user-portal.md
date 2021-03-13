@@ -3,7 +3,7 @@ title: Hide an Enterprise application from user's experience in Azure AD
 description: How to hide an Enterprise application from user's experience in Azure Active Directory access panels or Microsoft 365 launchers.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
