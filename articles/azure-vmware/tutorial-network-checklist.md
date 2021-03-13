@@ -84,13 +84,12 @@ Applications and workloads running in a private cloud environment require name r
 
 Use the DHCP service built-in to NSX or use a local DHCP server in the private cloud instead of routing broadcast DHCP traffic over the WAN back to on-premises.
 
+For more details, see the [Provide DHCP services to NSX-T network segment](deploy-azure-vmware-solution.md#optional-provide-dhcp-services-to-nsx-t-network-segment) article.
+
 
 ## Next steps
 
-In this tutorial, you learned about the considerations and requirements for deploying an Azure VMware Solution private cloud. 
-
-
-Once you have the proper networking in place, continue to the next tutorial to create your Azure VMware Solution private cloud.
+In this tutorial, you learned about the considerations and requirements for deploying an Azure VMware Solution private cloud. Once you have the proper networking in place, continue to the next tutorial to create your Azure VMware Solution private cloud.
 
 > [!div class="nextstepaction"]
 > [Create an Azure VMware Solution private cloud](tutorial-create-private-cloud.md)
