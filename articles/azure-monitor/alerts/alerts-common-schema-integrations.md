@@ -2,7 +2,6 @@
 title: How to integrate the common alert schema with Logic Apps
 description: Learn how to create a logic app that leverages the common alert schema to handle all your alerts.
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 05/27/2019
 
 ---

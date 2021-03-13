@@ -216,7 +216,7 @@ If you open the graph topology for this tutorial in a browser, you'll see that t
         
    ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "2.0",
           "name": "Sample-Graph-1",
           "properties": {
             "topologyName": "CustomVisionWithHttpExtension",

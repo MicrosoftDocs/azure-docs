@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/13/2019
+ms.date: 03/12/2021
 ms.author: kenwith
 ---
 
@@ -18,9 +18,9 @@ When customizing attribute mappings for user provisioning, you might find that t
 
 Azure AD must contain all the data required to create a user profile when provisioning user accounts from Azure AD to a SaaS app. In some cases, to make the data available you might need synchronize attributes from your on-premises AD to Azure AD. Azure AD Connect automatically synchronizes certain attributes to Azure AD, but not all attributes. Furthermore, some attributes (such as SAMAccountName) that are synchronized by default might not be exposed using the Microsoft Graph API. In these cases, you can use the Azure AD Connect directory extension feature to synchronize the attribute to Azure AD. That way, the attribute will be visible to the Microsoft Graph API and the Azure AD provisioning service.
 
-If the data you need for provisioning is in Active Directory but isn't available for provisioning because of the reasons described above, follow these steps.
+If the data you need for provisioning is in Active Directory but isn't available for provisioning because of the reasons described above, you can use Azure AD Connect or PowerShell to create extension attributes. 
  
-## Sync an attribute 
+## Create an extension attribute using Azure AD Connect
 
 1. Open the Azure AD Connect wizard, choose Tasks, and then choose **Customize synchronization options**.
 
@@ -46,6 +46,33 @@ If the data you need for provisioning is in Active Directory but isn't available
 
 > [!NOTE]
 > The ability to provision reference attributes from on-premises AD, such as **managedby** or **DN/DistinguishedName**, is not supported today. You can request this feature on [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory). 
+
+## Create an extension attribute using PowerShell
+Create a custom extension using PowerShell and assign a value to a user. 
+
+```
+#Connect to your Azure AD tenant   
+Connect-AzureAD
+
+#Create an application (you can instead use an existing application if you would like)
+$App = New-AzureADApplication -DisplayName “test app name” -IdentifierUris https://testapp
+
+#Create a service principal
+New-AzureADServicePrincipal -AppId $App.AppId
+
+#Create an extension property
+New-AzureADApplicationExtensionProperty -ObjectId $App.ObjectId -Name “TestAttributeName” -DataType “String” -TargetObjects “User”
+
+#List users in your tenant to determine the objectid for your user
+Get-AzureADUser
+
+#Set a value for the extension property on the user. Replace the objectid with the id of the user and the extension name with the value from the previous step
+Set-AzureADUserExtension -objectid 0ccf8df6-62f1-4175-9e55-73da9e742690 -ExtensionName “extension_6552753978624005a48638a778921fan3_TestAttributeName”
+
+#Verify that the attribute was added correctly.
+Get-AzureADUser -ObjectId 0ccf8df6-62f1-4175-9e55-73da9e742690 | Select -ExpandProperty ExtensionProperty
+
+```
 
 ## Next steps
 

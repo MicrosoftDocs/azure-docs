@@ -28,6 +28,8 @@ No. All Azure Arc enabled Kubernetes features, including Azure Monitor and Azure
 
 Yes, connecting your AKS-HCI cluster or Kubernetes clusters on Azure Stack Edge or Azure Stack Hub to Azure Arc provides clusters with resource representation in Azure Resource Manager. This resource representation extends capabilities like Cluster Configuration, Azure Monitor, and Azure Policy (Gatekeeper) to connected Kubernetes clusters.
 
+If the Azure Arc enabled Kubernetes cluster is on Azure Stack Edge, AKS on Azure Stack HCI (>= April 2021 update), or AKS on Windows Server 2019 Datacenter (>= April 2021 update), then the Kubernetes configuration is included at no charge.
+
 ## How to address expired Azure Arc enabled Kubernetes resources?
 
 The Managed Service Identity (MSI) certificate associated with your Azure Arc enabled Kubernetes has an expiration window of 90 days. Once this certificate expires, the resource is considered `Expired` and all features (such as configuration, monitoring, and policy) stop working on this cluster. To get your Kubernetes cluster working with Azure Arc again:
@@ -65,6 +67,6 @@ This feature applies baseline configurations (like network policies, role bindin
 
 ## Next steps
 
-* [Connect a cluster to Azure Arc](./quickstart-connect-cluster.md)
-* [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md)
-* [Use Azure Policy to apply configurations at scale](./use-azure-policy.md)
+* Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./connect-cluster.md).
+* Already have a Kubernetes cluster connected Azure Arc? [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md).
+* Learn how to [use Azure Policy to apply configurations at scale](./use-azure-policy.md).

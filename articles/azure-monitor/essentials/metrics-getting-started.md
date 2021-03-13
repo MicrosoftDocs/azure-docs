@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
-ms.subservice: metrics
 ---
 
 # Getting started with Azure Metrics Explorer

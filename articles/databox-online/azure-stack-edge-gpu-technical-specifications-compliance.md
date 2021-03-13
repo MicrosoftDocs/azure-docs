@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/01/2021
 ms.author: alkohli
 ---
 
@@ -21,7 +21,7 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| CPU                     | 2 X Intel Xeon Silver 4214 (Cascade Lake) CPU            |
+| CPU                     | 2 X Intel Xeon Silver 4214 (Cascade Lake) CPU<br> 24 physical cores (12 per CPU)<br>48 logical cores (vCPUs) (24 per CPU)       |
 | Memory                  | 128 (8x16 GB) GB RAM <br> Dell Compatible 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2v ECC Registered RDIMM       |
 
 

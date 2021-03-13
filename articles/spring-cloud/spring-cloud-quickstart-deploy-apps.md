@@ -138,7 +138,7 @@ To test the application, send an HTTP GET request to the `solar-system-weather` 
 1. To assign the endpoint, run the following command.
 
    ```azurecli
-   az spring-cloud app update -n solar-system-weather --is-public true
+   az spring-cloud app update -n solar-system-weather --assign-endpoint true
    ```
 
 1. To get the URL of the endpoint, run the following command.
@@ -182,9 +182,9 @@ Before deployment using Azure CLI or Maven, complete the examples that [provisio
 
 ## Prerequisites
 
-* [Install JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
+* [Install JDK 8](/java/azure/jdk/)
 * [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
+* (Optional) [Install the Azure CLI version 2.0.67 or higher](/cli/azure/install-azure-cli) and install the Azure Spring Cloud extension with command: `az extension add --name spring-cloud`
 * (Optional) [Install the Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) and [sign in](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## Deployment procedures
@@ -240,7 +240,7 @@ We need a way to access the application via a web browser. Our gateway applicati
 1. Assign the endpoint using the following command:
 
     ```azurecli
-    az spring-cloud app update -n gateway --is-public true
+    az spring-cloud app update -n gateway --assign-endpoint true
     ```
 
 2. Query the **gateway** application for its public IP so you can verify that the application is running:

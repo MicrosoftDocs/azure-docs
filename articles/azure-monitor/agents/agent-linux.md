@@ -1,7 +1,6 @@
 ---
 title: Install Log Analytics agent on Linux computers
 description: This article describes how to connect Linux computers hosted in other clouds or on-premises to Azure Monitor with the Log Analytics agent for Linux.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -28,7 +27,7 @@ See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-sy
 >OpenSSL 1.1.0 is only supported on x86_x64 platforms (64-bit) and OpenSSL earlier than 1.x is not supported on any platform.
 
 >[!NOTE]
->Running the Log Analytics Linux Agent in containers is not supported. If you need to monitor containers, please leverage the [Container Monitoring solution](../containers/containers.md) for Docker hosts or [Azure Monitor for containers](../containers/container-insights-overview.md) for Kubernetes.
+>Running the Log Analytics Linux Agent in containers is not supported. If you need to monitor containers, please leverage the [Container Monitoring solution](../containers/containers.md) for Docker hosts or [Container insights](../containers/container-insights-overview.md) for Kubernetes.
 
 Starting with versions released after August 2018, we are making the following changes to our support model:  
 
@@ -38,7 +37,7 @@ Starting with versions released after August 2018, we are making the following c
 * Versions that have passed their manufacturer's end-of-support date are not supported.
 * Only support VM images; containers, even those derived from official distro publishers' images, are not supported.
 * New versions of AMI are not supported.  
-* Only versions that run SSL 1.x by default are supported.
+* Only versions that run OpenSSL 1.x by default are supported.
 
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.

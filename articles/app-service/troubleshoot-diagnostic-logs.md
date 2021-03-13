@@ -111,7 +111,7 @@ In your application code, you use the usual logging facilities to send log messa
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/).
+- By default, ASP.NET Core uses the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) logging provider. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/). For information about WebJobs SDK logging, see [Get started with the Azure WebJobs SDK](/azure/app-service/webjobs-sdk-get-started#enable-console-logging)
 
 ## Stream logs
 
@@ -129,19 +129,17 @@ To stream logs in the [Azure portal](https://portal.azure.com), navigate to your
 
 To stream logs live in [Cloud Shell](../cloud-shell/overview.md), use the following command:
 
+> [!IMPORTANT]
+> This command may not work with web apps hosted in a Linux app service plan.
+
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-To filter specific events, such as errors, use the **--Filter** parameter. For example:
+To filter specific log types, such as HTTP, use the **--Provider** parameter. For example:
 
 ```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-```
-To filter specific log types, such as HTTP, use the **--Path** parameter. For example:
-
-```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --path http
+az webapp log tail --name appname --resource-group myResourceGroup --provider http
 ```
 
 ### In local terminal

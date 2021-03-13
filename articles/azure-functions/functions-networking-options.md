@@ -91,7 +91,7 @@ When you create a function app, you must create or link to a general-purpose Azu
 1. Enable service endpoints or private endpoint for the storage account.  
     * If using private endpoint connections, the storage account will need a private endpoint for the `file` and `blob` subresources.  If using certain capabilities like Durable Functions, you will also need `queue` and `table` accessible through a private endpoint connection.
     * If using service endpoints, enable the subnet dedicated to your function apps for storage accounts.
-1. (Optional) Copy the file and blob content from the function app storage account to the secured storage account and file share.
+1. Copy the file and blob content from the function app storage account to the secured storage account and file share.
 1. Copy the connection string for this storage account.
 1. Update the **Application Settings** under **Configuration** for the function app to the following:
     - `AzureWebJobsStorage` to the connection string for the secured storage account.
