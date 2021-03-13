@@ -26,25 +26,27 @@ For semantic ranking, the model uses both machine reading comprehension and tran
 
 ### Preparation (passage extraction) phase
 
-1. For each document, there is a passage extraction exercise that evaluates each field in the searchFields parameter in consecutive order, consolidating the contents into one large string. 
+For each document, there is a passage extraction exercise that identifies key passages. This is a downsizing exercise that reduces content to an amount that can be processed quickly.
 
-1. The string is then trimmed to ensure the overall length is not more than 8,000 tokens. If you have very large documents with text-heavy fields, anything after the token limit is ignored.
+1. For each of the 50 documents, each field in the searchFields parameter is evaluated in consecutive order. Contents from each field are consolidated into one long string. 
 
-1. Each of the 50 documents is now represented by a single long string that is up to 8,000 tokens. These strings are sent to the summarization model, which will reduce the string further. The summarization model evaluates the long string for passages that best summarize the document or answer the question.
+1. The long string is then trimmed to ensure the overall length is not more than 8,000 tokens. If you have very large documents with text-heavy fields, anything after the token limit is ignored.
 
-1. The output of this phase is a passage, caption, and possibly an answer. The passage is at most 128 tokens per document.
+1. Each document is now represented by a single long string that is up to 8,000 tokens. These strings are sent to the summarization model, which will reduce the string further. The summarization model evaluates the long string for key sentences or passages that best summarize the document or answer the question.
+
+1. The output of this phase is a caption (and optionally, an answer). The caption is at most 128 tokens per document, and it is considered the most representative of the document.
 
 ### Scoring and ranking phases
 
-In this phase, all 50 passages are evaluated individually to assess relevance, relative to the query provided.
+In this phase, all 50 captions are evaluated to assess relevance.
 
-1. Scoring is determined by evaluating each passage for conceptual and semantic relevance.
+1. Scoring is determined by evaluating each caption for conceptual and semantic relevance, relative to the query provided.
 
    The following diagram provides an illustration of what "semantic relevance" means. Consider the term "capital", which could be used in the context of finance, geography, law, or grammar. If a query includes terms from the same vector space (for example, "capital" and "invest"), a document that also includes tokens in the same cluster will score higher than one that doesn't.
 
    :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
 
-1. The output of this phase is @search.rerankerScore assigned to each document. Once all documents are scored, they are ranked in descending order and included in the query response payload.
+1. The output of this phase is @search.rerankerScore assigned to each document. Once all documents are scored, they are listed in descending order and included in the query response payload.
 
 ## Next steps
 
