@@ -134,7 +134,7 @@ To change email notifications after Start/Stop VMs during off-hours is deployed,
 
 1. In the Azure portal, navigate to **Monitoring** > **Alerts** > **Manage actions** > **Action groups**. Select the action group called **StartStop_VM_Notification**.
 
-    :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="Screenshot of the Monitor - Action groups page.":::
+    :::image type="content" source="media/automation-solution-vm-management/azure-monitor-sm.png" alt-text="Screenshot of the Monitor - Action groups page." lightbox="media/automation-solution-vm-management/azure-monitor-lg.png":::
 
 2. On the StartStop_VM_Notification page, click **Edit details** under **Details**. This opens the Email/SMS/Push/Voice page. Update the email address and click **OK** to save your changes.
 
