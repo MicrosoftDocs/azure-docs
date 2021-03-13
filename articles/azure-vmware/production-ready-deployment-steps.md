@@ -9,7 +9,7 @@ ms.date: 03/13/2021
 
 This article provides you the planning process to identify and collect the information you'll use during the deployment. As you plan your deployment, make sure to document the information you gather for easy reference during the deployment.
 
-The steps outlined in this quick start gives you a production-ready environment for creating virtual machines (VMs) and migration. 
+The steps outlined in this quick start give you a production-ready environment for creating virtual machines (VMs) and migration. 
 
 >[!IMPORTANT]
 >Before you create your Azure VMware Solution resource, follow the [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md) article to submit a support ticket to have your hosts allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your hosts. If you have an existing Azure VMware Solution private cloud and want more hosts allocated, you'll go through the same process. 
@@ -60,7 +60,7 @@ Define the NSX-T admin password. During the deployment, you'll create an NSX-T a
 
 The first step in planning the deployment is to plan out the IP segmentation. Azure VMware Solution requires a /22 CIDR network. This address space carves it up into smaller network segments (subnets) and used for vCenter, VMware HCX, NSX-T, and vMotion functionality.
 
-This /22 CIDR network address block should not overlap with anything existing network segment you already have on-premises or in Azure.
+This /22 CIDR network address block shouldn't overlap with anything existing network segment you already have on-premises or in Azure.
 
 **Example:** 10.0.0.0/22
 
