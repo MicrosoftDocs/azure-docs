@@ -103,7 +103,7 @@ The following classes and interfaces handle some of the major features of the Az
 | SmsClientBuilder              | This class creates the SmsClient. You provide it with endpoint, credential, and an http client. |
 | SmsClient                    | This class is needed for all SMS functionality. You use it to send SMS messages.                |
 | SmsSendResult                | This class contains the result response from the SMS service.                                          |
-| SmsSendOptions               | This class provides options to add custom tags and configure delivery reporting. If deliveryReportEnabled is set to True, then an event will be emitted when delivery was successful|                           |
+| SmsSendOptions               | This class provides options to add custom tags and configure delivery reporting. If deliveryReportEnabled is set to true, then an event will be emitted when delivery was successful|                           |
 
 ## Authenticate the client
 
