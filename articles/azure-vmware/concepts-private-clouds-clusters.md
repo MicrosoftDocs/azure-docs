@@ -23,7 +23,7 @@ Private clouds contain vSAN clusters built with dedicated, bare-metal Azure host
 As with other resources, private clouds are installed and managed from within an Azure subscription. The number of private clouds within a subscription is scalable. Initially, there's a limit of one private cloud per subscription.
 
 ## Clusters
-For each private cloud created, there's one vSAN cluster by default. You can add, delete, and scale clusters using the Azure portal or through the API.  All clusters have a default size of three hosts and can scale up to 16 hosts. You can have up to 4 clusters per private cloud.
+For each private cloud created, there's one vSAN cluster by default. You can add, delete, and scale clusters using the Azure portal or through the API.  All clusters have a default size of three hosts and can scale up to 16 hosts. You can have up to four clusters per private cloud.
 
 Trial clusters are available for evaluation and limited to three hosts. There's a single trial cluster per private cloud. You can scale a trial cluster by a single host during the evaluation period.
 
