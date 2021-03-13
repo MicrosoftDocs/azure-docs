@@ -286,6 +286,8 @@
       items:
       - name: Integrate custom skills
         href: cognitive-search-custom-skill-interface.md
+      - name: Scale out custom skills
+        href: cognitive-search-custom-skill-scale.md
       - name: Example - Azure Functions (Python)
         href: cognitive-search-custom-skill-python.md
       - name: Example - Azure Functions

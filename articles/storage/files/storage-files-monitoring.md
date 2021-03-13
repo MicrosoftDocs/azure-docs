@@ -606,8 +606,9 @@ The following table lists some example scenarios to monitor and the proper metri
 
     For standard file shares, select the following response types:
 
+    - SuccessWithShareIopsThrottling
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - ClientShareIopsThrottlingError
 
     For premium file shares, select the following response types:
 
