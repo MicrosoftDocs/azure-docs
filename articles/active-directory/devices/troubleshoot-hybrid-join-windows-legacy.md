@@ -38,7 +38,7 @@ This article provides you with troubleshooting guidance on how to resolve potent
 **What you should know:** 
 
 - Hybrid Azure AD join for downlevel Windows devices works slightly differently than it does in Windows 10. Many customers do not realize that they need AD FS (for federated domains) or Seamless SSO configured (for managed domains).
-- Seamless SSO doesn't work in private browsing mode on Firefox and Microsoft Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode.
+- Seamless SSO doesn't work in private browsing mode on Firefox and Microsoft Edge browsers. It also doesn't work on Internet Explorer if the browser is running in Enhanced Protected mode or if Enhanced Security Configuration is enabled.
 - For customers with federated domains, if the Service Connection Point (SCP) was configured such that it points to the managed domain name (for example, contoso.onmicrosoft.com, instead of contoso.com), then Hybrid Azure AD Join for downlevel Windows devices will not work.
 - The same physical device appears multiple times in Azure AD when multiple domain users sign-in the downlevel hybrid Azure AD joined devices.  For example, if *jdoe* and *jharnett* sign-in to a device, a separate registration (DeviceID) is created for each of them in the **USER** info tab. 
 - You can also get multiple entries for a device on the user info tab because of a reinstallation of the operating system or a manual re-registration.
