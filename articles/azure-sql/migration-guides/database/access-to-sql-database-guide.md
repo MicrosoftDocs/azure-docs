@@ -1,6 +1,6 @@
 ---
-title: "Migration guide: Access to Azure SQL Database"
-description: A migration guide for migrating your Microsoft Access database over to Azure SQL Database. 
+title: "Access to Azure SQL Database: Migration guide"
+description: This guide teaches you to migrate your Microsoft Access databases to Azure SQL Database using SQL Server Migration Assistant for Access (SSMA for Access). 
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: 
@@ -13,7 +13,7 @@ ms.date: 03/19/2021
 
 # Migration guide: Access to Azure SQL Database
 
-This migration guide teaches you to migrate your Microsoft Access databases to Azure SQL Database. 
+This migration guide teaches you to migrate your Microsoft Access databases to Azure SQL Database using the SQL Server Migration Assistant for Access.
 
 For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
 
@@ -66,7 +66,7 @@ To convert database objects, follow these steps:
 
    ![Right-click the database and choose convert schema](./media/access-to-sql-database-guide/convert-schema.png)
 
-   Compare converted items: 
+   Compare converted objects to converted objects: 
 
    ![Converted items can be compared with source code](./media/access-to-sql-database-guide/converted-items-comparison.png)
 
@@ -88,7 +88,7 @@ To migrate data by using SSMA for Access, follow these steps:
 
    ![Synchronize with Database](./media/access-to-sql-database-guide/synchronize-with-database.png)
 
-   Review the synchronization with the database: 
+   Review the mapping between your source project and your target:
 
    ![Review the synchronization with the database](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
 
@@ -155,3 +155,4 @@ These resources were developed as part of the Data SQL Ninja Program, which is s
 
 - To assess the Application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
 - For details on how to perform Data Access Layer A/B testing see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).
+

@@ -1,6 +1,6 @@
 ---
 title: "Oracle to SQL Managed Instance: Migration guide"
-description: Follow this guide to migrate your Oracle schemas to Azure SQL Managed Instance. 
+description: This guide teaches you to migrate your Oracle schemas to Azure SQL Managed Instance using SQL Server Migration Assistant for Oracle.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: 
@@ -57,7 +57,7 @@ To create an assessment, follow these steps:
 
    ![Connect to Oracle](./media/oracle-to-managed-instance-guide/connect-to-oracle.png)
 
-   Select the Oracle schema you want to migrate: 
+   Select the Oracle schema(s) you want to migrate: 
 
    ![Choose Oracle schema](./media/oracle-to-managed-instance-guide/connect-select-schema.png)
 
@@ -100,11 +100,11 @@ To convert the schema, follow these steps:
 
    ![Convert Schema](./media/oracle-to-managed-instance-guide/convert-schema.png)
 
-1. After the conversion completes, compare and review the structure of the schema to identify potential problems and address them based on the recommendations.
+1. After the conversion completes, compare and review the converted objects to the original objects to identify potential problems and address them based on the recommendations.
 
    ![Review recommendations](./media/oracle-to-managed-instance-guide/review-recommendations.png)
 
-   Review the recommendations: 
+   Compare the converted Transact-SQL text to the original stored procedures and review the recommendations: 
 
    ![Review recommendations code](./media/oracle-to-managed-instance-guide/review-recommendations-sourcecode.png)
 
@@ -112,7 +112,7 @@ To convert the schema, follow these steps:
 
 ## Migrate
 
-After you have completed assessing your databases and addressing any discrepancies, the next step is to execute the migration process. Migration involves two steps – publishing the schema and migrating the data. [SSMA for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258) is the correct tool to use for this process.
+After you have completed assessing your databases and addressing any discrepancies, the next step is to execute the migration process. Migration involves two steps – publishing the schema and migrating the data. 
 
 To publish your schema and migrate your data, follow these steps:
 
@@ -120,7 +120,7 @@ To publish your schema and migrate your data, follow these steps:
 
    ![Synchronize with Database](./media/oracle-to-managed-instance-guide/synchronize-with-database.png)
 
-   Review the synchronization with the database: 
+   Review the mapping between your source project and your target:
 
    ![Synchronize with Database Review](./media/oracle-to-managed-instance-guide/synchronize-with-database-review.png)
 
@@ -154,6 +154,8 @@ After you have successfully completed the **Migration** stage, you need to go th
 ### Remediate applications
 
 After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will in some cases require changes to the applications.
+
+The [Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) is an extension for Visual Studio Code that allows you to analyze your Java source code and detect data access API calls and queries, providing you with a single-pane view of what needs to be addressed to support the new database back end. To learn more, see the [Migrate our Java application from Oracle](https://techcommunity.microsoft.com/t5/microsoft-data-migration/migrate-your-java-applications-from-oracle-to-sql-server-with/ba-p/368727) blog. 
 
 ### Perform tests
 

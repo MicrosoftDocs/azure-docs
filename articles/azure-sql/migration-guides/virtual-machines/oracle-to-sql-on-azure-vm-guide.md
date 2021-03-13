@@ -1,6 +1,6 @@
 ---
 title: "Oracle to SQL Server on Azure VM: Migration guide"
-description: Follow this guide to migrate your Oracle schemas to SQL Server on Azure VMs. 
+description: This guide teaches you to migrate your Oracle schemas to SQL Server on Azure VMs using SQL Server Migration Assistant for Oracle.
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
 ms.custom: 
@@ -32,10 +32,6 @@ To migrate your Oracle schema to SQL Server on Azure VM, you need:
 As you prepare for migrating to the cloud, verify that your source environment is supported and that you have addressed any prerequisites. This will help to ensure an efficient and successful migration.
 
 This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered. 
-
-> [!Important]
-> SQL Server Migration Assistant for Oracle does not support migration of all Oracle features. For associated workarounds, see [Migration approach for selected Oracle features](https://blogs.msdn.microsoft.com/datamigration/2017/05/10/migration-approach-for-oracle-features/)
-
 
 ### Discover
 
@@ -112,7 +108,7 @@ To create an assessment, follow these steps:
 
    ![Connect to Oracle](./media/oracle-to-sql-on-azure-vm-guide/connect-to-oracle.png)
 
-   Select the Oracle schema you want to migrate: 
+   Select the Oracle schema(s) you want to migrate: 
 
    ![Select Oracle schema](./media/oracle-to-sql-on-azure-vm-guide/select-schema.png)
 
@@ -169,7 +165,7 @@ To convert the schema, follow these steps:
 
 ## Migrate
 
-After you have the necessary prerequisites in place and have completed the tasks associated with the **Pre-migration** stage, you are ready to perform the schema and data migration. Migration involves two steps – publishing the schema and migrating the data. SSMA for Oracle is the correct tool to use for this process.
+After you have the necessary prerequisites in place and have completed the tasks associated with the **Pre-migration** stage, you are ready to perform the schema and data migration. Migration involves two steps – publishing the schema and migrating the data. 
 
 
 To publish the schema and migrate the data, follow these steps: 
@@ -205,6 +201,8 @@ After you have successfully completed the **Migration** stage, you need to go th
 ### Remediate applications
 
 After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this will in some cases require changes to the applications.
+
+The [Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) is an extension for Visual Studio Code that allows you to analyze your Java source code and detect data access API calls and queries, providing you with a single-pane view of what needs to be addressed to support the new database back end. To learn more, see the [Migrate our Java application from Oracle](https://techcommunity.microsoft.com/t5/microsoft-data-migration/migrate-your-java-applications-from-oracle-to-sql-server-with/ba-p/368727) blog. 
 
 ### Perform tests
 

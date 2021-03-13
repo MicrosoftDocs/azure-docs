@@ -1,6 +1,6 @@
 ---
 title: "MySQL to Azure SQL Database:  Migration guide"
-description: This guide teaches you to migrate your MySQL database to Azure SQL Database. n.
+description: This guide teaches you to migrate your MySQL databases to Azure SQL Database using SQL Server Migration Assistant for MySQL (SSMA for MySQL). 
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom:
@@ -14,7 +14,7 @@ ms.date: 03/19/2021
 # Migration guide:  MySQL to Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-This guide teaches you to migrate your MySQL database to Azure SQL Database. 
+This guide teaches you to migrate your MySQL database to Azure SQL Database using SQL Server Migration Assistant for MySQL (SSMA for MySQL). 
 
 For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
 
@@ -81,7 +81,7 @@ To convert the schema, follow these steps:
 
    ![Convert Schema](./media/mysql-to-sql-database-guide/convert-schema.png)
 
-1. After the schema is finished converting, compare and review the structure of the schema to identify potential problems. 
+1. After the schema is finished converting, compare the converted code to the original code to identify potential problems. 
 
    ![Convert structure Schema](./media/mysql-to-sql-database-guide/compare-schema.png)
 
@@ -89,7 +89,7 @@ To convert the schema, follow these steps:
 
 ## Migrate 
 
-After you have completed assessing your databases and addressing any discrepancies, the next step is to execute the migration process. Migration involves two steps – publishing the schema and migrating the data. SSMA for MySQL is the correct tool to use for this process.
+After you have completed assessing your databases and addressing any discrepancies, the next step is to execute the migration process. Migration involves two steps – publishing the schema and migrating the data. 
 
 To publish the schema and migrate the data, follow these steps: 
 
@@ -97,7 +97,7 @@ To publish the schema and migrate the data, follow these steps:
 
    ![Synchronize with Database](./media/mysql-to-sql-database-guide/synchronize-database.png)
 
-   Review the synchronization with the database: 
+   Review the mapping between your source project and your target:
 
    ![Synchronize with Database Review](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
 
@@ -163,5 +163,4 @@ These resources were developed as part of the Data SQL Ninja Program, which is s
 - For other migration guides, see [Database Migration](https://datamigration.microsoft.com/). 
 
 For videos, see: 
-- [How to Use the Database Migration Guide](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/)
 - [Overview of the migration journey and the tools/services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/)

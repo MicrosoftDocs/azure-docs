@@ -1,6 +1,6 @@
 ---
 title: "DB2 to SQL Database: Migration guide"
-description: Follow this guide to migrate your DB2 databases to Azure SQL Database. 
+description: This guide teaches you to migrate your DB2 databases to Azure SQL Database using SQL Server Migration Assistant for DB2 (SSMA for DB2). 
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: 
@@ -136,6 +136,7 @@ The test approach for database migration consists of the following activities:
 1. **Set up test environment**: The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
 1. **Run validation tests**: Run the validation tests against the source and the target, and then analyze the results.
 1. **Run performance tests**: Run performance test against the source and the target, and then analyze and compare the results.
+
 
 ## Leverage advanced features 
 
