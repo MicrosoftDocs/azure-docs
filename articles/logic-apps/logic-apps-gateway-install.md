@@ -176,6 +176,11 @@ If you must change your gateway's location, move your gateway installation to a 
 > you must first uninstall the gateway on that computer. This action disconnects the original gateway.
 > If you remove or delete a gateway cluster for any cloud service, you can't restore that cluster.
 
+> If you are trying to configure the gateway for Azure Commercial Apps, in combination with an account in Azure GCC tenant to sign in to the gateway , you will not see the "Change Region" option in the gateway. This is because the On-Premises Data Gateway uses AAD to figure out the tenant affinity to the environment and defaults it to an azure government region in this case.
+
+> In such a scenario, you need to enter "prod@microsoft.com" in the first screen while signing in to the gateway to force usage of Azure Commercial, and then proceed with the sign in process using your account in Azure GCC tenant.
+
+
 1. Run the gateway installer on the computer that has the existing gateway.
 
 1. After the installer opens, sign in with the same Azure account that was used to install the gateway.
