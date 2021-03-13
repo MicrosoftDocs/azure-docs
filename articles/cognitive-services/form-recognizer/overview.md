@@ -49,6 +49,7 @@ To try out the Form Recognizer Service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
 > [Try Form Recognizer](https://fott.azurewebsites.net/)
+
 ---
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
