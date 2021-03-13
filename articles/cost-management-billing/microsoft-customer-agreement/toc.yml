@@ -5,6 +5,8 @@
   items:
   - name: Understand your invoice
     href: ../understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Understand your usage and billing cycle
+    href: ../understand/mca-understand-your-invoice.md#billing-period?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - name: Concepts
   items:
   - name: Usage and charges file terms
@@ -30,6 +32,10 @@
     href: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - name: Manage access to billing
     href: ../manage/manage-billing-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Set up administrator to manage subscription users
+    href: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Create new subscriptions
+    href: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - name: Pay for subscriptions by invoice
     href: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
   - name: Pay your bill
