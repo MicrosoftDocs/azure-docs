@@ -19,7 +19,7 @@ Durable Functions currently supports the following languages:
 
 * **C#**: both [precompiled class libraries](../functions-dotnet-class-library.md) and [C# script](../functions-reference-csharp.md).
 * **JavaScript**: supported only for version 2.x of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
-* **Python**: requires version 2.3.1 of the Durable Functions extension, or a later version. Support for Durable Functions is currently in public preview.
+* **Python**: requires version 2.3.1 of the Durable Functions extension, or a later version.
 * **F#**: precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
 * **PowerShell**: support for Durable Functions is currently in public preview. Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.2.2 of the Durable Functions extension, or a later version. Only the following patterns are currently supported: [Function chaining](#chaining), [Fan-out/fan-in](#fan-in-out), [Async HTTP APIs](#async-http).
 
@@ -629,7 +629,31 @@ module.exports = df.entity(function(context) {
 
 # [Python](#tab/python)
 
-Durable entities are currently not supported in Python.
+```python
+import logging
+import json
+
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableOrchestrationContext):
+
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+        context.set_result(current_value)
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    
+    context.set_state(current_value)
+
+main = df.Entity.create(entity_function)
+```
 
 # [PowerShell](#tab/powershell)
 
@@ -673,7 +697,17 @@ module.exports = async function (context) {
 
 # [Python](#tab/python)
 
-Durable entities are currently not supported in Python.
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    entity_id = df.EntityId("Counter", "myCounter")
+    instance_id = await client.signal_entity(entity_id, "add", 1)
+    return func.HttpResponse("Entity signaled")
+```
 
 # [PowerShell](#tab/powershell)
 
@@ -681,7 +715,7 @@ Durable entities are currently not supported in PowerShell.
 
 ---
 
-Entity functions are available in [Durable Functions 2.0](durable-functions-versions.md) and above for C# and JavaScript.
+Entity functions are available in [Durable Functions 2.0](durable-functions-versions.md) and above for C#, JavaScript, and Python.
 
 ## The technology
 

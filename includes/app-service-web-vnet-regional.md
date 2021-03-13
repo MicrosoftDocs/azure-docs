@@ -32,6 +32,8 @@ By default, your app routes only RFC1918 traffic into your VNet. If you want to 
 
 > [!NOTE]
 > If you route all of your outbound traffic into your VNet, it's subject to the NSGs and UDRs that are applied to your integration subnet. When you route all of your outbound traffic into your VNet, your outbound addresses are still the outbound addresses that are listed in your app properties unless you provide routes to send the traffic elsewhere.
+> 
+> Regional VNet integration is not able to use port 25.
 
 There are some limitations with using VNet Integration with VNets in the same region:
 

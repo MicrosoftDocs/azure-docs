@@ -30,7 +30,7 @@ The following chart shows how bandwidth increases as you add more clients. In th
 The following chart shows this same effect when applied to an account that uses the premium performance tier.
 
 > [!div class="mx-imgBorder"]
-> ![Standard performance](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
+> ![Premium performance](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
 
 ## Use premium performance tier for small scale applications
 

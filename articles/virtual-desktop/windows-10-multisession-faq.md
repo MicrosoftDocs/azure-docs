@@ -57,7 +57,7 @@ Windows 10 Enterprise multi-session, versions 1809 and later are supported and a
 
 ## Which profile management solution should I use for Windows 10 Enterprise multi-session?
 
-We recommend you use FSLogix profile containers when you configure Windows 10 Enterprise in non-persistent environments or other scenarios that need a centrally stored profile. FSLogix ensures the user profile is available and up-to-date for every user session. We also recommend you use your FSLogix profile container to store a user profile in any SMB share with appropriate permissions, but you can store user profiles in Azure page blob storage if necessary. Windows Virtual Desktop users can use FSLogix at no additional cost.
+We recommend you use FSLogix profile containers when you configure Windows 10 Enterprise in non-persistent environments or other scenarios that need a centrally stored profile. FSLogix ensures the user profile is available and up-to-date for every user session. We also recommend you use your FSLogix profile container to store a user profile in any SMB share with appropriate permissions, but you can store user profiles in Azure page blob storage if necessary. Windows Virtual Desktop users can use FSLogix at no additional cost.  FSLogix comes pre-installed on all Windows 10 Enterprise multi-session images, but the IT admin is still responsible for configuring the FSLogix profile container.
 
 For more information about how to configure an FSLogix profile container, see [Configure the FSLogix profile container](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
 
@@ -75,7 +75,7 @@ Most virtualized environments are configured by default to prevent users from in
 
 - [Publish built-in apps in Windows Virtual Desktop](publish-apps.md)
 - [DISM app package servicing command-line options](/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
-- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+- [Add-AppxProvisionedPackage](/powershell/module/dism/add-appxprovisionedpackage)
 
 ## How do I make sure users don't download and install apps from the Microsoft Store?
 

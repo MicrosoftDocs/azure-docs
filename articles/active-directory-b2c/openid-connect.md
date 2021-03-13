@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -53,6 +53,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri | No | The `redirect_uri` parameter of your application, where authentication responses can be sent and received by your application. It must exactly match one of the `redirect_uri` parameters that you registered in the Azure portal, except that it must be URL encoded. |
 | response_mode | No | The method that is used to send the resulting authorization code back to your application. It can be either `query`, `form_post`, or `fragment`.  The `form_post` response mode is recommended for best security. |
 | state | No | A value included in the request that's also returned in the token response. It can be a string of any content that you want. A randomly generated unique value is typically used for preventing cross-site request forgery attacks. The state is also used to encode information about the user's state in the application before the authentication request occurred, such as the page they were on. |
+| login_hint | No| Can be used to pre-fill the sign-in name field of the sign-in page. For more information, see [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name).  |
+| domain_hint | No| Provides a hint to Azure AD B2C about the social identity provider that should be used for sign-in. If a valid value is included, the user goes directly to the identity provider sign-in page.  For more information, see [Redirect sign-in to a social provider](direct-signin.md#redirect-sign-in-to-a-social-provider). |
+| Custom parameters | No| Custom parameters that can be used with [custom policies](custom-policy-overview.md). For example, [dynamic custom page content URI](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri), or [key-value claim resolvers](claim-resolver-overview.md#oauth2-key-value-parameters). |
 
 At this point, the user is asked to complete the workflow. The user might have to enter their username and password, sign in with a social identity, or sign up for the directory. There could be any other number of steps depending on how the user flow is defined.
 
