@@ -58,6 +58,17 @@ The Azure Function app won't return Search data until the Search secrets are in 
     |SearchIndexName|`good-books`|
     |SearchFacets|authors*,language_code|authors*,language_code|
 
+## Test Search in your Static web app
+
+## Clean up resources
+
+To clean up the resources created in this tutorial, delete the resource group.
+
+1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
+
+1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Delete**. 
+
+
 ## Next steps
 
 * [Understand Search integration for the search-enabled website](tutorial-javascript-search-query-integration.md)
