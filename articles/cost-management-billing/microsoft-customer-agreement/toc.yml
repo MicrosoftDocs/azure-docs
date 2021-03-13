@@ -3,53 +3,48 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is a Microsoft Customer Agreement?
-    href: https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agreement
+  - name: Understand your Microsoft Customer Agreement invoice
+    href: ../understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - name: Concepts
   items:
-  - name: VM instance size flexibility
-    href: ../../virtual-machines/reserved-vm-instance-size-flexibility.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Reservation recommendations
-    href: reserved-instance-purchase-recommendations.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: How discount is applied
-    items:
-    - name: How an Azure reservation discount is applied
-      href: reservation-discount-application.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Windows and SQL costs not included
-    href: reserved-instance-windows-software-costs.md?toc=/azure/cost-management-billing/reservations/toc.json
-- name: How-to guides
-  expanded: true
+  - name: Microsoft Customer Agreement Azure usage and charges file terms
+    href: ../understand/mca-understand-your-usage.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- name: Tutorials
   items:
-  - name: Determine what to purchase
-    items:
-    - name: Choose reservation to purchase
-      href: determine-reservation-purchase.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Buy reservations
-    items:
-    - name: Buy an Azure reservation
-      href: prepare-buy-reservation.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: View, Manage and Optimize after purchase
-    items:
-    - name: Permissions to view and manage
-      href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: View reservations as a CSP
-      href: how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Manage reservations
-      href: manage-reserved-vm-instance.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Change optimize setting
-      href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
-    - name: Exchange and refund reservations
-      href: exchange-and-refund-azure-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Report costs
-    items:
-    - name: View reservation transactions
-      href: view-purchase-refunds.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Charge back reservation costs
-      href: charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json
-  - name: Renew reservations
-    items:
-    - name: Renew a reservation
-      href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
+  - name: Review your Microsoft Customer Agreement bill
+    href: ../understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Create and manage Azure budgets
+    href: ../costs/tutorial-acm-create-budgets.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+- name: How-to guides
+  items:
+  - name: Set up billing for Microsoft Customer Agreement
+    href: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Get started with Microsoft Customer Agreement billing account
+    href: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Organize your invoice based on your needs
+    href: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: View your billing accounts in Azure portal
+    href: ../manage/view-all-accounts.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Billing roles for Microsoft Customer Agreements
+    href: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Manage access to Azure billing
+    href: ../manage/manage-billing-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Pay for Azure subscriptions by invoice
+    href: ../manage/pay-by-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Pay your bill for Microsoft Azure
+    href: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Set up billing for Microsoft Customer Agreement
+    href: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Get billing ownership of Azure subscriptions
+    href: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: Migrate EA to Microsoft Customer Agreement APIs
+    href: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: View and Download Azure usage and charges
+    href: ../understand/download-azure-daily-usage.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: View and download your organization's Azure pricing
+    href: ../manage/ea-pricing.md.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+  - name: EA tasks in a Microsoft Customer Agreement
+    href: ../manage/mca-enterprise-operations.md.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - name: Reference
   items:
   - name: Reservations REST API
