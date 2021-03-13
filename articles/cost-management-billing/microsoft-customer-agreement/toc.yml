@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is a Microsoft Customer Agreement?
+  - name: Microsoft Customer Agreement overview
     href: ../understand/mca-understand-your-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 - name: Concepts
   items:
