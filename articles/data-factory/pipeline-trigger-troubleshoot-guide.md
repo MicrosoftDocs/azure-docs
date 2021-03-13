@@ -130,7 +130,7 @@ This can happen if you have not implemented time to live feature for Data Flow o
 **Resolution**
 
 * If each copy activity is taking up to 2 minutes to start, and the problem occurs primarily on a VNet join (vs. Azure IR), this can be a copy performance issue. To review troubleshooting steps, go to [Copy Performance Improvement.](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
-* You can use time to live feature to decrease cluster start up time for data flow activities. Please review [Data Flow Integration Runtime](https://docs.microsoft.com/en-us/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime)
+* You can use time to live feature to decrease cluster start up time for data flow activities. Please review [Data Flow Integration Runtime.](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime)
 
  ### Hitting capacity issues in SHIR(Self Hosted Integration Runtime)
  
