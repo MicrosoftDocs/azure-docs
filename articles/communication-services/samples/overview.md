@@ -19,8 +19,8 @@ Azure Communication Services has a number of samples available which you can use
 
 | Sample Name                                                                                          | Description                                                         | Languages/Platforms Available      |
 | :--------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ | :--------------------------------- |
-| [Group Calling Hero Sample](./calling-hero-sample)                                                   | Provides a sample of creating a group calling application.          | Web, iOS                           |
-| [Web Calling Sample](./web-calling-sample)                                                           | A step by step walk through of ACS Calling features within the Web. | Web                                |
+| [Group Calling Hero Sample](./calling-hero-sample.md)                                                | Provides a sample of creating a group calling application.          | Web, iOS                           |
+| [Web Calling Sample](./web-calling-sample.md)                                                        | A step by step walk through of ACS Calling features within the Web. | Web                                |
 | [Chat Sample](./chat-hero-sample.md)                                                                 | Provides a sample Chat experience.                                  | Web & C# .NET                      |
 | [Contoso Medical App](https://github.com/Azure-Samples/communication-services-contoso-med-app)       | Sample app demonstrating a patient-doctor flow.                     | Web & Node.js                      |
 | [Contoso Retail App](https://github.com/Azure-Samples/communication-services-contoso-retail-app)     | Sample app demonstrating a retail support flow.                     | ASP.NET, .NET Core, JavaScript/Web |
