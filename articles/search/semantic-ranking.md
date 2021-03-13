@@ -32,19 +32,19 @@ For semantic ranking, the model uses both machine reading comprehension and tran
 
 1. Each of the 50 documents is now represented by a single long string that is up to 8,000 tokens. These strings are sent to the summarization model, which will reduce the string further. The summarization model evaluates the long string for passages that best summarize the document or answer the question.
 
-1. The passage is the output of the summarization model, and it as at most 128 tokens per document.
+1. The output of this phase is a passage, caption, and possibly an answer. The passage is at most 128 tokens per document.
 
 ### Scoring and ranking phases
 
-In this phase, all 50 passages are evaluated collectively to assess relevance, relative to the query provided.
+In this phase, all 50 passages are evaluated individually to assess relevance, relative to the query provided.
 
-1. Scoring is determined by evaluating the passage for conceptual and semantic relevance.
+1. Scoring is determined by evaluating each passage for conceptual and semantic relevance.
 
-   The following diagram provides an illustration of what that means. Consider the term "capital", which could be used in the context of finance, geography, law, or grammar. If a query includes terms from the same vector space (for example, "capital" and "invest"), a document that includes more than one token in the same cluster will score higher than one that doesn't.
+   The following diagram provides an illustration of what "semantic relevance" means. Consider the term "capital", which could be used in the context of finance, geography, law, or grammar. If a query includes terms from the same vector space (for example, "capital" and "invest"), a document that also includes tokens in the same cluster will score higher than one that doesn't.
 
    :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
 
-1. The output of this phase is @search.rerankerScore assigned to each document, with documents ordered in the query response by the semantic score in descending order.
+1. The output of this phase is @search.rerankerScore assigned to each document. Once all documents are scored, they are ranked in descending order and included in the query response payload.
 
 ## Next steps
 
