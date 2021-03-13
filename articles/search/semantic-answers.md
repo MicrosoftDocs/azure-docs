@@ -111,11 +111,11 @@ Given the query "how do clouds form", the following answer is returned in the re
 
 For best results, return semantic answers on a document corpus having the following characteristics:
 
-+ "searchFields" should include one or more fields that provides sufficient text in which an answer is likely to be found.
-
-+ Semantic extraction and summarization have limits over how many tokens per document can be analyzed in a timely fashion. In practical terms, if you have large documents that run into hundreds of pages, you should try to break the content up into smaller documents first.
++ "searchFields" must provide fields that offer sufficient text in which an answer is likely to be found. Only verbatim text from a document can be appear as an answer.
 
 + query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
+
++ Semantic extraction and summarization have limits over how many tokens per document can be analyzed in a timely fashion. In practical terms, if you have large documents that run into hundreds of pages, you should try to break the content up into smaller documents first.
 
 ## Next steps
 
