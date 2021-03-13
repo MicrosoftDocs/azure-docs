@@ -28,21 +28,21 @@ To provide room for the Azure hypervisor to operate without interfering with the
 
 Note that Constrained Cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
 
-## InfiniBand Networking
+## InfiniBand networking
 HBv3 VMs also feature Nvidia Mellanox HDR InfiniBand network adapters (ConnectX-6) operating at up to 200 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HBv3 VMs as they would a bare metal environment.
 
 HBv3 VMs support Adaptive Routing, the Dynamic Connected Transport (DCT, in additional to standard RC and UD transports), and hardware-based offload of MPI collectives to the onboard processor of the ConnectX-6 adapter. These features enhance application performance, scalability, and consistency, and usage of them is strongly recommended.
 
-## Temporary Storage
+## Temporary storage
 HBv3 VMs feature 3 physically local SSD devices. One device is preformatted to serve as a page file and will appear within your VM as a generic "SSD" device.
 
 Two other, larger SSDs are provided as unformatted block NVMe devices via NVMeDirect. As the block NVMe device bypasses the hypervisor, it will have higher bandwidth, higher IOPS, and lower latency per IOP.
 
 When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 GB/s writes, and up to 186,000 IOPS (reads) and 201,000 IOPS (writes) for deep queue depths.
 
-## Hardware Specifications 
+## Hardware specifications 
 
-| Hardware Specifications          | HBv3-series VMs              |
+| Hardware specifications          | HBv3-series VMs              |
 |----------------------------------|----------------------------------|
 | Cores                            | 120, 96, 64, 32, or 16 (SMT disabled)               | 
 | CPU                              | AMD EPYC 7V13                   | 
@@ -54,7 +54,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 
 ## Software specifications 
 
-| Software Specifications        | HBv3-series VMs                                            | 
+| Software specifications        | HBv3-series VMs                                            | 
 |--------------------------------|-----------------------------------------------------------|
 | Max MPI Job Size               | 36,000 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true) |
 | MPI Support                    | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH  |

@@ -23,16 +23,16 @@ All HBv3-series VMs feature 200 Gb/sec HDR InfiniBand from NVIDIA Networking to 
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Coming soon<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
-<br>
 
-| Size | vCPU | Processor | Memory (GiB) | Memory bandwidth GB/s | Base CPU frequency (GHz) | All-cores frequency (GHz, peak) | Single-core frequency (GHz, peak) | RDMA performance (Gb/s) | MPI support | Temp storage (GiB) | Max data disks | Max Ethernet vNICs |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB120rs_v3    | 120 | AMD EPYC 7V13 | 448 | 350 | 2.45 | 3.1 | 3.675 | 200 | All | 2 * 960 | 32 | 8 |
-| Standard_HB120-96rs_v3 | 96  | AMD EPYC 7V13 | 448 | 350 | 2.45 | 3.1 | 3.675 | 200 | All | 2 * 960 | 32 | 8 |
-| Standard_HB120-64rs_v3 | 64  | AMD EPYC 7V13 | 448 | 350 | 2.45 | 3.1 | 3.675 | 200 | All | 2 * 960 | 32 | 8 |
-| Standard_HB120-32rs_v3 | 32  | AMD EPYC 7V13 | 448 | 350 | 2.45 | 3.1 | 3.675 | 200 | All | 2 * 960 | 32 | 8 |
-| Standard_HB120-16rs_v3 | 16  | AMD EPYC 7V13 | 448 | 350 | 2.45 | 3.1 | 3.675 | 200 | All | 2 * 960 | 32 | 8 |
-<br>
+
+|Size |vCPU |Processor |Memory (GiB) |Memory bandwidth GB/s |Base CPU frequency (GHz) |All-cores frequency (GHz, peak) |Single-core frequency (GHz, peak) |RDMA performance (Gb/s) |MPI support |Temp storage (GiB) |Max data disks |Max Ethernet vNICs |
+|----|----|----|----|----|----|----|----|----|----|----|----|----|
+|Standard_HB120rs_v3    |120 |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3.675 |200 |All |2 * 960 |32 |8 |
+|Standard_HB120-96rs_v3 |96  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3.675 |200 |All |2 * 960 |32 |8 |
+|Standard_HB120-64rs_v3 |64  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3.675 |200 |All |2 * 960 |32 |8 |
+|Standard_HB120-32rs_v3 |32  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3.675 |200 |All |2 * 960 |32 |8 |
+|Standard_HB120-16rs_v3 |16  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3.675 |200 |All |2 * 960 |32 |8 |
+
 
 Learn more about:
 - Underlying [architecture and VM topology](./workloads/hpc/hbv3-series-overview.md)
