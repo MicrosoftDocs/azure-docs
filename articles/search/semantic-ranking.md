@@ -24,17 +24,27 @@ The semantic ranking is both resource and time intensive. In order to complete p
 
 For semantic ranking, the model uses both machine reading comprehension and transfer learning to re-score the documents based on how well each one matches the intent of the query.
 
-1. For each document, the semantic ranker evaluates the fields in the searchFields parameter in order, consolidating the contents into one large string.
+### Preparation (passage extraction) phase
 
-1. The string is then trimmed to ensure the overall length is not more than 8,000 tokens. If you have very large documents, with a content field or merged_content field that has many pages of content, anything after the token limit is ignored.
+1. For each document, there is a passage extraction exercise that evaluates each field in the searchFields parameter in consecutive order, consolidating the contents into one large string. 
 
-1. Each of the 50 documents is now represented by a single long string. This string is sent to the summarization model. The summarization model produces captions (and answers), using machine reading comprehension to identify passages that appear to summarize the content or answer the question. The output of the summarization model is a further reduced string, which be at most 128 tokens.
+1. The string is then trimmed to ensure the overall length is not more than 8,000 tokens. If you have very large documents with text-heavy fields, anything after the token limit is ignored.
 
-1. The smaller string becomes the caption of the document, and it represents the most relevant passages found in the larger string. The set of 50 (or fewer) captions is then ranked in order relevance. 
+1. Each of the 50 documents is now represented by a single long string that is up to 8,000 tokens. These strings are sent to the summarization model, which will reduce the string further. The summarization model evaluates the long string for passages that best summarize the document or answer the question.
 
-Conceptual and semantic relevance is established through vector representation and term clusters. Whereas a keyword similarity algorithm might give equal weight to any term in the query, the semantic model has been trained to recognize the interdependency and relationships among words that are otherwise unrelated on the surface. As a result, if a query string includes terms from the same cluster, a document containing both will rank higher than one that doesn't.
+1. The passage is the output of the summarization model, and it as at most 128 tokens per document.
 
-:::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
+### Scoring and ranking phases
+
+In this phase, all 50 passages are evaluated collectively to assess relevance, relative to the query provided.
+
+1. Scoring is determined by evaluating the passage for conceptual and semantic relevance.
+
+   The following diagram provides an illustration of what that means. Consider the term "capital", which could be used in the context of finance, geography, law, or grammar. If a query includes terms from the same vector space (for example, "capital" and "invest"), a document that includes more than one token in the same cluster will score higher than one that doesn't.
+
+   :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
+
+1. The output of this phase is @search.rerankerScore assigned to each document, with documents ordered in the query response by the semantic score in descending order.
 
 ## Next steps
 
@@ -44,5 +54,5 @@ A new query type enables the relevance ranking and response structures of semant
 
 Alternatively, review either of the following articles for related information.
 
-+ [Add spell check to query terms](speller-how-to-add.md)
++ [Semantic search overview](semantic-search-overview.md)
 + [Return a semantic answer](semantic-answers.md)

@@ -113,7 +113,7 @@ For best results, return semantic answers on a document corpus having the follow
 
 + "searchFields" should include one or more fields that provides sufficient text in which an answer is likely to be found.
 
-+ Semantic extraction and summarization have limits over how many tokens per document can be analyzed in a timely fashion. In practical terms, if you have large documents that run into hundreds of pages, you should try to break the content up into manageable parts first.
++ Semantic extraction and summarization have limits over how many tokens per document can be analyzed in a timely fashion. In practical terms, if you have large documents that run into hundreds of pages, you should try to break the content up into smaller documents first.
 
 + query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
 
@@ -121,5 +121,5 @@ For best results, return semantic answers on a document corpus having the follow
 
 + [Semantic search overview](semantic-search-overview.md)
 + [Semantic ranking algorithm](semantic-ranking.md)
-+ [Similarity algorithm](index-ranking-similarity.md)
++ [Similarity ranking algorithm](index-ranking-similarity.md)
 + [Create a semantic query](semantic-how-to-query-request.md)
