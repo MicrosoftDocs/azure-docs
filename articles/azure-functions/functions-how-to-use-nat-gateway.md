@@ -41,9 +41,7 @@ If you've already completed the [integrate Functions with an Azure virtual netwo
 
 1. From the Azure portal menu, select **Create a resource**. From the Azure Marketplace, select **Networking** > **Virtual network**.
 
-1. In **Create virtual network**, enter or select the settings as specified in the table below the image:
-
-    ![Basics tab for creating a vnet](./media/functions-how-to-use-nat-gateway/create-vnet-1-basics.png)
+1. In **Create virtual network**, enter or select the settings specified as shown in the following table:
 
     | Setting | Value |
     | ------- | ----- |
@@ -101,11 +99,7 @@ The function app can now access the virtual network. Next, you'll add an HTTP-tr
 
 1. From the left menu of the **Functions** window, select **Functions**, then select **Add** from the top menu. 
  
-1. From the **New Function** window, select **Http trigger**.
-
-    ![Choose HTTP trigger function](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
-
-1. In the **New Function** window, accept the default name for **New Function**, or enter a new name. 
+1. From the **New Function** window, select **Http trigger** and accept the default name for **New Function**, or enter a new name. 
 
 1. In **Code + Test**, replace the template-generated C# script (.csx) code with the following code: 
 
@@ -145,7 +139,7 @@ Now, you can run the function. But first, check in the portal and see what outbo
 
     ![Test function](./media/functions-how-to-use-nat-gateway/function-code-test.png)
 
-1. Select **Run** to execute the function. 
+1. Select **Run** to execute the function, then switch to the **Output**. 
 
     ![Test function output](./media/functions-how-to-use-nat-gateway/function-test-1-output.png)
 
@@ -225,7 +219,9 @@ Repeat [the steps earlier](#verify-current-outbound-ips) to run the function aga
 
 ## Clean up resources
 
-[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
+You created resources to complete this tutorial. You'll be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). To avoid incurring extra costs, delete the resources when you know longer need them. 
+
+[!INCLUDE [functions-quickstart-cleanup-inner](../../includes/functions-quickstart-cleanup-inner.md)]
 
 ## Next steps
 
