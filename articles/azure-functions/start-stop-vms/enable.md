@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Enable Start/Stop VMs (preview)
 
-Perform the steps in this topic in sequence to enable the Start/Stop VMs feature. After completing the setup process, configure the schedules to customize the feature.
+Perform the steps in this topic in sequence to enable the Start/Stop VMs (preview) feature. After completing the setup process, configure the schedules to customize the feature.
 
 The deployment is initiated from the Start/Stop VMs GitHub organization [here](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md).
 
@@ -28,13 +28,13 @@ The deployment is initiated from the Start/Stop VMs GitHub organization [here](h
     |Storage Account Name |Specify the name of the Azure Storage account to store Start/Stop VMs execution telemetry. |
     |Email Address |Specify one or more email addresses to receive status notifications, separated by a comma (,).|
 
-    :::image type="content" source="media/enabled/deployment-template-details.png" alt-text="Start/Stop VMs template deployment configuration":::
+    :::image type="content" source="media/enable/deployment-template-details.png" alt-text="Start/Stop VMs template deployment configuration":::
 
 1. Select **Review + create** on the bottom of the page.
 1. Select **Create** to start the deployment.
 1. Select the bell icon (notifications) from the top of the screen to see the deployment status. You shall see **Deployment in progress**. Wait until the deployment is completed.
 1. Select **Go to resource group** from the notification pane. You shall see a screen similar to:
 
-    :::image type="content" source="media/enabled/deployment-template-results.png" alt-text="Start/Stop VMs template deployment resource group":::
+    :::image type="content" source="media/enable/deployment-template-results.png" alt-text="Start/Stop VMs template deployment resource group":::
 
 ## Configure schedule

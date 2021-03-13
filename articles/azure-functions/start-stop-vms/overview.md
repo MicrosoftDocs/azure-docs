@@ -80,9 +80,9 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
 - An Azure Storage account, which is required by Functions. Start/Stop VMs also uses this Storage account for two purposes:
 
-    1. Uses Azure Table Storage to store the execution operation metadata (that is, the start/stop VM action).
+    * Uses Azure Table Storage to store the execution operation metadata (that is, the start/stop VM action).
 
-    1. Uses Azure Queue Storage to support the Azure Functions queue-based triggers.
+    * Uses Azure Queue Storage to support the Azure Functions queue-based triggers.
 
 - Start/Stop VMs (preview) is available in all Azure global regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=functions) page for Azure Functions. For the Azure Government cloud, it is only available in the US Government Virginia region.
 
