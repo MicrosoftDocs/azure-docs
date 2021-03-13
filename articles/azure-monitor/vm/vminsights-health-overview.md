@@ -1,7 +1,6 @@
 ---
-title: Azure Monitor for VMs guest health (preview)
-description: Overview of the health feature in Azure Monitor for VMs including how you can view the health of your virtual machines and receive alerts when a virtual machine becomes unhealthy.
-ms.subservice: 
+title: VM insights guest health (preview)
+description: Overview of the health feature in VM insights including how you can view the health of your virtual machines and receive alerts when a virtual machine becomes unhealthy.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -9,14 +8,14 @@ ms.date: 10/27/2020
 
 ---
 
-# Azure Monitor for VMs guest health (preview)
-Azure Monitor for VMs guest health allows you to view the health of virtual machines based on a set of performance measurements that are sampled at regular intervals from the guest operating system. You can quickly check the health of all virtual machines in a subscription or resource group, drill down on the detailed health of a particular virtual machine, or be proactively notified when a virtual machine becomes unhealthy. 
+# VM insights guest health (preview)
+VM insights guest health allows you to view the health of virtual machines based on a set of performance measurements that are sampled at regular intervals from the guest operating system. You can quickly check the health of all virtual machines in a subscription or resource group, drill down on the detailed health of a particular virtual machine, or be proactively notified when a virtual machine becomes unhealthy. 
 
 ## Enable virtual machine health
-See [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) for details on enabling the guest health feature and onboarding virtual machines.
+See [Enable VM insights guest health (preview)](vminsights-health-enable.md) for details on enabling the guest health feature and onboarding virtual machines.
 
 ## Pricing
-There is no direct cost for the guest health feature, but there is a cost for ingestion and storage of health state data in the Log Analytics workspace. All data is stored in the *HealthStateChangeEvent* table. See [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md) for details on pricing models and costs.
+There is no direct cost for the guest health feature, but there is a cost for ingestion and storage of health state data in the Log Analytics workspace. All data is stored in the *HealthStateChangeEvent* table. See [Manage usage and costs with Azure Monitor Logs](../logs/manage-cost-storage.md) for details on pricing models and costs.
 
 ## View virtual machine health
 The **Guest VM Health** column in the **Get Started** page gives you a quick view of the health of each virtual machine in a particular subscription or resource group. The current health of each virtual machine is displayed while icons for each group show the number of virtual machines currently in each state in that group.
@@ -91,7 +90,7 @@ Select a monitor to view its detail which includes the following tabs.
 [![Monitor details history](media/vminsights-health-overview/monitor-details-history.png)](media/vminsights-health-overview/monitor-details-history.png#lightbox)
 
 ### Configuration
-View and modify the configuration of the monitor for the selected VM. See [Configure monitoring in Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) for details.
+View and modify the configuration of the monitor for the selected VM. See [Configure monitoring in VM insights guest health (preview)](vminsights-health-enable.md) for details.
 
 [![Monitor details configuration](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 
@@ -100,6 +99,6 @@ View and modify the configuration of the monitor for the selected VM. See [Confi
 
 ## Next steps
 
-- [Enable guest health in Azure Monitor for VMs and onboard agents.](vminsights-health-enable.md)
+- [Enable guest health in VM insights and onboard agents.](vminsights-health-enable.md)
 - [Configure monitors using the Azure portal.](vminsights-health-configure.md)
 - [Configure monitors using data collection rules.](vminsights-health-configure-dcr.md)

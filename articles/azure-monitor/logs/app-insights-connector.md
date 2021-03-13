@@ -1,7 +1,6 @@
 ---
 title: View Azure Application Insights app data | Microsoft Docs
 description: You can use the Application Insights Connector solution to diagnose performance issues and understand what users do with your app when monitored with Application Insights.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -18,7 +17,7 @@ ms.date: 02/13/2019
 >
 >Existing connections will continue to work until June 30, 2019.  With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. See [Removing the connector with PowerShell](#removing-the-connector-with-powershell) below for a script on using PowerShell to remove existing connections.
 >
->For guidance on querying Application Insights log data for multiple applications, see [Unify multiple Azure Monitor Application Insights resources](../log-query/unify-app-resource-data.md). For more information on the OMS portal deprecation, see [OMS portal moving to Azure](../platform/oms-portal-transition.md).
+>For guidance on querying Application Insights log data for multiple applications, see [Unify multiple Azure Monitor Application Insights resources](./unify-app-resource-data.md). For more information on the OMS portal deprecation, see [OMS portal moving to Azure](./oms-portal-transition.md).
 >
 > 
 
@@ -314,5 +313,4 @@ ApplicationInsights | summarize by ApplicationName
 
 ## Next steps
 
-- Use [Log Search](../log-query/log-query-overview.md) to view detailed information for your Application Insights apps.
-
+- Use [Log Search](./log-query-overview.md) to view detailed information for your Application Insights apps.

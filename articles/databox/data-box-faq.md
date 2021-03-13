@@ -7,8 +7,9 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/25/2021
 ms.author: alkohli
+ms.custom: references_regions
 ---
 # Azure Data Box: Frequently Asked Questions
 
@@ -63,6 +64,16 @@ For example, in the import scenario, if you had the source data in Canada that y
 2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
 
 3. You can then use a tool like AzCopy to copy the data to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
+
+#### Q. Does Data Box store any customer data outside of the service region?
+
+A. No. Data Box does not store any customer data outside of the service region. The customer has full ownership of their data and can save the data to a specified location based on the storage account they select during the order creation.  
+
+In addition to the customer data, there is Data Box data that includes security artifacts related to the device, monitoring logs for the device and the service, and service-related metadata. In all regions (except Brazil South and Southeast Asia), Data Box data is stored and replicated in the paired region via a Geo-redundant Storage account to protect against data loss.  
+
+Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, Data Box data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box data is stored in Singapore and for Brazil South, the data is stored in Brazil. 
+
+If there is a service outage in Brazil South and Southeast Asia, the customers can create new orders from another region. The new orders will be served from the region in which they are created and the customers are responsible for the to and fro shipment of the Data Box device.
 
 ### Q. How can I recover my data if an entire region fails?
 

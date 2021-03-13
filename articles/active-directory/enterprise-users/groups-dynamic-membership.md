@@ -274,6 +274,14 @@ The following expression selects all users who have any service plan that is ass
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
+#### Example 3
+
+The following expression selects all users who have no asigned service plan:
+
+```
+user.assignedPlans -all (assignedPlan.servicePlanId -eq "")
+```
+
 ### Using the underscore (\_) syntax
 
 The underscore (\_) syntax matches occurrences of a specific value in one of the multivalued string collection properties to add users or devices to a dynamic group. It is used with the -any or -all operators.

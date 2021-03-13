@@ -2,7 +2,6 @@
 title: How to integrate the common alert schema with Logic Apps
 description: Learn how to create a logic app that leverages the common alert schema to handle all your alerts.
 ms.topic: conceptual
-ms.subservice: alerts
 ms.date: 05/27/2019
 
 ---
@@ -19,8 +18,8 @@ The [common alert schema](./alerts-common-schema.md) provides a standardized and
 ## Prerequisites 
 
 This article assumes that the reader is familiar with 
-* Setting up alert rules ([metric](../alerts/alerts-metric.md), [log](../platform/alerts-log.md), [activity log](../platform/alerts-activity-log.md))
-* Setting up [action groups](../platform/action-groups.md)
+* Setting up alert rules ([metric](../alerts/alerts-metric.md), [log](./alerts-log.md), [activity log](./alerts-activity-log.md))
+* Setting up [action groups](./action-groups.md)
 * Enabling the [common alert schema](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) from within action groups
 
 ## Create a logic app leveraging the common alert schema
@@ -133,5 +132,5 @@ This article assumes that the reader is familiar with
 
 ## Next steps
 
-* [Learn more about action groups](../platform/action-groups.md).
+* [Learn more about action groups](./action-groups.md).
 * [Learn more about the common alert schema](./alerts-common-schema.md).

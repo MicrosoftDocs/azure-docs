@@ -28,7 +28,7 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 > [!NOTE] 
 > The examples in this article assume that you've provided authorization credentials by using Azure Active Directory (Azure AD).
 >
-> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.ken>'`.
+> If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## Guidelines
 
