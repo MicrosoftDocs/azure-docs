@@ -44,7 +44,7 @@ Each authorization option is briefly described below:
 > [!div class="nextstepaction"]
 > [Create and manage Communication Services resources](../quickstarts/create-communication-resource.md)
 > [Create an Azure Active Directory managed identity application from the Azure CLI](../quickstarts/managed-identity-from-cli.md)
-> [Creating user access tokens](../quickstarts/access-tokens.md)
+> [Create User Access Tokens](../quickstarts/access-tokens.md)
 
 For more information, see the following articles:
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
