@@ -102,8 +102,8 @@ The following classes and interfaces handle some of the major features of the Az
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | SmsClientBuilder              | This class creates the SmsClient. You provide it with endpoint, credential, and an http client. |
 | SmsClient                    | This class is needed for all SMS functionality. You use it to send SMS messages.                |
-| SmsSendResult                | This class contains the response from the SMS service.                                          |
-| SmsSendOptions               | This class is used to set up the tag and the deliveryReport if needed                           |
+| SmsSendResult                | This class contains the result response from the SMS service.                                          |
+| SmsSendOptions               | This class provides options to add custom tags and configure delivery reporting. If deliveryReportEnabled is set to True, then an event will be emitted when delivery was successful|                           |
 
 ## Authenticate the client
 
@@ -181,9 +181,9 @@ You should replace `<from-phone-number>` with an SMS enabled phone number associ
 
 ## Optional Parameters
 
-The `enable_delivery_report` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
+The `deliveryReportEnabled` parameter is an optional parameter that you can use to configure Delivery Reporting. This is useful for scenarios where you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure Delivery Reporting for your SMS messages.
 
-The `tag` parameter is an optional parameter that you can use to configure custom tagging.
+The `tag` parameter is an optional parameter that you can use to apply a tag to the Delivery Report.
 
 ## Run the code
 
