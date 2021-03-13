@@ -3,7 +3,7 @@ title: Configure Azure Automation Start/Stop VMs during off-hours
 description: This article tells how to configure the Start/Stop VMs during off-hours feature to support different use cases or scenarios.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/01/2020
+ms.date: 03/12/2021
 ms.topic: conceptual
 ---
 
@@ -132,7 +132,7 @@ To change email notifications after Start/Stop VMs during off-hours is deployed,
 > [!NOTE]
 > Subscriptions in the Azure Government cloud don't support the email functionality of this feature.
 
-1. In the Azure portal, navigate to **Monitor**, then **Action groups**. Select the action group called **StartStop_VM_Notication**.
+1. In the Azure portal, navigate to **Monitoring** > **Alerts** > **Manage actions** > **Action groups**. Select the action group called **StartStop_VM_Notification**.
 
     :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="Screenshot of the Monitor - Action groups page.":::
 
@@ -140,11 +140,11 @@ To change email notifications after Start/Stop VMs during off-hours is deployed,
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot of the Email/SMS/Push/Voice page showing an example email address updated.":::
 
-    Alternatively you can add additional actions to the action group, to learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
+    Alternatively you can add additional actions to the action group. To learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
 
 The following is an example email that is sent when the feature shuts down virtual machines.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot of an example email sent when the feature shuts down virtual machines.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot of an example email sent when the feature shuts down virtual machines." lightbox="media/automation-solution-vm-management/email.png":::
 
 ## <a name="add-exclude-vms"></a>Add or exclude VMs
 
