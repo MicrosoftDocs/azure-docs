@@ -1859,6 +1859,6 @@ Usage Summary Reports Reader | &nbsp; | :heavy_check_mark: | :heavy_check_mark: 
 
 ## Next steps
 
-- To learn about how to assign roles to groups, see [Assign Azure AD roles to groups](groups-assign-role.md)
-- To learn more about how resource access is controlled in Microsoft Azure, see [Understand the different roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-- To learn more about how to assign a user as an administrator of an Azure subscription, see [Assign a user as an administrator of an Azure subscription](../../role-based-access-control/role-assignments-portal-subscription-admin.md)
+- [Assign Azure AD roles to groups](groups-assign-role.md)
+- [Understand the different roles](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Assign a user as an administrator of an Azure subscription](../../role-based-access-control/role-assignments-portal-subscription-admin.md)
