@@ -46,11 +46,11 @@ To create an Azure Time Series Insights Gen 2 environment:
 
 1. Select **Gen2(L1)** as the **Tier**. Provide an environment name, and choose the subscription group and resource group to use. Then select a supported location to host the environment.
 
-   :::image type="content" source="media/how-to-create-tsi-environment-using-portal/tsi-environment-configuration.png" alt-text="Create an Azure Time Series Insights instance." lightbox="media/how-to-create-tsi-environment-using-portal/tsi-environment-configuration.png":::
+   :::image type="content" source="media/how-to-create-environment-using-portal/environment-configuration.png" alt-text="Create an Azure Time Series Insights instance." lightbox="media/how-to-create-environment-using-portal/environment-configuration.png":::
 
 1. Enter a Time Series ID.
 
-   :::image type="content" source="media/how-to-create-tsi-environment-using-portal/tsi-environment-configuration2.png" alt-text="Create an Azure Time Series Insights environment configuration, continued." lightbox="media/how-to-create-tsi-environment-using-portal/tsi-environment-configuration2.png":::
+   :::image type="content" source="media/how-to-create-environment-using-portal/environment-configuration-2.png" alt-text="Create an Azure Time Series Insights environment configuration, continued." lightbox="media/how-to-create-environment-using-portal/environment-configuration-2.png":::
 
    > [!NOTE]
    >
@@ -74,11 +74,11 @@ Alternatively, you can also bring your own storage (BYOS) through an [Azure Reso
      > [!TIP]
      > The message-enqueued time might not be the best configured setting to use in batch event scenarios or historical data uploading scenarios. In such cases, make sure to verify your decision to use or not use a Timestamp property.
 
-   :::image type="content" source="media/how-to-create-tsi-environment-using-portal/tsi-configure-event-source.png" alt-text="Event Source configuration tab" lightbox="media/how-to-create-tsi-environment-using-portal/tsi-configure-event-source.png":::
+   :::image type="content" source="media/how-to-create-environment-using-portal/configure-event-source.png" alt-text="Event Source configuration tab" lightbox="media/how-to-create-environment-using-portal/configure-event-source.png":::
 
 1. Select **Review + Create** to confirm that your environment has been provisioned and configured the way you want.
 
-    :::image type="content" source="media/how-to-create-tsi-environment-using-portal/tsi-environment-confirmation.png" alt-text="Review + Create tab" lightbox="media/how-to-create-tsi-environment-using-portal/tsi-environment-confirmation.png":::
+    :::image type="content" source="media/how-to-create-environment-using-portal/environment-confirmation.png" alt-text="Review + Create tab" lightbox="media/how-to-create-environment-using-portal/environment-confirmation.png":::
 
 ## Next steps
 

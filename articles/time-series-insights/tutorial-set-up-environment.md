@@ -36,7 +36,7 @@ Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if yo
 
 * At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-* Create an environment using either the [Azure portal](#create-an-azure-time-series-insights-gen2-environment) or [CLI](how-to-create-tsi-environment-using-cli.md).
+* Create an environment using either the [Azure portal](#create-an-azure-time-series-insights-gen2-environment) or [CLI](how-to-create-environment-using-cli.md).
 
 ## Create a device simulation
 
@@ -44,7 +44,7 @@ In this section, you will create three simulated devices that send data to an Az
 
 1. Go to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). Sign in by using your Azure account, then select **Device Simulation**.
 
-   [![Azure IoT solution accelerators page.](media/tutorial-set-up-tsi-environment/iot-solution-accelerators-landing-page.png)](media/tutorial-set-up-tsi-environment/iot-solution-accelerators-landing-page.png#lightbox)
+   [![Azure IoT solution accelerators page.](media/tutorial-set-up-environment/iot-solution-accelerators-landing-page.png)](media/tutorial-set-up-environment/iot-solution-accelerators-landing-page.png#lightbox)
 
 1. Scroll down to read the [Overview](https://github.com/Azure/azure-iot-pcs-device-simulation#overview) and [Getting started](https://github.com/Azure/azure-iot-pcs-device-simulation#getting-started) sections.
 
@@ -57,11 +57,11 @@ In this section, you will create three simulated devices that send data to an Az
    >[!IMPORTANT]
    > Don't enter your solution accelerator yet! Keep this web page open because you'll return to it later.
 
-   [![Device simulation solution provisioning complete.](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-ready.png)](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-ready.png#lightbox)
+   [![Device simulation solution provisioning complete.](media/tutorial-set-up-environment/iot-solution-accelerator-ready.png)](media/tutorial-set-up-environment/iot-solution-accelerator-ready.png#lightbox)
 
 1. Now, inspect the newly created resources in the Azure portal. On the **Resource groups** page, notice that a new resource group was created by using the `solutionName` you provided in your ARM template parameters file. Make note of the resources that were created for the device simulation.
 
-   [![Device simulation resources.](media/tutorial-set-up-tsi-environment/tsi-device-sim-solution-resources.png)](media/tutorial-set-up-tsi-environment/tsi-device-sim-solution-resources.png#lightbox)
+   [![Device simulation resources.](media/tutorial-set-up-environment/device-sim-solution-resources.png)](media/tutorial-set-up-environment/device-sim-solution-resources.png#lightbox)
 
 ## Create an Azure Time Series Insights Gen2 environment
 
@@ -71,7 +71,7 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
 1. Select **+ Create a resource** in the upper left.
 1. Select the **Internet of Things** category, and then select **Time Series Insights**.
 
-   [![Select the Time Series Insights environment resource.](media/tutorial-set-up-tsi-environment/tsi-create-new-environment.png)](media/tutorial-set-up-tsi-environment/tsi-create-new-environment.png#lightbox)
+   [![Select the Time Series Insights environment resource.](media/tutorial-set-up-environment/create-new-environment.png)](media/tutorial-set-up-environment/create-new-environment.png#lightbox)
 
 1. In the **Create Time Series Insights environment** pane, on the **Basics** tab, set the following parameters:
 
@@ -90,12 +90,12 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
     |**Enable warm store**|Select **Yes** to enable warm store. This setting can be disabled and re-enabled after the environment has been created as well. |
     |**Data retention (in days)**|Choose the default option of 7 days. |
 
-    [![New Azure Time Series Insights environment configuration.](media/tutorial-set-up-tsi-environment/tsi-environment-configuration.png)](media/tutorial-set-up-tsi-environment/tsi-environment-configuration.png#lightbox)
-    [![New Azure Time Series Insights environment configuration, continued.](media/tutorial-set-up-tsi-environment/tsi-environment-configuration2.png)](media/tutorial-set-up-tsi-environment/tsi-environment-configuration2.png#lightbox)
+    [![New Azure Time Series Insights environment configuration.](media/tutorial-set-up-environment/environment-configuration.png)](media/tutorial-set-up-environment/environment-configuration.png#lightbox)
+    [![New Azure Time Series Insights environment configuration, continued.](media/tutorial-set-up-environment/environment-configuration2.png)](media/tutorial-set-up-environment/environment-configuration2.png#lightbox)
 
 1. Select **Next: Event Source**.
 
-   [![Configure Time Series ID for the environment.](media/tutorial-set-up-tsi-environment/tsi-time-series-id-selection.png)](media/tutorial-set-up-tsi-environment/tsi-time-series-id-selection.png#lightbox)
+   [![Configure Time Series ID for the environment.](media/tutorial-set-up-environment/time-series-id-selection.png)](media/tutorial-set-up-environment/time-series-id-selection.png#lightbox)
 
 1. On the **Event Source** tab, set the following parameters:
 
@@ -113,15 +113,15 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
 
 1. Select **Review + Create**.
 
-   [![Configure the created IoT hub as an event source.](media/tutorial-set-up-tsi-environment/tsi-configure-event-source.png)](media/tutorial-set-up-tsi-environment/tsi-configure-event-source.png#lightbox)
+   [![Configure the created IoT hub as an event source.](media/tutorial-set-up-environment/configure-event-source.png)](media/tutorial-set-up-environment/configure-event-source.png#lightbox)
 
 1. Select **Review + Create**.
 
-    [![Review + Create page, with Create button.](media/tutorial-set-up-tsi-environment/tsi-environment-confirmation.png)](media/tutorial-set-up-tsi-environment/tsi-environment-confirmation.png#lightbox)
+    [![Review + Create page, with Create button.](media/tutorial-set-up-environment/environment-confirmation.png)](media/tutorial-set-up-environment/environment-confirmation.png#lightbox)
 
     You can review the status of your deployment:
 
-    [![Notification that deployment is complete.](media/tutorial-set-up-tsi-environment/tsi-deployment-notification.png)](media/tutorial-set-up-tsi-environment/tsi-deployment-notification.png#lightbox)
+    [![Notification that deployment is complete.](media/tutorial-set-up-environment/deployment-notification.png)](media/tutorial-set-up-environment/deployment-notification.png#lightbox)
 
 1. Expand deployment details.
 
@@ -145,11 +145,11 @@ Now that you've deployed your Azure Time Series Insights Gen2 environment, begin
         | **Device model** | Click + **Add a device type** <br />**Name**: Enter **Elevator**. <br />**Amount**: Enter **3**. <br /> Leave the remaining default values |
         | **Target IoT Hub** | Set to **Use pre-provisioned IoT Hub**. |
 
-        [![Configure parameters and launch.](media/tutorial-set-up-tsi-environment/tsi-launch-solution-accelerator.png)](media/tutorial-set-up-tsi-environment/tsi-launch-solution-accelerator.png#lightbox)
+        [![Configure parameters and launch.](media/tutorial-set-up-environment/launch-solution-accelerator.png)](media/tutorial-set-up-environment/launch-solution-accelerator.png#lightbox)
 
     1. Select **Start simulation**. In the device simulation dashboard, **Active devices** and **Total messages** are displayed.
 
-        [![Azure IoT simulation dashboard.](media/tutorial-set-up-tsi-environment/tsi-see-active-devices-and-messages.png)](media/tutorial-set-up-tsi-environment/tsi-see-active-devices-and-messages.png#lightbox)
+        [![Azure IoT simulation dashboard.](media/tutorial-set-up-environment/see-active-devices-and-messages.png)](media/tutorial-set-up-environment/see-active-devices-and-messages.png#lightbox)
 
 ## Analyze data
 
@@ -157,27 +157,27 @@ In this section, you perform basic analytics on your time series data by using t
 
 1. Go to your Azure Time Series Insights Gen2 Explorer by selecting the URL from the resource page in the [Azure portal](https://portal.azure.com/).
 
-    [![The Azure Time Series Insights Gen2 Explorer URL.](media/tutorial-set-up-tsi-environment/tsi-select-explorer-url.png)](media/tutorial-set-up-tsi-environment/tsi-select-explorer-url.png#lightbox)
+    [![The Azure Time Series Insights Gen2 Explorer URL.](media/tutorial-set-up-environment/select-explorer-url.png)](media/tutorial-set-up-environment/select-explorer-url.png#lightbox)
 
 1. In the Azure Time Series Insights Gen2 Explorer, a bar spanning the top of the screen will appear. This is your availability picker. Ensure that you have at least two 2 m selected, and if needed, expand the time frame by selecting and dragging the picker handles to the left and right.
 
 1. **Time Series Instances** will be displayed on the left-hand side.
 
-    [![List of unparented instances.](media/tutorial-set-up-tsi-environment/tsi-explorer-unparented-instances.png)](media/tutorial-set-up-tsi-environment/tsi-explorer-unparented-instances.png#lightbox)
+    [![List of unparented instances.](media/tutorial-set-up-environment/explorer-unparented-instances.png)](media/tutorial-set-up-environment/explorer-unparented-instances.png#lightbox)
 
 1. Select the first-time series instance. Then, select **Show temperature**.
 
-    [![Selected time series instance with menu command to show average temperature.](media/tutorial-set-up-tsi-environment/select-instance-and-temperature.png)](media/tutorial-set-up-tsi-environment/select-instance-and-temperature.png#lightbox)
+    [![Selected time series instance with menu command to show average temperature.](media/tutorial-set-up-environment/select-instance-and-temperature.png)](media/tutorial-set-up-environment/select-instance-and-temperature.png#lightbox)
 
     A time series chart appears. Change the **Interval** to **30s**.
 
 1. Repeat the previous step with the other two time series instances so that you're viewing all three, as shown in this chart:
 
-    [![Chart for all time series.](media/tutorial-set-up-tsi-environment/tsi-explorer-add-three-instances.png)](media/tutorial-set-up-tsi-environment/tsi-explorer-add-three-instances.png#lightbox)
+    [![Chart for all time series.](media/tutorial-set-up-environment/explorer-add-three-instances.png)](media/tutorial-set-up-environment/explorer-add-three-instances.png#lightbox)
 
 1. Select the time span picker in the upper right corner. Here you can select specific start and end times down to the millisecond, or choose from pre-configured options such as **Last 30 minutes**. You can also change the default time zone.
 
-    [![Set the time range to the last 30 minute.](media/tutorial-set-up-tsi-environment/tsi-explorer-thirty-minute-time-range.png)](media/tutorial-set-up-tsi-environment/tsi-explorer-thirty-minute-time-range.png#lightbox)
+    [![Set the time range to the last 30 minute.](media/tutorial-set-up-environment/explorer-thirty-minute-time-range.png)](media/tutorial-set-up-environment/explorer-thirty-minute-time-range.png#lightbox)
 
     The solution accelerator's progress over the **Last 30 minutes** is now displayed in the Azure Time Series Insights Gen2 Explorer.
 
@@ -187,7 +187,7 @@ In this section, you apply a model to structure your data. To complete the model
 
 1. In the Explorer, select the **Model** tab:
 
-   [![View the Model tab in the Explorer.](media/tutorial-set-up-tsi-environment/tsi-select-model-view.png)](media/tutorial-set-up-tsi-environment/tsi-select-model-view.png#lightbox)
+   [![View the Model tab in the Explorer.](media/tutorial-set-up-environment/select-model-view.png)](media/tutorial-set-up-environment/select-model-view.png#lightbox)
 
    In the **Types** tab, select **+ Add**.
 
@@ -228,12 +228,12 @@ In this section, you apply a model to structure your data. To complete the model
         | **Categories** | <span style="text-decoration: underline">Label </span>  - <span style="text-decoration: underline">Values</span> <br /> Lower: 1,2,3,4 <br /> Middle: 5,6,7,8,9 <br /> Upper: 10,11,12,13,14,15 |
         | **Default Category** | Enter **Unknown** |
 
-        [![Add type variables.](media/tutorial-set-up-tsi-environment/tsi-add-type-variables.png)](media/tutorial-set-up-tsi-environment/tsi-add-type-variables.png#lightbox)
+        [![Add type variables.](media/tutorial-set-up-environment/add-type-variables.png)](media/tutorial-set-up-environment/add-type-variables.png#lightbox)
 
     1. Select **Apply**.
     1. Select **Save**. Three variables are created and displayed.
 
-        [![After adding the type, review it in the Model view.](media/tutorial-set-up-tsi-environment/tsi-add-type-and-view.png)](media/tutorial-set-up-tsi-environment/tsi-add-type-and-view.png#lightbox)
+        [![After adding the type, review it in the Model view.](media/tutorial-set-up-environment/add-type-and-view.png)](media/tutorial-set-up-environment/add-type-and-view.png#lightbox)
 
 1. Select the **Hierarchies** tab. Then, select **+ Add**.
 
@@ -242,11 +242,11 @@ In this section, you apply a model to structure your data. To complete the model
         | Parameter | Action |
         | --- | ---|
         | **Name** | Enter **Location Hierarchy**. |
-        |**Levels**| Enter **Country** as the name of the first level <br /> Select **+ Add Level** <br /> Enter **City** for the second level, then select **+ Add Level** <br /> Enter **Building** as the name of the third and final level |
+        |**Levels**| Enter **Country** as the name of the first level<br />Select **+ Add Level**<br />Enter **City** for the second level, then select **+ Add Level**<br />Enter **Building** as the name of the third and final level |
 
    1. Select **Save**.
 
-        [![Display your new hierarchy in the Model view.](media/tutorial-set-up-tsi-environment/tsi-add-hierarchy-and-view.png)](media/tutorial-set-up-tsi-environment/tsi-add-hierarchy-and-view.png#lightbox)
+        [![Display your new hierarchy in the Model view.](media/tutorial-set-up-environment/add-hierarchy-and-view.png)](media/tutorial-set-up-environment/add-hierarchy-and-view.png#lightbox)
 
 1. Navigate to **Instances**.
 
@@ -295,11 +295,11 @@ In this section, you apply a model to structure your data. To complete the model
     | **City** | Enter **New York** |
     | **Building** | Enter **Empire State Building** |
 
-    [![View the updated instances.](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-instances.png)](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-instances.png#lightbox)
+    [![View the updated instances.](media/tutorial-set-up-environment/iot-solution-accelerator-instances.png)](media/tutorial-set-up-environment/iot-solution-accelerator-instances.png#lightbox)
 
 1. Navigate back to the **Analyze** tab to view the charting pane. Under **Location Hierarchy**, expand all hierarchy levels to display the time series instances:
 
-    [![View all hierarchies in chart view.](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-view-hierarchies.png)](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-view-hierarchies.png#lightbox)
+    [![View all hierarchies in chart view.](media/tutorial-set-up-environment/iot-solution-accelerator-view-hierarchies.png)](media/tutorial-set-up-environment/iot-solution-accelerator-view-hierarchies.png#lightbox)
 
 1. Under **Pacific Science Center**, select the Time Series Instance **Elevator 2**, and then select **Show Average Temperature**.
 
@@ -307,7 +307,7 @@ In this section, you apply a model to structure your data. To complete the model
 
     With your categorical variable, you can determine how much time the elevator spent on the upper, lower, and middle floors.
 
-    [![Visualize Elevator 2 with hierarchy and data.](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-elevator-two.png)](media/tutorial-set-up-tsi-environment/iot-solution-accelerator-elevator-two.png#lightbox)
+    [![Visualize Elevator 2 with hierarchy and data.](media/tutorial-set-up-environment/iot-solution-accelerator-elevator-two.png)](media/tutorial-set-up-environment/iot-solution-accelerator-elevator-two.png#lightbox)
 
 ## Clean up resources
 

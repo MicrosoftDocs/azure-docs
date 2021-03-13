@@ -34,7 +34,7 @@ az storage account create -g $rg -n $storage --https-only
 key=$(az storage account keys list -g $rg -n $storage --query [0].value --output tsv
 ```
 
-## Creating the Environment
+## Creating the environment
 
 Now that the storage account is created and its name and management key are assigned to the variables, run the command below to create the Azure Time Series Insights Environment:
 
@@ -53,7 +53,7 @@ Now that the storage account is created and its name and management key are assi
 az tsi environment gen2 create --name "my-tsi-env" --location eastus2 --resource-group $rg --sku name="L1" capacity=1 --time-series-id-properties name=my-ts-id-prop type=String --warm-store-configuration data-retention=P7D --storage-configuration account-name=$storage management-key=$key
 ```
 
-## Remove an Azure Time Series Insights Environment
+## Remove an Azure Time Series Insights environment
 
 You can use the Azure CLI to delete an individual resource, such as a Time Series Insights Environment, or delete a Resource Group and all its resources, including any Time Series Insights Environments.
 
