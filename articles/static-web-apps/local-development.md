@@ -153,10 +153,10 @@ Depending on whether or not your application is built with a JavaScript framewor
 
 If you are building your app with front-end frameworks that have a CLI, you should use environment configuration files. Each framework or library has a different way of handling these environment configuration files. It's common to have a configuration file for development that is used when your application is running locally, and one for production that is used when your application is running in production. The CLI for the JavaScript framework or static site generator that you are using will automatically know to use the development file locally and the production file when your app is built by Azure Static Web Apps.
 
-In the development configuration file, you can specify the path to the API, which points to the local location of `http:127.0.0.1:7071` where the API for your site is running locally.
+In the development configuration file, you can specify the path to the API, which points to the local location of `http://127.0.0.1:7071` where the API for your site is running locally.
 
 ```
-API=http:127.0.0.1:7071/api
+API=http://127.0.0.1:7071/api
 ```
 
 In the production configuration file, specify the path to the API as `api`. This way your application will call the api via "yoursite.com/api" when running in production.
