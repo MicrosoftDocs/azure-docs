@@ -28,7 +28,7 @@ To create Azure Spot Virtual Machines, you need to be running the Azure CLI vers
 
 Sign in to Azure using [az login](/cli/azure/reference-index#az-login).
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -36,7 +36,7 @@ az login
 
 This example shows how to deploy a Linux Azure Spot Virtual Machine that will not be evicted based on price. The eviction policy is set to deallocate the VM, so that it can be restarted at a later time. If you want to delete the VM and the underlying disk when the VM is evicted, set `--eviction-policy` to `Delete`.
 
-```azurecli
+```azurecli-interactive
 az group create -n mySpotGroup -l eastus
 az vm create \
     --resource-group mySpotGroup \
@@ -53,7 +53,7 @@ az vm create \
 
 After the VM is created, you can query to see the max billing price for all of the VMs in the resource group.
 
-```azurecli
+```azurecli-interactive
 az vm list \
    -g mySpotGroup \
    --query '[].{Name:name, MaxPrice:billingProfile.maxPrice}' \
