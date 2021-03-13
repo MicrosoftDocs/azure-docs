@@ -323,6 +323,9 @@
       href: /rest/api/databoxedgegateway
     - name: .NET SDK
       href: /dotnet/api/overview/azure/databoxedge/databoxgateway
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 
 - name: Azure Stack Edge Pro - FPGA
   items:
@@ -409,25 +412,11 @@
         href: ../databox-gateway/data-box-gateway-1905-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
       - name: General availability (GA)
         href: ../databox-gateway/data-box-gateway-release-notes.md?toc=/azure/databox-online/toc.json&bc=/azure/databox-online/breadcrumb/toc.json
-  - name: Reference
-    items:
-    - name: Azure PowerShell
-      href: /powershell/module/az.stackedge/#stack_edge
-    - name: REST API
-      href: /rest/api/databoxedgegateway
-    - name: .NET SDK
-      href: /dotnet/api/overview/azure/databoxedge/databoxgateway  
 
 - name: Security
   items:
   - name: Security baseline
     href: security-baseline.md
-
-- name: References
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md
 
 - name: Resources
   items:

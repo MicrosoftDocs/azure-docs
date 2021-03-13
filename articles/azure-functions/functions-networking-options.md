@@ -85,7 +85,7 @@ To learn more, see [Virtual network service endpoints](../virtual-network/virtua
 When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoint. 
 
 > [!NOTE]  
-> This feature currently works for all virtual network-supported SKUs in the Dedicated (App Service) plan and for Premium plans. Consumption plan isn't supported. 
+> This feature currently works for all Windows virtual network-supported SKUs in the Dedicated (App Service) plan and for Premium plans. Consumption plan isn't supported. 
 
 To set up a function with a storage account restricted to a private network:
 
@@ -108,7 +108,7 @@ To set up a function with a storage account restricted to a private network:
         - `WEBSITE_DNS_SERVER` with a value of `168.63.129.16` 
 1. Save the application settings.  
 
-The function app will restart and will now be connected to a secured storage account.
+After the function app restarts, it's now connected to a secured storage account.
 
 ## Use Key Vault references
 
