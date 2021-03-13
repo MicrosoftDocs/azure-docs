@@ -77,7 +77,8 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                                       | Description                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SmsClient     | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages.                           |
-| SendSmsOptions | This class provides options to configure delivery reporting. If enable_delivery_report is set to True, then an event will be emitted when delivery was successful |
+| SmsSendResult               | This class contains the result from the SMS service.                                          |
+| SmsSendOptions | This class provides options to configure delivery reporting. If enable_delivery_report is set to True, then an event will be emitted when delivery was successful |
 
 ## Authenticate the client
 
