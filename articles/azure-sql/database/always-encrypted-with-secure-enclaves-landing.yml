@@ -23,7 +23,7 @@ landingContent:
 # Start card title with a verb
 
   # Card 
-  - title: Always Encrypted with secure enclaves overview
+  - title: Overview
     linkLists:
       - linkListType: overview
         links:
@@ -62,7 +62,7 @@ landingContent:
 
 
   # Card 
-  - title: Always Encrypted with secure enclaves tutorials
+  - title: Tutorials
     linkLists:
       - linkListType: tutorial
         links:
@@ -102,34 +102,6 @@ landingContent:
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-enable-for-encrypted-columns
             
   # Card
-  - title: Query columns
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Run Transact-SQL statements using secure enclaves
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-query-columns
-          - text: Troubleshoot common issues for Always Encrypted with secure enclaves
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-troubleshooting
-
-
-  # Card
-  - title: Using Indexes
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create and use indexes on columns using Always Encrypted with secure enclaves
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-create-use-indexes
-
-
-  # Card
-  - title: Develop applications
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Develop applications using Always Encrypted with secure enclaves
-            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-client-development
-
-# Card
   - title: Videos
     linkLists:
       - linkListType: video
@@ -138,3 +110,23 @@ landingContent:
             url: https://youtu.be/69PrhWQorEM?t=4523
           - text: A webinar including a section on secure enclaves
             url: https://info.microsoft.com/ww-ondemand-azure-webinar-series-four-ways-to-take-your-data-security-to-the-next-level.html
+  
+  # Card
+  - title: Query columns
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Run Transact-SQL statements using secure enclaves
+            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-query-columns
+          - text: Troubleshoot common issues for Always Encrypted with secure enclaves
+            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-troubleshooting
+          - text: Create and use indexes on columns using Always Encrypted with secure enclaves
+            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-create-use-indexes
+
+  # Card
+  - title: Develop applications
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Develop applications using Always Encrypted with secure enclaves
+            url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-client-development
