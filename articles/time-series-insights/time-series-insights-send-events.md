@@ -18,7 +18,7 @@ ms.custom: seodec18
 > [!CAUTION]
 > This is a Gen1 article.
 
-This article explains how to create and configure an event hub in Azure Event Hubs. It also describes how to run a sample application to push events to Azure Time Series Insights from Event Hubs. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./tutorial-set-up-environment.md.md).
+This article explains how to create and configure an event hub in Azure Event Hubs. It also describes how to run a sample application to push events to Azure Time Series Insights from Event Hubs. If you have an existing event hub with events in JSON format, skip this tutorial and view your environment in [Azure Time Series Insights](./tutorial-set-up-environment.md).
 
 ## Configure an event hub
 
