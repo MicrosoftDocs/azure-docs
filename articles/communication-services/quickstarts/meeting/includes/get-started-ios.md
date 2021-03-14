@@ -116,6 +116,14 @@ if [ -d "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.frame
 fi
 ```
 
+### Turn on Voice over IP background mode.
+
+Select your app target and click Capabilities tab.
+
+Turn on Background Modes if not done so already and select checkbox for Voice over IP.
+
+:::image type="content" source="../media/ios/xcode-background-voip.png" alt-text="Screenshot showing enabled VOIP in Xcode.":::
+
 ### Add a window reference to AppDelegate
 
 Open your project's **AppDelegate.swift** file and add a reference for 'window'.
