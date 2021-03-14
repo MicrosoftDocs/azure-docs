@@ -115,9 +115,9 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -Wor
 
 When you're done, follow the steps in the preceding section to connect Azure Monitor logs to the appropriate storage account.
 
-You can also add other solutions or make other modifications to your Log Analytics workspace by using PowerShell. To learn more, see [Manage Azure Monitor logs using PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+You can also add other solutions or make other modifications to your Log Analytics workspace by using PowerShell. To learn more, see [Manage Azure Monitor logs using PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
-* Get familiarized with the [log search and querying](../azure-monitor/log-query/log-query-overview.md) features offered as part of Azure Monitor logs
-* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/platform/view-designer.md)
+* Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs
+* [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/visualize/view-designer.md)

@@ -17,7 +17,7 @@ ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Security Module for Azure RTOS API (preview)
+# Security Module for Azure RTOS API 
 
 This API is intended for use with the Security Module for Azure RTOS only. For additional resources, see the [Security Module for Azure RTOS GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases). 
 

@@ -85,7 +85,7 @@ To download a PCAP file, select :::image type="content" source="media/how-to-wor
 
 The **Recommendation** area of an alert displays information that might help you better understand an event. Review this information before managing the alert event or taking action on the device or the network.
 
-## Next steps
+## See also
 
 [Accelerate Alert workflows](how-to-accelerate-alert-incident-response.md)
 

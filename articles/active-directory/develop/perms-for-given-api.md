@@ -25,4 +25,4 @@ ROBOTS: NOINDEX
 
 ## Next steps
 
-[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

@@ -26,7 +26,7 @@ Defender for IoT routes all traffic from all European regions to the West Europe
 
 For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
-## Next steps
+## See also
 
-[Identify required appliances](how-to-identify-required-appliances.md)
-[About Azure Defender for IoT network setup](how-to-set-up-your-network.md)
+- [Identify required appliances](how-to-identify-required-appliances.md)
+- [About Azure Defender for IoT network setup](how-to-set-up-your-network.md)

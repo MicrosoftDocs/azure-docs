@@ -84,6 +84,6 @@ To filter the timeline:
     
       The PCAP file contains technical information that can help network engineers determine the exact parameters of the event. You can analyze the PCAP file with a network protocol analyzer such as Wireshark, an open-source application.
 
-## Next steps
+## See also
 
 [View alerts](how-to-view-alerts.md)

@@ -704,6 +704,6 @@ To export:
 
 1. Select an export option.
 
-## Next steps
+## See also
 
 [Investigate sensor detections in a Device Inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)

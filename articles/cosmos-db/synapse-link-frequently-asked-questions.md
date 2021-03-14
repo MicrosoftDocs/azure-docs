@@ -64,6 +64,16 @@ Yes, the analytical store can be enabled on containers with autoscale provisione
 
 Azure Cosmos DB guarantees performance isolation between the transactional and analytical workloads. Enabling the analytical store on a container will not impact the RU/s provisioned on the Azure Cosmos DB transactional store. The transactions (read & write) and storage costs for the analytical store will be charged separately. See the [pricing for Azure Cosmos DB analytical store](analytical-store-introduction.md#analytical-store-pricing) for more details.
 
+### Can I restrict access to Azure Cosmos DB analytical store?
+
+Yes you can configure a [managed private endpoint](analytical-store-private-endpoints.md) and restrict network access of analytical store to Azure Synapse managed virtual network. Managed private endpoints establish a private link to your analytical store. This private endpoint will also restrict write access to transactional store, among other Azure data services.
+
+You can add both transactional store and analytical store private endpoints to the same Azure Cosmos DB account in an Azure Synapse Analytics workspace. If you only want to run analytical queries, you may only want to map the analytical private endpoint.
+
+### Can I use customer-managed keys with the Azure Cosmos DB analytical store?
+
+You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. Using customer-managed keys with the Azure Cosmos DB analytical store currently requires additional configuration on your account. Please contact the [Azure Cosmos DB team](mailto:azurecosmosdbcmk@service.microsoft.com)  for details.
+
 ### Are delete and update operations on the transactional store reflected in the analytical store?
 
 Yes, deletes and updates to the data in the transactional store will be reflected in the analytical store. You can configure the Time to Live (TTL) on the container to include historical data so that the analytical store retains all versions of items that satisfy the analytical TTL criteria. See the [overview of analytical TTL](analytical-store-introduction.md#analytical-ttl) for more details.

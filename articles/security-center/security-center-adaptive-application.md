@@ -1,17 +1,10 @@
 ---
 title: Adaptive application controls in Azure Security Center
 description: This document helps you use adaptive application control in Azure Security Center to allow list applications running in Azure machines.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-
-ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
 
@@ -189,6 +182,12 @@ To remediate the issues:
 
 1. For further details, and the list of affected machines, select an alert.
 
+    The alerts page shows the more details of the alerts and provides a **Take action** link with recommendations of how to mitigate the threat.
+
+    :::image type="content" source="media/security-center-adaptive-application/adaptive-application-alerts-start-time.png" alt-text="The start time of adaptive application controls alerts is the ":::
+
+    > [!NOTE]
+    > Adaptive application controls calculates events once every twelve hours. The "activity start time" shown in the alerts page is the time that adaptive application controls created the alert, **not** the time that the suspicious process was active.
 
 
 ## Move a machine from one group to another
@@ -215,7 +214,7 @@ When you move a machine from one group to another, the application control polic
 
 To manage your adaptive application controls programatically, use our REST API. 
 
-The full API documentation is [here](/rest/api/securitycenter/adaptiveapplicationcontrols).
+The relevant API documentation is available in [the Adaptive Application Controls section of Security Center's API docs](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Some of the functions that are available from the REST API:
 

@@ -75,7 +75,8 @@ You can also create a new child DNS zone and delegate it into the parent DNS zon
 1.	Select **Next: Tags** and then **Next: Review + create**.
 1.	On the **Review + create** tab, review the summary, correct any validation errors, and then select **Create**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Screenshot of child zone selected" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Screenshot of child zone selected" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+
 ## Verify child DNS zone
 Now that you have a new child DNS zone *subdomain.contoso.com* created. To verify that delegation happened correctly, you will want to check the nameserver(NS) records for your child zone is in the parent zone as described below.  
 

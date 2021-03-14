@@ -56,11 +56,13 @@ The following table lists the gateway IP addresses of the Azure Database for Mar
 | France Central | 40.79.137.0, 40.79.129.1	 | | |
 | France South | 40.79.177.0	 | | |
 | Germany Central | 51.4.144.100	 | | |
+| Germany North | 51.116.56.0 | |
 | Germany North East | 51.5.144.179	 | | |
+| Germany West Central | 51.116.152.0 | |
 | India Central | 104.211.96.159	 | | |
 | India South | 104.211.224.146	 | | |
 | India West | 104.211.160.80	 | | |
-| Japan East | 40.79.192.23 | 13.78.61.196 | |
+| Japan East | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | Japan West | 191.238.68.11, 40.74.96.6, 40.74.96.7	 | 104.214.148.156 | |
 | Korea Central | 52.231.17.13	 | 52.231.32.42 | |
 | Korea South | 52.231.145.3	 | 52.231.200.86 | |
@@ -70,6 +72,8 @@ The following table lists the gateway IP addresses of the Azure Database for Mar
 | South Africa West	| 102.133.24.0	 | | |
 | South Central US |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
 | South East Asia | 40.78.233.2, 23.98.80.12	 | 104.43.15.0 | |
+| Switzerland North | 51.107.56.0 ||
+| Switzerland West | 51.107.152.0| ||
 | UAE Central | 20.37.72.64	 | | |
 | UAE North | 65.52.248.0	 | | |
 | UK South | 51.140.184.11	 | | |
@@ -90,6 +94,36 @@ Support for redirection is available in the PHP [mysqlnd_azure](https://github.c
 
 > [!IMPORTANT]
 > Support for redirection in the PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension is currently in preview.
+
+## Frequently asked questions
+
+### What you need to know about this planned maintenance?
+This is a DNS change only which makes it transparent to clients. While the IP address for FQDN is changed in the DNS server, the local DNS cache will be refreshed within 5 minutes, and it is automatically done by the operating systems. After the local DNS refresh, all the new connections will connect to the new IP address, all existing connections will remain connected to the old IP address with no interruption until the old IP addresses are fully decommissioned. The old IP address will roughly take three to four weeks before getting decommissioned; therefore, it should have no effect on the client applications.
+
+### What are we decommissioning?
+Only Gateway nodes will be decommissioned. When users connect to their servers, the first stop of the connection is to gateway node, before connection is forwarded to server. We are decommissioning old gateway rings (not tenant rings where the server is running) refer to the [connectivity architecture](#connectivity-architecture) for more clarification.
+
+### How can you validate if your connections are going to old gateway nodes or new gateway nodes?
+Ping your server’s FQDN, for example  ``ping xxx.mariadb.database.azure.com``. If the returned IP address is one of the IPs listed under Gateway IP addresses (decommissioning) in the document above, it means your connection is going through the old gateway. Contrarily, if the returned Ip address is one of the IPs listed under Gateway IP addresses, it means your connection is going through the new gateway.
+
+You may also test by [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) or TCPPing the database server from your client application with port 3306 and ensure that return IP address isn't one of the decommissioning IP addresses
+
+### How do I know when the maintenance is over and will I get another notification when old IP addresses are decommissioned?
+You will receive an email to inform you when we will start the maintenance work. The maintenance can take up to one month depending on the number of servers we need to migrate in al regions. Please prepare your client to connect to the database server using the FQDN or using the new IP address from the table above. 
+
+### What do I do if my client applications are still connecting to old gateway server ?
+This indicates that your applications connect to server using static IP address instead of FQDN. Review connection strings and connection pooling setting, AKS setting, or even in the source code.
+
+### Is there any impact for my application connections?
+This maintenance is just a DNS change, so it is transparent to the client. Once the DNS cache is refreshed in the client (automatically done by operation system), all the new connection will connect to the new IP address and all the existing connection will still working fine until the old IP address fully get decommissioned, which usually several weeks later. And the retry logic is not required for this case, but it is good to see the application have retry logic configured. Please either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
+This maintenance operation will not drop the existing connections. It only makes the new connection requests go to new gateway ring.
+
+### Can I request for a specific time window for the maintenance? 
+As the migration should be transparent and no impact to customer's connectivity, we expect there will be no issue for majority of users. Review your application proactively and ensure that you either use FQDN to connect to the database server or enable list the new 'Gateway IP addresses' in your application connection string.
+
+### I am using private link, will my connections get affected?
+No, this is a gateway hardware decommission and have no relation to private link or private IP addresses, it will only affect public IP addresses mentioned under the decommissioning IP addresses.
+
 
 ## Next steps
 

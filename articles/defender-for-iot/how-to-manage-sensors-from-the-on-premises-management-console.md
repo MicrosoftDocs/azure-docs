@@ -310,6 +310,6 @@ To set up an SMB server so you can save a sensor backup to an external drive:
 
 9. Set `Backup.shared_location` to `<backup_folder_name_on_cyberx_server>`.
 
-## Next steps
+## See also
 
 [Manage individual sensors](how-to-manage-individual-sensors.md)

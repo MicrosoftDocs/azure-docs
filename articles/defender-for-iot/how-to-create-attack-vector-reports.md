@@ -64,7 +64,7 @@ To create an attack vector simulation:
 
    :::image type="content" source="media/how-to-generate-reports/sample-attack-vectors.png" alt-text="Attack vectors.":::
 
-## Next steps
+## See also
 
 [Attack vector reporting](how-to-create-attack-vector-reports.md)
 

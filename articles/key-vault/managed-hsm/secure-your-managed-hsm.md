@@ -37,7 +37,7 @@ To sign in to Azure using the CLI you can type:
 az login
 ```
 
-For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+For more information on login options via the CLI, see [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
 
 ## Example
 

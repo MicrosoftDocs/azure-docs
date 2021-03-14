@@ -8,7 +8,7 @@ author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2020
@@ -77,6 +77,6 @@ Detect threats like botnets, brute force attempts, crypto miners, and suspicious
 
 The Azure Defender for IoT micro agent includes source code, so you can incorporate the micro agent into firmware or customize it to include only what you need. It's also available as a binary package, or integrated directly into other Azure IoT solutions. 
 
-## Next steps
+## See also
 
 [Azure Defender for IoT architecture](architecture.md)

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/09/2020
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -352,8 +352,8 @@ The following are the IDs for a [Verification display control](display-control-v
 
 | ID | Default value |
 | -- | ------------- |
-|intro_msg| Verification is necessary. Please click Send button.|
-|success_send_code_msg | Verification code has been sent to your inbox. Please copy it to the input box below.|
+|intro_msg <sup>*</sup>| Verification is necessary. Please click Send button.|
+|success_send_code_msg | Verification code has been sent. Please copy it to the input box below.|
 |failure_send_code_msg | We are having trouble verifying your email address. Please enter a valid email address and try again.|
 |success_verify_code_msg | E-mail address verified. You can now continue.|
 |failure_verify_code_msg | We are having trouble verifying your email address. Please try again.|
@@ -361,6 +361,12 @@ The following are the IDs for a [Verification display control](display-control-v
 |but_verify_code | Verify code|
 |but_send_new_code | Send new code|
 |but_change_claims | Change e-mail|
+
+Note: The `intro_msg` element is hidden, and not shown on the self-asserted page. To make it visible, use the [HTML customiztion](customize-ui-with-html.md) with Cascading Style Sheets. For example:
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### Verification display control example
 

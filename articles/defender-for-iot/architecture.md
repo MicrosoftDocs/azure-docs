@@ -9,7 +9,7 @@ manager: rkarlin
 editor: ''
 
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/25/2021
@@ -112,7 +112,7 @@ The Defender for IoT portal in Azure is used to help you:
 
 - Update Threat Intelligence packages
 
-## Next steps
+## See also
 
 [Defender for IoT FAQ](resources-frequently-asked-questions.md)
 

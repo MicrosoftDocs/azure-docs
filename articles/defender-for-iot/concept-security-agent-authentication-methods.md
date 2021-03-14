@@ -22,9 +22,8 @@ This article explains the different authentication methods you can use with the 
 
 For each device onboarded to Defender for IoT in the IoT Hub, a security module is required. To authenticate the device, Defender for IoT can use one of two methods. Choose the method that works best for your existing IoT solution.
 
-> [!div class="checklist"]
-> * SecurityModule option
-> * Device option
+- SecurityModule option
+- Device option
 
 ## Authentication methods
 
@@ -97,7 +96,8 @@ Edit _LocalConfiguration.json_ with the following parameters:
     "HostName" : ""
 }
 ```
-## Next steps
+
+## See also
 
 - [Security agents overview](security-agent-architecture.md)
 - [Deploy security agent](how-to-deploy-agent.md)
