@@ -32,7 +32,7 @@ ms.author: tchladek
 
    ```python
    import os
-   from azure.communication.identity import CommunicationIdentityClient
+   from azure.communication.identity import CommunicationIdentityClient, CommunicationUserIdentifier
 
    try:
       print('Azure Communication Services - Access Tokens Quickstart')
