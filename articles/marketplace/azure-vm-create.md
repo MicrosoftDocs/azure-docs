@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/20/2020
+ms.date: 03/10/2021
 ---
 
 # How to create a virtual machine offer on Azure Marketplace
@@ -38,7 +38,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 
 Enter an **Offer alias**. The offer alias is the name that's used for the offer in Partner Center.
 
-- This name isn't used on Azure Marketplace. It is different from the offer name and other values that are shown to customers.
+- This name is not used on Azure Marketplace. It is different from the offer name and other values that are shown to customers.
 
 Select **Create** to generate the offer and continue. Partner Center opens the **Offer setup** page.
 
