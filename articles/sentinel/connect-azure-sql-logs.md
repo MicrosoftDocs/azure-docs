@@ -1,12 +1,12 @@
 ﻿---
-title: Connect Azure SQL database diagnostics and auditing logs to Azure Sentinel
-description: Learn how to connect Azure SQL database diagnostics logs and security auditing logs to Azure Sentinel.
+title: Connect all Azure SQL database diagnostics and auditing logs to Azure Sentinel
+description: Learn how to use Azure Policy to enforce the connection of Azure SQL database diagnostics logs and security auditing logs to Azure Sentinel.
 author: yelevin
 manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 03/14/2021
 ms.author: yelevin
 ---
 # Connect Azure SQL database diagnostics and auditing logs
