@@ -261,6 +261,24 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 > [!NOTE]
 > The first time you join a meeting, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
 
+## Preparation for App Store upload
+
+Remove i386 and x86_64 architectures from the frameworks in case of archiving.
+
+Add i386 and x86_64 architectures removing script to Build Phases before the umbrella framework codesign phase in case you would like to Archive your application.
+
+In the Project Navigator, select your project. In the Editor pane, go to Build Phases → Click on + sign → Create a New Run Script Phase.
+
+```bash
+declare -a removeArchs=("i386" "x86_64" "armv7")
+for arch in "${removeArchs[@]}"
+  do
+    echo "Ship build, stripping binary of unsupported app store architecture ${arch}"
+    lipo -remove $arch ${SRCROOT}/Frameworks/TeamsAppSDK.framework/Frameworks/AriaObjC.framework/AriaObjC -o ${SRCROOT}/Frameworks/TeamsAppSDK.framework/Frameworks/AriaObjC.framework/AriaObjC
+  done
+fi
+```
+
 ## Sample Code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-ios-getting-started)
