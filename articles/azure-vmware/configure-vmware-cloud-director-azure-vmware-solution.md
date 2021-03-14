@@ -25,7 +25,7 @@ Azure VMware Solution supports distributed VMware Cloud Director Cells with exte
 
 This solution guide describes how to install and configure VCD in a cell-based architecture on Azure IaaS instances and the supported network scenarios and limitations in this release of Azure VMware Solution.
 
-The installation and configuration process creates the cells, connects them to the shared database, transfers server storage, and creates the system *administrator *account. The system administrator then establishes connections to the Azure VMware Solution vCenter Server and the NSX-T Manager cluster.
+The installation and configuration process creates the cells, connects them to the shared database, transfers server storage, and creates the system administrator account. The system administrator then establishes connections to the Azure VMware Solution vCenter Server and the NSX-T Manager cluster.
 
 >[!NOTE]
 >Mixed VMware Cloud Director installations on Linux and VMware Cloud Director appliance deployments in one server group are not supported.
@@ -87,7 +87,40 @@ az network vnet subnet create –-name AzureBastionSubnet
 
 ## Create and configure the Network Security Group
 
-Create the NSG to be used to protect the VCD cells.
+Create the Network Security Group to be used to protect the VCD cells, this NSG will be later used during the deployment of the VCD cell instances. The NSG rules must allow traffic to ports TCP/443 and TCP/8443 for VCD from all ranges and TCP/22 for SSH. Communication between both instances within the same VNET is enabled by default.
+
+```azurecli-interactive
+az network nsg create --name vcd-cell-nsg \
+--resource-group avs-vcd-we \
+--location westeurope
+```
+
+Create the rules to enable traffic for SSH, in the example we are using `VirtualNetwork` as the source but you should add any IP address range that needs to access the VCD cells vi SSH for troubleshooting purposes.
+
+```azurecli-interactive
+az network nsg rule create --name vcd-cell-allow-ssh \
+--nsg-name vcd-cell-nsg \
+--resource-group avs-vcd-we \
+--protocol tcp \
+--source-address-prefixes VirtualNetwork \
+--destination-port-range 22 \
+--access Allow \
+--priority 1000 \
+--description "Allow access via SSH to VCD cell from trusted VNET"
+```
+
+Create the rule to enable traffic for VCD portal and console proxy, set `0.0.0.0/0` as the source.
+
+```azurecli-interactive
+az network nsg rule create --name vcd-portal-console \
+--nsg-name vcd-cell-nsg \
+--resource-group avs-vcd-we \
+--protocol tcp \
+--destination-port-range 80 8443 \
+--access Allow \
+--priority 1001 \
+--description "Allow access to VCD portal and console proxy"
+```
 
 ## Create and deploy an Azure NFS file share
 
@@ -350,7 +383,7 @@ To install and configure VMware Cloud Director on the remaining cell, *repeat th
 1. Install the binary on the VM:
 
    ```azurecli-interactive
-   ./ VMware-vcloud-director-distribution-10.2.0-17029810.bin   
+   ./VMware-vcloud-director-distribution-10.2.0-17029810.bin   
    ```
 
 1. Mount the transfer store to this VM:
@@ -413,13 +446,51 @@ We need to deploy load balancers in Azure to allow access from the internet to t
 
 ### Azure Application Gateway for VCD interface and API access
 
-To create an Azure Application Gateway for interface and API access, do the following:
+To create an Azure Application Gateway for interface and API access, you will need both cells IP address to be configured as backend pool for the Application Gateway instance.
+
+Create a Public IP address for the VCD portal.
+
+```azurecli-interactive
+az network public-ip create --name vcd-portal-pip \
+  --location westeurope \
+  --resource-group avs-vcd-we
+```
+
+Get the IP addresses of your VCD cells.
+
+```azurecli-interactive
+vcd-cll-01-ip-address=$(az network nic show --name vcd-cell-01-nic1 --resource-group avs-vcd-we -o json | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
+vcd-cll-02-ip-address=$(az network nic show --name vcd-cell-02-nic1 --resource-group avs-vcd-we -o json | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
+```
+
+Create the Application Gateway.
+
+```azurecli-interactive
+az network application-gateway create --name VCDAppGateway \
+  --location westeurope \
+  --resource-group avs-vcd-we \
+  --capacity 2 \
+  --sku Standard_v2 \
+  --http-settings-cookie-based-affinity Enabled \
+  --public-ip-address myAGPublicIPAddress \
+  --vnet-name vcd-vnet \
+  --subnet vcd-cell-subnet \
+  --servers $vcd-cll-01-ip-address $vcd-cll-02-ip-address
+```
+
+Review [Azure Application Gateway documentation](../application-gateway/overview.md) for more details.
 
 ### Create an Azure Standard Load Balancer for console proxy access
 
+An Azure Load Balancer will be used to expose and load-balance traffic between both cells console proxy 8443 port, use the Standard SKU for the load balancer.
+
+Follow the procedure detailed in [Azure Load Balancer documentation](../load-balancer/quickstart-load-balancer-standard-public-cli.md) to create your public load balancer, use the Standard SKU for the load balancer.
+
+## VMware Cloud Director on Azure VMware Solution scenarios
+
 Supported scenarios for tenants to access their vCD Org portal and workloads are described below. These scenarios may change over time (increased scenarios), and we will be updating this guide accordingly.
 
-## Scenario A – Support of HTTP / HTTPS to VCD portal
+### Scenario A – Support of HTTP / HTTPS to VCD portal
 
 In this scenario, the provider will configure a public IP using the standard Azure Application Gateway service and create conditional forwarding rules based on the URL of the subscriber to allow each subscriber access to their vCD portal. The subscriber can access their workloads using a web console, but no RDP or public IP is possible on the various Org VDC workloads.
 
@@ -431,18 +502,18 @@ In this scenario, the provider will configure a public IP using the standard Azu
 
 - Tenant can access jump box or other workloads VMs through HTTP/HTTPS
 
-## Scenario B –Provider custom NVA configured in provider Azure vnet in front of vCD
+### Scenario B –Provider custom NVA configured in provider Azure vnet in front of vCD
 
 In this scenario, the provider can configure a custom NVA or Azure Firewall DNAT rule translating the public IP to the address of the Org VDC T1 segment external address. Another DNAT rule is then applied to translate the T1 external address to the subnets behind the tenant T1 gateway. This enables the subscriber to access either a jump box or separate workloads through public IP, RDP sessions on the Org VDC network.
 
 [insert diagram]
 
-## Scenario C –Peered subscriber (tenant) vnet to provider vnet and NVA to Org VDC
+### Scenario C –Peered subscriber (tenant) vnet to provider vnet and NVA to Org VDC
 
 In this scenario, the subscriber has peered their vnet to the provider Azure vnet using standard vnet peering. The subscriber can create a custom NVA solution that will conditionally forward traffic to the providers NVA in the provider
 vnet in front of vCD and which in turn will route traffic through a DNAT rule described in scenario B to the subscriber Org VDC VM's or NVA on the Org VDC network.
 
-## Limitations
+### Limitations
 
 Both scenarios B and C suffer from limitations of the DNAT rule scalability of either Azure Firewall or NVA-based solution. Read more on [subscription features and service limits.](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) AVS will implement more advanced public IP networking in the future, effectively removing these limitations, but for now, it remains in effect.
 
