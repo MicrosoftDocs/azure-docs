@@ -51,7 +51,7 @@ This connector uses Azure Policy to apply a single Azure SQL log-streaming confi
 
     1. In the **Parameters** tab, leave the first two settings populated as they are. Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list. The remaining drop-down fields represent the available diagnostic log types. Leave marked as “True” all the log types you want to ingest.
 
-    1. To apply the policy on your existing resources, select the **Remediation** tab and mark the **Create a remediation task** check box.
+    1. The policy will be applied to resources added in the future. To apply the policy on your existing resources as well, select the **Remediation** tab and mark the **Create a remediation task** check box.
 
     1. In the **Review + create** tab, click **Create**. Your policy is now assigned to the scope you chose.
 
@@ -67,7 +67,7 @@ This connector uses Azure Policy to apply a single Azure SQL log-streaming confi
 
     1. In the **Parameters** tab, choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list. Leave the **Effect** setting as is.
 
-    1. To apply the policy on your existing resources, select the **Remediation** tab and mark the **Create a remediation task** check box.
+    1. The policy will be applied to resources added in the future. To apply the policy on your existing resources as well, select the **Remediation** tab and mark the **Create a remediation task** check box.
 
     1. In the **Review + create** tab, click **Create**. Your policy is now assigned to the scope you chose.
 
