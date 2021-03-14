@@ -7,8 +7,9 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/10/2021
+ms.date: 03/14/2021
 ms.author: barclayn
+ms.reviewer: 
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure AD
 
@@ -21,12 +22,12 @@ ms.author: barclayn
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Now that you have your Azure tenant set up with the Verifiable Credential service, we will walk through the steps needed to get the sample code in your local system to use your Verifiable Credential service set up in the previous section.
+Now that you have your Azure tenant set up with the Verifiable Credential service, we will walk through the steps necessary to enable your identity provider (IDP) to issue verifiable credentials using the sample app.
 
-In this article you learn how to:
+In this article you:
 
 > [!div class="checklist"]
-> * Connect your AAD tenant
+> * Register the sample app in your Azure AD (AAD) tenant
 > * Create the Ninja Credential Rules and Display File
 > * Upload Rules and Display files
 > * Set up your Verifiable Credentials Issuer service to use Azure Key Vault
@@ -34,12 +35,15 @@ In this article you learn how to:
 
 Our sample code requires users to authenticate to an identity provider (IdP) before Ninja Verifiable Credential can be issued. Not all Verifiable Credentials issuers require authentication before issuing credentials.
 
-Authenticating ID Tokens allows users to prove who they are before receiving their credential. When users successfully log in, the identity provider returns a security token containing claims about the user. The issuer service then transforms these security tokens and their claims into Verifiable Credentials.
+Authenticating ID Tokens allows users to prove who they are before receiving their credential. When users successfully log in, the identity provider returns a security token containing claims about the user. The issuer service then transforms these security tokens and their claims into a verifiable credentials. The verifiable credential is signed with the issuer's DID.
 
-Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include [Azure Active Directory](../fundamentals/active-directory-whatis.md), and [Azure AD B2C](../../active-directory-b2c/overview.md). 
+Any identity provider that supports the OpenID Connect protocol is supported. Examples of supported identity providers include [Azure Active Directory](../fundamentals/active-directory-whatis.md), and [Azure AD B2C](../../active-directory-b2c/overview.md). In this tutorial we are using AAD.
 
+## Prerequisites
 
-## Register an App so DID Wallets are allowed to sign in users 
+This tutorial assumes you've already completed the steps in the [previous tutorial](tutorial-02-create-sample-card-your-issuer.md) and have access to the environment you used.
+
+## Register an App so DID Wallets are allowed to sign in users
 
 To issue a Verifiable Credential, you need to register an app so Authenticator or any other Verifiable Credential Wallet is allowed to sign in users through their app.  
 
@@ -68,10 +72,6 @@ Now let's create a new Ninja credential with your own IdP.
 Replace the client_id and configuration with the two objects we copied in the previous section. 
 
 Configuration equates to the OpenID Connect metadata document URI. 
-
-:::info
-**ISSUE** By using the Oauth 2.0 endpoint we can only include first and last name from our IdP. For this portion of the tutorial that is ok for now. Check out the Customize ID token claims for more information. 
-::::
 
 ```json
 {
@@ -126,7 +126,7 @@ Copy down your Application (client) ID as you will need this later to update you
 
 - Select **Certificates & secrets**.
 - In the **Client secrets** section choose **New client secret**
-- Add description like "Node VC client secret"
+- Add a description like "Node VC client secret"
 - Expires: in one year 
 - Copy down the SECRET as you will need this to update your Sample Node app.
 
@@ -138,10 +138,11 @@ Copy down your Application (client) ID as you will need this later to update you
 After creating your application and client secret in Azure AD, you need to grant the application permission to perform operations on your Key Vault. Making these permission changes is required to enable the website to access and use the private keys stored there.
 
 - Go to Key Vault.
+- Select the key vault we are using for these tutorials.
 - Access Policies on left nav
 - Create new
 - Key permissions: Get, Sign
-- Select Principle: copy in the name you generated earlier. Select it.
+- Select Principle and choose the application registration in the name you generated earlier. Select it.
 - Select **Add**.
 - Choose **SAVE**.
 

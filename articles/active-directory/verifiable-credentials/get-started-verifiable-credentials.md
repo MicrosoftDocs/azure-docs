@@ -1,28 +1,26 @@
 ---
-title: Tutorial - Issue verifiable credentials using a sample app (preview)
-description: In this tutorial, you learn how Issue Verifiable Credentials using a sample app
+title: "Tutorial: Get started with verifiable credentials using a sample app (preview)"
+description: In this tutorial, you learn how to issue verifiable credentials using our sample app and test tenant
 ms.service: identity
 ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 03/12/2021
+ms.date: 03/14/2021
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---
 
 
-# Tutorial 0: Issue and Validate verifiable credentials using a sample app (Preview)
+# Tutorial: Get started with verifiable credentials using a sample app (preview)
 
 In this tutorial, we go over the steps needed to issue your first verifiable credential: a Verified Credential Ninja Card. You can then use this card to prove to a verifier that you are a Verified Credential Ninja, mastered in the art of digital credentialing. Get started with Azure Active Directory Verifiable Credentials by using the Verifiable Credentials sample app to issue your first verifiable credential.
 
-![This is an image of an example card](media/quickstart-verifiable-credentials/ninja-card.png)
-
-
+![This is an image of an example card](media/get-started-verifiable-credentials/ninja-card.png)
 
 > [!IMPORTANT]
 > Azure Verifiable Credentials is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
@@ -59,7 +57,7 @@ You can run the steps from within visual studio code or any other terminal avail
     By default the sample website runs on port `8081`. **Ngrok** outputs two forwarding URLs for your server. Copy the URL with the `https://` prefix.
 
 
-    ![ngrok helps you make your application end points available over the internet](media/quickstart-verifiable-credentials/ngrok.png)
+    ![ngrok helps you make your application end points available over the internet](media/get-started-verifiable-credentials/ngrok.png)
 
     >[!NOTE]
     > If you are using PowerShell you may need to type ```./ngrok``` for the command to be recognized.
@@ -87,7 +85,7 @@ You can run the steps from within visual studio code or any other terminal avail
 
 2. Next, issue yourself a verifiable credential. The sample website displays a QR code, that you can be scan using Authenticator. The website also displays a deep link, which you can tap if you visit the website using your device's mobile browser.
 
-    ![ngrok_url](media/quickstart-verifiable-credentials/ngrok_url.png)
+    ![ngrok_url](media/get-started/ngrok_url.png)
 
 3. Scan the website's QR code using Authenticator, or tap the website's deep link. To get your Ninja Card, you'll be prompted to sign in with your Credential Ninja account. After you are signed in, accept your Verified Credential Ninja Card.
 
@@ -100,7 +98,7 @@ Now that you have completed the issuance portion of the tutorial and you have a 
 1. Stop running your issuer ngrok service.
 
     ```bash
-    control-c
+    control+c
     ```
 
 2. Now run ngrok with the verifier port 8082.
@@ -122,7 +120,8 @@ Now that you have completed the issuance portion of the tutorial and you have a 
 5. Open Authenticator in the Credentials tab and tap on the QR code icon.
 
     >[!IMPORTANT]
-    >On iOS, it is the top right and on Android it is the bottom right. Scan the QR code and choose 
+    >On iOS, it is the top right and on Android it is the bottom right. Scan the QR code and choose.
+
 6. **Allow** on the new permission request screen in Authenticator.  
 
 After a successful presentation three things should have been updated:

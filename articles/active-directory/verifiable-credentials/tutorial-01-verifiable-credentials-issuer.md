@@ -1,23 +1,23 @@
 ---
-title: Step 1 - Set up verifiable credentials issuer in your own Azure AD (preview)
+title: "Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)"
 description: Set up your own verifiable credentials issuer in Azure
 documentationCenter: ''
 author: barclayn
 manager: daveba
 ms.service: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 03/11/2021
+ms.date: 03/14/2021
 ms.author: barclayn
+ms.reviewer: 
 
 # Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure AD
 
 ---
 
-# Tutorial 1 - Set up verifiable credentials (VCs) in Azure
+# Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)
 
-In this tutorial, we build on the work done in the [quickstart](quickstart-verifiable-credentials.md). We set up your own issuer and verifier in your tenant. In a few simple steps, we configure your Azure AD to produce the same Ninja credential from the sample code using your tenant's Distributed ID (DID).
-
+In this tutorial, we build on the work done in the [get started](get-started-verifiable-credentials.md) article and we get your Azure Active Directory (AAD) set up with its own distributed identifier (DID).
 
 > [!IMPORTANT]
 > Azure verifiable credentials is currently in public preview.
@@ -35,7 +35,7 @@ In this article:
 
 Before you can successfully complete this tutorial, you must first:
 
-- Complete the [first tutorial](tutorial-0-setup-verifiable-credentials-using-our-sample-app.md).
+- Complete the [Get started](verifiable-credentials-get-started.md).
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure AD with a P2 [license](https://azure.microsoft.com/pricing/details/active-directory/).
 - An instance of [Azure Key Vault](../../key-vault/general/overview.md) where you have rights to create keys and secrets.
@@ -100,11 +100,10 @@ There are two ways to get to the verifiable credentials blade in the Azure porta
 3. To get started with the verifiable credentials service, you need to set up your organization and provide your organization name, domain, and key vault. Let's look at each one.
 
       - **organization name**: This name is how you reference your business within the Verifiable Credential service. This value is not customer facing.
-      - **Domain:** The domain entered is added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. Whenever the wallet is unable to verify the DID it informs users that the credential presented was issued by an organization it could not validate. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below.
+      - **Domain:** The domain entered is added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet is unable to verify the DID it informs the user that the credential was issued by an organization it could not validate. The domain is what binds your DID to something tangible that the user may know about your business. See the example Presentation screen below.
       - **Key vault:** Provide the name of the Key Vault that we created earlier.
 
-    ![new permission request](media/tutorial-verifiable-credentials-issuer/e5EKExG.png)
-    
+   
    >[!IMPORTANT]
    > The domain can not be a redirect, otherwise the DID and domain cannot be linked. Make sure to use https://www.domain.com format.
     
@@ -114,7 +113,7 @@ There are two ways to get to the verifiable credentials blade in the Azure porta
 
 ## Next Steps
 
-At this point, your tenant is enabled for the verifiable credentials preview. Continue onto the next section to set up your credential issuer service.
+When we started we could issue and verify credentials using the sample app and the test Azure tenant. At the end of this tutorial, your tenant is enabled for the verifiable credentials preview. Next we take the steps needed to get your tenant issuing and verifying credentials.
 
 > [!div class="nextstepaction"]
 > [Create Sample Ninja Credential in your Issuer](tutorial-02-create-sample-card-your-issuer.md)
