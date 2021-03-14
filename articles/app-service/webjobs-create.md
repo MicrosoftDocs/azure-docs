@@ -129,7 +129,7 @@ when making changes in one don't forget the other two.
 
    The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**.  
 
-   ![List of WebJobs](./media/web-sites-create-web-jobs/listtriggeredwebjob.png)
+   ![List of WebJobs-triggered](./media/web-sites-create-web-jobs/listtriggeredwebjob.png)
 
 7. To run the WebJob, right-click its name in the list and select **Run**.
    
@@ -172,7 +172,7 @@ when making changes in one don't forget the other two.
 
    The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**.  
 
-   ![List of WebJobs](./media/web-sites-create-web-jobs/listscheduledwebjob.png)
+   ![List of WebJobs-scheduled](./media/web-sites-create-web-jobs/listscheduledwebjob.png)
 
 ## NCRONTAB expressions
 

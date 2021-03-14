@@ -4,13 +4,9 @@ description: Learn how to enable your web apps to run background tasks. Use this
 author: ggailey777
 ms.devlang: dotnet
 ms.custom: devx-track-csharp
-ms.topic: article
-ms.date: 02/18/2019
+ms.date: 03/14/2021
 ms.author: glenga
-ms.devlang: dotnet
-
 ms.topic: tutorial
-ms.date: 06/18/2019
 
 #Customer intent: As an App Services developer, I want use the Azure portal to add scheduled tasks to my web app in Azure.
 ---
@@ -369,7 +365,7 @@ static async Task Main()
 
 ## Add Application Insights logging
 
-When the project runs in Azure, you can't monitor function execution by viewing console output. The monitoring solution we recommend is [Application Insights](../azure-monitor/app/app-insights-overview.md), a feature of Azure Monitor. For context, see [Monitor Azure Functions](../azure-functions/functions-monitoring.md#view-telemetry-in-application-insights).
+When the project runs in Azure, you can't monitor function execution by viewing console output. The monitoring solution we recommend is [Application Insights](../azure-monitor/app/app-insights-overview.md), a feature of Azure Monitor. For context, see [Monitor Azure Functions](../azure-functions/analyze-telemetry-data.md).
 
 Before you deploy to Azure, do the following tasks to set up Application Insights logging:
 

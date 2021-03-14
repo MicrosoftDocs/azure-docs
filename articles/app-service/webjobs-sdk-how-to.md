@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-For more information, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs-trigger.md#host-json) article.
+For more information, see the [Event Hubs binding](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) article.
 
 ### Queue storage trigger configuration
 
