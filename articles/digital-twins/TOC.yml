@@ -13,8 +13,12 @@
   items:
   - name: Code a client app
     href: tutorial-code.md
-  - name: Explore the basics with a sample client app
-    href: tutorial-command-line-app.md
+  - name: Create a graph
+    items:
+    - name: Use a sample client app
+      href: tutorial-command-line-app.md
+    - name: Use the Azure CLI commands
+      href: tutorial-command-line-cli.md
   - name: Connect an end-to-end solution
     href: tutorial-end-to-end.md
 - name: Concepts
