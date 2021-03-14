@@ -421,6 +421,10 @@ In Java, sign-out is handled by calling the Microsoft identity platform `logout`
     }
 ```
 
+# [Node.js](#tab/nodejs)
+
+This sample application does not implement sign-out.
+
 # [Python](#tab/python)
 
 The code that signs out the user is in [app.py#L46-L52](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/48637475ed7d7733795ebeac55c5d58663714c60/app.py#L47-L48).
@@ -464,6 +468,10 @@ public class AccountController : Controller
 # [Java](#tab/java)
 
 In the Java quickstart, the post-logout redirect URI just displays the index.html page.
+
+# [Node.js](#tab/nodejs)
+
+This sample application does not implement sign-out.
 
 # [Python](#tab/python)
 
