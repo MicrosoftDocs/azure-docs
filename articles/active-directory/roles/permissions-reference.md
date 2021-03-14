@@ -813,10 +813,10 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties |
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
 > | microsoft.directory/groups/allProperties/allTasks | Create and delete groups, and read and update all properties |
-> | microsoft.directory/groupsAssignableToRoles/create | Create groups with isAssignableToRole property set to true |
-> | microsoft.directory/groupsAssignableToRoles/delete | Delete groups with isAssignableToRole property set to true |
-> | microsoft.directory/groupsAssignableToRoles/restore |  |
-> | microsoft.directory/groupsAssignableToRoles/allProperties/update | Update groups with isAssignableToRole property set to true |
+> | microsoft.directory/groupsAssignableToRoles/create | Create role-assignable groups |
+> | microsoft.directory/groupsAssignableToRoles/delete | Delete role-assignable groups |
+> | microsoft.directory/groupsAssignableToRoles/restore | Restore role-assignable groups |
+> | microsoft.directory/groupsAssignableToRoles/allProperties/update | Update role-assignable groups |
 > | microsoft.directory/groupSettings/allProperties/allTasks | Create and delete group settings, and read and update all properties |
 > | microsoft.directory/groupSettingTemplates/allProperties/allTasks | Create and delete group setting templates, and read and update all properties |
 > | microsoft.directory/identityProtection/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Azure AD Identity Protection |
@@ -864,7 +864,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
 > | microsoft.office365.messageCenter/securityMessages/read | Read security messages in Message Center in the Microsoft 365 admin center |
 > | microsoft.office365.network/performance/allProperties/read | Read all network performance properties in the Microsoft 365 admin center |
-> | microsoft.office365.protectionCenter/allEntities/allProperties/allTasks | Manage all aspects of Office 365 Protection Center |
+> | microsoft.office365.protectionCenter/allEntities/allProperties/allTasks | Manage all aspects of the Security and Compliance centers |
 > | microsoft.office365.search/content/manage | Create and delete content, and read and update all properties in Microsoft Search |
 > | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in the Microsoft 365 Security and Compliance Center |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
@@ -924,7 +924,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
 > | microsoft.office365.messageCenter/securityMessages/read | Read security messages in Message Center in the Microsoft 365 admin center |
 > | microsoft.office365.network/performance/allProperties/read | Read all network performance properties in the Microsoft 365 admin center |
-> | microsoft.office365.protectionCenter/allEntities/allProperties/read | Read all aspects of Office 365 Protection Center |
+> | microsoft.office365.protectionCenter/allEntities/allProperties/read | Read all properties in the Security and Compliance centers |
 > | microsoft.office365.securityComplianceCenter/allEntities/read | Read standard properties in Microsoft 365 Security and Compliance Center |
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
@@ -1146,7 +1146,7 @@ Users in this role have full access to all knowledge, learning and intelligent f
 > | microsoft.directory/groups.security/owners/update | Update owners of Security groups with the exclusion of role-assignable groups |
 > | microsoft.office365.knowledge/contentUnderstanding/allProperties/allTasks | Read and update all properties of content understanding in M365 Admin Center |
 > | microsoft.office365.knowledge/knowledgeNetwork/allProperties/allTasks | Read and update all properties of knowledge network in M365 Admin Center |
-> | microsoft.office365.protectionCenter/sensitivityLabels/allProperties/read |  |
+> | microsoft.office365.protectionCenter/sensitivityLabels/allProperties/read | Read sensitivity labels in the Security and Compliance centers |
 > | microsoft.office365.sharePoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in SharePoint |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
@@ -1452,10 +1452,10 @@ Users with this role can manage role assignments in Azure Active Directory, as w
 > | microsoft.directory/appRoleAssignments/allProperties/allTasks | Create and delete appRoleAssignments, and read and update all properties |
 > | microsoft.directory/authorizationPolicy/allProperties/allTasks | Manage all aspects of authorization policies |
 > | microsoft.directory/directoryRoles/allProperties/allTasks | Create and delete directory roles, and read and update all properties |
-> | microsoft.directory/groupsAssignableToRoles/create | Create groups with isAssignableToRole property set to true |
-> | microsoft.directory/groupsAssignableToRoles/delete | Delete groups with isAssignableToRole property set to true |
-> | microsoft.directory/groupsAssignableToRoles/restore |  |
-> | microsoft.directory/groupsAssignableToRoles/allProperties/update | Update groups with isAssignableToRole property set to true |
+> | microsoft.directory/groupsAssignableToRoles/create | Create role-assignable groups |
+> | microsoft.directory/groupsAssignableToRoles/delete | Delete role-assignable groups |
+> | microsoft.directory/groupsAssignableToRoles/restore | Restore role-assignable groups |
+> | microsoft.directory/groupsAssignableToRoles/allProperties/update | Update role-assignable groups |
 > | microsoft.directory/oAuth2PermissionGrants/allProperties/allTasks | Create and delete OAuth 2.0 permission grants, and read and update all properties |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/allTasks | Create and delete all resources, and read and update standard properties in Privileged Identity Management |
 > | microsoft.directory/roleAssignments/allProperties/allTasks | Create and delete role assignments, and read and update all role assignment properties |
@@ -1553,8 +1553,8 @@ Windows Defender ATP and EDR | Assign roles<br>Manage machine groups<br>Configur
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
-> | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in Office 365 Protection Center |
-> | microsoft.office365.protectionCenter/allEntities/basic/update | Update basic properties of all resources in Office 365 Protection Center |
+> | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in the Security and Compliance centers |
+> | microsoft.office365.protectionCenter/allEntities/basic/update | Update basic properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/allTasks | Create and manage attack payloads in Attack Simulator |
 > | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Create and manage attack simulation templates in Attack Simulator |
@@ -1626,7 +1626,7 @@ Windows Defender ATP and EDR | View and investigate alerts. When you turn on rol
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
-> | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in Office 365 Protection Center |
+> | microsoft.office365.protectionCenter/allEntities/standard/read | Read standard properties of all resources in the Security and Compliance centers |
 > | microsoft.office365.protectionCenter/attackSimulator/payload/allProperties/read | Read all properties of attack payloads in Attack Simulator |
 > | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation, responses, and associated training |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/read | Read all properties of attack simulation templates in Attack Simulator |
