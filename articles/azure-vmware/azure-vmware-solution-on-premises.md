@@ -23,7 +23,7 @@ To establish on-premises connectivity to your Azure VMware Solution private clou
 
 This tutorial results in a connection as shown in the diagram.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Global Reach on-premises network connectivity diagram." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" alt-text="ExpressRoute Global Reach on-premises network connectivity diagram." lightbox="media/pre-deployment/azure-vmware-solution-on-premises-diagram.png" border="false":::
 
 ## Verify on-premises network connectivity
 
