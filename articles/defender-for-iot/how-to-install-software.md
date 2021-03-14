@@ -824,9 +824,9 @@ To create a virtual machine by using Hyper-V:
 
 Starting the virtual machine will start the installation process from the ISO image. To enhance security you have the option to create a second network interface on your on-premises management console. The primary network interface is dedicated for the users, and can support the configuration of a gateway for routed networks. The second network interface creates a local network that supports the sensors within an IP address range.
 
-Both network interfaces have the user interface (UI) enabled, and all of the features that are supported by the UI will be available on the secondary network interface when routing in not needed. However when High Availability is run between two on-premises management consoles, it will run on the secondary network interface.
+Both network interfaces have the user interface (UI) enabled, and all of the features that are supported by the UI will be available on the secondary network interface when routing in not needed. High Availability will run on the secondary network interface.
 
-If you choose not to deploy a secondary network interface, all options will be run through the primary network interface. 
+If you choose not to deploy a secondary network interface, all of the features will be available through the primary network interface. 
 
 To install the software:
 
