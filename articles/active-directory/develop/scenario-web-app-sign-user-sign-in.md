@@ -92,6 +92,16 @@ In our Java quickstart, the sign-in button is located in the [main/resources/tem
 </html>
 ```
 
+# [Node.js](#tab/nodejs)
+
+In the Node.js quickstart, there's no sign-in button. The code-behind automatically prompts the user for sign-in when it's reaching the root of the web app.
+
+```javascript
+app.get('/', (req, res) => {
+    // authentication logic
+});
+```
+
 # [Python](#tab/python)
 
 In the Python quickstart, there's no sign-in button. The code-behind automatically prompts the user for sign-in when it's reaching the root of the web app. See [app.py#L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18).
@@ -155,6 +165,43 @@ public class AuthPageController {
     }
 
     // More code omitted for simplicity
+```
+
+# [Node.js](#tab/nodejs)
+
+Unlike other platforms, here the MSAL Node takes care of letting the user sign in from the login page.
+
+```javascript
+
+// 1st leg of auth code flow: acquire a code
+app.get('/', (req, res) => {
+    const authCodeUrlParameters = {
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    // get url to sign user in and consent to scopes needed for application
+    pca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
+        res.redirect(response);
+    }).catch((error) => console.log(JSON.stringify(error)));
+});
+
+// 2nd leg of auth code flow: exchange code for token
+app.get('/redirect', (req, res) => {
+    const tokenRequest = {
+        code: req.query.code,
+        scopes: ["user.read"],
+        redirectUri: REDIRECT_URI,
+    };
+
+    pca.acquireTokenByCode(tokenRequest).then((response) => {
+        console.log("\nResponse: \n:", response);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.status(500).send(error);
+    });
+});
 ```
 
 # [Python](#tab/python)
