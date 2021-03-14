@@ -19194,7 +19194,7 @@
       "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
       "redirect_document_id": false
     },
-    {      
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-enable-private-link.md",
       "redirect_url": "/azure/digital-twins/how-to-enable-private-link-portal",
       "redirect_document_id": false
@@ -37546,7 +37546,12 @@
     },
     {
       "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-create-environment.md",
-      "redirect_url": "/azure/time-series-insights/tutorials-set-up-tsi-environment",
+      "redirect_url": "/azure/time-series-insights/tutorial-set-up-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/tutorials-set-up-tsi-environment.md",
+      "redirect_url": "/azure/time-series-insights/tutorial-set-up-environment",
       "redirect_document_id": false
     },
     {
@@ -64551,6 +64556,16 @@
     {
       "source_path_from_root": "/articles/service-fabric/service-fabric-best-practices-overview.md",
       "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/media-services-diagnostic-logs-schema.md",
+      "redirect_url": "/azure/media-services/monitoring/monitor-media-services-data-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/media-services-metrics-diagnostic-logs.md",
+      "redirect_url": "/azure/media-services/monitoring/monitor-media-services-data-reference",
       "redirect_document_id": false
     }
   ]
