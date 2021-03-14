@@ -106,8 +106,6 @@
       href: service-fabric-tutorial-standalone-clean-up.md
 - name: Best practices
   items:
-  - name: Service Fabric best practices overview
-    href: service-fabric-best-practices-overview.md
   - name: Security
     href: service-fabric-best-practices-security.md
   - name: Networking 

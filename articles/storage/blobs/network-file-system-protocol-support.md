@@ -107,7 +107,7 @@ The following Azure Storage features aren't supported when you enable the NFS 3.
   
 ## NFS 3.0 features not yet supported
 
-The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage Gen2.
+The following NFS 3.0 features aren't yet supported.
 
 - NFS 3.0 over UDP. Only NFS 3.0 over TCP is supported.
 
@@ -122,6 +122,12 @@ The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage
 - Hard link
 
 - Exporting a container as read-only
+
+## NFS 3.0 clients not yet supported
+
+The following NFS 3.0 clients aren't yet supported.
+
+- Windows client for NFS
 
 ## Pricing
 
