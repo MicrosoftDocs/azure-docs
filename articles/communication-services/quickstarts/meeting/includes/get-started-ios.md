@@ -88,6 +88,34 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 
 :::image type="content" source="../media/ios/xcode-add-framework-search-path.png" alt-text="Screenshot showing the framework search path in Xcode.":::
 
+### Turn off Bitcode
+
+Set `Enable Bitcode` option to `No` in the project build settings.
+
+:::image type="content" source="../media/ios/xcode-bitcode-option.png" alt-text="Screenshot showing the BitCode option in Xcode.":::
+
+### Add framework signing script
+
+In the Project Navigator, select your project. In the Editor pane, go to Build Phases → Click on + sign → Create a New Run Script Phase
+
+:::image type="content" source="../media/ios/xcode-build-script.png" alt-text="Screenshot showing adding the build script in Xcode.":::
+
+```bash
+#!/bin/sh
+if [ -d "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks ]; then
+    pushd "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks
+    for EACH in *.framework; do
+        echo "-- signing ${EACH}"
+        /usr/bin/codesign --force --deep --sign "${EXPANDED_CODE_SIGN_IDENTITY}" --entitlements "${TARGET_TEMP_DIR}/${PRODUCT_NAME}.app.xcent" --timestamp=none $EACH
+        echo "-- moving ${EACH}"
+        mv -nv ${EACH} ../../
+    done
+    rm -rf "${TARGET_BUILD_DIR}"/"${PRODUCT_NAME}".app/Frameworks/TeamsAppSDK.framework/Frameworks
+    popd
+    echo "BUILD DIR ${TARGET_BUILD_DIR}"
+fi
+```
+
 ### Add a window reference to AppDelegate
 
 Open your project's **AppDelegate.swift** file and add a reference for 'window'.
