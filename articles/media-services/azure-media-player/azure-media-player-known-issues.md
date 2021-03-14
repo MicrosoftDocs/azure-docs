@@ -45,7 +45,7 @@ The current release has the following known issues:
 
 - Assets that are audio only will not play back via the AzureHtml5JS tech.
   - If you’d like to play back assets without audio, you can do so by inserting blank audio using the [Azure Media Services Explorer tool](https://aka.ms/amse)
-  - Instructions on how to insert silent audio can be found [here](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+  - Instructions on how to insert silent audio can be found [here](../previous/media-services-advanced-encoding-with-mes.md#silent_audio)
 
 ## Flash ##
 

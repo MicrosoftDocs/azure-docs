@@ -9,7 +9,7 @@ ms.date: 01/30/2019
 
 This article describes solutions for issues that you might encounter while using Data Protection Manager.
 
-For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). You can learn more about support for Data Protection Manager in [this matrix](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
+For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](/system-center/dpm/dpm-release-notes). You can learn more about support for Data Protection Manager in [this matrix](/system-center/dpm/dpm-protection-matrix).
 
 ## Error: Replica is inconsistent
 

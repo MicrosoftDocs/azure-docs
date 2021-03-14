@@ -1,19 +1,8 @@
 ---
 title: Set up retention policy in Azure DevTest Labs | Microsoft Docs
 description: Learn how to configure a retention policy, clean up the factory, and retire old images from DevTest Labs. 
-services: devtest-lab, lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Set up retention policy in Azure DevTest Labs
@@ -70,7 +59,7 @@ Adding a new image to your factory is also simple. When you want to include a ne
 
 
 ## Next steps
-1. [Schedule your build/release](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer) to run the image factory periodically. It refreshes your factory-generated images on a regular basis.
+1. [Schedule your build/release](/azure/devops/pipelines/build/triggers?tabs=designer) to run the image factory periodically. It refreshes your factory-generated images on a regular basis.
 2. Make more golden images for your factory. You may also consider [creating artifacts](devtest-lab-artifact-author.md) to script additional pieces of your VM setup tasks and include the artifacts in your factory images.
 4. Create a [separate build/release](/azure/devops/pipelines/overview?view=azure-devops-2019) to run the **DistributeImages** script separately. You can run this script when you make changes to Labs.json and get images copied to target labs without having to recreate all the images again.
 

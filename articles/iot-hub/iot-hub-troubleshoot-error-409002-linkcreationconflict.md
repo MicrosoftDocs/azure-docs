@@ -18,7 +18,7 @@ This article describes the causes and solutions for **409002 LinkCreationConflic
 
 ## Symptoms
 
-You see the error **409002 LinkCreationConflict** logged in diagnostic logs along with device disconnection or cloud-to-device message failure. 
+You see the error **409002 LinkCreationConflict** in logs along with device disconnection or cloud-to-device message failure.
 
 <!-- When using AMQP? -->
 

@@ -2,6 +2,10 @@
 title: Tutorial for event-driven background processing with the WebJobs SDK
 description: Learn how to enable your web apps to run background tasks. Use this tutorial to get started with the WebJobs SDK.
 author: ggailey777
+ms.devlang: dotnet
+ms.custom: devx-track-csharp
+ms.topic: article
+ms.date: 02/18/2019
 ms.author: glenga
 ms.devlang: dotnet
 
@@ -206,11 +210,21 @@ The `QueueTrigger` attribute tells the runtime to call this function when a new 
    
 The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
 
+<<<<<<< HEAD
 ### Create an Azure storage account
+=======
+   The `QueueTrigger` attribute tells the runtime to call this function when a new message is written on an Azure Storage queue called `queue`. The contents of the queue message are provided to the method code in the `message` parameter. The body of the method is where you process the trigger data. In this example, the code just logs the message.
+
+   The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
+>>>>>>> b615e995dc6475a4afd9209042188dbb2559743a
 
 The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. You'll create a storage account in Azure and configure the project to use it. 
 
+<<<<<<< HEAD
 To learn how to create a general-purpose v2 storage account, see [Create an Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
+=======
+The Azure Storage Emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a storage account in Azure and configure the project to use it. If you already have a storage account, skip down to step 6.
+>>>>>>> b615e995dc6475a4afd9209042188dbb2559743a
 
 ### Locate and copy your connection string
 A connection string is required to configure storage. Keep this connection string for the next steps.
@@ -271,13 +285,13 @@ Build and run the project locally and create a message queue to trigger the func
 
 1. Enter *queue* as the name for the queue, and then select **OK**.
 
-   ![Create queue](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Screenshot that shows where you create the queue and name it "queue". ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Right-click the node for the new queue, and then select **View Queue**.
 
 1. Select the **Add Message** icon.
 
-   ![Create queue](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Screenshot that highlights the Add Message icon.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. In the **Add Message** dialog, enter *Hello World!* as the **Message text**, and then select **OK**. There is now a message in the queue.
 
@@ -287,7 +301,7 @@ Build and run the project locally and create a message queue to trigger the func
 
    Because you used the `QueueTrigger` attribute in the `ProcessQueueMessage` function, the WebJobs SDK runtime listens for queue messages when it starts up. It finds a new queue message in the queue named *queue* and calls the function.
 
-   Due to [queue polling exponential backoff](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm), it might take as long as 2 minutes for the runtime to find the message and invoke the function. This wait time can be reduced by running in [development mode](webjobs-sdk-how-to.md#host-development-settings).
+   Due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm), it might take as long as 2 minutes for the runtime to find the message and invoke the function. This wait time can be reduced by running in [development mode](webjobs-sdk-how-to.md#host-development-settings).
 
    The console output looks like this:
 
@@ -315,11 +329,15 @@ During deployment, you create an app service instance where you'll run your func
 
 ### Create a storage connection app setting
 
+<<<<<<< HEAD
 1. Right-click on your WebJobsSDKSample to open the **Publish** page.
 1. Select **Edit Azure App Service settings**, then select **Add setting**.
     ![publish](./media/webjobs-sdk-get-started/publish-app.png)
 1. In **New app setting name**, type `AzureWebJobsStorage` and select **OK**. 
 1. In **Remote** paste in the connection string from your local setting and select **OK**.
+=======
+1. If you don't already have an App Service app that you can use, [create one](quickstart-dotnet-framework.md). When you create your app, you can also create a connected Application Insights resource. When you do this, the `APPINSIGHTS_INSTRUMENTATIONKEY` is set for you in your app.
+>>>>>>> b615e995dc6475a4afd9209042188dbb2559743a
 
 ### Trigger the function in Azure
 
@@ -461,8 +479,13 @@ In this section, run locally again to verify that logging data is now going to b
 1. Close the console window.
 
 
+<<<<<<< HEAD
 ## Add input/output bindings
 ***Bindings simplify code that reads and writes data. Input bindings simplify code that reads data. Output bindings simplify code that writes data.  
+=======
+   > [!TIP]
+   > When you're testing in Azure, use [development mode](webjobs-sdk-how-to.md#host-development-settings) to ensure that a queue trigger function is invoked right away and avoid delays due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm).
+>>>>>>> b615e995dc6475a4afd9209042188dbb2559743a
 
 ### Add input binding
 

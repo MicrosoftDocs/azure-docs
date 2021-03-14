@@ -16,13 +16,13 @@ The feature is available for certain recommendations only, via Azure portal.
 
 1. From the list of recommendations that have the **Quick Fix** label, click on the recommendation.
 
-   ![Advisor quick fix](./media/quick-fix-1.png)
+   :::image type="content" source="./media/quick-fix-1.png" alt-text="{Screenshot of Azure Advisor showing Quick Fix labels in the recommendations.}":::
    
    *Prices in the image are for example purposes only*
 
 2. On the Recommendation details page, you'll see list of resources for which you have this recommendation. Select all the resources you want to remediate for the recommendation.
 
-   ![Advisor quick fix](./media/quick-fix-2.png)
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="Screenshot of the Impacted resources window with list items and the Quick Fix button highlighted.":::
    
    *Prices in the image are for example purposes only*
 
@@ -46,4 +46,4 @@ For more information about Advisor recommendations, see:
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
 * [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)

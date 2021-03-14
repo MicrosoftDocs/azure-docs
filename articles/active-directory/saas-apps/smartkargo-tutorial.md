@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SmartKargo | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SmartKargo.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 4112e1f0-1a71-4e60-9052-3a1bae1d84b9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 06/19/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SmartKargo
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate SmartKargo with Azure Active Dir
 * Enable your users to be automatically signed-in to SmartKargo with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -41,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SmartKargo supports **SP** initiated SSO
-* Once you configure SmartKargo you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure SmartKargo you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding SmartKargo from the gallery
 
@@ -80,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CUSTOMER_NAME>.smartkargo.com/`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
@@ -90,15 +84,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<CUSTOMER_NAME>.smartkargo.com/SamlResponse.aspx`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL,Reply URL and Identifier. Contact [SmartKargo Client support team](https://www.smartkargo.com/company/contact-2/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-on URL, Reply URL and Identifier. Contact [SmartKargo Client support team](https://www.smartkargo.com/company/contact-2/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![Edit SAML Signing Certificate](common/edit-certificate.png)
-
-1. In the **SAML Signing Certificate** section, copy the **Thumbprint Value** and save it on your computer.
-
-    ![Copy Thumbprint value](common/copy-thumbprint.png)
+	![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up SmartKargo** section, copy the appropriate URL(s) based on your requirement.
 
@@ -136,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SmartKargo SSO
 
-To configure single sign-on on **SmartKargo** side, you need to send the **Thumbprint Value** and appropriate copied URLs from Azure portal to [SmartKargo platform support team](https://www.smartkargo.com/company/contact-2/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **SmartKargo** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SmartKargo platform support team](https://www.smartkargo.com/company/contact-2/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create SmartKargo test user
 
@@ -146,18 +136,18 @@ In this section, you create a user called B.Simon in SmartKargo. Please with [S
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the SmartKargo tile in the Access Panel, you should be automatically signed in to the SmartKargo for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the SmartKargo tile in the Access Panel, you should be automatically signed in to the SmartKargo for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try SmartKargo with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [How to protect SmartKargo with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [How to protect SmartKargo with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

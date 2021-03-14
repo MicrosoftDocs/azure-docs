@@ -37,7 +37,7 @@ It consists of:
 - A set of features that define how the CDN will handle the above requests.
 These elements are identified in the following illustration.
 
-![Policy deployment workflow](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
+![Screenshot with labels shows the Conditional Expression, the Match, and the Features of a rule.](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
 
 ### Policy
 A policy, which consists of a set of read-only rules, provides the means to:

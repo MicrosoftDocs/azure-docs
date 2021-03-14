@@ -2,7 +2,7 @@
 title: Create a pool with specified public IP addresses
 description: Learn how to create a Batch pool that uses your own public IP addresses.
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/08/2020
 ---
 
 # Create an Azure Batch pool with specified public IP addresses
@@ -11,13 +11,15 @@ When you create an Azure Batch pool, you can [provision the pool in a subnet of 
 
 You can create a list of static public IP addresses to use with the virtual machines in your pool. This allows you to control the list of public IP addresses and ensure that they won't change unexpectedly. This can be especially useful if you are working with any external service, such as a database, that restricts access to certain IP addresses.
 
+For information about creating pools without public IP addresses, read [Create an Azure Batch pool without public IP addresses](./batch-pool-no-public-ip-address.md).
+
 ## Prerequisites
 
 - **Authentication**. To use a public IP address, the Batch client API must use [Azure Active Directory (AD) authentication](batch-aad-auth.md).
 
 - **An Azure VNet**. You must use a [virtual network](batch-virtual-network.md) from the same Azure subscription in which you are creating your pool and your IP addresses. Only Azure Resource Manager-based VNets may be used. Be sure that the VNet meets all of the [general requirements](batch-virtual-network.md#vnet-requirements).
 
-- **At least one Azure public IP address**. To create one or more public IP addresses, you can use the [Azure portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), or [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress). Be sure to follow the requirements listed below.
+- **At least one Azure public IP address**. To create one or more public IP addresses, you can use the [Azure portal](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), the [Azure Command-Line Interface (CLI)](/cli/azure/network/public-ip#az-network-public-ip-create), or [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Be sure to follow the requirements listed below.
 
 > [!NOTE]
 > Batch automatically allocates additional networking resources in the resource group containing the public IP addresses. For each 100 dedicated nodes, Batch generally allocates one network security group (NSG) and one load balancer. These resources are limited by the subscription's resource quotas. When using larger pools, you may need to [request a quota increase](batch-quota-limit.md#increase-a-quota) for one or more of these resources.
@@ -38,7 +40,7 @@ Keep in mind the following requirements when creating your public IP addresses:
 
 ## Create a Batch pool with public IP addresses
 
-The example below shows how to use the [Azure Batch Service REST API](https://docs.microsoft.com/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
+The example below shows how to use the [Azure Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
 
 ### Batch Service REST API
 
@@ -64,19 +66,21 @@ Request Body
         "nodeAgentSKUId": "batch.node.ubuntu 16.04"
       },
 "networkConfiguration": {
-          "subnetId": "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
-          "publicIPs": [
-            "/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135"
+          "subnetId": "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/virtualNetworks/<vNetId>/subnets/<subnetId>",
+          "publicIPAddressConfiguration": {
+            "provision": "usermanaged",
+            "ipAddressIds": [
+              "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/publicIPAddresses/<publicIpId>"
           ]
         },
 
        "resizeTimeout":"PT15M",
       "targetDedicatedNodes":5,
       "targetLowPriorityNodes":0,
-      "maxTasksPerNode":3,
+      "taskSlotsPerNode":3,
       "taskSchedulingPolicy": {
         "nodeFillType":"spread"
-      }, 
+      },
       "enableAutoScale":false,
       "enableInterNodeCommunication":true,
       "metadata": [ {
@@ -90,3 +94,5 @@ Request Body
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn about [creating a pool in a subnet of an Azure virtual network](batch-virtual-network.md).
+- Learn about [creating an Azure Batch pool without public IP addresses](./batch-pool-no-public-ip-address.md).
+

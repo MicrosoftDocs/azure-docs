@@ -4,7 +4,7 @@ description: Azure CLI example script to create a managed instance in Azure SQL 
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
-ms.custom: 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
@@ -43,7 +43,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az network vnet](/cli/azure/network/vnet) | Virtual network commands. |
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Virtual network subnet commands. |

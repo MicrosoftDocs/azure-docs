@@ -1,11 +1,11 @@
 ---
 title: Group machines for assessment with Azure Migrate | Microsoft Docs
 description: Describes how to group machines before you run an assessment with the Azure Migrate service.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
+author: rashi-ms
+ms.author: rajosh
+ms.manager: abhemraj
+ms.topic: how-to
 ms.date: 07/17/2019
-ms.author: hamusa
 ---
 
 # Create a group for assessment
@@ -32,17 +32,17 @@ If you want to create a group manually outside of creating an assessment, do the
 
 1. In the Azure Migrate project > **Overview**, click **Assess and migrate servers**. In **Azure Migrate: Server Assessment**, click **Groups**
     - If you haven't yet added the Azure Migrate: Server Assessment tool, click to add it. [Learn more](how-to-assess.md).
-    - If you haven't yet created an Azure Migrate project, [learn more](how-to-add-tool-first-time.md).
+    - If you haven't yet created an Azure Migrate project, [learn more](./create-manage-projects.md).
 
     ![Select groups](./media/how-to-create-a-group/select-groups.png)
 
 2. Click the **Group** icon.
 3. In **Create group**, specify a group name, and in **Appliance name**, select the Azure Migrate appliance you're using for machine discovery.
-1. From the machine list, select the machines you want to add to the group > **Create**.
+4. From the machine list, select the machines you want to add to the group > **Create**.
 
     ![Create group](./media/how-to-create-a-group/create-group.png)
 
-You can now use this group when you [create an assessment](how-to-create-assessment.md).
+You can now use this group when you [create an Azure VM assessment](how-to-create-assessment.md) or [an Azure VMware Solution (AVS) assessment](how-to-create-azure-vmware-solution-assessment.md). Note that you can create an AVS assessment on groups with only VMware VMs. 
 
 ## Refine a group with dependency mapping
 
@@ -84,4 +84,3 @@ If you've already [set up dependency mapping](how-to-create-group-machine-depend
 ## Next steps
 
 Learn how to set up and use [dependency mapping](how-to-create-group-machine-dependencies.md) to create high confidence groups.
-

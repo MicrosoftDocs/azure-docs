@@ -2,14 +2,15 @@
 title: How to disable functions in Azure Functions
 description: Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 02/03/2021 
+ms.custom: "devx-track-csharp, devx-track-azurecli"
 ---
 
 # How to disable functions in Azure Functions
 
 This article explains how to disable a function in Azure Functions. To *disable* a function means to make the runtime ignore the automatic trigger that's defined for the function. This lets you prevent a specific function from running without stopping the entire function app.
 
-The recommended way to disable a function is by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
+The recommended way to disable a function is with an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled` set to `true`. You can create and modify this application setting in a number of ways, including by using the [Azure CLI](/cli/azure/) and from your function's **Overview** tab in the [Azure portal](https://portal.azure.com). 
 
 > [!NOTE]  
 > When you disable an HTTP triggered function by using the methods described in this article, the endpoint may still by accessible when running on your local computer.  
@@ -34,12 +35,29 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## Use the Portal
 
-You can also use the **Enable** and **Disable** buttons on the function's **Overview** page. These buttons work by creating and deleting the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting.
+You can also use the **Enable** and **Disable** buttons on the function's **Overview** page. These buttons work by changing the value of the `AzureWebJobs.<FUNCTION_NAME>.Disabled` app setting. This function-specific setting is created the first time it's disabled. 
 
 ![Function state switch](media/disable-function/function-state-switch.png)
 
+Even when you publish to your function app from a local project, you can still use the portal to disable functions in the function app. 
+
 > [!NOTE]  
 > The portal-integrated testing functionality ignores the `Disabled` setting. This means that a disabled function still runs when started from the **Test** window in the portal. 
+
+## local.settings.json
+
+Functions can be disabled in the same way when running locally. To disable a function named `HttpExample`, add an entry to the Values collection in the local.settings.json file, as follows:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true", 
+    "AzureWebJobs.HttpExample.Disabled": "true"
+  }
+}
+``` 
 
 ## Other methods
 
@@ -47,23 +65,7 @@ While the application setting method is recommended for all languages and all ru
 
 ### C# class libraries
 
-In a class library function, you can also use the `Disable` attribute to prevent the function from being triggered. You can use the attribute without a constructor parameter, as shown in the following example:
-
-```csharp
-public static class QueueFunctions
-{
-    [Disable]
-    [FunctionName("QueueTrigger")]
-    public static void QueueTrigger(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
-    {
-        log.Info($"C# function processed: {myQueueItem}");
-    }
-}
-```
-
-The attribute without a constructor parameter requires that you recompile and redeploy the project to change the function's disabled state. A more flexible way to use the attribute is to include a constructor parameter that refers to a Boolean app setting, as shown in the following example:
+In a class library function, you can also use the `Disable` attribute to prevent the function from being triggered. This attribute lets you customize the name of the setting used to disable the function. Use the version of the attribute that lets you define a constructor parameter that refers to a Boolean app setting, as shown in the following example:
 
 ```csharp
 public static class QueueFunctions
@@ -81,12 +83,7 @@ public static class QueueFunctions
 
 This method lets you enable and disable the function by changing the app setting, without recompiling or redeploying. Changing an app setting causes the function app to restart, so the disabled state change is recognized immediately.
 
-> [!IMPORTANT]
-> The `Disabled` attribute is the only way to disable a class library function. The generated *function.json* file for a class library function is not meant to be edited directly. If you edit that file, whatever you do to the `disabled` property will have no effect.
->
-> The same goes for the **Function state** switch on the **Manage** tab, since it works by changing the *function.json* file.
->
-> Also, note that the portal may indicate the function is disabled when it isn't.
+There's also a constructor for the parameter that doesn't accept a string for the setting name. This version of the attribute isn't recommended. If you use this version, you must recompile and redeploy the project to change the function's disabled state.
 
 ### Functions 1.x - scripting languages
 
@@ -118,7 +115,7 @@ or
 In the second example, the function is disabled when there is an app setting that is named IS_DISABLED and is set to `true` or 1.
 
 >[!IMPORTANT]  
->The portal now uses application settings to disable v1.x functions. When an application setting conflicts with the function.json file, an error can occur. You should remove the `disabled` property from the function.json file to prevent errors. 
+>The portal uses application settings to disable v1.x functions. When an application setting conflicts with the function.json file, an error can occur. You should remove the `disabled` property from the function.json file to prevent errors. 
 
 
 ## Next steps

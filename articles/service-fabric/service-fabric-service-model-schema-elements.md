@@ -5374,7 +5374,7 @@ Indicates if a code, config or data package should be shared across service inst
 ```
 
 <a id="ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement"></a>
-## Parameter element (defined in Parameters) 
+## Parameter element defined in Parameters
 An application parameter to be used in this manifest. The parameter value can be changed during application instantiation, or, if no value is supplied the default value is used.
 
 |Attribute|Value|
@@ -5458,7 +5458,7 @@ Default value for the parameter, used if the parameter value is not provided dur
 ```
 
 <a id="ParameterElementanonymouscomplexTypeComplexTypeDefinedInSectionelement"></a>
-## Parameter element (defined in Section) 
+## Parameter element defined in Section
 The setting to override.
 
 |Attribute|Value|
@@ -5503,8 +5503,7 @@ The setting to override.
 
 #### IsEncrypted
 
-                      If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section. This attribute is deprecated. Please use Type attribute.
-                    
+If true, the value of this parameter is encrypted. The application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information. The certificate information that will be used to encrypt the value is specified in the Certificates section. This attribute is deprecated. Please use Type attribute.
 
 |Attribute|Value|
 |---|---|
@@ -5514,17 +5513,15 @@ The setting to override.
 
 #### Type
 
-                      This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-                      If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
-                      If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
-                    
+This value defines the type of value you have specified in the 'Value' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
+If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
+If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
 
 |Attribute|Value|
 |---|---|
 |name|Type|
 |type|xs:string|
 |use|optional|
-
 
 <a id="ParameterElementanonymouscomplexTypeComplexTypeDefinedInSectionelement"></a>
 ## Parameter element (defined in Section) 
@@ -7578,7 +7575,7 @@ Defines a service placement policy, which specifies that the service should or s
 |maxOccurs|unbounded|
 
 <a id="ServicePlacementPolicyElementanonymouscomplexTypeComplexTypeDefinedInServicePlacementPolicieselement"></a>
-## ServicePlacementPolicy element (defined in ServicePlacementPolicies) 
+## ServicePlacementPolicy element defined in ServicePlacementPolicies
 Defines a service placement policy, which specifies that the service should or should not run in certain cluster fault domains.  Useful when the cluster spans geographic distances or and/or geopolitical regions.
 
 |Attribute|Value|

@@ -1,22 +1,10 @@
 ---
 title: Set up a lab account with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab account with Azure Lab Services, add a lab creator, and specify Marketplace images to be used by labs in the lab account. 
-services: devtest-lab, lab-services, virtual-machines
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 05/15/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Tutorial: Set up a lab account with Azure Lab Services
 In Azure Lab Services, a lab account serves as the central account in which your organization's labs are managed. In your lab account, give permission to others to create labs, and set policies that apply to all labs under the lab account. In this tutorial, learn how to create a lab account. 
 

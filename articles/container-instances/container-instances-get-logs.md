@@ -3,7 +3,7 @@ title: Get container instance logs & events
 description: Learn how to retrieve container logs and events in Azure Container Instances to help troubleshoot container issues
 ms.topic: article
 ms.date: 12/30/2019
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Retrieve container logs and events in Azure Container Instances

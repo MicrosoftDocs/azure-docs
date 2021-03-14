@@ -4,7 +4,7 @@ description: Automate management and configuration of Azure Application Insights
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 06/26/2019
+ms.date: 02/14/2021
 
 ms.reviewer: mbullwin
 ---
@@ -18,7 +18,7 @@ This method can be used when deploying new Application Insights resources with A
 
 You can configure the following settings for a smart detection rule:
 - If the rule is enabled (the default is **true**.)
-- If emails should be sent to users associated to the subscription’s [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles when a detection is found (the default is **true**.)
+- If emails should be sent to users associated to the subscription’s [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) and [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roles when a detection is found (the default is **true**.)
 - Any additional email recipients who should get a notification when a detection is found.
     -  Email configuration is not available for Smart Detection rules marked as _preview_.
 
@@ -40,7 +40,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -71,7 +71,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -102,7 +102,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -116,7 +116,7 @@ Make sure to replace the Application Insights resource name, and to specify the 
           "properties": {
             "name": "longdependencyduration",
             "sendEmailsToSubscriptionOwners": true,
-            "customEmails": ['alice@contoso.com', 'bob@contoso.com'],
+            "customEmails": ["alice@contoso.com", "bob@contoso.com"],
             "enabled": true
           }
         }
@@ -148,7 +148,7 @@ Below is a table of smart detection rule names as they appear in the portal, alo
 
 ### Failure Anomalies alert rule
 
-This Azure Resource Manager template demonstrates configuring a Failure Anomalies alert rule with a severity of 2. This new version of the Failure Anomalies alert rule is part of the new Azure alerting platform, and replaces the classic version that is being retired as part of the [classic alerts retirement process](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+This Azure Resource Manager template demonstrates configuring a Failure Anomalies alert rule with a severity of 2.
 
 > [!NOTE]
 > Failure Anomalies is a global service therefore rule location is created on the global location.
@@ -188,6 +188,7 @@ This Azure Resource Manager template demonstrates configuring a Failure Anomalie
 
 Learn more about automatically detecting:
 
-- [Failure anomalies](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Memory Leaks](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [Performance anomalies](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [Failure anomalies](./proactive-failure-diagnostics.md)
+- [Memory Leaks](./proactive-potential-memory-leak.md)
+- [Performance anomalies](./proactive-performance-diagnostics.md)
+

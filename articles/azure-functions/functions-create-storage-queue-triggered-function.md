@@ -84,7 +84,7 @@ Now that you have a storage queue, you can test the function by adding a message
 
 1. Select **Add message**, and type "Hello World!" in **Message text**. Select **OK**.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Go to your myqueue-items queue in the Azure portal." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Screenshot shows the Add message button selected and the Message text field highlighted." border="true":::
 
 1. Wait for a few seconds, then go back to your function logs and verify that the new message has been read from the queue.
 

@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/06/2017
 ms.author: mimart
 ms.subservice: B2C
@@ -35,7 +35,7 @@ If you accidentally deleted the b2c-extensions-app, you have 30 days to recover 
 1. Browse to [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/).
 1. Log in to the site as a global administrator for the Azure AD B2C directory that you want to restore the deleted app for. This global administrator must have an email address similar to the following: `username@{yourTenant}.onmicrosoft.com`.
 1. Issue an HTTP GET against the URL `https://graph.windows.net/myorganization/deletedApplications` with api-version=1.6. This operation will list all of the applications that have been deleted within the past 30 days.
-1. Find the application in the list where the name begins with 'b2c-extension-app’ and copy its `objectid` property value.
+1. Find the application in the list where the name begins with 'b2c-extensions-app’ and copy its `objectid` property value.
 1. Issue an HTTP POST against the URL `https://graph.windows.net/myorganization/deletedApplications/{OBJECTID}/restore`. Replace the `{OBJECTID}` portion of the URL with the `objectid` from the previous step.
 
 You should now be able to [see the restored app](#verifying-that-the-extensions-app-is-present) in the Azure portal.

@@ -6,7 +6,8 @@ author: tfitzmac
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 10/25/2017
-ms.author: tomfitz
+ms.author: tomfitz 
+ms.custom: devx-track-azurecli
 ---
 
 # Get resources in a managed resource group and resize VMs with Azure CLI
@@ -29,12 +30,12 @@ This script uses the following commands to deploy the managed application. Each 
 
 | Command | Notes |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | List managed applications. Provide query values to focus the results. |
-| [az resource list](https://docs.microsoft.com/cli/azure/resource#az-resource-list) | List resources. Provide a resource group and query values to focus the result. |
-| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az-vm-resize) | Update a virtual machine's size. |
+| [az managedapp list](/cli/azure/managedapp#az-managedapp-list) | List managed applications. Provide query values to focus the results. |
+| [az resource list](/cli/azure/resource#az-resource-list) | List resources. Provide a resource group and query values to focus the result. |
+| [az vm resize](/cli/azure/vm#az-vm-resize) | Update a virtual machine's size. |
 
 
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-* For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+* For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

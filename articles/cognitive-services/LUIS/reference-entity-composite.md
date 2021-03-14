@@ -3,13 +3,13 @@ title: Composite entity type - LUIS
 titleSuffix: Azure Cognitive Services
 description: A composite entity is made up of other entities, such as prebuilt entities, simple, regular expression, and list entities. The separate entities form a whole entity.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
+
 ---
 # Composite entity
 
@@ -167,7 +167,6 @@ This is the JSON if `verbose=true` is set in the query string:
 ```
 
 * * *
-
 
 |Data object|Entity name|Value|
 |--|--|--|

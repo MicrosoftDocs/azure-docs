@@ -48,7 +48,7 @@ This article focused on how to secure your containers. To implement some of thes
 * [Automate image builds on base image update with Azure Container Registry Tasks][acr-base-image-update]
 
 <!-- EXTERNAL LINKS -->
-[azure-pipelines]: /azure/devops/pipelines/?view=vsts
+[azure-pipelines]: /azure/devops/pipelines/
 [twistlock]: https://www.twistlock.com/
 [aqua]: https://www.aquasec.com/
 
@@ -56,5 +56,5 @@ This article focused on how to secure your containers. To implement some of thes
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
-[security-center-containers]: /azure/security-center/container-security
-[security-center-acr]: /azure/security-center/azure-container-registry-integration
+[security-center-containers]: ../security-center/container-security.md
+[security-center-acr]: ../security-center/defender-for-container-registries-introduction.md

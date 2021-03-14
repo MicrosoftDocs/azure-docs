@@ -1,21 +1,10 @@
 ---
 title: Create a virtual machine in DevTest Labs with Azure PowerShell
 description: Learn how to use Azure DevTest Labs to create and manage virtual machines with Azure PowerShell.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Create a virtual machine with DevTest Labs using Azure PowerShell
 This article shows you how to create a virtual machine in Azure DevTest Labs by using Azure PowerShell. You can use PowerShell scripts to automate creation of virtual machines in a lab in Azure DevTest Labs. 
 
@@ -23,10 +12,10 @@ This article shows you how to create a virtual machine in Azure DevTest Labs by 
 Before you begin:
 
 - [Create a lab](devtest-lab-create-lab.md) if you don't want to use an existing lab to test the script or commands in this article. 
-- [Install Azure PowerShell](/powershell/azure/install-az-ps?view=azps-1.7.0) or use Azure Cloud Shell that's integrated into the Azure portal. 
+- [Install Azure PowerShell](/powershell/azure/install-az-ps) or use Azure Cloud Shell that's integrated into the Azure portal. 
 
 ## PowerShell script
-The sample script in this section uses the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) cmdlet.  This cmdlet takes the lab's resource ID, name of the action to perform (`createEnvironment`), and the parameters necessary perform that action. The parameters are in a hash table that contains all the virtual machine description properties. 
+The sample script in this section uses the [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) cmdlet.  This cmdlet takes the lab's resource ID, name of the action to perform (`createEnvironment`), and the parameters necessary perform that action. The parameters are in a hash table that contains all the virtual machine description properties. 
 
 ```powershell
 [CmdletBinding()]

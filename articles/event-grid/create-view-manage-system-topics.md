@@ -1,13 +1,8 @@
 ---
 title: Create, view, and manage system topics in Azure Event Grid (portal)
 description: This article shows how view existing system topic, create Azure Event Grid system topics using the Azure portal. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Create, view, and manage Event Grid system topics in the Azure portal

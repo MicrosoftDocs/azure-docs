@@ -1,15 +1,38 @@
 ---
-title: Get information about a converted model
-description: Description of all model conversion parameters
+title: Get information about conversions
+description: Get information about conversions
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
 ---
 
-# Get information about a converted model
+# Get information about conversions
 
-The arrAsset file produced by the conversion service is solely intended for consumption by the rendering service. There may be times, however, when you want to access information about a model without starting a rendering session. Therefore, the conversion service places a JSON file beside the arrAsset file in the output container. For example, if a file `buggy.gltf` is converted, the output container will contain a file called `buggy.info.json` beside the converted asset `buggy.arrAsset`. It contains information about the source model, the converted model, and about the conversion itself.
+## Information about a conversion: The result file
+
+When the conversion service converts an asset, it writes a summary of any issues into a "result file". 
+For example, if a file `buggy.gltf` is converted, the output container will contain a file called `buggy.result.json`.
+
+The result file lists any errors and warnings that occurred during the conversion and gives a result summary, which is one of `succeeded`, `failed` or `succeeded with warnings`.
+The result file is structured as a JSON array of objects, each of which has a string property that is one of `warning`, `error`, `internal warning`, `internal error`, and `result`. 
+There will be at most one error (either `error` or `internal error`) and there will always be one `result`.
+
+## Example *result* file
+
+The following example describes a conversion that successfully generated an arrAsset. 
+However, since there was a missing texture, the resulting arrAsset may not be as intended.
+
+```JSON
+[
+  {"warning":"4004","title":"Missing texture","details":{"texture":"buggy_baseColor.png","material":"buggy_col"}},
+  {"result":"succeeded with warnings"}
+]
+```
+
+## Information about a converted model: The info file
+
+The arrAsset file produced by the conversion service is solely intended for consumption by the rendering service. There may be times, however, when you want to access information about a model without starting a rendering session. To support this workflow, the conversion service places a JSON file beside the arrAsset file in the output container. For example, if a file `buggy.gltf` is converted, the output container will contain a file called `buggy.info.json` beside the converted asset `buggy.arrAsset`. It contains information about the source model, the converted model, and about the conversion itself.
 
 ## Example *info* file
 
@@ -39,6 +62,10 @@ Here's an example *info* file produced by converting a file called `buggy.gltf`:
         "numNodes": 206,
         "numMeshUsagesInScene": 236,
         "maxNodeDepth": 3
+    },
+    "materialOverrides": {
+        "numOverrides": 4,
+        "numOverriddenMaterials": 4
     },
     "outputInfo": {
         "conversionToolVersion": "3b28d840de9916f9d628342f474d38c3ab949590",
@@ -90,12 +117,19 @@ This section records information about the source file format.
 * `sourceAssetFormatVersion`: The version of the source file format.
 * `sourceAssetGenerator`: The name of the tool that generated the source file, if available.
 
+### The *materialOverrides* section
+
+This section gives information about [material overriding](override-materials.md) when a material override file was provided to the conversion service.
+It contains the following information:
+* `numOverrides`: The number of override entries read from the material override file.
+* `numOverriddenMaterials`: The number of materials that were overridden.
+
 ### The *inputStatistics* section
 
 This section provides information about the source scene. There will often be discrepancies between the values in this section and the equivalent values in the tool that created the source model. Such differences are expected, because the model gets modified during the export and conversion steps.
 
 * `numMeshes`: The number of mesh parts, where each part can reference a single material.
-* `numFaces`: The total number of _triangles_ in the whole model. Note that the mesh is triangulated during conversion. This number contributes to the polygon limit in the [standard rendering VM size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
+* `numFaces`: The total number of _triangles_ in the whole model. Note that the mesh is triangulated during conversion. This number contributes to the polygon limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-polygons).
 * `numVertices`: The total number of vertices in the whole model.
 * `numMaterial`: The total number of materials in the whole model.
 * `numFacesSmallestMesh`: The number of triangles in the smallest mesh of the model.
@@ -119,6 +153,12 @@ This section records information calculated from the converted asset.
 * `numMeshPartsInstanced`: The number of meshes that are reused in the arrAsset.
 * `recenteringOffset`: When the `recenterToOrigin` option in the [ConversionSettings](configure-model-conversion.md) is enabled, this value is the translation that would move the converted model back to its original position.
 * `boundingBox`: The bounds of the model.
+
+## Deprecated features
+
+The conversion service writes the files `stdout.txt` and `stderr.txt` to the output container, and these had been the only source of warnings and errors.
+These files are now deprecated. Instead, please use
+[result files](#information-about-a-conversion-the-result-file) for this purpose.
 
 ## Next steps
 

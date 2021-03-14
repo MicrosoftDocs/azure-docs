@@ -4,7 +4,7 @@ description: Steps for one-click configuration of  SSO for your application from
 services: active-directory
 documentationCenter: na
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.reviewer: kenwith
 ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
@@ -35,7 +35,7 @@ The one-click SSO feature is designed to configure single sign-on for Azure Mark
 ## Prerequisites
 
 - An active subscription of the application to configure with SSO. You also need admin credentials.
-- The **My Apps Secure Sign-in extension** from Microsoft installed in the browser. For more information, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+- The **My Apps Secure Sign-in extension** from Microsoft installed in the browser. For more information, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## One-click SSO configuration steps
 
@@ -79,6 +79,5 @@ The one-click SSO feature is designed to configure single sign-on for Azure Mark
 
 ## Additional resources
 
-* [List of tutorials on how to integrate SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
-* [What is the My Apps Secure Sign-in browser extension?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)
- 
+* [List of tutorials on how to integrate SaaS apps with Azure Active Directory](../saas-apps/tutorial-list.md)
+* [What is the My Apps Secure Sign-in browser extension?](../user-help/my-apps-portal-end-user-access.md)

@@ -1,20 +1,8 @@
 ---
 title: Specify marketplace images for a lab in Azure Lab Services
 description: This article shows you how to specify the Marketplace images that lab creator can use to create labs in a lab account in Azure Lab Services. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Specify Marketplace images available to lab creators
@@ -67,4 +55,4 @@ See the following articles:
 - [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
-- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)
+- [As a lab user, access labs](how-to-use-classroom-lab.md)

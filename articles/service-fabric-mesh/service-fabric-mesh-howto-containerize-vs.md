@@ -1,14 +1,19 @@
 ---
 title: Containerize an existing .NET app for Service Fabric Mesh 
 description: Add Service Fabric Mesh container orchestration support to ASP.NET and Console projects that use the full .NET framework.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
 #Customer intent: As a developer, I want to use environment variables when I debug to test different scenarios.
 ---
 
 # Containerize an existing .NET app for Service Fabric Mesh
+
+> [!IMPORTANT]
+> The preview of Azure Service Fabric Mesh has been retired. New deployments will no longer be permitted through the Service Fabric Mesh API. Support for existing deployments will continue through April 28, 2021.
+> 
+> For details, see [Azure Service Fabric Mesh Preview Retirement](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
 
 This article shows you how to add Service Fabric Mesh container orchestration support to an existing .NET app.
 
@@ -47,6 +52,12 @@ The **Add Container Orchestrator Support** dialog appears.
 ![Visual Studio add container orchestrator dialog](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
 
 Choose **Service Fabric Mesh** from the drop-down, and then click **OK**.
+
+
+>[!NOTE]
+> Effective November 2, 2020, [download rate limits apply](https://docs.docker.com/docker-hub/download-rate-limit/) to anonymous and authenticated requests to Docker Hub from Docker Free plan accounts and are enforced by IP address. For more details, see [Authenticate with Docker Hub](../container-registry/buffer-gate-public-content.md#authenticate-with-docker-hub).
+>
+> To avoid being rate limited, make sure the default `FROM microsoft/aspnet:4.7.2-windowsservercore-1803 AS base` in your Dockerfile is replaced with `FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-1803 AS base`
 
 The tool then verifies that Docker is installed, adds a Dockerfile to your project, and pulls down a docker image for your project.  
 A Service Fabric Mesh application project is added to your solution. It contains your Mesh publish profiles and configuration files. The name of the project is the same as your project name, with 'Application' concatenated to the end, for example, **eShopLegacyWebFormsApplication**. 

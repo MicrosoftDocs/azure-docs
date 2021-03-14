@@ -2,7 +2,8 @@
 title: Resource provider registration errors
 description: Describes how to resolve Azure resource provider registration errors when deploying resources with Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 02/15/2019
+ms.date: 02/15/2019 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Resolve errors for resource provider registration
 

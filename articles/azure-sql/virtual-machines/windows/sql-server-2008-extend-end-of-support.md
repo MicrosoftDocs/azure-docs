@@ -6,6 +6,7 @@ documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
+ms.subservice: management
 
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -40,33 +41,34 @@ Images deployed through Azure Marketplace come with the SQL IaaS extension pre-i
 ## Licensing
 Pay-as-you-go SQL Server 2008 R2 deployments can convert to [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-To convert a Software Assurance (SA)-based license to pay-as-you-go, customers should register with the SQL VM [resource provider](sql-vm-resource-provider-register.md). After that registration, the SQL license type will be interchangeable between Azure Hybrid Benefit and pay-as-you-go.
+To convert a Software Assurance (SA)-based license to pay-as-you-go, customers should register with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md). After that registration, the SQL license type will be interchangeable between Azure Hybrid Benefit and pay-as-you-go.
 
-Self-installed SQL Server 2008 or SQL Server 2008 R2 instances on an Azure VM can register with the SQL VM resource provider and convert their license type to pay-as-you-go.
+Self-installed SQL Server 2008 or SQL Server 2008 R2 instances on an Azure VM can register with the SQL IaaS Agent extension and convert their license type to pay-as-you-go.
 
 ## Migration
 You can migrate EOS SQL Server instances to an Azure VM with manual backup/restore methods. This is the most common migration method from on-premises to an Azure VM.
 
 ### Azure Site Recovery
 
-For bulk migrations, we recommend the [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) service. With Azure Site Recovery, customers can replicate the whole VM, including SQL Server from on-premises to Azure VM.
+For bulk migrations, we recommend the [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) service. With Azure Site Recovery, customers can replicate the whole VM, including SQL Server from on-premises to Azure VM.
 
 SQL Server requires app-consistent Azure Site Recovery snapshots to guarantee recovery. Azure Site Recovery supports app-consistent snapshots with a minimum 1-hour interval. The minimum recovery point objective (RPO) possible for SQL Server with Azure Site Recovery migrations is 1 hour. The recovery time objective (RTO) is 2 hours plus SQL Server recovery time.
 
 ### Database Migration Service
 
-The [Azure Database Migration Service](/azure/dms/dms-overview) is an option for customers if they're migrating from on-premises to an Azure VM by upgrading SQL Server to the 2012 version or later.
+The [Azure Database Migration Service](../../../dms/dms-overview.md) is an option for customers if they're migrating from on-premises to an Azure VM by upgrading SQL Server to the 2012 version or later.
 
 ## Disaster recovery
 
 Disaster recovery solutions for EOS SQL Server on an Azure VM are as follows:
 
-- **SQL Server backups**: Use Azure Backup to help protect your EOS SQL Server 2008 and 2008 R2 against ransomware, accidental deletion, and corruption with 15-min RPO and point-in-time recovery. For more details, see [this article](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
+- **SQL Server backups**: Use Azure Backup to help protect your EOS SQL Server 2008 and 2008 R2 against ransomware, accidental deletion, and corruption with 15-min RPO and point-in-time recovery. For more details, see [this article](../../../backup/sql-support-matrix.md#scenario-support).
 - **Log shipping**: You can create a log shipping replica in another zone or Azure region with continuous restores to reduce the RTO. You need to manually configure log shipping.
 - **Azure Site Recovery**: You can replicate your VM between zones and regions through Azure Site Recovery replication. SQL Server requires app-consistent snapshots to guarantee recovery in case of a disaster. Azure Site Recovery offers a minimum 1-hour RPO and a 2-hour (plus SQL Server recovery time) RTO for EOS SQL Server disaster recovery.
 
 ## Security patching
-Extended security updates for SQL Server VMs are delivered through the Microsoft Update channels after the SQL Server VM has been registered with the SQL VM [resource provider](sql-vm-resource-provider-register.md). Patches can be downloaded manually or automatically.
+
+Extended security updates for SQL Server VMs are delivered through the Microsoft Update channels after the SQL Server VM has been registered with the [SQL IaaS Agent extension](sql-agent-extension-manually-register-single-vm.md). Patches can be downloaded manually or automatically.
 
 *Automated patching* is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. You can specify a day of the week, time, and duration for a maintenance window if the SQL Server IaaS extension is installed. Azure performs patching in this maintenance window. The maintenance window schedule uses the VM locale for time. For more information, see [Automated patching for SQL Server on Azure Virtual Machines](automated-patching.md).
 

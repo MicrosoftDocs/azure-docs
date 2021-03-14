@@ -1,10 +1,10 @@
 ---
 title: "Azure CLI: Add managed instance to failover group"  
-description: Azure CLI example script to create an Azure SQL Managed Instance, add it to a failover group, and test failover.  
+description: Learn how to create two managed instances, add them to a failover group, and then test the failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: 
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT
@@ -12,7 +12,7 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
-# Use CLI to add an Azure SQL Managed Instance to a failover group
+# Use CLI to create an Azure SQL Managed Instance to a failover group
 
 This Azure CLI example creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance.
 
@@ -40,7 +40,7 @@ az group delete --name $resource
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
-| | |
+| Command | Description |
 |---|---|
 | [az network vnet](/cli/azure/network/vnet) | Virtual network commands.  |
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Virtual network subnet commands. |

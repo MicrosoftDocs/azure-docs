@@ -2,7 +2,7 @@
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 01/28/2021
 ms.custom: seodec18
 ---
 
@@ -18,15 +18,21 @@ If you plan to run production workloads in Batch, you may need to increase one o
 
 ## Resource quotas
 
-A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
+A quota is a limit, not a capacity guarantee. If you have large-scale capacity needs, please contact Azure support.
 
 Also note that quotas are not guaranteed values. Quotas can vary based on changes from the Batch service or a user request to change a quota value.
 
 [!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
+## Core quotas
+
+### Cores quotas in Batch service mode
+
+Core quotas exist for each VM series supported by Batch and are displayed on the **Quotas** page in the portal. VM series quota limits can be updated with a support request, as detailed below. For dedicated nodes, Batch enforces a core quota limit for each VM series as well as a total core quota limit for the entire Batch account. For low priority nodes, Batch enforces only a total core quota for the Batch account without any distinction between different VM series.
+
 ### Cores quotas in user subscription mode
 
-If you created a [Batch account](accounts.md) with pool allocation mode set to **user subscription**, quotas are applied differently. In this mode, Batch VMs and other resources are created directly in your subscription when a pool is created. The Azure Batch cores quotas do not apply to an account created in this mode. Instead, the quotas in your subscription for regional compute cores and other resources are applied.
+If you created a [Batch account](accounts.md) with pool allocation mode set to **user subscription**, Batch VMs and other resources are created directly in your subscription when a pool is created or resized. The Azure Batch core quotas do not apply and the quotas in your subscription for regional compute cores, per-series compute cores, and other resources are used and enforced.
 
 To learn more about these quotas, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
@@ -47,7 +53,7 @@ Pool size limits are set by the Batch service. Unlike [resource quotas](#resourc
 
 ## Other limits
 
-Additional limits set by the Batch service. Unlike [resource quotas](#resource-quotas), these values cannot be changed.
+These additional limits are set by the Batch service. Unlike [resource quotas](#resource-quotas), these values cannot be changed.
 
 | **Resource** | **Maximum Limit** |
 | --- | --- |
@@ -57,6 +63,7 @@ Additional limits set by the Batch service. Unlike [resource quotas](#resource-q
 | Application packages per pool | 10 |
 | Maximum task lifetime | 180 days<sup>1</sup> |
 | [Mounts](virtual-file-mount.md) per compute node | 10 |
+| Certificates per pool | 12 |
 
 <sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for seven days; data for tasks not completed within the maximum lifetime is not accessible.
 
@@ -68,7 +75,7 @@ To view your Batch account quotas in the [Azure portal](https://portal.azure.com
 1. Select **Quotas** on the Batch account's menu.
 1. View the quotas currently applied to the Batch account.
 
-    ![Batch account quotas][account_quotas]
+:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Screenshot showing Batch account quotas in the Azure portal.":::
 
 ## Increase a quota
 
@@ -77,26 +84,26 @@ You can request a quota increase for your Batch account or your subscription usi
 1. Select the **Help + support** tile on your portal dashboard, or the question mark (**?**) in the upper-right corner of the portal.
 1. Select **New support request** > **Basics**.
 1. In **Basics**:
-   
+
     1. **Issue Type** > **Service and subscription limits (quotas)**
-   
+
     1. Select your subscription.
-   
+
     1. **Quota type** > **Batch**
-      
+
        Select **Next**.
-    
+
 1. In **Details**:
-      
+
     1. In **Provide details**, specify the location, quota type, and Batch account.
-    
-       ![Batch quota increase][quota_increase]
+
+       :::image type="content" source="media/batch-quota-limit/quota-increase.png" alt-text="Screenshot of the Quota details screen when requesting a quota increase.":::
 
        Quota types include:
 
        * **Per Batch account**  
          Values specific to a single Batch account, including dedicated and low-priority cores, and number of jobs and pools.
-        
+
        * **Per region**  
          Values that apply to all Batch accounts in a region and includes the number of Batch accounts per region per subscription.
 
@@ -107,11 +114,11 @@ You can request a quota increase for your Batch account or your subscription usi
        Select **Next**.
 
 1. In **Contact information**:
-   
+
     1. Select a **Preferred contact method**.
-   
+
     1. Verify and enter the required contact details.
-   
+
        Select **Create** to submit the support request.
 
 Once you've submitted your support request, Azure support will contact you. Quota requests may be completed within a few minutes or up to two business days.
@@ -120,7 +127,7 @@ Once you've submitted your support request, Azure support will contact you. Quot
 
 Batch pools in the Virtual Machine Configuration deployed in an Azure virtual network automatically allocate additional Azure networking resources. The following resources are needed for each 50 pool nodes in a virtual network:
 
-- One [network security group](../virtual-network/security-overview.md#network-security-groups)
+- One [network security group](../virtual-network/network-security-groups-overview.md#network-security-groups)
 - One [public IP address](../virtual-network/public-ip-addresses.md)
 - One [load balancer](../load-balancer/load-balancer-overview.md)
 

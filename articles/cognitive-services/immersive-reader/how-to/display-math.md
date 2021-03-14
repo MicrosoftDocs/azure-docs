@@ -2,14 +2,15 @@
 title: "Display math in the Immersive Reader"
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to display math in the Immersive Reader.
-author: pasta
+author: nitinme
 manager: guillasi
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.author: pasta
+ms.author: nitinme
+ms.custom: devx-track-js
 ---
 
 # How to display math in the Immersive Reader

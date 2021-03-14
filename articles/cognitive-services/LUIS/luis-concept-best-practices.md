@@ -1,9 +1,11 @@
 ---
 title: Best practices for building your LUIS app
 description: Learn the best practices to get the best results from your LUIS app's model.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
-ms.author: diberry
+
 ---
 # Best practices for building a language understanding (LUIS) app
 Use the app authoring process to build your LUIS app:
@@ -80,7 +82,7 @@ Learn about [effective machine learned entities](luis-concept-entity-types.md#ef
 
 ## Do build your app iteratively with versions
 
-Each authoring cycle should be within a new [version](luis-concept-version.md), cloned from an existing version.
+Each authoring cycle should be within a new [version](./luis-concept-app-iteration.md), cloned from an existing version.
 
 ## Do build for model decomposition
 
@@ -134,7 +136,7 @@ Use [active learning](luis-how-to-review-endpoint-utterances.md)'s **Review endp
 
 ## Do monitor the performance of your app
 
-Monitor the prediction accuracy using a [batch test](luis-concept-batch-test.md) set.
+Monitor the prediction accuracy using a [batch test](./luis-how-to-batch-test.md) set.
 
 Keep a separate set of utterances that aren't used as [example utterances](luis-concept-utterance.md) or endpoint utterances. Keep improving the app for your test set. Adapt the test set to reflect real user utterances. Use this test set to evaluate each iteration or version of the app.
 

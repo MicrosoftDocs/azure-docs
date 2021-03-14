@@ -4,7 +4,7 @@ description: This article describes how to get drone imagery from partners.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: v-ummehabiba
 ---
 
 # Get drone imagery from drone partners
@@ -48,9 +48,9 @@ Follow these steps.
 5. Go to the directory where the files were uploaded. By default, they're uploaded to the home directory under the username.
 6. Run the following script:
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generateCredentials.ps1   
+    ./generateCredentials.ps1
 
     ```
 

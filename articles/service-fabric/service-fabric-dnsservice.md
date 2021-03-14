@@ -4,6 +4,7 @@ description: Use Service Fabric's dns service for discovering microservices from
 
 ms.topic: conceptual
 ms.date: 7/20/2018
+ms.custom: devx-track-csharp
 ---
 # DNS Service in Azure Service Fabric
 The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol. 
@@ -12,7 +13,7 @@ Many services, especially containerized services, are addressable through a pre-
 
 The DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation. The following diagram shows how the DNS service works for stateless services.
 
-![service endpoints](./media/service-fabric-dnsservice/stateless-dns.png)
+![Diagram showing how DNS names are mapped to service names by the DNS service for stateless services.](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has been extended to include a scheme for addressing partitioned stateful services. These extensions make it possible to resolve specific partition IP addresses using a combination of stateful service DNS name and the partition name. All three partitioning schemes are supported:
 
@@ -22,7 +23,7 @@ Beginning with Service Fabric version 6.3, the Service Fabric DNS protocol has b
 
 The following diagram shows how the DNS service works for partitioned stateful services.
 
-![stateful service endpoints](./media/service-fabric-dnsservice/stateful-dns.png)
+![Diagram showing how DNS names are mapped to service names by the DNS service for partitioned stateless services.](./media/service-fabric-dnsservice/stateful-dns.png)
 
 Dynamic ports are not supported by the DNS service. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md).
 
@@ -37,7 +38,7 @@ When you create a cluster using the portal, the DNS service is enabled by defaul
 If you're not using the portal to create your cluster or if you're updating an existing cluster, you'll need to enable the DNS service in a template:
 
 - To deploy a new cluster, you can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) or create your own Resource Manager template. 
-- To update an existing cluster, you can navigate to the cluster's resource group on the portal and click **Automation Script** to work with a template that reflects the current state of the cluster and other resources in the group. To learn more, see [Export the template from resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
+- To update an existing cluster, you can navigate to the cluster's resource group on the portal and click **Automation Script** to work with a template that reflects the current state of the cluster and other resources in the group. To learn more, see [Export the template from resource group](../azure-resource-manager/templates/export-template-portal.md).
 
 After you have a template, you can enable the DNS service with the following steps:
 
@@ -98,7 +99,7 @@ After you have a template, you can enable the DNS service with the following ste
 3. Once you have updated the cluster template with your changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
 
 > [!NOTE]
-> When upgrading DNS from disabled to enabled, Service Fabric Explorer may not reflect the new state. To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. See the [Service Fabric Template Reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
+> When upgrading DNS from disabled to enabled, Service Fabric Explorer may not reflect the new state. To solve, restart the nodes by modifying the UpgradePolicy in your Azure Resource Manager template. See the [Service Fabric Template Reference](/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) for more.
 
 > [!NOTE]
 > Enabling DNS service when developing on a local machine will override some DNS settings. If you experience issues connecting to the internet, check your DNS settings.
@@ -124,7 +125,7 @@ Once the application is deployed, the service instance in the Service Fabric exp
 
 ![service endpoints](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-The following example sets the DNS name for a stateful service to `statefulsvc.app`. The service uses a named partitioning scheme. Notice that the partition names are lower-case. This is a requirement for partitions that will be targeted in DNS queries; for more information, see [Making DNS queries on a stateful service partition](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+The following example sets the DNS name for a stateful service to `statefulsvc.app`. The service uses a named partitioning scheme. Notice that the partition names are lower-case. This is a requirement for partitions that will be targeted in DNS queries; for more information, see [Making DNS queries on a stateful service partition](#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -248,4 +249,3 @@ public class ValuesController : Controller
 
 ## Next steps
 Learn more about service communication within the cluster with  [connect and communicate with services](service-fabric-connect-and-communicate-with-services.md)
-

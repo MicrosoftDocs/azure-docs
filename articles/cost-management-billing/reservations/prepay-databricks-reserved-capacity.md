@@ -4,8 +4,9 @@ description: Learn how you can prepay for Azure Databricks charges with reserved
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.subservice: reservations
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 
@@ -42,7 +43,7 @@ You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#bla
 **To Purchase:**
 
 1. Go to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Select a subscription. Use the **Subscription** list to select the subscription that's used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's monetary commitment balance or charged as overage.
+1. Select a subscription. Use the **Subscription** list to select the subscription that's used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
 1. Select a scope. Use the **Scope** list to select a subscription scope:
     - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
     - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
@@ -57,7 +58,7 @@ You can buy Databricks plans in the [Azure portal](https://portal.azure.com/#bla
 You can make the following types of changes to a reservation after purchase:
 
 - Update reservation scope
-- Role-based access
+- Azure role-based access control (Azure RBAC)
 
 You can't split or merge the Databricks commit unit pre-purchase. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
 

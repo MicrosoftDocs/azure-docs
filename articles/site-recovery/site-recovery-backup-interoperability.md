@@ -11,7 +11,7 @@ ms.author: sideeksh
 ---
 # Support for using Site Recovery with Azure Backup
 
-This article summarizes support for using the [Site Recovery service](site-recovery-overview.md) together with the [Azure Backup service](https://docs.microsoft.com/azure/backup/backup-overview).
+This article summarizes support for using the [Site Recovery service](site-recovery-overview.md) together with the [Azure Backup service](../backup/backup-overview.md).
 
 **Action** | **Site Recovery support** | **Details**
 --- | --- | ---

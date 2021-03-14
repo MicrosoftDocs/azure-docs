@@ -1,6 +1,7 @@
 ---
 author: erhopf
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
@@ -87,7 +88,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Dictionary Lookup](../reference/v3-0-dictionary-lookup.md).
 
 ## Create a struct for your request body
 
@@ -124,7 +125,7 @@ if err != nil {
 }
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Handle and print the response
 
@@ -217,4 +218,4 @@ If you'd like to compare your code against ours, the complete sample is availabl
 Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

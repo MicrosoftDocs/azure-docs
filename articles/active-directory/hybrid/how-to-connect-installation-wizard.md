@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -74,7 +74,7 @@ When you select this option, all the directories in your configuration are liste
 This option allows you to enable and disable staging mode on the server. More information about staging mode and how it is used can be found in [Operations](how-to-connect-sync-staging-server.md).
 
 The option shows if staging is currently enabled or disabled:  
-![Option that is also showing the current state of staging mode](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+![Screenshot that shows staging mode disabled.](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 To change the state, select this option and select or unselect the checkbox.  
 ![Option that is also showing the current state of staging mode](./media/how-to-connect-installation-wizard/stagingmodeenable.png)

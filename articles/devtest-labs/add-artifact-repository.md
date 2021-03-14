@@ -1,21 +1,10 @@
 ---
 title: Add an artifact repository to your lab in Azure DevTest Labs | Microsoft Docs
-description: Learn how to add an artifact repository to your lab in Azure DevTest labs.
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager:
-editor: ''
-
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: Learn how to specify your own artifact repository for your lab in Azure DevTest Labs to store tools unavailable in the public artifact repository.
 ms.topic: article
-ms.date: 04/21/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Add an artifact repository to your lab in DevTest Labs
 DevTest Labs allows you to specify an artifact to be added to a VM at the time of creating the VM or after the VM is created. This artifact could be a tool or an application that you want to install on the VM. Artifacts are defined in a JSON file loaded from a GitHub or Azure DevOps Git repository.
 
@@ -98,64 +87,64 @@ The sample template used in this article gathers the following information via p
     ```json
     {
 
-    	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    	"contentVersion": "1.0.0.0",
-    	"parameters": {
-    		"labName": {
-    			"type": "string"
-    		},
-    		"artifactRepositoryDisplayName": {
-    			"type": "string",
-    			"defaultValue": "Team Repository"
-    		},
-    		"artifactRepoUri": {
-    			"type": "string"
-    		},
-    		"artifactRepoBranch": {
-    			"type": "string",
-    			"defaultValue": "master"
-    		},
-    		"artifactRepoFolder": {
-    			"type": "string",
-    			"defaultValue": "/Artifacts"
-    		},
-    		"artifactRepoType": {
-    			"type": "string",
-    			"allowedValues": ["VsoGit", "GitHub"]
-    		},
-    		"artifactRepoSecurityToken": {
-    			"type": "securestring"
-    		}
-    	},
-    	"variables": {
-    		"artifactRepositoryName": "[concat('Repo-', uniqueString(subscription().subscriptionId))]"
-    	},
-    	"resources": [{
-    			"apiVersion": "2016-05-15",
-    			"type": "Microsoft.DevTestLab/labs",
-    			"name": "[parameters('labName')]",
-    			"location": "[resourceGroup().location]",
-    			"resources": [
-    				{
-    					"apiVersion": "2016-05-15",
-    					"name": "[variables('artifactRepositoryName')]",
-    					"type": "artifactSources",
-    					"dependsOn": [
-    						"[resourceId('Microsoft.DevTestLab/labs', parameters('labName'))]"
-    					],
-    					"properties": {
-    						"uri": "[parameters('artifactRepoUri')]",
-    						"folderPath": "[parameters('artifactRepoFolder')]",
-    						"branchRef": "[parameters('artifactRepoBranch')]",
-    						"displayName": "[parameters('artifactRepositoryDisplayName')]",
-    						"securityToken": "[parameters('artifactRepoSecurityToken')]",
-    						"sourceType": "[parameters('artifactRepoType')]",
-    						"status": "Enabled"
-    					}
-    				}
-    			]
-    		}
-    	]
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "labName": {
+                "type": "string"
+            },
+            "artifactRepositoryDisplayName": {
+                "type": "string",
+                "defaultValue": "Team Repository"
+            },
+            "artifactRepoUri": {
+                "type": "string"
+            },
+            "artifactRepoBranch": {
+                "type": "string",
+                "defaultValue": "master"
+            },
+            "artifactRepoFolder": {
+                "type": "string",
+                "defaultValue": "/Artifacts"
+            },
+            "artifactRepoType": {
+                "type": "string",
+                "allowedValues": ["VsoGit", "GitHub"]
+            },
+            "artifactRepoSecurityToken": {
+                "type": "securestring"
+            }
+        },
+        "variables": {
+            "artifactRepositoryName": "[concat('Repo-', uniqueString(subscription().subscriptionId))]"
+        },
+        "resources": [{
+                "apiVersion": "2016-05-15",
+                "type": "Microsoft.DevTestLab/labs",
+                "name": "[parameters('labName')]",
+                "location": "[resourceGroup().location]",
+                "resources": [
+                    {
+                        "apiVersion": "2016-05-15",
+                        "name": "[variables('artifactRepositoryName')]",
+                        "type": "artifactSources",
+                        "dependsOn": [
+                            "[resourceId('Microsoft.DevTestLab/labs', parameters('labName'))]"
+                        ],
+                        "properties": {
+                            "uri": "[parameters('artifactRepoUri')]",
+                            "folderPath": "[parameters('artifactRepoFolder')]",
+                            "branchRef": "[parameters('artifactRepoBranch')]",
+                            "displayName": "[parameters('artifactRepositoryDisplayName')]",
+                            "securityToken": "[parameters('artifactRepoSecurityToken')]",
+                            "sourceType": "[parameters('artifactRepoType')]",
+                            "status": "Enabled"
+                        }
+                    }
+                ]
+            }
+        ]
     }
     ```
 
@@ -189,7 +178,7 @@ New-AzResourceGroupDeployment `
 After New-AzResourceGroupDeployment run successfully, the command outputs important information like the provisioning state (should be succeeded) and any outputs for the template.
 
 ## Use Azure PowerShell
-This section provides you a sample PowerShell script that can be used to add an artifact repository to a lab. If you don't have Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) for detailed instructions to install it.
+This section provides you a sample PowerShell script that can be used to add an artifact repository to a lab. If you don't have Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/) for detailed instructions to install it.
 
 ### Full script
 Here is the full script, including some verbose messages and comments:

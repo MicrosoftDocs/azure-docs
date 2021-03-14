@@ -1,8 +1,10 @@
 ---
 title: "Tutorial: Integrate with Power Virtual Agents - QnA Maker"
 description: In this tutorial, improve the quality of your knowledge base with active learning. Review, accept or reject, or add without removing or changing existing questions.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 11/09/2020
 ---
 
 # Tutorial: Add your knowledge base to Power Virtual Agents
@@ -47,7 +49,7 @@ Here's an overview of the steps to connect an agent in Power Virtual Agents to a
 * In the [Power Automate](https://us.flow.microsoft.com/) portal:
     * Search for _Generate answer using QnA Maker_ template
     * Use template to configure flow to use [QnA
-    Maker's GenerateAnswer](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/).
+    Maker's GenerateAnswer](/connectors/cognitiveservicesqnamaker/).
         * QnA Maker published knowledge base information:
             * Knowledge base ID
             * QnA Maker resource endpoint host
@@ -133,6 +135,9 @@ This section creates the fallback topic conversation flow.
 
 ## Create a Power Automate flow to connect to your knowledge base
 
+> [!NOTE]
+> Currently the Power Automate template does not support QnA Maker managed (Preview) endpoints. To add a QnA Maker managed (Preview) knowledge base to Power Automate skip this step and manually add the endpoints to it. 
+
 The following procedure creates a Power Automate flow that:
 * Takes the incoming user text, and sends it to QnA Maker.
 * Returns the top response back to your agent.
@@ -148,7 +153,7 @@ The following procedure creates a Power Automate flow that:
 1. Select the **Generate Answer** action box, and fill in your QnA Maker settings from a previous section titled [Create and publish a knowledge base](#create-and-publish-a-knowledge-base). Your **Service Host** in the following image refers to your knowledge base host **Host** and is in the format of `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker`.
 
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Partial Screenshot of QnA Maker template flow with Continue button highlighted.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Partial Screenshot of QnA Maker template flow with Generate answer (Preview) highlighted.":::
 
 1. Select **Save** to save the flow.
 
@@ -195,10 +200,10 @@ For the agent to find and connect to the flow, the flow must be included in a Po
 
 1. From the context toolbar, select **Save**, to save the authoring canvas details for the topic.
 
-Here's what the final agent canvas.
+Here's what the final agent canvas looks like.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot of final agent canvas](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
+> ![Screenshot shows the final agent canvas with Trigger Phrases, Action, and then Message sections.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
 
 ## Test the agent
 
@@ -249,6 +254,6 @@ When you are done with the knowledge base, remove the QnA Maker resources in the
 [Get analytics on your knowledge base](../How-To/get-analytics-knowledge-base.md)
 
 Learn more about:
-* [Power Virtual Agents](https://docs.microsoft.com/power-virtual-agents/)
-* [Power Automate](https://docs.microsoft.com/power-automate/)
-* [QnA Maker connector](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) and the [settings for the connector](https://docs.microsoft.com/connectors/cognitiveservicesqnamaker/)
+* [Power Virtual Agents](/power-virtual-agents/)
+* [Power Automate](/power-automate/)
+* [QnA Maker connector](https://us.flow.microsoft.com/connectors/shared_cognitiveservicesqnamaker/qna-maker/) and the [settings for the connector](/connectors/cognitiveservicesqnamaker/)

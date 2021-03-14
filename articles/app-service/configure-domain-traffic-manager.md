@@ -13,9 +13,9 @@ ms.custom: seodec18
 
 > [!NOTE]
 > For Cloud Services, see 
-[Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name.md).
+[Configuring a custom domain name for an Azure cloud service](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-When you use [Azure Traffic Manager](/azure/traffic-manager/) to load balance traffic to [Azure App Service](overview.md), the App Service app can be accessed using **\<traffic-manager-endpoint>.trafficmanager.net**. You can assign a custom domain name, such as www\.contoso.com, with your App Service app in order to provide a more recognizable domain name for your users.
+When you use [Azure Traffic Manager](../traffic-manager/index.yml) to load balance traffic to [Azure App Service](overview.md), the App Service app can be accessed using **\<traffic-manager-endpoint>.trafficmanager.net**. You can assign a custom domain name, such as www\.contoso.com, with your App Service app in order to provide a more recognizable domain name for your users.
 
 This article shows you how to configure a custom domain name with an App Service app that's integrated with [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
@@ -51,7 +51,7 @@ Click **Apply**.
 
 ## Create Traffic Manager endpoint
 
-Following the steps at [Add or Delete Endpoints](../traffic-manager/traffic-manager-endpoints.md), add your App Service app as an endpoint in your Traffic Manager profile.
+Following the steps at [Add or Delete Endpoints](../traffic-manager/traffic-manager-manage-endpoints.md), add your App Service app as an endpoint in your Traffic Manager profile.
 
 Once your App Service app is in a supported pricing tier, it shows up in the list of available App Service targets when you add the endpoint. If your app isn't listed, [verify the pricing tier of your app](#prepare-the-app).
 
@@ -71,9 +71,9 @@ Once you have finished adding or modifying DNS records at your domain provider, 
 
 ### What about root domains?
 
-Since Traffic Manager only supports custom domain mapping with CNAME records, and because DNS standards don't support CNAME records for mapping root domains (for example, **contoso.com**), Traffic Manager doesn't support mapping to root domains. To work around this issue, use a URL redirect from at the app level. In ASP.NET Core, for example, you can use [URL Rewriting](/aspnet/core/fundamentals/url-rewriting). Then, use Traffic Manager to load balance the subdomain (**www.contoso.com**).
+Since Traffic Manager only supports custom domain mapping with CNAME records, and because DNS standards don't support CNAME records for mapping root domains (for example, **contoso.com**), Traffic Manager doesn't support mapping to root domains. To work around this issue, use a URL redirect from at the app level. In ASP.NET Core, for example, you can use [URL Rewriting](/aspnet/core/fundamentals/url-rewriting). Then, use Traffic Manager to load balance the subdomain (**www.contoso.com**). Another approach is you can [create an alias record for your domain name apex to reference an Azure Traffic Manager profile](../dns/tutorial-alias-tm.md). An example is contoso.com. Instead of using a redirecting service, you can configure Azure DNS to reference a Traffic Manager profile directly from your zone. 
 
-For high availability scenarios, you can implement a fault-tolerant DNS setup without Traffic Manager by creating multiple *A records* that point from the root domain to each app copy's IP address. Then, [map the same root domain to all the app copies](app-service-web-tutorial-custom-domain.md#map-an-a-record). Since the same domain name cannot be mapped to two different apps in the same region, this setup only works when your app copies are in different regions.
+For high availability scenarios, you can implement a load-balancing DNS setup without Traffic Manager by creating multiple *A records* that point from the root domain to each app copy's IP address. Then, [map the same root domain to all the app copies](app-service-web-tutorial-custom-domain.md#map-an-a-record). Since the same domain name cannot be mapped to two different apps in the same region, this setup only works when your app copies are in different regions.
 
 ## Enable custom domain
 After the records for your domain name have propagated, use the browser to verify that your custom domain name resolves to your App Service app.

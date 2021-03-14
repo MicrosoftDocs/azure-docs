@@ -6,22 +6,26 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
+ms.custom: devx-track-java
 ---
 
 # How to self-diagnose and solve problems in Azure Spring Cloud
-Azure Spring Cloud diagnostics is an interactive experience to help you troubleshoot your app. No configuration is required. When you find issues, Azure Spring Cloud diagnostics points out what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
+
+**This article applies to:** ✔️ Java ✔️ C#
+
+Azure Spring Cloud diagnostics is an interactive experience to troubleshoot your app without configuration. Azure Spring Cloud diagnostics identifies problems and guides you to information that helps troubleshoot and resolve issues.
 
 ## Prerequisites
 To complete this tutorial, you need:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* A deployed Azure Spring Cloud service instance. Follow our [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart-launch-app-cli.md) to get started.
+* A deployed Azure Spring Cloud service instance. Follow our [quickstart on deploying an app via the Azure CLI](spring-cloud-quickstart.md) to get started.
 * At least one application already created in your service instance.
 
 ## Navigate to the diagnostics page
 1. Sign in to the Azure portal.
 2. Go to your Azure Spring Cloud **Overview** page.
-3. Open **Diagnose and solve problems** in the menu on the left side of the page.
+3. Select **Diagnose and solve problems** in the left navigation pane.
 
  ![Diagnose, solve dialog](media/spring-cloud-diagnose/diagnose-solve-dialog.png)
 

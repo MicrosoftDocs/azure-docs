@@ -2,7 +2,8 @@
 title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 author: craigshoemaker
-ms.topic: reference
+ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
 
@@ -233,7 +234,7 @@ public static void Run(ICollector<string> myQueue, ILogger log)
 
 ## Logging
 
-To log output to your streaming logs in C#, include an argument of type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions.
+To log output to your streaming logs in C#, include an argument of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions.
 
 ```csharp
 public static void Run(string myBlob, ILogger log)
@@ -243,11 +244,21 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> For information about a newer logging framework that you can use instead of `TraceWriter`, see [Write logs in C# functions](functions-monitoring.md#write-logs-in-c-functions) in the **Monitor Azure Functions** article.
+> For information about a newer logging framework that you can use instead of `TraceWriter`, see the [ILogger](functions-dotnet-class-library.md#ilogger) documentation in the .NET class library developer guide.
+
+### Custom metrics logging
+
+You can use the `LogMetric` extension method on `ILogger` to create custom metrics in Application Insights. Here's a sample method call:
+
+```csharp
+logger.LogMetric("TestMetric", 1234);
+```
+
+This code is an alternative to calling `TrackMetric` by using the Application Insights API for .NET.
 
 ## Async
 
-To make a function [asynchronous](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
+To make a function [asynchronous](/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(

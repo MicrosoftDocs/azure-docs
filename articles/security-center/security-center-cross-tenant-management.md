@@ -27,10 +27,8 @@ Cross-tenant management enables you to view and manage the security posture of m
 
 ## Set up cross-tenant management
 
-Set up cross-tenant management by delegating access to resources of managed tenants to your own tenant using [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md).
+Azure delegated resource management is one of the key components of Azure Lighthouse. Set up cross-tenant management by delegating access to resources of managed tenants to your own tenant using these instructions from Azure Lighthouse's documentation: [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-> [!NOTE]
-> Azure delegated resource management is one of the key components of Azure Lighthouse.
 
 ## How does cross-tenant management work in Security Center
 
@@ -50,8 +48,4 @@ The views and actions are basically the same. Here are some examples:
 - **Manage advanced cloud defense features and more**: Manage the various threat protection services, such as [just-in-time (JIT) VM access](security-center-just-in-time.md), [Adaptive Network Hardening](security-center-adaptive-network-hardening.md), [adaptive application controls](security-center-adaptive-application.md), and more.
  
 ## Next steps
-This article explains how cross-tenant management works in Security Center. To learn more about Security Center, see the following:
-
-* [Strengthen your security posture with Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
-* [Azure Security Center FAQ](faq-general.md) - Find frequently asked questions about using the service.
-* [Learn about Azure Lighthouse in enterprise scenarios](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) - Discover how Azure Lighthouse can simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants.
+This article explains how cross-tenant management works in Security Center. To discover how Azure Lighthouse can simplify cross-tenant management within an enterprise which uses multiple Azure AD tenants, see [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md).

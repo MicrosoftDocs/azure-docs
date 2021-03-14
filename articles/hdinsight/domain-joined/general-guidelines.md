@@ -1,9 +1,6 @@
 ---
 title: Enterprise security general guidelines in Azure HDInsight
 description: Some best practices that should make Enterprise Security Package deployment and management easier.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
@@ -57,7 +54,7 @@ When deploying a secure HDInsight cluster, there are some best practices that sh
 When hierarchical name space in not enabled:
 
 * There are no inherited permissions.
-* Only filesystem permission that works is **Storage Data XXXX** RBAC role, to be assigned to the user directly in Azure portal.
+* Only filesystem permission that works is **Storage Data XXXX** Azure role, to be assigned to the user directly in Azure portal.
 
 ### Default HDFS permissions
 

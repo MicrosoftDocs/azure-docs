@@ -9,7 +9,7 @@ ms.date: 04/03/2020
 
 # Troubleshoot replication in Azure VM disaster recovery
 
-This article describes common problems in Azure Site Recovery when you're replicating and recovering Azure virtual machines (VM) from one region to another region. It also explains how to troubleshoot the common problems. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
+This article describes common problems in Azure Site Recovery when you're replicating and recovering Azure virtual machines (VM) from one region to another region. It also explains how to troubleshoot the common problems. For more information about supported configurations, see the [support matrix for replicating Azure VMs](./azure-to-azure-support-matrix.md).
 
 Azure Site Recovery consistently replicates data from the source region to the disaster recovery region. It also creates a crash-consistent recovery point every 5 minutes. If Site Recovery can't create recovery points for 60 minutes, it alerts you with this information:
 
@@ -73,7 +73,7 @@ A spike in data change rate might come from an occasional data burst. If the dat
 
 Site Recovery sends replicated data to the cache storage account. You might experience network latency if uploading the data from a virtual machine to the cache storage account is slower than 4 MB in 3 seconds.
 
-To check for a problem related to latency, use [AzCopy](/azure/storage/common/storage-use-azcopy). You can use this command-line utility to upload data from the virtual machine to the cache storage account. If the latency is high, check whether you're using a network virtual appliance (NVA) to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA.
+To check for a problem related to latency, use [AzCopy](../storage/common/storage-use-azcopy-v10.md). You can use this command-line utility to upload data from the virtual machine to the cache storage account. If the latency is high, check whether you're using a network virtual appliance (NVA) to control outbound network traffic from VMs. The appliance might get throttled if all the replication traffic passes through the NVA.
 
 We recommend creating a network service endpoint in your virtual network for "Storage" so that the replication traffic doesn't go to the NVA. For more information, see [Network virtual appliance configuration](azure-to-azure-about-networking.md#network-virtual-appliance-configuration).
 
@@ -103,7 +103,7 @@ Following are some of the most common issues.
 
 ### App-consistency not enabled on Linux servers
 
-**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) are the steps to enable it.
+**How to fix** : Azure Site Recovery for Linux Operation System supports application custom scripts for app-consistency. The custom script with pre and post options will be used by the Azure Site Recovery Mobility Agent for app-consistency. [Here](./site-recovery-faq.md#replication) are the steps to enable it.
 
 ### More causes because of VSS-related issues:
 

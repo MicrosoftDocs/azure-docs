@@ -67,6 +67,8 @@ landingContent:
             url: event-based-video-recording-tutorial.md  
           - text: Playback multi-day recordings
             url: playback-multi-day-recordings-tutorial.md
+          - text: Analyze live video by using OpenVINO Model Server
+            url: use-intel-openvino-tutorial.md            
 
   # Card
   - title: Develop 

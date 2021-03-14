@@ -1,6 +1,6 @@
 ---
 title: Import a SOAP API and convert to REST using the Azure portal | Microsoft Docs
-description: Learn how to import a SOAP API and convert it to REST with API Management.
+description: Learn how to import a SOAP API, convert it to REST with API Management, and then test the API in the Azure and Developer portals.
 services: api-management
 documentationcenter: ''
 author: vladvino

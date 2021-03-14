@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Create a LUIS key"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to create a LUIS application and get a key.
+description: In this quickstart, you learn how to create a LUIS application and get a key.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
 
 # Customer intent: As a C# programmer, I want to learn how to derive speaker intent from their utterances so that I can create a conversational UI for my application.
@@ -34,7 +34,7 @@ LUIS uses three kinds of keys:
 |Starter|Lets you test your LUIS application using text only|
 |Endpoint |Authorizes access to a particular LUIS app|
 
-For this tutorial, you need the endpoint key type. The tutorial uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) quickstart. If you've created a LUIS app of your own, you can use it instead.
+For this tutorial, you need the endpoint key type. The tutorial uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](../../luis/luis-get-started-create-app.md) quickstart. If you've created a LUIS app of your own, you can use it instead.
 
 When you create a LUIS app, LUIS automatically generates a starter key so you can test the app using text queries. This key doesn't enable the Speech service integration and won't work with this tutorial. Create a LUIS resource in the Azure dashboard and assign it to the LUIS app. You can use the free subscription tier for this tutorial.
 

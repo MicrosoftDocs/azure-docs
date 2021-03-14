@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 
 ---
@@ -28,20 +28,20 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 
 The **Overview** page for your virtual WAN shows a list of virtual hubs and secured hubs. The following figure shows a virtual WAN with no secured hubs.
 
-[ ![overview](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
+[ ![Screenshot shows the Overview page for a virtual WAN with a list of virtual hubs.](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
 
 ## Convert to secured hub
 
 1. On the **Overview** page for your virtual WAN, select the hub that you want to convert to a secured hub. On the virtual hub page, you see two options to deploy Azure Firewall into this hub. Select either option.
 
-   [ ![security](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
+   [ ![Screenshot shows the Overview page for your virtual WAN where you can select either Convert to secure hub or Azure Firewall.](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
 
 1. After you select one of the options, you see the **Convert to secure hub** page. Select a hub to convert, and then select **Next: Azure Firewall** at the bottom of the page.
 
    [ ![select hub](./media/howto-firewall/select-hub.png)](./media/howto-firewall/select-hub.png#lightbox)
 1. After completing the workflow, select **Confirm**.
 
-   [ ![confirm](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
+   [ ![Screenshot shows the Convert to secure hub pane with Confirm selected.](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
 
 1. After the hub has been converted to a secured hub, you can view it on the virtual WAN **Overview** page.
 

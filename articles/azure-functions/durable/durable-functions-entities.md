@@ -14,13 +14,16 @@ Entity functions define operations for reading and updating small pieces of stat
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
 
 > [!NOTE]
-> Entity functions and related functionality is only available in Durable Functions 2.0 and above.
+> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET, JavaScript, and Python.
 
 ## General concepts
 
 Entities behave a bit like tiny services that communicate via messages. Each entity has a unique identity and an internal state (if it exists). Like services or objects, entities perform operations when prompted to do so. When an operation executes, it might update the internal state of the entity. It might also call external services and wait for a response. Entities communicate with other entities, orchestrations, and clients by using messages that are implicitly sent via reliable queues. 
 
-To prevent conflicts, all operations on a single entity are guaranteed to execute serially, that is, one after another. 
+To prevent conflicts, all operations on a single entity are guaranteed to execute serially, that is, one after another.
+
+> [!NOTE]
+> When an entity is invoked, it processes its payload to completion and then schedules a new execution to activate once future inputs arrive. As a result, your entity execution logs might show an extra execution after each entity invocation; this is expected.
 
 ### Entity ID
 Entities are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of an:
@@ -145,7 +148,47 @@ module.exports = df.entity(function(context) {
     }
 });
 ```
+# [Python](#tab/python)
 
+### Example: Python entity
+
+The following code is the `Counter` entity implemented as a durable function written in Python.
+
+**Counter/function.json**
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**Counter/__init__.py**
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableEntityContext):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    context.set_state(current_value)
+
+
+main = df.Entity.create(entity_function)
+```
 ---
 
 ## Access entities
@@ -197,6 +240,19 @@ module.exports = async function (context) {
 };
 ```
 
+# [Python](#tab/python)
+
+```Python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+```
+
 ---
 
 The term *signal* means that the entity API invocation is one-way and asynchronous. It's not possible for a client function to know when the entity has processed the operation. Also, the client function can't observe any result values or exceptions. 
@@ -231,6 +287,11 @@ module.exports = async function (context) {
     return stateResponse.entityState;
 };
 ```
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Python does not currently support reading entity states from a client. Use an orchestrator's `callEntity` instead.
 
 ---
 
@@ -275,6 +336,21 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > JavaScript does not currently support signaling an entity from an orchestrator. Use `callEntity` instead.
 
+# [Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    current_value = yield context.call_entity(entityId, "get")
+    if current_value < 10:
+        context.signal_entity(entityId, "add", 1)
+    return state
+```
+
 ---
 
 Only orchestrations are capable of calling entities and getting a response, which could be either a return value or an exception. Client functions that use the [client binding](durable-functions-bindings.md#entity-client) can only signal entities.
@@ -314,6 +390,11 @@ For example, we can modify the previous `Counter` entity example so that it send
         context.df.setState(currentValue + amount);
         break;
 ```
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Python does not support entity-to-entity signals yet. Please use an orchestrator for signaling entities instead.
 
 ---
 
@@ -417,7 +498,6 @@ There are some important differences that are worth noting:
 * Request-response patterns in entities are limited to orchestrations. From within entities, only one-way messaging (also known as signaling) is permitted, as in the original actor model, and unlike grains in Orleans. 
 * Durable entities don't deadlock. In Orleans, deadlocks can occur and don't resolve until messages time out.
 * Durable entities can be used in conjunction with durable orchestrations and support distributed locking mechanisms. 
-
 
 ## Next steps
 

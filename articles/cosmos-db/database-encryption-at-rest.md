@@ -10,6 +10,7 @@ ms.custom: seodec18
 ---
 
 # Data encryption in Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Encryption at rest is a phrase that commonly refers to the encryption of data on nonvolatile storage devices, such as solid state drives (SSDs) and hard disk drives (HDDs). Cosmos DB stores its primary databases on SSDs. Its media attachments and backups are stored in Azure Blob storage, which is generally backed up by HDDs. With the release of encryption at rest for Cosmos DB, all your databases, media attachments, and backups are encrypted. Your data is now encrypted in transit (over the network) and at rest (nonvolatile storage), giving you end-to-end encryption.
 
@@ -19,7 +20,7 @@ As a PaaS service, Azure Cosmos DB is very easy to use. Because all user data st
 
 Encryption at rest is implemented by using a number of security technologies, including secure key storage systems, encrypted networks, and cryptographic APIs. Systems that decrypt and process data have to communicate with systems that manage keys. The diagram shows how storage of encrypted data and the management of keys is separated. 
 
-![Design diagram](./media/database-encryption-at-rest/design-diagram.png)
+:::image type="content" source="./media/database-encryption-at-rest/design-diagram.png" alt-text="Design diagram" border="false":::
 
 The basic flow of a user request is as follows:
 - The user database account is made ready, and storage keys are retrieved via a request to the Management Service Resource Provider.
@@ -41,7 +42,7 @@ A: The keys are managed by Microsoft.
 A: Microsoft has a set of internal guidelines for encryption key rotation, which Cosmos DB follows. The specific guidelines are not published. Microsoft does publish the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), which is seen as a subset of internal guidance and has useful best practices for developers.
 
 ### Q: Can I use my own encryption keys?
-A: Yes now this feature is available for the new cosmos accounts and this should be done at time of account creation. Please go through [Customer managed Keys](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) document for more information.
+A: Yes, this feature is now available for new Azure Cosmos DB accounts and this should be done at the time of account creation. Please go through [Customer-managed Keys](./how-to-setup-cmk.md) document for more information.
 
 ### Q: What regions have encryption turned on?
 A: All Azure Cosmos DB regions have encryption turned on for all user data.

@@ -1,13 +1,9 @@
 ---
 title: Query Azure Data Lake Analytics - Visual Studio
 description: Learn how to install Data Lake Tools for Visual Studio, and how to develop and test U-SQL scripts. 
-services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
-ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
-ms.topic: conceptual
+ms.reviewer: jasonh
+ms.topic: how-to
 ms.date: 08/30/2019
 ---
 
@@ -50,7 +46,7 @@ This tutorial requires that Data Lake Tools for Visual Studio is installed. For 
 
 1. Open Visual Studio.
 
-1. Open **Server Explorer** by selecting **View** > **Server Explorer**.
+1. Open **Data Lake Analytics Explorer** by selecting **View** > **Data Lake Analytics Explorer**.
 
 1. Right-click **Azure**, then select **Connect to Microsoft Azure Subscription**. In **Sign in to your account**, follow the instructions.
 

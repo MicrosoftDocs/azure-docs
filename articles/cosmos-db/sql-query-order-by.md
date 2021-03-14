@@ -3,12 +3,14 @@ title: ORDER BY clause in Azure Cosmos DB
 description: Learn about SQL ORDER BY clause for Azure Cosmos DB. Use SQL as an Azure Cosmos DB JSON query language.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
 
 ---
 # ORDER BY clause in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 The optional `ORDER BY` clause specifies the sorting order for results returned by the query.
 

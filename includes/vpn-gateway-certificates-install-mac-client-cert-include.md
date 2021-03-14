@@ -17,4 +17,4 @@ When installing a client certificate, you need the password that was created whe
    ![Add certificates](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
 3. Enter the password that you created when the client certificate was exported. The password protects the private key of the certificate. Click **OK** to complete the installation.
 
-   ![Password](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)
+   ![Screenshot shows a dialog box that prompts you for a password.](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)

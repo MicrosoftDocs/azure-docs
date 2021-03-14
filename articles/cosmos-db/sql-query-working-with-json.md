@@ -3,12 +3,14 @@ title: Working with JSON in Azure Cosmos DB
 description: Learn about to query and access nested JSON properties and use special characters in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/19/2020
 ms.author: tisande
 ---
 
 # Working with JSON in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB's SQL (Core) API, items are stored as JSON. The type system and expressions are restricted to deal only with JSON types. For more information, see the [JSON specification](https://www.json.org/).
 
@@ -133,6 +135,34 @@ WHERE EXISTS(
     WHERE n.checkingAccount < 0
 )
 ```
+
+## Difference between null and undefined
+
+If a property is not defined in an item, then its value is `undefined`. A property with the value `null` must be explicitly defined and assigned a `null` value.
+
+For example, consider this sample item:
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "address": {
+      "state": "WA",
+      "county": "King",
+      "city": "Seattle"
+      },
+  "creationDate": null
+}
+```
+
+In this example, the property `isRegistered` has a value of `undefined` because it is omitted from the item. The property `creationDate` has a `null` value.
+
+Azure Cosmos DB supports two helpful type checking system functions for `null` and `undefined` properties:
+
+* [IS_NULL](sql-query-is-null.md) - checks if a property value is `null`
+* [IS_DEFINED](sql-query-is-defined.md) - checks if a property value is defined
+
+You can learn about [supported operators](sql-query-operators.md) and their behavior for `null` and `undefined` values.
 
 ## Reserved keywords and special characters in JSON
 

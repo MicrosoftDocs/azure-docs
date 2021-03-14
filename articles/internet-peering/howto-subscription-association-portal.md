@@ -65,12 +65,12 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 1. Then, click on **Review + create** and observe that portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
 
     > [!div class="mx-imgBorder"]
-    > ![PeerAsn Review Tab](./media/peerasn-review-tab-validation.png)
+    > ![Screenshot shows the Associate a Peer A S N Basics tab.](./media/peerasn-review-tab-validation.png)
 
 1. Once the message in the ribbon turns to *Validation Passed*, verify your information and submit the request by clicking **Create**. If the validation doesn't pass, then click on **Previous** and repeat the steps above to modify your request and ensure the values you enter have no errors.
 
     > [!div class="mx-imgBorder"]
-    > ![PeerAsn Review Tab](./media/peerasn-review-tab.png)
+    > ![Screenshot shows the Associate a Peer A S N Basics tab with Validation passed.](./media/peerasn-review-tab.png)
 
 1. After you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
 

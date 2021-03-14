@@ -9,4 +9,4 @@ Azure Database Migration Service is a fully managed service designed to enable s
 
 | **Resource** | **Limit** | **Comments** |
 | --- | --- | --- |
-| Maximum number of services per subscription, per region |2 | To request an increase for this limit, contact support. |
+| Maximum number of services per subscription, per region |10 | To request an increase for this limit, contact support. |

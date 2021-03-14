@@ -70,7 +70,7 @@ Path rules are case insensitive.
 |v1 path pattern  |Is supported?  |
 |---------|---------|
 |`/images/*`     |yes|
-|`/images*`     |no|
+|`/images*`     |yes|
 |`/images/*.jpg`     |no|
 |`/*.jpg`     |no|
 |`/Repos/*/Comments/*`     |no|

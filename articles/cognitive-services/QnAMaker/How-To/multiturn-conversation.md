@@ -1,6 +1,8 @@
 ---
 title: Multi-turn conversations - QnA Maker
 description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back-and-forth conversation where the previous question's context influences the next question and answer.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
 ---
@@ -32,7 +34,6 @@ In the preceding image, a user has started a conversation by entering **My accou
 
 When the user selects an option (#3), the next list of refining options (#4) is presented. This sequence continues (#5) until the user determines the correct, final answer (#6).
 
-
 ### Use multi-turn in a bot
 
 After publishing your KB, you can select the **Create Bot** button to deploy your QnA Maker bot to Azure bot service. The prompts will appear in the chat clients that you have enabled for your bot.
@@ -47,7 +48,7 @@ When you select this option, QnA Maker extracts the hierarchy present in the doc
 
 Multi-turn structure can be inferred only from URLs, PDF files, or DOCX files. For an example of structure, view an image of a [Microsoft Surface user manual PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![![Example of structure in a user manual](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+:::image type="content" source="../media/conversational-context/import-file-with-conversational-structure.png" alt-text="Screenshot shows an example of the structure in a user manual." lightbox="../media/conversational-context/import-file-with-conversational-structure.png":::
 
 ### Building your own multi-turn document
 
@@ -72,10 +73,9 @@ When you add a hierarchical document, QnA Maker determines follow-up prompts fro
 > [!Caution]
 > Support for using an exported TSV or XLS multi-turn knowledge base file as a data source for a new or empty knowledge base isn't supported. You need to **Import** that file type, from the **Settings** page of the QnA Maker portal, in order to add exported multi-turn prompts to a knowledge base.
 
-
 ## Create knowledge base with multi-turn prompts with the Create API
 
-You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array.
+You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array.
 
 ## Show questions and answers with context
 
@@ -87,7 +87,7 @@ Select **View options**, and then select **Show context**. The list displays que
 
 The multi-turn context is displayed in the first column.
 
-![![The "Context (PREVIEW)" column](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot shows the Context section highlighted." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 In the preceding image, **#1** indicates bold text in the column, which signifies the current question. The parent question is the top item in the row. Any questions below it are the linked question-and-answer pairs. These items are selectable, so that you can immediately go to the other context items.
 
@@ -109,7 +109,6 @@ Add a follow-up prompt to an existing question-and-answer pair that isn't curren
     |Context-only| Select this check box. An answer is returned only if the question specifies context.|
     |Link to answer|Enter **Use the sign-in screen** to find the existing question-and-answer pair.|
 
-
 1.  One match is returned. Select this answer as the follow-up, and then select **Save**.
 
     ![The "Follow-up prompt (PREVIEW)" page](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
@@ -130,7 +129,6 @@ When a follow-up prompt is created, and an existing question-and-answer pair is 
 1. When you're done editing the display text, select **Save**.
 1. In the top navigation bar, **Save and train**.
 
-
 ## Add a new question-and-answer pair as a follow-up prompt
 
 When you add a new question-and-answer pair to the knowledge base, each pair should be linked to an existing question as a follow-up prompt.
@@ -149,7 +147,6 @@ When you add a new question-and-answer pair to the knowledge base, each pair sho
 
     ![Create a new prompt question and answer](../media/conversational-context/create-child-prompt-from-parent.png)
 
-
 1. Select **Create new**, and then select **Save**.
 
     This action creates a new question-and-answer pair and links the selected question as a follow-up prompt. The **Context** column, for both questions, indicates a follow-up prompt relationship.
@@ -162,7 +159,7 @@ When you add a new question-and-answer pair to the knowledge base, each pair sho
 
     The parent question displays a new question as one of its choices.
 
-    ![![The Context column, for both questions, indicates a follow-up prompt relationship](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Screenshot shows the Context column, for both questions, indicates a follow-up prompt relationship." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. After you've added the follow-up prompt, select **Save and train** in the top navigation bar.
 
@@ -220,7 +217,7 @@ The preceding section requested an answer and any follow-up prompts to **Account
             "questions": [
                 "Sign out"
             ],
-            "answer": "**Sign out**\n\nHere's how to sign out: \n\n Go to Start, and right-click your name. Then select Sign out. ",
+            "answer": "**Sign out**\n\nHere's how to sign out: \n\n  Go to Start, and right-click your name. Then select Sign out. ",
             "score": 38.01,
             "id": 18,
             "source": "product-manual.pdf",
@@ -347,14 +344,13 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
 
 If you are building a custom application using multi-turn feature. In the initial question's response, any follow-up prompts and its associated `qnaId` is returned. Now that you have the ID, you can pass this in the follow-up prompt's request body. If the request body contains the `qnaId`, and the context object (which contains the previous QnA Maker properties), then GenerateAnswer will return the exact question by ID, instead of using the ranking algorithm to find the answer by the question text.
 
-
 ## Display order is supported in the Update API
 
-The [display text and display order](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
+The [display text and display order](/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), returned in the JSON response, is supported for editing by the [Update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 ## Add or delete multi-turn prompts with the Update API
 
-You can add or delete multi-turn prompts using the [QnA Maker Update API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  The prompts are adding in the `context` property's `promptsToAdd` array and the `promptsToDelete` array.
+You can add or delete multi-turn prompts using the [QnA Maker Update API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  The prompts are adding in the `context` property's `promptsToAdd` array and the `promptsToDelete` array.
 
 ## Export knowledge base for version control
 
@@ -362,7 +358,7 @@ QnA Maker supports version control by including multi-turn conversation steps in
 
 ## Next steps
 
-Learn more about contextual conversations from this [dialog sample](https://aka.ms/qnamakermultiturnsample) or learn more about [conceptual bot design for multi-turn conversations](https://docs.microsoft.com/azure/bot-service/bot-builder-conversations?view=azure-bot-service-4.0).
+Learn more about contextual conversations from this [dialog sample](https://github.com/microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/adaptive-dialog/07.qnamaker/QnAMaker.csproj) or learn more about [conceptual bot design for multi-turn conversations](/azure/bot-service/bot-builder-conversations).
 
 > [!div class="nextstepaction"]
 > [Migrate a knowledge base](../Tutorials/migrate-knowledge-base.md)

@@ -4,9 +4,9 @@ description: Client connections from ADO.NET to Azure SQL Database can bypass th
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=1
+ms.custom: "sqldbrb=1, devx-track-dotnet"
 ms.devlang:
-ms.topic: conceptual
+ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
@@ -71,8 +71,8 @@ This section clarifies the monikers that refer to product versions. It also list
 * ADO.NET 4.5 was released on August 15, 2012. A blog announcement from the .NET team is available [here](https://devblogs.microsoft.com/dotnet/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code/).
   * A blog post about ADO.NET 4.5.1 is available [here](https://devblogs.microsoft.com/dotnet/announcing-the-net-framework-4-5-1-preview/).
 
-* Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux, & macOS
-https://www.microsoft.com/download/details.aspx?id=56567
+* Microsoft ODBC Driver 17 for SQL Server
+https://aka.ms/downloadmsodbcsql
 
 * Connect to Azure SQL Database V12 via Redirection
 https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362

@@ -4,11 +4,11 @@ description: Configure auditing to write database events on a storage account be
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/09/2020
+ms.date: 06/17/2020
 ms.custom: azure-synapse
 ---
 # Write audit to a storage account behind VNet and firewall
@@ -34,7 +34,7 @@ For audit to write to a storage account behind a VNet or firewall, the following
 > [!div class="checklist"]
 >
 > * A general-purpose v2 storage account. If you have a general-purpose v1 or blob storage account, [upgrade to a general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md). For more information, see [Types of storage accounts](../../storage/common/storage-account-overview.md#types-of-storage-accounts).
-> * The storage account must be on the same subscription and at the same location as the [logical SQL server](logical-servers.md).
+> * The storage account must be on the same subscription and at the same location as the [logical SQL Server](logical-servers.md).
 > * The Azure Storage account requires `Allow trusted Microsoft services to access this storage account`. Set this on the Storage Account **Firewalls and Virtual networks**.
 > * You must have `Microsoft.Authorization/roleAssignments/write` permission on the selected storage account. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -71,7 +71,7 @@ The sample scripts in this section require you to update the script before you r
 |:-----|:-----|
 |`<subscriptionId>`| Azure subscription ID|
 |`<resource group>`| Resource group|
-|`<logical SQL server>`| Server name|
+|`<logical SQL Server>`| Server name|
 |`<administrator login>`| Administrator account |
 |`<complex password>`| Complex password for the administrator account|
 
@@ -87,7 +87,7 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**REST API**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**REST API**](/rest/api/sql/servers/createorupdate):
 
    Sample request
 
@@ -108,13 +108,14 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
      "state": "Ready"
+     }
    }
    ```
 
-2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** RBAC role to the server hosting the database that you registered with Azure Active Directory (Azure AD) as in the previous step.
+2. Open [Azure portal](https://portal.azure.com). Navigate to your storage account. Locate **Access Control (IAM)**, and click **Add role assignment**. Assign **Storage Blob Data Contributor** Azure role to the server hosting the database that you registered with Azure Active Directory (Azure AD) as in the previous step.
 
    > [!NOTE]
-   > Only members with Owner privilege can perform this step. For various built-in roles for Azure resources, refer to [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+   > Only members with Owner privilege can perform this step. For various Azure built-in roles, refer to [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 3. Configure the [server's blob auditing policy](/rest/api/sql/server%20auditing%20settings/createorupdate), without specifying a *storageAccountAccessKey*:
 
@@ -139,6 +140,18 @@ To configure SQL Audit to write events to a storage account behind a VNet or Fir
 
 - [Create or Update Database Auditing Policy (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Create or Update Server Auditing Policy (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
+
+## Using Azure Resource Manager template
+
+You can configure auditing to write database events on a storage account behind virtual network and firewall using [Azure Resource Manager](../../azure-resource-manager/management/overview.md) template, as shown in the following example:
+
+> [!IMPORTANT]
+> In order to use storage account behind virtual network and firewall, you need to set **isStorageBehindVnet** parameter to true
+
+- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to a blob storage](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+
+> [!NOTE]
+> The linked sample is on an external public repository and is provided 'as is', without warranty, and are not supported under any Microsoft support program/service.
 
 ## Next steps
 

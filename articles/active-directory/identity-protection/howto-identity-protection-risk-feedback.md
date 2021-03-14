@@ -57,4 +57,4 @@ Feedback on user risk detections in Identity Protection is processed offline and
 
 ## Next steps
 
-- [Azure Active Directory Identity Protection risk detections reference](risk-events-reference.md)
+- [Azure Active Directory Identity Protection risk detections reference](./concept-identity-protection-risks.md)

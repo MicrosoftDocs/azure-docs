@@ -1,6 +1,6 @@
 ---
 title: Avere vFXT for Azure demo projects
-description: links to code demonstration tutorials for Avere vFXT
+description: "These samples show key features and use cases for Avere vFXT for Azure: video rendering, high-performance computing, vFXT performance, and client setup."
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual

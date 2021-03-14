@@ -3,21 +3,23 @@ title: Download Media Services assets to your computer - Azure | Microsoft Docs
 description: Learn about to download assets to your computer. Code samples are written in C# and use the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 8908a1dd-3ffb-4f18-955d-4c8e2d82fc5d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
-# How to: Deliver an asset by download  
+# How to: Deliver an asset by download
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 This article discusses options for delivering media assets uploaded to Media Services. You can deliver Media Services content in numerous application scenarios. After encoding, download the generated media assets, or access them by using a streaming locator. For improved performance and scalability, you can also deliver content by using a Content Delivery Network (CDN).
 
 This example shows how to download media assets from Media Services to your local computer. The code queries the jobs associated with the Media Services account by job ID and accesses its **OutputMediaAssets** collection (which is the set of one or more output media assets that results from running a job). This example shows how to download output media assets from a job, but you can apply the same approach to download other assets.

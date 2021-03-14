@@ -1,15 +1,11 @@
 ---
 title: 'Quickstart: Send custom events to web endpoint - Event Grid, PowerShell'
 description: 'Quickstart: Use Azure Event Grid and PowerShell to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.' 
-services: event-grid 
-keywords: 
-author: spelluru
-ms.author: spelluru
-ms.date: 11/05/2019
-ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
+ms.date: 07/07/2020
+ms.topic: quickstart 
+ms.custom: devx-track-azurepowershell
 ---
+
 # Quickstart: Route custom events to web endpoint with PowerShell and Event Grid
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure PowerShell to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.

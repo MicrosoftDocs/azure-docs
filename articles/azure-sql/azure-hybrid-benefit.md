@@ -3,14 +3,14 @@ title: Azure Hybrid Benefit
 titleSuffix: Azure SQL Database & SQL Managed Instance 
 description: Use existing SQL Server licenses for Azure SQL Database and SQL Managed Instance discounts.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=4
-ms.subservice: service
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/13/2019
+ms.reviewer: sashan, moslake
+ms.date: 02/16/2021
 ---
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -20,7 +20,7 @@ In the provisioned compute tier of the vCore-based purchasing model, you can exc
 > [!NOTE]
 > Changing to Azure Hybrid Benefit does not require any downtime.
 
-![pricing](./media/azure-hybrid-benefit/pricing.png)
+![vcore pricing structure](./media/azure-hybrid-benefit/pricing.png)
 
 ## Choose a license model
 
@@ -79,16 +79,16 @@ Azure Hybrid Benefit for SQL Server differs from license mobility in two key are
 
 #### What are the specific rights of the Azure Hybrid Benefit for SQL Server?
 
-SQL Database customers have the following rights associated with Azure Hybrid Benefit for SQL Server:
+SQL Database and SQL Managed Instance customers have the following rights associated with Azure Hybrid Benefit for SQL Server:
 
 |License footprint|What does Azure Hybrid Benefit for SQL Server get you?|
 |---|---|
-|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on either General Purpose or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
-|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on General Purpose SKU only</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li>|
+|SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in Hyperscale SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
+|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>1 core on-premises = 1 core in Hyperscale SKU</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li><br><li>4 core on-premises = 1 core in Business Critical SKU</li>|
 |||
 
 
 ## Next steps
 
-- For for help with choosing an Azure SQL deployment option, see [Choose the right deployment option in Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
+- For help with choosing an Azure SQL deployment option, see [Choose the right deployment option in Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
 - For a comparison of SQL Database and SQL Managed Instance features, see [SQL Database & SQL Managed Instance features](database/features-comparison.md).

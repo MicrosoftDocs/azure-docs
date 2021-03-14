@@ -32,4 +32,4 @@ The supported pattern for cloud-to-device messages with HTTPS is intermittently 
 
 Alternatively, enhance device side logic to complete, reject, or abandon queued messages quickly, shorten the time to live, or consider sending fewer messages. See [C2D message time to live](./iot-hub-devguide-messages-c2d.md#message-expiration-time-to-live).
 
-Lastly, consider using the [Purge Queue API](https://docs.microsoft.com/rest/api/iothub/service/registrymanager/purgecommandqueue) to periodically clean up pending messages before the limit is reached.
+Lastly, consider using the [Purge Queue API](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) to periodically clean up pending messages before the limit is reached.

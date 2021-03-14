@@ -3,19 +3,19 @@ title: Manage versions - LUIS
 titleSuffix: Azure Cognitive Services
 description: Versions allow you to build and publish different models. A good practice is to clone the current active model to a different version of the app before making changes to the model.
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
+
 ---
 
 # Use versions to edit and test without impacting staging or production apps
 
-Versions allow you to build and publish different models. A good practice is to clone the current active model to a different [version](luis-concept-version.md) of the app before making changes to the model.
+Versions allow you to build and publish different models. A good practice is to clone the current active model to a different [version](./luis-concept-app-iteration.md) of the app before making changes to the model.
 
 The active version is the version you are editing in the LUIS portal **Build** section with intents, entities, features, and patterns. When using the authoring APIs, you don't need to set the active version because the version-specific REST API calls include the version in the route.
 
@@ -63,4 +63,3 @@ You can import a `.json` or a `.lu` version of your application.
 * To **delete** a version, select a version from the list, then select **Delete** from the toolbar. Select **Ok**.
 * To **rename** a version, select a version from the list, then select **Rename** from the toolbar. Enter new name and select **Done**.
 * To **export** a version, select a version from the list, then select **Export app** from the toolbar. Choose JSON or LU to export for a backup or to save in source control, choose **Export for container** to [use this app in a LUIS container](luis-container-howto.md).
-

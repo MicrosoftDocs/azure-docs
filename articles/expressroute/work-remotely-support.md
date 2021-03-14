@@ -2,12 +2,12 @@
 title: 'Using Azure ExpressRoute to support remote users'
 description: This page describes how you can leverage Azure ExpressRoute to enable working remotely due to the COVID-19 pandemic.
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/22/2020
-ms.author: ajitbhu
+ms.author: duau
 
 ---
 # Using Azure ExpressRoute to create hybrid connectivity to support remote users
@@ -27,7 +27,7 @@ This article describes how you can leverage ExpressRoute, Azure, Microsoft netwo
 * [How to increase the bandwidth for existing ExpressRoute circuit](expressroute-howto-circuit-portal-resource-manager.md#modify)
 * [ExpressRoute monitoring, metrics and alerts](expressroute-monitoring-metrics-alerts.md#expressroute-gateway-connections-in-bitsseconds)
 * [Route Optimization over ExpressRoute](expressroute-optimize-routing.md)
-* [Azure ExpressRoute for O365](https://docs.microsoft.com/office365/enterprise/azure-expressroute?redirectSourcePath=%252farticle%252f6d2534a2-c19c-4a99-be5e-33a0cee5d3bd)
+* [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * [Asymmetric routing considerations](expressroute-asymmetric-routing.md)
 * [How to open a support request in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 

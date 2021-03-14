@@ -1,21 +1,10 @@
 ---
 title: Delete a lab or VM in a lab in Azure DevTest Labs
 description: This article shows you how to delete a lab or delete a VM in a lab using the Azure portal(Azure DevTest Labs). 
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
-ms.author: spelluru	
-
 ---
+
 # Delete a lab or VM in a lab in Azure DevTest Labs
 This article shows you how to delete a lab or VM in a lab.
 

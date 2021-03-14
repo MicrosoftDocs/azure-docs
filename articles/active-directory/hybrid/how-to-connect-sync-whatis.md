@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/08/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -48,13 +48,13 @@ The sync service consists of two components, the on-premises **Azure AD Connect 
 | [Implement password hash synchronization](how-to-connect-password-hash-synchronization.md) |Describes how password synchronization works, how to implement, and how to operate and troubleshoot. |
 | [Device writeback](how-to-connect-device-writeback.md) |Describes how device writeback works in Azure AD Connect. |
 | [Directory extensions](how-to-connect-sync-feature-directory-extensions.md) |Describes how to extend the Azure AD schema with your own custom attributes. |
-| [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |Describes how to put the user's Office 365 resources in the same region as the user. |
+| [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |Describes how to put the user's Microsoft 365 resources in the same region as the user. |
 | **Sync Service** | |
 | [Azure AD Connect sync service features](how-to-connect-syncservice-features.md) |Describes the sync service side and how to change sync settings in Azure AD. |
 | [Duplicate attribute resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) |Describes how to enable and use **userPrincipalName** and **proxyAddresses** duplicate attribute values resiliency. |
 | **Operations and UI** | |
 | [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) |Describes the Synchronization Service Manager UI, including [Operations](how-to-connect-sync-service-manager-ui-operations.md), [Connectors](how-to-connect-sync-service-manager-ui-connectors.md), [Metaverse Designer](how-to-connect-sync-service-manager-ui-mvdesigner.md), and [Metaverse Search](how-to-connect-sync-service-manager-ui-mvsearch.md) tabs. |
-| [Operational tasks and considerations](how-to-connect-sync-operations.md) |Describes operational concerns, such as disaster recovery. |
+| [Operational tasks and considerations](./how-to-connect-sync-staging-server.md) |Describes operational concerns, such as disaster recovery. |
 | **How To...** | |
 | [Reset the Azure AD account](how-to-connect-azureadaccount.md) |How to reset the credentials of the service account used to connect from Azure AD Connect sync to Azure AD. |
 | **More information and references** | |

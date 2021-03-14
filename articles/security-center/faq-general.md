@@ -42,10 +42,10 @@ The **Security Center Overview** page shows the overall security posture of your
 
 
 
-## What is a security policy?
-A security policy defines the set of controls that are recommended for resources within the specified subscription. In Azure Security Center, you define policies for your Azure subscriptions according to your company's security requirements and the type of applications or sensitivity of the data in each subscription.
+## What is a security initiative?
+A security initiative defines the set of controls (policies) that are recommended for resources within the specified subscription. In Azure Security Center, you assign initiatives for your Azure subscriptions according to your company's security requirements and the type of applications or sensitivity of the data in each subscription.
 
-The security policies enabled in Azure Security Center drive security recommendations and monitoring. To learn more about security policies, see [Security health monitoring in Azure Security Center](security-center-monitoring.md).
+The security policies enabled in Azure Security Center drive security recommendations and monitoring. Learn more in [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
 
 
 ## Who can modify a security policy?
@@ -58,13 +58,12 @@ To learn how to configure a security policy, see [Setting security policies in A
 Azure Security Center analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:
 
 * Provisioning of anti-malware to help identify and remove malicious software
-* [Network security groups](../virtual-network/security-overview.md) and rules to control traffic to virtual machines
+* [Network security groups](../virtual-network/network-security-groups-overview.md) and rules to control traffic to virtual machines
 * Provisioning of a web application firewall to help defend against attacks targeting your web applications
 * Deploying missing system updates
 * Addressing OS configurations that do not match the recommended baselines
 
 Only recommendations that are enabled in Security Policies are shown here.
-
 
 
 ## What triggers a security alert?
@@ -74,10 +73,6 @@ Azure Security Center automatically collects, analyzes, and fuses log data from 
 * Advanced malware detected using Windows error reporting
 * Brute force attacks against virtual machines
 * Security alerts from integrated partner security solutions such as Anti-Malware or Web Application Firewalls
-
-
-## Why did Secure Score values change? <a name="secure-score-faq"></a>
-As of February 2019, Security Center adjusted the score of a few recommendations, in order to better fit their severity. As a result of this adjustment, there may be changes in overall Secure Score values.  For more information about secure score, see [Enhanced secure score in Azure Security Center](secure-score-security-controls.md).
 
 
 ## What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?

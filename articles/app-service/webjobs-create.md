@@ -10,7 +10,10 @@ ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 #Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
-
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./webjobs-create-ieux
 ---
 
 # Run background tasks with WebJobs in Azure App Service
@@ -58,9 +61,10 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
-1. In the [Azure portal](https://portal.azure.com), search for and select **App Services**. 
+> [!IMPORTANT]
+> When you have source control configured for your application, Webjobs should be deployed as part of the source control integration. After source control is configured for your application, a WebJob can't be added from the Azure portal.
 
-1. Select your web app, API app, or mobile app from the list.  
+1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service web app, API app, or mobile app.
 
 1. In the left pane of your app's **App Service** page, search for and select **WebJobs**.
 
@@ -72,7 +76,7 @@ when making changes in one don't forget the other two.
 
 1. Fill in the **Add WebJob** settings as specified in the table.
 
-   ![Add WebJob page](./media/web-sites-create-web-jobs/addwjcontinuous.png)
+   ![Screenshot that shows the Add WebJob settings that you need to configure.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |
@@ -112,7 +116,7 @@ when making changes in one don't forget the other two.
 
 1. Fill in the **Add WebJob** settings as specified in the table. 
 
-   ![Add WebJob page](./media/web-sites-create-web-jobs/addwjtriggered.png)
+   ![Screenshot that shows the settings that need to be set for creating a manually triggered WebJob.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Setting      | Sample value   | Description  |
    | ------------ | ----------------- | ------------ |

@@ -1,18 +1,18 @@
 ---
-title: Azure Stack Edge compute management | Microsoft Docs 
-description: Describes how to manage the Edge compute settings such as trigger, modules, view compute configuration, remove configuration via the Azure portal on your Azure Stack Edge.
+title: Azure Stack Edge Pro compute management | Microsoft Docs 
+description: Describes how to manage the Edge compute settings such as trigger, modules, view compute configuration, remove configuration via the Azure portal on your Azure Stack Edge Pro.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/20/2019
+ms.date: 01/06/2021
 ms.author: alkohli
 ---
-# Manage compute on your Azure Stack Edge
+# Manage compute on your Azure Stack Edge Pro
 
-This article describes how to manage compute on your Azure Stack Edge. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
+This article describes how to manage compute on your Azure Stack Edge Pro. You can manage the compute via the Azure portal or via the local web UI. Use the Azure portal to manage modules, triggers, and compute configuration, and the local web UI to manage compute settings.
 
 In this article, you learn how to:
 
@@ -23,7 +23,7 @@ In this article, you learn how to:
 
 ## Manage triggers
 
-Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers raise the events. For your Azure Stack Edge, triggers can be in response to file events or a schedule.
+Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers raise the events. For your Azure Stack Edge Pro, triggers can be in response to file events or a schedule.
 
 - **File**: These triggers are in response to file events such as creation of a file, modification of a file.
 - **Scheduled**: These triggers are in response to a schedule that you can define with a start date, start time, and the repeat interval.
@@ -33,7 +33,7 @@ Events are things that happen within your cloud environment or on your device th
 
 Take the following steps in the Azure portal to create a trigger.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Trigger**. Select **+ Add trigger** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **IoT Edge > Triggers**. Select **+ Add trigger** on the command bar.
 
     ![Select add trigger](media/azure-stack-edge-manage-compute/add-trigger-1.png)
 
@@ -63,31 +63,31 @@ Take the following steps in the Azure portal to delete a trigger.
 
 1. From the list of triggers, select the trigger that you want to delete.
 
-    ![Select trigger](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Select trigger](media/azure-stack-edge-manage-compute/delete-trigger-1.png)
 
 2. Right-click and then select **Delete**.
 
-    ![Select delete](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Select delete](media/azure-stack-edge-manage-compute/delete-trigger-2.png)
 
 3. When prompted for confirmation, click **Yes**.
 
-    ![Confirm delete](media/azure-stack-edge-manage-compute/add-trigger-1.png)
+    ![Confirm delete](media/azure-stack-edge-manage-compute/delete-trigger-3.png)
 
 The list of triggers updates to reflect the deletion.
 
 ## Manage compute configuration
 
-Use the Azure portal to view the compute configuration, remove an existing compute configuration, or to refresh the compute configuration to sync up access keys for the IoT device and IoT Edge device for your Azure Stack Edge.
+Use the Azure portal to view the compute configuration, remove an existing compute configuration, or to refresh the compute configuration to sync up access keys for the IoT device and IoT Edge device for your Azure Stack Edge Pro.
 
 ### View compute configuration
 
 Take the following steps in the Azure portal to view the compute configuration for your device.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Modules**. Select **View compute** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **IoT Edge > Overview**. 
 
     ![Select View compute](media/azure-stack-edge-manage-compute/view-compute-1.png)
 
-2. Make a note of the compute configuration on your device. When you configured compute, you created an IoT Hub resource. Under that IoT Hub resource, an IoT device and an IoT Edge device are configured. Only the Linux modules are supported to run on the IoT Edge device.
+2. Go to **Properties** page. Make a note of the compute configuration on your device. When you configured compute, you created an IoT Hub resource. Under that IoT Hub resource, an IoT device and an IoT Edge device are configured. Only the Linux modules are supported to run on the IoT Edge device.
 
     ![View configuration](media/azure-stack-edge-manage-compute/view-compute-2.png)
 
@@ -96,25 +96,25 @@ Take the following steps in the Azure portal to view the compute configuration f
 
 Take the following steps in the Azure portal to remove the existing Edge compute configuration for your device.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Get started**. Select **Remove compute** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **IoT Edge > Overview**. Select **Remove** on the command bar.
 
     ![Select Remove compute](media/azure-stack-edge-manage-compute/remove-compute-1.png)
 
 2. If you remove the compute configuration, you will need to reconfigure your device in case you need to use compute again. When prompted for confirmation, select **Yes**.
 
-    ![Select Remove compute](media/azure-stack-edge-manage-compute/remove-compute-2.png)
+    ![Select Remove compute 2](media/azure-stack-edge-manage-compute/remove-compute-2.png)
 
 ### Sync up IoT device and IoT Edge device access keys
 
-When you configure compute on your Azure Stack Edge, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
+When you configure compute on your Azure Stack Edge Pro, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
 
 To rotate these keys, you can go to the IoT Hub service that you created and select the IoT device or the IoT Edge device. Each device has a primary access key and a secondary access keys. Assign the primary access key to the secondary access key and then regenerate the primary access key.
 
-If your IoT device and IoT Edge device keys have been rotated, then you need to refresh the configuration on your Azure Stack Edge to get the latest access keys. The sync helps the device get the latest keys for your IoT device and IoT Edge device. Azure Stack Edge uses only the primary access keys.
+If your IoT device and IoT Edge device keys have been rotated, then you need to refresh the configuration on your Azure Stack Edge Pro to get the latest access keys. The sync helps the device get the latest keys for your IoT device and IoT Edge device. Azure Stack Edge Pro uses only the primary access keys.
 
 Take the following steps in the Azure portal to sync the access keys for your device.
 
-1. In the Azure portal, go to your Azure Stack Edge resource and then go to **Edge compute > Get started**. Select **Refresh configuration** on the command bar.
+1. In the Azure portal, go to your Azure Stack Edge resource and then go to **IoT Edge > Overview**. Select **Refresh configuration** on the command bar.
 
     ![Select Refresh configuration](media/azure-stack-edge-manage-compute/refresh-configuration-1.png)
 
