@@ -822,7 +822,7 @@ To create a virtual machine by using Hyper-V:
 
 ### Software installation (ESXi and Hyper-V)
 
-Starting the virtual machine will start the installation process from the ISO image. To enhance security you have the option to create a second network interface on your on-premises management console. The primary network interface is dedicated for the users, and can support the configuration of a gateway for routed networks. The second network interface creates a local network that supports the sensors within an IP address range.
+Starting the virtual machine will start the installation process from the ISO image. To enhance security, you have the option to create a second network interface oo your on-premises management console. The primary network interface is dedicated for your users, and can support the configuration of a gateway for routed networks. The second network interface is used to manage your local network with all of the attached sensors within an IP address range.
 
 Both network interfaces have the user interface (UI) enabled, and all of the features that are supported by the UI will be available on the secondary network interface when routing in not needed. High Availability will run on the secondary network interface.
 
