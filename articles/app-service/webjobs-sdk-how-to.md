@@ -6,14 +6,14 @@ author: ggailey777
 ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 03/14/2021
 ms.author: glenga
 #Customer intent: As an App Services developer, I want use the WebJobs SDK to be able to execute event-driven code in Azure.
 ---
 
 # How to use the Azure WebJobs SDK for event-driven background processing
 
-This article provides guidance on how to work with the Azure WebJobs SDK. To get started with WebJobs right away, see [Get started with the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-get-started.md). 
+This article provides guidance on how to work with the Azure WebJobs SDK. To get started with WebJobs right away, see [Get started with the Azure WebJobs SDK](webjobs-sdk-get-started.md). 
 
 ## WebJobs SDK versions
 
