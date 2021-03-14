@@ -26,6 +26,8 @@ ms.date: 12/08/2020
    | **Authorization key**  | Copy and paste the authorization key from the ExpressRoute tab for your Resource Group. |
    | **Peer circuit URI**  | Copy and paste the ExpressRoute ID from the ExpressRoute tab for your Resource Group.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="On the Add connection page, provide values for the fields, and select OK." border="true" lightbox="../media/expressroute-global-reach/open-cloud-shell.png":::
+   :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="Screenshot of the Add connection page to connect ExpressRoute to the virtual network gateway.":::
 
 The connection between your ExpressRoute circuit and your Virtual Network is created.
+
+:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="Screenshot of the virtual network gateway connections.":::
