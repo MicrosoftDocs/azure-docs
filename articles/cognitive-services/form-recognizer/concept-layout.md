@@ -28,7 +28,7 @@ The Layout API extracts text, tables, selection marks, and structure information
 To try out the Form Recognizer Layout Service, go to the online sample UI tool:
 
 > [!div class="nextstepaction"]
-> [Sample UI](https://fott-preview.azurewebsites.net/)
+> [Form OCR Test Tool (FOTT)](https://fott-preview.azurewebsites.net)
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Layout API. 
 

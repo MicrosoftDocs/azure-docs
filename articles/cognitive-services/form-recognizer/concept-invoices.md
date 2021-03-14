@@ -32,10 +32,9 @@ To try out the Form Recognizer Invoice Service, go to the online Sample UI Tool:
 
 You will need an Azure subscription ([create one for free](https://azure.microsoft.com/free/cognitive-services)) and a [Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer Invoice service. 
 
-![Analyzed invoice example](./media/analyze-invoice-new.png)
+:::image type="content" source="media/analyze-invoice-new.png" alt-text="Analyzed invoice example" lightbox="media/analyze-invoice-new.png":::
 
-
-### Input requirements 
+### Input requirements
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
