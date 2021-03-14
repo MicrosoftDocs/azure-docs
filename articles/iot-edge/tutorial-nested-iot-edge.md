@@ -13,6 +13,8 @@ monikerRange: ">=iotedge-2020-11"
 
 # Tutorial: Create a hierarchy of IoT Edge devices (Preview)
 
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+
 Deploy Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it.
 
 >[!NOTE]
