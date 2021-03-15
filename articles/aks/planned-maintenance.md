@@ -24,8 +24,8 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 When using Planned Maintenance, the following restrictions apply:
 
-- AKS reserves the right to break these windows for fixes and patches that are urgent or critical.
-- Performing maintenance operations are considered *best-effort only* and are not guaranteed to occur within a specified window.
+- AKS reserves the right to break these windows for unplanned/reactive maintenance operations that are urgent or critical.
+- Currently, performing maintenance operations are considered *best-effort only* and are not guaranteed to occur within a specified window.
 - Updates cannot be blocked for more than seven days.
 
 ### Install aks-preview CLI extension
