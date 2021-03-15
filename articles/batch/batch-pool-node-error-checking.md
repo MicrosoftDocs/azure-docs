@@ -3,7 +3,7 @@ title: Check for pool and node errors
 description: This article covers the background operations that can occur, along with errors to check for and how to avoid them when creating pools and nodes.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/03/2020
+ms.date: 03/15/2021
 ms.topic: how-to
 ---
 
@@ -56,6 +56,13 @@ The [pool resize complete event](./batch-pool-resize-complete-event.md) captures
 When you delete a pool that contains nodes, first Batch deletes the nodes. This can take several minutes to complete. After that, Batch deletes the pool object itself.
 
 Batch sets the [pool state](/rest/api/batchservice/pool/get#poolstate) to **deleting** during the deletion process. The calling application can detect if the pool deletion is taking too long by using the **state** and **stateTransitionTime** properties.
+
+If the pool is taking longer than expected, Batch will retry periodically until the pool can be successfully deleted. In some cases, the delay is due to an Azure service outage or other temporary issues. Other factors that can prevent a pool from successfully being deleted may require you to take actions to correct the issue. These factors include the following:
+
+- Resource locks have been placed on Batch-created resources, or on network resources used by Batch.
+- Resources that you created have a dependency on a Batch-created resource. For instance, if you [create a pool in a virtual network](batch-virtual-network.md), Batch creates a network security group (NSG), a public IP address, and a load balancer. If you use these resources outside of the pool, the pool can't be deleted until that dependency is removed.
+- The Microsoft.Batch resource provider was unregistered from the subscription that contains your pool.
+- ["Microsoft Azure Batch" no longer has the Contributor role](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) to the subscription that contains your pool (for user subscription mode Batch accounts)
 
 ## Node errors
 
