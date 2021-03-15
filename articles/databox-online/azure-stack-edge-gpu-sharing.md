@@ -35,7 +35,7 @@ If you are deploying containerized workloads, a GPU can be shared in more than o
     - Multiple modules can map to one GPU but the same module cannot be mapped to more than one GPU.
     - With the Nvidia SMI output, you can see the overall GPU utilization including the memory utilization.
     
-    For more information, see how to [Deploy an IoT Edge module that uses GPU](azure-stack-edge-j-series-configure-gpu-modules.md) on your device.
+    For more information, see how to [Deploy an IoT Edge module that uses GPU](azure-stack-edge-gpu-configure-gpu-modules.md) on your device.
 
 - The second approach requires you to enable the Multi-Process Service on your Nvidia GPUs. MPS  is  a runtime service that lets multiple processes using CUDA to run concurrently on a single shared GPU. MPS allows overlapping of kernel and memcopy operations from different processes on the GPU to achieve maximum utilization. For more information, see [Multi-Process Service](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf).
 
