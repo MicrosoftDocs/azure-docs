@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/25/2021
+ms.date: 03/15/2021
 ms.custom: generated
 ---
 
@@ -56,6 +56,7 @@ The following table provides a brief description and the unique ID of each built
 > | [Data Box Reader](#data-box-reader) | Lets you manage Data Box Service except creating order or editing order details and giving access to others. | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
 > | [Data Lake Analytics Developer](#data-lake-analytics-developer) | Lets you submit, monitor, and manage your own jobs but not create or delete Data Lake Analytics accounts. | 47b7735b-770e-4598-a7da-8b91488b4c88 |
 > | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. | c12c1c16-33a1-487b-954d-41c89c60f349 |
+> | [Storage Account Backup Contributor Role](#storage-account-backup-contributor-role) | Storage Account Backup Contributors are allowed to perform backup and restore of Storage Account. | e5e2a7ff-d759-4cd2-bb51-3152d37e2eb1 |
 > | [Storage Account Contributor](#storage-account-contributor) | Permits management of storage accounts. Provides access to the account key, which can be used to access data via Shared Key authorization. | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Permits listing and regenerating storage account access keys. | 81a9662b-bebf-436f-a333-f67b29880f12 |
 > | [Storage Blob Data Contributor](#storage-blob-data-contributor) | Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling blob and queue data operations](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
@@ -135,6 +136,13 @@ The following table provides a brief description and the unique ID of each built
 > | [Cognitive Services QnA Maker Editor](#cognitive-services-qna-maker-editor) | Let's you create, edit, import and export a KB. You cannot publish or delete a KB. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
 > | [Cognitive Services QnA Maker Reader](#cognitive-services-qna-maker-reader) | Let's you read and test a KB only. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | **Internet of things** |  |  |
+> | [Device Update Administrator](#device-update-administrator) | Gives you full access to management and content operations | 02ca0879-e8e4-47a5-a61e-5c618b76e64a |
+> | [Device Update Content Administrator](#device-update-content-administrator) | Gives you full access to content operations | 0378884a-3af5-44ab-8323-f5b22f9f3c98 |
+> | [Device Update Content Reader](#device-update-content-reader) | Gives you read access to content operations, but does not allow making changes | d1ee9a80-8b14-47f0-bdc2-f4a351625a7b |
+> | [Device Update Deployments Administrator](#device-update-deployments-administrator) | Gives you full access to management operations | e4237640-0e3d-4a46-8fda-70bc94856432 |
+> | [Device Update Deployments Reader](#device-update-deployments-reader) | Gives you read access to management operations, but does not allow making changes | 49e2f5d2-7741-4835-8efa-19e1fe35e47f |
+> | [Device Update Reader](#device-update-reader) | Gives you read access to management and content operations, but does not allow making changes | e9dba6fb-3d52-4cf0-bce3-f06ce71b9e0f |
 > | **Mixed reality** |  |  |
 > | [Remote Rendering Administrator](#remote-rendering-administrator) | Provides user with conversion, manage session, rendering and diagnostics capabilities for Azure Remote Rendering | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
 > | [Remote Rendering Client](#remote-rendering-client) | Provides user with manage session, rendering and diagnostics capabilities for Azure Remote Rendering. | d39065c4-c120-43c9-ab0a-63eed9795f0a |
@@ -151,6 +159,7 @@ The following table provides a brief description and the unique ID of each built
 > | [Azure Service Bus Data Receiver](#azure-service-bus-data-receiver) | Allows for receive access to Azure Service Bus resources. | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
 > | [Azure Service Bus Data Sender](#azure-service-bus-data-sender) | Allows for send access to Azure Service Bus resources. | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
 > | [Azure Stack Registration Owner](#azure-stack-registration-owner) | Lets you manage Azure Stack registrations. | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
+> | [EventGrid Contributor](#eventgrid-contributor) | Lets you manage EventGrid operations. | 1e241071-0855-49ea-94dc-649edcd759de |
 > | [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Lets you manage EventGrid event subscription operations. | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Lets you read EventGrid event subscriptions. | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | [FHIR Data Contributor](#fhir-data-contributor) | Role allows user or principal full access to FHIR Data | 5a1fc7df-4bf1-4951-a576-89034ee01acd |
@@ -168,6 +177,7 @@ The following table provides a brief description and the unique ID of each built
 > | **Security** |  |  |
 > | [Attestation Contributor](#attestation-contributor) | Can read write or delete the attestation provider instance | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
 > | [Attestation Reader](#attestation-reader) | Can read the attestation provider properties | fd1bd22b-8476-40bc-a0bc-69b95687b9f3 |
+> | [Azure Sentinel Automation Contributor](#azure-sentinel-automation-contributor) | Azure Sentinel Automation Contributor | f4c81013-99ee-4d62-a7ee-b3f1f648599a |
 > | [Azure Sentinel Contributor](#azure-sentinel-contributor) | Azure Sentinel Contributor | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Azure Sentinel Reader](#azure-sentinel-reader) | Azure Sentinel Reader | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Azure Sentinel Responder](#azure-sentinel-responder) | Azure Sentinel Responder | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
@@ -2053,6 +2063,69 @@ Lets you view everything but will not let you delete or create a storage account
     }
   ],
   "roleName": "Reader and Data Access",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Storage Account Backup Contributor Role
+
+Storage Account Backup Contributors are allowed to perform backup and restore of Storage Account. [Learn more](../backup/blob-backup-configure-manage.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/locks/read | Gets locks at the specified scope. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/locks/write | Add locks at the specified scope. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/locks/delete | Delete locks at the specified scope. |
+> | [Microsoft.Features](resource-provider-operations.md#microsoftfeatures)/features/read | Gets the features of a subscription. |
+> | [Microsoft.Features](resource-provider-operations.md#microsoftfeatures)/providers/features/read | Gets the feature of a subscription in a given resource provider. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/operations/read | Polls the status of an asynchronous operation. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/blobServices/write | Returns the result of put blob service properties |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/restoreBlobRanges/action | Restore blob ranges to the state of the specified time |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Storage Account Backup Contributors are allowed to perform backup and restore of Storage Account.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e5e2a7ff-d759-4cd2-bb51-3152d37e2eb1",
+  "name": "e5e2a7ff-d759-4cd2-bb51-3152d37e2eb1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Authorization/locks/read",
+        "Microsoft.Authorization/locks/write",
+        "Microsoft.Authorization/locks/delete",
+        "Microsoft.Features/features/read",
+        "Microsoft.Features/providers/features/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Storage/operations/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/blobServices/write",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/restoreBlobRanges/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Account Backup Contributor Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -4395,6 +4468,7 @@ Lets you manage the security-related policies of SQL servers and databases, but 
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/databases/vulnerabilityAssessments/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/devOpsAuditingSettings/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/firewallRules/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/read | Return the list of servers or gets the properties for the specified server. |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/securityAlertPolicies/* | Create and manage SQL server security alert policies |
@@ -4460,6 +4534,7 @@ Lets you manage the security-related policies of SQL servers and databases, but 
         "Microsoft.Sql/servers/databases/vulnerabilityAssessments/*",
         "Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/*",
         "Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/*",
+        "Microsoft.Sql/servers/devOpsAuditingSettings/*",
         "Microsoft.Sql/servers/firewallRules/*",
         "Microsoft.Sql/servers/read",
         "Microsoft.Sql/servers/securityAlertPolicies/*",
@@ -4523,6 +4598,7 @@ Lets you manage SQL servers and databases, but not access to them, and not their
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/databases/vulnerabilityAssessments/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/devOpsAuditingSettings/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/extendedAuditingSettings/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/securityAlertPolicies/* | Edit SQL server security alert policies |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/servers/vulnerabilityAssessments/* |  |
@@ -4578,6 +4654,7 @@ Lets you manage SQL servers and databases, but not access to them, and not their
         "Microsoft.Sql/servers/databases/vulnerabilityAssessments/*",
         "Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/*",
         "Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/*",
+        "Microsoft.Sql/servers/devOpsAuditingSettings/*",
         "Microsoft.Sql/servers/extendedAuditingSettings/*",
         "Microsoft.Sql/servers/securityAlertPolicies/*",
         "Microsoft.Sql/servers/vulnerabilityAssessments/*",
@@ -5719,6 +5796,19 @@ Let's you create, edit, import and export a KB. You cannot publish or delete a K
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/read | Gets endpoint settings for an endpoint |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/write | Update endpoint seettings for an endpoint. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/operations/read | Gets details of a specific long running operation. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebaser. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/download/read | Download the knowledgebase. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/create/write | Asynchronous operation to create a new knowledgebase. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/write | Asynchronous operation to modify a knowledgebase or Replace knowledgebase contents. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/generateanswer/action | GenerateAnswer call to query the knowledgebase. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/train/action | Train call to add suggestions to the knowledgebase. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/alterations/read | Download alterations from runtime. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/alterations/write | Replace alterations data. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/read | Gets endpoint keys for an endpoint |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/refreshkeys/action | Re-generates an endpoint key. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/read | Gets endpoint settings for an endpoint |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/write | Update endpoint seettings for an endpoint. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/operations/read | Gets details of a specific long running operation. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -5764,7 +5854,20 @@ Let's you create, edit, import and export a KB. You cannot publish or delete a K
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/refreshkeys/action",
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/read",
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/write",
-        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/operations/read"
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/operations/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/download/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/create/write",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/write",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/generateanswer/action",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/train/action",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/alterations/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/alterations/write",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointkeys/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointkeys/refreshkeys/action",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointsettings/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointsettings/write",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/operations/read"
       ],
       "notDataActions": []
     }
@@ -5800,6 +5903,12 @@ Let's you read and test a KB only. [Learn more](../cognitive-services/qnamaker/r
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/alterations/read | Download alterations from runtime. |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/read | Gets endpoint keys for an endpoint |
 > | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/read | Gets endpoint settings for an endpoint |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebaser. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/download/read | Download the knowledgebase. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/generateanswer/action | GenerateAnswer call to query the knowledgebase. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/alterations/read | Download alterations from runtime. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/read | Gets endpoint keys for an endpoint |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/read | Gets endpoint settings for an endpoint |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -5831,7 +5940,13 @@ Let's you read and test a KB only. [Learn more](../cognitive-services/qnamaker/r
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/generateanswer/action",
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterations/read",
         "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/read",
-        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/read"
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/download/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/knowledgebases/generateanswer/action",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/alterations/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointkeys/read",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnAMaker/endpointsettings/read"
       ],
       "notDataActions": []
     }
@@ -5902,6 +6017,323 @@ Lets you read and list keys of Cognitive Services. [Learn more](../cognitive-ser
     }
   ],
   "roleName": "Cognitive Services User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Internet of things
+
+
+### Device Update Administrator
+
+Gives you full access to management and content operations [Learn more](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/read | Performs a read operation related to updates |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/write | Performs a write operation related to updates |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/delete | Performs a delete operation related to updates |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/read | Performs a read operation related to management |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/write | Performs a write operation related to management |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/delete | Performs a delete operation related to management |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you full access to management and content operations",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/02ca0879-e8e4-47a5-a61e-5c618b76e64a",
+  "name": "02ca0879-e8e4-47a5-a61e-5c618b76e64a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/updates/read",
+        "Microsoft.DeviceUpdate/accounts/instances/updates/write",
+        "Microsoft.DeviceUpdate/accounts/instances/updates/delete",
+        "Microsoft.DeviceUpdate/accounts/instances/management/read",
+        "Microsoft.DeviceUpdate/accounts/instances/management/write",
+        "Microsoft.DeviceUpdate/accounts/instances/management/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Device Update Content Administrator
+
+Gives you full access to content operations [Learn more](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/read | Performs a read operation related to updates |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/write | Performs a write operation related to updates |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/delete | Performs a delete operation related to updates |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you full access to content operations",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0378884a-3af5-44ab-8323-f5b22f9f3c98",
+  "name": "0378884a-3af5-44ab-8323-f5b22f9f3c98",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/updates/read",
+        "Microsoft.DeviceUpdate/accounts/instances/updates/write",
+        "Microsoft.DeviceUpdate/accounts/instances/updates/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Content Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Device Update Content Reader
+
+Gives you read access to content operations, but does not allow making changes [Learn more](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/read | Performs a read operation related to updates |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you read access to content operations, but does not allow making changes",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d1ee9a80-8b14-47f0-bdc2-f4a351625a7b",
+  "name": "d1ee9a80-8b14-47f0-bdc2-f4a351625a7b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/updates/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Content Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Device Update Deployments Administrator
+
+Gives you full access to management operations [Learn more](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/read | Performs a read operation related to management |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/write | Performs a write operation related to management |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/delete | Performs a delete operation related to management |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you full access to management operations",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e4237640-0e3d-4a46-8fda-70bc94856432",
+  "name": "e4237640-0e3d-4a46-8fda-70bc94856432",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/management/read",
+        "Microsoft.DeviceUpdate/accounts/instances/management/write",
+        "Microsoft.DeviceUpdate/accounts/instances/management/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Deployments Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Device Update Deployments Reader
+
+Gives you read access to management operations, but does not allow making changes [Learn more](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/read | Performs a read operation related to management |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you read access to management operations, but does not allow making changes",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/49e2f5d2-7741-4835-8efa-19e1fe35e47f",
+  "name": "49e2f5d2-7741-4835-8efa-19e1fe35e47f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/management/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Deployments Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Device Update Reader
+
+Gives you read access to management and content operations, but does not allow making changes [Learn more](../iot-hub-device-update/device-update-control-access.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/updates/read | Performs a read operation related to updates |
+> | [Microsoft.DeviceUpdate](resource-provider-operations.md#microsoftdeviceupdate)/accounts/instances/management/read | Performs a read operation related to management |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Gives you read access to management and content operations, but does not allow making changes",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e9dba6fb-3d52-4cf0-bce3-f06ce71b9e0f",
+  "name": "e9dba6fb-3d52-4cf0-bce3-f06ce71b9e0f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.Insights/alertRules/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DeviceUpdate/accounts/instances/updates/read",
+        "Microsoft.DeviceUpdate/accounts/instances/management/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Device Update Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -6586,6 +7018,55 @@ Lets you manage Azure Stack registrations.
     }
   ],
   "roleName": "Azure Stack Registration Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### EventGrid Contributor
+
+Lets you manage EventGrid operations.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.EventGrid](resource-provider-operations.md#microsofteventgrid)/* |  |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage EventGrid operations.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/1e241071-0855-49ea-94dc-649edcd759de",
+  "name": "1e241071-0855-49ea-94dc-649edcd759de",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.EventGrid/*",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "EventGrid Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -7331,6 +7812,51 @@ Can read the attestation provider properties [Learn more](../attestation/trouble
     }
   ],
   "roleName": "Attestation Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Azure Sentinel Automation Contributor
+
+Azure Sentinel Automation Contributor
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/triggers/read | Reads the trigger. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/triggers/listCallbackUrl/action | Gets the callback URL for trigger. |
+> | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/runs/read | Reads the workflow run. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Azure Sentinel Automation Contributor",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+  "name": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Logic/workflows/triggers/read",
+        "Microsoft.Logic/workflows/triggers/listCallbackUrl/action",
+        "Microsoft.Logic/workflows/runs/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Sentinel Automation Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
