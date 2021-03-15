@@ -1,5 +1,5 @@
 ---
-title: Client libraries and REST APIs for Azure Communication Services
+title: SDKs and REST APIs for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn more about Azure Communication Services client libraries and REST APIs.
 author: mikben
@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/18/2020
+ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
