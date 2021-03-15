@@ -35,14 +35,23 @@ ms.custom: devx-track-python
 | |  |
 |---|---|
 |**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**API documentation**|[Python API reference documentation](/python/api/azure-cosmos/)|
+|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
 |**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## Release history
 
-### 4.1.0 (2020-08-10)
+## 4.2.0 (2020-10-08)
+
+**Bug fixes**
+- Fixed bug where continuation token is not honored when query_iterable is used to get results by page. Issue #13265.
+- Fixed bug where resource tokens not being honored for document reads and deletes. Issue #13634.
+
+**New features**
+- Added support for passing partitionKey while querying changefeed. Issue #11689.
+
+## 4.1.0 (2020-08-10)
 
 - Added deprecation warning for "lazy" indexing mode. The backend no longer allows creating containers with this mode and will set them to consistent instead.
 
@@ -52,11 +61,12 @@ ms.custom: devx-track-python
 **Bug fixes**
 - Fixed support for dicts as inputs for get_client APIs.
 - Fixed Python 2/3 compatibility in query iterators.
-- Fixed type hint error (Issue #12570).
+- Fixed type hint error. Issue #12570 - thanks @sl-sandy.
 - Fixed bug where options headers were not added to upsert_item function. Issue #11791 - thank you @aalapatirvbd.
-- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError (Issue #11793).
+- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError. Issue #11793 - thank you @Rabbit994.
 
-### 4.0.0
+
+## 4.0.0 (2020-05-20)
 
 * Stable release.
 * Added HttpLoggingPolicy to pipeline to enable passing in a custom logger for request and response headers.
