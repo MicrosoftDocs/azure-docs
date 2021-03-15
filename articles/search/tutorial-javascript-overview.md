@@ -59,21 +59,19 @@ Install the following for your local development environment.
 
 ## Download the sample app
 
-Fork and download the sample project structure with the React and Function apps. 
-
-1. Create your fork of the sample rep by opening this GitHub link: 
+1. Create your GitHub fork of the sample rep by opening this GitHub link: 
     
     * [https://github.com/dereklegenzoff/azure-search-react-template/generate](https://github.com/dereklegenzoff/azure-search-react-template/generate)
 
     Complete the fork process in your web browser with your GitHub account. 
 
-1. At a bash terminal, download the sample application using the following Git command. Replace `YOUR-GITHUB-ALIAS` with your GitHub alias. 
+1. At a bash terminal, download the sample application. Replace `YOUR-GITHUB-ALIAS` with your GitHub alias. 
 
     ```bash
     git clone https://github.com/YOUR-GITHUB-ALIAS/azure-search-react-template
     ```
 
-1. In Visual Studio Code, open the `azure-search-react-template` project.
+1. In Visual Studio Code, open the `azure-search-react-template` project inside the repository.
 
 1. Add a subdirectory named `scripts`. 
 
