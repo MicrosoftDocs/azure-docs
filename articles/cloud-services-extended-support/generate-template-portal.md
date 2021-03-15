@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.service: cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
-ms.reviewer: mimckitt
+ms.reviewer: gachandw
 ms.date: 03/07/2021
 ms.custom: 
 ---
@@ -16,7 +16,7 @@ This article explains how to get the ARM template and parameter file from the Az
 
 ## Get ARM template via portal
 
-	1. Goto your resource group, and select deployments
+  1. Goto your resource group, and select deployments
   :::image type="content" source="media/generate-template-portal-1.png" alt-text="Image shows selecting deployments under resource group on the Azure portal.":::
   
   2. Select your cloud service (extended support) and click on template
