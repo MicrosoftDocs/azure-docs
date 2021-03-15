@@ -13,9 +13,9 @@ Important updates to Azure VMware Solution will be applied starting in March 202
 
 - Azure VMware Solution service will be performing maintenance work to update vCenter server in your private cloud to vCenter Server 6.7 Update 3l version through March 19, 2021.
 
-- During this time, VMware vCenter will be unavailable, and you will not be able to manage VMs (stop, start, create, delete). VMware High Availability (HA) will continue to operate to provide protection for existing VMs. Private cloud scaling (adding/removing servers and clusters) will also be unavailable.
+- During this time, VMware vCenter will be unavailable, and you won't be able to manage VMs (stop, start, create, delete). VMware High Availability (HA) will continue to operate to provide protection for existing VMs. Private cloud scaling (adding/removing servers and clusters) will also be unavailable.
  
-For more details on this vCenter version, please refer to [VMware vCenter Server 6.7 Update 3l Release Notes](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/vsphere-vcenter-server-67u3l-release-notes.html).
+For more details on this vCenter version, see [VMware vCenter Server 6.7 Update 3l Release Notes](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/vsphere-vcenter-server-67u3l-release-notes.html).
 
 ## March 4, 2021
 
