@@ -144,7 +144,7 @@ SmsClient smsClient = new SmsClientBuilder()
 
 ## Send a 1:1 SMS message
 
-To send an SMS message to a list of recipients, call the `send` method from the SmsClient with a single recipient phone number. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.
+To send an SMS message to a single recipient, call the `send` method from the SmsClient with a single recipient phone number. You may also pass in optional parameters to specify whether the delivery report should be enabled and to set custom tags.
 
 ```java
 SmsSendResult sendResult = smsClient.send(
