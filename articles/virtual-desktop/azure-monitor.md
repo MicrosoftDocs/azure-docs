@@ -95,7 +95,10 @@ You can learn more about how to enable diagnostics on all objects in the Windows
 To start using Azure Monitor for Windows Virtual Desktop, you'll also need at least one Log Analytics workspace to collect data from the environment you plan to monitor and supply it to the workbook. If you already have one set up, skip ahead to [Set up performance counters](#set-up-performance-counters). To set up a new Log Analytics workspace for the Azure subscription containing your Windows Virtual Desktop environment, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 >[!NOTE]
->Standard data storage charges for Log Analytics will apply. To start, we recommend you choose the pay-as-you-go model and adjust as you scale your deployment and take in more data. To learn more, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+>Standard data storage charges for Log Analytics will apply. To start, we recommend you choose the pay-as-you-go model and adjust as you scale your deployment and take in more data. Please note that when you enable the default values provided by the configuration workbook, a significant amount of data is being stored in Log Analytics, monitor your data ingestion closely or setup a daily cap for log ingestion.
+
+>To setup a daily data ingestion cap, see [Manage usage and costs with Azure Monitor Logs](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-cost-storage#manage-your-maximum-daily-data-volume).
+>To learn more, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### Set up performance counters
 
