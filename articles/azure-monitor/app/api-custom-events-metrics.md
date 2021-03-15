@@ -483,7 +483,11 @@ telemetry.trackTrace({
 *Client/Browser-side JavaScript*
 
 ```javascript
-trackTrace(message: string, properties?: {[string]:string}, severityLevel?: SeverityLevel)
+trackTrace({
+    message: string, 
+    properties?: {[string]:string}, 
+    severityLevel?: SeverityLevel
+})
 ```
 
 Log a diagnostic event such as entering or leaving a method.
