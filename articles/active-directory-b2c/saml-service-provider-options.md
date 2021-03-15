@@ -277,7 +277,7 @@ You can manage the session between Azure AD B2C and the SAML relying party appli
 
 ## Force users to re-authenticate 
 
-To force users to re-authenticate, the application can include the `ForceAuthn` attribute in the SAML authentication request. The `ForceAuthn` attribute is a Boolean value. When set to true, the users session will be invalidated at Azure AD B2C and the user will be forced to re-authenticate. The following shows how to set the `ForceAuthn` attribute to true in your SAML Request. 
+To force users to re-authenticate, the application can include the `ForceAuthn` attribute in the SAML authentication request. The `ForceAuthn` attribute is a Boolean value. When set to true, the users session will be invalidated at Azure AD B2C, and the user is forced to re-authenticate. The following SAML authentication request dmonstrates how to set the `ForceAuthn` attribute to true. 
 
 
 ```xml
