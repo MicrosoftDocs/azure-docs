@@ -22,7 +22,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-03-08
 
 ### Azure Machine Learning SDK for Python v1.24.0
-+ **New features**
++ **Bug fixes and improvements**
   + **azureml-automl-core**
     + Removed backwards compatible imports from `azureml.automl.core.shared`. Module not found errors in the `azureml.automl.core.shared` namespace can be resolved by importing from `azureml.automl.runtime.shared`.
   + **azureml-contrib-automl-dnn-vision**
@@ -71,7 +71,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-02-16
 
 ### Azure Machine Learning SDK for Python v1.23.0
-+ **New features**
++ **Bug fixes and improvements**
   + **azureml-core**
     + [Experimental feature] Add support to link synapse workspace into AML as an linked service
     + [Experimental feature] Add support to attach synapse spark pool into AML as a compute
