@@ -132,6 +132,8 @@
     href: concepts/known-issues.md
 - name: Samples
   items:
+  - name: Overview
+    href: samples/overview.md
   - name: Group calling hero sample
     href: samples/calling-hero-sample.md
   - name: Group chat hero sample
