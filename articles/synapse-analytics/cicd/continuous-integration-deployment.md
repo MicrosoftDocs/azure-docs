@@ -121,7 +121,7 @@ After saving all changes, you can select **Create release** to manually create a
 
    ![Select Create release](media/release-creation-manually.png)
 
-## Use Custom parameters of the workspace template 
+## Use custom parameters of the workspace template 
 
 You use automated CI/CD and you want to change some properties during deployment, but the properties aren't parameterized by default. In this case, you can override the default parameter template.
 
@@ -233,7 +233,7 @@ Here's an explanation of how the preceding template is constructed, broken down 
 #### Pipelines
 
 * Any property in the path `activities/typeProperties/waitTimeInSeconds` is parameterized. Any activity in a pipeline that has a code-level property named `waitTimeInSeconds` (for example, the `Wait` activity) is parameterized as a number, with a default name. But it won't have a default value in the Resource Manager template. It will be a mandatory input during the Resource Manager deployment.
-* Similarly, a property called `headers` (for example, in a `Web` activity) is parameterized with type `object` (JObject). It has a default value, which is the same value as that of the source factory.
+* Similarly, a property called `headers` (for example, in a `Web` activity) is parameterized with type `object` (Object). It has a default value, which is the same value as that of the source factory.
 
 #### IntegrationRuntimes
 
