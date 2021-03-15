@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 08/12/2020
-ms.author: anfeldma
+ms.author: rosouz
 ms.custom: devx-track-python
 ---
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
@@ -45,11 +45,11 @@ ms.custom: devx-track-python
 ## 4.2.0 (2020-10-08)
 
 **Bug fixes**
-- Fixed bug where continuation token is not honored when query_iterable is used to get results by page. Issue #13265.
-- Fixed bug where resource tokens not being honored for document reads and deletes. Issue #13634.
+- Fixed bug where continuation token is not honored when query_iterable is used to get results by page.
+- Fixed bug where resource tokens not being honored for document reads and deletes. 
 
 **New features**
-- Added support for passing partitionKey while querying changefeed. Issue #11689.
+- Added support for passing partitionKey while querying changefeed.
 
 ## 4.1.0 (2020-08-10)
 
@@ -61,9 +61,9 @@ ms.custom: devx-track-python
 **Bug fixes**
 - Fixed support for dicts as inputs for get_client APIs.
 - Fixed Python 2/3 compatibility in query iterators.
-- Fixed type hint error. Issue #12570 - thanks @sl-sandy.
-- Fixed bug where options headers were not added to upsert_item function. Issue #11791 - thank you @aalapatirvbd.
-- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError. Issue #11793 - thank you @Rabbit994.
+- Fixed type hint error.
+- Fixed bug where options headers were not added to upsert_item function. 
+- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError.
 
 
 ## 4.0.0 (2020-05-20)
