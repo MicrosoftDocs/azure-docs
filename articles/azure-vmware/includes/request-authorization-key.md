@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/15/2021
 ---
 
-<!-- used in expressroute-global-reach-private-cloud.md and ??? -->
+<!-- used in expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->
 
 1. Under the **Connectivity** section, on the **ExpressRoute** tab, select **+ Request an authorization key**. 
 
@@ -17,7 +17,7 @@ ms.date: 03/15/2021
 
    :::image type="content" source="../media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Screenshot showing the ExpressRoute Global Reach authorization key.":::
   
-1. Make a note of the authorization key and the ExpressRoute ID. You'll use them in the next step to complete the peering.  
+1. Make a note of the authorization key and the ExpressRoute ID. You'll use them to complete the peering.  
 
    > [!NOTE]
    > The authorization key disappears after some time, so copy it as soon as it appears.
