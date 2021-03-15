@@ -343,7 +343,7 @@ To install:
    | **appliance hostname:** | - |
    | **DNS:** | - |
    | **default gateway IP address:** | - |
-   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator. Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
+   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator.You do not have to configure the bridge interface. This option is used for special use cases only. |
 
 1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.  
 
@@ -562,7 +562,7 @@ To install:
     | **Hardware profile** | Select **corporate**. |
     | **Management interface** | **eno2** |
     | **Default network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
-    | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/>Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
+    | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/> You do not need to configure the bridge interface. This option is used for special use cases only. |
 
 1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **support** user.
 
@@ -692,9 +692,9 @@ To install:
 
 1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required for sign-in and administration.
 
-   - **Support**: The administrative user for user management.
+    - **Support**: The administrative user for user management.
 
-   - **CyberX**: The equivalent of root for accessing the appliance.
+    - **CyberX**: The equivalent of root for accessing the appliance.
 
 1. The appliance restarts.
 
@@ -822,7 +822,7 @@ To create a virtual machine by using Hyper-V:
 
 ### Software installation (ESXi and Hyper-V)
 
-Starting the virtual machine will start the installation process from the ISO image. To enhance security, you have the option to create a second network interface oo your on-premises management console. The primary network interface is dedicated for your users, and can support the configuration of a gateway for routed networks. The second network interface is used to manage your local network with all of the attached sensors within an IP address range.
+Starting the virtual machine will start the installation process from the ISO image. To enhance security, you can create a second network interface on your on-premises management console. One network interface is dedicated for your users, and can support the configuration of a gateway for routed networks. The second network interface is dedicated to the all attached sensors within an IP address range.
 
 Both network interfaces have the user interface (UI) enabled, and all of the features that are supported by the UI will be available on the secondary network interface when routing in not needed. High Availability will run on the secondary network interface.
 
@@ -858,7 +858,7 @@ To install the software:
 
 ## Post-installation validation
 
-To validate the installation of a physical appliance, you need to perform a number of tests. The same validation process applies to all the appliance types.
+To validate the installation of a physical appliance, you need to perform many tests. The same validation process applies to all the appliance types.
 
 Perform the validation by using the GUI or the CLI. The validation is available to the user **Support** and the user **CyberX**.
 
@@ -906,7 +906,7 @@ Post-installation validation must include the following tests:
   - The size of the backup folder
   - The limitations of the backup folder
   - When the last backup happened
-  - How much space there is for the additional backup files
+  - How much space there is for the extra backup files
 
 - **ifconfig**: Displays the parameters for the appliance's physical interfaces.
 
@@ -1034,7 +1034,7 @@ For any other issues, contact [Microsoft Support](https://support.microsoft.com/
 
 ### Configure a SPAN port on an existing vSwitch
 
-A vSwitch does not have mirroring capabilities, but you can use a simple workaround to implement a SPAN port.
+A vSwitch does not have mirroring capabilities, but you can use a workaround to implement a SPAN port.
 
 To configure a SPAN port:
 
