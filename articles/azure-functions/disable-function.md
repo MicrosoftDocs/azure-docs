@@ -2,7 +2,7 @@
 title: How to disable functions in Azure Functions
 description: Learn how to disable and enable functions in Azure Functions.
 ms.topic: conceptual
-ms.date: 02/03/2021 
+ms.date: 03/15/2021 
 ms.custom: "devx-track-csharp, devx-track-azurecli"
 ---
 
@@ -86,6 +86,7 @@ To re-enable the function, rerun the same command with a value of `false`.
 az functionapp config appsettings set --name <myFunctionApp> \
 --resource-group <myResourceGroup> --slot <SLOT_NAME> \
 --slot-settings AzureWebJobs.QueueTrigger.Disabled=false
+```
 
 # [Azure PowerShell](#tab/powershell)
 
