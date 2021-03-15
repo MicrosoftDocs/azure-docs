@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Computer Vision client library"
+title: "Quickstart: Computer Vision client library or REST API"
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Azure Computer Vision in your application through a native client library in the language of your choice.
 services: cognitive-services
@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-computer-vision
 keywords: computer vision, computer vision service
 ---
 
-# Quickstart: Use the Computer Vision client library
+# Quickstart: Use the Computer Vision client library or REST API
 
 Get started with the Computer Vision REST API or client libraries. The Computer Vision service provides you with AI algorithms for processing images and returning information on their visual features. Follow these steps to install a package to your application and try out the sample code for basic tasks.
 
