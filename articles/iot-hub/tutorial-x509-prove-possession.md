@@ -30,13 +30,13 @@ After you upload your root certification authority (CA) certificate or subordina
 
   :::image type="content" source="media/tutorial-x509-prove-possession/certificate-details.png" alt-text="{Certificate details dialog}":::
 
-7. Copy the verification code to the clipboard. You must set the verification code as the certificate subject. For example, if the verification code is BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, add that as the subject of your certificate as shown in the next step.
+7. Copy the verification code to the clipboard. You must set the verification code as the certificate subject. For example, if the verification code is 75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3, add that as the subject of your certificate as shown in the next step.
 
 8. There are three ways to generate a verification certificate:
 
-    * If you are using the PowerShell script supplied by Microsoft, run `New-CACertsVerificationCert "BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A"` to create a certificate named `VerifyCert4.cer`. For more information, see [Using Microsoft-supplied Scripts](tutorial-x509-scripts.md).
+    * If you are using the PowerShell script supplied by Microsoft, run `New-CACertsVerificationCert "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"` to create a certificate named `VerifyCert4.cer`. For more information, see [Using Microsoft-supplied Scripts](tutorial-x509-scripts.md).
 
-    * If you are using the Bash script supplied by Microsoft, run `./certGen.sh create_verification_certificate "BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A"` to create a certificate named `verification-code.cert.pem`. For more information, see [Using Microsoft-supplied Scripts](tutorial-x509-scripts.md).
+    * If you are using the Bash script supplied by Microsoft, run `./certGen.sh create_verification_certificate "75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3"` to create a certificate named `verification-code.cert.pem`. For more information, see [Using Microsoft-supplied Scripts](tutorial-x509-scripts.md).
 
     * If you are using OpenSSL to generate your certificates, you must first generate a private key and a certificate signing request (CSR):
 
@@ -49,7 +49,7 @@ After you upload your root certification authority (CA) certificate or subordina
       Locality Name (eg, city) [Default City]:.
       Organization Name (eg, company) [Default Company Ltd]:.
       Organizational Unit Name (eg, section) []:.
-      Common Name (eg, your name or your server hostname) []:BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A
+      Common Name (eg, your name or your server hostname) []:75B86466DA34D2B04C0C4C9557A119687ADAE7D4732BDDB3
       Email Address []:
 
       Please enter the following 'extra' attributes

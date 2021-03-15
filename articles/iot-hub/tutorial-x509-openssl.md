@@ -37,7 +37,7 @@ Create a directory structure for the certification authority.
 
 ## Step 2 - Create a Root CA Configuration File
 
-Before creating a CA, create a configuration file and save it as rootca.conf in the rootca directory.
+Before creating a CA, create a configuration file and save it as `rootca.conf` in the rootca directory.
 
 ```xml
 [default]
@@ -233,8 +233,7 @@ You now have both a root CA certificate and a subordinate CA certificate. You ca
 
 1. Select **Save**. Your certificate is shown in the certificate list with a status of **Unverified**. The verification process will prove that you own the certificate.
 
-    <illustration>
-
+   
 1. Select the certificate to view the **Certificate Details** dialog.
 
 1. Select **Generate Verification Code**. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).

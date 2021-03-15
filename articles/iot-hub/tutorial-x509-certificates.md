@@ -18,11 +18,11 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 
 X.509 certificates are digital documents that represent a user, computer, service, or device. They are issued by a certification authority (CA), subordinate CA, or registration authority and contain the public key of the certificate subject. They do not contain the subject's private key which must be stored securely. Public key certificates are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). They are digitally signed and, in general, contain the following information:
 
-* Information about the certificate subject.
-* The public key that corresponds to the subject's private key.
-* Information about the issuing CA.
-* The supported encryption and/or digital signing algorithms.
-* Information to determine the revocation and validity status of the certificate.
+* Information about the certificate subject
+* The public key that corresponds to the subject's private key
+* Information about the issuing CA
+* The supported encryption and/or digital signing algorithms
+* Information to determine the revocation and validity status of the certificate
 
 ## Certificate Fields
 
@@ -100,3 +100,13 @@ The format for a private key store defined by [RFC 5208](https://tools.ietf.org/
 ### PKCS#12 key and certificate
 
 A complex format that can store and protect a key and the entire certificate chain. It is commonly used with a .pfx extension. PKCS#12 is synonymous with the PFX format.
+
+## Next Steps
+
+If you want to generate test certificates that you can use to authenticate devices to your IoT Hub, see the following topics:
+
+* [Using Microsoft-Supplied Scripts to Create Test Certificates](tutorial-x509-scripts.md)
+* [Using OpenSSL to Create Test Certificates](tutorial-x509-openssl.md)
+* [Using OpenSSL to Create Self-Signed Test Certificates](tutorial-x509-self-sign.md)
+
+If you have a certification authority (CA) certificate or subordinate CA certificate and you want to upload it to your IoT hub and prove that you own it, see [Proving Possession of a CA Certificate](tutorial-x509-prove-possession.md).

@@ -16,7 +16,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 
 ## Introduction
 
-You can authenticate a device to your IoT Hub using two self-signed device certificates. This is sometimes called thumbprint authentication because the certificates contain thumbprints (hash values)that you submit to the IoT hub. The following steps tell you how to create two self-signed certificates.
+You can authenticate a device to your IoT Hub using two self-signed device certificates. This is sometimes called thumbprint authentication because the certificates contain thumbprints (hash values) that you submit to the IoT hub. The following steps tell you how to create two self-signed certificates.
 
 ## Step 1 - Create a key for the first certificate
 
@@ -55,7 +55,7 @@ openssl x509 -req -days 365 -in device1.csr -signkey device1.key -out device.crt
 
 ## Step 5 - Create a key for certificate 2
 
-Specify the same device ID that you used for certificate 1 when prompted.
+When prompted, specify the same device ID that you used for certificate 1.
 
 ```bash
 openssl req -new -key device2.key -out device2.csr
@@ -94,7 +94,7 @@ Navigate to your IoT Hub in the Azure portal and create a new IoT device identit
 
 * Provide the **Device ID** that matches the subject name of your two certificates.
 * Select the **X.509 Self-Signed** authentication type.
-* Paste the hex strings that you copied from your device primary and secondary certificates. Make sure that the hex strings have no colon delimiters.
+* Paste the hex string thumbprints that you copied from your device primary and secondary certificates. Make sure that the hex strings have no colon delimiters.
 
 illustration
 

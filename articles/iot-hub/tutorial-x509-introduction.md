@@ -18,7 +18,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 
 You can use X.509 certificates to authenticate devices to an Azure IoT Hub. A certificate is a digital document that contains the device's public key and can be used to verify that the device is what it claims to be. X.509 certificates and certificate revocation lists (CRLs) are documented by [RFC 5280](https://tools.ietf.org/html/rfc5280). Certificates are just one part of an X.509 public key infrastructure (PKI). To understand X.509 PKI, you need to understand cryptographic algorithms, cryptographic keys, certificates, and certification authorities (CAs):
 
-* **Algorithms** define how original plaintext data is transformed into ciphertext and bak to plaintext.
+* **Algorithms** define how original plaintext data is transformed into ciphertext and back to plaintext.
 * **Keys** are random or pseudorandom data strings used as input to an algorithm.
 * **Certificates** are digital documents that contain an entity's public key and enable you to determine whether the subject of the certificate is who or what it claims to be.
 * **Certification Authorities** attest to the authenticity of certificate subjects.
@@ -117,3 +117,15 @@ Digital signing can be used to determine whether the data has been modified in t
 1. The recipient runs the same hash algorithm that the sender used over the message.
 
 1. The recipient compares the resulting signature to the decrypted signature. If the digests are the same, the message was not modified during transmission.
+
+## Next Steps
+
+To learn more about the fields that make up a certificate, see [Understanding X.509 Public Key Certificates](tutorial-x509-certificates).
+
+If you already know a lot about X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT Hub, see the following topics:
+
+* [Using Microsoft-Supplied Scripts to Create Test Certificates](tutorial-x509-scripts.md)
+* [Using OpenSSL to Create Test Certificates](tutorial-x509-openssl.md)
+* [Using OpenSSL to Create Self-Signed Test Certificates](tutorial-x509-self-sign.md)
+
+If you have a certification authority (CA) certificate or subordinate CA certificate and you want to upload it to your IoT hub and prove that you own it, see [Proving Possession of a CA Certificate](tutorial-x509-prove-possession.md).
