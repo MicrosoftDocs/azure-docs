@@ -160,36 +160,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Cause**: Undetermined.
 - **Recommendation**: Check parameter value assignment in the pipeline. A parameter expression might contain invalid characters.
 
-### Error code: DF-Excel-InvalidConfiguration
-- **Message**: Excel sheet name or index is required.
-- **Cause**: Undetermined.
-- **Recommendation**: Check the parameter value. Specify the worksheet name or index for reading Excel data.
-
-- **Message**: Excel sheet name and index cannot exist at the same time.
-- **Cause**: Undetermined.
-- **Recommendation**: Check the parameter value. Specify the worksheet name or index for reading Excel data.
-
-- **Message**: Invalid range is provided.
-- **Cause**: Undetermined.
-- **Recommendation**: Check the parameter value. Specify a valid range by reference. For more information, see [Excel properties](./format-excel.md#dataset-properties).
-
-- **Message**: Invalid excel file is provided while only .xlsx and .xls are supported
-- **Cause**: Undetermined.
-- **Recommendation**: Make sure the Excel file extension is either .xlsx or .xls.
-
-
- ### Error code: DF-Excel-InvalidData
-- **Message**: Excel worksheet does not exist.
-- **Cause**: Undetermined.
-- **Recommendation**: Check the parameter value. Specify a valid worksheet name or index for reading Excel data.
-
-- **Message**: Reading excel files with different schema is not supported now.
-- **Cause**: Undetermined.
-- **Recommendation**: Use a supported Excel file.
-
-- **Message**: Data type is not supported.
-- **Cause**: Undetermined.
-- **Recommendation**: Use supported Excel file data types.
 
 ### Error code: 4502
 - **Message**: There are substantial concurrent MappingDataflow executions that are causing failures due to throttling under Integration Runtime.
@@ -226,7 +196,7 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Reference resource in the xml data file cannot be resolved.
 - **Recommendation**: You should check the reference resource in the XML data file.
 
-### Error code: "DF-Xml-InvalidSchema
+### Error code: DF-Xml-InvalidSchema
 - **Message**: Schema validation failed.
 
 ### Error code: DF-Xml-UnsupportedExternalReferenceResource
