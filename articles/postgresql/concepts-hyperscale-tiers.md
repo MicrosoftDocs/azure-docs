@@ -12,8 +12,8 @@ ms.date: 3/10/2021
 # Basic tier (preview)
 
 > [!IMPORTANT]
-> The Hyperscale (Citus) basic tier is currently in public preview.  This
-> preview version is provided without a service level agreement, and it's not
+> The Hyperscale (Citus) basic tier is currently in preview.  This preview
+> version is provided without a service level agreement, and it's not
 > recommended for production workloads. Certain features might not be supported
 > or might have constrained capabilities.  For more information, see
 > [Supplemental Terms of Use for Microsoft Azure
@@ -37,10 +37,9 @@ applications with the basic tier and later [graduate to the standard
 tier](howto-hyperscale-scale-grow.md#add-worker-nodes) with confidence that the
 interface remains the same.
 
-The basic tier is also appropriate for smaller workloads in production (once
-it emerges from public preview into general availability). There is room to
-scale vertically *within* the basic tier by increasing the number of server
-vCores.
+The basic tier is also appropriate for smaller workloads in production (once it
+emerges from preview into general availability). There is room to scale
+vertically *within* the basic tier by increasing the number of server vCores.
 
 When greater scale is required right away, use the standard tier. Its smallest
 allowed server group has one coordinator node and two workers. You can choose

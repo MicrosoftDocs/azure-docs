@@ -23,8 +23,8 @@ server group using the Azure portal. You'll provision the server group
 and verify that you can connect to it to run queries.
 
 > [!IMPORTANT]
-> The Hyperscale (Citus) basic tier is currently in public preview.  This
-> preview version is provided without a service level agreement, and it's not
+> The Hyperscale (Citus) basic tier is currently in preview.  This preview
+> version is provided without a service level agreement, and it's not
 > recommended for production workloads. Certain features might not be supported
 > or might have constrained capabilities.  For more information, see
 > [Supplemental Terms of Use for Microsoft Azure
