@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/08/2019
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -24,6 +24,7 @@ ms.subservice: B2C
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
+1. Enter a **Name**. For example, enter *Contoso*.
 
 ## Configure the identity provider
 
@@ -67,3 +68,16 @@ After the custom identity provider sends an ID token back to Azure AD B2C, Azure
 * **Given Name**: Enter the claim that provides the *first name* of the user.
 * **Surname**: Enter the claim that provides the *last name* of the user.
 * **Email**: Enter the claim that provides the *email address* of the user.
+
+## Add the identity provider to a user flow 
+
+1. In your Azure AD B2C tenant, select **User flows**.
+1. Click the user flow that you want to add the identity provider. 
+1. Under the **Social identity providers**, select the identity provider you added. For example, *Contoso*.
+1. Select **Save**.
+1. To test your policy, select **Run user flow**.
+1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select the identity provider you want to sign-in. For example, *Contoso*.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.

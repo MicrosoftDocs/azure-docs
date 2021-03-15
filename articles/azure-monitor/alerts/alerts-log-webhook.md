@@ -6,7 +6,6 @@ ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
 ---
 
 # Webhook actions for log alert rules

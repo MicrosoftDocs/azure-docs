@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: quickstart
-ms.date: 02/26/2021
+ms.date: 03/15/2021
 
 ms.custom: mvc,subject-armqs, devx-track-azurecli
 
@@ -32,11 +32,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - This article requires version 2.0.61 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- To create an AKS cluster using an Azure Resource Manager template, you need either 
-    - An SSH public key and Azure Active Directory service principal, or
-    - A [managed identity](use-managed-identity.md) instead of a service principal for permissions. 
-    
-    If you still need either of these resources, proceed to the following section; otherwise skip to the [Review the template](#review-the-template) section.
+- To create an AKS cluster using a Resource Manager template, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
 
 ### Create an SSH key pair
 
@@ -51,32 +47,6 @@ To access AKS nodes, you connect using an SSH key pair (public and private), whi
     ```
 
 For more information about creating SSH keys, see [Create and manage SSH keys for authentication in Azure][ssh-keys].
-
-### Create a service principal
-
-An Azure AD service principal allows an AKS cluster to interact with other Azure resources. By default, Azure AD service principals are valid for one year.
-
-Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command. 
-* The `--skip-assignment` parameter limits any additional permissions from being assigned. 
-* You can use a managed identity instead of a service principal. For more information, see [Use managed identities](use-managed-identity.md).
-
-```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
-```
-
-Output will be similar to the following example:
-
-```json
-{
-    "appId": "8b1ede42-d407-46c2-a1bc-6b213b04295f",
-    "displayName": "azure-cli-2019-04-19-21-42-11",
-    "name": "http://azure-cli-2019-04-19-21-42-11",
-    "password": "27e5ac58-81b0-46c1-bd87-85b4ef622682",
-    "tenant": "73f978cf-87f2-41bf-92ab-2e7ce012db57"
-}
-```
-
-Make a note of the *appId* and *password* values, as they will be used in the following steps.
 
 ## Review the template
 
@@ -96,32 +66,17 @@ For more AKS samples, see the [AKS quickstart templates][aks-quickstart-template
 
     For this quickstart, leave the default values for the *OS Disk Size GB*, *Agent Count*, *Agent VM Size*, *OS Type*, and *Kubernetes Version*. Provide your own values for the following template parameters:
 
-    * **Subscription**: 
-        * Select an Azure subscription.
-    * **Resource group**: 
-        * Select **Create new**. 
-        * Enter a unique name for the resource group, such as *myResourceGroup*. 
-        * Choose **OK**.
-    * **Location**: 
-        * Select a location, such as **East US**.
-    * **Cluster name**: 
-        * Enter a unique name for the AKS cluster, such as *myAKSCluster*.
-    * **DNS prefix**: 
-        * Enter a unique DNS prefix for your cluster, such as *myakscluster*.
-    * **Linux Admin Username**: 
-        * Enter a username to connect using SSH, such as *azureuser*.
-    * **SSH RSA Public Key**: 
-        * Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*).
-    * **Service Principal Client Id**: 
-        * Copy and paste the *appId* of your service principal from the `az ad sp create-for-rbac` command.
-    * **Service Principal Client Secret**: 
-        * Copy and paste the *password* of your service principal from the `az ad sp create-for-rbac` command.
-    * **I agree to the terms and conditions state above**: 
-        * Check this box to agree.
+    * **Subscription**: Select an Azure subscription.
+    * **Resource group**: Select **Create new**. Enter a unique name for the resource group, such as *myResourceGroup*, then choose **OK**.
+    * **Location**: Select a location, such as **East US**.
+    * **Cluster name**: Enter a unique name for the AKS cluster, such as *myAKSCluster*.
+    * **DNS prefix**: Enter a unique DNS prefix for your cluster, such as *myakscluster*.
+    * **Linux Admin Username**: Enter a username to connect using SSH, such as *azureuser*.
+    * **SSH RSA Public Key**: Copy and paste the *public* part of your SSH key pair (by default, the contents of *~/.ssh/id_rsa.pub*).
 
     ![Resource Manager template to create an Azure Kubernetes Service cluster in the portal](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Select **Purchase**.
+3. Select **Review + Create**.
 
 It takes a few minutes to create the AKS cluster. Wait for the cluster to be successfully deployed before you move on to the next step.
 
@@ -342,10 +297,10 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [aks-monitor]: ../azure-monitor/containers/container-insights-onboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-browse]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-browse
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-credentials
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-install-cli
+[az-aks-browse]: /cli/azure/aks#az-aks-browse
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli

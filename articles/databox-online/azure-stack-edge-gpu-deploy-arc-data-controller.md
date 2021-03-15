@@ -7,11 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 03/08/2021
 ms.author: alkohli
 ---
 # Deploy Azure Data Services on your Azure Stack Edge Pro GPU device
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article describes the process of creating an Azure Arc Data Controller and then deploying Azure Data Services on your Azure Stack Edge Pro GPU device. 
 
@@ -81,7 +82,7 @@ Create a new, dedicated namespace where you will deploy the Data Controller. You
 
 1. The config file should live in the `.kube` folder of your user profile on the local machine. Copy the file to that folder in your user profile.
 
-    ![Location of config file on client](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![Location of config file on client](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 1. Grant the user access to the namespace that you created. Type: 
 
     `Grant-HcsKubernetesNamespaceAccess -Namespace <Name of namespace> -UserName <User name>`
