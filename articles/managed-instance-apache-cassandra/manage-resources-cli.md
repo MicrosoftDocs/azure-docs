@@ -168,7 +168,7 @@ az managed-cassandra datacenter delete \
 
 ### <a id="get-datacenter-details"></a>Get datacenter details
 
-Get datacenter details by using the [az managed-cassandra datacenter show]/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_show) command:
+Get datacenter details by using the [az managed-cassandra datacenter show](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_show) command:
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
