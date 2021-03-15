@@ -763,6 +763,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |RecoverSystemPartitions |string, default is "Admin" |Dynamic| Security configuration for recovering system service partitions. |
 |RemoveNodeDeactivations |string, default is "Admin" |Dynamic| Security configuration for reverting deactivation on multiple nodes. |
 |ReportFabricUpgradeHealth |string, default is "Admin" |Dynamic| Security configuration for resuming cluster upgrades with the current upgrade progress. |
+|ReportCompletion |string, default is "Admin" |Dynamic| Security configuration for reporting completion of the replica. |
 |ReportFault |string, default is "Admin" |Dynamic| Security configuration for reporting fault. |
 |ReportHealth |string, default is "Admin" |Dynamic| Security configuration for reporting health. |
 |ReportUpgradeHealth |string, default is "Admin" |Dynamic| Security configuration for resuming application upgrades with the current upgrade progress. |
