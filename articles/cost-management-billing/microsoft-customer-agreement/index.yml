@@ -69,7 +69,11 @@ landingContent:
         url: ../manage/add-change-subscription-administrator.md#assign-a-subscription-administrator
     - linkListType: video
       links:
-      - text: View my agreement invoice
+      - text: Organize costs
+        url: https://www.youtube.com/watch?v=7RxTfShGHwU
+      - text: Manage access to billing account
+        url: https://www.youtube.com/watch?v=9sqglBlKkho
+      - text: Understand your invoice
         url: https://www.youtube.com/watch?v=e2LGZZ7GubA
 
 
@@ -78,7 +82,7 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: What is a tenant?
+      - text: What is Active Directory?
         url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
 #      - text: Manage multiple tenants (placeholder)
 #        url: ../manage/create-subscription.md
