@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Add video calling to your app (JavaScript)
+title: Quickstart - Add video calling to your app (JS)
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add video calling capabilities to your app using Azure Communication Services.
 author: xumo-95
@@ -9,11 +9,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-# QuickStart: Add 1:1 video calling to your app (JavaScript)
-
-## Download Code
-
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)
+# QuickStart: Add 1:1 video calling to your app (JS)
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -318,18 +314,12 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 ```
 Open your browser and navigate to http://localhost:8080/. You should see the following:
 
-:::image type="content" source="./media/javascript/1-on-1-video-calling.png" alt-text="1 on 1 video calling page":::
+:::image type="content" source="/media/javascript/pstn-calling-javascript-app.png" alt-text="1 on 1 video calling page":::
 
 You can make an 1:1 outgoing video call by providing a user ID in the text field and clicking the Start Call button. 
 
 ## Sample Code
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
+You can download the sample app from [Github](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Add%201%20on%201%20video%20calling).
 
 ## Clean up resources
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources).
-
-## Next steps
-For more information, see the following articles:
-- Check out our [web calling sample](https://docs.microsoft.com/azure/communication-services/samples/web-calling-sample)
-- Learn about [calling client library capabilities](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web)
-- Learn more about [how calling works](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/about-call-types)
