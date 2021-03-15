@@ -7,14 +7,61 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/09/2020
+ms.date: 03/02/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc enabled data services so that I can leverage the capability of the feature.
 ---
 
 # Release notes - Azure Arc enabled data services (Preview)
 
+This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc enabled data services. 
+
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## February 2021
+
+### New capabilities and features
+
+Azure Data CLI (`azdata`) version number: 20.3.1. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+Additional updates include:
+
+- Azure Arc enabled SQL Managed Instance
+   - High availability with Always On availability groups
+
+- Azure Arc enabled PostgreSQL Hyperscale
+   Azure Data Studio: 
+   - The overview page now shows the status of the server group itemized per node
+   - A new properties pages is now available to show more details about the server group
+   - Configure Postgres engine parameters from **Node Parameters** page
+
+For issues associated with this release, see [Known issues - Azure Arc enabled data services (Preview)](known-issues.md)
+
+## January 2021
+
+### New capabilities and features
+
+Azure Data CLI (`azdata`) version number: 20.3.0. Download at [https://aka.ms/azdata](https://aka.ms/azdata). You can install `azdata` from [Install Azure Data CLI (`azdata`)](/sql/azdata/install/deploy-install-azdata).
+
+Additional updates include:
+- Localized portal available for 17 new languages
+- Minor changes to Kube-native .yaml files
+- New versions of Grafana and Kibana
+- Issues with Python environments when using azdata in notebooks in Azure Data Studio resolved
+- The pg_audit extension is now available for PostgreSQL Hyperscale
+- A backup ID is no longer required when doing a full restore of a PostgreSQL Hyperscale database
+- The status (health state) is reported for each of the PostgreSQL instances that constitute a sever group
+
+   In earlier releases, the status was aggregated at the server group level and not itemized at the PostgreSQL node level.
+
+- PostgreSQL deployments now honor the volume size parameters indicated in create commands
+- The engine version parameters is now honored when editing a server group
+- The naming convention of the pods for Azure Arc enabled PostgreSQL Hyperscale has changed
+
+    It is now in the form: `ServergroupName{c, w}-n`. For example, a server group with three nodes, one coordinator node and two worker nodes is represented as:
+   - `Postgres01c-0` (coordinator node)
+   - `Postgres01w-0` (worker node)
+   - `Postgres01w-1` (worker node)
 
 ## December 2020
 

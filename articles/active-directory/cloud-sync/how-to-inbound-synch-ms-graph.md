@@ -1,5 +1,5 @@
 ---
-title: 'Inbound synchronization for cloud sync using MS Graph API'
+title: 'How to programmatically configure cloud sync using MS Graph API'
 description: This topic describes how to enable inbound synchronization using just the Graph API
 services: active-directory
 author: billmath
@@ -12,7 +12,7 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-# Inbound synchronization for cloud sync using MS Graph API
+# How to programmatically configure cloud sync using MS Graph API
 
 The following document describes how to replicate a synchronization profile from scratch using only MSGraph APIs.  
 The structure of how to do this consists of the following steps.  They are:
@@ -22,10 +22,11 @@ The structure of how to do this consists of the following steps.  They are:
 - [Create Sync Job](#create-sync-job)
 - [Update targeted domain](#update-targeted-domain)
 - [Enable sync password hashes](#enable-sync-password-hashes-on-configuration-blade)
+- [Accidental deletes](#accidental-deletes)
 - [Start sync job](#start-sync-job)
 - [Review status](#review-status)
 
-Use these [Microsoft Azure Active Directory Module for Windows PowerShell](https://docs.microsoft.com/powershell/module/msonline/) commands to enable synchronization for a production tenant, a pre-requisite for being able to call the Administration Web Service for that tenant.
+Use these [Microsoft Azure Active Directory Module for Windows PowerShell](/powershell/module/msonline/) commands to enable synchronization for a production tenant, a pre-requisite for being able to call the Administration Web Service for that tenant.
 
 ## Basic setup
 
@@ -54,7 +55,7 @@ You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The di
 ## Create sync job
 The output of the above command will return the objectId of the service principal that was created. For this example, the objectId is 614ac0e9-a59b-481f-bd8f-79a73d167e1c.  Use Microsoft Graph to add a synchronizationJob to that service principal.  
 
-Documentation for creating a sync job can be found [here](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http).
+Documentation for creating a sync job can be found [here](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta).
 
 If you did not record the ID above, you can find the service principal by running the following MS Graph call. You'll need Directory.Read.All permissions to make that call:
  
@@ -210,16 +211,81 @@ Here, the highlighted "Domain" value is the name of the on-premises Active Direc
 
  Add the Schema in the request body. 
 
+## Accidental deletes
+This section will cover how to programmatically enable/disable and use [accidental deletes](how-to-accidental-deletes.md) programmatically.
+
+
+### Enabling and setting the threshold
+There are two per job settings that you can use, they are:
+
+ - DeleteThresholdEnabled  - Enables accidental delete prevention for the job when set to 'true'. Set to 'true' by default.
+ - DeleteThresholdValue    - Defines the maximum number of deletes that will be allowed in each execution of the job when accidental deletes prevention is enabled. The value is set to 500 by default.  So, if the value is set to 500, the maximum number of deletes allowed will be 499 in each execution.
+
+The delete threshold settings are a part of the `SyncNotificationSettings` and can be modified via graph. 
+
+We're going to need to update the SyncNotificationSettings this configuration is targeting, so update the secrets.
+
+ ```
+ PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets
+ ```
+
+ Add the following Key/value pair in the below value array based on what you’re trying to do:
+
+```
+ Request body -
+ {
+   "value":[
+             {
+               "key":"SyncNotificationSettings",
+               "value": "{\"Enabled\":true,\"Recipients\":\"foobar@xyz.com\",\"DeleteThresholdEnabled\":true,\"DeleteThresholdValue\":50}"
+              }
+            ]
+  }
+
+
+```
+
+The "Enabled" setting in the example above is for enabling/disabling notification emails when the job is quarantined.
+
+
+Currently, we do not support PATCH requests for secrets, so you will need to add all the values in the body of the PUT request(like in the example above) in order to preserve the other values.
+
+The existing values for all the secrets can be retrieved by using 
+
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
+```
+
+### Allowing deletes
+To allow the deletes to flow through after the job goes into quarantine, you need to issue a restart with just "ForceDeletes" as the scope. 
+
+```
+Request:
+POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
+```
+Request Body:
+{
+  "criteria": {"resetScope": "ForceDeletes"}
+}
+```
+
+
+
+
+
+
 ## Start sync job
 The job can be retrieved again via the following command:
 
  `GET https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/jobs/ ` 
 
-Documentation for retrieving jobs can be found [here](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-list?view=graph-rest-beta&tabs=http). 
+Documentation for retrieving jobs can be found [here](/graph/api/synchronization-synchronizationjob-list?tabs=http&view=graph-rest-beta). 
  
 To start the job, issue this request, using the objectId of the service principal created in the first step, and the job identifier returned from the request that created the job.
 
-Documentation for how to start a job can be found [here](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
+Documentation for how to start a job can be found [here](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
 
  ```
  POST  https://graph.microsoft.com/beta/servicePrincipals/8895955e-2e6c-4d79-8943-4d72ca36878f/synchronization/jobs/AD2AADProvisioning.fc96887f36da47508c935c28a0c0b6da/start
@@ -228,7 +294,7 @@ Documentation for how to start a job can be found [here](https://docs.microsoft.
 The expected response is … 
 HTTP 204/No content.
 
-Other commands for controlling the job are documented [here](https://docs.microsoft.com/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta).
+Other commands for controlling the job are documented [here](/graph/api/resources/synchronization-synchronizationjob?view=graph-rest-beta).
  
 To restart a job, one would use …
 
@@ -254,4 +320,4 @@ Look under the 'status' section of the return object for relevant details
 
 - [What is Azure AD Connect cloud sync?](what-is-cloud-sync.md)
 - [Transformations](how-to-transformation.md)
-- [Azure AD Synchronization API](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Azure AD Synchronization API](/graph/api/resources/synchronization-overview?view=graph-rest-beta)

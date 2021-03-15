@@ -233,6 +233,7 @@ try {
 } finally {
     long endTime = System.currentTimeMillis();
     RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setSuccess(success);
     telemetry.setTimestamp(new Date(startTime));
     telemetry.setDuration(new Duration(endTime - startTime));
     telemetryClient.trackDependency(telemetry);
@@ -327,10 +328,27 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
+### Get the request telemetry id and the operation id using the 2.x SDK
+
 > [!NOTE]
-> All other operations on a `RequestTelemetry` retrieved from
-> `ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry()` besides those described above,
-> will fail fast and throw an exception to let you know that is undefined behavior under the 3.0 agent.
->
-> If you need interop for any other methods on `RequestTelemetry` please let us know by opening an issue
-> https://github.com/microsoft/ApplicationInsights-Java/issues.
+> This feature is only in 3.0.3-BETA and later
+
+Add `applicationinsights-web-2.6.2.jar` to your application (all 2.x versions are supported by Application Insights Java 3.0, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.2</version>
+</dependency>
+```
+
+and get the request telemetry id and the operation id in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+String requestId = requestTelemetry.getId();
+String operationId = requestTelemetry.getContext().getOperation().getId();
+```

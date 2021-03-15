@@ -1,7 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Media Services terminology and concepts
-titleSuffix: Azure Media Services
 description: Learn about terminology and concepts for Azure Media Services.
 services: media-servicesgit
 documentationcenter: ''
@@ -25,17 +24,13 @@ This topic gives a brief overview of Azure Media Services terminology and concep
 
 The fundamental concepts described in these topics should be reviewed before starting development.
 
-> [!NOTE]
-> Currently, you can use the [Azure portal](https://portal.azure.com/) to: manage Media Services v3 [Live Events](live-events-outputs-concept.md), view (not manage) v3 [Assets](assets-concept.md), and [get info about accessing APIs](./access-api-howto.md).
-> For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Media Services v3 terminology
 
 |Term|Description|
 |---|---|
-|Live Event|A **Live Event** represents a pipeline for ingesting, transcoding (optionally), and packaging live streams of video, audio, and real-time metadata.<br/><br/>For customers migrating from Media Services v2 APIs, the **Live Event** replaces the **Channel** entity in v2. For more information, see [Migrating from v2 to v3](migrate-from-v2-to-v3.md).|
+|Live Event|A **Live Event** represents a pipeline for ingesting, transcoding (optionally), and packaging live streams of video, audio, and real-time metadata.<br/><br/>For customers migrating from Media Services v2 APIs, the **Live Event** replaces the **Channel** entity in v2. For more information, see [Migrating from v2 to v3](migrate-v-2-v-3-migration-introduction.md).|
 |Streaming Endpoint/Packaging/Origin|A **Streaming Endpoint** represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player application. It uses one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry-leading digital rights management systems (DRMs).<br/><br/>In the media streaming industry, this service is commonly referred to as a **Packager** or **Origin**.  Other common terms in the industry for this capability include JITP (just-in-time-packager) or JITE (just-in-time-encryption).
 
 ## Media Services v3 concepts
@@ -49,7 +44,7 @@ The fundamental concepts described in these topics should be reviewed before sta
 |Content protection|With Media Services, you can deliver your live and on-demand content encrypted dynamically with Advanced Encryption Standard (AES-128) or/and any of the three major DRM systems: Microsoft PlayReady, Google Widevine, and Apple FairPlay. Media Services also provides a service for delivering AES keys and DRM (PlayReady, Widevine, and FairPlay) licenses to authorized clients. <br/><br/>If specifying encryption options on your stream, create the **Content Key Policy** and associate it with your **Streaming Locator**. The **Content Key Policy** enables you to configure how the content key is delivered to end clients.<br/><br/> Try to reuse policies whenever the same options are needed.| [Content Key Policies](content-key-policy-concept.md)<br/><br/>[Content protection](content-protection-overview.md)|
 |Live streaming|Media Services enables you to deliver live events to your customers on the Azure cloud. **Live Events** are responsible for ingesting and processing the live video feeds. When you create a **Live Event**, an input endpoint is created that you can use to send a live signal from a remote encoder. Once you have the stream flowing into the **Live Event**, you can begin the streaming event by creating an **Asset**, **Live Output**, and **Streaming Locator**. **Live Output** will archive the stream  into the **Asset** and make it available to viewers through the **Streaming Endpoint**. A live event can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). |[Live streaming overview](live-streaming-overview.md)<br/><br/>[Live Events and Live Outputs](live-events-outputs-concept.md)|
 |Monitoring with Event Grid|To see the progress of the job, use **Event Grid**. Media Services also emits the live event types. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. |[Handling Event Grid events](reacting-to-media-services-events.md)<br/><br/>[Schemas](media-services-event-schemas.md)|
-|Monitoring with Azure Monitor|Monitor metrics and diagnostic logs that help you understand how your apps are performing with Azure Monitor.|[Metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)<br/><br/>[Diagnostic logs schemas](media-services-diagnostic-logs-schema.md)|
+|Monitoring with Azure Monitor|Monitor metrics and diagnostic logs that help you understand how your apps are performing with Azure Monitor.|[Metrics and diagnostic logs](monitoring/monitor-media-services-data-reference.md)<br/><br/>[Diagnostic logs schemas](monitoring/monitor-media-services-data-reference.md)|
 |Player clients|You can use Azure Media Player to play back media content streamed by Media Services on a wide variety of browsers and devices. Azure Media Player uses industry standards, such as HTML5, Media Source Extensions (MSE), and Encrypted Media Extensions (EME) to provide an enriched adaptive streaming experience. |[Azure Media Player overview](use-azure-media-player.md)|
 
 ## Ask questions, give feedback, get updates

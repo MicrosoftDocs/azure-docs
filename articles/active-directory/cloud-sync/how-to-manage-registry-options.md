@@ -29,7 +29,7 @@ When performing LDAP operations on configured Active Directory domain controller
 System.DirectoryServices.Protocols.LdapException: The operation was aborted because the client side timeout limit was exceeded.
 `
 
-LDAP search operations can take longer if the search attribute is not indexed. As a first step, if you get the above error, first check if the search/lookup attribute is [indexed](https://docs.microsoft.com/windows/win32/ad/indexed-attributes). If the search attributes are indexed and the error persists, you can increase the LDAP connection timeout using the following steps: 
+LDAP search operations can take longer if the search attribute is not indexed. As a first step, if you get the above error, first check if the search/lookup attribute is [indexed](/windows/win32/ad/indexed-attributes). If the search attributes are indexed and the error persists, you can increase the LDAP connection timeout using the following steps: 
 
 1. Log on as Administrator on the Windows server running the Azure AD Connect Provisioning Agent.
 1. Use the *Run* menu item to open the registry editor (regedit.exe) 
@@ -44,7 +44,7 @@ LDAP search operations can take longer if the search attribute is not indexed. A
 1. If you have deployed multiple provisioning agents, apply this registry change to all agents for consistency. 
 
 ## Configure referral chasing
-By default, the Azure AD Connect provisioning agent does not chase [referrals](https://docs.microsoft.com/windows/win32/ad/referrals). 
+By default, the Azure AD Connect provisioning agent does not chase [referrals](/windows/win32/ad/referrals). 
 You may want to enable referral chasing, to support certain HR inbound provisioning scenarios such as: 
 * Checking uniqueness of UPN across multiple domains
 * Resolving cross-domain manager references

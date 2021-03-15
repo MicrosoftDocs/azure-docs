@@ -64,7 +64,7 @@ For more information about how Azure Resource Manager orders the deletion of res
 
 See [Deploy resources to an existing resource group](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
 
-To validate a resource group deployment, see [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+To validate a resource group deployment, see [Test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment).
 
 ## Deploy a resource group and resources
 

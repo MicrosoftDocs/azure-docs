@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 10/15/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 
@@ -27,7 +27,7 @@ New settings take effect in about ten minutes. Logs will begin appearing in the 
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="ACS Diagnostic Settings Options.":::
 
-For more information about configuring diagnostics, see the overview of [Azure resource logs](../../azure-monitor/platform/platform-logs-overview.md).
+For more information about configuring diagnostics, see the overview of [Azure resource logs](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Resource log categories
 

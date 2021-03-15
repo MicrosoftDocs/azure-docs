@@ -34,7 +34,7 @@ misuse of your application.
 
 ### Perform code reviews
 
-Before you check in code, conduct [code reviews](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) to increase overall code quality and reduce the risk of creating bugs. You can use [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) to manage the code review process.
+Before you check in code, conduct [code reviews](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) to increase overall code quality and reduce the risk of creating bugs. You can use [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs) to manage the code review process.
 
 ### Perform static code analysis
 
@@ -225,7 +225,7 @@ reviewed and mitigated.
 
 You can build a picture of the attack surface by scanning the
 application. Microsoft offers an attack surface analysis tool called
-[Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=24487). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including
+[Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including
 [OWASP Zed Attack Proxy Project](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project),
 [Arachni](http://arachni-scanner.com/),
 [Skipfish](https://code.google.com/p/skipfish/), and

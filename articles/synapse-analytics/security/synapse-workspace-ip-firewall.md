@@ -38,7 +38,6 @@ Make sure that the firewall on your network and local computer allows outgoing c
 
 Also, you need to allow outgoing communication on UDP port 53 for Synapse Studio. To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433.
 
-If you're using the default Redirect connection policy setting, you may need to allow outgoing communication on additional ports. You can learn more about connection policies [here](../../azure-sql/database/connectivity-architecture.md#connection-policy).
 
 ## Next steps
 

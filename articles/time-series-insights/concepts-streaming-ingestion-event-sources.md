@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/19/2021
 ---
 
 # Azure Time Series Insights Gen2 Event Sources
@@ -22,7 +22,7 @@ Events must be sent as UTF-8 encoded JSON.
 
 ## Create or edit event sources
 
-Your event source resource(s) can live in the same Azure subscription as your Azure Time Series Insights Gen2 environment or a different subscription.You can use the [Azure portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
+Your event source resource(s) can live in the same Azure subscription as your Azure Time Series Insights Gen2 environment or a different subscription.You can use the [Azure portal](./tutorial-set-up-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
 
 When you connect an event source, your Azure Time Series Insights Gen2 environment will read all of the events currently stored in your Iot or Event Hub, starting with the oldest event.
 
@@ -40,7 +40,7 @@ When you connect an event source, your Azure Time Series Insights Gen2 environme
 
 - Do not go beyond your environment's [throughput rate limit](./concepts-streaming-ingress-throughput-limits.md) or per partition limit.
 
-- Configure a lag [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data. See [Production workloads](./concepts-streaming-ingestion-event-sources.md#production-workloads) below for suggested alert conditions. 
+- Configure a lag [alert](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) to be notified if your environment is experiencing issues processing data. See [Production workloads](./concepts-streaming-ingestion-event-sources.md#production-workloads) below for suggested alert conditions.
 
 - Use streaming ingestion for near real-time and recent data only, streaming historical data is not supported.
 
@@ -50,14 +50,14 @@ When you connect an event source, your Azure Time Series Insights Gen2 environme
 
 ## Production workloads
 
-In addition to the best practices above, we recommend that you implement the following for business critical workloads. 
+In addition to the best practices above, we recommend that you implement the following for business critical workloads.
 
 - Increase your IoT Hub or Event Hub data retention time to the maximum of 7 days.
 
-- Create environment alerts in the Azure portal. Alerts based on platform [metrics](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) allow you to validate end-to-end pipeline behavior. The instructions for creating and managing alerts are [here](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts). Suggested alert conditions:
+- Create environment alerts in the Azure portal. Alerts based on platform [metrics](./how-to-monitor-tsi-reference.md#metrics) allow you to validate end-to-end pipeline behavior. The instructions for creating and managing alerts are [here](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts). Suggested alert conditions:
 
-     - IngressReceivedMessagesTimeLag is greater than 5 minutes
-     - IngressReceivedBytes is 0
+  - IngressReceivedMessagesTimeLag is greater than 5 minutes
+  - IngressReceivedBytes is 0
 - Keep your ingestion load balanced between your IoT Hub or Event Hub partitions.
 
 ### Historical Data Ingestion

@@ -16,7 +16,7 @@ A custom provider is a contract between Azure and an endpoint. With custom provi
 > [!NOTE]
 > In this tutorial, you create a simple service endpoint that uses an Azure function app. However, a custom provider can use any publicly accessible endpoint. Alternatives include Azure Logic Apps, Azure API Management, and the Web Apps feature of Azure App Service.
 
-To start this tutorial, you should first follow the tutorial [Create your first Azure function app in the Azure portal](../../azure-functions/functions-create-first-azure-function.md). That tutorial creates a .NET core webhook function that can be modified in the Azure portal. It is also the foundation for the current tutorial.
+To start this tutorial, you should first follow the tutorial [Create your first Azure function app in the Azure portal](../../azure-functions/functions-get-started.md). That tutorial creates a .NET core webhook function that can be modified in the Azure portal. It is also the foundation for the current tutorial.
 
 ## Install Azure Table storage bindings
 

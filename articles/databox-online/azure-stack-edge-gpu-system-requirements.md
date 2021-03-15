@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 02/05/2021
 ms.author: alkohli
 ---
 # System requirements for Azure Stack Edge Pro with GPU 
@@ -33,7 +33,7 @@ The system requirements for the Azure Stack Edge Pro include:
 
 ## Supported Edge storage accounts
 
-The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts).
+The following Edge storage accounts are supported with REST interface of the device. The Edge storage accounts are created on the device. For more information, see [Edge storage accounts](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts).
 
 |Type  |Storage account  |Comments  |
 |---------|---------|---------|

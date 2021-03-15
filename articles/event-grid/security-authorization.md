@@ -2,7 +2,7 @@
 title: Azure Event Grid security and authentication
 description: Describes Azure Event Grid and its concepts.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 02/12/2021
 ---
 
 # Authorizing access to Event Grid resources
@@ -46,6 +46,8 @@ You can [assign these roles to a user or group](../role-based-access-control/qui
         "Actions": [
           "Microsoft.Authorization/*/read",
           "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/systemtopics/eventsubscriptions/*",
+          "Microsoft.EventGrid/partnertopics/eventsubscriptions/*",
           "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
           "Microsoft.EventGrid/locations/eventSubscriptions/read",
           "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
@@ -183,7 +185,7 @@ If you're using an event handler that isn't a WebHook (such as an event hub or q
 You must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the resource that is the event source. You need this permission because you're writing a new subscription at the scope of the resource. The required resource differs based on whether you're subscribing to a system topic or custom topic. Both types are described in this section.
 
 ### System topics (Azure service publishers)
-For system topics, you need permission to write a new event subscription at the scope of the resource publishing the event. The format of the resource is:
+For system topics, if you are not the owner or contributor of the source resource, you need permission to write a new event subscription at the scope of the resource publishing the event. The format of the resource is:
 `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
 For example, to subscribe to an event on a storage account named **myacct**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:

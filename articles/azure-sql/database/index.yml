@@ -13,7 +13,7 @@ metadata:
   author: stevestein
   ms.author: sstein
   ms.reviewer:
-  ms.date: 10/13/2020
+  ms.date: 01/25/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -175,3 +175,23 @@ landingContent:
             url: elastic-scale-introduction.md 
           - text: Elastic query 
             url: elastic-query-overview.md
+
+  # Card 
+  - title: Planned maintenance
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Plan for Azure maintenance events
+            url: planned-maintenance.md
+          - text: Maintenance window
+            url: maintenance-window.md
+          - text: Resource health
+            url: resource-health-to-troubleshoot-connectivity.md
+
+      - linkListType: how-to-guide
+        links:
+          - text: Configure maintenance window
+            url: maintenance-window-configure.md
+          - text: Maintenance window notifications
+            url: advance-notifications.md
+ 

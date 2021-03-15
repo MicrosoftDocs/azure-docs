@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2020
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -94,6 +94,14 @@ For a web application, you need to create an application secret. This secret wil
 1. Select **Save** to view the key. Make note of the **App key** value. You use this value as the application secret in your application's code.
 
 * * *
+
+## Enable ID token implicit grant
+
+The defining characteristic of the implicit grant is that tokens, such as ID and access tokens, are returned directly from Azure AD B2C to the application. For web apps, such as ASP.NET Core web apps and [https://jwt.ms](https://jwt.ms), that request an ID token directly from the authorization endpoint, enable the implicit grant flow in the app registration.
+
+1. In the left menu, under **Manage**, select **Authentication**.
+1. Under Implicit grant, select both the **Access tokens** and **ID tokens** check boxes.
+1. Select **Save**.
 
 ## Next steps
 

@@ -2,14 +2,14 @@
 title: Overview of Azure Active Directory role-based access control (RBAC)
 description: Learn how to understand the parts of a role assignment and restricted scope in Azure Active Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
 ms.date: 11/20/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 
@@ -27,14 +27,14 @@ Both systems contain similarly used role definitions and role assignments. Howev
 
 ## Understand Azure AD role-based access control
 Azure AD supports 2 types of roles definitions - 
-* [Built-in roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference)
-* [Custom roles](https://docs.microsoft.com/azure/active-directory/roles/custom-create)
+* [Built-in roles](./permissions-reference.md)
+* [Custom roles](./custom-create.md)
 
-Built-in roles are out of box roles that have a fixed set of permissions. These role definitions cannot be modified. There are many [built-in roles](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference) that Azure AD supports, and the list is growing. To round off the edges and meet your sophisticated requirements, Azure AD also supports [custom roles](https://docs.microsoft.com/azure/active-directory/roles/custom-create). Granting permission using custom Azure AD roles is a two-step process that involves creating a custom role definition and then assigning it using a role assignment. A custom role definition is a collection of permissions that you add from a preset list. These permissions are the same permissions used in the built-in roles.  
+Built-in roles are out of box roles that have a fixed set of permissions. These role definitions cannot be modified. There are many [built-in roles](./permissions-reference.md) that Azure AD supports, and the list is growing. To round off the edges and meet your sophisticated requirements, Azure AD also supports [custom roles](./custom-create.md). Granting permission using custom Azure AD roles is a two-step process that involves creating a custom role definition and then assigning it using a role assignment. A custom role definition is a collection of permissions that you add from a preset list. These permissions are the same permissions used in the built-in roles.  
 
 Once you’ve created your custom role definition (or using a built-in role), you can assign it to a user by creating a role assignment. A role assignment grants the user the permissions in a role definition at a specified scope. This two-step process allows you to create a single role definition and assign it many times at different scopes. A scope defines the set of Azure AD resources the role member has access to. The most common scope is organization-wide (org-wide) scope. A custom role can be assigned at org-wide scope, meaning the role member has the role permissions over all resources in the organization. A custom role can also be assigned at an object scope. An example of an object scope would be a single application. The same role can be assigned to one user over all applications in the organization and then to another user with a scope of only the Contoso Expense Reports app.  
 
-Azure AD built-in and custom roles operate on concepts similar to [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#payload-claims). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is that Azure RBAC controls access to Azure resources such as virtual machines or storage using Azure Resource Management, and Azure AD custom roles control access to Azure AD resources using Graph API. Both systems leverage the concept of role definitions and role assignments. Azure AD RBAC permissions cannot be included in Azure roles and vice versa.
+Azure AD built-in and custom roles operate on concepts similar to [Azure role-based access control (Azure RBAC)](../develop/access-tokens.md#payload-claims). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is that Azure RBAC controls access to Azure resources such as virtual machines or storage using Azure Resource Management, and Azure AD custom roles control access to Azure AD resources using Graph API. Both systems leverage the concept of role definitions and role assignments. Azure AD RBAC permissions cannot be included in Azure roles and vice versa.
 
 ### How Azure AD determines if a user has access to a resource
 
@@ -56,7 +56,7 @@ A role assignment is an Azure AD resource that attaches a *role definition* to a
 - Role definition
 - Resource scope
 
-You can [create role assignments](custom-create.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [view the assignments for a custom role](custom-view-assignments.md#view-the-assignments-of-a-role).
+You can [create role assignments](custom-create.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [list the role assignments](view-assignments.md).
 
 The following diagram shows an example of a role assignment. In this example, Chris Green has been assigned the App registration administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App registration administrator role for only this specific app registration.
 
@@ -85,4 +85,4 @@ Using built-in roles in Azure AD is free, while custom roles requires an Azure A
 
 - [Understand Azure AD roles](concept-understand-roles.md)
 - Create custom role assignments using [the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
-- [View the assignments for a custom role](custom-view-assignments.md)
+- [List role assignments](view-assignments.md)

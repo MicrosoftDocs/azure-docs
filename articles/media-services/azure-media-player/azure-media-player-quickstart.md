@@ -58,4 +58,4 @@ If you don't want to use auto-setup, you can omit the `data-setup` attribute and
 
 ## Next steps ##
 
-- [Azure Media Player Full Setup](https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup)
+- [Azure Media Player Full Setup](./azure-media-player-full-setup.md)

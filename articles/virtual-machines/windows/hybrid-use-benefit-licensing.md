@@ -2,7 +2,9 @@
 title: Azure Hybrid Benefit for Windows Server 
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure.
 author: xujing-ms
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: azure-hybrid-benefit
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
