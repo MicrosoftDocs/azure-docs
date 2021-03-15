@@ -169,7 +169,7 @@ To configure Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edit your Active Directory configurations.":::
 
-1. In the **Edit Active Directory Configuration** dialog box, select **Active Directory Integration Enabled** > **Save**. The **Edit Active Directory Configuration** dialog box expands, and you can now enter the parameters to configure Active Directory.
+3. In the **Edit Active Directory Configuration** dialog box, select **Active Directory Integration Enabled** > **Save**. The **Edit Active Directory Configuration** dialog box expands, and you can now enter the parameters to configure Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Enter the parameters to configure Active Directory.":::
 
@@ -178,7 +178,7 @@ To configure Active Directory:
     > - For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
     > - You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
 
-3.Set the Active Directory server parameters, as follows:
+4.Set the Active Directory server parameters, as follows:
 
    | Server parameter | Description |
    |--|--|
@@ -192,9 +192,9 @@ To configure Active Directory:
 
 If you are creating Active Directory groups for on-premises management console users, you must create an Access Group rule for each Active Directory group. On-premises management console Active Directory credentials will not work if an Access Group rule does not exists for the Active Directory user group. See [Define global access control](how-to-define-global-user-access-control.md).
 
-4. Select **Save**.
+5. Select **Save**.
 
-5. To add a trusted server, select **Add Server** and configure another server.
+6. To add a trusted server, select **Add Server** and configure another server.
 
 ## Resetting passwords
 
