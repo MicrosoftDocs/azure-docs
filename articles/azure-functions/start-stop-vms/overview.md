@@ -48,7 +48,11 @@ The queue-based trigger functions are required in support of this feature. All t
 
 Each Start/Stop action supports assignment to a one or more subscriptions, resource groups, or a list of VMs.
 
-All telemetry data, that is trace logs from the function app execution, is sent to your connected Application Insights instance. You can view the telemetry data in Application Insights from a set of visualizations, and send email notifications as a result of the actions performed on the VMs.
+All telemetry data, that is trace logs from the function app execution, is sent to your connected Application Insights instance. You can view the telemetry data stored in Application Insights from a set of pre-defined visualizations presented in a shared [Azure dashboard](../../azure-portal/azure-portal-dashboards.md). 
+
+:::image type="content" source="media/overview/shared-dashboard-example.png" alt-text="Start/Stop VMs shared status dashboard":::
+
+Email notifications are also sent as a result of the actions performed on the VMs.
 
 ## New releases
 

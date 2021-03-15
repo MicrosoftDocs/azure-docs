@@ -35,6 +35,7 @@ The deployment is initiated from the Start/Stop VMs GitHub organization [here](h
 1. Select the bell icon (notifications) from the top of the screen to see the deployment status. You shall see **Deployment in progress**. Wait until the deployment is completed.
 1. Select **Go to resource group** from the notification pane. You shall see a screen similar to:
 
-    :::image type="content" source="media/enable/deployment-template-results.png" alt-text="Start/Stop VMs template deployment resource group":::
+    :::image type="content" source="media/enable/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
 
 ## Configure schedule
+
