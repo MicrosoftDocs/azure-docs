@@ -30,6 +30,8 @@ This category contains the following entity:
         **Details**
 
         American Banker Association (ABA) transit routing numbers.
+
+        To get this entity category, add `ABARoutingNumber` to the `pii-category` parameter. `ABARoutingNumber` will also be returned in the API response if detected.
       
     :::column-end:::
     :::column span="2":::
@@ -56,6 +58,8 @@ This category contains the following entity:
         **Details**
 
         SWIFT codes for payment instruction information.
+
+        To get this entity category, add `SWIFTCode` to the `pii-category` parameter. `SWIFTCode` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="2":::
@@ -81,7 +85,9 @@ This category contains the following entity:
         **Details**
 
         Credit card numbers. 
-      
+
+        To get this entity category, add `CreditCardNumber` to the `pii-category` parameter. `CreditCardNumber` will be returned in the API response if detected.
+
     :::column-end:::
     :::column span="2":::
       **Supported document languages**
@@ -106,6 +112,8 @@ This category contains the following entity:
         **Details**
 
         IBAN codes for payment instruction information.
+
+        To get this entity category, add `InternationlBankingAccountNumber` to the `pii-category` parameter. `InternationlBankingAccountNumber` will be returned in the API response if detected.
       
     :::column-end:::
     :::column span="2":::
@@ -135,6 +143,12 @@ The following entities are grouped and listed by country:
 
     :::column-end:::
     :::column span="2":::
+        **Details**
+
+        To get this entity category, add `ARNationalIdentityNumber` to the `pii-category` parameter. `ARNationalIdentityNumber` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
       **Supported document languages**
 
       `en`, `es`
@@ -153,6 +167,12 @@ The following entities are grouped and listed by country:
 
     :::column-end:::
     :::column span="2":::
+        **Details**
+
+        To get this entity category, add `ATIdentityCard` to the `pii-category` parameter. `ATIdentityCard` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
       **Supported document languages**
 
       `de`
@@ -167,6 +187,11 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
+        To get this entity category, add `ATTaxIdentificationNumber` to the `pii-category` parameter. `ATTaxIdentificationNumber` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
+
       `de`
       
    :::column-end:::
@@ -178,6 +203,11 @@ The following entities are grouped and listed by country:
 
     :::column-end:::
     :::column span="2":::
+
+        To get this entity category, add `ATValueAddedTaxNumber` to the `pii-category` parameter. `ATValueAddedTaxNumber` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
 
       `de`
       
@@ -196,6 +226,12 @@ The following entities are grouped and listed by country:
 
     :::column-end:::
     :::column span="2":::
+        **Details**
+
+        To get this entity category, add `AUDriversLicenseNumber` to the `pii-category` parameter. `AUDriversLicenseNumber` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
       **Supported document languages**
 
       `en`
@@ -210,6 +246,11 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
+        To get this entity category, add `AUBusinessNumber` to the `pii-category` parameter. `AUBusinessNumber` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
+
       `en`
       
    :::column-end:::
@@ -221,6 +262,11 @@ The following entities are grouped and listed by country:
 
     :::column-end:::
     :::column span="2":::
+
+        To get this entity category, add `AUCompanyNumber` to the `pii-category` parameter. `AUCompanyNumber` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
 
       `en`
       
@@ -234,6 +280,11 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
+        To get this entity category, add `AUDriversLicense` to the `pii-category` parameter. `AUDriversLicense` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
+
       `en`
       
    :::column-end:::
@@ -246,6 +297,11 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
+        To get this entity category, add `AUMedicalAccountNumber` to the `pii-category` parameter. `AUMedicalAccountNumber` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
+
       `en`
       
    :::column-end:::
@@ -258,17 +314,10 @@ The following entities are grouped and listed by country:
     :::column-end:::
     :::column span="2":::
 
-      `en`
+        To get this entity category, add `ATPassportNumber` to the `pii-category` parameter. `ATPassportNumber` will be returned in the API response if detected.
       
-   :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="":::
-
-        Australia passport number
-
     :::column-end:::
-    :::column span="2":::
+    :::column span="":::
 
       `en`
       
@@ -281,6 +330,11 @@ The following entities are grouped and listed by country:
 
     :::column-end:::
     :::column span="2":::
+
+        To get this entity category, add `ATTaxIdentificationNumber` to the `pii-category` parameter. `ATTaxIdentificationNumber` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
 
       `en`
       
@@ -298,6 +352,11 @@ The following entities are grouped and listed by country:
 
     :::column-end:::
     :::column span="2":::
+
+        To get this entity category, add `BENationalNumber` to the `pii-category` parameter. `BENationalNumber` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="":::
       **Supported document languages**
 
       `fr`, `de`
@@ -309,8 +368,10 @@ The following entities are grouped and listed by country:
 
         Belgium Value Added Tax (VAT) number
 
+        To get this entity category, add `BEValueAddedTaxNumber` to the `pii-category` parameter. `BEValueAddedTaxNumber` will be returned in the API response if detected.
+
     :::column-end:::
-    :::column span="2":::
+    :::column span="":::
 
       `fr`, `de`
       
