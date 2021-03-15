@@ -70,7 +70,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 | Name                                  | Description                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| SmsClient | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages.
+| SmsClient | This class is needed for all SMS functionality. You instantiate it with your subscription information, and use it to send SMS messages.                                                                                                                 |
+| SmsSendResult               | This class contains the result from the SMS service.                                          |
 
 ## Authenticate the client
 
