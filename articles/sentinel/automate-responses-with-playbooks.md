@@ -211,7 +211,9 @@ For playbooks that are triggered by incident creation and receive incidents as t
     >
     > This account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group.
     >
-    > When you add the **run playbook** action to an automation rule, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as "grayed out." You can grant permission to Azure Sentinel on the spot by selecting the **Manage playbook permissions** link.
+    > When you add the **run playbook** action to an automation rule, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant permission to Azure Sentinel on the spot by selecting the **Manage playbook permissions** link.
+    >
+    > In a multi-tenant ([Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)) scenario, you must define the permissions on the tenant where the playbook lives, even if the automation rule calling the playbook is in a different tenant.
 
 See the [complete instructions for creating automation rules](tutorial-respond-threats-playbook.md#respond-to-incidents).
 

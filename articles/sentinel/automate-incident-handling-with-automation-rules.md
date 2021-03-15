@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 03/14/2021
 ms.author: yelevin
 ---
 # Automate incident handling in Azure Sentinel with automation rules
@@ -41,32 +41,33 @@ To review – incidents are created from alerts by analytics rules, of which the
 
 ### Conditions
 
-Complex sets of conditions can be defined to govern when actions (see below) should run. These conditions are typically based on the states or values of incident and entity details, and they can include AND/OR/NOT/CONTAINS operators and be nested hierarchically.
+Complex sets of conditions can be defined to govern when actions (see below) should run. These conditions are typically based on the states or values of attributes of incidents and their entities, and they can include `AND`/`OR`/`NOT`/`CONTAINS` operators.
 
 ### Actions
 
-Sets of actions can be defined to run when the conditions (see above) are met. You can define many sets and group many actions in a set, and you can choose the order in which they’ll run (see below).
-Here are some examples of actions that can be defined using automation rules, in many cases without using a playbook:
+Actions can be defined to run when the conditions (see above) are met. You can define many actions in a rule, and you can choose the order in which they’ll run (see below). The following actions can be defined using automation rules, without the need for the [advanced functionality of a playbook](automate-responses-with-playbooks.md):
 
 - Changing the status of an incident, keeping your workflow up to date.
 
-  - When changing to “closed,” specifying the closing reason and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce false positives.
+  - When changing to “closed,” specifying the [closing reason](tutorial-investigate-cases.md#closing-an-incident) and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce false positives.
 
-- Changing the severity of an incident – you can reevaluate and reprioritize based on the results of a preliminary investigation.
+- Changing the severity of an incident – you can reevaluate and reprioritize based on the presence, absence, values, or attributes of entities involved in the incident.
 
 - Assigning an incident to an owner – this helps you direct types of incidents to the personnel best suited to deal with them, or to the most available personnel.
 
 - Adding a tag to an incident – this is useful for classifying incidents by subject, by attacker, or by any other common denominator.
 
-- You can also define an action to run a playbook, in order to take more complex response actions, including any that involve external systems. Only playbooks activated by the [incident trigger](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) are available to be used in automation rules. You can define an action to include multiple playbooks, or combinations of playbooks and other actions, and the order in which they will run.
+Also, you can define an action to run a [playbook](tutorial-respond-threats-playbook.md), in order to take more complex response actions, including any that involve external systems. Only playbooks activated by the [incident trigger](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) are available to be used in automation rules. You can define an action to include multiple playbooks, or combinations of playbooks and other actions, and the order in which they will run.
 
 ### Expiration date
 
-You can define an expiration date on an automation rule. The rule will be disabled after that date. This is useful for handling (that is, closing) “noise” incidents caused by planned, time-limited activities such as penetration testing.
+You can define an expiration date on an automation rule. The rule will be disabled after that date. This is useful for handling (that is, closing) "noise" incidents caused by planned, time-limited activities such as penetration testing.
 
 ### Order
 
-You can define the order in which automation rules will run.
+You can define the order in which automation rules will run. Later automation rules will evaluate the conditions of the incident according to its state after being acted on by previous automation rules.
+
+For example, if "First Automation Rule" changed an incident's severity from Medium to Low, and "Second Automation Rule" is defined to run only on incidents with Medium or higher severity, it won't run on that incident.
 
 ## Common use cases and scenarios
 
@@ -120,11 +121,18 @@ For playbook actions, there is a two-minute delay between the beginning of the p
 
 ### Permissions for automation rules to run playbooks
 
-When an Azure Sentinel automation rule runs a playbook, it does so using a special Azure Sentinel service account specifically authorized for this action. The use of this account (as opposed to your user account) increases the security level of the service and enables the automation rules API to support CI/CD use cases.
+When an Azure Sentinel automation rule runs a playbook, it uses a special Azure Sentinel service account specifically authorized for this action. The use of this account (as opposed to your user account) increases the security level of the service.
 
 In order for an automation rule to run a playbook, this account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group.
 
-When you're configuring an automation rule and adding a **run playbook** action, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as "grayed out." You can grant permission to Azure Sentinel on the spot by selecting the **Manage playbook permissions** link.
+When you're configuring an automation rule and adding a **run playbook** action, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant Azure Sentinel permission to the playbooks' resource groups on the spot by selecting the **Manage playbook permissions** link.
+
+> [!NOTE]
+> **Permissions in a multi-tenant architecture**
+>
+> Automation rules fully support cross-workspace and multi-tenant deployments (in the case of multi-tenant, using [Azure Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)).
+>
+> Therefore, if your Azure Sentinel deployment uses a multi-tenant architecture (If you're an MSSP, for example), you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
 
 ## Creating and managing automation rules
 
