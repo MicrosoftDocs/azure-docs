@@ -241,6 +241,8 @@
         href: hb-series.md
       - name: HBv2-series
         href: hbv2-series.md
+      - name: HBv3-series
+        href: hbv3-series.md
       - name: HC-series
         href: hc-series.md
     - name: vCPU quotas
