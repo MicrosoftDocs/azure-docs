@@ -56,7 +56,7 @@ Version: 1.1
 - Fixed proxy script to handle alternate GC daemon unit file location.
 - GuestConfig agent reliability changes.
 - GuestConfig agent support for US Gov Virginia region.
-- GuestConfig agent extension report messages to be more verbose in case of failures.
+- GuestConfig agent extension report messages to be more verbose if there is a failure.
 
 ## September 2020
 
