@@ -43,7 +43,7 @@ Azure AD multifactor authentication doesn't log personal data such as usernames,
 
 ### Data stored by Azure AD multifactor authentication
 
-For Azure public clouds, excluding Azure AD B2C authentication, the NPS Extension, and the Windows Server 2016 or 2019 AD Federation Services (FS) adapter, the following personal data is stored:
+For Azure public clouds, excluding Azure AD B2C authentication, the NPS Extension, and the Windows Server 2016 or 2019 Active Directory Federation Services (AD FS) adapter, the following personal data is stored:
 
 | Event type                           | Data store type |
 |--------------------------------------|-----------------|
@@ -66,7 +66,7 @@ For Microsoft Azure Government, Microsoft Azure Germany, Microsoft Azure operate
 If you use Azure Multifactor Authentication Server, the following personal data is stored.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer the Multifactor Authentication Server for new deployments. New customers who want to require multifactor authentication from their users should use cloud-based Azure AD multifactor authentication. Existing customers who activated the Multifactor Authentication Server before July 1, 2019, can download the latest version and updates, and generate activation credentials as usual.
+> As of July 1, 2019, Microsoft no longer offers Multifactor Authentication Server for new deployments. New customers who want to require multifactor authentication from their users should use cloud-based Azure AD multifactor authentication. Existing customers who activated Multifactor Authentication Server before July 1, 2019, can download the latest version and updates, and generate activation credentials as usual.
 
 | Event type                           | Data store type |
 |--------------------------------------|-----------------|
