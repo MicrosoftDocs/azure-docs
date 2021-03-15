@@ -50,7 +50,7 @@ To manage the automation method to control the start and stop of your VMs, you c
 
 - AutoStop - This functionality is only used for performing a stop action against both Azure Resource Manager and classic VMs based on its CPU utilization. It can also be a scheduled-based *take action*, which creates alerts on VMs and based on the condition, the alert is triggered to perform the stop action.**ststv2_vms_AutoStop** configures the auto-stop functionality.
 
-### Scheduled start and stop
+## Scheduled start and stop scenario
 
 Perform the following steps to configure the scheduled start and stop action for VMs in a subscription, one or more resource groups, or VM list. For example, you can configure the **ststv2_vms_Scheduled_start** schedule to start them in the morning when you are in the office, and stop all VMs across a subscription when you leave work in the evening based on the **ststv2_vms_Scheduled_stop** schedule.
 
@@ -115,7 +115,7 @@ You can enable either targeting the action against a subscription, single or mul
     }
     ```
 
-### Sequenced start and stop
+## Sequenced start and stop scenario
 
 In an environment that includes two or more components on multiple VMs supporting a distributed workload, supporting the sequence in which components are started and stopped in order is important.
 
@@ -181,7 +181,7 @@ In an environment that includes two or more components on multiple VMs supportin
     }
     ```
 
-### Auto stop
+## Auto stop scenario
 
 Start/Stop VMs can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
 
