@@ -4,89 +4,68 @@
   items:
   - name: What is Azure AD RBAC?
     href: custom-overview.md
-  - name: Understand Azure AD roles
-    href: concept-understand-roles.md
 - name: Quickstarts
   items:
-  - name: Create unlimited app registrations
-    href: quickstart-app-registration-limits.md
-- name: Tutorials
-  expanded: true
-  items:
-  - name: Assign users to admin roles
+  - name: Assign roles to users
     href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Concepts
-  expanded: true
   items:
-  - name: Delegate Azure AD admin roles
-    href: concept-delegation.md
-  - name: Compare default user permissions    
-    href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-  - name: Compare Azure and Azure AD roles    
-    href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-  - name: Understand administrative units in Azure AD
+  - name: Understand Azure AD roles
+    href: concept-understand-roles.md
+  - name: Compare roles
+    items:
+    - name: Compare Azure and Azure AD roles    
+      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Microsoft 365 roles
+      href: m365-workload-docs.md
+  - name: Group-based role assignments
+    href: groups-concept.md
+  - name: Administrative units  
     href: administrative-units.md
+  - name: Security
+    items:
+    - name: Role security planning
+      href: security-planning.md
+    - name: Create emergency accounts
+      href: security-emergency-access.md
 - name: How-to guides
-  expanded: true
   items:
-  - name: Roles and permissions
-    expanded: true
+  - name: List role definitions
+    href: role-definitions-list.md
+  - name: List role assignments
     items: 
-    - name: Roles and permissions
-      href: permissions-reference.md
-    - name: View and assign roles   
+    - name: List role assignments
+      href: view-assignments.md
+    - name: List role assignments for groups
+      href: groups-view-assignments.md
+  - name: Assign roles
+    items:
+    - name: Assign roles to users
       href: manage-roles-portal.md
-    - name: My Staff delegation
-      href: my-staff-configure.md
-  - name: Custom roles
-    expanded: true
+    - name: Create a role-assignable group
+      href: groups-create-eligible.md
+    - name: Assign roles to groups
+      href: groups-assign-role.md
+    - name: Make a group eligible for a role in PIM
+      href: groups-pim-eligible.md
+    - name: Assign roles with scope using PowerShell
+      href: custom-assign-powershell.md
+    - name: Assign roles using Graph API
+      href: custom-assign-graph.md
+  - name: Remove role assignments
+    items: 
+    - name: Remove role assignments from groups
+      href: groups-remove-assignment.md
+  - name: Create custom roles
     items: 
     - name: Create a custom role
       href: custom-create.md
-    - name: View custom role assignments
-      href: custom-view-assignments.md
-    - name: Assign custom roles in Azure portal
-      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
-    - name: Assign custom roles in PowerShell
-      href: custom-assign-powershell.md
-    - name: Assign custom roles for enterprise apps
+    - name: Create custom roles for enterprise apps
       href: custom-enterprise-apps.md
-    - name: Custom role permissions
-      items:
-      - name: App registration permissions
-        href: custom-available-permissions.md
-      - name: Enterprise app permissions
-        href: custom-enterprise-app-permissions.md
-      - name: App consent permissions
-        href: custom-consent-permissions.md
-    - name: Delegate app admin role
-      href: delegate-app-roles.md
-  - name: Assign roles to groups
+    - name: Create unlimited app registrations
+      href: quickstart-app-registration-limits.md
+  - name: Administrative units
     items:
-    - name: Group-based role assignment preview
-      href: groups-concept.md
-    - name: Create a role-assignable group
-      href: groups-create-eligible.md
-    - name: Assign roles to a group
-      href: groups-assign-role.md
-    - name: Remove role assignments from a group
-      href: groups-remove-assignment.md
-    - name: View a group's role assignments
-      href: groups-view-assignments.md
-    - name: Make a group eligible for a role in PIM
-      href: groups-pim-eligible.md
-    - name: FAQ and troubleshooting
-      href: groups-faq-troubleshooting.md
-  - name: Secure your roles    
-    items:   
-    - name: Role security planning    
-      href: security-planning.md  
-    - name: Create emergency accounts    
-      href: security-emergency-access.md
-  - name: Administrative units     
-    items:
-    - name: Administrative units overview  
-      href: administrative-units.md
     - name: Add and manage
       href: admin-units-manage.md
     - name: Add and manage users
@@ -95,23 +74,39 @@
       href: admin-units-add-manage-groups.md
     - name: Assign a role with scope
       href: admin-units-assign-roles.md
-    - name: FAQ and troubleshooting
-      href: admin-units-faq-troubleshoot.md
+  - name: Delegate
+    items:
+    - name: Delegate app admin role
+      href: delegate-app-roles.md
+    - name: My Staff delegation
+      href: my-staff-configure.md
   - name: Troubleshoot
     items:
-    - name: Get support for Azure AD    
+    - name: Troubleshoot roles assigned to groups
+      href: groups-faq-troubleshooting.md
+    - name: Troubleshoot administrative units
+      href: admin-units-faq-troubleshoot.md
+    - name: Get support for Azure AD
       href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Reference
   items:
+  - name: Built-in roles
+    href: permissions-reference.md
   - name: Least-privileged roles by task   
     href: delegate-by-task.md
-  - name: Microsoft 365 role documentation
-    href: m365-workload-docs.md
-  - name: Graph API  
-    href: /graph/api/resources/directoryrole
-  - name: Azure AD CLI    
-    href: /cli/azure/ad
-  - name:  Azure AD PowerShell for Graph
-    href: /powershell/azure/active-directory/install-adv2
+  - name: Default user permissions    
+    href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+  - name: Custom role permissions
+    items:
+    - name: App registration permissions
+      href: custom-available-permissions.md
+    - name: Enterprise app permissions
+      href: custom-enterprise-app-permissions.md
+    - name: App consent permissions
+      href: custom-consent-permissions.md
   - name: Azure AD service limits
     href: ../enterprise-users/directory-service-limits-restrictions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
+  - name:  Azure AD PowerShell
+    href: /powershell/azure/active-directory/overview
+  - name: Graph API
+    href: /graph/api/overview

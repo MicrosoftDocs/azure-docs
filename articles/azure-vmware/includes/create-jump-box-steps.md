@@ -2,7 +2,7 @@
 title: Create the Azure VMware Solution jump box
 description: Steps to create the Azure VMware Solution jump box.
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 03/13/2021
 ---
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-access-private-cloud.md -->
@@ -28,9 +28,8 @@ ms.date: 09/28/2020
    | **Username** | Enter the user name for logging on to the VM. |
    | **Password** | Enter the password for logging on to the VM. |
    | **Confirm password** | Enter the password for logging on to the VM. |
-   | **Public inbound ports** | Select **None**. If you select None, you can use [JIT access](../../security-center/security-center-just-in-time.md#jit-configure) to control access to the VM only when you want to access it.  |
+   | **Public inbound ports** | Select **None**. If you select None, you can use [JIT access](../../security-center/security-center-just-in-time.md#jit-configure) to control access to the VM only when you want to access it. Alternatively, you can use an [Azure Bastion](../../bastion/tutorial-create-host-portal.md) if you want to access the jump box server securely from the internet without exposing any network port.  |
 
 
 1. Once validation passes, select **Create** to start the virtual machine creation process.
 
-   :::image type="content" source="../media/tutorial-access-private-cloud/ss11-review-create-wjb01.png" alt-text="Create a new Windows 10 VM for a jump box." border="true":::
