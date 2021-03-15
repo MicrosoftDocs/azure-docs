@@ -14,6 +14,7 @@ ms.author: amberz
 ms.co-author: Donnana
 ---
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 # Process data from automated machine learning(AutoML) models using data flow
 
