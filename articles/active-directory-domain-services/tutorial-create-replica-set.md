@@ -74,7 +74,7 @@ To create an additional replica set, complete the following steps:
 
 1. In the Azure portal, search for and select **Azure AD Domain Services**.
 1. Choose your managed domain, such as *aaddscontoso.com*.
-1. On the left-hand side, select **Replica sets**. Each managed domain includes one initial replica set in the selected region, as shown in the following example screenshot:
+1. On the left-hand side, select **Replica sets**. Each managed domain includes one initial replica set in the selected region, as shown in the below example screenshot:
 
     ![Example screenshot to view and add a replica set in the Azure portal](./media/tutorial-create-replica-set/replica-set-list.png)
 
