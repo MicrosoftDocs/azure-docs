@@ -284,7 +284,7 @@ authentication decisions. For more information, see the
 
 * Use Conditional Access to [block legacy authentication protocols](../conditional-access/howto-conditional-access-policy-block-legacy.md) whenever possible. Additionally, disable legacy authentication protocols at the application level by using an application-specific configuration.
 
-   For more information, see [Legacy authentication protocols](../fundamentals/auth-sync-overview.md). Or see specific details for [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) and [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant?view=sharepoint-ps).
+   For more information, see [Legacy authentication protocols](../fundamentals/auth-sync-overview.md). Or see specific details for [Exchange Online](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online#how-basic-authentication-works-in-exchange-online) and [SharePoint Online](/powershell/module/sharepoint-online/set-spotenant).
 
 * Implement the recommended [identity and device access configurations](/microsoft-365/security/office-365-security/identity-access-policies).
 
