@@ -146,4 +146,3 @@ See the following related articles:
 - [RelyingParty](relyingparty.md) element reference
 - [Enable your policy for JavaScript](javascript-samples.md)
 - [Code samples](code-samples.md)
-- 
