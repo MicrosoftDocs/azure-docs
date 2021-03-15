@@ -276,6 +276,10 @@ During the application registration, you don't need to register an extra front-c
 
 No front-channel logout URL is required in the application registration.
 
+# [Node.js](#tab/nodejs)
+
+No front-channel logout URL is required in the application registration.
+
 # [Python](#tab/python)
 
 During the application registration, you don't need to register an extra front-channel logout URL. The app will be called back on its main URL.
@@ -348,6 +352,10 @@ In our Java quickstart, the sign-out button is located in the main/resources/tem
 </form>
 ...
 ```
+
+# [Node.js](#tab/nodejs)
+
+This sample application does not implement sign-out.
 
 # [Python](#tab/python)
 
