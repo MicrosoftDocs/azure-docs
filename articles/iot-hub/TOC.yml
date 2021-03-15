@@ -84,6 +84,22 @@
       href: tutorial-firmware-update.md
     - name: Test device connectivity
       href: tutorial-connectivity.md
+    - name: Using X.509 certificates
+      items:
+        - name: Introduction
+          href: tutorial-x509-introduction.md
+        - name: Certificate fields
+          href: tutorial-x509-certificates.md
+        - name: Using the supplied scripts
+          href: tutorial-x509-scripts.md
+        - name: Using OpenSSL
+          href: tutorial-x509-openssl.md
+        - name: Creating self-signed certificates
+          href: tutorial-x509-self-sign.md
+        - name: Proving possession
+          href: tutorial-x509-prove-possession.md
+        - name: Testing authentication
+          href: tutorial-x509-test-certificate.md
 - name: Concepts
   items:
     - name: TLS support
