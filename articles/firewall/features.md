@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/10/2021
 ms.author: victorh
 ---
 
@@ -119,6 +119,18 @@ For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/n
 
 The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
 
+### Categorization change
+
+You can request a categorization change if you:
+
+ - think an FQDN or URL should be under a different category 
+ 
+or 
+
+- have a suggested category for an uncategorized FQDN or URL
+
+You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
+
 ### Category exceptions
 
 You can create exceptions to your web category rules. Create a separate allow or deny rule collection with a higher priority within the rule collection group. For example, you can configure a rule collection that allows `www.linkedin.com` with priority 100, with a rule collection that denies **Social networking** with priority 200. This creates the exception for the pre-defined **Social networking** web category.
@@ -131,4 +143,4 @@ Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SO
 
 ## Next steps
 
-- [Azure Firewall rule processing logic](rule-processing.md)
+- [Azure Firewall Premium Preview features](premium-features.md)

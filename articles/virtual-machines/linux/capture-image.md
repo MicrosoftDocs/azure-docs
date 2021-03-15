@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
+ms.collection: linux
 ---
 # How to create a managed image of a virtual machine or VHD
 
@@ -33,7 +34,7 @@ For a simplified version of this article, and for testing, evaluating, or learni
 
 
 ## Step 1: Deprovision the VM
-First you'll deprovision the VM by using the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
+First you'll deprovision the VM by using the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md). This process can't be reversed.
 
 1. Connect to your Linux VM with an SSH client.
 2. In the SSH window, enter the following command:

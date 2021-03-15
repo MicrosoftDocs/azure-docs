@@ -78,7 +78,7 @@ This section outlines the steps to complete the day of your hackathon.
     - Credentials that should be used to connect to the machine. This step applies only if your lab uses a Windows-based image and you configured all VMs to use the same password.
     - Instructions on how participants SSH and\or RDP to their machines.
 
-        For more information, See [how-to guide on sending invitations to users](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) and [connecting to Linux VMs](how-to-use-remote-desktop-linux-student.md?branch=master). 
+        For more information, See [how-to guide on sending invitations to users](how-to-configure-student-usage.md#send-invitations-to-users) and [connecting to Linux VMs](how-to-use-remote-desktop-linux-student.md). 
 
 ## Next steps
 Start with creating a lab account in labs by following instructions in the article: [Tutorial: Setup a lab account with Azure Lab Services](tutorial-setup-lab-account.md).

@@ -1,9 +1,8 @@
 ---
 title: Overview of alerting and notification monitoring in Azure
-description: Overview of alerting in Azure. Alerts, classic alerts, and the alerts interface.
-ms.subservice: alerts
+description: Overview of alerting in Azure Monitor
 ms.topic: conceptual
-ms.date: 01/28/2018
+ms.date: 02/14/2021
 
 ---
 
@@ -90,7 +89,7 @@ Instead, you can [programmatically enumerate the alert instances generated on yo
 > [!NOTE]
    >  You can only access alerts generated in the last 30 days.
 
-It doesn't show or track classic alerts. You can change the subscriptions or filter parameters to update the page. 
+You can change the subscriptions or filter parameters to update the page.
 
 ![Screenshot of Alerts page](media/alerts-overview/alerts-page.png)
 

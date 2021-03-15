@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor for Networks
 description: An overview of Azure Monitor for Networks, which provides a comprehensive view of health and metrics for all deployed network resources without any configuration.
-ms.subservice: 
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
