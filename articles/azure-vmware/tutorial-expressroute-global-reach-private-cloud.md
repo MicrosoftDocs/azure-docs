@@ -38,7 +38,10 @@ Before you enable connectivity between two ExpressRoute circuits using ExpressRo
 [!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  
  
-## Peer private cloud to on-premises
+## Peer private cloud to on-premises with authorization key
+
+Now that you've created an authorization key for the private cloud ExpressRoute circuit, you can peer it with your on-premises ExpressRoute circuit. The peering is done from the perspective of the on-premises ExpressRoute circuit in either the Azure portal or using the Azure CLI in a Cloud Shell. With both methods, you use the resource ID and authorization key of your private cloud ExpressRoute circuit to finish the peering.
+
 
 
 
