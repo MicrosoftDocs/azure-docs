@@ -238,7 +238,8 @@ chatThreadClient.listParticipants { result, _ in
     case let .success(participants):
         var iterator = participants.syncIterator
         while let participant = iterator.next() {
-            print(participant.user.identifier)
+            let user = participant.id as! CommunicationUserIdentifier
+            print(user.identifier)
         }
     case .failure:
         print("Failed to list participants")
