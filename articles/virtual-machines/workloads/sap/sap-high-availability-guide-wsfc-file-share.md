@@ -146,11 +146,9 @@ To use a scale-out file share, your system must meet the following requirements:
 
 You must deploy the SAP ASCS/SCS instances in a separate cluster, with their own SAP \<SID\> cluster role. In this case, you configure the scale-out file share on another cluster, with another cluster role.
 
-> [!IMPORTANT]
-> The setup must meet the following requirement: the SAP ASCS/SCS instances and the SOFS share must be deployed in separate WSFC. 
-
 
 > [!IMPORTANT]
+> > The setup must meet the following requirement: the SAP ASCS/SCS instances and the SOFS share must be deployed in separate WSFC.    
 >In this scenario, the SAP ASCS/SCS instance is configured to access the SAP global host by using UNC path \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\.
 >
 
