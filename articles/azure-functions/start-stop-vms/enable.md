@@ -96,6 +96,7 @@ You can enable either targeting the action against a subscription, single or mul
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/"
         ]
       }
+    }
     ```
 
     In the request body, if you want to manage a specific set of VMs within the subscription, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one VM if required.
@@ -116,8 +117,153 @@ You can enable either targeting the action against a subscription, single or mul
 
 ### Sequenced start and stop
 
-### Sequenced stop
+In an environment that includes two or more components on multiple VMs supporting a distributed workload, supporting the sequence in which components are started and stopped in order is important.
+
+1. From the list of Logic apps, to configure sequenced start, select **ststv2_vms_Sequenced_start**. To configure sequenced stop, select **ststv2_vms_Sequenced_stop**.
+
+1. Select **Logic app designer** from the left-hand pane.
+
+1. After Logic App Designer appears, in the designer pane, select **Recurrence** to configure the logic app schedule. To learn about the specific recurrence options, see [Schedule recurring task](../../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
+
+    :::image type="content" source="media/enable/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
+
+1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
+
+    ```json
+    {
+      "Action": "start",
+      "EnableClassic": false,
+      "RequestScopes": {
+        "ExcludedVMLists": [],
+        "Subscriptions": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/"
+        ]
+     },
+       "Sequenced": true
+    }
+    ```
+
+    In the request body, if you want to manage VMs for specific resource groups, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one resource group if required.
+
+    ```json
+    {
+      "Action": "start",
+      "EnableClassic": false,
+      "RequestScopes": {
+        "ExcludedVMLists": [],
+        "ResourceGroups": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/"
+        ],
+        "ExcludedVMLists": [
+         "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+        ]
+      },
+       "Sequenced": true
+    }
+    ```
+
+    In the request body, if you want to manage a specific set of VMs within the subscription, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one VM if required.
+
+    ```json
+    {
+      "Action": "start",
+      "EnableClassic": true,
+      "RequestScopes": {
+        "ExcludedVMLists": [],
+        "VMLists": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm2",
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg3/providers/Microsoft.Compute/virtualMachines/vm3"
+        ]
+      },
+       "Sequenced": true
+    }
+    ```
 
 ### Auto stop
+
+Start/Stop VMs can help manage the cost of running Azure Resource Manager and classic VMs in your subscription by evaluating machines that aren't used during non-peak periods, such as after hours, and automatically shutting them down if processor utilization is less than a specified percentage.
+
+1. From the list of Logic apps, to configure auto stop, select **ststv2_vms_AutoStop**.
+
+1. Select **Logic app designer** from the left-hand pane.
+
+1. After Logic App Designer appears, in the designer pane, select **Recurrence** to configure the logic app schedule. To learn about the specific recurrence options, see [Schedule recurring task](../../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
+
+    :::image type="content" source="media/enable/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
+
+1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
+
+    ```json
+    {
+      "Action": "stop",
+      "EnableClassic": false,    
+      "AutoStop_MetricName": "Percentage CPU",
+      "AutoStop_Condition": "LessThan",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Frequency": "00:05:00",
+      "AutoStop_Severity": "2",
+      "AutoStop_Threshold": "5",
+      "AutoStop_TimeAggregationOperator": "Average",
+      "AutoStop_TimeWindow": "06:00:00",
+      "RequestScopes":{        
+        "Subscriptions":[
+            "/subscriptions/12345678-1111-2222-3333-1234567891234/",
+            "/subscriptions/12345678-2222-4444-5555-1234567891234/"
+        ],
+        "ExcludedVMLists":[]
+      }        
+    }
+    ```
+
+    In the request body, if you want to manage VMs for specific resource groups, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one resource group if required.
+
+    ```json
+    {
+      "Action": "stop",
+      "AutoStop_Condition": "LessThan",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Frequency": "00:05:00",
+      "AutoStop_MetricName": "Percentage CPU",
+      "AutoStop_Severity": "2",
+      "AutoStop_Threshold": "5",
+      "AutoStop_TimeAggregationOperator": "Average",
+      "AutoStop_TimeWindow": "06:00:00",
+      "EnableClassic": true,
+      "RequestScopes": {
+        "ExcludedVMLists": [],
+        "ResourceGroups": [
+          "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/",
+          "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroupsvmrg2/",
+          "/subscriptions/12345678-2222-4444-5555-1234567891234/resourceGroups/VMHostingRG/"
+          ]
+      }
+    }
+    ```
+
+    In the request body, if you want to manage a specific set of VMs within the subscription, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one VM if required.
+
+    ```json
+    {
+      "Action": "stop",
+      "AutoStop_Condition": "LessThan",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Frequency": "00:05:00",
+      "AutoStop_MetricName": "Percentage CPU",
+      "AutoStop_Severity": "2",
+      "AutoStop_Threshold": "5",
+      "AutoStop_TimeAggregationOperator": "Average",
+      "AutoStop_TimeWindow": "06:00:00",
+      "EnableClassic": true,
+      "RequestScopes": {
+        "ExcludedVMLists": [],
+        "VMLists": [
+          "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/rg3/providers/Microsoft.ClassicCompute/virtualMachines/Clasyvm11",
+          "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+        ]
+      }
+    }
+    ```
 
 ## Next steps
