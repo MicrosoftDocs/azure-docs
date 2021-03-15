@@ -584,8 +584,8 @@
               displayName: parameterized query, parameterized, parameter, parameters
               href: sql-query-parameterized-queries.md
             - name: Pagination
-              displayName: continuation tokens
-              href: sql-query-parameterized-queries.md
+              displayName: continuation tokens, paging, pagination
+              href: sql-query-pagination.md
             - name: LINQ to SQL
               displayName: linq, .NET
               href: sql-query-linq-to-sql.md
