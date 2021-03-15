@@ -17,7 +17,7 @@ Service Fabric node types come with inherent assumption that at some point of ti
 
 Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
 
-## Enabling stateless node types in Service Fabric cluster
+## Enabling Stateless node types in Service Fabric cluster
 To set one or more node types as stateless in a cluster resource, set the **isStateless** property to "true". When deploying a Service Fabric cluster with stateless node types, do remember to have atleast one primary node type in the cluster resource.
 
 * The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
@@ -67,8 +67,9 @@ To set one or more node types as stateless in a cluster resource, set the **isSt
 To enable stateless node types, you should configure the underlying virtual machine scale set resource in the following way:
 
 * The value  **singlePlacementGroup** property, which should be set to **false** if you require to scale to more than 100 VMs.
-* The Scale set's **upgradePolicy** which **mode** should be set to **Rolling**.
+* The Scale set's **upgradePolicy** **mode** should be set to **Rolling**.
 * Rolling Upgrade Mode requires Application Health Extension or Health probes configured. Configure health probe with default configuration for Stateless Node types as suggested below. Once applications are deployed to the node type, Health Probe/Health extension ports can be changed to monitor application health.
+* Set **platformFaultDomainCount** to 5 if deploying stateless nodetype across multiple zones as per this [template](https://github.com/saketharsh/service-fabric-cluster-templates/tree/statelesscrossaz/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure).
 
 ```json
 {
