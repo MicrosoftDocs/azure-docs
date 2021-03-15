@@ -19194,7 +19194,7 @@
       "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
       "redirect_document_id": false
     },
-    {      
+    {
       "source_path_from_root": "/articles/digital-twins/how-to-enable-private-link.md",
       "redirect_url": "/azure/digital-twins/how-to-enable-private-link-portal",
       "redirect_document_id": false
@@ -31670,6 +31670,11 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/semantic-how-to-query-response.md",
+      "redirect_url": "/azure/search/semantic-answers",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/search/knowledge-store-connect-powerbi.md",
       "redirect_url": "/azure/search/knowledge-store-create-portal",
       "redirect_document_id": true
@@ -37541,7 +37546,12 @@
     },
     {
       "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-create-environment.md",
-      "redirect_url": "/azure/time-series-insights/tutorials-set-up-tsi-environment",
+      "redirect_url": "/azure/time-series-insights/tutorial-set-up-environment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/time-series-insights/tutorials-set-up-tsi-environment.md",
+      "redirect_url": "/azure/time-series-insights/tutorial-set-up-environment",
       "redirect_document_id": false
     },
     {
@@ -55040,6 +55050,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/roles/concept-delegation.md",
+      "redirect_url": "/azure/active-directory/roles/security-planning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/roles/custom-view-assignments.md",
+      "redirect_url": "/azure/active-directory/roles/view-assignments",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/directory-administrative-units.md",
       "redirect_url": "/azure/active-directory/roles/administrative-units",
       "redirect_document_id": true
@@ -55071,8 +55091,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-concept-delegation.md",
-      "redirect_url": "/azure/active-directory/roles/concept-delegation",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/roles/security-planning",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-assign-graph.md",
@@ -64546,6 +64566,16 @@
     {
       "source_path_from_root": "/articles/service-fabric/service-fabric-best-practices-overview.md",
       "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/media-services-diagnostic-logs-schema.md",
+      "redirect_url": "/azure/media-services/monitoring/monitor-media-services-data-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/media-services-metrics-diagnostic-logs.md",
+      "redirect_url": "/azure/media-services/monitoring/monitor-media-services-data-reference",
       "redirect_document_id": false
     }
   ]
