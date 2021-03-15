@@ -1129,8 +1129,8 @@ Users in this role have full access to all knowledge, learning and intelligent f
 > | microsoft.directory/groups.security/basic/update | Update basic properties on Security groups with the exclusion of role-assignable groups |
 > | microsoft.directory/groups.security/members/update | Update members of Security groups with the exclusion of role-assignable groups |
 > | microsoft.directory/groups.security/owners/update | Update owners of Security groups with the exclusion of role-assignable groups |
-> | microsoft.office365.knowledge/contentUnderstanding/allProperties/allTasks | Read and update all properties of content understanding in M365 Admin Center |
-> | microsoft.office365.knowledge/knowledgeNetwork/allProperties/allTasks | Read and update all properties of knowledge network in M365 Admin Center |
+> | microsoft.office365.knowledge/contentUnderstanding/allProperties/allTasks | Read and update all properties of content understanding in Microsoft 365 admin center |
+> | microsoft.office365.knowledge/knowledgeNetwork/allProperties/allTasks | Read and update all properties of knowledge network in Microsoft 365 admin center |
 > | microsoft.office365.protectionCenter/sensitivityLabels/allProperties/read | Read sensitivity labels in the Security and Compliance centers |
 > | microsoft.office365.sharePoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in SharePoint |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
