@@ -20,7 +20,6 @@ ms.collection: M365-identity-device-management
 Passwordless authentication methods, such as FIDO2 and Passwordless Phone Sign-in through the Microsoft Authenticator app, enable users to sign in securely without a password. 
 Users can bootstrap Passwordless methods in one of two ways:
 
-<<<<<<< HEAD
 - Using existing Azure AD Multi-Factor Authentication methods 
 - Using a Temporary Access Pass (TAP) 
 

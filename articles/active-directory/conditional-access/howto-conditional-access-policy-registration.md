@@ -49,7 +49,7 @@ The following policy applies to the selected users, who attempt to register usin
 1. Set **Enable policy** to **On**.
 1. Then select **Create**.
 
-Administrators will now have to issue Temporary Access Pass credentials to new users so they can satisfy the requirements for multi-factor authentication to register. Steps to accomplish this task, are found in the section [Create a TAP in the Azure AD Portal](../authentication/howto-authentication-temporary-access-pass.md#create-a-tap-in-the-azure-ad-portal).
+Administrators will now have to issue Temporary Access Pass credentials to new users so they can satisfy the requirements for multi-factor authentication to register. Steps to accomplish this task, are found in the section [Create a Temporary Access Pass in the Azure AD Portal](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass-in-the-azure-ad-portal).
 
 ### Guest users
 
