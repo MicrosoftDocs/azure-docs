@@ -64,7 +64,7 @@ The following section describes how to enable selective password hashword synchr
  1.	Start the Synchronization Rules Editor and set the filters **Password Sync** to **On** and **Rule Type** to **Standard**.
 
  ![Start sync rules editor](media/how-to-connect-selective-phs/exclude1.png)
- 2.	Select the rule **In from AD – User AccountEnabled** for the Active Directory forest Connector you want to configure selective password had hash synchronization on and click **Edit**. Select **yesYes** in the next dialog box to create an editable copy of the original rule.
+ 2.	Select the rule **In from AD – User AccountEnabled** for the Active Directory forest Connector you want to configure selective password had hash synchronization on and click **Edit**. Select **Yes** in the next dialog box to create an editable copy of the original rule.
  
  ![Select rule](media/how-to-connect-selective-phs/exclude2.png)
  3.	The first rule will disable password hash sync.
@@ -183,9 +183,9 @@ Once you completed the steps to configure the necessary synchronization rules, r
 For more information on the scheduler see [Azure AD Connect sync scheduler](how-to-connect-sync-feature-scheduler.md).
 
 ### Edit users **adminDescription** attribute:
-Once all configurations are complete, you need edit the attribute **adminDescription** for all users you wish to **include** for password hash synchronization in Active Directory and add the string used in the scoping filter: **PHSFiltered**.
+Once all configurations are complete, you need edit the attribute **adminDescription** for all users you wish to **include** for password hash synchronization in Active Directory and add the string used in the scoping filter: **PHSIncluded**.
 
-  ![Edit attributes](media/how-to-connect-selective-phs/exclude11.png)
+  ![Edit attributes](media/how-to-connect-selective-phs/include11.png)
  
  
 
