@@ -65,6 +65,8 @@
     href: configure-scaling.md
   - name: Certificates
     href: certificates-and-key-vault.md
+  - name: Generate ARM Template using Portal
+    href: generate-template-portal.md
 - name: Samples
   items: 
   - name: Sample Templates
