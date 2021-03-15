@@ -5,7 +5,7 @@ description: Provides an overview of factors to consider and steps to follow to 
 
 author: karauten
 ms.author: karauten
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
@@ -89,19 +89,19 @@ When you use Azure as a backup target, you'll make use of [Azure Blob storage](.
 
 |  |Locally-redundant  |Zone-redundant  |Geo-redundant  |Geo-zone-redundant  |
 |---------|---------|---------|---------|---------|
-|Effective # of copies     | 3         | 3         | 6         | 6 |
-|# of availability zones     | 1         | 3         | 2         | 4 |
-|# of regions     | 1         | 1         | 2         | 2 |
-|Manual failover to secondary region     | N/A         | N/A         | Yes         | Yes |
+|**Effective # of copies**     | 3         | 3         | 6         | 6 |
+|**# of availability zones**     | 1         | 3         | 2         | 4 |
+|**# of region**s     | 1         | 1         | 2         | 2 |
+|**Manual failover to secondary region**     | N/A         | N/A         | Yes         | Yes |
 
 **Blob storage tiers:**
 
 |  | Hot tier   |Cool tier   | Archive tier |
 | ----------- | ----------- | -----------  | -----------  |
-| Availability | 99.9%         | 99%         | Offline      |
-| Usage charges | Higher storage costs, Lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
-| Minimum data retention required | NA | 30 days | 180 days |
-| Latency (time to first byte) | Milliseconds | Milliseconds | Hours |
+| **Availability** | 99.9%         | 99%         | Offline      |
+| **Usage charges** | Higher storage costs, Lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
+| **Minimum data retention required** | NA | 30 days | 180 days |
+| **Latency (time to first byte)** | Milliseconds | Milliseconds | Hours |
 
 #### Sample backup to Azure cost model
 

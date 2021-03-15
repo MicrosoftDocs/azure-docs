@@ -5,7 +5,7 @@ description: Provides an overview of factors to consider and steps to follow to 
 
 author: karauten
 ms.author: karauten
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
@@ -89,19 +89,19 @@ When you use Azure as a backup target, you'll make use of [Azure Blob storage](.
 
 |  |Locally-redundant  |Zone-redundant  |Geo-redundant  |Geo-zone-redundant  |
 |---------|---------|---------|---------|---------|
-|Effective # of copies     | 3         | 3         | 6         | 6 |
-|# of availability zones     | 1         | 3         | 2         | 4 |
-|# of regions     | 1         | 1         | 2         | 2 |
-|Manual failover to secondary region     | N/A         | N/A         | Yes         | Yes |
+|**Effective # of copies**     | 3         | 3         | 6         | 6 |
+|**# of availability zones**     | 1         | 3         | 2         | 4 |
+|**# of regions**     | 1         | 1         | 2         | 2 |
+|**Manual failover to secondary region**     | N/A         | N/A         | Yes         | Yes |
 
 **Blob storage tiers:**
 
 |  | Hot tier   |Cool tier   | Archive tier |
 | ----------- | ----------- | -----------  | -----------  |
-| Availability | 99.9%         | 99%         | Offline      |
-| Usage charges | Higher storage costs, Lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
-| Minimum data retention required | N/A | 30 days | 180 days |
-| Latency (time to first byte) | Milliseconds | Milliseconds | Hours |
+| **Availability** | 99.9%         | 99%         | Offline      |
+| **Usage charges** | Higher storage costs, Lower access, and transaction costs | Lower storage costs, higher access, and transaction costs | Lowest storage costs, highest access, and transaction costs |
+| **Minimum data retention required**| N/A | 30 days | 180 days |
+| **Latency (time to first byte)** | Milliseconds | Milliseconds | Hours |
 
 #### Sample backup to Azure cost model
 
@@ -167,11 +167,11 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
 9. Next, navigate to **Storage** -> **Cloud** in Commvault Command Center. Choose to **Add**. Enter a friendly name for the storage account and then select **Microsoft Azure Storage** from the **Type** list. Select a Media Agent server to be used to transfer backups to Azure Storage. Add the container you created, choose the storage tier to use within the Azure storage account, and select the credentials created in Step #8. Finally, choose whether or not to transfer deduplicated backups or not and a location for the deduplication database.
 
-     ![Shows adding storage in the Commvault Command Center.](../media/commvault-add-storage.png)
+     ![Screenshot of Commvault's Add cloud user interface. In the Archive drop-down menu, **Archive** is selected.](../media/commvault-add-storage.png)
 
 10. Finally, add your new Azure Storage resource to an existing or new plan in Commvault Command Center via **Manage** -> **Plans** as a backup destination.
 
-    ![Shows more adding storage settings in the Commvault Command Center.](../media/commvault-plan.png)
+    ![Screenshot of the Commvault Command Center user interface. In the left navigation, under **Manage**, **Plans** is selected.](../media/commvault-plan.png)
 
 11. *(Optional)* If you plan to use Azure as a recovery site or Commvault to migrate servers and applications to Azure, it's a best practice to deploy a VSA Proxy in Azure. You can find detailed instructions [here](https://documentation.commvault.com/commvault/v11/article?p=106208.htm).
 
