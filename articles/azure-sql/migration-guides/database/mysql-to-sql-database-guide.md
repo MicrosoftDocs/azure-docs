@@ -39,21 +39,9 @@ To create an assessment, perform the following steps.
 1. Open SQL Server Migration Assistant for MySQL. 
 1. Select **File** from the menu and then choose **New Project**. Provide the project name, a location to save your project.
 1. Choose **Azure SQL Database** as the migration target. 
-
-
-   ![New Project](./media/mysql-to-sql-database-guide/new-project.png)
-
 1. Choose **Connect to MySQL** and provide connection details to connect your MySQL server. 
-
-   ![Connect to MySQL](./media/mysql-to-sql-database-guide/connect-to-mysql.png)
-
 1. Right-click the MySQL schema in **MySQL Metadata Explorer** and choose **Create report**. Alternatively, you can select **Create report** from the top-line navigation bar. 
-
-   ![Create Report](./media/mysql-to-sql-database-guide/create-report.png)
-
 1. Review the HTML report for conversion statistics, as well as errors and warnings. Analyze it to understand conversion issues and resolutions. 
-
-   ![Conversion Report](./media/mysql-to-sql-database-guide/conversion-report.png)
 
    This report can also be accessed from the SSMA projects folder as selected in the first screen. From the example above locate the report.xml file from:
  
@@ -64,9 +52,6 @@ To create an assessment, perform the following steps.
 ### Validate data types
 
 Before you perform schema conversion validate the default datatype mappings or change them based on requirements. You could do so either by navigating to the "Tools" menu and choosing "Project Settings" or you can change type mapping for each table by selecting the table in the "MySQL Metadata Explorer".
- 
-   ![Type Mappings](./media/mysql-to-sql-database-guide/type-mappings.png)
-
 
 ### Convert schema 
 
@@ -74,16 +59,8 @@ To convert the schema, follow these steps:
 
 1. (Optional) To convert dynamic or ad-hoc queries, right-click the node and choose **Add statement**. 
 1. Choose **Connect to Azure SQL Database** from the top-line navigation bar and provide connection details. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
-
-   ![Connect to SQL](./media/mysql-to-sql-database-guide/connect-to-sqldb.png)
- 
 1. Right-click the schema and choose **Convert schema**. 
-
-   ![Convert Schema](./media/mysql-to-sql-database-guide/convert-schema.png)
-
 1. After the schema is finished converting, compare the converted code to the original code to identify potential problems. 
-
-   ![Convert structure Schema](./media/mysql-to-sql-database-guide/compare-schema.png)
 
 
 
@@ -94,28 +71,9 @@ After you have completed assessing your databases and addressing any discrepanci
 To publish the schema and migrate the data, follow these steps: 
 
 1. Right-click the database from the **Azure SQL Database Metadata Explorer** and choose **Synchronize with Database**. This action publishes the MySQL schema to Azure SQL Database.
-
-   ![Synchronize with Database](./media/mysql-to-sql-database-guide/synchronize-database.png)
-
-   Review the mapping between your source project and your target:
-
-   ![Synchronize with Database Review](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
-
 1. Right-click the MySQL schema from the **MySQL Metadata Explorer** and choose **Migrate Data**. Alternatively, you can select **Migrate Data** from the top-line navigation. 
-
-   ![Migrate data](./media/mysql-to-sql-database-guide/migrate-data.png)
-
 1. After migration completes, view the **Data Migration** report: 
-
-   ![Data Migration Report](./media/mysql-to-sql-database-guide/data-migration-report.png)
-
 1.  Validate the migration by reviewing the data and schema on Azure SQL Database by using SQL Server Management Studio (SSMS).
-
-    ![Validate in SSMA](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
-
-> [!NOTE] 
-> If you are interested in participating in a Private preview of a one-time migration for MySQL to Azure SQL Database using the Azure Database Migration Service, submit a nomination [here](https://aka.ms/dms-preview).
-
 
 
 ## Post-migration 

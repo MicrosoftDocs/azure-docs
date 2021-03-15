@@ -41,48 +41,15 @@ To use the MAP Toolkit to perform an inventory scan, follow these steps:
 
 1. Open the [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883).
 1. Select **Create/Select database**.
-
-   ![Select database](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
-
 1. Select **Create an inventory database**, enter a name for the new inventory database you're creating, provide a brief description, and then select **OK**. 
-
-   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="Create an inventory database":::
-
 1. Select **Collect inventory data** to open the **Inventory and Assessment Wizard**. 
-
-   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/collect-inventory-data.png" alt-text="Collect inventory data":::
-
 1. In the **Inventory and Assessment Wizard**, choose **Oracle** and then select **Next**. 
-
-   ![Choose oracle](./media/oracle-to-sql-on-azure-vm-guide/choose-oracle.png)
-
 1. Choose the computer search option that best suits your business needs and environment, and then select **Next**: 
-
-   ![Choose the computer search option that best suits your business needs](./media/oracle-to-sql-on-azure-vm-guide/choose-search-option.png)
-
 1. Either enter credentials or create new credentials for the systems that you want to explore, and then select **Next**.
-
-    ![Enter credentials](./media/oracle-to-sql-on-azure-vm-guide/choose-credentials.png)
-
 1. Set the order of the credentials, and then select **Next**. 
-
-   ![Set credential order](./media/oracle-to-sql-on-azure-vm-guide/set-credential-order.png)  
-
 1. Specify the credentials for each computer you want to discover. You can use unique credentials for every computer/machine, or you can choose to use the **All Computer Credentials** list.  
-
-
-   ![Specify the credentials for each computer you want to discover](./media/oracle-to-sql-on-azure-vm-guide/specify-credentials-for-each-computer.png)
-
-
 1. Verify your selection summary, and then select **Finish**.
-
-   ![Review summary](./media/oracle-to-sql-on-azure-vm-guide/review-summary.png)
-
 1. After the scan completes, view the **Data Collection** summary report. The scan take a few minutes, and depends on the number of databases. Select **Close** when finished. 
-
-   ![Collection summary report](./media/oracle-to-sql-on-azure-vm-guide/collection-summary-report.png)
-      
-
 1. Select **Options** to generate a report about the Oracle Assessment and database details. Select both options (one by one) to generate the report.
 
 
@@ -95,32 +62,11 @@ To create an assessment, follow these steps:
 1. Open the  [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Select **File** and then choose **New Project**. 
 1. Provide a project name, a location to save your project, and then select a SQL Server migration target from the drop-down. Select **OK**. 
-
-   ![New project](./media/oracle-to-sql-on-azure-vm-guide/new-project.png)
-
 1. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
-
-    Choose the appropriate Oracle Data Provider: 
-
-   ![Choose Oracle data provider](./media/oracle-to-sql-on-azure-vm-guide/oracle-data-provider.png)
-
-    Connect to Oracle: 
-
-   ![Connect to Oracle](./media/oracle-to-sql-on-azure-vm-guide/connect-to-oracle.png)
-
-   Select the Oracle schema(s) you want to migrate: 
-
-   ![Select Oracle schema](./media/oracle-to-sql-on-azure-vm-guide/select-schema.png)
-
 1. Right-click the Oracle schema you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
 
 1. In **Oracle Metadata Explorer**, select the Oracle schema, and then select **Create Report** to generate an HTML report with conversion statistics and error/warnings, if any..
-
-   ![Create Report](./media/oracle-to-sql-on-azure-vm-guide/create-report.png)
-
 1. Review the HTML report for conversion statistics, as well as errors and warnings. Analyze it to understand conversion issues and resolutions.
-
-   ![Conversion Report](./media/oracle-to-sql-on-azure-vm-guide/conversion-report.png)
 
    This report can also be accessed from the SSMA projects folder as selected in the first screen. From the example above locate the report.xml file from: 
 
@@ -136,9 +82,6 @@ Validate the default data type mappings and change them based on requirements if
 1. Select **Tools** from the menu. 
 1. Select **Project Settings**. 
 1. Select the **Type mappings** tab. 
-
-   ![Type Mappings](./media/oracle-to-sql-on-azure-vm-guide/type-mapping.png)
-
 1. You can change the type mapping for each table by selecting the table in the **Oracle Metadata explorer**. 
 
 
@@ -149,16 +92,8 @@ To convert the schema, follow these steps:
 
 1. (Optional) To convert dynamic or ad-hoc queries, right-click the node and choose **Add statement**.
 1. Choose **Connect to SQL Server** from the top-line navigation bar and provide connection details for your SQL Server on Azure VM. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
-
-   ![Connect to SQL](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql-vm.png)
-
 1. Right-click the schema and choose **Convert Schema**.
-
-   ![Convert Schema](./media/oracle-to-sql-on-azure-vm-guide/convert-schema.png)
-
 1. After the schema is finished converting, compare and review the structure of the schema to identify potential problems.
-
-   ![Convert Schema Compare And Review](./media/oracle-to-sql-on-azure-vm-guide/compare-schema.png)
 
    You can save the project locally for an offline schema remediation exercise. You can do so by selecting **Save Project** from the **File** menu. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you can publish the schema to SQL Server.
 
@@ -171,21 +106,10 @@ After you have the necessary prerequisites in place and have completed the tasks
 To publish the schema and migrate the data, follow these steps: 
 
 1. Right-click the database from the **SQL Server Metadata Explorer**  and choose **Synchronize with Database**. This action publishes the Oracle schema to SQL Server on Azure VM. 
-
-   ![Synchronize with Database](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database.png)
-
 1. Right-click the Oracle schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. Alternatively, you can select Migrate Data from the top-line navigation.
-
-   ![Migrate Data](./media/oracle-to-sql-on-azure-vm-guide/migrate-data.png)
-
 1. Provide connection details for Oracle and SQL Server on Azure VM at the dialog box.
 1. After migration completes, view the Data Migration report:
-
-    ![Data Migration Report](./media/oracle-to-sql-on-azure-vm-guide/data-migration-report.png)
-
 1. Connect to your SQL Server on Azure VM using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) to review data and schema on your SQL Server instance. 
-
-   ![Validate in SSMA](./media/oracle-to-sql-on-azure-vm-guide/validate-in-ssms.png)
 
 
 In addition to using SSMA, you can also use SQL Server Integration Services (SSIS) to migrate the data. To learn more, see: 
