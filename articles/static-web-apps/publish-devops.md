@@ -16,10 +16,8 @@ This article demonstrates how to deploy an [Azure Static Web App](articles\stati
 
 In This tutorial, you will learn how to:
 
-> [!div class="checklist"]
->
-> - Creat a task in your Azure DevOps Pipeline
-> - Setup an Azure Static Web Apps
+- Creat a task in your Azure DevOps Pipeline
+- Setup an Azure Static Web Apps
 
 ## Prerequisites
 
@@ -37,19 +35,19 @@ In This tutorial, you will learn how to:
 1. Select **Create**.
 1. Configure the resource with the required configuration details. Under 'Deployment details' ensure that you select **Other**. This enables you to use the code in your Azure DevOps repo (or another source control repo other than GitHub).
 
-:::image type="content" source="media/publish-devops/create-resource.png" alt-text="Repository details":::
+:::image type="content" source="media/publish-devops/create-resource.png" alt-text="Deployment details - other":::
 
 1. Once the deployment is successful, select **Manage deployment token**.
 1. Copy the deployment token.
 
-:::image type="content" source="media/publish-devops/deployment-token.png" alt-text="Repository details"::: 
+:::image type="content" source="media/publish-devops/deployment-token.png" alt-text="Deployment token"::: 
 
 ## Create the Pipeline Task in Azure DevOps
 
 1. Navigate to the Azure DevOps project.
 1. Create a new **Build Pipeline**.
 
-::image type="content" source="media/publish-devops/azdo-build.png" alt-text="Repository details"::: 
+::image type="content" source="media/publish-devops/azdo-build.png" alt-text="Build pipeline"::: 
 
 1. Copy and paste in the YAML into the pipeline.
 
@@ -73,17 +71,16 @@ steps:​
 1. Create a new variable.
 1. Paste in the deployment token.
 
-::image type="content" source="media/publish-devops/variable-token.png" alt-text="Repository details":::
+::image type="content" source="media/publish-devops/variable-token.png" alt-text="Deployment token":::
    
 1. **Save and run** the pipeline.
 
-::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Repository details":::
+::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
    
 1. Once the build and deployment is complete, the Azure Static Web Apps will be up to date. Once the deployment is successful, navigate to the page with the Azure Static Web Apps configuration. The **Source** will now display the branch and location of the repository (Azure DevOps).
    
-   ::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Repository details":::
+   ::image type="content" source="media/publish-devops/deployment-location.png" alt-text="Deployment location":::
 
--->
 
 ## Next steps
 
