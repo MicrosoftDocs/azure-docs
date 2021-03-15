@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
@@ -26,21 +26,21 @@ In this article:
 
 ## Status in Verifiable Credentials spec 
 
-In order to understand the implications of revoking a Verifiable Credential, it makes sense to give background on what the Status check is and how it works today. 
+Before we can understand the implications of revoking a Verifiable Credential, it may help to know what the **status check** is and how it works today.
 
 The [W3C Verifiable Credentials spec](https://www.w3.org/TR/vc-data-model/) references the Status property in section [4.9:](https://www.w3.org/TR/vc-data-model/#status)
 
-_"This specification defines the following credentialStatus property for the discovery of information about the current status of a verifiable credential, such as whether it is suspended or revoked."_ 
+"This specification defines the following credentialStatus property for the discovery of information about the current status of a verifiable credential, such as whether it is suspended or revoked."
 
-However, the W3C spec does not define a format on how Status check should be implemented. 
+However, the W3C specification does not define a format on how Status check should be implemented.
 
-_"Defining the data model, formats, and protocols for status schemes are out of scope for this specification. A Verifiable Credential Extension Registry [VC-EXTENSION-REGISTRY] exists that contains available status schemes for implementers who want to implement verifiable credential status checking."_
+"Defining the data model, formats, and protocols for status schemes are out of scope for this specification. A Verifiable Credential Extension Registry [VC-EXTENSION-REGISTRY] exists that contains available status schemes for implementers who want to implement verifiable credential status checking."
 
-For the current time, the status check we have implemented is proprietary but Microsoft is actively working with the DID community to align on a standard. 
+For now, the status check we have implemented is proprietary but Microsoft is actively working with the DID community to align on a standard.
 
-## How status works 
+## How status works
 
-In every Microsoft issued Verifiable Credential, there is an attribute called credentialStatus. It's populated with a status API that Microsoft will manage on behalf of our customers. Here is an example of what it looks like. 
+In every Microsoft issued Verifiable Credential, there is an attribute called credentialStatus. It's populated with a status API that Microsoft manages on your behalf. Here is an example of what it looks like.
 
 ```json
     "credentialStatus": {
@@ -49,7 +49,7 @@ In every Microsoft issued Verifiable Credential, there is an attribute called cr
     }
 ```
 
-The open source Verifiable Credentials SDK will currently handle calling the status API and providing the right data. If you would like to call the status API from your own Verifying service please follow this documentation here <add docs>. 
+The open source Verifiable Credentials SDK will currently handle calling the status API and providing the necessary data. If you would like to call the status API from your own Verifying service please follow this documentation here <add docs>. 
 
 Once the API is called and provided the right information, the API will return either a True or False. True being the Verifiable Credential is still active with the Issuer and False signifying the Verifiable Credential has been actively revoked by the Issuer. 
 
@@ -106,18 +106,20 @@ Once an index claim has been set and Verifiable Credentials have been issued to 
 1. Navigate to the Verifiable Credentials blade in AAD.
 1. Choose the Verifiable Credential where you've previously set up the index claim and also issued Verifiable Credential to a user. 
 1. Left hand menu choose 'Revoke a credential'
-![Verify this domain in settings](media/how-to-issuer-revoke/settings-revoke.png) 
+   ![Revoke a credential](media/how-to-issuer-revoke/settings-revoke.png) 
 1. Search for the index attribute of the user you want to revoke. In the example of Alice, the Woodgrove employee recently took a new job, the IT Admin indexed the email attribute. 
-![Verify this domain in settings](media/how-to-issuer-revoke/revoke-search.png) 
+   ![Find the credential to revoke](media/how-to-issuer-revoke/revoke-search.png)
+
 >[!NOTE]
->Since we are only storing a hash of the indexed claim from the Verifiable Credential, only an exact match will populate the search results. We take the input as searched by the IT Admin and we use the same hashing algorithm to see if we have a hash match in our database. 
+>Since we are only storing a hash of the indexed claim from the Verifiable Credential, only an exact match will populate the search results. We take the input as searched by the IT Admin and we use the same hashing algorithm to see if we have a hash match in our database.
+
 1. Once you've found a match, select the revoke button.
-![Verify this domain in settings](media/how-to-issuer-revoke/revoke-foundinsearch-revoke.png) 
-1. After successful revoke you will see the status update and a green banner will appear at the top of the page. 
+   ![revoke button](media/how-to-issuer-revoke/revoke-foundinsearch-revoke.png) 
+1. After successful revocation you see the status update and a green banner will appear at the top of the page. 
 1. ![Verify this domain in settings](media/how-to-issuer-revoke/revoke-successful.png) 
 
-Now whenever a Relying Party calls to check the status of this specific Verifiable Credential, Microsoft's status API which is acting on behalf of the tenant, will return a 'false' response. 
+Now whenever a Relying Party calls to check the status of this specific Verifiable Credential, Microsoft's status API which is acting on behalf of the tenant, will return a 'false' response.
 
 ## Next Steps
 
-Test out the functionality on your own with a test credential to get used to the flow. 
+Test out the functionality on your own with a test credential to get used to the flow.

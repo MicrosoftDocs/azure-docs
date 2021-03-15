@@ -120,4 +120,4 @@ To check if your rules and display file have been uploaded correctly, you can cl
 
 ## Next steps
 
-- When your credential has been created and you've copied the necessary values, you can continue to review [Customizing claims in ID tokens](how-to-idp-claims.md).
+- When your credential has been created and you've copied the necessary values, you can continue to review [manage credential revocation](credential-revoke.md).

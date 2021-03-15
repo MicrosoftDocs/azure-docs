@@ -7,7 +7,7 @@ manager: daveba
 ms.service: identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 03/14/2021
+ms.date: 03/15/2021
 ms.author: barclayn
 ms.reviewer: 
 
@@ -22,7 +22,7 @@ ms.reviewer:
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Now that you have your Azure tenant set up with the Verifiable Credential service, we will walk through the steps necessary to enable your identity provider (IDP) to issue verifiable credentials using the sample app.
+Now that you have your Azure tenant set up with the Verifiable Credential service, we will walk through the steps necessary to enable your identity provider (IdP) to issue verifiable credentials using the sample app.
 
 In this article you:
 
@@ -33,7 +33,7 @@ In this article you:
 > * Set up your Verifiable Credentials Issuer service to use Azure Key Vault
 > * Update Sample Code with your tenant's information.
 
-Our sample code requires users to authenticate to an identity provider (IdP) before Ninja Verifiable Credential can be issued. Not all Verifiable Credentials issuers require authentication before issuing credentials.
+Our sample code requires users to authenticate to an IdP before Ninja Verifiable Credential can be issued. Not all Verifiable Credentials issuers require authentication before issuing credentials.
 
 Authenticating ID Tokens allows users to prove who they are before receiving their credential. When users successfully log in, the identity provider returns a security token containing claims about the user. The issuer service then transforms these security tokens and their claims into a verifiable credentials. The verifiable credential is signed with the issuer's DID.
 
@@ -41,7 +41,7 @@ Any identity provider that supports the OpenID Connect protocol is supported. Ex
 
 ## Prerequisites
 
-This tutorial assumes you've already completed the steps in the [previous tutorial](tutorial-02-create-sample-card-your-issuer.md) and have access to the environment you used.
+This tutorial assumes you've already completed the steps in the [previous tutorial](create-sample-card-your-issuer.md) and have access to the environment you used.
 
 ## Register an App so DID Wallets are allowed to sign in users
 
@@ -109,7 +109,7 @@ https://portableidentitycards.azure-api.net/v1.0/96e93203-0285-41ef-88e5-a8c9b7a
 
 ### Register node app
 
-To authenticate a credential issuance request to the user, the issuer website will use your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website will need a client ID and client secret that can be used to authenticate to Azure Key Vault.
+To authenticate a user's credential issuance request, the issuer website uses your cryptographic keys in Azure Key Vault. To access Azure Key Vault, your website needs a client ID and client secret that can be used to authenticate to Azure Key Vault.
 
 ![Register node app](media/tutorial-sample-app-your-IdP/cvkoirk.png)
 
@@ -152,7 +152,7 @@ For more information about Key Vault permissions
 
 ## Summary
 
-We created a new verifiable credential using your identity provider. There are some values  and that has your own IdP and copied the contract URL. You should have also generated a Client ID for the node app along with a client secret. We will need these values in the next section to turn your Sample code to start using your own keys from key vault. 
+We created a new verifiable credential using your identity provider. There are some values  and that has your own IdP and copied the contract URL. You should have also generated a Client ID for the node app along with a client secret. We will need these values in the next section to turn your sample code to start using your own keys from key vault. 
 
 ## Next steps
 

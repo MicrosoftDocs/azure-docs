@@ -5,10 +5,10 @@ services: active-directory
 author: barclayn
 manager: daveba
 editor:
-ms.service: active-directory
+ms.service: identity
 ms.subservice: verifiable-credentials
 ms.topic: overview
-ms.date: 03/14/2021
+ms.date: 03/15/2021
 ms.author: barclayn
 ms.reviewer: 
 

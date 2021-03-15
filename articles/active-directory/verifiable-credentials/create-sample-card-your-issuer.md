@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Modify the sample app to issue verifiable credentials using your tenant (preview)"
-description: 
+description: We enable verifiable credentials in your tenant
 documentationCenter: ''
 author: barclayn
 manager: daveba
@@ -99,12 +99,12 @@ In this section, we use the environment we built in your tenant and the rules an
 2. On the Azure portal, navigate to the verifiable credentials preview portal.
 3. Select **Credentials** from the verifiable credentials preview page.
 
-   ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/verifiable-credentials-page-preview.png)
+   ![verifiable credentials get started](media/tutorial-create-sample-card-your-issuer/verifiable-credentials-page-preview.png)
 
 4. Choose **Create a credential**
 5. Under Credential Name, add the name **ninjaCredential**. This name is used in the portal to identify your verifiable credentials and it is included as part of the verifiable credentials contract.
 
-    ![Create a new credential screen](media/tutorial-create-samplecard-your-issuer/zah7B0L.png)
+   ![Create a new credential screen](media/tutorial-create-samplecard-your-issuer/zah7B0L.png)
 
 6. Select **display file**
 7. In **Storage accounts**, select **contosovcstorage**.

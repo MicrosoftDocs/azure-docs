@@ -85,7 +85,7 @@ You can run the steps from within visual studio code or any other terminal avail
 
 2. Next, issue yourself a verifiable credential. The sample website displays a QR code, that you can be scan using Authenticator. The website also displays a deep link, which you can tap if you visit the website using your device's mobile browser.
 
-    ![ngrok_url](media/get-started/ngrok_url.png)
+    ![an example ngrok URL](media/get-started-verifiable-credentials/ngrok_url.png)
 
 3. Scan the website's QR code using Authenticator, or tap the website's deep link. To get your Ninja Card, you'll be prompted to sign in with your Credential Ninja account. After you are signed in, accept your Verified Credential Ninja Card.
 
@@ -135,4 +135,4 @@ After a successful presentation three things should have been updated:
 Now that you have successfully completed the quick start guide, it's time to create your own Decentralized identifier in the Azure AD verifiable credentials service and issue your own verifiable credential.
 
 > [!div class="nextstepaction"]
-> [Configure your own issuer using the verifiable credentials sample app](./tutorial-01-verifiable-credentials-issuer.md)
+> [Configure your own issuer using the verifiable credentials sample app](./enable-your-tenant-verifiable-credentials.md)
