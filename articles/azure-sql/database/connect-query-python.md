@@ -35,7 +35,7 @@ To complete this quickstart, you need:
     |**Action**|**macOS**|**Ubuntu**|**Windows**|
     |----------|-----------|------------|---------|
     |Install the ODBC driver, SQLCMD, and the Python driver for SQL Server|Use steps **1.2**, **1.3**, and **2.1** in [create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/). This will also install install Homebrew and Python.       |[Configure an environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux)|[Configure an environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).|
-    |Install Phython and other required packages|    |Use `sudo apt-get install python python-pip gcc g++ build-essential`.|    |
+    |Install Python and other required packages|    |Use `sudo apt-get install python python-pip gcc g++ build-essential`.|    |
     |Further information|[Microsoft ODBC driver on macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)  |[Microsoft ODBC driver on Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)|[Microsoft ODBC driver on Linux](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)|
 
 
