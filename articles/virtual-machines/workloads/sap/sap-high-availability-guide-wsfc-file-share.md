@@ -148,8 +148,9 @@ You must deploy the SAP ASCS/SCS instances in a separate cluster, with their own
 
 
 > [!IMPORTANT]
-> > The setup must meet the following requirement: the SAP ASCS/SCS instances and the SOFS share must be deployed in separate WSFC.    
->In this scenario, the SAP ASCS/SCS instance is configured to access the SAP global host by using UNC path \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\.
+> The setup must meet the following requirement: the SAP ASCS/SCS instances and the SOFS share must be deployed in separate WSFC.    
+> 
+> In this scenario, the SAP ASCS/SCS instance is configured to access the SAP global host by using UNC path \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\.
 >
 
 ![Figure 5: SAP ASCS/SCS instance and a scale-out file share deployed in two clusters][sap-ha-guide-figure-8007]
