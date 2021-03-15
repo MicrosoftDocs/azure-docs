@@ -26,11 +26,11 @@ This article describes several methods that managed security service providers (
 
 ## Protect intellectual property: Cloud Solutions Providers (CSP)
 
-If you're reselling Azure as a Cloud Solutions Provider (CSP), you're managing the customer's Azure subscription. Specified users from your MSSP tenant are granted with **Owner** access to the customer's Azure subscription, and the customer has *no* access by default.
+If you're reselling Azure as a Cloud Solutions Provider (CSP), you're managing the customer's Azure subscription. Specified users from your MSSP tenant are granted with **Owner** access to the customer's Azure subscription, and the customer has no access by default.
 
 If you need to provide customer users with access to the Azure environment, we recommend that you grant them access at the level of the *resource group* so that you can show / hide parts of the environment as needed. For example, you might grant the customer with access to several resource groups where their applications are located, but still keep the Azure Sentinel environment in a separate resource group, where the customer has no access. For example, you can use this method to enable customers to view *Workbooks* and *Playbooks*, which are separate resources that can reside in their own resource group.
 
-In such cases, we recommend that you use [Azure Lighthouse](multiple-tenants-service-providers.md) to provide customer access, which enables you to grant users or groups with access to a specific scope, such as a resource group or subscription, using one of the built-in roles. If you need to provide your customers with access to the entire subscription, see [Protect intellectual property: Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#-protect-intellectual-property-enterprise-agreements-ea--pay-as-you-go-payg).
+In such cases, we recommend that you use [Azure Lighthouse](multiple-tenants-service-providers.md) to provide customer access, which enables you to grant users or groups with access to a specific scope, such as a resource group or subscription, using one of the built-in roles. If you need to provide your customers with access to the entire subscription, see [Protect intellectual property: Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#protect-intellectual-property-enterprise-agreements-ea--pay-as-you-go-payg).
 
 The following image describes how permissions might work when providing access to CSP customers:
 
