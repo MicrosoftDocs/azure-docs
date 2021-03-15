@@ -94,7 +94,7 @@ In the *Patient search* example, there are no patients in the database; such as,
 
 You can inspect the access token using a tool like [jwt.ms](https://jwt.ms). An example of the content is shown below.
 
-```jsonc
+```json
 {
   "aud": "https://MYACCOUNT.azurehealthcareapis.com",
   "iss": "https://sts.windows.net/{TENANT-ID}/",
@@ -122,7 +122,30 @@ It's also possible to get a token for the [Azure API for FHIR using the Azure CL
 
 With a valid access token, you can now insert a new patient. In Postman, change the method by clicking **Post**, and then add the following JSON document in the body of the request.
 
-[!code-json[](samples/sample-patient.json)]
+```json
+{
+    "resourceType": "Patient",
+    "active": true,
+    "name": [
+        {
+            "use": "official",
+            "family": "Kirk",
+            "given": [
+                "James",
+                "Tiberious"
+            ]
+        },
+        {
+            "use": "usual",
+            "given": [
+                "Jim"
+            ]
+        }
+    ],
+    "gender": "male",
+    "birthDate": "1960-12-25"
+}
+```
 
 Click **Send** to determine that the patient is successfully created.
 
