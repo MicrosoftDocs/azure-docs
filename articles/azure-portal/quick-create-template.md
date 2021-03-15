@@ -3,7 +3,7 @@ title: Create an Azure portal dashboard by using an Azure Resource Manager templ
 description: Learn how to create an Azure portal dashboard by using an Azure Resource Manager template.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/15/2020
+ms.date: 03/15/2021
 ---
 
 # Quickstart: Create a dashboard in the Azure portal by using an ARM template
@@ -31,7 +31,7 @@ The dashboard you create in the next part of this quickstart requires an existin
 
 1. In the **Cloud Shell** window, select **PowerShell**.
 
-    ![Copy a command into the command prompt](media/quick-create-template/powershell.png)
+    ![Select PowerShell in the terminal window](media/quick-create-template/powershell.png)
 
 1. Copy the following command and enter it at the command prompt to create a resource group.
 
