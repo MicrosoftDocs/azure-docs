@@ -7,7 +7,7 @@ ms.date: 03/15/2021
 
 # Use Bicep modules
 
-For small to medium solutions, a single Bicep file is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, Bicep modules enable you to break down the solution into targeted components. You can easily reuse these modules for other scenarios. A module is a set of one or more resource to be deployed together.
+For small to medium solutions, a single Bicep file is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, Bicep modules enable you to break down the solution into targeted components. You can easily reuse these modules for other scenarios. A module is a set of one or more resources to be deployed together.
 
 For a tutorial, see [Tutorial: Add modules](./bicep-tutorial-add-modules.md).
 
@@ -15,7 +15,7 @@ For a tutorial, see [Tutorial: Add modules](./bicep-tutorial-add-modules.md).
 
 There is no specific syntax for defining a module. Every Bicep file can be consumed as a module. A module only exposes parameters and outputs as contract to other Bicep files. Both parameters and outputs are optional.
 
-The following Bicep is a module example to create a storage account.  The next section shows you show to consume the module:
+The following Bicep is a module example to create a storage account.  The next section shows you how to consume the module:
 
 ```bicep
 @minLength(3)
@@ -87,7 +87,6 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
         "apiVersion": "2019-10-01",
         "name": "storageDeploy",
         "properties": {
-          ...
         }
       }
     ]
@@ -110,7 +109,7 @@ module stgModule './storageAccount.bicep' = {
 }
 ```
 
-If the module's target scope is the same as the parent's target scope, this property may be omitted. If the scope property is not provided, the module is deployed at the target scope for the Bicep file.
+This property can be omitted when the module's target scope and the parent's target scope are the same. When the scope property is not provided, the module is deployed at the target scope for the Bicep file.
 
 The following Bicep file shows how to create a resource group and deploy a module to the resource group:
 
