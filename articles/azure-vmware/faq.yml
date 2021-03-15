@@ -3,7 +3,7 @@ metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: conceptual
-  ms.date:  03/03/2021
+  ms.date:  03/16/2021
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -219,6 +219,7 @@ sections:
             ```
             az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
             ```
+          For more information, see [Reset vSphere credentials for Azure VMware Solution](reset-vsphere-credentials.md).
 
   - name: Billing and Support
     questions:
