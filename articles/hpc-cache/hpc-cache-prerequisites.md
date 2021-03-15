@@ -186,7 +186,7 @@ This is a general overview of the steps. These steps might change, so always ref
 
 1. Enable the NFS protocol feature for your subscription. Do this *before* you create the storage account.
 
-1. Create a secure virtual network (VNet) for the storage account. You should use the same virtual network for your NFS-enabled storage account and for your Azure HPC Cache.
+1. Create a secure virtual network (VNet) for the storage account. You should use the same virtual network for your NFS-enabled storage account and for your Azure HPC Cache. (Do not use the same subnet as the cache.)
 
 1. Create the storage account.
 

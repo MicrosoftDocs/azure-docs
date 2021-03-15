@@ -54,9 +54,10 @@ These are the usage model options:
 
 * **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache, or if you want to optimize data consistency. Files that clients request are cached (reads), but any changes to those files from the client (writes) are not cached. They are passed through directly to the back-end storage system.
 
-  With this usage model, the files in the cache are frequently checked against the back-end versions for updates. This verification allows files to be changed outside of the cache while maintaining data consistency.
+  With this usage model, the files in the cache are frequently checked against the back-end versions for updates - every 30 seconds. This verification allows files to be changed outside of the cache while maintaining data consistency.
 
-Those first three basic usage models can be used to handle the majority of Azure HPC Cache workflows. There are also options to cover less common scenarios.
+  > [!TIP]
+  > Those first three basic usage models can be used to handle the majority of Azure HPC Cache workflows. The next options are for less common scenarios.
 
 * **Greater than 15% writes, checking the backing server for changes every 30 seconds** and **Greater than 15% writes, checking the backing server for changes every 60 seconds** - These options are designed for workflows where you want to speed up both reads and writes, but there's a chance that another user will write directly to the back-end storage system. For example, if multiple sets of clients are working on the same files from different locations, these usage models might make sense to balance the need for quick file access with low tolerance for stale content from the source.
 
@@ -68,7 +69,9 @@ Those first three basic usage models can be used to handle the majority of Azure
 
 This table summarizes the usage model differences:
 
-| Usage model                   | Caching mode | Back-end verification | Maximum write-back delay |
+[!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
+
+<!-- | Usage model                   | Caching mode | Back-end verification | Maximum write-back delay |
 |-------------------------------|--------------|-----------------------|--------------------------|
 | Read heavy, infrequent writes | Read         | Never                 | None                     |
 | Greater than 15% writes       | Read/write   | 8 hours               | 20 minutes               |
@@ -77,7 +80,7 @@ This table summarizes the usage model differences:
 | Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
 | Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
 | Read heavy, checking the backing server every 3 hours | Read | 3 hours | None |
-
+-->
 If you have questions about the best usage model for your Azure HPC Cache workflow, talk to your Azure representative or open a support request for help.
 
 ## Next steps
