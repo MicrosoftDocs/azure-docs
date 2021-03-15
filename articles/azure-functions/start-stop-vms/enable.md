@@ -2,7 +2,7 @@
 title: Enable Start/Stop VMs (preview)
 description: This article tells how to enable the Start/Stop VMs (preview) feature for your Azure VMs.
 services: azure-functions
-ms.subservice: start-stop-vms
+ms.subservice: 
 ms.date: 03/12/2021
 ms.topic: conceptual
 ---
