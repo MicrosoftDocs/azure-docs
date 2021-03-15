@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 02/17/2021
+ms.date: 03/15/2021
 ms.author: aahi
 ---
 
@@ -54,10 +54,10 @@ This category contains the following entity:
       
     :::column-end:::
     
-    :::column span="2":::
+    :::column span="":::
       **Supported document languages**
 
-      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, <br> `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt`-`pt`, `ru`, `es`, `sv`, `tr`   
+      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt`-`pt`, `ru`, `es`, `sv`, `tr`   
       
    :::column-end:::
 :::row-end:::
@@ -83,7 +83,7 @@ This category contains the following entity:
       
     :::column-end:::
 
-    :::column span="2":::
+    :::column span="":::
       **Supported document languages**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
@@ -111,7 +111,7 @@ This category contains the following entity:
       
     :::column-end:::
 
-    :::column span="2":::
+    :::column span="":::
       **Supported document languages**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt` `pt-br`
@@ -270,7 +270,14 @@ This category contains the following entity:
         To get this entity category, add `Email` to the `pii-category` parameter. `Email` will be returned in the API response if detected.
 
     :::column-end:::
+    :::column span="":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+    :::column-end:::
 :::row-end:::
+
 
 ### Category: URL
 
@@ -292,7 +299,7 @@ This category contains the following entity:
       
     :::column-end:::
 
-    :::column span="2":::
+    :::column span="":::
       **Supported document languages**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
@@ -321,7 +328,7 @@ This category contains the following entity:
       
     :::column-end:::
 
-    :::column span="2":::
+    :::column span="":::
       **Supported document languages**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
@@ -348,6 +355,12 @@ This category contains the following entities:
         To get this entity category, add `DateTime` to the `pii-category` parameter. `DateTime` will be returned in the API response if detected.
       
     :::column-end:::
+:::column span="":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
 :::row-end:::
 
 #### Subcategories
@@ -367,6 +380,12 @@ The entity in this category can have the following subcategories.
         Calender dates.
 
         To get this entity category, add `Date` to the `pii-category` parameter. `Date` will be returned in the API response if detected.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
       
     :::column-end:::
 :::row-end:::
@@ -390,6 +409,12 @@ This category contains the following entities:
         To get this entity category, add `Quantity` to the `pii-category` parameter. `Quantity` will be returned in the API response if detected.
       
     :::column-end:::
+    :::column span="2":::
+      **Supported document languages**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+    :::column-end:::
 :::row-end:::
 
 #### Subcategories
@@ -411,6 +436,12 @@ The entity in this category can have the following subcategories.
         To get this entity category, add `Age` to the `pii-category` parameter. `Age` will be returned in the API response if detected.
       
     :::column-end:::
+    :::column span="2":::
+        **Supported document languages**
+
+        `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
 :::row-end:::
 
 ### Azure information
@@ -432,6 +463,12 @@ These entity categories includes identifiable Azure information, including authe
         To get this entity category, add `AzureDocumentDBAuthKey` to the `pii-category` parameter. `AzureDocumentDBAuthKey` will be returned in the API response if detected.
       
     :::column-end:::
+    :::column span="":::
+      **Supported document languages**
+
+      `en` 
+
+    :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -447,6 +484,11 @@ These entity categories includes identifiable Azure information, including authe
         To get this entity category, add `AzureIAASDatabaseConnectionAndSQLString` to the `pii-category` parameter. `AzureIAASDatabaseConnectionAndSQLString` will be returned in the API response if detected.
       
     :::column-end:::
+    :::column span="":::
+
+      `en` 
+
+    :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -459,6 +501,11 @@ These entity categories includes identifiable Azure information, including authe
         Connection string for Azure IoT. 
       
         To get this entity category, add `AzureIoTConnectionString` to the `pii-category` parameter. `AzureIoTConnectionString` will be returned in the API response if detected.
+
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
 
     :::column-end:::
 :::row-end:::
@@ -475,6 +522,11 @@ These entity categories includes identifiable Azure information, including authe
         To get this entity category, add `AzurePublishSettingPassword` to the `pii-category` parameter. `AzurePublishSettingPassword` will be returned in the API response if detected.
       
     :::column-end:::
+    :::column span="":::
+
+      `en` 
+
+    :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -488,6 +540,11 @@ These entity categories includes identifiable Azure information, including authe
 
         To get this entity category, add `AzureRedisCacheString` to the `pii-category` parameter. `AzureRedisCacheString` will be returned in the API response if detected.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -503,6 +560,11 @@ These entity categories includes identifiable Azure information, including authe
         To get this entity category, add `AzureSAS` to the `pii-category` parameter. `AzureSAS` will be returned in the API response if detected.
       
     :::column-end:::
+    :::column span="":::
+
+      `en` 
+
+    :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -516,6 +578,11 @@ These entity categories includes identifiable Azure information, including authe
 
         To get this entity category, add `AzureServiceBusString` to the `pii-category` parameter. `AzureServiceBusString` will be returned in the API response if detected.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -531,6 +598,11 @@ These entity categories includes identifiable Azure information, including authe
         To get this entity category, add `AzureStorageAccountKey` to the `pii-category` parameter. `AzureStorageAccountKey` will be returned in the API response if detected.
       
     :::column-end:::
+    :::column span="":::
+
+      `en` 
+
+    :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -545,6 +617,11 @@ These entity categories includes identifiable Azure information, including authe
         To get this entity category, add `AzureStorageAccountGeneric` to the `pii-category` parameter. `AzureStorageAccountGeneric` will be returned in the API response if detected.
       
     :::column-end:::
+    :::column span="":::
+
+      `en` 
+
+    :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -558,6 +635,11 @@ These entity categories includes identifiable Azure information, including authe
 
         To get this entity category, add `SQLServerConnectionString` to the `pii-category` parameter. `SQLServerConnectionString` will be returned in the API response if detected.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 
