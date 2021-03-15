@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/31/2020
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -25,9 +25,9 @@ A custom policy is represented as one or more XML-formatted files, which refer t
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
-  TenantId="mytenant.onmicrosoft.com"
+  TenantId="yourtenant.onmicrosoft.com"
   PolicyId="B2C_1A_TrustFrameworkBase"
-  PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+  PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
   ...
 ```
 
@@ -53,9 +53,9 @@ The following example shows how to specify the **TrustFrameworkPolicy** element:
    xmlns:xsd="https://www.w3.org/2001/XMLSchema"
    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
    PolicySchemaVersion="0.3.0.0"
-   TenantId="mytenant.onmicrosoft.com"
+   TenantId="yourtenant.onmicrosoft.com"
    PolicyId="B2C_1A_TrustFrameworkBase"
-   PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 ```
 
 The **TrustFrameworkPolicy** element contains the following elements:
@@ -86,9 +86,9 @@ The following example shows how to specify a base policy. This **B2C_1A_TrustFra
    xmlns:xsd="https://www.w3.org/2001/XMLSchema"
    xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
    PolicySchemaVersion="0.3.0.0"
-   TenantId="mytenant.onmicrosoft.com"
+   TenantId="yourtenant.onmicrosoft.com"
    PolicyId="B2C_1A_TrustFrameworkExtensions"
-   PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions">
 
   <BasePolicy>
     <TenantId>yourtenant.onmicrosoft.com</TenantId>

@@ -56,7 +56,7 @@ Defender for IoT now monitors you're newly added resource groups, and surfaces r
 
 ## Next steps
 
-Advance to the next article to learn how to create security modules...
+Advance to the next article to learn how to create Defender-IoT-micro-agents...
 
 > [!div class="nextstepaction"]
-> [Create security modules](quickstart-create-security-twin.md)
+> [Create Defender-IoT-micro-agents](quickstart-create-security-twin.md)

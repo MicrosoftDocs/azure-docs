@@ -7,12 +7,12 @@ In the pom.xml file, add the following dependency elements to the group of depen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-identity</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.6</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-beta.4</version>
 </dependency>
 <dependency>
     <groupId>com.azure</groupId>
@@ -26,10 +26,17 @@ In the pom.xml file, add the following dependency elements to the group of depen
 Add the following `import` directives to your code to use the Azure Identity and Azure Communication client libraries.
 
 ```java
-import com.azure.identity.*;
-import com.azure.communication.sms.*;
-import com.azure.communication.identity.*;
 import com.azure.communication.common.*;
+import com.azure.communication.identity.*;
+import com.azure.communication.identity.models.*;
+import com.azure.communication.sms.*;
+import com.azure.core.credential.*;
+import com.azure.core.http.*;
+import com.azure.core.http.netty.*;
+import com.azure.identity.*;
+
+import java.io.IOException;
+import java.util.*;
 ```
 
 The examples below are using the [DefaultAzureCredential](/java/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
@@ -80,12 +87,12 @@ The following code example shows how to create a service client object with mana
                .buildClient();
 
           // Send the message and check the response for a message id
-          SendSmsResponse response = smsClient.sendMessage(
-               new PhoneNumberIdentifier("<leased-phone-number>"),
-               to,
-               "your message",
-               options /* Optional */
+          SmsSendResult response = smsClient.send(
+               "<from-phone-number>",
+               "<to-phone-number>",
+               "your message"
           );
+
           return response;
     }
 ```

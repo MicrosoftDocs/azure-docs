@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 2/11/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -238,7 +238,8 @@ chatThreadClient.listParticipants { result, _ in
     case let .success(participants):
         var iterator = participants.syncIterator
         while let participant = iterator.next() {
-            print(participant.user.identifier)
+            let user = participant.id as! CommunicationUserIdentifier
+            print(user.identifier)
         }
     case .failure:
         print("Failed to list participants")

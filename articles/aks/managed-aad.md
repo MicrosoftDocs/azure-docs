@@ -31,7 +31,7 @@ Learn more about the Azure AD integration flow on the [Azure Active Directory in
 * If you are using [helm](https://github.com/helm/helm), minimum version of helm 3.3.
 
 > [!Important]
-> You must use Kubectl with a minimum version of 1.18.1 or kubelogin. If you don't use the correct version, you will notice authentication issues.
+> You must use Kubectl with a minimum version of 1.18.1 or kubelogin. The difference between the minor versions of Kubernetes and kubectl should not be more than 1 version. If you don't use the correct version, you will notice authentication issues.
 
 To install kubectl and kubelogin, use the following commands:
 

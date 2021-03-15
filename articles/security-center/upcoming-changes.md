@@ -1,16 +1,11 @@
 ---
 title: Important changes coming to Azure Security Center
 description: Upcoming changes to Azure Security Center that you might need to be aware of and for which you might need to plan 
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.author: memildin
 
 ---
@@ -28,7 +23,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 ## Planned changes
 
 - [Recommendations from AWS will be released for general availability (GA)](#recommendations-from-aws-will-be-released-for-general-availability-ga)
-- [Two legacy recommendations will no longer write data directly to Azure activity log](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)
 - [Deprecation of 11 Azure Defender alerts](#deprecation-of-11-azure-defender-alerts)
@@ -49,21 +43,6 @@ With this change, two sets of AWS recommendations will move to GA:
 
 When these are GA and the assessments run on your AWS resources, the results will impact your combined secure score for all your multi and hybrid cloud resources. 
 
-
-
-### Two legacy recommendations will no longer write data directly to Azure activity log 
-
-**Estimated date for change:** March 2021
-
-Security Center passes the data for almost all security recommendations to Azure Advisor which, in turn, writes it to [Azure activity log](../azure-monitor/essentials/activity-log.md).
-
-For two recommendations, the data is simultaneously written directly to Azure activity log. With this change, Security Center will stop writing data for these legacy security recommendations directly to activity Log. Instead, we'll export the data to Azure Advisor as we do for all the other recommendations. 
-
-The two legacy recommendations are:
-- Endpoint protection health issues should be resolved on your machines
-- Vulnerabilities in security configuration on your machines should be remediated
-
-If you've been accessing information for these two recommendations in activity log's "Recommendation of type TaskDiscovery" category, this will no longer be available.
 
 ### Two recommendations from "Apply system updates" security control being deprecated 
 
