@@ -11,6 +11,8 @@ ms.topic: conceptual
 
 Perform the steps in this topic in sequence to enable the Start/Stop VMs (preview) feature. After completing the setup process, configure the schedules to customize the feature.
 
+## Deploy feature
+
 The deployment is initiated from the Start/Stop VMs GitHub organization [here](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md).
 
 1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in. This will open the custom Azure Resouce Manager deployment page in the Azure portal.
@@ -37,7 +39,7 @@ The deployment is initiated from the Start/Stop VMs GitHub organization [here](h
 
     :::image type="content" source="media/enable/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
 
-## Configure schedule
+## Configure schedules overview
 
 To manage the automation method to control the start and stop of your VMs, you configure one or more of the included logic apps based on your requirements.
 
