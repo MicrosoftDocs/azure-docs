@@ -34,8 +34,8 @@ In this article:
 
 ## Prerequisites
 
-- Before you can continue, you must complete [the first tutorial](tutorial-01-verifiable-credentials-issuer.md) and have access to the environment you used.
-- You also need the user name and password that you used while completing the [get started](verifiable-credentials-get-started.md) article.
+- Before you can continue, you must complete [the first tutorial](enable-your-tenant-verifiable-credentials.md) and have access to the environment you used.
+- You also need the user name and password that you used while completing the [get started](get-started-verifiable-credentials.md) article.
 
 
 ## Create a storage account
@@ -79,10 +79,10 @@ Before creating the credential, we need to first give the signed in user the cor
 8. Select **Save** to complete the role assignment.
 
 
-  ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/role_assignment.jpg)
+   ![Add a role assignment](media/tutorial-create-sample-card-your-issuer/role_assignment.jpg)
 
   >[!IMPORTANT]
-    >By default, container creators get the **Owner** role assigned. Even if you created the container with the account you are using, the **Owner** role is not enough on its own. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md) Your account needs  the **Storage Blob Data Reader** role.
+  >By default, container creators get the **Owner** role assigned. Even if you created the container with the account you are using, the **Owner** role is not enough on its own. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md) Your account needs  the **Storage Blob Data Reader** role.
 
 At this point, we have taken all necessary steps to start transitioning the sample app from working with our hosted Azure Active Directory environment to yours.
 
@@ -99,7 +99,7 @@ In this section, we use the environment we built in your tenant and the rules an
 2. On the Azure portal, navigate to the verifiable credentials preview portal.
 3. Select **Credentials** from the verifiable credentials preview page.
 
-    ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/verifiable-credentials-page-preview.png)
+   ![Create a new credential screen](media/tutorial-create-sample-card-your-issuer/verifiable-credentials-page-preview.png)
 
 4. Choose **Create a credential**
 5. Under Credential Name, add the name **ninjaCredential**. This name is used in the portal to identify your verifiable credentials and it is included as part of the verifiable credentials contract.
@@ -159,7 +159,7 @@ Now we make modifications to the sample app's issuer code to update it with your
 Now that we've issued the verifiable credential from our own tenant, let's verify it using our Sample app.
 
 >[!IMPORTANT]
-> When testing, use the same email and password that you used during the [get started](verifiable-credentials-get-started.md) article. You need that information because while you are issuing the vc authentication is still handled by the same Azure AD tenant that handled authentication while completing the first tutorial.
+> When testing, use the same email and password that you used during the [get started](get-started-verifiable-credentials.md) article. You need that information because while you are issuing the vc authentication is still handled by the same Azure AD tenant that handled authentication while completing the first tutorial.
 
 1. Open up **Settings** in the verifiable credentials blade in Azure portal. Copy the Issuer identifier.
 
@@ -196,4 +196,4 @@ Now that we've issued the verifiable credential from our own tenant, let's verif
 Now that you have the sample code issuing a VC from your issuer, lets continue o the next section where you use your own identity provider to authenticate users trying to get verifiable credentials.
 
 > [!div class="nextstepaction"]
-> [Tutorial - Configure your identity provider using the verifiable credentials sample app](tutorial-sample-app-your-idp.md)
+> [Tutorial - Configure your identity provider using the verifiable credentials sample app](tutorial-03-sample-app-your-idp.md)

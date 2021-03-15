@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)"
-description: Set up your own verifiable credentials issuer in Azure
+description: In this tutorial you build the environment needed to deploy verifiable credentials in your tenant
 documentationCenter: ''
 author: barclayn
 manager: daveba
@@ -17,7 +17,7 @@ ms.reviewer:
 
 # Tutorial: Configure your Azure Active Directory to issue verifiable credentials (Preview)
 
-In this tutorial, we build on the work done in the [get started](get-started-verifiable-credentials.md) article and we get your Azure Active Directory (AAD) set up with its own distributed identifier (DID).
+In this tutorial, we build on the work done in the [get started](get-started-verifiable-credentials.md) article and we get your Azure Active Directory (AAD) set up with its own [distributed identifier](https://www.microsoft.com/security/business/identity-access-management/decentralized-identity-blockchain?rtc=1#:~:text=Decentralized%20identity%20is%20a%20trust,protect%20privacy%20and%20secure%20transactions.) (DID).
 
 > [!IMPORTANT]
 > Azure verifiable credentials is currently in public preview.
@@ -35,7 +35,7 @@ In this article:
 
 Before you can successfully complete this tutorial, you must first:
 
-- Complete the [Get started](verifiable-credentials-get-started.md).
+- Complete the [Get started](get-started-verifiable-credentials.md).
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure AD with a P2 [license](https://azure.microsoft.com/pricing/details/active-directory/).
 - An instance of [Azure Key Vault](../../key-vault/general/overview.md) where you have rights to create keys and secrets.
@@ -116,4 +116,4 @@ There are two ways to get to the verifiable credentials blade in the Azure porta
 When we started, we could issue and verify credentials using the sample app and the test Azure tenant. At the end of this tutorial, your tenant is enabled for the verifiable credentials preview. In later tutorials, we take the steps needed to get your tenant issuing and verifying credentials.
 
 > [!div class="nextstepaction"]
-> [Create Sample Ninja Credential in your Issuer](tutorial-02-create-sample-card-your-issuer.md)
+> [Create Sample Ninja Credential in your Issuer](create-sample-card-your-issuer.md)
