@@ -73,7 +73,7 @@ For example, **resource type = “Virtual Machines”** means that the rule will
 * **Alert rule ID**  
 This rule will apply only to alerts coming from a specific alert rule. The value should be the Resource Manager ID of the alert rule.  
 For example, **alert rule ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** means this rule will apply only to alerts coming from "API-Latency" metric alert rule.
-You can get the alert rule ID by listing your alert rule from the CLI, or by opening an alert rule in the portal, clicking "Properties", and copying the "Resource ID" value.
+You can get the proper alert rule ID by listing your alert rules from the CLI, or by opening a specific alert rule in the portal, clicking "Properties", and copying the "Resource ID" value.
 * **Monitor condition**  
 This rule will apply only to alert events with the specified monitor condition - either **Fired** or **Resolved**.
 * **Description**  
