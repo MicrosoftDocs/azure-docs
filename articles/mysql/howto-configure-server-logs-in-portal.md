@@ -5,7 +5,7 @@ author: Bashar-MSFT
 ms.author: bahusse
 ms.service: mysql
 ms.topic: how-to
-ms.date: 3/15/20210
+ms.date: 3/15/2021
 ---
 
 # Configure and access slow query logs from the Azure portal
