@@ -14,8 +14,6 @@ In this article, you'll learn how to move the private cloud from one subscriptio
 
 1. Sign into the Azure portal and select the private cloud you want to move.
 
-1. Ping the components and workloads to verify that they are online.
-
 1. Select the **Subscription (change)** link.
 
    :::image type="content" source="media/private-cloud-overview-subscription-id.png" alt-text="Screenshot showing the private cloud details.":::
