@@ -1,5 +1,5 @@
 ---
-title: Versioning policy - Azure Database for MySQL - Single Server and Flexible Server (Preview)
+title: Version support policy - Azure Database for MySQL - Single Server and Flexible Server (Preview)
 description: Describes the policy around MySQL major and minor versions in Azure Database for MySQL
 author: sr-msft
 ms.author: srranga
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
 ---
-# Azure Database for MySQL versioning policy
+# Azure Database for MySQL version support policy
 
 This page describes the Azure Database for MySQL versioning policy, and is applicable to Azure Database for MySQL - Single Server and Azure Database for MySQL - Flexible Server (Preview) deployment modes.
 

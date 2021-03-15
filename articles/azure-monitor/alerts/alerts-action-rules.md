@@ -61,18 +61,25 @@ You can optionally define filters so the rule will apply to a specific subset of
 
 The available filters are:
 
-* **Severity**: this rule will apply only to alerts with the selected severities.  
+* **Severity**  
+This rule will apply only to alerts with the selected severities.  
 For example, **Severity = Sev1** means that the rule will apply only to alerts with Sev1 severity.
-* **Monitor Service**: this rule will apply only to alerts coming from the selected monitoring services.  
+* **Monitor Service**  
+This rule will apply only to alerts coming from the selected monitoring services.  
 For example, **Monitor Service = “Azure Backup”** means that the rule will apply only to backup alerts (coming from  Azure Backup).
-* **Resource Type**:  this rule will apply only to alerts on the selected resource types.  
+* **Resource Type**  
+This rule will apply only to alerts on the selected resource types.  
 For example, **Resource Type = “Virtual Machines”** means that the rule will apply only to alerts on virtual machines.
-* **Alert Rule ID**: this rule will apply only to alerts coming from a specific alert rule. The value should be the Resource Manager ID of the alert rule.  
-For example, **Alert Rule ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/providers/microsoft.insights/metricalerts/MyAPI-highLatency"** means this rule will apply only to alerts coming from "MyAPI-highLatency" metric alert rule.
-* **Monitor Condition**:  this rule will apply only to alert events with the specified monitor condition -  either **Fired** or **Resolved**.
-* **Description**: this rule will apply only to alerts that contains a specific string in the alert description field. That field contains the alert rule description.  
+* **Alert Rule ID**  
+This rule will apply only to alerts coming from a specific alert rule. The value should be the Resource Manager ID of the alert rule.  
+For example, **Alert Rule ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/providers/microsoft.insights/metricalerts/API-Latency"** means this rule will apply only to alerts coming from "API-Latency" metric alert rule.
+* **Monitor Condition**  
+This rule will apply only to alert events with the specified monitor condition -  either **Fired** or **Resolved**.
+* **Description**  
+This rule will apply only to alerts that contains a specific string in the alert description field. That field contains the alert rule description.  
 For example, **Description contains 'prod'** means that the rule will only match alerts that contain the string "prod" in their description.
-* **Alert Context (payload)**: this rule will apply only to alerts that contain any of one or more specific values in the alert context fields.  
+* **Alert Context (payload)**  
+This rule will apply only to alerts that contain any of one or more specific values in the alert context fields.  
 For example, **Alert context (payload) contains 'Computer-01'** means that the rule will only apply to alerts whose payload contain the string "Computer-01".
 
 If you set multiple filters in a rule, all of them apply. For example, if you set **Resource type' = Virtual Machines** and **Severity' = Sev0**, then the rule will apply only for Sev0 alerts on virtual machines.
