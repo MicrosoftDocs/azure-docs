@@ -156,7 +156,8 @@ except exceptions.CosmosResourceExistsError:
 
 ### <a id="update-analytical-ttl"></a> Update the analytical store time to live
 
-After the analytical store is enabled with a particular TTL value, you can update it to a different valid value later. You can update the value by using the Azure portal or SDKs. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+After the analytical store is enabled with a particular TTL value, you can update it to a different valid value later. You can update the value by using the Azure portal, Azure CLI, PowerShell, or Cosmos DB SDKs. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+
 
 #### Azure portal
 
@@ -198,6 +199,13 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );
 // Update container settings
 container.replace(containerProperties).block();
 ```
+
+#### Azure CLI
+
+The following link shows how to update the TTL for analytical store by using Azure CLI:
+
+* [Update - analytical TTL -  Azure Cosmos DB API for Mongo DB collections](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update)
+* [Update - analytical TTL - Azure Cosmos DB SQL API containers](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update)
 
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
 
