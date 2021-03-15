@@ -59,7 +59,7 @@ An App Service web app is the web server to which you deploy your code.
     | Region | Select a region near you. |
     | Linux Plan | Select an exiting App Service Plan or use **Create new** to create a new one. We recommend using the **Basic B1** plan. |
 
-    ![Add App Service command](media/quickstart-python-portal/add-app-service.png)
+    ![Add App Service command](media/quickstart-python-portal/create-web-app.png)
 
 1. At the bottom of the page, select **Review + Create**, review the details, then select **Create**.
 
