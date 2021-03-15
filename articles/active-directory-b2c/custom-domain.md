@@ -55,12 +55,12 @@ When using custom domains, consider the following:
 
 ## Add a custom domain name to your tenant
 
-Follow the guidance for how to [add and validate your custom domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md). 
+Follow the guidance for how to [add and validate your custom domain in Azure AD](../active-directory/fundamentals/add-custom-domain.md). After the domain is verified, delete the DNS TXT record you created.
 
 > [!IMPORTANT]
 > For these steps, be sure to sign in to your **Azure AD B2C** tenant and select the **Azure Active Directory** service.
 
-Verify each subdomain you plan to use. Verifying just the top-level domain isn't sufficient. For example, to be able to sign-in with *login.contoso.com* and *account.contoso.com*, you need to verify both subdomains and not just the top-level domain *contoso.com*.
+Verify each subdomain you plan to use. Verifying just the top-level domain isn't sufficient. For example, to be able to sign-in with *login.contoso.com* and *account.contoso.com*, you need to verify both subdomains and not just the top-level domain *contoso.com*.  
 
 ## Create a new Azure Front Door instance
 
