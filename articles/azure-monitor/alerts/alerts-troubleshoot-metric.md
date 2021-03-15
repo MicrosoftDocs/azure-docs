@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/21/2021
+ms.date: 03/15/2021
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 
@@ -132,11 +132,9 @@ To avoid having the deployment fail when trying to validate the custom metric’
 ## Export the Azure Resource Manager template of a metric alert rule via the Azure portal
 
 Exporting the Resource Manager template of a metric alert rule helps you understand its JSON syntax and properties, and can be used to automate future deployments.
-1. Navigate to the **Resource Groups** section in the portal, and select the resource group containing the rule.
-2. In the Overview section, check the **Show hidden types** checkbox.
-3. In the **Type** filter, select *microsoft.insights/metricalerts*.
-4. Select the relevant alert rule to view its details.
-5. Under **Settings**, select **Export template**.
+1. In the Azure portal, open the alert rule to view its details.
+2. Click **Properties**.
+3. Under **Automation**, select **Export template**.
 
 ## Metric alert rules quota too small
 
