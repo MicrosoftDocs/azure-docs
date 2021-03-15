@@ -129,12 +129,12 @@ Assigning a different region to a resource is different from a [region fail-over
 [Azure storage offers geo-redundancy options](../common/storage-redundancy.md#geo-redundant-storage) for a storage account. These redundancy options can pose problems for storage accounts used with Azure File Sync. The main reason is that replication between geographically distant regions is not performed by Azure File Sync, but by a storage replication technology built-in to the storage subsystem in Azure. It cannot have an understanding of application state and Azure File Sync is an application with files syncing to and from Azure file shares at any given moment. If you opt for any of these geographically disbursed storage redundancy options, you won't lose all of your data in a large-scale disaster. However, you need to [anticipate data loss](../common/storage-disaster-recovery-guidance.md#anticipate-data-loss).
 
 > [!CAUTION]
-> Fail-over is never an appropriate substitute to provisioning your resources in the correct Azure region. If your resources are in the "wrong" region, you need to consider stopping sync and set up sync again to new Azure file shares that are deployed in your desired region.
+> Fail-over is never an appropriate substitute to provisioning your resources in the correct Azure region. If your resources are in the "wrong" region, you need to consider stopping sync and setting sync up again to new Azure file shares that are deployed in your desired region.
 
 A regional fail-over can be started by Microsoft in a catastrophic event that will render data centers in an Azure region incapacitated for an extended period of time. The definition of downtime your business can sustain might be less than the time Microsoft is prepared to let pass before starting a regional fail-over. For a situation like that, [fail-overs can also be initiated by customers](../common/storage-initiate-account-failover.md).
 
 > [!IMPORTANT]
-> In the event of a fail-over, you need to file a support ticket for your impacted Storage Sync Services to get sync operational again.
+> In the event of a fail-over, you need to file a support ticket for your impacted Storage Sync Services for sync to work again.
 
 ## See also
 
