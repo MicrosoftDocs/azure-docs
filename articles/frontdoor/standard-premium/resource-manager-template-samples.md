@@ -6,7 +6,7 @@ author: johndowns
 ms.author: jodowns
 ms.service: frontdoor
 ms.topic: sample
-ms.date: 03/05/2021 
+ms.date: 03/16/2021 
 ---
 
 # Azure Resource Manager templates for Azure Front Door
