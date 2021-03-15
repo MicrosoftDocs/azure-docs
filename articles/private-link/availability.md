@@ -6,7 +6,7 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 3/15/2021
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept,references_regions
 ---
 
 # Azure Private Link availability
