@@ -7,7 +7,7 @@ ms.date: 03/15/2021
 
 <!-- used in expressroute-global-reach-private-cloud.md and create-ipsec-tunnel.md -->
 
-1. Under the **Connectivity** section, on the **ExpressRoute** tab, select **+ Request an authorization key**. 
+1. In the Azure portal, under the **Connectivity** section, on the **ExpressRoute** tab, select **+ Request an authorization key**. 
 
    :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Screenshot showing how to request an ExpressRoute authorization key." border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::
 
