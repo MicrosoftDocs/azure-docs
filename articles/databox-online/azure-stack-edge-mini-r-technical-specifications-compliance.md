@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -59,7 +59,7 @@ The Azure Stack Edge Mini R device has the following specifications for network:
 
 ## SPF+ requirements
 
-ADD SPF+ SPECS HERE. H2 HEADING?
+The 10-G NIC used inside the Azure Stack Edge Mini R device is part of the Xeon D 1500 series SoC (System on Chip). For that reason, it is not the usual PCI NIC, but a NIC where layer 1 and layer 2 are separated. Layer 2 (MAC) is part of the Xeon D SoC mentioned before. However, layer 1 (PHY) is not part of the SoC, and it has to be provided externally. This PHY is a physical device outside the SoC, implemented separately.<!--Rewording of intro in progress.-->
 
 ## Power supply unit specifications
 
