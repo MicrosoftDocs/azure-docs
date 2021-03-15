@@ -163,14 +163,14 @@ Note: Azure AD supports external identity that allows users without a Microsoft 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37701).
 
-**Guidance**: Use Azure-managed identities for non-human accounts such as services or automation, it is recommended to use Azure-managed identity feature instead of creating a more powerful human account to access or execute your resources. You can natively authenticate to Azure services/resources that supports Azure AD authentication through pre-defined access grant rule without using credential hard coded in source code or configuration files.
+**Guidance**: Use Managed Identity for Azure Resources for non-human accounts such as services or automation, it is recommended to use Azure-managed identity feature instead of creating a more powerful human account to access or execute your resources. You can natively authenticate to Azure services/resources that supports Azure AD authentication through pre-defined access grant rule without using credential hard coded in source code or configuration files.
 
  
-- [Azure-managed identities](../managed-identities-azure-resources/overview.md) 
+- [Managed Identity for Azure Resources](../managed-identities-azure-resources/overview.md) 
  
 
  
-- [Services that support managed identities for Azure resources](../managed-identities-azure-resources/services-support-managed-identities.md)
+- [Services that support Managed Identity for Azure Resources](../managed-identities-azure-resources/services-support-managed-identities.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -196,19 +196,15 @@ Note: Azure AD supports external identity that allows users without a Microsoft 
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37703).
 
 **Guidance**: Use Azure Active Directory to support strong authentication controls through multi-factor authentication (MFA), and strong passwordless methods.
+- Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
 
- 
--- Multi-factor authentication - Enable Azure AD MFA and follow Azure Security Center Identity and Access Management recommendations for some best practices in your MFA setup. MFA can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
- 
--- Passwordless authentication - Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
- 
+- Passwordless authentication - Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
  
 For administrator and privileged users, ensure the highest level of the strong authentication method is used, followed by rolling out the appropriate strong authentication policy to other users.
- 
 
  
-- [How to enable MFA in Azure](../authentication/howto-mfa-getstarted.md) 
+- [How to deploy Azure AD MFA](../authentication/howto-mfa-getstarted.md) 
  
 
  
@@ -360,11 +356,11 @@ Alternatively, Microsoft Cloud App Security is a Cloud Access Security Broker (C
 Administrator and the Privileged Role Administrator, as users assigned to these
 two roles can delegate administrator roles:
 
- Global
+Global
      Administrator: Users with this role have access to all administrative
      features in Azure AD, as well as services that use Azure AD identities.
 
- Privileged
+Privileged
      Role Administrator: Users with this role can manage role assignments in
      Azure AD, as well as within Azure AD Privileged Identity Management (PIM).
      In addition, this role allows management of all aspects of PIM and
@@ -391,13 +387,14 @@ resources and Azure AD using Azure AD Privileged Identity Management (PIM). JIT
 grants temporary permissions to perform privileged tasks only when users need
 it. PIM can also generate security alerts when there is suspicious or unsafe
 activity in your Azure AD organization.
-- Administrator role permissions in Azure
+
+Administrator role permissions in Azure
 - [AD](/azure/active-directory/users-groups-roles/directory-assign-admin-roles) 
 
-- Use Azure Privileged Identity Management
+Use Azure Privileged Identity Management
 - [security alerts](../privileged-identity-management/pim-how-to-configure-security-alerts.md) 
 
-- Securing privileged access for hybrid and cloud
+Securing privileged access for hybrid and cloud
 - [deployments in Azure AD](/azure/active-directory/users-groups-roles/directory-admin-roles-secure)
 
 **Azure Security Center monitoring**: Not applicable
@@ -412,10 +409,11 @@ activity in your Azure AD organization.
 **Guidance**: Azure AD offers
 the following controls to restrict administrative access to business critical
 systems:
-- Privileged Identity Management approval of role
+
+Privileged Identity Management approval of role
 - [activation requests](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-pim-approval-workflow?tabs=new) 
 
-- Multi-factor authentication and Conditional
+Multi-factor authentication and Conditional
 - [Access](../conditional-access/howto-conditional-access-policy-admin-mfa.md)
 
 **Azure Security Center monitoring**: Not applicable
@@ -440,13 +438,14 @@ In addition, Azure Privileged Identity Management can also
 be configured to alert when an excessive number of administrator accounts are
 created, and to identify administrator accounts that are stale or improperly
 configured.
-- Create an access review of Azure AD roles in
+
+Create an access review of Azure AD roles in
 - [Privileged Identity Management (PIM)](../privileged-identity-management/pim-how-to-start-security-review.md)
 
-- Create an access review of Azure resource roles
+Create an access review of Azure resource roles
 - [in Privileged Identity Management (PIM)](../privileged-identity-management/pim-resource-roles-start-access-review.md) 
 
-- How to use Azure AD identity and access
+How to use Azure AD identity and access
 - [reviews](../governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
@@ -468,7 +467,8 @@ scenarios where normal administrative accounts can't be used.
 You should ensure that the credentials (such as password,
 certificate, or smart card) for emergency access accounts are kept secure and
 known only to individuals who are authorized to use them only in an emergency.
-- [- Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
+
+- [Manage emergency access accounts in Azure AD](/azure/active-directory/users-groups-roles/directory-emergency-access)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -482,7 +482,8 @@ known only to individuals who are authorized to use them only in an emergency.
 **Guidance**: Use Azure AD entitlement management features to automate
 access request workflows, including access assignments, reviews, and
 expiration. Dual or multi-stage approval is also supported.
-- [- What is Azure AD entitlement management](../governance/entitlement-management-overview.md)
+
+- [What is Azure AD entitlement management](../governance/entitlement-management-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -502,9 +503,10 @@ and managed user workstation for administrative tasks. The secured workstations
 can be centrally managed to enforce secured configuration including strong
 authentication, software and hardware baselines, restricted logical and network
 access.
-- [- Securing devices as part of privileged access](/security/compass/privileged-access-devices)
 
-- [- Privileged access implementation](/security/compass/privileged-access-deployment)
+- [Securing devices as part of privileged access](/security/compass/privileged-access-devices)
+
+- [Privileged access implementation](/security/compass/privileged-access-deployment)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -518,9 +520,10 @@ access.
 **Guidance**: Customers can configure their Azure AD deployment for least
 privilege, by assigning users to the roles with the minimum permissions needed
 for users to complete their administrative tasks.
-- [- Administrator role permissions in Azure AD](../roles/permissions-reference.md)
 
-- [- Assign administrative roles in Azure AD](../roles/manage-roles-portal.md)
+- [Administrator role permissions in Azure AD](../roles/permissions-reference.md)
+
+- [Assign administrative roles in Azure AD](../roles/manage-roles-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -568,13 +571,9 @@ sensitive data.
 A directory is the data boundary by which the Azure AD services
 store and process data for a customer. 
 Customers should determine where they want most of their Azure AD Customer
-Data to reside by setting the Country property in their directory.  To determine how their selected country maps to the physical
-- [location of their directory see the article, Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location)   As the customer uses various Azure AD tools,
-- [features, and applications that interact with their directory, use the article Azure Active Directory – Where is your data located?](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9) to determine how their selected country maps to the physical
-location of any Customer Data stored and/or processed by these Azure AD tools,
-features, and applications. 
+Data to reside by setting the Country property in their directory.
 
-- [Segmentation:  The article Azure AD roles documentation](/azure/active-directory/roles/) covers all the product features to enable segmentation.  The global administrators role has full
+Segmentation:  The global administrators role has full
 control of all directory data, and the rules that govern access and processing
 instructions. A directory may be segmented into administrative units, and
 provisioned with users and groups to be managed by administrators of those
@@ -596,7 +595,13 @@ Encryption:
 Azure AD encrypts
 all data at rest or in transit.  The
 offering does not allow customers to encrypt directory data with their own
-encryption key.
+encryption key. 
+
+- [To determine how their selected country maps to the physical location of their directory see the article, Where your data is located](https://www.microsoft.com/trust-center/privacy/data-location)
+
+- [As the customer uses various Azure AD tools, features, and applications that interact with their directory, use the article Azure Active Directory – Where is your data located?](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9) 
+
+- [Azure AD roles documentation](/azure/active-directory/roles/)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -644,8 +649,7 @@ transit between Azure data centers.
 - [Understand encryption in transit with Azure](../../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) 
 
 - [Information on TLS Security](/security/engineering/solving-tls1-problem) 
-Double
-- [encryption for Azure data in transit](../../security/fundamentals/double-encryption.md#data-in-transit)
+- [Double encryption for Azure data in transit](../../security/fundamentals/double-encryption.md#data-in-transit)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -775,12 +779,18 @@ Note: Additional permissions might be required to get visibility into workloads 
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37726).
 
-**Guidance**: - [Use the Azure AD Identity Protection built-in threat detection capability for your Azure AD resources. For more information see the article What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md.) 
+**Guidance**: Use the Azure AD Identity Protection built-in threat detection capability for your Azure AD resources.  
  
  
 
  
-- [Azure AD produces activity logs that are often used for threat detection and threat hunting. Azure AD sign-in logs provide a record of authentication and authorization activity for users, services, and apps. Azure AD audit logs track changes made to an Azure AD tenant, including changes that improve or diminish security posture. To export Identity Protection and Azure AD Audit Logs to Azure Sentinel follow the guidance in the following articles, Connect Azure AD Identity Protection data to Azure Sentinel](../../sentinel/connect-azure-ad-identity-protection.md) and Connect Azure Active Directory data to Azure Sentinel:  ../../sentinel/connect-azure-active-directory.md.
+Azure AD produces activity logs that are often used for threat detection and threat hunting. Azure AD sign-in logs provide a record of authentication and authorization activity for users, services, and apps. Azure AD audit logs track changes made to an Azure AD tenant, including changes that improve or diminish security posture. 
+
+- [What is Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md.)
+
+- [Connect Azure AD Identity Protection data to Azure Sentinel](../../sentinel/connect-azure-ad-identity-protection.md) 
+
+- [Connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md.)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -832,7 +842,7 @@ Identity Protection risk detections are enabled by default and require no onboar
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37729).
 
-**Guidance**: Azure AD produces activity logs. Unlike some Azure services, Azure AD does not have a clear distinction between activity and resource logs. Activity logs are automatically available in the Azure AD section of the Azure Portal, and can be exported to Azure Monitor, Azure Event Hubs, Azure Storage, SIEMs, and other locations.   
+**Guidance**: Azure AD produces activity logs. Unlike some Azure services, Azure AD does not make a distinction between activity and resource logs. Activity logs are automatically available in the Azure AD section of the Azure Portal, and can be exported to Azure Monitor, Azure Event Hubs, Azure Storage, SIEMs, and other locations.   
  
 
 Sign-ins – The sign-ins report provides information about the usage of managed applications and user sign-in activities.  
@@ -1065,20 +1075,14 @@ Based on your Identity and access management implementation
 strategy your organization should follow the Microsoft best practice guidance
 to secure your identity infrastructure. 
 
-Azure
-- [Identity Management and access control security best practices](../../security/fundamentals/identity-management-best-practices.md)
-
-Five
-- [steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
-
- 
-
 Organizations that collaborate with external partners should
 additionally assess and implement appropriate governance, security, and compliance
-configurations to reduce security risk and protect sensitive resources. 
+configurations to reduce security risk and protect sensitive resources.
 
-Securing
-- [external collaboration in Azure Active Directory and Microsoft 365](secure-external-access-resources.md)
+- [Azure Identity Management and access control security best practices](../../security/fundamentals/identity-management-best-practices.md)
+
+- [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
+- [Securing external collaboration in Azure Active Directory and Microsoft 365](secure-external-access-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1089,19 +1093,15 @@ Securing
 >[!TIP]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/37754).
 
-**Guidance**: Achieving great Identity and access management security
-posture is no small achievement. Maintaining your organizations security
-posture can often be just as difficult. Microsoft Secure Score provides organizations
+**Guidance**: Microsoft Secure Score provides organizations
 a measurement of their security posture and recommendations that can help
 protect organizations from threats. It is recommended that organizations
 routinely review their Secure Score for suggested improvement actions to
 improve their identity security posture. 
 
-What
-- [is the identity secure score in Azure Active Directory?](identity-secure-score.md)
+- [What is the identity secure score in Azure Active Directory?](identity-secure-score.md)
 
-Microsoft
-- [Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide)
+- [Microsoft Secure Score](https://docs.microsoft.com/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide)
 
 **Azure Security Center monitoring**: Not applicable
 
