@@ -14,7 +14,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [private endpoint](private-endpoint-overview.md) in your virtual network. 
 
 > [!IMPORTANT]
-> Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. Check [availability](#availability) section in this article for accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations). 
+> Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations). 
 
 ## Service availability
 
@@ -75,10 +75,10 @@ The following tables list the Private Link services and the regions where they'r
 
 ### Management and Governance
 
-|Supported services  |Available regions | Other considerations | Status  |
-|:-------------------|:-----------------|:----------------|:--------|
-| Azure Automation  | All public regions<br/> All Government regions |  | Preview </br> [Learn how to create a private endpoint for Azure Automation.](../automation/how-to/private-link-security.md)| |
-|Azure Backup | All public regions<br/> All Government regions   |  | GA   <br/> [Learn how to create a private endpoint for Azure Backup.](../backup/private-endpoints.md)   |
+| Supported services | Available regions | Other considerations | Status  |
+| ------------ | ----------------| ------------| ----------------|
+| Azure Automation  | All public regions<br/> All Government regions |  | Preview </br> [Learn how to create a private endpoint for Azure Automation.](../automation/how-to/private-link-security.md)|
+|Azure Backup | All public regions<br/> All Government regions   |  | GA <br/> [Learn how to create a private endpoint for Azure Backup.](../backup/private-endpoints.md)   |
 
 ### Security
 
