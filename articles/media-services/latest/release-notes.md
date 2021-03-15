@@ -97,7 +97,7 @@ Please update to the latest client SDKs in your code bases using your package ma
 - **[Managed Identities](concept-managed-identities.md)**: Customers may enable a System Assigned Managed Identity for a Media Services account to provide access to Key Vaults (for Customer Managed Keys) and storage accounts (for Trusted Storage).
 
 
-### Updated Typescript Node.js Samples using isomorphic SDK for Javascript
+### Updated Typescript Node.js Samples using isomorphic SDK for JavaScript
 
 The Node.js samples have been updated to use the latest isomorphic SDK. The samples now show use of Typescript. In addition, a new live streaming sample was added for Node.js/Typescript.
 
