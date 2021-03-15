@@ -1038,6 +1038,8 @@
       href: vm/vminsights-workbooks.md
     - name: Disable monitoring
       href: vm/vminsights-optout.md
+    - name: Troubleshoot
+      href: vm/vminsights-troubleshoot.md
   - name: Container insights 
     items:
     - name: Overview
