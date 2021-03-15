@@ -3,7 +3,7 @@ title: Extend Azure IoT Central with custom analytics | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
 author: TheRealJasonAndrew
 ms.author: v-anjaso
-ms.date: 02/18/2020
+ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -84,7 +84,7 @@ When you've created the required resources, your **IoTCentralAnalysis** resource
 You can configure an IoT Central application to continuously export telemetry to an event hub. In this section, you create an event hub to receive telemetry from your IoT Central application. The event hub delivers the telemetry to your Stream Analytics job for processing.
 
 1. In the Azure portal, navigate to your Event Hubs namespace and select **+ Event Hub**.
-1. Name your event hub **centralexport**, and select **Create**.
+1. Name your event hub **centralexport**.
 1. In the list of event hubs in your namespace, select **centralexport**. Then choose **Shared access policies**.
 1. Select **+ Add**. Create a policy named **Listen** with the **Listen** claim.
 1. When the policy is ready, select it in the list, and then copy the **Connection string-primary key** value.
@@ -98,20 +98,35 @@ Your Event Hubs namespace looks like the following screenshot:
 
 On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
-1. Navigate to the **Data Export** page, select **+ New**, and then **Azure Event Hubs**.
+1. Navigate to the **Data Export** page, select **+ New**.
 1. Use the following settings to configure the export, then select **Save**:
 
     | Setting | Value |
     | ------- | ----- |
-    | Display Name | Export to Event Hubs |
+    | Display Name | Your Data Export Name |
     | Enabled | On |
-    | Event Hubs namespace | Your Event Hubs namespace name |
-    | Event hub | centralexport |
-    | Measurements | On |
-    | Devices | Off |
-    | Device Templates | Off |
+    | Data| [Type of Data to Export](https://aka.ms/iotcentral-data-export-create-doc-data-type-filters) | 
+    | Enrichments| [Add additional information to your export.](https://aka.ms/iotcentral-data-export-create-destination-doc-enrichments) |
+    | Destinations| Select destinations for your export. |
 
-![Data export configuration](media/howto-create-custom-analytics/cde-configuration.png)
+![Data export configuration](media/howto-create-custom-analytics/dataexport1.png)
+
+3. When finished, click **Save**.
+
+## Create a Destination
+
+If you do not have a Destination, you need to create one by clicking **Create One** and then filling out the following:
+
+| Setting | Value |
+| ------- | ----- |
+| Destination Name | Your Destination Name |
+| Destination Type | Azure Event Hubs |
+| Connection String| The Connection String for your Events Hubs | 
+| Event Hub| Your Event Hub Name|
+
+1. Click **Create** to finish.
+
+![Data export destination configuration](media/howto-create-custom-analytics/dataexport2.png)
 
 Wait until the export status is **Running** before you continue.
 
