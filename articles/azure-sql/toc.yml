@@ -162,6 +162,23 @@
       href: database/job-automation-overview.md
     - name: Job automation with SQL Agent 
       href: database/job-automation-managed-instances.md
+    - name: Connect and query from apps
+      items:
+      - name: .NET with Visual Studio
+        href: database/connect-query-dotnet-visual-studio.md
+      - name: .NET Core
+        href: database/connect-query-dotnet-core.md
+      - name: Go
+        href: database/connect-query-go.md
+      - name: Node.js
+        href: database/connect-query-nodejs.md
+      - name: PHP
+        href: database/connect-query-php.md
+      - name: Python
+        href: database/connect-query-python.md
+      - name: Ruby
+        href: database/connect-query-ruby.md
+
 
     - name: Business continuity  
       items: 
@@ -476,14 +493,8 @@
           href: database/connect-query-vscode.md
       - name: Connect and query from apps
         items:
-        - name: .NET with Visual Studio
-          href: database/connect-query-dotnet-visual-studio.md
-        - name: .NET Core
-          href: database/connect-query-dotnet-core.md
         - name: .NET with Active Directory MFA
           href: database/active-directory-interactive-connect-azure-sql-db.md
-        - name: Go
-          href: database/connect-query-go.md
         - name: Java
           href: database/connect-query-java.md
         - name: Java with Spring Data JDBC
@@ -492,14 +503,6 @@
           href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Java with Spring Data R2DBC
           href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
-        - name: Node.js
-          href: database/connect-query-nodejs.md
-        - name: PHP
-          href: database/connect-query-php.md
-        - name: Python
-          href: database/connect-query-python.md
-        - name: Ruby
-          href: database/connect-query-ruby.md
         - name: R
           href: database/connect-query-r.md
 
