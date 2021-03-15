@@ -15,6 +15,9 @@ ms.author: inhenkel
 
 When you create a Media Services account, you must associate it with a storage account. Media Services can access that storage account using system authentication or Managed Identity authentication. Media Services validates that the Media Services account and the storage account are in the same subscription and it validates that the user adding the association has access the storage account with Azure Resource Manager RBAC.
 
+>[!NOTE]
+>Trusted storage is only available in the API, and is not currently enabled in the Azure portal.
+
 ## Trusted storage with a firewall
 
 However, if you want to use a firewall to secure your storage account and enable trusted storage, [Managed Identities](concept-managed-identities.md) authentication is the preferred option. It allows Media Services to access the storage account that has been configured with a firewall or a VNet restriction through trusted storage access.

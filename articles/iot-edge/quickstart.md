@@ -14,6 +14,8 @@ monikerRange: "=iotedge-2018-06"
 
 # Quickstart: Deploy your first IoT Edge module to a Windows device (preview)
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Try out Azure IoT Edge in this quickstart by deploying containerized code to a Linux on Windows IoT Edge device. IoT Edge allows you to remotely manage code on your devices so that you can send more of your workloads to the edge. For this quickstart, we recommend using your own device to see how easy it is to use Azure IoT Edge for Linux on Windows.
 
 In this quickstart, you'll learn how to:
@@ -46,9 +48,16 @@ Create a cloud resource group to manage all the resources you'll use in this qui
 
 Make sure your IoT Edge device meets the following requirements:
 
-* Windows PC or server, version 1809 or later
-* At least 4 GB of memory, recommended 8 GB of memory
-* 10 GB of free disk space
+* Editions
+  * Windows 10 version 1809 or later; build 17763 or later
+    * Professional, Enterprise, IoT Enterprise
+  * Windows Server 2019 build 17763 or later
+
+  
+* Hardware requirements
+  * Minimum Free Memory: 2GB
+  * Minimum Free Disk Space: 10GB
+
 
 >[!NOTE]
 >This quickstart uses Windows Admin Center to create a deployment of IoT Edge for Linux on Windows. You can also use PowerShell. If you wish to use PowerShell to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md).
@@ -103,7 +112,7 @@ Install IoT Edge for Linux on Windows on your device, and configure it with the 
 
 ![Diagram that shows the step to start the IoT Edge runtime.](./media/quickstart/start-runtime.png)
 
-1. [Download Windows Admin Center](https://aka.ms/WACDownloadEFLOW).
+1. [Download Windows Admin Center](https://aka.ms/wacdownload).
 
 1. Follow the prompts in the installation wizard to set up Windows Admin Center on your device.
 

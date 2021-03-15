@@ -34,7 +34,7 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 
 1. Configure the Azure Diagnostics extension to enable Profiler:
 
-    a. Locate the [Azure Diagnostics](../platform/diagnostics-extension-overview.md) *diagnostics.wadcfgx* file for your application role, as shown here:  
+    a. Locate the [Azure Diagnostics](../agents/diagnostics-extension-overview.md) *diagnostics.wadcfgx* file for your application role, as shown here:  
 
       ![Location of the diagnostics config file](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 

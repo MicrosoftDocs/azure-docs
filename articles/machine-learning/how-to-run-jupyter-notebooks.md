@@ -112,7 +112,7 @@ Only you can see and use the compute instances you create.  Your **User files** 
 
 ### View logs and output
 
-Use [notebook widgets](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
+Use [notebook widgets](/python/api/azureml-widgets/azureml.widgets) to view the progress of the run and logs. A widget is asynchronous and provides updates until training finishes. Azure Machine Learning widgets are also supported in Jupyter and JupterLab.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Screenshot: Jupyter notebook widget ":::
 
@@ -183,14 +183,97 @@ An indicator next to the **Kernel** dropdown shows its status.
 
 Find details about your compute instances on the **Compute** page in [studio](https://ml.azure.com).
 
+## Useful keyboard shortcuts
+Similar to Jupyter Notebooks, Azure Machine Learning Studio notebooks have a modal user interface. The keyboard does different things depending on which mode the notebook cell is in. Azure Machine Learning Studio notebooks support the following two modes for a given code cell: command mode and edit mode.
+
+### Command mode shortcuts
+
+A cell is in command mode when there is no text cursor prompting you to type. When a cell is in Command mode, you can edit the notebook as a whole but not type into individual cells. Enter command mode by pressing `ESC` or using the mouse to select outside of a cell's editor area.  The left border of the active cell is blue and solid, and its **Run** button is blue.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Notebook cell in command mode ":::
+
+| Shortcut                      | Description                          |
+| ----------------------------- | ------------------------------------|
+| Enter                         | Enter edit mode             |        
+| Shift + Enter                 | Run cell, select below         |     
+| Control/Command + Enter       | Run cell                            |
+| Alt + Enter                   | Run cell, insert code cell below    |
+| Control/Command + Alt + Enter | Run cell, insert markdown cell below|
+| Alt + R                       | Run all      |                       
+| Y                             | Convert cell to code    |                         
+| M                             | Convert cell to markdown  |                       
+| Up/K                          | Select cell above    |               
+| Down/J                        | Select cell below    |               
+| A                             | Insert code cell above  |            
+| B                             | Insert code cell below   |           
+| Control/Command + Shift + A   | Insert markdown cell above    |      
+| Control/Command + Shift + B   | Insert markdown cell below   |       
+| X                             | Cut selected cell    |               
+| C                             | Copy selected cell   |               
+| Shift + V                     | Paste selected cell above           |
+| V                             | Paste selected cell below    |       
+| D D                           | Delete selected cell|                
+| O                             | Toggle output         |              
+| Shift + O                     | Toggle output scrolling   |          
+| I I                           | Interrupt kernel |                   
+| 0 0                           | Restart kernel |                     
+| Shift + Space                 | Scroll up  |                         
+| Space                         | Scroll down|
+| Tab                           | Change focus to next focusable item (when tab trap disabled)|
+| Control/Command + S           | Save notebook |                      
+| 1                             | Change to h1|                       
+| 2                             | Change to h2|                        
+| 3                             | Change to h3|                        
+| 4                             | Change to h4 |                       
+| 5                             | Change to h5 |                       
+| 6                             | Change to h6 |                       
+
+### Edit mode shortcuts
+
+Edit mode is indicated by a text cursor prompting you to type in the editor area. When a cell is in edit mode, you can type into the cell. Enter edit mode by pressing `Enter` or using the mouse to select on a cell's editor area. The left border of the active cell is green and hatched, and its **Run** button is green. You also see the cursor prompt in the cell in Edit mode.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Notebook cell in edit mode":::
+
+Using the following keystroke shortcuts, you can more easily navigate and run code in Azure Machine Learning notebooks when in Edit mode.
+
+| Shortcut                      | Description|                                     
+| ----------------------------- | ----------------------------------------------- |
+| Escape                        | Enter command mode|  
+| Control/Command + Space       | Activate IntelliSense |
+| Shift + Enter                 | Run cell, select below |                         
+| Control/Command + Enter       | Run cell  |                                      
+| Alt + Enter                   | Run cell, insert code cell below  |              
+| Control/Command + Alt + Enter | Run cell, insert markdown cell below  |          
+| Alt + R                       | Run all cells     |                              
+| Up                            | Move cursor up or previous cell    |             
+| Down                          | Move cursor down or next cell |                  
+| Control/Command + S           | Save notebook   |                                
+| Control/Command + Up          | Go to cell start   |                             
+| Control/Command + Down        | Go to cell end |                                 
+| Tab                           | Code completion or indent (if tab trap enabled) |
+| Control/Command + M           | Enable/disable tab trap  |                       
+| Control/Command + ]           | Indent |                                         
+| Control/Command + [           | Dedent  |                                        
+| Control/Command + A           | Select all|                                      
+| Control/Command + Z           | Undo |                                           
+| Control/Command + Shift + Z   | Redo |                                           
+| Control/Command + Y           | Redo |                                           
+| Control/Command + Home        | Go to cell start|                                
+| Control/Command + End         | Go to cell end   |                               
+| Control/Command + Left        | Go one word left |                               
+| Control/Command + Right       | Go one word right |                              
+| Control/Command + Backspace   | Delete word before |                             
+| Control/Command + Delete      | Delete word after |                              
+| Control/Command + /           | Toggle comment on cell
+
 ## Troubleshooting
 
 * If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Please ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
 
-* When compute instance is deployed in a private link workspace it can be only be accessed from within virtual network. If you are using custom DNS or hosts file please add an entry for <instance-name>.<region>.instances.azureml.ms with private IP address of workspace private endpoint. For more information see the [custom DNS](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli) article.
+* When compute instance is deployed in a private link workspace it can be only be [accessed from within virtual network](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). If you are using custom DNS or hosts file please add an entry for < instance-name >.< region >.instances.azureml.ms with private IP address of workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
     
 ## Next steps
 
 * [Run your first experiment](tutorial-1st-experiment-sdk-train.md)
 * [Backup your file storage with snapshots](../storage/files/storage-snapshots-files.md)
-* [Working in secure environments](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)
+* [Working in secure environments](./how-to-secure-training-vnet.md#compute-instance)

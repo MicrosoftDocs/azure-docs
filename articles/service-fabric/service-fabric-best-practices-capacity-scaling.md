@@ -22,7 +22,7 @@ Using automatic scaling through virtual machine scale sets will make your versio
 
 * Deploying your Resource Manager templates with appropriate capacity declared doesn’t support your use case.
      
-   In addition to manual scaling, you can configure a [Continuous integration and delivery pipeline in Azure DevOps Services by using Azure resource group deployment projects](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). This pipeline is commonly triggered by a logic app that uses virtual machine performance metrics queried from the [Azure Monitor REST API](../azure-monitor/platform/rest-api-walkthrough.md). The pipeline effectively autoscales based on whatever metrics you want, while optimizing for Resource Manager templates.
+   In addition to manual scaling, you can configure a [Continuous integration and delivery pipeline in Azure DevOps Services by using Azure resource group deployment projects](../azure-resource-manager/templates/add-template-to-azure-pipelines.md). This pipeline is commonly triggered by a logic app that uses virtual machine performance metrics queried from the [Azure Monitor REST API](../azure-monitor/essentials/rest-api-walkthrough.md). The pipeline effectively autoscales based on whatever metrics you want, while optimizing for Resource Manager templates.
 * You need to horizontally scale only one virtual machine scale set node at a time.
    
    To scale out by three or more nodes at a time, you should [scale out a Service Fabric cluster by adding a virtual machine scale set](virtual-machine-scale-set-scale-node-type-scale-out.md). It's safest to scale in and scale out virtual machine scale sets horizontally, one node at a time.

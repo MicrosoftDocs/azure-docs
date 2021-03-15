@@ -136,14 +136,15 @@ To check a user’s group memberships, follow these steps:
 7.  Select **Groups** to see which groups the user is a member of.
 
 ### Check if a user has more than 999 app role assignments
-If a user has more than 999 app role assignments assigned to them, then they may not see all of their apps on My Apps.
+If a user has more than 999 app role assignments, then they may not see all of their apps on My Apps.
 
 This is because My Apps currently reads up to 999 app role assignments to determine the apps to which users are assigned. If a user is assigned to more than 999 apps, it is not possible to control which of those apps will show in the My Apps portal.
 
-To check the number of app role assignments granted to a user, follow these steps:
+To check if a user has more than 999 app role assignments, follow these steps:
 1. Install the [**Microsoft.Graph**](https://github.com/microsoftgraph/msgraph-sdk-powershell) PowerShell module.
-2. Run `Connect-MgGraph -Scopes "Directory.Read.All"` and authenticate as a **Global Administrator.**
-3. Run `$m = Get-MgUserAppRoleAssignment -UserId "<userId>" | Measure; $m.Count` to determine the number of app role assignments the user currently has granted.
+2. Run `Connect-MgGraph -Scopes "User.ReadBasic.All Application.Read.All"`.
+3. Run `(Get-MgUserAppRoleAssignment -UserId "<user-id>" -PageSize 999).Count` to determine the number of app role assignments the user currently has granted.
+4. If the result is 999, the user likely has more than 999 app roles assignments.
 
 ### Check a user’s assigned licenses
 To check a user’s assigned licenses, follow these steps:

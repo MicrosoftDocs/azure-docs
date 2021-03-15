@@ -138,7 +138,7 @@ If you must integrate these applications, you should define a mechanism to deplo
 
 * [User-driven download and configuration for Chrome, Firefox, Microsoft Edge, or IE](../user-help/my-apps-portal-end-user-access.md)
 
-* [Configuration Manager for Internet Explorer](https://docs.microsoft.com/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager for Internet Explorer](/mem/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 The extension allows users to launch any app from its search bar, finding access to recently used applications, and having a link to the My Apps page.
 
@@ -266,4 +266,3 @@ You can use [Privileged Identity Management](../privileged-identity-management/p
 
 [Plan an Application Proxy deployment](application-proxy-deployment-plan.md)
 
- 

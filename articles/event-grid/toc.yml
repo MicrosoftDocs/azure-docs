@@ -212,6 +212,10 @@
       href: diagnostic-logs.md
     - name: Metrics
       href: metrics.md
+  - name: Use cases
+    items:
+    - name: Use cases for domains
+      href: event-domains-use-cases.md
 - name: How-to guides
   items:
   - name: Create, view, and manage system topics
@@ -266,12 +270,14 @@
     items:
     - name: Publish events securely over a private link
       href: configure-private-endpoints.md
+    - name: Deliver events using managed identity
+      href: managed-service-identity.md
+    - name: Deliver events securely over a private link
+      href: consume-private-endpoints.md      
     - name: Configure IP firewall
       href: configure-firewall.md
     - name: Secure Webhook with Azure Active Directory
       href: secure-webhook-delivery.md
-    - name: Event delivery, managed identity, and private link
-      href: managed-service-identity.md
   - name: Troubleshoot
     items: 
     - name: Troubleshoot Event Grid issues

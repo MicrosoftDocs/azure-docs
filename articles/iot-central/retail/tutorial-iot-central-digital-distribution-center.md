@@ -16,8 +16,8 @@ This tutorial shows you how to get started by deploying an IoT Central **digital
 In this tutorial, you learn how to, 
 
 > [!div class="checklist"]
-> Create digital distribution center application 
-> Walk through the application 
+> * Create digital distribution center application 
+> * Walk through the application 
 
 ## Prerequisites
 * No specific pre-requisites required to deploy this app

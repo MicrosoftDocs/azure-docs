@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -15,7 +15,7 @@ ms.author: mikben
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
@@ -61,7 +61,7 @@ For authentication, your client needs to reference the `azure-communication-comm
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.4</version> 
+    <version>1.0.0</version> 
 </dependency>
 ```
 
@@ -78,6 +78,8 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create a chat client
 To create a chat client, you'll use the Communications Service endpoint and the access token that was generated as part of pre-requisite steps. User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. Once you generate these tokens on your server, pass them back to a client device. You need to use the CommunicationTokenCredential class from the Common client library to pass the token to your chat client. 
+
+Learn more about [Chat Architecture](../../../concepts/chat/concepts.md)
 
 When adding the import statements, be sure to only add imports from the com.azure.communication.chat and com.azure.communication.chat.models namespaces, and not from the com.azure.communication.chat.implementation namespace. In the App.java file that was generated via Maven, you can use the following code to begin with:
 
@@ -135,11 +137,11 @@ It contains a `chatThreadId` property which is the unique ID of the chat thread.
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(firstUser)
+    .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
     
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(secondUser)
+    .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -202,13 +204,15 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages` returns different types of messages which can be identified by `chatMessage.getType()`. These types are:
 
-- `Text`: Regular chat message sent by a thread participant.
+- `text`: Regular chat message sent by a thread participant.
 
-- `ThreadActivity/TopicUpdate`: System message that indicates the topic has been updated.
+- `html`: HTML chat message sent by a thread participant.
 
-- `ThreadActivity/AddMember`: System message that indicates one or more members have been added to the chat thread.
+- `topicUpdated`: System message that indicates the topic has been updated.
 
-- `ThreadActivity/DeleteMember`: System message that indicates a member has been removed from the chat thread.
+- `participantAdded`: System message that indicates one or more participants have been added to the chat thread.
+
+- `participantRemoved`: System message that indicates a participant has been removed from the chat thread.
 
 For more details, see [Message Types](../../../concepts/chat/concepts.md#message-types).
 
@@ -219,7 +223,7 @@ Once a chat thread is created, you can then add and remove users from it. By add
 Use `addParticipants` method to add participants to the thread identified by threadId.
 
 - Use `listParticipants` to list the participants to be added to the chat thread.
-- `user`, required, is the CommunicationUserIdentifier you've created by the CommunicationIdentityClient in the [User Access Token](../../access-tokens.md) quickstart.
+- `communicationIdentifier`, required, is the CommunicationIdentifier you've created by the CommunicationIdentityClient in the [User Access Token](../../access-tokens.md) quickstart.
 - `display_name`, optional, is the display name for the thread participant.
 - `share_history_time`, optional, is the time from which the chat history is shared with the participant. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the participant was added, set it to the current date. To share partial history, set it to the required date.
 
@@ -227,11 +231,11 @@ Use `addParticipants` method to add participants to the thread identified by thr
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(user1)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(user2)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -242,14 +246,14 @@ AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsO
 chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
-## Remove user from a chat thread
+## Remove participant from a chat thread
 
-Similar to adding a user to a thread, you can remove users from a chat thread. To do that, you need to track the user identities of the participants you have added.
+Similar to adding a participant to a thread, you can remove participants from a chat thread. To do that, you need to track the identities of the participants you have added.
 
-Use `removeParticipant`, where `user` is the CommunicationUserIdentifier you've created.
+Use `removeParticipant`, where `identifier` is the CommunicationIdentifier you've created.
 
 ```Java
-chatThreadClient.removeParticipant(user);
+chatThreadClient.removeParticipant(identity);
 ```
 
 ## Run the code

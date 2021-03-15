@@ -31,7 +31,7 @@ This FAQ answers common questions that customers and field teams often ask. It's
 |Azure SQL Managed Instance|SAP ECC (Available by end of 2020)|
 |Azure Data Explorer|SAP S/4 HANA (Available by end of 2020)|
 |Azure Data Lake Storage Gen1|Hive Metastore (Available by end of 2020)|
-|Azure Data Lake Storage Gen2|--|
+|Azure Data Lake Storage Gen2|Amazon S3|
 |Azure Files|--|
 |Azure SQL Database|--|
 

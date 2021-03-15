@@ -15,7 +15,7 @@ This document explains how to expose applications to the Internet using Applicat
 
 ## Prerequisites
 
-- [Azure CLI version 2.0.4 or later](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- [Azure CLI version 2.0.4 or later](/cli/azure/install-azure-cli).
 
 ## Define variables
 

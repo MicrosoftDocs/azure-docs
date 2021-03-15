@@ -20,7 +20,7 @@ IoT Hub's capabilities help you build scalable, full-featured IoT solutions such
 
 ## Scale your solution
 
-IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. For more information about scaling your IoT Hub, see [IoT Hub Scaling](iot-hub-scaling.md?branch=release-iotbasic). To learn more about the multiple  tiers of service offered by IoT Hub and how to best fit your scalability needs, check out the [pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. For more information about scaling your IoT Hub, see [IoT Hub Scaling](iot-hub-scaling.md). To learn more about the multiple  tiers of service offered by IoT Hub and how to best fit your scalability needs, check out the [pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## Secure your communications
 
@@ -94,6 +94,8 @@ IoT Hub and the device SDKs support the following protocols for connecting devic
 * AMQP over WebSockets
 * MQTT
 * MQTT over WebSockets
+
+IoT Hub and the device SDKs support the [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) conventions for connecting devices. IoT Plug and Play devices use a device model to advertise their capabilities to IoT Plug and Play-enabled applications. The device model enables solution builders to integrate smart devices with their solutions without any manual configuration.
 
 If your solution cannot use the device libraries, devices can use the MQTT v3.1.1, HTTPS 1.1, or AMQP 1.0 protocols to connect natively to your hub.
 
