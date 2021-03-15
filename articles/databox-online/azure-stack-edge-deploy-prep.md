@@ -84,9 +84,11 @@ Before you begin, make sure that:
 
 ## Create new resource for existing device
 
-<!--Updates to intro related to FPGA EoL - send users to ASE Pro - GPU for a new device - will be made on Mon, 03/15.-->If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
+If you're an existing Azure Stack Edge Pro customer, use the following procedure to create a new resource if you need to replace or reset your existing device.
 
-To create an Azure Stack Edge resource for your existing device, take the following steps in the Azure portal.
+As Azure Stack Edge Pro approaches its end of life, no orders for new Azure Stack Edge Pro devices are being filled. If you're a new customer, we recommend that you order an Azure Stack Edge Pro - GPU device. For instructions, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource). For more information, see [What is Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md).
+
+To create a new Azure Stack Edge Pro resource for an existing device, take the following steps in the Azure portal.
 
 1. Use your Microsoft Azure credentials to sign in to:
 

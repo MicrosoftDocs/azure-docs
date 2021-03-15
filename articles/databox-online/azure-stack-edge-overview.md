@@ -67,7 +67,7 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
 
    As Azure Stack Edge Pro approaches its end of life, no orders for new Azure Stack Edge Pro devices are being filled. If you're a new customer, we recommend that you order an Azure Stack Edge Pro - GPU device. For instructions, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource). For more information, see [What is Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md).
 
-   If you're an existing customer, you can still create a new Azure Stack Edge Pro resource if you need to replace or reset your existing Azure Stack Edge Pro device. For instructions, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md#create-a-new-resource).
+   If you're an existing customer, you can still create a new Azure Stack Edge Pro resource if you need to replace or reset your existing Azure Stack Edge Pro device. For instructions, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md#create-new-resource-for-existing-device).
 
 * **Azure Stack Edge Pro local web UI** - Use the local web UI to run diagnostics, shut down and restart the Azure Stack Edge Pro device, view copy logs, and contact Microsoft Support to file a service request.
 
