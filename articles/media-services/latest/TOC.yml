@@ -214,14 +214,18 @@
       href: content-key-policy-concept.md                    
   - name: Monitoring
     items:
-    - name: Events with Event Grid
-      href: reacting-to-media-services-events.md  
-    - name: Event Grid schemas
-      href: media-services-event-schemas.md    
-    - name: Metrics and diagnostic logs
-      href: media-services-metrics-diagnostic-logs.md      
-    - name: Diagnostic logs schemas
-      href: media-services-diagnostic-logs-schema.md          
+      - name: Monitor with Azure Monitor
+        items:
+        - name: Monitor Media Services
+          href: monitoring/monitor-media-services.md
+        - name: Monitoring Media Services data reference
+          href: monitoring/monitor-media-services-data-reference.md
+      - name: Monitor with Event Grid
+        items:
+        - name: Events with Event Grid
+          href: reacting-to-media-services-events.md  
+        - name: Event Grid schemas
+          href: media-services-event-schemas.md              
   - name: Compatible players
     items:
     - name: Media players for Media Services
