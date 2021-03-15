@@ -2895,6 +2895,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/deploy-container-github-action.md",
+      "redirect_url": "/azure/app-service/deploy-ci-cd-custom-container",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/app-service-agile-software-development.md",
       "redirect_url": "/azure/app-service/deploy-continuous-deployment",
       "redirect_document_id": false
@@ -55050,6 +55055,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/roles/concept-delegation.md",
+      "redirect_url": "/azure/active-directory/roles/security-planning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/roles/custom-view-assignments.md",
+      "redirect_url": "/azure/active-directory/roles/view-assignments",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/directory-administrative-units.md",
       "redirect_url": "/azure/active-directory/roles/administrative-units",
       "redirect_document_id": true
@@ -55081,8 +55096,8 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-concept-delegation.md",
-      "redirect_url": "/azure/active-directory/roles/concept-delegation",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/roles/security-planning",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/users-groups-roles/roles-assign-graph.md",
