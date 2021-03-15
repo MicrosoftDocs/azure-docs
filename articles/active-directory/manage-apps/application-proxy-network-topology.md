@@ -33,7 +33,7 @@ When you sign up for an Azure AD tenant, the region of your tenant is determined
 
 For example, if your Azure AD tenant's country or region is the United Kingdom, all your Application Proxy connectors at **default** will be assigned to use service instances in European data centers. When your users access published applications, their traffic goes through the Application Proxy cloud service instances in this location.
 
-If you have connectors installed in regions different from your default region, it may be beneficial to change which region your connector group is optimized for to improve performance accessing these applications. Once a region is specified for a connector group it will connected to Application Proxy cloud services in the designated region.
+If you have connectors installed in regions different from your default region, it may be beneficial to change which region your connector group is optimized for to improve performance accessing these applications. Once a region is specified for a connector group it will connect to Application Proxy cloud services in the designated region.
 
 In order to optimize the traffic flow and reduce latency to a connector group assign the connector group to the closest region. To assign a region:
 
