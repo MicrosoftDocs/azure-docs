@@ -4,7 +4,7 @@ description: Troubleshoot VM insights installation.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.custom: references_regions
 
 ---
@@ -81,7 +81,7 @@ The [Log Analytics free tier](https://azure.microsoft.com/pricing/details/monito
 Use the log query in the [Performance view has no data](#performance-view-has-no-data) section to determine if data is being collected for the virtual machine. If not data is being collected, use the TestCloudConnectivity tool described above to determine if you have connectivity issues.
 
 
-## Virtual machine appears in map view but has no processes
+## Virtual machine appears in map view but has missing data
 If the virtual machine is in the map view, then the Dependency agent is installed and running, but the kernel driver didn't load. Check the log file at the following locations:
 
 | Operating system | Log | 
