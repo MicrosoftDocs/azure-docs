@@ -87,7 +87,10 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
         "apiVersion": "2019-10-01",
         "name": "storageDeploy",
         "properties": {
-        ...
+          ...
+        }
+      }
+    ]
     ```
 
 To get an output value from a module, retrieve the property value with syntax like: `stgModule.outputs.storageEndpoint`.
