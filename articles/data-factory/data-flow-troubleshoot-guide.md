@@ -6,7 +6,7 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 03/12/2021
+ms.date: 03/15/2021
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
