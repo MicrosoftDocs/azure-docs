@@ -13,9 +13,9 @@ Customer intent: As an IT admin, I need to understand how to prepare the portal 
 ---
 # Tutorial: Prepare to deploy Azure Stack Edge Pro  
 
-This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource.  
+This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource.
 
-You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.
+You need administrator privileges to complete the setup and configuration process. The portal preparation takes less than 10 minutes.  
 
 In this tutorial, you learn how to:
 
