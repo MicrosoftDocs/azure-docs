@@ -25,7 +25,7 @@ cmdlet. For more information about installing the Az PowerShell module, see
 [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> While the **Az.Portal** PowerShell module is in preview, you must install it separately from from
+> While the **Az.Portal** PowerShell module is in preview, you must install it separately from
 > the Az PowerShell module using the `Install-Module` cmdlet. Once this PowerShell module becomes
 > generally available, it becomes part of future Az PowerShell module releases and available
 > natively from within Azure Cloud Shell.

@@ -8,7 +8,11 @@ ms.date: 12/4/2020
 
 # Quickstart: Create an Azure portal dashboard with Azure CLI
 
-A dashboard in the Azure portal is a focused and organized view of your cloud resources.
+A dashboard in the Azure portal is a focused and organized view of your cloud resources. This
+article focuses on the process of using Azure CLI to create a dashboard.
+The dashboard shows the performance of a virtual machine (VM), as well as some static information
+and links.
+
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
