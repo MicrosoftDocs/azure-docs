@@ -150,6 +150,8 @@
       href: migrate-rebuild-experiment.md
     - name: Rebuild web services
       href: migrate-rebuild-web-service.md
+    - name: Migrate client applications
+      href: migrate-rebuild-integrate-with-client-app.md
     - name: Rebuild Execute R Script modules
       href: migrate-execute-r-script.md      
 - name: Reference
