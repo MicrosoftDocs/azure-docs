@@ -78,12 +78,12 @@ landingContent:
         links:
           - text: Request host quota and enable Azure VMware Solution
             url: enable-azure-vmware-solution.md
-          - text: Move EA and CSP subscriptions 
+          - text: Move EA and CSP subscriptions
             url: move-ea-csp-subscriptions.md 
           - text: Save costs with a reserved instance
             url: reserved-instance.md
           - text: Migration assessment
-            url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/azure-vmware/context/context.json
+            url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
           - text: Manage DHCP
             url: manage-dhcp.md
           - text: Configure NSX network components
