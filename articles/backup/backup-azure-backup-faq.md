@@ -66,7 +66,7 @@ In the case of a [GRS](azure-backup-glossary.md#grs) vault without [CRR](azure-b
 Yes. To move a subscription, containing a vault, to a different Azure Active Directory (AD), refer to [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
 
 >[!IMPORTANT]
->Ensure that you perform the following actions after moving the subscription:<br></br><ul><li>Role-based access control permissions and custom roles will not be transferred. You must recreate the permissions and roles in the new Azure AD.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#before-you-start), you must reconfigure the features.</li></ul>
+>Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles will not be transferred. You must recreate the permissions and roles in the new Azure AD.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#before-you-start), you must reconfigure the features.</li></ul>
 
 ## Azure Backup agent
 
