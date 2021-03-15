@@ -54,7 +54,7 @@ Use the below links to create a resource for the available Cognitive Services:
 
 ---
 
-3. On the **Create** page, provide the following information:
+2. On the **Create** page, provide the following information:
 <!-- markdownlint-disable MD024 -->
 
 ### [Multi-service resource](#tab/multiservice)
