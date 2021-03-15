@@ -1050,7 +1050,9 @@
             href: ./linux/disk-encryption-powershell-quickstart.md
           - name: Azure portal
             displayname: Azure disk encryption, encryption, ADE
-            href: ./linux/disk-encryption-portal-quickstart.md     
+            href: ./linux/disk-encryption-portal-quickstart.md    
+        - name: Disk encryption scenarios for Linux
+          href: ./linux/disk-encryption-linux.md 
         - name: Key vault for Azure Disk Encryption
           displayname: Azure disk encryption, encryption, ADE, Key vault
           href: ./linux/disk-encryption-key-vault.md
@@ -1079,8 +1081,8 @@
             href: ./linux/disk-encryption-linux-aad.md
       - name: Windows
         items:
-        - name: Disk encryption scenarios for Windows
-          href: ./windows/disk-encryption-windows.md
+        - name: Overview
+          href: ./windows/disk-encryption-overview.md
         - name: Quickstarts
           items:
           - name: Azure CLI
@@ -1089,6 +1091,8 @@
             href: ./windows/disk-encryption-powershell-quickstart.md
           - name: Azure portal
             href: ./windows/disk-encryption-portal-quickstart.md
+        - name: Disk encryption scenarios for Windows
+          href: ./windows/disk-encryption-windows.md
         - name: Key vault for Azure Disk Encryption
           href: ./windows/disk-encryption-key-vault.md
         - name: Disk encryption sample scripts
