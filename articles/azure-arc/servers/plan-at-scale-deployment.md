@@ -1,11 +1,11 @@
 ---
 title: How to plan for an at-scale deployment of Azure Arc enabled servers
 description: Learn how to enable a large number of machines to Azure Arc enabled servers to simplify configuration of essential security, management, and monitoring capabilities in Azure.
-ms.date: 02/23/2021
+ms.date: 03/12/2021
 ms.topic: conceptual
 ---
 
-# Planing for an at-scale deployment of Azure Arc enabled servers
+# Plan and deploy Arc enabled servers at-scale
 
 Deployment of an IT infrastructure service or business application is a challenge for any company. In order to execute it well and avoid any unwelcome surprises and unplanned costs, you need to thoroughly plan for it to ensure that you're as ready as possible. To plan for deploying Azure Arc enabled servers at-scale, it should cover the design and deployment criteria that needs to be met in order to successfully complete the tasks to support an at-scale deployment.
 
@@ -62,7 +62,7 @@ In this phase, system engineers or administrators enable the core features in th
 
 ## Phase 2: Deploy Arc enabled servers
 
-Next, we add to the foundation laid in phase 1 by preparing the deployment, and performing the installation of the agent.
+Next, we add to the foundation laid in phase 1 by preparing for and deploying the Arc enabled servers Connected Machine agent.
 
 |Task |Detail |Duration |
 |-----|-------|---------|
@@ -72,7 +72,7 @@ Next, we add to the foundation laid in phase 1 by preparing the deployment, and 
 
 ## Phase 3: Manage and operate
 
-Phase 3 sees administrators or system engineers enabling automation of manual tasks to manage and operate the Connected Machine agent and the machine during their lifecycle.
+Phase 3 sees administrators or system engineers enable automation of manual tasks to manage and operate the Connected Machine agent and the machine during their lifecycle.
 
 |Task |Detail |Duration |
 |-----|-------|---------|

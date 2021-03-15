@@ -4,7 +4,7 @@ description: How to create client-facing paths for back-end storage with Azure H
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
 ---
 
@@ -127,6 +127,30 @@ To update the target's namespace path or to add additional paths, use the [az hp
 The options used for the update command are similar to the "create" command, except that you do not pass the storage system information (IP address or hostname), and the usage model is optional. Read [Add a new NFS storage target](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) for more details about the syntax of the ``--junction`` option.
 
 ---
+
+### ADLS-NFS namespace paths (PREVIEW)
+
+Like a regular blob storage target, an ADLS-NFS storage target only has one export, so it can only have one namespace path.
+
+Follow the instructions below to set or change the path with the Azure portal.
+
+Load the **Namespace** settings page.
+
+* **Add a new path:** Click the **+ Add** button at the top and fill in information in the edit panel.
+
+  ![Screenshot of the add namespace edit fields with an ADLS-NFS storage target selected. The export and subdirectory paths are set to / and not editable.](media/namespace-add-adls.png)
+
+  * Enter the path clients will use to access this storage target.
+
+  * Select which access policy to use for this path. Learn more about customizing client access in [Use client access policies](access-policies.md).
+
+  * Select the storage target from the drop-down list. If an ADLS-NFS storage target already has a namespace path, it can't be selected.
+
+  * For an ADLS-NFS storage target, the export and subdirectory paths are automatically set to ``/``.
+
+* **Change an existing path:** Click the namespace path. The edit panel opens. You can modify the path and the access policy, but you can't change to a different storage target.
+
+* **Delete a namespace path:** Select the checkbox to the left of the path and click the **Delete** button.
 
 ## Next steps
 
