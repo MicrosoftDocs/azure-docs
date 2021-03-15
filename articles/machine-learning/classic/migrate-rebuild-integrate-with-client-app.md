@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Migrate to Azure Machine Learning - Consume pipeline endpoints'
-description: Integrate pipeline endpoints with client applications in Azure Machine Learning
+description: Integrate pipeline endpoints with client applications in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio

@@ -51,7 +51,7 @@ To download datasets directly:
 1. Select the dataset(s) you want to download.
 1. In the bottom action bar, select **Download**.
 
-![Screenshot showing how to download a dataset in Studio (classic)](./media/migrate-register-dataset/download-dataset.png)
+    ![Screenshot showing how to download a dataset in Studio (classic)](./media/migrate-register-dataset/download-dataset.png)
 
 For the following data types, you must use the **Convert to CSV** module to download datasets.
 
@@ -71,7 +71,7 @@ To convert your dataset to a CSV and download the results:
 1. Right-click the **Convert to CSV** module.
 1. Select **Results dataset** > **Download**.
 
-![Screenshot showing how to setup a convert to CSV pipeline](./media/migrate-register-dataset/csv-download-dataset.png)
+    ![Screenshot showing how to setup a convert to CSV pipeline](./media/migrate-register-dataset/csv-download-dataset.png)
 
 ### Upload your dataset to Azure Machine Learning
 
@@ -123,7 +123,7 @@ Use the following steps to register a dataset to Azure Machine Learning from a c
 After you register a dataset in Azure Machine Learning, you can use it in designer:
  
 1. Create a new designer pipeline draft.
-1. In the module palette to the left, expand the **Datasets** section
+1. In the module palette to the left, expand the **Datasets** section.
 1. Drag your registered dataset onto the canvas. 
 
 ### Use the Import Data module

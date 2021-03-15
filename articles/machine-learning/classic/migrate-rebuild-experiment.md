@@ -1,6 +1,6 @@
 ---
 title: 'ML Studio (classic): Migrate to Azure Machine Learning - Rebuild experiment'
-description: Rebuild Studio (classic) experiments in Azure Machine Learning designer
+description: Rebuild Studio (classic) experiments in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -76,9 +76,9 @@ After the run finishes, you can check the results of each module:
 1. Right-click the module whose output you want to see.
 1. Select either **Visualize**, **View Output**, or **View Log**.
 
-- **Visualize**: Preview the results dataset.
-- **View Output**: Open a link to the output storage location. Use this to explore or download the output. 
-- **View Log**: View driver and system logs. Use the **70_driver_log** to see information related to your user-submitted script such as errors and exceptions.
+    - **Visualize**: Preview the results dataset.
+    - **View Output**: Open a link to the output storage location. Use this to explore or download the output. 
+    - **View Log**: View driver and system logs. Use the **70_driver_log** to see information related to your user-submitted script such as errors and exceptions.
 
 > [!IMPORTANT]
 > Designer modules use open source Python packages, compared to C# packages in Studio (classic). As a result, module output may vary slightly between the designer and Studio (classic). 

@@ -129,7 +129,7 @@ Use the following steps to publish retraining pipeline endpoint:
 
 1. Select **Publish**.
 
-![Screenshot highlighting the Publish button on a training pipeline](./media/migrate-rebuild-web-service/create-retraining-pipeline.png)
+    ![Screenshot highlighting the Publish button on a training pipeline](./media/migrate-rebuild-web-service/create-retraining-pipeline.png)
 
 
 ## Call your pipeline endpoint from the studio

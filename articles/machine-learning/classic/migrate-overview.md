@@ -38,12 +38,11 @@ To migrate to Azure Machine Learning, we recommend the following approach:
     >[!NOTE]
     > The **designer** feature in Azure Machine Learning provides a similar drag-and-drop experience to Studio (classic). However, Azure Machine Learning also provides robust [code-first workflows](../concept-model-management-and-deployment.md) as an alternative. This migration series focuses on the designer, since it's most similar to the Studio (classic) experience.
 
-[!INCLUDE [aml-compare-classic](../../../includes/machine-learning-compare-classic-aml.md)]
+    [!INCLUDE [aml-compare-classic](../../../includes/machine-learning-compare-classic-aml.md)]
 
+3. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer module-mapping](#studio-classic-and-designer-module-mapping) table below.
 
-1. Verify that your critical Studio (classic) modules are supported in Azure Machine Learning designer. For more information, see the [Studio (classic) and designer module-mapping](#studio-classic-and-designer-module-mapping) table below.
-
-1. [Create an Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace?tabs=azure-portal).
+4. [Create an Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace?tabs=azure-portal).
 
 ## Step 2: Create a migration plan
 
