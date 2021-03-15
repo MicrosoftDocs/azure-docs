@@ -1,5 +1,5 @@
 ---
-title: Samples Overview page
+title: Samples overview page
 titleSuffix: An Azure Communication Services sample overview.
 description: Overview of available sample projects for Azure Communication Services.
 author: probableprime
@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 Azure Communication Services has many samples available, which you can use to test out ACS services and features before creating your own application or use case.
 
-## Application Samples
+## Application samples
 
 | Sample Name                                                                                          | Description                                                         | Languages/Platforms Available      |
 | :--------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ | :--------------------------------- |
@@ -26,10 +26,15 @@ Azure Communication Services has many samples available, which you can use to te
 | [Contoso Retail App](https://github.com/Azure-Samples/communication-services-contoso-retail-app)     | Sample app demonstrating a retail support flow.                     | ASP.NET, .NET Core, JavaScript/Web |
 | [WPF Calling Sample](https://github.com/Azure-Samples/communication-services-web-calling-wpf-sample) | Sample app for Windows demonstrating calling functionality          | WPF / Node.js                      |
 
-## Quickstart Samples
+## Quickstart samples
 Access code samples for quickstarts found on our documentation.
  - [JavaScript](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/)
  - [.NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/)
  - [iOS](https://github.com/Azure-Samples/communication-services-ios-quickstarts/)
  - [Android](https://github.com/Azure-Samples/communication-services-android-quickstarts/)
  - [Python](https://github.com/Azure-Samples/communication-services-python-quickstarts/)
+
+
+## Next Steps
+
+ - [Create a Communication Services resource](../quickstarts/create-communication-resource.md)
