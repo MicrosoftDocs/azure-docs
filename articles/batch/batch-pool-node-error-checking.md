@@ -62,7 +62,7 @@ If the pool is taking longer than expected, Batch will retry periodically until 
 - Resource locks have been placed on Batch-created resources, or on network resources used by Batch.
 - Resources that you created have a dependency on a Batch-created resource. For instance, if you [create a pool in a virtual network](batch-virtual-network.md), Batch creates a network security group (NSG), a public IP address, and a load balancer. If you use these resources outside of the pool, the pool can't be deleted until that dependency is removed.
 - The Microsoft.Batch resource provider was unregistered from the subscription that contains your pool.
-- ["Microsoft Azure Batch" no longer has the Contributor role](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) to the subscription that contains your pool (for user subscription mode Batch accounts)
+- "Microsoft Azure Batch" no longer has the [Contributor or Owner role](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) to the subscription that contains your pool (for user subscription mode Batch accounts).
 
 ## Node errors
 
@@ -107,15 +107,10 @@ If Batch can determine the cause, the node [errors](/rest/api/batchservice/compu
 Additional examples of causes for **unusable** nodes include:
 
 - A custom VM image is invalid. For example, an image that's not properly prepared.
-
 - A VM is moved because of an infrastructure failure or a low-level upgrade. Batch recovers the node.
-
 - A VM image has been deployed on hardware that doesn't support it. For example, trying to run a CentOS HPC image on a [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) VM.
-
 - The VMs are in an [Azure virtual network](batch-virtual-network.md), and traffic has been blocked to key ports.
-
 - The VMs are in a virtual network, but outbound traffic to Azure storage is blocked.
-
 - The VMs are in a virtual network with a customer DNS configuration and the DNS server cannot resolve Azure storage.
 
 ### Node agent log files
