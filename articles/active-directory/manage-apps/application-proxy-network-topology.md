@@ -176,7 +176,7 @@ The connector can be placed in the Azure datacenter. Since the connector still h
 
 **Scenario:** The app is in an organization's network in Europe, default tenant region is US, with most users in the Europe.
 
-**Recommendation:** Place the connector near the app. Update the connector group so it is optimized to use Europe Application Proxy service instances. For steps see, [Optimize connector groups to use closest Application Proxy cloud service](application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service).
+**Recommendation:** Place the connector near the app. Update the connector group so it is optimized to use Europe Application Proxy service instances. For steps see, [Optimize connector groups to use closest Application Proxy cloud service](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview).
 
 Because Europe users are accessing an Application Proxy instance that happens to be in the same region, hop 1 is not expensive. Hop 3 is optimized. Consider using ExpressRoute to optimize hop 2.
 
@@ -184,7 +184,7 @@ Because Europe users are accessing an Application Proxy instance that happens to
 
 **Scenario:** The app is in an organization's network in Europe, default tenant region is US, with most users in the US.
 
-**Recommendation:** Place the connector near the app. Update the connector group so it is optimized to use Europe Application Proxy service instances. For steps see, [Optimize connector groups to use closest Application Proxy cloud service](/application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service). Hop 1 can be more expensive since all US users must access the Application Proxy instance in Europe.
+**Recommendation:** Place the connector near the app. Update the connector group so it is optimized to use Europe Application Proxy service instances. For steps see, [Optimize connector groups to use closest Application Proxy cloud service](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview). Hop 1 can be more expensive since all US users must access the Application Proxy instance in Europe.
 
 You can also consider using one other variant in this situation. If most users in the organization are in the US, then chances are that your network extends to the US as well. Place the connector in the US, continue to use the default US region for your connector groups, and use the dedicated internal corporate network line to the application in Europe. This way hops 2 and 3 are optimized.
 
