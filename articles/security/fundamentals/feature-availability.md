@@ -41,8 +41,8 @@ Learn what security features are available in the following sovereign clouds:
 - Azure Government for Department of Defense (DoD)
 
 > [!TIP]
-> To differentiate between sovereign and non-sovereign clouds, this article will use the term __Azure Public__ to refer to non-sovereign clouds.
-
+> - To differentiate between sovereign and non-sovereign clouds, this article will use the term __Azure Public__ to refer to non-sovereign clouds.
+> - This article only lists features in which support *differs* between sovereign and non-sovereign clouds. Features in which the support is the *same* are not listed.
 ## Azure Sentinel
 
 Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
@@ -53,16 +53,22 @@ The following tables list the current Sentinel feature availability between our 
 
 ### Azure Sentinel features
 
-| Feature | Azure Public | GCC | Azure Government | GCC High | Azure Government for DoD | 
+| Feature | Azure Public | GCC | Azure Government | GCC High | Azure Government for DoD |
 | ----- | ----- | ---- | ---- | ---- | ---- |
-|[**Bring Your Own ML (BYO-ML)**](/azure/sentinel/bring-your-own-ml) | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail | |
-| [**Cross-tenant/Cross-workspace incidents view**](/azure/sentinel/multiple-workspace-view) | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail | |
-| Entity insights | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail | |
-| [**Fusion**](/azure/sentinel/fusion): advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | Not Avail | Not Avail | Not Avail | Not Avail |  |
-|[**Notebooks**](/azure/sentinel/notebooks) | GA | GA | Not Avail | GA | GA | |
-| [**SOC incident audit metrics**]() | Public Preview | Public Preview | Public Preview | Public Preview | Public Preview | |
-|[**Watchlists**](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview| Public Preview| Not Avail | Public Preview | Public Preview | |
-| | | | | | | |
+|[**Bring Your Own ML (BYO-ML)**](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview | Public Preview | Public Preview | Public Preview |
+| [**Cross-tenant/Cross-workspace incidents view**](/azure/sentinel/multiple-workspace-view) | Public Preview | Public Preview | Public Preview |Public Preview | Public Preview |
+| [**Entity insights**](/azure/sentinel/enable-entity-behavior-analytics) | Public Preview | Public Preview | Not Avail | Public Preview | Public Preview |
+| [**Fusion**](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | GA | Not Avail | GA | GA |
+|[**Notebooks**](/azure/sentinel/notebooks) | GA | GA | Not Avail | GA | GA |
+|[**Watchlists**](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview| Public Preview| Not Avail | Public Preview | Public Preview |
+| | | | | | |
+
+<!-- 
+|NOT INCLUDED ITEMS THAT ARE THE SAME FOR ALL 
+- SOC incident audit metrics
+- MCAS connector alerts
+- Office 365 Teams raw log connector
+-->
 
 <a name="footnote1" /></a>1. SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 
@@ -84,19 +90,19 @@ The following tables list the current Sentinel feature availability between our 
 | Feature | Azure Public | GCC | Azure Government | GCC High | Azure Government for DoD |
 | ----- | ----- | ---- | ---- | ---- | ---- |
 | [**Anomalous Windows File Share Access Detection**](/azure/sentinel/fusion)  | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
-| [**Anomalous RDP Login Detection**](/azure/sentinel/connect-windows-security-events#configure-the-security-events-connector-for-anomalous-rdp-login-detection): Built-in ML detection | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
-| [**Anomalous SSH login detection**](https://docs.microsoft.com/en-us/azure/sentinel/connect-syslog#configure-the-syslog-connector-for-anomalous-ssh-login-detection): built-in ML detection | Public Preview |Not Avail | Not Avail | Not Avail | Not Avail |
+| [**Anomalous RDP Login Detection**](/azure/sentinel/connect-windows-security-events#configure-the-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
+| [**Anomalous SSH login detection**](/azure/sentinel/connect-syslog#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview |Not Avail | Not Avail | Not Avail | Not Avail |
 | | | | | | |
 
 ### Microsoft data connectors
 
 | Feature | Azure Public | GCC | Azure Government | GCC High | Azure Government for DoD |
 | ----- | ----- | ---- | ---- | ---- | ---- |
-| Azure Information Protection raw logs in Azure Sentinel | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail | |
+| [**Azure Information Protection connector**](/azure/sentinel/connect-azure-information-protection)<br>Raw log integration | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail | |
 | [**Microsoft 365 Office connector**](/azure/sentinel/connect-office-365) | Public Preview | Not Avail | Not Avail | Public Preview | Not Avail |
-|[**Microsoft Cloud App Security (MCAS) connector**](/azure/sentinel/connect-cloud-app-security): shadow IT logs  | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
-| [**Microsoft Defender Advanced Threat Protection (MDATP) connector**](/azure/sentinel/connect-microsoft-defender-advanced-threat-protection): alerts | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
-|[**MDATP connector**](/azure/sentinel/connect-microsoft-365-defender): raw logs integration | Public Preview | Public Preview | Not Avail | Public Preview | Public Preview |
+|[**Microsoft Cloud App Security (MCAS) connector**](/azure/sentinel/connect-cloud-app-security)<br>Shadow IT logs  | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
+| [**Microsoft Defender Advanced Threat Protection (MDATP) connector**](/azure/sentinel/connect-microsoft-defender-advanced-threat-protection)<br>Alerts | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
+|[**MDATP connector**](/azure/sentinel/connect-microsoft-365-defender)<br>Raw log integration | Public Preview | Public Preview | Not Avail | Public Preview | Public Preview |
 |[**Microsoft Office 365 ATP Alerts Connector**](/azure/sentinel/connect-office-365-advanced-threat-protection) | GA | GA | Not Avail | GA | GA |
 | | | | | | |
 
