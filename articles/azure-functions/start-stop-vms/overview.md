@@ -76,7 +76,7 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
 - You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-- Your account has been granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) permission in the subscription.
+- Your account has been granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) permission in the subscription, and in the resource group specified to support the storage account, Application Insights instance, and Start/Stop VM resources in Azure Logic Apps and Azure Functions.
 
 - An Azure Storage account, which is required by Functions. Start/Stop VMs also uses this Storage account for two purposes:
 
