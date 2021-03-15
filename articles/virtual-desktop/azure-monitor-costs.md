@@ -1,6 +1,6 @@
 ---
 title: Monitor Windows Virtual Desktop cost pricing estimates - Azure
-description: How to troubleshoot issues with Azure Monitor for Windows Virtual Desktop.
+description: How to estimate costs and pricing for using Azure Monitor for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 03/29/2021
