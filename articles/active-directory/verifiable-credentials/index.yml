@@ -35,7 +35,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Verifiable Credentials?
+          - text: What is verifiable Credentials?
             url: verifiable-credentials-overview.md
       - linkListType: tutorial
         links:

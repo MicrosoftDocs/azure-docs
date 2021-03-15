@@ -25,10 +25,6 @@
   items:
   - name: OpenID Connect Protocol Details
     href: issuer-openid.md
-  - name: Section 2 Title
-    items:
-    - name: duplicate as an example
-      href: issuer-openid.md
 - name: How-to guides
   expanded: true
   items:
