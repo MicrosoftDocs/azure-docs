@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 02/18/2021
+ms.date: 03/12/2021
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -4843,16 +4843,22 @@ workflow().<property>
 
 | Parameter | Required | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | No | String | The name for the workflow property whose value you want <p>A workflow object has these properties: **name**, **type**, **id**, **location**, and **run**. The **run** property value is also an object that has these properties: **name**, **type**, and **id**. |
+| <*property*> | No | String | The name for the workflow property whose value you want <p><p>By default, a workflow object has these properties: `name`, `type`, `id`, `location`, `run`, and `tags`. <p><p>- The `run` property value is a JSON object that includes these properties: `name`, `type`, and `id`. <p><p>- The `tags` property is a JSON object that includes [tags that are associated with your logic app in Azure Logic Apps or flow in Power Automate](../azure-resource-manager/management/tag-resources.md) and the values for those tags. For more information about tags in Azure resources, review [Tag resources, resource groups, and subscriptions for logical organization in Azure](../azure-resource-manager/management/tag-resources.md). <p><p>**Note**: By default, a logic app has no tags, but a Power Automate flow has the `flowDisplayName` and `environmentName` tags. |
 |||||
 
-*Example*
+*Example 1*
 
 This example returns the name for a workflow's current run:
 
-```
-workflow().run.name
-```
+`workflow().run.name`
+
+*Example 2*
+
+If you use Power Automate, you can create a `@workflow()` expression that uses the `tags` output property to get the values from your flow's `flowDisplayName` or `environmentName` property.
+
+For example, you can send custom email notifications from the flow itself that link back to your flow. These notifications can include an HTML link that contains the flow's display name in the email title and follows this syntax:
+
+`<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
 <a name="xml"></a>
 

@@ -61,6 +61,13 @@ Exporting data directly from the Recovery Services vault to on-premises using Da
 
 In the case of a [GRS](azure-backup-glossary.md#grs) vault without [CRR](azure-backup-glossary.md#cross-region-restore-crr) capability enabled, the data in the secondary region can't be accessed until Azure declares a disaster in the primary region. In such a scenario, the restore happens from the secondary region. When CRR is enabled, even if the primary region is up and running, you can trigger a restore in the secondary region.
 
+### Can I move a subscription that contains a vault to a different Azure Active Directory?
+
+Yes. To move a subscription (that contains a vault) to a different Azure Active Directory (AD), see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
+
+>[!IMPORTANT]
+>Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles are not transferrable. You must recreate the permissions and roles in the new Azure AD.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#before-you-start), you must reconfigure the features.</li></ul>
+
 ## Azure Backup agent
 
 ### Where can I find common questions about the Azure Backup agent for Azure VM backup?
