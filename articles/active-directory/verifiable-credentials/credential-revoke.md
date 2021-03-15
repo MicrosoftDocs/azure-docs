@@ -1,18 +1,18 @@
 ---
-title: Credential revocation (preview)
-description: This article shows you how you can revoke a credential
+title: Manage credential revocation in Verifiable credentials (preview)
+description: This article shows you how you can revoke a single or multiple verifiable credentials
 services: active-directory
 author: barclayn
 manager: davba
 ms.service: identity
 ms.subservice: verifiable-credentials
-ms.topic: conceptual
-ms.date: 02/19/2021
+ms.topic: how-to
+ms.date: 03/14/2021
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
 
-# Credential revocation when working with Azure Verifiable credentials
+# Manage credential revocation in Verifiable credentials
 
 After Verifiable Credentials have been issued to your users, you can invalidate credentials by using the Azure portal.
 

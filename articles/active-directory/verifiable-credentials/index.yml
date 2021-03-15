@@ -31,7 +31,7 @@ landingContent:
             url: https://www.youtube.com/watch?v=r20hCF9NbTo
   
   # Card
-  - title: Verifiable credentials put people in control of their personal information, enabling more trustworthy digital experiences while respecting people's privacy. 
+  - title: Verifiable credentials put people in control of their personal information
     linkLists:
       - linkListType: overview
         links:
@@ -39,17 +39,17 @@ landingContent:
             url: verifiable-credentials-overview.md
       - linkListType: tutorial
         links:
-          - text: Set up VCs in your tenant
-            url: tutorial-01-verifiable-credentials-issuer.md
+          - text: Get started with verifiable credentials
+            url: get-started-verifiable-credentials.md
       - linkListType: concept
         links:
-          - text: Define key pair values
-            url: credential-structure.md
+          - text: Issuer service communication examples
+            url: issuer-openid.md
  
   # Card
-  - title: Place holder name for how-to
+  - title: How to bind DNS
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Some more complex scenario
-            url: how-to-idp-claims.md
+          - text: Link your Domain to your Distributed Identifier
+            url: how-to-dnsbind.md

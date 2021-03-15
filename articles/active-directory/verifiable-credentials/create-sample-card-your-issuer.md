@@ -17,7 +17,7 @@ ms.reviewer:
 
 # Tutorial: Modify the sample app to issue verifiable credentials using your tenant (preview)
 
-In the previous tutorial, we enabled verifiable credentials in your tenant using the rule and display files included with our sample app.  In this tutorial, we will take the sample app code running on our test system and make the necessary changes to get it working with your verifiable credentials issuer and issue a card.
+In the previous tutorial, we enabled verifiable credentials in your tenant using the rule and display files included with our sample app.  In this tutorial, we will take the sample app code running on our test system and make the necessary changes to get it working with your issuer and issue a verifiable credential(vc).
 
 > [!IMPORTANT]
 > Verifiable credentials is currently in public preview.
@@ -84,7 +84,7 @@ Before creating the credential, we need to first give the signed in user the cor
   >[!IMPORTANT]
     >By default, container creators get the **Owner** role assigned. Even if you created the container with the account you are using, the **Owner** role is not enough on its own. For more information review [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/common/storage-auth-aad-rbac-portal.md) Your account needs  the **Storage Blob Data Reader** role.
 
-At this point, we have taken all steps necessary to start the transition from the sample app configured to work with our hosted Azure Active Directory environment to yours.
+At this point, we have taken all necessary steps to start transitioning the sample app from working with our hosted Azure Active Directory environment to yours.
 
 ## Create the Ninja Credential VC
 
