@@ -32,7 +32,7 @@ For a Python code-based experience, [configure your automated machine learning e
 
 ## Get started
 
-1. Sign in to Azure Machine Learning at https://ml.azure.com. 
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com). 
 
 1. Select your subscription and workspace. 
 
@@ -193,6 +193,9 @@ To get explanations for a particular model,
 ## Deploy your model
 
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
+
+>[!TIP]
+> If you are looking to deploy a model that was generated via the `automl` package with the Python SDK, your model must first be registered to the workspace. If you're model is registered, find it by selecting **Models** on the left pane of the studio, and then follow the instructions as described in the remainder of the **Deploy your model** section.
 
 Automated ML helps you with deploying the model without writing code:
 
