@@ -178,7 +178,7 @@ To configure Active Directory:
     > - For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
     > - You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
 
-4.Set the Active Directory server parameters, as follows:
+4. Set the Active Directory server parameters, as follows:
 
    | Server parameter | Description |
    |--|--|
