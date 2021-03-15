@@ -17,14 +17,12 @@ With host-based encryption, the data stored on the VM host of your AKS agent nod
 This feature can only be set at cluster creation or node pool creation time.
 
 > [!NOTE]
-> Host-based encryption is available in [Azure regions][supported-regions] that support server side encryption of Azure managed disks and only with specific [supported VM sizes][supported-sizes].
+> Host-based encryption is available in [Azure regions][supported-regions] that support encryption at host and only with specific [supported VM sizes][supported-sizes].
 
 ### Prerequisites
 
 - Ensure you have the `aks-preview` CLI extension v0.4.73 or higher version installed.
 - Ensure you have the `EnableEncryptionAtHostPreview` feature flag under `Microsoft.ContainerService` enabled.
-
-In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Email **encryptionAtHost@microsoft.com** with your subscription IDs to get the feature enabled for your subscriptions. 
 
 > [!IMPORTANT]
 > You must email **encryptionAtHost@microsoft.com** with your subscription IDs to get the feature enabled for compute resources. You cannot enable it yourself for compute resources.
@@ -45,8 +43,8 @@ az extension update --name aks-preview
 ### Limitations
 
 - Can only be enabled on new node pools.
-- Can only be enabled in [Azure regions][supported-regions] that support server-side encryption of Azure managed disks and only with specific [supported VM sizes][supported-sizes].
-- Requires an AKS cluster and node pool based on Virtual Machine Scale Sets(VMSS) as *VM set type*.
+- Can only be enabled in [Azure regions][supported-regions] that support encryption at host and only with specific [supported VM sizes][supported-sizes].
+- Requires an AKS cluster and node pool based on Virtual Machine Scale Sets (VMSS) as *VM set type*.
 
 ## Use host-based encryption on new clusters (preview)
 
@@ -71,6 +69,7 @@ If you want to create new node pools without the host-based encryption feature, 
 ## Next steps
 
 Review [best practices for AKS cluster security][best-practices-security]
+
 Read more about [host-based encryption](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 
 
@@ -80,8 +79,8 @@ Read more about [host-based encryption](../virtual-machines/disk-encryption.md#e
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: ./operator-best-practices-cluster-security.md
-[supported-regions]: ../virtual-machines/disk-encryption.md#supported-regions
-[supported-sizes]: ../virtual-machines/disk-encryption.md#supported-vm-sizes
+[supported-regions]: ../virtual-machines/linux/disks-enable-host-based-encryption-cli.md#supported-regions
+[supported-sizes]: ../virtual-machines/linux/disks-enable-host-based-encryption-cli.md#supported-vm-sizes
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
