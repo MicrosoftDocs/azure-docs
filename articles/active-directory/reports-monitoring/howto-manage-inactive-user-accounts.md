@@ -62,7 +62,7 @@ No.
 
 ### What edition of Azure AD do I need to access the property?
 
-You can access this property in all editions of Azure AD.
+Details for this property require an Azure AD Premium P1/P2 license.
 
 ### What permission do I need to read the property?
 
