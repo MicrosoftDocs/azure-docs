@@ -124,9 +124,9 @@ Grant AcrPull role to your Azure API for FHIR service instance.
 
 ### Register the ACR servers in Azure API for FHIR
 
-You can register the ACR server using the Azure Portal, or using CLI.
+You can register the ACR server using the Azure portal, or using CLI.
 
-#### Registering the ACR server using Azure Portal
+#### Registering the ACR server using Azure portal
 Navigate to the _Artifacts_ blade under _Data transformation_ in your Azure API for FHIR instance. You will see the list of currently registered ACR servers. Click on _Add_ and select your registry server from the dropdown. You will need to click on _Save_ for the registration to take effect. It may take a few minutes to apply the change and restart your instance.
 
 #### Registering the ACR server using CLI
