@@ -15,7 +15,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a second authorization key for _circuit 2_, the private cloud ExpressRoute circuit.
-> * Use either the [Azure portal](#portaltabazure-portal) or the [Azure CLI in a Cloud Shell](#azure-clitabazure-cli) method in the subscription of _circuit 1_ to enable  on-premises-to-private cloud ExpressRoute Global Reach peering.
+> * Use either the [[Azure portal](#tab/azure-portal)](#portaltabazure-portal) or the [[Azure CLI in a Cloud Shell](#tab/azure-cli)](#azure-clitabazure-cli) method in the subscription of _circuit 1_ to enable  on-premises-to-private cloud ExpressRoute Global Reach peering.
 
 ## Before you begin
 
@@ -84,7 +84,8 @@ We've augmented the [CLI commands](../expressroute/expressroute-howto-set-global
 You can connect from on-premises environments to your private cloud over the ExpressRoute Global Reach peering.
 
 >[!TIP]
->You can delete the peering by following the [Disable connectivity between your on-premises networks](../expressroute-howto-set-global-reach-cli#disable-connectivity-between-your-on-premises-networks) instructions.
+>You can delete the peering by following the [Disable connectivity between your on-premises networks](../expressroute/expressroute-howto-set-global-reach-cli.md#disable-connectivity-between-your-on-premises-networks) instructions.
+
 
 ---
 
