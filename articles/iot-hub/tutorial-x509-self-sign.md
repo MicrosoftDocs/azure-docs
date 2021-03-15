@@ -100,4 +100,4 @@ illustration
 
 ## Step 10 - Test Your Device certificates
 
-Go to xyz to determine if your device certificate can authenticate to your IoT Hub.Hub.
+Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub.Hub.

@@ -237,7 +237,7 @@ You now have both a root CA certificate and a subordinate CA certificate. You ca
 
 1. Select the certificate to view the **Certificate Details** dialog.
 
-1. Select **Generate Verification Code**.
+1. Select **Generate Verification Code**. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).
 
 1. Copy the verification code to the clipboard. You must set the verification code as the certificate subject. For example, if the verification code is BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, add that as the subject of your certificate as shown in the next step.
 
@@ -326,4 +326,4 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## Step 10 - Test Your Device certificate
 
-Go to xyz to determine if your device certificate can authenticate to your IoT Hub.
+Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub.

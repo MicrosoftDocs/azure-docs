@@ -66,7 +66,7 @@ Now that  you've uploaded your CA certificate to your IoT Hub, you'll need to pr
 
 1. Select the new CA certificate.
 
-1. Select **Generate Verification Code** in the **Certificate Details** pane.
+1. Select **Generate Verification Code** in the **Certificate Details** dialog. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).
 
 1. Create a certificate that contains the verification code. For example, if the verification code is `"106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288"`, run the following to create a new certificate in your working directory containing the subject `CN = 106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288`. The script creates a certificate named `VerifyCert4.cer`.
 
@@ -95,7 +95,7 @@ Create a device for your IoT Hub:
 
 ### Step 5 - Test Your Device certificate
 
-Go to xyz to determine if your device certificate can authenticate to your IoT Hub. You will need the PFX version of your certificate, `mydevice.pfx`.
+Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub. You will need the PFX version of your certificate, `mydevice.pfx`.
 
 ### Step 6 - Cleanup
 
@@ -133,7 +133,7 @@ From the start menu, open **Manage Computer Certificates** and navigate to  **Ce
 
 1. Select the new CA certificate created in the preceding step.
 
-1. Select **Generate Verification Code** in the **Certificate Details** pane.
+1. Select **Generate Verification Code** in the **Certificate Details** dialog. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).
 
 1. Create a certificate that contains the verification code. For example, if the verification code is `"106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288"`, run the following to create a new certificate in your working directory named `verification-code.cert.pem` which contains the subject `CN = 106A5SD242AF512B3498BD6098C4941E66R34H268DDB3288`.
 
@@ -157,7 +157,7 @@ Create a device for your IoT hub:
 
 ### Step 5 - Test Your Device certificate
 
-Go to xyz to determine if your device certificate can authenticate to your IoT Hub. You will need the PFX version of your certificate, `new-device.cert.pfx`.
+Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub. You will need the PFX version of your certificate, `new-device.cert.pfx`.
 
 ### Step 6 - Cleanup
 
