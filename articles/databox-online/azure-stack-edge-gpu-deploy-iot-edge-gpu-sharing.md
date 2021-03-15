@@ -221,30 +221,30 @@ Deploy IoT Edge modules via the Azure portal. You'll deploy publicly available N
 
 1. Make sure that the IoT Edge service is running on your device.
 
-    ![IoT Edge service running](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-1.png)
+    ![IoT Edge service running.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-1.png)
 
 1. Select the IoT Edge tile in the right-pane. Go to **IoT Edge > Properties**. In the right-pane, select the IoT Hub resource associated with your device.
 
-    ![View properties](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-2.png)
+    ![View properties.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-2.png)
 
 1. In the IoT Hub resource, go to **Automatic Device Management > IoT Edge**. In the right-pane, select the IoT Edge device associated with your device.
 
-    ![Go to IoT Edge](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-3.png)
+    ![Go to IoT Edge.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-3.png)
 
 1. Select **Set modules**.
 
-    ![Go to Set Modules](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-4.png)
+    ![Go to Set Modules.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-4.png)
 
 1. Select **+ Add > + IoT Edge module**.
 
-    ![Add IoT Edge module](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-5.png)
+    ![Add IoT Edge module.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-5.png)
 
 1. On the **Module Settings** tab, provide the **IoT Edge module name** and **Image URI**. Set **Image pull policy** to **On create**.
 
-    ![Module settings](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-6.png)
+    ![Module settings.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-6.png)
 1. On the **Environment Variables** tab, specify **NVIDIA_VISIBLE_DEVICES** as **0**.
 
-    ![Environment variables](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-7.png)
+    ![Environment variables.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-7.png)
 
 1. On the **Container Create Options** tab, provide the following options:
 
@@ -265,34 +265,34 @@ Deploy IoT Edge modules via the Azure portal. You'll deploy publicly available N
     ```
     The options are displayed as follows:
 
-    ![Container create options](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-8.png)
+    ![Container create options.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-8.png)
 
     Select **Add**.
 
 1. The module that you added should show as **Running**. 
 
-    ![Review and create deployment](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-9.png)
+    ![Review and create deployment.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-9.png)
 
 
 1. Repeat all the steps to add a module that you followed when adding the first module. In this example, provide the name of the module as `cuda-sample2`. 
 
-    ![Module settings for 2nd module](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-12.png)
+    ![Module settings for 2nd module.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-12.png)
 
     Use the same environment variable as both the modules will share the same GPU.
 
-    ![Environment variable for 2nd module](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-13.png)
+    ![Environment variable for 2nd module.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-13.png)
 
     Use the same container create options that you provided for the first module and select **Add**.
 
-    ![Container create options for 2nd modules](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-14.png)
+    ![Container create options for 2nd modules.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-14.png)
 
 1. On the **Set modules** page, select **Review + Create** and then select **Create**. 
 
-    ![Review and create 2nd deployment](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-15.png)
+    ![Review and create 2nd deployment.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-15.png)
 
 1. The **Runtime status** of both the modules should now show as **Running**.  
 
-    ![2nd deployment status](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-16.png)
+    ![2nd deployment status.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/gpu-sharing-deploy-16.png)
 
 
 ### Monitor workload deployment
@@ -425,23 +425,23 @@ Deploy IoT Edge modules via the Azure portal. You'll deploy publicly available N
 
     1. Go to **Set modules** and select a module. 
 
-        ![Select Set module](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-1.png)
+        ![Select Set module.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-1.png)
 
     1. On the **Modules** tab, select a module.
     
-        ![Select a module](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-2.png)
+        ![Select a module.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-2.png)
 
     1.  On the **Module settings** tab, set **Desired status** to stopped. Select **Update**.
 
-        ![Modify module settings](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-3.png)
+        ![Modify module settings.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-3.png)
 
     1. Repeat the steps to stop the second module deployed on the device. Select **Review + create** and then select **Create**. This should update the deployment.
 
-        ![Review and create updated deployment](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-6.png)
+        ![Review and create updated deployment.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-6.png)
  
     1. Refresh **Set modules** page multiple times. until the module **Runtime status** shows as **Stopped**.
 
-        ![Verify deployment status](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-8.png) 
+        ![Verify deployment status.](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-8.png) 
     
 
 ## Deploy with context-sharing
