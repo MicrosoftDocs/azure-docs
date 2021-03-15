@@ -71,7 +71,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
       --debug
    ```
 
-1. Finally, create a datacenter for the cluster, with three nodes by using the [az managed-cassandra datacenter create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create&preserve-view=true) command:
+1. Finally, create a datacenter for the cluster, with three nodes by using the [az managed-cassandra datacenter create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create) command:
 
    ```azurecli-interactive
    dataCenterName='dc1'
@@ -87,7 +87,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
       --node-count 3 
    ```
 
-1. Once the datacenter is created, if you want to scale up, or scale down the nodes in the datacenter, run the [az managed-cassandra datacenter update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update&preserve-view=true) command. Change the value of `node-count` parameter to the desired value:
+1. Once the datacenter is created, if you want to scale up, or scale down the nodes in the datacenter, run the [az managed-cassandra datacenter update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update) command. Change the value of `node-count` parameter to the desired value:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
