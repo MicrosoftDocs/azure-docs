@@ -3,7 +3,7 @@ title: Frequently asked questions
 description: Answers for frequently asked questions related to the Azure Container Registry service 
 author: sajayantony
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 03/15/2021
 ms.author: sajaya
 ---
 
@@ -256,11 +256,19 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 
 ### How do I enable anonymous pull access?
 
-Setting up an Azure container registry for anonymous (public) pull access is currently a preview feature. If you have any [scope map (user) or token resources](./container-registry-repository-scoped-permissions.md) in your registry, please delete them before raising a support ticket (system scope maps can be ignored). To enable public access, please open a support ticket at https://aka.ms/acr/support/create-ticket. For details, see the [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Setting up an Azure container registry for anonymous (unauthenticated) pull access is currently a preview feature. 
+
+To enable anonymous pull access, create or update a registry using the Azure CLI (version 2.20.1 or later) and pass the `--anonymous-pull-enabled` parameter. For example:
+
+```azurecli
+az acr update --name myregistry --anonymous-pull-enabled
+``` 
+
+If you have any [scope map (user) or token resources](./container-registry-repository-scoped-permissions.md) in your registry, delete them before enabling anonymous pull access.
 
 > [!NOTE]
-> * Only the APIs required to pull a known image can be accessed anonymously. No other APIs for operations like tag list or repository list are accessible anonymously.
 > * Before attempting an anonymous pull operation, run `docker logout` to ensure that you clear any existing Docker credentials.
+> * After enabling anonymous pull access, Docker APIs for tag list and repository list are also accessible anonymously.
 
 ### How do I push non-distributable layers to a registry?
 
