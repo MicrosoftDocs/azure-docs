@@ -37,7 +37,9 @@ The Spring Data Azure Cosmos DB version 3 for Core (SQL) allows developers to us
 
 > [!IMPORTANT]
 > Spring Data Azure Cosmos DB has a dependency on the Spring Data framework.
+> 
 > azure-spring-data-cosmos versions from 3.0.0 to 3.4.0 support Spring Data versions 2.2 and 2.3.
+> 
 > azure-spring-data-cosmos versions 3.5.0 and above support Spring Data versions 2.4.3 and above.
 >
 
