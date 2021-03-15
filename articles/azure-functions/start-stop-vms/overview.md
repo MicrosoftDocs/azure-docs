@@ -15,7 +15,7 @@ This version of Start/Stop VMs (preview) provides a decentralized low-cost autom
 
 ## Overview
 
-Start/Stop VMs (preview) is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required with the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
+Start/Stop VMs (preview) is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
 
 An HTTP trigger endpoint function is created to support the schedule and sequence scenarios included with the feature, as shown in the following table.
 
@@ -31,7 +31,7 @@ An HTTP trigger endpoint function is created to support the schedule and sequenc
 |VirtualMachineRequestExecutor |Queue ||
 |VirtualMachineRequestOrchestrator |Queue ||
 
-For example, **Scheduled** HTTP trigger function is used to handle schedule and sequence scenarios. Similarly, **AutoStop** HTTP trigger function handles the auto-stop scenario.
+For example, **Scheduled** HTTP trigger function is used to handle schedule and sequence scenarios. Similarly, **AutoStop** HTTP trigger function handles the auto stop scenario.
 
 The queue-based trigger functions are required in support of this feature. All timer-based triggers are used to perform the availability test and to monitor the health of the system.
 
@@ -62,7 +62,7 @@ Email notifications are also sent as a result of the actions performed on the VM
 
 ### Subscription
 
-Scoping to a subscription can be used when you need to perform the start and stop action on all the VMs in an entire subscription, and you can select multiple subscriptions if required.  
+Scoping to a subscription can be used when you need to perform the start and stop action on all the VMs in an entire subscription, and you can select multiple subscriptions if necessary.  
 
 You can also specify a list of VMs to exclude and it will ignore them from the action. You can also use wildcard characters to specify all the names that simultaneously can be ignored.
 
