@@ -38,7 +38,7 @@ You can create a [service principal](../../active-directory/develop/app-objects-
 Create a resource group if you do not already have one.
 
 ```azurecli-interactive
-    az group create -n {MyResourceGroup}
+    az group create -n {MyResourceGroup} -l {location}
 ```
 
 Replace the placeholder `myApp` with the name of your application.

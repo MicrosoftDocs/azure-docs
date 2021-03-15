@@ -214,6 +214,11 @@
       "branch": "v3.x"
     },
     {
+      "path_to_root": "azure-search-javascript-samples",
+      "url": "https://github.com/Azure-Samples/azure-search-javascript-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
       "branch": "master"
