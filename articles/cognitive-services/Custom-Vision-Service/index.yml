@@ -108,9 +108,9 @@ landingContent:
           - text: Prediction API
             url: https://go.microsoft.com/fwlink/?linkid=865445
           - text: .NET SDK
-            url: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
+            url: /dotnet/api/overview/azure/cognitiveservices/client/customvision
           - text: Python SDK
-            url: /python/api/azure-cognitiveservices-vision-customvision/?view=azure-python
+            url: /python/api/azure-cognitiveservices-vision-customvision/
           - text: Java SDK
             url: /java/api/overview/azure/cognitiveservices/client/customvision
           - text: Go SDK (training)

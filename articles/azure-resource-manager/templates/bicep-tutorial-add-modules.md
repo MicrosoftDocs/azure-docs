@@ -2,7 +2,7 @@
 title: Tutorial - add modules to Azure Resource Manager Bicep file
 description: Use modules to encapsulate complex details of the raw resource declaration.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ---

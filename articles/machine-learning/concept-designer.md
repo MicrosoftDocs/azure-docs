@@ -109,7 +109,7 @@ Published pipelines are flexible, they can be used to train or retrain models, [
 
 A published pipeline runs on the compute resources you define in the pipeline draft for each module.
 
-The designer creates the same [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?preserve-view=true&view=azure-ml-py) object as the SDK.
+The designer creates the same [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline) object as the SDK.
 
 ## Next steps
 

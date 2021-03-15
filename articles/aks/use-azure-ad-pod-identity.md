@@ -3,7 +3,7 @@ title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Ser
 description: Learn how to use AAD pod-managed managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 3/12/2021
 
 ---
 
@@ -20,13 +20,13 @@ Azure Active Directory pod-managed identities uses Kubernetes primitives to asso
 
 You must have the following resource installed:
 
-* The Azure CLI, version 2.8.0 or later
-* The `azure-preview` extension version 0.4.68 or later
+* The Azure CLI, version 2.20.0 or later
+* The `azure-preview` extension version 0.5.5 or later
 
 ### Limitations
 
-* A maximum of 50 pod identities are allowed for a cluster.
-* A maximum of 50 pod identity exceptions are allowed for a cluster.
+* A maximum of 200 pod identities are allowed for a cluster.
+* A maximum of 200 pod identity exceptions are allowed for a cluster.
 * Pod-managed identities are available on Linux node pools only.
 
 ### Register the `EnablePodIdentityPreview`
@@ -62,6 +62,21 @@ Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS clus
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+## Create an AKS cluster with Kubenet network plugin
+
+Create an AKS cluster with Kubenet network plugin and pod-managed identity enabled.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## Update an existing AKS cluster with Kubenet network plugin
+
+Update an existing AKS cluster with Kubnet network plugin to include pod-managed identity.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## Create an identity

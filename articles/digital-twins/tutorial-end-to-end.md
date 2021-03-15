@@ -49,7 +49,7 @@ To work through the scenario, you will interact with components of the pre-writt
 
 Here are the components implemented by the building scenario *AdtSampleApp* sample app:
 * Device authentication 
-* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
 * *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
@@ -121,6 +121,8 @@ This will open the NuGet Package Manager. Select the *Updates* tab and if there 
 Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, locate the _**SampleFunctionsApp**_ project in the *Solution Explorer* pane.
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+
+For your function app to be able to access Azure Digital Twins, it will need to have a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
 
 ### Assign permissions to the function app
 

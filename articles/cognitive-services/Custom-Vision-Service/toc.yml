@@ -66,7 +66,7 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/customvision
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/customvision
     - name: Node.js - Training
@@ -74,7 +74,7 @@
     - name: Node.js - Prediction
       href: /javascript/api/@azure/cognitiveservices-customvision-prediction/
     - name: Python
-      href: /python/api/overview/azure/cognitiveservices/customvision?view=azure-python
+      href: /python/api/overview/azure/cognitiveservices/customvision
     - name: Go - Training
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training
     - name: Go - Prediction

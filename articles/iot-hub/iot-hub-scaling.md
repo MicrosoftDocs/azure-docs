@@ -75,7 +75,7 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Get services statistics](/javascript/api/azure-iot-digitaltwins-service/registrymanager#getservicestatistics-msrest-requestoptionsbase-) | Yes | Yes |
 | [Create or update device](/javascript/api/azure-iot-digitaltwins-service/registrymanager#createorupdatedevice-string--device--servicecallback-device--) | Yes | Yes |
 | [Create or update module](/javascript/api/azure-iot-digitaltwins-service/registrymanager#createorupdatemodule-string--string--module--models-registrymanagercreateorupdatemoduleoptionalparams-) | Yes | Yes |
-| [Query IoT Hub](/dotnet/api/microsoft.azure.devices.registrymanager?view=azure-dotnet) | Yes | Yes |
+| [Query IoT Hub](/dotnet/api/microsoft.azure.devices.registrymanager) | Yes | Yes |
 | [Create file upload SAS URI](/rest/api/iothub/device/createfileuploadsasuri) | Yes | Yes |
 | [Receive device bound notification](/rest/api/iothub/device/receivedeviceboundnotification) | Yes | Yes |
 | [Send device event](/rest/api/iothub/device/senddeviceevent) | Yes | Yes |

@@ -36,7 +36,7 @@
         href: connect-ios.md
       - name: Connect with the Microsoft Store client
         href: connect-microsoft-store.md
-      - name: Connect with Linux devices
+      - name: Connect with thin clients
         href: linux-overview.md
   - name: Configure device redirections
     href: configure-device-redirections.md
@@ -223,7 +223,7 @@
 - name: Resources
   items:
   - name: PowerShell
-    href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+    href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
   - name: REST API reference
     href: /rest/api/desktopvirtualization/
   - name: Experience estimator

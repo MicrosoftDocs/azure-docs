@@ -74,7 +74,7 @@
   - name: .NET
     href: /dotnet/api/overview/azure/datashare
   - name: Azure PowerShell
-    href: /powershell/module/az.datashare/?view=azps-2.6.0
+    href: /powershell/module/az.datashare/
   - name: REST API
     href: /rest/api/datashare
   - name: Azure CLI

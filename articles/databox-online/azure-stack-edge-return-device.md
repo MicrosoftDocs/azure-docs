@@ -13,6 +13,8 @@ ms.author: alkohli
 
 # Return your Azure Stack Edge Pro device
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
+
 This article describes how to wipe the data and then return your Azure Stack Edge Pro device. After you've returned the device, you can also delete the resource associated with the device.
 
 In this article, you learn how to:
@@ -33,7 +35,6 @@ Before you reset, create a copy of the local data on the device if needed. You c
 You can initiate the device return even before the device is reset.
 
 You can reset your device in the local web UI or in PowerShell. For PowerShell instructions, see [Reset your device](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
-
 
 [!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
 
