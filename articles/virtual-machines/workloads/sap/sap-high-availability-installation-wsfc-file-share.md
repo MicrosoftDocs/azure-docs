@@ -212,9 +212,9 @@ You need the following executables and DLLs from SAP:
 > [!IMPORTANT]
 > Clustering SAP ASCS/SCS instances by using a file share is supported for SAP NetWeaver 7.40 (and later), with SAP Kernel 7.49 (and later).  
 >   
-> The setup must meet the following requirement: the SAP ASCS/SCS instances and the SOFS share must be deployed in separate WSFC.  
+> [!IMPORTANT]
+> The setup must meet the following requirement: the SAP ASCS/SCS instances and the SOFS share must be deployed in separate clusters.    
 >
-
 
 We do not describe the Database Management System (DBMS) setup because setups vary depending on the DBMS you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities that various DBMS vendors support for Azure. Such functionalities include AlwaysOn or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
 
