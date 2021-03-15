@@ -42,6 +42,9 @@ To use the Azure portal to assign a custom role for Start VM on Connect:
 
 2. Go to **Access control (IAM)** and select **Add a custom role**.
 
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of a drop-down menu from the Add button in Access control (IAM). "Add a custom role" is highlighted in red.](/media/add-custom-role.png)
+
 3. Next, name the custom role and add a description. We recommend you name it “start VM on connect.”
 
 4. On the **Permissions** tab, add the following permissions to the subscription you're assigning the role to: 
@@ -62,11 +65,14 @@ To grant access:
 3. In the search bar, enter and select **Windows Virtual Desktop**.
 
       >[!NOTE]
-      >You might see two apps if you have deployed Windows Virtual Desktop (classic). Assign the role to both app you see.
+      >You might see two apps if you have deployed Windows Virtual Desktop (classic). Assign the role to both apps you see.
+      >
+      > [!div class="mx-imgBorder"]
+      > ![A screenshot of the Access control (IAM) tab. In the search bar, both Windows Virtual Desktop and Windows Virtual Desktop (classic) are highlighted in red.](media/add-role-assignment.png)
+    
+### Create a custom role with a JSON file template
 
-### Sample JSON file for creating custom role
-
-If you're using JSON to create the custom role, the following example shows a basic template. Make sure you replace the subcription ID value with the subscription ID you want to assign the role to.
+If you're using a JSON file to create the custom role, the following example shows a basic template you can use. Make sure you replace the subscription ID value with the subscription ID you want to assign the role to.
 
 ```json
 {
@@ -124,6 +130,9 @@ To use the Azure portal to configre Start VM on Connect:
    > The host pool you configure this feature in must have personal desktops with direct role assignments. If the host pool doesn't have correctly configured desktops, the configuration process won't work.
 
 4. In the host pool, select **Properties**. Under **Start VM on connect**, select **Yes**, then select **Save** to instantly apply the setting.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Properties window. The Start VM on connect option is highlighted in red.](media/properties-start-vm-on-connect.png)
 
 ### Use PowerShell
 
