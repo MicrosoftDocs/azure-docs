@@ -116,7 +116,7 @@ Deployments that utilized the old remote desktop plugins need to have the module
 
 ## Key Vault creation 
 
-Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. Key Vault can be created through [Azure portal](../key-vault/general/quick-create-portal.md)and  [PowerShell](../key-vault/general/quick-create-powershell.md). The Key Vault must be created in the same region and subscription as cloud service. For more information see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
+Key Vault is used to store certificates that are associated to Cloud Services (extended support). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault. You can create a key vault in the [Azure portal](../key-vault/general/quick-create-portal.md) or by using [PowerShell](../key-vault/general/quick-create-powershell.md). The key vault must be created in the same region and subscription as the cloud service. For more information, see [Use certificates with Azure Cloud Services (extended support)](certificates-and-key-vault.md).
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
