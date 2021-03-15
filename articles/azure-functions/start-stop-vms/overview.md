@@ -9,13 +9,13 @@ ms.date: 03/12/2021
 
 # Start/Stop VMs (preview) overview
 
-The Start/Stop VMs (preview) version two (V2) feature start or stops enabled Azure virtual machines (VMs) across multiple subscriptions. It starts or stops Azure VMs on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager VMs and classic VMs for most scenarios.
+The Start/Stop VMs (preview) version two (V2) feature starts or stops enabled Azure virtual machines (VMs) across multiple subscriptions. It starts or stops Azure VMs on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager VMs and classic VMs for most scenarios.
 
 This version of Start/Stop VMs (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs.
 
 ## Overview
 
-Start/Stop VMs (preview) has been redesigned where it doesn't depend on Azure Automation or Azure Monitor Logs. This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
+Start/Stop VMs (preview) is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required with the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
 
 An HTTP trigger endpoint function is created to support the schedule and sequence scenarios included with the feature, as shown in the following table.
 
@@ -39,14 +39,14 @@ The queue-based trigger functions are required in support of this feature. All t
 
 - Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs.**ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
 
-- Sequenced - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two specifically named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
+- Sequenced - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
 
     > [!NOTE]
     > This scenario only supports Azure Resource Manager VMs.
 
-- AutoStop - This functionality is only used for performing a stop action against both Azure Resource Manager and classic VMs based on its CPU utilization. It can also be a scheduled-based *take action*, which creates alerts on VMs and based on the condition, the alert is triggered to perform the stop action.**ststv2_vms_AutoStop** configures the auto-stop functionality.
+- AutoStop - This functionality is only used for performing a stop action against both Azure Resource Manager and classic VMs based on its CPU utilization. It can also be a scheduled-based *take action*, which creates alerts on VMs and based on the condition, the alert is triggered to perform the stop action.**ststv2_vms_AutoStop** configures the auto stop functionality.
 
-Each Start/Stop action supports assignment to a one or more subscriptions, resource groups, or a list of VMs.
+Each Start/Stop action supports assignment of one or more subscriptions, resource groups, or a list of VMs.
 
 All telemetry data, that is trace logs from the function app execution, is sent to your connected Application Insights instance. You can view the telemetry data stored in Application Insights from a set of pre-defined visualizations presented in a shared [Azure dashboard](../../azure-portal/azure-portal-dashboards.md). 
 
@@ -82,7 +82,7 @@ Specifying a list of VMs can be used when you need to perform the start and stop
 
 - Your account has been granted the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) permission in the subscription, and in the resource group specified to support the storage account, Application Insights instance, and Start/Stop VM resources in Azure Logic Apps and Azure Functions.
 
-- An Azure Storage account, which is required by Functions. Start/Stop VMs also uses this Storage account for two purposes:
+- An Azure Storage account, which is required by Functions. Start/Stop VMs also use this Storage account for two purposes:
 
     * Uses Azure Table Storage to store the execution operation metadata (that is, the start/stop VM action).
 
