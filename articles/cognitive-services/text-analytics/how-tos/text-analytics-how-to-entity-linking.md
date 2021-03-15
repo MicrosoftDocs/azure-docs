@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/01/2021
+ms.date: 03/15/2021
 ms.author: aahi
 ---
 
@@ -92,6 +92,10 @@ You can also use the optional `domain=phi` parameter to detect health (`PHI`) in
 Starting in `v3.1-preview.4`, The JSON response includes a `redactedText` property, which contains the modified input text where the detected PII entities are replaced by an `*` for each character in the entities.
 
 [Named Entity Recognition version 3.1-preview reference for `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionPii)
+
+The API will attempt to detect the [listed entity categories](../named-entity-types.md?tabs=personal) for a given document language. If you want to specify which entities will be detected and returned, use the optional pii-categories parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. For example, a French driver's license number that might occur in English text.
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?piiCategories=[FRDriversLicenseNumber]`
 
 **Asynchronous operation**
 
