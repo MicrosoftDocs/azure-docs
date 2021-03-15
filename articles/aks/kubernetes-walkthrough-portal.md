@@ -124,68 +124,68 @@ Two Kubernetes Services are also created:
 
 1. Copy in the following YAML definition:
 
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-back
-  template:
-    metadata:
-      name: azure-vote-back
-    spec:
-      ports:
-      - port: 6379
-      selector:
-        app: azure-vote-back
-    ---
+    ```yaml
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: azure-vote-front
+      name: azure-vote-back
     spec:
       replicas: 1
       selector:
         matchLabels:
-          app: azure-vote-front
+          app: azure-vote-back
       template:
         metadata:
-          labels:
-            app: azure-vote-front
+          name: azure-vote-back
         spec:
-          nodeSelector:
-            "beta.kubernetes.io/os": linux
-          containers:
-          - name: azure-vote-front
-            image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
-            resources:
-              requests:
-                cpu: 100m
-                memory: 128Mi
-              limits:
-                cpu: 250m
-                memory: 256Mi
-            ports:
-            - containerPort: 80
-            env:
-            - name: REDIS
-              value: "azure-vote-back"
-    ---
-    apiVersion: v1
-    kind: Service
-    metadata:
-      name: azure-vote-front
-    spec:
-      type: LoadBalancer
-      ports:
-      - port: 80
-      selector:
-        app: azure-vote-front
-```
+          ports:
+          - port: 6379
+          selector:
+            app: azure-vote-back
+        ---
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: azure-vote-front
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              app: azure-vote-front
+          template:
+            metadata:
+              labels:
+                app: azure-vote-front
+            spec:
+              nodeSelector:
+                "beta.kubernetes.io/os": linux
+              containers:
+              - name: azure-vote-front
+                image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
+                resources:
+                  requests:
+                    cpu: 100m
+                    memory: 128Mi
+                  limits:
+                    cpu: 250m
+                    memory: 256Mi
+                ports:
+                - containerPort: 80
+                env:
+                - name: REDIS
+                  value: "azure-vote-back"
+        ---
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: azure-vote-front
+        spec:
+          type: LoadBalancer
+          ports:
+          - port: 80
+          selector:
+            app: azure-vote-front
+    ```
 
 1. Deploy the application using the `kubectl apply` command and specify the name of your YAML manifest:
 
@@ -268,7 +268,7 @@ Pre-existing container images were used in this quickstart to create a Kubernete
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it. [Access the Kubernetes web dashboard][kubernetes-dashboard] for your AKS cluster.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it. Access the Kubernetes web dashboard for your AKS cluster.
 
 
 To learn more about AKS by walking through a complete example, including building an application, deploying from Azure Container Registry, updating a running application, and scaling and upgrading your cluster, continue to the Kubernetes cluster tutorial.

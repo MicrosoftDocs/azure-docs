@@ -4,7 +4,7 @@ description: Use Helm with AKS and Azure Container Registry to package and run a
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 02/26/2021
+ms.date: 03/15/2021
 ms.author: zarhoads
 ---
 
@@ -69,17 +69,17 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus  --attach-acr MyHelm
 
 To connect a Kubernetes cluster locally, use the Kubernetes command-line client, [kubectl][kubectl]. `kubectl` is already installed if you use Azure Cloud Shell. 
 
-1. Install `kubectl` locally using the [az aks install-cli][az-aks-install-cli] command:
+1. Install `kubectl` locally using the `az aks install-cli` command:
 
-```azurecli
-az aks install-cli
-```
+    ```azurecli
+    az aks install-cli
+    ```
 
-2. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command example gets credentials for the AKS cluster named *MyAKS* in the *MyResourceGroup*:  
+2. Configure `kubectl` to connect to your Kubernetes cluster using the `az aks get-credentials` command. The following command example gets credentials for the AKS cluster named *MyAKS* in the *MyResourceGroup*:  
 
-```azurecli
-az aks get-credentials --resource-group MyResourceGroup --name MyAKS
-```
+    ```azurecli
+    az aks get-credentials --resource-group MyResourceGroup --name MyAKS
+    ```
 
 ## Download the sample application
 
@@ -170,7 +170,7 @@ Install your application using your Helm chart using the `helm install` command.
 helm install webfrontend webfrontend/
 ```
 
-It takes a few minutes for the service to return a public IP address. Monitor progress using the [kubectl get service][kubectl-get] command with the `--watch` argument.
+It takes a few minutes for the service to return a public IP address. Monitor progress using the `kubectl get service` command with the `--watch` argument.
 
 ```console
 $ kubectl get service --watch

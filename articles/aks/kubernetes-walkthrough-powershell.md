@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an AKS cluster by using PowerShell'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 02/26/2021 
+ms.date: 03/15/2021 
 ms.custom: devx-track-azurepowershell
 
 
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 # Quickstart: Deploy an Azure Kubernetes Service cluster using PowerShell
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you will:
-* Deploy an AKS cluster using Powershell. 
+* Deploy an AKS cluster using PowerShell. 
 * Run a multi-container application with a web front-end and a Redis instance in the cluster. 
 * Monitor the health of the cluster and pods that run your application.
 
@@ -258,7 +258,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ![Voting app deployed in Azure Kubernetes Service](./media/kubernetes-walkthrough-powershell/voting-app-deployed-in-azure-kubernetes-service.png)
 
-View the cluster nodes' and pods' health metrics captured by [Azure Monitor for containers][azure-monitor-containers] in the Azure portal. 
+View the cluster nodes' and pods' health metrics captured by Azure Monitor for containers in the Azure portal. 
 
 ## Delete the cluster
 
