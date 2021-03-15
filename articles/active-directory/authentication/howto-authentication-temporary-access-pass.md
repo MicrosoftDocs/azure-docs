@@ -23,10 +23,6 @@ Users can bootstrap Passwordless methods in one of two ways:
 <<<<<<< HEAD
 - Using existing Azure AD Multi-Factor Authentication methods 
 - Using a Temporary Access Pass (TAP) 
-=======
-- Using existing Azure AD multi-factor authentication methods 
-- Using a Temporary Access Pass 
->>>>>>> 9b022915190507f433368d819a92e6a660643911
 
 A Temporary Access Pass is a time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones. 
 A Temporary Access Pass also makes recovery easier when a user has lost or forgotten their strong authentication factor like a FIDO2 security key or Microsoft Authenticator app, but needs to sign in to register new strong authentication methods.
