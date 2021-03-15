@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/12/2021
+ms.date: 03/15/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -86,7 +86,7 @@ Before you begin, make sure that:
 
 If you're an existing Azure Stack Edge Pro customer, use the following procedure to create a new resource if you need to replace or reset your existing device.
 
-As Azure Stack Edge Pro approaches its end of life, no orders for new Azure Stack Edge Pro devices are being filled. If you're a new customer, we recommend that you order an Azure Stack Edge Pro - GPU device. For instructions, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource). For more information, see [What is Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md).
+As Azure Stack Edge Pro approaches its end of life, no orders for new Azure Stack Edge Pro devices are being filled. If you're a new customer, we recommend that you explore using Azure Stack Edge Pro - GPU devices for your workloads. For more information, go to [What is Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md). For information about ordering an Azure Stack Edge Pro - GPU device, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
 
 To create a new Azure Stack Edge Pro resource for an existing device, take the following steps in the Azure portal.
 
@@ -104,7 +104,7 @@ To create a new Azure Stack Edge Pro resource for an existing device, take the f
 
 1. In the list of device types that is displayed, select **Azure Stack Edge Pro - FPGA**. Then choose **Select**. 
 
-   The **Azure Stack Edge Pro - FPGA** device type is only displayed if you have an existing device. If you want to order a new device, TO BE ADDED.
+   The **Azure Stack Edge Pro - FPGA** device type is only displayed if you have an existing device. If you want to order a new device, TO BE ADDED.<!--DO THIS-->
 
    ![Search Azure Stack Edge service](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-02.png)
 

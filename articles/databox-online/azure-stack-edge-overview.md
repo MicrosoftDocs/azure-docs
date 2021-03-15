@@ -65,7 +65,7 @@ The Azure Stack Edge Pro solution comprises of Azure Stack Edge resource, Azure 
   
    <!--[The Azure Stack Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-   As Azure Stack Edge Pro approaches its end of life, no orders for new Azure Stack Edge Pro devices are being filled. If you're a new customer, we recommend that you order an Azure Stack Edge Pro - GPU device. For instructions, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource). For more information, see [What is Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md).
+   As Azure Stack Edge Pro approaches its end of life, no orders for new Azure Stack Edge Pro devices are being filled. If you're a new customer, we recommend that you explore using Azure Stack Edge Pro - GPU devices for your workloads. For more information, go to [What is Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md). For information about ordering an Azure Stack Edge Pro - GPU device, go to [Create a new resource for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
 
    If you're an existing customer, you can still create a new Azure Stack Edge Pro resource if you need to replace or reset your existing Azure Stack Edge Pro device. For instructions, go to [Create an order for your Azure Stack Edge Pro device](azure-stack-edge-deploy-prep.md#create-new-resource-for-existing-device).
 
