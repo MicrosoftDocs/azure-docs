@@ -475,8 +475,6 @@
       items:
       - name: Manage metric alerts
         href: alerts/alerts-metric.md
-      - name: Availability
-        href: app/monitor-web-app-availability.md
       - name: Use dynamic thresholds
         href: alerts/alerts-dynamic-thresholds.md
       - name: Single alerts for many time series
@@ -1040,6 +1038,8 @@
       href: vm/vminsights-workbooks.md
     - name: Disable monitoring
       href: vm/vminsights-optout.md
+    - name: Troubleshoot
+      href: vm/vminsights-troubleshoot.md
   - name: Container insights 
     items:
     - name: Overview
@@ -1078,7 +1078,7 @@
       href: insights/container-insights-reports.md
     - name: View live data
       items:
-      - name: Live Data (preview) overview
+      - name: Live Data overview
         href: containers/container-insights-livedata-overview.md
       - name: Setup
         href: containers/container-insights-livedata-setup.md

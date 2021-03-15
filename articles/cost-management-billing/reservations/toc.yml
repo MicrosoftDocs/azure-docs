@@ -102,7 +102,7 @@
       href: ../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fcost-management-billing%2freservations%2ftoc.json
   - name: View, Manage and Optimize after purchase
     items:
-    - name: View reservations and utilization
+    - name: Permissions to view and manage
       href: view-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: View reservations as a CSP
       href: how-to-view-csp-reservations.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -124,6 +124,8 @@
       href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Troubleshoot
     items:
+    - name: Find a reservation purchaser from Azure logs
+      href: find-reservation-purchaser-from-logs.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Troubleshoot transfers between tenants
       href: troubleshoot-reservation-transfers-between-tenants.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: No eligible subscriptions

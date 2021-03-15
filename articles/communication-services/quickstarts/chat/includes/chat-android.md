@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 2/16/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -34,11 +34,11 @@ Before you get started, make sure to:
 We'll use Gradle to install the necessary Communication Services dependencies. From the command line, navigate inside the root directory of the `ChatQuickstart` project. Open the app's build.gradle file and add the following dependencies to the `ChatQuickstart` target:
 
 ```
-implementation 'com.azure.android:azure-communication-common:1.0.0-beta.6'
-implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.6'
+implementation 'com.azure.android:azure-communication-common:1.0.0-beta.7'
+implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.7'
 ```
 
-#### Exclude meta files in packaging options
+#### Exclude meta files in packaging options in root build.gradle
 ```
 android {
    ...
@@ -56,6 +56,17 @@ android {
 }
 ```
 
+#### Add a maven resource in root build.gradle
+```
+allprojects {
+    repositories {
+        ...
+        maven {
+            url 'https://trouterpublicpackages.z13.web.core.windows.net'
+        }
+    }
+```
+
 Click 'sync now' in Android Studio.
 
 #### (Alternative) To install libraries through Maven
@@ -65,7 +76,7 @@ To import the library into your project using the [Maven](https://maven.apache.o
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.0-beta.7</version>
 </dependency>
 ```
 
@@ -85,7 +96,7 @@ Copy the following code into the file `MainActivity`:
     private String second_user_id = "<second_user_id>";
     private String threadId = "<thread_id>";
     private String chatMessageId = "<chat_message_id>";
-    private final String sdkVersion = "1.0.0-beta.6";
+    private final String sdkVersion = "1.0.0-beta.7";
     private static final String SDK_NAME = "azure-communication-com.azure.android.communication.chat";
     private static final String TAG = "--------------Chat Quickstart App-------------";
 
@@ -172,7 +183,7 @@ String id = "<user_id>";
 // The display name for the thread participant.
 String displayName = "initial participant";
 participants.add(new ChatParticipant()
-        .setId(id)
+        .setCommunicationIdentifier(new CommunicationIdentifierModel().setCommunicationUser(new CommunicationUserIdentifierModel().setId(id)))
         .setDisplayName(displayName)
 );
 
@@ -263,7 +274,10 @@ Replace the comment `<ADD A USER>` with the following code:
 participants = new ArrayList<>();
 // The display name for the thread participant.
 displayName = "a new participant";
-participants.add(new ChatParticipant().setId(second_user_id).setDisplayName(secondUserDisplayName));
+participants.add(new ChatParticipant().setCommunicationIdentifier(
+          new CommunicationIdentifierModel().setCommunicationUser(
+              new CommunicationUserIdentifierModel().setId(second_user_id)
+          )).setDisplayName(secondUserDisplayName));
 // The model to pass to the add method.
 AddChatParticipantsRequest addParticipantsRequest = new AddChatParticipantsRequest()
   .setParticipants(participants);
@@ -371,7 +385,8 @@ Make sure to replace `<second_user_id>` to a valid user ID, we will remove secon
 Replace the `<REMOVE A USER>` comment with the following code:
 
 ```java
-threadClient.removeChatParticipant(threadId, second_user_id, new Callback<Void>() {
+CommunicationIdentifierModel communicationIdentifierModel = new CommunicationIdentifierModel().setCommunicationUser(new CommunicationUserIdentifierModel().setId(second_user_id));
+threadClient.removeChatParticipant(threadId, communicationIdentifierModel, new Callback<Void>() {
     @Override
     public void onSuccess(Void result, okhttp3.Response response) {
         // Take further action.

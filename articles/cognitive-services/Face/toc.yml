@@ -71,11 +71,11 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
     - name: Python
-      href: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+      href: /python/api/azure-cognitiveservices-vision-face/
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/faceapi
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-face
     - name: Go

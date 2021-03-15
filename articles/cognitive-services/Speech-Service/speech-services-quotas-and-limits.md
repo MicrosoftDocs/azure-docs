@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 03/15/2021
 ms.author: alexeyo
 ---
 
@@ -25,7 +25,9 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Concurrent Request limit (Base and Custom models)** | 1 | 20 (default value) |
+| **Concurrent Request limit - Base model** | 1 | 100 (default value) |
+| Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
+| **Concurrent Request limit - Custom model** | 1 | 20 (default value) |
 | Adjustable | No<sup>2</sup> | Yes<sup>2</sup> |
 
 #### Batch Transcription
@@ -67,7 +69,7 @@ In the table below Parameters without "Adjustable" row are **not** adjustable fo
 | **Websocket specific quotas** |  |  |
 |Max Audio length produced per turn | 10 min | 10 min |
 |Max SSML Message size per turn |64 KB |64 KB |
-| **REST API limit** | 20 requests per minute | 25 requests per 5 seconds |
+| **REST API limit** | 20 requests per minute | 300 requests per minute |
 
 
 <sup>3</sup> For **Free (F0)** pricing tier see also monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>

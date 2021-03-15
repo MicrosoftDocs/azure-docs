@@ -355,9 +355,59 @@ The following table explains the binding configuration properties that you set i
 |**eventHubName** |**EventHubName** | Functions 2.x and higher. The name of the event hub. When the event hub name is also present in the connection string, that value overrides this property at runtime. Can be referenced via [app settings](../articles/azure-functions/functions-bindings-expressions-patterns.md#binding-expressions---app-settings) `%eventHubName%` |
 |**consumerGroup** |**ConsumerGroup** | An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
 |**cardinality** | n/a | Used for all non-C# languages. Set to `many` in order to enable batching.  If omitted or set to `one`, a single message is passed to the function.<br><br>In C#, this property is automatically assigned whenever the trigger has an array for the type.|
-|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
+|**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have at least read permissions to activate the trigger.<br><br>If you are using [version 5.x or higher of the extension](../articles/azure-functions/functions-bindings-event-hubs.md#event-hubs-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](../articles/azure-functions/functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
+
+## Usage
+
+# [C#](#tab/csharp)
+
+### Default
+
+You can use the following parameter types for the triggering Event Hub:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). This version drops support for the legacy `Body` type in favor of the following types:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# [C# Script](#tab/csharp-script)
+
+### Default
+
+You can use the following parameter types for the triggering Event Hub:
+
+* `string`
+* `byte[]`
+* `POCO`
+* `EventData` - The default properties of EventData are provided in the for the [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet).
+
+### Additional types 
+Apps using the 5.0.0 or higher version of the Event Hub extension use the `EventData` type in [Azure.Messaging.EventHubs](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata?view=azure-dotnet) instead of the one in [Microsoft.Azure.EventHubs namespace](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet). This version drops support for the legacy `Body` type in favor of the following types:
+
+- [EventBody](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.eventdata.eventbody?view=azure-dotnet)
+
+# [Java](#tab/java)
+
+Refer to the Java [trigger example](#example) for details.
+
+# [JavaScript](#tab/javascript)
+
+Refer to the Javascript [trigger example](#example) for details.
+
+# [Python](#tab/python)
+
+Refer to the Python [trigger example](#example) for details.
+
+
+---
+
 
 ## Event metadata
 
@@ -374,10 +424,3 @@ The Event Hubs trigger provides several [metadata properties](../articles/azure-
 |`SystemProperties`|`IDictionary<String,Object>`|The system properties, including the event data.|
 
 See [code examples](#example) that use these properties earlier in this article.
-
-## host.json properties
-<a name="host-json"></a>
-
-The [host.json](../articles/azure-functions/functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior. The configuration is different depending on the Azure Functions version.
-
-[!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]
