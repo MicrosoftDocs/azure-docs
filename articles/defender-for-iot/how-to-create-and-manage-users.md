@@ -192,9 +192,9 @@ To configure Active Directory:
 
 If you are creating Active Directory groups for on-premises management console users, you must create an Access Group rule for each Active Directory group. On-premises management console Active Directory credentials will not work if an Access Group rule does not exists for the Active Directory user group. See [Define global access control](how-to-define-global-user-access-control.md).
 
-5. Select **Save**.
+1. Select **Save**.
 
-6. To add a trusted server, select **Add Server** and configure another server.
+2. To add a trusted server, select **Add Server** and configure another server.
 
 ## Resetting passwords
 
