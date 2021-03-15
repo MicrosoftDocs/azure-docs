@@ -66,14 +66,19 @@ end
 
 ### Request access to the microphone
 
-In order to access the device's microphone, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription`. You set the associated value to a `string` that will be included in the dialog the system uses to request access from the user.
+Define and provide a usage description of all the system’s privacy-sensitive data accessed by the framework in your `Info.plist` as below
 
-Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines the top level `<dict>` section, and then save the file.
+Privacy — Microphone Usage Description
 
-```xml
-<key>NSMicrophoneUsageDescription</key>
-<string>Need microphone access for VOIP calling.</string>
-```
+Privacy — Camera Usage Description
+
+Privacy — Bluetooth Peripheral Usage Description
+
+Privacy — Bluetooth Always Usage Description
+
+Privacy — Contacts Usage Description
+
+:::image type="content" source="../media/ios/xcode-permissions.png" alt-text="Screenshot showing the permissions added in Xcode.":::
 
 ### Add the Teams Embed framework
 
@@ -260,6 +265,16 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 
 > [!NOTE]
 > The first time you join a meeting, the system will prompt you for access to the microphone. In a production application, you should use the `AVAudioSession` API to [check the permission status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) and gracefully update your application's behavior when permission is not granted.
+
+## Add localization support based on your app
+
+The Microsoft Teams SDK supports over hundred strings and resources. The framework bundle contains Base and English languages. The rest of them are included in the Localizations.zip file included with the package.
+
+#### Add localizations to the SDK based on what your app supports
+
+1. Determine what kind of localizations your application supports from the app Xcode Project > Info > Localizations list
+2. Unzip the Localizations.zip included with the package
+3. Copy the localization folders from the unzipped folder based on what your app supports to the root of the TeamsAppSDK.framework
 
 ## Preparation for App Store upload
 
