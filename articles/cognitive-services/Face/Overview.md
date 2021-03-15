@@ -26,6 +26,12 @@ The Azure Face service provides AI algorithms that detect, recognize, and analyz
 
 The Face service provides several different facial analysis functions which are each outlined in the following sections.
 
+This documentation contains the following types of articles:
+* The [quickstarts](./Quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./Face-API-How-to-Topics/HowtoDetectFacesinImage.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](./concepts/face-detection.md) provide in-depth explanations of the service's functionality and features.
+* The [tutorials](./Tutorials/FaceAPIinCSharpTutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
 ## Face detection
 
 The Face service detects human faces in an image and returns the rectangle coordinates of their locations. Optionally, face detection can extract a series of face-related attributes, such as head pose, gender, age, emotion, facial hair, and glasses.
