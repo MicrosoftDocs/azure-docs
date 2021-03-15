@@ -1,6 +1,6 @@
 ---
 title: Start/Stop VMs (preview) overview
-description: This article describes the Start/Stop VMs (preview) version two feature, which starts or stops Azure Resource Manager and classic VMs on a schedule.
+description: This article describes version two of the Start/Stop VMs (preview) feature, which starts or stops Azure Resource Manager and classic VMs on a schedule.
 ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: 
@@ -9,9 +9,9 @@ ms.date: 03/12/2021
 
 # Start/Stop VMs (preview) overview
 
-The Start/Stop VMs (preview) version two (V2) feature starts or stops enabled Azure virtual machines (VMs) across multiple subscriptions. It starts or stops Azure VMs on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager VMs and classic VMs for most scenarios.
+The Start/Stop VMs (preview) feature starts or stops enabled Azure virtual machines (VMs) across multiple subscriptions. It starts or stops Azure VMs on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager VMs and classic VMs for most scenarios.
 
-This version of Start/Stop VMs (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs.
+This new version of Start/Stop VMs (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the [original version](../../automation/automation-solution-vm-management.md), but it is designed to take advantage of newer technology in Azure.
 
 ## Overview
 

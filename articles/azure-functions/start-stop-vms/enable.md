@@ -43,7 +43,7 @@ To manage the automation method to control the start and stop of your VMs, you c
 
 - Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs.**ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
 
-- Sequenced - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two specifically named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
+- Sequenced - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
 
     > [!NOTE]
     > This scenario only supports Azure Resource Manager VMs.
