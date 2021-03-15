@@ -311,13 +311,13 @@ Add the following snippet to your existing service definition file.
 Here is an example that shows both the worker role and web role. 
 
 ```
-<?xmlversion="1.0"encoding="utf-8"?> 
-<ServiceDefinitionname="CloudServiceName"xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition"schemaVersion="2015-04.2.6"> 
-	<WebRolename="WebRole1"vmsize="Standard_D1_v2"> 
+<?xmlversion="1.0" encoding="utf-8"?> 
+<ServiceDefinitionname="CloudServiceName" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
+	<WebRolename="WebRole1" vmsize="Standard_D1_v2"> 
 		<Sites> 
 			<Sitename="Web"> 
 				<Bindings> 
-					<Bindingname="Endpoint1"endpointName="Endpoint1"/> 
+					<Bindingname="Endpoint1" endpointName="Endpoint1"/> 
 				</Bindings> 
 			</Site> 
 		</Sites> 
@@ -326,10 +326,10 @@ Here is an example that shows both the worker role and web role.
 			</Task> 
 		</Startup> 
 		<Endpoints> 
-			<InputEndpointname="Endpoint1"protocol="http"port="80"/> 
+			<InputEndpointname="Endpoint1" protocol="http" port="80"/> 
 		</Endpoints> 
 	</WebRole> 
-<WorkerRolename="WorkerRole1"vmsize="Standard_D1_v2"> 
+<WorkerRolename="WorkerRole1" vmsize="Standard_D1_v2"> 
 	<Startup> 
 		<Task executionContext="elevated" taskType="simple" commandLine="RunTLSSettings.cmd"> 
 		</Task> 

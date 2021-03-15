@@ -5,19 +5,19 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 02/11/2021
+ms.date: 03/05/2021
 ---
 
-# Create SAS tokens for Document Translation
+# Create SAS tokens for Document Translation processing
 
 In this article, you'll learn how to create shared access signature (SAS) tokens using the Azure Storage Explorer or the Azure portal. An SAS token provides secure, delegated access to resources in your Azure storage account.
 
-## Create SAS tokens with Azure Storage Explorer
+## Create your SAS tokens with Azure Storage Explorer
 
 ### Prerequisites
 
-* You'll need a [**Azure Storage Explorer**](/azure/vs-azure-tools-storage-manage-with-storage-explorer) app installed in your Windows, macOS, or Linux development environment. Azure Storage Explorer is a free tool that enables you to easily manage your Azure cloud storage resources.
-* After the Azure Storage Explorer app is installed, [connect it the storage account](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Translation.
+* You'll need a [**Azure Storage Explorer**](../../../vs-azure-tools-storage-manage-with-storage-explorer.md) app installed in your Windows, macOS, or Linux development environment. Azure Storage Explorer is a free tool that enables you to easily manage your Azure cloud storage resources.
+* After the Azure Storage Explorer app is installed, [connect it the storage account](../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Translation.
 
 ### Create your tokens
 
@@ -60,7 +60,7 @@ In this article, you'll learn how to create shared access signature (SAS) tokens
 ## Create SAS tokens for blobs in the Azure portal
 
 > [!NOTE]
-> Creating SAS tokens for containers directly in the Azure portal is currently not supported. However, you can create an SAS token with [**Azure Storage Explorer**](#create-sas-tokens-with-azure-storage-explorer) or complete the task [programmatically](/azure/storage/blobs/sas-service-create).
+> Creating SAS tokens for containers directly in the Azure portal is currently not supported. However, you can create an SAS token with [**Azure Storage Explorer**](#create-your-sas-tokens-with-azure-storage-explorer) or complete the task [programmatically](../../../storage/blobs/sas-service-create.md).
 
 <!-- markdownlint-disable MD024 -->
 ### Prerequisites
@@ -69,7 +69,7 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 * A [**Translator**](https://ms.portal.azure.com/#create/Microsoft) service resource (**not** a Cognitive Services multi-service resource.  *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). All access to Azure Storage takes place through a storage account.
+* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
 
 ### Create your tokens
 
@@ -99,7 +99,7 @@ Go to the [Azure portal](https://ms.portal.azure.com/#home) and navigate as foll
 
 ## Learn more
 
-* [Create SAS tokens for blobs or containers programmatically](/azure/storage/blobs/sas-service-create)
+* [Create SAS tokens for blobs or containers programmatically](../../../storage/blobs/sas-service-create.md)
 * [Permissions for a directory, container, or blob](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob)
 
 ## Next steps

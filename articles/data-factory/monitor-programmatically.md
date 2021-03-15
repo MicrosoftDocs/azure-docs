@@ -24,7 +24,7 @@ If you want to keep pipeline run data for more than 45 days, set up your own dia
 
 ## Pipeline run information
 
-For pipeline run properties, refer to [PipelineRun API reference](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun). A pipeline run has different status during its lifecycle, the possible values of run status are listed below:
+For pipeline run properties, refer to [PipelineRun API reference](/rest/api/datafactory/pipelineruns/get#pipelinerun). A pipeline run has different status during its lifecycle, the possible values of run status are listed below:
 
 * Queued
 * InProgress
@@ -157,5 +157,4 @@ For a complete walk-through of creating and monitoring a pipeline using PowerShe
 For complete documentation on PowerShell cmdlets, see [Data Factory PowerShell cmdlet reference](/powershell/module/az.datafactory).
 
 ## Next steps
-See [Monitor pipelines using Azure Monitor](monitor-using-azure-monitor.md) article to learn about using Azure Monitor to monitor Data Factory pipelines. 
-
+See [Monitor pipelines using Azure Monitor](monitor-using-azure-monitor.md) article to learn about using Azure Monitor to monitor Data Factory pipelines.

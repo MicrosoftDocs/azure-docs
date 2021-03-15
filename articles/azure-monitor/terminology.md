@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor terminology updates | Microsoft Docs
 description: Describes recent terminology changes made to Azure monitoring services.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

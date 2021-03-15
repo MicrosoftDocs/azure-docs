@@ -2,7 +2,7 @@
 title: "Azure Arc enabled Kubernetes frequently asked questions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
@@ -27,6 +27,8 @@ No. All Azure Arc enabled Kubernetes features, including Azure Monitor and Azure
 ## Should I connect my AKS-HCI cluster and Kubernetes clusters on Azure Stack Hub and Azure Stack Edge to Azure Arc?
 
 Yes, connecting your AKS-HCI cluster or Kubernetes clusters on Azure Stack Edge or Azure Stack Hub to Azure Arc provides clusters with resource representation in Azure Resource Manager. This resource representation extends capabilities like Cluster Configuration, Azure Monitor, and Azure Policy (Gatekeeper) to connected Kubernetes clusters.
+
+If the Azure Arc enabled Kubernetes cluster is on Azure Stack Edge, AKS on Azure Stack HCI (>= April 2021 update), or AKS on Windows Server 2019 Datacenter (>= April 2021 update), then the Kubernetes configuration is included at no charge.
 
 ## How to address expired Azure Arc enabled Kubernetes resources?
 
@@ -65,6 +67,6 @@ This feature applies baseline configurations (like network policies, role bindin
 
 ## Next steps
 
-* [Connect a cluster to Azure Arc](./connect-cluster.md)
-* [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md)
-* [Use Azure Policy to apply configurations at scale](./use-azure-policy.md)
+* Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./connect-cluster.md).
+* Already have a Kubernetes cluster connected Azure Arc? [Create configurations on your Arc enabled Kubernetes cluster](./use-gitops-connected-cluster.md).
+* Learn how to [use Azure Policy to apply configurations at scale](./use-azure-policy.md).

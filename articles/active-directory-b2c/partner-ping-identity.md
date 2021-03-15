@@ -75,7 +75,7 @@ To get started, you'll need:
 
 - An Azure subscription. If you don't have one, get a [free account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that is linked to your Azure subscription.
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 - PingAccess and PingFederate deployed in Docker containers or directly on Azure VMs.
 
@@ -102,7 +102,7 @@ To follow this convention, update the Azure AD B2C issuer update using the polic
 
 ![image shows the token settings](./media/partner-ping/token-setting.png)
 
-In the advanced policies, this can be configured using the **IssuanceClaimPattern** metadata element to **AuthorityWithTfp** value in the [JWT token issuer technical profile](https://docs.microsoft.com/azure/active-directory-b2c/jwt-issuer-technical-profile).
+In the advanced policies, this can be configured using the **IssuanceClaimPattern** metadata element to **AuthorityWithTfp** value in the [JWT token issuer technical profile](./jwt-issuer-technical-profile.md).
 
 ## Configure PingAccess/PingFederate
 
@@ -155,7 +155,7 @@ Follow these steps to create a web session:
 
 7. In the **Client Secret** field, enter the **Key** you generated for the application in Azure AD.
 
-8. Optional - You can create and use custom claims with the Microsoft Graph API. If you choose to do so, select **Advanced** and deselect the **Request Profile** and **Refresh User Attributes** options. For more information on using custom claims, see [use a custom claim](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access#optional---use-a-custom-claim).
+8. Optional - You can create and use custom claims with the Microsoft Graph API. If you choose to do so, select **Advanced** and deselect the **Request Profile** and **Refresh User Attributes** options. For more information on using custom claims, see [use a custom claim](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers.md).
 
 9. Select **Save**
 
@@ -260,6 +260,6 @@ Configure the PingFederate authentication policy to federate to the multiple IdP
 
 For additional information, review the following articles
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

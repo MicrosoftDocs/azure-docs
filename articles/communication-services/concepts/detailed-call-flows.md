@@ -6,7 +6,7 @@ author:  nmurav
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 12/11/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 
@@ -23,7 +23,7 @@ Before reviewing call flow topologies, we'll define some terms that are referred
 
 A **customer network** contains any network segments that you manage. This might include wired and wireless networks within your office or between offices, data centers, and internet service providers.
 
-A customer network usually has several network perimeters with firewalls and/or proxy servers that enforce your organization's security policies. We recommend performing a [comprehensive network assessment](https://docs.microsoft.com/microsoftteams/3-envision-evaluate-my-environment) to ensure optimal performance and quality of your communication solution.
+A customer network usually has several network perimeters with firewalls and/or proxy servers that enforce your organization's security policies. We recommend performing a [comprehensive network assessment](/microsoftteams/3-envision-evaluate-my-environment) to ensure optimal performance and quality of your communication solution.
 
 The **Communication Services network** is the network segment that supports Azure Communication Services. This network is managed by Microsoft and is distributed worldwide with edges close to most customer networks. This network is responsible for transport relay, media processing for group calls, and other components that support rich real-time media communications.
 
@@ -149,7 +149,7 @@ Signaling between the VPN to the customer network uses Flow 2*. Signaling betwee
 
 ### VPN user to internal user (direct media)
 
-:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="One to One Call Flow with a VPN with Direct Media":::
+:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="One to One Call Flow (internal user) with a VPN with Direct Media":::
 
 *Figure 6 - VPN user to internal user (direct media)*
 
@@ -159,7 +159,7 @@ This media transmission is bidirectional. The direction of Flow 2 to the remote 
 
 ### VPN user to external user (direct media)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="One to One Call Flow with a VPN with Direct Media":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="One to One Call Flow (external user) with a VPN with Direct Media":::
 
 *Figure 7 - VPN user to external user (direct media)*
 
@@ -196,4 +196,3 @@ The following documents may be interesting to you:
 
 - Learn more about [call types](../concepts/voice-video-calling/about-call-types.md)
 - Learn about [Client-server architecture](./client-and-server-architecture.md)
-

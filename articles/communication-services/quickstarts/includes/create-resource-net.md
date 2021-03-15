@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
 ---
 
@@ -10,7 +10,7 @@ ms.author: mikben
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- Get the latest version of the [.NET Identity client library](/dotnet/api/azure.identity?view=azure-dotnet).
+- Get the latest version of the [.NET Identity client library](/dotnet/api/azure.identity).
 - Get the latest version of the [.NET Management client library](../../concepts/sdk-options.md).
 
 ## Installing the client library

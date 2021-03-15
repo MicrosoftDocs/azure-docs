@@ -52,6 +52,8 @@ For more information about tools available to use for the Discover phase, see [S
 
 ### Assess 
 
+[!INCLUDE [assess-estate-with-azure-migrate](../../../../includes/azure-migrate-to-assess-sql-data-estate.md)]
+
 After data sources have been discovered, assess any on-premises SQL Server instance(s) that can be migrated to Azure SQL Managed Instance to identify migration blockers or compatibility issues. 
 
 You can use the Data Migration Assistant (version 4.1 and later) to assess databases to get: 

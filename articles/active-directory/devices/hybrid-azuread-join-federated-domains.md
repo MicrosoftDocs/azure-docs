@@ -95,7 +95,7 @@ If you don't use WPAD and want to configure proxy settings on your computer, you
 
 If your organization requires access to the internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration by using machine context, you must configure outbound proxy authentication by using machine context. Follow up with your outbound proxy provider on the configuration requirements.
 
-To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) script.
+To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/) script.
 
 ## Configure hybrid Azure AD join
 

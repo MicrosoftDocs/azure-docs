@@ -11,9 +11,9 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/22/2021
 ms.author: mnayak 
-ms.custom: devx-track-azurecli
+
 
 ---
 # Configure routing preference for a public IP address using Azure CLI
@@ -28,11 +28,6 @@ This article shows you how to configure routing preference via ISP network (**In
 * Azure Firewall
 
 By default, the routing preference for public IP address is set to the Microsoft global network for all Azure services and can be associated with any Azure service.
-
-> [!IMPORTANT]
-> Routing preference is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

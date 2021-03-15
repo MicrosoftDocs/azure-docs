@@ -1,12 +1,12 @@
 ---
- title: Confidential containers on Azure Kubernetes Service (AKS)
- description: Learn about unmodified container support on confidential containers.
- services: container-service
- author: agowdamsft
- ms.topic: article
- ms.date: 2/11/2020
- ms.author: amgowda
- ms.service: container-service
+title: Confidential containers on Azure Kubernetes Service (AKS)
+description: Learn about unmodified container support on confidential containers.
+services: container-service
+author: agowdamsft
+ms.topic: article
+ms.date: 2/11/2020
+ms.author: amgowda
+ms.service: container-service
 ---
 
 # Confidential Containers
@@ -87,7 +87,7 @@ Occlum supports AKS deployments. Follow the deployment instructions with various
 
 
 ## Confidential Containers Demo
-View the confidential healthcare demo with confidential containers. Sample is available [here](https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference). 
+View the confidential healthcare demo with confidential containers. Sample is available [here](/azure/architecture/example-scenario/confidential/healthcare-inference). 
 
 > [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
 

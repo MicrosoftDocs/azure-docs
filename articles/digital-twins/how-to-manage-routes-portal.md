@@ -77,7 +77,7 @@ Once you have created the endpoint resources, you can use them for an Azure Digi
 1. Finish creating your endpoint by selecting _Save_.
 
 >[!IMPORTANT]
-> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [*How-to: Enable a managed identity for routing events (preview)*](how-to-enable-managed-identities.md).
+> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [*How-to: Enable a managed identity for routing events (preview)*](./how-to-enable-managed-identities-portal.md).
 
 After creating your endpoint, you can verify that the endpoint was successfully created by checking the notification icon in the top Azure portal bar: 
 
