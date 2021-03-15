@@ -26,14 +26,30 @@ If you’d like to have a subset of users excluded from synchronizing their pass
 
 ## Consider your implementation  
 To reduce the configuration administrative effort, you should first consider the number of user objects you wish to exclude from password hash synchronization. Verify which of the scenarios below, which are mutually exclusive, aligns with your requirements to select the right configuration option for you.
-- If the number of users to **exclude** is **smaller** than the number of users to **include**, follow the steps in this section.
-- If the number of users to **exclude** is **greater** than the number of users to **include**, follow the steps in this section.
+- If the number of users to **exclude** is **smaller** than the number of users to **include**, follow the steps in this [section](#excluded-users-is-smaller-than-included-users).
+- If the number of users to **exclude** is **greater** than the number of users to **include**, follow the steps in this [section](#excluded-users-is-larger-than-included-users).
 
 > [!Important]
 > With either configuration option chosen, a required initial sync (Full Sync) to apply the changes, will be performed automatically over the next sync cycle.
 
+### The adminDescription attribute
+Both scenarios rely on setting the adminDescription attribute of users to a specific value.  This allows the the rules to be applied and is what makes selective PHS work.
+
+|Scenario|adminDescription value|
+|-----|-----|
+|Excluded users is smaller than included users|PHSFiltered|
+|Excluded users is larger than included users|PHSIncluded|
+
+This attribute can be set either:
+
+- using the Active Directory Users and Computers UI
+- using `Set-ADUser` PowerShell cmdlet.  For more information see [Set-ADUser](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser).
+
+ 
+
+
 ### Disable the synchronization scheduler:
-Before you start, it is recommended to disable the synchronization scheduler while you are making changes to sync rules.
+Before you start either scenario, you must disable the synchronization scheduler while making changes to the sync rules.
  1.	Start windows PowerShell enter.
 
      ```Set-ADSyncScheduler -SyncCycleEnabled $false``` 
@@ -45,10 +61,6 @@ Before you start, it is recommended to disable the synchronization scheduler whi
 For more information on the scheduler see [Azure AD Connect sync scheduler](how-to-connect-sync-feature-scheduler.md).
 
 
->[!Important]
->The steps provided to configure selective password hash synchronization will only effect user objects that have 
-the attribute **adminDescription** populated in Active Directory with the value of **PHSFiltered**.
->If this attribute is not populated or the value is something other than **PHSFiltered** then these rules will not be applied to the user objects.
 
 
 ## Excluded users is smaller than included users
@@ -57,7 +69,16 @@ The following section describes how to enable selective password hashword synchr
 >[!Important]
 > Before you proceed ensure the synchronization scheduler is disabled as outlined above.
 
-   
+- Create an editable copy of the **In from AD – User AccountEnabled** with the option to **enable password hash sync un-selected** and define its scoping filter 
+- Create another editable copy of the default **In from AD – User AccountEnabled** with the option to **enable password hash sync selected** and define its scoping filter 
+- Re-enable the synchronization scheduler 
+- Set the attribute value, in active directory, that was defined as scoping attribute on the users you want to allow in password hash synchronization. 
+
+>[!Important]
+>The steps provided to configure selective password hash synchronization will only effect user objects that have 
+the attribute **adminDescription** populated in Active Directory with the value of **PHSFiltered**.
+>If this attribute is not populated or the value is something other than **PHSFiltered** then these rules will not be applied to the user objects.
+
 
 ### Configure the necessary synchronization rules:
 
@@ -126,6 +147,19 @@ The following section describes how to enable selective password hashword synchr
 
 >[!Important]
 > Before you proceed ensure the synchronization scheduler is disabled as outlined above.
+
+The following is a summary of the actions that will be taken in the steps below:
+
+- Create an editable copy of the **In from AD – User AccountEnabled** with the option to **enable password hash sync un-selected** and define its scoping filter 
+- Create another editable copy of the default **In from AD – User AccountEnabled** with the option to **enable password hash sync selected** and define its scoping filter 
+- Re-enable the synchronization scheduler 
+- Set the attribute value, in active directory, that was defined as scoping attribute on the users you want to allow in password hash synchronization. 
+
+>[!Important]
+>The steps provided to configure selective password hash synchronization will only effect user objects that have 
+the attribute **adminDescription** populated in Active Directory with the value of **PHSIncluded**.
+>If this attribute is not populated or the value is something other than **PHSIncluded** then these rules will not be applied to the user objects.
+
 
 ### Configure the necessary synchronization rules:
 
