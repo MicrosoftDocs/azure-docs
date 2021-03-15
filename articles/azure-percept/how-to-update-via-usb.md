@@ -47,8 +47,8 @@ After running these commands, you may see a message stating "Waiting for device.
 1. Connect the dev kit carrier board to the host computer via a USB cable. Always connect from the carrier boards USB-C port to either the host computer's USB-C or USB-A port (USB-C to USB-A cable sold separately), depending on which ports are available. 
  
 1. In the SSH/PuTTY terminal, enter the following commands to set the dev kit into USB mode and then to reboot the dev kit.
-	- ```flagutil    -wBfRequestUsbFlash    -v1```
-	- ```reboot -f```
+	- ```sudo flagutil    -wBfRequestUsbFlash    -v1```
+	- ```sudo reboot -f```
  
 1. You may get an indication that the host computer recognizes the device and the update process will automatically start. Navigate back to the command prompt to see the status. The process will take up to ten minutes and when the update is successful, you will see a message stating “Success 1 Failure 0”
  
