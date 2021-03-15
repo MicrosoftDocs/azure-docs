@@ -96,4 +96,4 @@ For more information, see the following articles:
 
 ### Additional reading
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
+- [Samples](./../overview.md) - Find more samples and examples on our samples overview page.

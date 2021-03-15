@@ -20,14 +20,14 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For detailed description of this feature and to see why you would want to use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
+[Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For detailed description of this feature and to see why you would want to use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services.md).
 
 This article shows you how to route data to the storage account and then view the data.
 
 ## Prerequisites
 
 - [Create a Media Services account](./create-account-howto.md).
-- Review  [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
+- Review  [Monitor Media Services](monitoring/monitor-media-services.md).
 
 ## Route data to the storage account using the portal
 

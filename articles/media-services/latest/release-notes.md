@@ -97,7 +97,7 @@ Please update to the latest client SDKs in your code bases using your package ma
 - **[Managed Identities](concept-managed-identities.md)**: Customers may enable a System Assigned Managed Identity for a Media Services account to provide access to Key Vaults (for Customer Managed Keys) and storage accounts (for Trusted Storage).
 
 
-### Updated Typescript Node.js Samples using isomorphic SDK for Javascript
+### Updated Typescript Node.js Samples using isomorphic SDK for JavaScript
 
 The Node.js samples have been updated to use the latest isomorphic SDK. The samples now show use of Typescript. In addition, a new live streaming sample was added for Node.js/Typescript.
 
@@ -309,7 +309,7 @@ You can now use Azure Monitor to view telemetry data emitted by Media Services.
 * Use the Azure Monitor diagnostic logs to monitor requests sent by the Media Services Key Delivery endpoint. 
 * Monitor metrics emitted by Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
 
-For details, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
+For details, see [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services-data-reference.md).
 
 ### Multi audio tracks support in Dynamic Packaging 
 

@@ -1,7 +1,7 @@
 ---
-title:  Overview of the Connected Machine Windows agent
+title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 02/18/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
 ---
 
@@ -85,9 +85,11 @@ The following versions of the Windows and Linux operating system are officially 
 
 ### Required permissions
 
-* To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
+* To onboard machines, you are a member of the **Azure Connected Machine Onboarding** or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
-* To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role. 
+* To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role in the resource group.
+
+* To select a resource group from the drop-down list when using the **Generate script** method, at a minimum you are a member of the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group.
 
 ### Azure subscription and service limits
 
