@@ -39,3 +39,85 @@ The deployment is initiated from the Start/Stop VMs GitHub organization [here](h
 
 ## Configure schedule
 
+To manage the automation method to control the start and stop of your VMs, you configure one or more of the included logic apps based on your requirements.
+
+- Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs.**ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
+
+- Sequenced - Start and stop actions are based on a schedule targeting VMs with pre-defined sequencing tags. Only two specifically named tags are supported - **sequencestart** and **sequencestop**. **ststv2_vms_Sequenced_start** and **ststv2_vms_Sequenced_stop** configure the sequenced start and stop.
+
+    > [!NOTE]
+    > This scenario only supports Azure Resource Manager VMs.
+
+- AutoStop - This functionality is only used for performing a stop action against both Azure Resource Manager and classic VMs based on its CPU utilization. It can also be a scheduled-based *take action*, which creates alerts on VMs and based on the condition, the alert is triggered to perform the stop action.**ststv2_vms_AutoStop** configures the auto-stop functionality.
+
+### Scheduled start and stop
+
+Perform the following steps to configure the scheduled start and stop action for VMs in a subscription, one or more resource groups, or VM list. For example, you can configure the **ststv2_vms_Scheduled_start** schedule to start them in the morning when you are in the office, and stop all VMs across a subscription when you leave work in the evening based on the **ststv2_vms_Scheduled_stop** schedule.
+
+Configuring the logic app to just start the VMs is supported.
+
+You can enable either targeting the action against a subscription, single or multiple resource groups, and specify one or more VMs. You cannot specify them together in the same logic app.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and then navigate to **Logic apps**. 
+
+1. From the list of Logic apps, to configure scheduled start, select **ststv2_vms_Scheduled_start**. To configure scheduled stop, select **ststv2_vms_Scheduled_stop**.
+
+1. Select **Logic app designer** from the left-hand pane.
+
+1. After Logic App Designer appears, in the designer pane, select **Recurrence** to configure the logic app schedule. To learn about the specific recurrence options, see [Schedule recurring task](../../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
+
+    :::image type="content" source="media/enable/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
+
+1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
+
+    ```json
+    {
+      "Action": "start",
+      "EnableClassic": false,
+      "RequestScopes": {
+        "ExcludedVMLists": [],
+        "Subscriptions": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/"
+        ]
+     }
+    }
+    ```
+
+    In the request body, if you want to manage VMs for specific resource groups, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one resource group if required.
+
+    ```json
+    {
+      "Action": "start",
+      "EnableClassic": false,
+      "RequestScopes": {
+        "ExcludedVMLists": [],
+        "ResourceGroups": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/"
+        ]
+      }
+    ```
+
+    In the request body, if you want to manage a specific set of VMs within the subscription, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one VM if required.
+
+    ```json
+    {
+      "Action": "start",
+      "EnableClassic": true,
+      "RequestScopes": {
+        "ExcludedVMLists": [],
+        "VMLists": [
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm2",
+          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg3/providers/Microsoft.Compute/virtualMachines/vm3"
+        ]
+    }
+    ```
+
+### Sequenced start and stop
+
+### Sequenced stop
+
+### Auto stop
+
+## Next steps
