@@ -425,23 +425,23 @@ Deploy IoT Edge modules via the Azure portal. You'll deploy publicly available N
 
     1. Go to **Set modules** and select a module. 
 
-    ![Select Set module](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-1.png)
+        ![Select Set module](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-1.png)
 
     1. On the **Modules** tab, select a module.
     
-    ![Select a module](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-2.png)
+        ![Select a module](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-2.png)
 
     1.  On the **Module settings** tab, set **Desired status** to stopped. Select **Update**.
 
-    ![Modify module settings](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-3.png)
+        ![Modify module settings](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-3.png)
 
     1. Repeat the steps to stop the second module deployed on the device. Select **Review + create** and then select **Create**. This should update the deployment.
 
-    ![Review and create updated deployment](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-6.png)
+        ![Review and create updated deployment](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-6.png)
  
     1. Refresh **Set modules** page multiple times. until the module **Runtime status** shows as **Stopped**.
 
-    ![Verify deployment status](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-8.png) 
+        ![Verify deployment status](media/azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing/stop-module-deployment-8.png) 
     
 
 ## Deploy with context-sharing
