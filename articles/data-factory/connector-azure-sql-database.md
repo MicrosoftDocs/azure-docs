@@ -640,7 +640,7 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 
 **Stored procedure**: Choose this option if you wish to generate a projection and source data from a stored procedure that is executed from your source database. You can type in the schema, procedure name, and parameters, or click on Refresh to ask ADF to discover the schemas and procedure names. Then you can click on Import to import all procedure parameters using the form ``@paraName``.
 
-![Stored procedure](media/data-flow/storedproc2.png "Stored Procedure")
+![Stored procedure](media/data-flow/stored-procedure-2.png "Stored Procedure")
 
 - SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 - Parameterized SQL Example: ``"select * from {$tablename} where orderyear > {$year}"``
