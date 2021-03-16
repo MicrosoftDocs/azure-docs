@@ -112,6 +112,8 @@
         items: 
         - name: Synapse workspace IP firewall rules
           href: ./security/synapse-workspace-ip-firewall.md
+        - name: Connectivity settings
+          href: ./security/connectivity-settings.md
         - name: Synapse workspace Managed virtual network
           href: ./security/synapse-workspace-managed-vnet.md
           displayname: vnet
@@ -579,6 +581,8 @@
     items:
     - name: Apache Spark 
       href: ./spark/apache-spark-concepts.md
+    - name: Apache Spark pool configurations
+      href: ./spark/apache-spark-pool-configurations.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior

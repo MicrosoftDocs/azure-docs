@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: larryfr
-ms.date: 06/11/2020
+ms.date: 03/11/2021
 ms.custom: deploy
 ---
 
@@ -93,7 +93,7 @@ prov_config = AksCompute.provisioning_configuration()
 
 # Enable TLS (sometimes called SSL) communications
 # Leaf domain label generates a name using the formula
-#  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+#  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
 #  where "######" is a random series of characters
 prov_config.enable_ssl(leaf_domain_label = "contoso")
 

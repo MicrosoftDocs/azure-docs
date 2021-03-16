@@ -26,7 +26,32 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
-## Known issues
+## March 2021
+
+### New language support added to the AudioAnalyzer preset
+
+Additional languages for video transcription and subtitling are available now in the AudioAnalyzer preset (both Basic and Standard modes).
+
+* English (Australia), 'en-AU'
+* French (Canada), 'fr-CA'
+* Arabic (Bahrain) modern standard, 'ar-BH'
+* Arabic (Egypt), 'ar-EG'
+* Arabic (Iraq), 'ar-IQ'
+* Arabic (Israel), 'ar-IL'
+* Arabic (Jordan), 'ar-JO'
+* Arabic (Kuwait), 'ar-KW'
+* Arabic (Lebanon), 'ar-LB'
+* Arabic (Oman), 'ar-OM'
+* Arabic (Qatar), 'ar-QA'
+* Arabic (Saudi Arabia), 'ar-SA'
+* Danish, ‘da-DK’
+* Norwegian, 'nb-NO'
+* Swedish, ‘sv-SE’
+* Finnish, ‘fi-FI’
+* Thai, ‘th-TH’
+* Turkish, ‘tr-TR’
+
+See the latest available languages in the [Analyzing Video And Audio Files concept article.](analyzing-video-audio-files-concept.md)
 
 ## February 2021
 
@@ -88,7 +113,16 @@ Please update to the latest client SDKs in your code bases using your package ma
 - [Python azure-mgmt-media 3.1.0](https://pypi.org/project/azure-mgmt-media/)
 - [Java SDK 1.0.0-beta.2](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-mediaservices/1.0.0-beta.2/jar)
 
-### Updated Typescript Node.js Samples using isomorphic SDK for Javascript
+### New Security features available in the 2020-05-01 version of the Azure Media Services API
+
+- **[Customer Managed Keys](concept-use-customer-managed-keys-byok.md)**:  Content Keys and other data stored in accounts created with the "2020-05-01" version API are encrypted with an account key. Customers can provide a key to encrypt the account key.
+
+- **[Trusted Storage](concept-trusted-storage.md)**: Media Services can be configured to access Azure Storage using a Managed Identity associated with the Media Services account. When storage accounts are accessed using a Managed Identity, customers can configure more restrictive network ACLs on the storage account without blocking Media Services scenarios.
+
+- **[Managed Identities](concept-managed-identities.md)**: Customers may enable a System Assigned Managed Identity for a Media Services account to provide access to Key Vaults (for Customer Managed Keys) and storage accounts (for Trusted Storage).
+
+
+### Updated Typescript Node.js Samples using isomorphic SDK for JavaScript
 
 The Node.js samples have been updated to use the latest isomorphic SDK. The samples now show use of Typescript. In addition, a new live streaming sample was added for Node.js/Typescript.
 
@@ -300,7 +334,7 @@ You can now use Azure Monitor to view telemetry data emitted by Media Services.
 * Use the Azure Monitor diagnostic logs to monitor requests sent by the Media Services Key Delivery endpoint. 
 * Monitor metrics emitted by Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
 
-For details, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
+For details, see [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services-data-reference.md).
 
 ### Multi audio tracks support in Dynamic Packaging 
 

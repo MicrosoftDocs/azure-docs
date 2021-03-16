@@ -14,10 +14,11 @@ ms.author: amberz
 ms.co-author: Donnana
 ---
 
-
 # Process data from automated machine learning models by using data flows
 
-Automated machine learning (AutoML) is adopted by machine learning projects to train, tune, and gain the best model automatically by using target metrics you specify for classification, regression, and time-series forecasting.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+Automated machine learning (AutoML) is adopted by machine learning projects to train, tune, and gain the best models automatically by using target metrics you specify for classification, regression, and time-series forecasting.
 
 One challenge for AutoML is that raw data from a data warehouse or a transactional database would be a huge dataset, possibly 10 GB. A large dataset requires a longer time to train models, so we recommend that you optimize data processing before you train Azure Machine Learning models. This tutorial will go through how to use Azure Data Factory to partition a dataset into AutoML files for a Machine Learning dataset.
 
