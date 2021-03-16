@@ -49,6 +49,7 @@ In this section, you'll set up a [digital twin](concepts-twins-graph.md) in Azur
 To create a thermostat-type twin, you'll first need to upload the thermostat [model](concepts-models.md) to your instance, which describes the properties of a thermostat and will be used later to create the twin. 
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
+[!INCLUDE [digital-twins-create-twin.md](../../includes/digital-twins-create-twin.md)]
 
 ## Create a function
 

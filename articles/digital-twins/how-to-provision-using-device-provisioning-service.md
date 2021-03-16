@@ -82,7 +82,7 @@ Inside your function app project that you created in the [prerequisites](#prereq
 
 Add a new function of type *HTTP-trigger* to the function app project in Visual Studio.
 
-:::image type="content" source="media/how-to-provision-using-dps/add-http-trigger-function-visual-studio.png" alt-text="Add an Azure function of type Http Trigger in your function app project" lightbox="media/how-to-provision-using-dps/add-http-trigger-function-visual-studio.png":::
+:::image type="content" source="media/how-to-provision-using-dps/add-http-trigger-function-visual-studio.png" alt-text="Visual Studio view to add Azure function of type Http Trigger in your function app project" lightbox="media/how-to-provision-using-dps/add-http-trigger-function-visual-studio.png":::
 
 #### Step 2: Fill in function code
 
@@ -96,11 +96,7 @@ In the newly created function code file, paste in the following code, rename the
 
 Publish the project with *DpsAdtAllocationFunc.cs* function to a function app in Azure.
 
-For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
-
-> [!IMPORTANT]
-> When creating the function app for the first time in the [Prerequisites](#prerequisites) section, you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [**Set up security access for the function app**](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How to: Ingest IoT hub data article.*
-
+[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
 
 ### Create Device Provisioning enrollment
 
@@ -132,6 +128,8 @@ This sample uses a device simulator that includes provisioning using the Device 
 The device simulator is a thermostat-type device that uses the model: *ThermostatModel.json*. You'll need to upload this model to Azure Digital Twins before you can create a twin of this type for the device.
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
+
+For more information about models, refer to [*How-to: Manage models*](../articles/digital-twins/how-to-manage-model.md#upload-models).
 
 #### Configure and run the simulator
 
@@ -202,38 +200,35 @@ The following sections walk through the steps to set up this auto-retire device 
 
 ### Create an event hub
 
-You now need to create an Azure [event hub](../event-hubs/event-hubs-about.md), which will be used to receive the IoT Hub lifecycle events. 
+You'll create an Azure [event hub](../event-hubs/event-hubs-about.md) to receive the IoT Hub lifecycle events by following the steps described in the [*Create an event hub*](../event-hubs/event-hubs-create.md) quickstart. Name your event hub *lifecycleevents*. You'll use this event hub name, when you set up the lifecycle function and IoT Hub route in the next sections.
 
-Go through the steps described in the [*Create an event hub*](../event-hubs/event-hubs-create.md) quickstart, using the following information:
-* If you're using the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), you can reuse the resource group you created for the end-to-end tutorial.
-* Name your event hub *lifecycleevents*, or something else of your choice, and remember the namespace you created. You will use these when you set up the lifecycle function and IoT Hub route in the next sections.
+:::image type="content" source="media/how-to-provision-using-dps/create-event-hub-lifecycle-events.png" alt-text="The view of the Azure portal window to create an event hub with the name lifecycle events":::
 
-### Create an Azure function
+### Add a function to retire with IoT Hub lifecycle events
 
-Next, you'll create an Event Hubs-triggered function inside a function app. You can use the function app created in the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)), or your own. 
+Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to retire device using IoT Hub lifecycle events.
 
-Name your event hub trigger *lifecycleevents*, and connect the event hub trigger to the event hub you created in the previous step. If you used a different event hub name, change it to match in the trigger name below.
+This function will use the IoT Hub device lifecycle event to retire an existing device. 
 
-This function will use the IoT Hub device lifecycle event to retire an existing device. For more about lifecycle events, see [*IoT Hub Non-telemetry events*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
+For more about lifecycle events, see [*IoT Hub Non-telemetry events*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-Inside your published function app, do the following steps:
+#### Step 1: Add a new function 
+     
+Add a new function of type *Event Hub Trigger* to the function app project in Visual Studio.
 
-1. Add a new function class of type *Event Hub Trigger* and rename the function to *DeleteDeviceInTwinFunc.cs*.
-2. Paste in the code below in your function class and save the project.
+:::image type="content" source="media/how-to-provision-using-dps/create-event-hub-trigger-function.png" alt-text="Visual Studio view to add an Azure function of type Event Hub Trigger in your function app project" lightbox="media/how-to-provision-using-dps/create-event-hub-trigger-function.png":::
+
+#### Step 2: Fill in function code
+
+In the newly created function code file, paste in the following code, rename the function to `DeleteDeviceInTwinFunc.cs`, and save the file.
 
 :::code language="csharp" source="~/digital-twins-docs-samples-dps/functions/DeleteDeviceInTwinFunc.cs":::
 
-3. Publish the project to a function app in Azure. For instructions on how to do this, see the section [**Publish the function app to Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
+#### Step 3: Publish the function app to Azure
 
-#### Verify function publish
+Publish the project with *DeleteDeviceInTwinFunc.cs* function to a function app in Azure.
 
-[!INCLUDE [digital-twins-verify-function-app-publish.md](../../includes/digital-twins-verify-function-app-publish.md)]
-
-:::image type="content" source="media/how-to-provision-using-dps/delete-device-twin-function.png" alt-text="The Azure portal function app view to verify that your function is successfully published-2":::
-
-### Configure your function
-
-[!INCLUDE [digital-twins-configure-azure-function.md](../../includes/digital-twins-configure-azure-function.md)]
+[!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
 
 ### Create an IoT Hub route for lifecycle events
 
@@ -241,7 +236,7 @@ Now you need to set up an IoT Hub route, to route device lifecycle events. In th
 
 Instructions for creating an IoT Hub route are described in this article: [*Use IoT Hub message routing to send device-to-cloud messages to different endpoints*](../iot-hub/iot-hub-devguide-messages-d2c.md). The section *Non-telemetry events* explains that you can use **device lifecycle events** as the data source for the route.
 
-The steps you need to go through for this set up are:
+The steps you need to go through for this setup are:
 1. Create a custom IoT Hub event hub endpoint. This endpoint should target the event hub you created in the [*Create an event hub*](#create-an-event-hub) section.
 2. Add a *Device Lifecycle Events* route. Use the endpoint created in the previous step. You can limit the device lifecycle events to only send the delete events by adding the routing query `opType='deleteDeviceIdentity'`.
     :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Add a route":::
@@ -281,7 +276,6 @@ az group delete --name <your-resource-group>
 ```
 
 Then, delete the project sample folder you downloaded from your local machine.
-
 
 ## Next steps
 
