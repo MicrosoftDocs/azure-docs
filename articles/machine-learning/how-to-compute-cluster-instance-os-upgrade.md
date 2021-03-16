@@ -18,16 +18,18 @@ ms.custom: how-to
 
 Azure Machine Learning compute cluster and compute instance are managed compute infrastructure. As a managed service, Microsoft manages the host OS and the packages and software versions that are installed.
 
-The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On **April 30, 2021**, Ubuntu is ending support for 16.04. Microsoft will automatically update the host OS to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community.
+The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On **April 30, 2021**, Ubuntu is ending support for 16.04. Microsoft will automatically update the host OS to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community. For more information on Ubuntu ending support for 16.04, see the [Ubuntu release blog](https://wiki.ubuntu.com/Releases).
 
-For more information
+When using Ubuntu 18.04, the default version of Python for Azure Machine Learning compute instance is _Python 3.8_.
 
 > [!TIP]
 > The host OS is not the OS version you might specify for an [environment](how-to-use-environments.md) when training or deploying a model. Environments run inside Docker. Docker runs on the host OS.
+>
+> If you are currently using Ubuntu 16.04 based environments for training or deployment, Microsoft recommends that you switch to using Ubuntu 18.04 based images. For more information, see [How to use environments](how-to-use-environments.md) and the [Azure Machine Learning containers repository](https://github.com/Azure/AzureML-Containers/tree/master/base).
 
 ## Creating new resources
 
-When creating a new compute cluster or compute instance after __March 15, 2021__, the host OS will be Ubuntu 18.04 LTS.
+Compute cluster or compute instances created after __March 15, 2021__ use Ubuntu 18.04 LTS as the host OS.
 
 ## Upgrade existing resources
 
@@ -38,7 +40,7 @@ See the following links for information on stopping and restarting compute clust
 * __Azure Machine Learning compute cluster__:
 
     * If the cluster is configured with __min nodes = 0__, it will automatically be upgraded when all jobs are completed and it reduces to zero nodes.
-    * If __min nodes > 0__, temporarily change the minimum nodes to zero and allow the cluster to reduce to zero nodes.
+    * If __min nodes > 0__, after __April 9th__ temporarily change the minimum nodes to zero and allow the cluster to reduce to zero nodes.
 
     For more information on changing the minimum nodes, see the [az ml computetarget update amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/update#ext_azure_cli_ml_az_ml_computetarget_update_amlcompute) Azure CLI command, or the [AmlCompute.update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-) SDK reference.
 
@@ -47,7 +49,7 @@ See the following links for information on stopping and restarting compute clust
     * Any notebook stored in the workspace file share, data stores, of datasets will be accessible from the new compute instance.
     * If you have created custom conda environments, you can export those environments from the existing instance and import on the new instance. For information on conda export and import, see [Managing environments](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html) at docs.conda.io.
 
-For more information on creating and managing a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+    For more information on creating and managing a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
 ## Check host OS version
 
