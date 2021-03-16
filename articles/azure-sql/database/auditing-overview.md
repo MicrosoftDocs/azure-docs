@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/09/2021
+ms.date: 03/16/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -137,7 +137,7 @@ To configure writing audit logs to a storage account, select **Storage** and ope
 
 ### <a id="audit-log-analytics-destination"></a>Audit to Log Analytics destination
   
-To configure writing audit logs to a Log Analytics workspace, select **Log Analytics** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
+To configure writing audit logs to a Log Analytics workspace, select **Log Analytics** and open **Log Analytics details**. Select the Log Analytics workspace where logs will be written and then click **OK**. If you have not created a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -145,7 +145,7 @@ For more details about Azure Monitor Log Analytics workspace, see [Designing you
    
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
 
-To configure writing audit logs to an event hub, select **Event Hub** and open **Event Hub details**. Select the event hub where logs will be written and then click **OK**. Be sure that the event hub is in the same region as your database and server.
+To configure writing audit logs to an event hub, select **Event Hub**. Select the event hub where logs will be written and then click **SAVE**. Be sure that the event hub is in the same region as your database and server.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
