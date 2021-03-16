@@ -154,12 +154,27 @@ except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
 
-### <a id="update-analytical-ttl"></a> Update the analytical store time to live
+### Azure CLI
+
+The following link shows how to create an analytical store enabled containers by using Azure CLI:
+
+* [Azure Cosmos DB API for Mongo DB](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_create-examples)
+* [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create)
+
+### PowerShell
+
+The following link shows how to create an analytical store enabled containers by using PowerShell:
+
+* [Azure Cosmos DB API for Mongo DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection?view=azps-5.5.0#description)
+* [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create)
+
+
+## <a id="update-analytical-ttl"></a> Update the analytical store time to live
 
 After the analytical store is enabled with a particular TTL value, you can update it to a different valid value later. You can update the value by using the Azure portal, Azure CLI, PowerShell, or Cosmos DB SDKs. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 
-#### Azure portal
+### Azure portal
 
 If you created an analytical store enabled container through the Azure portal, it contains a default analytical TTL of -1. Use the following steps to update this value:
 
@@ -174,7 +189,7 @@ If you created an analytical store enabled container through the Azure portal, i
   * Select **On (no default)** or select **On** and set a TTL value
   * Click **Save** to save the changes.
 
-#### .NET SDK
+### .NET SDK
 
 The following code shows how to update the TTL for analytical store by using the .NET SDK:
 
@@ -186,7 +201,7 @@ containerResponse.Resource. AnalyticalStorageTimeToLiveInSeconds = 60 * 60 * 24 
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-#### Java V4 SDK
+### Java V4 SDK
 
 The following code shows how to update the TTL for analytical store by using the Java V4 SDK:
 
@@ -200,20 +215,24 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );
 container.replace(containerProperties).block();
 ```
 
-#### Azure CLI
+### Python V4 SDK
 
-The following link shows how to update the TTL for analytical store by using Azure CLI:
+Currently not supported.
 
-* [Update - analytical TTL -  Azure Cosmos DB API for Mongo DB collections](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update)
-* [Update - analytical TTL - Azure Cosmos DB SQL API containers](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update)
 
-#### PowerShell
+### Azure CLI
 
-The following link shows how to update the TTL for analytical store by using PowerShell:
+The following link shows how to update containers analytical TTL by using Azure CLI:
 
-* [Update - analytical TTL -  Azure Cosmos DB API for Mongo DB collections](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0)
-* [Update - analytical TTL - Azure Cosmos DB SQL API containers](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0)
+* [Azure Cosmos DB API for Mongo DB](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update)
+* [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update)
 
+### PowerShell
+
+The following link shows how to update containers analytical TTL by using PowerShell:
+
+* [Azure Cosmos DB API for Mongo DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0)
+* [Azure Cosmos DB SQL API](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0)
 
 
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
