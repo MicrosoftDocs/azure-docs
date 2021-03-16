@@ -62,7 +62,7 @@
   - name: Create a Flask translation app, Python
     href: tutorial-build-flask-app-translation-synthesis.md 
 - name: Translator REST API
-  href: reference/v3-0-translate
+  href: reference/v3-0-translate.md
 - name: Custom Translator 
   expanded: true
   items:
