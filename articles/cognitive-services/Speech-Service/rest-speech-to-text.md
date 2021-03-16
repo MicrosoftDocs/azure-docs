@@ -19,11 +19,11 @@ Speech-to-text has two different REST APIs. Each API serves its special purpose 
 
 The Speech-to-text REST APIs are:
 - [Speech-to-text REST API v3.0](#speech-to-text-rest-api-v30) is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](./migrate-v2-to-v3.md).
-- [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio) is used for OnLine transcription as an alternative to the [Speech SDK](speech-sdk.md). Requests using this API can transmit only up to 60 seconds of audio per request. 
+- [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio) is used for online transcription as an alternative to the [Speech SDK](speech-sdk.md). Requests using this API can transmit only up to 60 seconds of audio per request. 
 
 ## Speech-to-text REST API v3.0
 
-Speech-to-text REST API v3.0 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). If you need to communicate with the OnLine transcription via REST, use [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio).
+Speech-to-text REST API v3.0 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). If you need to communicate with the online transcription via REST, use [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio).
 
 Use REST API v3.0 to:
 - Copy models to other subscriptions in case you want colleagues to have access to a model you built, or in cases where you want to deploy a model to more than one region
