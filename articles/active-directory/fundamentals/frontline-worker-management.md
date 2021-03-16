@@ -1,6 +1,6 @@
 ---
 title: Frontline Worker management - Azure Active Directory
-description: Learn about Frontline Worker management capabilities that are provided via the My Staff portal.
+description: Learn about Frontline Worker management capabilities that are provided through the My Staff portal.
 
 services: active-directory
 ms.service: active-directory
@@ -24,9 +24,9 @@ Frontline Worker management empowers the frontline workforce by making the follo
 - Easy onboarding of frontline workers through simplified authentication
 - Seamless provisioning of shared devices and off-boarding of frontline workers
 
-## Delegated user management via My Staff
+## Delegated user management through My Staff
 
-Azure Active Directory provides the ability to delegate user management to frontline managers through the [My Staff portal](../roles/my-staff-configure.md), helping save valuable time and reduce risks. By enabling simplified password resets and phone management directly from the store or factory floor, managers can grant access to employees without routing the request through the help-desk, IT, or operations.
+Azure Active Directory (Azure AD) provides the ability to delegate user management to frontline managers through the [My Staff portal](../roles/my-staff-configure.md), helping save valuable time and reduce risks. By enabling simplified password resets and phone management directly from the store or factory floor, managers can grant access to employees without routing the request through the help-desk, IT, or operations.
 
 ![Delegated user management in the My Staff portal](media/concept-fundamentals-flw/delegated-user-manage.png)
 
