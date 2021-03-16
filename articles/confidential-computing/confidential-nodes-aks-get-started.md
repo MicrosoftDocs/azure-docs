@@ -30,7 +30,7 @@ In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS)
 
 ## Prerequisites
 
-This quickstart requires the following:
+This quickstart requires:
 
 1. An active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 1. Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
@@ -211,7 +211,7 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster
 
 ## Next steps
 
-* Run Python, Node etc. Applications confidentially through confidential containers by visiting [confidential container samples](https://github.com/Azure-Samples/confidential-container-samples).
+* Run Python, Node, etc. applications confidentially through confidential containers by visiting [confidential container samples](https://github.com/Azure-Samples/confidential-container-samples).
 
 * Run Enclave aware applications by visiting [Enclave Aware Azure Container Samples](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
 
