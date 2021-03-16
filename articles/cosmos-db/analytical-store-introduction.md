@@ -86,10 +86,13 @@ The following constraints are applicable on the operational data in Azure Cosmos
  * Properties with the same name but different cases will be represented with the first occurrence. For example: if the first document uses "Name" and the second document for has "name" in the same level, "Name" will be used to represent this property in analytical store.
 
 * The first document of the collection defines the initial analytical store schema.
- * Extra properties in any following document will also be included in the schema definition. Columns can be added but not removed.
- * The The deletion of all documents in a collection doesn't reset the analytical store schema.
- * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
- 
+  * Properties in the first level of the document will be represented as columns.
+  * Records in analytical store will have NULL for missing information on any column. 
+  * Extra properties in the first level of any following document will also be included in the schema definition as a column. 
+  * Columns can be added but not removed.
+  * The The deletion of all documents in a collection doesn't reset the analytical store schema.
+  * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
+
 
 ##### Schema representation
 
