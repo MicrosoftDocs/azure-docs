@@ -36,12 +36,14 @@ My Staff also enables frontline managers to register their team members' phone n
 
 ![SMS sign-in](media/concept-fundamentals-flw/sms-signin.png)
 
-## Improved security for shared devices
+## Secure off-boarding of frontline workers from shared devices
 
-Many companies used shared devices so frontline workers can do inventory management and point-of-sale transactions, without the IT burden of provisioning and tracking individual devices. With **shared device sign-out**, it's easy for a frontline worker to securely sign out of all apps and web browsers on any shared device before handing it back to a hub or passing it off to a teammate on the next shift. You can choose to integrate this capability into all your line-of-business [iOS](../develop/msal-ios-shared-devices.md) and [Android](../develop/msal-android-shared-devices.md) apps using the [Microsoft Authentication Library](../develop/msal-overview.md).
+Many companies use shared devices so frontline workers can do inventory management and point-of-sale transactions, without the IT burden of provisioning and tracking individual devices. With shared device sign-out, it's easy for a frontline worker to securely sign out of all apps and web browsers on any shared device before handing it back to a hub or passing it off to a teammate on the next shift. You can choose to integrate this capability into all your line-of-business [iOS](../develop/msal-ios-shared-devices.md) and [Android](../develop/msal-android-shared-devices.md) apps using the [Microsoft Authentication Library](../develop/msal-overview.md).
 
 ![Shared device sign-out](media/concept-fundamentals-flw/shared-device-signout.png)
 
 ## Next steps
 
-For more information on delegated user management, see [My Staff user documentation](../user-help/my-staff-team-manager.md).
+- For more information on delegated user management, see [My Staff user documentation](../user-help/my-staff-team-manager.md).
+- For inbound user provisioning from SAP SuccessFactors, see the tutorial on [configuring SAP SuccessFactors to Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md).
+- For inbound user provisioning from Workday, see the tutorial on [configuring Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md).
