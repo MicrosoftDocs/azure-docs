@@ -58,9 +58,9 @@ explicitly delete events.
 If you need to archive events beyond the allowed
 retention period, you can have them [automatically stored in Azure Storage or
 Azure Data Lake by turning on the Event Hubs Capture
-feature](../articles/event-hubs/event-hubs-capture-overview.md), and if you need
+feature](event-hubs-capture-overview.md), and if you need
 to search or analyze such deep archives, you can [easily import them into Azure
-Synapse](../articles/event-hubs/store-captured-data-data-warehouse.md) or other
+Synapse](store-captured-data-data-warehouse.md) or other
 similar stores and analytics platforms. 
 
 The reason for Event Hubs' limit on data retention based on time is to prevent
