@@ -46,7 +46,7 @@ The steps for this task use a VNet based on the values in the following configur
 You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) of these steps before beginning your configuration.
 
 > [!IMPORTANT]
-> IPv6 support for private peering is currently in **Public Preview**. If you would like to connect your virtual network to an ExpressRoute circuit with IPv6-based private peering configured, please make sure that your virtual network is dual stack and follows the guidelines for [IPv6 for Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> IPv6 support for private peering is currently in **Public Preview**. If you would like to connect your virtual network to an ExpressRoute circuit with IPv6-based private peering configured, please make sure that your virtual network is dual stack and follows the guidelines for [IPv6 for Azure VNet](../virtual-network/ipv6-overview.md).
 > 
 > 
 

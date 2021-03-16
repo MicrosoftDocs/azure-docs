@@ -34,7 +34,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Azure Resource Graph provides access to resource types and properties based on Azure role-based access controls (Azure RBAC). Audit and review the access granted to security principals (users, groups, and service accounts) on a regular basis to make sure that queries return results for the appropriate resources.
 
-- [Permissions in Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
+- [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
 - [How to use Azure Identity Access Reviews](../../../active-directory/governance/access-reviews-overview.md)
 
@@ -50,7 +50,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 **Guidance**: Use Azure RBAC to control access to data and resources. To use Azure Resource Graph, you must also have appropriate access to the resources you want to query. This access should be scoped to read only and be only granted to required personnel.
 
-- [Permissions in Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
+- [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
 - [How to configure Azure RBAC](../../../role-based-access-control/role-assignments-rest.md)
 
@@ -100,5 +100,5 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../../../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../../../security/benchmarks/security-baselines-overview.md)

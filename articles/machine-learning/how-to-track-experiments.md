@@ -36,7 +36,7 @@ You can log multiple data types including scalar values, lists, tables, images, 
 
 ### Logging run metrics 
 
-Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) for these logged metrics. 
+Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](./resource-limits-quotas-capacity.md#metrics) for these logged metrics. 
 
 |Logged Value|Example code| Format in portal|
 |----|----|----|

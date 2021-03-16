@@ -13,7 +13,7 @@ ms.service: iot-hub-device-update
 
 Given the diagram below, in this scenario there is an Azure IoT Edge gateway and a downstream Azure IoT Edge device, one Azure IoT Edge gateway parented to another Azure IoT Edge gateway and a proxy server at the IT DMZ. Below is an example of the Microsoft Connected Cache environment variables that would be set in the Azure portal UX for both of the MCC modules deployed to the Azure IoT Edge gateways. The example shown demonstrates the configuration for two-levels of Azure IoT Edge gateways, but there is no limit to the depth of upstream hosts that Microsoft Connected Cache will support. There is no difference in MCC container create options from the previous examples.
 
-Refer to the documentation [Connect downstream IoT Edge devices - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-connect-downstream-iot-edge-device?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true) for more details on configuring layered deployments of Azure IoT Edge gateways. Additionally note that when deploying Azure IoT Edge, Microsoft Connected Cache, and custom modules, all modules must reside in the same container registry.
+Refer to the documentation [Connect downstream IoT Edge devices - Azure IoT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11) for more details on configuring layered deployments of Azure IoT Edge gateways. Additionally note that when deploying Azure IoT Edge, Microsoft Connected Cache, and custom modules, all modules must reside in the same container registry.
 
 The diagram below describes the scenario where one Azure IoT Edge gateway as direct access to CDN resources is acting as the parent to another Azure IoT Edge gateway that is acting as the parent to an Azure IoT leaf device such as a Raspberry Pi. Only the Azure IoT Edge gateway parent has internet connectivity to CDN resources and both the Azure IoT Edge child and Azure IoT device are internet isolated. 
 
@@ -65,7 +65,7 @@ The diagram below describes the scenario where one Azure IoT Edge gateway as dir
 ## Child gateway configuration
 
 >[!Note]
->If you have replicated containers used in your configuration in your own private registry, then there will need to be a modification to the config.toml settings and runtime settings in your module deployment. For more information, refer to [Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device) for more details.
+>If you have replicated containers used in your configuration in your own private registry, then there will need to be a modification to the config.toml settings and runtime settings in your module deployment. For more information, refer to [Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-the-lower-layer-device) for more details.
 
 1. Modify the image path for the Edge agent as demonstrated in the example below:
 
