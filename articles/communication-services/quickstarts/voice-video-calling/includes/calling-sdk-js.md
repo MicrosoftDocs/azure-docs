@@ -405,7 +405,7 @@ const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 
 To render `RemoteVideoStream`, you have to subscribe to an `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `Renderer`, and then create a new `RendererView` instance by using the asynchronous `createView` method.  You can then attach `view.target` to any UI element.
 
-When the availability of a remote stream changes, you can destroy `Renderer`, destroy a specific `RendererView` instance, or keep it all. This results in a blank video frame.
+When the availability of a remote stream changes, you can destroy `Renderer`, destroy a specific `RendererView` instance, or keep it all. Renderers attached to an unavailable stream will result in a blank video frame.
 
 ```js
 function subscribeToRemoteVideoStream(remoteVideoStream: RemoteVideoStream) {
