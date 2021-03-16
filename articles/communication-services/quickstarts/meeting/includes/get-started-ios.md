@@ -64,21 +64,24 @@ end
 2. Run `pod install`.
 3. Open the generated `.xcworkspace` with Xcode.
 
-### Request access to the microphone
+### Request access to the microphone, camera, etc.
 
-Define and provide a usage description of all the system’s privacy-sensitive data accessed by the framework in your `Info.plist` as below
+In order to access the device's microphone, camera, etc, you need to update your app's Information Property List. You set the associated value to a `string` that will be included in the dialog the system uses to request access from the user.
 
-Privacy — Microphone Usage Description
+Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines the top level `<dict>` section, and then save the file.
 
-Privacy — Camera Usage Description
-
-Privacy — Bluetooth Peripheral Usage Description
-
-Privacy — Bluetooth Always Usage Description
-
-Privacy — Contacts Usage Description
-
-:::image type="content" source="../media/ios/xcode-permissions.png" alt-text="Screenshot showing the permissions added in Xcode.":::
+```xml
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string></string>
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string></string>
+<key>NSCameraUsageDescription</key>
+<string></string>
+<key>NSContactsUsageDescription</key>
+<string></string>
+<key>NSMicrophoneUsageDescription</key>
+<string></string>
+```
 
 ### Add the Teams Embed framework
 
@@ -95,13 +98,13 @@ Privacy — Contacts Usage Description
 
 ### Turn off Bitcode
 
-Set `Enable Bitcode` option to `No` in the project build settings.
+Set `Enable Bitcode` option to `No` in the project build settings. To find the setting, you have change the filter from `basic` to `all`, you can also use the search bar on the right.
 
 :::image type="content" source="../media/ios/xcode-bitcode-option.png" alt-text="Screenshot showing the BitCode option in Xcode.":::
 
 ### Add framework signing script
 
-In the Project Navigator, select your project. In the Editor pane, go to Build Phases → Click on + sign → Create a New Run Script Phase
+Select your app target and choose the `Build Phases` tab.  Then click the `+`, followed by `New Run Script Phase`
 
 :::image type="content" source="../media/ios/xcode-build-script.png" alt-text="Screenshot showing adding the build script in Xcode.":::
 
@@ -125,7 +128,9 @@ fi
 
 Select your app target and click Capabilities tab.
 
-Turn on Background Modes if not done so already and select checkbox for Voice over IP.
+Turn on `Background Modes` by clicking the `+ Capabilities` at the top and select `Background Modes`.
+
+Select checkbox for `Voice over IP`.
 
 :::image type="content" source="../media/ios/xcode-background-voip.png" alt-text="Screenshot showing enabled VOIP in Xcode.":::
 
@@ -139,13 +144,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 ```
 
-### Add a button to the storyboard
+### Add a button to the ViewController
 
-Add a `UIButton` to the storyboard labeled `Join Meeting` and constrain it to the centre of the screen.
+Create button in the `viewDidLoad` callback in **ViewController.swift**.
 
-:::image type="content" source="../media/ios/xcode-add-button.png" alt-text="Screenshot showing adding the button to the storyboard in Xcode.":::
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 50))
+    button.backgroundColor = .black
+    button.setTitle("Join Meeting", for: .normal)
+    button.addTarget(self, action: #selector(joinMeetingTapped), for: .touchUpInside)
+    
+    button.translatesAutoresizingMaskIntoConstraints = false
+    self.view.addSubview(button)
+    button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+```
 
-Then add an action outlet for this button in the viewController.
+Create outlet for button in **ViewController.swift**.
 
 ```swift
 @IBAction func joinMeetingTapped(_ sender: UIButton) {
