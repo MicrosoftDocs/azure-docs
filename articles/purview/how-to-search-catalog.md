@@ -11,7 +11,7 @@ ms.date: 03/16/2021
 
 # Search the Azure Purview Data Catalog
 
-Data discovery is the first step for a data analytics or data governance workload for data consumers. Data discovery can be time consuming because you may not know where to find the data that you want. Even after finding the data, you may have doubts about whether or not you can trust the data and take a dependencies on it.
+Data discovery is the first step for a data analytics or data governance workload for data consumers. Data discovery can be time consuming because you may not know where to find the data that you want. Even after finding the data, you may have doubts about whether or not you can trust the data and take a dependency on it.
 
 The goal of search in Azure Purview is to speed up the process of data discovery to quickly find the data that matters. This article outlines how to search the Azure Purview data catalog to quickly find the data you are looking for.
 
@@ -25,7 +25,7 @@ When you click on the search bar, you can see your recent search history and rec
 
 :::image type="content" source="./media/how-to-search-catalog/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
-Enter in keywords that help identify your asset such as its name, data type, classifications and glossary terms. As you enter in keywords relating to your desired asset, Azure Purview displays suggestions on what to search and potential asset matches. To complete your search, click on "View search results" or press "Enter".
+Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, Azure Purview displays suggestions on what to search and potential asset matches. To complete your search, click on "View search results" or press "Enter".
 
 :::image type="content" source="./media/how-to-search-catalog/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 
@@ -33,7 +33,7 @@ The search results page shows a list of assets that match the keywords provided 
 
 :::image type="content" source="./media/how-to-search-catalog/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 
- Click on your desired asset to view the asset details page where you can view properties including schema, lineage and asset owners.
+ Click on your desired asset to view the asset details page where you can view properties including schema, lineage, and asset owners.
 
 :::image type="content" source="./media/how-to-search-catalog/search-view-asset.png" alt-text="Screenshot showing the asset details page" border="true":::
 
@@ -48,10 +48,10 @@ Below are the operators that can be used to compose a search query. Operators ca
 | OR | Specifies that an asset must have at least one of the two keywords. Must be in all caps. A white space is also an OR operator.  | The query **hive OR database** returns assets that contain 'hive' or 'database' or both. |
 | AND | Specifies that an asset must have both keywords. Must be in all caps | The query **hive AND database** returns assets that contain both 'hive' and 'database'. |
 | NOT | Specifies that an asset can't contain the keyword to the right of the NOT clause | The query **hive NOT database** returns assets that contain 'hive', but not 'database'. |
-| () | Groups a set of keywords and operators together. When combining multiple operators this specifies the order of operations. | The query **hive AND (database OR warehouse)** returns assets that contain 'hive' and either 'database' or 'warehouse', or both. |
+| () | Groups a set of keywords and operators together. When combining multiple operators, parenthesis specify the order of operations. | The query **hive AND (database OR warehouse)** returns assets that contain 'hive' and either 'database' or 'warehouse', or both. |
 | "" | Specifies exact content in a phrase that the query must match to. | The query **"hive database"** returns assets that contain the phrase "hive database" in their properties |
 | * | A wildcard that matches on one to many characters. Can't be the first character in a keyword. | The query **hiv\*** returns assets that have properties that starts with 'hiv' such as 'hive' or 'hive-table'. |
-| ? | A wildcard that matches on a single character. Can't be the first character in a keyword | The query **hiv?** returns assets that have properties that starts with 'hiv' and are four letters such as 'hive' or 'hiva'. |
+| ? | A wildcard that matches on a single character. Can't be the first character in a keyword | The query **hiv?** returns assets that have properties that start with 'hiv' and are four letters such as 'hive' or 'hiva'. |
 
 > [!Note]
 > Always specify Boolean operators (**AND**, **OR**, **NOT**) in all caps. Otherwise, case doesn't matter, nor do extra spaces.
