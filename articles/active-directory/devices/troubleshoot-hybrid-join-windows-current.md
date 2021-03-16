@@ -384,18 +384,6 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 | DirectoryError | The device object by the given ID is not found. | Expected error for sync join. The device object has not synced from AD to Azure AD | Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
 | AuthenticationError | The verification of the target computer's SID | The certificate on the Azure AD device doesn't match the certificate used to sign the blob during the sync join. This error typically means sync hasn’t completed yet. |  Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
 
-### Step 5: Collect logs and contact Microsoft Support
-
-Download the file Auth.zip from [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
-
-1. Unzip the files and rename the included files **start-auth.txt** and **stop-auth.txt** to **start-auth.cmd** and **stop-auth.cmd**.
-1. From an elevated command prompt, run **start-auth.cmd**.
-1. Use Switch Account to toggle to another session with the problem user.
-1. Reproduce the issue.
-1. Use Switch Account to toggle back to the admin session running the tracing.
-1. From an elevated command prompt, run **stop-auth.cmd**.
-1. Zip and send the folder **Authlogs** from the folder where the scripts were executed from.
-
 ## Troubleshoot Post-Join issues
 
 ### Retrieve the join status
