@@ -4,7 +4,7 @@ description: Describes how to create a data collection rule to collect data from
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/10/2021
+ms.date: 03/16/2021
 
 ---
 
@@ -67,28 +67,30 @@ Click **Add Data Source** and then **Review + create** to review the details of 
 ## Limit data collection with custom XPath queries
 Since you're charged for any data collected in a Log Analytics workspace, you should collect only the data that you require. Using basic configuration in the Azure portal, you only have limited ability to filter events to collect. For Application and System logs, this is all logs with a particular severity. For Security logs, this is all audit success or all audit failure logs.
 
-To specify additional filters, you must use Custom configuration and specify an XPath that filters out the events you don't. Only one XPath is allowed for each event log so you must specify all criteria for a particular event log in a single XPath.
-
-The following table shows examples for filtering events using a custom XPath.
-
-| Description | XPath |
-|:---|:---|
-| Collect only System events with Event ID = 4648 | `System[EventID=4648]!*`  |
-| Collect only System events with Event ID = 4648 and a process name of consent.exe | `System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]` |
-| Collect all Critical, Error, Warning, and Information events from the System event log except for Event ID = 6 (Driver loaded) | `System[(Level=1 or Level=2 or Level=3) and (not[EventID=6])]` |
-| Collect all success and failure Security events except for Event ID 4624 (Successful logon) | `Security[(band(Keywords,13510798882111488)) and (not[EventID=4624])]` |
+To specify additional filters, you must use Custom configuration and specify an XPath that filters out the events you don't. XPath entries are written in the form `LogName!XPathQuery`. For example, you may want to return only events from the Application event log with an event ID of 1035. The XPathQuery for these events would be `*[System[EventID=1035]]`. Since you want to retrieve the events from the Application event log, the XPath would be `Application!*[System[EventID=1035]]`
 
 > [!TIP]
-> Use the following PowerShell script to test the validity of a particular XPath.
+> Use the PowerShell cmdlet `Get-WinEvent` with the `FilterXPath` parameter to test the validity of an XPathQuery. The following script shows an example.
 > 
 > ```powershell
-> $XPath = '*[System[(band(Keywords,13510798882111488)) and (not[EventID=4624])]]'
-> Get-WinEvent -LogName 'System' -FilterXPath $XPath
+> $XPath = '*[System[EventID=1035]]'
+> Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 >
 > - If events are returned, the query is valid.
-> - If you receive the message *No events were found that match the specified selection criteria.*, the query is valid, but there are no matching events on the local machine.
-> - If you receive the message *The specified query is invalid* , the query is invalid. 
+> - If you receive the message *No events were found that match the specified selection criteria.*, the query may be valid, but there are no matching events on the local machine.
+> - If you receive the message *The specified query is invalid* , the query syntax is invalid. 
+
+The following table shows examples for filtering events using a custom XPath.
+
+| Description |  XPath |
+|:---|:---|
+| Collect only System events with Event ID = 4648 |  `System!*[System[EventID=4648]]`
+| Collect only System events with Event ID = 4648 and a process name of consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| Collect all Critical, Error, Warning, and Information events from the System event log except for Event ID = 6 (Driver loaded) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
+| Collect all success and failure Security events except for Event ID 4624 (Successful logon) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
+
+
 ## Create rule and association using REST API
 
 Follow the steps below to create a data collection rule and associations using the REST API.
