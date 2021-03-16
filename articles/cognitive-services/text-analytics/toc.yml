@@ -93,15 +93,13 @@
     href: text-analytics-user-scenarios.md
   - name: Named entity types
     href: named-entity-types.md
-  - name: Language support
-    href: language-support.md
   - name: Input types
     items:
     - name: Unicode encodings and text offsets
       href: concepts/text-offsets.md
-  - name: Data limits
-    href: concepts/data-limits.md
-  - name: models
+    - name: Data limits
+      href: concepts/data-limits.md
+  - name: Models
     items: 
     - name: Model versioning
       href: concepts/model-versioning.md
