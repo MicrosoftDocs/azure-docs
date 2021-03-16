@@ -256,7 +256,7 @@ Copy the URL, change the domain name manually, and then paste it back to your br
 
 Azure Front Door passes the user's original IP address. This is the IP address that you'll see in the audit reporting or your custom policy.
 
-### Can I use a third-party wab application firewall (WAF) with B2C?
+### Can I use a third-party web application firewall (WAF) with B2C?
 
 Currently, Azure AD B2C supports a custom domain through the use of Azure Front Door only. Don't add another WAF in front of Azure Front Door.
 
