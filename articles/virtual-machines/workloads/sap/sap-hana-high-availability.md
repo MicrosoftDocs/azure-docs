@@ -662,7 +662,7 @@ crm configure colocation col_saphana_secip_HN1_HDB03 4000: g_secip_HN1_HDB03:Sta
 
 crm configure property maintenance-mode=false
 ```
-Make sure that the cluster status is ok and that all of the resources are started. The second virtual IP will run on the secondary site along with SAPHana Slave resource.
+Make sure that the cluster status is ok and that all of the resources are started. The second virtual IP will run on the secondary site along with SAPHana secondary resource.
 
 ```
 sudo crm_mon -r

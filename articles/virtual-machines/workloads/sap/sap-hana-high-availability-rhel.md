@@ -717,7 +717,7 @@ pcs constraint colocation add g_secip_HN1_03 with slave SAPHana_HN1_03-master 40
 
 pcs property set maintenance-mode=false
 ```
-Make sure that the cluster status is ok and that all of the resources are started. The second virtual IP will run on the secondary site along with SAPHana Slave resource.
+Make sure that the cluster status is ok and that all of the resources are started. The second virtual IP will run on the secondary site along with SAPHana secondary resource.
 
 ```
 sudo pcs status
