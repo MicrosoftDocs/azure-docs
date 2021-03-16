@@ -58,7 +58,7 @@ interrelationship of the events.
 A sequence of events identified by a partition key is a *stream*. A partition is
 a multiplexed log store for many such streams. 
 
-While you can send events directly to partitions, we don't recommend it, especially when high availability is important to you. It downgrades the availability of an event hub to partition-level. For more information, see [Availability and Consistency](#event-hubs-availability-and-consistency.md).
+While you can send events directly to partitions, we don't recommend it, especially when high availability is important to you. It downgrades the availability of an event hub to partition-level. For more information, see [Availability and Consistency](event-hubs-availability-and-consistency.md).
 
 ### Number of partitions
 The number of partitions is specified at creation and must be between 1 and 32
