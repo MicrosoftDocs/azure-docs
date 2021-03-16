@@ -146,12 +146,12 @@ Custom normalizers can be added during index creation or later by updating an ex
 |elision| Removes elision from beginning of the tokens.|
 
 ### Supported char filters
-For more details on the char filters, refer to [Char Filters Reference](index-add-custom-analyzers.md#Char-Filters-Reference).
+For more details on the char filters, refer to [Char Filters Reference](index-add-custom-analyzers.md#charfilter).
 + [mapping](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)  
 + [pattern_replace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)
 
 ### Supported token filters
-The list below shows the token filters supported for normalizers and is a subset of the overall token filters involved in the lexical analysis. For more details on the filters, refer to [Token Filters Reference](index-add-custom-analyzers.md#Token-Filters-Reference).
+The list below shows the token filters supported for normalizers and is a subset of the overall token filters involved in the lexical analysis. For more details on the filters, refer to [Token Filters Reference](index-add-custom-analyzers.md#tokenfilters).
 
 + [arabic_normalization](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ar/ArabicNormalizationFilter.html)
 + [asciifolding](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html)
