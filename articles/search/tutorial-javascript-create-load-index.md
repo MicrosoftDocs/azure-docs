@@ -40,66 +40,51 @@ Create a new Search resource with the [Azure Cognitive Search](https://marketpla
 
 Get your Search resource admin key with the Visual Studio Code extension. 
 
-1. In the Side bar, right-click on your Search resource and select **Copy Admin Key**.
+1. In Visual Studio Code, in the Side bar, right-click on your Search resource and select **Copy Admin Key**.
 
     :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-copy-admin-key.png" alt-text="In the Side bar, right-click on your Search resource and select **Copy Admin Key**.":::
 
-1. Keep this admin key, you will need to use it in the next section. The admin key is able to create/delete indexes. 
+1. Keep this admin key, you will need to use it in the next section. 
 
-## Load the book catalog into an Index
+## Download book catalog to your local computer
 
-This tutorial uploads directly into the Search Index from the `books.csv` file. 
+This tutorial uploads data directly into the Search Index from a comma-separated list of books.
 
-1. In Visual Studio Code, open a new terminal and use the following bash command to create a new file named `bulk-insert-books.js` in the `scripts` directory.:
+1. Download the [books.csv](https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/books.csv) and move the file to the local repository's subdirectory location, `search-web/bulk-insert` with the same file name `bulk_insert_books.js`. 
 
-    ```javascript
-    cd scripts && \
-      npm init -y && \
-      npm install @azure/search-documents csv-parser && \
-      touch bulk_insert_books.js
-    ```
+1. In Visual Studio Code, right-click this subdirectory and open an integrated terminal. 
 
-    This command also initializes npm and installs dependencies used for this bulk upload script. 
-
-1. In Visual Studio Code, create a new file called `books.csv` and copy the data from [goodbooks-10k](https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/books.csv) into the file. 
-
-## Add a schema definition file
-
-In Visual Studio Code, create a new file, `books.schema.json` and copy the data from [books.schema.json](https://github.com/Azure-Samples/js-e2e/blob/main/search/bulk-insert-books-from-csv/books.schema.json) into the file. 
-
-The schema file defines how the data is stored in the Search Index and determines what functionality is provided with the index.
-
-When you examine the `bulk_insert_books.js` code file below, you can see in the insertData function's loop that each value is either passed directly or altered to better fit the datatype defined in the schema file. 
-
-:::code language="json" source="~/js-e2e/search/bulk-insert-books-from-csv/bulk_insert_books.js" highlight="6,7" :::
-
-## Create the bulk import script
+## Prepare the bulk import script for Search
 
 The script uses the Azure SDK for Cognitive Search:
 
 * NPM: [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
 * Reference Documentation: [Client Library](/javascript/api/overview/azure/search-documents-readme)
 
-1. In Visual Studio Code, open the `bulk_insert_books.js` file and add the following code:
+1. In Visual Studio Code, open the `bulk_insert_books.js` file in the subdirectory,  `search-web/bulk-insert`, and review the following code:
 
     :::code language="javascript" source="~/js-e2e/search/bulk-insert-books-from-csv/bulk_insert_books.js" highlight="6,7" :::
 
 1. Replace the following variables with your own values to authenticate with the Azure Search SDK:
 
-    * YOUR-RESOURCE-NAME
-    * YOUR-RESOURCE-KEY: your admin key
+    * YOUR-SEARCH-RESOURCE-NAME
+    * YOUR-SEARCH-ADMIN-KEY
 
-## Run the bulk import script
+1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-web/bulk-insert`, and run the following command to install the dependencies. 
+
+    ```bash
+    npm install 
+    ```
+
+## Run the bulk import script for Search
 
 Run the Node.js JavaScript file to bulk upload from the `books.csv` file directly into the Azure Search index named `good-books` with the following terminal command:
 
 ```javascript
-node bulk_insert_books.js
+npm start
 ```
 
-As the code runs, each row in books.csv is printed to the console as it is processed. 
-
-When the upload is complete, the last statement printed to the console is "done".
+As the code runs, each row in books.csv is printed to the console as it is processed. When the upload is complete, the last statement printed to the console is "done".
 
 ## Review the new Search Index
 
