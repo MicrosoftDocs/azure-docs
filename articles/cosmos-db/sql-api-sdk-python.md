@@ -331,7 +331,7 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [4.0.0] |May 20, 2020 |--- |
+| [4.0.0](#400) |May 20, 2020 |--- |
 | [3.0.2](#302) |Nov 15, 2018 |--- |
 | [3.0.1](#301) |Oct 04, 2018 |--- |
 | [2.3.3](#233) |Sept 08, 2018 |August 31, 2022 |
