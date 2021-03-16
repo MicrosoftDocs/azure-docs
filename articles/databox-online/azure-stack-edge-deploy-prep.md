@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -104,7 +104,7 @@ To create a new Azure Stack Edge Pro resource for an existing device, take the f
 
 1. In the list of device types that is displayed, select **Azure Stack Edge Pro - FPGA**. Then choose **Select**. 
 
-   The **Azure Stack Edge Pro - FPGA** device type is only displayed if you have an existing device. If you neeed to order a new device, go to [Create a new resource for Azure Stack Edge Pro - GPU](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
+   The **Azure Stack Edge Pro - FPGA** device type is only displayed if you have an existing device. If you need to order a new device, go to [Create a new resource for Azure Stack Edge Pro - GPU](azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource).
 
    ![Search Azure Stack Edge service](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-02.png)
 
@@ -128,7 +128,7 @@ To create a new Azure Stack Edge Pro resource for an existing device, take the f
 
     ![Project and instance details](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-03.png)
 
-1. On the **Review + create** tab, review the **Terms of use**, **Pricing details**, and the details for your resource. Thens select **Create**.
+1. On the **Review + create** tab, review the **Terms of use**, **Pricing details**, and the details for your resource. Then select **Create**.
 
     ![Review Azure Stack Edge resource details and privacy terms](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-04.png)
 
