@@ -104,7 +104,9 @@ Set `Enable Bitcode` option to `No` in the project build settings. To find the s
 
 ### Add framework signing script
 
-Select your app target and choose the `Build Phases` tab.  Then click the `+`, followed by `New Run Script Phase`
+Select your app target and choose the `Build Phases` tab.  Then click the `+`, followed by `New Run Script Phase`. Ensure this new phase occurs after the `Embed Frameworks` phases.
+
+
 
 :::image type="content" source="../media/ios/xcode-build-script.png" alt-text="Screenshot showing adding the build script in Xcode.":::
 
@@ -298,18 +300,43 @@ The Microsoft Teams SDK supports over hundred strings and resources. The framewo
 
 Remove i386 and x86_64 architectures from the frameworks in case of archiving.
 
-Add i386 and x86_64 architectures removing script to Build Phases before the umbrella framework codesign phase in case you would like to Archive your application.
+Add i386 and x86_64 architectures removing script to Build Phases before the framework codesign phase in case you would like to Archive your application.
 
 In the Project Navigator, select your project. In the Editor pane, go to Build Phases → Click on + sign → Create a New Run Script Phase.
 
 ```bash
-declare -a removeArchs=("i386" "x86_64" "armv7")
-for arch in "${removeArchs[@]}"
-  do
-    echo "Ship build, stripping binary of unsupported app store architecture ${arch}"
-    lipo -remove $arch ${SRCROOT}/Frameworks/TeamsAppSDK.framework/Frameworks/AriaObjC.framework/AriaObjC -o ${SRCROOT}/Frameworks/TeamsAppSDK.framework/Frameworks/AriaObjC.framework/AriaObjC
-  done
-fi
+echo "Target architectures: $ARCHS"
+APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
+find "$APP_PATH" -name '*.framework' -type d | while read -r FRAMEWORK
+do
+FRAMEWORK_EXECUTABLE_NAME=$(defaults read "$FRAMEWORK/Info.plist" CFBundleExecutable)
+FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME"
+echo "Executable is $FRAMEWORK_EXECUTABLE_PATH"
+echo $(lipo -info "$FRAMEWORK_EXECUTABLE_PATH")
+FRAMEWORK_TMP_PATH="$FRAMEWORK_EXECUTABLE_PATH-tmp"
+# remove simulator's archs if location is not simulator's directory
+case "${TARGET_BUILD_DIR}" in
+*"iphonesimulator")
+    echo "No need to remove archs"
+    ;;
+*)
+    if $(lipo "$FRAMEWORK_EXECUTABLE_PATH" -verify_arch "i386") ; then
+    lipo -output "$FRAMEWORK_TMP_PATH" -remove "i386" "$FRAMEWORK_EXECUTABLE_PATH"
+    echo "i386 architecture removed"
+    rm "$FRAMEWORK_EXECUTABLE_PATH"
+    mv "$FRAMEWORK_TMP_PATH" "$FRAMEWORK_EXECUTABLE_PATH"
+    fi
+    if $(lipo "$FRAMEWORK_EXECUTABLE_PATH" -verify_arch "x86_64") ; then
+    lipo -output "$FRAMEWORK_TMP_PATH" -remove "x86_64" "$FRAMEWORK_EXECUTABLE_PATH"
+    echo "x86_64 architecture removed"
+    rm "$FRAMEWORK_EXECUTABLE_PATH"
+    mv "$FRAMEWORK_TMP_PATH" "$FRAMEWORK_EXECUTABLE_PATH"
+    fi
+    ;;
+esac
+echo "Completed for executable $FRAMEWORK_EXECUTABLE_PATH"
+echo $(lipo -info "$FRAMEWORK_EXECUTABLE_PATH")
+done
 ```
 
 ## Sample Code
