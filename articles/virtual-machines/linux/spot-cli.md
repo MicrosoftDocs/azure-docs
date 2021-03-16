@@ -62,27 +62,55 @@ az vm list \
 
 ## Simulate an eviction
 
-You can [simulate an eviction](/rest/api/compute/virtualmachines/simulateeviction) of an Azure Spot Virtual Machine, to test how well your application will respond to a sudden eviction. 
+You can simulate an eviction of an Azure Spot Virtual Machine using REST, PowerShell, or the CLI, to test how well your application will respond to a sudden eviction.
 
-Simulate an eviction using [az vm simulate-eviction](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_simulate_eviction). Replace the following with your information: 
+In most cases, you will want to use the REST API [Virtual Machines - Simulate Eviction](/rest/api/compute/virtualmachines/simulateeviction) to help with automated testing of applications. For REST, a `Response Code: 204` means the simulated eviction was successful. You can combine simulated evictions with the [Scheduled Event service](scheduled-events.md), to automate how your app will respond when the VM is evicted.
 
-https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_simulate_eviction
+To see scheduled events in action, watch [Azure Friday - Using Azure Scheduled Events to prepare for VM maintenance](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
 
-- `subscriptionId`
-- `resourceGroupName`
-- `vmName`
+
+### Quick test
+
+For a quick test to show how a simulated eviction will work, let's walk through querying the scheduled event service to see what it looks like when you simulate an eviction using the Azure CLI.
+
+The Scheduled Event service is enabled for your service the first time you make a request for events. 
+
+Remote into your VM, and then open a command prompt. 
+
+From the command prompt on your VM, type:
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
+
+This first response could take up to 2 minutes. From now on, they should display output almost immediately.
+
+From a computer that has the Azure CLI installed (like your local machine), simulate an eviction using [az vm simulate-eviction](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_simulate_eviction). Replace the resource group name and VM name with your own. 
 
 ```azurecli-interactive
-az vm simulate-eviction --resource-group MyResourceGroup --name MyVm
+az vm simulate-eviction --resource-group mySpotRG --name mySpot
 ```
 
+The response output will have `Status: Succeeded` if the request was successfully made.
 
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+Quickly go back to your remote connection to your Spot Virtual Machine and query the Sheduled Events endpoint again. Repeat the following command until you get an output that contains more information:
+
 ```
-`Response Code: 204` means the simulated eviction was successful. 
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
 
-**Next steps**
+The output will look something like this, when the Scheduled Event Service gets the eviction notification.
+
+```output
+{"DocumentIncarnation":1,"Events":[{"EventId":"A123BC45-1234-5678-AB90-ABCDEF123456","EventStatus":"Scheduled","EventType":"Preempt","ResourceType":"VirtualMachine","Resources":["myspotvm"],"NotBefore":"Tue, 16 Mar 2021 00:58:46 GMT","Description":"","EventSource":"Platform"}]}
+```
+
+You can see that `"EventType":"Preempt"`, and the resource is the VM resource `"Resources":["myspotvm"]`. 
+
+You can also see when the VM will be evicted by checking the `"NotBefore" - the VM will not be evicted before the time given, so that is your window for your application to gracefully close out.
+
+
+## Next steps
 
 You can also create an Azure Spot Virtual Machine using [Azure PowerShell](../windows/spot-powershell.md), [portal](../spot-portal.md), or a [template](spot-template.md).
 
