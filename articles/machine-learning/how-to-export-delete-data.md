@@ -75,7 +75,7 @@ The following machine learning resources can be deleted using the Python SDK:
 
 | Type | Function Call | Notes | 
 | --- | --- | --- |
-| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` to cascade the delete |
-| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | | 
-| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | |
-| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) | |
+| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace#delete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` to cascade the delete |
+| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29#delete--) | | 
+| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget#delete--) | |
+| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29) | |

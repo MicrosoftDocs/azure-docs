@@ -10,8 +10,8 @@ metadata:
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: forms-recognizer
   ms.topic: landing-page # Required
-  author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
-  ms.author: pafarley #Required; microsoft alias of author; optional team alias.
+  author: laujan #Required; your GitHub user alias, with correct capitalization.
+  ms.author: lajanuar #Required; microsoft alias of author; optional team alias.
   ms.date: 09/05/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -150,12 +150,12 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Form Recognizer API v2.0
-            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
+          - text: Form Recognizer API v2.1 preview.3
+            url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm
           - text: .NET SDK
             url: /dotnet/api/overview/azure/ai.formrecognizer-readme
           - text: Python SDK
-            url: /python/api/azure-ai-formrecognizer/?view=azure-python
+            url: /python/api/azure-ai-formrecognizer/
           - text: Java SDK
             url: /java/api/overview/azure/ai-formrecognizer-readme
           - text: JavaScript SDK

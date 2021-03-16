@@ -1,11 +1,12 @@
 ---
 title: Azure Key Vault VM Extension for Linux 
 description: Deploy an agent performing automatic refresh of Key Vault certificates on virtual machines using a virtual machine extension.
-services: virtual-machines-linux
+services: virtual-machines
 author: msmbaldwin
 tags: keyvault
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
@@ -13,16 +14,18 @@ ms.author: mbaldwin
 ---
 # Key Vault virtual machine extension for Linux
 
-The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults.  Upon detecting a change, the extension retrieves, and installs the corresponding certificates. The Key Vault VM extension is published and supported by Microsoft, currently on Linux VMs. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Linux. 
+The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults.  Upon detecting a change, the extension retrieves, and installs the corresponding certificates. The extension will install the full certificate chain on the VM. The Key Vault VM extension is published and supported by Microsoft, currently on Linux VMs. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Linux. 
 
 ### Operating system
 
 The Key Vault VM extension supports these Linux distributions:
 
-- Ubuntu-1604
 - Ubuntu-1804
-- Debian-9
 - Suse-15 
+
+> [!NOTE]
+> To get extended security features, prepare to upgrade Ubuntu-1604 and Debian-9 systems as these versions are reaching their end of designated support period.
+> 
 
 ### Supported certificate content types
 
@@ -232,7 +235,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
         az vmss extension set -n "KeyVaultForLinux" `
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
-        --vm-name "<vmName>" `
+        --vmss-name "<vmssName>" `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 Please be aware of the following restrictions/requirements:

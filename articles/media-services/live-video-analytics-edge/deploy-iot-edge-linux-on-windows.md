@@ -8,7 +8,7 @@ ms.date: 02/18/2021
 
 # Deploy to an IoT Edge for Linux on Windows (EFLOW) device
 
-In this article, you'll learn how to deploy Live Video Analytics on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows?view=iotedge-2018-06). Once you have finished following the steps in this document, you will be able to run a [media graph](media-graph-concept.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the media graph for advanced scenarios and bring the power of Live Video Analytics to your Windows-based IoT Edge device.
+In this article, you'll learn how to deploy Live Video Analytics on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows). Once you have finished following the steps in this document, you will be able to run a [media graph](media-graph-concept.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the media graph for advanced scenarios and bring the power of Live Video Analytics to your Windows-based IoT Edge device.
 
 ## Prerequisites 
 
@@ -103,7 +103,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 ## Next steps
 
 * Try motion detection along with recording relevant videos in the cloud. Follow the steps from the [detect motion, record video clips to Media Services](detect-motion-record-video-clips-media-services-quickstart.md#review-the-sample-video) quickstart.
-* Run [AI on Live Video](use-your-model-quickstart#overview) (you can skip the prerequisite setup as it has already been done above)
+* Run [AI on Live Video](use-your-model-quickstart.md#overview) (you can skip the prerequisite setup as it has already been done above)
 * Use our [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) to view additional media graphs.
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera)  that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
 

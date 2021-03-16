@@ -1,7 +1,6 @@
 ---
 title: View app dependencies with VM insights
 description: Map is a feature of VM insights. It automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use the Map feature in various scenarios.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

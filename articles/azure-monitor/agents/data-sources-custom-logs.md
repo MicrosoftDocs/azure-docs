@@ -1,7 +1,6 @@
 ---
 title: Collect custom logs with Log Analytics agent in Azure Monitor
 description: Azure Monitor can collect events from text files on both Windows and Linux computers.  This article describes how to define a new custom log and details of the records they create in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

@@ -93,7 +93,7 @@ To run the code, do the following:
 
 ## Clean up resources
 
-When no longer needed, delete the namespace and queue. To do so, select these resources on the portal and click **Delete**.
+When no longer needed, delete the namespace and topic. To do so, select these resources on the portal and click **Delete**.
 
 ## Understand the sample code
 

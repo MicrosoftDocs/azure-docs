@@ -33,20 +33,14 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
    :::image type="content" source="./media/configure-hybrid-cluster/subnet.png" alt-text="Add a new subnet to your Virtual Network." lightbox="./media/configure-hybrid-cluster/subnet.png" border="true":::
     <!-- ![image](./media/configure-hybrid-cluster/subnet.png) -->
 
-1. Now we will apply some special permissions to the VNet and subnet which Cassandra Managed Instance requires, using Azure CLI. First we need to discover the `Resource ID` for your existing VNet. Copy the value output from this command for later, this is the `Resource ID`.
+1. Now we will apply some special permissions to the VNet and subnet which Cassandra Managed Instance requires, using Azure CLI. Use the `az role assignment create` command, replacing `<subscription ID>`, `<resource group name>`, `<VNet name>`, and `<subnet name>` with the appropriate values:
 
    ```azurecli-interactive
-    # discover the vnet id
-    az network vnet show -n <your VNet name> -g <Resource Group Name> --query "id" --output tsv
+   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
    ```
 
-1. Now we apply the special permissions, passing the output of previous command as the scope parameter:
-
-   ```azurecli-interactive
-    az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope <Resource ID>
-   ```
-    > [!NOTE]
-    > The `assignee` and `role` values above are fixed service principle and role identifiers respectively. 
+   > [!NOTE]
+   > The `assignee` and `role` values in the previous command are fixed service principle and role identifiers respectively.
 
 1. Next, we will configure resources for our hybrid cluster. Since you already have a cluster, the cluster name here will only be a logical resource to identify the name of your existing cluster. Make sure to use the name of your existing cluster when defining `clusterName` and `clusterNameOverride` variables in the following script.
 

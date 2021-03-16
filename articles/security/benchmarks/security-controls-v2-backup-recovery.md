@@ -14,7 +14,7 @@ ms.custom: security-benchmark
 
 Backup and Recovery covers controls to ensure that data and configuration backups at the different service tiers are performed, validated, and protected.
 
-To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Backup and Recovery](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery)
+To see the applicable built-in Azure Policy, see [Details of the Azure Security Benchmark Regulatory Compliance built-in initiative: Backup and Recovery](../../governance/policy/samples/azure-security-benchmark.md#backup-and-recovery)
 
 ## BR-1: Ensure regular automated backups
 
@@ -62,7 +62,7 @@ Use Azure role-based access control in Azure Backup, Azure Key Vault, or other r
 
 - [Encryption of backup data using customer-managed keys](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [How to backup Key Vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to backup Key Vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 - [Security features to help protect hybrid backups from attacks](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
@@ -86,7 +86,7 @@ Periodically perform data restoration of your backup. Ensure that you can restor
 
 - [How to recover files from Azure Virtual Machine backup](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [How to restore Key Vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore Key Vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Responsibility**: Customer
 

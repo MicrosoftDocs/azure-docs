@@ -1,7 +1,6 @@
 ---
 title: Deploy Azure Monitor
 description: Describes the different steps required for a complete implementation of Azure Monitor to monitor all of the resources in your Azure subscription.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

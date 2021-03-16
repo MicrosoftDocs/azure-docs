@@ -1,6 +1,6 @@
 ---
-title: Deploy a vision AI model to your Azure Percept DK
-description: Learn how to deploy a vision AI model to your Azure Percept DK from Azure Percept Studio
+title: Capture images for a no-code vision solution in Azure Percept Studio
+description: Learn how to capture images with your Azure Percept DK in Azure Percept Studio for a no-code vision solution
 author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
@@ -9,7 +9,7 @@ ms.date: 02/12/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Capture images for a vision project
+# Capture images for a vision project in Azure Percept Studio
 
 Follow this guide to capture images using the Vision SoM of the Azure Percept DK for an existing vision project in Azure Percept Studio. If you have not created a vision project yet, please see the [no-code vision tutorial](./tutorial-nocode-vision.md).
 
@@ -51,7 +51,7 @@ Follow this guide to capture images using the Vision SoM of the Azure Percept DK
         1. Select your preferred imaging rate under **Capture rate**.
         1. Select the total number of images you would like to collect under **Target**.
 
-    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="Percept devices page with available actions listed.":::
+    :::image type="content" source="./media/how-to-capture-images/take-photo.png" alt-text="Image capture screen.":::
 
 All images will be accessible in [Custom Vision](https://www.customvision.ai/).
 

@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
-ms.subservice: metrics
 ---
 
 # Getting started with Azure Metrics Explorer
@@ -60,6 +59,20 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 - **Splitting** controls whether the chart displays separate lines for each value of a dimension, or aggregates the values into a single line. For example, you can see one line for an average response time across all server instances, or see separate lines for each server. You would need to apply splitting on the *server instance* dimension to see separate lines.
 
 See [examples of the charts](../essentials/metric-chart-samples.md) that have filtering and splitting applied. The article shows the steps were used to configure the charts.
+
+## Share your metric chart
+There are currently two ways to share your metric chart. Below are the instructions on how to share information from your metrics charts through Excel and a link.
+ 
+### Download to Excel
+Click "Share" and select "Download to Excel". Your download should start immediately.
+
+![screenshot on how to share metric chart via excel](./media/metrics-getting-started/share-excel.png)
+
+### Share a link
+Click "Share" and select "Copy link". You should get a notification that the link was copied successfully.
+
+![screenshot on how to share metric chart via link](./media/metrics-getting-started/share-link.png)
+
 
 ## Advanced chart settings
 
