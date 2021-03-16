@@ -24,6 +24,6 @@ In preparation for the VMware HCX deployment to support the pilot or small produ
    > [!NOTE]
    > Many VMware environments use non-routed network segments for vMotion, this will pose no problems.
 
-- **Uplink network:** When deploying VMware HCX on-premises you will need to define a Uplink network, use the management network defined above as your uplink network.
+- **Uplink network:** When deploying VMware HCX on-premises, you'll need to define an Uplink network. Use the management network defined as your uplink network.
    
 - **Replication network:** When deploying VMware HCX on-premises you will need to define a Replication network, use the management network defined above as your replication network.  However, if the on-premises cluster hosts use a dedicated Replication VMkernel network reserve two IP addresses in this network segment and use the Replication VMkernel network for the replication network.
