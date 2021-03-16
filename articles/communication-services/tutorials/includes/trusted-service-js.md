@@ -5,15 +5,15 @@ author: dademath
 manager: nimag
 services: azure-communication-services
 
-ms.author: dademath
-ms.date: 07/28/2020
+ms.author: ddematheu2
+ms.date: 03/10/2021
 ms.topic: include
 ms.service: azure-communication-services
 ---
 
 ## Download Code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Trusted%20Authentication%20Service)
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/trusted-authentication-service)
 
 ## Prerequisites
 

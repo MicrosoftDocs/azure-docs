@@ -6,7 +6,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 03/11/2021
 ---
 
 # Continuous integration and delivery in Azure Data Factory
@@ -199,7 +199,7 @@ If your development factory has an associated git repository, you can override t
 * You use automated CI/CD and you want to change some properties during Resource Manager deployment, but the properties aren't parameterized by default.
 * Your factory is so large that the default Resource Manager template is invalid because it has more than the maximum allowed parameters (256).
 
-    To handle custom parameter 256 limit, there are 3 options:    
+    To handle custom parameter 256 limit, there are three options:    
   
     * Use the custom parameter file and remove properties that don't need parameterization, i.e., properties that can keep a default value and hence decrease the parameter count.
     * Refactor logic in the dataflow to reduce parameters, for example, pipeline parameters all have the same value, you can just use global parameters instead.
@@ -330,7 +330,7 @@ Here's an explanation of how the preceding template is constructed, broken down 
 * Although type-specific customization is available for datasets, you can provide configuration without explicitly having a \*-level configuration. In the preceding example, all dataset properties under `typeProperties` are parameterized.
 
 > [!NOTE]
-> **Azure alerts and matrices**  if configured for a pipeline are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring,Alerts and Matrices](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> **Azure alerts and matrices**  if configured for a pipeline are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring, Alerts and Matrices.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
 > 
 
 ### Default parameterization template
@@ -677,6 +677,8 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 -   You can't publish from private branches.
 
 -   You can't currently host projects on Bitbucket.
+
+-   You can't currently export and import alerts and matrices as parameters. 
 
 ## <a name="script"></a> Sample pre- and post-deployment script
 

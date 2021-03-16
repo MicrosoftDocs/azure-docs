@@ -52,6 +52,22 @@ In this section, you learn how to create a build pipeline. You can reference thi
 
    :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Enter configurations for npm task":::
 
+Use following steps if you need to use hosted-Linux agent:
+1.  Select your **Agent Specification**
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/select-linux-agent.png" alt-text="Screenshot of selecting agent specification.":::
+
+2.  On the **Tasks** page, select the plus sign next to **Agent job 1**. Enter *command line* in the task search and select **Command line**.
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/cmd-search.png" alt-text="Screenshot of searching commandline task. ":::
+
+3.  Give the task a **Display name**. enter the following command in **Script**. Leave the remaining default options.
+
+      ```bash
+      sudo npm install -g azure-streamanalytics-cicd --unsafe-perm=true --allow-root
+      ```
+      :::image type="content" source="media/set-up-cicd-pipeline/cmd-scripts.png" alt-text="Screenshot of entering script for cmd task.":::
+
 ## Add a Build task
 
 1. On the **Variables** page, select **+ Add** in **Pipeline variables**. Add the following variables. Set the following values according to your preference:
