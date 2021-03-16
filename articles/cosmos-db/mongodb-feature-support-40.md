@@ -20,6 +20,9 @@ By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of th
 
 The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB. When using Azure Cosmos DB's API for MongoDB accounts, the 3.6+ versions of accounts have the endpoint in the format `*.mongo.cosmos.azure.com` whereas the 3.2 version of accounts has the endpoint in the format `*.documents.azure.com`.
 
+> [!NOTE]
+> This article only lists the supported server commands and excludes client-side wrapper functions. Client-side wrapper functions such as `deleteMany()` and `updateMany()` internally utilize the `delete()` and `update()` server commands. Functions utilizing supported server commands are compatible with Azure Cosmos DB's API for MongoDB.
+
 ## Query language support
 
 Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands, and options.
@@ -578,7 +581,7 @@ Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the docu
 
 ## Transactions
 
-Azure Cosmos DB supports transactions for unsharded collections. The timeout for transactions is a fixed 5 seconds.
+Multi-document transactions are supported within an unsharded collection. Multi-document transactions are not supported across collections or in sharded collections. The timeout for transactions is a fixed 5 seconds.
 
 ## User and role management
 

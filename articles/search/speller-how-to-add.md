@@ -31,7 +31,7 @@ You can improve recall by spell-correcting individual search query terms before 
   The queryLanguage is required for speller, and currently "en-us" is the only valid value.
 
 > [!Note]
-> The speller parameter is available on all tiers, in the same regions that provide semantic search. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> The speller parameter is available on all tiers, in the same regions that provide semantic search. You do not need to sign up for access to this preview feature. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 ## Spell correction with simple search
 
@@ -89,7 +89,13 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## Language considerations
 
-The queryLanguage parameter required for speller must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. Specified in a query request, the queryLanguage determines which lexicons are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-how-to-query-response.md) if you are using it. Language analyzers are used during indexing, and while retrieving matching documents in the search index. To be consistent, if queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene"). 
+The queryLanguage parameter required for speller must be consistent with any [language analyzers](index-add-language-analyzers.md) assigned to field definitions in the index schema. 
+
++ queryLanguage determines which lexicons are used for spell check, and is also used as an input to the [semantic ranking algorithm](semantic-answers.md) if you are using "queryType=semantic".
+
++ Language analyzers are used during indexing and query execution to find matching documents in the search index. An example of a field definition that uses a language analyzer is `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"`.
+
+For best results when using speller, if queryLanguage is "en-us", then any language analyzers must also be an English variant ("en.microsoft" or "en.lucene").
 
 > [!NOTE]
 > Language-agnostic analyzers (such as keyword, simple, standard, stop, whitespace, or `standardasciifolding.lucene`) do not conflict with queryLanguage settings.

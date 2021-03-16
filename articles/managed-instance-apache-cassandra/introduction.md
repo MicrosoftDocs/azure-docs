@@ -44,7 +44,6 @@ The service provides management operations for the following common Apache Cassa
 - Start a repair action on a keyspace
 - Change configuration of a datacenter
 - Setup backups
-- Maintain audit logs
 
 The pricing model is flexible, on-demand, instance-based, and has no licensing fees. This pricing model allows you to adjust to your specific workload needs. You choose how many cores, which VM SKU, what memory size, and the disk space size you need.
 

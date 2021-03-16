@@ -1,7 +1,6 @@
 ---
 title: Create and share dashboards of Azure Log Analytics data | Microsoft Docs
 description: This tutorial helps you understand how Log Analytics dashboards can visualize all of your saved log queries, giving you a single lens to view your environment.
-ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren

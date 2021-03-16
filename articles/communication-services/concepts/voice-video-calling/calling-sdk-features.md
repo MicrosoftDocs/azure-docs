@@ -7,11 +7,14 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Calling client library overview
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 There are two separate families of Calling client libraries, for *clients* and *services.* Currently available client libraries are intended for end-user experiences: websites and native apps.
 
@@ -28,41 +31,64 @@ The following list presents the set of features which are currently available in
 |                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ✔️            | ✔️
 |                   | Join a group call after it has started                                                                              | ✔️   | ✔️            | ✔️
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ✔️            | ✔️
-|                   | Turn your video on/off                                                         | ✔️   | ✔️            | ✔️
-|                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️
-|                   | Switch between cameras                                                                                              | ✔️   | ✔️            | ✔️
-|                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️            | ✔️
-|                   | Active speaker                                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Choose speaker for calls                                                                                            | ✔️   | ✔️            | ✔️
-|                   | Choose microphone for calls                                                                                         | ✔️   | ✔️            | ✔️
-|                   | Show state of a participant<br/>*Idle, Early media, Connecting, Connected, On hold, In Lobby, Disconnected*         | ✔️   | ✔️            | ✔️
-|                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️            | ✔️
-|                   | Show if a participant is muted                                                                                      | ✔️   | ✔️            | ✔️
-|                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️            | ✔️
-| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌            | ❌
-|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌            | ❌
-|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌            | ❌
-|                   | Participant can view remote screen share                                                                            | ✔️   | ✔️            | ✔️
-| Roster            | List participants                                                                                                   | ✔️   | ✔️            | ✔️
-|                   | Remove a participant                                                                                                | ✔️   | ✔️            | ✔️
-| PSTN              | Place a one-to-one call with a PSTN participant                                                                     | ✔️   | ✔️            | ✔️
+|  Mid call control | Turn your video on/off                                                                                              | ✔️   | ✔️            | ✔️ 
+|                   | Mute/Unmute mic                                                                                                     | ✔️   | ✔️            | ✔️         
+|                   | Switch between cameras                                                                                              | ✔️   | ✔️            | ✔️           
+|                   | Local hold/un-hold                                                                                                  | ✔️   | ✔️            | ✔️           
+|                   | Active speaker                                                                                                      | ✔️   | ✔️            | ✔️           
+|                   | Choose speaker for calls                                                                                            | ✔️   | ✔️            | ✔️           
+|                   | Choose microphone for calls                                                                                         | ✔️   | ✔️            | ✔️           
+|                   | Show state of a participant<br/>*Idle, Early media, Connecting, Connected, On hold, In Lobby, Disconnected*         | ✔️   | ✔️            | ✔️           
+|                   | Show state of a call<br/>*Early Media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected* | ✔️   | ✔️            | ✔️           
+|                   | Show if a participant is muted                                                                                      | ✔️   | ✔️            | ✔️           
+|                   | Show the reason why a participant left a call                                                                       | ✔️   | ✔️            | ✔️     
+| Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌            | ❌           
+|                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌            | ❌           
+|                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌            | ❌           
+|                   | Participant can view remote screen share                                                                            | ✔️   | ✔️            | ✔️         
+| Roster            | List participants                                                                                                   | ✔️   | ✔️            | ✔️           
+|                   | Remove a participant                                                                                                | ✔️   | ✔️            | ✔️         
+| PSTN              | Place a one-to-one call with a PSTN participant                                                                     | ✔️   | ✔️            | ✔️   
 |                   | Place a group call with PSTN participants                                                                           | ✔️   | ✔️            | ✔️
 |                   | Promote a one-to-one call with a PSTN participant into a group call                                                 | ✔️   | ✔️            | ✔️
-|                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️
-| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   |  ✔️  | ✔️            | ✔️
+|                   | Dial-out from a group call as a PSTN participant                                                                    | ✔️   | ✔️            | ✔️   
+| General           | Test your mic, speaker, and camera with an audio testing service (available by calling 8:echo123)                   | ✔️   | ✔️            | ✔️ 
+| Device Management | Ask for permission to use  audio and/or video                                                                       | ✔️   | ✔️            | ✔️
+|                   | Get camera list                                                                                                     | ✔️   | ✔️            | ✔️ 
+|                   | Set camera                                                                                                          | ✔️   | ✔️            | ✔️
+|                   | Get selected camera                                                                                                 | ✔️   | ✔️            | ✔️
+|                   | Get microphone list                                                                                                 | ✔️   | ✔️            | ✔️
+|                   | Set microphone                                                                                                      | ✔️   | ✔️            | ✔️
+|                   | Get selected microphone                                                                                             | ✔️   | ✔️            | ✔️
+|                   | Get speakers list                                                                                                   | ✔️   | ✔️            | ✔️
+|                   | Set speaker                                                                                                         | ✔️   | ✔️            | ✔️
+|                   | Get selected speaker                                                                                                | ✔️   | ✔️            | ✔️
+| Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️   | ✔️            | ✔️
+|                   | Set / update scaling mode                                                                                           | ✔️   | ✔️            | ✔️ 
+|                   | Render remote video stream                                                                                          | ✔️   | ✔️            | ✔️
+
+
 
 ## JavaScript calling client library support by OS and browser
 
-The following table represents the set of supported browsers and versions which are currently available.
+The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
 
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
-| **Calling client library** | Chrome*, new Edge | Chrome*, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
+|                                  | Chrome | Safari*  | Edge (Chromium) | 
+| -------------------------------- | -------| ------  | --------------  |
+| Android                          |  ✔️    | ❌     | ❌             |
+| iOS                              |  ❌    | ✔️**** | ❌             |
+| macOS***                         |  ✔️    | ✔️**   | ❌             |
+| Windows***                       |  ✔️    | ❌     | ✔️             |
+| Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
+*Safari versions 13.1+ are supported, 1:1 calls are not supported on Safari. 
 
-*Note that the latest version of Chrome is supported in addition to the previous two releases.<br/>
+**Safari 14+/macOS 11+ needed for outgoing video support. 
 
-**Note that Safari versions 13.1+ are supported. Outgoing video for Safari macOS is not yet supported, but it is supported on iOS. Outgoing screen sharing is only supported on desktop iOS. 1:1 and group calls currently are not available on Safari.
+***Outgoing screen sharing is supported only on desktop platforms (Windows, macOS, and Linux), regardless of the browser version, and is not supported on any mobile platform (Android, iOS, iPad, and tablets).
+
+****An iOS app on Safari can't enumerate/select mic and speaker devices (for example, Bluetooth); this is a limitation of the OS, and there's always only one device.
+
 
 ## Calling client - browser security model
 
@@ -89,10 +115,9 @@ The Communication Services calling client library supports the following streami
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**# of outgoing streams that can be sent simultaneously** |1 audio/video or 1 audio/screen sharing | 1 audio/video |
-|**# of incoming streams that can be rendered simultaneously** |1 audio/video or 1 audio/screen sharing| 6 audio/video or 1 screen sharing |
+|**# of outgoing streams that can be sent simultaneously** |1 video + 1 screen sharing | 1 video + 1 screen sharing|
+|**# of incoming streams that can be rendered simultaneously** |1 video + 1 screen sharing| 6 video + 1 screen sharing |
 
-Note that in group scenarios, one mixed audio stream is used to support all audio participants.
 
 ## Next steps
 
@@ -102,4 +127,4 @@ Note that in group scenarios, one mixed audio stream is used to support all audi
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
-- Learn about [phone number types](../telephony-sms/plan-solution.md)
+- [Plan your PSTN solution](../telephony-sms/plan-solution.md)

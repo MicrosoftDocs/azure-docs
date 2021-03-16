@@ -45,7 +45,7 @@ The first step in setting up key logging is to point Azure CLI to the Managed HS
 az login
 ```
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true)
+For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli)
 
 You might have to specify the subscription that you used to create your Managed HSM. Enter the following command to see the subscriptions for your account:
 

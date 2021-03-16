@@ -7,11 +7,14 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/29/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
 # Pricing Scenarios
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 Prices for Azure Communication Services are generally based on a pay-as-you-go model. The prices in the following examples are for illustrative purposes and may not reflect the latest Azure pricing.
 

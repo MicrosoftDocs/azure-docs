@@ -1,7 +1,6 @@
 ---
 title: Azure Key Vault solution in Azure Monitor | Microsoft Docs
 description: You can use the Azure Key Vault solution in Azure Monitor to review Azure Key Vault logs.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

@@ -7,13 +7,16 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/18/2020
+ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
 ---
 
 # Quickstart: Use the Communication Services calling client library
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Get started with Azure Communication Services by using the Communication Services calling client library to add voice and video calling to your app.
 

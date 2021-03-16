@@ -5,7 +5,7 @@ author: mgoedtel
 ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
-ms.date: 02/24/2021
+ms.date: 03/03/2021
 ms.custom: template-quickstart
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
@@ -20,7 +20,7 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 
 * Verify you have:
     * An up-and-running Kubernetes cluster.
-    * A `kubeconfig` file.
+    * A `kubeconfig` file pointing to the cluster you want to connect to Azure Arc.
     * 'Read' and 'Write' permissions for the user or service principal connecting creating the Azure Arc enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 * Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
 * Install the following Azure Arc enabled Kubernetes CLI extensions of versions >= 1.0.0:
@@ -63,16 +63,6 @@ In this quickstart, we'll reap the benefits of Azure Arc enabled Kubernetes and 
 | `https://login.microsoftonline.com`                                                                            | Required to fetch and update Azure Resource Manager tokens.                                                                                    |  
 | `https://mcr.microsoft.com`                                                                            | Required to pull container images for Azure Arc agents.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Required to pull system-assigned Managed Service Identity (MSI) certificates.                                                                  |
-
-
-## Install the Azure Arc enabled Kubernetes CLI extensions
-
-Enter the following commands:  
-
-    ```azurecli
-    az extension add --name connectedk8s
-    az extension add --name k8s-configuration
-    ```
 
 ## Register the two providers for Azure Arc enabled Kubernetes
 
@@ -142,6 +132,9 @@ eastus      AzureArcTest
       "type": "Microsoft.Kubernetes/connectedClusters"
     }
     ```
+
+> [!TIP]
+> The above command without the location parameter specified creates the Azure Arc enabled Kubernetes resource in the same location as the resource group. To create the Azure Arc enabled Kubernetes resource in a different location, specify either `--location <region>` or `-l <region>` when running the `az connectedk8s connect` command.
 
 ## Verify cluster connection
 
@@ -240,4 +233,4 @@ az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 
 Advance to the next article to learn how to deploy configurations to your connected Kubernetes cluster using GitOps.
 > [!div class="nextstepaction"]
-> [Deploy configurations using Gitops](use-gitops-connected-cluster.md)
+> [Deploy configurations using Gitops](tutorial-use-gitops-connected-cluster.md)

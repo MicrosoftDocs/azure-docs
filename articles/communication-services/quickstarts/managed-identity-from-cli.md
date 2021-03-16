@@ -1,12 +1,12 @@
 ---
 title: Create an Azure Active Directory managed identity application from the Azure CLI
 titleSuffix: An Azure Communication Services quickstart
-description: Managed identities let you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
+description: Managed identities let you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources. This quickstart is focused on managing identity using the Azure CLI.
 services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/10/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
 ---

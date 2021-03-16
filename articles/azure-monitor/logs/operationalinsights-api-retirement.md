@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor API retirement
 description: Describes the retirement of older versions of the OperationalInsights resource provider API.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

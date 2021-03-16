@@ -1,10 +1,10 @@
-## Add managed identity to your Communication Services solution (.Net)
+## Add managed identity to your Communication Services solution (.NET)
 
 ### Install the client library packages
 
 ```console
-dotnet add package Azure.Communication.Identity
-dotnet add package Azure.Communication.Sms
+dotnet add package Azure.Communication.Identity  --version 1.0.0-beta.5
+dotnet add package Azure.Communication.Sms  --version 1.0.0-beta.4
 dotnet add package Azure.Identity
 ```
 
@@ -16,6 +16,7 @@ Add the following `using` directives to your code to use the Azure Identity and 
 using Azure.Identity;
 using Azure.Communication.Identity;
 using Azure.Communication.Sms;
+using Azure.Core;
 ```
 
 The examples below are using the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). This credential is suitable for production and development environments.
@@ -29,16 +30,18 @@ The following code example shows how to create a service client object with Azur
 Then, use the client to issue a token for a new user:
 
 ```csharp
-     public async Task<Response<CommunicationUserToken>> CreateIdentityAndGetTokenAsync(Uri resourceEdnpoint)
+     public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
      {
           TokenCredential credential = new DefaultAzureCredential();
+
           // You can find your endpoint and access key from your resource in the Azure portal
-          String resourceEndpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+          // "https://<RESOURCE_NAME>.communication.azure.com";
 
           var client = new CommunicationIdentityClient(resourceEndpoint, credential);
-          var identityResponse = await client.CreateUserAsync();
+          var identityResponse = client.CreateUser();
+          var identity = identityResponse.Value;
 
-          var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
+          var tokenResponse = client.GetToken(identity, scopes: new[] { CommunicationTokenScope.VoIP });
 
           return tokenResponse;
      }
@@ -46,34 +49,24 @@ Then, use the client to issue a token for a new user:
 
 ### Send an SMS with Managed Identity
 
-The following code example shows how to create a SMS service client object with managed identity, then use the client to send an SMS message:
+The following code example shows how to create an SMS service client object with managed identity, then use the client to send an SMS message:
 
 ```csharp
-     public async Task SendSms(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
+     public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();
           // You can find your endpoint and access key from your resource in the Azure portal
-          String resourceEndpoint = "https://<RESOURCE_NAME>.communication.azure.com";
+          // "https://<RESOURCE_NAME>.communication.azure.com";
 
           SmsClient smsClient = new SmsClient(resourceEndpoint, credential);
-          smsClient.Send(
+          SmsSendResult sendResult = smsClient.Send(
                from: from,
                to: to,
                message: message,
-               new SendSmsOptions { EnableDeliveryReport = true } // optional
+               new SmsSendOptions(enableDeliveryReport: true) // optional
           );
-     }
+
+          return sendResult;
+      }
 ```
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Learn about authentication](../concepts/authentication.md)
-
-You may also want to:
-
-- [Learn more about Azure role-based access control](../../../../articles/role-based-access-control/index.yml)
-- [Learn more about Azure identity library for .NET](/dotnet/api/overview/azure/identity-readme)
-- [Creating user access tokens](../../quickstarts/access-tokens.md)
-- [Send an SMS message](../telephony-sms/send.md)
-- [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
