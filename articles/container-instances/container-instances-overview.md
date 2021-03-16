@@ -2,7 +2,7 @@
 title: Serverless containers in Azure
 description: The Azure Container Instances service offers the fastest and simplest way to run isolated containers in Azure, without having to manage virtual machines and without having to adopt a higher-level orchestrator.
 ms.topic: overview
-ms.date: 08/10/2020
+ms.date: 03/16/2021
 ms.custom: "seodec18, mvc"
 ---
 
@@ -18,8 +18,7 @@ Containers offer significant startup benefits over virtual machines (VMs). Azure
 
 Bring Linux or Windows container images from Docker Hub, a private [Azure container registry](../container-registry/index.yml), or another cloud-based docker registry. Azure Container Instances caches several common base OS images, helping speed deployment of your custom application images.
 
-> [!NOTE]
-> Currently, you can't deploy an image from an on-premises registry to Azure Container Instances.
+See which container registry types are compatible with ACI on our [FAQ page](../container-instances-faq.md#what-types-of-container-registries-are-compatible-with-aci).
 
 ## Container access
 
