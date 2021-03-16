@@ -39,7 +39,7 @@ Here are the features currently available for preview:
   reflected in its replica, and queries against the replica
   cause no extra load on the original. Replicas are a useful
   tool to improve performance for read-only workloads.
-* **Managed pgBouncer**. A connection pooler which allows
+* **Managed pgBouncer**. A connection pooler that allows
   many clients to connect to the server group at once, while
   limiting the number of active connections. It satisfies
   connection requests while keeping the coordinator node
