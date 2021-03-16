@@ -78,7 +78,7 @@ Here are a few links to help you learn more:
 
 # [.NET](#tab/dotnet)
 
-Try the quickstart [Acquire a token and call Microsoft Graph API from a .NET Core console app using app's identity](quickstart-v2-netcore-daemon).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a .NET Core console app using app's identity](quickstart-v2-netcore-daemon.md).
 
 # [Java](#tab/java)
 
@@ -86,7 +86,7 @@ Try the quickstart [Acquire a token and call Microsoft Graph API from a Java con
 
 # [Node.js](#tab/nodejs)
 
-Try the quickstart [Acquire a token and call Microsoft Graph API from a Node.js console app using app's identity](quickstart-v2-nodejs-console).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Node.js console app using app's identity](quickstart-v2-nodejs-console.md).
 
 # [Python](#tab/python)
 
