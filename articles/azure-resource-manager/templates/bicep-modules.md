@@ -2,20 +2,20 @@
 title: Bicep modules
 description: Describes how to define and consume a module, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ---
 
 # Use Bicep modules
 
 A Bicep module is a set of one or more resources to be deployed together. It hides details on how internal resources are defined. Using modules allows you to abstract away complex details of the raw resource declaration. Bicep modules enable you to break down the solution into targeted components. You can easily reuse these modules for other solutions.
 
-For a tutorial, see [Tutorial: Add modules](./bicep-tutorial-add-modules.md).
+For a tutorial, see [Tutorial: Add Bicep modules](./bicep-tutorial-add-modules.md).
 
 ## Define modules
 
 Every Bicep file can be consumed as a module. There is no specific syntax for defining a module. A module only exposes parameters and outputs as contract to other Bicep files. Both parameters and outputs are optional.
 
-The following Bicep is a module example to create a storage account.  The next section shows you how to consume the module:
+The following Bicep file can be deployed directly to create a storage account or be used as a module.  The next section shows you how to consume modules:
 
 ```bicep
 @minLength(3)
@@ -52,11 +52,11 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
-The outputs can be used to pass values to the parent Bicep files.
+Output is used to pass values to the parent Bicep files.
 
 ## Consume modules
 
-Use the _module_ keyword to consume a module. Here is an example consumption of a module. This Bicep file deploys the resource defined in the module file being referenced:
+Use the _module_ keyword to consume a module. The following Bicep file deploys the resource defined in the module file being referenced:
 
 ```bicep
 @minLength(3)
@@ -76,9 +76,9 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
 
 - **module**: Keyword.
-- **symbolic name**: Identifier for the module.
-- **module file**: The path to the module in this example is specified using a relative path (./storageAccount.bicep). All paths in Bicep must be specified using the forward slash (/) directory separator to ensure consistent compilation cross-platform. The Windows backslash () character is unsupported.
-- The **_name_** property (storageDeploy) is required when consuming a module. When Bicep generates the template IL, this field is used as the name of the nested deployment resource, which is generated for the module. Once you compile the Bicep file, you get the following JSON:
+- **symbolic name** (stgModule): Identifier for the module.
+- **module file**: The path to the module in this example is specified using a relative path (./storageAccount.bicep). All paths in Bicep must be specified using the forward slash (/) directory separator to ensure consistent compilation cross-platform. The Windows backslash (\\) character is unsupported.
+- The **_name_** property (storageDeploy) is required when consuming a module. When Bicep generates the template IL, this field is used as the name of the nested deployment resource, which is generated for the module:
 
     ```json
     ...
@@ -113,7 +113,7 @@ module stgModule './storageAccount.bicep' = {
 }
 ```
 
-This property can be omitted when the module's target scope and the parent's target scope are the same. When the scope property is not provided, the module is deployed at the target scope for the Bicep file.
+The _scope_ property can be omitted when the module's target scope and the parent's target scope are the same. When the scope property is not provided, the module is deployed at the parent's target scope.
 
 The following Bicep file shows how to create a resource group and deploy a module to the resource group:
 
@@ -148,4 +148,4 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 
 ## Next steps
 
-- To go through a tutorial, see [Tutorial: Add modules](./bicep-tutorial-add-modules.md).
+- To go through a tutorial, see [Tutorial: Add Bicep modules](./bicep-tutorial-add-modules.md).
