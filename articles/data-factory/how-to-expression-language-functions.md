@@ -20,7 +20,7 @@ In this document, we will primarily focus on learning fundamental concepts with 
 
 ## Azure data factory UI and parameters
 
-If you are new to Azure data factory parameter usage in ADF user interface, please review [Data factory UI for linked services with parameters](https://docs.microsoft.comazure/data-factory/parameterize-linked-services#data-factory-ui)  and [Data factory UI for metadata driven pipeline with parameters](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) for visual explanation.
+If you are new to Azure data factory parameter usage in ADF user interface, please review [Data factory UI for linked services with parameters](https://docs.microsoft.com/azure/data-factory/parameterize-linked-services#data-factory-ui)  and [Data factory UI for metadata driven pipeline with parameters](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) for visual explanation.
 
 ## Parameter and expression concepts 
 

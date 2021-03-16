@@ -13,6 +13,8 @@ monikerRange: ">=iotedge-2020-11"
 
 # Tutorial: Create a hierarchy of IoT Edge devices (Preview)
 
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+
 Deploy Azure IoT Edge nodes across networks organized in hierarchical layers. Each layer in a hierarchy is a gateway device that handles messages and requests from devices in the layer beneath it.
 
 >[!NOTE]
@@ -521,7 +523,7 @@ In the [Azure portal](https://ms.portal.azure.com/):
            "$edgeAgent": {
                "properties.desired": {
                    "modules": {
-                       "dockerContainerRegistry": {
+                       "registry": {
                            "settings": {
                                "image": "registry:latest",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5000/tcp\":[{\"HostPort\":\"5000\"}]}}}"
