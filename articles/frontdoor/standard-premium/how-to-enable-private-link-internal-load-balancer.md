@@ -14,6 +14,10 @@ ms.author: tyao
 
 This article will guide you through how to configure Azure Front Door Premium SKU to connect to your internal load balancer origin using the Azure Private Link service.
 
+## Prerequisites
+
+Create a [private link service](../../private-link/create-private-link-service-portal.md).
+
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
