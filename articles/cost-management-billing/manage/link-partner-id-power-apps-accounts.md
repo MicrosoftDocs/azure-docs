@@ -1,5 +1,5 @@
 ---
-title: Link a partner ID to your Power Apps accounts
+title: Link a partner ID to your Power Apps accounts with your Azure credentials
 description: This article helps Microsoft partners use their Azure credentials to assist customers use Microsoft Power Apps.
 author: bandersmsft
 ms.reviewer: akangaw
