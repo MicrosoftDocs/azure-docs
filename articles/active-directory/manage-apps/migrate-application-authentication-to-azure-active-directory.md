@@ -506,7 +506,7 @@ Depending on how you configure your app, verify that SSO works properly.
 
 ### Troubleshoot
 
-If you run into problems, check out our [apps troubleshooting guide](../app-provisioning/isv-automatic-provisioning-multi-tenant-apps.md) to get help. See also [Problems signing in to a custom-developed application](./application-sign-in-problem-federated-sso-gallery.md).
+If you run into problems, check out our [apps troubleshooting guide](../app-provisioning/isv-automatic-provisioning-multi-tenant-apps.md) to get help. You can also check out our troubleshooting articles, see [Problems signing in to SAML-based single sign-on configured apps](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps).
 
 ### Plan rollback
 
