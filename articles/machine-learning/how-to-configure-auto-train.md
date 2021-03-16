@@ -394,14 +394,8 @@ To get a featurization summary and understand what features were added to a part
 > [!NOTE]
 > The algorithms automated ML employs have inherent randomness that can cause slight variation in a recommended model's final metrics score, like accuracy. Automated ML also performs operations on data such as train-test split, train-validation split or cross-validation when necessary. So if you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score due to these factors. 
 
-## Download and register a model
-You can download or register a model, so you can come back to it for later use. 
-
-The following code, downloads the specified model and its corresponding Conda and scoring files needed for deployment with the [`download_file()`](/python/api/azureml-core/azureml.core.run(class)#download-file-name--output-file-path-none---validate-checksum-false-) method
-
-```python
-best_run.download_file('outputs/scoring_file_v_1_0_0.py', 'inference/score.py')
-```
+## Register and deploy models
+You can register a model, so you can come back to it for later use. 
 
 To register a model from an automated ML run, use the [`register_model()`](python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) method. 
 
@@ -420,12 +414,10 @@ model = remote_run.register_model(model_name = model_name,
 ```
 
 
-## Deploy a model
-
 For details on how to create a deployment configuration and deploy a registered model to a web service, see [how and where to deploy a model](how-to-deploy-and-where.md#define-a-deployment-configuration&tabs=python).
 
 > [!TIP]
-> For models generated as a result of automated ML experiments and registered to the workspace, one click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
+> For registered models, one-click deployment is available via the [Azure Machine Learning studio](https://ml.azure.com). See [how to deploy registered models from the studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 <a name="explain"></a>
 
 ## Model interpretability
