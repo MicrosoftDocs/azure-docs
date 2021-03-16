@@ -56,7 +56,7 @@ The following Media Services [Streaming Endpoints](/rest/api/media/streamingendp
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-**PLACEHOLDER** for dimensions table.
+<!--**PLACEHOLDER** for dimensions table.-->
 
 ## Resource logs
 

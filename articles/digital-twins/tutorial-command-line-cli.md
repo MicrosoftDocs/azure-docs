@@ -65,7 +65,7 @@ You can get both of these values for your instance in the output of the followin
 az dt show -n <ADT_instance_name>
 ```
 
-:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Cloud Shell window showing the output of the az dt show command. The hostName field and subscription ID (part of the id field) are highlighted.":::
+:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Screenshot of Cloud Shell browser window showing the output of the az dt show command. The hostName field and subscription ID (part of the id field) are highlighted.":::
 
 ## Model a physical environment with DTDL
 
@@ -88,7 +88,7 @@ After designing models, you need to upload them to your Azure Digital Twins inst
 
 1. To add models using Cloud Shell, you'll need to upload your model files to Cloud Shell's storage so the files will be available when you run the Cloud Shell command that uses them. To do this, select the "Upload/Download files" icon and choose "Upload".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload icon":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Cloud Shell browser window showing selection of the Upload icon.":::
     
     Navigate to the *Room.json* file on your machine and select "Open." Then, repeat this step for *Floor.json*.
 
@@ -112,7 +112,7 @@ After designing models, you need to upload them to your Azure Digital Twins inst
     
     Look for the edited *Room* model in the results:
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="Results of the model list command, showing the updated Room model" lightbox="media/tutorial-command-line/cli/output-get-models.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="Screenshot of Cloud Shell showing result of the model list command, which includes the updated Room model." lightbox="media/tutorial-command-line/cli/output-get-models.png":::
 
 ### Errors
 
@@ -160,7 +160,7 @@ To create a digital twin, you use the [**az dt twin create**](/cli/azure/ext/azu
     
     Look for the *room0*, *room1*, *floor0*, and *floor1* twins in the results. Here is an excerpt showing part of the result of this query.
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Partial results of twin query, showing room0 and room1" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot of Cloud Shell showing partial result of twin query, including room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
 ### Modify a digital twin
 
@@ -182,7 +182,7 @@ You can also modify the properties of a twin you've created.
     
     The output from this command will show the twin's current information, and you should see the new value for the `RoomName` in the result.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Results of the update command, showing a RoomName of PresidentialSuite" lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Screenshot of Cloud Shell showing result of the update command, which includes a RoomName of PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
 1. You can verify the update succeeded by running the [**az dt twin show**](/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_twin_show) command to see *room0*'s information:
 
@@ -237,7 +237,7 @@ To add a relationship, use the [**az dt twin relationship create**](/cli/azure/e
 
 The twins and relationships you have set up in this tutorial form the following conceptual graph:
 
-:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="A graph showing floor0 connected via relationship0 to room0, and floor1 connected via relationship1 to room1" border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="A diagram showing a conceptual graph. floor0 is connected via relationship0 to room0, and floor1 is connected via relationship1 to room1." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
 ## Query the twin graph to answer environment questions
 
@@ -253,7 +253,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
 
     This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Partial results of twin query, showing room0 and room1" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot of Cloud Shell showing partial result of twin query, including room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
     >[!TIP]
     >You may recognize that this is the same command you used in the [*Create digital twins*](#create-digital-twins) section earlier to find all the Azure Digital Twins in the instance.
@@ -266,7 +266,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
 
     You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows *room0* and *room1*, but does **not** show *floor0* or *floor1* (since they are floors, not rooms).
     
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Results of model query, showing only room0 and room1" lightbox="media/tutorial-command-line/cli/output-query-model.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="Screenshot of Cloud Shell showing result of model query, which includes only room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-model.png":::
 
 1. **What are all the rooms on *floor0*?** (query by relationship)
 
@@ -276,7 +276,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
 
     You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. Only *room0* is on *floor0*, so it's the only room in the result.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Results of relationship query, showing room0" lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Screenshot of Cloud Shell showing result of relationship query, which includes room0." lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
     > Notice that a twin's ID (like *floor0* in the query above) is queried using the metadata field `$dtId`. 
@@ -291,7 +291,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
 
     You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. *room1* shows up in the results here, because it has a temperature of 80.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Results of property query, showing only room1" lightbox="media/tutorial-command-line/cli/output-query-property.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="Screenshot of Cloud Shell showing result of property query, which includes only room1." lightbox="media/tutorial-command-line/cli/output-query-property.png":::
 
 1. **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
 
@@ -301,7 +301,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
 
     You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them. The result set is empty.
 
-    :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="Results of compound query, showing no results" lightbox="media/tutorial-command-line/cli/output-query-compound.png":::
+    :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="Screenshot of Cloud Shell showing result of compound query, which doesn't include any items." lightbox="media/tutorial-command-line/cli/output-query-compound.png":::
 
 ## Clean up resources
 
