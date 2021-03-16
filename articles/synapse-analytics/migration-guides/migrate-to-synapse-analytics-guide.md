@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 ms.date: 03/10/2021
 ---
 # Migrating a data warehouse to a dedicated SQL pool in Azure Synapse Analytics 
-The following sections provide an overview of what's involved with migrating an existing data warehouse solution to Azure Synapse Analytics SQL pool
+The following sections provide an overview of what's involved with migrating an existing data warehouse solution to Azure Synapse Analytics dedicated SQL pool
 
 ## Overview
 Before migrating, you should verify that Azure Synapse Analytics is the best solution for your workload. Azure Synapse Analytics is a distributed system designed to perform analytics on large data. Migrating to Azure Synapse Analytics requires some design changes that are not difficult to understand but that might take some time to implement. If your business requires an enterprise-class data warehouse, the benefits are worth the effort. However, if you don't need the power of Azure Synapse Analytics, it is more cost-effective to use [SQL Server](https://docs.microsoft.com/sql/sql-server/) or [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/).
@@ -44,11 +44,16 @@ To migrate your SQL Server data warehouse to Azure Synapse Analytics, make sure 
 # [Migrate from Netezza](#tab/migratefromNetezza)
 To migrate your Netezza data warehouse to Azure Synapse Analytics, make sure you have the following prerequisites: 
 
-- A data warehouse or Analytics workload 
 - Download the latest [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787) tool to migrate SQL Server objects to Azure Synapse objects.
 - A [dedicated SQL pool](../get-started-create-workspace.md) in Azure Synapse workspace.
 
 For more information visit [Azure Synapse Analytics solutions and migration for Netezza](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-netezza).
+
+# [Migrate from Snowflake](#tab/migratefromSnowflake)
+To migrate your Snowflake data warehouse to Azure Synapse Analytics, make sure you have the following prerequisites: 
+
+- Download the latest [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787) tool to migrate Snowflake objects to Azure Synapse objects.
+- A [dedicated SQL pool](../get-started-create-workspace.md) in Azure Synapse workspace. 
 
 # [Migrate from Oracle](#tab/migratefromOracle)
 To migrate your Oracle data warehouse to Azure Synapse Analytics, make sure you have the following prerequisites: 
@@ -59,11 +64,6 @@ To migrate your Oracle data warehouse to Azure Synapse Analytics, make sure you 
 - A [dedicated SQL pool](../get-started-create-workspace.md) in Azure Synapse workspace. 
 
 For more information visit [Azure Synapse Analytics solutions and migration for an Oracle data warehouse](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata).
-
-# [Migrate from Teradata](#tab/migratefromTeradata)
-[Azure Synapse Pathway](https://docs.microsoft.com/sql/tools/synapse-pathway/pathway-faq) tool will support Teradata in the near future. Please keep checking the Azure Synapse Pathway faq page for supported data sources.
-
-Also visit [Azure Synapse Analytics solutions and migration for Teradata](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-teradata) for more information.
 
 ---
 
@@ -95,4 +95,3 @@ For additional assistance with completing this migration scenario, please see th
 
 ## Videos
 - Watch how [Walgreens migrated their retail inventory system](https://www.youtube.com/watch?v=86dhd8N1lH4) with about 100TB of data from Netezza to Azure Synapse Analytics (formerly Azure SQL Data Warehouse) in record time. 
-- [Tips for Migrating Data Warehouse Workloads to Azure](https://www.youtube.com/watch?v=MBX_Cj3nk5E) from our partner Pragmatic Works.
