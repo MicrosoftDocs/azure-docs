@@ -4,7 +4,7 @@ description: Enable SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ---
 
 # Enable SQL insights (preview)
@@ -19,12 +19,12 @@ You need a user on the SQL deployments that you want to monitor. Follow the proc
 ### Azure SQL database
 Open Azure SQL Database with [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or [Query Editor (preview)](../../azure-sql/database/connect-query-portal.md) in the Azure portal.
 
-Run the following script to create a user with the required permissions. Replace *telegraf* with a username and *mystrongpassword* with a password.
+Run the following script to create a user with the required permissions. Replace *user* with a username and *mystrongpassword* with a password.
 
 ```
-CREATE USER [telegraf] WITH PASSWORD = N'mystrongpassword'; 
+CREATE USER [user] WITH PASSWORD = N'mystrongpassword'; 
 GO 
-GRANT VIEW DATABASE STATE TO [telegraf]; 
+GRANT VIEW DATABASE STATE TO [user]; 
 GO 
 ```
 
@@ -35,32 +35,32 @@ Verify the user was created.
 :::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Verify telegraf user script.":::
 
 ### Azure SQL Managed Instance
-Log into your Azure SQL Managed Instance and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *telegraf* with a username and *mystrongpassword* with a password.
+Log into your Azure SQL Managed Instance and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a password.
 
  
 ```
 USE master; 
 GO 
-CREATE LOGIN [telegraf] WITH PASSWORD = N'mystrongpassword'; 
+CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
 GO 
-GRANT VIEW SERVER STATE TO [telegraf]; 
+GRANT VIEW SERVER STATE TO [user]; 
 GO 
-GRANT VIEW ANY DEFINITION TO [telegraf]; 
+GRANT VIEW ANY DEFINITION TO [user]; 
 GO 
 ```
 
 ### SQL Server
-Log into your Azure virtual machine running SQL Server and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *telegraf* with a username and *mystrongpassword* with a password.
+Log into your Azure virtual machine running SQL Server and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a password.
 
  
 ```
 USE master; 
 GO 
-CREATE LOGIN [telegraf] WITH PASSWORD = N'mystrongpassword'; 
+CREATE LOGIN [user] WITH PASSWORD = N'mystrongpassword'; 
 GO 
-GRANT VIEW SERVER STATE TO [telegraf]; 
+GRANT VIEW SERVER STATE TO [user]; 
 GO 
-GRANT VIEW ANY DEFINITION TO [telegraf]; 
+GRANT VIEW ANY DEFINITION TO [user]; 
 GO
 ```
 
@@ -93,7 +93,7 @@ The Azure virtual machines has the following requirements.
 The virtual machines need to be placed in the same VNET as your SQL systems so they can make network connections to collect monitoring data. If use the monitoring virtual machine to monitor SQL running on Azure virtual machines or as an Azure Managed Instance, consider placing the monitoring virtual machine in an application security group or the same virtual network as those resources so that you don’t need to provide a public network endpoint for monitoring the SQL server. 
 
 ## Configure network settings
-Once you have created your monitoring virtual machines, note their internal and external IP addresses and VNET. You'll need this information if you use firewall settings to configure access to the SQL resources. 
+Each type of SQL offers methods for your monitoring virtual machine to securely access SQL.  The sections below cover the options based upon the type of SQL.
 
 ### Azure SQL Databases  
 
@@ -114,7 +114,7 @@ If your monitoring virtual machine will be in the same VNet as your SQL MI resou
 If your monitoring virtual machine is in the same VNet as your SQL virtual machine resources, then see [Connect to SQL Server within a virtual network](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-within-a-virtual-network). If your monitoring virtual machine will be in the different VNet than your SQL virtual machine resources, then see  [Connect to SQL Server over the internet](https://docs.microsoft.com/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql#connect-to-sql-server-over-the-internet).
 
 ## Store monitoring password in Key Vault
-This is not required during public preview, but it is recommended so you don't hardcode the monitoring password into the connection string. You can create more than one secret in your Key Vault if you want to use a different login and password per connection string. 
+You should store your SQL user connection passwords in a Key Vault rather than entering them directly into your monitoring profile connection strings.
 
 When settings up your profile for SQL monitoring, you will need one of the following permissions on the Key Vault resource you intend to use:
 
@@ -125,7 +125,7 @@ A new access policy will be automatically created as part of creating your SQL M
 
 
 ## Create SQL monitoring profile
-Open the preview of SQL insights from *https://aka.ms/sqlinsightspreview* and open the workbook labeled *SQL Server Insights*. Click **Create new profile**. 
+Open SQL insights by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click **Create new profile**. 
 
 :::image type="content" source="media/sql-insights-enable/create-new-profile.png" alt-text="Create new profile.":::
 
@@ -135,7 +135,7 @@ The profile will store the information that you want to collect from your SQL sy
 - Azure SQL Managed Instances 
 - SQL Server running on virtual machines  
 
-For example, you might create one profile named *ACME SQL Production* and another named *ACME SQL Staging* with different settings for frequency of data collection, what data to collect, and which workspace to send the data to. 
+For example, you might create one profile named *SQL Production* and another named *SQL Staging* with different settings for frequency of data collection, what data to collect, and which workspace to send the data to. 
 
 The profile is stored as a [data collection rule](../agents/data-collection-rule-overview.md) resource in the subscription and resource group you select. Each profile needs the following:
 
@@ -150,19 +150,19 @@ The profile is stored as a [data collection rule](../agents/data-collection-rule
 
 :::image type="content" source="media/sql-insights-enable/profile-details.png" alt-text="Profile details.":::
 
-Select the monitoring profile from the combo box. You may need to use the **refresh** button in the command bar to have it refresh and appear in the list.  Then click on the manage profile tab where you can add a monitoring machine that will be associated with the new profile. 
+Click **Create monitoring profile** once you've entered the details for your monitoring profile. It can take up to a minute for the profile to be deployed.  If you don't see the new profile listed in **Monitoring profile** combo box, click the refresh button and it should appear once the deployment is completed.  Once you've selected the new profile, select the **Manage profile** tab to add a monitoring machine that will be associated with the profile.
 
 ### Add monitoring machine
 Select **Add monitoring machine** to open a context panel to choose the virtual machine to setup to monitor your SQL instances and provide the connection strings.
 
-Select the subscription and name of your monitoring virtual machine. If you're using Key Vault to store your password for the monitoring user,  select the Key Vault resources with these secrets and enter the URL and secret name in the connection strings. See the next section for details on identifying the connection string for different SQL deployments.
+Select the subscription and name of your monitoring virtual machine. If you're using Key Vault to store your password for the monitoring user,  select the Key Vault resources with these secrets and enter the URL and secret name to be used in the connection strings. See the next section for details on identifying the connection string for different SQL deployments.
 
 
 :::image type="content" source="media/sql-insights-enable/add-monitoring-machine.png" alt-text="Add monitoring machine.":::
 
 
 ### Add connection strings 
-The connection string specifies the username that Telegraf should use when logging into SQL to run the Dynamic Management Views. If you're using a Key Vault to store the password for your Telegraf user,  provide the URL and name of the secret to use. 
+The connection string specifies the username that SQL insights should use when logging into SQL to run the Dynamic Management Views. If you're using a Key Vault to store the password for your monitoring user,  provide the URL and name of the secret to use. 
 
 The connections string will vary for each type of SQL resource:
 
@@ -171,7 +171,7 @@ Enter the connection string in the form:
 
 ```
 sqlAzureConnections": [ 
-   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$telegrafUsername;Password=$telegrafPassword;" 
+   "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
 }
 ```
 
@@ -187,7 +187,7 @@ Enter the connection string in the form:
 
 ```
 "sqlVmConnections": [ 
-   "Server=MyServerIPAddress;Port=1433;User Id=$telegrafUsername;Password=$telegrafPassword;" 
+   "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```
 
@@ -203,7 +203,7 @@ Enter the connection string in the form:
 
 ```
 "sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$telegrafUsername;Password=$telegrafPassword;", 
+      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
     ] 
 ```
 Get the details from the **Connection strings** menu item for the managed instance.
@@ -221,20 +221,6 @@ Select **Add monitoring virtual machine** to configure the virtual machine to co
 If you do not see data, see [Troubleshooting SQL insights](sql-insights-troubleshoot.md) to identify the issue. 
 
 :::image type="content" source="media/sql-insights-enable/profile-created.png" alt-text="Profile created":::
-
-
-## Upgrade to latest version of the preview 
-If you have existing Azure virtual machines configured for SQL insights, you need to perform some manual steps to upgrade to the new version. 
-
-Navigate to the **Extensions** view on your monitoring virtual machines. Select the following extensions to see if you are running the latest versions shown below.  
-
-- Workload.WLILinuxExtension - 0.2.120 
-- AzureMonitorLinuxAgent – 1.6.2 
-
-If you're not using the latest version, go to **Manage profile** and click **Configure**. Click **Update monitoring config**.
-
-Once you have upgraded to the latest version of the preview, manually delete the *SqlInsights.conf* file in */etc/telegraf/telegraf.d/* to avoid double data collection. With the most recent version of the private preview, the WLI extension will now be placing the Telegraf config in  */etc/telegraf/telegraf.d/wli/*. This will allow the WLI service to more easily maintain and keep track of WLI service specific configs.  
-
 
 ## Next steps
 

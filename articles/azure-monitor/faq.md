@@ -833,16 +833,13 @@ Any OS that supports running supported version of SQL.
 
 ### What operating system for the remote monitoring server are supported?
 
-- Ubuntu 18.04 
-
-### What workspace should I use? 
-Use a test workspace for the public preview.
+Ubuntu 18.04 is currently the only operating supported.
 
 ### Where will the monitoring data be stored in Log Analytics 
 All of the monitoring data is stored in the **InsightsMetrics** table. The **Origin** column has the value *solutions.azm.ms/telegraf/SqlInsights*. The **Namespace** column has values that start with *sqlserver_*.
 
 ### How often is data collected? 
-The default configuration collects and routes data to your workspace each minute.  This can be edited when you create your monitoring profile. 
+See [Data collected by SQL insights](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) for details on the frequency that different data is collected.
 
 ## Next steps
 If your question isn't answered here, you can refer to the following forums to additional questions and answers.
