@@ -14,8 +14,9 @@ ms.author: amberz
 ms.co-author: Donnana
 ---
 
-
 # Process data from automated machine learning(AutoML) models using data flow
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Automated machine learning(AutoML) is adopted by machine learning projects to train, tune and gain best model automatically using target metric you specify for classification, regression and time-series forecasting. 
 
