@@ -68,10 +68,10 @@ After you make the decision to migrate an existing solution to Azure Synapse Ana
 
 ## Migrate
 Performing a successful migration requires you to migrate your table schemas, code, and data. For more detailed guidance on these topics, see:
-- The article [Consider table design](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview).
+- The article [Consider table design](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview).
 - The article [Migrate your data](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading).
 - The article [Migrate your code](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-develop#development-recommendations-and-coding-techniques).
-- The article [Consider Workload Management](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management).
+- The article [Consider Workload Management](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management).
 
 ## Additional resources 
 - The CAT (Customer Advisory Team) has some great Azure Synapse Analytics (formerly SQL Data Warehouse) guidance published as blog postings. Be sure to take a look at their article, [Migrating data to Azure SQL Data Warehouse in practice](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), for additional guidance on migration.
