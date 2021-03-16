@@ -53901,27 +53901,32 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/application-sign-in-problem-custom-dev.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
-      "redirect_document_id": true
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-sign-in-problem-federated-sso-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery.md",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/application-sign-in-problem-federated-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-sign-in-problem-custom-dev.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_url": "/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps",
       "redirect_document_id": false
     },
     {
@@ -64574,13 +64579,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/media-services/media-services-diagnostic-logs-schema.md",
-      "redirect_url": "/azure/media-services/monitoring/monitor-media-services-data-reference",
+      "source_path_from_root": "/articles/media-services/latest/media-services-diagnostic-logs-schema.md",
+      "redirect_url": "/azure/media-services/latest/monitoring/monitor-media-services-data-reference",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/media-services/media-services-metrics-diagnostic-logs.md",
-      "redirect_url": "/azure/media-services/monitoring/monitor-media-services-data-reference",
+      "source_path_from_root": "/articles/media-services/latest/media-services-metrics-diagnostic-logs.md",
+      "redirect_url": "/azure/media-services/latest/monitoring/monitor-media-services-data-reference",
       "redirect_document_id": false
     },
     {
