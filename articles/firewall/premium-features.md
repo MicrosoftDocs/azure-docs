@@ -153,7 +153,7 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 |Certificate Propagation|After a CA certificate is applied on the firewall, it may take between 5-10 minutes for the certificate to take effect.|Fix scheduled for GA.|
 |IDPS Bypass|IDPS Bypass doesn't work for TLS terminated traffic, and Source IP address and Source IP Groups aren't supported.|Fix scheduled for GA.|
 |TLS 1.3 support|TLS 1.3 is partially supported. The TLS tunnel from client to the firewall is based on TLS 1.2, and from the firewall to the external Web server is based on TLS 1.3.|Updates are being investigated.|
-|KeyVault Private Endpoint|KeyVault supports Private Endpoint access to limit its network exposure. Trusted Azure Services are able to bypass this limitation if exception is configured as detailed on [KeyVault documentation(https://docs.microsoft.com/en-us/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services). Firewall is currently not listed as trusted service and will not be able to access the Key Vault.|Fix scheduled for GA.|
+|KeyVault Private Endpoint|KeyVault supports Private Endpoint access to limit its network exposure. Trusted Azure Services are able to bypass this limitation if exception is configured as detailed on [KeyVault documentation](https://docs.microsoft.com/en-us/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services). Firewall is currently not listed as trusted service and will not be able to access the Key Vault.|Fix scheduled for GA.|
 
 
 
