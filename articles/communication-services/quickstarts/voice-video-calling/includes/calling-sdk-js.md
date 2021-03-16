@@ -100,7 +100,7 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCaller
 > [!IMPORTANT]
 > There can currently be no more than one outgoing local video stream.
 
-To place a video call, you have to specify your cameras by using the `getCameras()` API in `deviceManager`.
+To place a video call, you have to specify your cameras by using the `getCameras()` method in `deviceManager`.
 
 After you select a camera, use it to construct a `LocalVideoStream` instance. Pass it within `videoOptions` as an item within the `localVideoStream` array to the `startCall` method.
 
