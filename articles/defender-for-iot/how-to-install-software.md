@@ -846,9 +846,10 @@ To install the software:
 
 1. Sign-in credentials are automatically generated and presented. Keep these credentials in a safe place, because they're required for sign-in and administration.
 
-  - **Support**: The administrative user for user management.
-
-  - **CyberX**: The equivalent of root for accessing the appliance.
+    | Username | Description |
+    |--|--|
+    | Support | The administrative user for user management. |
+    | CyberX | The equivalent of root for accessing the appliance. |
 
 1. The appliance restarts.
 
