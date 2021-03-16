@@ -44,13 +44,13 @@ Follow the below instructions to add confidential computing capable nodes with a
 
 If you already have an AKS cluster that meets the above requirements, [skip to the existing cluster section](#existing-cluster) to add a new confidential computing node pool.
 
-First, create a resource group for the cluster using the az group create command. The following example creates a resource group name *myResourceGroup* in the *westus2* region:
+First, create a resource group for the cluster using the [az group create][az-group-create] command. The following example creates a resource group name *myResourceGroup* in the *westus2* region:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
 ```
 
-Now create an AKS cluster using the az aks create command:
+Now create an AKS cluster using the [az aks create][az-aks-create] command:
 
 ```azurecli-interactive
 # Create a new AKS cluster with system node pool with Confidential Computing addon enabled
@@ -71,7 +71,7 @@ After running, a new node pool with **DC<x>s-v2** should be visible with Confide
 
 ### Verify the node pool and add-on
 
-Get the credentials for your AKS cluster using the az aks get-credentials command:
+Get the credentials for your AKS cluster using the [az aks get-credentials][az-aks-get-credentials] command:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -214,3 +214,8 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster
 * Run Python, Node etc. Applications confidentially through confidential containers by visiting [confidential container samples](https://github.com/Azure-Samples/confidential-container-samples).
 
 * Run Enclave aware applications by visiting [Enclave Aware Azure Container Samples](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
+
+<!-- LINKS -->
+[az-group-create]: /cli/azure/group#az_group_create
+[az-aks-create]: /cli/azure/aks#az_aks_create
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
