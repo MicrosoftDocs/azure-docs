@@ -125,7 +125,7 @@ Currently, this feature is available for Azure Databases for PostgreSQL Server, 
 - Backup Failure (to get alerts for Backup Failure, you need to register the AFEC flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** via the preview portal)
 - Restore Failure (to get alerts for Restore Failure, you  need to register the AFEC flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** via the preview portal)
 
-For more information about Azure Monitor alerts, see [Overview of alerts in Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
+For more information about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ## Next steps
 

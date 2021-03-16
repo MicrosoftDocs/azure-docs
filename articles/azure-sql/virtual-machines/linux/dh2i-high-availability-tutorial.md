@@ -34,22 +34,22 @@ In this tutorial, we are going to set up a DxEnterprise cluster using [DxAdmin C
 
 ## Prerequisites
 
-- Create four VMs in Azure. Follow the [Quickstart: Create Linux virtual machine in Azure portal](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) article to create Linux based virtual machines. Similarly, for creating the Windows based virtual machine, follow the [Quickstart: Create a Windows virtual machine in the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) article.
-- Install .NET 3.1 on all the Linux-based VMs that are going to be part of the cluster. Follow the instructions documented [here](https://docs.microsoft.com/dotnet/core/install/linux) based on the Linux operating system that you choose.
+- Create four VMs in Azure. Follow the [Quickstart: Create Linux virtual machine in Azure portal](../../../virtual-machines/linux/quick-create-portal.md) article to create Linux based virtual machines. Similarly, for creating the Windows based virtual machine, follow the [Quickstart: Create a Windows virtual machine in the Azure portal](../../../virtual-machines/windows/quick-create-portal.md) article.
+- Install .NET 3.1 on all the Linux-based VMs that are going to be part of the cluster. Follow the instructions documented [here](/dotnet/core/install/linux) based on the Linux operating system that you choose.
 - A valid DxEnterprise license with availability group management features enabled will be required. For more information, see [DxEnterprise Free Trial](https://dh2i.com/trial/) about how you can obtain a free trial.
 
 ## Install SQL Server on all the Azure VMs that will be part of the availability group
 
-In this tutorial, we are setting up a three node Linux-based cluster running the availability group. Follow the documentation for [SQL Server installation on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview#install) based on the choice of your Linux platform. We also recommend you install the [SQL Server tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) for this tutorial.
+In this tutorial, we are setting up a three node Linux-based cluster running the availability group. Follow the documentation for [SQL Server installation on Linux](/sql/linux/sql-server-linux-overview#install) based on the choice of your Linux platform. We also recommend you install the [SQL Server tools](/sql/linux/sql-server-linux-setup-tools) for this tutorial.
  
 > [!NOTE]
-> Ensure that the Linux OS that you choose is a common distribution that is supported by both [DH2i DxEnterprise ( See Minimal System Requirements Section)](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf) and [Microsoft SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-release-notes-2019#supported-platforms).
+> Ensure that the Linux OS that you choose is a common distribution that is supported by both [DH2i DxEnterprise ( See Minimal System Requirements Section)](https://dh2i.com/wp-content/uploads/DxEnterprise-v20-Admin-Guide.pdf) and [Microsoft SQL Server](/sql/linux/sql-server-linux-release-notes-2019#supported-platforms).
 >
 > In this example, we use Ubuntu 18.04, which is supported by both DH2i DxEnterprise and Microsoft SQL Server.
 
 For this tutorial, we are not going to install SQL Server on the Windows VM, as this node is not going to be part of the cluster, and is used only to manage the cluster using DxAdmin.
 
-After you complete this step, you should have SQL Server and [SQL Server tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) (optionally) installed on all three Linux-based VMs that will participate in the availability group.
+After you complete this step, you should have SQL Server and [SQL Server tools](/sql/linux/sql-server-linux-setup-tools) (optionally) installed on all three Linux-based VMs that will participate in the availability group.
  
 ## Install DxEnterprise on all the VMs and Configure the cluster
 
@@ -79,7 +79,7 @@ To install just the DxAdmin client tool on the Windows VM, follow [DxAdmin Clien
 After this step, you should have the DxEnterprise cluster created on the Linux VMs, and DxAdmin client installed on the Windows Client machine. 
 
 > [!NOTE]
-> You can also create a three node cluster where one of the node is added as *configuration-only mode*, as described [here](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-modes-always-on-availability-groups#SupportedAvModes) to enable automatic failover. 
+> You can also create a three node cluster where one of the node is added as *configuration-only mode*, as described [here](/sql/database-engine/availability-groups/windows/availability-modes-always-on-availability-groups#SupportedAvModes) to enable automatic failover. 
 
 ## Create the virtual hosts to provide failover support and high availability
 
@@ -95,7 +95,7 @@ Connect to the Windows client machine running DxAdmin to connect to the cluster 
 
 ## Create the Internal Azure Load balancer for Listener (optional)
 
-In this optional step, you can create and configure the Azure Load balancer that holds the IP addresses for the availability group listeners. For more information on Azure Load Balancer, refer [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). To configure the Azure load balancer and availability group listener using DxAdmin, follow the DxEnterprise [Azure Load Balancer Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/).
+In this optional step, you can create and configure the Azure Load balancer that holds the IP addresses for the availability group listeners. For more information on Azure Load Balancer, refer [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md). To configure the Azure load balancer and availability group listener using DxAdmin, follow the DxEnterprise [Azure Load Balancer Quick Start Guide](https://dh2i.com/docs/20-0/dxenterprise/dh2i-dxenterprise-20-0-software-azure-load-balancer-quick-start-guide/).
 
 After this step, you should have an availability group listener created and mapped to the Internal Azure load balancer.
 
@@ -116,7 +116,7 @@ For more information on more operations within DxEnterprise, access the [DxEnter
 
 ## Next Steps
 
-- Learn more about [Availability Groups on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-availability-group-overview)
-- [Quickstart: Create Linux virtual machine in Azure portal](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal)
-- [Quickstart: Create a Windows virtual machine in the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
-- [Supported platforms for SQL Server 2019 on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-release-notes-2019#supported-platforms)
+- Learn more about [Availability Groups on Linux](/sql/linux/sql-server-linux-availability-group-overview)
+- [Quickstart: Create Linux virtual machine in Azure portal](../../../virtual-machines/linux/quick-create-portal.md)
+- [Quickstart: Create a Windows virtual machine in the Azure portal](../../../virtual-machines/windows/quick-create-portal.md)
+- [Supported platforms for SQL Server 2019 on Linux](/sql/linux/sql-server-linux-release-notes-2019#supported-platforms)

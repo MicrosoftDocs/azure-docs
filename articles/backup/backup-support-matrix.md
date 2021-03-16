@@ -35,7 +35,7 @@ The following table describes the features of Recovery Services vaults:
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
 **Zone-redundant storage (ZRS)** | Available in the UK South (UKS) and South East Asia (SEA) regions.
-**Private Endpoints** | See [this section](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start) for requirements to create private endpoints for a recovery service vault.  
+**Private Endpoints** | See [this section](./private-endpoints.md#before-you-start) for requirements to create private endpoints for a recovery service vault.  
 
 ## On-premises backup support
 
