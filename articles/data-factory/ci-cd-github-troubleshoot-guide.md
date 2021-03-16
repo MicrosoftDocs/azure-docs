@@ -6,7 +6,7 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/03/2020
+ms.date: 03/12/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF 
@@ -86,7 +86,7 @@ This is due to an integration runtime with the same name in the target factory b
 
 #### Issue
 
-When trying to publish changes to a Data Factory,you get following error message:
+When trying to publish changes to a Data Factory, you get following error message:
 
 `
 "error": {
@@ -157,13 +157,13 @@ Until recently, only way to publish ADF pipeline for deployments was using ADF P
 
 #### Resolution
 
-CI/CD process has been enhanced. The **Automated publish** feature takes, validates and exports all  Azure Resource Manager (ARM) template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) for details. 
+CI/CD process has been enhanced. The **Automated publish** feature takes, validates and exports all  Azure Resource Manager (ARM) template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
 
 ###  Cannot publish because of 4mb ARM template limit  
 
 #### Issue
 
-You can not deploy because you hit Azure Resource Manager limit of 4mb total template size. You need a solution to deploy after crossing the limit. 
+You cannot deploy because you hit Azure Resource Manager limit of 4mb total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
@@ -171,7 +171,48 @@ Azure Resource Manager restricts template size to be 4mb. Limit the size of your
 
 #### Resolution
 
-For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
+For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
+
+### Cannot connect to GIT Enterprise Cloud 
+
+##### Issue
+
+You cannot connect to GIT Enterprise Cloud because of permission issues. You can see error like **422 - Unprocessable Entity.**
+
+#### Cause
+
+* You are using Git Enterprise on prem server. 
+* You have not configured Oauth for ADF. 
+* Your URL is misconfigured.
+
+##### Resolution
+
+You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will try *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/<org>/<repo>...*, and succeed. 
+ 
+### Recover from a deleted data factory
+
+#### Issue
+Customer deleted Data factory or the resource group containing the Data Factory. He would like to know how to restore a deleted data factory.
+
+#### Cause
+
+It is possible to recover the Data Factory only if the customer has Source control configured (DevOps or Git). This will bring all the latest published resource and **will not** restore the unpublished pipeline, dataset and linked service.
+
+If there is no Source control, recovering a Deleted Data Factory from backend is not possible because once the service receives deleted command, the instance is deleted and no backup has been stored.
+
+#### Resolution
+
+To recover the Deleted Data Factory which has Source Control refer the steps below:
+
+ * Create a new Azure Data Factory.
+
+ * Reconfigure Git with the same settings, but make sure Import existing Data Factory resources to the selected repository, and choose New branch.
+
+ * Create a pull request to merge the changes to the collaboration branch and publish.
+
+ * If customer had a Self-hosted Integration Runtime in deleted ADF, they will have to create a new instance in new ADF, also uninstall and reinstall the instance on their On-prem machine/VM with the new key obtained. After setup of IR is completed, customer will have to change the Linked Service to point to new IR and test the connection or it will fail with error **invalid reference.**
+
+
 
 ## Next steps
 

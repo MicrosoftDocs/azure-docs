@@ -1,22 +1,15 @@
 ---
 title: Adaptive network hardening in Azure Security Center | Microsoft Docs
 description: Learn how to use actual traffic patterns to harden your network security groups (NSG) rules and further improve your security posture.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-
-ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
 ---
 
-# Adaptive network hardening in Azure Security Center
+# Improve your network security posture with adaptive network hardening
 Learn how to configure adaptive network hardening in Security Center.
 
 ## Availability

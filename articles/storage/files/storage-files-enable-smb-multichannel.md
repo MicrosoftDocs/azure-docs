@@ -23,7 +23,7 @@ Azure FileStorage accounts support SMB Multichannel (preview), which increases t
 
 ## Prerequisites
 
-- [Create a FileStorage account](storage-how-to-create-premium-fileshare.md).
+- [Create a FileStorage account](./storage-how-to-create-file-share.md).
 - If you intend to use the Azure PowerShell module, [install the 3.0.1-preview version of the module](https://www.powershellgallery.com/packages/Az.Storage/3.0.1-preview).
 
 ## Getting started

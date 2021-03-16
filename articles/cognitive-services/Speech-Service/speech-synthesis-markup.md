@@ -83,11 +83,11 @@ The `voice` element is required. It is used to specify the voice that is used fo
 **Example**
 
 > [!NOTE]
-> This example uses the `en-US-AriaRUS` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
+> This example uses the `en-US-JennyNeural` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -112,7 +112,7 @@ Depending on the Speech SDK language, you'll set the `"SpeechServiceResponse_Syn
 
 # [C#](#tab/csharp)
 
-For more information, see <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>.
 
 ```csharp
 speechConfig.SetProperty(
@@ -121,7 +121,7 @@ speechConfig.SetProperty(
 
 # [C++](#tab/cpp)
 
-For more information, see <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>.
 
 ```cpp
 speechConfig->SetProperty(
@@ -130,7 +130,7 @@ speechConfig->SetProperty(
 
 # [Java](#tab/java)
 
-For more information, see <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>.
 
 ```java
 speechConfig.setProperty(
@@ -139,7 +139,7 @@ speechConfig.setProperty(
 
 # [Python](#tab/python)
 
-For more information, see <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>.
 
 ```python
 speech_config.set_property_by_name(
@@ -148,7 +148,7 @@ speech_config.set_property_by_name(
 
 # [JavaScript](#tab/javascript)
 
-For more information, see <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty`</a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -157,7 +157,7 @@ speechConfig.setProperty(
 
 # [Objective-C](#tab/objectivec)
 
-For more information, see <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -165,7 +165,7 @@ For more information, see <a href="https://docs.microsoft.com/objectivec/cogniti
 
 # [Swift](#tab/swift)
 
-For more information, see <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information, see <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -178,11 +178,11 @@ speechConfig!.setPropertyTo(
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         Good morning!
     </voice>
-    <voice name="en-US-Guy24kRUS">
-        Good morning to you too Aria!
+    <voice name="en-US-GuyNeural">
+        Good morning to you too Jenny!
     </voice>
 </speak>
 ```
@@ -463,7 +463,7 @@ The `s` element may contain text and the following elements: `audio`, `break`, `
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -495,14 +495,14 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet <span class="docon docon-navigate-external x-hidden-focus"></span></a></li><li>`sapi` &ndash; [Speech service phonetic alphabet](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> Universal Phone Set</a></li></ul><br>The alphabet applies only to the `phoneme` in the element.. | Optional |
+| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you may specify.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet </a></li><li>`sapi` &ndash; [Speech service phonetic alphabet](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> Universal Phone Set</a></li></ul><br>The alphabet applies only to the `phoneme` in the element.. | Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the text-to-speech (TTS) service rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes. |
 
 **Examples**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
     </voice>
 </speak>
@@ -510,7 +510,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -518,7 +518,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -570,7 +570,7 @@ To define how multiple entities are read, you can create a custom lexicon, which
 </lexicon>
 ```
 
-The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span></a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
+The `lexicon` element contains at least one `lexeme` element. Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `grapheme` element contains text describing the <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography </a>. The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. The `phoneme` element provides text describing how the `lexeme` is pronounced.
 
 It's important to note, that you cannot directly set the pronunciation of a phrase using the custom lexicon. If you need to set the pronunciation for an acronym or an abbreviated term, first provide an `alias`, then associate the `phoneme` with that `alias`. For example:
 
@@ -609,7 +609,7 @@ After you've published your custom lexicon, you can reference it from your SSML.
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <lexicon uri="http://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -699,7 +699,7 @@ Volume changes can be applied to standard voices at the word or sentence-level. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -781,7 +781,7 @@ The speech synthesis engine speaks the following example as "Your first request 
  
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -819,7 +819,7 @@ Any audio included in the SSML document must meet these requirements:
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -859,7 +859,7 @@ Only one background audio file is allowed per SSML document. However, you can in
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>

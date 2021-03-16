@@ -5,7 +5,7 @@ author: JBCook
 ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.date: 4/17/2020
 ms.author: jencook
 ---

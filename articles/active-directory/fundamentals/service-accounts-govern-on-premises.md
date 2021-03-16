@@ -55,11 +55,11 @@ Use the following criteria when creating a new service account.
 
 Use the following settings with user accounts used as service accounts:
 
-* [**Account Expiry**](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): set the service account to automatically expire a set time after its review period unless it's determined that it should continue
+* [**Account Expiry**](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps): set the service account to automatically expire a set time after its review period unless it's determined that it should continue
 
 *  **LogonWorkstations**: restrict permissions for where the service account can sign in. If it runs locally on a machine and accesses only resources on that machine, restrict it from logging on anywhere else.
 
-* [**Cannot change password**](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps): prevent the service account from changing its own password by setting the parameter to false.
+* [**Cannot change password**](/powershell/module/addsadministration/set-aduser): prevent the service account from changing its own password by setting the parameter to false.
 
  
 ## Build a lifecycle management process
@@ -144,17 +144,17 @@ The risk assessment, once conducted and documented, may have impact on:
 
 Create service account only after relevant information is documented in your CMDB and you perform a risk assessment. Account restrictions should be aligned to risk assessment. Consider the following restrictions when relevant to you assessment.:
 
-* [Account Expiry](https://docs.microsoft.com/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
+* [Account Expiry](/powershell/module/activedirectory/set-adaccountexpiration?view=winserver2012-ps)
 
-   * For all user accounts used as service accounts, define a realistic and definite end-date for use. Set this using the “Account Expires” flag. For more details, refer to[ Set-ADAccountExpiration](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountexpiration?view=win10-ps). 
+   * For all user accounts used as service accounts, define a realistic and definite end-date for use. Set this using the “Account Expires” flag. For more details, refer to[ Set-ADAccountExpiration](/powershell/module/addsadministration/set-adaccountexpiration). 
 
-* Log On To ([LogonWorkstation](https://docs.microsoft.com/powershell/module/addsadministration/set-aduser?view=win10-ps))
+* Log On To ([LogonWorkstation](/powershell/module/addsadministration/set-aduser))
 
-* [Password Policy](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy) requirements
+* [Password Policy](../../active-directory-domain-services/password-policy.md) requirements
 
-* Creation in an [OU location](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) that ensures management only for privileged users
+* Creation in an [OU location](/windows-server/identity/ad-ds/plan/delegating-administration-of-account-ous-and-resource-ous) that ensures management only for privileged users
 
-* Set up and collect auditing [that detects changes](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-directory-service-changes) to the service account – and [service account use](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
+* Set up and collect auditing [that detects changes](/windows/security/threat-protection/auditing/audit-directory-service-changes) to the service account – and [service account use](https://www.manageengine.com/products/active-directory-audit/how-to/audit-kerberos-authentication-events.html).
 
 When ready to put into production, grant access to the service account securely. 
 
@@ -188,7 +188,7 @@ After removing all permissions, use this process for removing the account.
 
 3. Delete the service account after the remain disabled policy is fulfilled. 
 
-   * For MSAs, you can [uninstall it](https://docs.microsoft.com/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) using PowerShell or delete manually from the managed service account container.
+   * For MSAs, you can [uninstall it](/powershell/module/activedirectory/uninstall-adserviceaccount?view=winserver2012-ps) using PowerShell or delete manually from the managed service account container.
 
    * For computer or user accounts, you can manually delete the account from in Active Directory.
 

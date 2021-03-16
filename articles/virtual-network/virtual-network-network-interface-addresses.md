@@ -189,8 +189,6 @@ You can assign zero or one private [IPv6](#ipv6) address to one secondary IP con
 > [!NOTE]
 > Though you can create a network interface with an IPv6 address using the portal, you can't add an existing network interface to a new, or existing virtual machine, using the portal. Use PowerShell or the Azure CLI to create a network interface with a private IPv6 address, then attach the network interface when creating a virtual machine. You cannot attach a network interface with a private IPv6 address assigned to it to an existing virtual machine. You cannot add a private IPv6 address to an IP configuration for any network interface attached to a virtual machine using any tools (portal, CLI, or PowerShell).
 
-You can't assign a public IPv6 address to a primary or secondary IP configuration.
-
 ## SKUs
 
 A public IP address is created with the basic or standard SKU. For more information about SKU differences, see [Manage public IP addresses](virtual-network-public-ip-address.md).

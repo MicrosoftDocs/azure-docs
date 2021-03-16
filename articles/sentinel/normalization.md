@@ -127,7 +127,7 @@ You can click on each individual parser and see the underlying function it uses,
 > You can use your saved functions instead of Azure Sentinel tables in any query, including hunting and detection queries. For more information, see:
 >
 > - [Data normalization in Azure Sentinel](normalization.md#parsers)
-> - [Parse text in Azure Monitor logs](/azure/azure-monitor/log-query/parse-text)
+> - [Parse text in Azure Monitor logs](../azure-monitor/logs/parse-text.md)
 >
 #### Customizing parsers
 

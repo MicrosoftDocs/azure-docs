@@ -1,7 +1,6 @@
 ---
 title: Connect computers by using the Log Analytics gateway | Microsoft Docs
 description: Connect your devices and Operations Manager-monitored computers by using the Log Analytics gateway to send data to the Azure Automation and Log Analytics service when they do not have internet access.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -85,7 +84,7 @@ The Log Analytics gateway is available in these languages:
 
 The Log Analytics gateway supports only Transport Layer Security (TLS) 1.0, 1.1, and 1.2.  It doesn't support Secure Sockets Layer (SSL).  To ensure the security of data in transit to Log Analytics, configure the gateway to use at least TLS 1.2. Older versions of TLS or SSL are vulnerable. Although they currently allow backward compatibility, avoid using them.  
 
-For additional information, review [Sending data securely using TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12). 
+For additional information, review [Sending data securely using TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
 
 ### Supported number of agent connections
 
@@ -202,7 +201,7 @@ To learn how to design and deploy a Windows Server 2016 network load balancing c
 To learn how to design and deploy an Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). To deploy a basic load balancer, follow the steps outlined in this [quickstart](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) excluding the steps outlined in the section **Create back-end servers**.   
 
 > [!NOTE]
-> Configuring the Azure Load Balancer using the **Basic SKU**, requires that Azure virtual machines belong to an Availability Set. To learn more about availability sets, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/manage-availability.md). To add existing virtual machines to an availability set, refer to [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> Configuring the Azure Load Balancer using the **Basic SKU**, requires that Azure virtual machines belong to an Availability Set. To learn more about availability sets, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/availability.md). To add existing virtual machines to an availability set, refer to [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
 After the load balancer is created, a backend pool needs to be created, which distributes traffic to one or more gateway servers. Follow the steps described in the quickstart article section [Create resources for the load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  

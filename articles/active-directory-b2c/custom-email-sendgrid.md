@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -158,20 +158,26 @@ In your policy, add the following claim types to the `<ClaimsSchema>` element wi
 These claims types are necessary to generate and verify the email address using a one-time password (OTP) code.
 
 ```xml
-<ClaimType Id="Otp">
-  <DisplayName>Secondary One-time password</DisplayName>
-  <DataType>string</DataType>
-</ClaimType>
-<ClaimType Id="emailRequestBody">
-  <DisplayName>SendGrid request body</DisplayName>
-  <DataType>string</DataType>
-</ClaimType>
-<ClaimType Id="VerificationCode">
-  <DisplayName>Secondary Verification Code</DisplayName>
-  <DataType>string</DataType>
-  <UserHelpText>Enter your email verification code</UserHelpText>
-  <UserInputType>TextBox</UserInputType>
-</ClaimType>
+<!-- 
+<BuildingBlocks>
+  <ClaimsSchema> -->
+    <ClaimType Id="Otp">
+      <DisplayName>Secondary One-time password</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    <ClaimType Id="emailRequestBody">
+      <DisplayName>SendGrid request body</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    <ClaimType Id="VerificationCode">
+      <DisplayName>Secondary Verification Code</DisplayName>
+      <DataType>string</DataType>
+      <UserHelpText>Enter your email verification code</UserHelpText>
+      <UserInputType>TextBox</UserInputType>
+    </ClaimType>
+  <!-- 
+  </ClaimsSchema>
+</BuildingBlocks> -->
 ```
 
 ## Add the claims transformation
@@ -187,38 +193,48 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 * Update the value of the `personalizations.0.dynamic_template_data.subject` subject line input parameter with a subject line appropriate for your organization.
 
 ```xml
-<ClaimsTransformation Id="GenerateEmailRequestBody" TransformationMethod="GenerateJson">
-  <InputClaims>
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
-    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
-    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
-  </InputClaims>
-  <InputParameters>
-    <!-- Update the template_id value with the ID of your SendGrid template. -->
-    <InputParameter Id="template_id" DataType="string" Value="d-989077fbba9746e89f3f6411f596fb96"/>
-    <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com"/>
-    <!-- Update with a subject line appropriate for your organization. -->
-    <InputParameter Id="personalizations.0.dynamic_template_data.subject" DataType="string" Value="Contoso account email verification code"/>
-  </InputParameters>
-  <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="emailRequestBody" TransformationClaimType="outputClaim"/>
-  </OutputClaims>
-</ClaimsTransformation>
+<!-- 
+<BuildingBlocks>
+  <ClaimsTransformations> -->
+    <ClaimsTransformation Id="GenerateEmailRequestBody" TransformationMethod="GenerateJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+        <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+        <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
+      </InputClaims>
+      <InputParameters>
+        <!-- Update the template_id value with the ID of your SendGrid template. -->
+        <InputParameter Id="template_id" DataType="string" Value="d-989077fbba9746e89f3f6411f596fb96"/>
+        <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com"/>
+        <!-- Update with a subject line appropriate for your organization. -->
+        <InputParameter Id="personalizations.0.dynamic_template_data.subject" DataType="string" Value="Contoso account email verification code"/>
+      </InputParameters>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="emailRequestBody" TransformationClaimType="outputClaim"/>
+      </OutputClaims>
+    </ClaimsTransformation>
+  <!--
+  </ClaimsTransformations>
+</BuildingBlocks> -->
 ```
 
 ## Add DataUri content definition
 
-Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.0 data URI:
+Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.2 data URI:
 
 ```xml
-<ContentDefinitions>
- <ContentDefinition Id="api.localaccountsignup">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-  </ContentDefinition>
-  <ContentDefinition Id="api.localaccountpasswordreset">
-    <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-  </ContentDefinition>
-</ContentDefinitions>
+<!--
+<BuildingBlocks> -->
+  <ContentDefinitions>
+   <ContentDefinition Id="api.localaccountsignup">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+    </ContentDefinition>
+    <ContentDefinition Id="api.localaccountpasswordreset">
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+    </ContentDefinition>
+  </ContentDefinitions>
+<!--
+</BuildingBlocks> -->
 ```
 
 ## Create a DisplayControl
@@ -237,30 +253,34 @@ This example display control is configured to:
 Under content definitions, still within `<BuildingBlocks>`, add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
 
 ```xml
-<DisplayControls>
-  <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
-    <DisplayClaims>
-      <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
-      <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
-    </DisplayClaims>
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="email" />
-    </OutputClaims>
-    <Actions>
-      <Action Id="SendCode">
-        <ValidationClaimsExchange>
-          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="GenerateOtp" />
-          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="SendOtp" />
-        </ValidationClaimsExchange>
-      </Action>
-      <Action Id="VerifyCode">
-        <ValidationClaimsExchange>
-          <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="VerifyOtp" />
-        </ValidationClaimsExchange>
-      </Action>
-    </Actions>
-  </DisplayControl>
-</DisplayControls>
+<!--
+<BuildingBlocks> -->
+  <DisplayControls>
+    <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+      <DisplayClaims>
+        <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+        <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+      </DisplayClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="email" />
+      </OutputClaims>
+      <Actions>
+        <Action Id="SendCode">
+          <ValidationClaimsExchange>
+            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="GenerateOtp" />
+            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="SendOtp" />
+          </ValidationClaimsExchange>
+        </Action>
+        <Action Id="VerifyCode">
+          <ValidationClaimsExchange>
+            <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="VerifyOtp" />
+          </ValidationClaimsExchange>
+        </Action>
+      </Actions>
+    </DisplayControl>
+  </DisplayControls>
+<!--
+</BuildingBlocks> -->
 ```
 
 ## Add OTP technical profiles
@@ -270,41 +290,45 @@ The `GenerateOtp` technical profile generates a code for the email address. The 
 Add the following technical profiles to the `<ClaimsProviders>` element.
 
 ```xml
-<ClaimsProvider>
-  <DisplayName>One time password technical profiles</DisplayName>
-  <TechnicalProfiles>
-    <TechnicalProfile Id="GenerateOtp">
-      <DisplayName>Generate one time password</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <Metadata>
-        <Item Key="Operation">GenerateCode</Item>
-        <Item Key="CodeExpirationInSeconds">1200</Item>
-        <Item Key="CodeLength">6</Item>
-        <Item Key="CharacterSet">0-9</Item>
-        <Item Key="ReuseSameCode">true</Item>
-        <Item Key="MaxNumAttempts">5</Item>
-      </Metadata>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
-      </InputClaims>
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="otp" PartnerClaimType="otpGenerated" />
-      </OutputClaims>
-    </TechnicalProfile>
+<!--
+<ClaimsProviders> -->
+  <ClaimsProvider>
+    <DisplayName>One time password technical profiles</DisplayName>
+    <TechnicalProfiles>
+      <TechnicalProfile Id="GenerateOtp">
+        <DisplayName>Generate one time password</DisplayName>
+        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Metadata>
+          <Item Key="Operation">GenerateCode</Item>
+          <Item Key="CodeExpirationInSeconds">1200</Item>
+          <Item Key="CodeLength">6</Item>
+          <Item Key="CharacterSet">0-9</Item>
+          <Item Key="ReuseSameCode">true</Item>
+          <Item Key="NumRetryAttempts">5</Item>
+        </Metadata>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="otp" PartnerClaimType="otpGenerated" />
+        </OutputClaims>
+      </TechnicalProfile>
 
-    <TechnicalProfile Id="VerifyOtp">
-      <DisplayName>Verify one time password</DisplayName>
-      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-      <Metadata>
-        <Item Key="Operation">VerifyCode</Item>
-      </Metadata>
-      <InputClaims>
-        <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
-        <InputClaim ClaimTypeReferenceId="verificationCode" PartnerClaimType="otpToVerify" />
-      </InputClaims>
-    </TechnicalProfile>
-   </TechnicalProfiles>
-</ClaimsProvider>
+      <TechnicalProfile Id="VerifyOtp">
+        <DisplayName>Verify one time password</DisplayName>
+        <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+        <Metadata>
+          <Item Key="Operation">VerifyCode</Item>
+        </Metadata>
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="identifier" />
+          <InputClaim ClaimTypeReferenceId="verificationCode" PartnerClaimType="otpToVerify" />
+        </InputClaims>
+      </TechnicalProfile>
+     </TechnicalProfiles>
+  </ClaimsProvider>
+<!--
+</ClaimsProviders> -->
 ```
 
 ## Add a REST API technical profile
@@ -424,51 +448,59 @@ To localize the email, you must send localized strings to SendGrid, or your emai
 1. Add the following [Localization](localization.md) element.
 
     ```xml
-    <Localization Enabled="true">
-      <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
-        <SupportedLanguage>en</SupportedLanguage>
-        <SupportedLanguage>es</SupportedLanguage>
-      </SupportedLanguages>
-      <LocalizedResources Id="api.custom-email.en">
-        <LocalizedStrings>
-          <!--Email template parameters-->
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for validating the account</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
-        </LocalizedStrings>
-      </LocalizedResources>
-      <LocalizedResources Id="api.custom-email.es">
-        <LocalizedStrings>
-          <!--Email template parameters-->
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
-          <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sinceramente</LocalizedString>
-        </LocalizedStrings>
-      </LocalizedResources>
-    </Localization>
+    <!--
+    <BuildingBlocks> -->
+      <Localization Enabled="true">
+        <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+          <SupportedLanguage>en</SupportedLanguage>
+          <SupportedLanguage>es</SupportedLanguage>
+        </SupportedLanguages>
+        <LocalizedResources Id="api.custom-email.en">
+          <LocalizedStrings>
+            <!--Email template parameters-->
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for validating the account</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+          </LocalizedStrings>
+        </LocalizedResources>
+        <LocalizedResources Id="api.custom-email.es">
+          <LocalizedStrings>
+            <!--Email template parameters-->
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
+            <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sinceramente</LocalizedString>
+          </LocalizedStrings>
+        </LocalizedResources>
+      </Localization>
+    <!--
+    </BuildingBlocks> -->
     ```
 
 1. Add references to the LocalizedResources elements by updating the [ContentDefinitions](contentdefinitions.md) element.
 
     ```XML
-    <ContentDefinitions>
-      <ContentDefinition Id="api.localaccountsignup">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
-          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
-        </LocalizedResourcesReferences>
-      </ContentDefinition>
-      <ContentDefinition Id="api.localaccountpasswordreset">
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
-          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
-        </LocalizedResourcesReferences>
-      </ContentDefinition>
-    </ContentDefinitions>
+    <!--
+    <BuildingBlocks> -->
+      <ContentDefinitions>
+        <ContentDefinition Id="api.localaccountsignup">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+          <LocalizedResourcesReferences MergeBehavior="Prepend">
+            <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
+            <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
+          </LocalizedResourcesReferences>
+        </ContentDefinition>
+        <ContentDefinition Id="api.localaccountpasswordreset">
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+          <LocalizedResourcesReferences MergeBehavior="Prepend">
+            <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
+            <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
+          </LocalizedResourcesReferences>
+        </ContentDefinition>
+      </ContentDefinitions>
+    <!--
+    </BuildingBlocks> -->
     ```
 
 1. Finally, add following input claims transformation to the `LocalAccountSignUpWithLogonEmail` and `LocalAccountDiscoveryUsingEmailAddress` technical profiles.

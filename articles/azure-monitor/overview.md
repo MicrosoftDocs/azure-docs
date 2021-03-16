@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor overview | Microsoft Docs
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
-ms.subservice: 
 ms.topic: overview
 author: bwren
 ms.author: bwren
@@ -16,7 +15,7 @@ Azure Monitor helps you maximize the availability and performance of your applic
 Just a few examples of what you can do with Azure Monitor include:
 
 - Detect and diagnose issues across applications and dependencies with [Application Insights](app/app-insights-overview.md).
-- Correlate infrastructure issues with [Azure Monitor for VMs](vm/vminsights-overview.md) and [Azure Monitor for Containers](containers/container-insights-overview.md).
+- Correlate infrastructure issues with [VM insights](vm/vminsights-overview.md) and [Container insights](containers/container-insights-overview.md).
 - Drill into your monitoring data with [Log Analytics](logs/log-query-overview.md) for troubleshooting and deep diagnostics.
 - Support operations at scale with [smart alerts](alerts/alerts-smartgroups-overview.md) and [automated actions](alerts/alerts-action-rules.md).
 - Create visualizations with Azure [dashboards](visualize/tutorial-logs-dashboards.md) and [workbooks](visualize/workbooks-overview.md).
@@ -29,13 +28,13 @@ Just a few examples of what you can do with Azure Monitor include:
 
 ## Overview
 
-The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data used by Azure Monitor. On the left are the [sources of monitoring data](agents/data-sources.md) that populate these [data stores](/data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data. This includes such actions as analysis, alerting, and streaming to external systems.
+The following diagram gives a high-level view of Azure Monitor. At the center of the diagram are the data stores for metrics and logs, which are the two fundamental types of data used by Azure Monitor. On the left are the [sources of monitoring data](agents/data-sources.md) that populate these [data stores](data-platform.md). On the right are the different functions that Azure Monitor performs with this collected data. This includes such actions as analysis, alerting, and streaming to external systems.
 
 ![Azure Monitor overview](media/overview/overview.png)
 
 ## Monitoring data platform
 
-All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](/data-platform.md). [Metrics](essentials/data-platform-metrics.md) are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. [Logs](logs/data-platform-logs.md) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
+All data collected by Azure Monitor fits into one of two fundamental types, [metrics and logs](data-platform.md). [Metrics](essentials/data-platform-metrics.md) are numerical values that describe some aspect of a system at a particular point in time. They are lightweight and capable of supporting near real-time scenarios. [Logs](logs/data-platform-logs.md) contain different kinds of data organized into records with different sets of properties for each type. Telemetry such as events and traces are stored as logs in addition to performance data so that it can all be combined for analysis.
 
 For many Azure resources, you'll see data collected by Azure Monitor right in their Overview page in the Azure portal. Have a look at any virtual machine for example, and you'll see several charts displaying performance metrics. Click on any of the graphs to open the data in [metrics explorer](essentials/metrics-charts.md) in the Azure portal, which allows you to chart the values of multiple metrics over time.  You can view the charts interactively or pin them to a dashboard to view them with other visualizations.
 
@@ -43,7 +42,7 @@ For many Azure resources, you'll see data collected by Azure Monitor right in th
 
 Log data collected by Azure Monitor can be analyzed with [queries](logs/log-query-overview.md) to quickly retrieve, consolidate, and analyze collected data.  You can create and test queries using [Log Analytics](./logs/log-query-overview.md) in the Azure portal. You can then either directly analyze the data using different tools or save queries for use with [visualizations](visualizations.md) or [alert rules](alerts/alerts-overview.md).
 
-Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](logs/get-started-queries.md).  Particular guidance is provided to users who are already familiar with [SQL](log-query/sql-cheatsheet.md) and [Splunk](log-query/splunk-cheatsheet.md).
+Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](logs/get-started-queries.md).  Particular guidance is provided to users who are already familiar with [SQL](/azure/data-explorer/kusto/query/sqlcheatsheet) and [Splunk](/azure/data-explorer/kusto/query/splunk-cheat-sheet).
 
 ![Diagram shows Logs data flowing into Log Analytics for analysis.](media/overview/logs.png)
 
@@ -57,7 +56,7 @@ Azure Monitor can collect data from a [variety of sources](monitor-reference.md)
 - **Azure subscription monitoring data**: Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. 
 - **Azure tenant monitoring data**: Data about the operation of tenant-level Azure services, such as Azure Active Directory.
 
-As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.  [Activity logs](essentials/platform-logs-overview.md) record when resources are created or modified. [Metrics](/data-platform.md) tell you how the resource is performing and the resources that it's consuming. 
+As soon as you create an Azure subscription and start adding resources such as virtual machines and web apps, Azure Monitor starts collecting data.  [Activity logs](essentials/platform-logs-overview.md) record when resources are created or modified. [Metrics](data-platform.md) tell you how the resource is performing and the resources that it's consuming. 
 
 [Enable diagnostics](essentials/platform-logs-overview.md) to extend the data you're collecting into the internal operation of the resources.  [Add an agent](agents/agents-overview.md) to compute resources to collect telemetry from their guest operating systems. 
 
@@ -75,13 +74,13 @@ Monitoring data is only useful if it can increase your visibility into the opera
 
 ![App Insights](media/overview/app-insights.png)
 
-### Azure Monitor for containers
-[Azure Monitor for containers](containers/container-insights-overview.md) monitors the performance of container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). It gives you performance visibility by collecting metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux.
+### Container insights
+[Container insights](containers/container-insights-overview.md) monitors the performance of container workloads that are deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). It gives you performance visibility by collecting metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. Container logs are also collected.  After you enable monitoring from Kubernetes clusters, these metrics and logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux.
 
 ![Container Health](media/overview/container-insights.png)
 
-### Azure Monitor for VMs
-[Azure Monitor for VMs](vm/vminsights-overview.md) monitors your Azure virtual machines (VM) at scale. It analyzes the performance and health of your Windows and Linux VMs and identifies their different processes and interconnected dependencies on external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.  
+### VM insights
+[VM insights](vm/vminsights-overview.md) monitors your Azure virtual machines (VM) at scale. It analyzes the performance and health of your Windows and Linux VMs and identifies their different processes and interconnected dependencies on external processes. The solution includes support for monitoring performance and application dependencies for VMs hosted on-premises or another cloud provider.  
 
 
 ![VM Insights](media/overview/vm-insights.png)
@@ -141,7 +140,7 @@ Multiple APIs are available to read and write metrics and logs to and from Azure
 ## Next steps
 Learn more about:
 
-* [Metrics and logs](/data-platform.md) for the data collected by Azure Monitor.
+* [Metrics and logs](https://docs.microsoft.com/azure/azure-monitor/data-platform#metrics) for the data collected by Azure Monitor.
 * [Data sources](agents/data-sources.md) for how the different components of your application send telemetry.
 * [Log queries](logs/log-query-overview.md) for analyzing collected data.
 * [Best practices](/azure/architecture/best-practices/monitoring) for monitoring cloud applications and services.

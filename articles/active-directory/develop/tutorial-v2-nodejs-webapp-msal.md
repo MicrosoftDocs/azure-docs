@@ -9,8 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.workload: identity
-ms.date: 01/12/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
 ---
 
@@ -61,9 +60,9 @@ Create a folder to host your application, for example *ExpressWebApp*.
 ```JavaScript
     const express = require("express");
     const msal = require('@azure/msal-node');
-    
+
     const SERVER_PORT = process.env.PORT || 3000;
-    
+
     // Create Express App and Routes
     const app = express();
 
@@ -91,7 +90,7 @@ Locate the root of your project directory in a terminal and install the MSAL Nod
 In the *index.js* file you've created earlier, add the following code:
 
 ```JavaScript
-    // Before running the sample, you will need to replace the values in the config, 
+    // Before running the sample, you will need to replace the values in the config,
     // including the clientSecret
     const config = {
         auth: {
@@ -134,26 +133,26 @@ In the *index.js* file you've created earlier, add the following code:
 ```JavaScript
     // Create msal application object
     const cca = new msal.ConfidentialClientApplication(config);
-    
+
     app.get('/', (req, res) => {
         const authCodeUrlParameters = {
             scopes: ["user.read"],
             redirectUri: "http://localhost:3000/redirect",
         };
-    
+
         // get url to sign user in and consent to scopes needed for application
         cca.getAuthCodeUrl(authCodeUrlParameters).then((response) => {
             res.redirect(response);
         }).catch((error) => console.log(JSON.stringify(error)));
     });
-    
+
     app.get('/redirect', (req, res) => {
         const tokenRequest = {
             code: req.query.code,
             scopes: ["user.read"],
             redirectUri: "http://localhost:3000/redirect",
         };
-    
+
         cca.acquireTokenByCode(tokenRequest).then((response) => {
             console.log("\nResponse: \n:", response);
             res.sendStatus(200);
@@ -184,7 +183,7 @@ You've completed creation of the application and are now ready to test the app's
 
 ## How the application works
 
-In this tutorial, you initialized an MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) object by passing it a configuration object (*msalConfig*) that contains parameters obtained from your Azure AD app registration on Azure portal. The web app you created uses the [OAuth 2.0 Authorization code grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) to sign-in users and obtain ID and access tokens.
+In this tutorial, you initialized an MSAL Node [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md) object by passing it a configuration object (*msalConfig*) that contains parameters obtained from your Azure AD app registration on Azure portal. The web app you created uses the [OAuth 2.0 Authorization code grant flow](./v2-oauth2-auth-code-flow.md) to sign-in users and obtain ID and access tokens.
 
 ## Next steps
 
