@@ -5,7 +5,7 @@ description: Learn the application developer best practices for resource managem
 services: container-service
 author: zr-msft
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 03/15/2021
 ms.author: zarhoads
 ---
 
@@ -31,7 +31,7 @@ Use pod requests and limits to manage the compute resources within an AKS cluste
 ### Pod CPU/Memory requests
 *Pod requests* define a set amount of CPU and memory that the pod needs regularly.
 
-When the Kubernetes scheduler places a pod on a node, the pod requests determine which node has sufficient resources available for scheduling. Not setting a pod request will default it to the limit defined.
+In your pod specifications, it's **best practice and very important** to define these requests and limits based on the above information. If you don't include these values, the Kubernetes scheduler cannot take into account the resources your applications require to aid in scheduling decisions.
 
 Monitor the performance of your application to adjust pod requests. 
 * If you underestimate pod requests, your application may receive degraded performance due to over-scheduling a node. 
