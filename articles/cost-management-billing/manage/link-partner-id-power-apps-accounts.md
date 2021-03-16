@@ -6,7 +6,7 @@ ms.reviewer: akangaw
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/14/2021
+ms.date: 03/16/2021
 ms.author: banders
 ---
 
