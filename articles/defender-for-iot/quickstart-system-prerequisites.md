@@ -18,7 +18,7 @@ This article lists the system prerequisites for running Azure Defender for IoT.
 - Hardware appliances for NTA sensors.
 - The Azure Subscription Contributor role. It's required only during onboarding for defining committed devices and connection to Azure Sentinel.
 - Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Azure Defender for IoT** feature is enabled.
-- For device-level security module support, Defender for IoT agents support a growing list of devices and platforms. See the [list of supported platforms](how-to-deploy-agent.md).
+- For device-level Defender-IoT-micro-agent support, Defender for IoT agents support a growing list of devices and platforms. See the [list of supported platforms](how-to-deploy-agent.md).
 
 ## Supported service regions
 

@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
 ---
 ## Prerequisites
@@ -566,7 +566,9 @@ console.log(result.video);
 
 ## Record calls
 
-Call recording is an extended feature of the core `Call` API. You first need to get the recording feature API object:
+[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
+
+Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
 
 ```js
 const callRecordingApi = call.api(Features.Recording);
