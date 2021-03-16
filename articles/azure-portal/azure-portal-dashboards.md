@@ -1,20 +1,20 @@
 ---
-title: Create and share dashboards in the Azure portal
-description: This article describes how to create, customize, publish, and share dashboards in the Azure portal.
+title: Create a dashboard in the Azure portal
+description: This article describes how to create and customize a dashboard in the Azure portal.
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 03/23/2020
+ms.date: 03/16/2021
 ---
 
-# Create and share dashboards in the Azure portal
+# Create a dashboard in the Azure portal
 
 Dashboards are a focused and organized view of your cloud resources in the Azure portal. Use dashboards as a workspace where you can quickly launch tasks for day-to-day operations and monitor resources. Build custom dashboards based on projects, tasks, or user roles, for example.
 
-The Azure portal provides a default dashboard as a starting point. You can edit the default dashboard. Create and customize additional dashboards, and publish and share dashboards to make them available to other users. This article describes how to create a new dashboard, customize the interface, and publish and share dashboards.
+The Azure portal provides a default dashboard as a starting point. You can edit the default dashboard and create and customize additional dashboards. This article describes how to create a new dashboard and customize it. For information on sharing dashboards, see [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md).
 
 ## Create a new dashboard
 
-In this example, we create a new, private dashboard and assign a name. Follow these steps to get started:
+In this example, we create a new private dashboard and assign a name. Follow these steps to get started:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -22,7 +22,7 @@ In this example, we create a new, private dashboard and assign a name. Follow th
 
     ![Open the dashboard](./media/azure-portal-dashboards/portal-menu-dashboard.png)
 
-1. Select **New dashboard**.
+1. Select **New dashboard** then **Blank dashboard**.
 
     ![Screenshot of new dashboard](./media/azure-portal-dashboards/create-new-dashboard.png)
 

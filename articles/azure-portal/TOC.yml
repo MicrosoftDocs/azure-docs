@@ -35,11 +35,11 @@
       href: azure-portal-dashboards.md
     - name: Share an Azure dashboard
       href: azure-portal-dashboard-share-access.md
+    - name: Use a custom markdown tile
+      href: azure-portal-markdown-tile.md
     - name: Programmatically create an Azure dashboard
       href: azure-portal-dashboards-create-programmatically.md
       displayName: Azure CLI, az portal dashboard, az portal
-    - name: Use a custom markdown tile
-      href: azure-portal-markdown-tile.md
   - name: Azure portal how-to video series
     href: azure-portal-video-series.md
   - name: Create and manage support requests
