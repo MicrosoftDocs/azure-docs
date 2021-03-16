@@ -28,7 +28,7 @@ Here's what the sample looks like:
 
 :::image type="content" source="../media/calling/landing-page-ios.png" alt-text="Screenshot showing the landing page of the sample application.":::
 
-When you press the "Start new call" button, the iOS application creates a new call and joins it. The application also allows you to join an existing Azure Communication Services call by specifying the existing call's ID or a Teams Meeting by providing the join link found in the Meeting's invite.  (Join link has the following format: `https://teams.microsoft.com/l/meetup-join/`)
+When you press the "Start new call" button, the iOS application creates a new call and joins it. The application also allows you to join an existing Azure Communication Services call by specifying the existing call's ID or a Teams Meeting by providing the join link found in the Meeting's invite.  (Join link has the following format: `https://teams.microsoft.com/l/meetup-join/`) [For more information on Teams Interop](../../concepts/teams-interop)
 
 After joining a call, you'll be prompted to give the application permission to access your camera and microphone. You'll also be asked to provide a display name.
 
@@ -105,4 +105,3 @@ For more information, see the following articles:
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
 - [Samples](./../overview.md) - Find more samples and examples on our samples overview page.
-
