@@ -343,7 +343,7 @@ You can also enable just-in-time access to administrative accounts by using Azur
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
-**Guidance**: Use a secure privileged access workstations (PAW) for administrative tasks that require elevated privileges.
+**Guidance**: Use a secure privileged access workstation (PAW) for administrative tasks that require elevated privileges.
 
 - [Understand secure, privileged access workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
@@ -597,7 +597,7 @@ For the underlying Azure platform managed by Microsoft, Microsoft treats all cus
 
 **Guidance**: Create an inventory of approved Azure resources and approved software for compute resources as per your organizational needs.
 
-Each IoT Hub has an identity registry that can be used to create per-device resources in the service. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
+Each IoT Hub has an identity registry that can be used to create per-device resources in the service. Individual or groups of device identities can be added to an allowlist, or a blocklist, enabling complete control over device access.
 
 - [IoT Hub identity registry](iot-hub-devguide-identity-registry.md)
 

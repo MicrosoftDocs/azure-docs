@@ -124,7 +124,7 @@ Inventoried or query pre-defined Azure built-in roles exist for certain resource
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts. 
 
-Enabled Just-In-Time access by using Azure Active Directory (Azure AD) Privileged Identity Management (PIM) and Azure Resource Manager (ARM). 
+Enabled Just-In-Time access by using Azure Active Directory (Azure AD) Privileged Identity Management (PIM) and Azure Resource Manager. 
 
 - [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management)
 
@@ -146,11 +146,11 @@ Enabled Just-In-Time access by using Azure Active Directory (Azure AD) Privilege
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
-**Guidance**: Use a Privileged Access Workstation (PAW) with Azure multifactor authentication enabled to log into and configure your Azure Sentinel-related resources.
+**Guidance**: Use a Privileged Access Workstation (PAW) with Azure AD Multi-Factor Authentication enabled to log into and configure your Azure Sentinel-related resources.
 
-- [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+- [Privileged Access Workstations](/security/compass/privileged-access-devices)
 
-- [Planning a cloud-based Azure multifactor authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Planning a cloud-based Azure AD Multi-Factor Authentication deployment](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsibility**: Customer
 

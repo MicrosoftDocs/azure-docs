@@ -57,7 +57,7 @@ Using a Standard Load Balancer is recommended for your production workloads and 
 
 **Guidance**: The Load Balancer is a pass through service as it relies on the network security groups rules applied to backend resources and the configured outbound rules to control internet access.
 
-Review the outbound rules configured for your Standard Load Balancer through the Outbound Rules blade of your Load Balancer and the load balancing rules blade where you may have Implicit outbound rules enabled.
+Review the outbound rules configured for your Standard Load Balancer through the Outbound Rules blade of your Load Balancer and the load-balancing rules blade where you may have Implicit outbound rules enabled.
 
 Monitor the count of your outbound connections to track how often your resources are reaching out to the internet. 
 
@@ -581,7 +581,7 @@ Reconcile inventory on a regular basis and ensure unauthorized resources are del
 
 ### 6.4: Define and maintain an inventory of approved Azure resources
 
-**Guidance**: Create a list of approved Azure resources per your organizational needs which you can leverage as an allow list mechanism. This will allow your organization to onboard any newly available Azure services after they are formally reviewed and approved by your organization's typical security evaluation processes.
+**Guidance**: Create a list of approved Azure resources per your organizational needs which you can leverage as an allowlist mechanism. This will allow your organization to onboard any newly available Azure services after they are formally reviewed and approved by your organization's typical security evaluation processes.
 
 **Responsibility**: Customer
 

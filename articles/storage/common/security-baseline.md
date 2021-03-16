@@ -317,7 +317,7 @@ Also, Enable Azure Defender for Storage for your storage account. Azure Defender
 
 **Guidance**: Create standard operating procedures around the use of dedicated administrative accounts that have access to your Storage account. Use Azure Security Center Identity and access management to monitor the number of administrative accounts.
 
-You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Directory (Azure AD) Privileged Identity Management Privileged Roles for Microsoft Services, and Azure ARM.
+You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Directory (Azure AD) Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager.
 
 - [Understand Azure Security Center Identity and Access](../../security-center/security-center-identity-access.md)
 
@@ -777,7 +777,7 @@ Additional information is available at the referenced links.
 
 **Guidance**: Use the Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App. This can prevent the creation and changes to resources within a high security environment, such as those with Storage accounts. 
 
-- [How to configure Conditional Access to block access to ARM](../../role-based-access-control/conditional-access-azure-management.md)
+- [How to configure Conditional Access to block access to Azure Resource Manager](../../role-based-access-control/conditional-access-azure-management.md)
 
 **Responsibility**: Customer
 
