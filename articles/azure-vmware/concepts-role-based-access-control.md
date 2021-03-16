@@ -2,7 +2,7 @@
 title: Concepts - vSphere role-based access control (vSphere RBAC)
 description: Learn about the key capabilities of vSphere role-based access control for Azure VMware Solution 
 ms.topic: conceptual
-ms.date: 0316/2021
+ms.date: 03/16/2021
 ---
 
 # vSphere role-based access control (vSphere RBAC) for Azure VMware Solution
