@@ -7,7 +7,7 @@ ms.date: 03/15/2021
 
 # Use Bicep modules
 
-A Bicep module is a set of one or more resources to be deployed together. It hides details on how internal resources are defined. This allows you to abstract away complex details of the raw resource declaration from the end user who now only needs to be concerned about the module contract. Bicep modules enable you to break down the solution into targeted components. You can easily reuse these modules for other scenarios.
+A Bicep module is a set of one or more resources to be deployed together. It hides details on how internal resources are defined. Using modules allows you to abstract away complex details of the raw resource declaration. Bicep modules enable you to break down the solution into targeted components. You can easily reuse these modules for other solutions.
 
 For a tutorial, see [Tutorial: Add modules](./bicep-tutorial-add-modules.md).
 
@@ -76,9 +76,9 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
 
 - **module**: Keyword.
-- **symbolic name**: This is an identifier for the module.
+- **symbolic name**: Identifier for the module.
 - **module file**: The path to the module in this example is specified using a relative path (./storageAccount.bicep). All paths in Bicep must be specified using the forward slash (/) directory separator to ensure consistent compilation cross-platform. The Windows backslash () character is unsupported.
-- The **_name_** property (storageDeploy) is required when consuming a module. When Bicep generates the template IL, this field is used as the name of the nested deployment resource which is generated for the module. Once you compile the Bicep file, you get the following JSON:
+- The **_name_** property (storageDeploy) is required when consuming a module. When Bicep generates the template IL, this field is used as the name of the nested deployment resource, which is generated for the module. Once you compile the Bicep file, you get the following JSON:
 
     ```json
     ...
