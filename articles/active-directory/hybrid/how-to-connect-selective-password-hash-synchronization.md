@@ -83,36 +83,36 @@ the attribute **adminDescription** populated in Active Directory with the value 
 ### Configure the necessary synchronization rules:
 
  1.	Start the Synchronization Rules Editor and set the filters **Password Sync** to **On** and **Rule Type** to **Standard**.
-     ![Start sync rules editor](media/how-to-connect-selective-phs/exclude-1.png)
+     ![Start sync rules editor](media/how-to-connect-selective-password-hash-synchronization/exclude-1.png)
  2.	Select the rule **In from AD – User AccountEnabled** for the Active Directory forest Connector you want to configure selective password had hash synchronization on and click **Edit**. Select **Yes** in the next dialog box to create an editable copy of the original rule.
-     ![Select rule](media/how-to-connect-selective-phs/exclude-2.png)
+     ![Select rule](media/how-to-connect-selective-password-hash-synchronization/exclude-2.png)
  3.	The first rule will disable password hash sync.
  Provide the following name to the new custom rule: **In from AD - User AccountEnabled - Filter Users from PHS**.
  Change the precedence value to a number lower than 100 (for example **90** or whichever is the lowest value available in your environment).
  Make sure the checkboxes **Enable Password Sync** and **Disabled** are unchecked and c.
  Click **Next**.
-     ![Edit inbound](media/how-to-connect-selective-phs/exclude-3.png)
+     ![Edit inbound](media/how-to-connect-selective-password-hash-synchronization/exclude-3.png)
  4.	In **Scoping filter**, click **Add clause**.
  Select **adminDescription** in the attribute column, **EQUAL** in the Operator column and enter **PHSFiltered** as the value.
-     ![Scoping filter](media/how-to-connect-selective-phs/exclude-4.png)
+     ![Scoping filter](media/how-to-connect-selective-password-hash-synchronization/exclude-4.png)
  5. No further changes are required. **Join rules** and **Transformations** should be left with the default copied settings so you can click **Save** now.
  Click **OK** in the warning dialog box informing a full synchronization will be run on the next synchronization cycle of the connector.
-     ![Save rule](media/how-to-connect-selective-phs/exclude-5.png)
+     ![Save rule](media/how-to-connect-selective-password-hash-synchronization/exclude-5.png)
  6.	Next, create another custom rule with password hash synchronization enabled. Select again the default rule **In from AD – User AccountEnabled** for the Active Directory forest you want to configure selective password had synchronization on and click **Edit**. Select **yes** in the next dialog box to create an editable copy of the original rule.
-     ![Custom rule](media/how-to-connect-selective-phs/exclude-6.png)
+     ![Custom rule](media/how-to-connect-selective-password-hash-synchronization/exclude-6.png)
  7. Provide the following name to the new custom rule: **In from AD - User AccountEnabled - Users included for PHS**.
  Change the precedence value to a number lower than the rule previously created (In this example that’ll be **89**).
  Make sure the checkbox **Enable Password Sync** is checked and the **Disabled** checkbox is unchecked.
  Click **Next**.  
-     ![Edit new rule](media/how-to-connect-selective-phs/exclude-7.png)
+     ![Edit new rule](media/how-to-connect-selective-password-hash-synchronization/exclude-7.png)
  8. In **Scoping filter**, click **Add clause**.
  Select **adminDescription** in the attribute column, **NOTEQUAL** in the Operator column and enter **PHSFiltered** as the value.
-     ![Scope rule](media/how-to-connect-selective-phs/exclude-8.png)
+     ![Scope rule](media/how-to-connect-selective-password-hash-synchronization/exclude-8.png)
  9. No further changes are required. **Join rules** and **Transformations** should be left with the default copied settings so you can click **Save** now.
  Click **OK** in the warning dialog box informing a full synchronization will be run on the next synchronization cycle of the connector.
-     ![Join rules](media/how-to-connect-selective-phs/exclude-9.png)
+     ![Join rules](media/how-to-connect-selective-password-hash-synchronization/exclude-9.png)
  10. Confirm the rules creation. Remove the filters **Password Sync** **On** and **Rule Type** **Standard**. And you should see both new rules you just created.
-     ![Confirm rules](media/how-to-connect-selective-phs/exclude-10.png) 
+     ![Confirm rules](media/how-to-connect-selective-password-hash-synchronization/exclude-10.png) 
 
 
 ### Re-enable synchronization scheduler:  
@@ -129,7 +129,7 @@ For more information on the scheduler see [Azure AD Connect sync scheduler](how-
 ### Edit users **adminDescription** attribute:
 Once all configurations are complete, you need edit the attribute **adminDescription** for all users you wish to **exclude** from password hash synchronization in Active Directory and add the string used in the scoping filter: **PHSFiltered**.
    
-  ![Edit attribute](media/how-to-connect-selective-phs/exclude-11.png)
+  ![Edit attribute](media/how-to-connect-selective-password-hash-synchronization/exclude-11.png)
 
 
 ## Excluded users is larger than included users
@@ -154,36 +154,36 @@ the attribute **adminDescription** populated in Active Directory with the value 
 ### Configure the necessary synchronization rules:
 
  1.	Start the synchronization Rules Editor and set the filters **Password Sync** **On** and **Rule Type** **Standard**.
-     ![Rule type](media/how-to-connect-selective-phs/include-1.png)
+     ![Rule type](media/how-to-connect-selective-password-hash-synchronization/include-1.png)
  2.	Select the rule **In from AD – User AccountEnabled** for the Active Directory forest you want to configure selective password had synchronization on and click **Edit**. Select **yes** in the next dialog box to create an editable copy of the original rule.
-     ![In from AD](media/how-to-connect-selective-phs/include-2.png)
+     ![In from AD](media/how-to-connect-selective-password-hash-synchronization/include-2.png)
  3.	The first rule will disable password hash sync.
  Provide the following name to the new custom rule: **In from AD - User AccountEnabled - Filter Users from PHS**.
  Change the precedence value to a number lower than 100 (for example **90** or whichever is the lowest value available in your environment).
  Make sure the checkboxes **Enable Password Sync** and **Disabled** are unchecked.
  Click **Next**.
-     ![Set precedence](media/how-to-connect-selective-phs/include-3.png)
+     ![Set precedence](media/how-to-connect-selective-password-hash-synchronization/include-3.png)
  4.	In **Scoping filter**, click **Add clause**.
 Select **adminDescription** in the attribute column, **NOTEQUAL** in the Operator column and enter **PHSIncluded** as the value.
-     ![Add clause](media/how-to-connect-selective-phs/include-4.png)
+     ![Add clause](media/how-to-connect-selective-password-hash-synchronization/include-4.png)
  5. No further changes are required. **Join rules** and **Transformations** should be left with the default copied settings so you can click **Save** now.
  Click **OK** in the warning dialog box informing a full synchronization will be run on the next synchronization cycle of the connector.
-     ![Transformation](media/how-to-connect-selective-phs/include-5.png)
+     ![Transformation](media/how-to-connect-selective-password-hash-synchronization/include-5.png)
  6.	Next, create another custom rule with password hash synchronization enabled. Select again the default rule **In from AD – User AccountEnabled** for the Active Directory forest you want to configure selective password had synchronization on and click **Edit**. Select **yes** in the next dialog box to create an editable copy of the original rule.
-     ![User AccountEnabled](media/how-to-connect-selective-phs/include-6.png)
+     ![User AccountEnabled](media/how-to-connect-selective-password-hash-synchronization/include-6.png)
  7.	Provide the following name to the new custom rule: **In from AD - User AccountEnabled - Users included for PHS**.
  Change the precedence value to a number lower than the rule previously created (In this example that’ll be **89**).
  Make sure the checkbox **Enable Password Sync** is checked and the **Disabled** checkbox is unchecked.
  Click **Next**.
-     ![Enable Password Sync](media/how-to-connect-selective-phs/include-7.png)
+     ![Enable Password Sync](media/how-to-connect-selective-password-hash-synchronization/include-7.png)
  8.	In **Scoping filter**, click **Add clause**.
  Select **adminDescription** in the attribute column, **EQUAL** in the Operator column and enter **PHSIncluded** as the value.
-     ![PHSIncluded](media/how-to-connect-selective-phs/include-8.png)
+     ![PHSIncluded](media/how-to-connect-selective-password-hash-synchronization/include-8.png)
  9. No further changes are required. **Join rules** and **Transformations** should be left with the default copied settings so you can click **Save** now.
  Click **OK** in the warning dialog box informing a full synchronization will be run on the next synchronization cycle of the connector.
-     ![Save now](media/how-to-connect-selective-phs/include-9.png)
+     ![Save now](media/how-to-connect-selective-password-hash-synchronization/include-9.png)
  10.	Confirm the rules creation. Remove the filters **Password Sync** **On** and **Rule Type** **Standard**. And you should see both new rules you just created.
-     ![Sync on](media/how-to-connect-selective-phs/include-10.png)
+     ![Sync on](media/how-to-connect-selective-password-hash-synchronization/include-10.png)
 
 ### Re-enable synchronization scheduler:  
 Once you completed the steps to configure the necessary synchronization rules, re-enable the synchronization scheduler with the following steps:
@@ -199,7 +199,7 @@ For more information on the scheduler see [Azure AD Connect sync scheduler](how-
 ### Edit users **adminDescription** attribute:
 Once all configurations are complete, you need edit the attribute **adminDescription** for all users you wish to **include** for password hash synchronization in Active Directory and add the string used in the scoping filter: **PHSIncluded**.
 
-  ![Edit attributes](media/how-to-connect-selective-phs/include-11.png)
+  ![Edit attributes](media/how-to-connect-selective-password-hash-synchronization/include-11.png)
  
  
 
