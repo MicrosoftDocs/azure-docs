@@ -108,11 +108,11 @@ To convert the schema, follow these steps:
 
 1. After the conversion completes, compare and review the converted objects to the original objects to identify potential problems and address them based on the recommendations.
 
-   ![Review recommendations schema](./media/oracle-to-sql-database-guide/convert-schema-review.png)
+   ![Review recommendations schema](./media/oracle-to-sql-database-guide/table-mapping.png)
 
    Compare the converted Transact-SQL text to the original stored procedures and review the recommendations: 
 
-   ![Review recommendations](./media/oracle-to-sql-database-guide/review-recommendations.png)
+   ![Review recommendations](./media/oracle-to-sql-database-guide/procedure-comparison.png)
 
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu.
 
