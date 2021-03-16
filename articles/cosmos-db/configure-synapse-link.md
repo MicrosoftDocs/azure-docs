@@ -47,6 +47,21 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Az
 > [!NOTE]
 > Turning on Synapse Link does not turn on the analytical store automatically. Once you enable Synapse Link on the Cosmos DB account, enable analytical store on containers when you create them, to start replicating your operation data to analytical store. 
 
+### Azure CLI
+
+The following links shows how to enabled Synapse Link by using Azure CLI:
+
+* [Create a new Azure Cosmos DB account with Synapse Link enabled](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create-optional-parameters)
+* [Update an existing Azure Cosmos DB account to enable Synapse Link](https://docs.microsoft.com/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_update-optional-parameters)
+
+### PowerShell
+
+* [Create a new Azure Cosmos DB account with Synapse Link enabled](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount?view=azps-5.5.0#description)
+* [Update an existing Azure Cosmos DB account to enable Synapse Link](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccount?view=azps-5.5.0)
+
+
+The following links shows how to enabled Synapse Link by using PowerShell:
+
 ## <a id="create-analytical-ttl"></a> Create an Azure Cosmos container with analytical store
 
 You can turn on analytical store on an Azure Cosmos container while creating the container. You can use the Azure portal or configure the `analyticalTTL` property during container creation by using the Azure Cosmos DB SDKs.
@@ -157,22 +172,22 @@ except exceptions.CosmosResourceExistsError:
 
 ### Azure CLI
 
-The following link shows how to create an analytical store enabled containers by using Azure CLI:
+The following links show how to create an analytical store enabled containers by using Azure CLI:
 
 * [Azure Cosmos DB API for Mongo DB](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_create-examples)
 * [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create)
 
 ### PowerShell
 
-The following link shows how to create an analytical store enabled containers by using PowerShell:
+The following links show how to create an analytical store enabled containers by using PowerShell:
 
 * [Azure Cosmos DB API for Mongo DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection?view=azps-5.5.0#description)
 * [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_create)
 
 
-## <a id="update-analytical-ttl"></a> Update the analytical store time to live
+## <a id="update-analytical-ttl"></a> Optional - Update the analytical store time to live
 
-After the analytical store is enabled with a particular TTL value, you can update it to a different valid value later. You can update the value by using the Azure portal, Azure CLI, PowerShell, or Cosmos DB SDKs. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+After the analytical store is enabled with a particular TTL value, you may want to update it to a different valid value later. You can update the value by using the Azure portal, Azure CLI, PowerShell, or Cosmos DB SDKs. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 
 ### Azure portal
@@ -223,14 +238,14 @@ Currently not supported.
 
 ### Azure CLI
 
-The following link shows how to update containers analytical TTL by using Azure CLI:
+The following links show how to update containers analytical TTL by using Azure CLI:
 
 * [Azure Cosmos DB API for Mongo DB](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update)
 * [Azure Cosmos DB SQL API](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update)
 
 ### PowerShell
 
-The following link shows how to update containers analytical TTL by using PowerShell:
+The following links show how to update containers analytical TTL by using PowerShell:
 
 * [Azure Cosmos DB API for Mongo DB](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0)
 * [Azure Cosmos DB SQL API](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0)
