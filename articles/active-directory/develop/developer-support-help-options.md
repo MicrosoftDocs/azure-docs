@@ -40,17 +40,17 @@ Get answers to your identity app development questions directly from Microsoft e
 
 [Microsoft Q&A](/answers/products/) is Azure's recommended source of community support.
 
-If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Use one of following tags when you ask your [high-quality question](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html):
+If you can't find an answer to your problem by searching Microsoft Q&A, submit a new question. Use one of following tags when you ask your [high-quality question](/answers/articles/24951/how-to-write-a-quality-question.html):
 
 | Component/area| Tags  |
 |------------|---------------------------|
-| Active Directory Authentication Library (ADAL)                              | [[adal]](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
-| Microsoft Authentication Library (MSAL)                                     | [[msal]](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |
-| Open Web Interface for .NET (OWIN) middleware                               | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [Azure AD B2B / External Identities](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html)                     |
-| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html)                     |
-| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html)                 |
-| All other authentication and authorization areas                            | [[azure-active-directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| Active Directory Authentication Library (ADAL)                              | [[adal]](/answers/topics/azure-ad-adal-deprecation.html)                |
+| Microsoft Authentication Library (MSAL)                                     | [[msal]](/answers/topics/azure-ad-msal.html)                            |
+| Open Web Interface for .NET (OWIN) middleware                               | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
+| [Azure AD B2B / External Identities](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html)                     |
+| [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html)                     |
+| [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html)                 |
+| All other authentication and authorization areas                            | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
 
 ## Create a GitHub issue
 
@@ -94,10 +94,8 @@ To request new features, post them on Azure Feedback. Share your ideas for makin
 
 - [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
 
-- [What's new in docs](https://docs.microsoft.com/azure/active-directory/develop/whats-new-docs): Get to know what's new in the Microsoft identity platform documentation.
+- [What's new in docs](./whats-new-docs.md): Get to know what's new in the Microsoft identity platform documentation.
 
 - [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Azure AD.
 
 - [Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity/): Share your experiences, engage and learn from experts.
-
-

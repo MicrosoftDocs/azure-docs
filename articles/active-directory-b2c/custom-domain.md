@@ -189,7 +189,7 @@ Replace:
 - **policy-name** with your policy name. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
 
-The [SAML service provider](connect-with-saml-service-providers.md) metadata may look like the following: 
+The [SAML service provider](./saml-service-provider.md) metadata may look like the following: 
 
 ```html
 https://custom-domain-name/tenant-name/policy-name/Samlp/metadata
@@ -264,4 +264,3 @@ Currently, Azure AD B2C supports a custom domain through the use of Azure Front 
 ## Next steps
 
 Learn about [OAuth authorization requests](protocols-overview.md).
-

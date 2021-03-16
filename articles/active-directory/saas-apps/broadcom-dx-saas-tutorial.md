@@ -177,8 +177,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Broadcom DX SaaS for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Broadcom DX SaaS tile in the My Apps, you should be automatically signed in to the Broadcom DX SaaS for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* You can use Microsoft My Apps. When you click the Broadcom DX SaaS tile in the My Apps, you should be automatically signed in to the Broadcom DX SaaS for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 
-Once you configure Broadcom DX SaaS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once you configure Broadcom DX SaaS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

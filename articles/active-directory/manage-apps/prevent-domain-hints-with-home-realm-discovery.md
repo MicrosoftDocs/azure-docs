@@ -17,7 +17,7 @@ ms.author: hirsin
 
 # Disable auto-acceleration to a federated IDP during user sign-in with Home Realm Discovery policy
 
-[Home Realm Discovery Policy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) offers administrators multiple ways to control how and where their users authenticate. The `domainHintPolicy` section of the HRD policy is used to help migrate federated users to cloud managed credentials like [FIDO](../authentication/howto-authentication-passwordless-security-key.md), by ensuring that they always visit the Azure AD sign-in page and aren't auto-accelerated to a federated IDP because of domain hints.
+[Home Realm Discovery Policy](/graph/api/resources/homeRealmDiscoveryPolicy) (HRD) offers administrators multiple ways to control how and where their users authenticate. The `domainHintPolicy` section of the HRD policy is used to help migrate federated users to cloud managed credentials like [FIDO](../authentication/howto-authentication-passwordless-security-key.md), by ensuring that they always visit the Azure AD sign-in page and aren't auto-accelerated to a federated IDP because of domain hints.
 
 This policy is needed in situations where applications an admin cannot control or update add domain hints during sign-in.  For example, `outlook.com/contoso.com` sends the user to a login page with the `&domain_hint=contoso.com` parameter appended, in order to auto-accelerate the user directly to the federated IDP for the `contoso.com` domain. Users with managed credentials sent to a federated IDP cannot sign-in using their managed credentials, reducing security and frustrating users with randomized sign-in experiences. Admins rolling out managed credentials [should also set up this policy](#suggested-use-within-a-tenant) to ensure that users can always use their managed credentials.
 
@@ -96,7 +96,7 @@ After step 4 is complete all users, except those in `guestHandlingDomain.com`, c
 
 ## Configuring policy through Graph Explorer
 
-Set the [HRD policy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) as usual, using Microsoft Graph.  
+Set the [HRD policy](/graph/api/resources/homeRealmDiscoveryPolicy) as usual, using Microsoft Graph.  
 
 1. Grant the Policy.ReadWrite.ApplicationConfiguration permission in [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).  
 1. Use the URL `https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies`

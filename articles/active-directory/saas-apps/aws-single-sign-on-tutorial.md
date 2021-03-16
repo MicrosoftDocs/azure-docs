@@ -35,7 +35,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * AWS Single Sign-on supports **SP and IDP** initiated SSO
 
-* AWS Single Sign-on supports [**Automated user provisioning**](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial).
+* AWS Single Sign-on supports [**Automated user provisioning**](./aws-single-sign-on-provisioning-tutorial.md).
 
 ## Adding AWS Single Sign-on from the gallery
 
@@ -202,7 +202,7 @@ about permission sets, see the AWS SSO **Permission Sets** page.
 10. Choose **Finish**.
 
 > [!NOTE]
-> AWS Single Sign-on also supports automatic user provisioning, you can find more details [here](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-provisioning-tutorial) on how to configure automatic user provisioning.
+> AWS Single Sign-on also supports automatic user provisioning, you can find more details [here](./aws-single-sign-on-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
@@ -218,11 +218,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the AWS Single Sign-on for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the AWS Single Sign-on tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the AWS Single Sign-on for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the AWS Single Sign-on tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the AWS Single Sign-on for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure AWS Single Sign-on you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure AWS Single Sign-on you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

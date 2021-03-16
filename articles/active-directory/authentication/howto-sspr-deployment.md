@@ -319,7 +319,7 @@ Audit logs for registration and password reset are available for 30 days. If sec
 
 ### Authentication methods- Usage and Insights
 
-[Usage and insights](./howto-authentication-methods-usage-insights.md) enable you to understand how authentication methods for features like Azure AD MFA and SSPR are working in your organization. This reporting capability provides your organization with the means to understand what methods register and how to use them.
+[Usage and insights](./howto-authentication-methods-activity.md) enable you to understand how authentication methods for features like Azure AD MFA and SSPR are working in your organization. This reporting capability provides your organization with the means to understand what methods register and how to use them.
 
 ### Troubleshoot
 
