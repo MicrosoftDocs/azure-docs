@@ -15,7 +15,7 @@ This quickstart is intended for developers or cluster operators who want to quic
 
 ## Overview
 
-In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes using the Azure CLI and run a simple hello world application in an enclave. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. To learn more, read the [AKS Introduction](../aks/intro-kubernetes.md) and the [AKS Confidential Nodes Overview](confidential-nodes-aks-overview).
+In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes using the Azure CLI and run a simple hello world application in an enclave. AKS is a managed Kubernetes service that lets you quickly deploy and manage clusters. To learn more, read the [AKS Introduction](../aks/intro-kubernetes.md) and the [AKS Confidential Nodes Overview](confidential-nodes-aks-overview.md).
 
 > [!NOTE]
 > Confidential computing DCsv2 VMs leverage specialized hardware that is subject to higher pricing and region availability. For more information, see the virtual machines page for [available SKUs and supported regions](virtual-machine-solutions.md).
