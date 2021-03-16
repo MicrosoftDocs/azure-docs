@@ -81,27 +81,33 @@ locally. Add to your tutorial directory structure a folder called `data`. Your d
 :::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="Directory structure shows .azureml, data, and src sub-directories":::
 
 
-If you didn't run `train.py` locally in the previous tutorial, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with `download=True` in your `train.py` script.
+1. If you didn't run `train.py` locally in the previous tutorial, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with `download=True` in your `train.py` script.
 
-Also, to run on local, make sure you exit the tutorial environment and activate the new conda environment:
+1. Update `pytorch-env.yml` if you didn't do so in the previous tutorial.
 
-```bash
-conda deactivate				# If you are still using the tutorial environment, exit it
-```
+    :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
 
-```bash
-conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
-```
+1. Exit the tutorial environment.
 
-```bash
-conda activate pytorch-aml-env			# activate new conda environment
-```
+    ```bash
+    conda deactivate				# If you are still using the tutorial environment, exit it
+    ```
 
-To run the modified training script locally, call:
+1. Now create and activate the new environment.
 
-```bash
-python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
-```
+    ```bash
+    conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
+    ```
+
+    ```bash
+    conda activate pytorch-aml-env			# activate new conda environment
+    ```
+
+1. Finally, run the modified training script locally.
+
+    ```bash
+    python src/train.py --data_path ./data --learning_rate 0.003 --momentum 0.92
+    ```
 
 You avoid having to download the CIFAR10 dataset by passing in a local path to the data. You can also experiment with different values for _learning rate_ and _momentum_ hyperparameters without having to hard-code them in the training script.
 
