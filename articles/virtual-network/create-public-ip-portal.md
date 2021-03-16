@@ -69,7 +69,6 @@ In this section, create a basic public IP address named **myBasicPublicIP**.
     | IP Version              | Select IPv4                 |    
     | SKU                     | Select **Basic**         |
     | Name                    | Enter *myBasicPublicIP*          |
-    | Routing Preference      | Leave the default of **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](./routing-preference-overview.md). |
     | IP address assignment   | Select **Static** (see note below)                                     |
     | Idle Timeout (minutes)  | Leave the default of **4**.       |
     | DNS name label          | Leave the value blank    |
@@ -77,7 +76,7 @@ In this section, create a basic public IP address named **myBasicPublicIP**.
     | Resource group          | Select **Create new**, enter **myResourceGroup**. </br> Select **OK**. |
     | Location                | Select **East US 2**      |
 
-:::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Create standard IP address in Azure portal" border="false":::
+:::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Create standard IP address in Azure portal" border="false":::
 
 If it's acceptable for the IP address to change over time, **Dynamic** IP assignment can be selected.
 

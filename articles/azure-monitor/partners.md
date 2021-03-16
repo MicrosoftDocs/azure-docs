@@ -1,7 +1,6 @@
 ---
 title: Partners who integrate with Azure Monitor
 description: Learn about Azure Monitor's partners and how you can access documentation for integrating with them.
-ms.subservice: 
 ms.topic: conceptual
 ms.date: 02/19/2021
 
@@ -289,8 +288,7 @@ With Site24x7 Azure Monitoring, you will be able to:
 * Monitor your complete Microsoft ecosphere including SQL, Exchange, Active Directory, Office 365, IIS, and Hyper-V applications.
 * Integrate seamlessly with third party services like Microsoft Teams, PagerDuty, Zapier, and more.
 
-[Site 24X7 documentation](https://www.site24x7.com/)
-
+[Site24X7 documentation](https://www.site24x7.com/azure/?utm_source=microsoft-partner-page&utm_medium=webpage&utm_campaign=ms-partner)
 
 ## SolarWinds
 

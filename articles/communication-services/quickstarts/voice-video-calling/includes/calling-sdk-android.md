@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
 ---
 ## Prerequisites
@@ -15,6 +15,9 @@ ms.author: mikben
 ## Setting up
 
 ### Install the package
+
+> [!NOTE]
+> This document uses version 1.0.0-beta.8 of the calling client library.
 
 <!-- TODO: update with instructions on how to download, install and add package to project -->
 Locate your project level build.gradle and make sure to add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`
@@ -70,8 +73,8 @@ String userToken = '<user token>';
 CallClient callClient = new CallClient();
 CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential(userToken);
 android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
-CallAgent callAgent = callClient.createCallAgent((appContext, tokenCredential).get();
-DeviceManage deviceManager = callClient.getDeviceManager().get();
+CallAgent callAgent = callClient.createCallAgent(appContext, tokenCredential).get();
+DeviceManager deviceManager = callClient.getDeviceManager().get();
 ```
 To set a display name for the caller, use this alternative method:
 
@@ -82,8 +85,8 @@ CommunicationTokenCredential tokenCredential = new CommunicationTokenCredential(
 android.content.Context appContext = this.getApplicationContext(); // From within an Activity for instance
 CallAgentOptions callAgentOptions = new CallAgentOptions();
 callAgentOptions.setDisplayName("Alice Bob");
-CallAgent callAgent = callClient.createCallAgent((appContext, tokenCredential, callAgentOptions).get();
-DeviceManage deviceManager = callClient.getDeviceManager().get();
+CallAgent callAgent = callClient.createCallAgent(appContext, tokenCredential, callAgentOptions).get();
+DeviceManager deviceManager = callClient.getDeviceManager().get();
 ```
 
 

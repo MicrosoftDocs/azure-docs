@@ -106,8 +106,6 @@
       href: service-fabric-tutorial-standalone-clean-up.md
 - name: Best practices
   items:
-  - name: Service Fabric best practices overview
-    href: service-fabric-best-practices-overview.md
   - name: Security
     href: service-fabric-best-practices-security.md
   - name: Networking 
@@ -449,12 +447,14 @@
       href: how-to-managed-cluster-vmss-extension.md
     - name: Configure your managed cluster
       href: how-to-managed-cluster-configuration.md
+    - name: Add NSG rules and other managed cluster networking options
+      href: how-to-managed-cluster-networking.md
     - name: Deploy managed cluster applications using ARM template
       href: how-to-managed-cluster-app-deployment-template.md
-    - name: Configure a managed cluster with managed identity
-      href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Enable disk encryption for managed cluster nodes
       href: how-to-enable-managed-cluster-disk-encryption.md
+    - name: Use managed identity for managed cluster nodes
+      href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
   - name: Plan and prepare
     items:
     - name: Plan cluster capacity
@@ -893,7 +893,7 @@
   - name: Java API
     href: /java/api/overview/azure/servicefabric
   - name: .NET
-    href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
+    href: /dotnet/api/overview/azure/service-fabric
   - name: REST
     href: /rest/api/servicefabric
   - name: Resource Manager template

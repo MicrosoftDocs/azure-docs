@@ -6,7 +6,7 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 02/22/2021
 
 ---
 
@@ -53,7 +53,12 @@ In the regular GitHub flow after committing the changes, you will typically push
 
 :::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Edit notebooks and commit changes to GitHub":::
 
+After editing the notebook, you can [Publish it to the notebook gallery](publish-notebook-gallery.md). 
+
 ## Next steps
 
 * Learn about the benefits of [Azure Cosmos DB Jupyter notebooks.](cosmosdb-jupyter-notebooks.md)
-
+* [Explore notebook samples gallery](https://cosmos.azure.com/gallery.html)
+* [Publish notebooks to the Azure Cosmos DB notebook gallery](publish-notebook-gallery.md)
+* [Use Python notebook features and commands](use-python-notebook-features-and-commands.md)
+* [Use C# notebook features and commands](use-csharp-notebook-features-and-commands.md)

@@ -127,7 +127,7 @@ While your policies will be highly customized to your needs, consider the follow
 
    * If you are using [connected organizations](../governance/entitlement-management-organization.md) to group all users from a single partner, schedule regular reviews with the business owner and the partner representative.
 
-* **Microsoft 365 Groups**. Set a [group expiration policy](/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) for Microsoft 365 Groups to which external users are invited. 
+* **Microsoft 365 Groups**. Set a [group expiration policy](/microsoft-365/solutions/microsoft-365-groups-expiration-policy) for Microsoft 365 Groups to which external users are invited. 
 
 * **Other options**. If external users have access outside of Entitlement Management access packages or Microsoft 365 groups, set up business process to review when accounts should be made inactive or deleted. For example:
 

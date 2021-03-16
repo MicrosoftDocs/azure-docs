@@ -38,17 +38,19 @@ The main differences between these options are listed in the following table:
 
 | Attribute          | Azure Database for MySQL<br/>Single Server |Azure Database for MySQL<br/>Flexible Server  |MySQL on Azure VMs                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| MySQL Version Support | 5.6, 5.7 & 8.0| 5.7 | Any version|
+| MySQL Version Support | 5.6, 5.7 & 8.0| 5.7 & 8.0 | Any version|
 | Compute scaling | Supported (Scaling from and to Basic tier is not supported)| Supported | Supported|
 | Storage size | 5 GiB to 16 TiB| 5 GiB to 16 TiB | 32 GiB to 32,767 GiB|
 | Online Storage scaling | Supported| Supported| Not supported|
 | Auto storage scaling | Supported| Not supported in preview| Not supported|
+| Additional IOPs scaling | Not Supported| Supported| Not supported|
 | Network Connectivity | - Public endpoints with server firewall.<br/> - Private access with Private Link support.|- Public endpoints with server firewall.<br/> - Private access with Virtual Network integration.| - Public endpoints with server firewall.<br/> - Private access with Private Link support.|
 | Service-level agreement (SLA) | 99.99% availability SLA |No SLA in preview| 99.99% using Availability Zones|
 | Operating system patching| Automatic  | Automatic with custom maintenance window control | Managed by end users |
 | MySQL patching     | Automatic  | Automatic with custom maintenance window control | Managed by end users |
 | High availability | Built-in HA within single availability zone| Built-in HA within and across availability zones | Custom managed using clustering, replication, etc.|
 | Zone redundancy | Not supported | Supported | Supported|
+| Zone placement | Not supported | Supported | Supported|
 | Hybrid scenarios | Supported with [Data-in Replication](./concepts-data-in-replication.md)| Not available in preview | Managed by end users |
 | Read replicas | Supported (up to 5 replicas)| Supported (up to 10 replicas)| Managed by end users |
 | Backup | Automated with 7-35 days retention | Automated with 1-35 days retention | Managed by end users |

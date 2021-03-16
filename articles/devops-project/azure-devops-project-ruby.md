@@ -121,4 +121,4 @@ When they are no longer needed, you can delete the Azure App Service instance an
 To learn more about modifying the build and release pipelines to meet the needs of your team, see:
 
 > [!div class="nextstepaction"]
-> [Define your multi-stage continuous deployment (CD) pipeline](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Define your multi-stage continuous deployment (CD) pipeline](/azure/devops/pipelines/release/define-multistage-release-process)

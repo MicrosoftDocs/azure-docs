@@ -2,8 +2,7 @@
 title: Action rules for Azure Monitor alerts
 description: Understanding what action rules in Azure Monitor are and how to configure and manage them.
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.subservice: alerts
+ms.date: 03/15/2021
 
 ---
 
@@ -58,19 +57,33 @@ First choose the scope (Azure subscription, resource group, or target resource).
 
 ### Filter criteria
 
-You can additionally define filters to narrow them down to a specific subset of the alerts.
+You can optionally define filters so the rule will apply to a specific subset of the alerts, or to specific events on each alert (for example, only "Fired" or only "Resolved").
 
 The available filters are:
 
-* **Severity**: The option to select one or more alert severities. **Severity = Sev1** means that the action rule is applicable for all alerts set to Sev1.
-* **Monitor Service**: A filter based on the originating monitoring service. This filter is also multiple-select. For example, **Monitor Service = “Application Insights”** means that the action rule is applicable for all Application Insights-based alerts.
-* **Resource Type**:  A filter based on a specific resource type. This filter is also multiple-select. For example, **Resource Type = “Virtual Machines”** means that the action rule is applicable for all virtual machines.
-* **Alert Rule ID**: An option to filter for specific alert rules by using the Resource Manager ID of the alert rule.
-* **Monitor Condition**:  A filter for alert instances with either **Fired** or **Resolved** as the monitor condition.
-* **Description**: A regex (regular expression) match that defines a string match against the description, defined as part of the alert rule. For example, **Description contains 'prod'** will match all alerts that contain the string "prod" in their descriptions.
-* **Alert Context (payload)**: A regex match that defines a string match against the alert context fields of an alert's payload. For example, **Alert context (payload) contains 'Computer-01'** will match all alerts whose payloads contain the string "Computer-01."
+* **Severity**  
+This rule will apply only to alerts with the selected severities.  
+For example, **severity = Sev1** means that the rule will apply only to alerts with Sev1 severity.
+* **Monitor service**  
+This rule will apply only to alerts coming from the selected monitoring services.  
+For example, **monitor service = “Azure Backup”** means that the rule will apply only to backup alerts (coming from  Azure Backup).
+* **Resource type**  
+This rule will apply only to alerts on the selected resource types.  
+For example, **resource type = “Virtual Machines”** means that the rule will apply only to alerts on virtual machines.
+* **Alert rule ID**  
+This rule will apply only to alerts coming from a specific alert rule. The value should be the Resource Manager ID of the alert rule.  
+For example, **alert rule ID = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** means this rule will apply only to alerts coming from "API-Latency" metric alert rule.  
+_NOTE - you can get the proper alert rule ID by listing your alert rules from the CLI, or by opening a specific alert rule in the portal, clicking "Properties", and copying the "Resource ID" value._
+* **Monitor condition**  
+This rule will apply only to alert events with the specified monitor condition - either **Fired** or **Resolved**.
+* **Description**  
+This rule will apply only to alerts that contains a specific string in the alert description field. That field contains the alert rule description.  
+For example, **description contains 'prod'** means that the rule will only match alerts that contain the string "prod" in their description.
+* **Alert context (payload)**  
+This rule will apply only to alerts that contain any of one or more specific values in the alert context fields.  
+For example, **alert context (payload) contains 'Computer-01'** means that the rule will only apply to alerts whose payload contain the string "Computer-01".
 
-These filters are applied in conjunction with one another. For example, if you set **Resource type' = Virtual Machines** and **Severity' = Sev0**, then you've filtered for all **Sev0** alerts on only your VMs.
+If you set multiple filters in a rule, all of them apply. For example, if you set **resource type' = Virtual Machines** and **severity' = Sev0**, then the rule will apply only for Sev0 alerts on virtual machines.
 
 ![Action rule filters](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 

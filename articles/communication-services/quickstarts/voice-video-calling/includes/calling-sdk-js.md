@@ -2,12 +2,12 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
 ---
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Optional: Complete the quickstart for [getting started with adding calling to your application](../getting-started-with-calling.md)
@@ -16,8 +16,10 @@ ms.author: mikben
 
 ### Install the client library
 
+> [!NOTE]
+> This document uses version 1.0.0-beta.6 of the calling client library.
+
 Use the `npm install` command to install the Azure Communication Services Calling and Common client libraries for JavaScript.
-This document is referencing types in version 1.0.0-beta.5 of calling library.
 
 ```console
 npm install @azure/communication-common --save
@@ -54,14 +56,14 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## Place an outgoing call
 
-To create and start a call you need to use one of the APIs on CallAgent and provide a user that you've created through the Communication Services administration client library.
+To create and start a call you need to use one of the APIs on CallAgent and provide a user that you've created through the Communication Services identity client library.
 
 Call creation and start is synchronous. The Call instance allows you to subscribe to call events.
 
 ## Place a call
 
 ### Place a 1:1 call to a user or PSTN
-To place a call to another Communication Services user, invoke the `startCall` method on `callAgent` and pass the callee's CommunicationUserIdentifier that you've [created with the Communication Services Administration library](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+To place a call to another Communication Services user, invoke the `startCall` method on `callAgent` and pass the callee's CommunicationUserIdentifier that you've [created with the Communication Services Identity  library](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
@@ -247,10 +249,10 @@ To mute or unmute the local endpoint you can use the `mute` and `unmute` asynchr
 
 ```js
 
-//mute local device 
+//mute local device
 await call.mute();
 
-//unmute local device 
+//unmute local device
 await call.unmute();
 
 ```
@@ -395,7 +397,7 @@ To list the video streams and screen sharing streams of remote participants, ins
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
- 
+
 To render a `RemoteVideoStream`, you have to subscribe to a `isAvailableChanged` event.
 If the `isAvailable` property changes to `true`, a remote participant is sending a stream.
 Once that happens, create a new instance of `Renderer`, and then create a new `RendererView` instance using the asynchronous
@@ -558,6 +560,8 @@ console.log(result.video);
 
 ## Call recording management
 
+[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
+
 Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
 
 ```js
@@ -578,7 +582,7 @@ const isRecordingActiveChangedHandler = () => {
 };
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
-               
+
 ```
 
 ## Call Transfer management

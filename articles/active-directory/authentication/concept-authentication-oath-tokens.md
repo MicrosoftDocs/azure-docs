@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 03/15/2021
 
 ms.author: justinha
 author: justinha
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to understand how to use OATH tokens in Azure AD to improve and secure user sign-in events.
 ---
-# Authentication methods in Azure Active Directory - OATH tokens
+# Authentication methods in Azure Active Directory - OATH tokens 
 
 OATH TOTP (Time-based One Time Password) is an open standard that specifies how one-time password (OTP) codes are generated. OATH TOTP can be implemented using either software or hardware to generate the codes. Azure AD doesn't support OATH HOTP, a different code generation standard.
 
@@ -28,7 +28,7 @@ The Authenticator app automatically generates codes when set up to do push notif
 
 Some OATH TOTP hardware tokens are programmable, meaning they don't come with a secret key or seed pre-programmed. These programmable hardware tokens can be set up using the secret key or seed obtained from the software token setup flow. Customers can purchase these tokens from the vendor of their choice and use the secret key or seed in their vendor's setup process.
 
-## OATH hardware tokens (preview)
+## OATH hardware tokens (Preview)
 
 Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 or 60 seconds. Customers can purchase these tokens from the vendor of their choice.
 
