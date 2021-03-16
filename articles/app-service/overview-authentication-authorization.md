@@ -158,17 +158,11 @@ Authorization, such as role-specific authorization, can be handled by inspecting
 
 ## More resources
 
-[How-To: Configure your App Service or Azure Functions app to use Azure AD login](configure-authentication-provider-aad.md)
-[Advanced usage of authentication and authorization in Azure App Service](app-service-authentication-how-to.md)
+- [How-To: Configure your App Service or Azure Functions app to use Azure AD login](configure-authentication-provider-aad.md)
+- [Advanced usage of authentication and authorization in Azure App Service](app-service-authentication-how-to.md)
 
 Samples:
-[Tutorial: Add authentication to your web app running on Azure App Service](scenario-secure-app-authentication-app-service.md)
-[Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows or Linux)](tutorial-auth-aad.md)
-[.NET Core integration of Azure AppService EasyAuth (3rd party)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
-[Getting Azure App Service authentication working with .NET Core (3rd party)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
-
-[custom-auth]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#custom-auth
-
-[ADAL-Android]: /previous-versions/azure/app-service-mobile/app-service-mobile-android-how-to-use-client-library#adal
-[ADAL-iOS]: /previous-versions/azure/app-service-mobile/app-service-mobile-ios-how-to-use-client-library#adal
-[ADAL-dotnet]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#adal
+- [Tutorial: Add authentication to your web app running on Azure App Service](scenario-secure-app-authentication-app-service.md)
+- [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows or Linux)](tutorial-auth-aad.md)
+- [.NET Core integration of Azure AppService EasyAuth (3rd party)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+- [Getting Azure App Service authentication working with .NET Core (3rd party)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
