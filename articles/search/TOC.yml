@@ -60,7 +60,7 @@
     items: 
     - name: 1. Overview of website
       href: tutorial-javascript-overview.md
-    - name: 2. Bulk insert into Search Index
+    - name: 2. Create Search Index
       href: tutorial-javascript-create-load-index.md
     - name: 3. Deploy Static web app
       href: tutorial-javascript-deploy-static-web-app.md
