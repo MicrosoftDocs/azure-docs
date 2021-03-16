@@ -17,7 +17,7 @@ In preparation for the VMware HCX deployment to support the pilot/small producti
    > The recommended method is to create a /26 network because you can use up to 10 service meshes and 60 network extenders (-1 per service mesh). You can stretch **eight** networks per network extender by using Azure VMware Solution private clouds.
    >
    
-- **vMotion network:** When deploying VMware HCX on-premises you will need to define a vMotion network.  Typically, it's the same network used for vMotion by your on-premises VMware cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot/small use case.
+- **vMotion network:** When deploying VMware HCX on-premises, you'll need to define a vMotion network.  Typically, it's the same network used for vMotion by your on-premises VMware cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
 
    The vMotion network must be exposed on a distributed virtual switch or vSwitch0. If it's not, modify the environment to accomodate.
 
