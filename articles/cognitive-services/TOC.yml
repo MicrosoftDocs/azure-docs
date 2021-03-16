@@ -72,7 +72,7 @@
       href: security-baseline.md
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
-  - name: Big data
+  - name: Use with big data
     items:
     - name: Cognitive Services for Big Data
       href: ./big-data/cognitive-services-for-big-data.md
