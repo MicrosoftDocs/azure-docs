@@ -102,11 +102,11 @@ To convert the schema, follow these steps:
 
 1. After the conversion completes, compare and review the converted objects to the original objects to identify potential problems and address them based on the recommendations.
 
-   ![Review recommendations](./media/oracle-to-managed-instance-guide/review-recommendations.png)
+   ![Compare table recommendations](./media/oracle-to-managed-instance-guide/table-comparison.png)
 
    Compare the converted Transact-SQL text to the original stored procedures and review the recommendations: 
 
-   ![Review recommendations code](./media/oracle-to-managed-instance-guide/review-recommendations-sourcecode.png)
+   ![Compare procedure recommendations](./media/oracle-to-managed-instance-guide/procedure-comparison.png)
 
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu.
 
