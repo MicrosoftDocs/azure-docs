@@ -76,7 +76,7 @@ In addition, ensure remote debugging has been disabled for your production Azure
 
 Consider deploying Azure Web Application Firewall (WAF) as part of the networking configuration for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace. 
 
-- [How to secure Azure Functions endpoints in production](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [How to secure Azure Functions endpoints in production](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
 - [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
@@ -136,7 +136,7 @@ Alternatively, there are multiple marketplace options like the Barracuda Web App
 
 - [Using Private Endpoints for Azure Functions](../app-service/networking/private-endpoint.md)
 
-- [Understand Barracuda WAF Cloud Service](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+- [Understand Barracuda WAF Cloud Service](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Responsibility**: Customer
 
@@ -212,9 +212,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your Azure Functions deployments. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources takes place. 
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -234,7 +234,7 @@ If you have built-in custom security/audit logging within your function app, ena
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party system information and event management solution. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to set up Azure Functions with Azure Application Insights](functions-monitoring.md)
 
@@ -252,7 +252,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 If you have built-in custom security/audit logging within your function app, enable the diagnostics setting "FunctionAppLogs" and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable Diagnostic Settings (user-generated logs) for Azure Functions](functions-monitor-log-analytics.md)
 
@@ -276,7 +276,7 @@ If you have built-in custom security/audit logging within your function app, ena
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your function apps according to your organization's compliance regulations.
 
-- [How to set log retention parameters](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsibility**: Customer
 
@@ -292,7 +292,7 @@ If you have built-in custom security/audit logging within your function app, ena
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party system information and event management solution.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable diagnostic settings for Azure Functions](functions-monitor-log-analytics.md)
 
@@ -312,11 +312,11 @@ Enable Application Insights for your function apps to collect log, performance, 
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party system information and event management solution.
 
-- [How to enable diagnostic settings for Azure Activity Log](/azure/azure-monitor/platform/activity-log)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 
 - [How to enable diagnostic settings for Azure Functions](functions-monitor-log-analytics.md)
 
-- [How to enable Application Insights for Azure Functions](https://docs.microsoft.com/azure/azure-functions/configure-monitoring#enable-application-insights-integration)
+- [How to enable Application Insights for Azure Functions](./configure-monitoring.md#enable-application-insights-integration)
 
 **Responsibility**: Customer
 
@@ -330,9 +330,9 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 **Guidance**: Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Responsibility**: Customer
 
@@ -346,9 +346,9 @@ Data plane access can be controlled through several means, including authorizati
 
 Multiple deployment methods are available to function apps, some of which may leverage a set of generated credentials. Review the deployment methods that will be used for your application.
 
-- [Secure an HTTP endpoint](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Secure an HTTP endpoint](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [How to obtain and regenerate authorization keys](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#obtaining-keys)
+- [How to obtain and regenerate authorization keys](./functions-bindings-http-webhook-trigger.md?tabs=csharp#obtaining-keys)
 
 - [Deployment technologies in Azure Functions](functions-deployment-technologies.md)
 
@@ -382,7 +382,7 @@ Additional information is available at the referenced links.
 
 **Guidance**: Wherever possible, use Azure Active Directory (Azure AD) SSO instead than configuring individual stand-alone credentials for data access to your function app. Use Azure Security Center Identity and Access Management recommendations. Implement single sign-on for your functions apps using the App Service Authentication / Authorization feature.
 
-- [Understand authentication and authorization in Azure Functions](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Understand authentication and authorization in Azure Functions](../app-service/overview-authentication-authorization.md#identity-providers)
 
 - [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
@@ -454,7 +454,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -472,7 +472,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 - [How to configure your function app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -536,7 +536,7 @@ You may also use Private Endpoints to perform network isolation. An Azure Privat
 
 **Guidance**: In the Azure portal for your function apps, under "Platform Features:  Networking: SSL", enable the "HTTPs Only" setting and set the minimum TLS version to 1.2.
 
-- [Require HTTPS on function apps](https://docs.microsoft.com/azure/azure-functions/security-concepts#require-https)
+- [Require HTTPS on function apps](./security-concepts.md#require-https)
 
 **Responsibility**: Customer
 
@@ -596,7 +596,7 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production function apps as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -612,7 +612,7 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 In addition, follow recommendations from Azure Security Center to help secure your function apps.
 
-- [How to add continuous security validation to your CI/CD pipeline](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops&amp;preserve-view=true)
+- [How to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?amp;preserve-view=true&view=azure-devops)
 
 - [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 
@@ -642,7 +642,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -716,7 +716,7 @@ Additional information is available at the referenced links.
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -748,7 +748,7 @@ Additional information is available at the referenced links.
 
 Additional information is available at the referenced links.
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -776,9 +776,9 @@ Additional information is available at the referenced links.
 
 - [Design policy as code workflows](../governance/policy/concepts/policy-as-code.md)
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Responsibility**: Customer
 
@@ -858,11 +858,11 @@ Also make use of a source control solution such as Azure Repos and Azure DevOps 
 
 - [Back up your app in Azure](../app-service/manage-backup.md)
 
-- [Understand data availability in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability&amp;preserve-view=true)
+- [Understand data availability in Azure DevOps](/azure/devops/organizations/security/data-protection?amp;preserve-view=true&view=azure-devops#data-availability)
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Responsibility**: Customer
 
@@ -878,11 +878,11 @@ Also make use of a source control solution such as Azure Repos and Azure DevOps 
 
 - [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Understand data availability in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability&amp;preserve-view=true)
+- [Understand data availability in Azure DevOps](/azure/devops/organizations/security/data-protection?amp;preserve-view=true&view=azure-devops#data-availability)
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Azure Repos Documentation](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Responsibility**: Customer
 
@@ -896,7 +896,7 @@ Also make use of a source control solution such as Azure Repos and Azure DevOps 
 
 - [Restore an app in Azure from a snapshot](../app-service/app-service-web-restore-snapshots.md)
 
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsibility**: Customer
 
@@ -1006,5 +1006,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
