@@ -83,7 +83,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
   `{"Name": "fred"}, {"name": "john"}` – "Name" and "name" are the same when compared in a case insensitive manner. Only "Name" will be represented in analytical store.
  
- * Properties with the same name but different cases will be represented with the first occurrence. For example: if the first document uses "Name" and the second document for has "name" in the same level, "Name" will be used to represent this property in analytical store.
+  * Properties with the same name but different cases will be represented with the first occurrence. For example: if the first document uses "Name" and the second document for has "name" in the same level, "Name" will be used to represent this property in analytical store.
 
 * The first document of the collection defines the initial analytical store schema.
   * Properties in the first level of the document will be represented as columns.
