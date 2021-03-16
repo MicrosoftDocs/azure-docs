@@ -204,3 +204,25 @@ For more information, including how to set this up, see [Azure Key Vault in Azur
 - For conceptual information, including how to interpret Key Vault logs, see [Key Vault logging](logging.md)
 - For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a web application](tutorial-net-create-vault-azure-web-app.md).
 - For programming references, see [the Azure Key Vault developer's guide](developers-guide.md).
+
+## Test
+
+Below are the steps and screenshots for configuring Diagnostic settings in the portal today for AKV
+
+1. Select the Diagnostic settings from the resource blade menu.
+
+    :::image type="content" source="../media/diagnostics-portal-1.png" alt-text="Diagnostic Portal 1":::
+
+1. Click on the "+ Add diagnostic setting"
+
+    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Diagnostic Portal 2":::
+ 
+1. Select a name to call your diagnostic setting. To configure logging for Azure Monitor for Key Vault, select the "AuditEvent" option and "Send to Log Analytics workspace". Then choose the subscription and Log Analytics workspace that you want to send your logs.
+
+    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Diagnostic Portal 3":::
+
+    Otherwise, select the options that pertain to the logs that you wish to select
+
+1. Once you have selected your desired options, select save.
+
+    :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Diagnostic Portal 4":::
