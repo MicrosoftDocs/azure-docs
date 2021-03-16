@@ -4,22 +4,23 @@ description: Overview of SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ---
 
 # Monitor your SQL deployments with SQL insights (preview)
 SQL insights monitors the performance and health of your SQL deployments.  It can help deliver predictable performance and availability of vital workloads you have built around a SQL backend by identifying performance bottlenecks and issues. SQL insights stores its data in [Azure Monitor Logs](../logs/data-platform-logs.md), which allows it to deliver powerful aggregation and filtering and to analyze data trends over time. You can view this data from Azure Monitor in the views we ship as part of this offering and you can delve directly into the Log data to run queries and analyze trends.
 
+SQL insights does not install anything on your SQL IaaS deployments. Instead, it uses dedicated monitoring virtual machines to remotely collect data for both SQL PaaS and SQL IaaS deployments.  The SQL insights monitoring profile allows you to manage the data sets to be collected based upon the type of SQL, including Azure SQL DB, Azure SQL Managed Instance, and SQL server running on an Azure virtual machine.
+
 ## Pricing
 
-There's no direct cost for SQL insights, but you're charged for its activity in the Log Analytics workspace. Based on the pricing that's published on the Azure Monitor pricing page, SQL insights is billed for:
+There's no direct cost for SQL insights, but you're charged for its activity in the Log Analytics workspace. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), SQL insights is billed for:
 
 - Data ingested from agents and stored in the workspace.
 - Alert rules based on log data.
 - Notifications sent from alert rules.
 
 The log size varies by the string lengths of the data collected, and it can increase with the amount of database activity. 
-
 
 ## Supported versions 
 SQL insights supports the following versions of SQL Server:
@@ -45,8 +46,7 @@ SQL insights has no support or limited support for the following:
 
 
 ## Open SQL insights
-
-Open the preview of SQL insights from *https://aka.ms/sqlinsightspreview*. This launches the SQL insights at-scale monitoring experience. Click on a tile to load the experience for the type of SQL you are monitoring. 
+Open SQL insights by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click on a tile to load the experience for the type of SQL you are monitoring.
 
 :::image type="content" source="media/sql-insights/portal.png" alt-text="SQL insights in Azure portal.":::
 
@@ -64,13 +64,13 @@ The following tables summarize the following:
 - Dynamic managed views the query calls
 - Namespace the data appears under in the *InsighstMetrics* table
 - Whether the data is collected by default
-- How often the data is collected
+- How often the data is collected by default
  
 You can modify which queries are run and data collection frequency when you create your monitoring profile. 
 
 ### Azure SQL DB data 
 
-| Query Name | DMV | Namespace | Enabled by Default | Default Collection Frequency |
+| Query Name | DMV | Namespace | Enabled by Default | Default collection frequency |
 |:---|:---|:---|:---|:---|
 | AzureSQLDBWaitStats |  sys.dm_db_wait_stats | sqlserver_azuredb_waitstats | No | NA |
 | AzureSQLDBResourceStats | sys.dm_db_resource_stats | sqlserver_azure_db_resource_stats | Yes | 60 seconds |
@@ -85,7 +85,7 @@ You can modify which queries are run and data collection frequency when you crea
 
 ### Azure SQL managed instance data 
 
-| Query Name | DMV | Namespace | Enabled by Default | Default Collection Frequency |
+| Query Name | DMV | Namespace | Enabled by Default | Default collection frequency |
 |:---|:---|:---|:---|:---|
 | AzureSQLMIResourceStats | sys.server_resource_stats | sqlserver_azure_db_resource_stats | Yes | 60 seconds |
 | AzureSQLMIResourceGovernance | sys.dm_instance_resource_governance | sqlserver_instance_resource_governance | Yes | 60 seconds |
@@ -99,7 +99,7 @@ You can modify which queries are run and data collection frequency when you crea
 
 ### SQL Server data
 
-| Query Name | DMV | Namespace | Enabled by Default | Default Collection Frequency |
+| Query Name | DMV | Namespace | Enabled by Default | Default collection frequency |
 |:---|:---|:---|:---|:---|
 | SQLServerPerformanceCounters | sys.dm_os_performance_counters | sqlserver_performance | Yes | 60 seconds |
 | SQLServerWaitStatsCategorized | sys.dm_os_wait_stats | sqlserver_waitstats | Yes | 60 seconds | 
