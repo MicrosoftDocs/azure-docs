@@ -4,7 +4,7 @@ description: Before you can access data on premises from Azure Logic Apps, downl
 services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
-ms.topic: 	how-to
+ms.topic: how-to
 ms.date: 03/16/2021
 
 #Customer intent: As a software developer, I want to install and set up the on-premises data gateway so that I can create logic app workflows that can access data in on-premises systems.
