@@ -93,6 +93,9 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
+>[!div class="nextstepaction"]
+>[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero)
+
 For more information, see the following articles:
 
 - Familiarize yourself with [using the calling client library](../../quickstarts/voice-video-calling/calling-client-samples.md)
