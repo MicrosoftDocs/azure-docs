@@ -24,7 +24,7 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-phonenumbers</artifactId>
-    <version>1.0.0-beta.5</version>
+    <version>1.0.0-beta.6</version>
 </dependency>
 
 <dependency>
@@ -47,12 +47,12 @@ Use the following code to begin:
 
 ```java
 import com.azure.communication.phonenumbers.*;
-import com.azure.communication.common.*;
+import com.azure.communication.phonenumbers.models.*;
 import java.io.*;
-import java.util.*;
-import java.time.*;
-
 import com.azure.core.http.*;
+import com.azure.core.http.netty.*;
+import com.azure.core.util.Context;
+import com.azure.core.util.polling.PollResponse;
 import com.azure.identity.*;
 
 public class App
@@ -105,19 +105,18 @@ PhoneNumbersClient phoneNumberClient = new PhoneNumbersClientBuilder()
 In order to purchase phone numbers, you must first search for available phone numbers. To search for phone numbers, provide the area code, assignment type, [phone number capabilities](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services), [phone number type](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services), and quantity. Note that for the toll-free phone number type, providing the area code is optional.
 
 ```java
-PhoneNumberSearchRequest searchRequest = new PhoneNumberSearchRequest();
-searchRequest
-    .setAreaCode("800") // Area code is optional for toll free numbers
-    .setAssignmentType(PhoneNumberAssignmentType.PERSON)
-    .setCapabilities(new PhoneNumberCapabilities()
-        .setCalling(PhoneNumberCapabilityValue.INBOUND)
-        .setSms(PhoneNumberCapabilityValue.INBOUND_OUTBOUND))
-    .setPhoneNumberType(PhoneNumberType.GEOGRAPHIC)
-    .setQuantity(1); // Quantity is optional, default is 1
+ PhoneNumberCapabilities capabilities = new PhoneNumberCapabilities()
+    .setCalling(PhoneNumberCapabilityType.INBOUND)
+    .setSms(PhoneNumberCapabilityType.INBOUND_OUTBOUND);
+PhoneNumberSearchOptions searchOptions = new PhoneNumberSearchOptions().setAreaCode("833").setQuantity(1);
 
-PhoneNumberSearchResult searchResult = phoneNumberClient.beginSearchAvailablePhoneNumbers("US", searchRequest, Context.NONE).getFinalResult();
+PhoneNumberSearchResult searchResult = phoneNumberClient
+    .beginSearchAvailablePhoneNumbers("US", PhoneNumberType.TOLL_FREE, PhoneNumberAssignmentType.APPLICATION, capabilities,  searchOptions, Context.NONE)
+    .getFinalResult();
 
-System.out.println("Searched phone numbers: " + Arrays.toString(searchResult.getPhoneNumbers().toArray()));
+System.out.println("Searched phone numbers: " + searchResult.getPhoneNumbers());
+System.out.println("Search expires by: " + searchResult.getSearchExpiresBy());
+System.out.println("Phone number costs:" + searchResult.getCost().getAmount());
 ```
 
 ### Purchase Phone Numbers
@@ -133,11 +132,11 @@ System.out.println("Purchase phone numbers operation is: " + purchaseResponse.ge
 
 After a purchasing number, you can retrieve it from the client.
 ```java
-AcquiredPhoneNumber phoneNumber = phoneNumberClient.getPhoneNumber("+18001234567");
+AcquiredPhoneNumber phoneNumber = phoneNumberClient.getPhoneNumber("+14255550123");
 System.out.println("Phone Number Country Code: " + phoneNumber.getCountryCode());
 ```
 
-You can also retrieve all the acquired phone numbers.
+You can also retrieve all the purchased phone numbers.
 ``` java
 PagedIterable<AcquiredPhoneNumber> phoneNumbers = createPhoneNumberClient().listPhoneNumbers(Context.NONE);
 AcquiredPhoneNumber phoneNumber = phoneNumbers.iterator().next();
@@ -150,8 +149,8 @@ With a purchased number, you can update the capabilities.
 ```java
 PhoneNumberCapabilitiesRequest capabilitiesRequest = new PhoneNumberCapabilitiesRequest();
 capabilitiesRequest
-    .setCalling(PhoneNumberCapabilityValue.INBOUND)
-    .setSms(PhoneNumberCapabilityValue.INBOUND);
+    .setCalling(PhoneNumberCapabilityType.INBOUND)
+    .setSms(PhoneNumberCapabilityType.INBOUND);
 AcquiredPhoneNumber phoneNumber = phoneNumberClient.beginUpdatePhoneNumberCapabilities("+18001234567", capabilitiesRequest, Context.NONE).getFinalResult();
 
 System.out.println("Phone Number Calling capabilities: " + phoneNumber.getCapabilities().getCalling());
