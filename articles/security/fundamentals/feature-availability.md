@@ -51,68 +51,46 @@ For more information, see the [Azure Sentinel product documentation](/azure/sent
 
 The following tables list the current Sentinel feature availability between our public and sovereign clouds.
 
-### Azure Sentinel features
-
-| Feature | Azure Public | GCC | Azure Government | GCC High | Azure Government for DoD |
-| ----- | ----- | ---- | ---- | ---- | ---- |
-|[**Bring Your Own ML (BYO-ML)**](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview | Public Preview | Public Preview | Public Preview |
-| [**Cross-tenant/Cross-workspace incidents view**](/azure/sentinel/multiple-workspace-view) | Public Preview | Public Preview | Public Preview |Public Preview | Public Preview |
-| [**Entity insights**](/azure/sentinel/enable-entity-behavior-analytics) | Public Preview | Public Preview | Not Avail | Public Preview | Public Preview |
-| [**Fusion**](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | GA | Not Avail | GA | GA |
-|[**Notebooks**](/azure/sentinel/notebooks) | GA | GA | Not Avail | GA | GA |
-|[**Watchlists**](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview| Public Preview| Not Avail | Public Preview | Public Preview |
-| | | | | | |
-
 <!-- 
 |NOT INCLUDED ITEMS THAT ARE THE SAME FOR ALL 
 - SOC incident audit metrics
 - MCAS connector alerts
 - Office 365 Teams raw log connector
 -->
+### Azure Sentinel features
+
+| Feature | Azure Public | GCC | Azure Government | GCC High | Azure Government for DoD |
+| ----- | ----- | ---- | ---- | ---- | ---- |
+| **Azure Sentinel features** |  |  |  |  |  |
+|[Bring Your Own ML (BYO-ML)](/azure/sentinel/bring-your-own-ml) | Public Preview | Public Preview | Public Preview | Public Preview | Public Preview |
+| [Cross-tenant/Cross-workspace incidents view](/azure/sentinel/multiple-workspace-view) | Public Preview | Public Preview | Public Preview |Public Preview | Public Preview |
+| [Entity insights](/azure/sentinel/enable-entity-behavior-analytics) | Public Preview | Public Preview | Not Avail | Public Preview | Public Preview |
+| [Fusion](/azure/sentinel/fusion)<br>Advanced multistage attack detections <sup>[1](#footnote1)</sup> | GA | GA | Not Avail | GA | GA |
+|[Notebooks](/azure/sentinel/notebooks) | GA | GA | Not Avail | GA | GA |
+|[Watchlists](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-watchlist-is-now-in-public-preview/ba-p/1765887) | Public Preview| Public Preview| Not Avail | Public Preview | Public Preview |
+| **Threat intelligence support**| | | | | |
+| [Threat Intelligence - TAXII data connector](/azure/sentinel/import-threat-intelligence)  | Public Preview | Public Preview | Not Avail | Public Preview | Public Preview |
+| [Threat Intelligence Platform data connector](/azure/sentinel/import-threat-intelligence)  | Public Preview  | Public Preview  | Not Avail | Public Preview  | Public Preview  |
+| [Threat Intelligence Research Blade](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | Public Preview  | Public Preview  | Not Avail | Public Preview  | Public Preview  |
+| [URL Detonation](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | GA | GA | Not Avail | GA | GA |
+| [Threat Intelligence workbook](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | GA | Not Avail | GA | GA |
+|**Detection support** | | | | | |
+| [Anomalous Windows File Share Access Detection](/azure/sentinel/fusion)  | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
+| [Anomalous RDP Login Detection](/azure/sentinel/connect-windows-security-events#configure-the-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
+| [Anomalous SSH login detection](/azure/sentinel/connect-syslog#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview |Not Avail | Not Avail | Not Avail | Not Avail |
+|**Microsoft data connectors** | | | | | |
+| [Azure Information Protection connector](/azure/sentinel/connect-azure-information-protection)<br>Raw log integration | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail | |
+| [Microsoft 365 Office connector](/azure/sentinel/connect-office-365) | Public Preview | Not Avail | Not Avail | Public Preview | Not Avail |
+|[Microsoft Cloud App Security (MCAS) connector](/azure/sentinel/connect-cloud-app-security)<br>Shadow IT logs  | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
+| [Microsoft Defender Advanced Threat Protection (MDATP) connector](/azure/sentinel/connect-microsoft-defender-advanced-threat-protection)<br>Alerts | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
+|[MDATP connector](/azure/sentinel/connect-microsoft-365-defender)<br>Raw log integration | Public Preview | Public Preview | Not Avail | Public Preview | Public Preview |
+|[Microsoft Office 365 ATP Alerts Connector](/azure/sentinel/connect-office-365-advanced-threat-protection) | GA | GA | Not Avail | GA | GA |
+|**Third party Azure Sentinel connectors** | | | | | |
+| [AWS connector](/azure/sentinel/connect-aws) | Not Avail | Not Avail | Not Avail | Not Avail | Not Avail |
+| [Squadra](/azure/sentinel/connect-squadra-secrmm) | GA | GA | Not Avail | GA | GA |
+| | | | | | |
 
 <a name="footnote1" /></a>1. SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
-
-
-### Threat intelligence support
-
-| Feature | Azure Public | GCC | Azure Government | GCC High | Azure Government for DoD |
-| ----- | ----- | ---- | ---- | ---- | ---- |
-| [**Threat Intelligence - TAXII data connector**](/azure/sentinel/import-threat-intelligence)  | Public Preview | Public Preview | Not Avail | Public Preview | Public Preview |
-| [**Threat Intelligence Platform data connector**](/azure/sentinel/import-threat-intelligence)  | Public Preview  | Public Preview  | Not Avail | Public Preview  | Public Preview  |
-| [**Threat Intelligence Research Blade**](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-threat-intelligence-menu-item-in-public-preview/ba-p/1646597)  | Public Preview  | Public Preview  | Not Avail | Public Preview  | Public Preview  |
-| [**URL Detonation**](https://techcommunity.microsoft.com/t5/azure-sentinel/using-the-new-built-in-url-detonation-in-azure-sentinel/ba-p/996229) | GA | GA | Not Avail | GA | GA |
-| [**Threat Intelligence workbook**](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)  | GA | GA | Not Avail | GA | GA |
-| | | | | | |
-
-
-### Detection support
-
-| Feature | Azure Public | GCC | Azure Government | GCC High | Azure Government for DoD |
-| ----- | ----- | ---- | ---- | ---- | ---- |
-| [**Anomalous Windows File Share Access Detection**](/azure/sentinel/fusion)  | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
-| [**Anomalous RDP Login Detection**](/azure/sentinel/connect-windows-security-events#configure-the-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
-| [**Anomalous SSH login detection**](/azure/sentinel/connect-syslog#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview |Not Avail | Not Avail | Not Avail | Not Avail |
-| | | | | | |
-
-### Microsoft data connectors
-
-| Feature | Azure Public | GCC | Azure Government | GCC High | Azure Government for DoD |
-| ----- | ----- | ---- | ---- | ---- | ---- |
-| [**Azure Information Protection connector**](/azure/sentinel/connect-azure-information-protection)<br>Raw log integration | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail | |
-| [**Microsoft 365 Office connector**](/azure/sentinel/connect-office-365) | Public Preview | Not Avail | Not Avail | Public Preview | Not Avail |
-|[**Microsoft Cloud App Security (MCAS) connector**](/azure/sentinel/connect-cloud-app-security)<br>Shadow IT logs  | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
-| [**Microsoft Defender Advanced Threat Protection (MDATP) connector**](/azure/sentinel/connect-microsoft-defender-advanced-threat-protection)<br>Alerts | Public Preview | Not Avail | Not Avail | Not Avail | Not Avail |
-|[**MDATP connector**](/azure/sentinel/connect-microsoft-365-defender)<br>Raw log integration | Public Preview | Public Preview | Not Avail | Public Preview | Public Preview |
-|[**Microsoft Office 365 ATP Alerts Connector**](/azure/sentinel/connect-office-365-advanced-threat-protection) | GA | GA | Not Avail | GA | GA |
-| | | | | | |
-
-### Third party Azure Sentinel connectors
-
-| Feature | Azure Public | GCC | Azure Government | GCC High | Azure Government for DoD |
-| ----- | ----- | ---- | ---- | ---- | ---- | --- |
-| [**AWS connector**](/azure/sentinel/connect-aws) | Not Avail | Not Avail | Not Avail | Not Avail | Not Avail |
-| [**Squadra**](/azure/sentinel/connect-squadra-secrmm) | GA | GA | Not Avail | GA | GA |
-| | | | | | |
 
 
 ## Next steps
