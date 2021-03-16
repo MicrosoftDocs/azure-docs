@@ -128,9 +128,9 @@ AzureDiagnostics
 
 ### <a id="audit-storage-destination"></a>Audit to storage destination
 
-To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. Then click **OK**. Logs older than the retention period are deleted.
+To configure writing audit logs to a storage account, select **Storage** when you get to the **Auditing** section. Select the Azure storage account where logs will be saved, and then select the retention period by opening **Advanced properties**. Then click **SAVE**. Logs older than the retention period are deleted.
 
-- The default value for retention period is 0 (unlimited retention). You can change this value by moving the **Retention (Days)** slider in **Storage settings** when configuring the storage account for auditing.
+- The default value for retention period is 0 (unlimited retention). You can change this value by moving the **Retention (Days)** slider in **Advanced properties** when configuring the storage account for auditing.
   - If you change retention period from 0 (unlimited retention) to any other value, please note that retention will only apply to logs written after retention value was changed (logs written during the period when retention was set to unlimited are preserved, even after retention is enabled).
 
   ![storage account](./media/auditing-overview/auditing_select_storage.png)
@@ -185,13 +185,12 @@ If you chose to write audit logs to an Azure storage account, there are several 
 
 - Use the [Azure portal](https://portal.azure.com).  Open the relevant database. At the top of the database's **Auditing** page, click **View audit logs**.
 
-    ![Screenshot that shows the View audit logs button highlighted on the database auditing page.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![view audit logs](./media/auditing-overview/auditing-view-audit-logs.png)
 
     **Audit records** opens, from which you'll be able to view the logs.
 
   - You can view specific dates by clicking **Filter** at the top of the **Audit records** page.
   - You can switch between audit records that were created by the *server audit policy* and the *database audit policy* by toggling **Audit Source**.
-  - You can view only SQL injection related audit records by checking  **Show only audit records for SQL injections** checkbox.
 
        ![Screenshot that shows the options for viewing the audit records.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
