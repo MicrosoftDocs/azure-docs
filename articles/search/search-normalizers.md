@@ -94,7 +94,7 @@ A good workaround for production indexes, where rebuilding indexes is costly, is
 
 Custom normalizers are defined within the index schema and can be specified using the field property. The definition of custom normalizer includes a name, a type, one or more char filters and token filters. The char filters and token filters are the building blocks for a custom normalizer and responsible for the processing of the text.These filters are applied from left to right.
 
- The `token_filter_name_1` is the name of token filter, and `char_filter_name_1` and `char_filter_name_2` are the names of char filters (see [Token filters Reference](#TokenFiltersReference) and Char filters tables below for valid values).
+ The `token_filter_name_1` is the name of token filter, and `char_filter_name_1` and `char_filter_name_2` are the names of char filters (see [Supported token filters](#Supported-token-filters) and Char filters tables below for valid values).
 
 The normalizer definition is a part of the larger index. See [Create Index API](/rest/api/searchservice/create-index) for information about the rest of the index.
 
@@ -146,12 +146,12 @@ Custom normalizers can be added during index creation or later by updating an ex
 |elision| Removes elision from beginning of the tokens.|
 
 ### Supported char filters
-For more details on the char filters, refer to [Char Filters Reference](index-add-custom-analyzers#Char-Filters-Reference).
+For more details on the char filters, refer to [Char Filters Reference](index-add-custom-analyzers.md#Char-Filters-Reference).
 + [mapping](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)  
 + [pattern_replace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)
 
 ### Supported token filters
-The list below shows the token filters supported for normalizers and is a subset of the overall token filters involved in the lexical analysis. For more details on the filters, refer to [Token Filters Reference](index-add-custom-analyzers#Token-Filters-Reference).
+The list below shows the token filters supported for normalizers and is a subset of the overall token filters involved in the lexical analysis. For more details on the filters, refer to [Token Filters Reference](index-add-custom-analyzers.md#Token-Filters-Reference).
 
 + [arabic_normalization](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ar/ArabicNormalizationFilter.html)
 + [asciifolding](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html)
