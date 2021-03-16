@@ -123,18 +123,18 @@
   items:
     - name: What is Document Translation?
       href: document-translation/overview.md 
-  - name: Document Translation quickstart
-     items:
+    - name: Document Translation quickstart
+      items:
     - name: Get started with Document Translation
       href: document-translation/get-started-with-document-translation.md
-  - name: Document Translation how-to guides
-    items:
+    - name: Document Translation how-to guides
+      items:
     - name: Create SAS tokens for Document Translation 
       href: document-translation/create-sas-tokens.md 
-  - name: Reference
-  items:     
-  - name: Document Translation REST API
-    href: /rest/api/cognitiveservices/translator/translation
+    - name: Document Translation Reference
+      items:     
+    - name: Document Translation REST API
+      href: /rest/api/cognitiveservices/translator/translation
 - name: Reference
   items:
   - name: v3 Translator reference
