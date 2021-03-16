@@ -42,6 +42,6 @@ Use the following workflow to deploy and test your Defender for IoT security age
 ## Next steps
 
 - Configure your [solution](quickstart-configure-your-solution.md)
-- [Create security modules](quickstart-create-security-twin.md)
+- [Create Defender-IoT-micro-agents](quickstart-create-security-twin.md)
 - Configure [custom alerts](quickstart-create-custom-alerts.md)
 - [Deploy a security agent](how-to-deploy-agent.md)

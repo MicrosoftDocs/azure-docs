@@ -305,7 +305,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network#vpn
   - name: Azure PowerShell (classic)
-    href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
+    href: /powershell/module/servicemanagement/azure.service/#azure
   - name: REST
     href: /rest/api/network/virtualnetworkgateways
   - name: REST (classic)
