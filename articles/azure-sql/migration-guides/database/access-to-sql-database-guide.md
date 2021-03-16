@@ -119,7 +119,7 @@ To migrate data by using SSMA for Access, follow these steps:
 
 1. Connect to your Azure SQL Database by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and validate the migration by reviewing the data and schema.
 
-   ![Validate in SSMA](./media/oracle-to-sql-database-guide/validate-data.png)
+   ![Validate in SSMA](./media/access-to-sql-database-guide/validate-data.png)
 
 
 
