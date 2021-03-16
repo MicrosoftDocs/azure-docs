@@ -60,6 +60,8 @@ To create an assessment, follow these steps:
 
    ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
 
+   ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle1.png)
+
    Select the Oracle schema(s) you want to migrate: 
 
    ![Select Oracle schema](./media/oracle-to-sql-database-guide/select-schema.png)
