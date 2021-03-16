@@ -18,6 +18,7 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Az
 
 * [Enable Synapse Link for your Azure Cosmos DB accounts](#enable-synapse-link)
 * [Create an analytical store enabled Azure Cosmos DB container](#create-analytical-ttl)
+* [Optional - Update analytical store ttl for an Azure Cosmos DB container](#update-analytical-ttl)
 * [Connect your Azure Cosmos DB database to a Synapse workspace](#connect-to-cosmos-database)
 * [Query the analytical store using Synapse Spark](#query-analytical-store-spark)
 * [Query the analytical store using serverless SQL pool](#query-analytical-store-sql-on-demand)
