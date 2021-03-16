@@ -18,7 +18,7 @@ The Azure Communication Services **Group Calling Hero Sample for Android** demon
 
 ## Download code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-ios-calling-hero).
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero).
 
 ## Overview
 
