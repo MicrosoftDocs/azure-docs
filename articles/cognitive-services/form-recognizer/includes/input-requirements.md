@@ -1,10 +1,10 @@
 ---
-author: PatrickFarley
+author: laujan
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 Form Recognizer works on input documents that meet these requirements:

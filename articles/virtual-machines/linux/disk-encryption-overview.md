@@ -139,6 +139,7 @@ Azure Disk Encryption requires an Azure Key Vault to control and manage disk enc
 For details, see [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md).
 
 ## Terminology
+
 The following table defines some of the common terms used in Azure disk encryption documentation:
 
 | Terminology | Definition |
