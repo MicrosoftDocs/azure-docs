@@ -31,107 +31,127 @@ This tutorial uses the [Azure portal](https://portal.azure.com). You can also us
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+## Prerequisites
+
+- An Azure subscription.
+
+## Sign in to Azure
+
+Sign in to the Azure portal at https://portal.azure.com.
+
+## Create a virtual network
+
+1. From the Azure portal menu, select **Create a resource**. From the Azure Marketplace, select **Networking** > **Virtual network**, or search for **Virtual Network** in the search box.
+
+2. Select **Create**.
+
+2. In **Create virtual network**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subscription | Select your subscription.|
+    | Resource group | Select **Create new**, enter **myResourceGroup**. </br> Select **OK**. |
+    | Name | Enter **myVirtualNetwork**. |
+    | Location | Select **(US) East US**.|
+
+3. Select the **IP Addresses** tab, or select the **Next: IP Addresses** button at the bottom of the page.
+
+4. In **IPv4 address space**, select the existing address space and change it to **10.0.0.0/16**.
+
+4. Select **+ Add subnet**, then enter **Public** for **Subnet name** and **10.0.0.0/24** for **Subnet address range**.
+
+5. Select **Add**.
+
+6. Select **+ Add subnet**, then enter **Private** for **Subnet name** and **10.0.1.0/24** for **Subnet address range**.
+
+7. Select **Add**.
+
+8. Select **+ Add subnet**, then enter **DMZ** for **Subnet name** and **10.0.2.0/24** for **Subnet address range**.
+
+9. Select **Add**.
+
+10. Select the **Security** tab, or select the **Next: Security** button at the bottom of the page.
+
+11. Under **BastionHost**, select **Enable**. Enter this information:
+
+    | Setting            | Value                      |
+    |--------------------|----------------------------|
+    | Bastion name | Enter **myBastionHost** |
+    | AzureBastionSubnet address space | Enter **10.0.3.0/24** |
+    | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
+
+12. Select the **Review + create** tab or select the **Review + create** button.
+
+13. Select **Create**.
+
 ## Create an NVA
 
-Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. This tutorial assumes you're using **Windows Server 2016 Datacenter**. You can select a different operating system if you want.
+Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. This tutorial assumes you're using **Windows Server 2019 Datacenter**. You can select a different operating system if you want.
 
-1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
+1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Virtual machine**. 
+   
+2. In **Create a virtual machine**, type or select the values in the **Basics** tab:
 
-1. Choose **Security** > **Windows Server 2016 Datacenter**.
+    | Setting | Value                                          |
+    |-----------------------|----------------------------------|
+    | **Project Details** |  |
+    | Subscription | Select your Azure subscription |
+    | Resource Group | Select **myResourceGroup** |
+    | **Instance details** |  |
+    | Virtual machine name | Enter **myVMNVA** |
+    | Region | Select **(US) East US** |
+    | Availability Options | Select **No infrastructure redundancy required** |
+    | Image | Select **Windows Server 2019 Datacenter** |
+    | Azure Spot instance | Select **No** |
+    | Size | Choose VM size or take default setting |
+    | **Administrator account** |  |
+    | Username | Enter a username |
+    | Password | Enter a password |
+    | Confirm password | Reenter password |
+    | **Inbound port rules** |    |
+    | Public inbound ports | Select **None**. |
+    |
 
-    ![Windows Server 2016 Datacenter, Create a VM, Azure portal](./media/tutorial-create-route-table-portal/vm-ws2016-datacenter.png)
+3. Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
+  
+4. In the Networking tab, select or enter:
 
-1. In the **Create a virtual machine** page, under **Basics**, enter or select this information:
-
-    | Section | Setting | Action |
-    | ------- | ------- | ----- |
-    | **Project details** | Subscription | Choose your subscription. |
-    | | Resource group | Select **Create new**, enter *myResourceGroup*, and select **OK**. |
-    | **Instance details** | Virtual machine name | Enter *myVmNva*. |
-    | | Region | Choose **(US) East US**. |
-    | | Availability options | Choose **No infrastructure redundancy required**. |
-    | | Image | Choose **Windows Server 2016 Datacenter**. |
-    | | Size | Keep the default, **Standard DS1 v2**. |
-    | **Administrator account** | Username | Enter a user name of your choosing. |
-    | | Password | Enter a password of your choosing, which must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm). |
-    | | Confirm Password | Enter the password again. |
-    | **Inbound port rules** | Public inbound ports | Pick **None**. |
-    | **Save money** | Already have a Windows Server license? | Pick **No**. |
-
-    ![Basics, Create a virtual machine, Azure portal](./media/tutorial-create-route-table-portal/basics-create-virtual-machine.png)
-
-    Then select **Next : Disks >**.
-
-1. Under **Disks**, select the settings that are right for your needs, and then select **Next : Networking >**.
-
-1. Under **Networking**:
-
-    1. For **Virtual network**, select **Create new**.
-    
-    1. In the **Create virtual network** dialog box, under **Name**, enter *myVirtualNetwork*.
-
-    1. In **Address space**, replace the existing address range with *10.0.0.0/16*.
-
-    1. In **Subnets**, select the **Delete** icon to delete the existing subnet, and then enter the following combinations of **Subnet name** and **Address range**. Once a valid name and range is entered, a new empty row appears below it.
-
-        | Subnet name | Address range |
-        | ----------- | ------------- |
-        | *Public* | *10.0.0.0/24* |
-        | *Private* | *10.0.1.0/24* |
-        | *DMZ* | *10.0.2.0/24* |
-
-    1. Select **OK** to exit the dialog box.
-
-    1. In **Subnet**, choose **DMZ (10.0.2.0/24)**.
-
-    1. In **Public IP**, choose **None**, since this VM won't connect over the internet.
-
-    1. Select **Next : Management >**.
-
-1. Under **Management**:
-
-    1. In **Diagnostics storage account**, select **Create New**.
-    
-    1. In the **Create storage account** dialog box, enter or select this information:
-
-        | Setting | Value |
-        | ------- | ----- |
-        | Name | *mynvastorageaccount* |
-        | Account kind | **Storage (general purpose v1)** |
-        | Performance | **Standard** |
-        | Replication | **Locally-redundant storage (LRS)** |
-    
-    1. Select **OK** to exit the dialog box.
-
-    1. Select **Review + create**. You're taken to the **Review + create** page, and Azure validates your configuration.
-
-1. When you see the **Validation passed** message, select **Create**.
-
-    The VM takes a few minutes to create. Wait until Azure finishes creating the VM. The **Your deployment is underway** page shows you deployment details.
-
-1. When your VM is ready, select **Go to resource**.
+    | Setting | Value |
+    |-|-|
+    | **Network interface** |  |
+    | Virtual network | Select **myVirtualNetwork**. |
+    | Subnet | Select **DMZ** |
+    | Public IP | Select **None** |
+    | NIC network security group | Select **Basic**|
+    | Public inbound ports network | Select **None**. |
+   
+5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
+  
+6. Review the settings, and then select **Create**.
 
 ## Create a route table
 
 1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**.
 
-2. In the search box, enter *Route table*. When **Route table** appears in the search results, select it.
+2. In the search box, enter **Route table**. When **Route table** appears in the search results, select it.
 
 3. In the **Route table** page, select **Create**.
 
-4. In **Create route table**, enter or select this information:
+4. In **Create route table** in the **Basics** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | *myRouteTablePublic* |
-    | Subscription | Your subscription |
-    | Resource group | **myResourceGroup** |
-    | Location | **(US) East US** |
-    | Virtual network gateway route propagation | **Enabled** |
+    | **Project details** |   |
+    | Subscription | Select your subscription.|
+    | Resource group | Select **myResourceGroup**. |
+    | **Instance details** |    |
+    | Region | Select **East US**. |
+    | Name | Enter **myRouteTablePublic**. |
+    | Propagate gateway routes | Select **Yes**. |
 
-    ![Create route table, Azure portal](./media/tutorial-create-route-table-portal/create-route-table.png)
+    :::image type="content" source="./media/tutorial-create-route-table-portal/create-route-table.png" alt-text="Create route table, Azure portal." border="true":::
 
-5. Select **Create**.
+5. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
 
 ## Create a route
 
