@@ -6,6 +6,7 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 2/25/2020
 ms.author: amgowda
+ms.custom: contentperf-fy21q3
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster with confidential computing nodes (DCsv2) using Azure CLI
