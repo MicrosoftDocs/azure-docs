@@ -13,7 +13,7 @@ ms.author: jgol
 
 ## How do I collect additional JMX metrics?
 
-Additional JMX metrics can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource, and you need to define the object name and attribute for each of the metrics you want collected.
+JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource, and you need to define the object name and attribute for each of the metrics you want collected.
 
 ## How do I know what metrics are available to configure?
 
@@ -29,7 +29,7 @@ When you run the Java Mission Control tool, you will have a selection of JVMs av
 
 ### How to get to the metrics I want, and the necessary attributes?
 
-The MBean browser opens the MBean tree with the list of categories that can be expanded. Selecting a category on the left opens the list of attributes on the right. Below is an example of a metric, its object name, and the attributes. The attributes may be nested, just as in the example below.
+The MBean browser opens the MBean tree with the list of categories that can be expanded. Selecting a category on the left opens the list of attributes on the right. Below is an example of a metric, its object name, and the attributes. The attributes may be nested, as in the example below.
 
 ![Screenshot of JMC MBean tree](media/java-ipa/jmx/jmc-metric-sample.png)
 
@@ -57,9 +57,9 @@ From the selection as shown in the image above, lets configure a few metrics. Th
 ],
 ```
 
-### What types of metrics and configuration options are supported?
+### Types of collected metrics and available configuration options?
 
-Numeric and boolean JMX metrics are supported, while other types are not supported and will be ignored. 
+We support numeric and boolean JMX metrics, while other types are not supported and will be ignored. 
 
 Currently, the wildcards and aggregated attributes are not supported, therefore every attribute 'object name'/'attribute' pair must be configured separately. 
 
