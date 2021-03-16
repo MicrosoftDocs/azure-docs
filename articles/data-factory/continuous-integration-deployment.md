@@ -330,7 +330,7 @@ Here's an explanation of how the preceding template is constructed, broken down 
 * Although type-specific customization is available for datasets, you can provide configuration without explicitly having a \*-level configuration. In the preceding example, all dataset properties under `typeProperties` are parameterized.
 
 > [!NOTE]
-> **Azure alerts and matrices**  if configured for a pipeline are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring, Alerts and Matrices.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> **Azure alerts and matrices**  if configured for a pipeline are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring, Alerts and Matrices.](./monitor-using-azure-monitor.md#data-factory-metrics)
 > 
 
 ### Default parameterization template

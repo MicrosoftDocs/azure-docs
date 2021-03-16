@@ -67,7 +67,7 @@ This setting will prevent any changes to any Cosmos resource from any client con
 
 - Modifying stored procedures, triggers or user-defined functions.
 
-If your applications (or users via Azure portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST, or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](/azure/?product=developer-tools#languages-and-tools).
+If your applications (or users via Azure portal) perform any of these actions they will need to be migrated to execute via [ARM Templates](./manage-with-templates.md), [PowerShell](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), REST, or [Azure Management Library](https://github.com/Azure-Samples/cosmos-management-net). Note that Azure Management is available in [multiple languages](../index.yml?product=developer-tools#languages-and-tools).
 
 ### Set via ARM Template
 
