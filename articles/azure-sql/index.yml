@@ -68,7 +68,7 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new? 
-            url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+            url: database/doc-changes-updates-release-notes.md?tabs=managed-instance
           - text: Feedback? Take the survey! 
             url: https://aka.ms/AzureSQLSurvey 
       - linkListType: overview
