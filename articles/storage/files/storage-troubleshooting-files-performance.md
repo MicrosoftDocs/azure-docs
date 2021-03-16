@@ -34,7 +34,8 @@ To confirm whether your share is being throttled, you can access and use Azure m
     For standard file shares, the following response types are logged if a request is throttled:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     For premium file shares, the following response types are logged if a request is throttled:
 
@@ -240,7 +241,8 @@ To confirm, you can use Azure Metrics in the portal -
     For standard file shares, select the following response types:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     For premium file shares, select the following response types:
 

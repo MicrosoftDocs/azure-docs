@@ -7,7 +7,7 @@ manager: mikben
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -15,9 +15,10 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
+
 <!--
 > [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
+> This document is under construction and needs the following items to be addressed:
 > - Need to add security best practices for token management here
 > - Reference docs:
 > - https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/create-a-token-object
@@ -51,7 +52,7 @@ Many scenarios are best served with native applications. Azure Communication Ser
 Communicating over the phone system can dramatically increase the reach of your application. To support PSTN voice and SMS scenarios, Azure Communication Services helps you [acquire phone numbers](../quickstarts/telephony-sms/get-phone-number.md) directly from the Azure portal or using REST APIs and client libraries. Once phone numbers are acquired, they can be used to reach customers using both PSTN calling and SMS in both inbound and outbound scenarios. A sample architecture flow can be found below:
 
 > [!Note]
-> During public preview, the provisioning of US phone numbers is available to customers with billing addresses located within the US and Canada. 
+> During public preview, the provisioning of US phone numbers is available to customers with billing addresses located within the US and Canada.
 
 :::image type="content" source="../media/scenarios/archdiagram-pstn.png" alt-text="Diagram showing Communication Services PSTN architecture.":::
 

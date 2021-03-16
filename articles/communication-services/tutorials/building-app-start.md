@@ -5,7 +5,7 @@ description: Learn how to create a baseline web application that supports Azure 
 author: nmurav
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 01/03/2012
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -156,7 +156,7 @@ module.exports ={
     output: {
         filename:'app.js',
         path: path.resolve(__dirname, 'dist'),
-    }     
+    }
 }
 ```
 
@@ -213,7 +213,7 @@ Your file now should look like this:
 }
 ```
 
-You added the command that can be used from npm. 
+You added the command that can be used from npm.
 
 :::image type="content" source="./media/step-one-pic-12.png" alt-text="Screenshot that shows the modification of package.json.":::
 
@@ -322,7 +322,7 @@ This configuration will be merged with `webpack.common.js` (where you specified 
 In `package.json`, add the following code:
 
 ```JavaScript
-"build:prod": "webpack --config webpack.prod.js" 
+"build:prod": "webpack --config webpack.prod.js"
 ```
 
 Your file should look like this:
@@ -336,14 +336,14 @@ Your file should look like this:
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack-dev-server --config webpack.dev.js",
-    "build:prod": "webpack --config webpack.prod.js" 
+    "build:prod": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/communication-calling": "^1.0.0-beta.3",
-    "@azure/communication-common": "^1.0.0-beta.3"
+    "@azure/communication-calling": "^1.0.0-beta.6",
+    "@azure/communication-common": "^1.0.0"
   },
   "devDependencies": {
     "webpack": "^4.42.0",
@@ -369,7 +369,7 @@ The command creates a `dist` folder and a production-ready `app.js` static file 
  
  
 ### Deploy your app to Azure Storage
- 
+
 Copy `index.html` and `app.css` to the `dist` folder.
 
 In the `dist` folder, create a file and name it `404.html`. Copy the following markup into that file:

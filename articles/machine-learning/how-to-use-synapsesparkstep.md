@@ -9,7 +9,7 @@ ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, synapse-azureml
 
 # Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
 
@@ -29,7 +29,7 @@ In this article, you'll learn how to use Apache Spark pools powered by Azure Syn
 
 ## Link your Azure Machine Learning workspace and Azure Synapse Analytics workspace 
 
-You create and administer your Apache Spark pools in an Azure Synapse Analytics workspace. To integrate an Apache Spark pool with an Azure Machine Learning workspace, you must link to the Azure Synapse Analytics workspace. 
+You create and administer your Apache Spark pools in an Azure Synapse Analytics workspace. To integrate an Apache Spark pool with an Azure Machine Learning workspace, you must [link to the Azure Synapse Analytics workspace](how-to-link-synapse-ml-workspaces.md). 
 
 You can attach an Apache Spark pool via Azure Machine Learning studio UI by using the **Linked Services** page. You may also do it via the **Compute** page with the **Attach compute** option.
 

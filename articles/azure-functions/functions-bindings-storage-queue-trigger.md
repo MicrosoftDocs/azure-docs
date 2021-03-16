@@ -415,7 +415,7 @@ Access the queue message via string parameter that matches the name designated b
 
 # [Python](#tab/python)
 
-Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
+Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage).
 
 ---
 
