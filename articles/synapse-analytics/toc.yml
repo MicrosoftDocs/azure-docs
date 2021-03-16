@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: Switch to dedicated SQL pool (formerly SQL DW)
+- name: Switch to dedicated SQL pool (formerly SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Overview
   items:
@@ -50,17 +50,19 @@
   #   items:
   - name: Quickstarts
     items:
-    - name: Create a workspace using Azure portal
-      href: quickstart-create-workspace.md
-      displayName: quickstart
-    - name: Create a workspace using Azure CLI
-      href: quickstart-create-workspace-cli.md
-      displayName: quickstart
-    - name: Create a workspace using Azure PowerShell
-      href: quickstart-create-workspace-powershell.md
-      displayName: quickstart
-    - name: Deploy with a template
-      href: quickstart-deployment-template-workspaces.md
+    - name: Create a workspace
+      items:
+      - name: Azure portal
+        href: quickstart-create-workspace.md
+        displayName: quickstart
+      - name: Azure CLI
+        href: quickstart-create-workspace-cli.md
+        displayName: quickstart
+      - name: Azure PowerShell
+        href: quickstart-create-workspace-powershell.md
+        displayName: quickstart
+      - name: ARM template
+        href: quickstart-deployment-template-workspaces.md
       displayName: quickstart
     - name: Link a Power BI workspace
       href: quickstart-power-bi.md
@@ -110,6 +112,8 @@
         items: 
         - name: Synapse workspace IP firewall rules
           href: ./security/synapse-workspace-ip-firewall.md
+        - name: Connectivity settings
+          href: ./security/connectivity-settings.md
         - name: Synapse workspace Managed virtual network
           href: ./security/synapse-workspace-managed-vnet.md
           displayname: vnet
@@ -344,15 +348,12 @@
         - name: Stored procedures
           href: sql/develop-stored-procedures.md
         - name: Transactions
-          href: sql/develop-transactions.md
-        - name: Transactions
           items:
-          - name: Serverless SQL pool
+          - name: Dedicated SQL pool transactions
+            href: sql/develop-transactions.md
+          - name: Dedicated SQL pool best practices transactions
             displayname: Transaction, best, practices
             href: sql/develop-transaction-best-practices.md
-          - name: Dedicated SQL pool
-            displayname: Transactions, best, practices
-            href: ./sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: User-defined schemas
           href: sql/develop-user-defined-schemas.md
         - name: Variable assignment
@@ -580,6 +581,8 @@
     items:
     - name: Apache Spark 
       href: ./spark/apache-spark-concepts.md
+    - name: Apache Spark pool configurations
+      href: ./spark/apache-spark-pool-configurations.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior
@@ -606,6 +609,8 @@
         href: ./spark/apache-spark-manage-scala-packages.md
       - name: Troubleshoot Python package installation errors 
         href: ./spark/apache-spark-troubleshoot-library-errors.md
+      - name: Create a Conda private channel
+        href: ./spark/apache-spark-custom-conda-channel.md
     - name: Use notebooks and IDE tools
       items:
       - name: Manage notebooks
@@ -1158,6 +1163,8 @@
       href: ./machine-learning/tutorial-cognitive-services-sentiment.md
     - name: Anomaly detection with Cognitive Services
       href: ./machine-learning/tutorial-cognitive-services-anomaly.md
+    - name: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
+      href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts
@@ -1175,7 +1182,7 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/ext/synapse/?view=azure-cli-latest
+    href: /cli/azure/ext/synapse/
   - name: Database collation types
     href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Go

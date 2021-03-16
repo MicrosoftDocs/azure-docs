@@ -14,7 +14,7 @@
   expanded: true
   items:
   - name: Create a model
-    href: quickstarts/get-started-model-ingestion.md
+    href: quickstarts/get-started-model-conversion.md
   - name: Create Unity app
     expanded: true
     items:

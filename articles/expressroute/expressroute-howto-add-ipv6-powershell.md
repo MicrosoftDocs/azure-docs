@@ -3,10 +3,9 @@ title: 'Azure ExpressRoute: Add IPv6 support using Azure PowerShell'
 description: Learn how to add IPv6 support to connect to Azure deployments using Azure PowerShell.
 services: expressroute
 author: duongau
-
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 2/9/2021
+ms.date: 03/02/2021
 ms.author: duau
 ---
 
@@ -56,8 +55,8 @@ Your request will then be approved by the ExpressRoute team within 2-3 business 
 
 3. Add an IPv6 Private Peering to your existing IPv4 Private Peering configuration. Provide a pair of /126 IPv6 subnets that you own for your primary link and secondary links. From each of these subnets, you will assign the first usable IP address to your router as Microsoft uses the second usable IP for its router.
 
-> [!Note]
-> The peer ASN and VlanId should match those in your IPv4 Private Peering configuration.
+    > [!Note]
+    > The peer ASN and VlanId should match those in your IPv4 Private Peering configuration.
 
     ```azurepowershell-interactive
     Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 200 -PeerAddressType IPv6
@@ -161,7 +160,7 @@ Follow the steps below if you plan to connect to a new set of Azure resources in
 
 2. [Create the dual-stack gateway subnet](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
 
-3. [Create the virtual network gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) using a zone-redundant SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ). If you plan to use FastPath, use ErGw3AZ.
+3. [Create the virtual network gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) using a zone-redundant SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ). If you plan to use FastPath, use ErGw3AZ (note that this is only available for circuits using ExpressRoute Direct).
 
 4. [Link your virtual network to your ExpressRoute circuit](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm).
 
@@ -171,6 +170,9 @@ While IPv6 support is available for connections to deployments in regions with A
 * Connections to deployments in Azure via a non-AZ ExpressRoute gateway SKU
 * Connections to deployments in non-AZ regions
 * Global Reach connections between ExpressRoute circuits
+* Use of ExpressRoute with virtual WAN
+* FastPath with non-ExpressRoute Direct circuits
+* Coexistence with VPN Gateway
 
 ## Next steps
 

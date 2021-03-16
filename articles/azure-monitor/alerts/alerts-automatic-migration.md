@@ -3,7 +3,6 @@ title: Understand how the automatic migration process for your Azure Monitor cla
 description: Learn how the automatic migration process works.
 ms.topic: conceptual
 ms.date: 02/14/2021
-ms.subservice: alerts
 ---
 # Understand the automatic migration process for your classic alert rules
 

@@ -5,7 +5,6 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.subservice: alerts
 ---
 # Create a log alert with a Resource Manager template
 

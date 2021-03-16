@@ -30,7 +30,7 @@ After you deploy Azure VMware Solution, you'll create the virtual network's jump
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Create the Azure VMware Solution jump box" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-To create a virtual machine (VM) in the virtual network that you [identified or created as part of the deployment process](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), follow these instructions: 
+To create a virtual machine (VM) in the virtual network that you [identified or created as part of the deployment process](production-ready-deployment-steps.md#attach-azure-virtual-network-to-azure-vmware-solution), follow these instructions: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
@@ -47,7 +47,7 @@ If you didn't define a virtual network in the deployment step and your intent is
 
 The jump box is in the virtual network where Azure VMware Solution connects through its ExpressRoute circuit.  In Azure, go to the jump box's network interface and [view the effective routes](../virtual-network/manage-route-table.md#view-effective-routes).
 
-In the effective routes list, you should see the networks created as part of the Azure VMware Solution deployment. You'll see multiple networks that were derived from the [`/22` network you defined](production-ready-deployment-steps.md#ip-address-segment) when you [create a private cloud](#create-an-azure-vmware-solution-private-cloud).  
+In the effective routes list, you should see the networks created as part of the Azure VMware Solution deployment. You'll see multiple networks that were derived from the [`/22` network you defined](production-ready-deployment-steps.md#ip-address-segment-for-private-cloud-management) when you [create a private cloud](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verify network routes advertised from Azure VMware Solution to Azure Virtual Network" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 

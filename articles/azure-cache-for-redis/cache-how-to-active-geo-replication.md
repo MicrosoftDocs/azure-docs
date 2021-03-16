@@ -2,7 +2,6 @@
 title: Configure active geo-replication for Enterprise Azure Cache for Redis instances
 description: Learn how to replicate your Azure Cache for Redis Enterprise instances across Azure regions
 author: yegu-ms
-
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
@@ -31,7 +30,7 @@ Active geo-replication groups two or more Enterprise Azure Cache for Redis insta
 
 1. Click **Configure** to finish.
 
-    ![Link caches](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
+    ![Active geo-replication configured](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-configured.png)
 
 1. Repeat the above steps for each additional cache instance in the geo-replication group.
 

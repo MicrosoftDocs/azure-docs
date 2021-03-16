@@ -1,7 +1,6 @@
 ---
 title: Enable VM insights guest health (preview)
 description: Describes how to enable VM insights guest health in your subscription and how to onboard VMs.
-ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren

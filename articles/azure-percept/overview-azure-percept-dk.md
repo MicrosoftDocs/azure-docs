@@ -11,17 +11,21 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 # Azure Percept DK overview
 
-Azure Percept DK is an edge AI development kit designed for developing vision AI proof of concepts. When combined with [Azure Percept Studio](./overview-azure-percept-studio.md), it becomes a powerful yet simple-to-use platform for building edge AI solutions for a wide range of vision AI applications. It is available for purchase at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+Azure Percept DK is an edge AI and IoT development kit designed for developing vision and audio AI proof of concepts. When combined with [Azure Percept Studio](./overview-azure-percept-studio.md) and [Azure Percept Audio](./overview-azure-percept-audio.md), it becomes a powerful yet simple-to-use platform for building edge AI solutions for a wide range of vision or audio AI applications. It is available for purchase at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 
-:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Image.":::
+> [!div class="nextstepaction"]
+> [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
+
+:::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Azure Percept DK device.":::
 
 ## Key Features
 
 - **The ability to run AI at the edge**. With built-in hardware acceleration, it can run vision AI models without a connection to the cloud.
 - **Hardware root of trust security built in**. See this overview of [Azure Percept Security](./overview-percept-security.md) for more details.
-- **Seamless integration with [Azure Percept Studio](./overview-azure-percept-studio.md)** and other Azure services. Such as, Azure IoT Hub, Azure Cognitive Services and [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
+- **Seamless integration with [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819)** and other Azure services. Such as, Azure IoT Hub, Azure Cognitive Services and [Live Video Analytics](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview)
+- **Seamless integration with optional [Azure Percept Audio](./overview-azure-percept-audio.md)**
 - **Support for the top AI platforms**. Such as ONNX and TensorFlow.
-- **Integration with the 80/20 railing system**. Making it easier to build prototypes in production environments. Learn more about [8/20 integration](./overview-8020-integration.md).
+- **Integration with the 80/20 railing system**. Making it easier to build prototypes in production environments. Learn more about [80/20 integration](./overview-8020-integration.md).
 
 ## Hardware Components
 
@@ -46,4 +50,5 @@ Azure Percept DK is an edge AI development kit designed for developing vision AI
 
 ## Next steps
 
-Order an Azure Percept DK at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+> [!div class="nextstepaction"]
+> [Buy an Azure Percept DK from the Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

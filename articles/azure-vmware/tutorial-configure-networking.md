@@ -2,7 +2,7 @@
 title: Tutorial - Configure networking for your VMware private cloud in Azure
 description: Learn to create and configure the networking needed to deploy your private cloud in Azure
 ms.topic: tutorial
-ms.date: 02/23/2021
+ms.date: 03/13/2021
 ---
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
@@ -89,7 +89,7 @@ To sign in to vCenter and NSX manager, you'll need the URLs to the vCenter web c
 
 Navigate to your Azure VMware Solution private cloud, under **Manage**, select **Identity**, here you'll find the information needed.
 
-:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot of the vCenter and NSX-T credentials and web client URLs." border="true":::
+:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot of the vCenter and NSX-T credentials and web client URLs." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 ## Next steps
 

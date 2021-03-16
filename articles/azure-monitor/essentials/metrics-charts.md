@@ -7,7 +7,6 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.subservice: metrics
 ---
 
 # Advanced features of the Azure metrics explorer

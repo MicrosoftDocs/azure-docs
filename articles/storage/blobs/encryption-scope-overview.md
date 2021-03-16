@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 09/22/2020
+ms.date: 03/05/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -22,15 +22,14 @@ You can choose to use either Microsoft-managed keys or customer-managed keys sto
 
 After you have created an encryption scope, you can specify that encryption scope on a request to create a container or a blob. For more information about how to create an encryption scope, see [Create and manage encryption scopes (preview)](encryption-scope-manage.md).
 
-> [!NOTE]
+> [!IMPORTANT]
+> Encryption scopes are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+> To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
+>
 > Encryption scopes are not supported with read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) accounts during preview.
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
-> [!IMPORTANT]
-> The encryption scopes preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
->
-> To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
 
 ## Create a container or blob with an encryption scope
 
