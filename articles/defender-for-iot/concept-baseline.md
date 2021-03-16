@@ -38,7 +38,7 @@ Baseline custom checks establish a custom list of checks for each device baselin
 
 1. Upload the **baseline custom checks** file to the device.
 
-1. Add baseline properties to the security module and click **Save**.
+1. Add baseline properties to the Defender-IoT-micro-agent and click **Save**.
 
 ### Baseline custom check file example
 

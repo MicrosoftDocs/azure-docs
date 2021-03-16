@@ -15,7 +15,7 @@ ms.custom: how-to, devx-track-python, automl, references_regions
 
 # Troubleshoot automated ML experiments in Python
 
-In this guide, learn how to identify and resolve known issues in your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+In this guide, learn how to identify and resolve known issues in your automated machine learning experiments with the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro).
 
 ## Version dependencies
 
@@ -161,6 +161,10 @@ If this pattern is expected in your time series, you can switch your primary met
   1. Download the model package
   1. Unzip the package
   1. Deploy using the unzipped assets
+
+## Azure Functions application
+  
+  Automated ML does not currently support Azure Functions applications. 
 
 ## Sample notebook failures
 

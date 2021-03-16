@@ -22,7 +22,7 @@ Events must be sent as UTF-8 encoded JSON.
 
 ## Create or edit event sources
 
-Your event source resource(s) can live in the same Azure subscription as your Azure Time Series Insights Gen2 environment or a different subscription.You can use the [Azure portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
+Your event source resource(s) can live in the same Azure subscription as your Azure Time Series Insights Gen2 environment or a different subscription.You can use the [Azure portal](./tutorial-set-up-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
 
 When you connect an event source, your Azure Time Series Insights Gen2 environment will read all of the events currently stored in your Iot or Event Hub, starting with the oldest event.
 
