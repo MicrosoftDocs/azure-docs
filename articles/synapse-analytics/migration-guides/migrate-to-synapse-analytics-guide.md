@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 ms.date: 03/10/2021
 ---
 # Migrating a data warehouse to a dedicated SQL pool in Azure Synapse Analytics 
-The following sections provide an overview of what's involved with migrating an existing data warehouse solution to Azure Synapse Analytics dedicated SQL pool
+The following sections provide an overview of what's involved with migrating an existing data warehouse solution to Azure Synapse Analytics dedicated SQL pool.
 
 ## Overview
 Before migrating, you should verify that Azure Synapse Analytics is the best solution for your workload. Azure Synapse Analytics is a distributed system designed to perform analytics on large data. Migrating to Azure Synapse Analytics requires some design changes that are not difficult to understand but that might take some time to implement. If your business requires an enterprise-class data warehouse, the benefits are worth the effort. However, if you don't need the power of Azure Synapse Analytics, it is more cost-effective to use [SQL Server](https://docs.microsoft.com/sql/sql-server/) or [Azure SQL Database](https://docs.microsoft.com/azure/azure-sql/).
