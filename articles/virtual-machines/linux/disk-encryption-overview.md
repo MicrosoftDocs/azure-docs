@@ -2,8 +2,9 @@
 title: Enable Azure Disk Encryption for Linux VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
+ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
@@ -138,6 +139,7 @@ Azure Disk Encryption requires an Azure Key Vault to control and manage disk enc
 For details, see [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md).
 
 ## Terminology
+
 The following table defines some of the common terms used in Azure disk encryption documentation:
 
 | Terminology | Definition |

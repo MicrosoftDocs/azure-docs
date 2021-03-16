@@ -26,7 +26,7 @@ This article walks you through creating a function in Azure for use with Azure D
 Here is an overview of the steps it contains:
 
 1. Create an Azure Functions project in Visual Studio
-2. Write an function with an [Event Grid](../event-grid/overview.md) trigger
+2. Write a function with an [Event Grid](../event-grid/overview.md) trigger
 3. Add authentication code to the function (to be able to access Azure Digital Twins)
 4. Publish the function app to Azure
 5. Set up [security](concepts-security.md) access for the function app
@@ -64,7 +64,7 @@ In order to use the SDK, you'll need to include the following packages into your
 * [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
 * [Azure.Core](https://www.nuget.org/packages/Azure.Core/)
 
-Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add the following `using` statements for these packages to your function. 
+Next, in your Visual Studio Solution Explorer, open the _Function1.cs_ file where you have sample code and add the following `using` statements for these packages to your function.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
@@ -97,6 +97,20 @@ Now that your application is written, you can publish it to Azure using the step
 ## Publish the function app to Azure
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+
+### Verify function publish
+
+1. Sign in with your credentials in the [Azure portal](https://portal.azure.com/).
+2. In the search bar on the top of the window, search for your **function app name**.
+
+    :::image type="content" source="media/how-to-create-azure-function/search-function-app.png" alt-text="Search for your function app with its name in the Azure portal." lightbox="media/how-to-create-azure-function/search-function-app.png":::
+
+3. In the *Function app* page that opens, choose *Functions* in the menu options on the left. If your function is successfully published, you'll see your function name in the list.
+Note that you might have to wait a few min or refresh the page couple of times before you can see your function listed in the published functions list.
+
+    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="View published functions in the Azure portal." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
+
+For your function app to be able to access Azure Digital Twins, it will need to have a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
 
 ## Set up security access for the function app
 
@@ -156,7 +170,7 @@ A system assigned managed identity enables Azure resources to authenticate to cl
 
     :::image type="content" source="media/how-to-create-azure-function/portal-search-for-function-app.png" alt-text="Screenshot of the Azure portal: The function app's name is being searched in the portal search bar and the search result is highlighted.":::
 
-1. On the function app page, select _Identity_ in the navigation bar on the left to work with a managed identity for the function. On the _System assigned_ page, verify that the _Status_ is set to to **On** (if it's not, set it now and *Save* the change).
+1. On the function app page, select _Identity_ in the navigation bar on the left to work with a managed identity for the function. On the _System assigned_ page, verify that the _Status_ is set to **On** (if it's not, set it now and *Save* the change).
 
     :::image type="content" source="media/how-to-create-azure-function/verify-system-managed-identity.png" alt-text="Screenshot of the Azure portal: In the Identity page for the function app, the Status option is set to On." lightbox="media/how-to-create-azure-function/verify-system-managed-identity.png":::
 

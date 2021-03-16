@@ -215,7 +215,7 @@ The following properties are supported for HTTP under `storeSettings` settings i
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The type property under `storeSettings` must be set to **HttpReadSettings**. | Yes      |
 | requestMethod            | The HTTP method. <br>Allowed values are **Get** (default) and **Post**. | No       |
-| addtionalHeaders         | Additional HTTP request headers.                             | No       |
+| additionalHeaders         | Additional HTTP request headers.                             | No       |
 | requestBody              | The body for the HTTP request.                               | No       |
 | httpRequestTimeout           | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**. | No       |
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |

@@ -51,14 +51,16 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 3. For establishing a successful connection between Azure AD and Bpanda, an access token must be retrieved in either of the following ways.
 
-Use this command on **Linux**
+* Use this command in **Linux**
 ```
 curl -u scim:{Your client secret} --location --request POST '{Your tenant specific authentication endpoint}/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials'
+```
 
-or this command using **PowerShell**
-  
+* or this command in **PowerShell**
+
+``` 
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("scim:{0}" -f {Your client secret})))    
 $headers=@{}   
 $headers.Add("Content-Type", "application/x-www-form-urlencoded")  
