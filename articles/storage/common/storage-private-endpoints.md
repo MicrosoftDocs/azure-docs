@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
@@ -61,11 +61,12 @@ If you create a private endpoint for the Data Lake Storage Gen2 storage resource
 
 For read access to the secondary region with a storage account configured for geo-redundant storage, you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover. For more information about storage redundancy options, see [Azure Storage redundancy](storage-redundancy.md).
 
-For more detailed information on creating a private endpoint for your storage account, refer to the following articles:
+To create a private endpoint for your storage account by using the Azure Portal, see [Connect privately to a storage account from the Storage Account experience in the Azure portal](../../private-link/tutorial-private-endpoint-storage-portal.md).
 
-- [Connect privately to a storage account from the Storage Account experience in the Azure portal](../../private-link/tutorial-private-endpoint-storage-portal.md)
-- [Create a private endpoint using the Private Link Center in the Azure portal](../../private-link/create-private-endpoint-portal.md)
+To create a private endpoint by using PowerShell or the Azure CLI, see either of these articles. These articles use an Azure web app as target the service instead of an Azure Storage account but the steps to create a private link are the same.
+
 - [Create a private endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md)
+
 - [Create a private endpoint using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
 <a id="connecting-to-private-endpoints"></a>
