@@ -90,7 +90,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * Records in analytical store will have NULL for missing information on any column. 
   * Extra properties in the first level of any following document will also be included in the schema definition as a column. 
   * Columns can be added but not removed.
-  * The The deletion of all documents in a collection doesn't reset the analytical store schema.
+  * The deletion of all documents in a collection doesn't reset the analytical store schema.
   * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
 
 
