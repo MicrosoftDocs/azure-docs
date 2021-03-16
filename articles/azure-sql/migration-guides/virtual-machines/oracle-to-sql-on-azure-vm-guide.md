@@ -158,7 +158,11 @@ To convert the schema, follow these steps:
 
 1. After the schema is finished converting, compare and review the structure of the schema to identify potential problems.
 
-   ![Convert Schema Compare And Review](./media/oracle-to-sql-on-azure-vm-guide/compare-schema.png)
+      ![Review recommendations](./media/oracle-to-managed-instance-guide/table-mapping.png)
+
+   Compare the converted Transact-SQL text to the original stored procedures and review the recommendations: 
+
+   ![Review recommendations code](./media/oracle-to-managed-instance-guide/procedure-comparison.png)
 
    You can save the project locally for an offline schema remediation exercise. You can do so by selecting **Save Project** from the **File** menu. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you can publish the schema to SQL Server.
 
@@ -173,6 +177,11 @@ To publish the schema and migrate the data, follow these steps:
 1. Right-click the database from the **SQL Server Metadata Explorer**  and choose **Synchronize with Database**. This action publishes the Oracle schema to SQL Server on Azure VM. 
 
    ![Synchronize with Database](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database.png)
+
+   Review the synchronization status: 
+
+   ![Synchronize with Database](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database-review.png)
+
 
 1. Right-click the Oracle schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. Alternatively, you can select Migrate Data from the top-line navigation.
 
