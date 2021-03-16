@@ -34,7 +34,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | `CallClient`                      | The main entry point to the calling client library.                                                                       |
 | `CallAgent`                        | Used to start and manage calls.                                                                                            |
-| `ceviceManager`                    | Used to manage media devices.                                                                                           |
+| `DeviceManager`                    | Used to manage media devices.                                                                                           |
 | `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`. |
 
 ## Initialize a CallClient instance, create a CallAgent instance, and access deviceManager
