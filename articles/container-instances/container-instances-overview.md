@@ -18,7 +18,7 @@ Containers offer significant startup benefits over virtual machines (VMs). Azure
 
 Bring Linux or Windows container images from Docker Hub, a private [Azure container registry](../container-registry/index.yml), or another cloud-based docker registry. Azure Container Instances caches several common base OS images, helping speed deployment of your custom application images.
 
-See which container registry types are compatible with ACI on our [FAQ page](../container-instances-faq.md#what-types-of-container-registries-are-compatible-with-aci).
+See which container registry types are compatible with ACI on our [FAQ page](./container-instances-faq.md#what-types-of-container-registries-are-compatible-with-aci).
 
 ## Container access
 
