@@ -7,13 +7,13 @@ ms.date: 03/15/2021
 
 # Use Bicep modules
 
-For small to medium solutions, a single Bicep file is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, Bicep modules enable you to break down the solution into targeted components. You can easily reuse these modules for other scenarios. A module is a set of one or more resources to be deployed together.
+A Bicep module is a set of one or more resources to be deployed together. It hides details on how internal resources are defined. This allows you to abstract away complex details of the raw resource declaration from the end user who now only needs to be concerned about the module contract. Bicep modules enable you to break down the solution into targeted components. You can easily reuse these modules for other scenarios.
 
 For a tutorial, see [Tutorial: Add modules](./bicep-tutorial-add-modules.md).
 
-## Define module
+## Define modules
 
-There is no specific syntax for defining a module. Every Bicep file can be consumed as a module. A module only exposes parameters and outputs as contract to other Bicep files. Both parameters and outputs are optional.
+Every Bicep file can be consumed as a module. There is no specific syntax for defining a module. A module only exposes parameters and outputs as contract to other Bicep files. Both parameters and outputs are optional.
 
 The following Bicep is a module example to create a storage account.  The next section shows you how to consume the module:
 
@@ -33,7 +33,6 @@ param storagePrefix string
   'Standard_RAGZRS'
 ])
 param storageSKU string = 'Standard_LRS'
-
 param location string
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
@@ -53,9 +52,11 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
 output storageEndpoint object = stg.properties.primaryEndpoints
 ```
 
-## Consume module
+The outputs can be used to pass values to the parent Bicep files.
 
-Use the _module_ keyword to consume a module. Here is an example consumption of a module. This Bicep file deploys the resource(s) defined in the module file being referenced:
+## Consume modules
+
+Use the _module_ keyword to consume a module. Here is an example consumption of a module. This Bicep file deploys the resource defined in the module file being referenced:
 
 ```bicep
 @minLength(3)
@@ -81,18 +82,21 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 
     ```json
     ...
+    ...
     "resources": [
       {
         "type": "Microsoft.Resources/deployments",
         "apiVersion": "2019-10-01",
         "name": "storageDeploy",
         "properties": {
+          ...
         }
       }
     ]
+    ...
     ```
 
-To get an output value from a module, retrieve the property value with syntax like: `stgModule.outputs.storageEndpoint`.
+To get an output value from a module, retrieve the property value with syntax like: `stgModule.outputs.storageEndpoint` where `stgModule` is the identifier of the module.
 
 ## Configure module scopes
 
@@ -124,7 +128,7 @@ param namePrefix string
 param location string = 'centralus'
 
 var resourceGroupName = '${namePrefix}rg'
-resource myRg 'Microsoft.Resources/resourceGroups@2020-01-01' = {
+resource myResourceGroup 'Microsoft.Resources/resourceGroups@2020-01-01' = {
   name: resourceGroupName
   location: location
   scope: subscription()
@@ -132,7 +136,7 @@ resource myRg 'Microsoft.Resources/resourceGroups@2020-01-01' = {
 
 module stgModule './storageAccount.bicep' = {
   name: 'storageDeploy'
-  scope: myRg
+  scope: myResourceGroup
   params: {
     storagePrefix: namePrefix
     location: location
