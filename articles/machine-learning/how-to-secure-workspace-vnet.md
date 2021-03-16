@@ -236,3 +236,5 @@ This article is part two of a five-part virtual network series. See the rest of 
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
 * [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)
+
+Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.

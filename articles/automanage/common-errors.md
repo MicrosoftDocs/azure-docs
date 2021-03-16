@@ -16,7 +16,7 @@ Automanage may fail to onboard a machine onto the service. This document explain
 ## Troubleshooting deployment failures
 Onboarding a machine to Automanage will result in an Azure Resource Manager deployment being created. If onboarding fails, it may be helpful to consult the deployment for further details as to why it failed. There are links to the deployments in the failure detail flyout, pictured below.
 
-:::image type="content" source="media\automanage-common-errors\failure-flyout.png" alt-text="Automanage failure detail flyout.":::
+:::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Automanage failure detail flyout.":::
 
 ### Check the deployments for the resource group containing the failed VM
 The failure flyout will contain a link to the deployments within the resource group that contains the machine that failed onboarding and a prefix name you can use to filter deployments with. Clicking the link will take you to the deployments blade, where you can then filter deployments to see Automanage deployments to your machine. If you're deploying across multiple regions, ensure that you click on the deployment in the correct region.
@@ -33,6 +33,7 @@ Error |  Mitigation
 :-----|:-------------|
 Automanage account insufficient permissions error | This may happen if you have recently moved a subscription containing a new Automanage Account into a new tenant. Steps to resolve this are located [here](./repair-automanage-account.md).
 Workspace region not matching region mapping requirements | Automanage was unable to onboard your machine but the Log Analytics workspace that the machine is currently linked to is not mapped to a supported Automation region. Ensure that your existing Log Analytics workspace and Automation account are located in a [supported region mapping](../automation/how-to/region-mappings.md).
+"Access denied because of the deny assignment with name 'System deny assignment created by managed application'" | A [denyAssignment](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) was created on your resource which prevented Automanage from accessing your resource. This may have been caused by either a [Blueprint](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) or a [Managed Application](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview).
 "The assignment has failed; there is no additional information available" | Please open a case with Microsoft Azure support.
 
 ## Next steps
