@@ -12,7 +12,16 @@ ms.topic: overview
 #Customer intent: As a custom translator user, I want to understand what is Custom Translator, so that I can start using it.
 ---
 
-# What is Custom Translator?
+# Custom Translator Documentation
+
+>[!NOTE]
+> **Custom Translator** documentation contains the following types of articles:  
+> ✔ [**Quickstarts**](quickstart-build-deploy-custom-model.md) are step-by-step instructions that enable you to make API calls to the feature and get results in a short period of time.  
+> ✔ [**How-to guides**](how-to-create-project.md) contain instructions for using the feature in more specific or customized ways.  
+> ✔ [**Concepts**](workspace-and-project.md) provide in-depth explanations of the feature functionality. 
+>
+
+## What is Custom Translator?
 
 [Custom Translator](https://portal.customtranslator.azure.ai) is a feature of the Microsoft Translator service, which enables Translator enterprises, app developers, and language service providers to build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites.
 

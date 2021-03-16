@@ -13,8 +13,17 @@ ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service
 ---
+# Translator Service documentation
 
-# What is the Translator service?
+>[!NOTE]
+> **Translator Service** documentation contains the following types of articles:  
+> ✔ [**Quickstarts**](quickstart-translator.md) are step-by-step instructions that enable you to make API calls to the service and get results in a short period of time.  
+> ✔ [**How-to guides**](translator-how-to-signup.md) contain instructions for using the service in more specific or customized ways.  
+> ✔ [**Concepts**](character-counts.md) provide in-depth explanations of the service functionality and features.  
+> ✔ [**Tutorials**](tutorial-wpf-translation-csharp.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+>
+
+## What is the Translator service?
 
 Translator is a cloud-based machine translation service and is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of cognitive APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [90 languages and dialects](./language-support.md). And it can be used on any hardware platform with any operating system for text translation.
 

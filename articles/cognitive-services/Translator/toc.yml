@@ -53,8 +53,6 @@
     href: firewalls.md
 - name: Translator concepts
   items:
-  - name: Customize and improve text translation
-    href: customization.md
   - name: How the API counts characters
     href: character-counts.md
 - name: Translator tutorials
@@ -102,6 +100,8 @@
     href: custom-translator/unsupported-language-deployments.md
 - name: Custom Translator concepts
   items:
+  - name: Customize and improve text translation
+    href: customization.md  
   - name: Workspaces and projects
     href: custom-translator/workspace-and-project.md
   - name: Parallel documents
@@ -123,14 +123,18 @@
   items:
     - name: What is Document Translation?
       href: document-translation/overview.md 
-- name: Document Translation quickstart
-  href: document-translation/get-started-with-document-translation.md
-- name: Custom Translator how-to guides
-  items:
-  - name: Create SAS tokens for Document Translation 
-    href: document-translation/create-sas-tokens.md  
-- name: Document Translation REST API
-  href: /rest/api/cognitiveservices/translator/translation
+  - name: Document Translation quickstart
+     items:
+    - name: Get started with Document Translation
+      href: document-translation/get-started-with-document-translation.md
+  - name: Document Translation how-to guides
+    items:
+    - name: Create SAS tokens for Document Translation 
+      href: document-translation/create-sas-tokens.md 
+  - name: Reference
+  items:     
+  - name: Document Translation REST API
+    href: /rest/api/cognitiveservices/translator/translation
 - name: Reference
   items:
   - name: v3 Translator reference
