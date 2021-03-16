@@ -26,7 +26,32 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
-## Known issues
+## March 2021
+
+### New language support added to the AudioAnalyzer preset
+
+Additional languages for video transcription and subtitling are available now in the AudioAnalyzer preset (both Basic and Standard modes).
+
+* English (Australia), 'en-AU'
+* French (Canada), 'fr-CA'
+* Arabic (Bahrain) modern standard, 'ar-BH'
+* Arabic (Egypt), 'ar-EG'
+* Arabic (Iraq), 'ar-IQ'
+* Arabic (Israel), 'ar-IL'
+* Arabic (Jordan), 'ar-JO'
+* Arabic (Kuwait), 'ar-KW'
+* Arabic (Lebanon), 'ar-LB'
+* Arabic (Oman), 'ar-OM'
+* Arabic (Qatar), 'ar-QA'
+* Arabic (Saudi Arabia), 'ar-SA'
+* Danish, ‘da-DK’
+* Norwegian, 'nb-NO'
+* Swedish, ‘sv-SE’
+* Finnish, ‘fi-FI’
+* Thai, ‘th-TH’
+* Turkish, ‘tr-TR’
+
+See the latest available languages in the [Analyzing Video And Audio Files concept article.](analyzing-video-audio-files-concept.md)
 
 ## February 2021
 
