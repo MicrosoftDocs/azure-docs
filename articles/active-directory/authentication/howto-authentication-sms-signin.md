@@ -7,7 +7,6 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/15/2021
-
 ms.author: justinha
 author: justinha
 manager: daveba

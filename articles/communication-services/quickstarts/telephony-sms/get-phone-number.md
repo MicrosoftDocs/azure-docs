@@ -6,7 +6,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 10/05/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions

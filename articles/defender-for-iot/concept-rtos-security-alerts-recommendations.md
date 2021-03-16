@@ -1,6 +1,6 @@
 ---
-title: Security Module for Azure RTOS built-in & customizable alerts and recommendations 
-description: Learn about security alerts and recommended remediation using the Azure IoT Security Module -RTOS.
+title: Defender-IoT-micro-agent for Azure RTOS built-in & customizable alerts and recommendations 
+description: Learn about security alerts and recommended remediation using the Azure IoT Defender-IoT-micro-agent -RTOS.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -17,17 +17,17 @@ ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Security Module for Azure RTOS security alerts and recommendations (preview)
+# Defender-IoT-micro-agent for Azure RTOS security alerts and recommendations (preview)
 
-Security Module for Azure RTOS continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to potential malicious activity and suspicious system modifications. You can also create custom alerts based on your knowledge of expected device behavior and baselines.
+Defender-IoT-micro-agent for Azure RTOS continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to potential malicious activity and suspicious system modifications. You can also create custom alerts based on your knowledge of expected device behavior and baselines.
 
-A Security Module for Azure RTOS alert acts as an indicator of potential compromise, and should be investigated and remediated. A Security Module for Azure RTOS recommendation identifies weak security posture to be remediated and updated. 
+A Defender-IoT-micro-agent for Azure RTOS alert acts as an indicator of potential compromise, and should be investigated and remediated. A Defender-IoT-micro-agent for Azure RTOS recommendation identifies weak security posture to be remediated and updated. 
 
 In this article, you'll find a list of built-in alerts and recommendations that are triggered based on the default ranges, and customizable with your own values, based on expected or baseline behavior. 
 
-For more information on how alert customization works in the Defender for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Security Module for Azure RTOS are detailed in the following tables. 
+For more information on how alert customization works in the Defender for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Defender-IoT-micro-agent for Azure RTOS are detailed in the following tables. 
 
-## Security Module for Azure RTOS supported security alerts
+## Defender-IoT-micro-agent for Azure RTOS supported security alerts
 
 ### Device-related security alerts
 
@@ -50,7 +50,7 @@ For more information on how alert customization works in the Defender for IoT se
 |Deleted certificate    | Detected deletion of a certificate from an IoT Hub        |
 |New certificate     |  Detected addition of new certificate to an IoT Hub       |
 
-## Security Module for Azure RTOS supported customizable alerts
+## Defender-IoT-micro-agent for Azure RTOS supported customizable alerts
 
 ### Device related customizable alerts
 
@@ -72,7 +72,7 @@ For more information on how alert customization works in the Defender for IoT se
 |Updates to twin modules     |  Number of updates to twin modules outside the allowed range       |
 |Unauthorized operations    |  Number of unauthorized operations outside the allowed range       |
 
-## Security Module for Azure RTOS supported recommendations
+## Defender-IoT-micro-agent for Azure RTOS supported recommendations
 
 ### Device-related recommendations
 
@@ -94,6 +94,6 @@ For a complete list of all Defender for IoT service related alerts and recommend
 
 ## Next steps
 
-- [Quickstart: Security Module for Azure RTOS](quickstart-azure-rtos-security-module.md)
-- [Configure and customize Security Module for Azure RTOS](how-to-azure-rtos-security-module.md)
-- Refer to the [Security Module for Azure RTOS API](azure-rtos-security-module-api.md)
+- [Quickstart: Defender-IoT-micro-agent for Azure RTOS](quickstart-azure-rtos-security-module.md)
+- [Configure and customize Defender-IoT-micro-agent for Azure RTOS](how-to-azure-rtos-security-module.md)
+- Refer to the [Defender-IoT-micro-agent for Azure RTOS API](azure-rtos-security-module-api.md)
