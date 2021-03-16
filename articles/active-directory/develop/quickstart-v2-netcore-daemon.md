@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 
 # Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity
 
-In this quickstart, you download and run a code sample that demonstrates how a .NET Core console application can get an access token to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample also demonstrates how a job or a Windows service can run with an application identity, instead of a user's identity. 
+In this quickstart, you download and run a code sample that demonstrates how a .NET Core console application can get an access token to call the Microsoft Graph API and display a [list of users](/graph/api/user-list) in the directory. The code sample also demonstrates how a job or a Windows service can run with an application identity, instead of a user's identity. The sample console application in this quickstart is also a daemon application, so it's a confidential client application.
 
 > [!div renderon="docs"]
 > The following diagram shows how the sample app works:
@@ -29,7 +29,7 @@ In this quickstart, you download and run a code sample that demonstrates how a .
 
 ## Prerequisites
 
-This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core).
+This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core) but will also work with NET Core 5.0.
 
 > [!div renderon="docs"]
 > ## Register and download the app
