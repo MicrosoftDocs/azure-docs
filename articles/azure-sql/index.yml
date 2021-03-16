@@ -26,16 +26,18 @@ landingContent:
   # Card 
   - title: Azure SQL Database
     linkLists:
-      - linkListType: overview
+      - linkListType: whats-new
         links:
           - text: What's new? 
             url: database/doc-changes-updates-release-notes.md?tabs=single-database
+          - text: Feedback? Take the survey! 
+            url: https://aka.ms/AzureSQLSurvey 
+      - linkListType: overview
+        links:
           - text: What is SQL Database?
             url: database/sql-database-paas-overview.md
           - text: What are elastic pools? 
             url: database/elastic-pool-overview.md
-          - text: Feedback? Take the survey! 
-            url: https://aka.ms/AzureSQLSurvey 
       - linkListType: quickstart
         links:
           - text: Create SQL Database
@@ -63,6 +65,12 @@ landingContent:
   # Card 
   - title: Azure SQL Managed Instance
     linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new? 
+            url: ../database/doc-changes-updates-release-notes.md?tabs=managed-instance
+          - text: Feedback? Take the survey! 
+            url: https://aka.ms/AzureSQLSurvey 
       - linkListType: overview
         links:
           - text: What's new? 
@@ -71,8 +79,6 @@ landingContent:
             url: managed-instance/sql-managed-instance-paas-overview.md
           - text: What are instance pools? 
             url: managed-instance/instance-pools-overview.md 
-          - text: Feedback? Take the survey! 
-            url: https://aka.ms/AzureSQLSurvey 
       - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance 
