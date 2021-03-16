@@ -7,7 +7,7 @@ ms.author: ebnkruma
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 03/16/2021
 ---
 
 # Social media analysis with Azure Stream Analytics
