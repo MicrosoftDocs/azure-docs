@@ -2,7 +2,7 @@
 title: Availability and consistency - Azure Event Hubs | Microsoft Docs
 description: How to provide the maximum amount of availability and consistency with Azure Event Hubs using partitions.
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 03/15/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -21,16 +21,23 @@ In some scenarios, the ordering of events can be important. For example, you may
 
 With this configuration, keep in mind that if the particular partition to which you are sending is unavailable, you will receive an error response. As a point of comparison, if you don't have an affinity to a single partition, the Event Hubs service sends your event to the next available partition.
 
-Therefore, if high availability is most important, don't target a specific partition (using partition ID/key). Using partition ID/key downgrades the availability of an event hub to partition-level. In this scenario, you are making an explicit choice between availability (no partition ID/key) and consistency (pinning events to a specific partition).  
+Therefore, if high availability is most important, don't target a specific partition (using partition ID/key). Using partition ID/key downgrades the availability of an event hub to partition-level. In this scenario, you are making an explicit choice between availability (no partition ID/key) and consistency (pinning events to a specific partition). For detailed information about partitions in Event Hubs, see [Partitions](event-hubs-features.md#partitions).
 
 ## Appendix
 
+### Send events without specifying a partition
+We recommend sending events to an event hub without setting partition information to allow the Event Hubs service to balance the load across partitions. See the following quick starts to learn how to do so in different programming languages. 
+
+- [Send events using .NET](event-hubs-dotnet-standard-getstarted-send.md)
+- [Send events using Java](event-hubs-java-get-started-send.md)
+- [Send events using JavaScript](event-hubs-python-get-started-send.md)
+- [Send events using Python](event-hubs-python-get-started-send.md)
+
+
 ### Send events to a specific partition
-This section shows you how to send events to a specific partition using C#, Java, Python, and JavaScript. 
+In this section, you learn how to send events to a specific partition using different programming languages. 
 
 ### [.NET](#tab/dotnet)
-For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs)](event-hubs-dotnet-standard-getstarted-send.md).
-
 To send events to a specific partition, create the batch using the [EventHubProducerClient.CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_) method by specifying either the `PartitionId` or the `PartitionKey` in [CreateBatchOptions](//dotnet/api/azure.messaging.eventhubs.producer.createbatchoptions). The following code sends a batch of events to a specific partition by specifying a partition key. 
 
 ```csharp
@@ -48,8 +55,6 @@ producer.SendAsync(events, sendOptions)
 
 
 ### [Java](#tab/java)
-For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Use Java to send events to or receive events from Azure Event Hubs (azure-messaging-eventhubs)](event-hubs-java-get-started-send.md).
-
 To send events to a specific partition, create the batch using the [createBatch](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.createbatch) method by specifying either **partition ID** or **partition key** in [createBatchOptions](/java/api/com.azure.messaging.eventhubs.models.createbatchoptions). The following code sends a batch of events to a specific partition by specifying a partition key. 
 
 ```java
@@ -68,8 +73,6 @@ producer.send(events, sendOptions);
 
 
 ### [Python](#tab/python) 
-For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to or receive events from event hubs by using Python (azure-eventhub)](event-hubs-python-get-started-send.md).
-
 To send events to a specific partition, when creating a batch using the [`EventHubProducerClient.create_batch`](/python/api/azure-eventhub/azure.eventhub.eventhubproducerclient#create-batch---kwargs-) method, specify the `partition_id` or the `partition_key`. Then, use the [`EventHubProducerClient.send_batch`](/python/api/azure-eventhub/azure.eventhub.aio.eventhubproducerclient#send-batch-event-data-batch--typing-union-azure-eventhub--common-eventdatabatch--typing-list-azure-eventhub-) method to send the batch to the event hub's partition. 
 
 ```python
@@ -83,8 +86,6 @@ producer.send_batch(event_data_batch, partition_key="cities")
 ```
 
 ### [JavaScript](#tab/javascript)
-For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to or receive events from event hubs by using JavaScript (azure/event-hubs)](event-hubs-node-get-started-send.md).
-
 To send events to a specific partition, [Create a batch](/javascript/api/@azure/event-hubs/eventhubproducerclient#createBatch_CreateBatchOptions_) using the [EventHubProducerClient.CreateBatchOptions](/javascript/api/@azure/event-hubs/eventhubproducerclient#createBatch_CreateBatchOptions_) object by specifying the `partitionId` or the `partitionKey`. Then, send the batch to the event hub using the [EventHubProducerClient.SendBatch](/javascript/api/@azure/event-hubs/eventhubproducerclient#sendBatch_EventDataBatch__OperationOptions_) method. 
 
 See the following example.
@@ -104,27 +105,10 @@ producer.sendBatch(events, sendBatchOptions);
 
 ---
 
-### Send events without specifying a partition
-This section shows you how to send events to a specific partition using C#, Java, Python, and JavaScript. 
-
-### [.NET](#tab/dotnet)
-For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to and receive events from Azure Event Hubs - .NET (Azure.Messaging.EventHubs)](event-hubs-dotnet-standard-getstarted-send.md).
-
-### [Java](#tab/java)
-For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Use Java to send events to or receive events from Azure Event Hubs (azure-messaging-eventhubs)](event-hubs-java-get-started-send.md).
-
-### [Python](#tab/python) 
-For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to or receive events from event hubs by using Python (azure-eventhub)](event-hubs-python-get-started-send.md).
-
-### [JavaScript](#tab/javascript)
-For the full sample code that shows you how to send an event batch to an event hub (without setting partition ID/key), see [Send events to or receive events from event hubs by using JavaScript (azure/event-hubs)](event-hubs-node-get-started-send.md).
-
----
-
 
 
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs service overview](./event-hubs-about.md)
-* [Create an event hub](event-hubs-create.md)
+- [Event Hubs service overview](./event-hubs-about.md)
+- [Event Hubs terminology](event-hubs-features.md)
