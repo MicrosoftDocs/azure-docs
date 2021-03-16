@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 03/09/2021
+ms.date: 03/16/2021
 ---
 
 # CEF and CommonSecurityLog field mapping
@@ -20,7 +20,7 @@ For more information, see [Connect your external solution using Common Event For
 
 |CEF key name  |CommonSecurityLog field name  |Description  |
 |---------|---------|---------|
-| act    |    DeviceAction     |  The action mentioned in the event.       |
+| act    |    <a name=deviceaction/>DeviceAction     |  The action mentioned in the event.       |
 |   app  |    ApplicationProtocol     |  The protocol used in the application, such as HTTP, HTTPS, SSHv2, Telnet, POP, IMPA, IMAPS, and so on.   |
 | cnt    |    EventCount     |  A count associated with the event, showing how many times the same event was observed.       |
 | | | |
@@ -37,7 +37,7 @@ For more information, see [Connect your external solution using Common Event For
 | destinationServiceName | DestinationServiceName | The service that is targeted by the event. For example, `sshd`.|
 | destinationTranslatedAddress | DestinationTranslatedAddress | Identifies the translated destination referred to by the event in an IP network, as an IPv4 IP address. |
 | destinationTranslatedPort | DestinationTranslatedPort | Port, after translation, such as a firewall. <br>Valid port numbers: `0` - `65535` |
-| deviceDirection | CommunicationDirection | Any information about the direction the observed communication has taken. Valid values: <br>- `0` = Inbound <br>- `1` = Outbound |
+| deviceDirection | <a name=communicationdirection/>CommunicationDirection | Any information about the direction the observed communication has taken. Valid values: <br>- `0` = Inbound <br>- `1` = Outbound |
 | deviceDnsDomain | DeviceDnsDomain | The DNS domain part of the full qualified domain name (FQDN) |
 | deviceExternalID | DeviceExternalID | A name that uniquely identifies the device generating the event. |
 | deviceFacility | DeviceFacility | The facility generating the event.|
@@ -113,8 +113,7 @@ For more information, see [Connect your external solution using Common Event For
 | requestCookies | RequestCookies |Cookies associated with the request. |
 | requestMethod | RequestMethod | The method used to access a URL. <br><br>Valid values include methods such as `POST`, `GET`, and so on. |
 | rt | ReceiptTime | The time at which the event related to the activity was received. |
-| RemoteIP | RemoteIP | The remote IP address, derived from the event's direction value, if possible. |
-|Severity     |  LogSeverity       |  A string or integer that describes the importance of the event.<br><br> Valid string values: `Unknown` , `Low`, `Medium`, `High`, `Very-High` <br><br>Valid integer values are: `0`-`3` = Low, `4`-`6` = Medium, `7`-`8` = High, `9`-`10` = Very-High |
+|Severity     |  <a name=logseverity/>LogSeverity       |  A string or integer that describes the importance of the event.<br><br> Valid string values: `Unknown` , `Low`, `Medium`, `High`, `Very-High` <br><br>Valid integer values are: `0`-`3` = Low, `4`-`6` = Medium, `7`-`8` = High, `9`-`10` = Very-High |
 | shost    | SourceHostName        |Identifies the source that event refers to in an IP network. Format should be a fully qualified domain name (DQDN) associated with the source node, when a node is available. For example, `host` or `host.domain.com`. |
 | smac | SourceMacAddress | Source MAC address. |
 | sntdom | SourceNTDomain | The Windows domain name for the source address. |
@@ -136,9 +135,15 @@ For more information, see [Connect your external solution using Common Event For
 
 The following **CommonSecurityLog** field names don't have mappings in CEF keys:
 
-- **OriginalLogSeverity**: A non-mapped version of LogSeverity
-- **RemotePort**: The remote port, derived from the event's direction value, if possible.
-- **SimplifiedDeviceAction**:  A mapped version of [DeviceAction](#d), such as `Denied` > `Deny` 
+
+|CommonSecurityLog field name  |Description  |
+|---------|---------|
+|**OriginalLogSeverity**     |  Always empty, supported for integration with CiscoASA. <br>For details about log severity values, see the [LogSeverity](#logseverity) field.       |
+|**RemoteIP**     |     The remote IP address. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.     |
+|**RemotePort**     |   The remote port. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.      |
+|**SimplifiedDeviceAction**     |   Simplifies the [DeviceAction](#deviceaction) value to a static set of values, while keeping the orignal value in the [DeviceAction](#deviceaction) field. <br>For example:  `Denied` > `Deny`.      |
+|     |         |
+
 
 ## Next steps
 
