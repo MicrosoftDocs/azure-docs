@@ -13,23 +13,23 @@ ms.author: jgol
 
 ## How do I collect additional JMX metrics?
 
-Additional JMX metrics can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure Portal in application insigths resource, and you need to define the object name and attribute for each of the metrics you want collected.
+Additional JMX metrics can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource, and you need to define the object name and attribute for each of the metrics you want collected.
 
 ## How do I know what metrics are available to configure?
 
-You nailed it - you must know the object names and the attributes, those are different for various JVMs and are not well documented by the JVM providers. To get the object names and attributes, you need to view the MBean tree. An MBean is a managed Java object, that can represent a device, an application, or a resource, and has a set of attributes. 
+You nailed it - you must know the object names and the attributes, those properties are different for various JVMs and are not well documented by the JVM providers. To get the object names and attributes, you need to view the MBean tree. An MBean is a managed Java object, that can represent a device, an application, or a resource, and has a set of attributes. 
 
-To view the MBean tree and browse through the available metrics we recommend to use [Java Mission Control](https://www.oracle.com/java/technologies/jdk-mission-control.html).
+To view the MBean tree and browse through the available metrics, we recommend using [Java Mission Control](https://www.oracle.com/java/technologies/jdk-mission-control.html).
 
 ### How to navigate the Java Mission Control to get to the right metrics?
 
-When you run the Java Mission Control tool, you will have a selection of JVMs available on the left side, click on the relevant process under the 'JVM Browser' tab. When the JMC loads the dashboard for the process, select 'MBean Browser' tab on the bottom (see below). Note that the JMC must be located in the same folder as the JVM and your process/app must be up and running.
+When you run the Java Mission Control tool, you will have a selection of JVMs available on the left side, click on the relevant process under the 'JVM Browser' tab. When the JMC loads the dashboard for the process, select 'MBean Browser' tab on the bottom (see below). The JMC must be located in the same folder as the JVM and your process/app must be up and running.
 
 ![Screenshot of JMC MBean browser](media/java-ipa/jmx/jmc-mbean-browser.png)
 
 ### How to get to the metrics I want, and the necessary attributes?
 
-The MBean browser opens the MBean tree with the list of categories that can be expanded. Selecting a category on the left opens the list of attributes on the right. Below is an example of a metric, it's object name, and the attributes. Note that the attributes may be nested, just as in the example below.
+The MBean browser opens the MBean tree with the list of categories that can be expanded. Selecting a category on the left opens the list of attributes on the right. Below is an example of a metric, its object name, and the attributes. The attributes may be nested, just as in the example below.
 
 ![Screenshot of JMC MBean tree](media/java-ipa/jmx/jmc-metric-sample.png)
 
@@ -66,7 +66,7 @@ Currently, the wildcards and aggregated attributes are not supported, therefore 
 
 ## Where do I find the JMX Metrics in application insights?
 
-As your application is running and the JMX metrics are collected, you can view them by going to Azure Portal and navigate to your application insights resource. Under Metrics tab, select the dropdown as shown below to view the metrics.
+As your application is running and the JMX metrics are collected, you can view them by going to Azure portal and navigate to your application insights resource. Under Metrics tab, select the dropdown as shown below to view the metrics.
 
 ![Screenshot of metrics in portal](media/java-ipa/jmx/jmx-portal.png)
 
