@@ -36,7 +36,6 @@ See the other articles in this series:
 > [!IMPORTANT]
 > If your workspace is in a __sovereign cloud__, such as Azure Government or Azure China 21Vianet, integrated notebooks _do not_ support using storage that is in a virtual network. Instead, you can use Jupyter Notebooks from a compute instance. For more information, see the [Access data in a Compute Instance notebook](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) section.
 
-
 ## Prerequisites
 
 + Read the [Network security overview](how-to-network-security-overview.md) to understand common virtual network scenarios and architecture.
@@ -104,7 +103,6 @@ The following table describes why you must enable managed identity authenticatio
 >
 > To resolve this issue, remove the filestore account from the virtual network then add it back to the virtual network.
 
-
 ### Grant workspace managed identity __Reader__ access to storage private link
 
 If your Azure storage account uses a private endpoint, you must grant the workspace-managed identity **Reader** access to the private link. For more information, see the [Reader](../role-based-access-control/built-in-roles.md#reader) built-in role. 
@@ -159,9 +157,11 @@ You should also [enable managed identity authentication](#configure-datastores-t
 
 ## Next steps
 
-This article is an optional part of a four-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part five of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
 
 * [Part 1: Virtual network overview](how-to-network-security-overview.md)
 * [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
+
+Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.

@@ -17,6 +17,11 @@ ms.author: allensu
 ---
 # Load balancing on multiple IP configurations using Azure CLI
 
+> [!div class="op_single_selector"]
+> * [Portal](load-balancer-multiple-ip.md)
+> * [CLI](load-balancer-multiple-ip-cli.md)
+> * [PowerShell](load-balancer-multiple-ip-powershell.md)
+
 This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC). For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs has two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
 
 ![LB scenario image](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
@@ -25,7 +30,7 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 
 To achieve the scenario outlined in this article complete the following steps:
 
-1. [Install and Configure the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) by following the steps in the linked article and log into your Azure account.
+1. [Install and Configure the Azure CLI](/cli/azure/install-azure-cli) by following the steps in the linked article and log into your Azure account.
 2. [Create a resource group](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) called *contosofabrikam* as follows:
 
     ```azurecli

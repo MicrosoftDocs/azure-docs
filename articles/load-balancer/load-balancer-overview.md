@@ -38,8 +38,8 @@ For more information on the individual load balancer components, see [Azure Load
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios. 
 > * If you are looking to do DNS based global routing and do **not** have requirements for Transport Layer Security (TLS) protocol termination ("SSL offload"), per-HTTP/HTTPS request or application-layer processing, review [Traffic Manager](../traffic-manager/traffic-manager-overview.md). 
-> * If you want to load balance between your servers in a region at the application layer, review [Application Gateway](../application-gateway/overview.md)
-> * If you need to optimize global routing of your web traffic and optimize top-tier end-user performance and reliability through quick global failover, see [Front Door](../frontdoor/front-door-overview.md)
+> * If you want to load balance between your servers in a region at the application layer, review [Application Gateway](../application-gateway/overview.md).
+> * If you need to optimize global routing of your web traffic and optimize top-tier end-user performance and reliability through quick global failover, see [Front Door](../frontdoor/front-door-overview.md).
 > 
 > Your end-to-end scenarios may benefit from combining these solutions as needed.
 > For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).

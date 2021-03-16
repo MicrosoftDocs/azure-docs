@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -32,7 +32,7 @@ This article describes the configuration options that are available when connect
 
 ## Encrypted SAML assertions
 
-When your application expects SAML assertions to be in an encrypted format, need to make sure that encryption is enabled in the Azure AD B2C policy.
+When your application expects SAML assertions to be in an encrypted format, you need to make sure that encryption is enabled in the Azure AD B2C policy.
 
 Azure AD B2C uses the service provider's public key certificate to encrypt the SAML assertion. The public key must exist in the SAML application's metadata endpoint with the KeyDescriptor 'use' set to 'Encryption', as shown in the following example:
 
@@ -56,6 +56,54 @@ To enable Azure AD B2C to send encrypted assertions, set the **WantsEncryptedAss
     <Protocol Name="SAML2"/>
     <Metadata>
       <Item Key="WantsEncryptedAssertions">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+### Encryption method
+
+To configure the encryption method used to encrypt the SAML assertion data, set the `DataEncryptionMethod` metadata key within the relying party. Possible values are `Aes256` (default), `Aes192`, `Sha512`, or `Aes128`. The metadata controls the value of the `<EncryptedData>` element in the SAML response.
+
+To configure the encryption method used to encrypt the copy of the key, that was used to encrypt the SAML assertion data, set the `KeyEncryptionMethod` metadata key within the relying party. Possible values are `Rsa15` (default) - RSA Public Key Cryptography Standard (PKCS) Version 1.5 algorithm, and `RsaOaep` - RSA Optimal Asymmetric Encryption Padding (OAEP) encryption algorithm.  The metadata controls the value of the  `<EncryptedKey>` element in the SAML response.
+
+The following example shows the `EncryptedAssertion` section of a SAML assertion. The encrypted data method is `Aes128`, and the encrypted key method is `Rsa15`.
+
+```xml
+<saml:EncryptedAssertion>
+  <xenc:EncryptedData xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" Type="http://www.w3.org/2001/04/xmlenc#Element">
+    <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes128-cbc" />
+    <dsig:KeyInfo>
+      <xenc:EncryptedKey>
+        <xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-1_5" />
+        <xenc:CipherData>
+          <xenc:CipherValue>...</xenc:CipherValue>
+        </xenc:CipherData>
+      </xenc:EncryptedKey>
+    </dsig:KeyInfo>
+    <xenc:CipherData>
+      <xenc:CipherValue>...</xenc:CipherValue>
+    </xenc:CipherData>
+  </xenc:EncryptedData>
+</saml:EncryptedAssertion>
+```
+
+You can change the format of the encrypted assertions. To configure the encryption format, set the `UseDetachedKeys` metadata key within the relying party. Possible values: `true`, or `false` (default). When the value is set to `true`, the detached keys add the encrypted assertion as a child of the `EncrytedAssertion` as opposed to the `EncryptedData`.
+
+Configure the encryption method and format, use the metadata keys within the [relying party technical profile](relyingparty.md#technicalprofile):
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="DataEncryptionMethod">Aes128</Item>
+      <Item Key="KeyEncryptionMethod">Rsa15</Item>
+      <Item Key="UseDetachedKeys">false</Item>
     </Metadata>
    ..
   </TechnicalProfile>
@@ -110,7 +158,7 @@ We provide a complete sample policy that you can use for testing with the SAML t
 
 You can configure the signature algorithm used to sign the SAML assertion. Possible values are `Sha256`, `Sha384`, `Sha512`, or `Sha1`. Make sure the technical profile and application use the same signature algorithm. Use only the algorithm that your certificate supports.
 
-Configure the signature algorithm using the `XmlSignatureAlgorithm` metadata key within the RelyingParty metadata node.
+Configure the signature algorithm using the `XmlSignatureAlgorithm` metadata key within the relying party Metadata element.
 
 ```xml
 <RelyingParty>
@@ -128,7 +176,7 @@ Configure the signature algorithm using the `XmlSignatureAlgorithm` metadata key
 
 ## SAML response lifetime
 
-You can configure the length of time the SAML response remains valid. Set the lifetime using the `TokenLifeTimeInSeconds` metadata item within the SAML Token Issuer technical profile. This value is the number of seconds that can elapse from the `NotBefore` timestamp calculated at the token issuance time. Automatically, the time picked for this is your current time. The default lifetime is 300 seconds (5 minutes).
+You can configure the length of time the SAML response remains valid. Set the lifetime using the `TokenLifeTimeInSeconds` metadata item within the SAML Token Issuer technical profile. This value is the number of seconds that can elapse from the `NotBefore` timestamp calculated at the token issuance time. The default lifetime is 300 seconds (5 minutes).
 
 ```xml
 <ClaimsProvider>
@@ -171,6 +219,26 @@ For example, when the `TokenNotBeforeSkewInSeconds` is set to `120` seconds:
     </TechnicalProfile>
 ```
 
+## Remove milliseconds from date and time
+
+You can specify whether the milliseconds will be removed from datetime values within the SAML response (these include IssueInstant, NotBefore, NotOnOrAfter, and AuthnInstant). To remove the milliseconds, set the `RemoveMillisecondsFromDateTime
+` metadata key within the relying party. Possible values: `false` (default) or `true`.
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Token Issuer</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="Saml2AssertionIssuer">
+      <DisplayName>Token Issuer</DisplayName>
+      <Protocol Name="SAML2"/>
+      <OutputTokenFormat>SAML2</OutputTokenFormat>
+      <Metadata>
+        <Item Key="RemoveMillisecondsFromDateTime">true</Item>
+      </Metadata>
+      ...
+    </TechnicalProfile>
+```
+
 ## Azure AD B2C issuer ID
 
 If you have multiple SAML applications that depend on different `entityID` values, you can override the `issueruri` value in your relying party file. To override the issuer URI, copy the technical profile with the "Saml2AssertionIssuer" ID from the base file and override the `issueruri` value.
@@ -206,6 +274,19 @@ Example:
 ## Session management
 
 You can manage the session between Azure AD B2C and the SAML relying party application using the `UseTechnicalProfileForSessionManagement` element and the [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider).
+
+## Force users to re-authenticate 
+
+To force users to re-authenticate, the application can include the `ForceAuthn` attribute in the SAML authentication request. The `ForceAuthn` attribute is a Boolean value. When set to true, the users session will be invalidated at Azure AD B2C, and the user is forced to re-authenticate. The following SAML authentication request demonstrates how to set the `ForceAuthn` attribute to true. 
+
+
+```xml
+<samlp:AuthnRequest 
+       Destination="https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1A_SAML2_signup_signin/samlp/sso/login"
+       ForceAuthn="true" ...>
+    ...
+</samlp:AuthnRequest>
+```
 
 ## Debug the SAML protocol
 

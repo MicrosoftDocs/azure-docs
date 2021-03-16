@@ -23,7 +23,7 @@ Create a function with Log Analytics in the Azure portal by clicking **Save** an
 | Function Alias | Short name to use the function in other queries. May not contain spaces and must be unique. |
 | Category       | A category to organize saved queries and functions in **Query explorer**. |
 
-
+You can also create functions using the [REST API](/rest/api/loganalytics/savedsearches/createorupdate) or [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightssavedsearch).
 
 
 ## Use a function

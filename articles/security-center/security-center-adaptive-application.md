@@ -1,17 +1,10 @@
 ---
 title: Adaptive application controls in Azure Security Center
 description: This document helps you use adaptive application control in Azure Security Center to allow list applications running in Azure machines.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-
-ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
 
