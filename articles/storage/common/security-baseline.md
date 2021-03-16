@@ -4,7 +4,7 @@ description: The Azure Storage security baseline provides procedural guidance an
 author: msmbaldwin
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 

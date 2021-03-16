@@ -4,7 +4,7 @@ description: The Azure Databricks security baseline provides procedural guidance
 author: msmbaldwin
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 
