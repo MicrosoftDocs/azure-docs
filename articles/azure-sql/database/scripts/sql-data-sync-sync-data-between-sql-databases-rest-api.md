@@ -26,7 +26,8 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 ## Create sync group
 
-Use the following template to create a sync group: https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate
+Use the [create or update](https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate) template to create a sync group.
+ 
 When creating a sync group, do not pass in the sync schema (table\column) and do not pass in masterSyncMemberName, because at this time sync group does not have table\column information yet.
 
 Sample request for creating a sync group: 
@@ -85,7 +86,7 @@ Status code: 201
 
 ## Create sync member
 
-Use the following template to create a sync member: https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate
+Use the [create or update](https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate) template to create a sync member.
 
 Sample request for creating a sync member:
 
@@ -144,8 +145,8 @@ Status code:201
 ## Refresh schema
 
 Once your sync group is created successfully, refresh schema using the following templates.
- 
-Refresh schema for hub: https://docs.microsoft.com/rest/api/sql/syncgroups/refreshhubschema
+
+Use the [refresh hub schema](https://docs.microsoft.com/rest/api/sql/syncgroups/refreshhubschema)  template to refresh the schema for the hub database. 
 
 Sample request for refreshing a hub database schema: 
 
@@ -159,17 +160,18 @@ Status code: 200
 
 Status code: 202
 
-List hub schemas: https://docs.microsoft.com/rest/api/sql/syncgroups/listhubschemas
+Use the [list hub schemas](https://docs.microsoft.com/rest/api/sql/syncgroups/listhubschemas) template to list the hub database schema. 
 
-Refresh schema for member: https://docs.microsoft.com/rest/api/sql/syncmembers/refreshmemberschema
+Use the [refresh member schema](https://docs.microsoft.com/rest/api/sql/syncmembers/refreshmemberschema) template to refresh the member database schema. 
 
-List membber schemas: https://docs.microsoft.com/rest/api/sql/syncmembers/listmemberschemas
+Use the [list member schema](https://docs.microsoft.com/rest/api/sql/syncmembers/listmemberschemas) template to list member database schema. 
 
 Only proceed to the next step once your schema refreshes successfully. 
 
 ## Update sync group 
 
-Use the following template to update your sync group: https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate
+Use the [create or update](https://docs.microsoft.com/rest/api/sql/syncgroups/createorupdate) template to update your sync group.
+
 Update sync group by specifying the sync schema. Include your schema and masterSyncMemberName, which is the name that holds the schema you want to use. 
 
 Sample request for updating sync group: 
@@ -225,7 +227,7 @@ Sample response for updating sync group:
 ```
 ## Update sync member
 
-Use the following template to update a sync member: https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate
+Use the [create or update](https://docs.microsoft.com/rest/api/sql/syncmembers/createorupdate) template to update your sync member.
 
 Sample request for updating a sync member: 
 
@@ -284,7 +286,7 @@ Status code: 201
 
 ## Trigger sync
 
-Use the following template to trigger a sync operation: https://docs.microsoft.com/rest/api/sql/syncgroups/triggersync
+Use the [trigger sync](https://docs.microsoft.com/rest/api/sql/syncgroups/triggersync) template to trigger a sync operation.
 
 Sample request for triggering sync operation: 
 
