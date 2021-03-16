@@ -21,13 +21,6 @@
     - name: ARM template
       displayName: Resource Manager
       href: quick-create-template.md
-- name: Concepts
-  items:
-  - name: Share dashboards with Azure role-based access control
-    href: azure-portal-dashboard-share-access.md
-  - name: Programmatically create Azure dashboards
-    href: azure-portal-dashboards-create-programmatically.md
-    displayName: Azure CLI, az portal dashboard, az portal
 - name: How-to guides
   items:
   - name: Manage Azure portal settings and preferences
@@ -38,8 +31,13 @@
     href: manage-filter-resource-views.md
   - name: Create Azure dashboards
     items:
-    - name: Create and share Azure dashboards
+    - name: Create an Azure dashboard
       href: azure-portal-dashboards.md
+    - name: Share an Azure dashboard
+      href: azure-portal-dashboard-share-access.md
+    - name: Programmatically create an Azure dashboard
+      href: azure-portal-dashboards-create-programmatically.md
+      displayName: Azure CLI, az portal dashboard, az portal
     - name: Use a custom markdown tile
       href: azure-portal-markdown-tile.md
   - name: Azure portal how-to video series

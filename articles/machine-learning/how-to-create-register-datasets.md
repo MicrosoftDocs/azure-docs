@@ -182,9 +182,55 @@ titanic_ds.take(3).to_pandas_dataframe()
 
 To reuse and share datasets across experiments in your workspace, [register your dataset](#register-datasets).
 
+## Wrangle data
+After you create and [register](#register-datasets) your dataset, you can load it into your notebook for data wrangling and [exploration](#explore-data) prior to model training. 
+
+If you don't need to do any data wrangling or exploration, see how to consume datasets in your training scripts for submitting ML experiments in [Train with datasets](how-to-train-with-datasets.md).
+
+### Filter datasets (preview)
+Filtering capabilities depends on the type of dataset you have. 
+> [!IMPORTANT]
+> Filtering datasets with the public preview method, [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time. 
+> 
+**For TabularDatasets**, you can keep or remove columns with the [keep_columns()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) and [drop_columns()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-) methods.
+
+To filter out rows by a specific column value in a TabularDataset, use the [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) method (preview). 
+
+The following examples return an unregistered dataset based on the specified expressions.
+
+```python
+# TabularDataset that only contains records where the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter(tabular_dataset['age'] > 15)
+
+# TabularDataset that contains records where the name column value contains 'Bri' and the age column value is greater than 15
+tabular_dataset = tabular_dataset.filter((tabular_dataset['name'].contains('Bri')) & (tabular_dataset['age'] > 15))
+```
+
+**In FileDatasets**, each row corresponds to a path of a file, so filtering by column value is not helpful. But, you can [filter()](/python/api/azureml-core/azureml.data.filedataset#filter-expression-) out rows by metadata like, CreationTime, Size etc.
+
+The following examples return an unregistered dataset based on the specified expressions.
+
+```python
+# FileDataset that only contains files where Size is less than 100000
+file_dataset = file_dataset.filter(file_dataset.file_metadata['Size'] < 100000)
+
+# FileDataset that only contains files that were either created prior to Jan 1, 2020 or where 
+file_dataset = file_dataset.filter((file_dataset.file_metadata['CreatedTime'] < datetime(2020,1,1)) | (file_dataset.file_metadata['CanSeek'] == False))
+```
+
+**Labeled datasets** created from [data labeling projects](how-to-create-labeling-projects.md) are a special case. These datasets are a type of TabularDataset made up of image files. For these types of datasets, you can [filter()](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-) images by metadata, and by column values like `label` and `image_details`.
+
+```python
+# Dataset that only contains records where the label column value is dog
+labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
+
+# Dataset that only contains records where the label and isCrowd columns are True and where the file size is larger than 100000
+labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
+```
+
 ## Explore data
 
-After you create and [register](#register-datasets) your dataset, you can load it into your notebook for data exploration prior to model training. If you don't need to do any data exploration, see how to consume datasets in your training scripts for submitting ML experiments in [Train with datasets](how-to-train-with-datasets.md).
+After you're done wrangling your data,you can [register](#register-datasets) your dataset and then load it into your notebook for data exploration prior to model training.
 
 For FileDatasets, you can either **mount** or **download** your dataset, and apply the python libraries you'd normally use for data exploration. [Learn more about mount vs download](how-to-train-with-datasets.md#mount-vs-download).
 
@@ -261,7 +307,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## Create datasets using Azure Resource Manager
 
-There are a number of templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) that can be used to create datasets.
+There are many templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-dataset-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) that can be used to create datasets.
 
 For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 
