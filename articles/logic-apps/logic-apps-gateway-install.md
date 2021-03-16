@@ -83,13 +83,6 @@ This article shows how to download, install, and set up your on-premises data ga
     > make the gateway use the Azure Commercial cloud if you first sign in with the `prod@microsoft.com` username. This solution makes the 
     > gateway use the Azure Commercial cloud, but permits you to continue using your Azure Government account for later.
 
-> If you are trying to configure the gateway for Azure Commercial Apps, in combination with an account in Azure GCC tenant to sign in to the gateway , you will not see the "Change Region" option in the gateway. This is because the On-Premises Data Gateway uses AAD to figure out the tenant affinity to the environment and defaults it to an azure government region in this case.
-
-> In such a scenario, you need to enter "prod@microsoft.com" in the first screen while signing in to the gateway to force usage of Azure Commercial, and then proceed with the sign in process using your account in Azure GCC tenant.
-
-
-
-
   * If you're updating your gateway installation, uninstall your current gateway first for a cleaner experience.
 
     As a best practice, make sure that you're using a supported version. Microsoft releases a new update to the on-premises data gateway every month, and currently supports only the last six releases for the on-premises data gateway. If you experience issues with the version that you're using, try [upgrading to the latest version](https://aka.ms/on-premises-data-gateway-installer) as your issue might be resolved in the latest version.
