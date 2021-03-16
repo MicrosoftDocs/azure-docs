@@ -464,8 +464,8 @@ For information about restore statements, see [RESTORE statements](/sql/t-sql/st
 
 Cross-instance service broker message exchange is supported only between Azure SQL Managed Instances:
 
-- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance. See [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance. See [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql).
+- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance. See [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance. See [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql).
 
 Transport security is supported, dialog security is not:
 - `CREATE REMOTE SERVICE BINDING`is not supported.
