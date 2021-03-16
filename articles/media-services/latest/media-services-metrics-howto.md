@@ -20,14 +20,14 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For a detailed description of this feature and to understand why you should use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
+[Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For a detailed description of this feature and to understand why you should use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services-data-reference.md).
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using Azure CLI. This article shows how to monitor metrics with the Azure portal charts and Azure CLI.
 
 ## Prerequisites
 
 - [Create a Media Services account](./create-account-howto.md)
-- Review  [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md)
+- Review  [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services-data-reference.md)
 
 ## View metrics in Azure portal
 
@@ -41,7 +41,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
     * &lt;Media Services account name&gt;/&lt;streaming endpoint name&gt;
     * &lt;storage account name&gt;
 
-    Filter then select the resource and press **Apply**. For details about supported resources and metrics, see [Monitor Media Services metrics](media-services-metrics-diagnostic-logs.md).
+    Filter then select the resource and press **Apply**. For details about supported resources and metrics, see [Monitor Media Services metrics](monitoring/monitor-media-services-data-reference.md).
 
     > [!NOTE]
     > To switch between resources you want to monitor, click on the **Source** box again and repeat this step.
