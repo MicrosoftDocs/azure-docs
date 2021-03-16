@@ -352,7 +352,7 @@
       href: search-query-understand-collection-filters.md
     - name: Filter by language
       href: search-filters-language.md
-    - name: Text Normalization in filtering, faceting and sorting
+    - name: Normalize text
       href: search-normalizers.md
   - name: Results
     items:
