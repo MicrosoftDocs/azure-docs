@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/12/2021
+ms.date: 03/16/2021
 ms.author: radeltch
 
 ---
