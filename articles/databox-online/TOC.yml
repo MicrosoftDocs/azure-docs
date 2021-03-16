@@ -165,7 +165,9 @@
       - name: Kubernetes RBAC
         href: azure-stack-edge-gpu-kubernetes-rbac.md 
       - name: Kubernetes workloads
-        href: azure-stack-edge-gpu-kubernetes-workload-management.md 
+        href: azure-stack-edge-gpu-kubernetes-workload-management.md
+    - name: What is GPU sharing?
+      href: azure-stack-edge-gpu-sharing.md 
     - name: View Key Vault integration 
       href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Enable proactive logging
@@ -197,11 +199,15 @@
         - name: Statically provisioned stateful app 
           href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md 
         - name: Dynamically provisioned stateful app
-          href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md         
+          href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md 
+        - name: GPU shared workload
+          href: azure-stack-edge-gpu-deploy-kubernetes-gpu-sharing.md         
       - name: Via IoT Edge
         items:
         - name: Stateless app
           href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md 
+        - name: GPU shared workload
+          href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md  
         - name: Develop C# module
           href: azure-stack-edge-gpu-create-iot-edge-module.md 
       - name: Via Azure Arc (Preview)
