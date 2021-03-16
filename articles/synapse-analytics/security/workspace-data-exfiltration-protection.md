@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security 
 ms.date: 12/01/2020 
-ms.author: NanditaV
+ms.author: nanditav
 ms.reviewer: jrasnick
 ---
 # Data exfiltration protection for Azure Synapse Analytics workspaces
