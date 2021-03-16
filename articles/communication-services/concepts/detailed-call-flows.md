@@ -6,7 +6,7 @@ author:  nmurav
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 12/11/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 
