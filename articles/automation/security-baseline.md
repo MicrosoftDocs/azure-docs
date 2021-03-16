@@ -45,7 +45,7 @@ Alternatively, if you have a specific requirement, Azure Firewall may also be us
 
 - [How to deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Runbook execution environment](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-execution-environment)
+- [Runbook execution environment](./automation-runbook-execution.md#runbook-execution-environment)
 
 **Responsibility**: Customer
 
@@ -137,7 +137,7 @@ You may also use Azure Blueprints to simplify large-scale Azure deployments by p
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 - [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -167,9 +167,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor resource configurations and detect changes to your network resources. Create alerts within Azure Monitor that will trigger when changes to critical resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/essentials/activity-log.md#view-the-activity-logview-the-activity-log)
 
-- [How to create alerts in Azure Monitor](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Responsibility**: Customer
 
@@ -187,7 +187,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -207,9 +207,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Enable Azure Monitor for access to your audit and activity logs which includes event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. 
 
-- [How to collect platform logs and metrics with Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [View and retrieve Azure Activity log events](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [View and retrieve Azure Activity log events](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Responsibility**: Customer
 
@@ -219,9 +219,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 **Guidance**: Within Azure Monitor, set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage Accounts for long-term/archival storage.
 
-- [Change the data retention period in Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Change the data retention period in Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Data retention details for Automation Accounts](https://docs.microsoft.com/azure/automation/automation-managing-data#data-retention)
+- [Data retention details for Automation Accounts](./automation-managing-data.md#data-retention)
 
 **Responsibility**: Customer
 
@@ -235,9 +235,9 @@ Alternatively, you may enable and on-board data to Azure Sentinel or a third-par
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Understand log queries in Azure Monitor](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Understand log queries in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [How to perform custom queries in Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [How to perform custom queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsibility**: Customer
 
@@ -253,7 +253,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [How to alert on Azure Monitor log data](/azure/azure-monitor/learn/tutorial-response)
+- [How to alert on Azure Monitor log data](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsibility**: Customer
 
@@ -301,7 +301,7 @@ Alternatively, you may enable and on-board data to Azure Sentinel.
 
 You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Directory (Azure AD) Privileged Identity Management Privileged Roles for Microsoft Services, and Azure Resource Manager.
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 - [Delete a Run As or Classic Run As account](delete-run-as-account.md)
 
@@ -357,7 +357,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [How to configure action groups for custom alerting and notification](/azure/azure-monitor/platform/action-groups)
+- [How to configure action groups for custom alerting and notification](../azure-monitor/alerts/action-groups.md)
 
 **Responsibility**: Customer
 
@@ -379,7 +379,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 - [How to create and configure an Azure AD instance](../active-directory-domain-services/tutorial-create-instance.md)
 
-- [Use runbook authentication with managed identities](https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities)
+- [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
 **Responsibility**: Customer
 
@@ -389,7 +389,7 @@ You can also enable a Just-In-Time / Just-Enough-Access by using Azure Active Di
 
 **Guidance**: Azure Active Directory (Azure AD) provides logs to help discover stale accounts. In addition, use Azure identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right users have continued access. Whenever using Automation Account Run As accounts for your runbooks ensure these service principals are also tracked in your inventory since they often time have elevated permissions. Delete any unused Run As accounts to minimize your exposed attack surface.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure identity access reviews](../active-directory/governance/access-reviews-overview.md)
 
@@ -417,7 +417,7 @@ You can streamline this process by creating Diagnostic Settings for Azure AD use
 
 **Guidance**: Use Azure Active Directory (Azure AD) Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities for your network resource. You can also ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -493,7 +493,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Follow Azure Security Center recommendations for encryption at rest and encryption in transit, where applicable.
 
-- [Understand encryption in transit with Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Understand encryption in transit with Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 - [Azure Automation TLS 1.2 enforcement](../active-directory/hybrid/reference-connect-tls-enforcement.md)
 
@@ -515,7 +515,7 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 
 - [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Runbook permissions for a Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#runbook-permissions-for-a-hybrid-runbook-worker)
+- [Runbook permissions for a Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
 - [Manage role permissions and security](automation-role-based-access-control.md)
 
@@ -543,7 +543,7 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines are
 
 - [Azure Disk Encryption for Windows VMs](../virtual-machines/windows/disk-encryption-overview.md)
 
-- [Use of customer-managed keys for an Automation account](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Use of customer-managed keys for an Automation account](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 - [Managed variables in Azure Automation](shared-resources/variables.md)
 
@@ -559,9 +559,9 @@ When using Hybrid Runbook Workers, the virtual disks on the virtual machines are
 
 **Guidance**: Use Azure Monitor with Azure Activity Log to create alerts for when changes take place to critical Azure resources like networking components, Azure Automation accounts, and runbooks. 
 
-- [Diagnostic logging for a network security group](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
+- [Diagnostic logging for a network security group](../private-link/private-link-overview.md#logging-and-monitoring)
 
-- [How to create alerts for Azure Activity Log events](/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsibility**: Customer
 
@@ -694,7 +694,7 @@ In addition, use the Azure Resource Graph to query/discover resources within sub
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsibility**: Customer
 
@@ -776,7 +776,7 @@ You may also use recommendations from Azure Security Center as a secure configur
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to use Aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [How to use Aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 - [Azure Policy sample built-ins for Azure Automation](policy-reference.md)
 
@@ -836,7 +836,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 - [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
-- [Use of customer-managed keys for an Automation account](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Use of customer-managed keys for an Automation account](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 - [Use source control integration](source-control-integration.md)
 
@@ -862,9 +862,9 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 - [How to backup key vault keys in Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
-- [Use of customer-managed keys for an Automation account](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Use of customer-managed keys for an Automation account](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-- [Azure data backup for Automation Accounts](https://docs.microsoft.com/azure/automation/automation-managing-data#data-backup)
+- [Azure data backup for Automation Accounts](./automation-managing-data.md#data-backup)
 
 **Responsibility**: Customer
 
@@ -878,7 +878,7 @@ Use the source control integration feature to keep your runbooks in your Automat
 
 - [How to restore key vault keys in Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
-- [Use of customer-managed keys for an Automation account](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Use of customer-managed keys for an Automation account](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 **Responsibility**: Customer
 
@@ -992,5 +992,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) using ta
 
 ## Next steps
 
-- See the [Azure Security Benchmark V2 overview](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure Security Benchmark V2 overview](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)
