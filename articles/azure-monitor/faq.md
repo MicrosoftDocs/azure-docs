@@ -824,7 +824,7 @@ See [Supported versions](insights/sql-insights-overview.md#supported-versions) f
 
 ### What SQL resource types are supported?
 
-- Azure SQL Database. Single database only, not databases in an elastic pool.
+- Azure SQL Database. Single database only, not databases in an Elastic Pool.
 - Azure SQL Managed Instance 
 - Azure SQL virtual machines ([Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms), [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create)) and Azure virtual machines that SQL Server is installed on.
 
@@ -833,7 +833,7 @@ Any OS that supports running supported version of SQL.
 
 ### What operating system for the remote monitoring server are supported?
 
-Ubuntu 18.04 is currently the only operating supported.
+Ubuntu 18.04 is currently the only operating system supported.
 
 ### Where will the monitoring data be stored in Log Analytics 
 All of the monitoring data is stored in the **InsightsMetrics** table. The **Origin** column has the value *solutions.azm.ms/telegraf/SqlInsights*. The **Namespace** column has values that start with *sqlserver_*.

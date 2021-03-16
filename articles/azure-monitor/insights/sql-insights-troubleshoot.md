@@ -180,3 +180,4 @@ For common cases, we provide troubleshooting knowledge in our logs view:
 
 ## Next steps
 
+- Get details on [enabling SQL insights](sql-insights-enable.md).

@@ -56,6 +56,35 @@ The following limitations apply during public preview of the Azure Monitor Agent
   - *.control.monitor.azure.com
 
 
+## Supported regions
+Azure Monitor agent currently supports resources in the following regions:
+
+- East Asia
+- Southeast Asia
+- Australia Central
+- Australia East
+- Australia Southeast
+- Canada Central
+- North Europe
+- West Europe
+- France Central
+- Germany West Central
+- Central India
+- Japan East
+- Korea Central
+- South Africa North
+- Switzerland North
+- UK South
+- UK West
+- Central US
+- East US
+- East US 2
+- North Central US
+- South Central US
+- West US
+- West US 2
+- West Central US
+
 ## Coexistence with other agents
 The Azure Monitor agent can coexist with the existing agents so that you can continue to use their existing functionality during evaluation or migration. This is particularly important because of the limitations in public preview in supporting existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention.
 

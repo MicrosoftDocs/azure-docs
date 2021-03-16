@@ -26,8 +26,6 @@ The log size varies by the string lengths of the data collected, and it can incr
 SQL insights supports the following versions of SQL Server:
 
 - SQL Server 2012 and newer
-- SQL Server 2008 R2 SP3 
-- SQL Server 2008 SP3 (with CU3)
 
 SQL insights supports SQL Server running in the following environments:
 

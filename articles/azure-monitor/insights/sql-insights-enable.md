@@ -28,11 +28,11 @@ GRANT VIEW DATABASE STATE TO [user];
 GO 
 ```
 
-:::image type="content" source="media/sql-insights-enable/telegraf-user-database-script.png" alt-text="Create telegraf user script.":::
+:::image type="content" source="media/sql-insights-enable/telegraf-user-database-script.png" alt-text="Create telegraf user script." lightbox="media/sql-insights-enable/telegraf-user-database-script.png":::
 
 Verify the user was created.
 
-:::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Verify telegraf user script.":::
+:::image type="content" source="media/sql-insights-enable/telegraf-user-database-verify.png" alt-text="Verify telegraf user script." lightbox="media/sql-insights-enable/telegraf-user-database-verify.png":::
 
 ### Azure SQL Managed Instance
 Log into your Azure SQL Managed Instance and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a password.
@@ -50,7 +50,7 @@ GO
 ```
 
 ### SQL Server
-Log into your Azure virtual machine running SQL Server and use [SSMS](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a password.
+Log into your Azure virtual machine running SQL Server and use [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) or similar tool to run the following script to create the monitoring user with the permissions needed. Replace *user* with a username and *mystrongpassword* with a password.
 
  
 ```
@@ -75,17 +75,7 @@ The Azure virtual machines has the following requirements.
 
 - Operating system: Ubuntu 18.04 
 - Recommended Azure virtual machine sizes: Standard_B2s (2 cpus, 4 GiB memory) 
-- Supported regions
-   - East US
-   - West Europe
-   - West US 2
-   - Southeast Asia
-   - Central US
-   - Australia Southeast
-   - East US 2
-   - UK South
-   - North Europe
-   - West US  
+- Supported regions: Any [region supported by the Azure Monitor agent](../agents/azure-monitor-agent-overview.md#supported-regions)
 
 > [!NOTE]
 > The Standard_B2s (2 cpus, 4 GiB memory) virtual machine size will support up to 100 connection strings. You shouldn't allocate more than 100 connections to a single virtual machine.
@@ -101,9 +91,9 @@ Each type of SQL offers methods for your monitoring virtual machine to securely 
 
 If you use a [firewall setting](../../azure-sql/database/firewall-configure.md) to provide access to your SQL Database, you need to add a firewall rule to provide access from the public IP address of the monitoring virtual machine. You can access the firewall settings from the **Azure SQL Database Overview** page in the portal. 
 
-:::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Set server firewall":::
+:::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Set server firewall" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
-:::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Firewall settings.":::
+:::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Firewall settings." lightbox="media/sql-insights-enable/firewall-settings.png":::
 
 ### Azure SQL Managed Instances 
 
@@ -127,7 +117,7 @@ A new access policy will be automatically created as part of creating your SQL M
 ## Create SQL monitoring profile
 Open SQL insights by selecting **SQL (preview)** from the **Insights** section of the **Azure Monitor** menu in the Azure portal. Click **Create new profile**. 
 
-:::image type="content" source="media/sql-insights-enable/create-new-profile.png" alt-text="Create new profile.":::
+:::image type="content" source="media/sql-insights-enable/create-new-profile.png" alt-text="Create new profile." lightbox="media/sql-insights-enable/create-new-profile.png":::
 
 The profile will store the information that you want to collect from your SQL systems.  It has specific settings for: 
 
@@ -148,7 +138,7 @@ The profile is stored as a [data collection rule](../agents/data-collection-rule
 > The location of the profile should be in the same location as the Log Analytics workspace you plan to send the monitoring data to.
 
 
-:::image type="content" source="media/sql-insights-enable/profile-details.png" alt-text="Profile details.":::
+:::image type="content" source="media/sql-insights-enable/profile-details.png" alt-text="Profile details." lightbox="media/sql-insights-enable/profile-details.png":::
 
 Click **Create monitoring profile** once you've entered the details for your monitoring profile. It can take up to a minute for the profile to be deployed.  If you don't see the new profile listed in **Monitoring profile** combo box, click the refresh button and it should appear once the deployment is completed.  Once you've selected the new profile, select the **Manage profile** tab to add a monitoring machine that will be associated with the profile.
 
@@ -158,7 +148,7 @@ Select **Add monitoring machine** to open a context panel to choose the virtual 
 Select the subscription and name of your monitoring virtual machine. If you're using Key Vault to store your password for the monitoring user,  select the Key Vault resources with these secrets and enter the URL and secret name to be used in the connection strings. See the next section for details on identifying the connection string for different SQL deployments.
 
 
-:::image type="content" source="media/sql-insights-enable/add-monitoring-machine.png" alt-text="Add monitoring machine.":::
+:::image type="content" source="media/sql-insights-enable/add-monitoring-machine.png" alt-text="Add monitoring machine." lightbox="media/sql-insights-enable/add-monitoring-machine.png":::
 
 
 ### Add connection strings 
@@ -177,7 +167,7 @@ sqlAzureConnections": [
 
 Get the details from the **Connection strings** menu item for the database.
 
-:::image type="content" source="media/sql-insights-enable/connection-string-sql-database.png" alt-text="SQL database connection string":::
+:::image type="content" source="media/sql-insights-enable/connection-string-sql-database.png" alt-text="SQL database connection string" lightbox="media/sql-insights-enable/connection-string-sql-database.png":::
 
 To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
 
@@ -193,7 +183,7 @@ Enter the connection string in the form:
 
 If your monitoring virtual machine is in the same VNET, use the private IP address of the Server.  Otherwise, use the public IP address. If you're using Azure SQL virtual machine, you can see which port to use here on the **Security** page for the resource.
 
-:::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="SQL virtual machine security":::
+:::image type="content" source="media/sql-insights-enable/sql-vm-security.png" alt-text="SQL virtual machine security" lightbox="media/sql-insights-enable/sql-vm-security.png":::
 
 To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
 
@@ -209,7 +199,7 @@ Enter the connection string in the form:
 Get the details from the **Connection strings** menu item for the managed instance.
 
 
-:::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="SQL Managed Instance connection string":::
+:::image type="content" source="media/sql-insights-enable/connection-string-sql-managed-instance.png" alt-text="SQL Managed Instance connection string" lightbox="media/sql-insights-enable/connection-string-sql-managed-instance.png":::
 
 To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOnly` in the connection string.
 
@@ -220,8 +210,8 @@ Select **Add monitoring virtual machine** to configure the virtual machine to co
 
 If you do not see data, see [Troubleshooting SQL insights](sql-insights-troubleshoot.md) to identify the issue. 
 
-:::image type="content" source="media/sql-insights-enable/profile-created.png" alt-text="Profile created":::
+:::image type="content" source="media/sql-insights-enable/profile-created.png" alt-text="Profile created" lightbox="media/sql-insights-enable/profile-created.png":::
 
 ## Next steps
 
-- See [Troubleshooting SQL insights](sql-insights-troubleshoot.md) if SQL insights isn't working properly.
+- See [Troubleshooting SQL insights](sql-insights-troubleshoot.md) if SQL insights isn't working properly after being enabled.
