@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -53,8 +53,8 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
 1. From **Identifiers**, select the identifier you created.
 1. Select **Sign In with Apple**, and then select **Configure**.
     1. Select the **Primary App ID** you want to configure Sign in with Apple with.
-    1. In **Domains and Subdomains**, enter `your-tenant-name.b2clogin.com`. Replace your-tenant-name with the name of your tenant.
-    1. In **Return URLs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace your-tenant-name with the name of your tenant.
+    1. In **Domains and Subdomains**, enter `your-tenant-name.b2clogin.com`. Replace your-tenant-name with the name of your tenant. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name`.
+    1. In **Return URLs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain.
     1. Select **Next**, and then select **Done**.
     1. When the pop-up window is closed, select **Continue**, and then select **Save**.
 

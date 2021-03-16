@@ -26,9 +26,9 @@ For semantic ranking, the model uses both machine reading comprehension and tran
 
 1. For each document, the semantic ranker evaluates the fields in the searchFields parameter in order, consolidating the contents into one large string.
 
-1. The string is then trimmed to ensure the overall length is not more than 20,000 tokens. If you have very large documents, with a content field or merged_content field that has many pages of content, only the first 20,000 tokens will be used.
+1. The string is then trimmed to ensure the overall length is not more than 8,000 tokens. If you have very large documents, with a content field or merged_content field that has many pages of content, anything after the token limit is ignored.
 
-1. Each of the 50 documents is now represented by a single long string that is up to 20,000 tokens. This string is sent to the summarization model. The summarization model produces captions (and answers), using machine reading comprehension to identify passages that appear to summarize the content or answer the question. The output of the summarization model is a further reduced string, which be at most 128 tokens.
+1. Each of the 50 documents is now represented by a single long string. This string is sent to the summarization model. The summarization model produces captions (and answers), using machine reading comprehension to identify passages that appear to summarize the content or answer the question. The output of the summarization model is a further reduced string, which be at most 128 tokens.
 
 1. The smaller string becomes the caption of the document, and it represents the most relevant passages found in the larger string. The set of 50 (or fewer) captions is then ranked in order relevance. 
 

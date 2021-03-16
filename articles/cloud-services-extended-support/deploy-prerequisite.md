@@ -74,6 +74,11 @@ Remove old remote desktop settings from the Service Configuration (.cscfg) file.
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
+Remove old diagnostics settings for each role in the Service Configuration (.cscfg) file.
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+```
 
 ## Required Service Definition file (.csdef) updates
 
@@ -112,6 +117,11 @@ Deployments that utilized the old remote desktop plugins need to have the module
 <Import moduleName="RemoteAccess" /> 
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
+```
+Deployments that utilized the old diagnostics plugins need the settings removed for each role from the Service Definition (.csdef) file
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
 ## Key Vault creation 

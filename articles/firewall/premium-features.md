@@ -5,8 +5,9 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: victorh
+ms.custom: references_regions
 ---
 
 # Azure Firewall Premium Preview features
@@ -96,6 +97,44 @@ or
 
 You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
  
+## Supported regions
+
+Azure Firewall Premium Preview is supported in the following regions:
+
+- West Europe (Public / Europe)
+- East US (Public / United States)
+- Australia East (Public / Australia)
+- Southeast Asia (Public / Asia Pacific)
+- UK South (Public / United Kingdom)
+- North Europe (Public / Europe)
+- East US 2 (Public / United States)
+- South Central US (Public / United States)
+- West US 2 (Public / United States)
+- West US (Public / United States)
+- Central US (Public / United States)
+- North Central US (Public / United States)
+- Japan East (Public / Japan)
+- East Asia (Public / Asia Pacific)
+- Canada Central (Public / Canada)
+- France Central (Public / France)
+- South Africa North (Public / South Africa)
+- UAE North (Public / UAE)
+- Switzerland North (Public / Switzerland)
+- Brazil South (Public / Brazil)
+- Norway East (Public / Norway)
+- Australia Central (Public / Australia)
+- Australia Central 2 (Public / Australia)
+- Australia Southeast (Public / Australia)
+- Canada East (Public / Canada)
+- Central US EUAP (Public / Canary (US))
+- France South (Public / France)
+- Japan West (Public / Japan)
+- Korea South (Public / Korea)
+- UAE Central (Public / UAE)
+- UK West (Public / United Kingdom)
+- West Central US (Public / United States)
+- West India (Public / India)
+
 
 ## Known issues
 
