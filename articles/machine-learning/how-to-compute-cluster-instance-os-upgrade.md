@@ -20,6 +20,8 @@ Azure Machine Learning compute cluster and compute instance are managed compute 
 
 The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On **April 30, 2021**, Ubuntu is ending support for 16.04. Microsoft will automatically update the host OS to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community.
 
+For more information
+
 > [!TIP]
 > The host OS is not the OS version you might specify for an [environment](how-to-use-environments.md) when training or deploying a model. Environments run inside Docker. Docker runs on the host OS.
 
@@ -45,9 +47,9 @@ See the following links for information on stopping and restarting compute clust
     * Any notebook stored in the workspace file share, data stores, of datasets will be accessible from the new compute instance.
     * If you have created custom conda environments, you can export those environments from the existing instance and import on the new instance. For information on conda export and import, see [Managing environments](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html) at docs.conda.io.
 
-    For more information on creating and managing a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
+For more information on creating and managing a compute instance, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
-#### Check host OS version
+## Check host OS version
 
 For information on checking the host OS version, see the Ubuntu community wiki page on [checking your Ubuntu version](https://help.ubuntu.com/community/CheckingYourUbuntuVersion).
 
