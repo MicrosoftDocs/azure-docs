@@ -1,7 +1,7 @@
 ---
 title: Data exfiltration protection for Azure Synapse Analytics workspaces
 description: This article will explain data exfiltration protection in Azure Synapse Analytics
-author: NanditaV 
+author: nanditavalsan 
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security 
@@ -16,8 +16,8 @@ This article will explain data exfiltration protection in Azure Synapse Analytic
 Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, you can guard against malicious insiders accessing your Azure resources and exfiltrating sensitive data to locations outside of your organization’s scope. 
 At the time of workspace creation, you can choose to configure the workspace with a managed virtual network and additional protection against data exfiltration. When a workspace is created with a [managed virtual network](./synapse-workspace-managed-vnet.md), Data integration and Spark resources are deployed in the managed virtual network. The workspace’s dedicated SQL pools and serverless SQL pools have multi-tenant capabilities and as such, need to exist outside the managed virtual network. For workspaces with data exfiltration protection, resources within the managed virtual network always communicate over [managed private endpoints](./synapse-workspace-managed-private-endpoints.md) and the Synapse SQL resources can only connect to authorized Azure resources (targets of approved managed private endpoint connections from the workspace). 
 
->[!Note]
->You cannot change the workspace configuration for managed virtual network and data exfiltration protection after the workspace is created.
+> [!Note]
+> You cannot change the workspace configuration for managed virtual network and data exfiltration protection after the workspace is created.
 
 ## Managing Synapse workspace data egress to approved targets
 After the workspace is created with data exfiltration enabled, the owners of the workspace resource can manage the list of approved Azure AD tenants for the workspace. Users with the [right permissions](./synapse-workspace-access-control-overview.md) on the workspace can use the Synapse Studio to create managed private endpoint connection requests to resources in the workspace’s approved Azure AD tenants. Managed private endpoint creation will be blocked if the user attempts to create a private endpoint connection to a resource in an unapproved tenant.
@@ -27,9 +27,11 @@ Let us use an example to illustrate data exfiltration protection for Synapse wor
 :::image type="content" source="media/workspace-data-exfiltration-protection/workspace-data-exfiltration-protection-diagram.png" alt-text="This diagram shows how data exfiltration protection is implemented for Synapse workspaces":::
 
 >[!IMPORTANT]
->Resources in tenants other than the workspace's tenant must not have blocking firewall rules in place for the SQL pools to connect to them. Resources within the workspace’s managed virtual network, such as Spark clusters, can connect over managed private links to firewall-protected resources.
->[!IMPORTANT] 
->Metastore is disabled in Synapse workspaces that have Managed Virtual Network with data exfiltration protection enabled. You will not be able to use Spark SQL in these workspaces.
+>
+> - Resources in tenants other than the workspace's tenant must not have blocking firewall rules in place for the SQL pools to connect to them. Resources within the workspace’s managed virtual network, such as Spark clusters, can connect over managed private links to firewall-protected resources.
+>
+> - Metastore is disabled in Synapse workspaces that have Managed Virtual Network with data exfiltration protection enabled. You can't use Spark SQL in these workspaces.
+> >
 
 ## Next Steps
 
