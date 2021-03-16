@@ -11,7 +11,7 @@ ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
 ---
-# Migration guide: Migrating a data warehouse to a dedicated SQL pool in Azure Synapse Analytics 
+# Migrating a data warehouse to a dedicated SQL pool in Azure Synapse Analytics 
 The following sections provide an overview of what's involved with migrating an existing data warehouse solution to Azure Synapse Analytics SQL pool
 
 ## Overview
@@ -48,21 +48,22 @@ To migrate your Netezza data warehouse to Azure Synapse Analytics, make sure you
 - Download the latest [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787) tool to migrate SQL Server objects to Azure Synapse objects.
 - A [dedicated SQL pool](../get-started-create-workspace.md) in Azure Synapse workspace.
 
-For more information visit [Azure Synapse Analytics solutions and migration for Netezza](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-netezza)
+For more information visit [Azure Synapse Analytics solutions and migration for Netezza](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-netezza).
 
 # [Migrate from Oracle](#tab/migratefromOracle)
 To migrate your Oracle data warehouse to Azure Synapse Analytics, make sure you have the following prerequisites: 
 
 - A data warehouse or Analytics workload 
 - Download SSMA for Oracle to convert Oracle objects to SQL Server. See [Migrating Oracle Databases to SQL Server (OracleToSQL)](https://docs.microsoft.com/sql/ssma/oracle/migrating-oracle-databases-to-sql-server-oracletosql) for more information. 
-- Download the latest version of [Azure Synapse Pathway](https://www.microsoft.com/en-us/download/details.aspx?id=102787) tool to migrate SQL Server objects to Azure Synapse objects.
+- Download the latest version of [Azure Synapse Pathway](https://www.microsoft.com/download/details.aspx?id=102787) tool to migrate SQL Server objects to Azure Synapse objects.
 - A [dedicated SQL pool](../get-started-create-workspace.md) in Azure Synapse workspace. 
 
-For more information visit [Azure Synapse Analytics solutions and migration for an Oracle data warehouse](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata)
+For more information visit [Azure Synapse Analytics solutions and migration for an Oracle data warehouse](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata).
 
 # [Migrate from Teradata](#tab/migratefromTeradata)
-[Azure Synapse Pathway](https://docs.microsoft.com/sql/tools/synapse-pathway/pathway-faq) tool will support Teradata in the near future. 
-For more information visit [Azure Synapse Analytics solutions and migration for Teradata](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-teradata)
+[Azure Synapse Pathway](https://docs.microsoft.com/sql/tools/synapse-pathway/pathway-faq) tool will support Teradata in the near future. Please keep checking the Azure Synapse Pathway faq page for supported data sources.
+
+Also visit [Azure Synapse Analytics solutions and migration for Teradata](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-teradata) for more information.
 
 ---
 
@@ -77,7 +78,7 @@ Performing a successful migration requires you to migrate your table schemas, co
 - The article [Consider Workload Management](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management).
 
 ## Additional resources 
-- The CAT (Customer Advisory Team) has some great Azure Synapse Analytics (formerly SQL Data Warehouse) guidance published as blog postings. Be sure to take a look at their article, [Migrating data to Azure SQL Data Warehouse in practice](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), for additional guidance on migration.
+- The CAT (Customer Advisory Team) has some great Azure Synapse Analytics (formerly Azure SQL Data Warehouse) guidance published as blog postings. Be sure to take a look at their article, [Migrating data to Azure SQL Data Warehouse in practice](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), for additional guidance on migration.
 
 ## Migration assets from real-world engagements
 For additional assistance with completing this migration scenario, please see the following resources, which were developed in support of a real-world migration project engagement.
@@ -93,4 +94,5 @@ For additional assistance with completing this migration scenario, please see th
 > These above resources were developed as part of the Data Migration Jumpstart Program (DM Jumpstart), which is sponsored by the Azure Data Group engineering team. The core charter of DM Jumpstart is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft’s Azure Data platform. If you think your organization would be interested in participating in the DM Jumpstart program, please contact your account team and ask that they submit a nomination.
 
 ## Videos
-- For a walk through of the phases of the migration process and detail about the specific tools and services recommended to perform assessment and migration, see the video [Overview of the migration journey and the tools/services recommended for performing assessment and migration](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
+- Watch how [Walgreens migrated their retail inventory system](https://www.youtube.com/watch?v=86dhd8N1lH4) with about 100TB of data from Netezza to Azure Synapse Analytics (formerly Azure SQL Data Warehouse) in record time. 
+- [Tips for Migrating Data Warehouse Workloads to Azure](https://www.youtube.com/watch?v=MBX_Cj3nk5E) from our partner Pragmatic Works.
