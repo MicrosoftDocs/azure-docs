@@ -79,7 +79,7 @@ User requirements to connect to Windows Virtual Desktop:
 
 The Azure virtual machines you create for Windows Virtual Desktop must be:
 
-* [Standard domain-joined](../active-directory-domain-services/compare-identity-solutions.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). Virtual machines can't be Azure AD-joined.
+* [Standard domain-joined](../active-directory-domain-services/compare-identity-solutions.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). Virtual machines can't be Azure AD-joined or Azure AD Registered.
 * Running one of the following [supported OS images](#supported-virtual-machine-os-images).
 
 >[!NOTE]
