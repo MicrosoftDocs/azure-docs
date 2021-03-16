@@ -140,7 +140,7 @@ This quickstart demonstrates how to use the Azure CLI commands to configure a hy
 
 If you encounter an error when apply permissions to your VNet, such as `Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'`, you can apply the same permission manually in the portal by going to Access control (IAM) of your existing VNET, and adding role assignment for "Azure Cosmos DB" to the role of "Network Administrator". Ensure you select both entries that appear for "Azure Cosmos DB": 
 
-   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Apply permissions" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
 
 > [!NOTE] 
 > The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.  
