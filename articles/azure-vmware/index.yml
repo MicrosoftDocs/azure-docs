@@ -131,6 +131,8 @@ landingContent:
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
             url: azure-vmware-solution-horizon.md
+          - text: Configure VMware Cloud Director
+            url: configure-vmware-cloud-director-azure-vmware-solution.md 
 
 # card 6
   - title: VMware ecosystem
