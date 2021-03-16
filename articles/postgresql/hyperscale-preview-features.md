@@ -12,25 +12,25 @@ ms.date: 03/15/2021
 
 # Preview features for PostgreSQL - Hyperscale (Citus)
 
-Azure Database for PostgreSQL - Hyperscale (Citus) sometimes
-offers previews features not yet released. Preview versions are
-provided without a service level agreement, and aren't
-recommended for production workloads. Certain features might not
-be supported or might have constrained capabilities.  For more
-information, see [Supplemental Terms of Use for Microsoft Azure
+Azure Database for PostgreSQL - Hyperscale (Citus) offers
+previews for unreleased features. Preview versions are provided
+without a service level agreement, and aren't recommended for
+production workloads. Certain features might not be supported or
+might have constrained capabilities.  For more information, see
+[Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Features currently in preview
 
 Here are the features currently available for preview:
 
-* [Columnar storage](concepts-hyperscale-columnar.md). Store
-  selected tables' columns (rather than rows) contiguously on
-  disk. Supports on-disk compression.  Good for analytic and
+* **[Columnar storage](concepts-hyperscale-columnar.md)**.
+  Store selected tables' columns (rather than rows) contiguously
+  on disk. Supports on-disk compression. Good for analytic and
   data warehousing workloads.
 * **PostgreSQL 12 and 13**. Use the latest database version
   in your server group.
-* [Basic tier](concepts-hyperscale-tiers.md). Run a server
+* **[Basic tier](concepts-hyperscale-tiers.md)**. Run a server
   group using only a coordinator node and no worker nodes. An
   economical way to do initial testing and development, and
   handle small production workloads.
@@ -39,12 +39,12 @@ Here are the features currently available for preview:
   reflected in its replica, and queries against the replica
   cause no extra load on the original. Replicas are a useful
   tool to improve performance for read-only workloads.
-* **Managed pgBouncer**. A connection pooler allowing more
-  clients to connect to the server group at once. While
-  allowing many clients to connect, it limits the number of
-  active connections to keep the coordinator node running
-  smoothly.
-* **pgAudit** Provides detailed session and object audit
+* **Managed pgBouncer**. A connection pooler which allows
+  many clients to connect to the server group at once, while
+  limiting the number of active connections. It satisfies
+  connection requests while keeping the coordinator node
+  running smoothly.
+* **pgAudit**. Provides detailed session and object audit
   logging via the standard PostgreSQL logging facility. It
   produces audit logs required to pass certain government,
   financial, or ISO certification audits.
