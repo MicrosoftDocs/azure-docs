@@ -3,7 +3,7 @@ title: Enable Start/Stop VMs (preview)
 description: This article tells how to enable the Start/Stop VMs (preview) feature for your Azure VMs.
 services: azure-functions
 ms.subservice: 
-ms.date: 03/12/2021
+ms.date: 03/16/2021
 ms.topic: conceptual
 ---
 
@@ -51,6 +51,10 @@ To manage the automation method to control the start and stop of your VMs, you c
     > This scenario only supports Azure Resource Manager VMs.
 
 - AutoStop - This functionality is only used for performing a stop action against both Azure Resource Manager and classic VMs based on its CPU utilization. It can also be a scheduled-based *take action*, which creates alerts on VMs and based on the condition, the alert is triggered to perform the stop action.**ststv2_vms_AutoStop** configures the auto-stop functionality.
+
+If you need additional schedules, you can duplicate one of the Logic Apps provided using the **Clone** option in the Azure portal.
+
+:::image type="content" source="media/enable/logic-apps-clone-option.png" alt-text="Select the Clone option to duplicate a logic app":::
 
 ## Scheduled start and stop scenario
 
@@ -269,3 +273,5 @@ Start/Stop VMs can help manage the cost of running Azure Resource Manager and cl
     ```
 
 ## Next steps
+
+To 

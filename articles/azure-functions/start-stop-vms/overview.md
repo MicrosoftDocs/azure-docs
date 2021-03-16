@@ -4,7 +4,7 @@ description: This article describes version two of the Start/Stop VMs (preview) 
 ms.topic: conceptual
 ms.service: azure-functions
 ms.subservice: 
-ms.date: 03/12/2021
+ms.date: 03/16/2021
 ---
 
 # Start/Stop VMs (preview) overview
