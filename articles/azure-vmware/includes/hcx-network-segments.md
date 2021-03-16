@@ -19,7 +19,7 @@ In preparation for the VMware HCX deployment to support the pilot or small produ
    
 - **vMotion network:** When deploying VMware HCX on-premises, you'll need to define a vMotion network.  Typically, it's the same network used for vMotion by your on-premises VMware cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
 
-   The vMotion network must be exposed on a distributed virtual switch or vSwitch0. If it's not, modify the environment to accomodate.
+   The vMotion network must be exposed on a distributed virtual switch or vSwitch0. If it's not, modify the environment to accommodate.
 
    > [!NOTE]
    > Many VMware environments use non-routed network segments for vMotion, which poses no problems.
