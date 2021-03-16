@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/09/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet
@@ -15,26 +15,36 @@ ms.subservice: common
 
 # Data protection for Blob Storage and Data Lake Storage Gen2
 
-The data protection options available for your blob and Azure Data Lake Storage Gen2 data help you to prepare for scenarios where data could be compromised in the future. It's important to think about how to best protect your data before an incident occurs that could compromise your data. This guide can help you decide in advance which data protection features your scenario requires, and how to implement them. If you should need to recover data that has been deleted or overwritten, this overview also provides guidance on how to proceed, based on your scenario.
-
-In the Azure Storage documentation, *data protection* refers to strategies for protecting the storage account and data within it from being erroneously or maliciously deleted or modified, or for restoring data after it has been deleted or modified. Azure Storage also offers options for *disaster recovery*, including multiple levels of redundancy to protect your data from service outages due to hardware problems or natural disasters, and customer-managed failover in the event that the data center in the primary region becomes unavailable. For more information about how your data is protected from service outages, see [Disaster recovery](#disaster-recovery).
-
-## Configure data protection options
+Azure Storage provides data protection options for your blob and Azure Data Lake Storage Gen2 data to help you to prepare for scenarios where you need to recover data that has been deleted or overwritten. It's important to think about how to best protect your data before an incident occurs that could compromise your data. This guide can help you decide in advance which data protection features your scenario requires, and how to implement them. If you should need to recover data that has been deleted or overwritten, this overview also provides guidance on how to proceed, based on your scenario.
 
 The best time to plan for data protection is before an incident that requires data recovery. Whether you are anticipating that data could be deleted or overwritten by accident in the normal course of business, or intentionally, by a malicious actor, preparing your storage account so that your data is protected in advance can provide peace of mind, and simplify the act of recovery should it ever be necessary.
+
+In the Azure Storage documentation, *data protection* refers to strategies for protecting the storage account and data within it from being deleted or modified, or for restoring data after it has been deleted or modified. Azure Storage also offers options for *disaster recovery*, including multiple levels of redundancy to protect your data from service outages due to hardware problems or natural disasters, and customer-managed failover in the event that the data center in the primary region becomes unavailable. For more information about how your data is protected from service outages, see [Disaster recovery](#disaster-recovery).
+
+## Recommendations for basic data protection
+
+If you are looking for basic data protection coverage for your storage account and the data that it contains, then Microsoft recommends:
+
+- Configuring an Azure Resource Manager lock on the storage account to protect the account from deletion or configuration changes. [[Learn more...](../common/lock-account-resource.md)]
+- Enabling container soft delete for the storage account to recover a deleted container and its contents. [[Learn more...](soft-delete-container-enable.md)]
+- Enabling blob versioning for the storage account to recover a deleted or overwritten blob. [[Learn more...](versioning-enable.md)]
+
+These options, as well as additional data protection options for other scenarios, are described in more detail in the following section.
+
+## Overview of data protection options
 
 The following table summarizes the options available in Azure Storage for common data protection scenarios. Choose the scenarios that are applicable to your situation to learn more about the options available to you. Note that not all features are available at this time for storage accounts with a hierarchical namespace enabled.
 
 | Scenario | Action | Available for Data Lake Storage | Protection benefit | Recommendation |
 |--|--|--|--|--|
-| Prevent a storage account from being deleted or modified. | [Configure an Azure Resource Manager lock on the storage account](#configure-an-azure-resource-manager-lock-on-the-storage-account) | Yes | Protects the storage account against accidental or malicious deletes or configuration changes. Does not protect blob data in the account from being deleted or overwritten. | Recommended for scenarios where you need to prevent deletion of a storage accounts. |
+| Prevent a storage account from being deleted or modified. | [Configure an Azure Resource Manager lock on the storage account](#configure-an-azure-resource-manager-lock-on-the-storage-account) | Yes | Protects the storage account against accidental or malicious deletes or configuration changes. Does not protect data in the account from being deleted or overwritten. | Recommended for scenarios where you need to prevent deletion of a storage accounts. |
 | Prevent a container and its blobs from being deleted or modified for an interval that you control. | [Set a time-based retention policy or a legal hold on a container](#set-a-time-based-retention-policy-or-a-legal-hold-on-a-container) | Yes, in preview | Protects blob data from accidental or malicious deletes or updates. | Recommended when your scenario requires preventing all updates and deletes to the blobs in a container for a period of time, for example for legal documents or regulatory compliance purposes. |
 | A container can be deleted, but a copy of the deleted container is maintained for a specified interval. | [Configure container soft delete for the storage account](#configure-container-soft-delete-for-the-storage-account) | Yes, in preview | Protects a container from accidental deletes. | Recommended for scenarios where you may need to restore a deleted container. The minimum recommended retention period of 7 days. |
 | A blob can be deleted or updated, but its state is automatically saved in a previous version. | [Configure blob versioning for the storage account](#configure-blob-versioning-for-the-storage-account) | No | Protects blob data from accidental deletes and updates. A previous version of a blob can be read or referenced. | Recommended for storage accounts where you need to preserve earlier versions of blob data. |
 | A blob can be deleted or updated, or a blob version can be deleted, but a copy of the blob or version is maintained for a specified interval. | [Configure blob soft delete for the storage account](#configure-blob-soft-delete-for-the-storage-account) | No | Protects blob data from accidental deletes and updates. | Recommended for scenarios where you may need to restore a deleted blob or version. The minimum recommended retention period of 7 days. |
 | Blobs can be deleted or updated, but all updates and deletes are tracked so that data can be restored to a previous point in time. | [Configure point-in-time restore for the storage account](#configure-point-in-time-restore-for-the-storage-account) | No | Protects blob data from accidental deletes and updates. Does not protect against malicious deletion or corruption of data. | Recommended when your scenario requires recovering data within a certain range of time. |
 | A blob can be updated, but the state of a blob is saved manually at a given point in time. | [Take a manual snapshot of a blob](#take-a-manual-snapshot-of-a-blob) | Yes, in preview | Preserves the state of a blob at a particular time. A blob snapshot can be read or referenced. | Recommended when blob versioning is not appropriate for your scenario, due to cost or other considerations. |
-| A blob can be updated or deleted, but the data is regularly copied to a second storage account by using object replication or a tool like AzCopy or Azure Data Factory. | [Object replication for block blobs](object-replication-overview.md)<br />[Get started with AzCopy](../common/storage-use-azcopy-v10.md)<br />[Introduction to Azure Data Factory](../../data-factory/introduction.md) | AzCopy and Azure Data Factory are supported. Object replication is not supported. | Protects blob data from accidental or malicious deletes or updates. | Recommended for peace-of-mind protection against malicious actions or unpredictable scenarios. |
+| A blob can be updated or deleted, but the data is regularly copied to a second storage account by using object replication or a tool like AzCopy or Azure Data Factory. | [Object replication for block blobs](object-replication-overview.md)<br /><br />[Get started with AzCopy](../common/storage-use-azcopy-v10.md)<br /><br />[Introduction to Azure Data Factory](../../data-factory/introduction.md) | AzCopy and Azure Data Factory are supported.<br /><br />Object replication is not supported. | Protects blob data from accidental or malicious deletes or updates. | Recommended for peace-of-mind protection against malicious actions or unpredictable scenarios. |
 
 ### Configure an Azure Resource Manager lock on the storage account
 
@@ -49,7 +59,6 @@ To learn how to configure a lock for a storage account, see [Apply an Azure Reso
 
 - Lock all of your storage accounts with an Azure Resource Manager lock to prevent accidental or malicious deletion of the storage account.
 - Locking a storage account does not protect the data within that account from being updated or deleted. Use the other data protection features described in this guide to protect your data.
-- When a **ReadOnly** lock is applied to a storage account, the [List Keys](/rest/api/storagerp/storageaccounts/listkeys) operation is blocked for that storage account. Clients must therefore use Azure AD credentials to access blob data in the storage account, unless they are already in possession of the storage account access keys. For more information, see [Choose how to authorize access to blob data in the Azure portal](authorize-data-operations-portal.md).
 
 To learn how to configure a lock on a storage account, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
 
