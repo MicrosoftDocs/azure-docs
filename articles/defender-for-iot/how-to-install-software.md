@@ -692,9 +692,9 @@ To install:
 
 1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required for sign-in and administration.
 
-    - **Support**: The administrative user for user management.
+      - **Support**: The administrative user for user management.
 
-    - **CyberX**: The equivalent of root for accessing the appliance.
+      - **CyberX**: The equivalent of root for accessing the appliance.
 
 1. The appliance restarts.
 
