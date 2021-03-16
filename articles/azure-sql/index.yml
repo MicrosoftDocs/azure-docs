@@ -33,7 +33,9 @@ landingContent:
           - text: What is SQL Database?
             url: database/sql-database-paas-overview.md
           - text: What are elastic pools? 
-            url: database/elastic-pool-overview.md 
+            url: database/elastic-pool-overview.md
+          - text: Feedback? Take the survey! 
+            url: https://aka.ms/AzureSQLSurvey 
       - linkListType: quickstart
         links:
           - text: Create SQL Database
@@ -69,6 +71,8 @@ landingContent:
             url: managed-instance/sql-managed-instance-paas-overview.md
           - text: What are instance pools? 
             url: managed-instance/instance-pools-overview.md 
+          - text: Feedback? Take the survey! 
+            url: https://aka.ms/AzureSQLSurvey 
       - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance 

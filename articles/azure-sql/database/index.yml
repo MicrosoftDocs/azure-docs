@@ -29,7 +29,9 @@ landingContent:
           - text: Create SQL Database
             url: single-database-create-quickstart.md
           - text: Configure firewall
-            url: firewall-create-server-level-portal-quickstart.md 
+            url: firewall-create-server-level-portal-quickstart.md
+          - text: Feedback? Take the survey! 
+            url: https://aka.ms/AzureSQLSurvey 
       - linkListType: video
         links:
           - text: Azure SQL Database overview

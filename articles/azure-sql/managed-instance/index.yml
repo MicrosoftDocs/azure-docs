@@ -28,6 +28,8 @@ landingContent:
         links:
           - text: Create SQL Managed Instance
             url: instance-create-quickstart.md
+          - text: Feedback? Take the survey! 
+            url: https://aka.ms/AzureSQLSurvey 
       - linkListType: video
         links:
           - text: Azure SQL Managed Instance overview
