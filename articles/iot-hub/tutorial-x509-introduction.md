@@ -54,7 +54,7 @@ If only symmetric encryption is used, the problem is that all parties to the com
 
 In asymmetric cryptography, every user has two mathematically related keys called a key pair. One key is public and the other key is private. The key pair ensures that only the recipient has access to the private key needed to decrypt the data. The following illustration summarizes the asymmetric encryption process.
 
-![Symmetric encryption example](media/tutorial-x509-introduction/asymmetric-keys.png)
+![Asymmetric encryption example](media/tutorial-x509-introduction/asymmetric-keys.png)
 
 1. The recipient creates a public-private key pair and sends the public key to a CA. The CA packages the public key in an X.509 certificate.
 
@@ -88,7 +88,7 @@ Symmetric and asymmetric encryption can be combined to take advantage of their r
 
 Asymmetric algorithms can be used to protect data from modification and prove the identity of the data creator. The following illustration shows how asymmetric signing helps prove the sender's identity.
 
-![Asymmetric signing](media/tutorial-x509-introduction/asymmetric-signing.png)
+![Asymmetric signing example](media/tutorial-x509-introduction/asymmetric-signing.png)
 
 1. The sender passes plaintext data through an asymmetric encryption algorithm, using the private key for encryption. Notice that this scenario reverses use of the private and public keys outlined in the preceding section that detailed asymmetric encryption.
 
@@ -102,7 +102,7 @@ Asymmetric algorithms can be used to protect data from modification and prove th
 
 Digital signing can be used to determine whether the data has been modified in transit or at rest. The data is passed through a hash algorithm, a one-way function that produces a mathematical result from the given message. The result is called a *hash value*, *message digest*, *digest*, *signature*, or *thumbprint*. A hash value cannot be reversed to obtain the original message. Because A small change in the message results in a significant change in the *thumbprint*, the hash value can be used to determine whether a message has been altered. The following illustration shows how asymmetric encryption and hash algorithms can be used to verify that a message has not been modified.
 
-![Asymmetric signing](media/tutorial-x509-introduction/signing.png)
+![Signing example](media/tutorial-x509-introduction/signing.png)
 
 1. The sender creates a plaintext message.
 
@@ -120,7 +120,7 @@ Digital signing can be used to determine whether the data has been modified in t
 
 ## Next Steps
 
-To learn more about the fields that make up a certificate, see [Understanding X.509 Public Key Certificates](tutorial-x509-certificates).
+To learn more about the fields that make up a certificate, see [Understanding X.509 Public Key Certificates](tutorial-x509-certificates.md).
 
 If you already know a lot about X.509 certificates, and you want to generate test versions that you can use to authenticate to your IoT Hub, see the following topics:
 
