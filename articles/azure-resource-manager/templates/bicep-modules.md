@@ -125,7 +125,7 @@ targetScope = 'subscription'
 @maxLength(11)
 param namePrefix string
 
-param location string = 'centralus'
+param location string = deployment().location
 
 var resourceGroupName = '${namePrefix}rg'
 resource myResourceGroup 'Microsoft.Resources/resourceGroups@2020-01-01' = {
