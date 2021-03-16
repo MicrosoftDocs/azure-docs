@@ -5,7 +5,7 @@ services: storsimple
 author: alkohli
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 03/16/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -24,15 +24,20 @@ Perform the following steps to create a support request:
      
     ![Basics](./media/storage-import-export-contact-microsoft-support/import-export-support-01.png)
    
-2. In **Basics** for **New support request**, do the following steps to enter required basic information for the support request:
-    
-   1. From the **Issue type** dropdown list, select **Technical**.
-   1. Choose your **Subscription**.
-   1. Under **Service**, select **My services**. In the **Service type** dropdown list, you can select one of the options - **Storage Account Management**, **Blob Storage**, or **File Storage**.     
-   1. Select the **Resource**.
-   1. In **Summary**, enter a brief summary of the issue. 
-   1. Two additional options are displayed. You must select a **Problem type** and **Problem subtype** before you can proceed.
-   1. After you complete the basic information, select **Next: Solutions>>** to proceed.
+2. In **Basics** for **New support request**:
+
+   1. Enter required basic information:
+
+      |Option|Description|
+      |------|-----------|
+      |**Issue type**|Select **Technical**.|
+      |**Subscription**|Choose the subscription used for the resource.|
+      |**Service**|Select **My services**. In the **Service type** dropdown list, you can select one of the options - **Storage Account Management**, **Blob Storage**, or **File Storage**.|
+      |**Resource**|Select the resource.|
+      |**Summary**|Enter a brief summary of the issue.|
+ 
+   1. Two additional options are displayed. You must select a **Problem type** and **Problem subtype**.
+   1. Select **Next: Solutions>>** to proceed.
 
    ![Basics screen for a support request](./media/storage-import-export-contact-microsoft-support/import-export-support-02.png)
 
@@ -53,24 +58,24 @@ Perform the following steps to create a support request:
 4. In **Details**, select **Step 2 Problem**. In **Problem**, do the following steps:
     
     1. Choose the **Severity** as **C - Minimal impact**. Support will update it if needed.
-    2. Select the **Problem type** as **Data Migration**.<!--Too many substeps.Economize.-->
+    2. Select the **Problem type** as **Data Migration**.<!--Too many substeps. Economize.-->
     3. Choose the **Category** as **Import - Export**.
     4. Provide a **Title** for the issue and more **Details**.
-    5. Provide the start date and time for the problem.
-    6. In the **File upload**, select the folder icon to browse any other files you want to upload.
+    5. Provide the start date and time for the issue.
+    6. In **File upload**, select the folder icon to browse to any other files you want to upload.
     7. Check **Share diagnostic information**.
     8. Select **Next**.
 
        ![Problem](./media/storage-import-export-contact-microsoft-support/import-export-support5.png)
 
-STOPPING HERE. 03/10
+PICKED UP HERE. 03/16
 
-4. In **Details**, enter details about the support issue.<!--Bullets moved in as is from Step 1 to capture level of detail. Rework per Details screen!-->
-   - If you choose **Storage Account Management**, select **Resource**, and **Support plan**.
+4. In **Details**, enter details about the support issue.<!--Bullets moved in as is from Step 1 to capture level of detail. Rework per Details screen! Reshoot all screens that are needed. Reduce screen size.-->
+   - If you chose **Storage Account Management**, select **Resource**, and **Support plan**.
     ![Choose Storage Account Management](./media/storage-import-export-contact-microsoft-support/import-export-support3.png)
-   - If you choose **Blob**, select **Resource**, **Container names** (optional), and **Support plan**.
-     ![Choose Blob](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
-    - If you choose **File**, select **Resource**, **File share names** (optional), and **Support plan**
+   - If you chose **Blob Storage**, select **Resource**, **Container names** (optional), and **Support plan**.
+     ![Chose Blob](./media/storage-import-export-contact-microsoft-support/import-export-support2.png)
+    - If you chose **File Storage**, select **Resource**, **File share names** (optional), and **Support plan**
       ![Choose File](./media/storage-import-export-contact-microsoft-support/import-export-support4.png)-->
 
 4. In **New support request**, select **Step 3 Contact information**. In **Contact information**, do the following steps:
