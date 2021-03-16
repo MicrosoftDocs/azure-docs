@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
 title: Azure Active Directory Verifiable Credentials documentation
-summary: Azure Active Directory (Azure AD) Verifiable Credentials helps you 
+summary: Verifiable credentials helps you build solutions that empower customers to manage their own data.
 
 metadata: 
   author: barclayn
-  description: "Learn how to protect, monitor, and audit access to critical assets while ensuring employee productivity."
+  description: "Learn how to incorporate verifiable credentials into your solutions empowering customers to control information about themselves"
   manager: daveba
   ms.author: barclayn
   ms.collection: na
-  ms.date: 01/28/2021
+  ms.date: 03/16/2021
   ms.service: active-directory
   ms.subservice: na
   ms.topic: landing-page
