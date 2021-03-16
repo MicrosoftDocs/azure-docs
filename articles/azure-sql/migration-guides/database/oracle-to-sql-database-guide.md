@@ -56,6 +56,10 @@ To create an assessment, follow these steps:
 
    ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle1.png)
 
+   this is the new syntax:
+
+   :::image type="content" source="media/oracle-to-sql-database-guide/connect-to-oracle1.png" alt-text="connect":::
+
    Select the Oracle schema(s) you want to migrate: 
 
    ![Select Oracle schema](./media/oracle-to-sql-database-guide/select-schema.png)
