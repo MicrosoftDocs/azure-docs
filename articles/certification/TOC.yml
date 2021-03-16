@@ -10,10 +10,19 @@
 
 - name: Tutorials
   items:
+  - name: Selecting the right certification
+    href: tutorial-00-selecting-your-certification.md
 
-- name: Concepts
+- name: Program Requirements
   items:
-
+  - name: Azure Certified Device
+    href: program-requirements-azure-certified-device.md
+  - name: IoT Plug and Play
+    href: program-requirements-pnp.md
+  - name: Edge Managed
+    href: program-requirements-edge-managed.md
+  - name: Edge Secured-core (Preview)
+    href: program-requirements-edge-secured-core.md
 - name: How-to guides
   items:
 
