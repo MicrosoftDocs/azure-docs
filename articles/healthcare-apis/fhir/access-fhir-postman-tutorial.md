@@ -17,7 +17,6 @@ A client application can access the Azure API for FHIR through a [REST API](http
 
 ## Prerequisites
 
-<<<<<<< HEAD:articles/healthcare-apis/access-fhir-postman-tutorial.md
 - A FHIR endpoint in Azure. 
 
     There are two options to choose from when setting up a FHIR endpoint in Azure. You can use the managed Azure API for FHIR or the Open Source FHIR server for Azure. To deploy the managed Azure API for FHIR, you can use the [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
@@ -26,12 +25,6 @@ A client application can access the Azure API for FHIR through a [REST API](http
 - Postman installed. 
     
     For more information about Postman, see [Get Started with Postman](https://www.getpostman.com).
-=======
-- A FHIR endpoint in Azure. You can set that up using the managed Azure API for FHIR or the Open Source FHIR server for Azure. Set up the managed Azure API for FHIR using [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
-- A  [client application](register-confidential-azure-ad-client-app.md) you will be using to access the FHIR service.
-- You have granted permissions, for example, "FHIR Data Contributor", to the client application to access the FHIR service. More info at [Configure Azure RBAC for FHIR](configure-azure-rbac.md)
-- Postman installed. You can get it from [https://www.getpostman.com](https://www.getpostman.com)
->>>>>>> 3943ab61f01605843bfb85acc07e598f97165c43:articles/healthcare-apis/fhir/access-fhir-postman-tutorial.md
 
 ## FHIR server and authentication details
 
@@ -129,34 +122,7 @@ It's also possible to get a token for the [Azure API for FHIR using the Azure CL
 
 With a valid access token, you can now insert a new patient. In Postman, change the method by clicking **Post**, and then add the following JSON document in the body of the request.
 
-<<<<<<< HEAD:articles/healthcare-apis/access-fhir-postman-tutorial.md
-```json
-{
-    "resourceType": "Patient",
-    "active": true,
-    "name": [
-        {
-            "use": "official",
-            "family": "Kirk",
-            "given": [
-                "James",
-                "Tiberious"
-            ]
-        },
-        {
-            "use": "usual",
-            "given": [
-                "Jim"
-            ]
-        }
-    ],
-    "gender": "male",
-    "birthDate": "1960-12-25"
-}
-```
-=======
-[!code-json[](../samples/sample-patient.json)]
->>>>>>> 3943ab61f01605843bfb85acc07e598f97165c43:articles/healthcare-apis/fhir/access-fhir-postman-tutorial.md
+[!code-json][(../samples/sample-patient.json)]
 
 Click **Send** to determine that the patient is successfully created.
 

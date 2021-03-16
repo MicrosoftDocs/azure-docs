@@ -22,7 +22,7 @@ To register a new confidential application in the portal, follow these steps.
 
 1. In the [Azure portal](https://portal.azure.com), navigate to **Azure Active Directory**.
 
-1. Select **App registrations**.
+1. Select **App registrations**. 
 
     ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
 
