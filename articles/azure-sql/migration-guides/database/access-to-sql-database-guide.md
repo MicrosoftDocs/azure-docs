@@ -52,6 +52,18 @@ To create an assessment, follow these steps:
 
    ![Review the sample report assessment](./media/access-to-sql-database-guide/sample-assessment.png)
 
+### Validate data types
+
+Validate the default data type mappings and change them based on requirements if necessary. To do so, follow these steps:
+
+1. Select **Tools** from the menu. 
+1. Select **Project Settings**. 
+1. Select the **Type mappings** tab. 
+
+   ![Type Mappings](./media/access-to-sql-database-guide/type-mappings.png)
+
+1. You can change the type mapping for each table by selecting the table in the **Access Metadata Explorer**.
+
 
 ### Convert schema
 
