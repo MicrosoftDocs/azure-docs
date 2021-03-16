@@ -49,7 +49,7 @@ The Azure Stack Edge Mini R device has 1 data disk and 1 boot disk (that serves 
 
 ## Network specifications
 
-The Azure Stack Edge Mini R device has the following specifications for network:
+The Azure Stack Edge Mini R device has the following specifications for the network:
 
 |Specification  |Value  |
 |---------|---------|
@@ -57,27 +57,28 @@ The Azure Stack Edge Mini R device has the following specifications for network:
 |Network interfaces    |2 x 1 Gbe RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI          |
 |Wi-Fi   |802.11ac         |
 
-## SPF+ requirements
+## Supported SPF+ transceivers
 
-The Azure Stack Edge Mini R device includes a Xeon D 1500 series SoC (System on Chip) from Klas. The Xeon D 1500 series SoC does not have the usual Peripheral Interface Card (PCI) NIC, but rather a NIC in which layer 1 and layer 2 are separate. Layer 2 (MAC) is part of the Xeon D SoC. However, layer 1 (PHY) is provided by a physical device outside the SoC.
+The Azure Stack Edge Mini R device includes a Xeon D 1500 series SoC (System on Chip) from Klas. The Xeon D 1500 SoC does not have the usual Peripheral Interface Card (PCI) NIC, but rather a NIC in which layer 1 and layer 2 are separate. Layer 2 (MAC) is part of the Xeon D SoC. However, Layer 1 (PHY) is provided by a physical device outside the SoC.<!--Should the heading be simply "Transceiver specifications"? If this much of the info stays, a separate article might work.-->
 
-#### Supported form factors
+The small form-factor pluggable (SFP) is a compact, hot-pluggable module transceiver used for both telecommunication and data communications applications. The form factor has been around for a number of years and has a few evolutions including SFP, SFP+ and QSFP+. The Azure Stack Edge Mini R device supports SPF+.<!--Transition between Xeon D 1500 SoC needs work.--> 
 
-The following form factors are supported for SPF+ products from Klaus:
+#### Supported SPF+ form factors
+
+The following form factors are supported for SPF+ products from Klas:<!--Are form factors = SKUs? NOTE TO ME: Standardize units of measure.-->
 
 |Product | Notes|
 |--------|-------|
-|VoyagerESR 2.0 (Cisco ESS3300 Switch component) |  |
-|VoyagerSW26G                                    |  |
-|VoyagerVM 3.0                                   |  |
-|TDC Switch                                      |  |
-|TRX R2 (8-Core)                                 |  |
+|VoyagerESR 2.0 (Cisco ESS3300 Switch component) |                           |
+|VoyagerSW26G                                    |                           |
+|VoyagerVM 3.0                                   |                           |
+|TDC Switch                                      |                           |
+|TRX R2 (8-Core)                                 |                           |
 |SW12GG                                          |QSFP+ to 4x SFP+ cable only|
-
 
 #### Supported transceivers for Klas products
 
-The following SFP+ (10Gbps) transceivers are supported on all Klas products with SFP+ ports (see table above). There is no configuration required, just insert the SFP or SFP+ transceiver into the module port and it will be auto detected by the operating system. When connecting two devices with SFP+ ports together Klas strongly recommends SFP+ Direct-Attach Copper (DAC) cables.
+The following SFP+ (10Gbps) transceivers are supported on all Klas products with SFP+ ports (see table above). No configuration is required. Just insert the SFP or SFP+ transceiver into the module port, and the operating system will automatically detect the transceiver. When connecting two devices with SFP+ ports together, Klas strongly recommends SFP+ Direct-Attach Copper (DAC) cables.
 
 |SFP+ transceiver type | Supported products | Notes |
 |---------------------|--------------------|-------|
