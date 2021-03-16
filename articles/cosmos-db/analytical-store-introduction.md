@@ -60,17 +60,17 @@ Auto-Sync refers to the fully managed capability of Azure Cosmos DB where the in
 
 The auto-sync capability along with analytical store provides the following key benefits:
 
-#### Scalability & elasticity
+### Scalability & elasticity
 
 By using horizontal partitioning, Azure Cosmos DB transactional store can elastically scale the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in auto-sync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it is 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. 
 
-#### <a id="analytical-schema"></a>Automatically handle schema updates
+### <a id="analytical-schema"></a>Automatically handle schema updates
 
 Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With the auto-sync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
 
 As your schema evolves, and new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
 
-##### Schema constraints
+#### Schema constraints
 
 The following constraints are applicable on the operational data in Azure Cosmos DB when you enable analytical store to automatically infer and represent the schema correctly:
 
@@ -94,7 +94,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
 
 
-##### Schema representation
+#### Schema representation
 
 There are two modes of schema representation in the analytical store. These modes have tradeoffs between the simplicity of a columnar representation, handling the polymorphic schemas, and simplicity of query experience:
 
