@@ -72,16 +72,6 @@
       href: security-baseline.md
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
-- name: Concepts
-  items:
-  - name: Cognitive Services development options
-    href: cognitive-services-development-options.md
-  - name: Cognitive Services and Machine learning
-    href: cognitive-services-and-machine-learning.md 
-  - name: Custom subdomains for Cognitive Services
-    href: cognitive-services-custom-subdomains.md
-- name: Tutorial
-  items:
   - name: Big data
     items:
     - name: Cognitive Services for Big Data
@@ -100,6 +90,14 @@
         href: ./big-data/recipes/anomaly-detection.md
       - name: "Recipe: Art Explorer"
         href: ./big-data/recipes/art-explorer.md
+- name: Concepts
+  items:
+  - name: Cognitive Services development options
+    href: cognitive-services-development-options.md
+  - name: Cognitive Services and Machine learning
+    href: cognitive-services-and-machine-learning.md 
+  - name: Custom subdomains for Cognitive Services
+    href: cognitive-services-custom-subdomains.md
 - name: Reference
   items:
   - name: Azure Policy built-ins
