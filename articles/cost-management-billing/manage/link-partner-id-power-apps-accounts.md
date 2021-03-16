@@ -12,7 +12,7 @@ ms.author: banders
 
 # Link a partner ID to your Power Apps accounts
 
-This article helps Microsoft partners, who are Power Apps service providers, to assist customers use Microsoft Power Apps. When you (the Microsoft partner) manage, configure, and support Power Apps services for your customer, you have access to your customer's environment. You can use your Azure credentials and a Partner Admin Link (PAL) to associate your partner network ID with the account credentials used for service delivery.
+This article helps Microsoft partners, who are Power Apps service providers, to associate their service to customers on Microsoft Power Apps. When you (the Microsoft partner) manage, configure, and support Power Apps services for your customer, you have access to your customer's environment. You can use your Azure credentials and a Partner Admin Link (PAL) to associate your partner network ID with the account credentials used for service delivery.
 
 The PAL allows Microsoft to identify and recognize partners that have Power Apps customers. Microsoft attributes usage to a partner's organization based on the account's permissions (Power Apps role) and scope (tenant, resource group, resource).
 
@@ -116,7 +116,7 @@ The following sections cover frequently asked questions about linking a partner 
 
 ### Who should link the partner ID?
 
-Any user from the partner organization who works on a customer's Power Apps resources can link the partner ID to the account. Ideally, the association in PAL should be done at the beginning of the project. However, it can be performed whenever you have access to the customer's directory.
+Any user from the partner organization who works on a customer's Power Apps resources can link the partner ID to the account. Ideally, the association in PAL should be done at the beginning of the project. However, it can be performed whenever you have access in the customer's directory.
 
 ### Can a partner ID be changed after it's linked?
 
