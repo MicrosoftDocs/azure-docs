@@ -55,7 +55,7 @@ This query on **GatewayDiagnosticLog** will show you multiple columns.
 
 The example below shows the activity logged when a new configuration was applied:
 
-![](/media/troubleshoot-vpn-with-AzureDagnostics/image26-setgateway.png)
+![](./media/troubleshoot-vpn-with-AzureDagnostics/image26-setgateway.png)
 
 Notice that a SetGatewayConfiguration will be logged every time some configuration is modified both on a VPN Gateway or a Local Network Gateway. <br/>
 Cross referencing the results from the **GatewayDiagnosticLog** table with those of the **TunnelDiagnosticLog** table can help us determine if a tunnel connectivity failure has started at the same time as a configuration was changed, or a maintenance took place. If so, we have a great pointer towards the possible root cause.
@@ -87,7 +87,7 @@ This query on **TunnelDiagnosticLog** will show you multiple columns.
 
 Example output:
 
-![](https://labondemand.blob.core.windows.net/content/lab55677/media/image16.png)
+![](./media/troubleshoot-vpn-with-AzureDagnostics/image16-tunnelconnected.png)
 
 The **TunnelDiagnosticLog** is very useful to troubleshoot past events about unexpected VPN disconnections. Its lightweight nature offers the possibility to analyze large time ranges over several days with little effort.<br/>
 Only after you identify the timestamp of a disconnection, you can switch to the more detailed analysis of the **IKEdiagnosticLog** table to dig deeper into the reasoning of the disconnections shall those be IPsec related.
@@ -121,7 +121,7 @@ The output will show useful information about BGP peers connected/disconnected a
 Example:
 
 
-![](https://labondemand.blob.core.windows.net/content/lab55677/media/image31.png)
+![](./media/troubleshoot-vpn-with-AzureDagnostics/image31-bgproute.png)
 
 
 ## <a name="IKEDiagnosticLog"></a>IKEDiagnosticLog
@@ -186,8 +186,8 @@ This query on **P2SDiagnosticLog** will show you multiple columns.
 
 The output will show all of the Point to Site settings that the gateway has applied, as well as the IPsec policies in place.
 
-![](https://labondemand.blob.core.windows.net/content/lab55677/media/image28.png)
+![](./media/troubleshoot-vpn-with-AzureDagnostics/image28-p2slogevent.png)
 
 Also, whenever a client will connect via IKEv2 or OpenVPN Point to Site, the table will log packet activity, EAP/RADIUS conversations and successful/failure results by user
 
-![](https://labondemand.blob.core.windows.net/content/lab55677/media/image29.png)
+![](./media/troubleshoot-vpn-with-AzureDagnostics/image29-eap.png)
