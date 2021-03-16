@@ -15,7 +15,6 @@ sections:
       - question: What is Azure VMware Solution?
         answer: As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers' digital transformation. Azure VMware Solution combines VMware's Software-Defined Data Center (SDDC) software with Microsoft's Azure global cloud service ecosystem. Azure VMware Solution is managed to meet performance, availability, security, and compliance requirements.
 
-    questions:
       - question: Where is Azure VMware Solution available today?
         answer: |
           The service is continuously being added to new regions, so view the [latest service availability information](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) for more details. 
