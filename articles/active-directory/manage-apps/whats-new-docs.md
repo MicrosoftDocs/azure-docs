@@ -28,7 +28,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 - [Grant tenant-wide admin consent to an application](grant-admin-consent.md)
 - [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md)
-- [Problems signing in to SAML-based single sign-on configured apps](application-sign-in-problem-federated-sso-gallery.md)
 - [Use tenant restrictions to manage access to SaaS cloud applications](tenant-restrictions.md)
 
 ## January 2021
@@ -79,7 +78,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### Updated articles
 - [Azure Active Directory application management: What's new](whats-new-docs.md)
-- [Problems signing in to SAML-based single sign-on configured apps](application-sign-in-problem-federated-sso-gallery.md)
 
 
 ## October 2020
@@ -94,7 +92,6 @@ Welcome to what's new in Azure Active Directory application management documenta
 
 ### Updated articles
 
-- [Problems signing in to SAML-based single sign-on configured apps](application-sign-in-problem-federated-sso-gallery.md)
 - [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
 - [Moving application authentication from Active Directory Federation Services to Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Configure how end-users consent to applications](configure-user-consent.md)
