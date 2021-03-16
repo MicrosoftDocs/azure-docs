@@ -73,15 +73,16 @@ This article shows how to download, install, and set up your on-premises data ga
 
   * If you plan to use Windows authentication, make sure that you install the gateway on a computer that's a member of the same Active Directory environment as your data sources.
 
-  * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure account. However, you can change the location during gateway installation or later.
+  * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure user account. However, you can change the location during gateway installation or later.
 
     > [!IMPORTANT]
-    > During gateway setup, the **Change Region** command is unavailable if your user account is a member of an Azure Active Directory 
-    > (Azure AD) tenant in the Azure Government cloud. The gateway automatically uses the same region as your user account's Azure AD tenant. 
+    > During gateway setup, the **Change Region** command is unavailable if you signed in with your Azure Government account, which is associated with an 
+    > Azure Active Directory (Azure AD) tenant in the [Azure Government cloud](../azure-government/compare-azure-government-global-azure.md). The gateway 
+    > automatically uses the same region as your user account's Azure AD tenant.
     > 
-    > To set up the gateway for use in the Azure Commercial (multi-tenant) cloud but continue using your Azure Government account, you can 
-    > make the gateway use the Azure Commercial cloud if you first sign in with the `prod@microsoft.com` username. This solution makes the 
-    > gateway use the Azure Commercial cloud, but permits you to continue using your Azure Government account for later.
+    > To continue using your Azure Government account, but set up the gateway to work in the global multi-tenant Azure Commercial cloud instead, first sign 
+    > in during gateway installation with the `prod@microsoft.com` username. This solution forces the gateway to use the global multi-tenant Azure cloud, 
+    > but still lets you continue using your Azure Government account.
 
   * If you're updating your gateway installation, uninstall your current gateway first for a cleaner experience.
 
