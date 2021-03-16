@@ -30,7 +30,7 @@ Notice that there are several columns available in these tables. In this article
 
 ## <a name="setup"></a>Set up logging
 
-To learn how set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics, see [Set up alerts on diagnostic log events from VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log)
+To learn how set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics, see [Set up alerts on diagnostic log events from VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log)
 
 ## <a name="GatewayDiagnosticLog"></a>GatewayDiagnosticLog
 
@@ -55,7 +55,7 @@ This query on **GatewayDiagnosticLog** will show you multiple columns.
 
 The example below shows the activity logged when a new configuration was applied:
 
-![](./media/troubleshoot-vpn-with-AzureDagnostics/image26-setgateway.png)
+![Set Gateway Operation example](./media/troubleshoot-vpn-with-AzureDagnostics/image26-setgateway.png)
 
 Notice that a SetGatewayConfiguration will be logged every time some configuration is modified both on a VPN Gateway or a Local Network Gateway. <br/>
 Cross referencing the results from the **GatewayDiagnosticLog** table with those of the **TunnelDiagnosticLog** table can help us determine if a tunnel connectivity failure has started at the same time as a configuration was changed, or a maintenance took place. If so, we have a great pointer towards the possible root cause.
@@ -87,13 +87,13 @@ This query on **TunnelDiagnosticLog** will show you multiple columns.
 
 Example output:
 
-![](./media/troubleshoot-vpn-with-AzureDagnostics/image16-tunnelconnected.png)
+![Tunnel Connected Event example](./media/troubleshoot-vpn-with-AzureDagnostics/image16-tunnelconnected.png)
 
 The **TunnelDiagnosticLog** is very useful to troubleshoot past events about unexpected VPN disconnections. Its lightweight nature offers the possibility to analyze large time ranges over several days with little effort.<br/>
 Only after you identify the timestamp of a disconnection, you can switch to the more detailed analysis of the **IKEdiagnosticLog** table to dig deeper into the reasoning of the disconnections shall those be IPsec related.
 <br/><br/>Some troubleshooting tips:
-1.  If you see a disconnection event on one gateway instance, followed by a connection event on the **different** gateway instance in a few seconds, you are looking at a gateway failover. This is usually an expected behavior due to maintenance on a gateway instance. To learn more about this behavior, see [About Azure VPN gateway redundancy](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy).
-<br/>The same behavior will be observed if you intentionally run a Gateway Reset on the Azure side - which causes a reboot of the active gateway instance. To learn more about this behavior, see [Reset a VPN Gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-resetgw-classic)
+1.  If you see a disconnection event on one gateway instance, followed by a connection event on the **different** gateway instance in a few seconds, you are looking at a gateway failover. This is usually an expected behavior due to maintenance on a gateway instance. To learn more about this behavior, see [About Azure VPN gateway redundancy](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy).
+<br/>The same behavior will be observed if you intentionally run a Gateway Reset on the Azure side - which causes a reboot of the active gateway instance. To learn more about this behavior, see [Reset a VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-resetgw-classic)
 3.  If you see a disconnection event on one gateway instance, followed by a connection event on the **same** gateway instance in a few seconds, you may be looking at a network glitch causing a DPD timeout, or a disconnection erroneously sent by the onprem device.
 
 ## <a name="RouteDiagnosticLog"></a>RouteDiagnosticLog
@@ -121,7 +121,7 @@ The output will show useful information about BGP peers connected/disconnected a
 Example:
 
 
-![](./media/troubleshoot-vpn-with-AzureDagnostics/image31-bgproute.png)
+![BGP Route Examples](./media/troubleshoot-vpn-with-AzureDagnostics/image31-bgproute.png)
 
 
 ## <a name="IKEDiagnosticLog"></a>IKEDiagnosticLog
@@ -161,7 +161,7 @@ Troubleshooting tips:
 
 3. The SA\_INIT contains the IPSec parameters that the peer wants to use for this IPsec negotiation. 
 The official document lists the IPsec parameters supported by the Azure Gateway with default settings  
-[https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec)
+[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec)
 
 
 ## <a name="P2SDiagnosticLog"></a>P2SDiagnosticLog
@@ -186,8 +186,8 @@ This query on **P2SDiagnosticLog** will show you multiple columns.
 
 The output will show all of the Point to Site settings that the gateway has applied, as well as the IPsec policies in place.
 
-![](./media/troubleshoot-vpn-with-AzureDagnostics/image28-p2slogevent.png)
+![P2S Logs example](./media/troubleshoot-vpn-with-AzureDagnostics/image28-p2slogevent.png)
 
 Also, whenever a client will connect via IKEv2 or OpenVPN Point to Site, the table will log packet activity, EAP/RADIUS conversations and successful/failure results by user
 
-![](./media/troubleshoot-vpn-with-AzureDagnostics/image29-eap.png)
+![EAP logs example](./media/troubleshoot-vpn-with-AzureDagnostics/image29-eap.png)
