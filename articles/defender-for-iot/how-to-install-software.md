@@ -343,7 +343,7 @@ To install:
    | **appliance hostname:** | - |
    | **DNS:** | - |
    | **default gateway IP address:** | - |
-   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator.You do not have to configure the bridge interface. This option is used for special use cases only. |
+   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator. You do not have to configure the bridge interface. This option is used for special use cases only. |
 
 1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.  
 
