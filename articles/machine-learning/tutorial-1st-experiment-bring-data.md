@@ -196,7 +196,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      A [dataset](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) is used to reference the data you uploaded to Azure Blob Storage. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
+      A [dataset](/python/api/azureml-core/azureml.core.dataset.dataset) is used to reference the data you uploaded to Azure Blob Storage. Datasets are an abstraction layer on top of your data that are designed to improve reliability and trustworthiness.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -204,7 +204,7 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) is modified to include a list of arguments that will be passed into `train.py`. The `dataset.as_named_input('input').as_mount()` argument means the specified directory will be _mounted_ to the compute target.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) is modified to include a list of arguments that will be passed into `train.py`. The `dataset.as_named_input('input').as_mount()` argument means the specified directory will be _mounted_ to the compute target.
    :::column-end:::
 :::row-end:::
 

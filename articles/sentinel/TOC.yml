@@ -23,6 +23,8 @@
     href: tutorial-investigate-cases.md
   - name: Respond to threats
     href: tutorial-respond-threats-playbook.md
+  - name: Create KQL queries (Learn module)
+    href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - name: Concepts
   items:
   - name: Classify data using entities
@@ -45,8 +47,6 @@
     href: microsoft-365-defender-sentinel-integration.md
   - name: Use external data with watchlists
     href: watchlists.md
-  - name: Assign permissions using roles
-    href: roles.md
   - name: Extend Azure Sentinel across workspaces and tenants
     href: extend-sentinel-across-workspaces-tenants.md
   - name: Normalize your data across tables
@@ -311,6 +311,8 @@
       href: /azure/data-explorer/kusto/query/
     - name: Kusto Query Language quick reference
       href: /azure/data-explorer/kql-quick-reference
+    - name: Azure Monitor log query optimizations
+      href: /azure/azure-monitor/logs/query-optimization
   - name: UEBA enrichments
     href: ueba-enrichments.md
   - name: CEF log field mapping

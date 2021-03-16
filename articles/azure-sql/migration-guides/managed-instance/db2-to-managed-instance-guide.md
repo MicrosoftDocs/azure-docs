@@ -1,6 +1,6 @@
 ---
 title: "DB2 to SQL Managed Instance: Migration guide"
-description: Follow this guide to migrate your DB2 databases to Azure SQL Managed Instance. 
+description: This guide teaches you to migrate your DB2 databases to Azure SQL Managed Instance using SQL Server Migration Assistant for DB2.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: 
@@ -136,9 +136,6 @@ The test approach for database migration consists of the following activities:
 1. **Set up test environment**: The test environment should contain a copy of the source database and the target database. Be sure to isolate the test environment.
 1. **Run validation tests**: Run the validation tests against the source and the target, and then analyze the results.
 1. **Run performance tests**: Run performance test against the source and the target, and then analyze and compare the results.
-
-   > [!NOTE]
-   > For assistance developing and running post-migration validation tests, consider the Data Quality Solution available from the partner [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 
 ## Leverage advanced features 

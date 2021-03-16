@@ -122,6 +122,8 @@ Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, 
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
+For your function app to be able to access Azure Digital Twins, it will need to have a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
+
 ### Assign permissions to the function app
 
 To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed Azure AD identity, and give this identity the *Azure Digital Twins Data Owner* role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
