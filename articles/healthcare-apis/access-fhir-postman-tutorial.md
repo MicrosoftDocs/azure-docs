@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ---
 
 # Access Azure API for FHIR with Postman
