@@ -52,12 +52,6 @@ To create an assessment, follow these steps:
 
 1. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
 
-    Choose the appropriate Oracle Data Provider: 
-
-   ![Choose Oracle data provider](./media/oracle-to-sql-database-guide/oracle-data-provider.png)
-
-    Connect to Oracle: 
-
    ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
 
    ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle1.png)
