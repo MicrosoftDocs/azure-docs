@@ -43,6 +43,9 @@ Hosts used to build or scale clusters come from an isolated pool of hosts. Those
 
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
 
+## Update frequency
+
+[!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
 
 ## Host maintenance and lifecycle management
 
