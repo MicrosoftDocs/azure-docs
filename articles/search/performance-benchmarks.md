@@ -72,9 +72,9 @@ Query latency varies based on the load of the service and services under higher 
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
-| 20%  | 106ms  | 36ms  | 115ms   | 181ms | 273ms | 757ms |
-| 50%  | 144ms  | 47ms  | 148ms   | 254ms | 412ms | 1200ms |
-| 80%  | 259ms  | 82ms  | 263ms   | 505ms | 840ms | 2012ms | 
+| 20%  | 104ms  | 35ms  | 115ms   | 177ms | 257ms | 738ms |
+| 50%  | 140ms  | 47ms  | 144ms   | 241ms | 400ms | 1175ms |
+| 80%  | 239ms  | 77ms  | 248ms   | 466ms | 763ms | 1752ms | 
 
 
 ### S2 Performance
