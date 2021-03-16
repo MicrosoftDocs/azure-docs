@@ -9,7 +9,7 @@ ms.date: 03/13/2021
 
 There are varying ways to configure VMware HCX network segments on-premises, the following outlines a simple configuration which will support a pilot/small production use case.  When designing for hundreds/thousands of workloads this configuration may need to change, depending on the needs of the migration.  
 
-In preparation for the VMware HCX deployment to support the pilot/small production use case please identify the following.
+In preparation for the VMware HCX deployment to support the pilot or small production use case, identify the following:
 
 - **Management network:** When deploying VMware HCX on-premises, you'll need to define a management network.  Typically, it's the same management network used by your on-premises VMware cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
 
