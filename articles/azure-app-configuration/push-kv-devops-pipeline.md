@@ -19,6 +19,7 @@ The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?it
 - App Configuration resource - create one for free in the [Azure portal](https://portal.azure.com).
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
 - Azure App Configuration Push task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
+- Nodejs version 6.13.0 or above (on [self-hosted agents](https://github.com/Azure/AppConfiguration/issues/395)) - download for free from the [Nodejs.org](https://nodejs.org/en/download/).
 
 ## Create a service connection
 
@@ -101,3 +102,7 @@ Create multiple instances of the Azure App Configuration Push task within the sa
 **Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
 
 A 409 Conflict error message will occur if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.
+
+**Why am I getting the "crypto.default.randomFillSync is not a function" error when attempting to push key values?**
+
+ The error is caused by the nodejs version that is currently being used by the agent. Update the nodejs version to 6.13.0 or above.
