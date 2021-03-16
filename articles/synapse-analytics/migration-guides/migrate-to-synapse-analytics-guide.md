@@ -61,7 +61,10 @@ To migrate your Oracle data warehouse to Azure Synapse Analytics, make sure you 
 For more information visit [Azure Synapse Analytics solutions and migration for an Oracle data warehouse](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-exadata)
 
 # [Migrate from Teradata](#tab/migratefromTeradata)
+[Azure Synapse Pathway](https://docs.microsoft.com/sql/tools/synapse-pathway/pathway-faq) tool will support Teradata in the near future. 
 For more information visit [Azure Synapse Analytics solutions and migration for Teradata](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/analytics/analytics-solutions-teradata)
+
+---
 
 ## Pre-migration
 After you make the decision to migrate an existing solution to Azure Synapse Analytics, it is important to plan the migration before you get started. A primary goal of planning is to ensure that your data, table schemas, and code are compatible with Azure Synapse Analytics. There are some compatibility differences between your current system and Azure Synapse Analytics that you will need to work around. In addition, migrating large amounts of data to Azure takes time. Careful planning will speed up the process of getting your data to Azure. Another key goal of planning is to adjust your design to ensure that your solution takes full advantage of the high query performance that Azure Synapse Analytics is designed to provide. Designing data warehouses for scale introduces unique design patterns, so traditional approaches aren't always the best. While some design adjustments can be made after migration, making changes earlier in the process will save you time later.
