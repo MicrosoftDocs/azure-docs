@@ -45,6 +45,8 @@
     href: bring-your-own-ml.md
   - name: Integrate Microsoft 365 Defender with Azure Sentinel
     href: microsoft-365-defender-sentinel-integration.md
+  - name: Integrate Windows Virtual Desktop with Azure Sentinel
+    href: windows-virtual-desktop-integration.md
   - name: Use external data with watchlists
     href: watchlists.md
   - name: Extend Azure Sentinel across workspaces and tenants
