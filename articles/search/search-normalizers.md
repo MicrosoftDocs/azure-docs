@@ -151,7 +151,7 @@ For more details on the char filters, refer to [Char Filters Reference](index-ad
 + [pattern_replace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)
 
 ### Supported token filters
-The list below shows the token filters supported for normalizers and is a subset of the overall token filters involved in the lexical analysis. For more details on the filters, refer to [Token Filters Reference](index-add-custom-analyzers.md#token-filters).
+The list below shows the token filters supported for normalizers and is a subset of the overall token filters involved in the lexical analysis. For more details on the filters, refer to [Token Filters Reference](index-add-custom-analyzers.md#TokenFilters).
 
 + [arabic_normalization](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ar/ArabicNormalizationFilter.html)
 + [asciifolding](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/ASCIIFoldingFilter.html)
