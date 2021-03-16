@@ -207,6 +207,15 @@ The following link shows how to update the TTL for analytical store by using Azu
 * [Update - analytical TTL -  Azure Cosmos DB API for Mongo DB collections](https://docs.microsoft.com/cli/azure/cosmosdb/mongodb/collection?view=azure-cli-latest#az_cosmosdb_mongodb_collection_update)
 * [Update - analytical TTL - Azure Cosmos DB SQL API containers](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update)
 
+#### PowerShell
+
+The following link shows how to update the TTL for analytical store by using PowerShell:
+
+* [Update - analytical TTL -  Azure Cosmos DB API for Mongo DB collections](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection?view=azps-5.5.0)
+* [Update - analytical TTL - Azure Cosmos DB SQL API containers](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-5.5.0)
+
+
+
 ## <a id="connect-to-cosmos-database"></a> Connect to a Synapse workspace
 
 Use the instructions in [Connect to Azure Synapse Link](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md) on how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Azure Synapse Link.
