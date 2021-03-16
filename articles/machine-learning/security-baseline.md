@@ -768,7 +768,7 @@ Implement a third-party solution if adaptive application controls don't meet the
 
 **Guidance**: Azure Machine Learning has varying support across different compute resources and even your own compute resources. For compute resources that are owned by your organization, depending on the type of scripts, you can use operating system-specific configurations or third-party resources to limit users' ability to execute scripts in Azure compute resources. You can also use Azure Security Center adaptive application controls to ensure that only authorized software executes and all unauthorized software is blocked from executing on Azure Virtual Machines.
 
-- [How to control PowerShell script execution in Windows environments](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7)
+- [How to control PowerShell script execution in Windows environments](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 - [How to use Azure Security Center adaptive application controls](../security-center/security-center-adaptive-application.md)
 
