@@ -95,12 +95,16 @@
     href: named-entity-types.md
   - name: Language support
     href: language-support.md
-  - name: Text offsets
-    href: concepts/text-offsets.md
+  - name: Input types
+    items:
+    - name: Unicode encodings and text offsets
+      href: concepts/text-offsets.md
   - name: Data limits
     href: concepts/data-limits.md
-  - name: Model versioning
-    href: concepts/model-versioning.md
+  - name: models
+    items: 
+    - name: Model versioning
+      href: concepts/model-versioning.md
 - name: Tutorials
   items:
     - name: Integrate Power BI to analyze customer feedback
