@@ -20,7 +20,7 @@ In this quickstart, you'll learn how to deploy an Azure Kubernetes Service (AKS)
 > [!NOTE]
 > Confidential computing DCsv2 VMs leverage specialized hardware that is subject to higher pricing and region availability. For more information, see the virtual machines page for [available SKUs and supported regions](virtual-machine-solutions.md).
 
-### Confidential computing node features (DC<x>s-v2)
+### Confidential computing node features (DCsv2)
 
 1. Linux Worker Nodes supporting Linux Containers.
 1. Generation 2 VM with Ubuntu 18.04 Virtual Machines Nodes.
@@ -34,7 +34,7 @@ This quickstart requires the following:
 
 1. An active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 1. Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
-1. Minimum of six **DC<x>s-v2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription is eight cores. If you plan to provision a cluster that requires more than eight cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket.
+1. Minimum of six **DCsv2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription is eight cores. If you plan to provision a cluster that requires more than eight cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket.
 
 ## Create a new AKS cluster with confidential computing nodes and add-on
 
@@ -67,7 +67,7 @@ Run the following command to add a user node pool of `Standard_DC2s_v2` size wit
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2
 ```
 
-After running, a new node pool with **DC<x>s-v2** should be visible with Confidential computing add-on daemonsets ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)).
+After running, a new node pool with **DCsv2** should be visible with Confidential computing add-on daemonsets ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)).
 
 ### Verify the node pool and add-on
 
@@ -77,7 +77,7 @@ Get the credentials for your AKS cluster using the [az aks get-credentials][az-a
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Verify the nodes are created properly and the SGX-related daemonsets are running on **DC<x>s-v2** node pools using kubectl get pods & nodes command as shown below:
+Verify the nodes are created properly and the SGX-related daemonsets are running on **DCsv2** node pools using kubectl get pods & nodes command as shown below:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -101,10 +101,10 @@ Run the following command to enable the confidential computing add-on:
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
 
-### Add a **DC<x>s-v2** user node pool to the cluster
+### Add a **DCsv2** user node pool to the cluster
 
 > [!NOTE]
-> To use the confidential computing capability, your existing AKS cluster needs to have at minimum one **DC<x>s-v2** VM SKU based node pool. To learn more about confidential computing DCs-v2 VMs SKU's, see [available SKUs and supported regions](virtual-machine-solutions.md).
+> To use the confidential computing capability, your existing AKS cluster needs to have at minimum one **DCsv2** VM SKU based node pool. To learn more about confidential computing DCs-v2 VMs SKU's, see [available SKUs and supported regions](virtual-machine-solutions.md).
 
 Run the following command to create a new node pool:
 
