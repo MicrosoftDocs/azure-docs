@@ -32,7 +32,7 @@ ms.custom: devx-track-python
 > * [Bulk executor - .NET  v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| | Links  |
 |---|---|
 |**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
 |**API documentation**|[Python API reference documentation](/python/api/azure-cosmos/)|
