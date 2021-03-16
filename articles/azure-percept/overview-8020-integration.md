@@ -19,7 +19,11 @@ Each hardware component is built with the notches and protrusions to fit in the 
 
 Check out this video for more information on how to use Azure Percept DK with 80/20:
 
+<br>
+
 > [!VIDEO https://www.youtube.com/embed/Dg6mtD9psLU]
+
+<br>
 
 ## Next steps
 
