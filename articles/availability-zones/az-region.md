@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
@@ -51,7 +51,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | East US            | UK South             |                     |                |
 | East US 2          | West Europe          |                     |                |
 | South   Central US |                      |                     |                |
-| US Gov Virgina     |                      |                     |                |
+| US Gov Virginia     |                      |                     |                |
 | West   US 2        |                      |                     |                |
 
 
