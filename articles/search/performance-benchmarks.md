@@ -120,11 +120,28 @@ Query latency varies based on the load of the service and services under higher 
 
 ### Scenario Details
 
-- **Document Count**: 
-- **Index Size**: 
-- **Index Schema**: 
-- **Query Types**: 
+- **Document Count**: 7.5 million
+- **Index Size**: 22 GB
+- **Index Schema**: 23 fields; 8 searchable, 10 filterable/facetable
+- **Query Types**: key word searches with facets and hit highlighting
 
+### S2 Performance
+
+#### Queries per second
+
+The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
+
+![Highest maintainable QPS](./media/performance-benchmarks/s2-docsearch-qps.png)
+
+#### Query latency
+
+Query latency varies based on the load of the service and services under higher stress will have a higher average query latency. The table below show the 25th, 50th, 75th, 90th, 95th, and 99th percentiles of query latency for three different usage levels.
+
+| Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
+|---|---|---|---| --- | --- | --- | 
+| 20%  | 44ms  | 31ms  | 54ms   | 73ms | 83ms | 108ms |
+| 50%  | 63ms  | 39ms  | 81ms   | 105ms | 122ms | 163ms |
+| 80%  | 115ms  | 73ms  | 144ms   | 190ms | 222ms | 289ms | 
 ## Benchmark 3: Application search
 
 
