@@ -129,7 +129,7 @@ The device simulator is a thermostat-type device that uses the model: *Thermosta
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-For more information about models, refer to [*How-to: Manage models*](../articles/digital-twins/how-to-manage-model.md#upload-models).
+For more information about models, refer to [*How-to: Manage models*](how-to-manage-model.md#upload-models).
 
 #### Configure and run the simulator
 
@@ -247,7 +247,7 @@ Once you have gone through this flow, everything is set to retire devices end-to
 
 To trigger the process of retirement, you need to manually delete the device from IoT Hub.
 
-In the [first half of this article](#auto-provision-device-using-device-provisioning-service), you created a device in IoT Hub and a corresponding digital twin. 
+In the [first half of this article](#auto-provision-device-using-device-provisioning-service), you created a device in IoT Hub and a corresponding digital twin.
 
 Now, go to the IoT Hub and delete that device (you can do this with an [Azure CLI command](/cli/azure/ext/azure-iot/iot/hub/module-identity#ext_azure_iot_az_iot_hub_module_identity_delete) or in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)).
 
