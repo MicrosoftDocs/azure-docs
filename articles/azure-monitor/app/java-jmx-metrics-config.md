@@ -13,17 +13,17 @@ ms.author: jgol
 
 ## How do I collect additional JMX metrics?
 
-JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource, and you need to define the object name and attribute for each of the metrics you want collected.
+JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. You need to define the object name and attribute for each of the metrics you want collected.
 
 ## How do I know what metrics are available to configure?
 
 You nailed it - you must know the object names and the attributes, those properties are different for various JVMs and are not well documented by the JVM providers. To get the object names and attributes, you need to view the MBean tree. An MBean is a managed Java object, that can represent a device, an application, or a resource, and has a set of attributes. 
 
-To view the MBean tree and browse through the available metrics, we recommend using [Java Mission Control](https://www.oracle.com/java/technologies/jdk-mission-control.html).
+To view the available metrics and browse through the available metrics, we recommend using [Java Mission Control](https://www.oracle.com/java/technologies/jdk-mission-control.html).
 
 ### How to navigate the Java Mission Control to get to the right metrics?
 
-When you run the Java Mission Control tool, you will have a selection of JVMs available on the left side, click on the relevant process under the 'JVM Browser' tab. When the JMC loads the dashboard for the process, select 'MBean Browser' tab on the bottom (see below). The JMC must be located in the same folder as the JVM and your process/app must be up and running.
+When you run the Java Mission Control tool, you will have a selection of JVMs available on the left side, click on the relevant process under the 'JVM Browser' tab. Wait until JMC loads the dashboard for the process, select 'MBean Browser' tab on the bottom (see below). The JMC must be located in the same folder as the JVM and your process/app must be up and running.
 
 ![Screenshot of JMC MBean browser](media/java-ipa/jmx/jmc-mbean-browser.png)
 
