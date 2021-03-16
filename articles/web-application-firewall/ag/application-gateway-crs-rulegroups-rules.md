@@ -31,6 +31,32 @@ The WAF protects against the following web vulnerabilities:
 - Bots, crawlers, and scanners
 - Common application misconfigurations (for example, Apache and IIS)
 
+### OWASP CRS 3.2
+
+CRS 3.2 includes 15 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
+
+> [!NOTE]
+> CRS 3.2 is only available on the WAF_v2 SKU.
+
+|Rule group|Description|
+|---|---|
+|**[General](#general-32)**|General group|
+|**[REQUEST-910-IP-REPUTATION](#crs910-32)**|Protect against IP reputation attacks|
+|**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-32)**|Lock-down methods (PUT, PATCH)|
+|**[REQUEST-912-DOS-PROTECTION](#crs912-32)**|DOS protection|
+|**[REQUEST-913-SCANNER-DETECTION](#crs913-32)**|Protect against port and environment scanners|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-32)**|Protect against protocol and encoding issues|
+|**[REQUEST-921-PROTOCOL-ATTACK](#crs921-32)**|Protect against header injection, request smuggling, and response splitting|
+|**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-32)**|Protect against file and path attacks|
+|**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931-32)**|Protect against remote file inclusion (RFI) attacks|
+|**[REQUEST-932-APPLICATION-ATTACK-RCE](#crs932-32)**|Protect again remote code execution attacks|
+|**[REQUEST-933-APPLICATION-ATTACK-PHP](#crs933-32)**|Protect against PHP-injection attacks|
+|**[REQUEST-941-APPLICATION-ATTACK-XSS](#crs941-32)**|Protect against cross-site scripting attacks|
+|**[REQUEST-942-APPLICATION-ATTACK-SQLI](#crs942-32)**|Protect against SQL-injection attacks|
+|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](#crs943-32)**|Protect against session-fixation attacks|
+|**[REQUEST-944-APPLICATION-ATTACK-SESSION-JAVA](#crs944-32)**|Protect against JAVA attacks|
+
+
 ### OWASP CRS 3.1
 
 CRS 3.1 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
@@ -43,7 +69,7 @@ CRS 3.1 includes 13 rule groups, as shown in the following table. Each group con
 |**[General](#general-31)**|General group|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-31)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-31)**|Protect against port and environment scanners|
-|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920-31)**|Protect against protocol and encoding issues|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-31)**|Protect against protocol and encoding issues|
 |**[REQUEST-921-PROTOCOL-ATTACK](#crs921-31)**|Protect against header injection, request smuggling, and response splitting|
 |**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-31)**|Protect against file and path attacks|
 |**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931-31)**|Protect against remote file inclusion (RFI) attacks|
@@ -63,7 +89,7 @@ CRS 3.0 includes 12 rule groups, as shown in the following table. Each group con
 |**[General](#general-30)**|General group|
 |**[REQUEST-911-METHOD-ENFORCEMENT](#crs911-30)**|Lock-down methods (PUT, PATCH)|
 |**[REQUEST-913-SCANNER-DETECTION](#crs913-30)**|Protect against port and environment scanners|
-|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920-30)**|Protect against protocol and encoding issues|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](#crs920-30)**|Protect against protocol and encoding issues|
 |**[REQUEST-921-PROTOCOL-ATTACK](#crs921-30)**|Protect against header injection, request smuggling, and response splitting|
 |**[REQUEST-930-APPLICATION-ATTACK-LFI](#crs930-30)**|Protect against file and path attacks|
 |**[REQUEST-931-APPLICATION-ATTACK-RFI](#crs931-30)**|Protect against remote file inclusion (RFI) attacks|
