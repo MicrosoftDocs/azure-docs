@@ -589,7 +589,7 @@ Make sure that the cluster status is ok and that all of the resources are starte
 #     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
 </code></pre>
 
-## Configure HANA Active/Read Enabled System Replication in Pacemaker cluster
+## Configure HANA active/read enabled system replication in Pacemaker cluster
 
 Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setup for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intense workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred the cluster needs to move the virtual IP address around with the slave of the master/slave SAPHana resource.
 
@@ -598,7 +598,7 @@ Before proceeding further, make sure you have fully configured SUSE High Availab
 
 ![SAP HANA high availability with read-enabled secondary](./media/sap-hana-high-availability/ha-hana-read-enabled-secondary.png)
 
-### Additional Setup in Azure Load Balancer for Active/Read-Enable setup
+### Additional setup in Azure load balancer for active/read-enabled setup
 
 To proceed with additional steps on provisioning second virtual IP, make sure you have configured Azure Load Balancer as described in [Manual Deployment](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment) section.
 
@@ -629,7 +629,7 @@ To proceed with additional steps on provisioning second virtual IP, make sure yo
    - Make sure to **enable Floating IP**.
    - Select **OK**.
 
-### Configure HANA Active/Read Enabled System Replication
+### Configure HANA active/read enabled system replication
 
 The steps to configure HANA system replication are described in [Configure SAP HANA 2.0 System Replication](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication) section. If you are deploying read-enabled secondary scenario, while configuring system replication on the second node, execute following command as **hanasid**adm:
 
@@ -639,7 +639,7 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hn1-db-0 --remoteInstance=03 --replicationMode=sync --name=SITE2 --operationMode=logreplay_readaccess 
 ```
 
-### Adding a secondary virtual IP address resource for an Active/Read-Enabled setup
+### Adding a secondary virtual IP address resource for an active/read-enabled setup
 
 The second virtual IP and the appropriate colocation constraint can be configured with the following commands:
 
@@ -692,7 +692,7 @@ Be aware of the second virtual IP behavior, while testing a HANA cluster configu
 
 1. When you migrate **SAPHana_HN1_HDB03** cluster resource to **hn1-db-1**, the second virtual IP will move to the other server **hn1-db-0**. If you have configured AUTOMATED_REGISTER="false" and HANA system replication is not registered automatically, then the second virtual IP will run on **hn1-db-0,** as the server is available and cluster services are online.  
 
-2. When testing a server crash, the second virtual IP resources (**rsc_secip_HN1_HDB03**) and azure load balancer port resource (**rsc_secnc_HN1_HDB03**) will run on primary server alongside the primary virtual IP resources. While the secondary server is down, the applications that are connected to read-enabled HANA database will connect to the primary HANA database. The behavior is expected as you do not want applications that are connected to read-enabled HANA database to be inaccessible while the secondary server is unavailable.
+2. When testing a server crash, the second virtual IP resources (**rsc_secip_HN1_HDB03**) and Azure load balancer port resource (**rsc_secnc_HN1_HDB03**) will run on primary server alongside the primary virtual IP resources. While the secondary server is down, the applications that are connected to read-enabled HANA database will connect to the primary HANA database. The behavior is expected as you do not want applications that are connected to read-enabled HANA database to be inaccessible while the secondary server is unavailable.
   
 3. When the secondary server is available and the cluster services are online, the second virtual IP and port resources will automatically move to the secondary server, even though HANA system replication may not be registered as secondary. You need to make sure that you register the secondary HANA database as read enabled before you start cluster services on that server. You can configure the HANA instance cluster resource to automatically register the secondary by setting parameter AUTOMATED_REGISTER=true.       
 

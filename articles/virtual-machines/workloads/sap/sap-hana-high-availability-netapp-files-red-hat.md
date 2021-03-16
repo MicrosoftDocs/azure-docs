@@ -595,7 +595,7 @@ In this example each cluster node has its own HANA NFS filesystems /hana/shared,
     vip_HN1_03 (ocf::heartbeat:IPaddr2):   Started hanadb1
     ```
 
-## Configure HANA Active/Read Enabled System Replication in Pacemaker cluster
+## Configure HANA active/read enabled system replication in Pacemaker cluster
 
 Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intense workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred the cluster needs to move the virtual IP address around with the slave of the master/slave SAPHana resource.
 
