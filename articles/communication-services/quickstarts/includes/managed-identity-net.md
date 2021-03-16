@@ -49,7 +49,7 @@ Then, use the client to issue a token for a new user:
 
 ### Send an SMS with Managed Identity
 
-The following code example shows how to create a SMS service client object with managed identity, then use the client to send an SMS message:
+The following code example shows how to create an SMS service client object with managed identity, then use the client to send an SMS message:
 
 ```csharp
      public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)

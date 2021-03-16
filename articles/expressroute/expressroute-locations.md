@@ -111,6 +111,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[GlobalConnect]()** | Supported |Supported | Oslo, Stavanger | 
 | **GTT** |Supported |Supported |London2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supported| Supported | Chennai, Mumbai |
+| **[iAdvantage](https://www.scx.sunevision.com/)** | Supported | Supported | Hong Kong2 |
 | **Intelsat** | Supported | Supported | Washington DC2 |
 | **[InterCloud](https://www.intercloud.com/)** |Supported |Supported |Amsterdam, Chicago, Frankfurt, Hong Kong, London, New York, Paris, Silicon Valley, Singapore, Washington DC, Zurich |
 | **[Internet2](https://internet2.edu/services/cloud-connect/#service-cloud-connect)** |Supported |Supported |Chicago, Dallas, Silicon Valley, Washington DC |
