@@ -1,5 +1,5 @@
 ---
-title: Text normalization for case-insensitive filtering, faceting and sorting
+title: Text normalization for filters, facets, sort
 titleSuffix: Azure Cognitive Search
 description: Specify normalizers to text fields in an index to customize the strict keyword matching behavior in filtering, faceting and sorting.
 
@@ -31,8 +31,8 @@ Consider the following examples:
 An *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching. Normalizers are similar to analyzers except they do not tokenize the query. Some of the transformations that can be achieved using normalizers are:
 
 + Convert to lowercase or upper-case.
-+ Normalize accents and diacritics like ö or ê.
-+ Replace characters like `-` and whitespace into other characters.
++ Normalize accents and diacritics like ö or ê to ASCII equivalent characters "o" and "e".
++ Map characters like `-` and whitespace into a user-specified character.
 
 Normalizers can be specified on text fields in the index and is applied both at indexing and query execution.
 
