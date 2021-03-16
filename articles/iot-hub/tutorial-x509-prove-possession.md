@@ -12,7 +12,7 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to show me how to prove that I own the certificate I uploaded to IoT Hub
 ---
 
-# Tutorial: Proving Possession of a CA Certificate
+# Tutorial: Proving possession of a CA certificate
 
 After you upload your root certification authority (CA) certificate or subordinate CA certificate to your IoT hub, you must prove that you own the certificate:
 

@@ -12,13 +12,13 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to OpenSSL that I can use to generate test certificates. 
 ---
 
-# Tutorial: Using OpenSSL to Create Test Certificates
+# Tutorial: Using OpenSSL to create test certificates
 
 ## Introduction
 
 Although you can purchase X.509 certificates from a trusted certification authority, creating your own test certificate hierarchy or using self-signed certificates is adequate for testing IoT hub device authentication. The following example uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL Cookbook](https://www.feistyduck.com/library/openssl-cookbook/online/ch-openssl.html) to create a certification authority (CA), a subordinate CA, and a device certificate. The example then signs the subordinate CA and the device certificate into a certificate hierarchy. This is presented for example purposes only.
 
-## Step 1 - Create the Root CA Directory Structure
+## Step 1 - Create the root CA directory structure
 
 Create a directory structure for the certification authority.
 
@@ -35,7 +35,7 @@ Create a directory structure for the certification authority.
   echo 1001 > db/crlnumber
 ```
 
-## Step 2 - Create a Root CA Configuration File
+## Step 2 - Create a root CA configuration file
 
 Before creating a CA, create a configuration file and save it as `rootca.conf` in the rootca directory.
 
@@ -99,7 +99,7 @@ subjectKeyIdentifier     = hash
 
 ```
 
-## Step 3 - Create a Root CA
+## Step 3 - Create a root CA
 
 First, generate the key and the certificate signing request (CSR) in the rootca directory.
 
@@ -113,7 +113,7 @@ Next, create a self-signed CA certificate. Self-signing is suitable for testing 
   openssl ca -selfsign -config rootca.conf -in rootca.csr -out rootca.crt -extensions ca_ext
 ```
 
-## Step 4 - Create the Subordinate CA Directory Structure
+## Step 4 - Create the subordinate CA directory structure
 
 Create a directory structure for the subordinate CA.
 
@@ -126,7 +126,7 @@ Create a directory structure for the subordinate CA.
   echo 1001 > db/crlnumber
 ```
 
-## Step 5 - Create a Subordinate CA Configuration File
+## Step 5 - Create a subordinate CA configuration file
 
 Create a configuration file and save it as subca.conf in the `subca` directory.
 
@@ -196,7 +196,7 @@ keyUsage                 = critical,digitalSignature
 subjectKeyIdentifier     = hash
 ```
 
-## Step 6 - Create a Subordinate CA
+## Step 6 - Create a subordinate CA
 
 Create a new serial number in the `rootca/db/serial` file for the subordinate CA certificate.
 
@@ -221,7 +221,7 @@ Submit the CSR to the root CA and use the root CA to issue and sign the subordin
   openssl ca -config ../rootca/rootca.conf -in subca.csr -out subca.crt -extensions sub_ca_ext
 ```
 
-## Step 7 - Demonstrate Proof of Possession
+## Step 7 - Demonstrate proof of possession
 
 You now have both a root CA certificate and a subordinate CA certificate. You can use either one to sign device certificates. The one you choose must be uploaded to your IoT Hub. The following steps assume that you are using the subordinate CA certificate. To upload and register your subordinate CA certificate to your IoT Hub:
 
@@ -272,7 +272,7 @@ You now have both a root CA certificate and a subordinate CA certificate. You ca
 
 11. After the certificate uploads, select **Verify**. The CA certificate status should change to **Verified**.
 
-## Step 8 - Create a Device in Your IoT Hub
+## Step 8 - Create a device in your IoT Hub
 
 Navigate to your IoT Hub in the Azure portal and create a new IoT device identity with the following values:
 
@@ -282,7 +282,7 @@ Navigate to your IoT Hub in the Azure portal and create a new IoT device identit
 
 1. Select **Save**.
 
-## Step 9 - Create a Client Device Certificate
+## Step 9 - Create a client device certificate
 
 To generate a client certificate, you must first generate a private key. The following command shows how to use OpenSSL to create a private key. Create the key in the subca directory.
 
@@ -323,6 +323,6 @@ Send the CSR to the subordinate CA for signing into the certificate hierarchy. S
 openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_ext
 ```
 
-## Step 10 - Test Your Device certificate
+## Step 10 - Test your device certificate
 
 Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub.

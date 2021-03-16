@@ -12,13 +12,13 @@ ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics', devx-track-a
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to Microsoft scripts that I can use to generate test certificates. 
 ---
 
-# Tutorial: Using Microsoft-Supplied Scripts to Create Test Certificates
+# Tutorial: Using Microsoft-supplied scripts to create test certificates
 
 ## Introduction
 
 Microsoft provides PowerShell and Bash scripts to help you understand how to create your own X.509 certificates and authenticate them to an IoT Hub. The scripts are located in [GitHub](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates). They are provided for demonstration purposes only. Certificates created by them must not be used for production. The certificates contain hard-coded passwords (“1234”) and expire after 30 days. For a production environment, you'll need to use your own best practices for certificate creation and lifetime management.
 
-## PowerShell Scripts
+## PowerShell scripts
 
 ### Step 1 - Setup
 
@@ -38,7 +38,7 @@ Get OpenSSL for Windows. See <https://www.openssl.org/docs/faq.html#MISC4> for p
 
 1. Run `Test-CACertsPrerequisites`. PowerShell uses the Windows Certificate Store to manage certificates. This command verifies that there won't be name collisions later with existing certificates and that OpenSSL is setup correctly.
 
-### Step 2 - Create Certificates
+### Step 2 - Create certificates
 
 Run `New-CACertsCertChain [ecc|rsa]`. ECC is recommended for CA certificates but not required. This script updates your directory and Windows Certificate store with the following CA and intermediate certificates:
 
@@ -60,7 +60,7 @@ After running the script, add the new CA certificate (RootCA.pem) to your IoT Hu
 
 1. Select **Save**.
 
-### Step 3 - Prove Possession
+### Step 3 - Prove possession
 
 Now that  you've uploaded your CA certificate to your IoT Hub, you'll need to prove that you actually own it:
 
@@ -76,7 +76,7 @@ Now that  you've uploaded your CA certificate to your IoT Hub, you'll need to pr
 
 1. Select **Verify**.
 
-### Step 4 - Create a New Device
+### Step 4 - Create a new device
 
 Create a device for your IoT Hub:
 
@@ -93,7 +93,7 @@ Create a device for your IoT Hub:
    * `mydevice-private.pem`
    * `mydevice-public.pem`
 
-### Step 5 - Test Your Device certificate
+### Step 5 - Test your device certificate
 
 Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub. You will need the PFX version of your certificate, `mydevice.pfx`.
 
@@ -111,7 +111,7 @@ From the start menu, open **Manage Computer Certificates** and navigate to  **Ce
 
 1. Copy `*.cnf` and `*.sh` to your working directory.
 
-### Step 2 - Create Certificates
+### Step 2 - Create certificates
 
 1. Run `./certGen.sh create_root_and_intermediate`. This creates the following files in the **certs** directory:
 
@@ -129,7 +129,7 @@ From the start menu, open **Manage Computer Certificates** and navigate to  **Ce
 
 1. Select **Save**.
 
-### Step 3 - Prove Possession
+### Step 3 - Prove possession
 
 1. Select the new CA certificate created in the preceding step.
 
@@ -143,7 +143,7 @@ From the start menu, open **Manage Computer Certificates** and navigate to  **Ce
 
 1. Select **Verify**.
 
-### Step 4 - Create a New Device
+### Step 4 - Create a new device
 
 Create a device for your IoT hub:
 
@@ -155,7 +155,7 @@ Create a device for your IoT hub:
 
 1. Run `./certGen.sh create_device_certificate mydevice` to create a new device certificate. This creates two files named `new-device.cert.pem` and `new-device.cert.pfx` files in your working directory.
 
-### Step 5 - Test Your Device certificate
+### Step 5 - Test your device certificate
 
 Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your device certificate can authenticate to your IoT Hub. You will need the PFX version of your certificate, `new-device.cert.pfx`.
 

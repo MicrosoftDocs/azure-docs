@@ -24,7 +24,7 @@ X.509 certificates are digital documents that represent a user, computer, servic
 * The supported encryption and/or digital signing algorithms
 * Information to determine the revocation and validity status of the certificate
 
-## Certificate Fields
+## Certificate fields
 
 Over time there have been three certificate versions. Each version adds fields to the one before. Version 3 is current and contains version 1 and version 2 fields in addition to version 3 fields. Version 1 defined the following fields:
 
@@ -73,23 +73,23 @@ Version 3 certificates added the following extensions:
 * **Authority Information Access**: Contains one or more URLs where the issuing CA certificate is published
 * **Subject Information Access**: Contains information about how to retrieve additional details for a certificate subject
 
-## Certificate Formats
+## Certificate formats
 
 Certificates can be saved in a variety of formats. Azure IoT Hub authentication typically uses the PEM and PFX formats.
 
-### Binary Certificate
+### Binary certificate
 
 This contains a raw form binary certificate using DER ASN.1 Encoding.
 
-### ASCII PEM Format
+### ASCII PEM format
 
 A PEM certificate (.pem extension) contains a base64-encoded certificate beginning with -----BEGIN CERTIFICATE----- and ending with -----END CERTIFICATE-----. The PEM format is very common and is required by IoT Hub  when uploading certain certificates.
 
-### ASCII (PEM) Key
+### ASCII (PEM) key
 
 Contains a base64-encoded DER key with possibly additional metadata about the algorithm used for password protection.
 
-### PKCS#7 Certificate
+### PKCS#7 certificate
 
 A format designed for the transport of signed or encrypted data. It is defined by [RFC 2315](https://tools.ietf.org/html/rfc2315). It can include the entire certificate chain.
 
@@ -101,7 +101,7 @@ The format for a private key store defined by [RFC 5208](https://tools.ietf.org/
 
 A complex format that can store and protect a key and the entire certificate chain. It is commonly used with a .pfx extension. PKCS#12 is synonymous with the PFX format.
 
-## Next Steps
+## Next steps
 
 If you want to generate test certificates that you can use to authenticate devices to your IoT Hub, see the following topics:
 

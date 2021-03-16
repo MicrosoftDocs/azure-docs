@@ -42,13 +42,13 @@ The encryption process requires an algorithm and a key. The algorithm defines ho
 
 There are two types of encryption. Symmetric encryption uses the same key for both encryption and decryption. Asymmetric encryption uses different but mathematically related keys to perform encryption and decryption.
 
-### Symmetric Encryption
+### Symmetric encryption
 
 Symmetric encryption uses the same key to encrypt plaintext into ciphertext and decrypt ciphertext back into plaintext. The necessary length of the key, expressed in number of bits, is determined by the algorithm. After the key is used to encrypt plaintext, the encrypted message is sent to the recipient who then decrypts the ciphertext. The symmetric key must be securely transmitted to the recipient. Sending the key is the greatest security risk when using a symmetric algorithm.
 
 ![Symmetric encryption example](media/tutorial-x509-introduction/symmetric-keys.png)
 
-### Asymmetric Encryption
+### Asymmetric encryption
 
 If only symmetric encryption is used, the problem is that all parties to the communication must possess the private key. However, it is possible that unauthorized third parties can capture the key during transmission to authorized users. To address this issue, use asymmetric or public key cryptography instead.
 
@@ -66,7 +66,7 @@ In asymmetric cryptography, every user has two mathematically related keys calle
 
 1. The recipient decrypts the ciphertext by using the specified asymmetric algorithm and the private key.
 
-### Combining Symmetric and Asymmetric Encryption
+### Combining symmetric and asymmetric encryption
 
 Symmetric and asymmetric encryption can be combined to take advantage of their relative strengths. Symmetric encryption is much faster than asymmetric but, because of the necessity of sending private keys to other parties, is not as secure. To combine the two types together, symmetric encryption can be used to convert plaintext to ciphertext. Asymmetric encryption is used to exchange the symmetric key. This is demonstrated by the following diagram.
 
@@ -84,7 +84,7 @@ Symmetric and asymmetric encryption can be combined to take advantage of their r
 
 1. The recipient uses the symmetric key to decrypt the ciphertext.
 
-### Asymmetric Signing
+### Asymmetric signing
 
 Asymmetric algorithms can be used to protect data from modification and prove the identity of the data creator. The following illustration shows how asymmetric signing helps prove the sender's identity.
 
@@ -118,7 +118,7 @@ Digital signing can be used to determine whether the data has been modified in t
 
 1. The recipient compares the resulting signature to the decrypted signature. If the digests are the same, the message was not modified during transmission.
 
-## Next Steps
+## Next steps
 
 To learn more about the fields that make up a certificate, see [Understanding X.509 Public Key Certificates](tutorial-x509-certificates.md).
 
