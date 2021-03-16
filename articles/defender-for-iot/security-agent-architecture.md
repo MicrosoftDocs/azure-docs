@@ -54,7 +54,7 @@ Defender for IoT offers different installer agents for 32 bit and 64-bit Windows
 
 ## Next steps
 
-In this article, you got a high-level overview about Defender for IoT security module architecture, and the available installers.
+In this article, you got a high-level overview about Defender for IoT Defender-IoT-micro-agent architecture, and the available installers.
 
 To continue getting started with Defender for IoT deployment, use the following articles:
 
