@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: "seo-nov-2020"
 ---
@@ -74,16 +74,16 @@ As your schema evolves, and new properties are added over time, the analytical s
 
 The following constraints are applicable on the operational data in Azure Cosmos DB when you enable analytical store to automatically infer and represent the schema correctly:
 
-* You can have a maximum of 200 properties at any nesting level in the schema and a maximum nesting depth of 5.
-  
-  * An item with 201 properties at the top level doesn’t satisfy this constraint and hence it will not be represented in the analytical store.
-  * An item with more than five nested levels in the schema also doesn’t satisfy this constraint and hence it will not be represented in the analytical store. For example, the following item doesn't satisfy the requirement:
+* You can have a maximum of 1000 properties at any nesting level in the schema and a maximum nesting depth of 127.
+  * Only the first 1000 properties are represented in the analytical store.
+  * Only the fist 127 nested levels are represented in the analytical store.
 
-     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+* While JSON documents (and Cosmos DB collections/containers) are case sensitve, analytical store is not. 
+  * Property names in the same level should be unique when compared case insensitively. For example, the following propertities, in the same level of the same document, do not satisfy this constraint and hence will not be fully represented in the analytical store:
 
-* Property names should be unique when compared case insensitively. For example, the following items do not satisfy this constraint and hence will not be represented in the analytical store:
-
-  `{"Name": "fred"} {"name": "john"}` – "Name" and "name" are the same when compared in a case insensitive manner.
+  `{"Name": "fred"}, {"name": "john"}` – "Name" and "name" are the same when compared in a case insensitive manner. Only "Name" will be represented in analytical store.
+ 
+ * Properties with the same name but different cases will be represented with the first occurrence. For example: if the first document uses "Name" and the second document for has "name" in the same level, "Name" will be used to represent this property in analytical store.
 
 ##### Schema representation
 
