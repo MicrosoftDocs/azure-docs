@@ -55,7 +55,7 @@ This query on **GatewayDiagnosticLog** will show you multiple columns.
 
 The example below shows the activity logged when a new configuration was applied:
 
-![](https://labondemand.blob.core.windows.net/content/lab55677/media/image26.png)
+![](/media/troubleshoot-vpn-with-AzureDagnostics/image26-setgateway.png)
 
 Notice that a SetGatewayConfiguration will be logged every time some configuration is modified both on a VPN Gateway or a Local Network Gateway. <br/>
 Cross referencing the results from the **GatewayDiagnosticLog** table with those of the **TunnelDiagnosticLog** table can help us determine if a tunnel connectivity failure has started at the same time as a configuration was changed, or a maintenance took place. If so, we have a great pointer towards the possible root cause.
