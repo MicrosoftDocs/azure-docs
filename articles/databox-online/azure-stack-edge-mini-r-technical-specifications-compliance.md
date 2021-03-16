@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -61,11 +61,11 @@ The Azure Stack Edge Mini R device has the following specifications for the netw
 
 The Azure Stack Edge Mini R device includes a Xeon D 1500 series SoC (System on Chip) from Klas. The Xeon D 1500 SoC does not have the usual Peripheral Interface Card (PCI) NIC, but rather a NIC in which layer 1 and layer 2 are separate. Layer 2 (MAC) is part of the Xeon D SoC. However, Layer 1 (PHY) is provided by a physical device outside the SoC.<!--If this much of the info stays, a separate article might work.-->
 
-The small form-factor pluggable (SFP) is a compact, hot-pluggable module transceiver used for both telecommunication and data communications applications. The form factor has been around for a number of years and has a few evolutions including SFP, SFP+ and QSFP+. The Azure Stack Edge Mini R device supports SFP+.<!--Transition between Xeon D 1500 SoC needs work.--> 
+The Azure Stack Edge Mini R device supports SFP+ transceivers from Klas. The small form-factor pluggable (SFP) is a compact, hot-pluggable module transceiver used for both telecommunication and data communications applications. The form factor has been around for a number of years and has a few evolutions including SFP, SFP+ and QSFP+.<!--Note to me: Transition, organization need work.--> 
 
 #### Supported SFP+ form factors
 
-The following form factors are supported for SFP+ products from Klas:<!--Are form factors = SKUs? NOTE TO ME: Standardize units of measure.-->
+The following form factors are supported for SFP+ products from Klas:
 
 |Product | Notes|
 |--------|-------|
