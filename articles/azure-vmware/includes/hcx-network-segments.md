@@ -22,7 +22,7 @@ In preparation for the VMware HCX deployment to support the pilot or small produ
    The vMotion network must be exposed on a distributed virtual switch or vSwitch0. If it's not, modify the environment to accomodate.
 
    > [!NOTE]
-   > Many VMware environments use non-routed network segments for vMotion, this will pose no problems.
+   > Many VMware environments use non-routed network segments for vMotion, which poses no problems.
 
 - **Uplink network:** When deploying VMware HCX on-premises, you'll need to define an Uplink network. Use the management network defined as your uplink network.
    
