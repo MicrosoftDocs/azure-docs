@@ -3,7 +3,7 @@ metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: conceptual
-  ms.date:  03/03/2021
+  ms.date:  03/15/2021
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -106,6 +106,18 @@ sections:
 
       - question: Are the SNMP infrastructure logs shared?
         answer: No.
+
+      - question: Why is thick provisioning the default vSAN policy in Azure VMware Solution?
+        answer: |
+          Thick provisioning is reserved or pre-allocated storage space.  Thick provisioning protects systems by allowing them to function even if the vSAN datastore is full because space is already reserved. For example, suppose you create a 10GB virtual disk with thick provisioning. In that case, the full amount of virtual disk storage capacity is pre-allocated on the physical storage where the virtual disk is created and consumes all the space allocated to it in the datastore.  It won’t allow other VMs to share the space from the datastore. A thin-provisioned virtual disk consumes the space that it needs initially and grows to the data space demand used in the datastore.
+
+      - question: Can I create a new VM in Azure VMware Solution with thin provisioning even if the default vSAN policy is thick provisioning?
+        answer: |
+          Yes. Only the default cluster (first three nodes) is set up with thick provisioning for reliability reasons. Outside of the default (thick_provision), you can create VMs with FTT1 thin provisioning. 
+
+      - question: If we migrate a VM created with thin provisioning on the on-premises side to Azure VMware Solution, will the VM remain thin?
+        answer: |
+          No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.       
 
   - name: Hosts, clusters, and private clouds
     questions:
