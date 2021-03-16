@@ -47,7 +47,7 @@ Promise of Azure Certified Device certification are:
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
 | **Validation**          | Device supports easy input of target DPS ID scope ownership without needing to recompile the embedded code. Microsoft provides the [portal workflow](https://aka.ms/acdp) to execute the tests to validate that the device supports DPS **1.** User must select one of the attestation methods (X.509, TPM and SAS key) **2.** Depending on the attestation method, user needs to take corresponding action such as **a)** Upload X.509 cert to AICS managed DPS scope **b)** Implement SAS key or endorsement key into the device |
-| **Resources**           | [Device provisioning service overview](https://docs.microsoft.com/en-us/azure/iot-dps/about-iot-dps#:~:text=Quotas%20%20%20%20Resource%20%20%20,%20%20100%20%203%20more%20rows%20) |
+| **Resources**           | [Device provisioning service overview](../iot-dps/about-iot-dps) |
 
 **[If implemented] Cloud to device:  The purpose of test is to make sure messages can be sent from cloud to devices**                                                              
 
@@ -58,7 +58,7 @@ Promise of Azure Certified Device certification are:
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
 | **Validation**          | Device must be able to Cloud to Device messages from IoT Hub. Microsoft provides the [portal workflow](https://aka.ms/acdp) to execute these tests.Cloud to device (if implemented): **1.** Validates that the device can receive message from IoT Hub **2.** AICS sends random message and validates via message ACK from the device  |
-| **Resources**           | **a)** [Certification steps](https://aka.ms/IoTCertificationsBasics) (has all the additional resources) **b)** [Send cloud to device messages from an IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-c2d) |
+| **Resources**           | **a)** [Certification steps](https://aka.ms/IoTCertificationsBasics) (has all the additional resources) **b)** [Send cloud to device messages from an IoT Hub](../iot-hub/iot-hub-devguide-messages-c2d) |
 
 **[If implemented] Direct methods:  The purpose of test is to make sure devices works with IoT Hub and supports direct methods**
 
@@ -69,7 +69,7 @@ Promise of Azure Certified Device certification are:
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
 | **Validation**          | Device must be able to receive and reply commands requests from IoT Hub. Microsoft provides the [portal workflow](https://aka.ms/acfi) to execute the tests. Direct methods (if implemented) **1.** User has to specify the method payload of direct method. **2.** AICS validates the specified payload request is sent from Hub and ACK message received by the device |
-| **Resources**           | **a)** [Certification steps](https://aka.ms/IoTCertificationsBasics) (has all the additional resources) **b)** [Understand direct methods from IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-direct-methods) |
+| **Resources**           | **a)** [Certification steps](https://aka.ms/IoTCertificationsBasics) (has all the additional resources) **b)** [Understand direct methods from IoT Hub](../iot-hub/iot-hub-devguide-direct-methods) |
 
 **[If implemented] Device twin property:  The purpose of test is to make sure devices that send telemetry works with IoT Hub and supports some of the IoT Hub capabilities such as direct methods, and device twin property**
 
@@ -80,4 +80,4 @@ Promise of Azure Certified Device certification are:
 | **OS**                                    | Agnostic                                                     |
 | **Validation Type**                       | Automated                                                       |
 | **Validation**                            | Device must send any telemetry schemas to IoT Hub. Microsoft provides the [portal workflow](https://aka.ms/acfi) to execute the tests. Device twin property (if implemented) **1.** AICS validates the read/write-able property in device twin JSON **2.** User has to specify the JSON payload to be changed **3.** AICS validates the specified desired properties sent from IoT Hub and ACK message received by the device |
-| **Resources**                             | **a)** [Certification steps](https://aka.ms/IoTCertificationsBasics) (has all the additional resources) **b)** [Use device twins with IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-device-twins) |
+| **Resources**                             | **a)** [Certification steps](https://aka.ms/IoTCertificationsBasics) (has all the additional resources) **b)** [Use device twins with IoT Hub](../iot-hub/iot-hub-devguide-device-twins) |
