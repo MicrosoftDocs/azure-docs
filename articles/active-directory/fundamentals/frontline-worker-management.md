@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) provides the ability to delegate user manageme
 
 ## Accelerated onboarding with simplified authentication
 
-My Staff also enables frontline managers to register their team members' phone numbers for [SMS sign-in](../authentication/howto-authentication-sms-signin.md). In many verticals, frontline workers maintain a local username and password combination, a solution that is often cumbersome, expensive, and error-prone. When IT enables authentication using SMS sign-in, frontline workers can log in with [single sign-on (SSO)](../managed-apps/what-is-single-sign-on.md) for Microsoft Teams and other apps using just their phone number and a one-time passcode (OTP) sent via SMS. This makes signing in for frontline workers simple and secure, delivering quick access to the apps they need most.
+My Staff also enables frontline managers to register their team members' phone numbers for [SMS sign-in](../authentication/howto-authentication-sms-signin.md). In many verticals, frontline workers maintain a local username and password combination, a solution that is often cumbersome, expensive, and error-prone. When IT enables authentication using SMS sign-in, frontline workers can log in with [single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) for Microsoft Teams and other apps using just their phone number and a one-time passcode (OTP) sent via SMS. This makes signing in for frontline workers simple and secure, delivering quick access to the apps they need most.
 
 ![SMS sign-in](media/concept-fundamentals-flw/sms-signin.png)
 
