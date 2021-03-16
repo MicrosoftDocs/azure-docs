@@ -71,5 +71,5 @@ The event publisher is only aware of its partition key, not the partition to whi
 Specifying a partition key enables keeping related events together in the same partition and in the exact order in which they were sent. The partition key is some string that is derived from your application context and identifies the interrelationship of the events. A sequence of events identified by a partition key is a *stream*. A partition is a multiplexed log store for many such streams. 
 
 > [!NOTE]
-> While you can send events directly to partitions, we don't recommend it, especially when high availability is important to you. It downgrades the availability of an event hub to partition-level. For more information, see [Availability and Consistency](event-hubs-availability-and-consistency.md).
+> While you can send events directly to partitions, we don't recommend it, especially when high availability is important to you. It downgrades the availability of an event hub to partition-level. For more information, see [Availability and Consistency](../articles/event-hubs/event-hubs-availability-and-consistency.md).
 
