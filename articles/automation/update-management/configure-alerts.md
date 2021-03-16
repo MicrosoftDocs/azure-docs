@@ -3,7 +3,7 @@ title: How to create alerts for Azure Automation Update Management
 description: This article tells how to configure Azure alerts to notify about the status of update assessments or deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 10/19/2020
+ms.date: 03/15/2021
 ms.topic: conceptual
 ---
 
@@ -59,25 +59,11 @@ Follow the steps below to set up alerts to let you know the status of an update 
 
 Once you have your alerts configured, you can set up an action group, which is a group of actions to use across multiple alerts. The actions can include email notifications, runbooks, webhooks, and much more. To learn more about action groups, see [Create and manage action groups](../../azure-monitor/alerts/action-groups.md).
 
-1. Select an alert and then select **Create New** under **Action Groups**.
+1. Select an alert and then select **Add action groups** under **Actions** > **Action Group name**. This will display the **Select an action group to attach to this alert rule** blade.
 
-2. Enter a full name and a short name for the action group. Update Management uses the short name when sending notifications using the specified group.
+   :::image type="content" source="./media/manage-updates-for-vm/select-an-action-group.png" alt-text="Usage and estimated costs.":::
 
-3. Under **Actions**, enter a name that specifies the action, for example, **Email Notification**.
-
-4. For **Action Type**, select the appropriate type, for example, **Email/SMS/Push/Voice**.
-
-5. Select **Edit details**.
-
-6. Fill in the pane for your action type. For example, if using **Email/SMS/Push/Voice**, enter an action name, select the **Email** checkbox, enter a valid email address, and then select **OK**.
-
-    ![Configure an email action group](./media/manage-updates-for-vm/configure-email-action-group.png)
-
-7. In the Add action group pane, select **OK**.
-
-8. For an alert email, you can customize the email subject. Select **Customize actions** under **Create rule**, then select **Email subject**.
-
-9. When you're finished, select **Create alert rule**.
+1. Select the checkbox for the Action group to attach and press Select.
 
 ## Next steps
 
