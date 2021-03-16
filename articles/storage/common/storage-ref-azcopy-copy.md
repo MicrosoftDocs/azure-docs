@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -26,6 +26,7 @@ Copies source data to a destination location. The supported directions are:
   - Azure Files (SAS) -> Azure Files (SAS)
   - Azure Files (SAS) -> Azure Blob (SAS or OAuth authentication)
   - Amazon Web Services (AWS) S3 (Access Key) -> Azure Block Blob (SAS or OAuth authentication)
+  - Google Cloud Storage (Service Account Key) -> Azure Block Blob (SAS or OAuth authentication) [Preview]
 
 For more information, see the examples section of this article.
 
@@ -224,6 +225,36 @@ Transfer files and directories to Azure Storage account and set the given query-
 - Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
 	
 - While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
+
+Copy a single object to Blob Storage from Google Cloud Storage by using a service account key and a SAS token. First, set the environment variable GOOGLE_APPLICATION_CREDENTIALS for Google Cloud Storage source.
+  
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+Copy an entire directory to Blob Storage from Google Cloud Storage by using a service account key and a SAS token. First, set the environment variable GOOGLE_APPLICATION_CREDENTIALS for Google Cloud Storage source.
+ 
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+Copy an entire bucket to Blob Storage from Google Cloud Storage by using a service account key and a SAS token. First, set the environment variable GOOGLE_APPLICATION_CREDENTIALS for Google Cloud Storage source.
+
+```azcopy 
+azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Copy all buckets to Blob Storage from Google Cloud Storage by using a service account key and a SAS token. First, set the environment variables GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_CLOUD_PROJECT=<project-id> for GCS source
+
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from Google Cloud Storage by using a service account key and a SAS token for destination. First, set the environment variables GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_CLOUD_PROJECT=<project-id> for the Google Cloud Storage source.
+ 
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
 
 ## Options
 

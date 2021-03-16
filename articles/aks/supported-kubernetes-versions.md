@@ -149,7 +149,7 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 
 **How often should I expect to upgrade Kubernetes versions to stay in support?**
 
-Stating with Kubernetes 1.19, the [open source community has expanded support to 1 year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS commits to enabling patches and support matching the upstream commitments, at a minimum. This means starting with AKS clusters on 1.19, you will be able to upgrade at a minimum of once a year to stay on a supported version. For versions on 1.18 or below, the window of support remains at 9 months which requires an upgrade once every 9 months to stay on a supported version. It is highly recommended to regularly test new versions and be prepared to upgrade to newer versions to capture the latest stable enhancements within Kubernetes.
+Starting with Kubernetes 1.19, the [open source community has expanded support to 1 year](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS commits to enabling patches and support matching the upstream commitments, at a minimum. This means starting with AKS clusters on 1.19, you will be able to upgrade at a minimum of once a year to stay on a supported version. For versions on 1.18 or below, the window of support remains at 9 months which requires an upgrade once every 9 months to stay on a supported version. It is highly recommended to regularly test new versions and be prepared to upgrade to newer versions to capture the latest stable enhancements within Kubernetes.
 
 **What happens when a user upgrades a Kubernetes cluster with a minor version that isn't supported?**
 
