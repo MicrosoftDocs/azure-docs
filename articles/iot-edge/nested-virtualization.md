@@ -1,9 +1,9 @@
 ---
 title: Nested Virtualization for Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Learn about how to navigate nested virtualization in Azure IoT Edge for Linux on Windows.
-author: rsameser
+author: fcabrera
 manager: kgremban
-ms.author: riameser
+ms.author: fcabrera
 ms.date: 2/24/2021
 ms.topic: quickstart
 ms.service: iot-edge
