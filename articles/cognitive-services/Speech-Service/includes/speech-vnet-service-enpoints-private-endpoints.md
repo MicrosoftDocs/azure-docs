@@ -9,9 +9,8 @@ ms.author: alexeyo
 
 ## Private endpoints and VNet service endpoints
 
-Azure offers private endpoints and VNet service endpoints for the traffic tunneling through the [private Azure backbone network](https://azure.microsoft.com/global-infrastructure/global-network/). These endpoint types are similar both in the purpose and in the technologies they are based upon.
+Azure offers private endpoints and VNet service endpoints for the traffic tunneling through the [private Azure backbone network](https://azure.microsoft.com/global-infrastructure/global-network/). These endpoint types are similar both in the purpose and in the technologies they are based upon. However there are specifics of both technologies, which we strongly recommend studying before designing your network:
 
-However there are specifics of both technologies, which we strongly recommend studying before designing your network:
 - [Private Link and private endpoint documentation](../../../private-link/private-link-overview.md)
 - [VNet service endpoint documentation](../../../virtual-network/virtual-network-service-endpoints-overview.md)
 
