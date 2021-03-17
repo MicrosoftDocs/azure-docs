@@ -2,7 +2,7 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/16/2021
 ---
 
 # Management group deployments with ARM templates
@@ -214,6 +214,8 @@ The next example creates a new management group in the management group specifie
     }
 }
 ```
+
+To deploy a template that moves an existing Azure subscription to a new management group, see [Move subscriptions in ARM template](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
 
 ## Azure Policy
 

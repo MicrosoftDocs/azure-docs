@@ -7,7 +7,7 @@ manager: mariusu-msft
 services: azure-communication-services
 
 ms.author: mariusu
-ms.date: 10/15/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -84,12 +84,12 @@ For more information, see the following articles:
 
 - Familiarize yourself with [using the calling client library](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
-- Review the [API Reference docs](/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+- Review the [API Reference docs](/javascript/api/azure-communication-services/@azure/communication-calling/)
 - Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample
 
 ## Additional reading
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
+- [Samples](./overview.md) - Find more samples and examples on our samples overview page.
 - [Redux](https://redux.js.org/) - Client-side state management
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces

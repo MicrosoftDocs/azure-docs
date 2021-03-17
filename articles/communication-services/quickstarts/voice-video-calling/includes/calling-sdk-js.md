@@ -2,7 +2,7 @@
 author: mikben
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.author: mikben
 ---
 ## Prerequisites
@@ -20,7 +20,6 @@ ms.author: mikben
 > This document uses version 1.0.0-beta.6 of the calling client library.
 
 Use the `npm install` command to install the Azure Communication Services Calling and Common client libraries for JavaScript.
-This document is referencing types in version 1.0.0-beta.5 of calling library.
 
 ```console
 npm install @azure/communication-common --save
@@ -64,7 +63,7 @@ Call creation and start is synchronous. The Call instance allows you to subscrib
 ## Place a call
 
 ### Place a 1:1 call to a user or PSTN
-To place a call to another Communication Services user, invoke the `startCall` method on `callAgent` and pass the callee's CommunicationUserIdentifier that you've [created with the Communication Services Administration library](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
+To place a call to another Communication Services user, invoke the `startCall` method on `callAgent` and pass the callee's CommunicationUserIdentifier that you've [created with the Communication Services Identity  library](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens).
 
 ```js
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
@@ -560,6 +559,8 @@ console.log(result.video);
 
 
 ## Call recording management
+
+[!INCLUDE [Private Preview Notice](../../../includes/private-preview-include-section.md)]
 
 Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
 
