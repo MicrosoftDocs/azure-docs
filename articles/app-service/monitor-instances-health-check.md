@@ -59,6 +59,10 @@ Large enterprise development teams often need to adhere to security requirements
 
 After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, click the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
 
+## Limitations
+
+Health check should not be enabled on Premium Functions sites. Due to the rapid scaling of Premium Functions, the health check requests can cause unnecessary fluctuations in HTTP traffic. Premium Functions have their own internal health probes that are used to inform scaling decisions.
+
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)

@@ -260,7 +260,7 @@ Azure Front Door passes the user's original IP address. This is the IP address t
 
 ### Can I use a third-party web application firewall (WAF) with B2C?
 
-Currently, Azure AD B2C supports a custom domain through the use of Azure Front Door only. If you want to use your own WAF in front of Azure Front Door, you'll need to evaluate and test your integration.
+To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows.
 
 ## Next steps
 
