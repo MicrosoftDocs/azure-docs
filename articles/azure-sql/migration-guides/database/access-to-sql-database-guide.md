@@ -73,7 +73,7 @@ To convert database objects, follow these steps:
 
    ![Connect to Azure SQL Database](./media/access-to-sql-database-guide/connect-to-sqldb.png)
 
-1. Right-click the database in **Access Metadata Explorer** and choose **Convert schema**.  
+1. Right-click the database in **Access Metadata Explorer** and choose **Convert schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your database.
 
    ![Right-click the database and choose convert schema](./media/access-to-sql-database-guide/convert-schema.png)
 
