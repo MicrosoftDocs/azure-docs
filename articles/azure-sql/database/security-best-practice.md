@@ -795,6 +795,29 @@ Most security standards address data availability in terms of operational contin
     - [High-availability - Zone redundant configuration for General Purpose service tier](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
     - [Overview of business continuity](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
+
+## Block creation or modification of resources through T-SQL 
+To block creation or modification of resources through T-SQL and enforce resource management through ARM for a given subscription, the subscription level preview features in Azure Portal can be used. This is particularly useful when you are using Azure Policies to enforce organizational standards through ARM. Since T-SQL does not adhere to the Azure Policies, a block on T-SQL create or modify operations can be applied. The following section describes how you can register or unregister a preview feature with Microsoft.Sql resource provider in Azure Portal: 
+
+**Register Block T-SQL CRUD**
+
+Here is how you can block T-SQL CRUD operations at the subscription level:
+1. Go to your subscriptioion on Azure Portal
+2. Click on **Preview Features** tab. 
+3. Select **Block T-SQL CRUD**.
+4. After you click on Block T-SQL CRUD, a new blade will open, click **Register**, to register this block with Microsoft.Sql resource provider.
+
+  
+**Re-register Microsoft.sql resource provider** 
+
+After you register the block of T-SQL CRUD with Microsoft.Sql resource provider, you must re-register the Microsoft.Sql resource provider for the changes to take effect. To re-register the Microsfot.Sql resource provider:
+1. Go to your subscription on Azure Portal.
+2. Click on **Resource Providers** tab.
+3. Search and select **Microsoft.Sql** resource provider.
+4. Click **Re-register**. 
+
+
+
 ## Next steps
 
 - See [An overview of Azure SQL Database security capabilities](security-overview.md)
