@@ -121,7 +121,7 @@ Next, edit the collection you've created to configure some access details. Highl
 
 Follow these steps to add a bearer token to the collection for authorization. This is where you'll use the **token value** you gathered in the [Get bearer token](#get-bearer-token) section in order to use it for all API requests in your collection.
 
-1. In the *Azure Digital Twins API* edit dialog, make sure you're on the **Authorization** tab. 
+1. In the edit dialog for your collection, make sure you're on the **Authorization** tab. 
 
     :::image type="content" source="media/how-to-use-postman/postman-authorization-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Authorization' tab." lightbox="media/how-to-use-postman/postman-authorization-imported.png":::
 
@@ -133,7 +133,7 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 
 Next, help the collection connect easily to your Azure Digital Twins resources by setting some collection-level **variables**. When many requests in a collection require the same value (like the host name of your Azure Digital Twins instance), you can store the value in a variable that applies to every request in the collection. Both of the downloadable collections for Azure Digital Twins come with pre-created variables that you can set at the collection level.
 
-1. Still in the *Azure Digital Twins API* edit dialog, move to the **Variables** tab.
+1. Still in the edit dialog for your collection, move to the **Variables** tab.
 
 1. Use your instance's **host name** from the [*Prerequisites*](#prerequisites) section to set the CURRENT VALUE field of the relevant variable. Select **Save**.
 
@@ -141,7 +141,7 @@ Next, help the collection connect easily to your Azure Digital Twins resources b
 
 1. If your collection has additional variables or if you'd like to add your own, fill and save those values as well.
 
-When you're finished with the above steps, you're done configuring the collection. You can close the *Azure Digital Twins API* tab if you want.
+When you're finished with the above steps, you're done configuring the collection. You can close the editing tab for the collection if you want.
 
 ### Explore requests
 
