@@ -157,82 +157,82 @@ The process of understanding which elements need manual intervention consists in
 
 The command is executed show in the following example:
 
-```
-ora2pg --project_base /app/migration/ --init_project test_project
+   ```
+   ora2pg --project_base /app/migration/ --init_project test_project
+   
+   ora2pg --project_base /app/migration/ --init_project test_project
+   
+   Creating project test_project. /app/migration/test_project/ schema/ dblinks/ directories/ functions/ grants/ mviews/ packages/ partitions/ procedures/ sequences/ synonyms/    tables/ tablespaces/ triggers/ types/ views/ sources/ functions/ mviews/ packages/ partitions/ procedures/ triggers/ types/ views/ data/ config/ reports/
+   
+   Generating generic configuration file
+   
+   Creating script export_schema.sh to automate all exports.
+   
+   Creating script import_all.sh to automate all imports.
+   ```
 
-ora2pg --project_base /app/migration/ --init_project test_project
-
-Creating project test_project. /app/migration/test_project/ schema/ dblinks/ directories/ functions/ grants/ mviews/ packages/ partitions/ procedures/ sequences/ synonyms/ tables/ tablespaces/ triggers/ types/ views/ sources/ functions/ mviews/ packages/ partitions/ procedures/ triggers/ types/ views/ data/ config/ reports/
-
-Generating generic configuration file
-
-Creating script export_schema.sh to automate all exports.
-
-Creating script import_all.sh to automate all imports.
-```
-
-```
-The sources/ directory contains the Oracle code, the schema/ directory contains the code ported to PostgreSQL. The reports/ directory contains the html reports with the migration cost assessment.
-
-After the project structure is created, a generic config file is created. Define the Oracle database connection as well as the relevant config parameters in the config. Refer to the ora2pg documentation to understand what can be configured in the config file and how.
-```
+  ```
+  The sources/ directory contains the Oracle code, the schema/ directory contains the code ported to PostgreSQL. The reports/ directory contains the html reports with the   migration cost assessment.
+  
+  After the project structure is created, a generic config file is created. Define the Oracle database connection as well as the relevant config parameters in the config. Refer   to the ora2pg documentation to understand what can be configured in the config file and how.
+  ```
 
 2.  Next, export the Oracle objects as PostgreSQL objects by running the file export_schema.sh.
 
-```
-cd /app/migration/mig_project
-./export_schema.sh
-
-Run the following command manually:
-
-SET namespace="/app/migration/mig_project"
-
-ora2pg -t DBLINK -p -o dblink.sql -b %namespace%/schema/dblinks -c
-%namespace%/config/ora2pg.conf
-ora2pg -t DIRECTORY -p -o directory.sql -b %namespace%/schema/directories -c
-%namespace%/config/ora2pg.conf
-ora2pg -p -t FUNCTION -o functions2.sql -b %namespace%/schema/functions -c
-%namespace%/config/ora2pg.conf ora2pg -t GRANT -o grants.sql -b %namespace%/schema/grants -c %namespace%/config/ora2pg.conf ora2pg -t MVIEW -o mview.sql -b %namespace%/schema/mviews -c %namespace%/config/ora2pg.conf
-ora2pg -p -t PACKAGE -o packages.sql
-%namespace%/config/ora2pg.conf -b %namespace%/schema/packages -c
-ora2pg -p -t PARTITION -o partitions.sql %namespace%/config/ora2pg.conf -b %namespace%/schema/partitions -c
-ora2pg -p -t PROCEDURE -o procs.sql
-%namespace%/config/ora2pg.conf -b %namespace%/schema/procedures -c
-ora2pg -t SEQUENCE -o sequences.sql
-%namespace%/config/ora2pg.conf -b %namespace%/schema/sequences -c
-ora2pg -p -t SYNONYM -o synonym.sql -b %namespace%/schema/synonyms -c
-%namespace%/config/ora2pg.conf
-ora2pg -t TABLE -o table.sql -b %namespace%/schema/tables -c %namespace%/config/ora2pg.conf ora2pg -t TABLESPACE -o tablespaces.sql -b %namespace%/schema/tablespaces -c
-%namespace%/config/ora2pg.conf
-ora2pg -p -t TRIGGER -o triggers.sql -b %namespace%/schema/triggers -c
-%namespace%/config/ora2pg.conf ora2pg -p -t TYPE -o types.sql -b %namespace%/schema/types -c %namespace%/config/ora2pg.conf ora2pg -p -t VIEW -o views.sql -b %namespace%/schema/views -c %namespace%/config/ora2pg.conf
-```
+   ```
+   cd /app/migration/mig_project
+   ./export_schema.sh
+   
+   Run the following command manually:
+   
+   SET namespace="/app/migration/mig_project"
+   
+   ora2pg -t DBLINK -p -o dblink.sql -b %namespace%/schema/dblinks -c
+   %namespace%/config/ora2pg.conf
+   ora2pg -t DIRECTORY -p -o directory.sql -b %namespace%/schema/directories -c
+   %namespace%/config/ora2pg.conf
+   ora2pg -p -t FUNCTION -o functions2.sql -b %namespace%/schema/functions -c
+   %namespace%/config/ora2pg.conf ora2pg -t GRANT -o grants.sql -b %namespace%/schema/grants -c %namespace%/config/ora2pg.conf ora2pg -t MVIEW -o mview.sql -b %namespace%/schema/   mviews -c %namespace%/config/ora2pg.conf
+   ora2pg -p -t PACKAGE -o packages.sql
+   %namespace%/config/ora2pg.conf -b %namespace%/schema/packages -c
+   ora2pg -p -t PARTITION -o partitions.sql %namespace%/config/ora2pg.conf -b %namespace%/schema/partitions -c
+   ora2pg -p -t PROCEDURE -o procs.sql
+   %namespace%/config/ora2pg.conf -b %namespace%/schema/procedures -c
+   ora2pg -t SEQUENCE -o sequences.sql
+   %namespace%/config/ora2pg.conf -b %namespace%/schema/sequences -c
+   ora2pg -p -t SYNONYM -o synonym.sql -b %namespace%/schema/synonyms -c
+   %namespace%/config/ora2pg.conf
+   ora2pg -t TABLE -o table.sql -b %namespace%/schema/tables -c %namespace%/config/ora2pg.conf ora2pg -t TABLESPACE -o tablespaces.sql -b %namespace%/schema/tablespaces -c
+   %namespace%/config/ora2pg.conf
+   ora2pg -p -t TRIGGER -o triggers.sql -b %namespace%/schema/triggers -c
+   %namespace%/config/ora2pg.conf ora2pg -p -t TYPE -o types.sql -b %namespace%/schema/types -c %namespace%/config/ora2pg.conf ora2pg -p -t VIEW -o views.sql -b %namespace%/   schema/views -c %namespace%/config/ora2pg.conf
+   ```
 
 To extract the data, use the following command:
 
-```
-ora2pg -t COPY -o data.sql -b %namespace/data -c %namespace/config/ora2pg.conf
-```
+   ```
+   ora2pg -t COPY -o data.sql -b %namespace/data -c %namespace/config/ora2pg.conf
+   ```
 
 3.  Lastly, compile all files against Azure Database for PostgreSQL server. It is possible now to choose to load the DDL files generated manually or use the second script import_all.sh to import those files interactively.
 
-```
-psql -f %namespace%\schema\sequences\sequence.sql -h server1-
+   ```
+   psql -f %namespace%\schema\sequences\sequence.sql -h server1-
+   
+   server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -l
+   
+   %namespace%\ schema\sequences\create_sequences.log
+   
+   psql -f %namespace%\schema\tables\table.sql -h server1-server.postgres.database.azure.com p 5432 -U username@server1-server -d database -l    %namespace%\schema\tables\create_table.log
+   ```
 
-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -l
+   Data import command:
 
-%namespace%\ schema\sequences\create_sequences.log
-
-psql -f %namespace%\schema\tables\table.sql -h server1-server.postgres.database.azure.com p 5432 -U username@server1-server -d database -l %namespace%\schema\tables\create_table.log
-```
-
-Data import command:
-
-```
-psql -f %namespace%\data\table1.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -l %namespace%\data\table1.log
-
-psql -f %namespace%\data\table2.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -l %namespace%\data\table2.log
-```
+   ```
+   psql -f %namespace%\data\table1.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -l %namespace%\data\table1.log
+   
+   psql -f %namespace%\data\table2.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database -l %namespace%\data\table2.log
+   ```
 
 During the compilation of files, check the logs and correct the necessary syntaxes that ora2pg was unable to convert out of the box.
 
