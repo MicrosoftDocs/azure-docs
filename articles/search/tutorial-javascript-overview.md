@@ -39,7 +39,7 @@ The [sample](https://github.com/Azure-Samples/azure-search-javascript-samples/tr
 |--|--|--|
 |Client|React app (presentation layer) to display books, with search. It calls the Azure Function app. |[/search-website/src](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website/src)|
 |Server|Azure Function app (business layer) - calls the Azure Search API using JavaScript SDK |[/search-website/api](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website/src)|
-|Bulk insert|JavaScript file to create the index and add documents to it.|[/search-website/api](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website/bulk-insert)|
+|Bulk insert|JavaScript file to create the index and add documents to it.|[/search-website/bulk-insert](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/search-website/bulk-insert)|
 
 ## Set up your development environment
 

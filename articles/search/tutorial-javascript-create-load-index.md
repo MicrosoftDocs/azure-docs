@@ -52,7 +52,7 @@ Get your Search resource admin key with the Visual Studio Code extension.
 
 This tutorial uploads data directly into the Search Index from a comma-separated list (CSV) of books.
 
-1. Download the [books.csv](https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/books.csv) and move the file to the local repository's subdirectory location, `search-web/bulk-insert` with the same file name `books.csv`. 
+1. Open the [books.csv](https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/books.csv) file and save the contents to the local repository's subdirectory location, `search-web/bulk-insert` with the same file name `books.csv`. 
 
 1. In Visual Studio Code, right-click this subdirectory and open an integrated terminal. 
 
