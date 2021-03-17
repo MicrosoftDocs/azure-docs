@@ -27,7 +27,7 @@ Once you have received your Azure Percept DK, reference this guide for informati
 1. Connect the devkit components.
 
     > [!NOTE]
-    > The power adapter port is located on the right side of the carrier board. The remaining ports (2x USB-A, 1x USB-C, 1x HDMI, and 1x Ethernet) and the power button are located on the left side of the carrier board.
+    > The power adapter port is located on the right side of the carrier board. The remaining ports (2x USB-A, 1x USB-C, and 1x Ethernet) and the power button are located on the left side of the carrier board.
 
     1. Hand screw both Wi-Fi antennas into the carrier board.
 
