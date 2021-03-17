@@ -3,7 +3,7 @@ metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: conceptual
-  ms.date:  03/16/2021
+  ms.date:  03/17/2021
 
     
 title: Common questions about Azure VMware Solution
@@ -158,6 +158,8 @@ sections:
 
       - question: How often will the private cloud software stack be updated?
         answer: The private cloud software is upgraded on a schedule that tracks the software bundle's release from VMware. Your private cloud doesn't require downtime for upgrades.
+      - question: Can I change the default vSphere Web Client timeout value?
+        answer: Yes. For information on changing the timeout value, see [Configure the vSphere Web Client Timeout Value](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
 
   - name: Connectivity
     questions:
