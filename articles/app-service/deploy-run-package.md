@@ -63,6 +63,7 @@ If you publish an updated package with the same name to Blob storage, you need t
 
 - Running directly from a package makes `wwwroot` read-only. Your app will receive an error if it tries to write files to this directory.
 - TAR and GZIP formats are not supported.
+- The ZIP file can be at most 1GB
 - This feature is not compatible with [local cache](overview-local-cache.md).
 - For improved cold-start performance, use the local Zip option (`WEBSITE_RUN_FROM_PACKAGE`=1).
 
