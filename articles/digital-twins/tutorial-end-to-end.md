@@ -122,7 +122,7 @@ Back in your Visual Studio window where the _**AdtE2ESample**_ project is open, 
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-For your function app to be able to access Azure Digital Twins, it will need to have a system-managed identity with permissions to access your Azure Digital Twins instance. You'll set that up next.
+For your function app to be able to access Azure Digital Twins, it will need to have permissions to access your Azure Digital Twins instance and the instance's host name. You'll configure these next.
 
 ### Configure permissions for the function app
 
@@ -132,7 +132,7 @@ There are two settings that need to be set for the function app to access your A
 
 The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md). 
 
-1. Use the following command to see the details of the system-managed identity for the function. Take note of the _principalId_ field in the output.
+1. Use the following command to see the details of the system-managed identity for the function. Take note of the **principalId** field in the output.
 
     ```azurecli-interactive	
     az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
@@ -145,9 +145,9 @@ The first setting gives the function app the **Azure Digital Twins Data Owner** 
     >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>	
     >```
     >
-    > The output will then display details of the identity, including the _principalId_ value required for the next step. 
+    > The output will then display details of the identity, including the **principalId** value required for the next step. 
 
-1. Use the _principalId_ value in the following command to assign the function app's identity to the _Azure Digital Twins Data Owner_ role for your Azure Digital Twins instance.
+1. Use the **principalId** value in the following command to assign the function app's identity to the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance.
 
     ```azurecli-interactive	
     az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
