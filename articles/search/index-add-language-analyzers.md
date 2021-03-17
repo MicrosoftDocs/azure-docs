@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/05/2020
+ms.date: 03/17/2021
 ---
 # Add language analyzers to string fields in an Azure Cognitive Search index
 
@@ -41,27 +41,49 @@ Indexing with Microsoft analyzers is on average two to three times slower than t
 
 ### English analyzers
 
-The default analyzer is Standard Lucene, which works well for English, but perhaps not as well as Lucene's English analyzer or Microsoft's English analyzer. 
- 
+The default analyzer is Standard Lucene works well for English, but perhaps not as well as Lucene's English analyzer or Microsoft's English analyzer.
+
 + Lucene's English analyzer extends the standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per Porter Stemming algorithm, and removes English stop words.  
 
 + Microsoft's English analyzer performs lemmatization instead of stemming. This means it can handle inflected and irregular word forms much better which results in more relevant search results 
 
-## Configuring analyzers
+## Specify a language analyzer
 
-Language analyzers are used as-is. For each field in the index definition, you can set the **analyzer** property to an analyzer name that specifies the language and linguistics stack (Microsoft or Lucene). The same analyzer will be applied when indexing and searching for that field. For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side by side in the same index.
+Language analyzers are used as-is, on "searchable" fields of type Edm.String.
 
-> [!NOTE]
-> It is not possible to use a different language analyzer at indexing time than at query time for a field. That capability is reserved for [custom analyzers](index-add-custom-analyzers.md). For this reason, if you try to set the **searchAnalyzer** or **indexAnalyzer** properties to the name of a language analyzer, the REST API will return an error response. You must use the **analyzer** property instead.
+Although field definitions have several analyzer-related properties, only the "analyzer" property can be used for language analyzers. The value of "analyzer" must be one of the language analyzers from the support analyzers list.
 
-Use the **searchFields** query parameter to specify which language-specific field to search against in your queries. You can review query examples that include the analyzer property in [Search Documents](/rest/api/searchservice/search-documents). 
+```json
+{
+  "name": "hotels-sample-index",
+  "fields": [
+    {
+      "name": "Description",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "en.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null
+    },
+    {
+      "name": "Description_fr",
+      "type": "Edm.String",
+      "retrievable": true,
+      "searchable": true,
+      "analyzer": "fr.microsoft",
+      "indexAnalyzer": null,
+      "searchAnalyzer": null
+    },
+```
 
-For more information about index properties, see [Create Index &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index). For more information about analysis in Azure Cognitive Search, see [Analyzers in Azure Cognitive Search](./search-analyzers.md).
+For more information about index properties, see [Create Index (REST)](/rest/api/searchservice/create-index). For more information about text analysis, see [Analyzers in Azure Cognitive Search](search-analyzers.md).
 
 <a name="language-analyzer-list"></a>
 
-## Language analyzer list 
- Below is the list of supported languages together with Lucene and Microsoft analyzer names.  
+## Supported language analyzers
+
+ Below is the list of supported languages, with Lucene and Microsoft analyzer names.  
 
 | Language | Microsoft Analyzer Name | Lucene Analyzer Name |
 |--|--|--|
@@ -126,6 +148,7 @@ For more information about index properties, see [Create Index &#40;Azure Cognit
 
 ## See also  
 
-+ [Create Index &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/create-index)  
-
-+ [LexicalAnalyzerName Class](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)
++ [Create an index](search-what-is-an-index.md)
++ [Create a multi-language index](search-language-support.md)
++ [Create Index (REST API)](/rest/api/searchservice/create-index)  
++ [LexicalAnalyzerName Class (Azure SDK for .NET)](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)

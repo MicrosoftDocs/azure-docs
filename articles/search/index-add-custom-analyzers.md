@@ -278,7 +278,7 @@ This section provides the valid values for attributes specified in the definitio
 
 The analyzer_type is only provided for analyzers that can be customized. If there are no options, as is the case with the keyword analyzer, there is no associated #Microsoft.Azure.Search type.
 
-<a name="character-filters-reference"></a>
+<a name="CharFilters"></a>
 
 ### Character Filters Reference
 
@@ -292,7 +292,7 @@ In the table below, the character filters that are implemented using Apache Luce
 
  <sup>1</sup> Char Filter Types are always prefixed in code with "#Microsoft.Azure.Search" such that "MappingCharFilter" would actually be specified as "#Microsoft.Azure.Search.MappingCharFilter. We removed the prefix to reduce the width of the table, but please remember to include it in your code. Notice that char_filter_type is only provided for filters that can be customized. If there are no options, as is the case with html_strip, there is no associated #Microsoft.Azure.Search type.
 
-<a name="tokenizers-reference"></a>
+<a name="Tokenizers"></a>
 
 ### Tokenizers Reference
 
@@ -316,7 +316,7 @@ In the table below, the tokenizers that are implemented using Apache Lucene are 
 
  <sup>1</sup> Tokenizer Types are always prefixed in code with "#Microsoft.Azure.Search" such that  "ClassicTokenizer" would actually be specified as "#Microsoft.Azure.Search.ClassicTokenizer". We removed the prefix to reduce the width of the table, but please remember to include it in your code. Notice that tokenizer_type is only provided for tokenizers that can be customized. If there are no options, as is the case with the letter tokenizer, there is no associated #Microsoft.Azure.Search type.
 
-<a name="token-filters-reference"></a>
+<a name="TokenFilters"></a>
 
 ### Token Filters Reference
 
