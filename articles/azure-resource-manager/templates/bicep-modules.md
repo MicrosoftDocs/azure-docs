@@ -7,11 +7,11 @@ ms.date: 03/17/2021
 
 # Use Bicep modules
 
-Bicep enables you to break down a complex solution into modules. A Bicep module is a set of one or more resources to be deployed together. Modules abstracts away complex details of the raw resource declaration which can increase readability. You can reuse these modules, and share them with other people. Combined with [template specs](./template-specs.md), it creates a way for modularity and code reuse. For a tutorial, see [Tutorial: Add Bicep modules](./bicep-tutorial-add-modules.md).
+Bicep enables you to break down a complex solution into modules. A Bicep module is a set of one or more resources to be deployed together. Modules abstract away complex details of the raw resource declaration, which can increase readability. You can reuse these modules, and share them with other people. Combined with [template specs](./template-specs.md), it creates a way for modularity and code reuse. For a tutorial, see [Tutorial: Add Bicep modules](./bicep-tutorial-add-modules.md).
 
 ## Define modules
 
-Every Bicep file can be consumed as a module. There is no specific syntax for defining a module. A module only exposes parameters and outputs as contract to other Bicep files. Both parameters and outputs are optional.
+Every Bicep file can be consumed as a module. A module only exposes parameters and outputs as contract to other Bicep files. Both parameters and outputs are optional.
 
 The following Bicep file can be deployed directly to create a storage account or be used as a module.  The next section shows you how to consume modules:
 
