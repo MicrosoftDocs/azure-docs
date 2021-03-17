@@ -78,7 +78,7 @@
         {
             "source_path_from_root": "/articles/media-services/latest/cae-experimental.md",
             "redirect_url": "azure/media-services/latest/content-aware-encoding",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-account.md",
@@ -88,7 +88,7 @@
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-samples.md",
             "redirect_url": "azure/media-services/latest/create-account-cli-how-to",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/create-account-cli-how-to.md",
