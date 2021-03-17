@@ -34,8 +34,9 @@ After you create an Azure Front Door Standard/Premium profile, the default front
 * If you're using Azure to host your [DNS domains](../../dns/dns-overview.md), you must delegate the domain provider's domain name system (DNS) to an Azure DNS. For more information, see [Delegate a domain to Azure DNS](../../dns/dns-delegate-domain-azure-dns.md). Otherwise, if you're using a domain provider to handle your DNS domain, you must manually validate the domain by entering prompted DNS TXT records.
 
 ## Add a new custom domain
-  > [!NOTE]
-    > While in Public Preview, using Azure DNS to create Apex domains is  not supported on Azure Front Door Standard/Premium. There are other DNS providers that support CNAME flattening or DNS chasing that will allow APEX domains to be used for Azure Front Door Standard/Premium.
+
+> [!NOTE]
+> While in Public Preview, using Azure DNS to create Apex domains is  not supported on Azure Front Door Standard/Premium. There are other DNS providers that support CNAME flattening or DNS chasing that will allow APEX domains to be used for Azure Front Door Standard/Premium.
 
 A custom domain is managed by Domains section in the portal. A custom domain can be created and validated before association to an endpoint. A custom domain and its subdomains can be associated with only a single endpoint at a time. However, you can use different subdomains from the same custom domain for different Front Doors. You can also map custom domains with different subdomains to the same Front Door endpoint.
 
