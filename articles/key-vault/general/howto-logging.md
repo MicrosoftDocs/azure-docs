@@ -146,7 +146,7 @@ Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enab
 
 # [Azure Portal](#tab/azure-portal)
 
-Below are the steps and screenshots for configuring Diagnostic settings in the portal today for AKV
+To configuring Diagnostic settings in the portal, follow these steps.
 
 1. Select the Diagnostic settings from the resource blade menu.
 
