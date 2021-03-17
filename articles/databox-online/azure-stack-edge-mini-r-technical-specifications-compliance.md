@@ -59,9 +59,9 @@ The Azure Stack Edge Mini R device has the following specifications for the netw
 
 ## Router/switch
 
-The Azure Stack Edge Mini R device supports small form-factor pluggable (SFP) transceivers in the following SPF+ products. These products are supported for the 10 Gbe SFP+ network interfaces that are shown as PORT 3 and PORT 5 in the local UI.
+The following routers/switches are compatible with the 10 Gbps SPF+ network interfaces (Port 3 and Port 4) on your Azure Stack Edge Mini R devices:
 
-|Router/Switches   |Notes                         |
+|Router/Switch     |Notes                         |
 |------------------|------------------------------|
 |[VoyagerESR 2.0](https://klastelecom.com/products/voyageresr2-0/)    |Cisco ESS3300 Switch component   |
 |[VoyagerSW26G](https://klastelecom.com/products/voyagersw26g/)       |                                 |
@@ -72,7 +72,7 @@ The Azure Stack Edge Mini R device supports small form-factor pluggable (SFP) tr
 
 ## Transceiver
 
-The following copper SFP+ (10 Gbps) transceiver is strongly recommended for use with Azure Stack Edge Mini R devices. Compatible fiber-optic transceivers can be used but have not been tested. 
+The following copper SFP+ (10 Gbps) transceiver is strongly recommended for use with Azure Stack Edge Mini R devices. Compatible fiber-optic transceivers can be used with SFP+ network interfaces (Port 3 adn Port 4)but have not been tested. 
 
 |SFP+ transceiver type | Supported products | Notes |
 |----------------------|--------------------|-------|
