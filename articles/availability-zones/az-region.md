@@ -131,7 +131,6 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Azure SQL: Virtual Machine                      |      :large_blue_diamond:  |
 | Azure Search                                    |      :large_blue_diamond:  |
 | Azure Web Application Firewall                  |      :large_blue_diamond:  |
-| Cognitive Services: Text Analytics              |      :large_blue_diamond:  |
 | Container Registry                              |      :large_blue_diamond:  |
 | Event Grid                                      |      :large_blue_diamond:  |
 | Network Watcher                                 |      :large_blue_diamond:  |
