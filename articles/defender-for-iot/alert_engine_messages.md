@@ -11,7 +11,7 @@ ms.service: azure
 
 # Defender for IoT Engine Alerts
 
-This article describes alerts that may be generated from the Defender for IoT engines. Alerts appear in the Alerts window, where you can mange the alert event. 
+This article describes alerts that may be generated from the Defender for IoT engines. Alerts appear in the Alerts window, where you can manage the alert event. 
 
 ## Policy engine alerts
 
@@ -147,48 +147,68 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 | Password Guessing Attempt Detected | A source device was seen performing excessive login attempts to a destination server. This may be a brute force attack. The server may be compromised by a malicious actor. | Critical |
 | PLC Scan Detected | A source device was detected scanning network devices. This device has not been authorized as a network scanning device. | Critical |
 | Port Scan Detected | A source device was detected scanning network devices. This device has not been authorized as a network scanning device. | Critical |
-| Unexpected message length | The source device sent an abnormnal message. This may indicate an attempt to attack the destination device. | Critical |
+| Unexpected message length | The source device sent an abnormal message. This may indicate an attempt to attack the destination device. | Critical |
 | Unexpected Traffic for Standard Port | Traffic was detected on a device using a port reserved for another protocol. | Major |
-
-
 
 ## Protocol violation engine alerts
 
-| Alert title | Description | Severity|
+| Title | Description | Severity |
 |--|--|--|
-| Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Source |
-| -
+| Excessive Malformed Packets In a Single Session | An abnormal number of malformed packets sent from the source device to the destination device. This might indicate erroneous communications, or an attempt to manipulate the targeted device. | Major |
+| Firmware Update | A source device sent a command to update firmware on a destination device. Verify that recent programming, configuration and  firmware upgrades made to the destination device are valid. | Warning |
+| Function Code Not Supported by Outstation | The destination device received an invalid request. | Major |
+| Illegal BACNet message | The source device initiated an invalid request. | Major |
+| Illegal Connection Attempt on Port 0 | A source device attempted to connect to destination device on port number zero (0). For TCP, port 0 is reserved and cannot be used. For UDP, the port is optional and a value of 0 means no port. There is usually no service on a system that listens on port 0. This event may indicate an attempt to attack the destination device, or indicate that an application was programmed incorrectly. | Minor |
+| Illegal DNP3 Operation | The source device initiated an invalid request. | Major |
+| Illegal MODBUS Operation (Exception Raised by Master) | The source device initiated an invalid request. | Major |
+| Illegal MODBUS Operation (Function Code Zero) | The source device initiated an invalid request. | Major |
+| Illegal Protocol Version | The source device initiated an invalid request. | Major |
+| Incorrect Parameter Sent to Outstation | The destination device received an invalid request. | Major |
+| Initiation of an Obsolete Function Code (Initialize Data) | The source device initiated an invalid request. | Minor |
+| Initiation of an Obsolete Function Code (Save Config) | The source device initiated an invalid request. | Minor |
+| Master Requested an Application Layer Confirmation | The source device initiated an invalid request. | Warning |
+| Modbus Exception | A source device (slave) returned an exception to a destination device (master). | Major |
+| Slave Device Received Illegal ASDU Type | The destination device received an invalid request. | Major |
+| Slave Device Received Illegal Command Cause of Transmission | The destination device received an invalid request. | Major |
+| Slave Device Received Illegal Common Address | The destination device received an invalid request. | Major |
+| Slave Device Received Illegal Data Address Parameter | The destination device received an invalid request. | Major |
+| Slave Device Received Illegal Data Value Parameter | The destination device received an invalid request. | Major |
+| Slave Device Received Illegal Function Code | The destination device received an invalid request. | Major |
+| Slave Device Received Illegal Information Object Address | The destination device received an invalid request. | Major |
+| Unknown Object Sent to Outstation | The destination device received an invalid request. | Major |
+| Usage of a Reserved Function Code | The source device initiated an invalid request. | Major |
+| Usage of Improper Formatting by Outstation | The source device initiated an invalid request. | Warning |
+| Usage of Reserved Status Flags (IIN) | A DNP3 source device (outstation) used the reserved Internal Indicator 2.6. It is recommended to check the device's configuration. | Warning |
 
 ## Malware engine alerts
 
 | Title | Description| Severity |
 |--|--|--|
-| Connection Attempt to Known Malicious IP | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Major |
-| Invalid SMB Message (DoublePulsar Backdoor Implant) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Malicious Domain Name Request | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Major |
+| Connection Attempt to Known Malicious IP | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
+| Invalid SMB Message (DoublePulsar Backdoor Implant) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Malicious Domain Name Request | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
 | Malware Test File Detected - EICAR AV Success | An EICAR AV test file was detected in traffic between two devices. The file is not malware. It is used to confirm that the antivirus software is installed correctly; demonstrate what happens when a virus is found, and check internal procedures and reactions when a virus is found. Antivirus software should detect EICAR as if it were a real virus. | Major |
-| Suspicion of Conficker Malware | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Major |
+| Suspicion of Conficker Malware | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
 | Suspicion of Denial Of Service Attack | A source device attempted to initiate an excessive number of new connections to a destination device. This may be a Denial Of Service (DOS) attack against the destination device, and might interrupt device functionality, impact performance and service availability, or cause unrecoverable errors. | Critical |
-| Suspicion of Malicious Activity | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Major |
-| Suspicion of Malicious Activity (BlackEnergy) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Malicious Activity (DarkComet) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Malicious Activity (Duqu) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Malicious Activity (Flame) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Malicious Activity (Havex) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Malicious Activity (Karagany) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Malicious Activity (LightsOut) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Malicious Activity (Name Queries) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Major |
-| Suspicion of Malicious Activity (Poison Ivy) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Malicious Activity (Regin) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Malicious Activity (Stuxnet) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Malicious Activity (WannaCry) | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Major |
-| Suspicion of NotPetya Malware - Illegal SMB Parameters Detected | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of NotPetya Malware - Illegal SMB Transaction Detected | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-| Suspicion of Remote Code Execution with PsExec | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Major |
-| Suspicion of Remote Windows Service Management | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Major |
-| Suspicious Executable File Detected on Endpoint | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Major |
-| Suspicious Traffic Detected | Suspicious network activity was detected . This activity may be associated with an attack exploiting a method used by known malware. | Critical |
-
+| Suspicion of Malicious Activity | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
+| Suspicion of Malicious Activity (BlackEnergy) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Malicious Activity (DarkComet) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Malicious Activity (Duqu) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Malicious Activity (Flame) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Malicious Activity (Havex) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Malicious Activity (Karagany) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Malicious Activity (LightsOut) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Malicious Activity (Name Queries) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
+| Suspicion of Malicious Activity (Poison Ivy) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Malicious Activity (Regin) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Malicious Activity (Stuxnet) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Malicious Activity (WannaCry) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
+| Suspicion of NotPetya Malware - Illegal SMB Parameters Detected | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of NotPetya Malware - Illegal SMB Transaction Detected | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
+| Suspicion of Remote Code Execution with PsExec | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
+| Suspicion of Remote Windows Service Management | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
+| Suspicious Executable File Detected on Endpoint | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major |
+| Suspicious Traffic Detected | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical |
 
 ## Operational engine alerts
 
@@ -231,4 +251,3 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 | Suspicion of Hardware Problems in Outstation | An unrecoverable condition error was detected on a source device. This kind of error usually indicates a hardware failure or failure to perform a specific command. | Major |
 | Suspicion of Unresponsive MODBUS Device | A source device did not respond to a command sent to it. It may have been disconnected when the command was sent. | Minor |
 | Traffic Detected on Sensor Interface | A sensor resumed detecting network traffic on a network interface. | Warning |
-
