@@ -22,21 +22,21 @@ To register a new confidential client application, refer to the steps below.
 
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
 
-2. Select **App registrations**. 
+1. Select **App registrations**. 
 
-    ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration_A.png)
+    ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
 
-3. Select **New registration**.
+1. Select **New registration**.
 
-4. Give the application a user-facing display name.
+1. Give the application a user-facing display name.
 
-5. For **Supported account types**, select who can use the application or access the API.
+1. For **Supported account types**, select who can use the application or access the API.
 
-6. (Optional) Provide a **Redirect URI**. These details can be changed later, but if you know the reply URL of your application, enter it now.
+1. (Optional) Provide a **Redirect URI**. These details can be changed later, but if you know the reply URL of your application, enter it now.
 
-    ![New Confidential Client App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT_A.png)
+    ![New Confidential Client App Registration.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
 
-7. Select **Register**.
+1. Select **Register**.
 
 ## API permissions
 
@@ -44,23 +44,23 @@ Now that you've registered your application, you must select which API permissio
 
 1. Select **API permissions**.
 
-    ![Confidential client. API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions_A.png)
+    ![Confidential client. API Permissions](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
 
-2. Select **Add a permission**.
+1. Select **Add a permission**.
 
     If you're using the Azure API for FHIR, you'll add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare API** under **APIs my organization uses**. The search result for Azure Healthcare API will only return if you've already  [deployed the Azure API for FHIR](fhir-paas-powershell-quickstart.md).
 
     If you're referencing a different resource application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
 
 
-    :::image type="content" source="media/conf-client-app/confidential-client-org-api_A.png" alt-text="Confidential client. My Org APIs" lightbox="media/conf-client-app/confidential-app-org-api-expanded.png":::
+    :::image type="content" source="media/conf-client-app/confidential-client-org-api.png" alt-text="Confidential client. My Org APIs" lightbox="media/conf-client-app/confidential-app-org-api-expanded.png":::
     
 
-3. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
+1. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
 
-    :::image type="content" source="media/conf-client-app/confidential-client-add-permission_A.png" alt-text="Confidential client. Delegated Permissions":::
+    :::image type="content" source="media/conf-client-app/confidential-client-add-permission.png" alt-text="Confidential client. Delegated Permissions":::
 
-4. Select **Grant admin consent for Microsoft**. The image below is an example of granted admin consent for *Health Architectures*.
+1. Select **Grant admin consent for Microsoft**. The image below is an example of granted admin consent for *Health Architectures*.
 
    ![Grant admin consent for Microsoft](media/how-to-aad/grant_admin_consent.png)
 
@@ -68,15 +68,15 @@ Now that you've registered your application, you must select which API permissio
 
 1. Select **Certificates & secrets**, and then select **New client secret**. 
 
-    ![Confidential client. Application Secret](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET_A.png)
+    ![Confidential client. Application Secret](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
 
-2. Enter a **Description** for the client secret. Select the Expires (In 1 year, In 2 years, or Never), and then click **Add**.
+1. Enter a **Description** for the client secret. Select the Expires (In 1 year, In 2 years, or Never), and then click **Add**.
 
    ![Add a client secret](media/how-to-aad/add-a-client-secret.png)
 
-3. After the client secret string is created, copy its **Value** and **ID**, and store them in a secure location of your choice.
+1. After the client secret string is created, copy its **Value** and **ID**, and store them in a secure location of your choice.
 
-   ![Client secret string](media/how-to-aad/client-secret-string-password_A.png) 
+   ![Client secret string](media/how-to-aad/client-secret-string-password.png) 
 
 > [!NOTE]
 >The client secret string is visible only once in the Azure portal. When you navigate away from the Certificates & secrets web page and then return back to it, the Value string becomes masked. It's important to make a copy your client secret string immediately after it is generated. If you don't have a backup copy of your client secret, you must repeat the above steps to regenerate it.
