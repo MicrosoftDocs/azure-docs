@@ -246,7 +246,7 @@ Upon a sign-out request, Azure AD B2C:
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 3. Attempts to sign out from federated identity providers:
-   - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location.
+   - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location. The sign-out request doesn't pass the `id_token_hint` parameter. If the federated identity provider requires this parameter, the sign-out request will fail.
    - OAuth2 - If the [identity provider metadata](oauth2-technical-profile.md#metadata) contains the `end_session_endpoint` location.
    - SAML - If the [identity provider metadata](identity-provider-generic-saml.md) contains the `SingleLogoutService` location.
 4. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
