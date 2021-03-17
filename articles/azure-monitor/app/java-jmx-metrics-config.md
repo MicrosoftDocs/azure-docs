@@ -50,7 +50,7 @@ From the selection as shown in the image above, lets configure a few metrics. Th
         "attribute": "CollectionCount"
       },
       {
-        "name": "ADDING-Threads",
+        "name": "Demo - Thread Count",
         "objectName": "java.lang:type=Threading",
         "attribute": "ThreadCount"
       }
