@@ -22,7 +22,7 @@ ms.custom: devx-track-java
 > * [Python](table-sdk-python.md)
  
 
-|   |   |
+|   | Links  |
 |---|---|
 |**SDK download**|[Download Options](https://github.com/azure/azure-storage-java#download)|
 |**API documentation**|[Java API reference documentation](https://azure.github.io/azure-storage-java/)|

@@ -20,7 +20,7 @@ You describe the telemetry, properties, and commands that an IoT Plug and Play d
 - **No component** - A model with no components. The model declares telemetry, properties, and commands as top-level properties in the contents section of the main interface. In the Azure IoT explorer tool, this model appears as a single _default component_.
 - **Multiple components** - A model composed of two or more interfaces. A main interface, which appears as the _default component_, with telemetry, properties, and commands. One or more interfaces declared as components with additional telemetry, properties, and commands.
 
-For more information, see [IoT Plug and Play components in models](concepts-components.md).
+For more information, see [IoT Plug and Play modeling guide](concepts-modeling-guide.md).
 
 ## Identify the model
 
@@ -348,4 +348,4 @@ Now that you've learned about IoT Plug and Play conventions, here are some addit
 - [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [C device SDK](/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](/rest/api/iothub/device)
-- [Model components](./concepts-components.md)
+- [IoT Plug and Play modeling guide](concepts-modeling-guide.md)
