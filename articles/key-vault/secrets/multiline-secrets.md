@@ -1,0 +1,55 @@
+---
+title: Quickstart - Setting multiline secrets
+description: Tutorial showing how to set multiline secrets from Azure Key Vault using Azure CLI and PowerShell
+services: key-vault
+author: msmbaldwin
+tags: azure-resource-manager
+
+ms.service: key-vault
+ms.subservice: secrets
+ms.topic: quickstart
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
+ms.date: 03/17/2021
+ms.author: mbaldwin
+
+#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+---
+# Store a multiline secret in Azure Key Vault
+
+Key Vault is able to store multiline secrets, such as a JSON file or RSA private key. However, these cannot be passed to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command or the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet through the commandline.
+
+The solution is to first store the multiline secret as a text file. For example, you could create a text file called "secretfile.txt" that contains the following:
+
+```bash
+This is my
+multi-line
+secret
+```
+
+You can then pass this file to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command using the `--file` parameter.
+
+```azurecli-interactive
+az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "MultilineSecret" --file "secretfile.txt"
+```
+
+With Azure PowerShell, you must first read in the file using the [Get-Content](/powershell/module/microsoft.powershell.management/get-content) cmdlet, then convert it to a secure string using [ConvertTo-SecureString](powershell/module/microsoft.powershell.security/convertto-securestring. FInally, you store the secret using the [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
+
+```azurepowershell-interactive
+$RawSecret =  Get-Content "secretfile.txt" -Raw
+$SecureSecret = ConvertTo-SecureString -String $RawSecret -AsPlainText -Force
+$secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "MultilineSecret" -SecretValue $SecureSecret
+```
+
+In either case, you can then view the stored secret using the Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret#az_keyvault_secret_show] command or the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet.
+
+```azurecli-interactive
+az keyvault secret show --name "MultilineSecret2" --vault-name "<your-unique-keyvault-name>" --query "value"
+```
+
+## Next steps
+
+- Read an [Overview of Azure Key Vault](../general/overview.md)
+- See the [Azure CLI quickstart](quick-create-cli.md)
+- See the [Azure CLI az keyvault commands](/cli/azure/keyvault)
+- See the [Azure PowerShell quickstart](quick-create-powershell.md)
+- See the [Azure PowerShell Az.KeyVault cmdlets](/powershell/module/az.keyvault#key-vault)
