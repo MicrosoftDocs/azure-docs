@@ -136,7 +136,7 @@ With this option, you don't need to write any authentication code in your app. F
 
 ## Frequently asked questions
 
-**Do I have to use EasyAuth?**
+**Do I have to use the built in authentication feature?**
 
 You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, keep in mind that you will need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
 
