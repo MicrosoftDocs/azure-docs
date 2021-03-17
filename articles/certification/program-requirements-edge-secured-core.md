@@ -35,7 +35,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 |Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Download and deploy security agent from Github</li><li>Validate alert message from Azure Defender for IoT.</li></ol>|
-|Resources|https://docs.microsoft.com/en-us/azure/defender-for-iot/how-to-configure-agent-based-solution|
+|Resources|(How to configure agent based solutions)[../defender-for-iot/how-to-configure-agent-based-solution.md]|
 
 ---
 |Name|SecuredCore.Encryption.Storage|
@@ -71,7 +71,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that the device has a TPM present and that it can be provisioned through IoT Hub using TPM endorsement key.|
-|Resources|https://docs.microsoft.com/en-us/azure/iot-dps/quick-setup-auto-provision|
+|Resources|(Quick setup auto provision)[../iot-dps/quick-setup-auto-provision.md]|
 
 ---
 |Name|SecuredCore.Update|
@@ -156,7 +156,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Resources| https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-tls-support <br /> https://docs.microsoft.com/en-us/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903 |
+|Resources.md]| (IoT Hub TLS support)[../iot-hub/iot-hub-tls-support.md] <br /> (TLS cipher suites in Windows 10)[../../windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903.md] |
 
 ---
 |Name|SecuredCore.Protection.SignedUpdates|
@@ -240,7 +240,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
-|Resources| https://docs.microsoft.com/en-us/azure/attestation/ |
+|Resources| (Azure attestation)[../attestation/] |
 
 ---
 |Name|SecuredCore.Hardware.MemoryProtection|

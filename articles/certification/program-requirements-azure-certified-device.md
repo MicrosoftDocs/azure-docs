@@ -47,7 +47,7 @@ Promise of Azure Certified Device certification are:
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
 | **Validation**          | Device supports easy input of target DPS ID scope ownership without needing to recompile the embedded code. Microsoft provides the [portal workflow](https://aka.ms/acdp) to execute the tests to validate that the device supports DPS **1.** User must select one of the attestation methods (X.509, TPM and SAS key) **2.** Depending on the attestation method, user needs to take corresponding action such as **a)** Upload X.509 cert to AICS managed DPS scope **b)** Implement SAS key or endorsement key into the device |
-| **Resources**           | [Device provisioning service overview](../iot-dps/about-iot-dps) |
+| **Resources**           | [Device provisioning service overview](../iot-dps/about-iot-dps.md) |
 
 **[If implemented] Cloud to device:  The purpose of test is to make sure messages can be sent from cloud to devices**                                                              
 
@@ -69,7 +69,7 @@ Promise of Azure Certified Device certification are:
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
 | **Validation**          | Device must be able to receive and reply commands requests from IoT Hub. Microsoft provides the [portal workflow](https://aka.ms/acfi) to execute the tests. Direct methods (if implemented) **1.** User has to specify the method payload of direct method. **2.** AICS validates the specified payload request is sent from Hub and ACK message received by the device |
-| **Resources**           | **a)** [Certification steps](https://aka.ms/IoTCertificationsBasics) (has all the additional resources) **b)** [Understand direct methods from IoT Hub](../iot-hub/iot-hub-devguide-direct-methods) |
+| **Resources**           | **a)** [Certification steps](https://aka.ms/IoTCertificationsBasics) (has all the additional resources) **b)** [Understand direct methods from IoT Hub](../iot-hub/iot-hub-devguide-direct-methods.md) |
 
 **[If implemented] Device twin property:  The purpose of test is to make sure devices that send telemetry works with IoT Hub and supports some of the IoT Hub capabilities such as direct methods, and device twin property**
 

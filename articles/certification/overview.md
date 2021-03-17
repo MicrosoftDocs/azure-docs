@@ -1,8 +1,8 @@
 ---
 title: Overview of the Azure Certified Device program
 description: An overview of the Azure Certified Device program for our partners and customers
-author: nkuntjoro
-ms.author: nkuntjoro
+author: nikuntjo
+ms.author: nikuntjo
 ms.topic: overview 
 ms.date: 03/03/2021
 ms.custom: template-overview
