@@ -15,9 +15,7 @@
     href: https://www.microsoft.com/translator/faq.aspx 
 - name: Translator Quickstart
   href: quickstart-translator.md
-- name:  Text translation
-  items:
-- name: Samples
+- name: Translator Samples
   items:
   - name: C#
     href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp
@@ -33,38 +31,38 @@
     href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP
   - name: Ruby
     href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
-  - name: Responsible use of AI
-    items:
-    - name: Compliance
-      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy
-    - name: Encryption
-      href: encrypt-data-at-rest.md    
-  - name: How-to guides
-    items:
-    - name: Create a Translator resource
-      href: ./translator-how-to-signup.md
-    - name: Migrate to V3 Text API
-      href: migrate-to-v3.md
-    - name: Add profanity filtering
-      href: profanity-filtering.md
-    - name: Receive word alignment information
-      href: word-alignment.md
-    - name: Prevent translation of content
-      href: prevent-translation.md
-    - name: Use the dynamic dictionary feature
-      href: dynamic-dictionary.md
-    - name: Translate behind firewalls
-      href: firewalls.md
-  - name: Concepts
-    items:
-    - name: How the API counts characters
-      href: character-counts.md
-  - name: Tutorials
-    items:
-    - name: Create a WPF app for Translator, C#
-      href: tutorial-wpf-translation-csharp.md
-    - name: Create a Flask translation app, Python
-      href: tutorial-build-flask-app-translation-synthesis.md 
+- name: Responsible use of AI
+  items:
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy
+  - name: Encryption
+    href: encrypt-data-at-rest.md    
+- name: How-to guides
+  items:
+  - name: Create a Translator resource
+    href: ./translator-how-to-signup.md
+  - name: Migrate to V3 Text API
+    href: migrate-to-v3.md
+  - name: Add profanity filtering
+    href: profanity-filtering.md
+  - name: Receive word alignment information
+    href: word-alignment.md
+  - name: Prevent translation of content
+    href: prevent-translation.md
+  - name: Use the dynamic dictionary feature
+    href: dynamic-dictionary.md
+  - name: Translate behind firewalls
+    href: firewalls.md
+- name: Concepts
+  items:
+  - name: How the API counts characters
+    href: character-counts.md
+- name: Translator Tutorials
+  items:
+  - name: Create a WPF app for Translator, C#
+    href: tutorial-wpf-translation-csharp.md
+  - name: Create a Flask translation app, Python
+    href: tutorial-build-flask-app-translation-synthesis.md 
 - name: Custom Translator Overview
   expanded: true
   items:
@@ -74,54 +72,50 @@
     href: custom-translator/glossary.md  
   - name: Custom Translator FAQ
     href: custom-translator/faq.md
-- name: Custom Translator Quickstart
+- name: Custom Translator quickstart
+  href: custom-translator/quickstart-build-deploy-custom-model.md 
+- name: Custom Translation How-to guides
   items:
-  - name: Build a custom model
-    href: custom-translator/quickstart-build-deploy-custom-model.md 
-- name: Custom translation
+  - name: Create a project
+    href: custom-translator/how-to-create-project.md
+  - name: Manage projects
+    href: custom-translator/how-to-search-edit-delete-projects.md
+  - name: Upload a document
+    href: custom-translator/how-to-upload-document.md
+  - name: View document details
+    href: custom-translator/how-to-view-document-details.md
+  - name: Train a model
+    href: custom-translator/how-to-train-model.md
+  - name: View model details
+    href: custom-translator/how-to-view-model-details.md
+  - name: View system test results
+    href: custom-translator/how-to-view-system-test-results.md
+  - name: Manage settings
+    href: custom-translator/how-to-manage-settings.md
+  - name: Migrate from Hub
+    href: custom-translator/how-to-migrate.md
+  - name: Unsupported language deployments
+    href: custom-translator/unsupported-language-deployments.md
+- name: Custom Translation concepts
   items:
-  - name: How-to guides
-    items:
-    - name: Create a project
-      href: custom-translator/how-to-create-project.md
-    - name: Manage projects
-      href: custom-translator/how-to-search-edit-delete-projects.md
-    - name: Upload a document
-      href: custom-translator/how-to-upload-document.md
-    - name: View document details
-      href: custom-translator/how-to-view-document-details.md
-    - name: Train a model
-      href: custom-translator/how-to-train-model.md
-    - name: View model details
-      href: custom-translator/how-to-view-model-details.md
-    - name: View system test results
-      href: custom-translator/how-to-view-system-test-results.md
-    - name: Manage settings
-      href: custom-translator/how-to-manage-settings.md
-    - name: Migrate from Hub
-      href: custom-translator/how-to-migrate.md
-    - name: Unsupported language deployments
-      href: custom-translator/unsupported-language-deployments.md
-  - name: Concepts
-    items:
-    - name: Customize and improve text translation
-      href: customization.md  
-    - name: Workspaces and projects
-      href: custom-translator/workspace-and-project.md
-    - name: Parallel documents
-      href: custom-translator/what-are-parallel-documents.md
-    - name: Dictionary
-      href: custom-translator/what-is-dictionary.md
-    - name: Document formats
-      href: custom-translator/document-formats-naming-convention.md
-    - name: Sentence alignment
-      href: custom-translator/sentence-alignment.md
-    - name: Data filtering
-      href: custom-translator/data-filtering.md
-    - name: Training and model
-      href: custom-translator/training-and-model.md
-    - name: BLEU Score
-      href: custom-translator/what-is-bleu-score.md
+  - name: Customize and improve text translation
+    href: customization.md  
+  - name: Workspaces and projects
+    href: custom-translator/workspace-and-project.md
+  - name: Parallel documents
+    href: custom-translator/what-are-parallel-documents.md
+  - name: Dictionary
+    href: custom-translator/what-is-dictionary.md
+  - name: Document formats
+    href: custom-translator/document-formats-naming-convention.md
+  - name: Sentence alignment
+    href: custom-translator/sentence-alignment.md
+  - name: Data filtering
+    href: custom-translator/data-filtering.md
+  - name: Training and model
+    href: custom-translator/training-and-model.md
+  - name: BLEU Score
+    href: custom-translator/what-is-bleu-score.md
 - name: Document Translation Overview
   expanded: true
   items:
@@ -129,16 +123,12 @@
       href: document-translation/overview.md
     - name: Document Translation REST API
       href: /rest/api/cognitiveservices/translator/translation   
-    - name: Document Translation Quickstart
-      items:
-      - name: Get started with Document Translation
-        href: document-translation/get-started-with-document-translation.md
-- name: Document Translation
-  items:        
-    - name: How-to guides
-      items:
-      - name: Create SAS tokens for Document Translation 
-        href: document-translation/create-sas-tokens.md 
+    - name: Document Translation quickstart
+      href: document-translation/get-started-with-document-translation.md
+- name: Document Translation how-to guides
+  items:
+  - name: Create SAS tokens for Document Translation 
+    href: document-translation/create-sas-tokens.md 
 - name: Reference
   items:
   - name: v3 Translator reference
