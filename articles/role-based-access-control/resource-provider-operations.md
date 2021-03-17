@@ -5748,12 +5748,12 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/LUIS/apps/versions/train/read | Gets the training status of all models (intents and entities) for the specified application version. You must call the train API to train the LUIS app before you call this API to get training status. |
 > | Microsoft.CognitiveServices/accounts/LUIS/azureaccounts/read | Gets the LUIS Azure accounts for the user using his Azure Resource Manager token. |
 > | Microsoft.CognitiveServices/accounts/LUIS/externalkeys/write | **THIS API IS DEPRECATED.** |
-> | Microsoft.CognitiveServices/accounts/LUIS/externalkeys/delete | **THIS API IS DEPRECATED.**. |
+> | Microsoft.CognitiveServices/accounts/LUIS/externalkeys/delete | **THIS API IS DEPRECATED.** |
 > | Microsoft.CognitiveServices/accounts/LUIS/externalkeys/read | **THIS API IS DEPRECATED.** |
 > | Microsoft.CognitiveServices/accounts/LUIS/package/slot/gzip/read | Packages published LUIS application as GZip |
 > | Microsoft.CognitiveServices/accounts/LUIS/package/versions/gzip/read | Packages trained LUIS application as GZip |
 > | Microsoft.CognitiveServices/accounts/LUIS/programmatickey/write | **THIS API IS DEPRECATED.** |
-> | Microsoft.CognitiveServices/accounts/LUIS/subscriptions/write | **THIS API IS DEPRECATED.** **THIS API IS DEPRECATED.*** |
+> | Microsoft.CognitiveServices/accounts/LUIS/subscriptions/write | **THIS API IS DEPRECATED.** |
 > | Microsoft.CognitiveServices/accounts/LUIS/subscriptions/delete | **THIS API IS DEPRECATED.** |
 > | Microsoft.CognitiveServices/accounts/LUIS/subscriptions/read | **THIS API IS DEPRECATED.** |
 > | Microsoft.CognitiveServices/accounts/MetricsAdvisor/alert/anomaly/configurations/write | Create or update anomaly alerting configuration |
