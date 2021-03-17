@@ -12,6 +12,8 @@ services: iot-edge
 
 # Azure IoT Edge supported systems
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 This article provides details about which systems and components are supported by IoT Edge, whether officially or in preview.
 
 ## Get support

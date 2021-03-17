@@ -26,7 +26,10 @@ The Windows Virtual Desktop agent is initially installed in one of two ways. If 
 
 ## Agent update process
 
-The Windows Virtual Desktop service automatically updates the agent whenever an update becomes available. Agent updates can include new functionality or fix previous issues. Once the initial version of the Windows Virtual Desktop agent is installed, the agent regularly queries the Windows Virtual Desktop service to determine if there's a newer version of the agent and its components available. If there's a new version, the agent bootloader automatically downloads the latest version of the agent, the side-by-side stack, and Geneva Monitoring agent.
+The Windows Virtual Desktop service updates the agent whenever an update becomes available. Agent updates can include new functionality or fixes for previous issues. Once the initial version of the Windows Virtual Desktop agent is installed, the agent regularly queries the Windows Virtual Desktop service to determine if there’s a newer version of the agent, stack, or monitoring component available. If a newer version of any of the components has already been deployed, the updated component is automatically installed.
+
+New versions of the agent are deployed at regular intervals in weeklong periods to all Azure subscriptions. These update periods are called "flights." When a flight happens, you may see VMs in your host pool receive the agent update at different times. All VM agents in all subscriptions will be updated by the end of the deployment period. The Windows Virtual Desktop flighting system enhances the reliability of the service by ensuring the stability and quality of the agent update.
+
 
 >[!NOTE]
 >- When the Geneva Monitoring agent updates to the latest version, the old GenevaTask task is located and disabled before creating a new task for the new monitoring agent. The earlier version of the monitoring agent isn't deleted in case that the most recent version of the monitoring agent has a problem that requires reverting to the earlier version to fix. If the latest version has a problem, the old monitoring agent will be re-enabled to continue delivering monitoring data. All versions of the monitor that are earlier than the last one you installed before the update will be deleted from your VM.
