@@ -53,12 +53,11 @@ Install the following for your local development environment.
     - [Azure Cognitive Search 0.2.0+](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
     - [Azure Static web apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
 - Optional:
-    - This tutorial doesn't run the client and api server locally but if you intent to, you need to install azure-functions-core-tools globallly with: 
+    - This tutorial doesn't run the Azure Function api locally but if you intend to run it locally, you need to install [azure-functions-core-tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash) globally with the following bash command: 
     
     ```bash
     npm install -g azure-functions-core-tools
     ```
-
 
 ## Fork and clone the Search sample with git
 
@@ -83,6 +82,7 @@ Install the following for your local development environment.
 
     :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and select **Create resource group**.":::
 1. Enter a resource group name, such as `cognitive-search-website-tutorial`. 
+1. Select a location close to you.
 1. When you create the Search and Static web app resources, later in the tutorial, use this resource group. 
 
     Creating a resource group gives you a logical unit to manage the resources, including deleting them when you are finished using them.

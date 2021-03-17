@@ -25,7 +25,7 @@ Create a new Search resource with the [Azure Cognitive Search](https://marketpla
 
 1. In the Side bar, **right-click on your Azure subscription** under the `Azure: Cognitive Search` area and select **Create new search service**.
 
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-create-resource.png" alt-text="In the Side bar, right-click on your Azure subscription under the **Azure: Cognitive Search** area and select **Create new search service**.":::
+    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-create-search-resource.png" alt-text="In the Side bar, right-click on your Azure subscription under the **Azure: Cognitive Search** area and select **Create new search service**.":::
 
 1. Follow the prompts to provide the following information:
 
@@ -90,13 +90,13 @@ As the code runs, each row in books.csv is printed to the console as it is proce
 
 Once the upload completes, the Search Index is ready to use. Review your new Index.
 
-1. In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.  
+1. In Visual Studio Code, open the Azure Cognitive Search extension and select your Search resource.  
 
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-resource.png" alt-text="In Visual Studio Code, open the Azure Cognitive Search extension and open your Search resource.":::
 
 1. Expand Indexes, then `good-books`, then select a doc to see all the document-specific data.
  
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
+    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" lightbox="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="Expand Indexes, then `good-books`, then select a doc.":::
 
 ## Copy your Search resource name
 
