@@ -7,6 +7,8 @@ ms.date: 04/27/2020
 ---
 # Monitoring and logging
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 In this article, you'll learn how to receive events for remote monitoring from the Live Video Analytics on IoT Edge module. 
 
 You'll also learn how to control the logs that the module generates.

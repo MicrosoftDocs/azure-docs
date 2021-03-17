@@ -18,6 +18,8 @@ ms.author: inhenkel
 
 # How to use Azure portal to invoke direct methods
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 IoT Hub gives you the ability to invoke [direct methods](../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) on edge devices from the cloud. The Live Video Analytics on IoT Edge (LVA) module exposes several [direct methods](./direct-methods.md) that can be used to define, deploy, and instantiate different workflows for analyzing live video.
 
 In this article, you will learn how to invoke direct method calls on Live Video Analytics for an IoT Edge module via the Azure portal.

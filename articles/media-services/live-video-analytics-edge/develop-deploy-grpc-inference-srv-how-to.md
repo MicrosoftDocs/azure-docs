@@ -8,6 +8,8 @@ ms.date: 12/02/2020
 
 # How-to-Guide – Develop and deploy a gRPC inference server
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 ## Overview
 
 This article shows you how you can wrap AI model(s) of your choice within a gRPC inference server, so that it can be integrated with Live Video Analytics (LVA) via graph extension. 

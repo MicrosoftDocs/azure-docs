@@ -7,6 +7,8 @@ ms.date: 04/27/2020
 ---
 # Quickstart: Get started - Live Video Analytics on IoT Edge
 
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device. It also uses a simulated live video stream. 
 
 After completing the setup steps, you'll be able to run a simulated live video stream through a media graph that detects and reports any motion in that stream. The following diagram graphically represents that media graph.
