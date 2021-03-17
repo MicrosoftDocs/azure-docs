@@ -127,7 +127,7 @@
         },
         {
             "source_path_from_root": "/articles/media-services/latest/upload-files-rest-how-to.md",
-            "redirect_url": "how-to-upload-media?tabs=rest",
+            "redirect_url": "azure/media-services/latest/how-to-upload-media?tabs=rest",
             "redirect_document_id": false
         },
         {
