@@ -20,6 +20,10 @@ Learn how to run your Jupyter notebooks directly in your workspace in Azure Mach
 
 For information on how to create and manage files, including notebooks, see [Create and manage files in your workspace](how-to-manage-files.md).
 
+> [!IMPORTANT]
+> Features marked as (preview) are provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
@@ -50,12 +54,23 @@ Use focus mode to expand your current view so you can focus on your
 
 When typing code, use Ctrl+Space to trigger IntelliSense.
 
-## Clean your notebook (preview)
+### Use code snippets (preview)
 
-> [!IMPORTANT]
-> The gather feature is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Use Ctrl+Space to trigger IntelliSense code snippets.  Scroll through the suggestions or start typing to find the code you want to insert.  Once you insert code, tab through the arguments to customize the code for your own use.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/insert-snippet.gif" alt-text="Insert a code snippet":::
+
+These same snippets are available when you open your notebook in VS Code. For a complete list of available snippets, see [Azure Machine Learning VS Code Snippets](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets/).
+
+You can browse and search the list of snippets by using the notebook toolbar to open the snippet panel.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/open-snippet-panel.png" alt-text="Open snippet panel tool in the notebook toolbar":::
+
+From the snippets panel you can also submit a request to add new snippets.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Snippet panel allows you to propose a new snippet":::
+
+## Clean your notebook (preview)
 
 Over the course of creating a notebook, you typically end up with cells you used for data exploration or debugging. The *gather* feature will help you produce a clean notebook without these extraneous cells.
 
