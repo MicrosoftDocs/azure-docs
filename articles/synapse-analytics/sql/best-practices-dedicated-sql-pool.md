@@ -36,9 +36,9 @@ Additional information on statistics can be found in the [Manage table statistic
 
 ## Tune query performance with new product enhancements
 
-- [Performance tuning with materialized views](performance-tuning-materialized-views.md)
-- [Performance tuning with ordered clustered columnstore index](performance-tuning-ordered-cci.md)
-- [Performance tuning with result set caching](performance-tuning-result-set-caching.md)
+- [Performance tuning with materialized views](../sql-data-warehouse/performance-tuning-materialized-views.md)
+- [Performance tuning with ordered clustered columnstore index](../sql-data-warehouse/performance-tuning-ordered-cci.md)
+- [Performance tuning with result set caching](../sql-data-warehouse/performance-tuning-result-set-caching.md)
 
 
 ## Group INSERT statements into batches
@@ -160,7 +160,7 @@ When querying a columnstore table, queries will run faster if you select only th
 - [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Columnstore indexes guide](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true)
 - [Rebuilding columnstore indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuilding-indexes-to-improve-segment-quality) 
-- [Performance tuning with ordered clustered columnstore index](performance-tuning-ordered-cci.md)
+- [Performance tuning with ordered clustered columnstore index](../sql-data-warehouse/performance-tuning-ordered-cci.md)
 
 ## Use larger resource class to improve query performance
 
