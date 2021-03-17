@@ -46,10 +46,10 @@ The following list describes which analyzers are available in Azure Cognitive Se
 | Category | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. No specification or configuration is required. This general-purpose analyzer performs well for many languages and scenarios.|
-| Predefined analyzers | Built-in, used as-is and referenced by name. There are two types: language and language-agnostic. <br/><br/>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#built-in-analyzers) are used when text inputs require specialized processing or minimal processing. Examples of analyzers in this category include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Cognitive Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
+| Built-in analyzers | Consumed as-is and referenced by name. There are two types: language and language-agnostic. </br></br>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#built-in-analyzers) are used when text inputs require specialized processing or minimal processing. Examples of analyzers in this category include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**. </br></br>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Cognitive Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refers to a user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
-A few predefined analyzers, such as **Pattern** or **Stop**, support a limited set of configuration options. To set these options, you effectively create a custom analyzer, consisting of the predefined analyzer and one of the alternative options documented in [Built-in analyzers(index-add-custom-analyzers.md#built-in-analyzers). As with any custom configuration, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
+A few built-in analyzers, such as **Pattern** or **Stop**, support a limited set of configuration options. To set these options, create a custom analyzer, consisting of the built-in analyzer and one of the alternative options documented in [Built-in analyzers](index-add-custom-analyzers.md#built-in-analyzers). As with any custom configuration, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
 
 ## How to specify analyzers
 
@@ -93,7 +93,7 @@ Setting an analyzer is optional. As a general rule, try using the default standa
 
 The best time to add and assign analyzers is during active development, when dropping and recreating indexes is routine.
 
-Because analyzers are used to tokenize terms, you should assign an analyzer when the field is created. In fact, assigning an analyzer or indexAnalyze to a field that has already been physically created is not allowed (although you can change the searchAnalyzer property at any time with no impact to the index).
+Because analyzers are used to tokenize terms, you should assign an analyzer when the field is created. In fact, assigning an analyzer or indexAnalyzer to a field that has already been physically created is not allowed (although you can change the searchAnalyzer property at any time with no impact to the index).
 
 To change the analyzer of an existing field, you'll have to [rebuild the index entirely](search-howto-reindex.md) (you cannot rebuild individual fields). For indexes in production, you can defer a rebuild by creating a new field with the new analyzer assignment, and start using it in place of the old one. Use [Update Index](/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields.
 
@@ -109,7 +109,7 @@ This section offers advice on how to work with analyzers.
 
 ### One analyzer for read-write unless you have specific requirements
 
-Azure Cognitive Search lets you specify different analyzers for indexing and search via additional indexAnalyzer and searchAnalyzer field properties. If unspecified, the analyzer set with the analyzer property is used for both indexing and searching. If analyzer is unspecified, the default Standard Lucene analyzer is used.
+Azure Cognitive Search lets you specify different analyzers for indexing and search via additional indexAnalyzer and searchAnalyzer field properties. If unspecified, the analyzer set with the analyzer property is used for both indexing and searching. If the analyzer is unspecified, the default Standard Lucene analyzer is used.
 
 A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of mismatch between query terms and indexed terms when the search and indexing analyzer configurations are not aligned.
 

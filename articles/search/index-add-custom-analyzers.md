@@ -39,15 +39,15 @@ To create a custom analyzer, specify it in the "analyzers" section of an index a
 
 An analyzer definition includes a name, type, one or more character filters, a maximum of one tokenizer, and one or more token filters for post-tokenization processing. Character filters are applied before tokenization. Token filters and character filters are applied from left to right.
 
-1. Names in a custom analyzer must be unique and cannot be the same as any of the built-in analyzers, tokenizers, token filters, or characters filters. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters. 
+- Names in a custom analyzer must be unique and cannot be the same as any of the built-in analyzers, tokenizers, token filters, or characters filters. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters. 
 
-1. The type must be #Microsoft.Azure.Search.CustomAnalyzer.
+- The type must be #Microsoft.Azure.Search.CustomAnalyzer.
 
-1. "charFilters" can be one or more filters from [Character Filters](#CharFilter), processed before tokenization, in the order provided. Some character filters have options, which can be set in a "charFilter section. Character filters are optional.
+- "charFilters" can be one or more filters from [Character Filters](#CharFilter), processed before tokenization, in the order provided. Some character filters have options, which can be set in a "charFilter section. Character filters are optional.
 
-1. "tokenizer" is exactly one [Tokenizer](#tokenizers). A value is required. If you need more than one tokenizer, you can create multiple custom analyzers and assign them on a field-by-field basis in your index schema.
+- "tokenizer" is exactly one [Tokenizer](#tokenizers). A value is required. If you need more than one tokenizer, you can create multiple custom analyzers and assign them on a field-by-field basis in your index schema.
 
-1. "tokenFilters" can be one or more filters from [Token Filters](#TokenFilters), processed after tokenization, in the order provided. For token filters that have options, add a "tokenFilter" section to specify the configuration. Token filters are optional.
+- "tokenFilters" can be one or more filters from [Token Filters](#TokenFilters), processed after tokenization, in the order provided. For token filters that have options, add a "tokenFilter" section to specify the configuration. Token filters are optional.
 
 Analyzers must not produce tokens longer than 300 characters, or indexing will fail. To trim long token or to exclude them, use the **TruncateTokenFilter** and the **LengthTokenFilter** respectively. See [**Token filters**](#TokenFilters) for reference.
 

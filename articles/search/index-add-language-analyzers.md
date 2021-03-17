@@ -41,9 +41,9 @@ Indexing with Microsoft analyzers is on average two to three times slower than t
 
 ### English analyzers
 
-The default analyzer is Standard Lucene works well for English, but perhaps not as well as Lucene's English analyzer or Microsoft's English analyzer.
+The default analyzer is Standard Lucene, which works well for English, but perhaps not as well as Lucene's English analyzer or Microsoft's English analyzer.
 
-+ Lucene's English analyzer extends the standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per Porter Stemming algorithm, and removes English stop words.  
++ Lucene's English analyzer extends the Standard analyzer. It removes possessives (trailing 's) from words, applies stemming as per Porter Stemming algorithm, and removes English stop words.  
 
 + Microsoft's English analyzer performs lemmatization instead of stemming. This means it can handle inflected and irregular word forms much better which results in more relevant search results 
 
