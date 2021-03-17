@@ -117,7 +117,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
     12. Once the permission is added, select **Grant admin consent for Microsoft**.
     13. From the message alert, select **Yes**.
 
-        [![Shows the application permissions successfully granted.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
+        [![Shows the application permissions are successfully granted.](media/test-drive/api-permissions-confirmation-operations.png)](media/test-drive/api-permissions-confirmation-operations.png#lightbox)
 
     14. To generate a secret for the Azure AD App:
         1. From **Manage Application**, select **Certificate and secrets**.
