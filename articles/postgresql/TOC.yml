@@ -621,6 +621,8 @@
       href: concepts-hyperscale-columnar.md
     - name: Configuration options
       href: concepts-hyperscale-configuration-options.md
+    - name: Limits and limitations
+      href: concepts-hyperscale-limits.md
     - name: Prepay for reserved capacity
       href: concepts-hyperscale-reserved-pricing.md
     - name: PostgreSQL extensions
