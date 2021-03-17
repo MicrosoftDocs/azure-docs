@@ -6,6 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
+ms.reviewer: stmummer
 ms.date: 3/04/2021
 ---
 
