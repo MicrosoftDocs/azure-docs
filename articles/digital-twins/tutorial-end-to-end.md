@@ -126,7 +126,7 @@ For your function app to be able to access Azure Digital Twins, it will need to 
 
 ### Configure permissions for the function app
 
-There are two settings that need to be set for the function app to access your Azure Digital Twins instance. These can both be done via commands in the [Azure Cloud Shell](shell.azure.com). 
+There are two settings that need to be set for the function app to access your Azure Digital Twins instance. These can both be done via commands in the [Azure Cloud Shell](https://shell.azure.com). 
 
 #### Assign access role
 
@@ -157,7 +157,7 @@ The result of this command is outputted information about the role assignment yo
 
 #### Configure application settings
 
-The second setting creates an **environment variable** for the function with the URL of your Azure Digital Twins instance, which the function will use to connect to it. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+The second setting creates an **environment variable** for the function with the URL of your Azure Digital Twins instance. The function code will use this to refer to your instance. For more information about environment variables, see [*Manage your function app*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 Run the command below, filling in the placeholders with the details of your resources.
 
