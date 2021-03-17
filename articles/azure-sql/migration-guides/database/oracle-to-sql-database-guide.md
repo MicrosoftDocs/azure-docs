@@ -54,16 +54,9 @@ To create an assessment, follow these steps:
 
    ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
 
-   ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle1.png)
-
-   this is the new syntax:
-
-   :::image type="content" source="media/oracle-to-sql-database-guide/connect-to-oracle1.png" alt-text="connect":::
-
    Select the Oracle schema(s) you want to migrate: 
 
    ![Select Oracle schema](./media/oracle-to-sql-database-guide/select-schema.png)
-
 
 1. Right-click the Oracle schema you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
 
