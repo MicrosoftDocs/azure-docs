@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 01/29/2021
+  ms.date: 03/16/2021
 
 highlightedContent:
   items:
@@ -137,20 +137,8 @@ additionalContent:
               url: https://www.powershellgallery.com/packages/Az.GuestConfiguration
               note: (Guest Configuration)
             - text: REST
-              url: /rest/api/policy-insights/
-              note: (Policy Insights)
-            - text: REST
-              url: /rest/api/resources/policyassignments
-              note: (Assignments)
-            - text: REST
-              url: /rest/api/resources/policydefinitions
-              note: (Definitions)
-            - text: REST
-              url: /rest/api/resources/policyexemptions
-              note: (Exemptions)
-            - text: REST
-              url: /rest/api/resources/policysetdefinitions
-              note: (Initiatives)
+              url: /rest/api/policy/
+              note: (Policy)
             - text: REST
               url: /rest/api/guestconfiguration/
               note: (Guest Configuration)
