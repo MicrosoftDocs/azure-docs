@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB transactional (row-based) and analytica
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: "seo-nov-2020"
 ---
@@ -60,32 +60,49 @@ Auto-Sync refers to the fully managed capability of Azure Cosmos DB where the in
 
 The auto-sync capability along with analytical store provides the following key benefits:
 
-#### Scalability & elasticity
+### Scalability & elasticity
 
 By using horizontal partitioning, Azure Cosmos DB transactional store can elastically scale the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in auto-sync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it is 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. 
 
-#### <a id="analytical-schema"></a>Automatically handle schema updates
+### <a id="analytical-schema"></a>Automatically handle schema updates
 
 Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. With the auto-sync capability, Azure Cosmos DB manages the schema inference over the latest updates from the transactional store.  It also manages the schema representation in the analytical store out-of-the-box which, includes handling nested data types.
 
 As your schema evolves, and new properties are added over time, the analytical store automatically presents a unionized schema across all historical schemas in the transactional store.
 
-##### Schema constraints
+#### Schema constraints
 
 The following constraints are applicable on the operational data in Azure Cosmos DB when you enable analytical store to automatically infer and represent the schema correctly:
 
-* You can have a maximum of 200 properties at any nesting level in the schema and a maximum nesting depth of 5.
-  
-  * An item with 201 properties at the top level doesn’t satisfy this constraint and hence it will not be represented in the analytical store.
-  * An item with more than five nested levels in the schema also doesn’t satisfy this constraint and hence it will not be represented in the analytical store. For example, the following item doesn't satisfy the requirement:
+* You can have a maximum of 1000 properties at any nesting level in the schema and a maximum nesting depth of 127.
+  * Only the first 1000 properties are represented in the analytical store.
+  * Only the fist 127 nested levels are represented in the analytical store.
 
-     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+* While JSON documents (and Cosmos DB collections/containers) are case sensitive, analytical store is not. 
+  * Property names in the same level should be unique when compared case insensitively. For example, the following properties, in the same level of the same document, do not satisfy this constraint and hence will not be fully represented in the analytical store:
 
-* Property names should be unique when compared case insensitively. For example, the following items do not satisfy this constraint and hence will not be represented in the analytical store:
+  `{"Name": "fred"}, {"name": "john"}` – "Name" and "name" are the same when compared in a case insensitive manner. Only "Name" will be represented in analytical store.
+ 
+  * Properties with the same name but different cases will be represented with the first occurrence. For example: if the first document uses "Name" and the second document for has "name" in the same level, "Name" will be used to represent this property in analytical store.
 
-  `{"Name": "fred"} {"name": "john"}` – "Name" and "name" are the same when compared in a case insensitive manner.
+* The first document of the collection defines the initial analytical store schema.
+  * Properties in the first level of the document will be represented as columns.
+  * Documents with more properties than the initial schema will generate new columns in analytical store.
+  * Columns can't be removed.
+  * The deletion of all documents in a collection doesn't reset the analytical store schema.
+  * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
 
-##### Schema representation
+* Currently we do not support Azure Synapse Spark reading column names that contain blanks (white spaces).
+
+* Expect different behavior in regard to `NULL` values:
+  * Spark pools in Azure Synapse will read these value as a 0 (zero).
+  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+
+* Expect different behavior in regard to missing columns:
+  * Spark pools in Azure Synapse will represent these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
+
+#### Schema representation
 
 There are two modes of schema representation in the analytical store. These modes have tradeoffs between the simplicity of a columnar representation, handling the polymorphic schemas, and simplicity of query experience:
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -46,7 +46,7 @@ When using custom domains, consider the following:
 
 - You can set up multiple custom domains. For the maximum number of supported custom domains, see [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits) for Azure Front Door.
 - Azure Front Door is a separate Azure service, so additional charges will be incurred. For more information, see [Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor).
-- Currently, the Azure Front Door [Web Application Firewall](../web-application-firewall/afds/afds-overview.md) feature is not supported.
+- To use Azure Front Door [Web Application Firewall](../web-application-firewall/afds/afds-overview.md), you need to confirm your firewall configuration and rules work correctly with your Azure AD B2C user flows.
 - After you configure custom domains, users will still be able to access the Azure AD B2C default domain name *<tenant-name>.b2clogin.com* (unless you're using a custom policy and you [block access](#block-access-to-the-default-domain-name).
 - If you have multiple applications, migrate them all to the custom domain because the browser stores the Azure AD B2C session under the domain name currently being used.
 
@@ -261,7 +261,6 @@ Azure Front Door passes the user's original IP address. This is the IP address t
 ### Can I use a third-party web application firewall (WAF) with B2C?
 
 Currently, Azure AD B2C supports a custom domain through the use of Azure Front Door only. If you want to use your own WAF in front of Azure Front Door, you'll need to evaluate and test your integration.
-
 
 ## Next steps
 
