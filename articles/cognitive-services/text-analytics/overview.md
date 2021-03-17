@@ -22,6 +22,12 @@ The API is a part of [Azure Cognitive Services](../index.yml), a collection of m
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 
+This documentation contains the following types of articles:
+* The [quickstarts](./quickstarts/client-libraries-rest-api.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](./how-tos/text-analytics-how-to-call-api.md) contain instructions for using the service in more specific or customized ways.
+* The [conceptual articles](text-analytics-user-scenarios.md) provide in-depth explanations of the service's functionality and features.
+* The [tutorials](./tutorials/tutorial-power-bi-key-phrases.md) are longer guides that show you how to use this service as a component in broader business solutions.
+
 ## Sentiment analysis
 
 Use [sentiment analysis](how-tos/text-analytics-how-to-sentiment-analysis.md) and find out what people think of your brand or topic by mining the text for clues about positive or negative sentiment. 
