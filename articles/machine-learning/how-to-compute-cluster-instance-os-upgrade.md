@@ -14,7 +14,7 @@ ms.custom: how-to
 
 ---
 
-# Upgrade compute instance and compute cluster host OS
+# Upgrade compute instance and compute cluster host OS 
 
 Azure Machine Learning _compute cluster__ and __compute instance__ are managed compute infrastructure. As a managed service, Microsoft manages the host OS and the packages and software versions that are installed.
 
