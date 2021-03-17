@@ -117,7 +117,7 @@
     - name: Integration
       items:
       - name: API for FHIR
-        href: ../../healthcare-apis/fhir-paas-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+        href: ../../healthcare-apis/fhir/fhir-paas-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Event Grid
         href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Logic Apps
@@ -328,7 +328,9 @@
     items:
     - name: Install Bicep
       href: bicep-install.md
-    - name: Comparing JSON to Bicep
+    - name: Convert between JSON and Bicep
+      href: bicep-decompile.md
+    - name: Compare JSON and Bicep
       href: compare-template-syntax.md
   - name: Data types
     href: data-types.md
@@ -386,9 +388,13 @@
       href: deployment-script-template.md
     - name: Create deployment script dev environment
       href: deployment-script-template-configure-dev.md
-    - name: Modularize templates
-      displayName: linked templates, nested templates
-      href: linked-templates.md
+    - name: Reuse templates
+      items:
+      - name: Modularize templates
+        displayName: linked templates, nested templates
+        href: linked-templates.md
+      - name: Bicep modules
+        href: bicep-modules.md
     - name: Create multiple instances
       items:
       - name: Resources

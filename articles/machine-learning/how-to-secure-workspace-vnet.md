@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/06/2020
+ms.date: 03/17/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
 
@@ -55,13 +55,6 @@ For more information on setting up a Private Link workspace, see [How to configu
 ## Secure Azure storage accounts with service endpoints
 
 Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. In this section, you learn how to secure an Azure storage account using service endpoints. For private endpoints, see the next section.
-
-> [!IMPORTANT]
-> You can place the both the _default storage account_ for Azure Machine Learning, or _non-default storage accounts_ in a virtual network.
->
-> The default storage account is automatically provisioned when you create a workspace.
->
-> For non-default storage accounts, the `storage_account` parameter in the [`Workspace.create()` function](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) allows you to specify a custom storage account by Azure resource ID.
 
 To use an Azure storage account for the workspace in a virtual network, use the following steps:
 
@@ -193,6 +186,9 @@ To use Azure Container Registry inside a virtual network, you must meet the foll
 
 Once those requirements are fulfilled, use the following steps to enable Azure Container Registry.
 
+> [!TIP]
+> If you did not use an existing Azure Container Registry when creating the workspace, one may not exist. By default, the workspace will not create an ACR instance until it needs one. To force the creation of one, train or deploy a model using your workspace before using the steps in this section.
+
 1. Find the name of the Azure Container Registry for your workspace, using one of the following methods:
 
     __Azure portal__
@@ -236,3 +232,5 @@ This article is part two of a five-part virtual network series. See the rest of 
 * [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
 * [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
 * [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)
+
+Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.
