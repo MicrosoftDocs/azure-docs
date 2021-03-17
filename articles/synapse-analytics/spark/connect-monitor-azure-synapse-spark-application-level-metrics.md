@@ -171,7 +171,7 @@ Response looks like:
 
 ### 2. List running applications in the Azure Synapse workspace
 
-To get list of spark applications for a Synapse workspace, you can follow this document [Monitoring - Get Spark Job List](https://docs.microsoft.com/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
+To get list of spark applications for a Synapse workspace, you can follow this document [Monitoring - Get Spark Job List](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
 
 
 ### 3. Collect spark application metrics with the Prometheus or REST APIs

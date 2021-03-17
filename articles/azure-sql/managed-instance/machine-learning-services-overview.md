@@ -11,7 +11,7 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 10/29/2020
+ms.date: 03/17/2021
 ---
 
 # Machine Learning Services in Azure SQL Managed Instance
