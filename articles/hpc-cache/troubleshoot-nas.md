@@ -59,7 +59,7 @@ Different storage systems use different methods to enable this access:
 If using export rules, remember that the cache can use multiple different IP addresses from the cache subnet. Allow access from the full range of possible subnet IP addresses.
 
 > [!NOTE]
-> By default, Azure HPC Cache squashes root access. Read [Configure additional cache settings](configuration.md#configure-root-squash) for details.
+> Although the cache needs root access to the back-end storage system, you can restrict access for clients that connect through the cache. Read [Control client access](access-policies.md#root-squash) for details.
 
 Work with your NAS storage vendor to enable the right level of access for the cache.
 

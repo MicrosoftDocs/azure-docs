@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -74,7 +74,7 @@ pip install azure-communication-identity
 ```python
 from azure.communication.chat import ChatClient
 from azure.communication.identity._shared.user_credential import CommunicationTokenCredential
-from azure.communication.identity._shared.user_token_refresh_options import CommunicationTokenRefreshOptions
+from azure.communication.chat._shared.user_token_refresh_options import CommunicationTokenRefreshOptions
 
 endpoint = "https://<RESOURCE_NAME>.communication.azure.com"
 refresh_options = CommunicationTokenRefreshOptions(<Access Token>)
@@ -178,10 +178,8 @@ An iterator of `[ChatThreadInfo]` is the response returned from listing threads
 
 ```python
 from datetime import datetime, timedelta
-import pytz
 
 start_time = datetime.utcnow() - timedelta(days=2)
-start_time = start_time.replace(tzinfo=pytz.utc)
 
 chat_thread_infos = chat_client.list_chat_threads(results_per_page=5, start_time=start_time)
 for chat_thread_info_page in chat_thread_infos.by_page():
@@ -266,10 +264,8 @@ An iterator of `[ChatMessage]` is the response returned from listing messages
 
 ```python
 from datetime import datetime, timedelta
-import pytz
 
 start_time = datetime.utcnow() - timedelta(days=1)
-start_time = start_time.replace(tzinfo=pytz.utc)
 
 chat_messages = chat_thread_client.list_messages(results_per_page=1, start_time=start_time)
 for chat_message_page in chat_messages.by_page():
@@ -467,7 +463,8 @@ def decide_to_retry(error, **kwargs):
 # verify if all users has been successfully added or not
 # in case of partial failures, you can retry to add all the failed participants 
 retry = [p for p, e in response if decide_to_retry(e)]
-chat_thread_client.add_participants(retry)
+if len(retry) > 0:
+    chat_thread_client.add_participants(retry)
 ```
 
 
