@@ -112,9 +112,9 @@ IoT Hub, a connection string will be generated for the device.
  
 Replace `<device connection string>` with your connection string
  ```markdown
-	echo "connection_string=<device connection string>" > adu-conf.txt  
-	echo "aduc_manufacturer=ADUTeam" >> adu-conf.txt
-	echo "aduc_model=RefDevice" >> adu-conf.txt
+	echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
+	echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
+	echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
    ```
 
 ## Connect the device in Device Update IoT Hub
