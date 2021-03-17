@@ -93,8 +93,6 @@ OSM provides the following set of capabilities:
 
 - Integration with external certificate management services/solutions with a pluggable interface
 
--
-
 ## Scenarios
 
 OSM can assist your AKS deployments with the following scenarios:
