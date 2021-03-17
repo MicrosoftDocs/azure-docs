@@ -11,9 +11,11 @@ ms.date: 03/18/2021
 ms.custom: devx-track-js
 ---
 
-# 2. Deploy the search-enabled website
+# 3. Deploy the search-enabled website
 
-Deploy the search-enabled website as an Azure Static web app. This means both the React app and the Function app are deployed 
+Deploy the search-enabled website as an Azure Static web app. This deployment includes both the React app and the Function app.  
+
+The Static Web app pulls the information and files for deployment from GitHub using your fork of the samples repository.  
 
 ## Create a Static Web App in Visual Studio Code
 
@@ -30,7 +32,7 @@ Deploy the search-enabled website as an Azure Static web app. This means both th
     |Choose organization|Select your _own_ GitHub alias as the organization.|
     |Choose repository|Select **azure-search-javascript-samples** from the list. |
     |Choose branch of repository|Select **master** from the list. |
-    |Enter the name for the new static web app.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-javascript-samples`. |
+    |Enter the name for the new static web app.|Create a unique name for your service resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-javascript-samples`. |
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
     |Choose build preset to configure default project structure.|Select **Custom**|
     |Select the location of your application code|`search-website`|
@@ -38,7 +40,7 @@ Deploy the search-enabled website as an Azure Static web app. This means both th
     |Enter the path of your build output...|build|
     |Select a location for new resources.|Select a region close to you.|
 
-1. The resource is created, select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 
+1. The service resource is created, select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 
 
     The list of actions indicates your web app, both client and functions, were successfully pushed to your Azure static web app. 
 
@@ -48,9 +50,9 @@ Deploy the search-enabled website as an Azure Static web app. This means both th
 
 1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
 
-1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**. 
+1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search service resource and select **Copy Query Key**. 
 
-    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**.":::
+    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search service resource and select **Copy Query Key**.":::
 
 1. Keep this query key, you will need to use it in the next section. The query key is able to query your Index. 
 
@@ -66,10 +68,10 @@ The Azure Function app won't return Search data until the Search secrets are in 
 
 1. Add the following settings:
 
-    |Setting|Your Search resource value|
+    |Setting|Your Search service resource value|
     |--|--|
     |SearchApiKey|Your Search query key|
-    |SearchServiceName|Your Search resource name|
+    |SearchServiceName|Your Search service resource name|
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
 
@@ -85,15 +87,15 @@ The Azure Function app won't return Search data until the Search secrets are in 
 1. In the website search bar, enter a search query such as `code`, _slowly_ so the suggest feature suggests book titles. Select a suggestion or continue entering your own query. Press enter when you've completed your search query. 
 1. Review the results then select one of the books to see more details. 
 
-## Clean up resources
+## Clean up service resources
 
-To clean up the resources created in this tutorial, delete the resource group.
+To clean up the service resources created in this tutorial, delete the resource group.
 
 1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
 
 1. In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and find the resource group you created for this tutorial.
 1. Right-click the resource group name then select **Delete**.
-    This deletes both the Search and Static web app resources
+    This deletes both the Search and Static web app service resources.
 1. If you no longer want the GitHub fork of the sample, remember to delete that on GitHub. Go to your fork's **Settings** then delete the fork. 
 
 

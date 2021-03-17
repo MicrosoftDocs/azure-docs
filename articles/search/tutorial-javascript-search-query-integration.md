@@ -22,7 +22,7 @@ The Function app uses the Azure SDK for Cognitive Search:
 * NPM: [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
 * Reference Documentation: [Client Library](/javascript/api/overview/azure/search-documents-readme)
 
-The Function app authenticates through the SDK to the cloud-based Search API using the Search resource name, resource key, and index name. The secrets are stored in the Static Web App settings and pulled in to the Function as environment variables. 
+The Function app authenticates through the SDK to the cloud-based Search API using the Search service resource name, resource key, and index name. The secrets are stored in the Static Web App settings and pulled in to the Function as environment variables. 
 
 ## Configure secrets in a configuration file
 
@@ -38,7 +38,7 @@ The Azure Function pulls in the Search configuration information, and fulfills t
 
 :::code language="javascript" source="~/azure-search-javascript-samples/search-website/api/Search/index.js" highlight="4-9, 75" :::
 
-### Client: Search from the catalog
+## Client: Search from the catalog
 
 Call the Azure Function in the React client with the following code. 
 

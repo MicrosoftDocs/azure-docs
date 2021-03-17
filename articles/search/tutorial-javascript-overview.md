@@ -61,6 +61,8 @@ Install the following for your local development environment.
 
 ## Fork and clone the Search sample with git
 
+Forking the sample repository is critical to be able to deploy the Static web app. Azure Static web apps determine the build actions and deployment content based on your own GitHub fork location.
+
 1. On GitHub, fork the [sample repository](https://github.com/Azure-Samples/azure-search-javascript-samples). 
 
     Complete the fork process in your web browser with your GitHub account. This tutorial uses your fork as part of the deployment to an Azure Static Web app. 
@@ -83,9 +85,9 @@ Install the following for your local development environment.
     :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and select **Create resource group**.":::
 1. Enter a resource group name, such as `cognitive-search-website-tutorial`. 
 1. Select a location close to you.
-1. When you create the Search and Static web app resources, later in the tutorial, use this resource group. 
+1. When you create the Search and Static web app service resources, later in the tutorial, use this resource group. 
 
-    Creating a resource group gives you a logical unit to manage the resources, including deleting them when you are finished using them.
+    Creating a resource group gives you a logical unit to manage the service resources, including deleting them when you are finished using them.
 
 ## Next steps
 
