@@ -970,7 +970,11 @@ For more information, see <a href="https://docs.microsoft.com/objectivec/cogniti
 }];
 ```
 
------
+# [Swift](#tab/swift)
+
+For more information, see <a href="https://docs.microsoft.com/swift/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
+
+---
 
 ## Next steps
 
