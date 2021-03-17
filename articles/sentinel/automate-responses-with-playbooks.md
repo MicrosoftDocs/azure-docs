@@ -69,14 +69,14 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 #### Azure roles for Logic Apps
 
-- **Logic App Contributor** lets you manage logic apps, but you can't change access to them.
+- **Logic App Contributor** lets you manage logic apps and run playbooks, but you can't change access to them (for that you need the **Owner** role).
 - **Logic App Operator**  lets you read, enable, and disable logic apps, but you can't edit or update them.
 
 #### Azure roles for Sentinel
 
 - **Azure Sentinel Contributor** role lets you attach a playbook to an analytics rule.
 - **Azure Sentinel Responder** role lets you run a playbook manually.
-- **Azure Sentinel Automation Contributor** ???
+- **Azure Sentinel Automation Contributor** allows automation rules to run playbooks. It is not used for any other purpose.
 
 #### Learn more
 
@@ -213,7 +213,7 @@ For playbooks that are triggered by incident creation and receive incidents as t
     >
     > When you add the **run playbook** action to an automation rule, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant permission to Azure Sentinel on the spot by selecting the **Manage playbook permissions** link.
     >
-    > In a multi-tenant ([Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)) scenario, you must define the permissions on the tenant where the playbook lives, even if the automation rule calling the playbook is in a different tenant.
+    > In a multi-tenant ([Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)) scenario, you must define the permissions on the tenant where the playbook lives, even if the automation rule calling the playbook is in a different tenant. To do that, you must have **Owner** permissions on the playbook's resource group.
 
 See the [complete instructions for creating automation rules](tutorial-respond-threats-playbook.md#respond-to-incidents).
 

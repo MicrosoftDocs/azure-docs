@@ -158,10 +158,14 @@ To create an automation rule:
 1. If you add a **Run playbook** action, you will be prompted to choose from the drop-down list of available playbooks. Only playbooks that start with the **incident trigger** can be run from automation rules, so only they will appear in the list.
 
     > [!IMPORTANT]
-    > Azure Sentinel must be granted explicit permissions to run playbooks from automation rules. If a playbook appears "grayed out" in the drop-down list, it means Sentinel does not have permission to that playbook's resource group. Click the **Manage playbook permissions** link to assign permissions.
+    > Azure Sentinel must be granted explicit permissions in order to run playbooks from automation rules. If a playbook appears "grayed out" in the drop-down list, it means Sentinel does not have permission to that playbook's resource group. Click the **Manage playbook permissions** link to assign permissions.
     > In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and click **Apply**.
     > :::image type="content" source="./media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Manage permissions":::
-    > - In a multi-tenant deployment, if the playbook you want to run is in a different tenant, you must grant Azure Sentinel permission to run the playbook in the playbook's tenant. ***HOW IS THIS DONE???***
+    > - You yourself must have **owner** permissions on any resource group to which you want to grant Azure Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
+    > - In a multi-tenant deployment, if the playbook you want to run is in a different tenant, you must grant Azure Sentinel permission to run the playbook in the playbook's tenant.
+    >    1. From the Azure Sentinel navigation menu in the playbooks' tenant, select **Settings**.
+    >    1. In the **Settings** blade, select the **Settings** tab, then the **Playbook permissions** expander.
+    >    1. Click the **Configure permissions** button to open the **Manage permissions** panel mentioned above, and continue as described there.
 
 1. Set an expiration date for your automation rule if you want it to have one.
 
