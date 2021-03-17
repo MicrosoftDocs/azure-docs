@@ -49,7 +49,7 @@ RECONFIGURE WITH OVERRIDE;
 
 For details on how this command affects SQL Managed Instance resources, see [Resource Governance](machine-learning-services-differences.md#resource-governance).
 
-### Working in a failover group
+### Enable Machine Learning Services in a failover group
 
 In a [failover group](failover-group-add-instance-tutorial.md), system databases are not replicated to the secondary instance (see [Limitations of failover groups](../database/auto-failover-group-overview.md#limitations-of-failover-groups) for more information).
 
