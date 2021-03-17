@@ -3,7 +3,7 @@ title: Configure continuous deployment
 description: Learn how to enable CI/CD to Azure App Service from GitHub, BitBucket, Azure Repos, or other repos. Select the build pipeline that fits your needs.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
 ---
@@ -112,6 +112,8 @@ You can customize the GitHub Actions build provider in the following ways:
 
 #### Authenticate with a service principal
 
+This optional configuration replaces the default authentication with publishing profiles in the generated workflow file.
+
 1. Generate a service principal with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). In the following example, replace *\<subscription-id>*, *\<group-name>*, and *\<app-name>* with your own values:
 
     ```azurecli-interactive
@@ -155,7 +157,7 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 
 ## More resources
 
-* [Deploy from Azure Pipelines to Azure App Services](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)
+* [Deploy from Azure Pipelines to Azure App Services](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps)
 * [Investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Use Azure PowerShell](/powershell/azure/)
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)

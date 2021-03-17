@@ -28,10 +28,9 @@ Learn how to import a new update into Device Update for IoT Hub. If you haven't 
 
 1. Ensure that your update image file or APT Manifest file is located in a directory accessible from PowerShell.
 
-2. Clone [Device Update for IoT Hub repository](https://github.com/azure/iot-hub-device-update), or download it as a .zip file to
-a location accessible from PowerShell (once the zip file is downloaded, right click for `Properties` > `General` tab > check `Unblock` in the `Security` section to avoid PowerShell security warning prompts).
+2. Create a text file named **AduUpdate.psm1** in the directory where your update image file or APT Manifest file is located. Then open the [AduUpdate.psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) PowerShell cmdlet, copy the contents to your text file, and then save the text file.
 
-3. In PowerShell, navigate to `tools/AduCmdlets` directory and run:
+3. In PowerShell, navigate to the directory where you created your PowerShell cmdlet from step 2. Then run:
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -53,11 +52,11 @@ a location accessible from PowerShell (once the zip file is downloaded, right cl
 
     | Parameter | Description |
     | --------- | ----------- |
-    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso. Must match _manufacturer_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)
-    | deviceModel | Model of the device the update is compatible with, for example, Toaster. Must match _model_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)
+    | deviceManufacturer | Manufacturer of the device the update is compatible with, for example, Contoso. Must match _manufacturer_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties).
+    | deviceModel | Model of the device the update is compatible with, for example, Toaster. Must match _model_ [device property](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties).
     | updateProvider | Entity who is creating or directly responsible for the update. It will often be a company name.
     | updateName | Identifier for a class of updates. The class can be anything you choose. It will often be a device or model name.
-    | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. May or may not match a version of an individual software component on the device.
+    | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. Does not have match a version of an individual software component on the device (but can if you choose).
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
     | installedCriteria | <ul><li>Specify value of SWVersion for `microsoft/swupdate:1` update type</li><li>Specify recommended value for `microsoft/apt:1` update type.
     | updateFilePath(s) | Path to the update file(s) on your computer
@@ -107,6 +106,9 @@ Example:
 ```
 
 ## Import update
+
+[!NOTE]
+The instructions below show how to import an update via the Azure portal UI. You can also use the [Device Update for IoT Hub APIs](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) to import an update. 
 
 1. Log in to the [Azure portal](https://portal.azure.com) and navigate to your IoT Hub with Device Update.
 

@@ -1,13 +1,13 @@
 ---
-title: Tutorial - Create and deploy an Azure VMware Solution private cloud
+title: Tutorial - Deploy an Azure VMware Solution private cloud
 description: Learn how to create and deploy an Azure VMware Solution private cloud
 ms.topic: tutorial
 ms.date: 02/22/2021
 ---
 
-# Tutorial: Create an Azure VMware Solution private cloud
+# Tutorial: Deploy an Azure VMware Solution private cloud
 
-In this tutorial, you'll learn how to create and deploy an Azure VMware Solution private cloud. The minimum initial deployment of hosts is three. Additional hosts can be added one at a time, up to a maximum of 16 hosts per cluster. 
+Azure VMware Solution gives you the ability to deploy a vSphere cluster in Azure. The minimum initial deployment is three hosts. Additional hosts can be added one at a time, up to a maximum of 16 hosts per cluster.
 
 Because Azure VMware Solution doesn't allow you to manage your private cloud with your on-premises vCenter at launch, additional configuration is needed. These procedures and related prerequisites are covered in this tutorial.
 
@@ -43,7 +43,7 @@ Select **Try it** from the upper right corner of a code block. You can also laun
 
 #### Create a resource group
 
-Create a resource group with the `[az group create](/cli/azure/group)` command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with the ['az group create'](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 

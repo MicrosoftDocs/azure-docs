@@ -221,7 +221,7 @@ services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, opt
       // Your code to add extra configuration that will be executed after the current event implementation.
       options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
       options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
-  }
+  };
 });
 ```
 

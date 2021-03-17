@@ -67,32 +67,35 @@ The following example output shows the resource group created successfully:
 
 To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more detailed information to help plan out the required subnet ranges and network considerations, see [configure Azure CNI networking][use-advanced-networking]. Use the [az aks create][az-aks-create] command to create an AKS cluster named *myAKSCluster*. This command will create the necessary network resources if they don't exist.
 
-* The cluster is configured with two nodes
-* The *windows-admin-password* and *windows-admin-username* parameters set the admin credentials for any Windows Server containers created on the cluster and must meet [Windows Server password requirements][windows-server-password].
-* The node pool uses `VirtualMachineScaleSets`
+* The cluster is configured with two nodes.
+* The `--windows-admin-password` and `--windows-admin-username` parameters set the admin credentials for any Windows Server containers created on the cluster and must meet [Windows Server password requirements][windows-server-password]. If you don't specify the *windows-admin-password* parameter, you will be prompted to provide a value.
+* The node pool uses `VirtualMachineScaleSets`.
 
 > [!NOTE]
 > To ensure your cluster to operate reliably, you should run at least 2 (two) nodes in the default node pool.
 
-Provide your own secure *PASSWORD_WIN* (remember that the commands in this article are entered into a BASH shell):
+Create a username to use as administrator credentials for your Windows Server containers on your cluster. The following commands prompt you for a username and set it WINDOWS_USERNAME for use in a later command (remember that the commands in this article are entered into a BASH shell).
 
 ```azurecli-interactive
-PASSWORD_WIN="P@ssw0rd1234"
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
 
+Create your cluster ensuring you specify `--windows-admin-username` parameter. The following example command creates a cluster using the value from *WINDOWS_USERNAME* you set in the previous command. Alternatively you can provide a different username directly in the parameter instead of using *WINDOWS_USERNAME*. The following command will also prompt you to create a password for the administrator credentials for your Windows Server Containers on your cluster. Alternatively, you can use the *windows-admin-password* parameter and specify your own value there.
+
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
     --generate-ssh-keys \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --network-plugin azure
 ```
 
 > [!NOTE]
-> If you get a password validation error, verify the *windows-admin-password* parameter meets the [Windows Server password requirements][windows-server-password]. If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
+> If you get a password validation error, verify the password you set meets the [Windows Server password requirements][windows-server-password]. If your password meets the requirements, try creating your resource group in another region. Then try creating the cluster with the new resource group.
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
