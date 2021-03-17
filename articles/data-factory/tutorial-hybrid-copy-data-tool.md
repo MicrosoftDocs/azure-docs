@@ -123,7 +123,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. After the creation is finished, you see the **Data Factory** page as shown in the image.
 
-     ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 1. Select **Author & Monitor** to launch the Data Factory user interface in a separate tab.
 
 ## Use the Copy Data tool to create a pipeline

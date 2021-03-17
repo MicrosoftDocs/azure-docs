@@ -125,7 +125,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. After the creation is finished, you see the **Data Factory** page as shown in the image:
 
-    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 1. Select the **Author & Monitor** tile to launch the Data Factory UI in a separate tab.
 
 

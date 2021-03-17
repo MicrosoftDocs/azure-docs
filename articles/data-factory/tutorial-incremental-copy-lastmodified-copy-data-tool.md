@@ -68,7 +68,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 9. After the data factory is created, the data factory home page appears.
 10. To open the Azure Data Factory user interface (UI) on a separate tab, select the **Author & Monitor** tile:
 
-    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
 
 ## Use the Copy Data tool to create a pipeline
 
