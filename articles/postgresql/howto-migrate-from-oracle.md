@@ -1,5 +1,5 @@
 ---
-title: Migrate Oracle 
+title: Migrate from Oracle 
 description: This guide teaches you to migrate your Oracle schema to Azure Database for PostgreSQL. 
 author: sr-msft
 ms.author: srranga
@@ -10,7 +10,6 @@ ms.date: 03/18/2021
 ---
 
 # Migrate Oracle to Azure Database for PostgreSQL
-[!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server-hyperscale.md)][!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
 
 This guide teaches you to migrate your Oracle schema to Azure Database for PostgreSQL. 
 
@@ -27,7 +26,7 @@ To migrate your Oracle schema to Azure Database for PostgreSQL, you need to:
 
 ## Overview
 
-PostgreSQL is one of world’s most advanced open source databases. This article describes how to use the free ora2pg utility to migrate an Oracle database to PostgreSQL. You can use ora2pg, a free tool, to migrate an Oracle or MySQL database to a PostgreSQL compatible schema. The utility connects your Oracle database, scans it automatically, and extracts its structure or data. Afterwards ora2pg generates SQL scripts that you can load into your PostgreSQL database. ora2pg can be used for tasks from reverse engineering an Oracle database, performing a huge enterprise database migration, or simply replicating some Oracle data into a PostgreSQL database. It’s easy to use and doesn't require any Oracle database knowledge other than the ability to provide the parameters needed to connect to the Oracle database.
+PostgreSQL is one of world's most advanced open source databases. This article describes how to use the free ora2pg utility to migrate an Oracle database to PostgreSQL. You can use ora2pg, a free tool, to migrate an Oracle or MySQL database to a PostgreSQL compatible schema. The utility connects your Oracle database, scans it automatically, and extracts its structure or data. Afterwards ora2pg generates SQL scripts that you can load into your PostgreSQL database. ora2pg can be used for tasks from reverse engineering an Oracle database, performing a huge enterprise database migration, or simply replicating some Oracle data into a PostgreSQL database. It's easy to use and doesn't require any Oracle database knowledge other than the ability to provide the parameters needed to connect to the Oracle database.
 
 > [!NOTE]
 > For more information about using the latest version of ora2pg, see the [ora2pg documentation](https://ora2pg.darold.net/documentation.html).
@@ -46,14 +45,14 @@ After provisioning the VM and Azure Database for PostgreSQL, two configurations 
 
 - To improve the performance of the assessment or export operations in the Oracle server, collect statistics as following:
 
-```
-BEGIN
-
-  DBMS_STATS.GATHER_SCHEMA_STATS
-  DBMS_STATS.GATHER_DATABASE_STATS
-  DBMS_STATS.GATHER_DICTIONARY_STATS
-  END;
-```
+   ```
+   BEGIN
+   
+     DBMS_STATS.GATHER_SCHEMA_STATS
+     DBMS_STATS.GATHER_DATABASE_STATS
+     DBMS_STATS.GATHER_DICTIONARY_STATS
+     END;
+   ```
 
 - Export data using the COPY command instead of INSERT.
 
@@ -71,7 +70,7 @@ After verifying that your source environment is supported and ensuring that you 
 
 ### Discover
 
-The goal of the Discover phase is to identify existing data sources and details about the features that are being used to get a better understanding of and plan for the migration. This process involves scanning the network to identify all your organization’s Oracle instances together with the version and features in use.
+The goal of the Discover phase is to identify existing data sources and details about the features that are being used to get a better understanding of and plan for the migration. This process involves scanning the network to identify all your organization's Oracle instances together with the version and features in use.
 
 Microsoft Oracle pre-assessment scripts run against the Oracle database. The Pre-assessment script are a set of queries that hits the Oracle metadata and provides the following:
 
@@ -150,12 +149,12 @@ This feature has been developed to help deciding which database could be migrate
 
 With minimal-downtime migrations, the source you are migrating continues to change, drifting from the target in terms of data and schema, after the one-time migration occurs. During the **Data sync** phase, you need to ensure that all changes in the source are captured and applied to the target in near real time. After you verify that all changes in source have been applied to the target, you can cutover from the source to the target environment.
 
-In this step of the migration, the conversion or translation of the Oracle Code + DDLS to PostgreSQL occurs. The ora2pg tool exports the Oracle objects in a PostgreSQL format automatically. For those objects generated, some won’t compile in the PostgreSQL database without manual changes.  
+In this step of the migration, the conversion or translation of the Oracle Code + DDLS to PostgreSQL occurs. The ora2pg tool exports the Oracle objects in a PostgreSQL format automatically. For those objects generated, some won't compile in the PostgreSQL database without manual changes.  
 The process of understanding which elements need manual intervention consists in compiling the files generated by ora2pg against the PostgreSQL database, checking the log and making the necessary changes until all the schema structure is compatible with PostgreSQL syntax.
 
 1.  First, it is recommended to create the migration template that is provided out of the box with ora2pg. The two options --project_base and --init_project when used indicate to ora2pg that it has to create a project template with a work tree, a configuration file and a script to export all objects from the Oracle database. For further information, consult the [ora2pg documentation](https://ora2pg.darold.net/documentation.html).
 
-The command is executed show in the following example:
+   The command is executed show in the following example:
 
    ```
    ora2pg --project_base /app/migration/ --init_project test_project
@@ -171,11 +170,11 @@ The command is executed show in the following example:
    Creating script import_all.sh to automate all imports.
    ```
 
-  ```
-  The sources/ directory contains the Oracle code, the schema/ directory contains the code ported to PostgreSQL. The reports/ directory contains the html reports with the   migration cost assessment.
-  
-  After the project structure is created, a generic config file is created. Define the Oracle database connection as well as the relevant config parameters in the config. Refer   to the ora2pg documentation to understand what can be configured in the config file and how.
-  ```
+   ```
+   The sources/ directory contains the Oracle code, the schema/ directory contains the code ported to PostgreSQL. The reports/ directory contains the html reports with the    migration cost assessment.
+   
+   After the project structure is created, a generic config file is created. Define the Oracle database connection as well as the relevant config parameters in the config.  Refer   to the ora2pg documentation to understand what can be configured in the config file and how.
+   ```
 
 2.  Next, export the Oracle objects as PostgreSQL objects by running the file export_schema.sh.
 
@@ -208,7 +207,7 @@ The command is executed show in the following example:
    %namespace%/config/ora2pg.conf ora2pg -p -t TYPE -o types.sql -b %namespace%/schema/types -c %namespace%/config/ora2pg.conf ora2pg -p -t VIEW -o views.sql -b %namespace%/   schema/views -c %namespace%/config/ora2pg.conf
    ```
 
-To extract the data, use the following command:
+   To extract the data, use the following command:
 
    ```
    ora2pg -t COPY -o data.sql -b %namespace/data -c %namespace/config/ora2pg.conf
