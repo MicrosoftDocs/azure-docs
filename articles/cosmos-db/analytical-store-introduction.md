@@ -76,7 +76,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 * You can have a maximum of 1000 properties at any nesting level in the schema and a maximum nesting depth of 127.
   * Only the first 1000 properties are represented in the analytical store.
-  * Only the fist 127 nested levels are represented in the analytical store.
+  * Only the first 127 nested levels are represented in the analytical store.
 
 * While JSON documents (and Cosmos DB collections/containers) are case sensitive, analytical store is not. 
   * Property names in the same level should be unique when compared case insensitively. For example, the following properties, in the same level of the same document, do not satisfy this constraint and hence will not be fully represented in the analytical store:
