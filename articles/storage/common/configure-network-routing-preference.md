@@ -91,7 +91,7 @@ To change your routing preference to Internet routing:
 
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
-3. To change your routing preference to Internet routing, use the [az storage account update](/azure/storage/account#az-storage-account-update) command and set the `--routing-choice` parameter to `InternetRouting`.
+3. To change your routing preference to Internet routing, use the [az storage account update](/cli/azure/storage/account#az_storage_account_update) command and set the `--routing-choice` parameter to `InternetRouting`.
 
    ```azurecli
    az storage account update --name <storage-account-name> --routing-choice InternetRouting
