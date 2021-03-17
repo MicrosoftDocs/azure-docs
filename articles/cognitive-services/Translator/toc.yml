@@ -1,9 +1,11 @@
 - name: Translator Service Documentation
   href: index.yml
-- name: Translator Service
+- name: Translator Overview
   items:
   - name: What is Translator?
-    href: translator-info-overview.md 
+    href: translator-info-overview.md
+  - name: Quickstart
+    href: quickstart-translator.md   
   - name: Language Support
     href: language-support.md
   - name: Pricing and limits
@@ -12,8 +14,6 @@
     href: https://www.microsoft.com/translator/faq.aspx 
 - name: Text Translation
   items:
-  - name: Quickstart
-    href: quickstart-translator.md
   - name: Samples
     items:
     - name: Code Sample page
@@ -52,52 +52,22 @@
     items:
     - name: How the API counts characters
       href: character-counts.md
-  - name: Text Translator tutorials
+  - name: Tutorials
     items:
     - name: Create a WPF app for Translator, C#
       href: tutorial-wpf-translation-csharp.md
     - name: Create a Flask translation app, Python
       href: tutorial-build-flask-app-translation-synthesis.md 
-    - name: Reference
-      items:
-      - name: v3 Translator reference
-        href: reference/v3-0-reference.md
-      - name: Languages
-        href: reference/v3-0-languages.md
-      - name: Regional availability
-        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-      - name: Request limits
-        href: request-limits.md
-      - name: Translate
-        href: reference/v3-0-translate.md
-      - name: Transliterate
-        href: reference/v3-0-transliterate.md
-      - name: Detect
-        href: reference/v3-0-detect.md
-      - name: BreakSentence
-        href: reference/v3-0-break-sentence.md
-      - name: Dictionary Lookup
-        href: reference/v3-0-dictionary-lookup.md
-      - name: Dictionary Examples
-        href: reference/v3-0-dictionary-examples.md
-    - name: Resources
-      items:
-      - name: Support & help options
-        href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
-      - name: Compliance
-        href: https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy
-      - name: Code samples on GitHub
-        href: https://aka.ms/TranslatorGitHub   
 - name: Custom Translator
   items:
   - name: What is the Custom Translator?
     href: custom-translator/overview.md
-  - name: Glossary
-    href: custom-translator/glossary.md  
-  - name: FAQ
-    href: custom-translator/faq.md
   - name: Quickstart
     href: custom-translator/quickstart-build-deploy-custom-model.md 
+  - name: Terminology
+    href: custom-translator/terminology.md  
+  - name: FAQ
+    href: custom-translator/faq.md
   - name: How-to guides
     items:
     - name: Create a project
@@ -154,4 +124,33 @@
         href: document-translation/create-sas-tokens.md 
       - name: Document Translation REST API
         href: /rest/api/cognitiveservices/translator/translation   
-
+- name: Reference
+  items:
+  - name: v3 Translator reference
+    href: reference/v3-0-reference.md
+  - name: Languages
+    href: reference/v3-0-languages.md
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Request limits
+    href: request-limits.md
+  - name: Translate
+    href: reference/v3-0-translate.md
+  - name: Transliterate
+    href: reference/v3-0-transliterate.md
+  - name: Detect
+    href: reference/v3-0-detect.md
+  - name: BreakSentence
+    href: reference/v3-0-break-sentence.md
+  - name: Dictionary Lookup
+    href: reference/v3-0-dictionary-lookup.md
+  - name: Dictionary Examples
+    href: reference/v3-0-dictionary-examples.md
+- name: Resources
+  items:
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
+  - name: Compliance
+    href: https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy
+  - name: Code samples on GitHub
+    href: https://aka.ms/TranslatorGitHub   
