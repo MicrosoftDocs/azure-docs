@@ -53,7 +53,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-1. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authenticate your requests.
+1. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authorize your requests.
 
     :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Screenshot of a local console window showing the result of the az account get-access-token command. One of the fields in the result is called accessToken and its sample value--beginning with ey--is highlighted.":::
 
@@ -64,7 +64,7 @@ Next, you'll set up Postman to use this token to make API requests to Azure Digi
 
 ## About Postman collections
 
-Requests in Postman are saved in **collections** (groups of requests). When you create a collection to group your requests, you can apply common settings to many requests at once. This can greatly simplify authorization if you plan to create more than one request against the Azure Digital Twins APIs, as you only have to configure authentication once for the entire collection.
+Requests in Postman are saved in **collections** (groups of requests). When you create a collection to group your requests, you can apply common settings to many requests at once. This can greatly simplify authorization if you plan to create more than one request against the Azure Digital Twins APIs, as you only have to configure these details once for the entire collection.
 
 When working with Azure Digital Twins, you can import the Swagger (also known as OpenAPI) file as a [pre-built collection of all the Azure Digital Twins requests](#import-collection-of-azure-digital-twins-apis). You may want to do this if you're exploring the APIs and want to quickly set up a project with an example of every request type.
 
@@ -228,7 +228,7 @@ To proceed with an example query, this article will use the Query API (and its [
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Screenshot of the new request's details in Postman. The query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman/postman-request-url.png":::
     
 1. Check that the parameters shown for the request in the **Params** tab match those described in the reference documentation. For this request in Postman, the `api-version` parameter was automatically filled when the request URL was entered in the previous step. For the Query API, this is the only required parameter, so this step is done.
-1. In the **Authorization** tab, set the Type to **Inherit auth from parent**. This indicates that this request will use the authentication you set up earlier for the entire collection.
+1. In the **Authorization** tab, set the Type to **Inherit auth from parent**. This indicates that this request will use the authorization you set up earlier for the entire collection.
 1. Check that the headers shown for the request in the **Headers** tab match those described in the reference documentation. For this request, several headers have been automatically filled. For the Query API, none of the header options are required, so this step is done.
 1. Check that the body shown for the request in the **Body** tab matches the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example body for this request that queries for all the digital twins in the instance:
 
