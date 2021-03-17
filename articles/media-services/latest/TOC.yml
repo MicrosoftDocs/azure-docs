@@ -223,7 +223,7 @@
       - name: Monitor with Event Grid
         items:
         - name: Events with Event Grid
-          href: reacting-to-media-services-events.md  
+          href: monitoring/reacting-to-media-services-events.md  
         - name: Event Grid schemas
           href: media-services-event-schemas.md              
   - name: Compatible players
@@ -400,9 +400,9 @@
   - name: Use Azure Monitor
     items:
     - name: Monitor metrics
-      href: media-services-metrics-howto.md
+      href: monitoring/media-services-metrics-howto.md
     - name: Monitor diagnostic logs
-      href: media-services-diagnostic-logs-howto.md
+      href: monitoring/media-services-diagnostic-logs-howto.md
   - name: Protect content
     items:
     - name: Get content key policy
