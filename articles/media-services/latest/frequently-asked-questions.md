@@ -87,8 +87,8 @@ You can monitor live events by subscribing to Azure Event Grid events. For more 
 
 You can either:
 
-* [Subscribe](reacting-to-media-services-events.md) to the stream-level [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) events and monitor that no reconnections come in for a while to stop and delete your live event.
-* [Subscribe](reacting-to-media-services-events.md) to the track-level [heartbeat](media-services-event-schemas.md#liveeventingestheartbeat) events. If all tracks have an incoming bitrate dropping to 0 or the last time stamp is no longer increasing, you can safely shut down the live event. The heartbeat events come in at every 20 seconds for every track, so it might be a bit verbose.
+* [Subscribe](monitoring/reacting-to-media-services-events.md) to the stream-level [Microsoft.Media.LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) events and monitor that no reconnections come in for a while to stop and delete your live event.
+* [Subscribe](monitoring/reacting-to-media-services-events.md) to the track-level [heartbeat](media-services-event-schemas.md#liveeventingestheartbeat) events. If all tracks have an incoming bitrate dropping to 0 or the last time stamp is no longer increasing, you can safely shut down the live event. The heartbeat events come in at every 20 seconds for every track, so it might be a bit verbose.
 
 ###  How do I insert breaks/videos and image slates during a live stream?
 
