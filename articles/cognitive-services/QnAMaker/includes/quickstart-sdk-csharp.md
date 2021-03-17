@@ -152,7 +152,7 @@ We use subscription key and authoring key interchangably. For more details on au
 
 - Create environment variables named QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT, and QNA_MAKER_RUNTIME_ENDPOINT to store these values.
 - The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
-- The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`. After publishing the knowledgebase, you can find the runtime endpoint in the published KB details as shown below.
+- The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`. After publishing the knowledgebase in the QnA Maker portal, you can find the runtime endpoint as shown below.
   
   ![QnA Maker Runtime Endpoint](../media/endpoint.png)
       
