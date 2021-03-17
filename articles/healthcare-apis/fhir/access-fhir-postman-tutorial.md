@@ -44,7 +44,7 @@ Finally, you should check that `https://www.getpostman.com/oauth2/callback` is a
 
 ## Connect to FHIR server
 
-Open Postman, and then click **GET** to make a request to `https://fhir-server-url/metadata`.
+Open Postman, and then select **GET** to make a request to `https://fhir-server-url/metadata`.
 
 ![Postman Metadata Capability Statement](media/tutorial-postman/postman-metadata.png)
 
@@ -57,11 +57,11 @@ If you attempt to access restricted resources, an "Authentication failed" respon
 ![Authentication Failed](media/tutorial-postman/postman-authentication-failed.png)
 
 ## Obtaining an access token
-To obtain a valid access token, click **Authorization** and select **OAuth 2.0** from the **TYPE** drop-down menu.
+To obtain a valid access token, select **Authorization** and select **OAuth 2.0** from the **TYPE** drop-down menu.
 
 ![Set OAuth 2.0](media/tutorial-postman/postman-select-oauth2.png)
 
-Click **Get New Access Token**.
+Select **Get New Access Token**.
 
 ![Request New Access Token](media/tutorial-postman/postman-request-token.png)
 
@@ -80,17 +80,17 @@ In the **Get New Access Token** dialog box, enter the following details:
 |                 |                                                                                                             |                            |
 | Client Authentication | Send client credentials in body                                                                                 |                 
 
-Click **Request Token** to be guided through the Azure Active Directory Authentication flow, and a token will be returned to Postman. If an authentication failure occurs, refer to the Postman Console for more details. **Note**: On the ribbon, click **View**, and then select **Show Postman Console**. The keyboard shortcut to the Postman Console is **Alt-Ctrl+C**.
+Select **Request Token** to be guided through the Azure Active Directory Authentication flow, and a token will be returned to Postman. If an authentication failure occurs, refer to the Postman Console for more details. **Note**: On the ribbon, select **View**, and then select **Show Postman Console**. The keyboard shortcut to the Postman Console is **Alt-Ctrl+C**.
 
-Scroll down to view the returned token screen, and then click **Use Token**.
+Scroll down to view the returned token screen, and then select **Use Token**.
 
 ![Use Token](media/tutorial-postman/postman-use-token.png)
 
-Refer to the **Access Token** field to view the newly populated token. If you click **Send** to repeat the `Patient` resource search, a **Status** `200 OK` gets returned. A returned status `200 OK` indicates a successful HTTP request.
+Refer to the **Access Token** field to view the newly populated token. If you select **Send** to repeat the `Patient` resource search, a **Status** `200 OK` gets returned. A returned status `200 OK` indicates a successful HTTP request.
 
 ![200 OK](media/tutorial-postman/postman-200-OK.png)
 
-In the *Patient search* example, there are no patients in the database; such as, the search result is empty.
+In the *Patient search* example, there are no patients in the database such that the search result is empty.
 
 You can inspect the access token using a tool like [jwt.ms](https://jwt.ms). An example of the content is shown below.
 
@@ -120,11 +120,11 @@ It's also possible to get a token for the [Azure API for FHIR using the Azure CL
 
 ## Inserting a patient
 
-With a valid access token, you can now insert a new patient. In Postman, change the method by clicking **Post**, and then add the following JSON document in the body of the request.
+With a valid access token, you can now insert a new patient. In Postman, change the method by selecting **Post**, and then add the following JSON document in the body of the request.
 
 [!code-json[](../samples/sample-patient.json)]
 
-Click **Send** to determine that the patient is successfully created.
+Select **Send** to determine that the patient is successfully created.
 
 ![Screenshot that shows that the patient is successfully created.](media/tutorial-postman/postman-patient-created.png)
 
