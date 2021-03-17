@@ -32,8 +32,8 @@ Create a new Search resource with the [Azure Cognitive Search](https://marketpla
     |Prompt|Enter|
     |--|--|
     |Enter a globally unique name for the new Search Service.|**Remember this name**. This resource name becomes part of your resource endpoint.|
-    |Select a resource group for new resources|Create a new resource group. Deleting all resources created in this tutorial is easy if they are all in a single resource group.|
-    |Select the SKU for your search service.|Select **Free** for this tutorial. You can't change a SKU pricing tier after the service is created.|
+    |Select a resource group for new resources|Use the resource group you created for this tutorial.|
+    |Select the SKU for your Search service.|Select **Free** for this tutorial. You can't change a SKU pricing tier after the service is created.|
     |Select a location for new resources.|Select a region close to you.|
 
 1. After you complete the prompts, your new Search resource is created. 

@@ -31,7 +31,7 @@ Deploy the search-enabled website as an Azure Static web app. This means both th
     |Choose repository|Select **azure-search-javascript-samples** from the list. |
     |Choose branch of repository|Select **master** from the list. |
     |Enter the name for the new static web app.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-javascript-samples`. |
-    |Select a resource group for new resources.|Select the same resource group where you created your Search resource.|
+    |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
     |Choose build preset to configure default project structure.|Select **Custom**|
     |Select the location of your application code|`search-website`|
     |Select the location of your Azure Function code|`search-website/api`|
@@ -67,14 +67,22 @@ The Azure Function app won't return Search data until the Search secrets are in 
 1. Add the following settings:
 
     |Setting|Your Search resource value|
-    |--|--|--|
-    |SearchApiKey|Your query key|
-    |SearchServiceName|Your resource name|
+    |--|--|
+    |SearchApiKey|Your Search query key|
+    |SearchServiceName|Your Search resource name|
     |SearchIndexName|`good-books`|
-    |SearchFacets|authors*,language_code|authors*,language_code|
+    |SearchFacets|`authors*,language_code|authors*,language_code`|
 
-## Test Search in your Static web app
+## Use website Search in your Static web app
 
+1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon.
+1. In the Side bar, **right-click on your Azure subscription** under the `Static web apps` area and find the Static web app you created for this tutorial.
+1. Right-click the static web app name and select **Browse site**.
+    
+    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="v":::    
+1. Select **Open** in the pop-up dialog.
+1. In the website search bar, enter a search query such as `code`, _slowly_ so the suggest feature suggests book titles. Select a suggestion or continue entering your own query. Press enter when you've completed your search query. 
+1. Review the results then select one of the books to see more details. 
 
 ## Clean up resources
 
@@ -82,7 +90,10 @@ To clean up the resources created in this tutorial, delete the resource group.
 
 1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
 
-1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Delete**. 
+1. In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and find the resource group you created for this tutorial.
+1. Right-click the resource group name then select **Delete**.
+    This deletes both the Search and Static web app resources
+1. If you no longer want the GitHub fork of the sample, remember to delete that on GitHub. Go to your fork's **Settings** then delete the fork. 
 
 
 ## Next steps

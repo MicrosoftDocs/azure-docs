@@ -76,6 +76,17 @@ Install the following for your local development environment.
 
 1. In Visual Studio Code, open your local folder of the cloned repository. The remaining tasks are accomplished from Visual Studio Code, unless specified.
 
+## Create a resource group for your Azure resources
+
+1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon. 
+1. In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and select **Create resource group**.
+
+    :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and select **Create resource group**.":::
+1. Enter a resource group name, such as `cognitive-search-website-tutorial`. 
+1. When you create the Search and Static web app resources, later in the tutorial, use this resource group. 
+
+    Creating a resource group gives you a logical unit to manage the resources, including deleting them when you are finished using them.
+
 ## Next steps
 
 * [Create a Search Index and load with documents](tutorial-javascript-create-load-index.md)
