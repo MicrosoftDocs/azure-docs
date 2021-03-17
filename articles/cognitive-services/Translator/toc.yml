@@ -1,10 +1,11 @@
 - name: Translator Documentation
   href: index.yml
-- name: Translation Overview
   expanded: true
   items:
   - name: What is Translator?
     href: translator-info-overview.md
+- name: Translation Overview
+  items:
   - name: Language Support
     href: language-support.md
   - name: Pricing and limits
