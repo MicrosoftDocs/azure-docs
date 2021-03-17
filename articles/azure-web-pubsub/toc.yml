@@ -17,7 +17,7 @@
   - name: Develop
     items:
     - name: Create instance
-      href: web-pubsub-quickstart-serverless.md
+      href: web-pubsub-howto-create-instance.md
 
 - name: Resources
   items:
