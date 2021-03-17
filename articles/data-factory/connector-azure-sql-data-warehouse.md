@@ -515,7 +515,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
    4. `nullValue` is left as default or set to **empty string** (""), and `treatEmptyAsNull` is left as default or set to true.
    5. `encodingName` is left as default or set to **utf-8**.
    6. `quoteChar`, `escapeChar`, and `skipLineCount` aren't specified. PolyBase support skip header row, which can be configured as `firstRowAsHeader` in ADF.
-   7. `compression` can be **no compression**, **GZip**, or **Deflate**.
+   7. `compression` can be **no compression**, **``GZip``**, or **Deflate**.
 
 3. If your source is a folder, `recursive` in copy activity must be set to true.
 
@@ -704,7 +704,7 @@ Using COPY statement supports the following configuration:
 
 2. Format settings are with the following:
 
-   1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **GZip**.
+   1. For **Parquet**: `compression` can be **no compression**, **Snappy**, or **``GZip``**.
    2. For **ORC**: `compression` can be **no compression**, **```zlib```**, or **Snappy**.
    3. For **Delimited text**:
       1. `rowDelimiter` is explicitly set as **single character** or "**\r\n**", the default value is not supported.
@@ -712,7 +712,7 @@ Using COPY statement supports the following configuration:
       3. `encodingName` is left as default or set to **utf-8 or utf-16**.
       4. `escapeChar` must be same as `quoteChar`, and is not empty.
       5. `skipLineCount` is left as default or set to 0.
-      6. `compression` can be **no compression** or **GZip**.
+      6. `compression` can be **no compression** or **``GZip``**.
 
 3. If your source is a folder, `recursive` in copy activity must be set to true, and `wildcardFilename` need to be `*`. 
 
