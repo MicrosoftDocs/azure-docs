@@ -158,7 +158,7 @@ To configure Start VM on Connect using PowerShell:
 
 Follow the instructions in [Create or update a host pool](/rest/api/desktopvirtualization/hostpools/createorupdate) with the following property:
 
-| Name  | Required? | Type | Description     |
+| Name  | Required | Type | Description     |
 |----|---|----|----|
 | `Properties.startVMOnConnect` |   No           | Boolean  | Configure if VM should start from deallocated or stopped state. |
 
