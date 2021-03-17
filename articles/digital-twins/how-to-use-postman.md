@@ -104,7 +104,7 @@ The newly imported collection can now be seen from your main Postman view, in th
 
 Next, continue on to the next section to add a bearer token to the collection for authorization and connect it to your Azure Digital twins instance.
 
-### Configure and finish the collection
+### Configure authorization
 
 Next, edit the collection you've created to configure some access details. Highlight the collection you've created and select the **View more actions** icon to pull up a menu. Select **Edit**.
 
@@ -119,6 +119,8 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 1. Set the Type to **OAuth 2.0**, paste your access token into the Access Token box, and select **Save**.
 
     :::image type="content" source="media/how-to-use-postman/postman-paste-token-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and Access Token box where the access token value can be pasted is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-imported.png":::
+
+### Configure instance variable
 
 Next, help the collection connect to your Azure Digital Twins instance by setting the **baseURL** variable. Because most of the calls in this collection require the URL of your Azure Digital Twins instance, this collection comes with this variable to store that URL. By setting a value for this variable and then using the variable in all of the requests in the collection, you can configure it for the entire set of requests at once.
 
@@ -170,7 +172,7 @@ Instead of importing the existing collection of all Azure Digital Twins APIs, yo
 
 Next, continue on to the next section to add a bearer token to the collection for authorization.
 
-### Configure and finish collection
+### Configure authorization
 
 Follow these steps to add a bearer token to the collection for authorization. This is where you'll use the **token value** you gathered in the [Get bearer token](#get-bearer-token) section in order to use it for all API requests in your collection.
 
