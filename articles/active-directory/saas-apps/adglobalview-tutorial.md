@@ -114,11 +114,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-## Configure ADP Globalview (deprecated) SSO
+## Configure ADP Globalview (Deprecated) SSO
 
 To configure single sign-on on **ADP Globalview (Deprecated)** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [ADP Globalview (Deprecated) support team](https://www.adp.com/contact-us/overview.aspx). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create ADP Globalview (deprecated) test user
+### Create ADP Globalview (Deprecated) test user
 
 In this section, you create a user called B.Simon in ADP Globalview (Deprecated). Work with [ADP Globalview (Deprecated) support team](https://www.adp.com/contact-us/overview.aspx) to add the users in the ADP Globalview (Deprecated) platform. Users must be created and activated before you use single sign-on.
 
