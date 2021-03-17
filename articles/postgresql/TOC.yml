@@ -556,6 +556,8 @@
     items:
     - name: What is Hyperscale (Citus)?
       href: hyperscale-overview.md
+    - name: Features in preview
+      href: hyperscale-preview-features.md
   - name: Quickstart
     items:
     - name: Create server group
