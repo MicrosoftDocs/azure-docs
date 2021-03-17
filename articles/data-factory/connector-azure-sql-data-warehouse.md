@@ -610,7 +610,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 ### Best practices for using PolyBase
 
-The following sections provide best practices in addition to those practices mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql/best-practices-sql-pool.md).
+The following sections provide best practices in addition to those practices mentioned in [Best practices for Azure Synapse Analytics](../synapse-analytics/sql/best-practices-dedicated-sql-pool.md).
 
 #### Required database permission
 
