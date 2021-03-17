@@ -35,8 +35,8 @@
     href: concepts-developer-guide-device.md
   - name: Service developer guide
     href: concepts-developer-guide-service.md
-  - name: Components
-    href: concepts-components.md
+  - name: Modeling guide
+    href: concepts-modeling-guide.md
   - name: IoT Plug and Play conventions
     href: concepts-convention.md
   - name: IoT Plug and Play bridge
