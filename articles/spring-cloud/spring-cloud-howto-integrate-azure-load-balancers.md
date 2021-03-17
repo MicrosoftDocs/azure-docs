@@ -73,6 +73,17 @@ To integrate with Azure Spring Cloud service, complete the following configurati
 
     ![App Gateway 3](media/spring-cloud-load-balancers/app-gateway-3.png)
 
+### Configure Rewrite Set
+1.  Select **Rewrites** then **Rewrite set** to add a rewrite set.
+1.  Select the routing rules that route requests to Azure Spring Cloud public endpoints.
+1.  On **Rewrite rule configuration** tab, select **Add rewrite rule**.
+1.  **Rewrite type**: select **Request Header**
+1.  **Action type**: select **Delete**
+1.  **Header name**: select **Common header**
+1.  **Common Header**: select **X-Forwarded-Proto**
+
+    ![App Gateway 4](media/spring-cloud-load-balancers/app-gateway-4.png)
+
 ## Integrate Azure Spring Cloud with Azure Front Door
 
 To integrate with Azure Spring Cloud service and configure backend pool, 
