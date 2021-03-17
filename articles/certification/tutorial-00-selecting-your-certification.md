@@ -40,4 +40,4 @@ Each of the four certification programs delivers a different customer value. At 
 
 You are now ready to begin the process of registering and testing your device for using our certification service. Advance to the next article to begin your project.
 > [!div class="nextstepaction"]
->
+>[Tutorial: Creating your project](tutorial-01-creating-your-project.md)
