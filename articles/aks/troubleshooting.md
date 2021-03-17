@@ -248,7 +248,7 @@ spec:
 ```yaml
 initContainers:
 - name: volume-mount
-  image: busybox
+  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>
