@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/16/2021
+ms.date: 03/17/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
 # Auditing for Azure SQL Database and Azure Synapse Analytics
@@ -128,7 +128,7 @@ AzureDiagnostics
 
 ### <a id="audit-storage-destination"></a>Audit to storage destination
 
-To configure writing audit logs to a storage account, select **Storage** when you get to the **Auditing** section. Select the Azure storage account where logs will be saved, and then select the retention period by opening **Advanced properties**. Then click **SAVE**. Logs older than the retention period are deleted.
+To configure writing audit logs to a storage account, select **Storage** when you get to the **Auditing** section. Select the Azure storage account where logs will be saved, and then select the retention period by opening **Advanced properties**. Then click **Save**. Logs older than the retention period are deleted.
 
 - The default value for retention period is 0 (unlimited retention). You can change this value by moving the **Retention (Days)** slider in **Advanced properties** when configuring the storage account for auditing.
   - If you change retention period from 0 (unlimited retention) to any other value, please note that retention will only apply to logs written after retention value was changed (logs written during the period when retention was set to unlimited are preserved, even after retention is enabled).
@@ -145,7 +145,7 @@ For more details about Azure Monitor Log Analytics workspace, see [Designing you
    
 ### <a id="audit-event-hub-destination"></a>Audit to Event Hub destination
 
-To configure writing audit logs to an event hub, select **Event Hub**. Select the event hub where logs will be written and then click **SAVE**. Be sure that the event hub is in the same region as your database and server.
+To configure writing audit logs to an event hub, select **Event Hub**. Select the event hub where logs will be written and then click **Save**. Be sure that the event hub is in the same region as your database and server.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 
@@ -235,7 +235,7 @@ With geo-replicated databases, when you enable auditing on the primary database 
 
 In production, you are likely to refresh your storage keys periodically. When writing audit logs to Azure storage, you need to resave your auditing policy when refreshing your keys. The process is as follows:
 
-1. Open **Storage Details**. In the **Storage Access Key** box, select **Secondary**, and click **OK**. Then click **Save** at the top of the auditing configuration page.
+1. Open **Advanced properties** under **Storage**. In the **Storage Access Key** box, select **Secondary**. Then click **Save** at the top of the auditing configuration page.
 
     ![Screenshot that shows the process for selecting a secondary storage access key.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Go to the storage configuration page and regenerate the primary access key.
