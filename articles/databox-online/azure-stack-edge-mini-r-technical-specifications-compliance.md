@@ -72,7 +72,7 @@ The following routers/switches are compatible with the 10 Gbps SPF+ network inte
 
 ## Transceiver
 
-The following copper SFP+ (10 Gbps) transceiver is strongly recommended for use with Azure Stack Edge Mini R devices. Compatible fiber-optic transceivers can be used with SFP+ network interfaces (Port 3 adn Port 4)but have not been tested. 
+The following copper SFP+ (10 Gbps) transceiver is strongly recommended for use with Azure Stack Edge Mini R devices. Compatible fiber-optic transceivers can be used with SFP+ network interfaces (Port 3 and Port 4)but have not been tested. 
 
 |SFP+ transceiver type | Supported products | Notes |
 |----------------------|--------------------|-------|
