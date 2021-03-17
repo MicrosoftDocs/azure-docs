@@ -177,7 +177,7 @@
         },
         {
             "source_path_from_root": "/articles/media-services/latest/job-state-events-cli-how-to.md",
-            "redirect_url": "monitoring/job-state-events-cli-how-to.md",
+            "redirect_url": "monitoring/job-state-events-cli-how-to",
             "redirect_document_id": false
         }
     ]
