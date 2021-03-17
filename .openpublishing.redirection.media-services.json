@@ -46,11 +46,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/media-services/latest/intelligence-concept.md",
-            "redirect_url": "azure/media-services/latest/analyzing-video-audio-files-concept",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-asset.md",
             "redirect_url": "azure/media-services/latest/cli-create-asset",
             "redirect_document_id": false
@@ -86,11 +81,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/media-services/latest/create-account-cli-quickstart.md",
-            "redirect_url": "azure/media-services/latest/create-account-cli-how-to",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-account.md",
             "redirect_url": "azure/media-services/latest/create-account-cli-how-to",
             "redirect_document_id": false
@@ -102,11 +92,6 @@
         },
         {
             "source_path_from_root": "/articles/media-services/latest/create-account-cli-how-to.md",
-            "redirect_url": "azure/media-services/latest/create-account-howto",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/media-services/latest/create-account-portal.md",
             "redirect_url": "azure/media-services/latest/create-account-howto",
             "redirect_document_id": false
         },
