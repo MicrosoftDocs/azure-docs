@@ -57,7 +57,7 @@ Returns a UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:m
 |mm|two-digit minutes (00 through 59)|
 |ss|two-digit seconds (00 through 59)|
 |.fffffff|seven-digit fractional seconds|
-|Z|UTC (Coordinated Universal Time) designator||
+|Z|UTC (Coordinated Universal Time) designator|
   
  For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 

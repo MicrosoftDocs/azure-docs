@@ -38,7 +38,7 @@ The rounding operation performed follows midpoint rounding away from zero. If th
 |-6.5000|-7|
 |-0.5|-1|
 |0.5|1|
-|6.5000|7||
+|6.5000|7|
   
 ## Examples
   
