@@ -224,8 +224,8 @@ For analyzers, index attributes vary depending on the whether you're using prede
 | Type | Description |
 | ---- | ----------- | 
 |Name|It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.|  
-|Type|Char filter type from the list of supported char filters. See **char_filter_type** column in the [Char Filters](#char-filters-reference) table below.|  
-|Options|Must be valid options of a given [Char Filters](#char-filters-reference) type.|  
+|Type|Char filter type from the list of supported char filters. See **char_filter_type** column in the [Char Filters](#character-filters) table below.|  
+|Options|Must be valid options of a given [Char Filters](#character-filters) type.|  
 
 ### Tokenizers
 
