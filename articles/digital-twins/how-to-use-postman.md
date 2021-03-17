@@ -17,8 +17,10 @@ ms.date: 11/10/2020
 This article describes how to configure the [Postman REST client](https://www.getpostman.com/) to interact with the Azure Digital Twins APIs, through the following steps:
 
 1. Use the [Azure CLI](/cli/azure/install-azure-cli) to get a bearer token that you will use to make API requests in Postman.
-1. Set up a Postman collection and configure the Postman REST client to use your bearer token to authenticate.
-1. Use the configured Postman to create and send a request to the Azure Digital Twins APIs.
+1. Set up a Postman collection and configure the Postman REST client to use your bearer token to authenticate. When setting up the collection, you can choose either of these options:
+    1. Import the Swagger file for Azure Digital Twins as a pre-built collection of API requests.
+    1. Create your own collection from scratch.
+1. Add requests to your configured collection and send them to the Azure Digital Twins APIs.
 
 Azure Digital Twins has two sets of APIs that you can work with: **data plane** and **control plane**. For more about the difference between these API sets, see [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md). This article contains information for both API sets.
 
@@ -71,7 +73,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     ---
 
 
-3. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authenticate your requests.
+3. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authorize your requests.
 
     :::image type="content" source="media/how-to-use-postman/console-access-token.png" alt-text="Screenshot of a local console window showing the result of the az account get-access-token command. One of the fields in the result is called accessToken and its sample value--beginning with ey--is highlighted.":::
 
@@ -82,7 +84,7 @@ Next, you'll set up Postman to use this token to make API requests to Azure Digi
 
 ## About Postman collections
 
-Requests in Postman are saved in **collections** (groups of requests). When you create a collection to group your requests, you can apply common settings to many requests at once. This can greatly simplify authorization if you plan to create more than one request against the Azure Digital Twins APIs, as you only have to configure authentication once for the entire collection.
+Requests in Postman are saved in **collections** (groups of requests). When you create a collection to group your requests, you can apply common settings to many requests at once. This can greatly simplify authorization if you plan to create more than one request against the Azure Digital Twins APIs, as you only have to configure these details once for the entire collection.
 
 When working with Azure Digital Twins, you can import the Swagger (also known as OpenAPI) file as a [pre-built collection of all the Azure Digital Twins requests](#import-collection-of-azure-digital-twins-apis). You may want to do this if you're exploring the APIs and want to quickly set up a project with an example of every request type.
 
@@ -96,11 +98,9 @@ A quick way to get started with Azure Digital Twins in Postman is to import the 
 
 ### Get the Swagger file
 
-The first step in importing the API set is to download the Swagger file for the API set you'd like to work with. 
+The first step in importing the API set is to download the Swagger file. 
 
-1. Use the links below to navigate to the appropriate GitHub repository.
-    * [Control plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable)
-    * [Data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)
+1. Use this link to navigate to the Swagger repository in GitHub: [Data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)
 1. Enter the folder for the latest Swagger version and open the *digitaltwins.json* file.
 1. Select the **Raw** button to open the raw text of the Swagger.
     :::image type="content" source="media/how-to-use-postman/swagger-raw.png" alt-text="Screenshot of the data plane digitaltwins.json file in GitHub. There is a highlight around the Raw button." lightbox="media/how-to-use-postman/swagger-raw.png":::
@@ -149,7 +149,7 @@ If you're making a [control plane](how-to-use-apis-sdks.md#overview-control-plan
 
 If you're making a [data plane](how-to-use-apis-sdks.md#overview-data-plane-apis) collection, you can help the collection connect to your Azure Digital Twins instance by setting the **baseURL** variable. 
 
-Because most of the calls in this collection require the URL of your Azure Digital Twins instance, this collection comes with this variable to store that URL. By setting a value for this variable and then using the variable in all of the requests in the collection, you can configure it for the entire set of requests at once.
+Next, help the collection connect to your Azure Digital Twins instance by setting the **baseURL** variable. Because most of the calls in this collection require the URL of your Azure Digital Twins instance, this collection comes with this variable to store that URL. By setting a value for this variable and then using the variable in all of the requests in the collection, you can configure it for the entire set of requests at once.
 
 1. Still in the *Azure Digital Twins API* edit dialog, move to the **Variables** tab.
 
@@ -257,7 +257,7 @@ To proceed with an example query, this article will use the Query API (and its [
    :::image type="content" source="media/how-to-use-postman/postman-request-url.png" alt-text="Screenshot of the new request's details in Postman. The query URL from the reference documentation has been filled into the request URL box." lightbox="media/how-to-use-postman/postman-request-url.png":::
     
 1. Check that the parameters shown for the request in the **Params** tab match those described in the reference documentation. For this request in Postman, the `api-version` parameter was automatically filled when the request URL was entered in the previous step. For the Query API, this is the only required parameter, so this step is done.
-1. In the **Authorization** tab, set the Type to **Inherit auth from parent**. This indicates that this request will use the authentication you set up earlier for the entire collection.
+1. In the **Authorization** tab, set the Type to **Inherit auth from parent**. This indicates that this request will use the authorization you set up earlier for the entire collection.
 1. Check that the headers shown for the request in the **Headers** tab match those described in the reference documentation. For this request, several headers have been automatically filled. For the Query API, none of the header options are required, so this step is done.
 1. Check that the body shown for the request in the **Body** tab matches the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example body for this request that queries for all the digital twins in the instance:
 
