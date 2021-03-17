@@ -4,7 +4,7 @@ description: Learn how to copy data from a cloud or on-premises HTTP source to s
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/17/2021
 ms.author: jingwang
 ---
 # Copy data from an HTTP endpoint by using Azure Data Factory

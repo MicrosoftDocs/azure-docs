@@ -4,7 +4,7 @@ description: Learn how to copy data from an FTP server to a supported sink data 
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 03/17/2021
 ms.author: jingwang
 ---
 

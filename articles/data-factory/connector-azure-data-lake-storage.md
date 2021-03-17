@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/28/2020
+ms.date: 03/17/2021
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory

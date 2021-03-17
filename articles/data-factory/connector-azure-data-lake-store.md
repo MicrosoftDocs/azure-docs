@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ---
 
 # Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory

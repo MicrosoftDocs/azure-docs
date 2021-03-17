@@ -4,7 +4,7 @@ description: Learn about how to copy data from Google Cloud Storage to supported
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 03/17/2021
 ms.author: jingwang
 ---
 
