@@ -19,7 +19,7 @@ ms.author: inhenkel
 
 # Create and monitor Media Services events with Event Grid using the Azure portal
 
-[!INCLUDE [media services api v3 logo](.,/includes/v3-hr.md)]
+[!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
 Azure Event Grid is an eventing service for the cloud. This service uses [event subscriptions](../../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Media Services events contain all the information you need to respond to changes in your data. You can identify a  Media Services event because the eventType property starts with "Microsoft.Media.". For more information, see [Media Services event schemas](media-services-event-schemas.md).
 
