@@ -71,7 +71,7 @@ The Azure Function app won't return Search data until the Search secrets are in 
     |SearchApiKey|Your Search query key|
     |SearchServiceName|Your Search resource name|
     |SearchIndexName|`good-books`|
-    |SearchFacets|`authors*,language_code|authors*,language_code`|
+    |SearchFacets|`authors*,language_code`|
 
 ## Use website Search in your Static web app
 
