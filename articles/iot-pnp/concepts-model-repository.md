@@ -42,12 +42,12 @@ All interfaces in the `dtmi` folders are also available from the public endpoint
 
 ### Resolve models
 
-To programmatically access these interfaces, you can use the `ModelsRepositoryClient` available in the NuGet package [Azure.Iot.ModelsRepository](https://www.nuget.org/packages/Azure.Iot.ModelsRepository). This client is configured by default to query the public DMR available at [devicemodels.azure.com](https://devicemodels.azure.com/) and can be configured to any custom repository.
+To programmatically access these interfaces, you can use the `ModelsRepositoryClient` available in the NuGet package [Azure.IoT.ModelsRepository](https://www.nuget.org/packages/Azure.IoT.ModelsRepository). This client is configured by default to query the public DMR available at [devicemodels.azure.com](https://devicemodels.azure.com/) and can be configured to any custom repository.
 
 The client accepts a `DTMI` as input and returns a dictionary with all required interfaces:
 
 ```cs
-using Azure.Iot.ModelsRepository;
+using Azure.IoT.ModelsRepository;
 
 var client = new ModelsRepositoryClient();
 IDictionary<string, string> models = client.GetModels("dtmi:com:example:TemperatureController;1");
