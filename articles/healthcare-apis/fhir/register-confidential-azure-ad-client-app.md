@@ -48,7 +48,7 @@ Now that you've registered your application, you must select which API permissio
 
 1. Select **Add a permission**.
 
-    If you're using the Azure API for FHIR, you'll add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare API** under **APIs my organization uses**. The search result for Azure Healthcare API will only return if you've already  [deployed the Azure API for FHIR](fhir-paas-powershell-quickstart.md).
+    If you're using the Azure API for FHIR, you'll add a permission to the Azure Healthcare APIs by searching for **Azure Healthcare API** under **APIs my organization uses**. The search result for Azure Healthcare API will only return if you've already [deployed the Azure API for FHIR](fhir-paas-powershell-quickstart.md).
 
     If you're referencing a different resource application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
 
