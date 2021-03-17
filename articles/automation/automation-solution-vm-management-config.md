@@ -132,15 +132,15 @@ To change email notifications after Start/Stop VMs during off-hours is deployed,
 > [!NOTE]
 > Subscriptions in the Azure Government cloud don't support the email functionality of this feature.
 
-1. In the Azure portal, navigate to **Monitoring** > **Alerts** > **Manage actions** > **Action groups**. Select the action group called **StartStop_VM_Notification**.
+1. In the Azure portal, click on **Alerts** under **Monitoring**, then **Manage actions**. On the **Manage actions** page, make sure you're on the **Action groups** tab. Select the action group called **StartStop_VM_Notification**.
 
     :::image type="content" source="media/automation-solution-vm-management/azure-monitor-sm.png" alt-text="Screenshot of the Monitor - Action groups page." lightbox="media/automation-solution-vm-management/azure-monitor-lg.png":::
 
-1. On the StartStop_VM_Notification page, click the pencil icon to edit the action details. This opens the **Email/SMS message/Push/Voice** page. Update the email address and click **OK** to save your changes.
+1. On the **StartStop_VM_Notification** page, the **Basics** section will be filled in for you and can't be edited, except for the **Display name** field. Edit the name, or accept the suggested name. In the **Notifications** section, click the pencil icon to edit the action details. This opens the **Email/SMS message/Push/Voice** pane. Update the email address and click **OK** to save your changes.
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot of the Email/SMS message/Push/Voice page showing an example email address updated.":::
 
-    Alternatively you can add additional actions to the action group. To learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
+    You can add additional actions to the action group. To learn more about action groups, see [action groups](../azure-monitor/platform/action-groups.md)
 
 The following is an example email that is sent when the feature shuts down virtual machines.
 
