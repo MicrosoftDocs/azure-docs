@@ -5,7 +5,7 @@ author: alkohli
 ms.assetid: 
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 03/17/2021
 ms.author: alkohli
 
 ---
@@ -30,6 +30,8 @@ Review the information contained in the release notes before you deploy the upda
 The following key improvements and bug fixes have been made in Update 5.1:
 
 * **TLS 1.2** - This StorSimple update will enforce TLS 1.2 on all clients. This is a mandatory update for all StorSimple 8000 series devices.
+
+* **Software update warnings** - The portal displays warnings of required updates for older software on the device. A user must install the updates before managing the device.
 
 ## Known issues in Update 5.1 from previous releases
 

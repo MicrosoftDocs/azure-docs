@@ -4,7 +4,7 @@ description: Describes critical open issues and resolutions for the Azure StorSi
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 03/17/2021
 ms.author: alkohli
 ---
 
@@ -28,6 +28,7 @@ This update contains the following improvements:KB4540725
 - Transport Layer Security (TLS) 1.2 is a mandatory update and must be installed. From this release onward, TLS 1.2 becomes the standard protocol for all Azure portal communication.
 - Garbage collection bug fixes improve the performance of the garbage collection cycle when the device and storage account are in two distant regions.
 - Fix for backup failures due to blob timeouts.
+- Warnings of required updates for older software on the device. Warning appears in the Azure portal. User must install the updates before managing the device.
 - Updated OS/.NET framework security patches:
   - [KB4540725](https://support.microsoft.com/topic/servicing-stack-update-for-windows-8-1-rt-8-1-and-server-2012-r2-march-10-2020-cfa082a3-0b58-a8a3-7dc7-ab424de91b86): March 2020 SSU (Servicing Stack Update)
   - [KB4565541](https://support.microsoft.com/topic/july-14-2020-kb4565541-monthly-rollup-fed6b2b1-3d23-5981-34df-9215a8d8ce01): July 2020 rollup
