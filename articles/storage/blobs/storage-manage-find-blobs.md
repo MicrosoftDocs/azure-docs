@@ -285,7 +285,7 @@ Blob index tags are only available on General Purpose v2 (GPv2) accounts with hi
 
 Index tags aren't supported on Premium storage accounts. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
-Blob index tags are currently available in all **public regions**
+Blob index tags are currently available in all public regions.
 
 To get started, see [Use blob index tags to manage and find data](storage-blob-index-how-to.md).
 
