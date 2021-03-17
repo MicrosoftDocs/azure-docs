@@ -154,6 +154,7 @@ On the **Register sources (Azure SQL Database)** screen, do the following:
 
 > [!NOTE]
 > Deleting your scan does not delete your assets from previous Azure SQL Database scans.
+> This asset will no longer update the schema if re-name the column name on the source table and rescan the source table after editing the description of the schema tab of Purview.
 
 ## Next steps
 
