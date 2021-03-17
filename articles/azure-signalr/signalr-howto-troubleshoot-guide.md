@@ -13,14 +13,14 @@ This guidance is to provide useful troubleshooting guide based on the common iss
 
 ## Access token too long
 
-### Possible errors:
+### Possible errors
 
 * Client-side `ERR_CONNECTION_`
 * 414 URI Too Long
 * 413 Payload Too Large
 * Access Token must not be longer than 4K. 413 Request Entity Too Large
 
-### Root cause:
+### Root cause
 
 For HTTP/2, the max length for a single header is **4 K**, so if using browser to access Azure service, there will be an error `ERR_CONNECTION_` for this limitation.
 
@@ -28,7 +28,7 @@ For HTTP/1.1, or C# clients, the max URI length is **12 K**, the max header leng
 
 With SDK version **1.0.6** or higher, `/negotiate` will throw `413 Payload Too Large` when the generated access token is larger than **4 K**.
 
-### Solution:
+### Solution
 
 By default, claims from `context.User.Claims` are included when generating JWT access token to **ASRS**(**A**zure **S**ignal**R** **S**ervice), so that the claims are preserved and can be passed from **ASRS** to the `Hub` when the client connects to the `Hub`.
 
@@ -39,7 +39,8 @@ The generated access token is passed through the network, and for WebSocket/SSE 
 There is a `ClaimsProvider` for you to customize the claims passing to **ASRS** inside the access token.
 
 For ASP.NET Core:
-```cs
+
+```csharp
 services.AddSignalR()
         .AddAzureSignalR(options =>
             {
@@ -49,7 +50,8 @@ services.AddSignalR()
 ```
 
 For ASP.NET:
-```cs
+
+```csharp
 services.MapAzureSignalR(GetType().FullName, options =>
             {
                 // pick up necessary claims
@@ -61,13 +63,13 @@ services.MapAzureSignalR(GetType().FullName, options =>
 
 ## TLS 1.2 required
 
-### Possible errors:
+### Possible errors
 
 * ASP.NET "No server available" error [#279](https://github.com/Azure/azure-signalr/issues/279)
 * ASP.NET "The connection is not active, data cannot be sent to the service." error [#324](https://github.com/Azure/azure-signalr/issues/324)
 * "An error occurred while making the HTTP request to https://<API endpoint>. This error could be because the server certificate is not configured properly with HTTP.SYS in the HTTPS case. This error could also be caused by a mismatch of the security binding between the client and the server."
 
-### Root cause:
+### Root cause
 
 Azure Service only supports TLS1.2 for security concerns. With .NET framework, it is possible that TLS1.2 is not the default protocol. As a result, the server connections to ASRS cannot be successfully established.
 
@@ -88,17 +90,17 @@ Azure Service only supports TLS1.2 for security concerns. With .NET framework, i
 
 2. For ASP.NET ones, you can also add following code to your `Startup.cs` to enable detailed trace and see the errors from the log.
 
-```cs
-app.MapAzureSignalR(this.GetType().FullName);
-// Make sure this switch is called after MapAzureSignalR
-GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
-```
+    ```cs
+    app.MapAzureSignalR(this.GetType().FullName);
+    // Make sure this switch is called after MapAzureSignalR
+    GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
+    ```
 
-### Solution:
+### Solution
 
 Add following code to your Startup:
 
-```cs
+```csharp
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
 
@@ -154,20 +156,20 @@ For ASP.NET SignalR, when the [client connection drops](#client_connection_drop)
 
 There are two cases.
 
-### **Concurrent** connection count exceeds limit.
+### **Concurrent** connection count exceeds limit
 
 For **Free** instances, **Concurrent** connection count limit is 20
 For **Standard** instances, **concurrent** connection count limit **per unit** is 1 K, which means Unit100 allows 100-K concurrent connections.
 
 The connections include both client and server connections. check [here](./signalr-concept-messages-and-connections.md#how-connections-are-counted) for how connections are counted.
 
-### Too many negotiate requests at the same time.
+### Too many negotiate requests at the same time
 
 We suggest having a random delay before reconnecting, check [here](#restart_connection) for retry samples.
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
-## 500 Error when negotiate: Azure SignalR Service is not connected yet, please try again later.
+## 500 Error when negotiate: Azure SignalR Service is not connected yet, please try again later
 
 ### Root cause
 
@@ -177,11 +179,11 @@ This error is reported when there is no server connection to Azure SignalR Servi
 
 Enable server-side trace to find out the error details when the server tries to connect to Azure SignalR Service.
 
-#### Enable server-side logging for ASP.NET Core SignalR
+### Enable server-side logging for ASP.NET Core SignalR
 
-Server-side logging for ASP.NET Core SignalR integrates with the `ILogger` based [logging](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) provided in the ASP.NET Core framework. You can enable server-side logging by using `ConfigureLogging`, a sample usage as follows:
+Server-side logging for ASP.NET Core SignalR integrates with the `ILogger` based [logging](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1&preserve-view=true) provided in the ASP.NET Core framework. You can enable server-side logging by using `ConfigureLogging`, a sample usage as follows:
 
-```cs
+```csharp
 .ConfigureLogging((hostingContext, logging) =>
         {
             logging.AddConsole();
@@ -191,7 +193,7 @@ Server-side logging for ASP.NET Core SignalR integrates with the `ILogger` based
 
 Logger categories for Azure SignalR always start with `Microsoft.Azure.SignalR`. To enable detailed logs from Azure SignalR, configure the preceding prefixes to `Debug` level in your **appsettings.json** file like below:
 
-```JSON
+```json
 {
     "Logging": {
         "LogLevel": {
@@ -243,7 +245,7 @@ When the client is connected to the Azure SignalR, the persistent connection bet
 * `{"type":7,"error":"Connection closed with an error."}`
 * `{"type":7,"error":"Internal server error."}`
 
-### Root cause:
+### Root cause
 
 Client connections can drop under various circumstances:
 * When `Hub` throws exceptions with the incoming request.
@@ -269,13 +271,13 @@ Client connections rise constantly for a long time in Azure SignalR's Metrics.
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-guide/client-connection-increasing-constantly.jpg" alt-text="Client connection increasing constantly":::
 
-### Root cause:
+### Root cause
 
 SignalR client connection's `DisposeAsync` never be called, the connection keeps open.
 
 ### Troubleshooting guide
 
-1. Check if the SignalR client **never** close.
+Check if the SignalR client **never** closes.
 
 ### Solution
 
@@ -331,7 +333,7 @@ This section describes several possibilities leading to server connection drop, 
 * `The remote party closed the WebSocket connection without completing the close handshake`
 * `Service timeout. 30.00ms elapsed without receiving a message from service.`
 
-### Root cause:
+### Root cause
 
 Server-service connection is closed by **ASRS**(**A**zure **S**ignal**R** **S**ervice).
 
@@ -339,7 +341,7 @@ For ping timeout, it might be caused by high CPU usage or thread pool starvation
 
 For ASP.NET SignalR, a known issue was fixed in SDK 1.6.0. Upgrade your SDK to newest version.
 
-### Thread pool starvation
+## Thread pool starvation
 
 If your server is starving, that means no threads are working on message processing. All threads are hanging in a certain method.
 
@@ -349,7 +351,7 @@ See [ASP.NET Core performance best practices](/aspnet/core/performance/performan
 
 See more about [thread pool starvation](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall).
 
-#### How to detect thread pool starvation
+### How to detect thread pool starvation
 
 Check your thread count. If there are no spikes at that time, take these steps:
 * If you're using Azure App Service, check the thread count in metrics. Check the `Max` aggregation:
@@ -402,7 +404,7 @@ service.AddSingleton<ThreadPoolStarvationDetector>();
 
 Then, check your log when the server connection is disconnected by ping timeout.
 
-#### How to find the root cause of thread pool starvation
+### How to find the root cause of thread pool starvation
 
 To find the root cause of thread pool starvation:
 
