@@ -47,11 +47,11 @@ After the Start/Stop deployment completes, perform the following steps to enable
 
 1. In the portal, navigate to your secondary subscription. Select the subscription, and then select **Access Control (IAM)**
 
-1. Select **Add role assignments**.
+1. Select **Add** and then select **Add role assignment**.
 
-1. Select the **Contributor** role from the drop down list.
+1. Select the **Contributor** role from the **Role** drop down list.
 
-1. Enter the Azure Function Application Name in the **Select search by name or email address** field. Select the function name.
+1. Enter the Azure Function Application Name in the **Select** field. Select the function name in the results.
 
 1. Select **Save** to commit your changes.
 

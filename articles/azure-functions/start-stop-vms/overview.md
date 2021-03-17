@@ -17,6 +17,8 @@ This new version of Start/Stop VMs (preview) provides a decentralized low-cost a
 
 Start/Stop VMs (preview) is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
 
+A managed identity from Azure Active Directory (Azure AD) for this Azure Functions application is created and allows Start/Stop VMs to easily access other Azure AD-protected resources, such as the logic apps and Azure VMs. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
+
 An HTTP trigger endpoint function is created to support the schedule and sequence scenarios included with the feature, as shown in the following table.
 
 |Name |Trigger |Description |
