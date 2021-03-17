@@ -356,7 +356,7 @@ See more about [thread pool starvation](https://docs.microsoft.com/archive/blogs
 Check your thread count. If there are no spikes at that time, take these steps:
 * If you're using Azure App Service, check the thread count in metrics. Check the `Max` aggregation:
     
-  :::image type="content" source="media/signalr-howto-troubleshoot-guide/metrics-threadcount.png" alt-text="Screenshot of the Max thread count pane in Azure App Service.":::
+  :::image type="content" source="media/signalr-howto-troubleshoot-guide/metrics-thread-count.png" alt-text="Screenshot of the Max thread count pane in Azure App Service.":::
 
 * If you're using the .NET Framework, you can find [metrics](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) in the performance monitor in your server VM.
 * If you're using .NET Core in a container, see [Collect diagnostics in containers](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers).
