@@ -7,7 +7,7 @@ ms.date: 03/16/2021
 
 # Reset vSphere credentials for Azure VMware Solution
 
-In this article, we'll walk through the steps to reset the vCenter Server ans NSX-T Manager credentials for your Azure VMware Solution private cloud. This will allow you to ensure the HCX connector has the latest vCenter Server credentials.
+In this article, we'll walk through the steps to reset the vCenter Server and NSX-T Manager credentials for your Azure VMware Solution private cloud. This will allow you to ensure the HCX connector has the latest vCenter Server credentials.
 
 ## Reset your Azure VMware Solution credentials
 
