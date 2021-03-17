@@ -915,7 +915,7 @@ synthesizer.BookmarkReached += (s, e) =>
 
 # [C++](#tab/cpp)
 
-For more information, see <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>.
+For more information, see <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>.
 
 ```cpp
 synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
@@ -929,7 +929,7 @@ synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
 
 # [Java](#tab/java)
 
-For more information, see <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>.
+For more information, see <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>.
 
 ```java
 synthesizer.BookmarkReached.addEventListener((o, e) -> {
@@ -941,7 +941,7 @@ synthesizer.BookmarkReached.addEventListener((o, e) -> {
 
 # [Python](#tab/python)
 
-For more information, see <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer?view=azure-python#bookmark-reached" target="_blank"> `bookmark_reached` </a>.
+For more information, see <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>.
 
 ```python
 # The unit of evt.audio_offset is tick (1 tick = 100 nanoseconds), divide it by 10,000 to convert to milliseconds.
@@ -951,7 +951,7 @@ speech_synthesizer.bookmark_reached.connect(lambda evt: print(
 
 # [JavaScript](#tab/javascript)
 
-For more information, see <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest#bookmarkReached" target="_blank"> `bookmarkReached`</a>.
+For more information, see <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached`</a>.
 
 ```javascript
 synthesizer.bookmarkReached = function (s, e) {
@@ -969,6 +969,8 @@ For more information, see <a href="https://docs.microsoft.com/objectivec/cogniti
     NSLog(@"Bookmark reached. Audio offset: %fms, bookmark text: %@.", eventArgs.audioOffset/10000., eventArgs.text);
 }];
 ```
+
+-----
 
 ## Next steps
 
