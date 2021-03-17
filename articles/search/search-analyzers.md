@@ -44,7 +44,7 @@ The following list describes which analyzers are available in Azure Cognitive Se
 | Category | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. No specification or configuration is required. This general-purpose analyzer performs well for many languages and scenarios.|
-| Predefined analyzers | Offered as a finished product intended to be used as-is. <br/>There are two types: specialized and language. What makes them "predefined" is that you reference them by name, with no configuration or customization. <br/><br/>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#AnalyzerTable) are used when text inputs require specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Cognitive Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
+| Predefined analyzers | Built-in, used as-is and referenced by name. <br/>There are two types: language and language-agnostic. <br/><br/>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#AnalyzerTable) are used when text inputs require specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Cognitive Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refers to a user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
 A few predefined analyzers, such as **Pattern** or **Stop**, support a limited set of configuration options. To set these options, you effectively create a custom analyzer, consisting of the predefined analyzer and one of the alternative options documented in [Predefined Analyzer Reference](index-add-custom-analyzers.md#AnalyzerTable). As with any custom configuration, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
@@ -53,7 +53,7 @@ A few predefined analyzers, such as **Pattern** or **Stop**, support a limited s
 
 Setting an analyzer is optional. As a general rule, try using the default standard Lucene analyzer first to see how it performs. If queries fail to return the expected results, switching to a different analyzer is often the right solution.
 
-1. When creating a field definition in the [index](/rest/api/searchservice/create-index), set the  **analyzer** property to one of the following: a [predefined analyzer](index-add-custom-analyzers.md#AnalyzerTable) such as `keyword`, a [language analyzer](index-add-language-analyzers.md) such as `en.microsoft`, or a custom analyzer (defined in the same index schema).  
+1. When creating a field definition in the [index](/rest/api/searchservice/create-index), set the "analyzer" property to one of the following: a [predefined analyzer](index-add-custom-analyzers.md#AnalyzerTable) such as **keyword**, a [language analyzer](index-add-language-analyzers.md) such as `en.microsoft`, or a custom analyzer (defined in the same index schema).  
  
    ```json
      "fields": [
@@ -68,9 +68,9 @@ Setting an analyzer is optional. As a general rule, try using the default standa
     },
    ```
 
-   If you are using a [language analyzer](index-add-language-analyzers.md), you must use the **analyzer** property to specify it. The **searchAnalyzer** and **indexAnalyzer** properties do not apply to language analyzers.
+   If you are using a [language analyzer](index-add-language-analyzers.md), you must use the "analyzer" property to specify it. The "searchAnalyzer" and "indexAnalyzer" properties do not apply to language analyzers.
 
-1. Alternatively, set **indexAnalyzer** and **searchAnalyzer** to vary the analyzer for each workload. These properties are set together and replace the **analyzer** property, which must be null. You might use different analyzers for indexing and queries if one of those activities required a specific transformation not needed by the other.
+1. Alternatively, set "indexAnalyzer" and "searchAnalyzer" to vary the analyzer for each workload. These properties are set together and replace the "analyzer" property, which must be null. You might use different analyzers for indexing and queries if one of those activities required a specific transformation not needed by the other.
 
    ```json
      "fields": [
@@ -91,13 +91,13 @@ Setting an analyzer is optional. As a general rule, try using the default standa
 
 The best time to add and assign analyzers is during active development, when dropping and recreating indexes is routine.
 
-Because analyzers are used to tokenize terms, you should assign an analyzer when the field is created. In fact, assigning **analyzer** or **indexAnalyzer** to a field that has already been physically created is not allowed (although you can change the **searchAnalyzer** property at any time with no impact to the index).
+Because analyzers are used to tokenize terms, you should assign an analyzer when the field is created. In fact, assigning an analyzer or indexAnalyze to a field that has already been physically created is not allowed (although you can change the searchAnalyzer property at any time with no impact to the index).
 
 To change the analyzer of an existing field, you'll have to [rebuild the index entirely](search-howto-reindex.md) (you cannot rebuild individual fields). For indexes in production, you can defer a rebuild by creating a new field with the new analyzer assignment, and start using it in place of the old one. Use [Update Index](/rest/api/searchservice/update-index) to incorporate the new field and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields.
 
 To add a new field to an existing index, call [Update Index](/rest/api/searchservice/update-index) to add the field, and [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) to populate it.
 
-To add a custom analyzer to an existing index, pass the **allowIndexDowntime** flag in [Update Index](/rest/api/searchservice/update-index) if you want to avoid this error:
+To add a custom analyzer to an existing index, pass the "allowIndexDowntime" flag in [Update Index](/rest/api/searchservice/update-index) if you want to avoid this error:
 
 *"Index update not allowed because it would cause downtime. In order to add new analyzers, tokenizers, token filters, or character filters to an existing index, set the 'allowIndexDowntime' query parameter to 'true' in the index update request. Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes."*
 
@@ -107,7 +107,7 @@ This section offers advice on how to work with analyzers.
 
 ### One analyzer for read-write unless you have specific requirements
 
-Azure Cognitive Search lets you specify different analyzers for indexing and search via additional **indexAnalyzer** and **searchAnalyzer** field properties. If unspecified, the analyzer set with the **analyzer** property is used for both indexing and searching. If **analyzer** is unspecified, the default Standard Lucene analyzer is used.
+Azure Cognitive Search lets you specify different analyzers for indexing and search via additional indexAnalyzer and searchAnalyzer field properties. If unspecified, the analyzer set with the analyzer property is used for both indexing and searching. If analyzer is unspecified, the default Standard Lucene analyzer is used.
 
 A general rule is to use the same analyzer for both indexing and querying, unless specific requirements dictate otherwise. Be sure to test thoroughly. When text processing differs at search and indexing time, you run the risk of mismatch between query terms and indexed terms when the search and indexing analyzer configurations are not aligned.
 
@@ -138,10 +138,13 @@ This example illustrates an analyzer definition with custom options. Custom opti
 
 Walking through this example:
 
-* Analyzers are a property of the field class for a searchable field.
-* A custom analyzer is part of an index definition. It might be lightly customized (for example, customizing a single option in one filter) or customized in multiple places.
-* In this case, the custom analyzer is "my_analyzer", which in turn uses a customized standard tokenizer "my_standard_tokenizer" and two token filters: lowercase and customized asciifolding filter "my_asciifolding".
-* It also defines 2 custom char filters "map_dash" and "remove_whitespace". The first one replaces all dashes with underscores while the second one removes all spaces. Spaces need to be UTF-8 encoded in the mapping rules. The char filters are applied before tokenization and will affect the resulting tokens (the standard tokenizer breaks on dash and spaces but not on underscore).
++ Analyzers are a property of the field class for a searchable field.
+
++ A custom analyzer is part of an index definition. It might be lightly customized (for example, customizing a single option in one filter) or customized in multiple places.
+
++ In this case, the custom analyzer is "my_analyzer", which in turn uses a customized standard tokenizer "my_standard_tokenizer" and two token filters: lowercase and customized asciifolding filter "my_asciifolding".
+
++ It also defines 2 custom char filters "map_dash" and "remove_whitespace". The first one replaces all dashes with underscores while the second one removes all spaces. Spaces need to be UTF-8 encoded in the mapping rules. The char filters are applied before tokenization and will affect the resulting tokens (the standard tokenizer breaks on dash and spaces but not on underscore).
 
 ```json
   {
@@ -241,7 +244,7 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
 
 ### Mixing analyzers for indexing and search operations
 
-The APIs include additional index attributes for specifying different analyzers for indexing and search. The **searchAnalyzer** and **indexAnalyzer** attributes must be specified as a pair, replacing the single **analyzer** attribute.
+The APIs include additional index attributes for specifying different analyzers for indexing and search. The searchAnalyzer and indexAnalyzer attributes must be specified as a pair, replacing the single analyzer attribute.
 
 
 ```json

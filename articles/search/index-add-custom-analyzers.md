@@ -186,7 +186,7 @@ This operation takes your index offline for at least a few seconds, causing your
 
 ## Predefined Analyzers
 
-If you want to use a predefined analyzer with non-default options, creating a custom analyzer is the mechanism by which you specify the options.
+If you want to use a predefined analyzer with non-default options, creating a custom analyzer is the mechanism by which you specify the options. To use a predefined analyzer as-is, specify its name in the "analyzer", "indexAnalyzer", or "searchAnalyzer" property of a field definition.
 
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**Description and Options**|  
 |-----------------|-------------------------------|---------------------------|  
