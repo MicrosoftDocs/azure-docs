@@ -30,6 +30,8 @@
     href: data-flow-create.md
 - name: Tutorials
   items:
+  - name: List of tutorials
+    href: data-factory-tutorials.md
   - name: Copy and ingest data
     items:
     - name: From Azure Blob Storage to Azure SQL Database
