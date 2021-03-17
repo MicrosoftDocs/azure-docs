@@ -162,6 +162,10 @@ If this pattern is expected in your time series, you can switch your primary met
   1. Unzip the package
   1. Deploy using the unzipped assets
 
+## Azure Functions application
+  
+  Automated ML does not currently support Azure Functions applications. 
+
 ## Sample notebook failures
 
  If a sample notebook fails with an error that property, method, or library does not exist:

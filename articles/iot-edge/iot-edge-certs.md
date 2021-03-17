@@ -13,6 +13,8 @@ ms.custom:  mqtt
 
 # Understand how Azure IoT Edge uses certificates
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 IoT Edge certificates are used by the modules and downstream IoT devices to verify the identity and legitimacy of the [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime module. These verifications enable a TLS (transport layer security) secure connection between the runtime, the modules, and the IoT devices. Like IoT Hub itself, IoT Edge requires a secure and encrypted connection from IoT downstream (or leaf) devices and IoT Edge modules. To establish a secure TLS connection, the IoT Edge hub module presents a server certificate chain to connecting clients in order for them to verify its identity.
 
 >[!NOTE]

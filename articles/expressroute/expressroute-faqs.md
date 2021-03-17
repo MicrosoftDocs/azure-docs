@@ -56,7 +56,7 @@ The ExpressRoute gateway will advertise the *Address Space(s)* of the Azure VNet
 
 ### How many prefixes can be advertised from a VNet to on-premises on ExpressRoute Private Peering?
 
-There is a maximum of 1000 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 199 address spaces on a single VNet connected to an ExpressRoute circuit, all 199 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 150 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 151 prefixes to on-premises.
+There is a maximum of 1000 prefixes advertised on a single ExpressRoute connection, or through VNet peering using gateway transit. For example, if you have 999 address spaces on a single VNet connected to an ExpressRoute circuit, all 999 of those prefixes will be advertised to on-premises. Alternatively, if you have a VNet enabled to allow gateway transit with 1 address space and 500 spoke VNets enabled using the "Allow Remote Gateway" option, the VNet deployed with the gateway will advertise 501 prefixes to on-premises.
 
 ### What happens if I exceed the prefix limit on an ExpressRoute connection?
 
@@ -200,7 +200,7 @@ If your service provider offers ExpressRoute at both sites, you can work with yo
 
 Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can link up to four circuits to the same virtual network.
 
-### How do I connect my virtual networks to an ExpressRoute circuit
+### How do I connect my virtual networks to an ExpressRoute circuit?
 
 The basic steps are:
 
@@ -294,6 +294,15 @@ You will also have to follow up with your connectivity provider to ensure that t
 ### How do I change the bandwidth of an ExpressRoute circuit?
 
 You can update the bandwidth of the ExpressRoute circuit using the REST API or PowerShell cmdlet.
+
+### I received a notification about maintenance on my ExpressRoute circuit. What is the technical impact of this maintenance?
+
+You should experience minimal to no impact during maintenance if you operate your circuit in [active-active mode](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute#active-active-connections). We perform maintenance on the primary and secondary connections of your circuit separately. Scheduled maintenance will usually be performed outside of business hours in the time zone of the peering location, and you cannot select a maintenance time.
+
+### I received a notification about a software upgrade or maintenance on my ExpressRoute gateway. What is the technical impact of this maintenance?
+
+You should experience minimal to no impact during a software upgrade or maintenance on your gateway. The ExpressRoute gateway is comprised of multiple instance and during upgrades, instances are taken offline one at a time. While this may cause your gateway to temporarily support lower network throughput to the virtual network, the gateway itself will not experience any downtime.
+
 
 ## ExpressRoute premium
 
