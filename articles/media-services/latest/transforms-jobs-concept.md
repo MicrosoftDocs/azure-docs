@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 03/17/2021
 ms.author: inhenkel
 ---
 
@@ -87,7 +87,7 @@ Use [Asset as job input](job-input-from-local-file-how-to.md) if the input conte
 
 ### Checking Job progress
 
-The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](job-state-events-cli-how-to.md).
+The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](monitoring/job-state-events-cli-how-to.md).
 
 ### Updating Jobs
 
