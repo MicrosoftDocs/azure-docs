@@ -96,11 +96,65 @@ we're still working on enabling PowerShell SDK for billing APIs. Check back soon
 -->
 
 
-<!--
 ### [Azure CLI](#tab/azure-cli-getEnrollments)
 
-we're still working on enabling CLI SDK for billing APIs. Check back soon.
--->
+Request to list all enrollment accounts you have access to:
+
+```azurecli-interactive
+> az billing account list
+```
+
+Response lists all enrollment accounts you have access to
+
+```json
+[
+  {
+    "accountStatus": "Unknown",
+    "accountType": "Enterprise",
+    "agreementType": "EnterpriseAgreement",
+    "billingProfiles": {
+      "hasMoreResults": false,
+      "value": null
+    },
+    "departments": null,
+    "displayName": "Contoso",
+    "enrollmentAccounts": [
+      {
+        "accountName": "Contoso",
+        "accountOwner": "",
+        "costCenter": "Test",
+        "department": null,
+        "endDate": null,
+        "id": "/providers/Microsoft.Billing/billingAccounts/1234567/enrollmentAccounts/7654321",
+        "name": "7654321",
+        "startDate": null,
+        "status": null,
+        "type": "Microsoft.Billing/enrollmentAccounts"
+      }
+    ],
+    "enrollmentDetails": null,
+    "hasReadAccess": false,
+    "id": "/providers/Microsoft.Billing/billingAccounts/1234567",
+    "name": "1234567",
+    "soldTo": {
+      "addressLine1": null,
+      "addressLine2": null,
+      "addressLine3": null,
+      "city": null,
+      "companyName": "Contoso",
+      "country": "US ",
+      "district": null,
+      "email": null,
+      "firstName": null,
+      "lastName": null,
+      "phoneNumber": null,
+      "postalCode": null,
+      "region": null
+    },
+    "type": "Microsoft.Billing/billingAccounts"
+  },
+```
+The value for a billing scope and `id` are the same thing. The `id` for your enrollment account is the billing scope under which the subscription request is initiated. It’s important to know the ID because it’s a required parameter that you use later in the article to create a subscription.
 
 ---
 

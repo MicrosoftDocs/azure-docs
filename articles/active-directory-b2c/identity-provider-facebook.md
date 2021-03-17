@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -51,7 +51,8 @@ To enable sign-in for users with a Facebook account in Azure Active Directory B2
 1. Select **Show** and copy the value of **App Secret**. You use both of them to configure Facebook as an identity provider in your tenant. **App Secret** is an important security credential.
 1. From the menu, select the **plus** sign next to **PRODUCTS**. Under the **Add Products to Your App**, select **Set up** under **Facebook Login**.
 1. From the menu, select **Facebook Login**, select **Settings**.
-1. In **Valid OAuth redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant. Select **Save Changes** at the bottom of the page.
+1. In **Valid OAuth redirect URIs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain. 
+1. Select **Save Changes** at the bottom of the page.
 1. To make your Facebook application available to Azure AD B2C, select the Status selector at the top right of the page and turn it **On** to make the Application public, and then select **Switch Mode**.  At this point, the Status should change from **Development** to **Live**.
 
 ::: zone pivot="b2c-user-flow"
@@ -69,13 +70,19 @@ To enable sign-in for users with a Facebook account in Azure Active Directory B2
 
 ## Add Facebook identity provider to a user flow 
 
+At this point, the Facebook identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Facebook identity provider to a user flow:
+
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Facebook identity provider.
 1. Under the **Social identity providers**, select **Facebook**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select **Facebook** to sign in with Facebook account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+
 
 ::: zone-end
 
@@ -114,7 +121,10 @@ Update the relying party (RP) file that initiates the user journey that you crea
 1. Upload the *TrustFrameworkExtensions.xml* file to your tenant.
 1. Under **Custom policies**, select **B2C_1A_signup_signin**.
 1. For **Select Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Select **Run now** and select Facebook to sign in with Facebook and test the custom policy.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **Facebook** to sign in with Facebook account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 

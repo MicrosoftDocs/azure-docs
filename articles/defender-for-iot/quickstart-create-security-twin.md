@@ -1,5 +1,5 @@
 ---
-title: Create a security module twin
+title: "Quickstart: Create a security module twin"
 description: In this quickstart, learn how to create a Defender for IoT module twin for use with Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -17,9 +17,13 @@ ms.date: 1/21/2021
 ms.author: shhazam
 ---
 
-# Create an azureiotsecurity module twin
+# Quickstart: Create an azureiotsecurity module twin
 
 This quickstart explains how to create individual _azureiotsecurity_ module twins for new devices, or batch create module twins for all devices in an IoT Hub.
+
+## Prerequisites
+
+None
 
 ## Understanding azureiotsecurity module twins
 
@@ -32,9 +36,9 @@ See [IoT Hub module twins](../iot-hub/iot-hub-devguide-module-twins.md) to learn
 
 Defender for IoT makes use of the module twin mechanism and maintains a security module twin named _azureiotsecurity_ for each of your devices.
 
-The security module twin holds all the information relevant to device security for each of your devices.
+The Defender-IoT-micro-agent twin holds all the information relevant to device security for each of your devices.
 
-To make full use of Defender for IoT features, you'll need to create, configure, and use this security module twins for every device in the service.
+To make full use of Defender for IoT features, you'll need to create, configure, and use this Defender-IoT-micro-agent twins for every device in the service.
 
 ## Create azureiotsecurity module twin
 

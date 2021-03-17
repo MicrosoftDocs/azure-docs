@@ -31,6 +31,9 @@ The main components of Azure Percept are:
 
     - A development kit that is flexible enough to support a wide variety of prototyping scenarios for device builders, solution builders and customers.
 
+        > [!div class="nextstepaction"]
+        > [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
+
 3. Services and workflows to accelerate edge AI model and solution development.
 
     - Development workflows and pre-built models accessible from [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
@@ -40,4 +43,4 @@ The main components of Azure Percept are:
 
 ## Next steps
 
-Get started with [Azure Percept DK](./overview-azure-percept-dk.md).
+Get started with [Azure Percept DK](./overview-azure-percept-dk.md). 
