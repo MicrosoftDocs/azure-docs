@@ -46,7 +46,7 @@ Promise of IoT Plug and Play certification are:
 | **OS**                  | Agnostic                                                     |
 | **Validation Type**     | Automated                                                    |
 | **Validation**          | Device must implement easy transfer of DPS ID Scope ownership without needing to recompile the embedded code. Microsoft provides the [portal workflow](https://aka.ms/acfi) to execute the tests to validate that the device supports DPS **1.** User must select one of the attestation methods (X.509, TPM and SAS key) **2.** Depending on the attestation method, user needs to take corresponding action such as **a)** Upload X.509 cert to AICS managed DPS scope **b)** Implement SAS key or endorsement key into the device |
-| **Resources**           | **a)** [Device provisioning service overview](../iot-dps/about-iot-dps.md#:~:text=Quotas%20%20%20%20Resource%20%20%20,%20%20100%20%203%20more%20rows%20), **b)** [Sample config file for DPS ID Scope transfer](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/digitaltwin_client/samples/digitaltwin_sample_ll_device/sample_config) |
+| **Resources**           | **a)** [Device provisioning service overview](../iot-dps/about-iot-dps.md), **b)** [Sample config file for DPS ID Scope transfer](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview-pnp/digitaltwin_client/samples/digitaltwin_sample_ll_device/sample_config) |
 
 **[Required] DTDL v2:  The purpose of test to ensure defined device models and interfaces are compliant with the Digital Twins Definition Language v2.**                                                              
 
