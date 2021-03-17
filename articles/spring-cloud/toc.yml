@@ -88,7 +88,7 @@
         - name: Manually scale an app
           href: spring-cloud-howto-scale-manual.md
         - name: Autoscale an app
-          href: spring-cloud-howto-setup-autoscale.md
+          href: spring-cloud-tutorial-setup-autoscale.md
         - name: Identify outbound public IP addresses
           href: spring-cloud-howto-outbound-public-ip.md
     - name: Monitor
@@ -108,7 +108,7 @@
     - name: Network
       items: 
         - name: Deploy Azure Spring Cloud in a virtual network
-          href: spring-cloud-howto-deploy-in-azure-virtual-network.md
+          href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
         - name: Access your application in a private network
           href: spring-cloud-access-app-virtual-network.md
         - name: Expose applications to the Internet
@@ -142,7 +142,7 @@
         - name: Auth with Key Vault in GitHub Actions
           href: spring-cloud-github-actions-key-vault.md
         - name: Provision an Azure Spring Cloud instance with terraform
-          href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
+          href: spring-cloud-howto-provision-azure-spring-cloud-instance-terraform.md
     - name: Troubleshoot
       items:
         - name: Self diagnose and solve problems
