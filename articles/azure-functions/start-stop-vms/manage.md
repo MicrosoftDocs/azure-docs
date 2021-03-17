@@ -27,13 +27,13 @@ To change email notifications after Start/Stop VMs is deployed, you can modify t
 
     :::image type="content" source="media/manage/alerts-action-groups.png" alt-text="Screenshot of the Action groups page.":::
 
-1. On the **StartStopV2_VM_Notification** page, you can modify the Email/SMS/Push/Voice notification options. Add additional actions or update your existing configuration to this action group and then click **OK** to save your changes.
+1. On the **StartStopV2_VM_Notification** page, you can modify the Email/SMS/Push/Voice notification options. Add other actions or update your existing configuration to this action group and then click **OK** to save your changes.
 
     :::image type="content" source="media/manage/email-notification-type-example.png" alt-text="Screenshot of the Email/SMS/Push/Voice page showing an example email address updated.":::
 
     To learn more about action groups, see [action groups](../../azure-monitor/alerts/action-groups.md)
 
-The following is an example email that is sent when the feature shuts down virtual machines.
+The following screenshot is an example email that is sent when the feature shuts down virtual machines.
 
 :::image type="content" source="media/manage/email-notification-example.png" alt-text="Screenshot of an example email sent when the feature shuts down virtual machines.":::
 
