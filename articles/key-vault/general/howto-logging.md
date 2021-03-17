@@ -110,6 +110,8 @@ The Resource ID for your key vault will be on the format "/subscriptions/<your-s
 
 You can enable logging for Key Vault using the Azure CLI, Azure PowerShell, or the Azure portal.
 
+# [Azure CLI](#tab/azure-cli)
+
 ### Azure CLI
 
 Use the Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) command together with the storage account ID and the key vault Resource ID.
@@ -126,7 +128,7 @@ With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/m
 az monitor diagnostic-settings update --name "Key vault retention policy" --resource "<key-vault-resource-id>" --set retentionPolicy.days=90
 ```
 
-### Azure PowerShell
+# [Azure PowerShell](#tab/azure-powershell)
 
 Use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet, with the **-Enabled** flag set to **$true** and the category set to `AuditEvent` (the only category for Key Vault logging):
 
@@ -142,7 +144,7 @@ With Azure PowerShell, use the [Set-AzDiagnosticSetting](/powershell/module/az.m
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
-## Azure portal
+# [Azure Portal](#tab/azure-portal)
 
 Below are the steps and screenshots for configuring Diagnostic settings in the portal today for AKV
 
@@ -164,6 +166,7 @@ Below are the steps and screenshots for configuring Diagnostic settings in the p
 
     :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Diagnostic Portal 4":::
 
+---
 
 ## Access your logs
 
