@@ -34,7 +34,7 @@ PostgreSQL is one of world’s most advanced open source databases. This article
 
 ### Typical ora2pg migration architecture
 
-![Screenshot of the ora2pg migration architecture.](media/howto-migrate-from-oracle/ora2pg-migration-architecture.png.png)
+![Screenshot of the ora2pg migration architecture.](media/howto-migrate-from-oracle/ora2pg-migration-architecture.png)
 
 After provisioning the VM and Azure Database for PostgreSQL, two configurations are needed for enabling connectivity between them: "Allow Azure Services" and "Enforce SSL Connection", depicted as follows:
 
