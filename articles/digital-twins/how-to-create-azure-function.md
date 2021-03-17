@@ -119,12 +119,14 @@ You can set up security access for the function app using either the Azure CLI o
 # [CLI](#tab/cli)
 
 You can run these commands in [Azure Cloud Shell](https://shell.azure.com) or a [local Azure CLI installation](/cli/azure/install-azure-cli).
+You can use the function app's system-managed identity to give it the _**Azure Digital Twins Data Owner**_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
 
 ### Assign access role
 
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
+
 The function skeleton from earlier examples requires that a bearer token to be passed to it, in order to be able to authenticate with Azure Digital Twins. To make sure that this bearer token is passed, you'll need to set up [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) permissions for the function app to access Azure Digital Twins. This only needs to be done once for each function app.
 
-You can use the function app's system-managed identity to give it the _**Azure Digital Twins Data Owner**_ role for your Azure Digital Twins instance. This will give the function app permission in the instance to perform data plane activities. Then, make the URL of Azure Digital Twins instance accessible to your function by setting an environment variable.
 
 1. Use the following command to see the details of the system-managed identity for the function. Take note of the _principalId_ field in the output.
 
@@ -163,6 +165,8 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 Complete the following steps in the [Azure portal](https://portal.azure.com/).
 
 ### Assign access role
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 A system assigned managed identity enables Azure resources to authenticate to cloud services (for example, Azure Key Vault) without storing credentials in code. Once enabled, all necessary permissions can be granted via Azure role-based access control. The lifecycle of this type of managed identity is tied to the lifecycle of this resource. Additionally, each resource can only have one system assigned managed identity.
 
