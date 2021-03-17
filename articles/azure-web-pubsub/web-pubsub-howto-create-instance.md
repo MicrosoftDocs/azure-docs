@@ -25,7 +25,7 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
 1. Enter the following settings.
 
     | Setting      | Description                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
+    | ------------ | -------------------------------------------------- |
     | **Resource name** | The globally unique Name that identifies your new Web PubSub service instance. Valid characters are `a-z`, `0-9`, and `-`.  | 
     | **Subscription** | The Azure subscription under which this new Web PubSub service instance is created. | 
     | **[Resource Group](../../azure-resource-manager/management/overview.md)** |  Name for the new or existing resource group in which to create your Web PubSub service instance. | 
