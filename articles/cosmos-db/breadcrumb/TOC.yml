@@ -36,8 +36,5 @@
     tocHref: /azure/synapse-analytics/
     topicHref: /azure/cosmos-db/index
   - name: Cosmos DB
-    tocHref: /java/azure/
-    topicHref: /azure/cosmos-db/index
-  - name: Cosmos DB
-    tocHref: /java/azure/spring-framework/
+    tocHref: /azure/developer/java/spring-framework/
     topicHref: /azure/cosmos-db/index
