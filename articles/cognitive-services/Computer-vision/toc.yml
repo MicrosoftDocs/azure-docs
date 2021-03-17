@@ -34,6 +34,7 @@
     - name: Deploy OCR
       items:
       - name: Containers
+        expanded: true
         items:
         - name: Cognitive Services containers documentation
           href: /azure/cognitive-services/containers/index?context=/azure/cognitive-services/computer-vision/context/context
