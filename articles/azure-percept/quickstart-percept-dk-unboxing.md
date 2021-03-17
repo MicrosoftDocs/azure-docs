@@ -46,4 +46,4 @@ Once you have received your Azure Percept DK, reference this guide for informati
 
 ## Next steps
 
-Now that your devkit is connected and powered on, please see the Azure Percept DK setup experience walkthrough to complete device setup. The setup experience allows you to connect your devkit to a Wi-Fi network, set up an SSH login, create an IoT Hub, and provision your devkit to your Azure account. Once you have completed device setup, you will be ready to start prototyping.
+Now that your devkit is connected and powered on, please see the [Azure Percept DK setup experience walkthrough](./quickstart-percept-dk-set-up.md) to complete device setup. The setup experience allows you to connect your devkit to a Wi-Fi network, set up an SSH login, create an IoT Hub, and provision your devkit to your Azure account. Once you have completed device setup, you will be ready to start prototyping.

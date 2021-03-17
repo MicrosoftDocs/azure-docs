@@ -45,7 +45,7 @@ To verify if your Azure account is an “owner” or “contributor” on the su
 
 1. Connect your host computer directly to the devkit’s Wi-Fi access point. Like connecting to any other Wi-Fi network, open the network and internet settings on your computer, click on the following network, and enter the network password when prompted:
 
-    - **network name**: depending of the version of the operating system on your devkit, the name of the Wi-Fi access point is either **scz-xxxx** or **acp-xxxx** (where “xxxx” is the last four digits of the devkit’s MAC address)
+    - **network name**: depending of the version of the operating system on your devkit, the name of the Wi-Fi access point is either **scz-xxxx** or **apd-xxxx** (where “xxxx” is the last four digits of the devkit’s MAC address)
     - **password**: can be found on the Welcome Card that came with the devkit
 
     > [!WARNING]
@@ -128,12 +128,15 @@ To verify if your Azure account is an “owner” or “contributor” on the su
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-13-iot-hub-select.png" alt-text="Select an IoT Hub."::: 
 
-1. Create your new IoT Hub – Fill out all fields on this page. 
-    - Select the Azure subscription you will use with Azure Percept Studio
-    - Select an existing Resource Group. If one does not exist, click “Create new” and follow the prompts. 
-    - Select the Azure region. 
-    - Give your new IoT Hub a name
-    - Select the pricing tier (it will usually match the subscription)
+1. Create your new IoT Hub – Fill out all fields on this page.
+    - Select the Azure subscription you will use with Azure Percept Studio.
+    - Select an existing Resource Group. If one does not exist, click “Create new” and follow the prompts.
+    - Select the Azure region closest to your physical location.
+    - Give your new IoT Hub a name.
+    - Select the S1 (standard) pricing tier.
+
+    > [!NOTE]
+    > If you end up needing a higher [message throughput](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling#message-throughput) for your edge AI applications, you may [upgrade your IoT Hub to a higher standard tier](https://docs.microsoft.com/azure/iot-hub/iot-hub-upgrade) in the Azure Portal at any time. B and F tiers do NOT support Azure Percept.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-14-create-iot-hub.png" alt-text="Create a new IoT Hub."::: 
 
