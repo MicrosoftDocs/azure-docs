@@ -11,7 +11,7 @@ author: garyericson
 ms.author: garye
 ms.reviewer: sstein, davidph
 manager: cgronlun
-ms.date: 10/27/2020
+ms.date: 03/17/2021
 ---
 
 # Key differences between Machine Learning Services in Azure SQL Managed Instance and SQL Server
@@ -26,10 +26,12 @@ Machine Learning Services in both SQL Managed Instance and SQL Server support th
 
 - The initial versions of Python and R are different:
 
-  | System               | Python | R     |
-  |----------------------|--------|-------|
-  | SQL Managed Instance | 3.7.1  | 3.5.2 |
-  | SQL Server           | 3.5.2  | 3.3.3 |
+  | Platform                   | Python runtime version           | R runtime versions                   |
+  |----------------------------|----------------------------------|--------------------------------------|
+  | Azure SQL Managed Instance | 3.7.2                            | 3.5.2                                |
+  | SQL Server 2019            | 3.7.1                            | 3.5.2                                |
+  | SQL Server 2017            | 3.5.2 and 3.7.2 (CU22 and later) | 3.3.3 and 3.5.2 (CU22 and later)     |
+  | SQL Server 2016            | Not available                    | 3.2.2 and 3.5.2 (SP2 CU14 and later) |
 
 ## Python and R Packages
 
@@ -71,6 +73,10 @@ Memory usage depends on how much is used in your R scripts and the number of par
 - `An external script error occurred: Error: cannot allocate vector of size.`
 
 If you receive one of these errors, you can resolve it by scaling your database to a higher service tier.
+
+## SQL Managed Instance pools
+
+Machine Learning Services is currently not supported on [Azure SQL Managed Instance pools (preview)](instance-pools-overview.md).
 
 ## Next steps
 
