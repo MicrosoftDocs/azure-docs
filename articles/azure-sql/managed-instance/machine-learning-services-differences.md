@@ -26,10 +26,12 @@ Machine Learning Services in both SQL Managed Instance and SQL Server support th
 
 - The initial versions of Python and R are different:
 
-  | System               | Python | R     |
-  |----------------------|--------|-------|
-  | SQL Managed Instance | 3.7.2  | 3.5.2 |
-  | SQL Server 2019      | 3.7.1  | 3.5.2 |
+  | Platform                   | Python runtime version           | R runtime versions                   |
+  |----------------------------|----------------------------------|--------------------------------------|
+  | Azure SQL Managed Instance | 3.7.2                            | 3.5.2                                |
+  | SQL Server 2019            | 3.7.1                            | 3.5.2                                |
+  | SQL Server 2017            | 3.5.2 and 3.7.2 (CU22 and later) | 3.3.3 and 3.5.2 (CU22 and later)     |
+  | SQL Server 2016            | Not available                    | 3.2.2 and 3.5.2 (SP2 CU14 and later) |
 
 ## Python and R Packages
 
