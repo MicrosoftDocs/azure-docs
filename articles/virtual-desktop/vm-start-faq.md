@@ -23,7 +23,7 @@ To configure the deallocation policy:
 
 3. Find the policy that says **Set time limit for disconnected sessions**, then change its value to **Enabled**.
 
-4. After you've enabled the policy, set **End a disconnected session**.
+4. After you've enabled the policy, select **End a disconnected session**.
 
 >[!NOTE]
 >Make sure to set the time limit for the "End a disconnected session" policy to a value greater than five minutes. A low time limit can cause users' sessions to end if their network loses connection for too long, resulting in lost work.
@@ -35,5 +35,7 @@ Signing users out won't deallocate their VMs. To learn how to deallocate VMs, se
 Yes. Users can shut down the VM by using the Start menu within their session, just like they would with a physical machine. However, shutting down the VM won't deallocate the VM. To learn how to deallocate VMs, see [Start or stop VMs during off hours](../automation/automation-solution-vm-management.md).
 
 ## Next steps
+
+To learn how to configure Start VM on Connect, see [Start virtual machine on connect (preview)](vm-start-connect.md).
 
 If you have more general questions about Windows Virtual Desktop, check out our general [FAQ](faq.md).

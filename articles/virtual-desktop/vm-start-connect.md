@@ -14,25 +14,25 @@ manager: lizross
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The start virtual machine (VM) on connect (preview) feature lets you save costs by letting you deallocate your VMs when you aren't using them. When you need to use the VM again, just turn it back on.
+The start virtual machine (VM) on connect (preview) feature lets you save costs by letting you deallocate your VMs when you aren't using them. When you need to use the VM again, all you have to do is turn your VMs back on.
 
 >[!NOTE]
 >Windows Virtual Desktop (classic) doesn't support this feature.
 
 ## Requirements and limitations
 
-The Start VM on Connect feature can only be enabled for personal host pools. To learn more about personal host pools, see [Windows Virtual Desktop environment](environment-setup.md#host-pools).
+You can only enable the Start VM on Connect feature for personal host pools. To learn more about personal host pools, see [Windows Virtual Desktop environment](environment-setup.md#host-pools).
 
 The following remote desktop clients support the Start VM on Connect feature:
 
 - [The web client](connect-web.md)
 - [The Windows client (version 1.2748 or later)](connect-windows-7-10.md)
 
-We'll update this document when more clients are available. You can also check for announcements on the [Tech Community forum](https://aka.ms/wvdtc).
+You can check for announcements about updates and client support on the [Tech Community forum](https://aka.ms/wvdtc).
 
 ## Create a custom role for Start VM on Connect
 
-Before you can configure the Start VM on Connect feature, you'll need to assign your VM a custom RBAC (role-based access control) role. This role will let Windows Virtual Desktop manage the VMs in your subscription. The service will also be able to turn on VMs, check their status, and report diagnostic info. If you want to know more about what roles are, take a look at [Azure custom roles](../role-based-access-control/custom-roles.md).
+Before you can configure the Start VM on Connect feature, you'll need to assign your VM a custom RBAC (role-based access control) role. This role will let Windows Virtual Desktop manage the VMs in your subscription. You can also use this role to turn on VMs, check their status, and report diagnostic info. If you want to know more about what each role does, take a look at [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ### Use the Azure portal
 
@@ -56,7 +56,7 @@ To use the Azure portal to assign a custom role for Start VM on Connect:
 
 After that, you'll need to assign the role to grant access to Windows Virtual Desktop.
 
-To grant access:
+To assign the custom role:
 
 1. In the **Access control (IAM) tab**, select **Add role assignments**.
 
@@ -107,11 +107,11 @@ There are three ways you can configure the feature:
 - [Use PowerShell](#use-powershell)
 - [Use REST API](#use-rest-api)
 
-Pick the method that works best for you, then go to that section and follow the instructions to configure Start VM on Connect.
+Choose the method that works best for you and follow the instructions in that section to configure Start VM on Connect.
 
 ### Deployment considerations 
 
-Start VM on Connect is a host pool setting. If you only want a select group of users has this feature, make sure you only assign the required role to the users you want to add.
+Start VM on Connect is a host pool setting. If you only want a select group of users to use this feature, make sure you only assign the required role to the users you want to add.
 
 >[!IMPORTANT]
 > You can only configure this feature in existing host pools. This feature isn't available when you create a new host pool.
@@ -120,14 +120,14 @@ Start VM on Connect is a host pool setting. If you only want a select group of u
 
 To use the Azure portal to configure Start VM on Connect:
 
-1. Open your browser and go to [the Azure portal](https://portal.azure.com/?feature.startVMonConnect=true#home). We recommend you use an InPrivate window.
+1. Open your browser and go to [the Azure portal](https://portal.azure.com/?feature.startVMonConnect=true#home). We recommend you open the Azure portal in an InPrivate window.
 
 2. In the Azure portal, go to **Windows Virtual Desktop**.
 
-3. Select **Host pools**, then find the host pool for personal desktops you assigned the role to.
+3. Select **Host pools**, then find the host pool that contains the personal desktops you assigned the role to.
 
    >[!NOTE]
-   > The host pool you configure this feature in must have personal desktops with direct role assignments. If the host pool doesn't have correctly configured desktops, the configuration process won't work.
+   > The host pool you configure this feature in must have personal desktops with direct role assignments. If the desktops in the host pool aren't configured correctly, the configuration process won't work.
 
 4. In the host pool, select **Properties**. Under **Start VM on connect**, select **Yes**, then select **Save** to instantly apply the setting.
 
@@ -136,41 +136,39 @@ To use the Azure portal to configure Start VM on Connect:
 
 ### Use PowerShell
 
-To configure this setting with PowerShell, you need to make sure you have the names of the resource group and host pools you want to configure. You'll also need to have [the Azure module (version 2.1.0 or later)](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.1.0) installed.
+To configure this setting with PowerShell, you need to make sure you have the names of the resource group and host pools you want to configure. You'll also need to install [the Azure PowerShell module (version 2.1.0 or later)](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/2.1.0).
 
-To configure the feature with PowerShell:
+To configure Start VM on Connect using PowerShell:
 
 1. Open a PowerShell command window.
 
 2. Run the following cmdlet to enable Start VM on Connect:
 
-```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$true
-```
+    ```powershell
+    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$true
+    ```
 
 3. Run the following cmdlet to disable Start VM on Connect:
 
-```powershell
-Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$false
-```
+    ```powershell
+    Update-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -StartVMOnConnect:$false
+    ```
 
 ### Use REST API
 
-<!---What is this section? It doesn't tell me how to use this new property. Also, a one-row table is kind of pointless.--->
-
 Follow the instructions in [Create or update a host pool](/rest/api/desktopvirtualization/hostpools/createorupdate) with the following property:
 
-| **Name**  | **Required** | **Type** | **Description**     |
+| Name  | Required? | Type | Description     |
 |----|---|----|----|
 | `Properties.startVMOnConnect` |   No           | Boolean  | Configure if VM should start from deallocated or stopped state. |
 
 ## User experience
 
-The time it takes for a user to connect to a deallocated VM increases because the VM needs time to turn on again, much like turning on a physical computer. The Start VM on Connect feature has an indicator that lets you know when the remote PC running the VM you want to connect to is fully powered on. When the remote PC is fully powered on, you can connect to it much more quickly. Once the VM is turned on, the connection should work as normal.
+In typical sessions, the time it takes for a user to connect to a deallocated VM increases because the VM needs time to turn on again, much like turning on a physical computer. The Start VM on Connect feature has an indicator that lets you know when the remote PC running the VM you want to connect to is fully powered on. When the remote PC is fully powered on, the user can connect to it much more quickly.
 
 ## Troubleshooting
 
-If the feature runs into any issues, we recommend you use the Windows Virtual Desktop [diagnostics feature](diagnostics-log-analytics.md) to check for problems. If you receive an error message, make sure to pay close attention to the message content and copy down the name somewhere you can find it later, for reference.
+If the feature runs into any issues, we recommend you use the Windows Virtual Desktop [diagnostics feature](diagnostics-log-analytics.md) to check for problems. If you receive an error message, make sure to pay close attention to the message content and copy down the error name somewhere for reference.
 
 You can also use [Azure Monitor for Windows Virtual Desktop](azure-monitor.md) to get suggestions for how to resolve issues.
 
