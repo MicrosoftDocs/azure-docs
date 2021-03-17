@@ -40,6 +40,8 @@
        href: whatis-phs.md
      - name: How password hash synchronization works
        href: how-to-connect-password-hash-synchronization.md
+     - name: Selective password hash synchronization
+       href: how-to-connect-selective-password-hash-synchronization.md
    - name: Pass-through authentication
      items:
      - name: What is pass-through authentication?
