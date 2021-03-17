@@ -158,6 +158,8 @@ The SQL IaaS Agent extension only supports:
 - SQL Server VMs deployed to the public or Azure Government cloud. Deployments to other private or government clouds are not supported. 
 
 
+## In-region data residency
+Azure SQL virtual machine and the SQL IaaS Agent Extension do not move or store customer data out of the region in which they are deployed.
 
 ## Next steps
 

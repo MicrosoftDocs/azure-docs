@@ -2,35 +2,61 @@
 title: Authenticate to Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the various ways an app or service can authenticate to Communication Services.
-author: GrantMeStrength
+author: mikben
 
 manager: jken
 services: azure-communication-services
 
-ms.author: jken
-ms.date: 07/24/2020
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
 # Authenticate to Azure Communication Services
 
-Every client interaction with Azure Communication Services needs to be authenticated. In a typical architecture, see [client and server architecture](./client-and-server-architecture.md), *access keys* or *managed identity* is used in the trusted user access service to create users and issue tokens. And *user access token* issued by the trusted user access service is used for client applications to access other communication services, for example, chat or calling service.
+Every client interaction with Azure Communication Services needs to be authenticated. In a typical architecture, see [client and server architecture](./client-and-server-architecture.md), *access keys* or *managed identities* are used for authentication.
 
-Azure Communication Services SMS service also accepts *access keys* or *managed identity* for authentication. This typically happens in a service application running in a trusted service environment.
+Another type of authentication uses *user access tokens* to authenticate against services that require user participation. For example, the chat or calling service utilizes *user access tokens* to allow users to be added in a thread and have conversations with each other.
+
+## Authentication Options
+
+The following table shows the Azure Communication Services client libraries and their authentication options:
+
+| Client Library    | Authentication option                               |
+| ----------------- | ----------------------------------------------------|
+| Identity          | Access Key or Managed Identity                      |
+| SMS               | Access Key or Managed Identity                      |
+| Phone Numbers     | Access Key or Managed Identity                      |
+| Calling           | User Access Token                                   |
+| Chat              | User Access Token                                   |
 
 Each authorization option is briefly described below:
 
-- **Access Key** authentication for SMS and Identity operations. Access Key authentication is suitable for service applications running in a trusted service environment. Access key can be found in Azure Communication Services portal. To authenticate with an access key, a service application uses the access key as credential to initialize corresponding SMS or Identity client libraries, see [Create and manage access tokens](../quickstarts/access-tokens.md). Since access key is part of the connection string of your resource, see [Create and manage Communication Services resources](../quickstarts/create-communication-resource.md), authentication with connection string is equivalent to authentication with access key.
-- **Managed Identity** authentication for SMS and Identity operations. Managed Identity, see [Managed Identity](../quickstarts/managed-identity.md), is suitable for service applications running in a trusted service environment. To authenticate with a managed identity, a service application creates a credential with the ID and a secret of the managed identity then initialize corresponding SMS or Identity client libraries, see [Create and manage access tokens](../quickstarts/access-tokens.md).
-- **User Access Token** authentication for Chat and Calling. User access tokens let your client applications authenticate against Azure Communication Chat and Calling Services. These tokens are generated in a "trusted user access service" that you create. They're then provided to client devices that use the token to initialize the Chat and Calling client libraries. For more information, see [Add Chat to your App](../quickstarts/chat/get-started.md) for example.
+### Access Key
+
+Access key authentication is suitable for service applications running in a trusted service environment. Your access key can be found in the Azure Communication Services portal. The service application uses it as a credential to initialize the corresponding client libraries. See an example of how it is used in the [Identity client library](../quickstarts/access-tokens.md). 
+
+Since the access key is part of the connection string of your resource, authentication with a connection string is equivalent to authentication with an access key.
+
+If you wish to call ACS' APIs manually using an access key, then you will need to sign the request. Signing the request is explained, in detail, within a [tutorial](../tutorials/hmac-header-tutorial.md).
+
+### Managed Identity
+
+Managed Identities, provides superior security and ease of use over other authorization options. For example, by using Azure AD, you avoid having to store your account access key within your code, as you do with Access Key authorization. While you can continue to use Access Key authorization with communication services applications, Microsoft recommends moving to Azure AD where possible. 
+
+To set up a managed identity, [create a registered application from the Azure CLI](../quickstarts/managed-identity-from-cli.md). Then, the endpoint and credentials can be used to authenticate the client libraries. See examples of how [managed identity](../quickstarts/managed-identity.md) is used.
+
+### User Access Tokens
+
+User access tokens are generated using the Identity client library and are associated with users created in the Identity client library. See an example of how to [create users and generate tokens](../quickstarts/access-tokens.md). Then, user access tokens are used to authenticate participants added to conversations in the Chat or Calling SDK. For more information, see [add chat to your app](../quickstarts/chat/get-started.md). User access token authentication is different compared to access key and managed identity authentication in that it is used to authenticate a user rather than a secured Azure resource.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Create and manage Communication Services resources](../quickstarts/create-communication-resource.md)
 > [Create an Azure Active Directory managed identity application from the Azure CLI](../quickstarts/managed-identity-from-cli.md)
-> [Creating user access tokens](../quickstarts/access-tokens.md)
+> [Create User Access Tokens](../quickstarts/access-tokens.md)
 
 For more information, see the following articles:
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)

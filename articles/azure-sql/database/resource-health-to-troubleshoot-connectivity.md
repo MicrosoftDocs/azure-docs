@@ -55,7 +55,7 @@ You can access up to 14 days of health history in the Health History section of 
 
 ### Downtime reasons
 
-When your database experiences downtime, analysis is performed to determine a reason. When available, the downtime reason is reported in the Health History section of Resource Health. Downtime reasons are typically published 30 minutes after an event.
+When your database experiences downtime, analysis is performed to determine a reason. When available, the downtime reason is reported in the Health History section of Resource Health. Downtime reasons are typically published within 45 minutes after an event.
 
 #### Planned maintenance
 
