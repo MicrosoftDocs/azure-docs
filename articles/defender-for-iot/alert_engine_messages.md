@@ -194,7 +194,6 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 
 | Title | Description | Severity |
 |--|--|--|
-
 | An S7 Stop PLC Command was Sent | The source device sent a stop command to a destination controller. The controller will stop operating until a start command is sent. | Warning |
 | BACNet Operation Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major |
 | Bad MMS Device State | An MMS Virtual Manufacturing Device (VMD) sent a status message. The message indicates that the server may not be configured correctly, partially operational, or not operational at all. | Major |
