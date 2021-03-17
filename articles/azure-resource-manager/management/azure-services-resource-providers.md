@@ -2,12 +2,12 @@
 title: Resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 03/16/2021
 ---
 
 # Resource providers for Azure services
 
-This article shows how resource provider namespaces map to Azure services.
+This article shows how resource provider namespaces map to Azure services. If you don't know the resource provider, see [Find resource provider](#find-resource-provider).
 
 ## Match resource provider to service
 
@@ -187,6 +187,42 @@ The resources providers above that are marked with **- registered** are register
 
 > [!IMPORTANT]
 > Only register a resource provider when you're ready to use it. The registration step enables you to maintain least privileges within your subscription. A malicious user can't use resource providers that aren't registered.
+
+## Find resource provider
+
+If you have existing infrastructure in Azure, but aren't sure which resource provider is used, you can use either Azure CLI or PowerShell to find the resource provider. Specify the name of the resource group that contains the resources to find.
+
+The following example uses Azure CLI:
+
+```azurecli-interactive
+az resource list -g examplegroup
+```
+
+The results include the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
+
+```json
+[
+  {
+    ...
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+```
+
+The following example uses PowerShell:
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName examplegroup
+```
+
+The results include the resource type. The resource provider namespace is the first part of the resource type. The following example shows the **Microsoft.KeyVault** resource provider.
+
+```azurepowershell
+Name              : examplekey
+ResourceGroupName : examplegroup
+ResourceType      : Microsoft.KeyVault/vaults
+...
+```
 
 ## Next steps
 
