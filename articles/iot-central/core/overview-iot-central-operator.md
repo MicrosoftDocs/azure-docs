@@ -29,7 +29,7 @@ As an operator, you can:
 
 The [IoT Central homepage](https://aka.ms/iotcentral-get-started) page is the place where you can learn more about the latest news and features available on IoT Central, create new applications, and see and launch your existing application.
 
-:::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="IoT Central homepage":::
+:::image type="content" source="media/overview-iot-central-tour/iot-central-homepage.png" alt-text="Screenshot of IoT Central homepage":::
 
 ## View your devices
 
@@ -41,7 +41,7 @@ To view an individual device:
 
 1. In the right-hand pane of the **Devices** page, you see a list of devices created from that device template. Choose an individual device to see the device details page for that device:
 
-    ![Device Details Page](./media/howto-manage-devices/devicelist.png)
+    ![Screenshot of Device Details Page](./media/howto-manage-devices/devicelist.png)
 
 ## Add a device
 
@@ -77,7 +77,7 @@ To bulk-register devices in your application:
 
 1. Select **Import**.
 
-    ![Import Action](./media/howto-manage-devices/bulkimport1a.png)
+    ![Screenshot of Import Action](./media/howto-manage-devices/bulkimport1a.png)
 
 
 1. Select the CSV file that has the list of Device IDs to be imported.
@@ -86,7 +86,7 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown in the Device Operations panel.
 
-    ![Import Success](./media/howto-manage-devices/bulkimport3a.png)
+    ![Screenshot of Import Success](./media/howto-manage-devices/bulkimport3a.png)
 
 If the device import operation fails, you see an error message on the Device Operations panel. A log file capturing all the errors is generated that you can download.
 
@@ -98,7 +98,7 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. On the left panel, choose **All devices**:
 
-    ![Unassociated Devices](./media/howto-manage-devices/unassociateddevices1a.png)
+    ![Screenshot of Unassociated Devices](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. Use the filter on the grid to determine if the value in the **Device Template** column is **Unassociated** for any of your devices.
 
@@ -106,7 +106,7 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. Select **Migrate**:
 
-    ![Associate Devices](./media/howto-manage-devices/unassociateddevices2a.png)
+    ![Screenshot of Associate Devices](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. Choose the template from the list of available templates and select **Migrate**.
 
@@ -124,7 +124,7 @@ To bulk export devices from your application:
 
 1. Select the devices that you want to export and then select the **Export** action.
 
-    ![Export](./media/howto-manage-devices/export1a.png)
+    ![Screenshot of Export](./media/howto-manage-devices/export1a.png)
 
 1. The export process starts. You can track the status using the Device Operations panel.
 
@@ -132,7 +132,7 @@ To bulk export devices from your application:
 
 1. Select the **Download File** link to download the file to a local folder on the disk.
 
-    ![Export Success](./media/howto-manage-devices/export2a.png)
+    ![Screenshot of Export Success](./media/howto-manage-devices/export2a.png)
 
 1. The exported CSV file contains the following columns: device ID, device name, device keys, and X509 certificate thumbprints:
 
