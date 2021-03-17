@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop integration with Azure Sentinel | Microsoft Docs
-description: Learn how the Windows Virtual Desktop integration with Azure Sentinel enables you to monitor your Windows 10 virtual desktops and ensure your organization's security posture. 
+title: Conntect Windows Virtual Desktop to Azure Sentinel | Microsoft Docs
+description: Learn to connect your Windows Virtual Desktop data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: batamig
