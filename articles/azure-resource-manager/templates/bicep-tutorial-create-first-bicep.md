@@ -2,7 +2,7 @@
 title: Tutorial - Create & deploy Azure Resource Manager Bicep files
 description: Create your first Bicep file for deploying Azure resources. In the tutorial, you learn about the Bicep file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom:
@@ -29,11 +29,11 @@ Let's start by making sure you have the tools you need to create and deploy Bice
 
 ### Editor
 
-To create Bicep files, you need a good editor. We recommend Visual Studio Code with the Bicep extension. If you need to install these tools, see [Quickstart: Create Bicep files with Visual Studio Code](quickstart-create-bicep-use-visual-studio-code.md).
+To create Bicep files, you need a good editor. We recommend Visual Studio Code with the Bicep extension. If you need to install these tools, see [Configure Bicep development environment](./bicep-install.md#development-environment).
 
 ### Command-line deployment
 
-You also need either the latest Azure PowerShell or the latest Azure CLI to deploy the Bicep file. For the installation instructions, see:
+You can deploy Bicep files by using Azure CLI or Azure PowerShell. For Azure CLI, you need version 2.20.0 or later; for Azure PowerShell, you need version 5.6.0 or later. For the installation instructions, see:
 
 - [Install Azure PowerShell](/powershell/azure/install-az-ps)
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)

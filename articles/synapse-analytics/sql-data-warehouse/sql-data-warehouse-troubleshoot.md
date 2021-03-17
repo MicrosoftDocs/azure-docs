@@ -2,13 +2,13 @@
 title: Troubleshooting dedicated SQL pool (formerly SQL DW)
 description: Troubleshooting dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/13/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
