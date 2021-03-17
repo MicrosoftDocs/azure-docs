@@ -13,7 +13,7 @@ ms.date: 10/01/2020
 
 # Azure Time Series Insights Gen2 Event Sources
 
- Your Azure Time Series Insights Gen2 environment can have up to two streaming event sources. Two types of Azure resources are supported as inputs:
+Your Azure Time Series Insights Gen2 environment can have up to two streaming event sources. Two types of Azure resources are supported as inputs:
 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
@@ -22,15 +22,38 @@ Events must be sent as UTF-8 encoded JSON.
 
 ## Create or edit event sources
 
-Your event source resource(s) can live in the same Azure subscription as your Azure Time Series Insights Gen2 environment or a different subscription.You can use the [Azure portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
+The event source is the link between your hub and your Azure Time Series Insights Gen2 environment, and a separate resource of type `Time Series Insights event source
+` is created in your resource group. The IoT Hub or Event Hub resource(s) can live in the same Azure subscription as your Azure Time Series Insights Gen2 environment or a different subscription. However, it is a best practice to house your Azure Time Series Insights environment and the IoT Hub or Event Hub within the same Azure region.
 
-When you connect an event source, your Azure Time Series Insights Gen2 environment will read all of the events currently stored in your Iot or Event Hub, starting with the oldest event.
+You can use the [Azure portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
+
+## Start Options
+
+When creating an event source, you have the option to specify what pre-existing data should be collected. This is an optional setting. The following options are available:
+
+| Name   |  Description  |  ARM Template Example |
+|----------|-------------|------|
+| EarliestAvailable | Ingest all pre-existing data stored within the IoT or Event Hub | `"ingressStartAt": {"type": "EarliestAvailable"}` |
+| EventSourceCreationTime |  Begin ingesting data that arrives after the event source is created. Any pre-existing data that was streamed prior to the creation of hte event source will be ignored. This is the default setting in the Azure portal   |   `"ingressStartAt": {"type": "EventSourceCreationTime"}` |
+| CustomEnqueuedTime | You environment will ingest data from your custom enqueued time (UTC) forward. All events that were enqueued into your IoT or Event Hub at or after your custom time will be ingested and stored, and all events prior to that time will be ignored. The enqueued time refers to the time the event arrived in your IoT or Event Hub. Is differs from a custom the [timestamp property](https://docs.microsoft.com/azure/time-series-insights/concepts-streaming-ingestion-event-sources#event-source-timestamp) that is within in the body of your event. |     `"ingressStartAt": {"type": "CustomEnqueuedTime""time": "2021-03-01T17:00:00.20Z"}` |
 
 > [!IMPORTANT]
 >
-> - You may experience high initial latency when attaching an event source to your Azure Time Series Insights Gen2 environment.
-> - Event source latency depends on the number of events currently in your IoT Hub or Event Hub.
-> - High latency will subside after event source data is first ingested. Submit a support ticket through the Azure portal if you experience ongoing high latency.
+> - If you select EarliestAvailable and have a lot of pre-existing data, you may experience high initial latency as your Azure Time Series Insights Gen2 environment processes all of your data.
+> - This high latency should eventually subside as data is indexed. Submit a support ticket through the Azure portal if you experience ongoing high latency.
+
+* EarliestAvailable
+
+![EarliestAvailable Diagram](media/concepts-streaming-event-sources/earliestavailable.png)
+
+* EventSourceCreationTime
+
+![EventSourceCreationTime Diagram](media/concepts-streaming-event-sources/creationtime.png)
+
+* CustomEnqueuedTime
+
+![CustomEnqueuedTime Diagram](media/concepts-streaming-event-sources/customenqueuedtime.png)
+
 
 ## Streaming ingestion best practices
 
