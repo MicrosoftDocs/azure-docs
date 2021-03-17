@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -151,16 +151,22 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
 1. Add the city claim to the **ClaimsSchema** element.  
 
 ```xml
-<ClaimType Id="city">
-  <DisplayName>City where you work</DisplayName>
-  <DataType>string</DataType>
-  <UserInputType>DropdownSingleSelect</UserInputType>
-  <Restriction>
-    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-  </Restriction>
-</ClaimType>
+<!-- 
+<BuildingBlocks>
+  <ClaimsSchema> -->
+    <ClaimType Id="city">
+      <DisplayName>City where you work</DisplayName>
+      <DataType>string</DataType>
+      <UserInputType>DropdownSingleSelect</UserInputType>
+      <Restriction>
+        <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
+        <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
+        <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
+      </Restriction>
+    </ClaimType>
+  <!-- 
+  </ClaimsSchema>
+</BuildingBlocks>-->
 ```
 
 ## Add a claim to the user interface
@@ -256,14 +262,20 @@ Override these technical profiles in the extension file. Find the **ClaimsProvid
         <PersistedClaim ClaimTypeReferenceId="city"/>
       </PersistedClaims>
     </TechnicalProfile>
-    <!-- Read data after user authenticates with a local account. -->
+    <!-- Read data after user resets the password. -->
     <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
       <OutputClaims>  
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
     </TechnicalProfile>
-    <!-- Read data after user authenticates with a federated account. -->
+    <!-- Read data after user authenticates with a local account. -->
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <OutputClaims>  
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+    </TechnicalProfile>
+    <!-- Read data after user authenticates with a federated account. -->
+    <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
       <OutputClaims>  
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
