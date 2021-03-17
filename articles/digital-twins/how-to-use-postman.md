@@ -158,7 +158,7 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 ### Additional configuration
 # [Control plane](#tab/control-plane)
 
-If you're making a [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) collection, you've done everything that you need to configure the collection. You can close the *Azure Digital Twins API* tab if you want, and proceed to the next section.
+If you're making a [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) collection, you've done everything that you need to configure the collection. You can close the editing tab for the collection if you want, and proceed to the next section.
 
 # [Data plane](#tab/data-plane)
 
