@@ -51,6 +51,7 @@ The URL endpoints to safelist for the Azure portal are specific to the Azure clo
 *.usgovcloudapi.net
 *.usgovtrafficmanager.net
 *.windowsazure.us
+crl3.digicert.com
 ```
 
 #### [China Government Cloud](#tab/china-government-cloud)
