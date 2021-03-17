@@ -45,7 +45,7 @@ From the selection as shown in the image above, lets configure a few metrics. Th
         "attribute": "LastGcInfo.GcThreadCount"
       },
       {
-        "name": "ADDING-GcCollectionCount",
+        "name": "Demo - GC Collection Count",
         "objectName": "java.lang:type=GarbageCollector,name=PS MarkSweep",
         "attribute": "CollectionCount"
       },
