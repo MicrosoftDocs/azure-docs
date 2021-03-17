@@ -156,7 +156,6 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 |KeyVault Private Endpoint|KeyVault supports Private Endpoint access to limit its network exposure. Trusted Azure Services can bypass this limitation if an exception is configured as described in the [KeyVault documentation](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Firewall is not currently listed as a trusted service and can't access the Key Vault.|Fix scheduled for GA.|
 
 
-
 ## Next steps
 
 - [Learn about Azure Firewall Premium certificates](premium-certificates.md)
