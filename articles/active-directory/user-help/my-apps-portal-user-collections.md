@@ -1,5 +1,5 @@
 ---
-title: Collections (preview) in the My Apps portal - Azure AD
+title: Collections in the My Apps portal - Azure AD
 description: Learn how to create, edit, delete, hide, and show app collections in My Apps.
 services: active-directory
 author: curtand
@@ -15,7 +15,7 @@ ms.custom: "user-help, seo-update-azuread-jan"
 ---
 
 
-# User collections (preview) in My Apps
+# User collections in My Apps
 
 My Apps is your one-stop shop for launching and managing all of your work or school apps. Create collections to organize your apps and make it easier to find the apps you need.
 
