@@ -1,20 +1,20 @@
 ---
 title: Add custom analyzers to string fields
 titleSuffix: Azure Cognitive Search
-description: Configure text tokenizers and character filters used in Azure Cognitive Search full text search queries.
+description: Configure text tokenizers and character filters to perform text analysis on strings during indexing and queries.
 
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 03/17/2021
 ---
 # Add custom analyzers to string fields in an Azure Cognitive Search index
 
-A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) that consists of a user-defined combination of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
+A *custom analyzer* is a [text analyzer](search-analyzers.md) composed of a user-defined selection of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
 
- You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis. For an illustration of what a customer analyzer looks like, see [Custom analyzer example](search-analyzers.md#Custom-analyzer-example).
+ You can define multiple custom analyzers, but each field can only use one analyzer for indexing analysis and one for search analysis. For an illustration of what a customer analyzer looks like, see [Custom analyzer example](search-analyzers.md#Custom-analyzer-example).
 
 ## Overview
 
@@ -38,11 +38,13 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
   This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Cognitive Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/6_0_0/core/org/apache/lucene/codecs/lucene60/package-summary.html). For examples of analyzer configurations, see [Add analyzers in Azure Cognitive Search](search-analyzers.md#examples).
 
-## Validation rules  
- Names of analyzers, tokenizers, token filters, and char filters have to be unique and cannot be the same as any of the predefined analyzers, tokenizers, token filters, or char filters. See the [Property Reference](#PropertyReference) for names already in use.
+## Validation rules
+
+Names of analyzers, tokenizers, token filters, and char filters have to be unique and cannot be the same as any of the predefined analyzers, tokenizers, token filters, or char filters. See the [Property Reference](#PropertyReference) for names already in use.
 
 ## Create custom analyzers
- You can define custom analyzers at index creation time. The syntax for specifying a custom analyzer is described in this section. You can also familiarize yourself with the syntax by reviewing sample definitions in [Add analyzers in Azure Cognitive Search](search-analyzers.md#examples).  
+
+You can define custom analyzers at index creation time. The syntax for specifying a custom analyzer is described in this section. You can also familiarize yourself with the syntax by reviewing sample definitions in [Add analyzers in Azure Cognitive Search](search-analyzers.md#examples).  
 
  An analyzer definition includes a name, a type, one or more char filters, a maximum of one tokenizer, and one or more token filters for post-tokenization processing. Char filers are applied before tokenization. Token filters and char filters are applied from left to right.
 
@@ -50,7 +52,7 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
 The analyzer definition is a part of the larger index. See [Create Index API](/rest/api/searchservice/create-index) for information about the rest of the index.
 
-```
+```json
 "analyzers":(optional)[
    {
       "name":"name of analyzer",
@@ -103,11 +105,11 @@ The analyzer definition is a part of the larger index. See [Create Index API](/r
 ```
 
 > [!NOTE]  
->  Custom analyzers that you create are not exposed in the Azure portal. The only way to add a custom analyzer is through code that makes calls to the API when defining an index.  
+> Custom analyzers that you create are not exposed in the Azure portal. The only way to add a custom analyzer is through code that makes calls to the API when defining an index.  
 
  Within an index definition, you can place this section anywhere in the body of a create index request but usually it goes at the end:  
 
-```
+```json
 {
   "name": "name_of_index",
   "fields": [ ],
@@ -124,16 +126,15 @@ The analyzer definition is a part of the larger index. See [Create Index API](/r
 
 Definitions for char filters, tokenizers, and token filters are added to the index only if you are setting custom options. To use an existing filter or tokenizer as-is, specify it by name in the analyzer definition.
 
-<a name="Testing custom analyzers"></a>
-
 ## Test custom analyzers
 
 You can use the **Test Analyzer operation** in the [REST API](/rest/api/searchservice/test-analyzer) to see how an analyzer breaks given text into tokens.
 
 **Request**
-```
+
+```http
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
-  Content-Type: application/json
+    Content-Type: application/json
     api-key: [admin key]
 
   {
@@ -141,8 +142,10 @@ You can use the **Test Analyzer operation** in the [REST API](/rest/api/searchse
      "text": "Vis-à-vis means Opposite"
   }
 ```
+
 **Response**
-```
+
+```http
   {
     "tokens": [
       {
@@ -177,7 +180,7 @@ You can use the **Test Analyzer operation** in the [REST API](/rest/api/searchse
 
 Once an analyzer, a tokenizer, a token filter, or a char filter is defined, it cannot be modified. New ones can be added to an existing index only if the `allowIndexDowntime` flag is set to true in the index update request:
 
-```
+```http
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
