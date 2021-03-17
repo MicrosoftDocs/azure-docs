@@ -79,7 +79,8 @@ The Azure Function app won't return Search data until the Search secrets are in 
 1. In the Side bar, **right-click on your Azure subscription** under the `Static web apps` area and find the Static web app you created for this tutorial.
 1. Right-click the static web app name and select **Browse site**.
     
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="v":::    
+    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="Right-click the static web app name and select **Browse site**.":::    
+
 1. Select **Open** in the pop-up dialog.
 1. In the website search bar, enter a search query such as `code`, _slowly_ so the suggest feature suggests book titles. Select a suggestion or continue entering your own query. Press enter when you've completed your search query. 
 1. Review the results then select one of the books to see more details. 
