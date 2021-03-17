@@ -92,7 +92,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * The deletion of all documents in a collection doesn't reset the analytical store schema.
   * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
 
-* Currently we do not support Azure Synapse Spark reading column names with whitesapces.
+* Currently we do not support Azure Synapse Spark reading column names that contain blanks (white spaces).
 
 * Expect different behavior in regard to `NULL` values:
   * Spark pools in Azure Synapse will read these value as a 0 (zero).
