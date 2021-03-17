@@ -35,9 +35,16 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ### Incident timeline (Public preview)
 
-The incident details page now shows a timeline of alerts and bookmarks in the incident. An incident's timeline can help you understand the incident better and reconstruct the timeline of attacker activity across the related alerts and bookmarks.
+The first tab on an incident details page is now the **Timeline**, which shows a timeline of alerts and bookmarks in the incident. An incident's timeline can help you understand the incident better and reconstruct the timeline of attacker activity across the related alerts and bookmarks.
 
-<PLACEHOLDER FOR SCREENSHOT>
+- Filter the timeline content to show alerts or bookmarks only, or items of a specific severity or MITRE tactic.
+- Select an item in the timeline to learn more. There, select the **System alert ID** link to go to the entire record in the **Logs** area.
+
+For example:
+
+:::image type="content" source="media/tutorial-investigate-cases/incident-timeline.png" alt-text="Incident timeline tab":::
+
+For more information, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md).
 
 ### Incident filters and sort preferences now saved in your session (Public preview)
 
