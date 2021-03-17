@@ -78,11 +78,21 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * Only the first 1000 properties are represented in the analytical store.
   * Only the first 127 nested levels are represented in the analytical store.
 
-* While JSON documents (and Cosmos DB collections/containers) are case sensitive, analytical store is not. Properties names in the same level should be unique when compared case insensitively. For example, the following JSON document has "Name" and "name" in the same level of the document. While it's a valid JSON document, it doesn't satisfy analytical store constraint and hence will not be fully represented in the analytical store:
+* While JSON documents (and Cosmos DB collections/containers) are case sensitive from the uniqueness perspective, analytical store is not.
 
-  `{"id": 1, "Name": "fred", "name": "john"}` – "Name" and "name" are the same when compared in a case insensitive manner. Only "Name" will be represented in analytical store.
- 
-  * Properties with the same name but different cases will be represented with the first occurrence. For example: if the first document uses "Name" and the second document for has "name" in the same level, "Name" will be used to represent this property in analytical store.
+  * In the same document: Properties names in the same level should be unique when compared case insensitively. For example, the following JSON document has "Name" and "name" in the same level of the document. While it's a valid JSON document, it doesn't satisfy analytical store constraint and hence will not be fully represented in the analytical store. In this case, "Name" and "name" are the same when compared in a case insensitive manner. Only "Name" will be represented in analytical store, because it is the first occurrence. 
+
+  ```json
+  {"id": 1, "Name": "fred", "name": "john"}
+  ``` 
+  
+  * In different documents: Properties with the same name but in different cases will be represented with the first occurrence. For example, the following documents have "Name" and "name" in the same level. Since the first document uses "Name" and the second document for has "name" in the same level, "Name" will be used to represent this property in analytical store. In this case, "Name" and "name" are the same when compared in a case insensitive manner. The first occurrence is "Name" and that's how this column will be represented in analytical store.
+
+  ```json
+  {"id": 1, "Name": "fred"}
+  {"id": 2, "name": "john"}
+  ```
+
 
 * The first document of the collection defines the initial analytical store schema.
   * Properties in the first level of the document will be represented as columns.
