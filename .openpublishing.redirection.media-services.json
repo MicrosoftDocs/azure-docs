@@ -174,6 +174,11 @@
             "source_path_from_root": "/articles/media-services/latest/monitor-events-portal-how-to.md",
             "redirect_url": "azure/media-services/latest/monitoring/monitor-events-portal-how-to",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/job-state-events-cli-how-to.md",
+            "redirect_url": "azure/media-services/latest/monitoring/job-state-events-cli-how-to.md",
+            "redirect_document_id": false
         }
     ]
 }

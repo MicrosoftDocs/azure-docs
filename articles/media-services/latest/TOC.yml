@@ -396,7 +396,7 @@
     - name: Monitor events - Portal
       href: monitoring/monitor-events-portal-how-to.md
     - name: Monitor events - CLI
-      href: job-state-events-cli-how-to.md 
+      href: monitoring/job-state-events-cli-how-to.md 
   - name: Use Azure Monitor
     items:
     - name: Monitor metrics
