@@ -19,12 +19,9 @@ Azure Percept Audio is an accessory device that adds speech AI capabilities to t
 <!---
 :::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Azure Percept Audio device.":::
 --->
-
-<br>
+&nbsp;
 
 > [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
-
-<br>
 
 ## Azure Percept Audio components
 

@@ -161,12 +161,9 @@ If you created a new Azure resource for this tutorial and you no longer wish to 
 ## Video walkthrough
 
 For a visual walkthrough of the steps described above, please see the following video:
-
-<br>
-
+&nbsp;
 > [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
-
- <br>
+&nbsp;
 
 ## Next Steps
 

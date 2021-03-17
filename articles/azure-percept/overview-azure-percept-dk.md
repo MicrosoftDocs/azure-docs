@@ -19,11 +19,8 @@ Azure Percept DK is an edge AI and IoT development kit designed for developing v
 <!---
 :::image type="content" source="./media/overview-azure-percept-dk/dk-image.png" alt-text="Azure Percept DK device.":::
 --->
-<br>
-
+&nbsp;
 > [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
-
-<br>
 
 ## Key Features
 

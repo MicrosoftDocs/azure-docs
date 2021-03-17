@@ -44,13 +44,10 @@ Once you have received your Azure Percept DK, reference this guide for informati
         > [!NOTE]
         > The reset button is for powering off or resetting the device while connected to a power outlet. In the event of a power outage, the device will automatically reset and power back on.
 
-    For a visual demonstration of the devkit assembly, please see 0:00 through 0:50 of the following video:
+For a visual demonstration of the devkit assembly, please see 0:00 through 0:50 of the following video:
 
-    <br>
-
-    > [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
-
-    <br>
+&nbsp;
+> [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
 
 ## Next steps
 
