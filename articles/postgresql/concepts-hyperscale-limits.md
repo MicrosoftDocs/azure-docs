@@ -61,6 +61,7 @@ with an error.
 Hyperscale (Citus) currently has these limitations with [columnar
 tables](concepts-hyperscale-columnar.md):
 
+* Compression is on disk, not in memory
 * Append-only (no UPDATE/DELETE support)
 * No space reclamation (for example, rolled-back transactions may still consume
   disk space)
