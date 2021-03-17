@@ -47,9 +47,9 @@ The default analyzer is Standard Lucene works well for English, but perhaps not 
 
 + Microsoft's English analyzer performs lemmatization instead of stemming. This means it can handle inflected and irregular word forms much better which results in more relevant search results 
 
-## Specify a language analyzer
+## How to specify a language analyzer
 
-Language analyzers are used as-is, on "searchable" fields of type Edm.String.
+Set a language analyzer on "searchable" fields of type Edm.String during field definition.
 
 Although field definitions have several analyzer-related properties, only the "analyzer" property can be used for language analyzers. The value of "analyzer" must be one of the language analyzers from the support analyzers list.
 
@@ -77,7 +77,7 @@ Although field definitions have several analyzer-related properties, only the "a
     },
 ```
 
-For more information about index properties, see [Create Index (REST)](/rest/api/searchservice/create-index). For more information about text analysis, see [Analyzers in Azure Cognitive Search](search-analyzers.md).
+For more information about creating an index and setting field properties, see [Create Index (REST)](/rest/api/searchservice/create-index). For more information about text analysis, see [Analyzers in Azure Cognitive Search](search-analyzers.md).
 
 <a name="language-analyzer-list"></a>
 
