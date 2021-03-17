@@ -6,7 +6,8 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 2/24/2021
+ms.reviewer: stmummer
+ms.date: 3/17/2021
 ---
 
 # Configure co-sell for a commercial marketplace offer
