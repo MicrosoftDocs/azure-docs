@@ -25,7 +25,7 @@ To change email notifications after Start/Stop VMs is deployed, you can modify t
 
 1. On the **Manage actions** page, select the action group called **StartStopV2_VM_Notication**.
 
-    :::image type="content" source="media/automation-solution-vm-management/alerts-action-groups.png" alt-text="Screenshot of the Monitor - Action groups page.":::
+    :::image type="content" source="media/manage/alerts-action-groups.png" alt-text="Screenshot of the Action groups page.":::
 
 2. On the **StartStopV2_VM_Notification** page, you can modify the Email/SMS/Push/Voice notification options. Add additional actions or update your existing configuration to this action group and then click **OK** to save your changes.
 
