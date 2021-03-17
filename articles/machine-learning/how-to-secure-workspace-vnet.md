@@ -62,11 +62,11 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 
    [![The storage that's attached to the Azure Machine Learning workspace](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
-1. On the storage service account page, select __Firewalls and virtual networks__.
+1. On the storage service account page, select __Networking__.
 
-   ![The "Firewalls and virtual networks" area on the Azure Storage page in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+   ![The networking area on the Azure Storage page in the Azure portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. On the __Firewalls and virtual networks__ page, do the following actions:
+1. On the __Firewalls and virtual networks__ tab, do the following actions:
     1. Select __Selected networks__.
     1. Under __Virtual networks__, select the __Add existing virtual network__ link. This action adds the virtual network where your compute resides (see step 1).
 

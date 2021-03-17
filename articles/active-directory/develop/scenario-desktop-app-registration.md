@@ -37,10 +37,14 @@ If your desktop application uses interactive authentication, you can sign in use
 
 The redirect URIs to use in a desktop application depend on the flow you want to use.
 
-- If you use interactive authentication or device code flow, use `https://login.microsoftonline.com/common/oauth2/nativeclient`. To achieve this configuration, select the corresponding URL in the **Authentication** section for your application.
+Specify the redirect URI for your app by [configuring the platform settings](quickstart-register-app.md#add-a-redirect-uri) for the app in **App registrations** in the Azure portal.
+
+- For apps that use interactive authentication:
+  - Apps that use embedded browsers: `https://login.microsoftonline.com/common/oauth2/nativeclient`
+  - Apps that use system browsers: `http://localhost`
 
   > [!IMPORTANT]
-  > Using `https://login.microsoftonline.com/common/oauth2/nativeclient` as the redirect URI is recommended as a security best practice.  If no redirect URI is specified, MSAL.NET uses `urn:ietf:wg:oauth:2.0:oob` by default which is not recommended.  This default will be updated as a breaking change in the next major release.
+  > As a security best practice, we recommend explicitly setting `https://login.microsoftonline.com/common/oauth2/nativeclient` or `http://localhost` as the redirect URI. Some authentication libraries like MSAL.NET use a default value of `urn:ietf:wg:oauth:2.0:oob` when no other redirect URI is specified, which is not recommended. This default will be updated as a breaking change in the next major release.
 
 - If you build a native Objective-C or Swift app for macOS, register the redirect URI based on your application's bundle identifier in the following format: `msauth.<your.app.bundle.id>://auth`. Replace `<your.app.bundle.id>` with your application's bundle identifier.
 - If your app uses only Integrated Windows Authentication or a username and a password, you don't need to register a redirect URI for your application. These flows do a round trip to the Microsoft identity platform v2.0 endpoint. Your application won't be called back on any specific URI.
