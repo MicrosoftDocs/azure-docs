@@ -19,6 +19,43 @@ Implementing a secure solution for authentication (signing-in users) and authori
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
 - You can integrate with multiple login providers. For example, Azure AD, Facebook, Google, Twitter.
 
+## Identity providers
+
+App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_identity), in which a third-party identity provider manages the user identities and authentication flow for you. The following identity providers are available by default:
+
+| Provider | Sign-in endpoint | How-To guidance |
+| - | - | - |
+| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` | [App Service Azure AD login](configure-authentication-provider-aad.md) |
+| [Microsoft Account](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` | [App Service Microsoft Account login](configure-authentication-provider-microsoft.md) |
+| [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [App Service Facebook login](configure-authentication-provider-facebook.md) |
+| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [App Service Google login](configure-authentication-provider-google.md) |
+| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [App Service Twitter login](configure-authentication-provider-twitter.md) |
+| Any [OpenID Connect](https://openid.net/connect/) provider (preview) | `/.auth/login/<providerName>` | [App Service OpenID Connect login](configure-authentication-provider-openid-connect.md) |
+
+When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options.
+
+## Frequently asked questions
+
+**Do I have to use the built in authentication feature?**
+
+You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, keep in mind that you will need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
+
+**Can I link an existing app service for multiple App Services?**
+
+Give each app registration its own permission and consent. Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app.
+
+**Are all requests redirected to HTTPS?**
+
+Enabling this EasyAuth will cause all non-secure HTTP requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to enforce HTTPS. You can disable this via the require Https setting in the auth settings configuration file. Ensure no security tokens ever get transmitted over non-secure HTTP connections.
+
+**Will this restrict access to content and APIs?**
+
+App Service provides authentication but doesn't restrict authorized access to your site content and APIs. To restrict app access only to users authenticated by Azure Active Directory, set Action to take when request is not authenticated to Log in with Azure Active Directory.
+
+**Can I authorize it with role-specific authorization?**
+
+Authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see Access user claims). Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
+
 ## How it works
 
 ### Authentication module architecture
@@ -69,23 +106,6 @@ If you don't need to work with tokens in your app, you can disable the token sto
 
 If you [enable application logging](troubleshoot-diagnostic-logs.md), you will see authentication and authorization traces directly in your log files. If you see an authentication error that you didn't expect, you can conveniently find all the details by looking in your existing application logs. If you enable [failed request tracing](troubleshoot-diagnostic-logs.md), you can see exactly what role the authentication and authorization module may have played in a failed request. In the trace logs, look for references to a module named `EasyAuthModule_32/64`.
 
-### Identity providers
-
-App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_identity), in which a third-party identity provider manages the user identities and authentication flow for you. The following identity providers are available by default:
-
-| Provider | Sign-in endpoint |
-| - | - |
-| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
-| [Microsoft Account](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
-| [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
-| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
-| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
-| Any [OpenID Connect](https://openid.net/connect/) provider (preview) | `/.auth/login/<providerName>` |
-
-When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options.
-
-A [legacy extensibility path][custom-auth] exists for integrating with other identity providers or a custom auth solution, but this is not recommended. Instead, consider using the OpenID Connect support.
-
 ### Authentication flow
 
 The authentication flow is the same for all providers, but differs depending on whether you want to sign in with the provider's SDK:
@@ -133,28 +153,6 @@ With this option, you don't need to write any authentication code in your app. F
 
 > [!NOTE]
 > By default, any user in your Azure AD tenant can request a token for your application from Azure AD. You can [configure the application in Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
-
-## Frequently asked questions
-
-**Do I have to use the built in authentication feature?**
-
-You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, keep in mind that you will need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
-
-**Can I link an existing app service for multiple App Services?**
-
-Give each app registration its own permission and consent. Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app.
-
-**Are all requests redirected to HTTPS?**
-
-Enabling this EasyAuth will cause all non-secure HTTP requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to enforce HTTPS. You can disable this via the require Https setting in the auth settings configuration file. Ensure no security tokens ever get transmitted over non-secure HTTP connections.
-
-**Will this restrict access to content and APIs?**
-
-App Service provides authentication but doesn't restrict authorized access to your site content and APIs. To restrict app access only to users authenticated by Azure Active Directory, set Action to take when request is not authenticated to Log in with Azure Active Directory.
-
-**Can I authorize it with role-specific authorization?**
-
-Authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see Access user claims). Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
 ## More resources
 
