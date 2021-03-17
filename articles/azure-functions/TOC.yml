@@ -423,11 +423,11 @@
         - name: Start/Stop VMs
           items:
             - name: Overview
-              href: overview.md
+              href: start-stop-vms/overview.md
             - name: Deploy and configure
-              href: configure.md
+              href: start-stop-vms/configure.md
             - name: Manage and monitor
-              href: manage.md
+              href: start-stop-vms/manage.md
         - name: Connect to SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Connect to a virtual Network
