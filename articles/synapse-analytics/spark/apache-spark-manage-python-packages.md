@@ -136,7 +136,7 @@ To add workspace packages:
 ![Screenshot that highlights workspace packages.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "View workspace packages")
 
 >[!WARNING]
->- Within Azure Synapse, an Apache Spark pool can leverage custom libraries by uploading them as Workspace Packages or by uploading them within a well-known Azure Data Lake Storage path. However, both of these options cannot be used simultaneously within the same Apache Spark pool.  If packages are provided using both methods, only the wheel files specified in the Workspace packages list will be installed. 
+>- Within Azure Synapse, an Apache Spark pool can leverage custom libraries that are either uploaded  as Workspace Packages or uploaded within a well-known Azure Data Lake Storage path. However, both of these options cannot be used simultaneously within the same Apache Spark pool. If packages are provided using both methods, only the wheel files specified in the Workspace packages list will be installed. 
 >
 >- Once Workspace Packages (preview) are used to install packages on a given Apache Spark pool, there is a limitation that you can no longer specify packages using the Storage account path on the same pool.  
 
