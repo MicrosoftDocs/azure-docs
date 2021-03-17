@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
+ms.date: 03/16/2021
 ---
 
 # Copy data from and to the SFTP server by using Azure Data Factory
@@ -29,7 +29,7 @@ The SFTP connector is supported for the following activities:
 
 Specifically, the SFTP connector supports:
 
-- Copying files from and to the SFTP server by using *Basic* or *SshPublicKey* authentication.
+- Copying files from and to the SFTP server by using **Basic**, **SSH public key** or **multi-factor** authentication.
 - Copying files as is or by parsing or generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Prerequisites
@@ -53,7 +53,7 @@ The following properties are supported for the SFTP linked service:
 | port | The port on which the SFTP server is listening.<br/>The allowed value is an integer, and the default value is *22*. |No |
 | skipHostKeyValidation | Specify whether to skip host key validation.<br/>Allowed values are *true* and *false* (default).  | No |
 | hostKeyFingerprint | Specify the fingerprint of the host key. | Yes, if the "skipHostKeyValidation" is set to false.  |
-| authenticationType | Specify the authentication type.<br/>Allowed values are *Basic* and *SshPublicKey*. For more properties, see the [Use basic authentication](#use-basic-authentication) section. For JSON examples, see the [Use SSH public key authentication](#use-ssh-public-key-authentication) section. |Yes |
+| authenticationType | Specify the authentication type.<br/>Allowed values are *Basic*, *SshPublicKey* and *MultiFactor*. For more properties, see the [Use basic authentication](#use-basic-authentication) section. For JSON examples, see the [Use SSH public key authentication](#use-ssh-public-key-authentication) section. |Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If the integration runtime isn't specified, the service uses the default Azure Integration Runtime. |No |
 
 ### Use basic authentication
@@ -70,7 +70,6 @@ To use basic authentication, set the *authenticationType* property to *Basic*, a
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -112,7 +111,6 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
 ```json
 {
     "name": "SftpLinkedService",
-    "type": "Linkedservices",
     "properties": {
         "type": "Sftp",
         "typeProperties": {
@@ -156,6 +154,43 @@ To use SSH public key authentication, set "authenticationType" property as **Ssh
             "passPhrase": {
                 "type": "SecureString",
                 "value": "<pass phrase>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of integration runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Use multi-factor authentication
+
+To use multi-factor authentication which is a combination of basic and SSH public key authentications, specify the user name, password and the private key info described in above sections.
+
+**Example: multi-factor authentication**
+
+```json
+{
+    "name": "SftpLinkedService",
+    "properties": {
+        "type": "Sftp",
+        "typeProperties": {
+            "host": "<host>",
+            "port": 22,
+            "authenticationType": "MultiFactor",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            },
+            "privateKeyContent": {
+                "type": "SecureString",
+                "value": "<base64 encoded private key content>"
+            },
+            "passPhrase": {
+                "type": "SecureString",
+                "value": "<passphrase for private key>"
             }
         },
         "connectVia": {
