@@ -87,13 +87,20 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 * The first document of the collection defines the initial analytical store schema.
   * Properties in the first level of the document will be represented as columns.
-  * Records in analytical store will have NULL for missing information on any column. 
   * Documents with more properties than the initial schema will generate new columns in analytical store.
   * Columns can't be removed.
   * The deletion of all documents in a collection doesn't reset the analytical store schema.
   * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
 
 * Currently we do not support Azure Synapse Spark reading column names with whitesapces.
+
+* Expect different behavior in regard to `NULL` values:
+  * Spark pools in Azure Synapse will read these value as a 0 (zero).
+  * SQL serverless pools in Azure Synapse will read these values as `NULL`.
+
+* Expect different behavior in regard to missing columns:
+  * Spark pools in Azure Synapse will represent these columns as `undefined`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `NULL`.
 
 #### Schema representation
 
