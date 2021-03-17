@@ -24,152 +24,28 @@ The Function app uses the Azure SDK for Cognitive Search:
 
 The Function app authenticates through the SDK to the cloud-based Search API using the Search resource name, resource key, and index name. The secrets are stored in the Static Web App settings and pulled in to the Function as environment variables. 
 
+## Configure secrets in a configuration file
+
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website/api/config.js" highlight="3,4" :::
+
 ## Azure Function: Search the catalog
 
 The `Search` API takes a search term and searches across the documents in the Search Index, returning a list of matches. 
 
-```javascript
-// send the search request
-const searchResults = await client.search(q, searchOptions);
-```
-
-Routing for the Search API is contained in the [function.json](https://github.com/dereklegenzoff/azure-search-react-template/blob/master/api/Suggest/function.json) bindings.
-
-```javascript
-const { SearchClient, AzureKeyCredential } = require("@azure/search-documents");
-
-const indexName = process.env["SearchIndexName"];
-const apiKey = process.env["SearchApiKey"];
-const searchServiceName = process.env["SearchServiceName"];
-
-// Create a SearchClient to send queries
-const client = new SearchClient(
-    `https://` + searchServiceName + `.search.windows.net/`,
-    indexName,
-    new AzureKeyCredential(apiKey)
-);
-
-// creates filters in odata syntax
-const createFilterExpression = (filterList, facets) => {
-    let i = 0;
-    let filterExpressions = [];
-
-    while (i < filterList.length) {
-        let field = filterList[i].field;
-        let value = filterList[i].value;
-
-        if (facets[field] === 'array') {
-            filterExpressions.push(`${field}/any(t: search.in(t, '${value}', ','))`);
-        } else {
-            filterExpressions.push(`${field} eq '${value}'`);
-        }
-        i += 1;
-    }
-
-    return filterExpressions.join(' and ');
-}
-
-// reads in facets and gets type
-// array facets should include a * at the end 
-// this is used to properly create filters
-const readFacets = (facetString) => {
-    let facets = facetString.split(",");
-    let output = {};
-    facets.forEach(function (f) {
-        if (f.indexOf('*') > -1) {
-            output[f.replace('*', '')] = 'array';
-        } else {
-            output[f] = 'string';
-        }
-    })
-
-    return output;
-}
-
-module.exports = async function (context, req) {
-
-    try {
-        if (!indexName || !apiKey || !searchServiceName) throw Error("Search index configuration missing");
-
-        // Reading inputs from HTTP Request
-        let q = (req.query.q || (req.body && req.body.q));
-        const top = (req.query.top || (req.body && req.body.top));
-        const skip = (req.query.skip || (req.body && req.body.skip));
-        const filters = (req.query.filters || (req.body && req.body.filters));
-        const facets = readFacets(process.env["SearchFacets"]);
+Routing for the Search API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Search/function.json) bindings.
 
 
-        // If search term is empty, search everything
-        if (!q || q === "") {
-            q = "*";
-        }
+### Azure Function to query Search Index
 
-        // Creating SearchOptions for query
-        let searchOptions = {
-            top: top,
-            skip: skip,
-            includeTotalCount: true,
-            facets: Object.keys(facets),
-            filter: createFilterExpression(filters, facets)
-        };
+The Azure Function pulls in the Search configuration information, and fulfills the query.
 
-        // Sending the search request
-        const searchResults = await client.search(q, searchOptions);
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website/api/Search/index.js" highlight="4-9, 75" :::
 
-        // Getting results for output
-        const output = [];
-        for await (const result of searchResults.results) {
-            output.push(result);
-        }
+### JavaScript React code to call Azure Function
 
-        // Logging search results
-        context.log(searchResults.count);
+Call the Azure Function in the React client with the following code. 
 
-        // Creating the HTTP Response
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: {
-                count: searchResults.count,
-                results: output,
-                facets: searchResults.facets
-            }
-        };
-    } catch (error) {
-        context.log.error(error);
-
-        // Creating the HTTP Response
-        context.res = {
-            status: 400,
-            body: {
-                innerStatusCode: error.statusCode || error.code,
-                error: error.details || error.message
-            }
-        };
-    }
-};
-```
-
-## Client: Search the catalog
-
-This function API is called in the React app at `\src\pages\Search\Search.js` as part of component initialization: 
-
-```javascript
-axios.post( '/api/search', body)
-    .then(response => {
-        console.log(JSON.stringify(response.data))
-        setResults(response.data.results);
-        setFacets(response.data.facets);
-        setResultCount(response.data.count);
-        setIsLoading(false);
-    } )
-    .catch(error => {
-        console.log(error);
-        setIsLoading(false);
-    });
-```
+:::code language="javascript" source="~/azure-search-javascript-samples/search-website/src/pages/Search/Search.js" highlight="40-51" :::
 
 ## Azure Function: Suggestions from the catalog
 

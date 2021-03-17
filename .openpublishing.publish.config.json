@@ -213,6 +213,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-search-javascript-samples",
+      "url": "https://github.com/Azure-Samples/azure-search-javascript-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-cognitive-services-data-files",
       "url": "https://github.com/Azure-Samples/cognitive-services-sample-data-files",
       "branch": "master"
