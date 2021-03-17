@@ -98,13 +98,7 @@ To create an assessment, follow these steps:
 
    ![New project](./media/oracle-to-sql-on-azure-vm-guide/new-project.png)
 
-1. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
-
-    Choose the appropriate Oracle Data Provider: 
-
-   ![Choose Oracle data provider](./media/oracle-to-sql-on-azure-vm-guide/oracle-data-provider.png)
-
-    Connect to Oracle: 
+1. Select **Connect to Oracle**. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
 
    ![Connect to Oracle](./media/oracle-to-sql-on-azure-vm-guide/connect-to-oracle.png)
 
@@ -137,7 +131,7 @@ Validate the default data type mappings and change them based on requirements if
 1. Select **Project Settings**. 
 1. Select the **Type mappings** tab. 
 
-   ![Type Mappings](./media/oracle-to-sql-on-azure-vm-guide/type-mapping.png)
+   ![Type Mappings](./media/oracle-to-sql-on-azure-vm-guide/type-mappings.png)
 
 1. You can change the type mapping for each table by selecting the table in the **Oracle Metadata explorer**. 
 
@@ -148,21 +142,21 @@ Validate the default data type mappings and change them based on requirements if
 To convert the schema, follow these steps: 
 
 1. (Optional) To convert dynamic or ad-hoc queries, right-click the node and choose **Add statement**.
+1. Choose **Connect to SQL Server** from the top-line navigation bar and provide connection details for your SQL Server on Azure VM. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
 
    ![Connect to SQL](./media/oracle-to-sql-on-azure-vm-guide/connect-to-sql-vm.png)
 
-1. Choose **Connect to SQL Server** from the top-line navigation bar and provide connection details for your SQL Server on Azure VM. You can choose to connect to an existing database or provide a new name, in which case a database will be created on the target server.
-1. Right-click the schema and choose **Convert Schema**.
+1. Right-click the Oracle schema in the **Oracle Metadata Explorer** and choose **Convert Schema**.
 
    ![Convert Schema](./media/oracle-to-sql-on-azure-vm-guide/convert-schema.png)
 
 1. After the schema is finished converting, compare and review the structure of the schema to identify potential problems.
 
-      ![Review recommendations](./media/oracle-to-managed-instance-guide/table-mapping.png)
+   ![Review recommendations](./media/oracle-to-sql-on-azure-vm-guide/table-mapping.png)
 
    Compare the converted Transact-SQL text to the original stored procedures and review the recommendations: 
 
-   ![Review recommendations code](./media/oracle-to-managed-instance-guide/procedure-comparison.png)
+   ![Review recommendations code](./media/oracle-to-sql-on-azure-vm-guide/procedure-comparison.png)
 
    You can save the project locally for an offline schema remediation exercise. You can do so by selecting **Save Project** from the **File** menu. This gives you an opportunity to evaluate the source and target schemas offline and perform remediation before you can publish the schema to SQL Server.
 
