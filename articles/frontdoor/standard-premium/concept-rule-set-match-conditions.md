@@ -35,33 +35,179 @@ The following match conditions are available to use in Azure Front Door Standard
 
 ## Device type
 
-Identifies requests made from a mobile device or desktop device.  
+Use the **Device type** match condition to identify requests that have been made from a mobile device or desktop device.  
 
-#### Required fields
+### Properties
 
-Operator | Supported values
----------|----------------
-Equals, Not equals | Mobile, Desktop
+| Property | Supported values |
+|-------|------------------|
+| Operator | `Equal`, `Not Equal` |
+| Value | `Mobile`, `Desktop` |
 
-## Post argument
+### Example
 
-Identifies requests based on arguments defined for the POST request method that's used in the request.
+In this example, we match all requests that have been detected as coming from a mobile device.
 
-#### Required fields
+# [Portal](#tab/portal)
 
-Argument name | Operator | Argument value | Case transform
---------------|----------|----------------|---------------
-String | [Operator list](#operator-list) | String, Int | Lowercase, Uppercase
+:::image type="content" source="../media/concept-rule-set-match-conditions/device-type.png" alt-text="Device type match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "IsDevice",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "Mobile"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'IsDevice'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'Mobile'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters'
+  }
+}
+```
+
+---
+
+## Post args
+
+Use the **Post args** match condition to match requests based on the arguments provided within a POST body. A single match condition matches a single argument from the POST body. You can specify multiple values for this condition, and they are evaluated using OR logic.
+
+<!-- TODO Does this only work with certain content types? -->
+
+### Properties
+
+| Property | Supported values |
+|-|-|
+| Post args | A string value representing the name of the POST argument. |
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | A string or integer value representing the value of the POST argument. If multiple values are provided, they are combined using OR. |
+| Case transform | `Lowercase`, `Uppercase` |
+
+### Example
+
+In this example, we match all POST requests where a `customerName` argument is provided in the request body, and where the value of `customerName` begins with the letter `J` or 'K'. We use a case transform to convert the input values to uppercase so that values beginning with `J`, `j`, `K`, and `k` are all matched.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/post-args.png" alt-text="Post args match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "PostArgs",
+  "parameters": {
+    "selector": "customerName",
+    "operator": "BeginsWith",
+    "negateCondition": false,
+    "matchValues": [
+        "J",
+        "K"
+    ],
+    "transforms": [
+        "Uppercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters"
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'PostArgs'
+  parameters: {
+    selector: 'customerName'
+    operator: 'BeginsWith'
+    negateCondition: false
+    matchValues: [
+      'J'
+      'K'
+    ]
+    transforms: [
+      'Uppercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRulePostArgsConditionParameters'
+  }
+}
+```
+
+---
+
 
 ## Query string
 
-Identifies requests that contain a specific query string parameter. This parameter is set to a value that matches a specific pattern. Query string parameters (for example, **parameter=value**) in the request URL determine whether this condition is met. This match condition identifies a query string parameter by its name and accepts one or more values for the parameter value.
+Use the **Query string** match condition to match requests that contain a specific query string. The entire query string is matched as a single string. You can specify multiple values to match, and these are combined using OR logic.
 
-#### Required fields
+### Properties
 
-Operator | Query string | Case Transform
----------|--------------|---------------
-[Operator list](#operator-list) | String, Int | Lowercase, Uppercase
+| Property | Supported values |
+|-|-|
+| Operator | _Any operator from the [standard operator list](#operator-list)._ |
+| Query string | A set of values representing the possible query string values to match. If multiple values are provided, they are combined using OR. |
+| Case transform | `Lowercase`, `Uppercase` |
+
+### Example
+
+In this example, we match all requests where the query string contains the string `language=en-US`. We want the match condition to be case-sensitive, so we don't perform any case transforms.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/query-string.png" alt-text="Query string match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "QueryString",
+  "parameters": {
+    "operator": "Contains",
+    "negateCondition": false,
+    "matchValues": [
+      "language=en-US"
+    ],
+    "transforms": [],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'QueryString'
+  parameters: {
+    operator: 'Contains'
+    negateCondition: false
+    matchValues: [
+      'language=en-US'
+    ]
+    transforms: []
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters'
+  }
+}
+```
+
+---
 
 ## Remote address
 
