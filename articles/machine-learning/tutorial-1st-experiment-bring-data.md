@@ -81,11 +81,10 @@ locally. Add to your tutorial directory structure a folder called `data`. Your d
 :::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="Directory structure shows .azureml, data, and src sub-directories":::
 
 
-1. If you didn't run `train.py` locally in the previous tutorial, you won't have the `data/` directory. In this case, run the `torchvision.datasets.CIFAR10` method locally with `download=True` in your `train.py` script.
-
-1. Update `pytorch-env.yml` if you didn't do so in the previous tutorial.
-
-    :::code language="python" source="~/MachineLearningNotebooks/tutorials/get-started-day1/configuration/pytorch-aml-env.yml":::
+1. If you didn't run `train.py` locally in the previous tutorial, you won't have the `data/` directory or the updated pytorch environment. Before you continue, make sure you have completed these steps:
+    1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
+    1. [Create a new Python environment](tutorial-1st-experiment-sdk-train.md#environment)
+    1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local)
 
 1. Exit the tutorial environment.
 
