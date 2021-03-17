@@ -33,7 +33,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
     * A new `Date` entity type.
     * Assertion detection which replaces negation detection (only available in API v3.1-preview.4).
     * A new preferred `name` property for linked entities that is normalized from various ontologies and coding systems (only available in API v3.1-preview.4). 
-
+* `Processed Text Records` is now available as Metric under Monitoring inside your Text Analytics resource in Azure Portal.  
 * Updated client libraries, which include asynchronous Analyze, and Text Analytics for health operations. You can find examples on GitHub:
 
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
