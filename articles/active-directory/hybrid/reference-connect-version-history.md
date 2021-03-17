@@ -76,10 +76,10 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
      - The updated rule will be disabled by default. However, a new sync rule “Out to AD - Group SOAInAAD - Exchange” which is added will be enabled.
      - Depending on the Cloned Custom Sync Rule's precedence, AAD Connect will flow the Mail and Exchange attributes.
      - If the Cloned Custom Sync Rule does not flow some Mail and Exchange attributes, then new Exchange Sync Rule will add those attributes.
- - Added support for selective Password hash Synchronization. Read more here: (https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
- - Added single object sync cmdlet 
+ - Added support for [Selective Password hash Synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
+ - Added the new [Single Object Sync cmdlet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync). Use this cmdlet to troubleshoot your Azure AD Connect sync configuration. 
  - Updated AADConnectHealth agent to 3.1.83.0
- - New version of the ADSyncTools PowerShell module, which has several new or improved cmdlets. Learn more about the ADSyncTools PowerShell module here: https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools
+ - New version of the [ADSyncTools PowerShell module](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools), which has several new or improved cmdlets. 
  
    - Clear-ADSyncToolsMsDsConsistencyGuid
    - ConvertFrom-ADSyncToolsAadDistinguishedName
