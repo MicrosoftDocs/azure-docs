@@ -30,7 +30,7 @@ Keep in mind that the Azure portal editor requires direct access to your running
 
 You are able to restrict **inbound** traffic for a function app to a virtual network using [Service Endpoints](./functions-networking-options.md#use-service-endpoints). This configuration still allows the function app to make outbound calls to the internet.
 
-To completely restrict a function such that all traffic flows through a virtual network, you can use an [private endpoints](./functions-networking-options.md#private-endpoint-connections) with outbound virtual network integration or an App Service Environment. To learn more, see [Integrate Azure Functions with an Azure virtual network by using private endpoints](functions-create-vnet.md).
+To completely restrict a function such that all traffic flows through a virtual network, you can use a [private endpoints](./functions-networking-options.md#private-endpoint-connections) with outbound virtual network integration or an App Service Environment. To learn more, see [Integrate Azure Functions with an Azure virtual network by using private endpoints](functions-create-vnet.md).
 
 ## How can I access resources in a virtual network from a function app?
 
