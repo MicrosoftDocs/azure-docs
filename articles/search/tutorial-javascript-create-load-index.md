@@ -60,13 +60,13 @@ This tutorial uploads data directly into the Search Index from a comma-separated
 
 The script uses the Azure SDK for Cognitive Search:
 
-* NPM: [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
-* Reference Documentation: [Client Library](/javascript/api/overview/azure/search-documents-readme)
+* [npm package @azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
+* [Reference Documentation](/javascript/api/overview/azure/search-documents-readme)
 
 1. In Visual Studio Code, open the `bulk_insert_books.js` file in the subdirectory,  `search-web/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
-    * YOUR-SEARCH-RESOURCE-NAME
-    * YOUR-SEARCH-ADMIN-KEY
+    * YOUR-RESOURCE-NAME
+    * YOUR-RESOURCE-KEY - your admin key
 
     :::code language="javascript" source="~/js-e2e/search/bulk-insert-books-from-csv/bulk_insert_books.js" highlight="6,7" :::
 

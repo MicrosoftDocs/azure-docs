@@ -52,6 +52,12 @@ Install the following for your local development environment.
     - [Azure Resources](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups)
     - [Azure Cognitive Search 0.2.0+](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
     - [Azure Static web apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
+- Optional:
+    - This tutorial doesn't run the client and api server locally but if you intent to, you need to install azure-functions-core-tools globallly with: 
+    
+    ```bash
+    npm install -g azure-functions-core-tools
+    ```
 
 
 ## Fork and clone the Search sample with git

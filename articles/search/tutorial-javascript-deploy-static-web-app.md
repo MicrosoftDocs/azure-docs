@@ -1,7 +1,7 @@
 ---
-title: JavaScript tutorial deploys search-enabled website
+title: JavaScript tutorial deploy search-enabled website
 titleSuffix: Azure Cognitive Search
-description: Deploy the search-enabled website as an Azure Static web app.
+description: Deploy search-enabled website to Azure Static web app.
 manager: nitinme
 author: diberry
 ms.author: diberry
@@ -18,16 +18,31 @@ Deploy the search-enabled website as an Azure Static web app. This means both th
 ## Create a Static Web App in Visual Studio Code
 
 1. Select **Azure** from the Activity Bar, then select **Static Web Apps** from the Side bar. 
-1. Select the **+** to create a new Static Web App.
-1. Enter a unique name for your Static Web App such as `azure-search-react` with your email name prepended, such as `joansmith-azure-search-react`. 
-1. Select **React** from the list of build presets.
+1. Right-click on the subscription name then select **Create Static Web App (Advanced)**.    
 
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app.png" alt-text="Select **React** from the list of build presets.":::
+    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="Right-click on the subscription name then select **Create Static Web App (Advanced)**.":::
 
-1. Select a location close to you.
+1. Follow the prompts to provide the following information:
+
+    |Prompt|Enter|
+    |--|--|
+    |How do you want to create a static web app?|Use existing GitHub repository|
+    |Choose organization|Select your _own_ GitHub alias as the organization.|
+    |Choose repository|Select **azure-search-javascript-samples** from the list. |
+    |Choose branch of repository|Select **master** from the list. |
+    |Enter the name for the new static web app.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-javascript-samples`. |
+    |Select a resource group for new resources.|Select the same resource group where you created your Search resource.|
+    |Choose build preset to configure default project structure.|Select **Custom**|
+    |Select the location of your application code|`search-website`|
+    |Select the location of your Azure Function code|`search-website/api`|
+    |Enter the path of your build output...|build|
+    |Select a location for new resources.|Select a region close to you.|
+
 1. The resource is created, select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 
 
     The list of actions indicates your web app, both client and functions, were successfully pushed to your Azure static web app. 
+
+    Wait until the build and deployment complete before continuing. This may take a minute or two to finish.
 
 ## Get Cognitive Search query key in Visual Studio Code
 
@@ -35,7 +50,7 @@ Deploy the search-enabled website as an Azure Static web app. This means both th
 
 1. In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**. 
 
-    :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource.png" alt-text="In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**.":::
+    :::image type="content" source="./media/tutorial-javascript-create-load-index/visual-studio-code-copy-query-key.png" alt-text="In the Side bar, select your Azure subscription under the **Azure: Cognitive Search** area, then right-click on your Search resource and select **Copy Query Key**.":::
 
 1. Keep this query key, you will need to use it in the next section. The query key is able to query your Index. 
 
@@ -59,6 +74,7 @@ The Azure Function app won't return Search data until the Search secrets are in 
     |SearchFacets|authors*,language_code|authors*,language_code|
 
 ## Test Search in your Static web app
+
 
 ## Clean up resources
 
