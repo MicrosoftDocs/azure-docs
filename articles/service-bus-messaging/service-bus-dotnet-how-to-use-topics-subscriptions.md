@@ -12,7 +12,7 @@ In this tutorial, you create a C# application to do the following tasks:
 
 1. Send messages to a Service Bus topic. 
 
-    A Service Bus topic provides an endpoint for sender applications to send messages. A topic can have one or more subscriptions. Each subscription of a topic gets a copy of the message sent to the topic. For more information about Service Bus topics, see [What is Azure Service Bus?](service-bus-messaging-overview). 
+    A Service Bus topic provides an endpoint for sender applications to send messages. A topic can have one or more subscriptions. Each subscription of a topic gets a copy of the message sent to the topic. For more information about Service Bus topics, see [What is Azure Service Bus?](service-bus-messaging-overview.md). 
 1. Receive messages from a subscription of the topic. 
 
     :::image type="content" source="./media/service-bus-messaging-overview/about-service-bus-topic.png" alt-text="Service Bus topics and subscriptions":::
@@ -42,13 +42,15 @@ Create a .NET Core console application using Visual Studio.
     1. For the project type, select **Console**. 
     1. Select **Console App (.NET Core)** from the list of templates. 
     1. Then, select **Next**. 
-            :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-console-project.png" alt-text="Create a console app project":::
-4. On the **Configure your new project** page, follow these steps: 
+    
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-console-project.png" alt-text="Create a console app project":::
+1. On the **Configure your new project** page, follow these steps: 
     1. For **Project name**, enter a name for the project. 
     1. For **Location**, select a location for the project and solution files. 
     1. For **Solution name**, enter a name for the solution. A Visual Studio solution can have one or more projects. In this quick start, the solution will have only one project. 
     1. Select **Create** to create the project. 
-            :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-console-project-2.png" alt-text="Enter project and solution name and location":::    
+            
+        :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-console-project-2.png" alt-text="Enter project and solution name and location":::    
 
 
 ### Add the Service Bus NuGet package
