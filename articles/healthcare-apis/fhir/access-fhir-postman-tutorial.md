@@ -134,7 +134,7 @@ If you repeat the patient search, you should now see the patient record:
 
 ## Next steps
 
-In this tutorial, you've accessed the Azure API for FHIR using Postman. For more information about the FHIR API features, see
+In this tutorial, you've accessed the Azure API for FHIR using Postman. For more information about the FHIR API features, see:
  
 >[!div class="nextstepaction"]
 >[Supported features](fhir-features-supported.md)
