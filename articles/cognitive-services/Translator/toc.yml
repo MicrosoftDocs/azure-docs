@@ -86,14 +86,13 @@
         href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
       - name: Compliance
         href: https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy
-
       - name: Code samples on GitHub
         href: https://aka.ms/TranslatorGitHub   
 - name: Custom Translator
   items:
   - name: What is the Custom Translator?
     href: custom-translator/overview.md
-  - name: Glossary nof terms
+  - name: Glossary
     href: custom-translator/glossary.md  
   - name: FAQ
     href: custom-translator/faq.md
