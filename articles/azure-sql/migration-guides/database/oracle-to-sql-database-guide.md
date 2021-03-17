@@ -50,7 +50,7 @@ To create an assessment, follow these steps:
    ![New Project](./media/oracle-to-sql-database-guide/new-project.png)
 
 
-1. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
+1. Select **Connect to Oracle**. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
 
    ![Connect to Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
 
@@ -95,7 +95,7 @@ To convert the schema, follow these steps:
     ![Connect to SQL Database](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
 
 
-1. Right-click the schema and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
+1. Right-click the Oracle schema in the **Oracle Meatadata Explorer** and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
 
    ![Convert Schema](./media/oracle-to-sql-database-guide/convert-schema.png)
 
@@ -103,7 +103,7 @@ To convert the schema, follow these steps:
 
    ![Review recommendations schema](./media/oracle-to-sql-database-guide/table-mapping.png)
 
-   Compare the converted Transact-SQL text to the original stored procedures and review the recommendations: 
+   Compare the converted Transact-SQL text to the original stored procedures and review the recommendations. 
 
    ![Review recommendations](./media/oracle-to-sql-database-guide/procedure-comparison.png)
 
