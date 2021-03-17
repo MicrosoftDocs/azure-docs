@@ -99,8 +99,8 @@ On your Azure Stack Edge device:
     
 - The front panel has network interfaces and access to Wi-Fi.
 
-    - 2 X 1 GbE RJ 45 network interfaces. These are PORT 1 and PORT 2 on the local UI of the device.
-    - 2 X 10 GbE SFP+ network interfaces. These are PORT 3 and PORT 4 on the local UI of the device. 
+    - 2 X 1 GbE RJ 45 network interfaces (PORT 1 and PORT 2 on the local UI of the device)
+    - 2 X 10 GbE SFP+ network interfaces (PORT 3 and PORT 4 on the local UI of the device) 
     - One Wi-Fi port with a Wi-Fi transceiver attached to it.
 
 - The front panel also has a power button. 
@@ -114,7 +114,7 @@ Take the following steps to cable your device for power and network.
 
     ![Network and storage interfaces on device](./media/azure-stack-edge-mini-r-deploy-install/ports-front-plane.png)
 
-2. Locate the power button on the  bottom left corner of the front of the device. 
+2. Locate the power button on the  bottom-left corner of the front of the device. 
 
     ![Front plane of a device with power button on the device](./media/azure-stack-edge-mini-r-deploy-install/device-power-button.png)
 

@@ -40,10 +40,10 @@ The Azure Stack Edge Mini R device has 1 data disk and 1 boot disk (that serves 
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|
-|    Number of solid-state drives (SSDs)     |    2 X 1 TB disks <br> One data disk and one boot disk                  |
+|    Number of solid-state drives (SSDs)     |    2 X 1-TB disks <br> One data disk and one boot disk                  |
 |    Single SSD capacity                     |    1 TB               |
-|    Total capacity (data only)              |    1 TB              |
-|    Total usable capacity*                  |    ~ 750 GB        |
+|    Total capacity (data only)              |    1 TB               |
+|    Total usable capacity*                  |    ~ 750 GB           |
 
 **Some space is reserved for internal use.*
 
@@ -72,7 +72,7 @@ The following routers/switches are compatible with the 10 Gbps SPF+ network inte
 
 ## Transceiver
 
-The following copper SFP+ (10 Gbps) transceiver is strongly recommended for use with Azure Stack Edge Mini R devices. Compatible fiber-optic transceivers can be used with SFP+ network interfaces (Port 3 and Port 4)but have not been tested. 
+The following copper SFP+ (10 Gbps) transceiver is strongly recommended for use with Azure Stack Edge Mini R devices. Compatible fiber-optic transceivers can be used with SFP+ network interfaces (Port 3 and Port 4) but have not been tested. 
 
 |SFP+ transceiver type | Supported products | Notes |
 |----------------------|--------------------|-------|
@@ -94,7 +94,7 @@ The following table shows the power supply unit specifications:
 
 The Azure Stack Edge Mini R device also includes an onboard battery that is charged by the power supply.
 
-An additional [Type 2590 battery](https://www.bren-tronics.com/bt-70791ck.html) can be used in conjunction with the onboard battery to extend the use of the device between the charges. This battery should be compliant with all the safety, transportation, and environmental regulations applicable in the country of use.
+An additional [Type 2590 battery](https://www.bren-tronics.com/bt-70791ck.html) can be used along with the onboard battery to extend the use of the device between the charges. This battery should be compliant with all the safety, transportation, and environmental regulations applicable in the country of use.
 
 
 | Specification            | Value      |
