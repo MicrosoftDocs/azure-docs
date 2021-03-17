@@ -193,6 +193,9 @@ To use Azure Container Registry inside a virtual network, you must meet the foll
 
 Once those requirements are fulfilled, use the following steps to enable Azure Container Registry.
 
+> [!TIP]
+> If you did not use an existing Azure Container Registry when creating the workspace, one may not exist. By default, the workspace will not create an ACR instance until it needs one. To force the creation of one, train or deploy a model using your workspace before using the steps in this section.
+
 1. Find the name of the Azure Container Registry for your workspace, using one of the following methods:
 
     __Azure portal__
