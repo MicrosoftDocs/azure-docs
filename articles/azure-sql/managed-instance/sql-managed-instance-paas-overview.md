@@ -10,7 +10,7 @@ ms.topic: overview
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
-ms.date: 03/15/2021
+ms.date: 01/14/2021
 ---
 
 # What is Azure SQL Managed Instance?
@@ -223,10 +223,6 @@ Some key differences:
 SQL Managed Instance enables system administrators to spend less time on administrative tasks because the service either performs them for you or greatly simplifies those tasks. For example, [OS/RDBMS installation and patching](../database/high-availability-sla.md), [dynamic instance resizing and configuration](../database/single-database-scale.md), [backups](../database/automated-backups-overview.md), [database replication](replication-between-two-instances-configure-tutorial.md) (including system databases), [high availability configuration](../database/high-availability-sla.md), and configuration of health and [performance monitoring](../../azure-monitor/insights/azure-sql.md) data streams.
 
 For more information, see [a list of supported and unsupported SQL Managed Instance features](../database/features-comparison.md), and [T-SQL differences between SQL Managed Instance and SQL Server](transact-sql-tsql-differences-sql-server.md).
-
-### Monitor with SQL insights
-
-[Azure Monitor SQL insights](../../azure-monitor/insights/sql-insights-overview.md) is a tool for monitoring Azure SQL managed instances, Azure SQL databases, and SQL Server instances in Azure SQL VMs. This service uses a remote agent to capture data from dynamic management views (DMVs) and routes the data to Azure Log Analytics, where it can be monitored and analyzed. You can view this data from [Azure Monitor](../../azure-monitor/overview.md) in provided views, or access the Log data directly to run queries and analyze trends. To start using Azure Monitor SQL insights, see [Enable SQL insights](../../azure-monitor/insights/sql-insights-enable.md).
 
 ### Programmatically identify a managed instance
 
