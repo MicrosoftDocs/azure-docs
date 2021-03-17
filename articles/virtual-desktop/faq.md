@@ -104,7 +104,7 @@ Once you create a host pool, you can't change its type. However, you can move an
 
 Limitations or quotas in FSLogix depend on the storage fabric used to store user profile VHD(X) files.
 
-The following table gives an example of how any resources an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile.
+The following table gives an example of how many IOPS an FSLogix profile needs to support each user. Requirements can vary widely depending on the user, applications, and activity on each profile.
 
 | Resource | Requirement |
 |---|---|
