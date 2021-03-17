@@ -225,7 +225,7 @@ The following table provides a brief description and the unique ID of each built
 > | [Management Group Reader](#management-group-reader) | Management Group Reader Role | ac63b705-f282-497d-ac71-919bf39d939d |
 > | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. | 5d28c62d-5b37-4476-8438-e587778df237 |
 > | [Policy Insights Data Writer (Preview)](#policy-insights-data-writer-preview) | Allows read access to resource policies and write access to resource component policy events. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
-> | [Quota Request Operator Role](#quota-request-operator-role) | Role to read and create Quota Requests and get Quota Request Status. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
+> | [Quota Request Operator Role](#quota-request-operator-role) | Read and create quota requests, get quota request status, and create support tickets. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
 > | [Reservation Purchaser](#reservation-purchaser) | Lets you purchase reservations | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
 > | [Resource Policy Contributor](#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Site Recovery Contributor](#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
@@ -10294,7 +10294,7 @@ Allows read access to resource policies and write access to resource component p
 
 ### Quota Request Operator Role
 
-Role to read and create Quota Requests and get Quota Request Status. [Learn more](/rest/api/reserved-vm-instances/quotaapi)
+Read and create quota requests, get quota request status, and create support tickets. [Learn more](/rest/api/reserved-vm-instances/quotaapi)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
