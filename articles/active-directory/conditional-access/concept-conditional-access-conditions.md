@@ -171,7 +171,7 @@ This setting has an impact on access attempts made from the following mobile app
 
 ### Exchange ActiveSync clients
 
-- Organizations can only select Exchange ActiveSync clients when assigning policy to users or groups. Selecting **All users**, **All guest and external users**, or **Directory roles** will cause all users to become blocked.
+- Organizations can only select Exchange ActiveSync clients when assigning policy to users or groups. Selecting **All users**, **All guest and external users**, or **Directory roles** will cause all users to be subject of the policy.
 - When creating a policy assigned to Exchange ActiveSync clients, **Exchange Online** should be the only cloud application assigned to the policy. 
 - Organizations can narrow the scope of this policy to specific platforms using the **Device platforms** condition.
 
