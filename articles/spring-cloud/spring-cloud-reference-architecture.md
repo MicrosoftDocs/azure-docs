@@ -54,7 +54,7 @@ The following list describes the infrastructure requirements for private applica
 * Resource Groups managed by the Azure Spring Cloud deployment must not be modified.
 * Subnets managed by the Azure Spring Cloud deployment must not be modified.
 * A subnet must only have one instance of Azure Spring Cloud.
-* If [Azure Spring Cloud Config Server][./spring-cloud-howto-config-server.md] is used to load config properties from a repository, the repository must be private.
+* If [Azure Spring Cloud Config Server](./spring-cloud-howto-config-server.md) is used to load config properties from a repository, the repository must be private.
 
 The following list shows the components that make up the design:
 
