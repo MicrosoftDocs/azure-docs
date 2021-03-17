@@ -34,7 +34,11 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* Completion of [part 3](tutorial-1st-experiment-sdk-train.md) of the series.
+* You need the data and an updated version of the pytorch environment created in the previous tutorial.  Make sure you have completed these steps:
+    1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
+    1. [Create a new Python environment](tutorial-1st-experiment-sdk-train.md#environment)
+    1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local)
+    1. [Update the Conda environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
 
 ## Adjust the training script
 
@@ -70,6 +74,7 @@ optimizer = optim.SGD(
     momentum=args.momentum,    # get momentum from command-line argument
 )
 ```
+
 > [!div class="nextstepaction"]
 > [I adjusted the training script](?success=adjust-training-script#test-locally) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
 
@@ -80,19 +85,13 @@ locally. Add to your tutorial directory structure a folder called `data`. Your d
 
 :::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="Directory structure shows .azureml, data, and src sub-directories":::
 
-
-1. If you didn't run `train.py` locally in the previous tutorial, you won't have the `data/` directory or the updated pytorch environment. Before you continue, make sure you have completed these steps:
-    1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
-    1. [Create a new Python environment](tutorial-1st-experiment-sdk-train.md#environment)
-    1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local)
-
-1. Exit the tutorial environment.
+1. Exit the current environment.
 
     ```bash
-    conda deactivate				# If you are still using the tutorial environment, exit it
-    ```
+    conda deactivate
 
-1. Now create and activate the new environment.
+1. Now create and activate the new environment.  This will rebuild the pytorch-aml-env with the  [updated environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
+
 
     ```bash
     conda env create -f .azureml/pytorch-env.yml    # create the new conda environment with updated dependencies
