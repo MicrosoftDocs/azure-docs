@@ -55,7 +55,7 @@ In a [failover group](failover-group-add-instance-tutorial.md), system databases
 
 If the Managed Instance you're using is part of a failover group, do the following:
 
-- Run the `sp_configure` and `RECONFIGURE` statements on each instance of the failover group to enable Machine Learning Services.
+- Run the `sp_configure` and `RECONFIGURE` commands on each instance of the failover group to enable Machine Learning Services.
 
 - Install the R/Python libraries on a user database rather than the master database.
 
