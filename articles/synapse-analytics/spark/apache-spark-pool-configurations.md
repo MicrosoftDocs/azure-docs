@@ -44,5 +44,5 @@ The automatic pause feature releases resources after a set idle period reducing 
 
 ## Next steps
 
-* [Azure Synapse Analytics](/azure/synapse-analytics)
+* [Azure Synapse Analytics](../index.yml)
 * [Apache Spark Documentation](https://spark.apache.org/docs/2.4.5/)
