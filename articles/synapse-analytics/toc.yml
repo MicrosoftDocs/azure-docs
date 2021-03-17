@@ -27,7 +27,7 @@
     href: get-started-analyze-spark.md
     displayName: get, started
   - name: 4 Analyze using serverless SQL pool
-    href: get-started-analyze-sql-on-demand.md
+    href: get-started-analyze-serverless-sql-pool.md
     displayName: get, started
   - name: 5 Analyze data in a storage account
     href: get-started-analyze-storage.md
