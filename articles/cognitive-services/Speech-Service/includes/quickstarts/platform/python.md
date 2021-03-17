@@ -68,7 +68,7 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## Install the Speech SDK using Visual Studio Code
 
-1. Download and install the latest supported version of [Python](https://www.python.org/downloads/) for your platform, 3.5 to 3.8.
+1. Download and install the latest supported version of [Python](https://www.python.org/downloads/) for your platform, 3.6 to 3.9.
    - Windows users make sure to select "Add Python to your PATH" during the installation process.
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python** and click **Install**.
