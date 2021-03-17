@@ -37,7 +37,7 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
 
 1. Select **Create** to start deploying the Web PubSub service instance.
 
-# Create Web PubSub instance with Azure CLI
+## Create Web PubSub instance with Azure CLI
 
 The [Azure command-line interface (Azure CLI)\(https://docs.microsoft.com/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. You could also create Azure Web PubSub service instance with Azure CLI after GA.
 
