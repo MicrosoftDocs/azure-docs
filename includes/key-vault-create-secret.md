@@ -13,6 +13,14 @@ Let's create a secret called **mySecret**, with a value of **Success!**. A secre
 
 To add a secret to your newly created key vault, use the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az-keyvault-secret-set) command:
 
+# [Azure CLI](#tab/azure-cli)
 ```azurecli
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "mySecret" --value "Success!"
 ```
+# [PowerShell](#tab/powershell)
+
+```powershell
+$secret = ConvertTo-SecureString -String 'Success!' -AsPlainText
+Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name mySecret -SecretValue $secret
+```
+---
