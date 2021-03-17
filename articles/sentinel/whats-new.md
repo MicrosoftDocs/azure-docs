@@ -40,8 +40,6 @@ As long as you're still in the same session, navigating back to the [Incidents](
 > [!NOTE]
 > Incident filters and sorting are not saved after leaving Azure Sentinel or refreshing your browser.
 
-
-
 ### Microsoft 365 Defender incident integration (Public preview)
 
 Azure Sentinel's [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) incident integration allows you to stream all M365D incidents into Azure Sentinel and keep them synchronized between both portals. Incidents from M365D (formerly known as Microsoft Threat Protection or MTP) include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Azure Sentinel. Once in Sentinel, Incidents will remain bi-directionally synced with M365D, allowing you to take advantage of the benefits of both portals in your incident investigation.
