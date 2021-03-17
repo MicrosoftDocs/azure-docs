@@ -22,6 +22,10 @@ Get started with Azure Communication Services by using the Azure portal or the C
 [!INCLUDE [Azure portal](./includes/phone-numbers-portal.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Azure portal](./includes/phone-numbers-net.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Java](./includes/phone-numbers-java.md)]
 ::: zone-end
