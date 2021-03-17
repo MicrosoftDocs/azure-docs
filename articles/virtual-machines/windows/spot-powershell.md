@@ -94,7 +94,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 This first response could take up to 2 minutes. From now on, they should display output almost immediately.
 
-From a computer that has the Az PowerShell module installed (like your local machine), simulate an eviction using [Set-AzVM](https://docs.microsoft.com/en-us/powershell/module/az.compute/set-azvm). Replace the resource group name and VM name with your own. 
+From a computer that has the Az PowerShell module installed (like your local machine), simulate an eviction using [Set-AzVM](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). Replace the resource group name and VM name with your own. 
 
 ```azurepowershell-interactive
 Set-AzVM -ResourceGroupName "mySpotRG" -Name "mySpotVM" -SimulateEviction
@@ -108,7 +108,7 @@ Quickly go back to your remote connection to your Spot Virtual Machine and query
 curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
-The output will look something like this, when the Scheduled Event Service gets the eviction notification.
+When the Scheduled Event Service gets the eviction notification, you will get a response that looks similar to this:
 
 ```output
 {"DocumentIncarnation":1,"Events":[{"EventId":"A123BC45-1234-5678-AB90-ABCDEF123456","EventStatus":"Scheduled","EventType":"Preempt","ResourceType":"VirtualMachine","Resources":["myspotvm"],"NotBefore":"Tue, 16 Mar 2021 00:58:46 GMT","Description":"","EventSource":"Platform"}]}
