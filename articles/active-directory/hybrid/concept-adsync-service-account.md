@@ -49,7 +49,7 @@ Legend:
 - Local account - Local user account on the server 
 - Domain account - Domain user account 
 - sMSA - [standalone Managed Service account](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
-- gMSA - [group Managed Service account](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
+- gMSA - [group Managed Service account](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)) 
 
  ||**LocalDB</br> Express**|**LocalDB/LocalSQL</br> Custom**|**Remote SQL</br> Custom**|
 |-----|-----|-----|-----|
@@ -64,7 +64,7 @@ A Virtual Service Account is a special type of managed local account that does n
 
 The Virtual Service Account is intended to be used with scenarios where the sync engine and SQL are on the same server. If you use remote SQL, then we recommend using a group Managed Service Account instead. 
 
-The Virtual Service Account cannot be used on a Domain Controller due to [Windows Data Protection API (DPAPI)](https://msdn.microsoft.com/en-us/library/ms995355.aspx) issues. 
+The Virtual Service Account cannot be used on a Domain Controller due to [Windows Data Protection API (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) issues. 
 
 ## Managed Service Account 
 
