@@ -85,9 +85,9 @@ Forking the sample repository is critical to be able to deploy the Static web ap
     :::image type="content" source="./media/tutorial-javascript-overview/visual-studio-code-create-resource-group.png" alt-text="In the Side bar, **right-click on your Azure subscription** under the `Resource Groups` area and select **Create resource group**.":::
 1. Enter a resource group name, such as `cognitive-search-website-tutorial`. 
 1. Select a location close to you.
-1. When you create the Search and Static web app service resources, later in the tutorial, use this resource group. 
+1. When you create the Search and Static web app resources, later in the tutorial, use this resource group. 
 
-    Creating a resource group gives you a logical unit to manage the service resources, including deleting them when you are finished using them.
+    Creating a resource group gives you a logical unit to manage the resources, including deleting them when you are finished using them.
 
 ## Next steps
 
