@@ -59,27 +59,21 @@ To run the Single Object Sync tool, perform the following steps:
 
  1. Open a new Windows PowerShell session on your Azure AD Connect server with the Run as Administrator option. 
 
- Set the execution policy to RemoteSigned or Unrestricted. 
+ 2. Set the [execution policy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy) to RemoteSigned or Unrestricted. 
 
-     `Set-ExecutionPolicy RemoteSigned` 
-
-     OR 
-
-     `Set-ExecutionPolicy Unrestricted` 
-
- 2. Disable the sync scheduler after verifying that no synchronization operations are running. 
+ 3. Disable the sync scheduler after verifying that no synchronization operations are running. 
 
      `Set-ADSyncScheduler -SyncCycleEnabled $false` 
 
- 3. Import the AdSync Diagnostics module 
+ 4. Import the AdSync Diagnostics module 
 
      `Import-module -Name "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSyncDiagnostics\ADSyncDiagnostics.psm1"` 
 
- 4. Invoke the Single Object Sync cmdlet. 
+ 5. Invoke the Single Object Sync cmdlet. 
 
      `Invoke-ADSyncSingleObjectSync -DistinguishedName "CN=testobject,OU=corp,DC=contoso,DC=com" | Out-File -FilePath ".\output.json"` 
 
- 5. Re-enable the Sync Scheduler. 
+ 6. Re-enable the Sync Scheduler. 
 
      `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
