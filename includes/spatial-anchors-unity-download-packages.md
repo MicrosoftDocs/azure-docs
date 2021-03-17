@@ -2,7 +2,7 @@
 author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 2/3/21
+ms.date: 03/16/2021
 ms.author: parkerra
 ---
 To download the required packages, you will need to have <a href="https://www.npmjs.com/get-npm" target="_blank">NPM</a> installed.
@@ -20,6 +20,9 @@ npm pack com.microsoft.azure.spatial-anchors-sdk.core@<version_number> --registr
 > ```bash
 > npm view com.microsoft.azure.spatial-anchors-sdk.core --registry https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM versions
 > ```
+
+> [!WARNING]
+> The minimum supported version of the ASA SDK is 2.7.0
 
 The Azure Spatial Anchors core package will be downloaded to the folder where you ran the command.
 
