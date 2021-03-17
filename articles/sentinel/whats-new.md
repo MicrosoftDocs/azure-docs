@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 03/17/2021
 ---
 
 # What's new in Azure Sentinel
@@ -27,11 +27,18 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## March 2021
 
+- [Incident timeline (Public preview)](#incident-timeline-public-preview)
 - [Incident filters and sort preferences now saved in your session (Public preview)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
 - [Improved incident searches (Public preview)](#improved-incident-search-public-preview)
 - [Microsoft 365 Defender incident integration (Public preview)](#microsoft-365-defender-incident-integration-public-preview)
 - [New Microsoft service connectors using Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
- 
+
+### Incident timeline (Public preview)
+
+The incident details page now shows a timeline of alerts and bookmarks in the incident. An incident's timeline can help you understand the incident better and reconstruct the timeline of attacker activity across the related alerts and bookmarks.
+
+<PLACEHOLDER FOR SCREENSHOT>
+
 ### Incident filters and sort preferences now saved in your session (Public preview)
 
 Now your incident filters and sorting is saved throughout your Azure Sentinel session, even while navigating to other areas of the product.
