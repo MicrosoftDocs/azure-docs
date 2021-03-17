@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 11/09/2020
+ms.date: 03/16/2020
 ---
 
 # Set up an Azure Marketplace subscription for hosted test drives
