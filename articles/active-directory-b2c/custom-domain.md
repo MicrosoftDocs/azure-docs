@@ -262,7 +262,6 @@ Azure Front Door passes the user's original IP address. This is the IP address t
 
 To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows.
 
-
 ## Next steps
 
 Learn about [OAuth authorization requests](protocols-overview.md).

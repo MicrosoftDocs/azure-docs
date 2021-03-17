@@ -817,6 +817,29 @@ If you have configured Azure Monitor with a Log Analytics workspace using the *F
 
 Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to VM insights. 
 
+## SQL insights (preview)
+
+### What versions of SQL Server are supported?
+See [Supported versions](insights/sql-insights-overview.md#supported-versions) for supported versions of SQL.
+
+### What SQL resource types are supported?
+
+- Azure SQL Database. Single database only, not databases in an Elastic Pool.
+- Azure SQL Managed Instance 
+- Azure SQL virtual machines ([Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms), [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create)) and Azure virtual machines that SQL Server is installed on.
+
+### What operating systems for the machine running SQL Server are supported?
+Any OS that supports running supported version of SQL.
+
+### What operating system for the remote monitoring server are supported?
+
+Ubuntu 18.04 is currently the only operating system supported.
+
+### Where will the monitoring data be stored in Log Analytics 
+All of the monitoring data is stored in the **InsightsMetrics** table. The **Origin** column has the value *solutions.azm.ms/telegraf/SqlInsights*. The **Namespace** column has values that start with *sqlserver_*.
+
+### How often is data collected? 
+See [Data collected by SQL insights](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) for details on the frequency that different data is collected.
 
 ## Next steps
 If your question isn't answered here, you can refer to the following forums to additional questions and answers.
