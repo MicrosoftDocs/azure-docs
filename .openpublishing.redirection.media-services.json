@@ -131,12 +131,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "/articles/media-services/latest/media-services-v2-vs-v3.md",
+            "source_path_from_root": "/articles/media-services/latest/media-services-v2-vs-v3.md",
             "redirect_url": "azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
             "redirect_document_id": false
         },
         {
-            "source_path": "/articles/media-services/latest/migrate-from-v2-to-v3.md",
+            "source_path_from_root": "/articles/media-services/latest/migrate-from-v2-to-v3.md",
             "redirect_url": "azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
             "redirect_document_id": false
         },
