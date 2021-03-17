@@ -1,6 +1,6 @@
 ---
 title: "Azure Synapse Analytics: Migration guide"
-description: Follow this guide to migrate your databases to Azure Synapse Analytics SQL pool. 
+description: Follow this guide to migrate your databases to Azure Synapse Analytics dedicated SQL pool. 
 ms.service: synapse-analytics
 ms.subservice:
 ms.custom: 
@@ -73,12 +73,12 @@ After you make the decision to migrate an existing solution to Azure Synapse Ana
 ## Migrate
 Performing a successful migration requires you to migrate your table schemas, code, and data. For more detailed guidance on these topics, see:
 - The article [Consider table design](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview).
+- The article [Consider code change](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-develop#development-recommendations-and-coding-techniques).
 - The article [Migrate your data](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading).
-- The article [Migrate your code](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-develop#development-recommendations-and-coding-techniques).
 - The article [Consider Workload Management](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management).
 
 ## Additional resources 
-- The CAT (Customer Advisory Team) has some great Azure Synapse Analytics (formerly Azure SQL Data Warehouse) guidance published as blog postings. Be sure to take a look at their article, [Migrating data to Azure SQL Data Warehouse in practice](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), for additional guidance on migration.
+- The CAT (Customer Advisory Team) has some great Azure Synapse Analytics (formerly SQL DW) guidance published as blog postings. Be sure to take a look at their article, [Migrating data to Azure SQL Data Warehouse in practice](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), for additional guidance on migration.
 
 ## Migration assets from real-world engagements
 For additional assistance with completing this migration scenario, please see the following resources, which were developed in support of a real-world migration project engagement.
@@ -87,11 +87,11 @@ For additional assistance with completing this migration scenario, please see th
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | [Data Workload Assessment Model and Tool](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | This tool provides suggested “best fit” target platforms, cloud readiness, and application/database remediation level for a given workload. It offers simple, one-click calculation and report generation that greatly helps to accelerate large estate assessments by providing and automated and uniform target platform decision process. |
 | [Handling Data Encoding Issues While Loading Data to Azure Synapse Analytics](https://azure.microsoft.com/en-us/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | This blog is intended to provide insight on some of the data encoding issues that you may encounter while using PolyBase to load data to SQL Data Warehouse. This article also provides some options that you can use to overcome such issues and load the data successfully. |
-| [Getting table sizes in Azure Synapse Analytics SQL pool](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | One of the key tasks that an architect must perform execute is to get metrics about a new environment post-migration: collecting load times from on-premises to the cloud, collecting PolyBase load times, etc. Of these tasks, one of the most important is to determine the storage size in SQL Data Warehouse compared to the customer's current platform. |
+| [Getting table sizes in Azure Synapse Analytics dedicated SQL pool](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | One of the key tasks that an architect must perform execute is to get metrics about a new environment post-migration: collecting load times from on-premises to the cloud, collecting PolyBase load times, etc. Of these tasks, one of the most important is to determine the storage size in SQL Data Warehouse compared to the customer's current platform. |
 | [Utility to move On-Premises SQL Server Logins to Azure Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | A PowerShell script that creates a T-SQL command script to re-create logins and select database users from an “on premises” SQL Server to an Azure SQL PaaS service. The tool allows the automatic mapping of Windows AD accounts to Azure AD accounts or it can do UPN lookups for each login against the on premises Windows Active Directory. The tool optionally moves SQL Server native logins as well. Custom server and database roles are scripted, as well as role membership and database role and user permissions. Contained databases are yet not supported and only a subset of possible SQL Server permissions are scripted; i.e. permissions grant with grant are not supported (complex permission trees). More details are available in the support document and the script have comments for ease of understanding. |
 
 > [!NOTE]
 > These above resources were developed as part of the Data Migration Jumpstart Program (DM Jumpstart), which is sponsored by the Azure Data Group engineering team. The core charter of DM Jumpstart is to unblock and accelerate complex modernization and compete data platform migration opportunities to Microsoft’s Azure Data platform. If you think your organization would be interested in participating in the DM Jumpstart program, please contact your account team and ask that they submit a nomination.
 
 ## Videos
-- Watch how [Walgreens migrated their retail inventory system](https://www.youtube.com/watch?v=86dhd8N1lH4) with about 100TB of data from Netezza to Azure Synapse Analytics (formerly Azure SQL Data Warehouse) in record time. 
+- Watch how [Walgreens migrated their retail inventory system](https://www.youtube.com/watch?v=86dhd8N1lH4) with about 100TB of data from Netezza to Azure Synapse Analytics (formerly SQL DW) in record time. 
