@@ -51,7 +51,16 @@ To change your routing preference to Internet routing:
    Connect-AzAccount
    ```
 
-2. To change your routing preference to Internet routing, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `--routing-choice` parameter to `InternetRouting`.
+2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that will host your static website.
+
+   ```powershell
+   $context = Get-AzSubscription -SubscriptionId <subscription-id>
+   Set-AzContext $context
+   ```
+
+   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+3. To change your routing preference to Internet routing, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `--routing-choice` parameter to `InternetRouting`.
 
    ```powershell
    Set-AzStorageAccount -ResourceGroupName <resource-group-name> `
@@ -124,7 +133,7 @@ This preference affects only the route-specific endpoint. This preference doesn'
    ```powershell
    Set-AzStorageAccount -ResourceGroupName <resource-group-name> `
     -AccountName <storage-account-name> `
-    -PublishMicrosoftEndpoint $false -PublishInternetEndpoint $true
+    -PublishMicrosoftEndpoint $true
    ```
 
    Replace the `<resource-group-name>` placeholder value with the name of the resource group that contains the storage account.
@@ -180,7 +189,7 @@ If you configured a route-specific endpoint, you can find the endpoint in the pr
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. To print the endpoints to the console, use the [az storage account show](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show) property of the storage account object.
+1. To print the endpoints to the console, use the [az storage account show](/cli/azure/storage/account#az_storage_account_show) property of the storage account object.
 
    ```azurecli
    az storage account show -g <resource-group-name> -n <storage-account-name>
