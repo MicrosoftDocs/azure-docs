@@ -26,6 +26,12 @@ To redirect any output to a .txt file for further analysis, use the following sy
 sudo [command] > [file name].txt
 ```
 
+Change the permissions of the .txt file so it can be copied:
+
+```console
+sudo chmod 666 [file name].txt
+```
+
 After redirecting output to a .txt file, copy the file to your host PC via SCP:
 
 ```console
