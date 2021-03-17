@@ -70,10 +70,10 @@ Yes. To move a subscription (that contains a vault) to a different Azure Active 
 
 ### Can I move a subscription that contains a Recovery Services Vault to a different tenant?
 
-Yes.
+Yes. Ensure that you do the following tasks. 
 
 >[!IMPORTANT]
->Ensure that you perform the following actions after moving the subscription:<ul><li>If the vault uses CMK (customer managed keys), you must update the vault. This enables the vault to recreate and reconfigure the vault managed identity and CMK (which will reside in the new tenant), otherwise the backups/restore operation will fail.</li><li>You can’t move the RBAC permissions set up in the subscription. You must reconfigure the permissions.</li></ul>
+>Ensure that you perform the following actions after moving the subscription:<ul><li>If the vault uses CMK (customer managed keys), you must update the vault. This enables the vault to recreate and reconfigure the vault managed identity and CMK (which will reside in the new tenant), otherwise the backups/restore operation will fail.</li><li>You must reconfigure the RBAC permissions in the subscription as the existing permissions can’t be moved.</li></ul>
 
 ## Azure Backup agent
 
