@@ -1,5 +1,5 @@
 ---
-title: IoT Central operator guide
+title: Azure IoT Central operator guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of the operator role in IoT Central. 
 author: TheJasonAndrew
 ms.author: v-anjaso
@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: [mvc, device-developer]
+
 ---
 
 # IoT Central operator guide
@@ -172,4 +173,4 @@ Cloud properties are the device metadata associated with the device, such as cit
 
 ## Next steps
 
-Now that you've learned how to manage devices in your Azure IoT Central application, the suggested next step is to learn how to[Configure rules](howto-configure-rules.md) for your devices.
+Now that you've learned how to manage devices in your Azure IoT Central application, the suggested next step is to learn how to [Configure rules](howto-configure-rules.md) for your devices.
