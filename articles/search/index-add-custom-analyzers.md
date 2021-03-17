@@ -12,11 +12,11 @@ ms.date: 03/17/2021
 ---
 # Add custom analyzers to string fields in an Azure Cognitive Search index
 
-A custom analyzer gives you control over the process of converting text into indexable and searchable tokens. Structurally, it’s a user-defined configuration consisting of a tokenizer, one or more token filters, and one or more character filters.
+A custom analyzer is a combination of tokenizer, one or more token filters, and one or more character filters that you define in the search index, and then reference on field definitions that require custom analysis. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Character filters prepare the input text before it is processed by the tokenizer. 
 
-The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Character filters prepare the input text before it is processed by the tokenizer. 
+A custom analyzer gives you control over the process of converting text into indexable and searchable tokens by allowing you to choose which types of analysis or filtering to invoke, and the order in which they occur. If you want to use a built-in analyzer with custom options, such as changing the maxTokenLength on Standard, you would create a custom analyzer, with a user-defined name, to set those options.
 
-Use cases where custom analyzers can be helpful include:
+Situations where custom analyzers can be helpful include:
 
 - Using character filters to remove HTML markup before text inputs are tokenized, or replace certain characters or symbols.
 
@@ -39,9 +39,7 @@ To create a custom analyzer, specify it in the "analyzers" section of an index a
 
 An analyzer definition includes a name, type, one or more character filters, a maximum of one tokenizer, and one or more token filters for post-tokenization processing. Character filters are applied before tokenization. Token filters and character filters are applied from left to right.
 
-Analyzers must not produce tokens longer than 300 characters, or indexing will fail. To trim long token or to exclude them, use the **TruncateTokenFilter** and the **LengthTokenFilter** respectively. See [**Token filters**](#token-filters) for reference.
-
-1. Names in a custom analyzer must be unique and cannot be the same as any of the predefined analyzers, tokenizers, token filters, or characters filters. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters. 
+1. Names in a custom analyzer must be unique and cannot be the same as any of the built-in analyzers, tokenizers, token filters, or characters filters. It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters. 
 
 1. The type must be #Microsoft.Azure.Search.CustomAnalyzer.
 
@@ -50,6 +48,8 @@ Analyzers must not produce tokens longer than 300 characters, or indexing will f
 1. "tokenizer" is exactly one [Tokenizer](#tokenizers). A value is required. If you need more than one tokenizer, you can create multiple custom analyzers and assign them on a field-by-field basis in your index schema.
 
 1. "tokenFilters" can be one or more filters from [Token Filters](#token-filters), processed after tokenization, in the order provided. For token filters that have options, add a "tokenFilter" section to specify the configuration. Token filters are optional.
+
+Analyzers must not produce tokens longer than 300 characters, or indexing will fail. To trim long token or to exclude them, use the **TruncateTokenFilter** and the **LengthTokenFilter** respectively. See [**Token filters**](#token-filters) for reference.
 
 ```json
 "analyzers":(optional)[
@@ -101,7 +101,7 @@ Analyzers must not produce tokens longer than 300 characters, or indexing will f
       ...
    }
 ]
-``` 
+```
 
 Within an index definition, you can place this section anywhere in the body of a create index request but usually it goes at the end:  
 
@@ -182,11 +182,11 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 This operation takes your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes, but these effects are temporary and eventually resolve on their own.
 
-<a name="AnalyzerTable"></a>
+<a name="built-in-analyzers"></a>
 
-## Predefined Analyzers
+## Built-in analyzers
 
-If you want to use a predefined analyzer with non-default options, creating a custom analyzer is the mechanism by which you specify the options. To use a predefined analyzer as-is, specify its name in the "analyzer", "indexAnalyzer", or "searchAnalyzer" property of a field definition.
+If you want to use a built-in analyzer with custom options, creating a custom analyzer is the mechanism by which you specify those options. In contrast, to use a built-in analyzer as-is, you simply need to [reference it by name](search-analyzers.md#how-to-specify-analyzers) in the field definition.
 
 |**analyzer_name**|**analyzer_type**  <sup>1</sup>|**Description and Options**|  
 |-----------------|-------------------------------|---------------------------|  
@@ -204,7 +204,7 @@ The analyzer_type is only provided for analyzers that can be customized. If ther
 
 <a name="character-filters"></a>
 
-## Character Filters
+## Character filters
 
 In the table below, the character filters that are implemented using Apache Lucene are linked to the Lucene API documentation.
 
