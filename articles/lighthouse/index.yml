@@ -91,7 +91,7 @@ landingContent:
             url: ./how-to/policy-at-scale.md
           - text: Manage hybrid machines with Azure Arc
             url: ./how-to/manage-hybrid-infrastructure-arc.md
-          - text: Manage Azure Migration projects
+          - text: Manage Azure Migrate projects
             url: ./how-to/migration-at-scale.md
 
   - title: Reference - SDKs
