@@ -122,7 +122,7 @@ It's also possible to get a token for the [Azure API for FHIR using the Azure CL
 
 With a valid access token, you can now insert a new patient. In Postman, change the method by clicking **Post**, and then add the following JSON document in the body of the request.
 
-![code-json][(../samples/sample-patient.json)]
+[!code-json[](../samples/sample-patient.json)]
 
 Click **Send** to determine that the patient is successfully created.
 
