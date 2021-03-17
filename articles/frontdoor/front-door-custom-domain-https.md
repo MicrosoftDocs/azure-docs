@@ -130,7 +130,12 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
     Azure Front Door lists the following information: 
     - The key vault accounts for your subscription ID. 
     - The certificates (secrets) under the selected key vault. 
-    - The available certificate versions.
+    - The available certificate versions. 
+
+> [!NOTE]
+> Leaving the certificate version as blank would lead to:
+> - The latest version of the certificate getting selected.
+> - Automatic rotation of certificates to the latest version, when a newer version of the certificate is available in your Key Vault.
  
 5. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
 
@@ -270,9 +275,9 @@ In this tutorial, you learned how to:
 
 * Upload a certificate to Key Vault.
 * Validate a domain.
-* Enable HTTPS for your custom domain.
+* Enable HTTPS for you custom domain.
 
-To learn how to set up a geo-filtering policy for your Front Door, continue to the next tutorial.
+To learn how to set up a geo-filtering policy for you Front Door, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Set up a geo-filtering policy](front-door-geo-filtering.md)
