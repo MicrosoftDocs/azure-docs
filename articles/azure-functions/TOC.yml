@@ -425,7 +425,7 @@
             - name: Overview
               href: start-stop-vms/overview.md
             - name: Deploy and configure
-              href: start-stop-vms/configure.md
+              href: start-stop-vms/enable.md
             - name: Manage and monitor
               href: start-stop-vms/manage.md
         - name: Connect to SQL Database
