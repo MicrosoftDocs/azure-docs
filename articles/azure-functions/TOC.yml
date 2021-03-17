@@ -370,6 +370,8 @@
           href: set-runtime-version.md
         - name: Disable a function
           href: disable-function.md
+        - name: Networking
+          href: configure-networking-how-to.md
         - name: Geo-disaster recovery
           href: functions-geo-disaster-recovery.md
     - name: Monitor
