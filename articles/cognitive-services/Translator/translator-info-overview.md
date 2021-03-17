@@ -21,7 +21,7 @@ keywords: translator, text translation, machine translation, translation service
 > ✔ [**How-to guides**](translator-how-to-signup.md) contain instructions for using the service in more specific or customized ways.  
 > ✔ [**Concepts**](character-counts.md) provide in-depth explanations of the service functionality and features.  
 > ✔ [**Tutorials**](tutorial-wpf-translation-csharp.md) are longer guides that show you how to use the service as a component in broader business solutions.  
->
+> ✔ [**Reference**](reference/v3-0-reference.md) provide capability and configuration specifications for REST APIs.
 
 ## What is the Translator service?
 

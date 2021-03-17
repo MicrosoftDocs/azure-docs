@@ -18,8 +18,8 @@ ms.topic: overview
 > **Custom Translator** documentation contains the following types of articles:  
 > ✔ [**Quickstarts**](quickstart-build-deploy-custom-model.md) are step-by-step instructions that enable you to make API calls to the feature and get results in a short period of time.  
 > ✔ [**How-to guides**](how-to-create-project.md) contain instructions for using the feature in more specific or customized ways.  
-> ✔ [**Concepts**](workspace-and-project.md) provide in-depth explanations of the feature functionality. 
->
+> ✔ [**Concepts**](workspace-and-project.md) provide in-depth explanations of the feature functionality.  
+> ✔ [**Reference**](../reference/v3-0-reference.md) provide capability and configuration specifications for REST APIs.
 
 ## What is Custom Translator?
 

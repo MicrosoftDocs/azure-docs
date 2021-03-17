@@ -13,7 +13,7 @@ ms.date: 02/11/2021
 > **Document Translation** documentation contains the following types of articles:  
 > ✔ [**Quickstarts**](get-started-with-document-translation.md) are step-by-step instructions that enable you to make API calls to the feature and get results in a short period of time.  
 > ✔ [**How-to guides**](create-sas-tokens.md) contain instructions for using the feature in more specific or customized ways.  
-> ✔ [**Reference**](/rest/api/cognitiveservices/translator/documenttranslation) provide capability and configuration information for REST APIs.
+> ✔ [**Reference**](/rest/api/cognitiveservices/translator/documenttranslation) provide capability and configuration specifications for REST APIs.
 >
 
 ## What is Document Translation (Preview)?

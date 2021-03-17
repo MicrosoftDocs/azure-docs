@@ -3,16 +3,25 @@
 - name: What is Translator?
   href: translator-info-overview.md  
 - name: Translation Overview
+  expanded: true
   items:
+  - name: Quickstart
+    href: quickstart-translator.md
+  - name: Translator REST API
+    href: reference/v3-0-translate.md  
   - name: Language Support
     href: language-support.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator 
   - name: Translator FAQ
     href: https://www.microsoft.com/translator/faq.aspx 
-  - name: Translator quickstart
-    href: quickstart-translator.md
-- name: Text Translation Samples
+- name: Responsible use of AI
+  items:
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy
+  - name: Encryption
+    href: encrypt-data-at-rest.md    
+- name: Samples
   items:
   - name: C#
     href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp
@@ -28,13 +37,7 @@
     href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP
   - name: Ruby
     href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
-- name: Responsible use of AI
-  items:
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy
-  - name: Encryption
-    href: encrypt-data-at-rest.md  
-- name: Translator how-to guides
+- name: How-to guides
   items:
   - name: Create a Translator resource
     href: ./translator-how-to-signup.md
@@ -50,32 +53,30 @@
     href: dynamic-dictionary.md
   - name: Translate behind firewalls
     href: firewalls.md
-- name: Translator concepts
+- name: Concepts
   items:
   - name: How the API counts characters
     href: character-counts.md
-- name: Translator tutorials
+- name: Tutorials
   items:
   - name: Create a WPF app for Translator, C#
     href: tutorial-wpf-translation-csharp.md
   - name: Create a Flask translation app, Python
     href: tutorial-build-flask-app-translation-synthesis.md 
-- name: Translator REST API
-  href: reference/v3-0-translate.md
 - name: Custom Translator 
   expanded: true
   items:
   - name: What is the Custom Translator?
     href: custom-translator/overview.md
-  - name: Custom Translator FAQ
-    href: custom-translator/faq.md
-  - name: Custom Translator glossary
-    href: custom-translator/glossary.md  
-  - name: Custom translation quickstart
+  - name: Quickstarts
     items:
     - name: Build a custom model
-      href: custom-translator/quickstart-build-deploy-custom-model.md 
-  - name: Custom Translator how-to guides
+      href: custom-translator/quickstart-build-deploy-custom-model.md   
+  - name: Custom Translator glossary
+    href: custom-translator/glossary.md  
+  - name: Custom Translator FAQ
+    href: custom-translator/faq.md
+  - name: How-to guides
     items:
     - name: Create a project
       href: custom-translator/how-to-create-project.md
@@ -97,7 +98,7 @@
       href: custom-translator/how-to-migrate.md
     - name: Unsupported language deployments
       href: custom-translator/unsupported-language-deployments.md
-  - name: Custom Translator concepts
+  - name: Concepts
     items:
     - name: Customize and improve text translation
       href: customization.md  
@@ -121,19 +122,17 @@
   expanded: true
   items:
     - name: What is Document Translation?
-      href: document-translation/overview.md 
-    - name: Document Translation quickstart
+      href: document-translation/overview.md
+    - name: Document Translation REST API
+      href: /rest/api/cognitiveservices/translator/translation   
+    - name: Quickstart
       items:
       - name: Get started with Document Translation
         href: document-translation/get-started-with-document-translation.md
-    - name: Document Translation how-to guides
+    - name: How-to guides
       items:
       - name: Create SAS tokens for Document Translation 
         href: document-translation/create-sas-tokens.md 
-    - name: Document Translation Reference
-      items:     
-      - name: Document Translation REST API
-        href: /rest/api/cognitiveservices/translator/translation
 - name: Reference
   items:
   - name: v3 Translator reference
@@ -162,4 +161,3 @@
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
   - name: Code samples on GitHub
     href: https://aka.ms/TranslatorGitHub
-
