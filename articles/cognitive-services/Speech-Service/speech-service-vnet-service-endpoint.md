@@ -22,9 +22,9 @@ This article explains how to set up and use VNet service endpoints with Speech s
 > Before you proceed, review [how to use virtual networks with Cognitive Services](../cognitive-services-virtual-networks.md).
 
 Setting up a Speech resource for the VNet service endpoint scenarios requires performing the following tasks:
-- Create Speech resource custom domain name !!!
-- Configure VNet(s) and the Speech resource networking settings !!!
-- Adjust existing applications and solutions !!!
+1. [Create Speech resource custom domain name](#create-a-custom-domain-name)
+1. [Configure VNet(s) and the Speech resource networking settings](#configure-vnets-and-the-speech-resource-networking-settings)
+1. [Adjust existing applications and solutions](#adjust-existing-applications-and-solutions)
 
 > [!NOTE]
 > Setting up and using VNet service endpoints for Speech Services is very similar to setting up and using the private endpoints. In this article we reference the correspondent sections of the [article on using private endpoints](speech-services-private-link.md), when the content is equivalent.
@@ -53,7 +53,7 @@ You need to add all Virtual networks that are allowed access via the service end
 > [!NOTE]
 > To use VNet service endpoints you need to select **Selected Networks and Private Endpoints** network security option. No other options are supported. If your scenario requires **All networks** option, consider using the [private endpoints](speech-services-private-link.md), which support all three network security options.
 
-5. Select **Add existing virtual network** or **Add new virtual network**, fill in the required parameters and select **Add** for the existing or **Create** for the new virtual network. Note, that if you add an existing virtual network then the `Microsoft.CognitiveServices` service endpoint will be automatically enabled for the selected subnet(s). This operation can take up to 15 minutes. Also do not forget to consider the Notes in the beginning of this section.
+5. Select **Add existing virtual network** or **Add new virtual network**, fill in the required parameters, and select **Add** for the existing or **Create** for the new virtual network. Note, that if you add an existing virtual network then the `Microsoft.CognitiveServices` service endpoint will be automatically enabled for the selected subnet(s). This operation can take up to 15 minutes. Also do not forget to consider the Notes in the beginning of this section.
 
 ### Enabling service endpoint for an existing VNet
 
@@ -91,7 +91,7 @@ The usage is equivalent to [using a Speech resource with a custom domain name an
 ## Learn more
 
 * [Use Speech Services through a private endpoint](speech-services-private-link.md)
-* [Azure VNet service endpoint](../../../virtual-network/virtual-network-service-endpoints-overview.md)
+* [Azure VNet service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md)
 * [Speech SDK](speech-sdk.md)
 * [Speech-to-text REST API](rest-speech-to-text.md)
 * [Text-to-speech REST API](rest-text-to-speech.md)
