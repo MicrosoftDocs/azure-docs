@@ -103,6 +103,7 @@ For more information, see [Plans and pricing for commercial marketplace offers](
 ## Legal contracts
 
 [!INCLUDE [Legal contracts section](includes/legal-contracts.md)]
+[!INCLUDE [Legal section for Standard contracts](includes/legal-contracts-standard.md)]
 
 ## Cloud Solution Providers
 
