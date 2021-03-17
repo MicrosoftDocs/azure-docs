@@ -142,7 +142,7 @@ You're not required to use this feature for authentication and authorization. Yo
 
 **Can I link an existing app service for multiple App Services?**
 
-Give each App Service app its own permission and consent. Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app. 
+Give each app registration its own permission and consent. Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app.
 
 **Are all requests redirected to HTTPS?**
 
