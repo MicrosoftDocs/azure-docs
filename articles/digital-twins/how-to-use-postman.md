@@ -17,8 +17,10 @@ ms.date: 11/10/2020
 This article describes how to configure the [Postman REST client](https://www.getpostman.com/) to interact with the Azure Digital Twins APIs, through the following steps:
 
 1. Use the [Azure CLI](/cli/azure/install-azure-cli) to get a bearer token that you will use to make API requests in Postman.
-1. Set up a Postman collection and configure the Postman REST client to use your bearer token to authenticate.
-1. Use the configured Postman to create and send a request to the Azure Digital Twins APIs.
+1. Set up a Postman collection and configure the Postman REST client to use your bearer token to authenticate. When setting up the collection, you can choose either of these options:
+    1. Import the Swagger file for Azure Digital Twins as a pre-built collection of API requests.
+    1. Create your own collection from scratch.
+1. Add requests to your configured collection and send them to the Azure Digital Twins APIs.
 
 ## Prerequisites
 
