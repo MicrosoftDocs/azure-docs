@@ -91,15 +91,19 @@ You can enable either targeting the action against a subscription, single or mul
 
     In the request body, if you want to manage VMs for specific resource groups, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one resource group if required.
 
+    This example also demonstrates excluding a virtual machine.
+
     ```json
     {
       "Action": "start",
       "EnableClassic": false,
       "RequestScopes": {
-        "ExcludedVMLists": [],
         "ResourceGroups": [
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/"
+        ],
+        "ExcludedVMLists": [
+         "/subscriptions/12345678-1111-2222-3333-1234567891234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
         ]
       }
     }
@@ -151,12 +155,13 @@ In an environment that includes two or more components on multiple VMs supportin
 
     In the request body, if you want to manage VMs for specific resource groups, modify the request body as shown in the following example. Each resource path specified must be separated by a comma. You can specify one resource group if required.
 
+    This example also demonstrates excluding a virtual machine.
+
     ```json
     {
       "Action": "start",
       "EnableClassic": false,
       "RequestScopes": {
-        "ExcludedVMLists": [],
         "ResourceGroups": [
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
           "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/"
