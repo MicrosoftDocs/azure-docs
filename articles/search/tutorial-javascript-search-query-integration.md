@@ -180,7 +180,7 @@ The `Suggest` API takes a search term while a user is typing and suggests search
 const suggestions = await client.suggest(q, suggester, {top: parseInt(top)});
 ```
 
-The Search suggester, `sg`, was defined in the schema file used during [bulk upload](tutorial-javascript-create-load-index.md#add-a-schema-definition-file).
+The Search suggester, `sg`, was defined in the schema file used during bulk upload and defined in [good-books-index.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/bulk-insert/good-books-index.json).
 
 Routing for the Suggest API is contained in the [function.json](https://github.com/dereklegenzoff/azure-search-react-template/blob/master/api/Search/function.json) bindings.
 

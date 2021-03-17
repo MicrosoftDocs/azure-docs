@@ -53,7 +53,7 @@ Install the following for your local development environment.
     - [Azure Cognitive Search 0.2.0+](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
     - [Azure Static web apps](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
 - Optional:
-    - This tutorial doesn't run the Azure Function api locally but if you intend to run it locally, you need to install [azure-functions-core-tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash) globally with the following bash command: 
+    - This tutorial doesn't run the Azure Function api locally but if you intend to run it locally, you need to install [azure-functions-core-tools](/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash) globally with the following bash command: 
     
     ```bash
     npm install -g azure-functions-core-tools
