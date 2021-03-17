@@ -1,17 +1,11 @@
 ---
 title: Alert validation in Azure Security Center | Microsoft Docs
 description: Learn how to validate that your security alerts are correctly configured in Azure Security Center
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date:  12/15/2020
+ms.date:  03/17/2021
 ms.author: memildin
 
 ---
@@ -32,14 +26,9 @@ Use sample alerts to:
 - evaluate the value and capabilities of Azure Defender
 - validate any configurations you've made for your security alerts (such as SIEM integrations,  workflow automation, and email notifications)
 
-> [!NOTE]
-> This procedure requires the new (preview) alerts experience available from the banner at the top of the **Security alerts** page.
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner with link to the new preview alerts experience":::
-
 To create sample alerts:
 
-1. From the toolbar on the alerts page, select **Create sample alerts**. 
+1. As a user with the role **Security admin** or **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
 1. Select the subscription.
 1. Select the relevant Azure Defender plan/s for which you want to see alerts. 
 1. Select **Create sample alerts**.
@@ -97,5 +86,4 @@ This article introduced you to the alerts validation process. Now that you're fa
 
 * [Validating Azure Key Vault Threat Detection in Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) - Learn how to manage alerts, and respond to security incidents in Security Center.
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md) - Learn how to monitor the health of your Azure resources.
 * [Understanding security alerts in Azure Security Center](./security-center-alerts-overview.md) - Learn about the different types of security alerts.

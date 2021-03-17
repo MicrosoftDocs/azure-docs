@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: overview
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/21/2021
+ms.date: 02/23/2021
 ms.custom: references_regions
 ---
 
@@ -19,7 +19,56 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly.
 
+## February 2021
+
+### Support for Automation and State Configuration declared GA in Japan West
+
+**Type:** New feature
+
+Automation account and State Configuration availability in Japan West region. For more information, read [announcement](https://azure.microsoft.com/updates/azure-automation-in-japan-west-region/).
+
+### Introduced custom Azure Policy compliance to enforce runbook execution on Hybrid Worker
+
+**Type :** New feature
+
+You can use the new Azure Policy compliance rule to allow creation of jobs, webhooks and job schedules to run only on Hybrid Worker groups.
+
+### Update Management availability in East US, France Central, and North Europe regions
+
+**Type:** New feature
+
+Automation Update Management feature is available in East US, France Central, and North Europe regions. See [Supported region mapping](how-to/region-mappings.md) for updates to the documentation reflecting this change.
+
 ## January 2021
+
+### Support for Automation and State Configuration declared GA in Switzerland West
+
+**Type:** New feature
+
+Automation account and State Configuration availability in the Switzerland West region. For more information, read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-switzerland-west-region/).
+
+### Added Python 3 script to import module with multiple dependencies
+
+**Type:** New feature
+
+The script is available for download from our [GitHub repository](https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py). 
+ 
+### Hybrid Runbook Worker role support for Centos 8.x/RHEL 8.x/SLES 15
+
+**Type.** New feature
+
+The Hybrid Runbook Worker feature supports CentOS 8.x, REHL 8.x, and SLES 15 distributions for only process automation on Hybrid Runbook Workers.  See [Supported operating systems](automation-linux-hrw-install.md#supported-linux-operating-systems) for updates to the documentation to reflect these changes.
+
+### Update Management & Change Tracking availability in Australia East, East Asia, West US & Central US regions
+
+**Type:** New feature
+
+Automation account, Change Tracking and Inventory, and Update Management are available in Australia East, East Asia, West US & Central US regions. 
+
+### Introduced public preview of Python 3 runbooks in US Government cloud
+
+**Type:** New feature
+Azure Automation introduces public preview support of Python 3 cloud and hybrid runbook execution in US Government cloud regions.  For more information, see the [announcement](https://azure.microsoft.com/updates/azure-automation-python-3-public-preview/).
 
 ### Azure Automation runbooks moved from TechNet Script Center to GitHub
 

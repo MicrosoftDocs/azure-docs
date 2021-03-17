@@ -2,7 +2,7 @@
 title: Compliance using Azure Policy
 description: Assign built-in policies in Azure Policy to audit compliance of your Azure container registries
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 03/01/2021
 ---
 
 # Audit compliance of Azure container registries using Azure Policy
@@ -17,9 +17,7 @@ There are no charges for using Azure Policy.
 
 The following built-in policy definitions are specific to Azure Container Registry:
 
-[!INCLUDE [azure-policy-reference-policies-container-registry](../../includes/policy/reference/bycat/policies-container-registry.md)]
-
-See also the built-in network policy definition: [Container Registry should use a virtual network service endpoint](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
+[!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
 ## Assign policies
 

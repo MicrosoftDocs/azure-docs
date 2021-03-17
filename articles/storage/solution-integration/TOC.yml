@@ -1,0 +1,31 @@
+- name: Azure Storage validated partner solutions
+  href: ./index.yml
+- name: Analytics and big data partners
+  items:
+  - name: Overview of validated partners
+    href: .\validated-partners\analytics\partner-overview.md
+  expanded: false
+- name: Archive, backup, and BCDR partners
+  items:
+  - name: Overview of validated partners
+    href: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+  - name: Commvault getting started guide
+    href: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+  - name: Veeam getting started guide
+    href: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+  expanded: false
+- name: Container solution partners
+  items:
+  - name: Overview of validated partners
+    href: .\validated-partners\container-solutions\partner-overview.md
+  expanded: false
+- name: Data management and migration partners
+  items:
+  - name: Overview of validated partners
+    href: .\validated-partners\data-management\partner-overview.md
+  expanded: false
+- name: Primary and secondary storage partners
+  items:
+  - name: Overview of validated partners
+    href: .\validated-partners\primary-secondary-storage\partner-overview.md
+  expanded: false

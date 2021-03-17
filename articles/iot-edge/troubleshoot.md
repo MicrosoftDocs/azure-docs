@@ -12,6 +12,8 @@ services: iot-edge
 
 # Troubleshoot your IoT Edge device
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and diagnostics.
 
 ## Run the 'check' command
@@ -37,7 +39,7 @@ iotedge check
 
 The troubleshooting tool runs many checks that are sorted into these three categories:
 
-* *Configuration checks* examines details that could prevent IoT Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
+* *Configuration checks* examines details that could prevent IoT Edge devices from connecting to the cloud, including issues with the config file and the container engine.
 * *Connection checks* verify that the IoT Edge runtime can access ports on the host device and that all the IoT Edge components can connect to the IoT Hub. This set of checks returns errors if the IoT Edge device is behind a proxy.
 * *Production readiness checks* look for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
@@ -97,6 +99,9 @@ The [IoT Edge security manager](iot-edge-security-manager.md) is responsible for
 
 On Linux:
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 * View the status of the IoT Edge security manager:
 
    ```bash
@@ -105,32 +110,68 @@ On Linux:
 
 * View the logs of the IoT Edge security manager:
 
-    ```bash
-    sudo journalctl -u iotedge -f
-    ```
+   ```bash
+   sudo journalctl -u iotedge -f
+   ```
 
 * View more detailed logs of the IoT Edge security manager:
 
-  * Edit the IoT Edge daemon settings:
+  1. Edit the IoT Edge daemon settings:
 
-      ```bash
-      sudo systemctl edit iotedge.service
-      ```
+     ```bash
+     sudo systemctl edit iotedge.service
+     ```
 
-  * Update the following lines:
+  2. Update the following lines:
 
-      ```bash
-      [Service]
-      Environment=IOTEDGE_LOG=edgelet=debug
-      ```
+     ```bash
+     [Service]
+     Environment=IOTEDGE_LOG=edgelet=debug
+     ```
 
-  * Restart the IoT Edge Security Daemon:
+  3. Restart the IoT Edge security daemon:
 
-      ```bash
-      sudo systemctl cat iotedge.service
-      sudo systemctl daemon-reload
-      sudo systemctl restart iotedge
-      ```
+     ```bash
+     sudo systemctl cat iotedge.service
+     sudo systemctl daemon-reload
+     sudo systemctl restart iotedge
+     ```
+<!--end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* View the status of the IoT Edge system services:
+
+   ```bash
+   sudo iotedge system status
+   ```
+
+* View the logs of the IoT Edge system services:
+
+   ```bash
+   sudo iotedge system logs -- -f
+   ```
+
+* Enable debug-level logs to view more detailed logs of the IoT Edge system services:
+
+  1. Enable debug-level logs.
+
+     ```bash
+     sudo iotedge system set-log-level debug
+     sudo iotedge system restart
+     ```
+
+  1. Switch back to the default info-level logs after debugging.
+
+     ```bash
+     sudo iotedge system set-log-level info
+     sudo iotedge system restart
+     ```
+
+<!-- end 1.2 -->
+:::moniker-end
 
 On Windows:
 
@@ -154,52 +195,17 @@ On Windows:
 
 * View more detailed logs of the IoT Edge security manager:
 
-  * Add a system-level environment variable:
+  1. Add a system-level environment variable:
 
-      ```powershell
-      [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
-      ```
+     ```powershell
+     [Environment]::SetEnvironmentVariable("IOTEDGE_LOG", "debug", [EnvironmentVariableTarget]::Machine)
+     ```
 
-  * Restart the IoT Edge Security Daemon:
+  2. Restart the IoT Edge Security Daemon:
 
-      ```powershell
-      Restart-Service iotedge
-      ```
-
-### If the IoT Edge security manager is not running, verify your yaml configuration file
-
-> [!WARNING]
-> YAML files cannot contain tabs as indentation. Use 2 spaces instead. Top-level elements should have no leading spaces.
-
-On Linux:
-
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-On Windows:
-
-   ```cmd
-   notepad C:\ProgramData\iotedge\config.yaml
-   ```
-
-### Restart the IoT Edge security manager
-
-If issue is still persisting, you can try restarting the IoT Edge security manager.
-
-On Linux:
-
-   ```cmd
-   sudo systemctl restart iotedge
-   ```
-
-On Windows:
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   sleep 5
-   Start-Service iotedge
-   ```
+     ```powershell
+     Restart-Service iotedge
+     ```
 
 ## Check container logs for issues
 
@@ -212,6 +218,9 @@ iotedge logs <container name>
 You can also use a [direct method](how-to-retrieve-iot-edge-logs.md#upload-module-logs) call to a module on your device to upload the logs of that module to Azure Blob Storage.
 
 ## View the messages going through the IoT Edge hub
+
+<!--1.1 -->
+:::moniker range="iotedge-2018-06"
 
 You can view the messages going through the IoT Edge hub, and gather insights from verbose logs from the runtime containers. To turn on verbose logs on these containers, set `RuntimeLogLevel` in your yaml configuration file. To open the file:
 
@@ -251,7 +260,29 @@ Replace `env: {}` with:
 
 Save the file and restart the IoT Edge security manager.
 
-You can also check the messages being sent between IoT Hub and the IoT Edge devices. View these messages by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). For more information, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
+<!-- end 1.1 -->
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+You can view the messages going through the IoT Edge hub and gather insights from verbose logs from the runtime containers. To turn on verbose logs on these containers, set the `RuntimeLogLevel` environment variable in the deployment manifest.
+
+To view messages going through the IoT Edge hub, set the `RuntimeLogLevel` environment variable to `debug` for the edgeHub module.
+
+Both the edgeHub and edgeAgent modules have this runtime log environment variable, with the default value set to `info`. This environment variable can take the following values:
+
+* fatal
+* error
+* warning
+* info
+* debug
+* verbose
+
+<!-- end 1.2 -->
+:::moniker-end
+
+You can also check the messages being sent between IoT Hub and IoT devices. View these messages by using the [Azure IoT Hub extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). For more information, see [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
 ## Restart containers
 

@@ -66,7 +66,7 @@ To read all notifications received during your current session, select **Notific
 
 ![Screenshot showing Azure portal global header with notifications highlighted](./media/set-preferences/read-notifications.png)
 
-If you want to read notifications from previous sessions, look for events in the Activity log. For more information, see [View the Activity log](../azure-monitor/platform/activity-log.md#view-the-activity-log). 
+If you want to read notifications from previous sessions, look for events in the Activity log. For more information, see [View the Activity log](../azure-monitor/essentials/activity-log.md#view-the-activity-log). 
 
 ## Change the inactivity timeout setting
 

@@ -9,7 +9,7 @@
     href: select-right-deployment-type.md
   - name: Supported versions
     href: concepts-supported-versions.md
-  - name: Versioning policy
+  - name: Version support policy
     href: concepts-version-policy.md
     displayName: version policy
 - name: Single Server
@@ -30,7 +30,7 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: Create a server
+    - name: Create a MySQL Single Server
       items:
        - name: Azure portal
          href: quickstart-create-mysql-server-database-using-azure-portal.md
@@ -413,14 +413,13 @@
     - name: What is Flexible Server?
       href: flexible-server/overview.md
     - name: Supported versions
-      href: flexible-server/concepts-supported-versions.md
+      href: concepts-supported-versions.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
   - name: Quickstarts
     expanded: true
     items:
-      - name: Create a server
-        expanded: true
+      - name: Create a MySQL Flexible Server
         items:
           - name: Azure portal
             href: flexible-server/quickstart-create-server-portal.md
@@ -431,6 +430,8 @@
             href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
         items:
+          - name: Azure CLI
+            href: flexible-server/connect-azure-cli.md
           - name: PHP
             href: flexible-server/connect-php.md
           - name: MySQL Workbench
@@ -554,6 +555,9 @@
   - name: Migrate data with mysqldump or phpmyadmin
     href: concepts-migrate-dump-restore.md
     displayName: migrate, mysqldump
+  - name: Migrate data with dbForge Studio for MySQL
+    href: concepts-migrate-dbforge-studio-for-mysql.md
+    displayName: migrate, dbforge
   - name: Migrate data with MySQL Workbench
     href: concepts-migrate-import-export.md
     displayName: import , migrate, export

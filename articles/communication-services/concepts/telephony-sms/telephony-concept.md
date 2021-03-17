@@ -6,7 +6,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: bobazile
-ms.date: 02/09/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -14,6 +14,7 @@ ms.service: azure-communication-services
 # Telephony concepts
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Azure Communication Services Calling client libraries can be used to add telephony and PSTN to your applications. This page summarizes key telephony concepts and capabilities. See the [calling library](../../quickstarts/voice-video-calling/calling-client-samples.md) to learn more about specific client library languages and capabilities.
 

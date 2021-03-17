@@ -1,30 +1,22 @@
 ---
 title: Deploy and configure Azure VMware Solution
-description: Learn how to use the information gathered in the planning stage to deploy the Azure VMware Solution private cloud.
+description: Learn how to use the information gathered in the planning stage to deploy and configure the Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 12/24/2020
+ms.custom: contperf-fy21q3
+ms.date: 02/17/2021
 ---
 
 # Deploy and configure Azure VMware Solution
 
-In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy Azure VMware Solution. 
+In this article, you'll use the information from the [planning section](production-ready-deployment-steps.md) to deploy and configure Azure VMware Solution. 
 
 >[!IMPORTANT]
 >If you haven't defined the information yet, go back to the [planning section](production-ready-deployment-steps.md) before continuing.
 
-## Register the resource provider
 
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+## Create an Azure VMware Solution private cloud
 
-
-## Deploy Azure VMware Solution
-
-Use the information you gathered in the [Planning the Azure VMware Solution deployment](production-ready-deployment-steps.md) article:
-
->[!NOTE]
->To deploy Azure VMware Solution, you must be at minimum contributor level in the subscription.
-
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
+Follow the prerequisites and steps in the [Create an Azure VMware Solution private cloud](tutorial-create-private-cloud.md) tutorial. You can create an Azure VMware Solution private cloud by using the [Azure portal](tutorial-create-private-cloud.md#azure-portal) or by using the [Azure CLI](tutorial-create-private-cloud.md#azure-cli).  
 
 >[!NOTE]
 >For an end-to-end overview of this step, view the [Azure VMware Solution: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
@@ -38,7 +30,7 @@ After you deploy Azure VMware Solution, you'll create the virtual network's jump
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Create the Azure VMware Solution jump box" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-To create a virtual machine (VM) in the virtual network that you [identified or created as part of the deployment process](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), follow these instructions: 
+To create a virtual machine (VM) in the virtual network that you [identified or created as part of the deployment process](production-ready-deployment-steps.md#attach-azure-virtual-network-to-azure-vmware-solution), follow these instructions: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
@@ -55,7 +47,7 @@ If you didn't define a virtual network in the deployment step and your intent is
 
 The jump box is in the virtual network where Azure VMware Solution connects through its ExpressRoute circuit.  In Azure, go to the jump box's network interface and [view the effective routes](../virtual-network/manage-route-table.md#view-effective-routes).
 
-In the effective routes list, you should see the networks created as part of the Azure VMware Solution deployment. You'll see multiple networks that were derived from the [`/22` network you defined](production-ready-deployment-steps.md#ip-address-segment) during the [deployment step](#deploy-azure-vmware-solution) earlier in this article.
+In the effective routes list, you should see the networks created as part of the Azure VMware Solution deployment. You'll see multiple networks that were derived from the [`/22` network you defined](production-ready-deployment-steps.md#ip-address-segment-for-private-cloud-management) when you [create a private cloud](#create-an-azure-vmware-solution-private-cloud).  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verify network routes advertised from Azure VMware Solution to Azure Virtual Network" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
@@ -65,7 +57,14 @@ In this example, the 10.74.72.0/22 network was input during deployment derives t
 
 Log into the jump box you created in the earlier step. Once you've logged in, open a web browser and navigate to and log into both vCenter and NSX-T Manager.  
 
-You can identify the vCenter, and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then in the **Overview** view, select **Identity > Default**. 
+You can identify the vCenter, and NSX-T Manager console's IP addresses and credentials in the Azure portal.  Select your private cloud and then **Manage** > **Identity**.
+
+>[!TIP]
+>Select **Generate a new password** to generate new vCenter and NSX-T passwords.
+
+:::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials." border="true":::
+
+
 
 ## Create a network segment on Azure VMware Solution
 

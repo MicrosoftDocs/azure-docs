@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 03/03/2021
 ---
 # Fuzzy search to correct misspellings and typos
 

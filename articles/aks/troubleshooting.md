@@ -248,7 +248,7 @@ spec:
 ```yaml
 initContainers:
 - name: volume-mount
-  image: busybox
+  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>
@@ -447,5 +447,5 @@ AKS is investigating the capability to mutate active labels on a node pool to im
 
 
 <!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
+[view-master-logs]: ./view-control-plane-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md

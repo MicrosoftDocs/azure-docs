@@ -9,13 +9,11 @@ editor: ''
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 03/09/2021
 ms.author: mbaldwin
 
 ---
 # Azure Key Vault service limits
-
-Here are the service limits for Azure Key Vault.
 
 [!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
 

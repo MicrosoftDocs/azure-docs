@@ -15,16 +15,21 @@ This article shows the Azure Cosmos DB Emulator release notes with a list of fea
 
 ## Download
 
-| | |
+| |Links |
 |---------|---------|
 |**MSI download**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
 |**Get started**|[Develop locally with Azure Cosmos DB Emulator](local-emulator.md)|
 
 ## Release notes
 
+### 2.11.11 (22 February 2021)
+
+ - This release updates the local Data Explorer content to latest Azure portal version.
+
+
 ### 2.11.10 (5 January 2021)
 
- - This release updates the local Data Explorer content to latest Azure Portal version and adds a new public option, "/ExportPemCert", which allows the emulator user to directly export the public emulator's certificate as a .PEM file.
+ - This release updates the local Data Explorer content to latest Azure portal version and adds a new public option, "/ExportPemCert", which allows the emulator user to directly export the public emulator's certificate as a .PEM file.
 
 ### 2.11.9 (3 December 2020)
 
