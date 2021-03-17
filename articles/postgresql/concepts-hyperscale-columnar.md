@@ -144,8 +144,7 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 ## Limitations
 
 This feature still has a number of significant limitations. See [Hyperscale
-(Citus) limits and
-limitations](concepts-hyperscale-limits.md#limits-and-limitations).
+(Citus) limits and limitations](concepts-hyperscale-limits.md).
 
 ## Next steps
 
