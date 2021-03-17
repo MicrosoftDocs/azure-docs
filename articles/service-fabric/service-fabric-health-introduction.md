@@ -94,6 +94,20 @@ The following example is an excerpt from a cluster manifest. To define entries i
   </Section>
 </FabricSettings>
 ```
+* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). The node type health policy map can be used during cluster health evaluation to describe special node types. They are evaluated against the percentages associated with their node type name in the map. Setting this has no impact on the global pool of nodes used for MaxPercentUnhealthyNodes. For example, in a cluster there are hundreds of nodes of different types, and a few node types hosting important work and no nodes should be down in that type. You can specify global MaxPercentUnhealthyNodes to 20% to tolerate some failures for all nodes, but for the node type "SpecialNodeType", set the MaxPercentUnhealthyNodes to 0. This way, if some of the many nodes are unhealthy, but below the global unhealthy percentage, the cluster would be evaluated to Warning. A warning health state does not impact cluster upgrade or other monitoring triggered by Error health state. But even one node of type SpecialNodeType in error would make cluster unhealthy, which triggers rollback or pauses the cluster upgrade, depending on the upgrade configuration. Conversely, setting the global MaxPercentUnhealthyNodes to 0, and setting SpecialNodeType's max percent unhealthy nodes to 100, with one node of type SpecialNodeType in error state would still put the cluster in an error state, since the global restriction is more strict in this case. 
+
+The following example is an excerpt from a cluster manifest. To define entries in the node type map, prefix the parameter name with "NodeTypeMaxPercentUnhealthyNodes-", followed by the node type name.
+
+```xml
+<FabricSettings>
+  <Section Name="HealthManager/ClusterHealthPolicy">
+    <Parameter Name="ConsiderWarningAsError" Value="False" />
+    <Parameter Name="MaxPercentUnhealthyApplications" Value="20" />
+    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+    <Parameter Name="NodeTypeMaxPercentUnhealthyNodes-SpecialNodeType" Value="0" />
+  </Section>
+</FabricSettings>
+```
 
 ### Application health policy
 The [application health policy](/dotnet/api/system.fabric.health.applicationhealthpolicy) describes how the evaluation of events and child-states aggregation is done for applications and their children. It can be defined in the application manifest, **ApplicationManifest.xml**, in the application package. If no policies are specified, Service Fabric assumes that the entity is unhealthy if it has a health report or a child at the warning or error health state.
