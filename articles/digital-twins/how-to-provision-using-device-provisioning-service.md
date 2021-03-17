@@ -206,9 +206,7 @@ You'll create an Azure [event hub](../event-hubs/event-hubs-about.md) to receive
 
 ### Add a function to retire with IoT Hub lifecycle events
 
-Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to retire device using IoT Hub lifecycle events.
-
-This function will use the IoT Hub device lifecycle event to retire an existing device. 
+Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to retire device using IoT Hub lifecycle events. This function will use the IoT Hub device lifecycle event to retire an existing device. 
 
 For more about lifecycle events, see [*IoT Hub Non-telemetry events*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
