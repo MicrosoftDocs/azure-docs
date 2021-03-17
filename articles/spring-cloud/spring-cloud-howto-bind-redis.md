@@ -53,4 +53,4 @@ If you don't have a deployed Azure Spring Cloud instance, follow the steps in th
 
 ## Next steps
 
-In this article, you learned how to bind your Azure Spring Cloud application to Azure Cache for Redis. To learn more about binding services to your application, see [Bind to an Azure Database for MySQL instance](spring-cloud-tutorial-bind-mysql.md).
+In this article, you learned how to bind your Azure Spring Cloud application to Azure Cache for Redis. To learn more about binding services to your application, see [Bind to an Azure Database for MySQL instance](spring-cloud-howto-bind-mysql.md).

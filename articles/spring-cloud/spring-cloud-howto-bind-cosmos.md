@@ -103,4 +103,4 @@ Azure Cosmos DB has five different API types that support binding. The following
 
 ## Next steps
 
-In this article, you learned how to bind your Azure Spring Cloud application to an Azure Cosmos DB database. To learn more about binding services to your application, see [Bind to an Azure Cache for Redis cache](spring-cloud-tutorial-bind-redis.md).
+In this article, you learned how to bind your Azure Spring Cloud application to an Azure Cosmos DB database. To learn more about binding services to your application, see [Bind to an Azure Cache for Redis cache](spring-cloud-howto-bind-redis.md).

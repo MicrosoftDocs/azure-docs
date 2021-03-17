@@ -78,5 +78,5 @@ As a web app, Hystrix dashboard should be working on `test-endpoint`. If it is n
 
 ## Next steps
 * [Provision a service instance on the Azure CLI](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
-* [Prepare a Java Spring application for deployment in Azure Spring Cloud](./spring-cloud-tutorial-prepare-app-deployment.md)
+* [Prepare a Java Spring application for deployment in Azure Spring Cloud](./spring-cloud-howto-prepare-app-deployment.md)
 

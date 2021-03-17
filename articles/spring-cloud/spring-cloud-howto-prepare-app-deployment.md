@@ -279,7 +279,7 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 
 ### Distributed Tracing
 
-You also need to enable an Azure Application Insights instance to work with your Azure Spring Cloud service instance. For information about how to use Application Insights with Azure Spring Cloud, see the [documentation on distributed tracing](spring-cloud-tutorial-distributed-tracing.md).
+You also need to enable an Azure Application Insights instance to work with your Azure Spring Cloud service instance. For information about how to use Application Insights with Azure Spring Cloud, see the [documentation on distributed tracing](spring-cloud-howto-distributed-tracing.md).
 
 #### Spring Boot 2.2/2.3
 Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zipkin` dependencies in the dependencies section of your pom.xml file:
@@ -307,14 +307,14 @@ Include the following `spring-cloud-sleuth-zipkin` dependency in the dependencie
 
 ## See also
 * [Analyze application logs and metrics](./diagnostic-services.md)
-* [Set up your Config Server](./spring-cloud-tutorial-config-server.md)
-* [Use distributed tracing with Azure Spring Cloud](./spring-cloud-tutorial-distributed-tracing.md)
+* [Set up your Config Server](./spring-cloud-howto-config-server.md)
+* [Use distributed tracing with Azure Spring Cloud](./spring-cloud-howto-distributed-tracing.md)
 * [Spring Quickstart Guide](https://spring.io/quickstart)
 * [Spring Boot documentation](https://spring.io/projects/spring-boot)
 
 ## Next steps
 
-In this topic, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, see [Set up a Config Server instance](spring-cloud-tutorial-config-server.md).
+In this topic, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, see [Set up a Config Server instance](spring-cloud-howto-config-server.md).
 
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
 ::: zone-end
