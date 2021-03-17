@@ -28346,7 +28346,17 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-co-sell.md",
-      "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell",
+      "redirect_url": "/azure/marketplace/co-sell-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/commercial-marketplace-co-sell.md",
+      "redirect_url": "/azure/marketplace/co-sell-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/commercial-marketplace-co-sell.md",
+      "redirect_url": "/azure/marketplace/co-sell-configure",
       "redirect_document_id": false
     },
     {
