@@ -42,7 +42,7 @@ ms.custom: devx-track-python
 
 ## Release history
 
-## 4.2.0 (2020-10-08)
+## 4.2.0
 
 **Bug fixes**
 - Fixed bug where continuation token is not honored when query_iterable is used to get results by page.
@@ -51,7 +51,7 @@ ms.custom: devx-track-python
 **New features**
 - Added support for passing partitionKey while querying changefeed.
 
-## 4.1.0 (2020-08-10)
+## 4.1.0
 
 - Added deprecation warning for "lazy" indexing mode. The backend no longer allows creating containers with this mode and will set them to consistent instead.
 
@@ -66,7 +66,7 @@ ms.custom: devx-track-python
 - Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError.
 
 
-## 4.0.0 (2020-05-20)
+## 4.0.0
 
 * Stable release.
 * Added HttpLoggingPolicy to pipeline to enable passing in a custom logger for request and response headers.
@@ -331,6 +331,8 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [4.2.0](#420) |Oct 09, 2020 |--- |
+| [4.1.0](#410) |Aug 10, 2020 |--- |
 | [4.0.0](#400) |May 20, 2020 |--- |
 | [3.0.2](#302) |Nov 15, 2018 |--- |
 | [3.0.1](#301) |Oct 04, 2018 |--- |
