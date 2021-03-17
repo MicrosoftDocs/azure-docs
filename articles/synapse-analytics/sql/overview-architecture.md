@@ -81,7 +81,7 @@ Each of the 60 smaller queries runs on one of the data distributions. Each Compu
 ## Hash-distributed tables
 A hash distributed table can deliver the highest query performance for joins and aggregations on large tables. 
 
-To shard data into a hash-distributed table, dedicated SQL pool uses a hash function to deterministically assign each row to one distribution. In the table definition, one of the columns is designated as the distribution column. The hash function uses the values in the distribution column to assign each row to a distribution.
+To share data into a hash-distributed table, dedicated SQL pool uses a hash function to deterministically assign each row to one distribution. In the table definition, one of the columns is designated as the distribution column. The hash function uses the values in the distribution column to assign each row to a distribution.
 
 The following diagram illustrates how a full (non-distributed table) gets stored as a hash-distributed table. 
 
