@@ -79,7 +79,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * Only the fist 127 nested levels are represented in the analytical store.
 
 * While JSON documents (and Cosmos DB collections/containers) are case sensitive, analytical store is not. 
-  * Property names in the same level should be unique when compared case insensitively. For example, the following propertities, in the same level of the same document, do not satisfy this constraint and hence will not be fully represented in the analytical store:
+  * Property names in the same level should be unique when compared case insensitively. For example, the following properties, in the same level of the same document, do not satisfy this constraint and hence will not be fully represented in the analytical store:
 
   `{"Name": "fred"}, {"name": "john"}` – "Name" and "name" are the same when compared in a case insensitive manner. Only "Name" will be represented in analytical store.
  
