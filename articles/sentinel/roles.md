@@ -40,6 +40,8 @@ There are three dedicated built-in Azure Sentinel roles.
 
 - [Azure Sentinel Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) can, in addition to the above, create and edit workbooks, analytics rules, and other Azure Sentinel resources.
 
+- [Azure Sentinel Automation Contributor](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) allows Azure Sentinel to add playbooks to automation rules. It is not meant for user accounts.
+
 > [!NOTE]
 >
 > - For best results, these roles should be assigned on the **resource group** that contains the Azure Sentinel workspace. This way, the roles will apply to all the resources that are deployed to support Azure Sentinel, as those resources should also be placed in that same resource group.
