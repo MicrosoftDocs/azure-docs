@@ -194,7 +194,9 @@
       - name: Troubleshoot reading UTF-8 text
         href: troubleshoot/reading-utf8-text.md
 - name: Migration guides
-  href: migration-guides/migrate-to-synapse-analytics-guide.md
+  items:
+  - name: Migrate to a dedicated SQL pool
+    href: migration-guides/migrate-to-synapse-analytics-guide.md
 - name: Synapse SQL
   items:
   - name: Overview
