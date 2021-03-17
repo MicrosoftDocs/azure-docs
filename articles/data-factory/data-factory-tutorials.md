@@ -36,7 +36,7 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Copy from SQL DB to Synapse SQL Pools](load-azure-sql-data-warehouse.md)
 
-[Copy SAP BW to ADLS Gen2](load-sap-bw-dat.md)
+[Copy SAP BW to ADLS Gen2](load-sap-bw-data.md)
 
 [Copy Office 365 to Azure Blob Store](load-office-365-data.md)
 
@@ -48,7 +48,7 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Data flow tutorial videos](data-flow-tutorials.md)
 
-[Code-free data transformation at scale](utorial-data-flow.md)
+[Code-free data transformation at scale](tutorial-data-flow.md)
 
 [Delta lake transformations](tutorial-data-flow-delta-lake.md)
 
