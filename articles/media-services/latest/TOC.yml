@@ -394,7 +394,7 @@
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
-      href: monitor-events-portal-how-to.md
+      href: monitoring/monitor-events-portal-how-to.md
     - name: Monitor events - CLI
       href: job-state-events-cli-how-to.md 
   - name: Use Azure Monitor

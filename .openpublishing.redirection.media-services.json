@@ -169,6 +169,11 @@
             "source_path_from_root": "/articles/media-services/latest/media-services-event-schemas.md",
             "redirect_url": "azure/media-services/latest/monitoring/media-services-event-schemas",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/monitor-events-portal-how-to.md",
+            "redirect_url": "azure/media-services/latest/monitoring/monitor-events-portal-how-to",
+            "redirect_document_id": false
         }
     ]
 }
