@@ -74,17 +74,13 @@ The following sections describe both of these processes. The rest of the article
 
 ## Import collection of Azure Digital Twins APIs
 
-A quick way to get started with Azure Digital Twins in Postman is to import the Swagger file for the set of APIs that you'd like to work with. This will create a collection of pre-built requests for each API.
-
-Azure Digital Twins has two sets of APIs that you can work with: **control plane** and **data plane**. For more about the difference between these API sets, see [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
+A quick way to get started with Azure Digital Twins in Postman is to import the Swagger file for the APIs. This will create a collection of pre-built requests for each API.
 
 ### Get the Swagger file
 
-The first step in importing the API set is to download the Swagger file for the API set you'd like to work with. 
+The first step in importing the API set is to download the Swagger file. 
 
-1. Use the links below to navigate to the appropriate GitHub repository.
-    * [Control plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable)
-    * [Data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)
+1. Use this link to navigate to the Swagger repository in GitHub: [Data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)
 1. Enter the folder for the latest Swagger version and open the *digitaltwins.json* file.
 1. Select the **Raw** button to open the raw text of the Swagger.
     :::image type="content" source="media/how-to-use-postman/swagger-raw.png" alt-text="Screenshot of the data plane digitaltwins.json file in GitHub. There is a highlight around the Raw button." lightbox="media/how-to-use-postman/swagger-raw.png":::
@@ -124,13 +120,7 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 
     :::image type="content" source="media/how-to-use-postman/postman-paste-token-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and Access Token box where the access token value can be pasted is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-imported.png":::
 
-If you're making a [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) collection, this is all that's needed to configure the collection, and you can proceed to [exploring the requests](#explore-requests). If you're making a [data plane](how-to-use-apis-sdks.md#overview-data-plane-apis) collection, complete the next section to add one more setting.
-
-#### Data plane: Add baseURL
-
-If you're using the [data plane Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins) for your collection, you can help the collection connect to your Azure Digital Twins instance by setting the **baseURL** variable. 
-
-Because most of the calls in this collection require the URL of your Azure Digital Twins instance, this collection comes with this variable to store that URL. By setting a value for this variable and then using the variable in all of the requests in the collection, you can configure it for the entire set of requests at once.
+Next, help the collection connect to your Azure Digital Twins instance by setting the **baseURL** variable. Because most of the calls in this collection require the URL of your Azure Digital Twins instance, this collection comes with this variable to store that URL. By setting a value for this variable and then using the variable in all of the requests in the collection, you can configure it for the entire set of requests at once.
 
 1. Still in the *Azure Digital Twins API* edit dialog, move to the **Variables** tab.
 
