@@ -113,7 +113,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
     - Get-ADSyncAADConnectorExportApiVersion - to get export AWS API version
 
  - Changes made to synchronization rules are now tracked to assist troubleshooting changes in the service. The cmdlet "Get-ADSyncRuleAudit" will retrieve tracked changes.
- - Updated the Add-ADSyncADDSConnectorAccount cmdlet to allow a user in ADSyncAdmin group to change the AD DS Connector account. Read more about the ADSyncConfig PowerShell module here: (https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account#using-the-adsyncconfig-powershell-module)
+ - Updated the Add-ADSyncADDSConnectorAccount cmdlet in the the [ADSyncConfig PowerShell module](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account#using-the-adsyncconfig-powershell-module) to allow a user in ADSyncAdmin group to change the AD DS Connector account. 
 
 ### Bug fixes
  - Updated disabled foreground color to satisfy luminosity requirements on a white background. Added additional conditions for navigation tree to set foreground text color to white when a disabled page is selected to satisfy luminosity requirements.
