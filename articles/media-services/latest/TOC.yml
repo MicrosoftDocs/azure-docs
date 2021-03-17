@@ -223,7 +223,7 @@
       - name: Monitor with Event Grid
         items:
         - name: Events with Event Grid
-          href: monitoring/monitoring/reacting-to-media-services-events.md  
+          href: monitoring/reacting-to-media-services-events.md  
         - name: Event Grid schemas
           href: media-services-event-schemas.md              
   - name: Compatible players
