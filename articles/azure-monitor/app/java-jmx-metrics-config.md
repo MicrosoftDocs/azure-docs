@@ -40,7 +40,7 @@ From the selection as shown in the image above, lets configure a few metrics. Th
 ```json
 "jmxMetrics": [
       {
-        "name": "ADDING-GcThreadCount",
+        "name": "Demo - GC Thread Count",
         "objectName": "java.lang:type=GarbageCollector,name=PS MarkSweep",
         "attribute": "LastGcInfo.GcThreadCount"
       },
