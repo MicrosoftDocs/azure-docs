@@ -166,7 +166,11 @@ First, it is recommended to create the migration template that is provided out o
    ora2pg --project_base /app/migration/ --init_project test_project
    
    ora2pg --project_base /app/migration/ --init_project test_project
+   ```
+
+Example output: 
    
+   ```
    Creating project test_project. /app/migration/test_project/ schema/ dblinks/ directories/ functions/ grants/ mviews/ packages/ partitions/ procedures/ sequences/ synonyms/    tables/ tablespaces/ triggers/ types/ views/ sources/ functions/ mviews/ packages/ partitions/ procedures/ triggers/ types/ views/ data/ config/ reports/
    
    Generating generic configuration file
@@ -176,11 +180,11 @@ First, it is recommended to create the migration template that is provided out o
    Creating script import_all.sh to automate all imports.
    ```
 
-   ```
-   The sources/ directory contains the Oracle code, the schema/ directory contains the code ported to PostgreSQL. The reports/ directory contains the html reports with the    migration cost assessment.
-   
-   After the project structure is created, a generic config file is created. Define the Oracle database connection as well as the relevant config parameters in the config.  Refer   to the ora2pg documentation to understand what can be configured in the config file and how.
-   ```
+The sources/ directory contains the Oracle code, the schema/ directory contains the code ported to PostgreSQL. The reports/ directory contains the html reports with the    migration cost assessment.
+
+
+After the project structure is created, a generic config file is created. Define the Oracle database connection as well as the relevant config parameters in the config.  Refer   to the ora2pg documentation to understand what can be configured in the config file and how.
+
 
 #### Export Oracle objects
 
@@ -220,6 +224,7 @@ Next, export the Oracle objects as PostgreSQL objects by running the file export
    ```
    ora2pg -t COPY -o data.sql -b %namespace/data -c %namespace/config/ora2pg.conf
    ```
+
 #### Compile files
 
 Lastly, compile all files against Azure Database for PostgreSQL server. It is possible now to choose to load the DDL files generated manually or use the second script import_all.sh to import those files interactively.
