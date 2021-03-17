@@ -49,7 +49,7 @@ ms.custom: devx-track-python
 - Fixed bug where resource tokens not being honored for document reads and deletes. 
 
 **New features**
-- Added support for passing partitionKey while querying changefeed.
+- Added support for passing `partitionKey` while querying changefeed.
 
 ## 4.1.0
 
