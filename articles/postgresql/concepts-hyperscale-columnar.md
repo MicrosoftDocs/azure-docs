@@ -143,24 +143,8 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 
 ## Limitations
 
-Hyperscale (Citus) currently has limitations with columnar tables:
-
-* Append-only (no UPDATE/DELETE support)
-* No space reclamation (for example, rolled-back transactions may still consume disk space)
-* No index support, index scans, or bitmap index scans
-* No tidscans
-* No sample scans
-* No TOAST support (large values supported inline)
-* No support for ON CONFLICT statements (except DO NOTHING actions with no target specified).
-* No support for tuple locks (SELECT ... FOR SHARE, SELECT ... FOR UPDATE)
-* No support for serializable isolation level
-* Support for PostgreSQL server versions 12+ only
-* No support for foreign keys, unique constraints, or exclusion constraints
-* No support for logical decoding
-* No support for intra-node parallel scans
-* No support for AFTER ... FOR EACH ROW triggers
-* No UNLOGGED columnar tables
-* No TEMPORARY columnar tables
+This feature still has a number of significant limitations. See [Hyperscale
+(Citus) limits and limitations](concepts-hyperscale-limits.md#columnar-storage).
 
 ## Next steps
 
