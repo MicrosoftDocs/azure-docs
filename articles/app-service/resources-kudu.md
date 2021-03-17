@@ -1,6 +1,6 @@
 ---
 title: Kudu service overview
-description: Learn about the engine that powers continuous deployment in App Service and its additional features.
+description: Learn about the engine that powers continuous deployment in App Service and its features.
 ms.date: 03/17/2021
 ms.topic: reference
 ---
@@ -26,10 +26,10 @@ Kudu gives you helpful information about your App Service app, such as:
 - Server variables
 - HTTP headers
 
-It also provides additional features, such as:
+It also provides other features, such as:
 
 - Run commands in the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console).
-- Download IIS diagnotsic dumps or Docker logs.
+- Download IIS diagnostic dumps or Docker logs.
 - Manage IIS processes and site extensions.
 - Add deployment webhooks for Windows aps.
 - Allow ZIP deployment UI with `/ZipDeploy`.
