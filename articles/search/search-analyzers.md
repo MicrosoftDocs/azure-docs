@@ -369,23 +369,11 @@ For more examples, see [CustomAnalyzerTests.cs](https://github.com/Azure/azure-s
 
 ## Next steps
 
-+ Review our comprehensive explanation of [how full text search works in Azure Cognitive Search](search-lucene-query-architecture.md). This article uses examples to explain behaviors that might seem counter-intuitive on the surface.
+A detailed description of query execution can be found in [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md). The article uses examples to explain behaviors that might seem counter-intuitive on the surface.
 
-+ Try additional query syntax from the [Search Documents](/rest/api/searchservice/search-documents#bkmk_examples) example section or from [Simple query syntax](query-simple-syntax.md) in Search explorer in the portal.
+To learn more about analyzers, see the following articles:
 
-+ Learn how to apply [language-specific lexical analyzers](index-add-language-analyzers.md).
-
-+ [Configure custom analyzers](index-add-custom-analyzers.md) for either minimal processing or specialized processing on individual fields.
-
-## See also
-
- [Search Documents REST API](/rest/api/searchservice/search-documents) 
-
- [Simple query syntax](query-simple-syntax.md) 
-
- [Full Lucene query syntax](query-lucene-syntax.md) 
- 
- [Handle search results](search-pagination-page-layout.md)
-
-<!--Image references-->
-[1]: ./media/search-lucene-query-architecture/architecture-diagram2.png
++ [Language analyzers](index-add-language-analyzers.md)
++ [Custom analyzers](index-add-custom-analyzers.md)
++ [Create a search index](search-what-is-an-index.md)
++ [Create a multi-language index](search-language-support.md)
