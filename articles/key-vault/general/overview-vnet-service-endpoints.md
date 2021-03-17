@@ -53,6 +53,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Azure Service Bus|[Allow access to a key vault for customer-managed keys scenario](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Azure Import/Export| [Use customer-managed keys in Azure Key Vault for Import/Export service](../../import-export/storage-import-export-encryption-key-portal.md)
 |Azure Container Registry|[Registry encryption using customer-managed keys](../../container-registry/container-registry-customer-managed-keys.md)
+|Azure Application Gateway |[Using Key Vault certificates for HTTPS-enabled listeners](../../application-gateway/key-vault-certs.md)
 
 > [!NOTE]
 > You must set up the relevant Key Vault access policies to allow the corresponding services to get access to Key Vault.
