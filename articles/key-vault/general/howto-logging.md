@@ -16,6 +16,16 @@ ms.author: mbaldwin
 
 After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. For full details on the feature, see [Key Vault logging](logging.md).
 
+What is logged:
+
+* All authenticated REST API requests, including failed requests as a result of access permissions, system errors, or bad requests.
+* Operations on the key vault itself, including creation, deletion, setting key vault access policies, and updating key vault attributes such as tags.
+* Operations on keys and secrets in the key vault, including:
+  * Creating, modifying, or deleting these keys or secrets.
+  * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
+* Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.  
+* Event Grid notification events for near expiry, expired and vault access policy changed (new version event is not logged). Events are logged regardless if there is event subscription created on key vault. For more information see, [Event Grid event schema for Key Vault](../../event-grid/event-schema-key-vault.md)
+
 ## Prerequisites
 
 To complete this tutorial, you must have the following:
@@ -154,15 +164,6 @@ Below are the steps and screenshots for configuring Diagnostic settings in the p
 
     :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Diagnostic Portal 4":::
 
-### What is logged
-
-* All authenticated REST API requests, including failed requests as a result of access permissions, system errors, or bad requests.
-* Operations on the key vault itself, including creation, deletion, setting key vault access policies, and updating key vault attributes such as tags.
-* Operations on keys and secrets in the key vault, including:
-  * Creating, modifying, or deleting these keys or secrets.
-  * Signing, verifying, encrypting, decrypting, wrapping and unwrapping keys, getting secrets, and listing keys and secrets (and their versions).
-* Unauthenticated requests that result in a 401 response. Examples are requests that don't have a bearer token, that are malformed or expired, or that have an invalid token.  
-* Event Grid notification events for near expiry, expired and vault access policy changed (new version event is not logged). Events are logged regardless if there is event subscription created on key vault. For more information see, [Event Grid event schema for Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## Access your logs
 
