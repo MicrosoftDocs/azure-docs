@@ -29,7 +29,7 @@ If you choose to deploy on Azure VMs, please note that there is no external swit
 
 > [!NOTE]
 >
-> Any Azure VMs that is supposed to host EFLOW must be a VM that [supports nested virtualization](https://docs.microsoft.com/en-us/azure/virtual-machines/acu)
+> Any Azure VMs that is supposed to host EFLOW must be a VM that [supports nested virtualization](https://docs.microsoft.com/azure/virtual-machines/acu)
 
 
 ## Limited use of external switch
@@ -44,5 +44,5 @@ For Windows Server users, please note that Azure IoT Edge for Linux on Windows d
 
 There is no default switch on Server SKUs by default (regardless of whether the Server SKU runs on an Azure VM or not). When deploying on an Azure VM where the external switch cannot be used, the default switch needs to be set up and configured manually before Azure IoT Edge for Linux on Windows deployment. Our deployment functionality covers this as it requires IP configuration for the internal switch, a NAT configuration, and installing and configuring a DHCP server. Our deployment functionality in public preview states that it does not fiddle around with these settings not to impair network configurations on productive deployments.
 
-* Relevant information on how to set up the default switch manually can be found here: [How to enable nested virtualization in Azure Virtual Machines - Azure Virtual Machines | Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nested-virtualization)
-* Documentation on how to set up a DHCP server for this scenario can be found here: [Deploy DHCP Using Windows PowerShell | Microsoft Docs](https://docs.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-deploy-wps)
+* Relevant information on how to set up the default switch manually can be found here: [How to enable nested virtualization in Azure Virtual Machines - Azure Virtual Machines | Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)
+* Documentation on how to set up a DHCP server for this scenario can be found here: [Deploy DHCP Using Windows PowerShell | Microsoft Docs](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-deploy-wps)
