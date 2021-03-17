@@ -96,36 +96,65 @@ Get-AzKeyVault -VaultName "<your-unique-keyvault-name>"
 
 The Resource ID for your key vault will be on the format "/subscriptions/<your-subscription-ID>/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/<your-unique-keyvault-name>". Note it for the next step.
 
-## Enable logging using Azure PowerShell
+## Enable Logging
 
-To enable logging for Key Vault, we'll use the Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) command, or the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet, together with the storage account ID and the key vault Resource ID.
+You can enable logging for Key Vault using the Azure CLI, Azure PowerShell, or the Azure portal.
+
+### Azure CLI
+
+Use the Azure CLI [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings) command together with the storage account ID and the key vault Resource ID.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --storage-account "<storage-account-id>" --resource "<key-vault-resource-id>" --name "Key vault logs" --logs '[{"category": "AuditEvent","enabled": true}]' --metrics '[{"category": "AllMetrics","enabled": true}]'
 ```
 
-With Azure PowerShell, we'll use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet, with the **-Enabled** flag set to **$true** and the category set to `AuditEvent` (the only category for Key Vault logging):
+Optionally, you can set a retention policy for your logs, so that older logs are automatically deleted after a specified amount of time. For example, you could set a retention policy that automatically deletes logs older than 90 days.
+
+With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
+
+```azurecli-interactive
+az monitor diagnostic-settings update --name "Key vault retention policy" --resource "<key-vault-resource-id>" --set retentionPolicy.days=90
+```
+
+### Azure PowerShell
+
+Use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet, with the **-Enabled** flag set to **$true** and the category set to `AuditEvent` (the only category for Key Vault logging):
 
 ```powershell-interactive
 Set-AzDiagnosticSetting -ResourceId "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category "AuditEvent"
 ```
 
-Optionally, you can set a retention policy for your logs, so that older logs are automatically deleted after a specified amount of time. For example, you could set set retention policy that automatically deletes logs older than 90 days.
+Optionally, you can set a retention policy for your logs, so that older logs are automatically deleted after a specified amount of time. For example, you could set a retention policy that automatically deletes logs older than 90 days.
 
-<!-- With the Azure CLI, use the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) command. 
-
-```azurecli-interactive
-az monitor diagnostic-settings update 
-```
--->
-
-With Azure PowerShell, use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet. 
+With Azure PowerShell, use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet.
 
 ```powershell-interactive
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
-What is logged:
+## Azure portal
+
+Below are the steps and screenshots for configuring Diagnostic settings in the portal today for AKV
+
+1. Select the Diagnostic settings from the resource blade menu.
+
+    :::image type="content" source="../media/diagnostics-portal-1.png" alt-text="Diagnostic Portal 1":::
+
+1. Click on the "+ Add diagnostic setting"
+
+    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Diagnostic Portal 2":::
+ 
+1. Select a name to call your diagnostic setting. To configure logging for Azure Monitor for Key Vault, select the "AuditEvent" option and "Send to Log Analytics workspace". Then choose the subscription and Log Analytics workspace that you want to send your logs.
+
+    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Diagnostic Portal 3":::
+
+    Otherwise, select the options that pertain to the logs that you wish to select
+
+1. Once you have selected your desired options, select save.
+
+    :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Diagnostic Portal 4":::
+
+### What is logged
 
 * All authenticated REST API requests, including failed requests as a result of access permissions, system errors, or bad requests.
 * Operations on the key vault itself, including creation, deletion, setting key vault access policies, and updating key vault attributes such as tags.
@@ -204,25 +233,3 @@ For more information, including how to set this up, see [Azure Key Vault in Azur
 - For conceptual information, including how to interpret Key Vault logs, see [Key Vault logging](logging.md)
 - For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a web application](tutorial-net-create-vault-azure-web-app.md).
 - For programming references, see [the Azure Key Vault developer's guide](developers-guide.md).
-
-## Test
-
-Below are the steps and screenshots for configuring Diagnostic settings in the portal today for AKV
-
-1. Select the Diagnostic settings from the resource blade menu.
-
-    :::image type="content" source="../media/diagnostics-portal-1.png" alt-text="Diagnostic Portal 1":::
-
-1. Click on the "+ Add diagnostic setting"
-
-    :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Diagnostic Portal 2":::
- 
-1. Select a name to call your diagnostic setting. To configure logging for Azure Monitor for Key Vault, select the "AuditEvent" option and "Send to Log Analytics workspace". Then choose the subscription and Log Analytics workspace that you want to send your logs.
-
-    :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Diagnostic Portal 3":::
-
-    Otherwise, select the options that pertain to the logs that you wish to select
-
-1. Once you have selected your desired options, select save.
-
-    :::image type="content" source="../media/diagnostics-portal-4.png" alt-text="Diagnostic Portal 4":::

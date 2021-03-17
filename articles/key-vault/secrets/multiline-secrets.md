@@ -14,11 +14,11 @@ ms.author: mbaldwin
 
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
-# Store a multiline secret in Azure Key Vault
+# Store a multi-line secret in Azure Key Vault
 
-The [Azure CLI quickstart](quick-create-cli.md) and [Azure PowerSehll quickstart](quick-create-powershell.md) demonstrate how to store a single-line secrets.   You can also use Key Vault to store a multiline secret, such as a JSON file or RSA private key.
+The [Azure CLI quickstart](quick-create-cli.md) and [Azure PowerShell quickstart](quick-create-powershell.md) demonstrate how to store a single-line secrets.   You can also use Key Vault to store a multi-line secret, such as a JSON file or RSA private key.
 
-Multi-line secrets cannot be passed to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command or the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet through the commandline. Instead, you must first store the multiline secret as a text file. 
+Multi-line secrets cannot be passed to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command or the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet through the commandline. Instead, you must first store the multi-line secret as a text file. 
 
 For example, you could create a text file called "secretfile.txt" that contains the following:
 
