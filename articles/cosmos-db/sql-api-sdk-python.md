@@ -59,7 +59,7 @@ ms.custom: devx-track-python
 - Added the ability to set the analytical storage TTL when creating a new container.
 
 **Bug fixes**
-- Fixed support for dicts as inputs for get_client APIs.
+- Fixed support for `dicts` as inputs for get_client APIs.
 - Fixed Python 2/3 compatibility in query iterators.
 - Fixed type hint error.
 - Fixed bug where options headers were not added to upsert_item function. 
@@ -84,8 +84,8 @@ ms.custom: devx-track-python
 * Added query Distinct, Offset, and Limit support.
 * Default document query execution context now used for
 
-  * ChangeFeed queries
-  * single partition queries (partitionkey, partitionKeyRangeId is present in options)
+  * Change Feed queries
+  * single partition queries (`partitionkey`, `partitionKeyRangeId` is present in options)
   * Non-document queries
 
 * Errors out for aggregates on multiple partitions, with enable cross partition query set to true, but no "value" keyword present
