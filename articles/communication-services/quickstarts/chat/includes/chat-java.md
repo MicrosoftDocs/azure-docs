@@ -127,7 +127,7 @@ public class App
 Use the `createChatThread` method to create a chat thread.
 `createChatThreadOptions` is used to describe the thread request.
 
-- Use `topic` to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
+- Use `topic` parameter of the constructor to give a topic to this chat; Topic can be updated after the chat thread is created using the `UpdateThread` function.
 - Use `participants` to list the thread participants to be added to the thread. `ChatParticipant` takes the user you created in the [User Access Token](../../access-tokens.md) quickstart.
 
 The response `chatThreadClient` is used to perform operations on the created chat thread: adding participants to the chat thread, sending a message, deleting a message, etc.
@@ -142,8 +142,7 @@ ChatParticipant secondThreadParticipant = new ChatParticipant()
     .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
-CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions()
-    .setTopic("Topic")
+CreateChatThreadOptions createChatThreadOptions = new CreateChatThreadOptions("Topic")
     .addParticipant(firstThreadParticipant)
     .addParticipant(secondThreadParticipant);
 
