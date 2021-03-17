@@ -12,7 +12,7 @@ ms.date: 03/17/2021
 ---
 # Add custom analyzers to string fields in an Azure Cognitive Search index
 
-A custom analyzer is a combination of tokenizer, one or more token filters, and one or more character filters that you define in the search index, and then reference on field definitions that require custom analysis. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Character filters prepare the input text before it is processed by the tokenizer. 
+A *custom analyzer* is a combination of tokenizer, one or more token filters, and one or more character filters that you define in the search index, and then reference on field definitions that require custom analysis. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Character filters prepare the input text before it is processed by the tokenizer. 
 
 A custom analyzer gives you control over the process of converting text into indexable and searchable tokens by allowing you to choose which types of analysis or filtering to invoke, and the order in which they occur. If you want to use a built-in analyzer with custom options, such as changing the maxTokenLength on Standard, you would create a custom analyzer, with a user-defined name, to set those options.
 
@@ -43,13 +43,13 @@ An analyzer definition includes a name, type, one or more character filters, a m
 
 1. The type must be #Microsoft.Azure.Search.CustomAnalyzer.
 
-1. "charFilters" can be one or more filters from [Character Filters](#character-filters), processed before tokenization, in the order provided. Some character filters have options, which can be set in a "charFilter section. Character filters are optional.
+1. "charFilters" can be one or more filters from [Character Filters](#CharFilter), processed before tokenization, in the order provided. Some character filters have options, which can be set in a "charFilter section. Character filters are optional.
 
 1. "tokenizer" is exactly one [Tokenizer](#tokenizers). A value is required. If you need more than one tokenizer, you can create multiple custom analyzers and assign them on a field-by-field basis in your index schema.
 
-1. "tokenFilters" can be one or more filters from [Token Filters](#token-filters), processed after tokenization, in the order provided. For token filters that have options, add a "tokenFilter" section to specify the configuration. Token filters are optional.
+1. "tokenFilters" can be one or more filters from [Token Filters](#TokenFilters), processed after tokenization, in the order provided. For token filters that have options, add a "tokenFilter" section to specify the configuration. Token filters are optional.
 
-Analyzers must not produce tokens longer than 300 characters, or indexing will fail. To trim long token or to exclude them, use the **TruncateTokenFilter** and the **LengthTokenFilter** respectively. See [**Token filters**](#token-filters) for reference.
+Analyzers must not produce tokens longer than 300 characters, or indexing will fail. To trim long token or to exclude them, use the **TruncateTokenFilter** and the **LengthTokenFilter** respectively. See [**Token filters**](#TokenFilters) for reference.
 
 ```json
 "analyzers":(optional)[
@@ -202,7 +202,7 @@ If you want to use a built-in analyzer with custom options, creating a custom an
 
 The analyzer_type is only provided for analyzers that can be customized. If there are no options, as is the case with the keyword analyzer, there is no associated #Microsoft.Azure.Search type.
 
-<a name="character-filters"></a>
+<a name="CharFilter"></a>
 
 ## Character filters
 
@@ -240,7 +240,7 @@ A tokenizer divides continuous text into a sequence of tokens, such as breaking 
 
  <sup>1</sup> Tokenizer Types are always prefixed in code with "#Microsoft.Azure.Search" such that  "ClassicTokenizer" would actually be specified as "#Microsoft.Azure.Search.ClassicTokenizer". We removed the prefix to reduce the width of the table, but please remember to include it in your code. Notice that tokenizer_type is only provided for tokenizers that can be customized. If there are no options, as is the case with the letter tokenizer, there is no associated #Microsoft.Azure.Search type.
 
-<a name="token-filters"></a>
+<a name="TokenFilters"></a>
 
 ## Token filters
 

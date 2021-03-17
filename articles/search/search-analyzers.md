@@ -14,16 +14,18 @@ ms.custom: devx-track-csharp
 
 # Analyzers for text processing in Azure Cognitive Search
 
-An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Text processing (also known as lexical analysis) is transformative, modifying a query string through actions such as these:
+An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Text processing (also known as lexical analysis) is transformative, modifying a query string through actions such as these:
 
 + Remove non-essential words (stopwords) and punctuation
 + Split up phrases and hyphenated words into component parts
 + Lower-case any upper-case words
 + Reduce words into primitive root forms for storage efficiency and so that matches can be found regardless of tense
 
-Analysis applies to `Edm.String` fields that are marked as "searchable", which indicates full text search. For fields with this configuration, analysis occurs during indexing when tokens are created, and then again during query execution when queries are parsed and the engine scans for matching tokens. A match is more likely to occur when the same analyzer is used for both indexing and queries, but you can set the analyzer for each workload independently, depending on your requirements.
+Analysis applies to `Edm.String` fields that are marked as "searchable", which indicates full text search. 
 
-Query types that are not full text search, such as filters or fuzzy search, do not go through the analysis phase on the query side. Instead, the parser sends those strings directly to the search engine, using the pattern that you provide as the basis for the match. Typically, these query forms require whole-string tokens to make pattern matching work. To ensure  whole terms tokens during indexing, you might need [custom analyzers](index-add-custom-analyzers.md). For more information about when and why query terms are analyzed, see [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md).
+For fields with this configuration, analysis occurs during indexing when tokens are created, and then again during query execution when queries are parsed and the engine scans for matching tokens. A match is more likely to occur when the same analyzer is used for both indexing and queries, but you can set the analyzer for each workload independently, depending on your requirements.
+
+Query types that are *not* full text search, such as filters or fuzzy search, do not go through the analysis phase on the query side. Instead, the parser sends those strings directly to the search engine, using the pattern that you provide as the basis for the match. Typically, these query forms require whole-string tokens to make pattern matching work. To ensure  whole terms tokens during indexing, you might need [custom analyzers](index-add-custom-analyzers.md). For more information about when and why query terms are analyzed, see [Full text search in Azure Cognitive Search](search-lucene-query-architecture.md).
 
 For more background on lexical analysis, listen to the following video clip for a brief explanation.
 
@@ -44,7 +46,7 @@ The following list describes which analyzers are available in Azure Cognitive Se
 | Category | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. No specification or configuration is required. This general-purpose analyzer performs well for many languages and scenarios.|
-| Predefined analyzers | Built-in, used as-is and referenced by name. <br/>There are two types: language and language-agnostic. <br/><br/>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#built-in-analyzers) are used when text inputs require specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Cognitive Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
+| Predefined analyzers | Built-in, used as-is and referenced by name. There are two types: language and language-agnostic. <br/><br/>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#built-in-analyzers) are used when text inputs require specialized processing or minimal processing. Examples of analyzers in this category include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Cognitive Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refers to a user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
 A few predefined analyzers, such as **Pattern** or **Stop**, support a limited set of configuration options. To set these options, you effectively create a custom analyzer, consisting of the predefined analyzer and one of the alternative options documented in [Built-in analyzers(index-add-custom-analyzers.md#built-in-analyzers). As with any custom configuration, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
