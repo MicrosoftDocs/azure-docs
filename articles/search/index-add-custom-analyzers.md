@@ -210,14 +210,12 @@ For analyzers, index attributes vary depending on the whether you're using prede
 | ---- | ----------- |  
 |Name|It must only contain letters, digits, spaces, dashes or underscores, can only start and end with alphanumeric characters, and is limited to 128 characters.|  
 |Type|Must be "#Microsoft.Azure.Search.CustomAnalyzer".|  
-|CharFilters|Set to either one of predefined char filters listed in the [Char Filters](#char-filters-reference) table or a custom char filter specified in the index definition.|  
+|CharFilters|Set to either one of predefined char filters listed in the [Char Filters](#character-filters) table or a custom char filter specified in the index definition.|  
 |Tokenizer|Required. Set to either one of predefined tokenizers listed in the [Tokenizers](#Tokenizers) table below or a custom tokenizer specified in the index definition.|  
 |TokenFilters|Set to either one of predefined token filters listed in the [Token filters](#TokenFilters) table or a custom token filter specified in the index definition.|  
 
 > [!NOTE]
 > It's required that you configure your custom analyzer to not produce tokens longer than 300 characters. Indexing fails for documents with such tokens. To trim them or ignore them, use the **TruncateTokenFilter** and the **LengthTokenFilter** respectively.  Check [**Token filters**](#TokenFilters) for reference.
-
-<a name="CharFilter"></a>
 
 ### Char Filters
 
@@ -278,7 +276,7 @@ This section provides the valid values for attributes specified in the definitio
 
 The analyzer_type is only provided for analyzers that can be customized. If there are no options, as is the case with the keyword analyzer, there is no associated #Microsoft.Azure.Search type.
 
-<a name="CharFilters"></a>
+<a name="character-filters"></a>
 
 ### Character Filters Reference
 
