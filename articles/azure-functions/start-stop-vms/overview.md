@@ -35,7 +35,7 @@ For example, **Scheduled** HTTP trigger function is used to handle schedule and 
 
 The queue-based trigger functions are required in support of this feature. All timer-based triggers are used to perform the availability test and to monitor the health of the system.
 
- [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) is used to configure and manage the start and stop schedules for the VM take action by calling the function using JSON payload. By default, during initial deployment it creates a total of five Logic Apps for the following scenarios:
+ [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) is used to configure and manage the start and stop schedules for the VM take action by calling the function using a JSON payload. By default, during initial deployment it creates a total of five Logic Apps for the following scenarios:
 
 - Scheduled - Start and stop actions are based on a schedule you specify against Azure Resource Manager and classic VMs.**ststv2_vms_Scheduled_start** and **ststv2_vms_Scheduled_stop** configure the scheduled start and stop.
 

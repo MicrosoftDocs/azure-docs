@@ -1,6 +1,6 @@
 ---
 title: Manage Start/Stop VMs (preview)
-description: This article tells how to monitor status of your Azure VMs managed by the Start/Stop VMs (preview) feature.
+description: This article tells how to monitor status of your Azure VMs managed by the Start/Stop VMs (preview) feature and perform other management tasks.
 services: azure-functions
 ms.subservice: 
 ms.date: 03/16/2021
@@ -27,7 +27,7 @@ To change email notifications after Start/Stop VMs is deployed, you can modify t
 
     :::image type="content" source="media/manage/alerts-action-groups.png" alt-text="Screenshot of the Action groups page.":::
 
-2. On the **StartStopV2_VM_Notification** page, you can modify the Email/SMS/Push/Voice notification options. Add additional actions or update your existing configuration to this action group and then click **OK** to save your changes.
+1. On the **StartStopV2_VM_Notification** page, you can modify the Email/SMS/Push/Voice notification options. Add additional actions or update your existing configuration to this action group and then click **OK** to save your changes.
 
     :::image type="content" source="media/manage/email-notification-type-example.png" alt-text="Screenshot of the Email/SMS/Push/Voice page showing an example email address updated.":::
 

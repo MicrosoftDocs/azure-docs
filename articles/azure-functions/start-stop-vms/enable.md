@@ -13,9 +13,9 @@ Perform the steps in this topic in sequence to enable the Start/Stop VMs (previe
 
 ## Deploy feature
 
-The deployment is initiated from the Start/Stop VMs GitHub organization [here](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md).
+The deployment is initiated from the Start/Stop VMs GitHub organization [here](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md). While this feature is intended to manage all of your VMs in your subscription across all resource groups from a single deployment within the subscription, you can install another instance of it based on the operations model or requirements of your organization. It also can be configured to centrally manage VMs across multiple subscriptions.  
 
-1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in. This will open the custom Azure Resouce Manager deployment page in the Azure portal.
+1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in. This will open the custom Azure Resource Manager deployment page in the Azure portal.
 1. If prompted, sign in to the [Azure portal](https://portal.azure.com).
 1. Enter the following values:
 
@@ -38,6 +38,22 @@ The deployment is initiated from the Start/Stop VMs GitHub organization [here](h
 1. Select **Go to resource group** from the notification pane. You shall see a screen similar to:
 
     :::image type="content" source="media/enable/deployment-results-resource-list.png" alt-text="Start/Stop VMs template deployment resource list":::
+
+## Enable multiple subscriptions
+
+After the Start/Stop deployment completes, perform the following steps to enable Start/Stop to take action across multiple subscriptions.
+
+1. Copy the value for the Azure Function App Name that you specified during the deployment.
+
+1. In the portal, navigate to your secondary subscription. Select the subscription, and then select **Access Control (IAM)**
+
+1. Select **Add role assignments**.
+
+1. Select the **Contributor** role from the drop down list.
+
+1. Enter the Azure Function Application Name in the **Select search by name or email address** field. Select the function name.
+
+1. Select **Save** to commit your changes.
 
 ## Configure schedules overview
 
@@ -279,4 +295,4 @@ Start/Stop VMs can help manage the cost of running Azure Resource Manager and cl
 
 ## Next steps
 
-To 
+To learn how to monitor status of your Azure VMs managed by the Start/Stop VMs (preview) feature and perform other management tasks, see the [Manage Start/Stop VMs](manage.md) article.
