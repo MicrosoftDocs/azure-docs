@@ -47,17 +47,17 @@ DateTimeFromParts(<numberYear>, <numberMonth>, <numberDay> [, numberHour]  [, nu
 
 Returns a UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
   
-  |Format|Description|
-  |-|-|
-  |YYYY|four-digit year|
-  |MM|two-digit month (01 = January, etc.)|
-  |DD|two-digit day of month (01 through 31)|
-  |T|signifier for beginning of time elements|
-  |hh|two-digit hour (00 through 23)|
-  |mm|two-digit minutes (00 through 59)|
-  |ss|two-digit seconds (00 through 59)|
-  |.fffffff|seven-digit fractional seconds|
-  |Z|UTC (Coordinated Universal Time) designator||
+|Format|Description|
+|-|-|
+|YYYY|four-digit year|
+|MM|two-digit month (01 = January, etc.)|
+|DD|two-digit day of month (01 through 31)|
+|T|signifier for beginning of time elements|
+|hh|two-digit hour (00 through 23)|
+|mm|two-digit minutes (00 through 59)|
+|ss|two-digit seconds (00 through 59)|
+|.fffffff|seven-digit fractional seconds|
+|Z|UTC (Coordinated Universal Time) designator|
   
  For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
 
