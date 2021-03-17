@@ -18,9 +18,20 @@ Also browse available images and offers using the [Azure Marketplace](https://az
 
 Make sure that you are logged in to an Azure account (`az login`).
 
-[!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
+## Terminology
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+A Azure Marketplace image has the following attributes:
+
+* **Publisher**: The organization that created the image. Examples: Canonical, MicrosoftWindowsServer
+* **Offer**: The name of a group of related images created by a publisher. Examples: UbuntuServer, WindowsServer
+* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 2019-Datacenter
+* **Version**: The version number of an image SKU. 
+
+To identify a Marketplace image when you deploy a VM programmatically, supply these values individually as parameters. Some tools accept an image *URN*, which combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. In a URN, you can replace the version number with "latest", which selects the latest version of the image. 
+
+If the image publisher provides additional license and purchase terms, then you must accept those terms and enable programmatic deployment. You'll also need to supply *purchase plan* parameters when deploying a VM programmatically. See [Deploy an image with Marketplace terms](#deploy-an-image-with-marketplace-terms).
+
+
 
 ## Deploy from a VHD using purchase plan parameters
 
@@ -309,7 +320,17 @@ Now you can choose precisely the image you want to use by taking note of the URN
 
 If you deploy a VM with a Resource Manager template, you set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 
-[!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
+## Deploy an image with Marketplace terms
+
+Some VM images in the Azure Marketplace have additional license and purchase terms that you must accept before you can deploy them programmatically.  
+
+To deploy a VM from such an image, you'll need to both accept the image's terms and enable programmatic deployment. You'll only need to do this once per subscription. Afterward, each time you deploy a VM programmatically from the image you'll also need to specify *purchase plan* parameters.
+
+The following sections show how to:
+
+* Find out whether a Marketplace image has additional license terms 
+* Accept the terms programmatically
+* Provide purchase plan parameters when you deploy a VM programmatically
 
 ### View plan properties
 

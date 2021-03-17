@@ -1,12 +1,12 @@
 ---
-title: Find and use Azure Marketplace images and plans 
+title: Use PowerShell to find and use Azure Marketplace images and plans 
 description: Use Azure PowerShell to find and use publisher, offer, SKU, version and plan information for Marketplace VM images.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 12/07/2020
+ms.date: 03/17/2021
 ms.author: cynthn
 
 ---
@@ -17,7 +17,18 @@ This article describes how to use Azure PowerShell to find VM images in the Azur
 You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, the [Azure portal](https://portal.azure.com), or the [Azure CLI](../linux/cli-ps-findimage.md). 
 
 
-[!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
+## Terminology
+
+A Marketplace image in Azure has the following attributes:
+
+* **Publisher**: The organization that created the image. Examples: Canonical, MicrosoftWindowsServer
+* **Offer**: The name of a group of related images created by a publisher. Examples: UbuntuServer, WindowsServer
+* **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 2019-Datacenter
+* **Version**: The version number of an image SKU. 
+
+To identify a Marketplace image when you deploy a VM programmatically, supply these values individually as parameters. Some tools accept an image *URN*, which combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. In a URN, you can replace the version number with "latest", which selects the latest version of the image. 
+
+If the image publisher provides additional license and purchase terms, then you must accept those terms and enable programmatic deployment. You'll also need to supply *purchase plan* parameters when deploying a VM programmatically. See [Deploy an image with Marketplace terms](#deploy-an-image-with-marketplace-terms).
 
 
 ## Create a VM from VHD with plan information
@@ -77,135 +88,50 @@ If you get a message about accepting the terms of the image, see the section [Ac
 
 ## List images
 
-One way to find an image in a location is to run the [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher), [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer), and [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) cmdlets in order:
+You can use PowerShell to narrow down a list of images. Replace the values of the variablesto meet your needs.
 
-1. List the image publishers.
-2. For a given publisher, list their offers.
-3. For a given offer, list their SKUs.
-
-Then, for a selected SKU, run [Get-AzVMImage](/powershell/module/az.compute/get-azvmimage) to list the versions to deploy.
-
-1. List the publishers:
-
+1. List the image publishers using [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher).
+    
     ```powershell
-    $locName="<Azure location, such as West US>"
+    $locName="<location>"
     Get-AzVMImagePublisher -Location $locName | Select PublisherName
     ```
-
-2. Fill in your chosen publisher name and list the offers:
-
+1. For a given publisher, list their offers using [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer).
+    
     ```powershell
     $pubName="<publisher>"
     Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
     ```
-
-3. Fill in your chosen offer name and list the SKUs:
-
+1. For a given publisher and offer, list the SKUs available using [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku).
+    
     ```powershell
     $offerName="<offer>"
     Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
     ```
-
-4. Fill in your chosen SKU name and get the image version:
+1. For a SKU, list the versions of the image using [Get-AzVMImage](/powershell/module/az.compute/get-azvmimage).
 
     ```powershell
     $skuName="<SKU>"
     Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
     ```
-    
-From the output of the `Get-AzVMImage` command, you can select a version image to deploy a new virtual machine.
+    You can also use `latest` if you want to use the latest image and not a specific older version.
 
-The following example shows the full sequence of commands and their outputs:
 
-```powershell
-$locName="West US"
-Get-AzVMImagePublisher -Location $locName | Select PublisherName
-```
-
-Partial output:
-
-```
-PublisherName
--------------
-...
-abiquo
-accedian
-accellion
-accessdata-group
-accops
-Acronis
-Acronis.Backup
-actian-corp
-actian_matrix
-actifio
-activeeon
-adgs
-advantech
-advantech-webaccess
-advantys
-...
-```
-
-For the *MicrosoftWindowsServer* publisher:
-
-```powershell
-$pubName="MicrosoftWindowsServer"
-Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
-```
-
-Output:
-
-```
-Offer
------
-Windows-HUB
-WindowsServer
-WindowsServerSemiAnnual
-```
-
-For the *WindowsServer* offer:
-
-```powershell
-$offerName="WindowsServer"
-Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
-```
-
-Partial output:
-
-```
-Skus
-----
-2008-R2-SP1
-2008-R2-SP1-smalldisk
-2012-Datacenter
-2012-Datacenter-smalldisk
-2012-R2-Datacenter
-2012-R2-Datacenter-smalldisk
-2016-Datacenter
-2016-Datacenter-Server-Core
-2016-Datacenter-Server-Core-smalldisk
-2016-Datacenter-smalldisk
-2016-Datacenter-with-Containers
-2016-Datacenter-with-RDSH
-2019-Datacenter
-2019-Datacenter-Core
-2019-Datacenter-Core-smalldisk
-2019-Datacenter-Core-with-Containers
-...
-```
-
-Then, for the *2019-Datacenter* SKU:
-
-```powershell
-$skuName="2019-Datacenter"
-Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
-```
-
-Now you can combine the selected publisher, offer, SKU, and version into a URN (values separated by :). Pass this URN with the `--image` parameter when you create a VM with the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. You can optionally replace the version number in the URN with "latest" to get the latest version of the image.
+Now you can combine the selected publisher, offer, SKU, and version into a URN (values separated by :). Pass this URN with the `--image` parameter when you create a VM with the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. You can optionally replace the version number in the URN with `latest` to get the latest version of the image.
 
 If you deploy a VM with a Resource Manager template, then you'll set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 
-[!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
+## Deploy an image with Marketplace terms
+
+Some VM images in the Azure Marketplace have additional license and purchase terms that you must accept before you can deploy them programmatically.  
+
+You'll need to both accept the image's terms and enable programmatic deployment. You'll only need to do this once per subscription.
+
+The following sections show how to:
+
+* Find out whether a Marketplace image has additional license terms 
+* Accept the terms programmatically
+* Provide purchase plan parameters when you deploy a VM programmatically
 
 ### View plan properties
 
