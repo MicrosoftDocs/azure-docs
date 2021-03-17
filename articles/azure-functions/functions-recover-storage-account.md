@@ -55,6 +55,7 @@ Your function app must be able to access the storage account. Common issues that
 * The function app is deployed to your App Service Environment (ASE) without the correct network rules to allow traffic to and from the storage account.
 
 * The storage account firewall is enabled and not configured to allow traffic to and from functions. For more information, see [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* Verify that the `allowSharedKeyAccess` setting is set to `true` which is its default value. For more information, see [Prevent Shared Key authorization for an Azure Storage account](https://docs.microsoft.com/azure/storage/common/shared-key-authorization-prevent?tabs=portal#verify-that-shared-key-access-is-not-allowed). 
 
 ## Daily execution quota is full
 
