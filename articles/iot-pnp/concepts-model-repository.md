@@ -64,14 +64,14 @@ dtmi:azure:DeviceManagement:DeviceInformation;1
 
 The `ModelsRepositoryClient` can be configured to query a custom model repository -available through http(s)- and specify the dependency resolution using any of the available `ModelDependencyResolution`:
 
-1. Disabled. Returns the specified interface only, without any dependency.
-1. Enabled. Returns all the interfaces in the dependency chain
-1. TryFromExpanded. Use the `.expanded.json` file to retrieve the pre-calculated dependencies 
+- Disabled. Returns the specified interface only, without any dependency.
+- Enabled. Returns all the interfaces in the dependency chain
+- TryFromExpanded. Use the `.expanded.json` file to retrieve the pre-calculated dependencies 
 
 > [!Tip] 
 > Custom repositories might not expose the `.expanded.json` file, when not available the client will fallback to process each dependency locally.
 
-The next sample code shows how to initialize the `ModelsRepositoryClient` by using a custom repository base URL, in this case using the `raw` URLs from the GitHub API without using the `expanded` form -since it's not available in the `raw` endpoint. The `AzureEventSourceListener` is intialized to inspect the HTTP request performed by the client:
+The next sample code shows how to initialize the `ModelsRepositoryClient` by using a custom repository base URL, in this case using the `raw` URLs from the GitHub API without using the `expanded` form -since it's not available in the `raw` endpoint. The `AzureEventSourceListener` is initialized to inspect the HTTP request performed by the client:
 
 ```cs
 using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
@@ -85,7 +85,7 @@ IDictionary<string, string> models = client.GetModels("dtmi:com:example:Temperat
 models.Keys.ToList().ForEach(k => Console.WriteLine(k));
 ```
 
-There are more samples available within the source code in the Azure SDK GitHub repository: [Azure.Iot.ModelsRepository/samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/modelsrepository/Azure.Iot.ModelsRepository/samples)
+There are more samples available within the source code in the Azure SDK GitHub repository: [Azure.Iot.ModelsRepository/samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/modelsrepository/Azure.IoT.ModelsRepository/samples)
 
 ## Publish a model
 
