@@ -2,7 +2,7 @@
 title: Configure Linux Python apps
 description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI. 
 ms.topic: quickstart
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
 ---
@@ -367,6 +367,8 @@ The following sections provide additional guidance for specific issues.
 - [App doesn't appear - default app shows](#app-doesnt-appear)
 - [App doesn't appear - "service unavailable" message](#service-unavailable)
 - [Could not find setup.py or requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [ModuleNotFoundError on startup](#modulenotfounderror-when-app-starts)
+- [Database is locked](#database-is-locked)
 - [Passwords don't appear in SSH session when typed](#other-issues)
 - [Commands in the SSH session appear to be cut off](#other-issues)
 - [Static assets don't appear in a Django app](#other-issues)
@@ -399,6 +401,18 @@ The following sections provide additional guidance for specific issues.
 - **The log stream shows "Could not find setup.py or requirements.txt; Not running pip install."**: The Oryx build process failed to find your *requirements.txt* file.
 
     - Connect to the web app's container via [SSH](#open-ssh-session-in-browser) and verify that *requirements.txt* is named correctly and exists directly under *site/wwwroot*. If it doesn't exist, make site the file exists in your repository and is included in your deployment. If it exists in a separate folder, move it to the root.
+
+#### ModuleNotFoundError when app starts
+
+If you see an error like `ModuleNotFoundError: No module named 'example'`, this means that Python could not find one or more of your modules when the application started. This most often occurs if you deploy your virtual environment with your code. Virtual environments are not portable, so a virtual environment should not be deployed with your application code. Instead, let Oryx create a virtual environment and install your packages on the web app by creating an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, and setting it to `1`. This will force Oryx to install your packages whenever you deploy to App Service. For more information, please see [this article on virtual environment portability](https://azure.github.io/AppService/2020/12/11/cicd-for-python-apps.html).
+
+### Database is locked
+
+When attempting to run database migrations with a Django app, you may see "sqlite3. OperationalError: database is locked." The error indicates that your application is using a SQLite database for which Django is configured by default, rather than using a cloud database such as PostgreSQL for Azure.
+
+Check the `DATABASES` variable in the app's *settings.py* file to ensure that your app is using a cloud database instead of SQLite.
+
+If you're encountering this error with the sample in [Tutorial: Deploy a Django web app with PostgreSQL](tutorial-python-postgresql-app.md), check that you completed the steps in [Configure environment variables to connect the database](tutorial-python-postgresql-app.md#42-configure-environment-variables-to-connect-the-database).
 
 #### Other issues
 

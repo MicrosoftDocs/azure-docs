@@ -12,6 +12,8 @@ services: iot-edge
 
 # Give modules access to a device's local storage
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 In addition to storing data using Azure storage services or in your device's container storage, you can also dedicate storage on the host IoT Edge device itself for improved reliability, especially when operating offline.
 
 ## Link module storage to device storage

@@ -12,13 +12,13 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # CI/CD for Azure Spring Cloud
 
-Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. Currently, Azure Spring Cloud does not offer a specific Azure DevOps plugin.  However, you can integrate your Spring Cloud applications with DevOps using an [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli?preserve-view=true&view=azure-devops).
+Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. Currently, Azure Spring Cloud does not offer a specific Azure DevOps plugin.  However, you can integrate your Spring Cloud applications with DevOps using an [Azure CLI task](/azure/devops/pipelines/tasks/deploy/azure-cli).
 
 This article shows you how to use an Azure CLI task with Azure Spring Cloud to integrate with Azure DevOps.
 
 ## Create an Azure Resource Manager service connection
 
-Read [this article](/azure/devops/pipelines/library/connect-to-azure?preserve-view=true&view=azure-devops) to learn how to create an Azure Resource Manager service connection to your Azure DevOps project. Be sure to select the same subscription you are using for your Azure Spring Cloud service instance.
+Read [this article](/azure/devops/pipelines/library/connect-to-azure) to learn how to create an Azure Resource Manager service connection to your Azure DevOps project. Be sure to select the same subscription you are using for your Azure Spring Cloud service instance.
 
 ## Azure CLI task templates
 ::: zone pivot="programming-language-csharp"
@@ -58,7 +58,7 @@ steps:
       az configure --defaults spring-cloud=${{ variables.serviceName }}
       az spring-cloud app deploy -n ${{ variables.planetAppName }} --runtime-version NetCore_31 --main-entry ${{ variables.planetMainEntry }} --artifact-path ./${{ variables.planetAppName }}/publish-deploy-planet.zip
       az spring-cloud app deploy -n ${{ variables.solarAppName }} --runtime-version NetCore_31 --main-entry ${{ variables.solarMainEntry }} --artifact-path ./${{ variables.solarAppName }}/publish-deploy-solar.zip
-      az spring-cloud app update -n ${{ variables.solarAppName }} --is-public true
+      az spring-cloud app update -n ${{ variables.solarAppName }} --assign-endpoint
       az spring-cloud app show -n ${{ variables.solarAppName }} -o table
     workingDirectory: '${{ variables.workingDirectory }}/src'
 ```

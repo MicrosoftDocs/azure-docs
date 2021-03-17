@@ -1,12 +1,11 @@
 ---
 title: How to prevent misconfigurations with Azure Security Center
 description: Learn how to use Security Center's 'Enforce' and 'Deny' options on the recommendations details pages
-services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 03/17/2021
 ms.author: memildin
 
 ---
@@ -65,6 +64,7 @@ These recommendations can be used with the **enforce** option:
 - Auditing on SQL server should be enabled
 - Azure Backup should be enabled for virtual machines
 - Azure Defender for SQL should be enabled on your SQL servers
+- Azure Policy Add-on for Kubernetes should be installed and enabled on your clusters
 - Diagnostic logs in Azure Stream Analytics should be enabled
 - Diagnostic logs in Batch accounts should be enabled
 - Diagnostic logs in Data Lake Analytics should be enabled

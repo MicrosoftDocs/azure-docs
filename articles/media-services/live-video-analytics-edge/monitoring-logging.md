@@ -306,21 +306,64 @@ Follow these steps to enable the collection of metrics from the Live Video Analy
 
    In this case, in the Azure portal, go to the IoT hub and select **Metrics** in the left pane. You should see the metrics there.
 
-Using Prometheus along with [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md), you can generate and [monitor metrics](../../azure-monitor/essentials/metrics-supported.md) such as used CPUPercent, MemoryUsedPercent, etc. Using Kusto query language, you can write queries as below and get CPU percentage used by the IoT edge modules.
-```kusto
-let cpu_metrics = promMetrics_CL
-| where Name_s == "edgeAgent_used_cpu_percent"
-| extend dimensions = parse_json(Tags_s)
-| extend module_name = tostring(dimensions.module_name)
-| where module_name in ("lvaEdge","yolov3","tinyyolov3")
-| summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
-cpu_metrics
-| summarize cpu_percent = sum(cpu_percent) by TimeGenerated
-| extend module_name = "Total"
-| union cpu_metrics
-```
+### Log Analytics metrics collection
+Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along with [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), you can generate and [monitor metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) such as used CPUPercent, MemoryUsedPercent, etc.   
 
-[ ![Diagram that shows the metrics using Kusto query.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
+> [!NOTE]
+> The configuration below does not collect logs, **only metrics**. It is feasible to extend the collector module to also collect and upload logs.
+
+[ ![Diagram that shows the metrics collection using Log Analytics.](./media/telemetry-schema/log-analytics.png)](./media/telemetry-schema/log-analytics.png#lightbox)
+
+1. Learn how to [collect metrics](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector)
+1. Use Docker CLI commands to build the [Docker file](https://github.com/Azure/iotedge/tree/master/edge-modules/MetricsCollector/docker/linux) and publish the image to your Azure container registry.
+    
+   For more information about using the Docker CLI to push to a container registry, see [Push and pull Docker images](../../container-registry/container-registry-get-started-docker-cli.md). For other information about Azure Container Registry, see the [documentation](../../container-registry/index.yml).
+
+1. After the push to Azure Container Registry is complete, the following is inserted into the deployment manifest:
+    ```json
+    "azmAgent": {
+      "settings": {
+        "image": "{AZURE_CONTAINER_REGISTRY_LINK_TO_YOUR_METRICS_COLLECTOR}"
+      },
+      "type": "docker",
+      "version": "1.0",
+      "status": "running",
+      "restartPolicy": "always",
+      "env": {
+        "LogAnalyticsWorkspaceId": { "value": "{YOUR_LOG_ANALYTICS_WORKSPACE_ID}" },
+        "LogAnalyticsSharedKey": { "value": "{YOUR_LOG_ANALYTICS_WORKSPACE_SECRET}" },
+        "LogAnalyticsLogType": { "value": "IoTEdgeMetrics" },
+        "MetricsEndpointsCSV": { "value": "http://edgeHub:9600/metrics,http://edgeAgent:9600/metrics,http://lvaEdge:9600/metrics" },
+        "ScrapeFrequencyInSecs": { "value": "30 " },
+        "UploadTarget": { "value": "AzureLogAnalytics" }
+      }
+    }
+    ```
+    > [!NOTE]
+    > The modules `edgeHub`, `edgeAgent` and `lvaEdge` are the names of the modules defined in the deployment manifest file. Please make sure that the names of the modules match.   
+
+    You can get your `LogAnalyticsWorkspaceId` and `LogAnalyticsSharedKey` values by following these steps:
+    1. Go to the Azure portal
+    1. Look for your Log Analytics workspaces
+    1. Once you find your Log Analytics workspace, navigate to the `Agents management` option in the left navigation pane.
+    1. You will find the Workspace ID and the Secret Keys that you can use.
+
+1. Next, create a workbook by clicking on the `Workbooks` tab in the left navigation pane.
+1. Using Kusto query language, you can write queries as below and get CPU percentage used by the IoT Edge modules.
+    ```kusto
+    let cpu_metrics = IoTEdgeMetrics_CL
+    | where Name_s == "edgeAgent_used_cpu_percent"
+    | extend dimensions = parse_json(Tags_s)
+    | extend module_name = tostring(dimensions.module_name)
+    | where module_name in ("lvaEdge","yolov3","tinyyolov3")
+    | summarize cpu_percent = avg(Value_d) by bin(TimeGenerated, 5s), module_name;
+    cpu_metrics
+    | summarize cpu_percent = sum(cpu_percent) by TimeGenerated
+    | extend module_name = "Total"
+    | union cpu_metrics
+    ```
+
+    [ ![Diagram that shows the metrics using Kusto query.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## Logging
 
 As with other IoT Edge modules, you can also [examine the container logs](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) on the edge device. You can configure the information that's written to the logs by using the [following module twin](module-twin-configuration-schema.md) properties:

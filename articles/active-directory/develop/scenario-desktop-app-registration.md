@@ -44,7 +44,7 @@ Specify the redirect URI for your app by [configuring the platform settings](qui
   - Apps that use system browsers: `http://localhost`
 
   > [!IMPORTANT]
-    As a security best practice, we recommend explicitly setting `https://login.microsoftonline.com/common/oauth2/nativeclient` or `http://localhost` as the redirect URI. Some authentication libraries like MSAL.NET use a default value of `urn:ietf:wg:oauth:2.0:oob` when no other redirect URI is specified, which is not recommended.
+  > As a security best practice, we recommend explicitly setting `https://login.microsoftonline.com/common/oauth2/nativeclient` or `http://localhost` as the redirect URI. Some authentication libraries like MSAL.NET use a default value of `urn:ietf:wg:oauth:2.0:oob` when no other redirect URI is specified, which is not recommended. This default will be updated as a breaking change in the next major release.
 
 - If you build a native Objective-C or Swift app for macOS, register the redirect URI based on your application's bundle identifier in the following format: `msauth.<your.app.bundle.id>://auth`. Replace `<your.app.bundle.id>` with your application's bundle identifier.
 - If your app uses only Integrated Windows Authentication or a username and a password, you don't need to register a redirect URI for your application. These flows do a round trip to the Microsoft identity platform v2.0 endpoint. Your application won't be called back on any specific URI.
