@@ -61,10 +61,10 @@ az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
 
 # [Control plane](#tab/control-plane)
 
-To get a token to use with the **control plane** APIs, use the following value for the token context: `https://management.azure.com/.default`.
+To get a token to use with the **control plane** APIs, use the following value for the token context: `https://management.azure.com/`.
 
 ```azurecli-interactive
-az account get-access-token --resource https://management.azure.com/.default
+az account get-access-token --resource https://management.azure.com/
 ```
 ---
 
