@@ -1,5 +1,5 @@
 ---
-title: Alert descriptions
+title: View alerts and their descriptions
 description: Review Defender for IoT Alert descriptions.
 author: shhazam-ms
 manager: rkarlin
@@ -25,8 +25,6 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 | Emerson ROC Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
 | External address within the network communicated with Internet | A source device defined as part of your network is communicating with Internet addresses. The source is not authorized to communicate with Internet addresses. | Critical |
 | Field Device Discovered Unexpectedly | A new source device was detected on the network but has not been authorized. | Major |
-| Firmware Change Detected | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
-| Firmware Change Detected | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
 | Firmware Change Detected | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
 | Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
 | Foxboro I/A Unauthorized Operation | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
@@ -63,7 +61,6 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 | New Activity Detected - Using Yokogawa VNetIP Command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | New Asset Detected | A new source device was detected on the network but has not been authorized. | Major |
 | New LLDP Device Configuration | A new source device was detected on the network but has not been authorized. | Major |
-| New Port Discovery | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Warning |
 | New Port Discovery | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Warning |
 | Omron FINS Unauthorized Command | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 | S7 Plus PLC Firmware Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major |
@@ -119,9 +116,6 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 | Unpermitted Usage of Modbus Function Code | New traffic parameters were detected. This parameter combination has not been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
 
 ## Anomaly engine alerts
-
-| Alert title | Description | Severity|
-|--|--|--|
 
 | Title | Description | Severity |
 |--|--|--|
@@ -251,3 +245,7 @@ Policy engine alerts describe deviations from learned baseline network behavior.
 | Suspicion of Hardware Problems in Outstation | An unrecoverable condition error was detected on a source device. This kind of error usually indicates a hardware failure or failure to perform a specific command. | Major |
 | Suspicion of Unresponsive MODBUS Device | A source device did not respond to a command sent to it. It may have been disconnected when the command was sent. | Minor |
 | Traffic Detected on Sensor Interface | A sensor resumed detecting network traffic on a network interface. | Warning |
+
+## Next steps
+
+[Gain insight into global, regional, and local threats](how-to-gain-insight-into-global-regional-and-local-threats.md).

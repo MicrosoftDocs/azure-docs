@@ -172,7 +172,7 @@
       displayName: connections, Purdue, zoom, delete device 
     - name: Work with alerts detected by a sensor
       items:
-      - name: Work with alert on your sensor
+      - name: Work with alerts on your sensor
         href: how-to-work-with-alerts-on-your-sensor.md
       - name: Views alerts
         href: how-to-view-alerts.md
@@ -188,6 +188,9 @@
       - name: Forward alert information
         href: how-to-forward-alert-information-to-partners.md
         displayName: integration, 3rd party, partners, vendor, Syslog server, NetWitness, CEF, LEEF, email, SOC, SIEM, SOAR, incident response
+      - name: View alerts and their descriptions
+        href: alert-engine-messages.md
+        displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational
     - name: Gain insight into global, regional, and local threats
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
       displayName: site, business unit, region, map
