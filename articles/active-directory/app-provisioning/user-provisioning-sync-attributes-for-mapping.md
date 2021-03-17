@@ -57,7 +57,7 @@ You will need to use an application to extend the schema of your users. List the
 GET https://graph.microsoft.com/v1.0/applications
 ```
 
-Create the extension attribute. Replace the id property below with the id retrieved in the previous step. You will need to use the "id" attribute and not the "appId". [Learn more.](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http)
+Create the extension attribute. Replace the **id** property below with the **id** retrieved in the previous step. You will need to use the **"id"** attribute and not the "appId". [Learn more.](https://docs.microsoft.com/graph/api/application-post-extensionproperty?view=graph-rest-1.0&tabs=http)
 ```json
 POST https://graph.microsoft.com/v1.0/applications/{id}/extensionProperties
 Content-type: application/json
