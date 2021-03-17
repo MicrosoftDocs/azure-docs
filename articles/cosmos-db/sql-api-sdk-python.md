@@ -63,7 +63,7 @@ ms.custom: devx-track-python
 - Fixed Python 2/3 compatibility in query iterators.
 - Fixed type hint error.
 - Fixed bug where options headers were not added to upsert_item function. 
-- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError.
+- Fixed error raised when a non-string ID is used in an item. It now raises TypeError rather than AttributeError.
 
 
 ## 4.0.0
