@@ -15,7 +15,7 @@ zone_pivot_groups: acs-plat-ios-android
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Get started with Azure Communication Services by using the Communication Services Teams Embed library to add teams meetings to your app. 
+Get started with Azure Communication Services by using the Communication Services Teams Embed library to add Teams meetings to your app. 
 
 ::: zone pivot="platform-android"
 [!INCLUDE [Meetings with Android](./includes/samples-android.md)]
