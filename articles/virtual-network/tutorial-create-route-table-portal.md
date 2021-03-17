@@ -11,7 +11,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2020
+ms.date: 03/16/2021
 ms.author: kumud
 ---
 
@@ -208,7 +208,7 @@ Next, turn on IP forwarding for your new NVA virtual machine, **myVMNVA**. When 
 
 6. In the **IP configurations** page, set **IP forwarding** to **Enabled**, then select **Save**.
 
-    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Enable IP forwarding, IP configurations, network interface, network virtual appliance (NVA) virtual machine (VM), Azure portal" border="true":::
+    :::image type="content" source="./media/tutorial-create-route-table-portal/enable-ip-forwarding.png" alt-text="Enable IP forwarding" border="true":::
 
 ## Create public and private virtual machines
 
@@ -317,7 +317,7 @@ Create a public VM and a private VM in the virtual network. Later, you'll use th
 
 6. Select **Connect**.
 
-### Enable ICMP through the Windows firewall
+### Configure firewall
 
 In a later step, you'll use the trace route tool to test routing. Trace route uses the Internet Control Message Protocol (ICMP), which the Windows Firewall denies by default. 
 
