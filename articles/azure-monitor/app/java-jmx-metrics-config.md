@@ -17,7 +17,7 @@ JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section 
 
 ## How do I know what metrics are available to configure?
 
-You nailed it - you must know the object names and the attributes, those properties are different for various JVMs and are not well documented by the JVM providers. To get the object names and attributes, you need to view the MBean tree. An MBean is a managed Java object, that can represent a device, an application, or a resource, and has a set of attributes. 
+You nailed it - you must know the object names and the attributes, those properties are different for various libraries, frameworks, and application servers. And these are often not well documented. To get the object names and attributes, you need to view the MBean tree. An MBean is a managed Java object, that can represent a device, an application, or a resource, and has a set of attributes. 
 
 To view the available metrics and browse through the available metrics, we recommend using [Java Mission Control](https://www.oracle.com/java/technologies/jdk-mission-control.html).
 
@@ -69,4 +69,3 @@ Currently, the wildcards and aggregated attributes are not supported, therefore 
 As your application is running and the JMX metrics are collected, you can view them by going to Azure portal and navigate to your application insights resource. Under Metrics tab, select the dropdown as shown below to view the metrics.
 
 ![Screenshot of metrics in portal](media/java-ipa/jmx/jmx-portal.png)
-
