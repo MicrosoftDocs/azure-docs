@@ -47,13 +47,13 @@ To create an assessment, follow these steps:
 
    ![New Project](./media/oracle-to-managed-instance-guide/new-project.png)
 
-1. Enter in values for the Oracle connection details on the Connect to **Connect to Oracle** dialog box.
+1. Select **Connect to Oracle**. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
 
    ![Connect to Oracle](./media/oracle-to-managed-instance-guide/connect-to-oracle.png)
 
    Select the Oracle schema(s) you want to migrate: 
 
-   ![Choose Oracle schema](./media/oracle-to-managed-instance-guide/connect-select-schema.png)
+   ![Choose Oracle schema](./media/oracle-to-managed-instance-guide/select-schema.png)
 
 1. Right-click the Oracle schema you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
 
@@ -90,7 +90,7 @@ To convert the schema, follow these steps:
 
     ![Connect to SQL Managed Instance](./media/oracle-to-managed-instance-guide/connect-to-sql-managed-instance.png)
 
-1. Right-click the schema and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
+1. Right-click the Oracle schema in the **Oracle Metadata Explorer** and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
 
    ![Convert Schema](./media/oracle-to-managed-instance-guide/convert-schema.png)
 
