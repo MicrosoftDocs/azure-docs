@@ -269,6 +269,9 @@
             - name: Install and Configure
               href: servicemesh-osm-install.md
             - name: Tasks and Usage Scenarios
+              items:
+                - name: Manage multi-container application with OSM
+                  href: servicemesh-osm-quickstart.md
               href: servicemesh-osm-scenario-use.md
             - name: OSM Troubleshooting Guides
               href: servicemesh-osm-troubleshooting.md

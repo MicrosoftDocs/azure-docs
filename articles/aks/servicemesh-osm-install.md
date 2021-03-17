@@ -31,7 +31,7 @@ In this article, you learn how to:
 
 ## Before you begin
 
-The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.16` and above, with Kubernetes RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md).
+The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.18` and above, with Kubernetes RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md).
 
 ### Preview service quotas and limits
 
@@ -95,7 +95,7 @@ There are several commands to run to check all of the components of the AKS OSM 
 
 First we can query the add-on profiles of the cluster to check the enabled state of the add-ons installed. The following command should return "true".
 
-```
+```Console
 az aks list -g <resource group name> | jq -r .[].addonProfiles.openServiceMesh.enabled
 ```
 
@@ -117,7 +117,7 @@ kubectl get configmap -n kube-system osm-config -o json | jq '.data'
 
 Output of the OSM configmap should look like the following:
 
-```
+```Output
 {
   "egress": "true",
   "enable_debug_server": "true",
