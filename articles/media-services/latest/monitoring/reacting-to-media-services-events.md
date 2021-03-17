@@ -26,7 +26,7 @@ Availability for Media Services events is tied to Event Grid [availability](../.
 
 Event grid uses [event subscriptions](../../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Media Services events contain all the information you need to respond to changes in your data. You can identify a  Media Services event because the eventType property starts with "Microsoft.Media.".
 
-For more information, see [Media Services event schemas](media-services-event-schemas.md).
+For more information, see [Media Services event schemas](../media-services-event-schemas.md).
 
 ## Practices for consuming events
 
@@ -42,5 +42,5 @@ Applications that handle Media Services events should follow a few recommended p
 
 ## Next steps
 
-* [Monitor events - portal](monitor-events-portal-how-to.md)
+* [Monitor events - portal](../monitor-events-portal-how-to.md)
 * [Monitor events - CLI](../job-state-events-cli-how-to.md)
