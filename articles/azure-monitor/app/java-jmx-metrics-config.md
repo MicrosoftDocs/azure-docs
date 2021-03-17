@@ -10,7 +10,6 @@ ms.author: jgol
 
 # Configuring JMX metrics
 
-
 ## How do I collect additional JMX metrics?
 
 JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. You have to define the object name and attribute for each of the metrics you want collected.
@@ -23,7 +22,7 @@ To view the available metrics and browse through the available metrics, we recom
 
 ### How to navigate the Java Mission Control to get to the right metrics?
 
-When you run the Java Mission Control tool, you will have a selection of JVMs available on the left side, click on the relevant process under the 'JVM Browser' tab. Wait until JMC loads the dashboard for the process, select 'MBean Browser' tab on the bottom (see below). The JMC must be located in the same folder as the JVM and your process/app must be up and running.
+When you run the Java Mission Control tool, you'll have a selection of JVMs available on the left side, click on the relevant process under the 'JVM Browser' tab. Wait until JMC loads the dashboard for the process, select 'MBean Browser' tab on the bottom (see below). The JMC must be located in the same folder as the JVM and your process/app must be up and running.
 
 ![Screenshot of JMC MBean browser](media/java-ipa/jmx/jmc-mbean-browser.png)
 
@@ -59,9 +58,9 @@ From the selection as shown in the image above, lets configure a few metrics. Th
 
 ### Types of collected metrics and available configuration options?
 
-We support numeric and boolean JMX metrics, while other types are not supported and will be ignored. 
+We support numeric and boolean JMX metrics, while other types aren't supported and will be ignored. 
 
-Currently, the wildcards and aggregated attributes are not supported, therefore every attribute 'object name'/'attribute' pair must be configured separately. 
+Currently, the wildcards and aggregated attributes aren't supported, that's why every attribute 'object name'/'attribute' pair must be configured separately. 
 
 
 ## Where do I find the JMX Metrics in application insights?
