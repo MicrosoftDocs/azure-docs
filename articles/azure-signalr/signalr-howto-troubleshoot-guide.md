@@ -32,7 +32,7 @@ With SDK version **1.0.6** or higher, `/negotiate` will throw `413 Payload Too L
 
 By default, claims from `context.User.Claims` are included when generating JWT access token to **ASRS**(**A**zure **S**ignal**R** **S**ervice), so that the claims are preserved and can be passed from **ASRS** to the `Hub` when the client connects to the `Hub`.
 
-In some cases, `context.User.Claims` are leveraged to store lots of information for app server, most of which are not used by `Hub`s but by other components.
+In some cases, `context.User.Claims` are used to store lots of information for app server, most of which are not used by `Hub`s but by other components.
 
 The generated access token is passed through the network, and for WebSocket/SSE connections, access tokens are passed through query strings. So as the best practice, we suggest only passing **necessary** claims from the client through **ASRS** to your app server when the Hub needs.
 
@@ -65,7 +65,7 @@ services.MapAzureSignalR(GetType().FullName, options =>
 
 * ASP.NET "No server available" error [#279](https://github.com/Azure/azure-signalr/issues/279)
 * ASP.NET "The connection is not active, data cannot be sent to the service." error [#324](https://github.com/Azure/azure-signalr/issues/324)
-* "An error occurred while making the HTTP request to https://<API endpoint>. This error could be due to the fact that the server certificate is not configured properly with HTTP.SYS in the HTTPS case. This error could also be caused by a mismatch of the security binding between the client and the server."
+* "An error occurred while making the HTTP request to https://<API endpoint>. This error could be because the server certificate is not configured properly with HTTP.SYS in the HTTPS case. This error could also be caused by a mismatch of the security binding between the client and the server."
 
 ### Root cause:
 
@@ -87,6 +87,7 @@ Azure Service only supports TLS1.2 for security concerns. With .NET framework, i
         :::image type="content" source="./media/signalr-howto-troubleshoot-guide/tls-throws.png" alt-text="Exception throws":::
 
 2. For ASP.NET ones, you can also add following code to your `Startup.cs` to enable detailed trace and see the errors from the log.
+
 ```cs
 app.MapAzureSignalR(this.GetType().FullName);
 // Make sure this switch is called after MapAzureSignalR
@@ -96,6 +97,7 @@ GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
 ### Solution:
 
 Add following code to your Startup:
+
 ```cs
 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 ```
@@ -161,7 +163,7 @@ The connections include both client and server connections. check [here](./signa
 
 ### Too many negotiate requests at the same time.
 
-We suggest having a random delay before reconnecting, please check [here](#restart_connection) for retry samples.
+We suggest having a random delay before reconnecting, check [here](#restart_connection) for retry samples.
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
@@ -178,6 +180,7 @@ Enable server-side trace to find out the error details when the server tries to 
 #### Enable server-side logging for ASP.NET Core SignalR
 
 Server-side logging for ASP.NET Core SignalR integrates with the `ILogger` based [logging](/aspnet/core/fundamentals/logging/?tabs=aspnetcore2x&view=aspnetcore-2.1) provided in the ASP.NET Core framework. You can enable server-side logging by using `ConfigureLogging`, a sample usage as follows:
+
 ```cs
 .ConfigureLogging((hostingContext, logging) =>
         {
@@ -185,7 +188,9 @@ Server-side logging for ASP.NET Core SignalR integrates with the `ILogger` based
             logging.AddDebug();
         })
 ```
+
 Logger categories for Azure SignalR always start with `Microsoft.Azure.SignalR`. To enable detailed logs from Azure SignalR, configure the preceding prefixes to `Debug` level in your **appsettings.json** file like below:
+
 ```JSON
 {
     "Logging": {
@@ -201,6 +206,7 @@ Logger categories for Azure SignalR always start with `Microsoft.Azure.SignalR`.
 #### Enable server-side traces for ASP.NET SignalR
 
 When using SDK version >= `1.0.0`, you can enable traces by adding the following to `web.config`: ([Details](https://github.com/Azure/azure-signalr/issues/452#issuecomment-478858102))
+
 ```xml
 <system.diagnostics>
     <sources>
@@ -230,7 +236,7 @@ When using SDK version >= `1.0.0`, you can enable traces by adding the following
 
 When the client is connected to the Azure SignalR, the persistent connection between the client and Azure SignalR can sometimes drop for different reasons. This section describes several possibilities causing such connection drop and provides some guidance on how to identify the root cause.
 
-### Possible errors seen from the client-side
+### Possible errors seen from the client side
 
 * `The remote party closed the WebSocket connection without completing the close handshake`
 * `Service timeout. 30.00ms elapsed without receiving a message from service.`
@@ -277,7 +283,7 @@ Check if you close connection. Manually call `HubConnection.DisposeAsync()` to s
 
 For example:
 
-```C#
+```csharp
 var connection = new HubConnectionBuilder()
 	.WithUrl(...)
 	.Build();
@@ -319,7 +325,7 @@ On a regular basis, there are new version releases for the Azure SignalR Service
 
 This section describes several possibilities leading to server connection drop, and provides some guidance on how to identify the root cause.
 
-### Possible errors seen from server-side:
+### Possible errors seen from the server side
 
 * `[Error]Connection "..." to the service was dropped`
 * `The remote party closed the WebSocket connection without completing the close handshake`
@@ -329,83 +335,85 @@ This section describes several possibilities leading to server connection drop, 
 
 Server-service connection is closed by **ASRS**(**A**zure **S**ignal**R** **S**ervice).
 
-For ping timeout, it may be caused by high CPU usage or thread pool starvation in server-side.
+For ping timeout, it might be caused by high CPU usage or thread pool starvation on the server side.
 
-For Aspnet SignalR, we had fixed a known issue in SDK 1.6.0, please upgrade SDK to newest version.
+For ASP.NET SignalR, a known issue was fixed in SDK 1.6.0. Upgrade your SDK to newest version.
 
 ### Thread pool starvation
 
-If your server is starving, that means no thread is working on message processing, all of threads are hanging in a certain method.
+If your server is starving, that means no threads are working on message processing. All threads are hanging in a certain method.
 
-Normally, it should be caused by async over sync, or `Task.Result`/`Task.Wait()` in async methods.
+Normally, this scenario is caused by async over sync or by `Task.Result`/`Task.Wait()` in async methods.
 
-See [ASP.NET Core Performance Best Practices](https://docs.microsoft.com/aspnet/core/performance/performance-best-practices#avoid-blocking-calls)
+See [ASP.NET Core performance best practices](/aspnet/core/performance/performance-best-practices#avoid-blocking-calls).
 
-See more about [thread pool starvation](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)
+See more about [thread pool starvation](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall).
 
 #### How to detect thread pool starvation
 
-* Check your thread count, and there is no spikes at that time.
-  * If using Azure App Service, you can find it in metrics, thread count, use the `Max` aggregation like following:
+Check your thread count. If there are no spikes at that time, take these steps:
+* If you're using Azure App Service, check the thread count in metrics. Check the `Max` aggregation:
     
-    ![metrics-threadcount](media/signalr-howto-troubleshoot-guide/metrics-threadcount.png)
-  * If using dotnet framework, you can find [metrics](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) in the performance monitor in your server VM.
-  * If using dotnet core in a container, see [Collect diagnostics in containers](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers).
-* Use code to detect thread pool starvation:
+  :::image type="content" source="media/signalr-howto-troubleshoot-guide/metrics-threadcount.png" alt-text="Screenshot of the Max thread count pane in Azure App Service.":::
 
-    ```cs
-    public class ThreadPoolStarvationDetector : EventListener
+* If you're using the .NET Framework, you can find [metrics](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters) in the performance monitor in your server VM.
+* If you're using .NET Core in a container, see [Collect diagnostics in containers](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers).
+
+You also can use code to detect thread pool starvation:
+
+```csharp
+public class ThreadPoolStarvationDetector : EventListener
+{
+    private const int EventIdForThreadPoolWorkerThreadAdjustmentAdjustment = 55;
+    private const uint ReasonForStarvation = 6;
+
+    private readonly ILogger<ThreadPoolStarvationDetector> _logger;
+
+    public ThreadPoolStarvationDetector(ILogger<ThreadPoolStarvationDetector> logger)
     {
-        private const int EventIdForThreadPoolWorkerThreadAdjustmentAdjustment = 55;
-        private const uint ReasonForStarvation = 6;
+        _logger = logger;
+    }
 
-        private readonly ILogger<ThreadPoolStarvationDetector> _logger;
-
-        public ThreadPoolStarvationDetector(ILogger<ThreadPoolStarvationDetector> logger)
+    protected override void OnEventSourceCreated(EventSource eventSource)
+    {
+        if (eventSource.Name == "Microsoft-Windows-DotNETRuntime")
         {
-            _logger = logger;
-        }
-
-        protected override void OnEventSourceCreated(EventSource eventSource)
-        {
-            if (eventSource.Name == "Microsoft-Windows-DotNETRuntime")
-            {
-                EnableEvents(eventSource, EventLevel.Informational, EventKeywords.All);
-            }
-        }
-
-        protected override void OnEventWritten(EventWrittenEventArgs eventData)
-        {
-            // See: https://docs.microsoft.com/en-us/dotnet/framework/performance/thread-pool-etw-events#threadpoolworkerthreadadjustmentadjustment
-            if (eventData.EventId == EventIdForThreadPoolWorkerThreadAdjustmentAdjustment &&
-                eventData.Payload[3] as uint? == ReasonForStarvation)
-            {
-                _logger.LogWarning("Thread pool starvation detected!");
-            }
+            EnableEvents(eventSource, EventLevel.Informational, EventKeywords.All);
         }
     }
-    ```
-    
-    Add it to your service like following:
-    
-    ```cs
-    service.AddSingleton<ThreadPoolStarvationDetector>();
-    ```
-    
-    Then check your log when server connection disconnected by ping timeout.
 
-#### How to find root cause for thread pool starvation
+    protected override void OnEventWritten(EventWrittenEventArgs eventData)
+    {
+        // See: https://docs.microsoft.com/en-us/dotnet/framework/performance/thread-pool-etw-events#threadpoolworkerthreadadjustmentadjustment
+        if (eventData.EventId == EventIdForThreadPoolWorkerThreadAdjustmentAdjustment &&
+            eventData.Payload[3] as uint? == ReasonForStarvation)
+        {
+            _logger.LogWarning("Thread pool starvation detected!");
+        }
+    }
+}
+```
+    
+Add it to your service:
+    
+```csharp
+service.AddSingleton<ThreadPoolStarvationDetector>();
+```
 
-There are following ways to find the root cause:
+Then, check your log when the server connection is disconnected by ping timeout.
 
-* Dump memory, then analysis the call stack, see [collecting-and-analyzing-memory-dumps](https://devblogs.microsoft.com/dotnet/collecting-and-analyzing-memory-dumps/).
-* Use [clrmd](https://github.com/microsoft/clrmd) to dump it when detected starvation, then log the call stack.
+#### How to find the root cause of thread pool starvation
+
+To find the root cause of thread pool starvation:
+
+* Dump the memory, and then analyze the call stack. For more information, see [Collect and analyze memory dumps](https://devblogs.microsoft.com/dotnet/collecting-and-analyzing-memory-dumps/).
+* Use [clrmd](https://github.com/microsoft/clrmd) to dump the memory when thread pool starvation is detected. Then, log the call stack.
 
 ### Troubleshooting guide
 
-1. Open app server-side log to see if anything abnormal took place
-2. Check app server-side event log to see if the app server restarted
-3. Create an issue to us providing the time frame, and email the resource name to us
+1. Open the app server-side log to see if anything abnormal took place.
+2. Check the app server-side event log to see if the app server restarted.
+3. Create an issue. Provide the time frame, and email the resource name to us.
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
