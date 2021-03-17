@@ -112,10 +112,7 @@ If a guest user has not yet redeemed their invitation, you can resend the invita
 3. Under **Manage**, select **Users**.
 5. Select the user account.
 6. Under **Manage**, select **Profile**.
-7. If the user has not yet accepted the invitation, a **Resend invitation** option is available. Select **manage** to open the **Manage invitations** menu.
-
-   ![B2B_ResendNew](https://user-images.githubusercontent.com/80779693/111352250-e241e200-867b-11eb-9adb-3b484cd5992a.png)
-
+7. If the user has not yet accepted the invitation, in the **Identity** section, **Invitation accepted** will be set to **No**. To resend the invitation, select **(manage)**. Then in the **Manage invitations** page, next to **Resend invite?" select **Yes**, and select **Done**.
 
 > [!NOTE]
 > If you resend an invitation that originally directed the user to a specific app, understand that the link in the new invitation takes the user to the top-level Access Panel instead.
