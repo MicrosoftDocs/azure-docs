@@ -37,117 +37,147 @@
         },
         {
             "source_path_from_root": "/articles/media-services/latest/access-api-cli-how-to.md",
-            "redirect_url": "azure/media-services/latest/access-api-howto",
+            "redirect_url": "access-api-howto",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/access-api-portal.md",
-            "redirect_url": "azure/media-services/latest/access-api-howto",
+            "redirect_url": "access-api-howto",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-asset.md",
-            "redirect_url": "azure/media-services/latest/cli-create-asset",
+            "redirect_url": "cli-create-asset",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-jobs.md",
-            "redirect_url": "azure/media-services/latest/cli-create-jobs",
+            "redirect_url": "cli-create-jobs",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-transform.md",
-            "redirect_url": "azure/media-services/latest/cli-create-transform",
+            "redirect_url": "cli-create-transform",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-publish-asset.md",
-            "redirect_url": "azure/media-services/latest/cli-publish-asset",
+            "redirect_url": "cli-publish-asset",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-reset-account-credentials.md",
-            "redirect_url": "azure/media-services/latest/cli-reset-account-credentials",
+            "redirect_url": "cli-reset-account-credentials",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-upload-file-asset.md",
-            "redirect_url": "azure/media-services/latest/cli-upload-file-asset",
+            "redirect_url": "cli-upload-file-asset",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/cae-experimental.md",
-            "redirect_url": "azure/media-services/latest/content-aware-encoding",
+            "redirect_url": "content-aware-encoding",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-account.md",
-            "redirect_url": "azure/media-services/latest/create-account-cli-how-to",
+            "redirect_url": "create-account-cli-how-to",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-samples.md",
-            "redirect_url": "azure/media-services/latest/create-account-cli-how-to",
+            "redirect_url": "create-account-cli-how-to",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/create-account-cli-how-to.md",
-            "redirect_url": "azure/media-services/latest/create-account-howto",
+            "redirect_url": "create-account-howto",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/cli-create-transform.md",
-            "redirect_url": "azure/media-services/latest/how-to-create-transform",
+            "redirect_url": "how-to-create-transform",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/scripts/cli-create-event-grid.md",
-            "redirect_url": "azure/media-services/latest/job-state-events-cli-how-to",
+            "redirect_url": "job-state-events-cli-how-to",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/developers-guide.md",
-            "redirect_url": "azure/media-services/latest/media-services-apis-overview",
+            "redirect_url": "media-services-apis-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/origin-error-codes.md",
-            "redirect_url": "azure/media-services/latest/streaming-endpoint-error-codes",
+            "redirect_url": "streaming-endpoint-error-codes",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/transform-concept.md",
-            "redirect_url": "azure/media-services/latest/transforms-jobs-concept",
+            "redirect_url": "transforms-jobs-concept",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/media-services-high-availability-streaming.md",
-            "redirect_url": "azure/media-services/latest/media-services-high-availability-encoding",
+            "redirect_url": "media-services-high-availability-encoding",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/upload-files-rest-how-to.md",
-            "redirect_url": "azure/media-services/latest/how-to-upload-media?tabs=rest",
+            "redirect_url": "how-to-upload-media?tabs=rest",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/media-services-v2-vs-v3.md",
-            "redirect_url": "azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
+            "redirect_url": "migrate-v-2-v-3-migration-introduction",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/migrate-from-v2-to-v3.md",
-            "redirect_url": "azure/media-services/latest/migrate-v-2-v-3-migration-introduction",
+            "redirect_url": "migrate-v-2-v-3-migration-introduction",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/media-services-diagnostic-logs-schema.md",
-            "redirect_url": "azure/media-services/latest/monitoring/monitor-media-services-data-reference",
+            "redirect_url": "monitoring/monitor-media-services-data-reference",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/media-services/latest/media-services-metrics-diagnostic-logs.md",
-            "redirect_url": "azure/media-services/latest/monitoring/monitor-media-services-data-reference",
+            "redirect_url": "monitoring/monitor-media-services-data-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/media-services-metrics-howto.md",
+            "redirect_url": "monitoring/media-services-metrics-howto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/media-services-diagnostic-logs-howto.md",
+            "redirect_url": "monitoring/media-services-diagnostic-logs-howto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/reacting-to-media-services-events.md",
+            "redirect_url": "monitoring/reacting-to-media-services-events",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/media-services-event-schemas.md",
+            "redirect_url": "monitoring/media-services-event-schemas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/monitor-events-portal-how-to.md",
+            "redirect_url": "monitoring/monitor-events-portal-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/job-state-events-cli-how-to.md",
+            "redirect_url": "monitoring/job-state-events-cli-how-to",
             "redirect_document_id": false
         }
     ]
