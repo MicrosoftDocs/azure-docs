@@ -41,7 +41,7 @@ To view an individual device:
 
 1. In the right-hand pane of the **Devices** page, you see a list of devices created from that device template. Choose an individual device to see the device details page for that device:
 
-    ![Screenshot of Device Details Page](./media/overview-iot-central-operator/devicelist.png)
+    ![Screenshot of Device Details Page](./media/overview-iot-central-operator/device-list.png)
 
 ## Add a device
 
@@ -77,7 +77,7 @@ To bulk-register devices in your application:
 
 1. Select **Import**.
 
-    ![Screenshot of Import Action](./media/overview-iot-central-operator/bulkimport-1-a.png)
+    ![Screenshot of Import Action](./media/overview-iot-central-operator/bulk-import-1-a.png)
 
 
 1. Select the CSV file that has the list of Device IDs to be imported.
@@ -86,7 +86,7 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown in the Device Operations panel.
 
-    ![Screenshot of Import Success](./media/overview-iot-central-operator/bulkimport-3-a.png)
+    ![Screenshot of Import Success](./media/overview-iot-central-operator/bulk-import-3-a.png)
 
 If the device import operation fails, you see an error message on the Device Operations panel. A log file capturing all the errors is generated that you can download.
 
@@ -98,7 +98,7 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. On the left panel, choose **All devices**:
 
-    ![Screenshot of Unassociated Devices](./media/overview-iot-central-operator/unassociateddevices-2-a.png)
+    ![Screenshot of Unassociated Devices](./media/overview-iot-central-operator/unassociated-devices-2-a.png)
 
 1. Use the filter on the grid to determine if the value in the **Device Template** column is **Unassociated** for any of your devices.
 
@@ -106,7 +106,7 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. Select **Migrate**:
 
-    ![Screenshot of Associate Devices](./media/overview-iot-central-operator/unassociateddevices-1-a.png)
+    ![Screenshot of Associate Devices](./media/overview-iot-central-operator/unassociated-devices-1-a.png)
 
 1. Choose the template from the list of available templates and select **Migrate**.
 
