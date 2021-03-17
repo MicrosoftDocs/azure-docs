@@ -12,10 +12,6 @@ ms.date: 03/16/2021
 
 This article summarizes all the features currently in preview for Azure Stream Analytics. Using preview features in a production environment isn't recommended.
 
-## Public previews
-
-The following features are in public preview. You can take advantage of these features today, but don't use them in your production environment.
-
 ### Authenticate to SQL Database output with managed identities (preview)
 
 Azure Stream Analytics supports [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for Azure SQL Database output sinks. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate due to password changes. 
