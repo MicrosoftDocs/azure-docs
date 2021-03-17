@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 03/17/2021
 ms.author: yelevin
 
 ---
@@ -153,7 +153,7 @@ The incident triggers an automation rule which runs a playbook with the followin
 
 Two examples:
 
-1. Respond to an analytics rule that indicates a compromised user, as discovered by [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md):
+**Example 1:** Respond to an analytics rule that indicates a compromised user, as discovered by [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md):
 
    - Start when a [new Azure Sentinel incident is created](/connectors/azuresentinel/#triggers).
 
@@ -166,7 +166,7 @@ Two examples:
         > [!NOTE]
         > The playbook does not initiate any enforcement action on the user, nor does it initiate any configuration of enforcement policy. It only tells Azure AD Identity Protection to apply any already defined policies as appropriate. Any enforcement depends entirely on the appropriate policies being defined in Azure AD Identity Protection.
 
-1. Respond to an analytics rule that indicates a compromised machine, as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
+**Example 2:** Respond to an analytics rule that indicates a compromised machine, as discovered by [Microsoft Defender for Endpoint](/windows/security/threat-protection/):
 
    - Start when a [new Azure Sentinel incident is created](/connectors/azuresentinel/#triggers).
 
@@ -259,7 +259,7 @@ In the playbook's Logic App page, you can see more information about the playboo
 
 API connections are used to connect Logic Apps to other services. Every time a new authentication to a Logic Apps connector is made, a new resource of type **API connection** is created, and contains the information provided when configuring access to the service.
 
-To see all the API connections, enter *API connections* in the header search box of the Azure Portal. Note the columns of interest:
+To see all the API connections, enter *API connections* in the header search box of the Azure portal. Note the columns of interest:
 
 - Display name - the "friendly" name you give to the connection every time you create one.
 - Status - indicates the connection status: error, connected.
