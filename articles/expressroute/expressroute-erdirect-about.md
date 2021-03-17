@@ -24,12 +24,26 @@ Key features that ExpressRoute Direct provides include, but aren't limited to:
 
 ## Onboard to ExpressRoute Direct
 
-Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, send an Email to <ExpressRouteDirect@microsoft.com> with your subscription ID, including the following details:
+Before using ExpressRoute Direct, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
+1.  Sign in to Azure and select the subscription you wish to enroll.
 
-* Scenarios you're looking to accomplish with **ExpressRoute Direct**
-* Location preferences - see [Partners and peering locations](expressroute-locations-providers.md) for a complete list of all locations
-* Timeline for implementation
-* Any other questions
+    ```azurepowershell-interactive
+    Connect-AzAccount 
+
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    ```
+
+2. Register your subscription for Public Preview using the following command:
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
+    ```
+
+Once enrolled, verify that the **Microsoft.Network** resource provider is registered to your subscription. Registering a resource provider configures your subscription to work with the resource provider.
+
+1. Access your subscription settings as described in [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+1. In your subscription, for **Resource Providers**, verify that the **Microsoft.Network** provider shows a **Registered** status. If the Microsoft.Network resource provider is not present in the list of registered providers, add it.
+
+If you begin to use ExpressRoute Direct and notice that there are no available ports in your chosen peering location, please email <ExpressRouteDirect@microsoft.com> to request more inventory.
 
 ## ExpressRoute using a service provider and ExpressRoute Direct
 
