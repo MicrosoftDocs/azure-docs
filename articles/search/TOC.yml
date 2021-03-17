@@ -358,6 +358,8 @@
       href: search-query-understand-collection-filters.md
     - name: Filter by language
       href: search-filters-language.md
+    - name: Normalize text
+      href: search-normalizers.md
   - name: Relevance
     items:
     - name: Similarity ranking
