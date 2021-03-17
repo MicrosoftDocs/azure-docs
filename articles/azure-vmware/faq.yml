@@ -153,6 +153,9 @@ sections:
       - question: Is NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use NSX on-premises.
 
+      - question: Is VMware Horizon version 2012 compatible with Azure VMware Solution?
+        answer: Yes.
+
       - question: What is the upgrade and update schedule for VMware software in a private cloud?
         answer: The private cloud software bundle upgrades keep the software within one version of the most recent software bundle release from VMware. The private cloud software versions may differ from the most recent versions of the individual software components (ESXi, NSX-T, vCenter, vSAN).
 
