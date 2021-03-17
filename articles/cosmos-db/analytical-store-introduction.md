@@ -87,7 +87,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
   {"id": 1, "Name": "fred", "name": "john"}
   ```
   
-  * In different documents: Properties in the same level and with the same name, but in different cases, will be represented with the first occurrence. For example, the following documents have "Name" and "name" in the same level. Since the first document uses "Name", this format will be used to represent this property in analytical store. The column name in analytical store will be "Name". Both `"fred"` and `"john"` will be represented, in the "Name" column.
+  * In different documents: Properties in the same level and with the same name, but in different cases, will be represented with the first occurrence. For example, the following documents have "Name" and "name" in the same level. Since the first document has "Name", this format will be used to represent this property in analytical store. In other words, the column name in analytical store will be "Name". Both `"fred"` and `"john"` will be represented, in the "Name" column.
 
 
   ```json
