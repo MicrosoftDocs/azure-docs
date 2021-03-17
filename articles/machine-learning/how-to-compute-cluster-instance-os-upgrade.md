@@ -42,7 +42,7 @@ If you have existing compute clusters or compute instances created before __Marc
 * __Azure Machine Learning compute instance__: Create a new compute instance (which will use Ubuntu 18.04) and delete the old instance.
 
     * Any notebook stored in the workspace file share, data stores, of datasets will be accessible from the new compute instance.
-    * If you have created custom conda environments, you can export those environments from the existing instance and import on the new instance. For information on conda export and import, see [Managing environments](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html) at docs.conda.io.
+    * If you have created custom conda environments, you can export those environments from the existing instance and import on the new instance. For information on conda export and import, see [Conda documentation](https://docs.conda.io/) at docs.conda.io.
 
     For more information, see the [What is compute instance](concept-compute-instance.md) and [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) articles
 
