@@ -35,7 +35,16 @@
       href: database/features-comparison.md
     - name: Multi-model features
       href: multi-model-features.md
-
+    - name: Scheduled maintenance
+      items:
+      - name: Maintenance window
+        href: database/maintenance-window.md
+      - name: Configure maintenance window
+        href: database/maintenance-window-configure.md
+      - name: Maintenance window FAQ
+        href: database/maintenance-window-faq.yml
+      - name: Advance notifications
+        href: database/advance-notifications.md
     - name: In-memory OLTP
       href: in-memory-oltp-overview.md
     - name: Temporal tables
@@ -153,6 +162,23 @@
       href: database/job-automation-overview.md
     - name: Job automation with SQL Agent 
       href: database/job-automation-managed-instances.md
+    - name: Connect and query from apps
+      items:
+      - name: .NET with Visual Studio
+        href: database/connect-query-dotnet-visual-studio.md
+      - name: .NET Core
+        href: database/connect-query-dotnet-core.md
+      - name: Go
+        href: database/connect-query-go.md
+      - name: Node.js
+        href: database/connect-query-nodejs.md
+      - name: PHP
+        href: database/connect-query-php.md
+      - name: Python
+        href: database/connect-query-python.md
+      - name: Ruby
+        href: database/connect-query-ruby.md
+
 
     - name: Business continuity  
       items: 
@@ -335,14 +361,26 @@
 
   - name: Migration guides
     items: 
+    - name: From Access
+      href: migration-guides/database/access-to-sql-database-guide.md
     - name: From DB2
       href: migration-guides/database/db2-to-sql-database-guide.md
+    - name: From Oracle
+      href: migration-guides/database/oracle-to-sql-database-guide.md
+    - name: From MySQL
+      href: migration-guides/database/mysql-to-sql-database-guide.md
+    - name: From SAP ASE 
+      href: migration-guides/database/sap-ase-to-sql-database.md
     - name: From SQL Server
       items: 
       - name: Overview
         href: migration-guides/database/sql-server-to-sql-database-overview.md
       - name: Migrate
         href: migration-guides/database/sql-server-to-sql-database-guide.md
+      - name: Assessment rules 
+        href: migration-guides/database/sql-server-to-sql-database-assessment-rules.md
+
+
 
   - name: Concepts
     items:
@@ -464,14 +502,8 @@
           href: database/connect-query-vscode.md
       - name: Connect and query from apps
         items:
-        - name: .NET with Visual Studio
-          href: database/connect-query-dotnet-visual-studio.md
-        - name: .NET Core
-          href: database/connect-query-dotnet-core.md
         - name: .NET with Active Directory MFA
           href: database/active-directory-interactive-connect-azure-sql-db.md
-        - name: Go
-          href: database/connect-query-go.md
         - name: Java
           href: database/connect-query-java.md
         - name: Java with Spring Data JDBC
@@ -480,14 +512,6 @@
           href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Java with Spring Data R2DBC
           href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
-        - name: Node.js
-          href: database/connect-query-nodejs.md
-        - name: PHP
-          href: database/connect-query-php.md
-        - name: Python
-          href: database/connect-query-python.md
-        - name: Ruby
-          href: database/connect-query-ruby.md
         - name: R
           href: database/connect-query-r.md
 
@@ -777,6 +801,8 @@
     items: 
     - name: From DB2
       href: migration-guides/managed-instance/db2-to-managed-instance-guide.md
+    - name: From Oracle
+      href: migration-guides/managed-instance/oracle-to-managed-instance-guide.md
     - name: From SQL Server
       items: 
       - name: Overview
@@ -785,7 +811,10 @@
         href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Performance baseline
         href: migration-guides/managed-instance/sql-server-to-managed-instance-performance-baseline.md
-        
+      - name: Assessment rules 
+        href: migration-guides/managed-instance/sql-server-to-sql-managed-instance-assessment-rules.md
+
+
   - name: Concepts
     items:
     - name: Resource limits
@@ -1034,6 +1063,8 @@
       href: managed-instance/alerts-create.md
     - name: Manually initiate a failover on managed instance
       href: managed-instance/user-initiated-failover.md
+    - name: Migrate database using Log Replay Service
+      href: managed-instance/log-replay-service-migrate.md
 
   - name: Samples
     items:
@@ -1265,6 +1296,8 @@
         href: virtual-machines/linux/rhel-high-availability-stonith-tutorial.md
       - name: Configure availability group listener for SQL Server on RHEL virtual machines in Azure
         href: virtual-machines/linux/rhel-high-availability-listener-tutorial.md
+      - name: Setup Always On availability group with DH2i DxEnterprise
+        href: virtual-machines/linux/dh2i-high-availability-tutorial.md
     - name: Resources
       items:
       - name: FAQ
@@ -1284,10 +1317,13 @@
     items: 
       - name: Overview
         href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
-      - name: From SQL Server
-        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
       - name: From DB2
         href: migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide.md
+      - name: From Oracle
+        href: migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide.md
+      - name: From SQL Server
+        href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+
         
 - name: Reference
   items:

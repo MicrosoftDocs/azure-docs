@@ -27,16 +27,16 @@ ___
 
 :::row:::
     :::column:::
+        <a href="https://www.youtube.com/watch?v=uDU1QTSw7Ps" target="_blank">What is the Microsoft identity platform?</a>(14:54)
+    :::column-end:::
+    :::column:::
+        > [!Video https://www.youtube.com/embed/uDU1QTSw7Ps] 
+    :::column-end:::
+    :::column:::
         <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">The basics of modern authentication - Microsoft identity platform</a>(12:28)
     :::column-end:::
     :::column:::
         > [!Video https://www.youtube.com/embed/tkQJSHFsduY] 
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Modern authentication: how we got here – Microsoft identity platform</a>(15:47)
-    :::column-end:::
-    :::column:::
-        > [!Video https://www.youtube.com/embed/7_vxnHiUA1M]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -47,8 +47,10 @@ ___
         >[!Video https://www.youtube.com/embed/JpeMeTjQJ04]
     :::column-end:::
     :::column:::
+        <a href="https://www.youtube.com/watch?v=7_vxnHiUA1M" target="_blank">Modern authentication: how we got here – Microsoft identity platform</a>(15:47)
     :::column-end:::
     :::column:::
+        > [!Video https://www.youtube.com/embed/7_vxnHiUA1M]
     :::column-end:::
 :::row-end:::
 

@@ -103,7 +103,7 @@ In Node.js projects, you can use `new applicationInsights.TelemetryClient(instru
 
 ## TrackEvent
 
-In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../platform/metrics-charts.md) as an aggregated count, and in [Diagnostic Search](./diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
+In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../essentials/metrics-charts.md) as an aggregated count, and in [Diagnostic Search](./diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
 
 Insert `TrackEvent` calls in your code to count various events. How often users choose a particular feature, how often they achieve particular goals, or maybe how often they make particular types of mistakes.
 
@@ -141,7 +141,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### Custom events in Analytics
 
-The telemetry is available in the `customEvents` table in [Application Insights Logs tab](../log-query/log-query-overview.md) or [Usage Experience](usage-overview.md). Events may come from `trackEvent(..)` or [Click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md).
+The telemetry is available in the `customEvents` table in [Application Insights Logs tab](../logs/log-query-overview.md) or [Usage Experience](usage-overview.md). Events may come from `trackEvent(..)` or [Click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md).
 
  
 
@@ -201,7 +201,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### Custom metrics in Analytics
 
-The telemetry is available in the `customMetrics` table in [Application Insights Analytics](../log-query/log-query-overview.md). Each row represents a call to `trackMetric(..)` in your app.
+The telemetry is available in the `customMetrics` table in [Application Insights Analytics](../logs/log-query-overview.md). Each row represents a call to `trackMetric(..)` in your app.
 
 * `valueSum` - This is the sum of the measurements. To get the mean value, divide by `valueCount`.
 * `valueCount` - The number of measurements that were aggregated into this `trackMetric(..)` call.
@@ -271,7 +271,7 @@ The resulting page load durations displayed in Metrics Explorer are derived from
 
 ### Page telemetry in Analytics
 
-In [Analytics](../log-query/log-query-overview.md) two tables show data from browser operations:
+In [Analytics](../logs/log-query-overview.md) two tables show data from browser operations:
 
 * The `pageViews` table contains data about the URL and page title
 * The `browserTimings` table contains data about client performance, such as the time taken to process the incoming data
@@ -307,7 +307,7 @@ However, the recommended way to send request telemetry is where the request acts
 
 ## Operation context
 
-You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./diagnostic-search.md) and [Analytics](../log-query/log-query-overview.md), you can easily find any events associated with the request using its operation ID.
+You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](./diagnostic-search.md) and [Analytics](../logs/log-query-overview.md), you can easily find any events associated with the request using its operation ID.
 
 See [Telemetry correlation in Application Insights](./correlation.md) for more details on correlation.
 
@@ -345,7 +345,7 @@ See [Track custom operations with Application Insights .NET SDK](./custom-operat
 
 ### Requests in Analytics
 
-In [Application Insights Analytics](../log-query/log-query-overview.md), requests show up in the `requests` table.
+In [Application Insights Analytics](../logs/log-query-overview.md), requests show up in the `requests` table.
 
 If [sampling](./sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackRequest(), the sampling process only transmitted one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
 
@@ -358,7 +358,7 @@ requests
 
 Send exceptions to Application Insights:
 
-* To [count them](../platform/metrics-charts.md), as an indication of the frequency of a problem.
+* To [count them](../essentials/metrics-charts.md), as an indication of the frequency of a problem.
 * To [examine individual occurrences](./diagnostic-search.md).
 
 The reports include the stack traces.
@@ -427,7 +427,7 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
 
 ### Exceptions in Analytics
 
-In [Application Insights Analytics](../log-query/log-query-overview.md), exceptions show up in the `exceptions` table.
+In [Application Insights Analytics](../logs/log-query-overview.md), exceptions show up in the `exceptions` table.
 
 If [sampling](./sampling.md) is in operation, the `itemCount` property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackException(), the sampling process only transmitted one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
 
@@ -483,7 +483,11 @@ telemetry.trackTrace({
 *Client/Browser-side JavaScript*
 
 ```javascript
-trackTrace(message: string, properties?: {[string]:string}, severityLevel?: SeverityLevel)
+trackTrace({
+    message: string, 
+    properties?: {[string]:string}, 
+    severityLevel?: SeverityLevel
+})
 ```
 
 Log a diagnostic event such as entering or leaving a method.
@@ -522,7 +526,7 @@ In [Search](./diagnostic-search.md), you can then easily filter out all the mess
 
 ### Traces in Analytics
 
-In [Application Insights Analytics](../log-query/log-query-overview.md), calls to TrackTrace show up in the `traces` table.
+In [Application Insights Analytics](../logs/log-query-overview.md), calls to TrackTrace show up in the `traces` table.
 
 If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to `trackTrace()`, the sampling process only transmitted one of them. To get a correct count of trace calls, you should use therefore code such as `traces | summarize sum(itemCount)`.
 
@@ -604,7 +608,7 @@ To turn off the standard dependency-tracking module in C#, edit [ApplicationInsi
 
 ### Dependencies in Analytics
 
-In [Application Insights Analytics](../log-query/log-query-overview.md), trackDependency calls show up in the `dependencies` table.
+In [Application Insights Analytics](../logs/log-query-overview.md), trackDependency calls show up in the `dependencies` table.
 
 If [sampling](./sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackDependency(), the sampling process only transmitted one of them. To get a correct count of dependencies segmented by target component, use code such as:
 
@@ -692,7 +696,7 @@ If your app groups users into accounts, you can also pass an identifier for the 
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-In [Metrics Explorer](../platform/metrics-charts.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
+In [Metrics Explorer](../essentials/metrics-charts.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
 
 You can also [Search](./diagnostic-search.md) for client data points with specific user names and accounts.
 
@@ -713,21 +717,23 @@ There are some [limits on the number of properties, property values, and metrics
 *JavaScript*
 
 ```javascript
-appInsights.trackEvent
-    ("WinGame",
-        // String properties:
-        {Game: currentGame.name, Difficulty: currentGame.difficulty},
-        // Numeric metrics:
-        {Score: currentGame.score, Opponents: currentGame.opponentCount}
-        );
+appInsights.trackEvent({
+  name: 'some event',
+  properties: { // accepts any type
+    prop1: 'string',
+    prop2: 123.45,
+    prop3: { nested: 'objects are okay too' }
+  }
+});
 
-appInsights.trackPageView
-    ("page name", "http://fabrikam.com/pageurl.html",
-        // String properties:
-        {Game: currentGame.name, Difficulty: currentGame.difficulty},
-        // Numeric metrics:
-        {Score: currentGame.score, Opponents: currentGame.opponentCount}
-        );
+appInsights.trackPageView({
+  name: 'some page',
+  properties: { // accepts any type
+    prop1: 'string',
+    prop2: 123.45,
+    prop3: { nested: 'objects are okay too' }
+  }
+});
 ```
 
 *C#*
@@ -813,7 +819,7 @@ telemetry.TrackEvent(event);
 
 ### Custom measurements and properties in Analytics
 
-In [Analytics](../log-query/log-query-overview.md), custom metrics and properties show in the `customMeasurements` and `customDimensions` attributes of each telemetry record.
+In [Analytics](../logs/log-query-overview.md), custom metrics and properties show in the `customMeasurements` and `customDimensions` attributes of each telemetry record.
 
 For example, if you have added a property named "game" to your request telemetry, this query counts the occurrences of different values of "game", and show the average of the custom metric "score":
 

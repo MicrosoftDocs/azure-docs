@@ -224,7 +224,7 @@ Use built-in roles to allocate permission and only create custom role when requi
 
 - [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) 
 
-- [How to configure RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -336,7 +336,7 @@ Apply tags to your Azure resources, resource groups, and subscriptions to logica
 
 **Guidance**: Remove Azure Firewall Manager resources when they are no longer needed to minimize attack surface. Users can manage their Azure Firewall Manager resources via the Azure portal, CLI, or REST APIs.
 
-- [Azure Firewall Policy CLI](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
+- [Azure Firewall Policy CLI](/cli/azure/ext/azure-firewall/network/firewall/policy)
 
 - [Azure network CLI](/powershell/module/az.network/?preserve-view=true&view=azps-5.1.0#networking)
 
@@ -401,9 +401,9 @@ Currently actions surrounding Firewall Policy rule collection groups are not sup
 
 Currently actions surrounding Firewall Policy rule collection groups are not supported by the Activity Log, this is a known issue and being addressed in future updates.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Understand logging and different log types in Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -419,7 +419,7 @@ In addition, enable and onboard your log data to Azure Sentinel or a third-party
 
 Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
-- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -433,9 +433,9 @@ Many organizations choose to use Azure Sentinel for “hot” data that is used 
 
 In Azure Monitor, you can set your Log Analytics workspace retention period according to your organization's compliance regulations. Use Azure Storage, Data Lake, or Log Analytics workspace accounts for long-term and archival storage.
 
-- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/platform/manage-cost-storage.md)
+- [How to configure Log Analytics Workspace Retention Period](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Storing resource logs in an Azure Storage Account](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Storing resource logs in an Azure Storage Account](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -556,7 +556,7 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 - [Azure Firewall Policy template reference](/azure/templates/microsoft.network/firewallpolicies)
 
-- [Azure Firewall Policy CLI](/cli/azure/ext/azure-firewall/network/firewall/policy?preserve-view=true&view=azure-cli-latest)
+- [Azure Firewall Policy CLI](/cli/azure/ext/azure-firewall/network/firewall/policy)
 
 - [Illustration of guardrails implementation in enterprise-scale landing zone](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture#landing-zone-expanded-definition)
 

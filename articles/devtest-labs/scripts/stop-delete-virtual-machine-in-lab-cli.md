@@ -24,8 +24,8 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [az lab vm stop](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-stop) | Stops a virtual machine (VM) in a lab. This operation can take a while to complete. |
-| [az lab vm delete](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-delete) | Delets a virtual machine (VM) in a lab. This operation can take a while to complete. |
+| [az lab vm stop](/cli/azure/lab/vm#az-lab-vm-stop) | Stops a virtual machine (VM) in a lab. This operation can take a while to complete. |
+| [az lab vm delete](/cli/azure/lab/vm#az-lab-vm-delete) | Delets a virtual machine (VM) in a lab. This operation can take a while to complete. |
 
 
 ## Next steps

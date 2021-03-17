@@ -54,5 +54,5 @@ Exit code | Hexadecimal value | Short description | Root cause | Potential fix
 
 * Learn more about [diagnosing other common scenarios](service-fabric-diagnostics-common-scenarios.md).
 * Get a more detailed overview of Azure Monitor logs and what they offer by reading [Azure Monitor overview](../azure-monitor/overview.md).
-* Learn more about Azure Monitor logs [alerting](../azure-monitor/platform/alerts-overview.md) for aid in detection and diagnostics.
-* Get familiar with the [log search and querying](../azure-monitor/log-query/log-query-overview.md) features offered as part of Azure Monitor logs.
+* Learn more about Azure Monitor logs [alerting](../azure-monitor/alerts/alerts-overview.md) for aid in detection and diagnostics.
+* Get familiar with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs.

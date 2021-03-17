@@ -637,9 +637,9 @@ Timeout Reached. Stopping...
 ## Next steps
 
   View your telemetry:
- - [Explore metrics](../platform/metrics-charts.md) to monitor performance and usage.
+ - [Explore metrics](../essentials/metrics-charts.md) to monitor performance and usage.
 - [Search events and logs](./diagnostic-search.md) to diagnose problems.
-- Use [analytics](../log-query/log-query-overview.md) for more advanced queries.
+- Use [analytics](../logs/log-query-overview.md) for more advanced queries.
 - [Create dashboards](./overview-dashboard.md).
  
  Add more telemetry:

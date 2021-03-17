@@ -11,7 +11,7 @@ ms.date: 02/09/2021
 
 # Transform data in delta lake using mapping data flows
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 

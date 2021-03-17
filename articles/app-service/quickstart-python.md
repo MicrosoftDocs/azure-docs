@@ -225,7 +225,7 @@ Having issues? Refer first to the [Troubleshooting guide](configure-language-pyt
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
-To stream logs, run the [az webapp log tail](/cli/azure/webapp/log?view=azure-cli-latest&preserve-view=true#az_webapp_log_tail) command:
+To stream logs, run the [az webapp log tail](/cli/azure/webapp/log#az_webapp_log_tail) command:
 
 ```azurecli
 az webapp log tail
@@ -239,7 +239,7 @@ You can also inspect the log files from the browser at `https://<app-name>.scm.a
 
 To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
 
-Having issues? [Let us know](https://aka.ms/FlaskCLIQuickstartHelp).
+Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## Manage the Azure app
 

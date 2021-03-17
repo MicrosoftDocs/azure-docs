@@ -172,7 +172,7 @@ There's a [two-phase answer ranking](query-knowledge-base.md#how-qna-maker-proce
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-Apply the [latest runtime updates](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to automatically manage service updates.
+Apply the [latest runtime updates](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates) to automatically manage service updates.
 
 # [QnA Maker managed (preview release)](#tab/v2)
 
@@ -182,7 +182,7 @@ In QnA Maker managed (Preview), the runtime is managed by the QnA Maker service 
 
 ### Scaling, throughput, and resiliency
 
-Scaling, throughput, and resiliency are determined by the [Azure resources](../how-to/set-up-qnamaker-service-azure.md), their pricing tiers, and any surrounding architecture such as [Traffic manager](../how-to/set-up-qnamaker-service-azure.md#business-continuity-with-traffic-manager).
+Scaling, throughput, and resiliency are determined by the [Azure resources](../how-to/set-up-qnamaker-service-azure.md), their pricing tiers, and any surrounding architecture such as [Traffic manager](../how-to/configure-QnA-Maker-resources.md#business-continuity-with-traffic-manager).
 
 ### Analytics with Application Insights
 

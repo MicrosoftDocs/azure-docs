@@ -54,22 +54,27 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 ## Step 2: Ensure the machine meets the requirements before executing the script
 
-After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. If it does, then choose an alternate machine preferably from the same region that meets the requirements.  
+After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine preferably from the same region that meets the requirements**.  
 
 ### Dynamic disks
 
-You can't run the executable script on the VM with any of the following characteristics:
+You can't run the executable script on the VM with any of the following characteristics: Choose an alternate machine
 
 - Volumes that span multiple disks (spanned and striped volumes).
 - Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks.
 
 ### Windows Storage Spaces
 
-You cannot run the downloaded executable on the VM that is configured for Windows Storage Spaces.
+You cannot run the downloaded executable on the same backed-up VM if the backed up VM has Windows Storage Spaces. Choose an alternate machine.
 
 ### Virtual machine backups having large disks
 
 If the backed-up machine has large number of disks (>16) or large disks (> 4 TB each) it's not recommended to execute the script on the same machine for restore, since it will have a significant impact on the VM. Instead it's recommended to have a separate VM only for file recovery (Azure VM D2v3 VMs) and then shut it down when not required. 
+
+See requirements to restore files from backed-up VMs with large disk:<br>
+[Windows OS](#for-backed-up-vms-with-large-disks-windows)<br>
+[Linux OS](#for-backed-up-vms-with-large-disks-linux)
+
 
 ## Step 3: OS requirements to successfully run the script
 

@@ -1,7 +1,7 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 10/05/2020
+ms.date: 03/16/2021
 ms.topic: how-to
 ---
 # Get compliance data of Azure resources
@@ -33,7 +33,7 @@ updated and the frequency and events that trigger an evaluation cycle.
 The results of a completed evaluation cycle are available in the `Microsoft.PolicyInsights` Resource
 Provider through `PolicyStates` and `PolicyEvents` operations. For more information about the
 operations of the Azure Policy Insights REST API, see
-[Azure Policy Insights](/rest/api/policy-insights/).
+[Azure Policy Insights](/rest/api/policy/).
 
 Evaluations of assigned policies and initiatives happen as the result of various events:
 
@@ -340,9 +340,8 @@ the reason a resource is **non-compliant** or to find the change responsible, se
 
 The same information available in the portal can be retrieved with the REST API (including with
 [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell, and Azure CLI. For full
-details on the REST API, see the [Azure Policy Insights](/rest/api/policy-insights/) reference. The
-REST API reference pages have a green 'Try It' button on each operation that allows you to try it
-right in the browser.
+details on the REST API, see the [Azure Policy](/rest/api/policy/) reference. The REST API reference
+pages have a green 'Try It' button on each operation that allows you to try it right in the browser.
 
 Use ARMClient or a similar tool to handle authentication to Azure for the REST API examples.
 
@@ -350,7 +349,7 @@ Use ARMClient or a similar tool to handle authentication to Azure for the REST A
 
 With the REST API, summarization can be performed by container, definition, or assignment. Here is
 an example of summarization at the subscription level using Azure Policy Insight's [Summarize For
-Subscription](/rest/api/policy-insights/policystates/summarizeforsubscription):
+Subscription](/rest/api/policy/policystates/summarizeforsubscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
@@ -478,7 +477,7 @@ Your results resemble the following example:
 ```
 
 For more information about querying policy events, see the
-[Azure Policy Events](/rest/api/policy-insights/policyevents) reference article.
+[Azure Policy Events](/rest/api/policy/policyevents) reference article.
 
 ### Azure CLI
 
@@ -784,7 +783,7 @@ $policyEvents = Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/v
 $policyEvents | ConvertTo-Csv | Out-File 'C:\temp\policyEvents.csv'
 ```
 
-The output of the `$policyEvents` object looks like the following:
+The output of the `$policyEvents` object looks like the following output:
 
 ```output
 Timestamp                  : 9/19/2020 5:18:53 AM
@@ -821,9 +820,9 @@ Trent Baker
 
 ## Azure Monitor logs
 
-If you have a [Log Analytics workspace](../../../azure-monitor/log-query/log-query-overview.md) with
+If you have a [Log Analytics workspace](../../../azure-monitor/logs/log-query-overview.md) with
 `AzureActivity` from the
-[Activity Log Analytics solution](../../../azure-monitor/platform/activity-log.md) tied to your
+[Activity Log Analytics solution](../../../azure-monitor/essentials/activity-log.md) tied to your
 subscription, you can also view non-compliance results from the evaluation of new and updated
 resources using simple Kusto queries and the `AzureActivity` table. With details in Azure Monitor
 logs, alerts can be configured to watch for non-compliance.

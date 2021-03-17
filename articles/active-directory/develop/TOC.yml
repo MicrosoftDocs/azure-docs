@@ -24,10 +24,14 @@
     items:
     - name: Angular
       href: quickstart-v2-angular.md
+    - name: Angular - Auth code flow
+      href: quickstart-v2-javascript-auth-code-angular.md
     - name: JavaScript - Auth code flow
       href: quickstart-v2-javascript-auth-code.md
     - name: JavaScript - Implicit flow
       href: quickstart-v2-javascript.md
+    - name: React - Auth code flow
+      href: quickstart-v2-javascript-auth-code-react.md 
   - name: Web app
     items:
     - name: ASP.NET
@@ -36,7 +40,7 @@
       href: quickstart-v2-aspnet-core-webapp.md
     - name: ASP.NET Core (call Microsoft Graph)
       href: quickstart-v2-aspnet-core-webapp-calls-graph.md
-    - name: Node.js - MSAL | Preview
+    - name: Node.js - MSAL
       href: quickstart-v2-nodejs-webapp-msal.md
     - name: Node.js - Passport.js
       displayName: OIDC, express
@@ -62,12 +66,16 @@
       href: quickstart-v2-uwp.md
     - name: Windows Desktop .NET
       href: quickstart-v2-windows-desktop.md
+    - name: Node.js Electron
+      href: quickstart-v2-nodejs-desktop.md
   - name: Daemon or back-end service
     items:
     - name: .NET Core console (daemon)
       href: quickstart-v2-netcore-daemon.md
     - name: Python console daemon
       href: quickstart-v2-python-daemon.md
+    - name: Node.js console daemon
+      href: quickstart-v2-nodejs-console.md
     - name: Java console daemon
       href: quickstart-v2-java-daemon.md
 - name: Tutorials
@@ -88,6 +96,8 @@
       href: tutorial-v2-asp-webapp.md
     - name: Blazor Server
       href: tutorial-blazor-server.md
+    - name: Node.js web app tutorial
+      href: tutorial-v2-nodejs-webapp-msal.md
   - name: Mobile and desktop
     items:
     - name: Android
@@ -101,10 +111,14 @@
       href: tutorial-v2-windows-desktop.md
     - name: Use shared-device mode in your Android app
       href: tutorial-v2-shared-device-mode.md
+    - name: Electron desktop app
+      href: tutorial-v2-nodejs-desktop.md
   - name: Daemon or back-end service
     items:
     - name: ASP.NET daemon web app
       href: tutorial-v2-aspnet-daemon-web-app.md
+    - name: Node.js console daemon
+      href: tutorial-v2-nodejs-console.md
 - name: Samples
   href: sample-v2-code.md
 - name: Concepts
