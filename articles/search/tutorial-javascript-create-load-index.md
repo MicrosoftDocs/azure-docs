@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/09/2021
+ms.date: 03/18/2021
 ms.custom: devx-track-js
 ---
 
@@ -65,10 +65,10 @@ The script uses the Azure SDK for Cognitive Search:
 
 1. In Visual Studio Code, open the `bulk_insert_books.js` file in the subdirectory,  `search-web/bulk-insert`, replace the following variables with your own values to authenticate with the Azure Search SDK:
 
-    * YOUR-RESOURCE-NAME
-    * YOUR-RESOURCE-KEY - your admin key
+    * YOUR-SEARCH-RESOURCE-NAME
+    * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="javascript" source="~/js-e2e/search/bulk-insert-books-from-csv/bulk_insert_books.js" highlight="6,7" :::
+    :::code language="javascript" source="~/js-e2e/search/bulk-insert-books-from-csv/bulk_insert_books.js" highlight="13,14" :::
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-web/bulk-insert`, and run the following command to install the dependencies. 
 
