@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/tutorial-govern-resources.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-govern-resources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/copy-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/copy-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/nested-virtualization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/tutorial-govern-resources.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/tutorial-govern-resources",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/spring-cloud/spring-cloud-howto-access-data-plane-azure-ad-rbac.md",
       "redirect_url": "/azure/spring-cloud/spring-cloud-overview",
       "redirect_document_id": false
