@@ -89,8 +89,7 @@ In this procedure, you create a linked service to link your Azure Storage accoun
 
    d. Select **Create** to save the linked service. 
 
-      :::image type="content" 
-        source="./media/quickstart-create-data-factory-portal/linked-service.png" alt-text="Linked service.":::
+      :::image type="content" source="./media/quickstart-create-data-factory-portal/linked-service.png" alt-text="Linked service.":::
 
 
 ## Create datasets
@@ -161,9 +160,7 @@ In this procedure, you create and validate a pipeline with a copy activity that 
 
 1. Click **Validate** on the pipeline toolbar above the canvas to validate the pipeline settings. Confirm that the pipeline has been successfully validated. To close the validation output, select the Validation button in the top-right corner. 
 
-   :::image type="content" 
-   source="./media/quickstart-create-data-factory-portal/pipeline-validate.png"
-   alt-text="Validate a pipeline.":::
+   :::image type="content" source="./media/quickstart-create-data-factory-portal/pipeline-validate.png"   alt-text="Validate a pipeline.":::
 
 ## Debug the pipeline
 In this step, you debug the pipeline before deploying it to Data Factory. 

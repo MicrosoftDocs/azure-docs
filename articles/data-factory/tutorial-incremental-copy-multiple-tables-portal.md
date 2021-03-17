@@ -287,7 +287,7 @@ In this step, you link your SQL Server database to the data factory.
 
 1. In the **Connections** window, switch from **Integration Runtimes** tab to the **Linked Services** tab, and click **+ New**.
 
-   :::image type="content" source="./media/" alt-text="New linked service.":::
+    :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="New linked service.":::
 1. In the **New Linked Service** window, select **SQL Server**, and click **Continue**. 
 
 1. In the **New Linked Service** window, do the following steps:
