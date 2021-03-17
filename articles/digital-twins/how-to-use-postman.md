@@ -100,7 +100,15 @@ A quick way to get started with Azure Digital Twins in Postman is to import the 
 
 The first step in importing the API set is to download the Swagger file. 
 
-1. Use this link to navigate to the Swagger repository in GitHub: [Data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)
+1. Use the links below to navigate to the appropriate GitHub repository: 
+
+    # [Data plane](#tab/data-plane)
+    [Data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins)
+
+    # [Control plane](#tab/control-plane)
+    [Control plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable)
+    ---
+
 1. Enter the folder for the latest Swagger version and open the *digitaltwins.json* file.
 1. Select the **Raw** button to open the raw text of the Swagger.
     :::image type="content" source="media/how-to-use-postman/swagger-raw.png" alt-text="Screenshot of the data plane digitaltwins.json file in GitHub. There is a highlight around the Raw button." lightbox="media/how-to-use-postman/swagger-raw.png":::
