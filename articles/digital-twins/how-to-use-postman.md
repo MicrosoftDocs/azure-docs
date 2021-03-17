@@ -66,9 +66,9 @@ Next, you'll set up Postman to use this token to make API requests to Azure Digi
 
 Requests in Postman are saved in **collections** (groups of requests). When you create a collection to group your requests, you can apply common settings to many requests at once. This can greatly simplify authorization if you plan to create more than one request against the Azure Digital Twins APIs, as you only have to configure authentication once for the entire collection.
 
-When working with Azure Digital Twins, you can import the Swagger (also known as OpenAPI) file as a pre-built collection of all the Azure Digital Twins requests. You may want to do this if you're exploring the APIs and want to quickly set up a project with an example of every request type.
+When working with Azure Digital Twins, you can import the Swagger (also known as OpenAPI) file as a [pre-built collection of all the Azure Digital Twins requests](#import-collection-of-azure-digital-twins-apis). You may want to do this if you're exploring the APIs and want to quickly set up a project with an example of every request type.
 
-Alternatively, you can also choose to start from scratch, by creating your own empty collection and populating it with individual requests that call only the APIs you need. 
+Alternatively, you can also choose to start from scratch, by [creating your own empty collection](#create-your-own-collection) and populating it with individual requests that call only the APIs you need. 
 
 The following sections describe both of these processes. The rest of the article takes place in your local Postman application, so go ahead and open the Postman application on your computer now.
 
