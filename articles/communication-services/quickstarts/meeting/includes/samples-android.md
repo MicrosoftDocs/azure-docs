@@ -104,7 +104,7 @@ private void createMeetingClient() {
 }
 ```
 
-Map each `userMri` with the corresponding avatar.
+Map each `userMri` to the corresponding avatar.
 
 ```java
 @Override
