@@ -49,24 +49,26 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     az login
     ```
 
-2. Next, use the [az account get-access-token](/cli/azure/account#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](how-to-use-apis-sdks.md#overview-data-plane-apis) and [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) APIs.
+2. Next, use the [az account get-access-token](/cli/azure/account#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint, in order to get an access token that can access Azure Digital Twins resources. 
 
-# [Data plane](#tab/data-plane)
+    The required context for the token depends on which set of APIs you're using, so use the tabs below to select between [data plane](how-to-use-apis-sdks.md#overview-data-plane-apis) and [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) APIs.
 
-To get a token to use with the **data plane** APIs, use the following static value for the token context: `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. This is the resource ID for the Azure Digital Twins service endpoint.
-
-```azurecli-interactive
-az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
-```
-
-# [Control plane](#tab/control-plane)
-
-To get a token to use with the **control plane** APIs, use the following value for the token context: `https://management.azure.com/`.
-
-```azurecli-interactive
-az account get-access-token --resource https://management.azure.com/
-```
----
+    # [Data plane](#tab/data-plane)
+    
+    To get a token to use with the **data plane** APIs, use the following static value for the token context: `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. This is the resource ID for the Azure Digital Twins service endpoint.
+    
+    ```azurecli-interactive
+    az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
+    ```
+    
+    # [Control plane](#tab/control-plane)
+    
+    To get a token to use with the **control plane** APIs, use the following value for the token context: `https://management.azure.com/`.
+    
+    ```azurecli-interactive
+    az account get-access-token --resource https://management.azure.com/
+    ```
+    ---
 
 
 3. Copy the value of `accessToken` in the result, and save it to use in the next section. This is your **token value** that you will provide to Postman to authenticate your requests.
@@ -122,7 +124,7 @@ The newly imported collection can now be seen from your main Postman view, in th
 
 Next, continue on to the next section to add a bearer token to the collection for authorization and connect it to your Azure Digital twins instance.
 
-### Configure and finish the collection
+### Configure authorization
 
 Next, edit the collection you've created to configure some access details. Highlight the collection you've created and select the **View more actions** icon to pull up a menu. Select **Edit**.
 
@@ -138,6 +140,7 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 
     :::image type="content" source="media/how-to-use-postman/postman-paste-token-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and Access Token box where the access token value can be pasted is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-imported.png":::
 
+### Additional configuration
 # [Control plane](#tab/control-plane)
 
 If you're making a [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) collection, you've done everything that you need to configure the collection. You can close the *Azure Digital Twins API* tab if you want, and proceed to the next section.
@@ -198,7 +201,7 @@ Instead of importing the existing collection of all Azure Digital Twins APIs, yo
 
 Next, continue on to the next section to add a bearer token to the collection for authorization.
 
-### Configure and finish collection
+### Configure authorization
 
 Follow these steps to add a bearer token to the collection for authorization. This is where you'll use the **token value** you gathered in the [Get bearer token](#get-bearer-token) section in order to use it for all API requests in your collection.
 
