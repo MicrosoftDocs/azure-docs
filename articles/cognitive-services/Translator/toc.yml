@@ -1,12 +1,10 @@
 - name: Translator Documentation
   href: index.yml
-- name: What is Translator?
-  href: translator-info-overview.md  
-- name: Translation Overview
+- name: Translator Overview
   expanded: true
   items:
-  - name: Quickstart
-    href: quickstart-translator.md
+  - name: What is Translator?
+    href: translator-info-overview.md    
   - name: Translator REST API
     href: reference/v3-0-translate.md  
   - name: Language Support
@@ -15,12 +13,10 @@
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator 
   - name: Translator FAQ
     href: https://www.microsoft.com/translator/faq.aspx 
-- name: Responsible use of AI
+- name: Translator Quickstart
+  href: quickstart-translator.md
+- name:  Text translation
   items:
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy
-  - name: Encryption
-    href: encrypt-data-at-rest.md    
 - name: Samples
   items:
   - name: C#
@@ -37,45 +33,53 @@
     href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP
   - name: Ruby
     href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby
-- name: How-to guides
-  items:
-  - name: Create a Translator resource
-    href: ./translator-how-to-signup.md
-  - name: Migrate to V3 Text API
-    href: migrate-to-v3.md
-  - name: Add profanity filtering
-    href: profanity-filtering.md
-  - name: Receive word alignment information
-    href: word-alignment.md
-  - name: Prevent translation of content
-    href: prevent-translation.md
-  - name: Use the dynamic dictionary feature
-    href: dynamic-dictionary.md
-  - name: Translate behind firewalls
-    href: firewalls.md
-- name: Concepts
-  items:
-  - name: How the API counts characters
-    href: character-counts.md
-- name: Tutorials
-  items:
-  - name: Create a WPF app for Translator, C#
-    href: tutorial-wpf-translation-csharp.md
-  - name: Create a Flask translation app, Python
-    href: tutorial-build-flask-app-translation-synthesis.md 
-- name: Custom Translator 
+  - name: Responsible use of AI
+    items:
+    - name: Compliance
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy
+    - name: Encryption
+      href: encrypt-data-at-rest.md    
+  - name: How-to guides
+    items:
+    - name: Create a Translator resource
+      href: ./translator-how-to-signup.md
+    - name: Migrate to V3 Text API
+      href: migrate-to-v3.md
+    - name: Add profanity filtering
+      href: profanity-filtering.md
+    - name: Receive word alignment information
+      href: word-alignment.md
+    - name: Prevent translation of content
+      href: prevent-translation.md
+    - name: Use the dynamic dictionary feature
+      href: dynamic-dictionary.md
+    - name: Translate behind firewalls
+      href: firewalls.md
+  - name: Concepts
+    items:
+    - name: How the API counts characters
+      href: character-counts.md
+  - name: Tutorials
+    items:
+    - name: Create a WPF app for Translator, C#
+      href: tutorial-wpf-translation-csharp.md
+    - name: Create a Flask translation app, Python
+      href: tutorial-build-flask-app-translation-synthesis.md 
+- name: Custom Translator Overview
   expanded: true
   items:
   - name: What is the Custom Translator?
     href: custom-translator/overview.md
-  - name: Quickstarts
-    items:
-    - name: Build a custom model
-      href: custom-translator/quickstart-build-deploy-custom-model.md   
   - name: Custom Translator glossary
     href: custom-translator/glossary.md  
   - name: Custom Translator FAQ
     href: custom-translator/faq.md
+- name: Custom Translator Quickstart
+  items:
+  - name: Build a custom model
+    href: custom-translator/quickstart-build-deploy-custom-model.md 
+- name: Custom translation
+  items:
   - name: How-to guides
     items:
     - name: Create a project
@@ -118,17 +122,19 @@
       href: custom-translator/training-and-model.md
     - name: BLEU Score
       href: custom-translator/what-is-bleu-score.md
-- name: Document Translation 
+- name: Document Translation Overview
   expanded: true
   items:
     - name: What is Document Translation?
       href: document-translation/overview.md
     - name: Document Translation REST API
       href: /rest/api/cognitiveservices/translator/translation   
-    - name: Quickstart
+    - name: Document Translation Quickstart
       items:
       - name: Get started with Document Translation
         href: document-translation/get-started-with-document-translation.md
+- name: Document Translation
+  items:        
     - name: How-to guides
       items:
       - name: Create SAS tokens for Document Translation 
