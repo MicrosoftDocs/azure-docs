@@ -124,7 +124,13 @@ Follow these steps to add a bearer token to the collection for authorization. Th
 
     :::image type="content" source="media/how-to-use-postman/postman-paste-token-imported.png" alt-text="Screenshot of the imported collection's edit dialog in Postman, showing the 'Authorization' tab. A Type of 'OAuth 2.0' is selected, and Access Token box where the access token value can be pasted is highlighted." lightbox="media/how-to-use-postman/postman-paste-token-imported.png":::
 
-Next, connect the collection to your Azure Digital Twins instance using the **baseURL** variable. The collection comes with this variable that represents the URL of your Azure Digital Twins instance. By setting a value for this variable and then using the variable in all of the requests in the collection, you can configure the entire set of requests with a single action.
+If you're making a [control plane](how-to-use-apis-sdks.md#overview-control-plane-apis) collection, this is all that's needed to configure the collection, and you can proceed to [exploring the requests](#explore-requests). If you're making a [data plane](how-to-use-apis-sdks.md#overview-data-plane-apis) collection, complete the next section to add one more setting.
+
+#### Data plane: Add baseURL
+
+If you're using the [data plane Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins) for your collection, you can help the collection connect to your Azure Digital Twins instance by setting the **baseURL** variable. 
+
+Because most of the calls in this collection require the URL of your Azure Digital Twins instance, this collection comes with this variable to store that URL. By setting a value for this variable and then using the variable in all of the requests in the collection, you can configure it for the entire set of requests at once.
 
 1. Still in the *Azure Digital Twins API* edit dialog, move to the **Variables** tab.
 
