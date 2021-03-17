@@ -219,6 +219,6 @@ To explore more monitoring capabilities of Azure Spring Cloud, see:
 > [!div class="nextstepaction"]
 > [Diagnostic services](diagnostic-services.md)
 >
-> [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
+> [Distributed tracing](spring-cloud-howto-distributed-tracing.md)
 >
 > [Stream logs in real time](spring-cloud-howto-log-streaming.md)

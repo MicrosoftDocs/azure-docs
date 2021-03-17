@@ -121,5 +121,5 @@ az spring-cloud app deploy -n reactive-resilience4j \
 ## See also
 
 * [Application insights](./spring-cloud-howto-application-insights.md)
-* [Distributed tracing](spring-cloud-tutorial-distributed-tracing.md)
+* [Distributed tracing](spring-cloud-./spring-cloud-tutorial-config-server.md-distributed-tracing.md)
 * [Circuit breaker dashboard](spring-cloud-tutorial-circuit-breaker.md)

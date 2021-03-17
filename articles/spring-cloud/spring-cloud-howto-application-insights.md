@@ -136,6 +136,6 @@ az spring-cloud app-insights update --disable –name "assignedName" –resource
 ```
 
 ## See also
-* [Use distributed tracing with Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md)
+* [Use distributed tracing with Azure Spring Cloud](spring-cloud-howto-distributed-tracing.md)
 * [Analyze logs and metrics](diagnostic-services.md)
 * [Stream logs in real time](spring-cloud-howto-log-streaming.md)
