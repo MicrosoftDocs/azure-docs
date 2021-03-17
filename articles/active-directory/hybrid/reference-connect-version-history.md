@@ -79,7 +79,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
  - Added support for selective Password hash Synchronization. Read more here: (https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
  - Added single object sync cmdlet 
  - Updated AADConnectHealth agent to 3.1.83.0
- - New version of the ADSyncTools PowerShell module, which has several new or improved cmdlets. Learn more about the ADSyncTools PowerShell module here: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-connect-adsynctools
+ - New version of the ADSyncTools PowerShell module, which has several new or improved cmdlets. Learn more about the ADSyncTools PowerShell module here: https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adsynctools
  
    - Clear-ADSyncToolsMsDsConsistencyGuid
    - ConvertFrom-ADSyncToolsAadDistinguishedName
