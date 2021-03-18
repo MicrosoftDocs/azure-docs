@@ -32,7 +32,9 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 
 ### Install the package and dependencies with CocoaPods
 
-1. Create a Podfile for your application, like this:
+1. To create a Podfile for your application open the terminal and navigate to the project folder and run 
+```pod init```
+3. Add the following code to the Podfile and save:
 
    ```
    platform :ios, '13.0'
@@ -45,7 +47,7 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
    end
    ```
 
-2. Run `pod install`.
+3. Run `pod install`.
 3. Open the `.xcworkspace` with Xcode.
 
 ### Request access to the microphone
