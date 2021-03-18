@@ -18,13 +18,13 @@ In this tutorial, you'll learn how to analyze data with serverless SQL pool usin
 
 ## The Built-in serverless SQL pool
 
-Serverless SQL pools let you use SQL without having to reserve capacity. Billing for a serverless SQL pool is based on the amount of data processed to run the query and not the nubmer of nodes used to run the query.
+Serverless SQL pools let you use SQL without having to reserve capacity. Billing for a serverless SQL pool is based on the amount of data processed to run the query and not the number of nodes used to run the query.
 
 Every workspace comes with a pre-configured serverless SQL pool called **Built-in**. 
 
 ## Analyze NYC Taxi data in blob storage using serverless SQL pool
 
-In this section, you'll use a serverless SQL pool to analyze NYC Taxi data  in a public Azure Blob Storage account.
+In this section, you'll use a serverless SQL pool to analyze NYC Taxi data  in a Azure Blob Storage account.
 
 1. In Synapse Studio go to the **Develop** hub
 1. Create a new SQL script.
