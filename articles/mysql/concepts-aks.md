@@ -19,9 +19,7 @@ Azure Database for MySQL has two deployment options:
 - Single Sever
 - Flexible Server (Preview)
 
-Single Server supports  Single availability zone and Flexible Server supports multiple availability zones. AKS on the other hand also supports enabling single or multiple availability zones.
-
-Creating the database first, can help you identify which availability zone the server is in and then create the AKS clusters in the same availability zone. This can improve performance for the application by reducing networking latency.
+Single Server supports  Single availability zone and Flexible Server supports multiple availability zones. AKS on the other hand also supports enabling single or multiple availability zones.  Creating the database server first to see the availability zone the server is in and then create the AKS clusters in the same availability zone. This can improve performance for the application by reducing networking latency.
 
 
 ## Use Accelerated networking
