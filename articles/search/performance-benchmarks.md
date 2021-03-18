@@ -61,10 +61,10 @@ If you have any questions or concerns, please reach out to us at azuresearch_con
 ## Benchmark 1: E-commerce search
 
 :::row:::
-   :::column span="":::
+   :::column span="1":::
      <img src="./media/performance-benchmarks/cdon-logo-320x100.png" alt="CDON Logo" width="150"/>
    :::column-end:::
-   :::column span="":::
+   :::column span="3":::
       This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers.
    :::column-end:::
 :::row-end:::
@@ -84,7 +84,7 @@ To run these tests, we used a snapshot of CDON's production search index and tho
 
 The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
-![Highest maintainable QPS](./media/performance-benchmarks/s1-ecom-qps.png)
+![Highest maintainable QPS ecommerce s1](./media/performance-benchmarks/s1-ecom-qps.png)
 
 #### Query latency
 
@@ -103,7 +103,7 @@ Query latency varies based on the load of the service and services under higher 
 
 The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
-![Highest maintainable QPS](./media/performance-benchmarks/s2-ecom-qps.png)
+![Highest maintainable QPS ecommerce s2](./media/performance-benchmarks/s2-ecom-qps.png)
 
 #### Query latency
 
@@ -121,7 +121,7 @@ Query latency varies based on the load of the service and services under higher 
 
 The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
-![Highest maintainable QPS](./media/performance-benchmarks/s3-ecom-qps.png)
+![Highest maintainable QPS ecommerce s3](./media/performance-benchmarks/s3-ecom-qps.png)
 
 In this case, we see that adding a second partition significantly increases the maximum QPS but adding a third partition provides diminishing marginal returns. The smaller improvement is likely because all of the data is already being pulled into the S3's active memory with just two partitions.
 
@@ -151,7 +151,7 @@ Query latency varies based on the load of the service and services under higher 
 
 The chart below shows the highest query load a service could handle for an extended period of time in terms of queries per second (QPS).
 
-![Highest maintainable QPS](./media/performance-benchmarks/s2-docsearch-qps.png)
+![Highest maintainable QPS doc search s2](./media/performance-benchmarks/s2-docsearch-qps.png)
 
 #### Query latency
 
