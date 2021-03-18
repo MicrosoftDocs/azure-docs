@@ -16,7 +16,7 @@ When published to the cloud, an Azure Static Web Apps site has many services tha
 
 - The static web app
 - Azure Functions API
-- Authentication and authorization services
+- Authentication, authorization, and routing services
 
 These services must communicate with each other, and Azure Static Web Apps handles this integration for you in the cloud.
 
@@ -104,7 +104,7 @@ The following steps show you a common scenario that uses development servers for
 
 1. Pass the addresses for the static server and API server to the `swa start` command by listing them in order.
 
-    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api=http://localhost:7170`
+    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api=http://localhost:7071`
 
 The following screenshots show the terminals for a typical debugging scenario:
 
