@@ -256,4 +256,4 @@ To switch to a neural voice, change the `name` to one of the [neural voice optio
 Speech can be a good way to drive the animation of facial expressions.
 Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
 You can subscribe to viseme events in Speech SDK to get facial animation data, and then apply the data to a character during facial animation.
-Learn [how to get viseme outputs](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).
+Learn [how to get viseme events](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).
