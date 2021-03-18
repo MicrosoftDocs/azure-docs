@@ -20,6 +20,7 @@ This tutorial shows you how create a Azure App Service Web app with Azure Databa
 In this tutorial you will
 >[!div class="checklist"]
 > * Create a PostgreSQL flexible server in a virtual network
+> * Create a subnet to delegate to App Service
 > * Create a web app
 > * Add the web app to the virtual network
 > * Connect to Postgres from the web app 
