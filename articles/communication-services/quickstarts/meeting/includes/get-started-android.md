@@ -287,7 +287,7 @@ Callable<String> tokenRefresher = () -> {
 
 public String fetchToken() {
     // Get token
-    return USER_TOKEN;
+    return USER_ACCESS_TOKEN;
 }
 ```
 
