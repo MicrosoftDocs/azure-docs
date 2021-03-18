@@ -15,7 +15,7 @@ keywords: translator, text translation, machine translation, translation service
 ---
 # What is the Translator service?
 
-Translator is a cloud-based machine translation service and is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of cognitive APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [90 languages and dialects](./language-support.md). And it can be used on any hardware platform with any operating system for text translation.
+Translator is a cloud-based machine translation service and is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of cognitive APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [90 languages and dialects](./language-support.md) and can be used for text translation with any operating system .
 
 This documentation contains the following topic types:  
 
