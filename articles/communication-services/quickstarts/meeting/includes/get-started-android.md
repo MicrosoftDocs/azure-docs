@@ -104,7 +104,6 @@ Set the style name to `AppTheme` in both your `theme.xml` and `theme.xml (night)
 
 Add the `RECORD_AUDIO` permission to your Application Manifest (`app/src/main/AndroidManifest.xml`):  
 
-Add the `RECORD_AUDIO` permission.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
