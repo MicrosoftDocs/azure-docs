@@ -115,11 +115,12 @@ With *app.js* open in our editor, let's get the basic structure of our program w
    
     ``` javascript
     var credentials = new msRestAzure.UserTokenCredentials(clientId, 
-        tenantId, '<username>', '<password>', '<redirect URI>');
+        tenantId, '<username>', '<password>');
     var cdnClient = new cdnManagementClient.CdnManagementClient(credentials, subscriptionId);
     ```
    
-    Be sure to replace the items in **&lt;angle brackets&gt;** with the correct information.  For `<redirect URI>`, use the redirect URI you entered when you registered the application in Azure AD.
+    Be sure to replace the items in **&lt;angle brackets&gt;** with the correct information.  
+
 4. Our Node.js console application is going to take some command-line parameters.  Let's validate that at least one parameter was passed.
    
    ```javascript
