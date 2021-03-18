@@ -58,33 +58,33 @@
     displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
 - name: How-to guides
   items:
-   - name: Call the Text Analytics API
-     href: How-tos/text-analytics-how-to-call-api.md
-   - name: Language detection
-     href: How-tos/text-analytics-how-to-language-detection.md
-   - name: Sentiment analysis and opinion mining
-     href: How-tos/text-analytics-how-to-sentiment-analysis.md
-   - name: Key phrase extraction
-     href: How-tos/text-analytics-how-to-keyword-extraction.md
-   - name: Named entity recognition
-     href: How-tos/text-analytics-how-to-entity-linking.md
-   - name: Text Analytics for health
-     href: How-tos/text-analytics-for-health.md
-   - name: Deploy Text Analytics
-     items:
-      - name: Containers
-        items:
-          - name: Install and run containers
-            href: how-tos/text-analytics-how-to-install-containers.md
-          - name: Configure containers
-            href: text-analytics-resource-container-config.md
-          - name: Use container instances
-            maintainContext: true
-            href: ../containers/azure-container-instance-recipe.md
-          - name: Use kubernetes service (AKS)
-            href: how-tos/text-analytics-how-to-use-kubernetes-service.md
-          - name: Cognitive Services containers documentation
-            href: ../containers/index.yml
+  - name: Call the Text Analytics API
+    href: How-tos/text-analytics-how-to-call-api.md
+  - name: Language detection
+    href: How-tos/text-analytics-how-to-language-detection.md
+  - name: Sentiment analysis and opinion mining
+    href: How-tos/text-analytics-how-to-sentiment-analysis.md
+  - name: Key phrase extraction
+    href: How-tos/text-analytics-how-to-keyword-extraction.md
+  - name: Named entity recognition
+    href: How-tos/text-analytics-how-to-entity-linking.md
+  - name: Text Analytics for health
+    href: How-tos/text-analytics-for-health.md
+  - name: Deploy Text Analytics
+    items:
+    - name: Containers
+      items:
+        - name: Install and run containers
+          href: how-tos/text-analytics-how-to-install-containers.md
+        - name: Configure containers
+          href: text-analytics-resource-container-config.md
+        - name: Use container instances
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
+        - name: Use kubernetes service (AKS)
+          href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+        - name: Cognitive Services containers documentation
+          href: ../containers/index.yml
   - name: Migrate to version 3 of the API
     href: migration-guide.md
 - name: Concepts
