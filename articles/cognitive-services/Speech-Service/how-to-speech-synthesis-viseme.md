@@ -20,10 +20,10 @@ A viseme is the visual description of a phoneme in spoken language.
 It defines the position of the face and mouth when speaking a word.
 Each viseme depicts the key facial poses for a specific set of phonemes.
 There is no one-to-one correspondence between visemes and phonemes.
-Often several phonemes correspond to a single viseme, as several phonemes look the same on the face when produced, such as `s`, `z`.
-See the [mapping table between Visemes and phonemes](#visemes-and-phonemes-table).
+Often several phonemes correspond to a single viseme, as several phonemes look the same on the face when produced, such as `s` and `z`.
+See the [mapping table between visemes and phonemes](#visemes-and-phonemes-table).
 
-Using visemes, you can create more natural and intelligent news broadcast assistant, more interactive gaming and Cartoon characters, and more intuitive language teaching videos. The hearing-impaired can also pick up sounds visually and "lip-read" any speech content. 
+Using visemes, you can create more natural and intelligent news broadcast assistant, more interactive gaming and cartoon characters, and more intuitive language teaching videos. The hearing-impaired can also pick up sounds visually and "lip-read" speech content that shows visemes on an animated face.
 
 ## Get viseme events with the Speech SDK
 
@@ -31,11 +31,11 @@ To make viseme events, we convert input text into a set of phoneme sequences and
 
 | Parameter | Description |
 |-----------|-------------|
-| Viseme ID | Integer numbers that specify different visemes. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. See the [mapping table between Viseme ID and phonemes](#visemes-and-phonemes-table).  |
-| Audio offset | The start time of each viseme, in ticks (100 nanoseconds) |
+| Viseme ID | Integer number that specifies a viseme. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. See the [mapping table between Viseme ID and phonemes](#visemes-and-phonemes-table).  |
+| Audio offset | The start time of each viseme, in ticks (100 nanoseconds). |
 
 To get visme events, subscribe to the `VisemeReceived` event in Speech SDK.
-The following snippets illustrate how to subscribe the viseme event.
+The following snippets show how to subscribe the viseme event.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -140,7 +140,7 @@ SPXSpeechSynthesizer *synthesizer =
 
 ## Visemes and phonemes table
 
-Visemes vary by languages. Each language has a set of viseme that correspond to their specific phonemes. The table shows the correspondence between International Phonetic Alphabet (IPA) phonemes and viseme IDs for English (United States).
+Visemes vary by language. Each language has a set of visemes that correspond to its specific phonemes. The following table shows the correspondence between International Phonetic Alphabet (IPA) phonemes and viseme IDs for English (United States).
 
 | IPA | Example | Viseme ID |
 |-----|---------|-----------|
