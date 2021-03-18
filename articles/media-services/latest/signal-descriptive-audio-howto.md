@@ -75,7 +75,7 @@ The job takes some time to complete and when it does you want to be notified. We
 
 The job usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
-For more information, see [Handling Event Grid events](reacting-to-media-services-events.md).
+For more information, see [Handling Event Grid events](monitoring/reacting-to-media-services-events.md).
 
 ## Upload the audio-only MP4 file
 
