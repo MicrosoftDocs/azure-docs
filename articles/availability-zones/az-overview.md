@@ -77,7 +77,7 @@ If a service offering is not available in a specific region, you can share your 
 | Recommended | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | :heavy_check_mark: | :heavy_check_mark: |
 | Alternate | :heavy_check_mark: | :heavy_check_mark: | Demand-driven | Demand-driven | N/A | :heavy_check_mark: |
 
-### Services by category with Availability Zones
+### Services by category
 
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and specialized. Service categories are assigned at general availability. Often, services start their lifecycle as a specialized service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists the category for services as foundational, mainstream. You should note the following about the table:
 
@@ -95,29 +95,29 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Data Lake Storage Gen2           | Azure Active Directory Domain Services            | 
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | Azure Public IP                        | Azure Cache for Redis                             | 
-> | Azure SQL Database: Business Critical & Premium Tiers                     | Azure Cognitive Search                            | 
-> | Disk Storage                           | Azure Cognitive Services                          | 
-> | Event Hubs                             | Azure Cognitive Services: Computer Vision         | 
-> | Key Vault                              | Azure Cognitive Services: Content Moderator       | 
-> | Load balancer                          | Azure Cognitive Services: Face                    | 
-> | Service Bus                            | Azure Cognitive Services: Immersive Reader        | 
-> | Service Fabric                         | Azure Cognitive Services: Language Understanding  | 
-> | Storage: Hot/Cool Blob Storage Tiers   | Azure Cognitive Services: Speech Services         | 
-> | Storage: Managed Disks                 | Azure Cognitive Services: Text Analytics          | 
-> | Virtual Machine Scale Sets             | Azure Cognitive Services: Translator              | 
-> | Virtual Machines                       | Azure Data Explorer                               | 
-> | Virtual Machines: Azure Dedicated Host | Azure Data Share                                  | 
-> | Virtual Machines: Av2-Series           | Azure Database for MySQL                          | 
-> | Virtual Machines: Bs-Series            | Azure Database for PostgreSQL                     | 
-> | Virtual Machines: DSv2-Series          | Azure DDoS Protection                             | 
-> | Virtual Machines: DSv3-Series          | Azure Firewall                                    | 
-> | Virtual Machines: Dv2-Series           | Azure Firewall Manager                            | 
-> | Virtual Machines: Dv3-Series           | Azure Functions                                   | 
-> | Virtual Machines: ESv3-Series          | Azure IoT Hub                                     |     
-> | Virtual Machines: Ev3-Series           | Azure Kubernetes Service (AKS)                    | 
-> | Virtual Network                        | Azure Machine Learning                            | 
-> | VPN Gateway                            | Azure Monitor: Application Insights               | 
-> |                                        | Azure Monitor: Log Analytics                      | 
+> | Azure SQL Database                     | Azure Cognitive Search                            | 
+> | Azure SQL Managed Instance             | Azure Cognitive Services                          | 
+> | Disk Storage                           | Azure Cognitive Services: Computer Vision         | 
+> | Event Hubs                             | Azure Cognitive Services: Content Moderator       | 
+> | Key Vault                              | Azure Cognitive Services: Face                    | 
+> | Load balancer                          | Azure Cognitive Services: Immersive Reader        | 
+> | Service Bus                            | Azure Cognitive Services: Language Understanding  | 
+> | Service Fabric                         | Azure Cognitive Services: Speech Services         | 
+> | Storage: Hot/Cool Blob Storage Tiers   | Azure Cognitive Services: Text Analytics          | 
+> | Storage: Managed Disks                 | Azure Cognitive Services: Translator              | 
+> | Virtual Machine Scale Sets             | Azure Data Explorer                               | 
+> | Virtual Machines                       | Azure Data Share                                  | 
+> | Virtual Machines: Azure Dedicated Host | Azure Database for MySQL                          | 
+> | Virtual Machines: Av2-Series           | Azure Database for PostgreSQL                     | 
+> | Virtual Machines: Bs-Series            | Azure DDoS Protection                             | 
+> | Virtual Machines: DSv2-Series          | Azure Firewall                                    | 
+> | Virtual Machines: DSv3-Series          | Azure Firewall Manager                            | 
+> | Virtual Machines: Dv2-Series           | Azure Functions                                   | 
+> | Virtual Machines: Dv3-Series           | Azure IoT Hub                                     |     
+> | Virtual Machines: ESv3-Series          | Azure Kubernetes Service (AKS)                    | 
+> | Virtual Machines: Ev3-Series           | Azure Machine Learning                            | 
+> | Virtual Network                        | Azure Monitor: Application Insights               | 
+> | VPN Gateway                            | Azure Monitor: Log Analytics                      | 
 > |                                        | Azure Private Link                                | 
 > |                                        | Azure Red Hat OpenShift                           | 
 > |                                        | Azure Site Recovery                               | 
