@@ -202,6 +202,14 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 
 	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="See object detection in action.":::
 
+## Video walkthrough
+
+For a visual walkthrough of the steps described above, please see the following video (setup experience starts at 0:50):
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
+
 ## Next steps
 
 You can follow a similar flow to try out [prebuilt speech models](./tutorial-no-code-speech.md).
