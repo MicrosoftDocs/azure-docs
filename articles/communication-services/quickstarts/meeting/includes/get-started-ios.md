@@ -12,7 +12,7 @@ In this quickstart, you'll learn how to join a Teams meeting using the Azure Com
 
 ## Prerequisites
 
-To complete this tutorial, you’ll need the following prerequisites:
+To complete this quickstart, you’ll need the following prerequisites:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
