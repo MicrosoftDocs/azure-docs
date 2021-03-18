@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-application-insights.md",
+      "redirect_url": "/articles/spring-cloud/how-to-application-insights.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-github-actions-key-vault.md",
+      "redirect_url": "/articles/spring-cloud/github-actions-key-vault.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-github-actions-key-vault.md",
+      "redirect_url": "/articles/spring-cloud/github-actions-key-vault.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-faq.md",
+      "redirect_url": "/articles/spring-cloud/faq.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-expose-apps-gateway-azure-firewall.md",
+      "redirect_url": "/articles/spring-cloud/expose-apps-gateway-azure-firewall.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-understand-app-and-deployment.md",
       "redirect_url": "/articles/spring-cloud/concept-understand-app-and-deployment.md",
       "redirect_document_id": false

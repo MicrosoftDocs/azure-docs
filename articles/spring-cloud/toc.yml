@@ -100,7 +100,7 @@
         - name: Stream logs in real-time
           href: spring-cloud-howto-log-streaming.md
         - name: Application Insights using Java In-Process Agent
-          href: spring-cloud-howto-application-insights.md
+          href: how-to-application-insights.md
         - name: Resilience4J Circuit Breaker Metrics
           href: spring-cloud-howto-circuit-breaker-metrics.md
         - name: Structured application log
@@ -112,7 +112,7 @@
         - name: Access your application in a private network
           href: access-app-virtual-network.md
         - name: Expose applications to the Internet
-          href: spring-cloud-expose-apps-gateway-azure-firewall.md
+          href: expose-apps-gateway-azure-firewall.md
         - name: Customer responsibilities running Azure Spring Cloud in VNET
           href: spring-cloud-vnet-customer-responsibilities.md
         - name: Troubleshooting Azure Spring Cloud in virtual networks
@@ -140,7 +140,7 @@
         - name: CI/CD with GitHub Actions
           href: spring-cloud-howto-github-actions.md
         - name: Auth with Key Vault in GitHub Actions
-          href: spring-cloud-github-actions-key-vault.md
+          href: github-actions-key-vault.md
         - name: Provision an Azure Spring Cloud instance with terraform
           href: spring-cloud-howto-provision-azure-spring-cloud-instance-terraform.md
     - name: Troubleshoot
@@ -184,7 +184,7 @@
   - name: Resources
     href: spring-cloud-resources.md
   - name: Frequently asked questions
-    href: spring-cloud-faq.md
+    href: faq.md
   - name: REST API reference
     href: /rest/api/azurespringcloud/
   - name: Azure Policy built-ins
