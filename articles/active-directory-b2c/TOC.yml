@@ -101,9 +101,14 @@
       href: tutorial-register-applications.md
     - name: Register a single-page application (SPA)
       href: tutorial-register-spa.md
-    - name: Register a SAML service provider
-      href: connect-with-saml-service-providers.md
-      displayName: SP, RP, service provider, connect
+    - name: SAML application
+      items:
+      - name: Configure a SAML application
+        href: saml-service-provider.md
+        displayName: SP, service provider
+      - name: Configure SAML application options
+        href: saml-service-provider-options.md
+        displayName: SP, service provider 
     - name: Register a Microsoft Graph application
       href: microsoft-graph-get-started.md
       displayName: migrate, migration, microsoft graph
@@ -160,8 +165,14 @@
       href: identity-provider-azure-ad-b2c.md
     - name: Facebook
       href: identity-provider-facebook.md
-    - name: Generic identity provider
+    - name: Generic OpenId Connect
       href: identity-provider-generic-openid-connect.md
+    - name: Generic SAML identity provider
+      items:
+      - name: Configure a SAML identity provider
+        href: identity-provider-generic-saml.md
+      - name: Configure SAML identity provider options
+        href: identity-provider-generic-saml-options.md
     - name: GitHub
       href: identity-provider-github.md
     - name: Google
@@ -198,6 +209,9 @@
       href: customize-ui-with-html.md
     - name: JavaScript and page layouts
       href: javascript-and-page-layout.md
+    - name: Embedded sign-in with iframe
+      displayName: iframe
+      href: embedded-login.md
     - name: Customize language
       href: language-customization.md
       displayName: localization
@@ -226,7 +240,7 @@
     - name: Configure Conditional Access
       href: conditional-access-user-flow.md
   - name: Configure age gating
-    href: basic-age-gating.md
+    href: age-gating.md
   - name: API connectors (preview)
     items:
     - name: Overview
@@ -409,11 +423,13 @@
       href: partner-whoiam.md
     - name: Zscaler
       href: partner-zscaler.md
-  - name: Use b2clogin.com
+  - name: Domain name
     items:
     - name: b2clogin.com overview
       href: b2clogin.md
-    - name: Migrate web API to b2clogin.com
+    - name: Configure a custom domain
+      href: custom-domain.md
+    - name: Configure web API domains 
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin
   - name: Automation

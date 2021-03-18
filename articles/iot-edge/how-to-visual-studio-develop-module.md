@@ -11,6 +11,8 @@ ms.service: iot-edge
 ---
 # Use Visual Studio 2019 to develop and debug modules for Azure IoT Edge
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio 2019 as the main tool to develop and debug modules.
 
 The Azure IoT Edge Tools for Visual Studio provides the following benefits:

@@ -3,11 +3,12 @@ title: Add a polygon extrusion layer to an Android map | Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps Android SDK.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 02/19/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
+zone_pivot_groups: azure-maps-android
 ---
 
 # Add a polygon extrusion layer to the map (Android SDK)
@@ -21,6 +22,8 @@ Connect the polygon extrusion layer to a data source. Then, loaded it on the map
 > [!Note]
 > The `base` value defined in the polygon extrusion layer should be less than or equal to that of the `height`.
 
+::: zone pivot="programming-language-java-android"
+
 ```java
 //Create a data source and add it to the map.
 DataSource source = new DataSource();
@@ -30,16 +33,16 @@ map.sources.add(source);
 source.add(Polygon.fromLngLats(
     Arrays.asList(
         Arrays.asList(
-            Point.fromLngLat(-73.95838379859924, 40.80027995478159),
-            Point.fromLngLat(-73.98154735565186, 40.76845986171129),
-            Point.fromLngLat(-73.98124694824219, 40.767761062136955),
-            Point.fromLngLat(-73.97361874580382, 40.76461637311633),
-            Point.fromLngLat(-73.97306084632874, 40.76512830937617),
-            Point.fromLngLat(-73.97259950637817, 40.76490890860481),
-            Point.fromLngLat(-73.9494466781616, 40.79658450499243),
-            Point.fromLngLat(-73.94966125488281, 40.79708807289436),
-            Point.fromLngLat(-73.95781517028809, 40.80052360358227),
-            Point.fromLngLat(-73.95838379859924, 40.80027995478159)
+            Point.fromLngLat(-73.958383, 40.800279),
+            Point.fromLngLat(-73.981547, 40.768459),
+            Point.fromLngLat(-73.981246, 40.767761),
+            Point.fromLngLat(-73.973618, 40.764616),
+            Point.fromLngLat(-73.973060, 40.765128),
+            Point.fromLngLat(-73.972599, 40.764908),
+            Point.fromLngLat(-73.949446, 40.796584),
+            Point.fromLngLat(-73.949661, 40.797088),
+            Point.fromLngLat(-73.957815, 40.800523),
+            Point.fromLngLat(-73.958383, 40.800279)
         )
     )
 ));
@@ -55,6 +58,49 @@ PolygonExtrusionLayer layer = new PolygonExtrusionLayer(source,
 map.layers.add(layer, "labels");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Create a polygon.
+source.add(
+    Polygon.fromLngLats(
+        Arrays.asList(
+            Arrays.asList(
+                Point.fromLngLat(-73.958383, 40.800279),
+                Point.fromLngLat(-73.981547, 40.768459),
+                Point.fromLngLat(-73.981246, 40.767761),
+                Point.fromLngLat(-73.973618, 40.764616),
+                Point.fromLngLat(-73.973060, 40.765128),
+                Point.fromLngLat(-73.972599, 40.764908),
+                Point.fromLngLat(-73.949446, 40.796584),
+                Point.fromLngLat(-73.949661, 40.797088),
+                Point.fromLngLat(-73.957815, 40.800523),
+                Point.fromLngLat(-73.958383, 40.800279)
+            )
+        )
+    )
+)
+
+//Create and add a polygon extrusion layer to the map below the labels so that they are still readable.
+val layer = PolygonExtrusionLayer(
+    source,
+    fillColor("#fc0303"),
+    fillOpacity(0.7f),
+    height(500f)
+)
+
+//Create and add a polygon extrusion layer to the map below the labels so that they are still readable.
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
+
 The following screenshot shows the above code rending a polygon stretched vertically using a polygon extrusion layer.
 
 ![Map with polygon stretched vertically using a polygon extrusion layer](media/map-extruded-polygon-android/polygon-extrusion-layer.jpg)
@@ -62,6 +108,8 @@ The following screenshot shows the above code rending a polygon stretched vertic
 ## Add data driven polygons
 
 A choropleth map can be rendered using the polygon extrusion layer. Set the `height` and `fillColor` properties of the extrusion layer to the measurement of the statistical variable in the `Polygon` and `MultiPolygon` feature geometries. The following code sample shows an extruded choropleth map of the United States based on the measurement of the population density by state.
+
+::: zone pivot="programming-language-java-android"
 
 ```java
 //Create a data source and add it to the map.
@@ -106,6 +154,59 @@ PolygonExtrusionLayer layer = new PolygonExtrusionLayer(source,
 //Create and add a polygon extrusion layer to the map below the labels so that they are still readable.
 map.layers.add(layer, "labels");
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+//Create a data source and add it to the map.
+val source = DataSource()
+map.sources.add(source)
+
+//Import the geojson data and add it to the data source.
+Utils.importData("https://azuremapscodesamples.azurewebsites.net/Common/data/geojson/US_States_Population_Density.json",
+    this
+) { result: String? ->
+    //Parse the data as a GeoJSON Feature Collection.
+    val fc = FeatureCollection.fromJson(result!!)
+
+    //Add the feature collection to the data source.
+    source.add(fc)
+}
+
+//Create and add a polygon extrusion layer to the map below the labels so that they are still readable.
+val layer = PolygonExtrusionLayer(
+    source,
+    fillOpacity(0.7f),
+    fillColor(
+        step(
+            get("density"),
+            literal("rgba(0, 255, 128, 1)"),
+            stop(10, "rgba(9, 224, 118, 1)"),
+            stop(20, "rgba(11, 191, 103, 1)"),
+            stop(50, "rgba(247, 227, 5, 1)"),
+            stop(100, "rgba(247, 199, 7, 1)"),
+            stop(200, "rgba(247, 130, 5, 1)"),
+            stop(500, "rgba(247, 94, 5, 1)"),
+            stop(1000, "rgba(247, 37, 5, 1)")
+        )
+    ),
+    height(
+        interpolate(
+            linear(),
+            get("density"),
+            stop(0, 100),
+            stop(1200, 960000)
+        )
+    )
+)
+
+//Create and add a polygon extrusion layer to the map below the labels so that they are still readable.
+map.layers.add(layer, "labels")
+```
+
+::: zone-end
 
 The following screenshot shows a choropleth map of US states colored and stretched vertically as extruded polygons based on population density.
 

@@ -36,7 +36,7 @@
         href: connect-ios.md
       - name: Connect with the Microsoft Store client
         href: connect-microsoft-store.md
-      - name: Connect with Linux devices
+      - name: Connect with thin clients
         href: linux-overview.md
   - name: Configure device redirections
     href: configure-device-redirections.md
@@ -215,7 +215,7 @@
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure command-line interface (CLI)
-    href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+    href: /cli/azure/ext/desktopvirtualization/
   - name: Azure example scenarios
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
   - name: Email discovery
@@ -223,7 +223,7 @@
 - name: Resources
   items:
   - name: PowerShell
-    href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+    href: /powershell/module/az.desktopvirtualization/#desktopvirtualization
   - name: REST API reference
     href: /rest/api/desktopvirtualization/
   - name: Experience estimator
@@ -242,3 +242,5 @@
     href: https://aka.ms/wvdroadmap
   - name: Azure Resource Manager templates
     href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates
+  - name: Azure compliance offerings
+    href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/

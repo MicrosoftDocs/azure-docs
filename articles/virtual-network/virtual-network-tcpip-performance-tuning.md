@@ -207,7 +207,7 @@ You can use the `Get-NetTCPSetting` PowerShell command  to view the values of ea
 Get-NetTCPSetting
 ```
 
-You can set the initial TCP window size and TCP scaling factor in Windows by using the `Set-NetTCPSetting` PowerShell command. For more information, see  [Set-NetTCPSetting](/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+You can set the initial TCP window size and TCP scaling factor in Windows by using the `Set-NetTCPSetting` PowerShell command. For more information, see  [Set-NetTCPSetting](/powershell/module/nettcpip/set-nettcpsetting).
 
 ```powershell
 Set-NetTCPSetting

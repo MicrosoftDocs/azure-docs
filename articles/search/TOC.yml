@@ -286,6 +286,8 @@
       items:
       - name: Integrate custom skills
         href: cognitive-search-custom-skill-interface.md
+      - name: Scale out custom skills
+        href: cognitive-search-custom-skill-scale.md
       - name: Example - Azure Functions (Python)
         href: cognitive-search-custom-skill-python.md
       - name: Example - Azure Functions
@@ -312,6 +314,8 @@
       href: search-query-create.md
     - name: Create a semantic query
       href: semantic-how-to-query-request.md
+    - name: Return a semantic answer
+      href: semantic-answers.md
     - name: Add spell check to queries
       href: speller-how-to-add.md
     - name: Query types and composition
@@ -330,6 +334,8 @@
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
         href: search-autocomplete-tutorial.md
+    - name: Paging and counts
+      href: search-pagination-page-layout.md
     - name: Syntax reference
       items:
       - name: Simple query syntax
@@ -352,16 +358,16 @@
       href: search-query-understand-collection-filters.md
     - name: Filter by language
       href: search-filters-language.md
-  - name: Results
+    - name: Normalize text
+      href: search-normalizers.md
+  - name: Relevance
     items:
-    - name: Work with results
-      href: search-pagination-page-layout.md
-    - name: Structure a semantic response
-      href: semantic-how-to-query-response.md
+    - name: Similarity ranking
+      href: index-ranking-similarity.md
+    - name: Semantic ranking
+      href: semantic-ranking.md
     - name: Scoring profiles 
       href: index-add-scoring-profiles.md
-    - name: Similarity algorithm
-      href: index-ranking-similarity.md
   - name: Security
     items:
     - name: Data encryption

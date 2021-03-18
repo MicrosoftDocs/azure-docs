@@ -643,19 +643,20 @@ In this section, you initialize the cluster. This section uses the same two host
 
 18. Test the SBD fencing by crashing the kernel.
 
-   * Trigger the Kernel Crash.
+    * Trigger the Kernel Crash.
 
-	```
-	echo c > /proc/sysrq-trigger
+	  ```
+	  echo c > /proc/sysrq-trigger
 
-	System must reboot after 5 Minutes (BMC timeout) or the value which is
-	set as panic_wdt_timeout in the /etc/sysconfig/ipmi config file.
-	```
+	  System must reboot after 5 Minutes (BMC timeout) or the value which is
+	  set as panic_wdt_timeout in the /etc/sysconfig/ipmi config file.
+	  ```
   
-   * Second test to run is to fence a node using PCS commands.
-	```
-	pcs stonith fence sollabdsm36
-	```
+    * Second test to run is to fence a node using PCS commands.
+
+	  ```
+	  pcs stonith fence sollabdsm36
+	  ```
   
 
 19. For the rest of the SAP HANA clustering you can disable STONITH by setting:

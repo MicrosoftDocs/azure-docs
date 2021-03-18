@@ -5,7 +5,7 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 03/12/2021
 ms.author: jlian
 ---
 

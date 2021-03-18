@@ -422,7 +422,7 @@ Your registered on-premises Windows Server instance must be ready and connected 
 
 :::row:::
     :::column:::
-        [![Step-by-step guide and demo for how to securely expose Azure file shares directly to information workers and apps - click to play!](./media/storage-files-migration-storsimple-8000/azure-files-direct-access-video-placeholder.png)](https://youtu.be/a-Twfus0HWE)
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     :::column-end:::
     :::column:::
         This video is a guide and demo for how to securely expose Azure file shares directly to information workers and apps in five simple steps.</br>
@@ -632,6 +632,6 @@ Your migration is complete.
 ## Next steps
 
 * Get more familiar with [Azure File Sync: aka.ms/AFS](./storage-sync-files-planning.md).
-* Understand the flexibility of [cloud tiering](storage-sync-cloud-tiering.md) policies.
+* Understand the flexibility of [cloud tiering](storage-sync-cloud-tiering-overview.md) policies.
 * [Enable Azure Backup](../../backup/backup-afs.md#configure-backup-from-the-file-share-pane) on your Azure file shares to schedule snapshots and define backup retention schedules.
 * If you see in the Azure portal that some files are permanently not syncing, review the [Troubleshooting guide](storage-sync-files-troubleshoot.md) for steps to resolve these issues.

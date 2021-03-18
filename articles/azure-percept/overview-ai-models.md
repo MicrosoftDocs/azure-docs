@@ -24,9 +24,9 @@ Azure Percept Studio contains sample models for the following applications:
 
 With pre-trained models, no coding or training data collection is required. Simply deploy your desired model to your Azure Percept DK from the portal and open your devkit’s video stream to see the model inferencing in action. Model inferencing telemetry can also be accessed through the [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases) tool.
 
-## Pre-built solutions
+## Reference solutions
 
-A [spatial analytics pre-built solution for people detection](https://github.com/george-moore/Santa-Cruz-AI-App) is also available. The pre-built solution is an open-source AI application providing edge-based people counting with user-defined zone entry/exit events. Video and AI output from the on-premise edge device is egressed to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), with the user interface running as an Azure Website. AI inferencing is provided by an open-source AI model for people detection.
+A [people counting reference solution](https://github.com/microsoft/Azure-Percept-Reference-Solutions/tree/main/people-detection-app) is also available. This reference solution is an open-source AI application providing edge-based people counting with user-defined zone entry/exit events. Video and AI output from the on-premise edge device is egressed to [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/), with the user interface running as an Azure website. AI inferencing is provided by an open-source AI model for people detection.
 
 :::image type="content" source="./media/overview-ai-models/people-detector.gif" alt-text="Spatial analytics pre-built solution gif.":::
 
@@ -47,6 +47,9 @@ Pre-built voice assistant keywords and commands are available directly through t
 
 ## Advanced development
 
-For advanced developers, the available [Jupyter notebook](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/Transferlearningusing_SSDLiteV2%20Model.ipynb) performs transfer learning using a pre-trained TensorFlow model (MobileNetSSDV2Lite) in Python with a custom dataset for object detection. The notebook utilizes remote compute instances through [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/#product-overview) and can be run in the cloud using the AzureML portal or locally in [Visual Studio Code](https://code.visualstudio.com/).
+Please see the [Azure Percept DK advanced development GitHub](https://github.com/microsoft/azure-percept-advanced-development) for
+up-to-date guidance, tutorials, and examples for things like:
 
-Also included are some helpful Python [scripts](https://github.com/microsoft/Project-Santa-Cruz-Preview/tree/main/Sample-Scripts-and-Notebooks/Official/Scripts) for managing datasets and the [Dev Tools Pack Installer](https://github.com/microsoft/Project-Santa-Cruz-Preview/blob/main/Sample-Scripts-and-Notebooks/Official/Machine%20Learning%20Notebooks/dev-tools-installer.md), which installs and configures all of the tools required to develop an advanced AI solution.
+* Bringing a custom AI model to the device
+* Updating a model we already support with transfer learning
+* And more

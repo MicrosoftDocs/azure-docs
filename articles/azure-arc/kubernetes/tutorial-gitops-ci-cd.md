@@ -5,7 +5,7 @@ author: tcare
 ms.author: tcare
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 3/2/2021
+ms.date: 03/03/2021
 ms.custom: template-tutorial
 ---
 # Tutorial: Implement CI/CD with GitOps using Azure Arc-enabled Kubernetes clusters
@@ -309,10 +309,9 @@ Your deployment is now complete. This ends the CI/CD workflow.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-any resources with the following steps:
+If you're not going to continue to use this application, delete any resources with the following steps:
 
-1. Arc GitOps connection
+1. Delete the Azure Arc GitOps configuration connection:
    ```azurecli
    az k8sconfiguration delete \
    --name cluster-config \
@@ -320,9 +319,11 @@ any resources with the following steps:
    --resource-group myResourceGroup \
    --cluster-type connectedClusters
    ```
-2. `dev` namespace
+
+2. Remove the `dev` namespace:
    * `kubectl delete namespace dev`
-3. `stage` namespace
+
+3. Remove the `stage` namespace:
    * `kubectl delete namespace stage`
 
 ## Next steps

@@ -65,6 +65,8 @@
     href: configure-scaling.md
   - name: Certificates
     href: certificates-and-key-vault.md
+  - name: Generate ARM Template using Portal
+    href: generate-template-portal.md
 - name: Samples
   items: 
   - name: Sample Templates
@@ -82,7 +84,7 @@
   - name: Az.CloudService Module
     href: https://www.powershellgallery.com/packages/Az.CloudService/0.1.0
   - name: PowerShell cmdlets
-    href: /powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice
+    href: /powershell/module/az.cloudservice/#cloudservice
   - name: ARM Template Reference
     href: /azure/templates/microsoft.compute/cloudservices
   - name: REST

@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Security Center
 description: Lists Azure Policy built-in policy definitions for Azure Security Center. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 02/09/2021
+ms.date: 03/17/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
@@ -54,13 +54,4 @@ To learn about the built-in policies that are monitored by Security Center, see 
 ## Next steps
 
 In this article, you learned about Azure Policy security policy definitions in Security Center. To
-learn more, see the following articles.
-
-- See the built-ins on the [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
-- Review the [Azure Policy definition structure](../governance/policy/concepts/definition-structure.md).
-- Review [Understanding policy effects](../governance/policy/concepts/effects.md).
-- [Azure Security Center planning and operations guide](./security-center-planning-and-operations-guide.md): Learn how to plan and understand design considerations in Azure Security Center.
-- [Security health monitoring in Azure Security Center](./security-center-monitoring.md): Learn how to monitor the health of your Azure resources.
-- [Manage and respond to security alerts in Azure Security Center](./security-center-managing-and-responding-alerts.md): Learn how to manage and respond to security alerts.
-- [Monitor partner solutions with Azure Security Center](./security-center-partner-integration.md): Learn how to monitor the health status of your partner solutions.
-- [Azure Policy](../governance/policy/overview.md): Learn to audit and govern your Azure resources.
+learn more about initiatives, policies, and how they relate to Security Center's recommendations, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md).

@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-Azure Spring Cloud diagnostics is an interactive experience to help you troubleshoot your app. No configuration is required. When you find issues, Azure Spring Cloud diagnostics points out what’s wrong and guides you to information that helps troubleshoot and resolve the issue.
+Azure Spring Cloud diagnostics is an interactive experience to troubleshoot your app without configuration. Azure Spring Cloud diagnostics identifies problems and guides you to information that helps troubleshoot and resolve issues.
 
 ## Prerequisites
 To complete this tutorial, you need:
@@ -25,7 +25,7 @@ To complete this tutorial, you need:
 ## Navigate to the diagnostics page
 1. Sign in to the Azure portal.
 2. Go to your Azure Spring Cloud **Overview** page.
-3. Open **Diagnose and solve problems** in the menu on the left side of the page.
+3. Select **Diagnose and solve problems** in the left navigation pane.
 
  ![Diagnose, solve dialog](media/spring-cloud-diagnose/diagnose-solve-dialog.png)
 

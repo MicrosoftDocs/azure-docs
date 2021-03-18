@@ -18,10 +18,7 @@ ms.topic: conceptual
 
 ## February 2021
 
-
 - Connected cluster mode is disabled
-- Azure Arc enabled PostgreSQL Hyperscale returns an inaccurate error message when it cannot restore to the relative point in time you indicate. For example, if you specified a point in time to restore that is older than what your backups contain, the restore fails with an error message like: `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}`. When this happens, restart the command after indicating a point in time that is within the range of dates for which you have backups. To determine this range, list your backups and look at the dates at which they were taken.
-- A backup-id is required when doing a full restore. By default, if you are not indicating a backup-id the latest backup will be used. This does not work in this release.
 
 ## Introduced prior to February 2021
 
