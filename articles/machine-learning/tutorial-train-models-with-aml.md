@@ -90,7 +90,7 @@ print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
 >[!NOTE]
-> It depends on your development environment (for example, your computer), you'll be asked to authenticate to your workspace by using a *device code* the first time you run the following code. Follow the on-screen instructions.
+> You may be asked to authenticate to your workspace the first time you run the following code. Follow the on-screen instructions.
 
 ### Create an experiment
 
