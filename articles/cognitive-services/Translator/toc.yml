@@ -126,7 +126,7 @@
       items:     
       - name: Document Translation REST API
         href: /rest/api/cognitiveservices/translator/translation   
-- name: Reference
+- name: Translator Reference
   items:
   - name: v3 Translator reference
     href: reference/v3-0-reference.md
@@ -148,7 +148,7 @@
     href: reference/v3-0-dictionary-lookup.md
   - name: Dictionary Examples
     href: reference/v3-0-dictionary-examples.md
-- name: Resources
+- name: Translator Resources
   items:
   - name: Support & help options
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/translator/context/context
