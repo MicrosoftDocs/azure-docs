@@ -93,7 +93,7 @@ Below are examples of how an OEM called Contoso would use the components feature
 
 ## Additional tips
 
-We've provided below more clarifications regarding our component usage policy. If you have any questions about appropriate component usage, please contact our team at [iotcert@microsoft.com](mailto:iotcert@microsoft.com), and we'll be more than happy to help!
+We've provided below more clarifications regarding our component usage policy. If you have any questions about appropriate component usage, contact our team at [iotcert@microsoft.com](mailto:iotcert@microsoft.com), and we'll be more than happy to help!
 
 1. A project must contain **only** one Customer Ready Product component. If you are certifying a project with two independent devices, those devices should be certified separately.
 1. It is primarily up to you to use (or not use) components to promote your device's capabilities to potential customers.
