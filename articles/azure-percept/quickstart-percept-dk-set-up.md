@@ -152,7 +152,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-azure-portal-continue.png" alt-text="Go to Azure Percept Studio.":::
 
-## View your dev kit device stream and deploy a sample model
+## View your dev kit video stream and deploy a sample model
 
 1. The [Azure Percept Studio Overview page](https://go.microsoft.com/fwlink/?linkid=2135819) is your launch point for accessing many different workflows for both beginning and advanced edge AI solution development. To get started, click on **Devices** from the left menu.
 
