@@ -26,11 +26,11 @@ Use the information below to make a decision between using the AWS Single Sign-O
 
 **AWS Single Sign-On**
 
-[AWS Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-tutorial) was added to the Azure AD application gallery in February 2021. It makes it easy to manage access centrally to multiple AWS accounts and AWS applications, with sign-in through Microsoft Azure AD. Federate Microsoft Azure AD with AWS SSO once, and use AWS SSO to manage permissions across all of your AWS accounts from one place. AWS SSO provisions permissions automatically and keeps them current as you update policies and access assignments. End users can authenticate with their Azure AD credentials to access the AWS Console, Command Line Interface, and AWS SSO integrated applications.
+[AWS Single Sign-On](./aws-single-sign-on-tutorial.md) was added to the Azure AD application gallery in February 2021. It makes it easy to manage access centrally to multiple AWS accounts and AWS applications, with sign-in through Microsoft Azure AD. Federate Microsoft Azure AD with AWS SSO once, and use AWS SSO to manage permissions across all of your AWS accounts from one place. AWS SSO provisions permissions automatically and keeps them current as you update policies and access assignments. End users can authenticate with their Azure AD credentials to access the AWS Console, Command Line Interface, and AWS SSO integrated applications.
 
 **AWS Single-Account Access**
 
-[AWS Single-Account Access](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) has been used by customers over the past several years and enables you to federate Azure AD to a single AWS account and use Azure AD to manage access to AWS IAM roles. AWS IAM administrators define roles and policies in each AWS account. For each AWS account, Azure AD administrators federate to AWS IAM, assign users or groups to the account, and configure Azure AD to send assertions that authorize role access.  
+[AWS Single-Account Access]() has been used by customers over the past several years and enables you to federate Azure AD to a single AWS account and use Azure AD to manage access to AWS IAM roles. AWS IAM administrators define roles and policies in each AWS account. For each AWS account, Azure AD administrators federate to AWS IAM, assign users or groups to the account, and configure Azure AD to send assertions that authorize role access.  
 
 | Feature | AWS Single Sign-On | AWS Single-Account Access |
 |:--- |:---:|:---:|
