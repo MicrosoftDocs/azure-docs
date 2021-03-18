@@ -36,7 +36,7 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 Now you can print Azure Sentinel workbooks, which also enables you to export to them to PDFs and save locally or share.
 
-In your workbook, select the options menu > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Print content**. Then select your print, or select **Save as PDF** as needed.
+In your workbook, select the options menu > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Print content**. Then select your printer, or select **Save as PDF** as needed.
 
 :::image type="content" source="media/whats-new/print-workbook.png" alt-text="Print your workbook or save as PDF.":::
 
