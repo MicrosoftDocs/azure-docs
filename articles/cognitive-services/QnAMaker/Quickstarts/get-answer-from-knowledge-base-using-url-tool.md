@@ -12,7 +12,7 @@ ms.date: 07/16/2020
 
 ---
 
-# Quickstart: Get an answer from knowledge base
+# Get an answer from a knowledge base
 
 
 ::: zone pivot="url-test-tool-curl"
