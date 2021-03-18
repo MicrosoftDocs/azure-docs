@@ -42,9 +42,45 @@ If your Automation account is not linked to a Log Analytics workspace, perform t
 
 1. Sign in to Azure at [https://portal.azure.com](https://portal.azure.com).
 
-2. In the Azure portal, select **Automation Accounts**.
+2. In the Azure portal, navigate to **Automation Accounts**.
 
 3. Open your Automation account and select **Delete** from the menu.
+
+While the information is verified and the account is deleted, you can track the progress under **Notifications**, chosen from the menu.
+
+### Standalone Automation account linked to workspace
+
+If your Automation account is linked to a Log Analytics workspace to collect job streams and job logs, perform the following steps to delete the account.
+
+There are two options for unlinking the Log Analytics workspace from your Automation account. You can perform this process from the Automation account or from the linked workspace.
+
+To unlink from your Automation account, perform the following steps.
+
+1. In the Azure portal, navigate to **Automation Accounts**.
+
+2. Open your Automation account and select **Linked workspace** under **Related Resources** on the left.
+
+3. On the **Unlink workspace** page, select **Unlink workspace**, and respond to prompts.
+
+   ![Unlink workspace page](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
+
+    While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
+
+To unlink from the workspace, perform the following steps.
+
+1. In the Azure portal, navigate to **Log Analytics workspaces**.
+
+2. From the workspace, select **Automation Account** under **Related Resources**.
+
+3. On the Automation Account page, select **Unlink account**, and respond to prompts.
+
+While it attempts to unlink the Automation account, you can track the progress under **Notifications** from the menu.
+
+### Delete Automation account
+
+1. In the Azure portal, navigate to **Automation Accounts**.
+
+2. Open your Automation account and select **Delete** from the menu.
 
 While the information is verified and the account is deleted, you can track the progress under **Notifications**, chosen from the menu.
 
@@ -76,7 +112,7 @@ There are two options for unlinking the Log Analytics workspace from your Automa
 
 To unlink from your Automation account, perform the following steps.
 
-1. In the Azure portal, select **Automation Accounts**.
+1. In the Azure portal, navigate to **Automation Accounts**.
 
 2. Open your Automation account and select **Linked workspace** under **Related Resources** on the left.
 
@@ -88,7 +124,7 @@ To unlink from your Automation account, perform the following steps.
 
 To unlink from the workspace, perform the following steps.
 
-1. In the Azure portal, select **Log Analytics workspaces**.
+1. In the Azure portal, navigate to **Log Analytics workspaces**.
 
 2. From the workspace, select **Automation Account** under **Related Resources**.
 
@@ -98,7 +134,7 @@ While it attempts to unlink the Automation account, you can track the progress u
 
 ### Delete Automation account
 
-1. In the Azure portal, select **Automation Accounts**.
+1. In the Azure portal, navigate to **Automation Accounts**.
 
 2. Open your Automation account and select **Delete** from the menu.
 
