@@ -68,7 +68,7 @@ Refer to the following list to configure managed identity for Azure App Service 
 | System assigned | Preview | Not available | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available |
 
-Azure Arc enabled Kubernetes currently [supports system assigned identity](../../azure-arc/kubernetes/quickstart-connect-cluster.md#azure-arc-agents-for-kubernetes). The managed service identity certificate is used by all Azure Arc enabled Kubernetes agents for communication with Azure.
+Azure Arc enabled Kubernetes currently [supports system assigned identity](../../azure-arc/kubernetes/quickstart-connect-cluster.md). The managed service identity certificate is used by all Azure Arc enabled Kubernetes agents for communication with Azure.
 
 ### Azure Arc enabled servers
 

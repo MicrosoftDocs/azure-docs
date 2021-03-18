@@ -71,7 +71,8 @@ The following SDP vendors offer pre-built solutions and detailed guidance for in
 
 - [Datawiza Access Broker](./add-application-portal-setup-oidc-sso.md)
 
-- [Perimeter 81](../saas-apps/perimeter-81-tutorial.md#:~:text=For%20SSO%20to%20work,%20you%20need%20to%20establish,to%20test%20Azure%20AD%20single%20sign-on%20with%20B.Simon.)
+- [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
+
 
 - [Silverfort Authentication Platform](./add-application-portal-setup-oidc-sso.md)
 
