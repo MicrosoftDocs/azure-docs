@@ -10,9 +10,9 @@ ms.topic: quickstart
 ms.date: 02/08/2021
 #Customer intent: As a developer new to Azure Cache for Redis, I want to create an instance of Azure Cache for Redis Enterprise tier.
 ---
-# Quickstart: Create a Redis Enterprise cache (Preview)
+# Quickstart: Create a Redis Enterprise cache
 
-Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. They're currently available as a preview. There are two new tiers in this preview:
+Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. These new tiers are:
 * Enterprise, which uses volatile memory (DRAM) on a virtual machine to store data
 * Enterprise Flash, which uses both volatile and non-volatile memory (NVMe or SSD) to store data.
 
@@ -21,7 +21,7 @@ Azure Cache for Redis' Enterprise tiers provide fully integrated and managed [Re
 You'll need an Azure subscription before you begin. If you don't have one, create an [account](https://azure.microsoft.com/). For more information, see [special considerations for Enterprise tiers](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## Create a cache
-1. To create a cache, sign in to the Azure portal using the link in your preview invitation and select **Create a resource**.
+1. To create a cache, sign in to the Azure portal and select **Create a resource**.
 
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
    
@@ -34,7 +34,7 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
    | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contains only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.<Azure region>.redisenterprise.cache.azure.net*. | 
-   | **Location** | Drop down and select a location. | Enterprise tiers are available in limited Azure regions during the preview. |
+   | **Location** | Drop down and select a location. | Enterprise tiers are available in selected Azure regions. |
    | **Cache type** | Drop down and select an *Enterprise* or *Enterprise Flash* tier and a size. |  The tier determines the size, performance, and features that are available for the cache. |
    
    :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Enterprise tier Basics tab":::

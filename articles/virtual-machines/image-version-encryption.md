@@ -3,7 +3,7 @@ title: Preview - Create an image version encrypted with your own keys
 description: Create an image version in a shared image gallery, by using customer-managed encryption keys.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020

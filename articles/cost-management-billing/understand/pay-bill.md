@@ -55,6 +55,18 @@ To pay invoices in the Azure portal, you must have the correct [MCA permissions]
 
 The invoice status shows *paid* within 24 hours.
 
+## Pay now for customers in India
+
+The Reserve Bank of India issued [new regulations](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12002&Mode=0) that will take effect on April 1st 2021. After this date, banks in India may start declining automatic recurring payments, and payments will need to be made manually in the Azure portal.
+
+If your bank declines an automatic recurring payment, we’ll notify you via email and provide instructions on how to proceed.
+
+Beginning April 1st 2021, you may pay an outstanding balance any time by following these steps: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the Account Administrator.
+1. Search for **Cost Management + Billing**.
+1. On the Overview page, select the **Pay now** button. (If you don't see the **Pay now** button, you do not have an outstanding balance.)
+
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 

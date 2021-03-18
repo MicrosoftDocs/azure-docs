@@ -11,19 +11,28 @@ ms.subservice: files
 
 # Migrate from Linux to a hybrid cloud deployment with Azure File Sync
 
+This migration article is one of several involving the keywords NFS and Azure File Sync. Check if this article applies to your scenario:
+
+> [!div class="checklist"]
+> * Data source: Network Attached Storage (NAS)
+> * Migration route: Linux Server with SAMBA &rArr; Windows Server 2012R2 or later &rArr; sync with Azure file share(s)
+> * Caching files on-premises: Yes, the final goal is an Azure File Sync deployment.
+
+If your scenario is different, look through the [table of migration guides](storage-files-migration-overview.md#migration-guides).
+
 Azure File Sync works on Windows Server instances with direct attached storage (DAS). It does not support sync to and from Linux clients, or a remote Server Message Block (SMB) share, or Network File System (NFS) shares.
 
 As a result, transforming your file services into a hybrid deployment makes a migration to Windows Server necessary. This article guides you through the planning and execution of such a migration.
 
 ## Migration goals
 
-The goal is to move the shares that you have on your Linux Samba server to a Windows Server instance. Then use Azure File Sync for a hybrid cloud deployment. This migration needs to be done in a way that guarantees the integrity of the production data as well as availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
+The goal is to move the shares that you have on your Linux Samba server to a Windows Server instance. Then use Azure File Sync for a hybrid cloud deployment. This migration needs to be done in a way that guarantees the integrity of the production data and availability during the migration. The latter requires keeping downtime to a minimum, so that it can fit into or only slightly exceed regular maintenance windows.
 
 ## Migration overview
 
 As mentioned in the Azure Files [migration overview article](storage-files-migration-overview.md), using the correct copy tool and approach is important. Your Linux Samba server is exposing SMB shares directly on your local network. Robocopy, built into Windows Server, is the best way to move your files in this migration scenario.
 
-If you're not running Samba on your Linux server and rather want to migrate folders to a hybrid deployment on Windows Server, you can use Linux copy tools instead of Robocopy. If you do, be aware of the fidelity capabilities in your file copy tool. Review the [migration basics section](storage-files-migration-overview.md#migration-basics) in the migration overview article to learn what to look for in a copy tool.
+If you're not running Samba on your Linux server and rather want to migrate folders to a hybrid deployment on Windows Server, you can use Linux copy tools instead of Robocopy. Be aware of the fidelity capabilities of your copy tool. Review the [migration basics section](storage-files-migration-overview.md#migration-basics) in the migration overview article to learn what to look for in a copy tool.
 
 ## Phase 1: Identify how many Azure file shares you need
 
@@ -34,11 +43,13 @@ If you're not running Samba on your Linux server and rather want to migrate fold
 * Create a Windows Server 2019 instance as a virtual machine or physical server. Windows Server 2012 R2 is the minimum requirement. A Windows Server failover cluster is also supported.
 * Provision or add direct attached storage (DAS). Network attached storage (NAS) is not supported.
 
-  The amount of storage that you provision can be smaller than what you're currently using on your Linux Samba server, if you use the Azure File Sync [cloud tiering](storage-sync-cloud-tiering-overview.md) feature. However, when you copy your files from the larger Linux Samba server space to the smaller Windows Server volume in a later phase, you'll need to work in batches:
+  The amount of storage that you provision can be smaller than what you're currently using on your Linux Samba server, if you use the Azure File Sync [cloud tiering](storage-sync-cloud-tiering-overview.md) feature. 
+
+The amount of storage you provision can be smaller than what you are currently using on your Linux Samba server. This configuration choice requires that you also make use of Azure File Syncs [cloud tiering](storage-sync-cloud-tiering-overview.md) feature. However, when you copy your files from the larger Linux Samba server space to the smaller Windows Server volume in a later phase, you'll need to work in batches:
 
   1. Move a set of files that fits onto the disk.
   2. Let file sync and cloud tiering engage.
-  3. When more free space is created on the volume, proceed with the next batch of files. 
+  3. When more free space is created on the volume, proceed with the next batch of files. Alternatively, review the RoboCopy command in the upcoming [RoboCopy section](#phase-7-robocopy) for use of the new `/LFSM` switch. Using `/LFSM` can significantly simplify your RoboCopy jobs, but it is not compatible with some other RoboCopy switches you might depend on.
     
   You can avoid this batching approach by provisioning the equivalent space on the Windows Server instance that your files occupy on the Linux Samba server. Consider enabling deduplication on Windows. If you don't want to permanently commit this high amount of storage to your Windows Server instance, you can reduce the volume size after the migration and before adjusting the cloud tiering policies. That creates a smaller on-premises cache of your Azure file shares.
 
@@ -95,78 +106,9 @@ The following Robocopy command will copy files from your Linux Samba server's st
 
 If you provisioned less storage on your Windows Server instance than your files take up on the Linux Samba server, then you have configured cloud tiering. As the local Windows Server volume gets full, [cloud tiering](storage-sync-cloud-tiering-overview.md) will start and tier files that have successfully synced already. Cloud tiering will generate enough space to continue the copy from the Linux Samba server. Cloud tiering checks once an hour to see what has synced and to free up disk space to reach the policy of 99 percent free space for a volume.
 
-It's possible that Robocopy moves files faster than you can sync to the cloud and tier locally, causing you to run out of local disk space. Robocopy will then fail. We recommend that you work through the shares in a sequence that prevents the problem. For example, consider not starting Robocopy jobs for all shares at the same time. Or consider moving shares that fit on the current amount of free space on the Windows Server instance. If your Robocopy job does fail, you can always re-run the command as long as you use the following mirror/purge option:
+It's possible that Robocopy moves files faster than you can sync to the cloud and tier locally, causing you to run out of local disk space. Robocopy will then fail. We recommend that you work through the shares in a sequence that prevents the problem. For example, consider not starting Robocopy jobs for all shares at the same time. Or consider moving shares that fit on the current amount of free space on the Windows Server instance. If your Robocopy job does fail, you can always rerun the command as long as you use the following mirror/purge option:
 
-```console
-Robocopy /MT:32 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
-```
-
-Background:
-
-:::row:::
-   :::column span="1":::
-      /MT
-   :::column-end:::
-   :::column span="1":::
-      Allows for Robocopy to run multi-threaded. Default is 8, maximum is 128.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /UNILOG:\<file name\>
-   :::column-end:::
-   :::column span="1":::
-      Outputs status to a log file as Unicode (overwrites the existing log).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /TEE
-   :::column-end:::
-   :::column span="1":::
-      Outputs to a console window. Used in conjunction with output to a log file.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /B
-   :::column-end:::
-   :::column span="1":::
-      Runs Robocopy in the same mode that a backup application would use. It allows Robocopy to move files that the current user does not have permissions to.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /MIR
-   :::column-end:::
-   :::column span="1":::
-      Allows running this Robocopy command several times, sequentially, on the same target/destination. It identifies and omits what has been copied before. Only changes, additions, and deletions that occurred since the last run are processed. If the command wasn't run before, nothing is omitted. The **/MIR** flag is an excellent option for source locations that are still actively used and changing.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidelity of the file copy (default is /COPY:DAT). Copy flags are: D=data, A=attributes, T=timestamps, S=security=NTFS ACLs, O=owner info, U=auditing info.
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /COPYALL
-   :::column-end:::
-   :::column span="1":::
-      COPY ALL file info (equivalent to /COPY:DATSOU).
-   :::column-end:::
-:::row-end:::
-:::row:::
-   :::column span="1":::
-      /DCOPY:copyflag[s]
-   :::column-end:::
-   :::column span="1":::
-      Fidelity for the copy of directories (default is /DCOPY:DA). Copy flags are: D=data, A=attributes, T=timestamps.
-   :::column-end:::
-:::row-end:::
+[!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
 
 ## Phase 8: User cut-over
 

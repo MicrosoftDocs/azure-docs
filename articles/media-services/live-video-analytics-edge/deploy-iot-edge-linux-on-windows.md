@@ -8,7 +8,7 @@ ms.date: 02/18/2021
 
 # Deploy to an IoT Edge for Linux on Windows (EFLOW) device
 
-In this article, you'll learn how to deploy Live Video Analytics on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows?view=iotedge-2018-06). Once you have finished following the steps in this document, you will be able to run a [media graph](media-graph-concept.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the media graph for advanced scenarios and bring the power of Live Video Analytics to your Windows-based IoT Edge device.
+In this article, you'll learn how to deploy Live Video Analytics on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows). Once you have finished following the steps in this document, you will be able to run a [media graph](media-graph-concept.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the media graph for advanced scenarios and bring the power of Live Video Analytics to your Windows-based IoT Edge device.
 
 ## Prerequisites 
 

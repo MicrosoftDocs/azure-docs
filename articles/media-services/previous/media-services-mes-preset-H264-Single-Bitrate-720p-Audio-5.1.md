@@ -1,21 +1,19 @@
 ---
 title: H264 Single Bitrate 720p Audio 5.1 | Microsoft Docs
 description: The topic gives an overview of the **H264 Single Bitrate 720p Audio 5.1** task preset.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: ba2bfa57-3c87-4b1b-b91b-58f9108f4e85
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # H264 Single Bitrate 720p Audio 5.1

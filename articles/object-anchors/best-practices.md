@@ -4,7 +4,7 @@ description: Recommended best practices to get improved results
 author: ariye
 
 ms.author: crtreasu
-ms.date: 02/17/2021
+ms.date: 03/12/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
@@ -15,7 +15,7 @@ We recommend trying some of these steps to get the best results.
 
 ## Ingestion
 
-- Check the dimensions of your physical objects. Object anchors works best for objects whose smallest dimension is in
+- Check the dimensions of your physical objects. Azure Object anchors works best for objects whose smallest dimension is in
   the range of the recommended 1m-10m.
 - Inspect your 3D model in software like [**MeshLab**](https://www.meshlab.net/) for the following details.
   - Ensure that the 3D model has a triangle mesh and that the triangles on the exterior surface face outward. That is,
@@ -31,11 +31,13 @@ We recommend trying some of these steps to get the best results.
 
 ## Detection
 
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Mixed-Reality/Azure-Object-Anchors-Detection-and-Alignment-Best-Practices/player]
+
 - The provided runtime SDK requires a user-provided search region to search for and detect the physical object(s). The
   search region could be a bounding box, a sphere, a view frustum, or any combination of them. To avoid a false detection,
   it is preferable to set a search region large enough to cover the object. When using the provided sample apps, you can
   stand on one side of the object about 2 meters away from the closest surface and start the app.
-- Before starting the Object Anchors app on a HoloLens 2 device, remove the holograms in the vicinity of your workplace
+- Before starting the Azure Object Anchors app on a HoloLens 2 device, remove the holograms in the vicinity of your workplace
   via on your devices main settings through ***Settings->System->Holograms***
 
   This step ensures that if a new object such as a car is present in the same space as occupied by another previously,
@@ -47,7 +49,7 @@ We recommend trying some of these steps to get the best results.
   This step ensures that any residual surface estimates created in your space by earlier objects and scans are refreshed
   with the surfaces of the current target object that you are going to work with. Otherwise the app may see double ghost
   surfaces leading to inaccurate alignment of your 3D model and the associated holograms. Pre-scanning the object will
-  also greatly reduce the AOA detection latency, say, from 30 seconds to 5 seconds.
+  also greatly reduce the Azure Object Anchors detection latency, say, from 30 seconds to 5 seconds.
 - For dark and highly reflective objects, you may have to scan the object at closer range and also by moving your head up
   and down and left and right to let the device see surfaces from multiple angles and multiple distances.
 - When you see a wrong object detection such as the orientation being flipped or the pose being incorrect such as a

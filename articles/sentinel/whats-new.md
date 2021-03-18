@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/11/2021
 ---
 
 # What's new in Azure Sentinel
@@ -27,10 +27,30 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## March 2021
 
-- [Microsoft 365 Defender incident integration](#microsoft-365-defender-incident-integration) (public preview)
+- [Print your Azure Sentinel workbooks or save as PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
+- [Incident filters and sort preferences now saved in your session (Public preview)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
+- [Microsoft 365 Defender incident integration (Public preview)](#microsoft-365-defender-incident-integration-public-preview)
 - [New Microsoft service connectors using Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
+ 
+### Print your Azure Sentinel workbooks or save as PDF
 
-### Microsoft 365 Defender incident integration
+Now you can print Azure Sentinel workbooks, which also enables you to export to them to PDFs and save locally or share.
+
+In your workbook, select the options menu > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Print content**. Then select your printer, or select **Save as PDF** as needed.
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Print your workbook or save as PDF.":::
+
+For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
+
+### Incident filters and sort preferences now saved in your session (Public preview)
+
+Now your incident filters and sorting is saved throughout your Azure Sentinel session, even while navigating to other areas of the product.
+As long as you're still in the same session, navigating back to the [Incidents](tutorial-investigate-cases.md) area in Azure Sentinel shows your filters and sorting just as you left it.
+
+> [!NOTE]
+> Incident filters and sorting are not saved after leaving Azure Sentinel or refreshing your browser.
+
+### Microsoft 365 Defender incident integration (Public preview)
 
 Azure Sentinel's [Microsoft 365 Defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) incident integration allows you to stream all M365D incidents into Azure Sentinel and keep them synchronized between both portals. Incidents from M365D (formerly known as Microsoft Threat Protection or MTP) include all associated alerts, entities, and relevant information, providing you with enough context to perform triage and preliminary investigation in Azure Sentinel. Once in Sentinel, Incidents will remain bi-directionally synced with M365D, allowing you to take advantage of the benefits of both portals in your incident investigation.
 
@@ -55,8 +75,8 @@ Customers will still be able to send the logs manually for specific instances an
 
 - [Cybersecurity Maturity Model Certification (CMMC) workbook](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [Third-party data connectors](#third-party-data-connectors)
-- [UEBA insights in the entity page](#ueba-insights-in-the-entity-page)
-- [Improved incident search](#improved-incident-search)
+- [UEBA insights in the entity page (Public preview)](#ueba-insights-in-the-entity-page-public-preview)
+- [Improved incident search (Public preview)](#improved-incident-search-public-preview)
 
 ### Cybersecurity Maturity Model Certification (CMMC) workbook
 
@@ -67,6 +87,9 @@ The CMMC workbook enables security architects, engineers, security operations an
 Even if you aren’t required to comply with CMMC, the CMMC workbook is helpful in building Security Operations Centers, developing alerts, visualizing threats, and providing situational awareness of workloads.
 
 Access the CMMC workbook in the Azure Sentinel **Workbooks** area. Select **Template**, and then search for **CMMC**.
+
+:::image type="content" source="media/whats-new/cmmc-guide-toggle.gif" alt-text="Toggle the CMMC workbook guide on and off" lightbox="media/whats-new/cmmc-guide-toggle.gif":::
+
 
 For more information, see:
 
@@ -109,7 +132,7 @@ Our collection of third-party integrations continues to grow, with thirty connec
 - [Trend Micro XDR](connect-data-sources.md)
 - [VMware ESXi](connect-vmware-esxi.md)
 
-### UEBA insights in the entity page
+### UEBA insights in the entity page (Public preview)
 
 The Azure Sentinel entity details pages provide an [Insights pane](identify-threats-with-entity-behavior-analytics.md#entity-insights), which displays behavioral insights on the entity and help to quickly identify anomalies and security threats.
 
@@ -123,7 +146,7 @@ If you have [UEBA enabled](ueba-enrichments.md), and have selected a timeframe o
 |**Threat Indicators Related to The User**     |  Lists a collection of known threats relating to IP addresses represented in the user’s activities. Threats are listed by threat type and family, and are enriched by Microsoft’s threat intelligence service.       |
 |     |         |
 
-### Improved incident search
+### Improved incident search (Public preview)
 
 We've improved the Azure Sentinel incident searching experience, enabling you to navigate faster through incidents as you investigate a specific threat.
 
@@ -137,17 +160,17 @@ When searching for incidents in Azure Sentinel, you're now able to search by the
 
 ## January 2021
 
-- [Analytics rule wizard: Improved query editing experience (public preview)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
+- [Analytics rule wizard: Improved query editing experience (Public preview)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Az.SecurityInsights PowerShell module (Public preview)](#azsecurityinsights-powershell-module-public-preview)
 - [SQL database connector](#sql-database-connector)
-- [Dynamics 365 connector](#dynamics-365-connector)
+- [Dynamics 365 connector (Public preview)](#dynamics-365-connector-public-preview)
 - [Improved incident comments](#improved-incident-comments)
 - [Dedicated Log Analytics clusters](#dedicated-log-analytics-clusters)
 - [Logic apps managed identities](#logic-apps-managed-identities)
 - [Improved rule tuning with the analytics rule preview graphs](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
-### Analytics rule wizard: Improved query editing experience (public preview)
+### Analytics rule wizard: Improved query editing experience (Public preview)
 
 The Azure Sentinel Scheduled analytics rule wizard now provides the following enhancements for writing and editing queries:
 
@@ -175,7 +198,7 @@ Azure SQL is a fully managed, Platform-as-a-Service (PaaS) database engine that 
 
 For more information, see [Connect Azure SQL database diagnostics and auditing logs](connect-azure-sql-logs.md).
 
-### Dynamics 365 connector
+### Dynamics 365 connector (Public preview)
 
 Azure Sentinel now provides a connector for Microsoft Dynamics 365, which lets you collect your Dynamics 365 applications' user, admin, and support activity logs into Azure Sentinel. You can use this data to help you audit the entirety of data processing actions taking place and analyze it for possible security breaches.
 

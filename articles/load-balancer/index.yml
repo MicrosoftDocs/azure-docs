@@ -117,7 +117,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: /powershell/module/az.network/?view=azps-2.5.0#load_balancer
+            url: /powershell/module/az.network/#load_balancer
           - text: Azure CLI
             url: /cli/azure/network/lb
           - text: ARM templates

@@ -2195,7 +2195,7 @@ If you need additional permissions or resources supported, which you don't curre
 New provisioning logs are available to help you monitor and troubleshoot the user and group provisioning deployment. These new log files include information about:
 
 - What groups were successfully created in [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)
-- What roles were imported from [Amazon Web Services (AWS)](../saas-apps/amazon-web-service-tutorial.md#configure-and-test-azure-ad-sso-for-amazon-web-services-aws)
+- What roles were imported from [AWS Single-Account Access](../saas-apps/amazon-web-service-tutorial.md#configure-and-test-azure-ad-sso-for-aws-single-account-access)
 - What employees weren't imported from [Workday](../saas-apps/workday-inbound-tutorial.md)
 
 For more information, see [Provisioning reports in the Azure Active Directory portal (preview)](../reports-monitoring/concept-provisioning-logs.md).

@@ -2,14 +2,14 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template or a Bicep file.
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 03/04/2021
 ---
 
 # Deploy resources with ARM templates and Azure CLI
 
-This article explains how to use Azure CLI with Azure Resource Manager templates (ARM templates) or Bicep file to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md) or [Bicep overview](bicep-overview.md).
+This article explains how to use Azure CLI with Azure Resource Manager templates (ARM templates) or Bicep files to deploy your resources to Azure. If you aren't familiar with the concepts of deploying and managing your Azure solutions, see [template deployment overview](overview.md) or [Bicep overview](bicep-overview.md).
 
-The deployment commands changed in Azure CLI version 2.2.0. The examples in this article require Azure CLI version 2.2.0 or later.
+The deployment commands changed in Azure CLI version 2.2.0. The examples in this article require Azure CLI version 2.2.0 or later. To deploy Bicep files, you need [Azure CLI version 2.20.0 or later](/cli/azure/install-azure-cli).
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -80,7 +80,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 ## Deploy remote template
 
 > [!NOTE]
-> Currently, Azure CLI doesn't support deploying remove Bicep files.
+> Currently, Azure CLI doesn't support deploying remote Bicep files. To deploy a remote Bicep file, use CLI Bicep to compile the Bicep file to a JSON template first.
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
@@ -143,7 +143,7 @@ To avoid conflicts with concurrent deployments and to ensure unique entries in t
 ## Deploy template spec
 
 > [!NOTE]
-> Currently, Azure CLI doesn't support creating template specs by providing Bicep files. However you can create an ARM template or a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
+> Currently, Azure CLI doesn't support creating template specs by providing Bicep files. However you can create a Bicep file with the [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) resource to deploy a template spec. Here is an [example](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep).
 
 Instead of deploying a local or remote template, you can create a [template spec](template-specs.md). The template spec is a resource in your Azure subscription that contains an ARM template. It makes it easy to securely share the template with users in your organization. You use Azure role-based access control (Azure RBAC) to grant access to the template spec. This feature is currently in preview.
 

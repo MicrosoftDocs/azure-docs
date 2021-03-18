@@ -29,7 +29,7 @@ The first thing we'll create is a managed PostgreSQL server. In [Azure Cloud She
 ```azurecli
 az postgres flexible-server create --public-access <your-ip-address>
 ```
-You can provide additional arguments for this command to customize it. See all arguments for [az postgres flexible-server create](/cli/azure/postgres/flexible-server?view=azure-cli-latest#az_postgres_flexible_server_create).
+You can provide additional arguments for this command to customize it. See all arguments for [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create).
 
 ## View all the arguments
 You can view all the arguments for this command with ```--help``` argument. 

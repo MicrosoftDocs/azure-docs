@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -135,22 +135,22 @@ Use the `createThread` method to create a chat thread.
 - Use `topic` to give a topic to this chat. Topics can be updated after the chat thread is created using the `UpdateThread` function.
 - Use `participants` to list the participants to be added to the chat thread.
 
-When resolved, `createChatThread` method returns a `CreateChatThreadResponse`. This model contains a `chatThread` property where you can access the `id` of the newly created thread. You can then use the `id` to get an instance of a `ChatThreadClient`. The `ChatThreadClient` can then be used to perform operation within the thread such as sending messages or listing participants.
+When resolved, `createChatThread` method returns a `CreateChatThreadResult`. This model contains a `chatThread` property where you can access the `id` of the newly created thread. You can then use the `id` to get an instance of a `ChatThreadClient`. The `ChatThreadClient` can then be used to perform operation within the thread such as sending messages or listing participants.
 
 ```JavaScript
 async function createChatThread() {
     let createThreadRequest = {
         topic: 'Preparation for London conference',
         participants: [{
-                    user: { communicationUserId: '<USER_ID_FOR_JACK>' },
+                    id: { communicationUserId: '<USER_ID_FOR_JACK>' },
                     displayName: 'Jack'
                 }, {
-                    user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
+                    id: { communicationUserId: '<USER_ID_FOR_GEETA>' },
                     displayName: 'Geeta'
                 }]
     };
-    let createThreadResponse = await chatClient.createChatThread(createThreadRequest);
-    let threadId = createThreadResponse.chatThread.id;
+    let createChatThreadResult = await chatClient.createChatThread(createThreadRequest);
+    let threadId = createChatThreadResult.chatThread.id;
     return threadId;
     }
 
@@ -179,7 +179,7 @@ Thread created: <thread_id>
 The `getChatThreadClient` method returns a `chatThreadClient` for a thread that already exists. It can be used for performing operations on the created thread: add participants, send message, etc. threadId is the unique ID of the existing chat thread.
 
 ```JavaScript
-let chatThreadClient = await chatClient.getChatThreadClient(threadId);
+let chatThreadClient = chatClient.getChatThreadClient(threadId);
 console.log(`Chat Thread client for threadId:${threadId}`);
 
 ```
@@ -190,35 +190,33 @@ Chat Thread client for threadId: <threadId>
 
 ## Send a message to a chat thread
 
-Use `sendMessage` method to send a chat message to the thread you just created, identified by threadId.
+Use `sendMessage` method to sends a message to a thread identified by threadId.
 
-`sendMessageRequest` describes the required fields of chat message request:
+`sendMessageRequest` is used to describe the message request:
 
 - Use `content` to provide the chat message content;
 
-`sendMessageOptions` describes the optional fields of chat message request:
+`sendMessageOptions` is used to describe the operation optional params:
 
-- Use `priority` to specify the chat message priority level, such as 'Normal' or 'High'. This property can be used to display a UI indicator for the recipient user in your app to bring attention to the message or execute custom business logic.
 - Use `senderDisplayName` to specify the display name of the sender;
+- Use `type` to specify the message type, such as 'text' or 'html' ;
 
-The response `sendChatMessageResult` contains an ID, which is the unique ID of that message.
+`SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
 
 ```JavaScript
-
 let sendMessageRequest =
 {
     content: 'Hello Geeta! Can you share the deck for the conference?'
 };
 let sendMessageOptions =
 {
-    priority: 'Normal',
-    senderDisplayName : 'Jack'
+    senderDisplayName : 'Jack',
+    type: 'text'
 };
 let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 let messageId = sendChatMessageResult.id;
-console.log(`Message sent!, message id:${messageId}`);
-
 ```
+
 Add this code in place of the `<SEND MESSAGE TO A CHAT THREAD>` comment in **client.js**, refresh your browser tab and check the console.
 ```console
 Message sent!, message id:<number>
@@ -281,7 +279,7 @@ Once a chat thread is created, you can then add and remove users from it. By add
 Before calling the `addParticipants` method, ensure that you have acquired a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
 
 `addParticipantsRequest` describes the request object wherein `participants` lists the participants to be added to the chat thread;
-- `user`, required, is the communication user to be added to the chat thread.
+- `id`, required, is the communication identifier to be added to the chat thread.
 - `displayName`, optional, is the display name for the thread participant.
 - `shareHistoryTime`, optional, is the time from which the chat history is shared with the participant. To share history since the inception of the chat thread, set this property to any date equal to, or less than the thread creation time. To share no history previous to when the participant was added, set it to the current date. To share partial history, set it to the date of your choice.
 
@@ -291,7 +289,7 @@ let addParticipantsRequest =
 {
     participants: [
         {
-            user: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
+            id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
             displayName: 'Jane'
         }
     ]

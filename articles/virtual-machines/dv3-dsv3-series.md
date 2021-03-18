@@ -3,7 +3,7 @@ title: Dv3 and Dsv3-series
 description: Specifications for the Dv3 and Dsv3-series VMs.
 author: joelpelley
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman

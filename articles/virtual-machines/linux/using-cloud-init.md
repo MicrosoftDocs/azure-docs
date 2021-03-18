@@ -2,8 +2,9 @@
 title: Overview of cloud-init support for Linux VMs in Azure 
 description: Overview of cloud-init capabilities to configure a VM at provisioning time in Azure.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/14/2021

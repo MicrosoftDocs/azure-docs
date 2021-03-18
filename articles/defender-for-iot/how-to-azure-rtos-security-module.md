@@ -1,6 +1,6 @@
 ---
-title: Configure and customize Security Module for Azure RTOS
-description: Learn about how to configure and customize your Security Module for Azure RTOS.
+title: Configure and customize Defender-IoT-micro-agent for Azure RTOS
+description: Learn about how to configure and customize your Defender-IoT-micro-agent for Azure RTOS.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.date: 03/07/2021
 ms.author: shhazam
 ---
 
-# Configure and customize Defender-IoT-micro-agent for Azure RTOS GA
+# Configure and customize Defender-IoT-micro-agent for Azure RTOS (preview)
 
 This article describes how to configure the Defender-IoT-micro-agent for your Azure RTOS device, to meet your network, bandwidth, and memory requirements.
 
@@ -85,5 +85,6 @@ You can enable and configure Log Analytics to investigate device events and acti
 
 ## Next steps
 
-- Review and customize Security Module for Azure RTOS [security alerts and recommendations](concept-rtos-security-alerts-recommendations.md)
-- Refer to the [Security Module for Azure RTOS API](azure-rtos-security-module-api.md) as needed.
+
+- Review and customize Defender-IoT-micro-agent for Azure RTOS [security alerts and recommendations](concept-rtos-security-alerts-recommendations.md)
+- Refer to the [Defender-IoT-micro-agent for Azure RTOS API](azure-rtos-security-module-api.md) as needed.

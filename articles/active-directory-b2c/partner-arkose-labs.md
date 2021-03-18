@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Configure Arkose Labs with Azure Active Directory B2C
 
-In this tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [Arkose Labs](https://www.arkoselabs.com/). Arkose Labs help organizations against bot attacks, account takeover attacks, and fraudulent account openings.  
+In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [Arkose Labs](https://www.arkoselabs.com/). Arkose Labs help organizations against bot attacks, account takeover attacks, and fraudulent account openings.  
 
 ## Prerequisites
 
@@ -193,7 +193,7 @@ See [this article](https://docs.microsoft.com/azure/azure-functions/functions-de
 [Create an API connector](https://docs.microsoft.com/azure/active-directory-b2c/add-api-connector) and enable it for your user flow. 
 Your API connector configuration should look like:
 
-![Image shows search by app id](media/partner-arkose-labs/configure-api-connector.png)
+![Image shows how to configure api connector](media/partner-arkose-labs/configure-api-connector.png)
 
 - **Endpoint URL** - is the Function URL you copied earlier while you deployed Azure Function.
 

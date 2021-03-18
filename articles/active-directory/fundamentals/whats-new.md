@@ -207,7 +207,7 @@ For more information, read [Automate user provisioning to SaaS applications with
  
 10 Azure AD built-in roles have been renamed so that they're aligned across the [Microsoft 365 admin center](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), [Azure AD portal](https://portal.azure.com/), and [Microsoft Graph](https://developer.microsoft.com/graph/). To learn more about the new roles, refer to [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
-![Table of new role names](media/whats-new/roles-table-rbac.png)
+![Table showing role names in MS Graph API and the Azure portal, and the proposed final name across API, Azure portal, and Mac.](media/whats-new/roles-table-rbac.png)
 
 ---
 
@@ -266,20 +266,20 @@ Customers can work around this requirement for testing purposes by using a featu
  
 ---
 
-### Public Preview - Customize and configure Android shared devices for Firstline Workers at scale
+### Public Preview - Customize and configure Android shared devices for Frontline Workers at scale
 
 **Type:** New feature  
 **Service category:** Device Registration and Management  
 **Product capability:** Identity Security & Protection
  
-Azure AD and Microsoft Endpoint Manager teams have combined to bring the capability to customize, scale, and secure your Firstline Worker devices.
+Azure AD and Microsoft Endpoint Manager teams have combined to bring the capability to customize, scale, and secure your Frontline Worker devices.
 
 The following preview capabilities will allow you to:
 - Provision Android shared devices at scale with Microsoft Endpoint Manager
 - Secure your access for shift workers using device-based conditional access
 - Customize sign-in experiences for the shift workers with Managed Home Screen
 
-To learn more, refer to [Customize and configure shared devices for Firstline Workers at scale](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
+To learn more, refer to [Customize and configure shared devices for Frontline Workers at scale](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
 
 ---
 
@@ -967,7 +967,7 @@ You can now allow application owners to monitor activity by the provisioning ser
  
 Some Azure Active Directory (AD) built-in roles have names that differ from those that appear in Microsoft 365 admin center, the Azure AD portal, and Microsoft Graph. This inconsistency can cause problems in automated processes. With this update, we're renaming 10 role names to make them consistent. The following table has the new role names:
 
-![Table of new role names](media/whats-new/azure-role.png)
+![Table showing role names in MS Graph API and the Azure portal, and the proposed new role name in M365 Admin Center, Azure portal, and API.](media/whats-new/azure-role.png)
 
 ---
 

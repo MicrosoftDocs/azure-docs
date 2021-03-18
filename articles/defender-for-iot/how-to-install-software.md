@@ -37,7 +37,7 @@ The Defender for IoT appliance sensor connects to a SPAN port or network TAP and
 
 The following rack mount appliances are available:
 
-| **Deployment type** | **Corporate** | **Enterprise** | **SMB** |  |
+| **Deployment type** | **Corporate** | **Enterprise** | **SMB** | **Line** |
 |--|--|--|--|--|
 | **Model** | HPE ProLiant DL360 | Dell PowerEdge R340 XL | HPE ProLiant DL20 | HPE ProLiant DL20 |
 | **Monitoring ports** | up to 15 RJ45 or 8 OPT | up to 9 RJ45 or 6 OPT | up to 8 RJ45 or 6 OPT | 4 RJ45 |
@@ -79,7 +79,7 @@ To access the file:
 
 1. Sign in to your Defender for IoT account.
 
-2. Go to the **Network sensor** or **On-premises management console** page and select a version to download.
+1. Go to the **Network sensor** or **On-premises management console** page and select a version to download.
 
 ### Install from DVD
 
@@ -111,9 +111,9 @@ To prepare a disk on a key:
 
 1. Run Rufus and select **SENSOR ISO**.
 
-2. Connect the disk on a key to the front panel.
+1. Connect the disk on a key to the front panel.
 
-3. Set the BIOS of the server to boot from the USB.
+1. Set the BIOS of the server to boot from the USB.
 
 ## Dell PowerEdgeR340XL installation
 
@@ -144,27 +144,27 @@ To install the Dell PowerEdge R340XL appliance, you need:
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-front-panel.jpg" alt-text="Dell PowerEdge R340 front panel.":::
 
  1. Left control panel 
- 2. Optical drive (optional) 
- 3. Right control panel 
- 4. Information tag 
- 5. Drives  
+ 1. Optical drive (optional) 
+ 1. Right control panel 
+ 1. Information tag 
+ 1. Drives  
 
 ### Dell PowerEdge R340 back panel
 
 :::image type="content" source="media/tutorial-install-components/view-of-dell-poweredge-r340-back-panel.jpg" alt-text="Dell PowerEdge R340 back panel.":::
 
 1. Serial port 
-2. NIC port (Gb 1) 
-3. NIC port (Gb 1) 
-4. Half-height PCIe 
-5. Full-height PCIe expansion card slot 
-6. Power supply unit 1 
-7. Power supply unit 2 
-8. System identification 
-9. System status indicator cable port (CMA) button 
-10. USB 3.0 port (2) 
-11. iDRAC9 dedicated network port 
-12. VGA port 
+1. NIC port (Gb 1) 
+1. NIC port (Gb 1) 
+1. Half-height PCIe 
+1. Full-height PCIe expansion card slot 
+1. Power supply unit 1 
+1. Power supply unit 2 
+1. System identification 
+1. System status indicator cable port (CMA) button 
+1. USB 3.0 port (2) 
+1. iDRAC9 dedicated network port 
+1. VGA port 
 
 ### Dell BIOS configuration
 
@@ -184,28 +184,28 @@ To configure Dell BIOS:
 
 1. [Configure the iDRAC IP address](#configure-idrac-ip-address)
 
-2. [Import the BIOS configuration file](#import-the-bios-configuration-file)
+1. [Import the BIOS configuration file](#import-the-bios-configuration-file)
 
 #### Configure iDRAC IP address
 
 1. Power up the sensor.
 
-2. If the OS is already installed, select the F2 key to enter the BIOS configuration.
+1. If the OS is already installed, select the F2 key to enter the BIOS configuration.
 
-3. Select **iDRAC Settings**.
+1. Select **iDRAC Settings**.
 
-4. Select **Network**.
+1. Select **Network**.
 
    > [!NOTE]
    > During the installation, you must configure the default iDRAC IP address and password mentioned in the following steps. After the installation, you change these definitions.
 
-5. Change the static IPv4 address to **10.100.100.250**.
+1. Change the static IPv4 address to **10.100.100.250**.
 
-6. Change the static subnet mask to **255.255.255.0**.
+1. Change the static subnet mask to **255.255.255.0**.
 
    :::image type="content" source="media/tutorial-install-components/idrac-network-settings-screen-v2.png" alt-text="Screenshot that shows the static subnet mask.":::
 
-7. Select **Back** > **Finish**.
+1. Select **Back** > **Finish**.
 
 #### Import the BIOS configuration file
 
@@ -215,15 +215,15 @@ This article describes how to configure the BIOS by using the configuration file
 
    :::image type="content" source="media/tutorial-install-components/idrac-port.png" alt-text="Screenshot of the preconfigured IP address port.":::
 
-2. Open a browser and enter **10.100.100.250** to connect to iDRAC web interface.
+1. Open a browser and enter **10.100.100.250** to connect to iDRAC web interface.
 
-3. Sign in with Dell default administrator privileges:
+1. Sign in with Dell default administrator privileges:
 
    - Username: **root**
 
    - Password: **calvin**
 
-4. The appliance's credentials are:
+1. The appliance's credentials are:
 
    - Username: **XXX**
 
@@ -236,7 +236,7 @@ This article describes how to configure the BIOS by using the configuration file
      > - You're the only user who is currently connected to iDRAC.
      > - The system is not in the BIOS menu.
 
-5. Go to **Configuration** > **Server Configuration Profile**. Set the following parameters:
+1. Go to **Configuration** > **Server Configuration Profile**. Set the following parameters:
 
    :::image type="content" source="media/tutorial-install-components/configuration-screen.png" alt-text="Screenshot that shows the configuration of your server profile.":::
 
@@ -247,9 +247,9 @@ This article describes how to configure the BIOS by using the configuration file
    | Import Components | Select **BIOS, NIC, RAID**. |
    | Maximum wait time | Select **20 minutes**. |
 
-6. Select **Import**.
+1. Select **Import**.
 
-7. To monitor the process, go to **Maintenance** > **Job Queue**.
+1. To monitor the process, go to **Maintenance** > **Job Queue**.
 
    :::image type="content" source="media/tutorial-install-components/view-the-job-queue.png" alt-text="Screenshot that shows Job Queue.":::
 
@@ -271,33 +271,33 @@ To manually configure:
 
    - If the appliance is a Defender for IoT appliance, sign in by using **XXX** for the username and **XXX** for the password.
 
-2. After you access the BIOS, go to **Device Settings**.
+1. After you access the BIOS, go to **Device Settings**.
 
-3. Choose the RAID-controlled configuration by selecting **Integrated RAID controller 1: Dell PERC\<PERC H330 Adapter\> Configuration Utility**.
+1. Choose the RAID-controlled configuration by selecting **Integrated RAID controller 1: Dell PERC\<PERC H330 Adapter\> Configuration Utility**.
 
-4. Select **Configuration Management**.
+1. Select **Configuration Management**.
 
-5. Select **Create Virtual Disk**.
+1. Select **Create Virtual Disk**.
 
-6. In the **Select RAID Level** field, select **RAID5**. In the **Virtual Disk Name** field, enter **ROOT** and select **Physical Disks**.
+1. In the **Select RAID Level** field, select **RAID5**. In the **Virtual Disk Name** field, enter **ROOT** and select **Physical Disks**.
 
-7. Select **Check All** and then select **Apply Changes**
+1. Select **Check All** and then select **Apply Changes**
 
-8. Select **Ok**.
+1. Select **Ok**.
 
-9. Scroll down and select **Create Virtual Disk**.
+1. Scroll down and select **Create Virtual Disk**.
 
-10. Select the **Confirm** check box and select **Yes**.
+1. Select the **Confirm** check box and select **Yes**.
 
-11. Select **OK**.
+1. Select **OK**.
 
-12. Return to the main screen and select **System BIOS**.
+1. Return to the main screen and select **System BIOS**.
 
-13. Select **Boot Settings**.
+1. Select **Boot Settings**.
 
-14. For the **Boot Mode** option, select **BIOS**.
+1. For the **Boot Mode** option, select **BIOS**.
 
-15. Select **Back**, and then select **Finish** to exit the BIOS settings.
+1. Select **Back**, and then select **Finish** to exit the BIOS settings.
 
 ### Software installation (Dell R340)
 
@@ -311,25 +311,25 @@ To install:
 
    - Mount the ISO image by using iDRAC. After signing in to iDRAC, select the virtual console, and then select **Virtual Media**.
 
-2. In the **Map CD/DVD** section, select **Choose File**.
+1. In the **Map CD/DVD** section, select **Choose File**.
 
-3. Choose the version ISO image file for this version from the dialog box that opens.
+1. Choose the version ISO image file for this version from the dialog box that opens.
 
-4. Select the **Map Device** button.
+1. Select the **Map Device** button.
 
    :::image type="content" source="media/tutorial-install-components/mapped-device-on-virtual-media-screen-v2.png" alt-text="Screenshot that shows a mapped device.":::
 
-5. The media is mounted. Select **Close**.
+1. The media is mounted. Select **Close**.
 
-6. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Consul Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which will start the Ctrl+Alt+Delete sequence.
+1. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Consul Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which will start the Ctrl+Alt+Delete sequence.
 
-7. Select **English**.
+1. Select **English**.
 
-8. Select **SENSOR-RELEASE-\<version\> Enterprise**.
+1. Select **SENSOR-RELEASE-\<version\> Enterprise**.
 
    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows version selection.":::   
 
-9. Define the appliance profile and network properties:
+1. Define the appliance profile and network properties:
 
    :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile.":::   
 
@@ -343,13 +343,13 @@ To install:
    | **appliance hostname:** | - |
    | **DNS:** | - |
    | **default gateway IP address:** | - |
-   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator. Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
+   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator. You do not have to configure the bridge interface. This option is used for special use cases only. |
 
-10. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.  
+1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.  
 
-11. Save the appliance ID and passwords. You'll need these credentials to access the platform the first time you use it.
+1. Save the appliance ID and passwords. You'll need these credentials to access the platform the first time you use it.
 
-12. Select **Enter** to continue.
+1. Select **Enter** to continue.
 
 ## HPE ProLiant DL20 installation
 
@@ -384,7 +384,7 @@ To enable and update the password:
 
     :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen-v2.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
 
-2. Go to **System Utilities** > **System Configuration** > **iLO 5 Configuration Utility** > **Network Options**.
+1. Go to **System Utilities** > **System Configuration** > **iLO 5 Configuration Utility** > **Network Options**.
 
     :::image type="content" source="media/tutorial-install-components/system-configuration-window-v2.png" alt-text="Screenshot that shows the System Configuration window.":::
 
@@ -394,13 +394,13 @@ To enable and update the password:
     
     1.  Enter the IP address, subnet mask, and gateway IP address.
 
-3. Select **F10: Save**.
+1. Select **F10: Save**.
 
-4. Select **Esc** to get back to the **iLO 5 Configuration Utility**, and then select **User Management**.
+1. Select **Esc** to get back to the **iLO 5 Configuration Utility**, and then select **User Management**.
 
-5. Select **Edit/Remove User**. The administrator is the only default user defined. 
+1. Select **Edit/Remove User**. The administrator is the only default user defined. 
 
-6. Change the default password and select **F10: Save**.
+1. Change the default password and select **F10: Save**.
 
 ### Configure the HPE BIOS
 
@@ -410,41 +410,41 @@ To configure the HPE BIOS:
 
 1. Select **System Utilities** > **System Configuration** > **BIOS/Platform Configuration (RBSU)**.
 
-2. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
+1. In the **BIOS/Platform Configuration (RBSU)** form, select **Boot Options**.
 
-3. Change **Boot Mode** to **Legacy BIOS Mode**, and then select **F10: Save**.
+1. Change **Boot Mode** to **Legacy BIOS Mode**, and then select **F10: Save**.
 
-4. Select **Esc** twice to close the **System Configuration** form.
+1. Select **Esc** twice to close the **System Configuration** form.
 
 #### For the enterprise appliance
 
 1. Select **Embedded RAID 1: HPE Smart Array P408i-a SR Gen 10** > **Array Configuration** > **Create Array**.
 
-2. In the **Create Array** form, select all the options. Three options are available for the **Enterprise** appliance.
+1. In the **Create Array** form, select all the options. Three options are available for the **Enterprise** appliance.
 
 #### For the SMB appliance
 
 1. Select **Embedded RAID 1: HPE Smart Array P208i-a SR Gen 10** > **Array Configuration** > **Create Array**.
 
-2. Select **Proceed to Next Form**.
+1. Select **Proceed to Next Form**.
 
-3. In the **Set RAID Level** form, set the level to **RAID 5** for enterprise deployments and **RAID 1** for SMB deployments.
+1. In the **Set RAID Level** form, set the level to **RAID 5** for enterprise deployments and **RAID 1** for SMB deployments.
 
-4. Select **Proceed to Next Form**.
+1. Select **Proceed to Next Form**.
 
-5. In the **Logical Drive Label** form, enter **Logical Drive 1**.
+1. In the **Logical Drive Label** form, enter **Logical Drive 1**.
 
-6. Select **Submit Changes**.
+1. Select **Submit Changes**.
 
-7. In the **Submit** form, select **Back to Main Menu**.
+1. In the **Submit** form, select **Back to Main Menu**.
 
-8. Select **F10: Save** and then press **Esc** twice.
+1. Select **F10: Save** and then press **Esc** twice.
 
-9. In the **System Utilities** window, select **One-Time Boot Menu**.
+1. In the **System Utilities** window, select **One-Time Boot Menu**.
 
-10. In the **One-Time Boot Menu** form, select **Legacy BIOS One-Time Boot Menu**.
+1. In the **One-Time Boot Menu** form, select **Legacy BIOS One-Time Boot Menu**.
 
-11. The **Booting in Legacy** and **Boot Override** windows appear. Choose a boot override option; for example, to a CD-ROM, USB, HDD, or UEFI shell.
+1. The **Booting in Legacy** and **Boot Override** windows appear. Choose a boot override option; for example, to a CD-ROM, USB, HDD, or UEFI shell.
 
     :::image type="content" source="media/tutorial-install-components/boot-override-window-one-v2.png" alt-text="Screenshot that shows the first Boot Override window.":::
 
@@ -457,19 +457,19 @@ To install the software:
 
 1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
 
-2. Connect an external CD or disk on the key with the ISO image that you downloaded from the **Updates** page in the Defender for IoT portal.
+1. Connect an external CD or disk on the key with the ISO image that you downloaded from the **Updates** page in the Defender for IoT portal.
 
-3. Start the appliance.
+1. Start the appliance.
 
-4. Select **English**.
+1. Select **English**.
 
     :::image type="content" source="media/tutorial-install-components/select-english-screen.png" alt-text="Selection of English in the CLI window.":::
 
-5. Select **SENSOR-RELEASE-<version> Enterprise**.
+1. Select **SENSOR-RELEASE-<version> Enterprise**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot of the screen for selecting a version.":::
 
-6. In the Installation Wizard, define the appliance profile and network properties:
+1. In the Installation Wizard, define the appliance profile and network properties:
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -480,11 +480,11 @@ To install the software:
     | **Default network parameters (usually the parameters are provided by the customer)** | **management network IP address:** <br/> <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
     | **input interfaces:** | The system generates the list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator: **eno5, eno3, eno1, eno6, eno4**<br/><br/>**For HPE DL20: Do not list eno1, enp1s0f4u4 (iLo interfaces)**<br/><br/>**BRIDGE**: There's no need to configure the bridge interface. This option is used for special use cases only. Press **Enter** to continue. |
 
-7. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
+1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
 
-8. Save the appliance's ID and passwords. You'll need the credentials to access the platform for the first time.
+1. Save the appliance's ID and passwords. You'll need the credentials to access the platform for the first time.
 
-9. Select **Enter** to continue.
+1. Select **Enter** to continue.
 
 ## HPE ProLiant DL360 installation
 
@@ -523,17 +523,17 @@ To install:
 
 1. Sign in to the iLO console, and then right-click the servers' screen.
 
-2. Select **HTML5 Console**.
+1. Select **HTML5 Console**.
 
-3. In the console, select the CD icon, and choose the CD/DVD option.
+1. In the console, select the CD icon, and choose the CD/DVD option.
 
-4. Select **Local ISO file**.
+1. Select **Local ISO file**.
 
-5. In the dialog box, choose the relevant ISO file.
+1. In the dialog box, choose the relevant ISO file.
 
-6. Go to the left icon, select **Power**, and the select **Reset**.
+1. Go to the left icon, select **Power**, and the select **Reset**.
 
-7. The appliance will restart and run the sensor installation process.
+1. The appliance will restart and run the sensor installation process.
 
 ### Software installation (HPE DL360)
 
@@ -543,17 +543,17 @@ To install:
 
 1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
 
-2. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page in the Defender for IoT portal.
+1. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page in the Defender for IoT portal.
 
-3. Start the appliance.
+1. Start the appliance.
 
-4. Select **English**.
+1. Select **English**.
 
-5. Select **SENSOR-RELEASE-<version> Enterprise**.
+1. Select **SENSOR-RELEASE-<version> Enterprise**.
 
     :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows selecting the version.":::
 
-6. In the Installation Wizard, define the appliance profile and network properties.
+1. In the Installation Wizard, define the appliance profile and network properties.
 
     :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
 
@@ -562,13 +562,13 @@ To install:
     | **Hardware profile** | Select **corporate**. |
     | **Management interface** | **eno2** |
     | **Default network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
-    | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/>Note that there's no need to configure the bridge interface. This option is used for special use cases only. |
+    | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/> You do not need to configure the bridge interface. This option is used for special use cases only. |
 
-7. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **support** user.
+1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **support** user.
 
-8. Save the appliance's ID and passwords. You'll need these credentials to access the platform for the first time.
+1. Save the appliance's ID and passwords. You'll need these credentials to access the platform for the first time.
 
-9. Select **Enter** to continue.
+1. Select **Enter** to continue.
 
 ## Sensor installation for the virtual appliance
 
@@ -597,13 +597,13 @@ Make sure the hypervisor is running.
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
-2. **Upload** the image and select **Close**.
+1. **Upload** the image and select **Close**.
 
-3. Go to **Virtual Machines**, and then select **Create/Register VM**.
+1. Go to **Virtual Machines**, and then select **Create/Register VM**.
 
-4. Select **Create new virtual machine**, and then select **Next**.
+1. Select **Create new virtual machine**, and then select **Next**.
 
-5. Add a sensor name and choose:
+1. Add a sensor name and choose:
 
    - Compatibility: **&lt;latest ESXi version&gt;**
 
@@ -611,15 +611,15 @@ Make sure the hypervisor is running.
 
    - Guest OS version: **Ubuntu Linux (64-bit)**
 
-6. Select **Next**.
+1. Select **Next**.
 
-7. Choose the relevant datastore and select **Next**.
+1. Choose the relevant datastore and select **Next**.
 
-8. Change the virtual hardware parameters according to the required architecture.
+1. Change the virtual hardware parameters according to the required architecture.
 
-9. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
+1. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
 
-10. Select **Next** > **Finish**.
+1. Select **Next** > **Finish**.
 
 ### Create the virtual machine (Hyper-V)
 
@@ -629,43 +629,43 @@ To create a virtual machine:
 
 1. Create a virtual disk in Hyper-V Manager.
 
-2. Select **format = VHDX**.
+1. Select **format = VHDX**.
 
-3. Select **type = Dynamic Expanding**.
+1. Select **type = Dynamic Expanding**.
 
-4. Enter the name and location for the VHD.
+1. Enter the name and location for the VHD.
 
-5. Enter the required size (according to the architecture).   
+1. Enter the required size (according to the architecture).   
 
-6. Review the summary and select **Finish**.
+1. Review the summary and select **Finish**.
 
-7. On the **Actions** menu, create a new virtual machine.
+1. On the **Actions** menu, create a new virtual machine.
 
-8. Enter a name for the virtual machine.
+1. Enter a name for the virtual machine.
 
-9. Select **Specify Generation** > **Generation 1**.
+1. Select **Specify Generation** > **Generation 1**.
 
-10. Specify the memory allocation (according to the architecture) and select the check box for dynamic memory.
+1. Specify the memory allocation (according to the architecture) and select the check box for dynamic memory.
 
-11. Configure the network adaptor according to your server network topology.
+1. Configure the network adaptor according to your server network topology.
 
-12. Connect the VHDX created previously to the virtual machine.
+1. Connect the VHDX created previously to the virtual machine.
 
-13. Review the summary and select **Finish**.
+1. Review the summary and select **Finish**.
 
-14. Right-click the new virtual machine and select **Settings**.
+1. Right-click the new virtual machine and select **Settings**.
 
-15. Select **Add Hardware** and add a new network adapter.
+1. Select **Add Hardware** and add a new network adapter.
 
-16. Select the virtual switch that will connect to the sensor management network.
+1. Select the virtual switch that will connect to the sensor management network.
 
-17. Allocate CPU resources (according to the architecture).
+1. Allocate CPU resources (according to the architecture).
 
-18. Connect the management console's ISO image to a virtual DVD drive.
+1. Connect the management console's ISO image to a virtual DVD drive.
 
-19. Start the virtual machine.
+1. Start the virtual machine.
 
-20. On the **Actions** menu, select **Connect** to continue the software installation.
+2. On the **Actions** menu, select **Connect** to continue the software installation.
 
 ### Software installation (ESXi and Hyper-V)
 
@@ -675,11 +675,11 @@ To install:
 
 1. Open the virtual machine console.
 
-2. The VM will start from the ISO image, and the language selection screen will appear. Select **English**.
+1. The VM will start from the ISO image, and the language selection screen will appear. Select **English**.
 
-3. Select the required architecture.
+1. Select the required architecture.
 
-4. Define the appliance profile and network properties:
+1. Define the appliance profile and network properties:
 
     | Parameter | Configuration |
     | ----------| ------------- |
@@ -688,17 +688,17 @@ To install:
     | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
     | **bridge interfaces:** | There's no need to configure the bridge interface. This option is for special use cases only. |
 
-5. Enter **Y** to accept the settings.
+1. Enter **Y** to accept the settings.
 
-6. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required for sign-in and administration.
+1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required for sign-in and administration.
 
-   - **Support**: The administrative user for user management.
+      - **Support**: The administrative user for user management.
 
-   - **CyberX**: The equivalent of root for accessing the appliance.
+      - **CyberX**: The equivalent of root for accessing the appliance.
 
-7. The appliance restarts.
+1. The appliance restarts.
 
-8. Access the management console via the IP address previously configured: `https://ip_address`.
+1. Access the management console via the IP address previously configured: `https://ip_address`.
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to the management console.":::
 
@@ -730,15 +730,15 @@ To a create virtual machine (ESXi):
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
-2. Upload the image and select **Close**.
+1. Upload the image and select **Close**.
 
-3. Go to **Virtual Machines**.
+1. Go to **Virtual Machines**.
 
-4. Select **Create/Register VM**.
+1. Select **Create/Register VM**.
 
-5. Select **Create new virtual machine** and select **Next**.
+1. Select **Create new virtual machine** and select **Next**.
 
-6. Add a sensor name and choose:
+1. Add a sensor name and choose:
 
    - Compatibility: \<latest ESXi version>
 
@@ -746,15 +746,15 @@ To a create virtual machine (ESXi):
 
    - Guest OS version: Ubuntu Linux (64-bit)
 
-7. Select **Next**.
+1. Select **Next**.
 
-8. Choose relevant datastore and select **Next**.
+1. Choose relevant datastore and select **Next**.
 
-9. Change the virtual hardware parameters according to the required architecture.
+1. Change the virtual hardware parameters according to the required architecture.
 
-10. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
+1. For **CD/DVD Drive 1**, select **Datastore ISO file** and choose the ISO file that you uploaded earlier.
 
-11. Select **Next** > **Finish**.
+1. Select **Next** > **Finish**.
 
 ### Create the virtual machine (Hyper-V)
 
@@ -762,91 +762,104 @@ To create a virtual machine by using Hyper-V:
 
 1. Create a virtual disk in Hyper-V Manager.
 
-2. Select the format **VHDX**.
+1. Select the format **VHDX**.
 
-3. Select **Next**.
+1. Select **Next**.
 
-4. Select the type **Dynamic expanding**.
+1. Select the type **Dynamic expanding**.
 
-5. Select **Next**.
+1. Select **Next**.
 
-6. Enter the name and location for the VHD.
+1. Enter the name and location for the VHD.
 
-7. Select **Next**.
+1. Select **Next**.
 
-8. Enter the required size (according to the architecture).
+1. Enter the required size (according to the architecture).
 
-9. Select **Next**.
+1. Select **Next**.
 
-10. Review the summary and select **Finish**.
+1. Review the summary and select **Finish**.
 
-11. On the **Actions** menu, create a new virtual machine.
+1. On the **Actions** menu, create a new virtual machine.
 
-12. Select **Next**.
+1. Select **Next**.
 
-13. Enter a name for the virtual machine.
+1. Enter a name for the virtual machine.
 
-14. Select **Next**.
+1. Select **Next**.
 
-15. Select **Generation** and set it to **Generation 1**.
+1. Select **Generation** and set it to **Generation 1**.
 
-16. Select **Next**.
+1. Select **Next**.
 
-17. Specify the memory allocation (according to the architecture) and select the check box for dynamic memory.
+1. Specify the memory allocation (according to the architecture) and select the check box for dynamic memory.
 
-18. Select **Next**.
+1. Select **Next**.
 
-19. Configure the network adaptor according to your server network topology.
+1. Configure the network adaptor according to your server network topology.
 
-20. Select **Next**.
+1. Select **Next**.
 
-21. Connect the VHDX created previously to the virtual machine.
+1. Connect the VHDX created previously to the virtual machine.
 
-22. Select **Next**.
+1. Select **Next**.
 
-23. Review the summary and select **Finish**.
+1. Review the summary and select **Finish**.
 
-24. Right-click the new virtual machine, and then select **Settings**.
+1. Right-click the new virtual machine, and then select **Settings**.
 
-25. Select **Add Hardware** and add a new adapter for **Network Adapter**.
+1. Select **Add Hardware** and add a new adapter for **Network Adapter**.
 
-26. For **Virtual Switch**, select the switch that will connect to the sensor management network.
+1. For **Virtual Switch**, select the switch that will connect to the sensor management network.
 
-27. Allocate CPU resources (according to the architecture).
+1. Allocate CPU resources (according to the architecture).
 
-28. Connect the management console's ISO image to a virtual DVD drive.
+1. Connect the management console's ISO image to a virtual DVD drive.
 
-29. Start the virtual machine.
+1. Start the virtual machine.
 
-30. On the **Actions** menu, select **Connect** to continue the software installation.
+1. On the **Actions** menu, select **Connect** to continue the software installation.
 
 ### Software installation (ESXi and Hyper-V)
 
-Starting the virtual machine will start the installation process from the ISO image.
+Starting the virtual machine will start the installation process from the ISO image. To enhance security, you can create a second network interface on your on-premises management console. One network interface is dedicated for your users, and can support the configuration of a gateway for routed networks. The second network interface is dedicated to the all attached sensors within an IP address range.
+
+Both network interfaces have the user interface (UI) enabled, and all of the features that are supported by the UI will be available on the secondary network interface when routing in not needed. High Availability will run on the secondary network interface.
+
+If you choose not to deploy a secondary network interface, all of the features will be available through the primary network interface. 
 
 To install the software:
 
 1. Select **English**.
 
-2. Select the required architecture for your deployment.
+1. Select the required architecture for your deployment.
 
-3. Define the network interface for the sensor management network: interface, IP, subnet, DNS server, and default gateway.
+1. Define the network interface for the sensor management network: interface, IP, subnet, DNS server, and default gateway.
 
-4. Sign-in credentials are automatically generated and presented. Keep these credentials in a safe place, because they're required for sign-in and administration.
+1. (Optional) Add a second network interface to your on-premises management console.
 
-  - **Support**: The administrative user for user management.
+    1. `Please type sensor monitoring interface (Optional. Applicable when sensors are on a different network segment. For more information see the Installation instructions): <name of interface>`
+    
+    1. `Please type an IP address for the sensor monitoring interface (accessible by the sensors): <ip address>`
+    
+    1. `Please type a subnet mask for the sensor monitoring interface (accessible by the sensors): <subnet>`
 
-  - **CyberX**: The equivalent of root for accessing the appliance.
+1. Sign-in credentials are automatically generated and presented. Keep these credentials in a safe place, because they're required for sign-in and administration.
 
-5. The appliance restarts.
+    | Username | Description |
+    |--|--|
+    | Support | The administrative user for user management. |
+    | CyberX | The equivalent of root for accessing the appliance. |
 
-6. Access the management console via the IP address previously configured: `<https://ip_address>`.
+1. The appliance restarts.
+
+1. Access the management console via the IP address previously configured: `<https://ip_address>`.
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-management-console-sign-in-screen.png" alt-text="Screenshot that shows the management console's sign-in screen.":::
 
 ## Post-installation validation
 
-To validate the installation of a physical appliance, you need to perform a number of tests. The same validation process applies to all the appliance types.
+To validate the installation of a physical appliance, you need to perform many tests. The same validation process applies to all the appliance types.
 
 Perform the validation by using the GUI or the CLI. The validation is available to the user **Support** and the user **CyberX**.
 
@@ -894,7 +907,7 @@ Post-installation validation must include the following tests:
   - The size of the backup folder
   - The limitations of the backup folder
   - When the last backup happened
-  - How much space there is for the additional backup files
+  - How much space there is for the extra backup files
 
 - **ifconfig**: Displays the parameters for the appliance's physical interfaces.
 
@@ -906,7 +919,7 @@ To access the tool:
 
 1. Sign in to the sensor with the **Support** user credentials.
 
-2. Select **System Statistics** from the **System Settings** window.
+1. Select **System Statistics** from the **System Settings** window.
 
     :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
@@ -918,13 +931,13 @@ Verify that the system is up and running:
 
 1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
-2. Enter `system sanity`.
+1. Enter `system sanity`.
 
-3. Check that all the services are green (running).
+1. Check that all the services are green (running).
 
     :::image type="content" source="media/tutorial-install-components/support-screen.png" alt-text="Screenshot that shows running services.":::
 
-4. Verify that **System is UP! (prod)** appears at the bottom.
+1. Verify that **System is UP! (prod)** appears at the bottom.
 
 **Test 2: Version check**
 
@@ -932,9 +945,9 @@ Verify that the correct version is used:
 
 1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
-2. Enter `system version`.
+1. Enter `system version`.
 
-3. Check that the correct version appears.
+1. Check that the correct version appears.
 
 **Test 3: Network validation**
 
@@ -942,9 +955,9 @@ Verify that all the input interfaces configured during the installation process 
 
 1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user **Support**.
 
-2. Enter `network list` (the equivalent of the Linux command `ifconfig`).
+1. Enter `network list` (the equivalent of the Linux command `ifconfig`).
 
-3. Validate that the required input interfaces appear. For example, if two quad Copper NICs are installed, there should be 10 interfaces in the list.
+1. Validate that the required input interfaces appear. For example, if two quad Copper NICs are installed, there should be 10 interfaces in the list.
 
     :::image type="content" source="media/tutorial-install-components/interface-list-screen.png" alt-text="Screenshot that shows the list of interfaces.":::
 
@@ -954,17 +967,17 @@ Verify that you can access the console web GUI:
 
 1. Connect a laptop with an Ethernet cable to the management port (**Gb1**).
 
-2. Define the laptop NIC address to be in the same range as the appliance.
+1. Define the laptop NIC address to be in the same range as the appliance.
 
     :::image type="content" source="media/tutorial-install-components/access-to-ui.png" alt-text="Screenshot that shows management access to the UI.":::
 
-3. Ping the appliance's IP address from the laptop to verify connectivity (default: 10.100.10.1).
+1. Ping the appliance's IP address from the laptop to verify connectivity (default: 10.100.10.1).
 
-4. Open the Chrome browser in the laptop and enter the appliance's IP address.
+1. Open the Chrome browser in the laptop and enter the appliance's IP address.
 
-5. In the **Your connection is not private** window, select **Advanced** and proceed.
+1. In the **Your connection is not private** window, select **Advanced** and proceed.
 
-6. The test is successful when the Defender for IoT sign-in screen appears.
+1. The test is successful when the Defender for IoT sign-in screen appears.
 
    :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to management console.":::
 
@@ -974,9 +987,9 @@ Verify that you can access the console web GUI:
 
 1. Verify that the computer that you're trying to connect is on the same network as the appliance.
 
-2. Verify that the GUI network is connected to the management port.
+1. Verify that the GUI network is connected to the management port.
 
-3. Ping the appliance's IP address. If there is no ping:
+1. Ping the appliance's IP address. If there is no ping:
 
    1. Connect a monitor and a keyboard to the appliance.
 
@@ -986,7 +999,7 @@ Verify that you can access the console web GUI:
 
       :::image type="content" source="media/tutorial-install-components/network-list.png" alt-text="Screenshot that shows the network list.":::
 
-4. If the network parameters are misconfigured, use the following procedure to change them:
+1. If the network parameters are misconfigured, use the following procedure to change them:
 
    1. Use the command `network edit-settings`.
 
@@ -1002,17 +1015,17 @@ Verify that you can access the console web GUI:
 
    1. To apply the settings, select **Y**.
 
-5. After restart, connect with the support user credentials and use the `network list` command to verify that the parameters were changed.
+1. After restart, connect with the support user credentials and use the `network list` command to verify that the parameters were changed.
 
-6. Try to ping and connect from the GUI again.
+1. Try to ping and connect from the GUI again.
 
 ### The appliance isn't responding
 
 1. Connect a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
 
-2. Use the **Support** user's credentials to sign in.
+1. Use the **Support** user's credentials to sign in.
 
-3. Use the `system sanity` command and check that all processes are running.
+1. Use the `system sanity` command and check that all processes are running.
 
     :::image type="content" source="media/tutorial-install-components/system-sanity-screen.png" alt-text="Screenshot that shows the system sanity command.":::
 
@@ -1022,33 +1035,33 @@ For any other issues, contact [Microsoft Support](https://support.microsoft.com/
 
 ### Configure a SPAN port on an existing vSwitch
 
-A vSwitch does not have mirroring capabilities, but you can use a simple workaround to implement a SPAN port.
+A vSwitch does not have mirroring capabilities, but you can use a workaround to implement a SPAN port.
 
 To configure a SPAN port:
 
 1. Open vSwitch properties.
 
-2. Select **Add**.
+1. Select **Add**.
 
-3. Select **Virtual Machine** > **Next**.
+1. Select **Virtual Machine** > **Next**.
 
-4. Insert a network label **SPAN Network**, select **VLAN ID** > **All**, and then select **Next**.
+1. Insert a network label **SPAN Network**, select **VLAN ID** > **All**, and then select **Next**.
 
-5. Select **Finish**.
+1. Select **Finish**.
 
-6. Select **SPAN Network** > **Edit*.
+1. Select **SPAN Network** > **Edit*.
 
-7. Select **Security**, and verify that the **Promiscuous Mode** policy is set to **Accept** mode.
+1. Select **Security**, and verify that the **Promiscuous Mode** policy is set to **Accept** mode.
 
-8. Select **OK**, and then select **Close** to close the vSwitch properties.
+1. Select **OK**, and then select **Close** to close the vSwitch properties.
 
-9. Open the **XSense VM** properties.
+1. Open the **XSense VM** properties.
 
-10. For **Network Adapter 2**, select the **SPAN** network.
+1. For **Network Adapter 2**, select the **SPAN** network.
 
-11. Select **OK**.
+1. Select **OK**.
 
-12. Connect to the sensor and verify that mirroring works.
+1. Connect to the sensor and verify that mirroring works.
 
 ## Appendix B: Access sensors from the on-premises management console
 
@@ -1060,11 +1073,11 @@ To enable tunneling:
 
 1. Sign in to the on-premises management console's CLI with **CyberX** or **Support** user credentials.
 
-2. Enter `sudo cyberx-management-tunnel-enable`.
+1. Enter `sudo cyberx-management-tunnel-enable`.
 
-3. Select **Enter**.
+1. Select **Enter**.
 
-4. Enter `--port 10000`.
+1. Enter `--port 10000`.
 
 ### Next steps
 

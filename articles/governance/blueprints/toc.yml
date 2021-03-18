@@ -72,7 +72,10 @@
     - name: Steps to deploy
       displayName: standards, canada, federal, pbmm
       href: ./samples/canada-federal-pbmm/deploy.md
-  - name: CIS Microsoft Azure Foundations Benchmark
+  - name: CIS Microsoft Azure Foundations Benchmark v1.3.0
+    displayName: standards, cis
+    href: ./samples/cis-azure-1-3-0.md
+  - name: CIS Microsoft Azure Foundations Benchmark v1.1.0
     displayName: standards, cis
     href: ./samples/cis-azure-1-1-0.md
   - name: DoD Impact Level 4
