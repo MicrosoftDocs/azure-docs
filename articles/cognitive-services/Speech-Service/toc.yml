@@ -14,8 +14,6 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Quotas and limits
     href: speech-services-quotas-and-limits.md
-  - name: What's new in docs? 
-    href: whats-new.md
 - name: Speech-to-text
   items:
     - name: Speech-to-text documentation
@@ -37,7 +35,7 @@
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
-        - name: Migrate from v2.0 to v3.0 
+        - name: Migrate from v2.0 to v3.0
           href: migrate-v2-to-v3.md
         - name: Assess pronunciation
           href: how-to-pronunciation-assessment.md
@@ -63,6 +61,8 @@
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: Create human-labeled transcriptions
           href: how-to-custom-speech-human-labeled-transcriptions.md
+        - name: Model and Endpoint Lifecycle
+          href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Reference
       items:
         - name: C++
@@ -111,24 +111,14 @@
           href: speech-synthesis-markup.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
+        - name: Get viseme data for lip-sync
+          href: how-to-speech-synthesis-viseme.md
     - name: Customization
       items:
-        - name: Responsible deployment
-          items:
-            - name: Gating of Custom Voice
-              href: concepts-gating-overview.md
-            - name: Deployment of synthetic technology
-              href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Disclosure for voice talent
-              href: /legal/cognitive-services/speech-service/disclosure-voice-talent
-            - name: Disclosure design guidelines
-              href: concepts-disclosure-guidelines.md
-            - name: Disclosure design patterns
-              href: concepts-disclosure-patterns.md
-            - name: Code of conduct
-              href: /legal/cognitive-services/speech-service/tts-code-of-conduct
         - name: Custom Voice portal
           items:
+            - name: What is Custom Neural Voice?
+              href: custom-neural-voice.md
             - name: Get started with Custom Voice
               displayName: 'custom voice, neural voice'
               href: how-to-custom-voice.md
@@ -142,6 +132,32 @@
           items:
             - name: Audio Content Creation
               href: how-to-audio-content-creation.md
+    - name: Responsible use of AI
+      items:
+        - name: Custom Neural Voice
+          items:
+            - name: Transparency Note
+              items:
+                - name: Use cases for Custom Neural Voice
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Characteristics and limitations
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+            - name: Integration and responsible use
+              items:
+                - name: Limited access
+                  href: /legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
+                - name: Responsible deployment of synthetic speech
+                  href: concepts-guidelines-responsible-deployment-synthetic.md
+                - name: Disclosure for voice talent
+                  href: /legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context
+                - name: Disclosure design guidelines
+                  href: concepts-disclosure-guidelines.md
+                - name: Disclosure design patterns
+                  href: concepts-disclosure-patterns.md
+                - name: Code of conduct
+                  href: /legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context
+            - name: Data, privacy and security
+              href: /legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context
     - name: Reference
       items:
         - name: C++
@@ -275,7 +291,7 @@
     - name: Speaker Recognition overview
       href: speaker-recognition-overview.md
     - name: Speaker Recognition quickstart
-      href: get-started-speaker-recognition.md 
+      href: get-started-speaker-recognition.md
     - name: Reference
       items:
         - name: Speaker Recognition REST API
@@ -493,7 +509,7 @@
     - name: Track memory usage
       href: how-to-track-speech-sdk-memory-usage.md
     - name: Enable private endpoint
-      href: speech-services-private-link.md      
+      href: speech-services-private-link.md
     - name: Configure OpenSSL for Linux
       displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
       href: how-to-configure-openssl-linux.md

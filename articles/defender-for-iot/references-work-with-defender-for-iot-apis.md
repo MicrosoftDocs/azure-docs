@@ -51,33 +51,31 @@ To generate a token:
 
 This section describes the following sensor APIs:
 
-- /api/v1/devices
+- [Retrieve device information - /api/v1/devices](#retrieve-device-information---apiv1devices)
 
-- /api/v1/devices/connections
+- [Retrieve device connection information - /api/v1/devices/connections](#retrieve-device-connection-information---apiv1devicesconnections)
 
-- /api/v1/devices/cves
+- [Retrieve information on CVEs - /api/v1/devices/cves](#retrieve-information-on-cves---apiv1devicescves)
 
-- /api/v1/alerts
+- [Retrieve alert information - /api/v1/alerts](#retrieve-alert-information---apiv1alerts)
 
-- /api/v1/events
+- [Retrieve timeline events - /api/v1/events](#retrieve-timeline-events---apiv1events)
 
-- /api/v1/reports/vulnerabilities/devices
+- [Retrieve vulnerability information - /api/v1/reports/vulnerabilities/devices](#retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices)
 
-- /api/v1/reports/vulnerabilities/security
+- [Retrieve security vulnerabilities - /api/v1/reports/vulnerabilities/security](#retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity)
 
-- /api/v1/reports/vulnerabilities/operational
+- [Retrieve operational vulnerabilities - /api/v1/reports/vulnerabilities/operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
 
-- /api/external/authentication/validation
+- [Validate user credentials - /api/external/authentication/validation](#validate-user-credentials---apiexternalauthenticationvalidation)
 
-- /external/authentication/set_password
+- [Change password - /external/authentication/set_password](#change-password---externalauthenticationset_password)
 
-- /external/authentication/set_password_by_admin
+- [User password update by system admin - /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
 
-### Retrieve device information
+### Retrieve device information - /api/v1/devices
 
 Use this API to request a list of all devices that a Defender for IoT sensor has detected.
-
-#### /api/v1/devices
 
 #### Method
 
@@ -274,11 +272,15 @@ Array of JSON objects that represent devices.
 ]
 ```
 
-### Retrieve device connection information
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:<span>//127<span>.0.0.1/api/v1/devices?authorized=true |
+
+### Retrieve device connection information - /api/v1/devices/connections
 
 Use this API to request a list of all the connections per device.
-
-#### /api/v1/devices/connections
 
 #### Method
 
@@ -442,11 +444,17 @@ Array of JSON objects that represent device connections.
 ]
 ```
 
-### Retrieve information on CVEs
+#### Curl command
+
+> [!div class="mx-tdBreakAll"]
+> | Type | APIs | Example |
+> |--|--|--|
+> | GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/connections |
+> | GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000' |
+
+### Retrieve information on CVEs - /api/v1/devices/cves
 
 Use this API to request a list of all known CVEs discovered on devices in the network.
-
-#### /api/v1/devices/cves
 
 #### Method
 
@@ -552,11 +560,16 @@ Array of JSON objects that represent CVEs identified on IP addresses.
 ]
 ```
 
-### Retrieve alert information
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/cves |
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top= | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50 |
+
+### Retrieve alert information - /api/v1/alerts
 
 Use this API to request a list of all the alerts that the Defender for IoT sensor has detected.
-
-#### /api/v1/alerts
 
 #### Method
 
@@ -680,11 +693,16 @@ Array of JSON objects that represent alerts.
 
 ```
 
-### Retrieve timeline events
+#### Curl command
+
+> [!div class="mx-tdBreakAll"]
+> | Type | APIs | Example |
+> |--|--|--|
+> | GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections' |
+
+### Retrieve timeline events - /api/v1/events
 
 Use this API to request a list of events reported to the event timeline.
-
-#### /api/v1/events
 
 #### Method
 
@@ -797,11 +815,15 @@ Array of JSON objects that represent alerts.
 
 ```
 
-### Retrieve vulnerability information
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=&type=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED' |
+
+### Retrieve vulnerability information - /api/v1/reports/vulnerabilities/devices
 
 Use this API to request vulnerability assessment results for each device.
-
-#### /api/v1/reports/vulnerabilities/devices
 
 #### Method
 
@@ -1047,13 +1069,17 @@ The device object contains:
 
 ```
 
-### Retrieve security vulnerabilities
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/devices | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/devices |
+
+### Retrieve security vulnerabilities - /api/v1/reports/vulnerabilities/security
 
 Use this API to request results of a general vulnerability assessment. This assessment provides insight into your system's security level.
 
 This assessment is based on general network and system information and not on a specific device evaluation.
-
-#### /api/v1/reports/vulnerabilities/security
 
 #### Method
 
@@ -1290,11 +1316,15 @@ JSON object that represents assessed results. Each key can be nullable. Otherwis
 
 ```
 
-### Retrieve operational vulnerabilities
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/security | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/security |
+
+### Retrieve operational vulnerabilities - /api/v1/reports/vulnerabilities/operational
 
 Use this API to request results of a general vulnerability assessment. This assessment provides insight into the operational status of your network. It's based on general network and system information and not on a specific device evaluation.
-
-#### /api/v1/reports/vulnerabilities/operational
 
 #### Method
 
@@ -1483,13 +1513,17 @@ JSON object that represents assessed results. Each key contains a JSON array of 
 
 ```
 
-### Validate user credentials
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/v1/reports/vulnerabilities/operational |
+
+### Validate user credentials - /api/external/authentication/validation
 
 Use this API to validate a Defender for IoT username and password. All Defender for IoT user roles can work with the API.
 
 You don't need a Defender for IoT access token to use this API.
-
-#### /api/external/authentication/validation
 
 #### Method
 
@@ -1546,11 +1580,15 @@ response:
 
 ```
 
-### Change password
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authentication/validation | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/api/external/authentication/validation |
+
+### Change password - /external/authentication/set_password
 
 Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### /external/authentication/set_password
 
 #### Method
 
@@ -1616,11 +1654,15 @@ response:
 | **password** | String | No |
 | **new_password** | String | No |
 
-### User password update by system admin
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| POST | curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password | curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password |
+
+### User password update by system admin - /external/authentication/set_password_by_admin
 
 Use this API to let system administrators change passwords for specified users. Defender for IoT administrator user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### /external/authentication/set_password_by_admin
 
 #### Method
 
@@ -1692,6 +1734,13 @@ response:
 | **username** | String | No |
 | **new_password** | String | No |
 
+#### Curl command
+
+> [!div class="mx-tdBreakAll"]
+> | Type | APIs | Example |
+> |--|--|--|
+> | POST | curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/api/external/authentication/set_password_by_admin |
+
 ## On-premises management console API specifications
 
 This section describes the following on-premises management console APIs:
@@ -1721,23 +1770,17 @@ The APIs that you define here appear in the on-premises management console's **A
 
 ```
 
-#### Change password
+#### Change password - /external/authentication/set_password
 
 Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
 
-- **/external/authentication/set_password**
-
-#### User password update by system admin
+#### User password update by system admin - /external/authentication/set_password_by_admin
 
 Use this API to let system administrators change passwords for specific users. Defender for IoT admin user roles can work with the API. You don't need a Defender for IoT access token to use this API.
 
-- **/external/authentication/set_password_by_admin**
-
-### Retrieve device information
+### Retrieve device information - /external/v1/devices
 
 This API requests a list of all devices detected by Defender for IoT sensors that are connected to an on-premises management console.
-
-- **/external/v1/devices**
 
 #### Method
 
@@ -1954,11 +1997,15 @@ Array of JSON objects that represent devices.
 ]
 ```
 
-### Retrieve alert information
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true' |
+
+### Retrieve alert information - /external/v1/alerts
 
 Use this API to retrieve all or filtered alerts from an on-premises management console.
-
-#### /external/v1/alerts
 
 #### Method
 
@@ -2111,6 +2158,13 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 ]
 ```
 
+#### Curl command
+
+> [!div class="mx-tdBreakAll"]
+> | Type | APIs | Example |
+> |--|--|--|
+> | GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1' |
+
 ### QRadar alerts
 
 QRadar integration with Defender for IoT helps you identify the alerts generated by Defender for IoT and perform actions with these alerts. QRadar receives the data from Defender for IoT and then contacts the public API on-premises management console component.
@@ -2208,15 +2262,19 @@ Array of JSON objects that represent devices.
 }
 ```
 
-### Alert exclusions (maintenance window)
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| PUT | curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID> | curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/alerts/1-1594550943000 |
+
+### Alert exclusions (maintenance window) - /external/v1/maintenanceWindow
 
 Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop alert delivery of all alerts, except for malware alerts on critical devices.
 
 The APIs that you define here appear in the on-premises management console's **Alert Exclusions** window as a read-only exclusion rule.
 
 :::image type="content" source="media/references-work-with-defender-for-iot-apis/alert-exclusion-window.png" alt-text="The Alert Exclusions window, showing a list of all the exclusion rules. ":::
-
-#### /external/v1/maintenanceWindow
 
 #### Method - POST
 
@@ -2362,11 +2420,18 @@ Array of JSON objects that represent maintenance window operations.
 | **ttl** | Numeric | - | yes |
 | **operationType** | String | Values are "OPEN", "UPDATE", and "CLOSE" | no |
 
-### Authenticate user credentials
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| POST | curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
+| PUT | curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
+| DELETE | curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https:/<span>/127.0.0.1/external/v1/maintenanceWindow | curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https:/<span>/127.0.0.1/external/v1/maintenanceWindow |
+| GET | curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName=' | curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https:/<span>/127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a' |
+
+### Authenticate user credentials - /external/authentication/validation
 
 Use this API to validate user credentials. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### /external/authentication/validation
 
 #### Method
 
@@ -2421,11 +2486,15 @@ response:
 }
 ```
 
-### Change password
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| POST | curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation' | curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https:/<span>/127.0.0.1/external/authentication/validation' |
+
+### Change password - /external/authentication/set_password
 
 Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### /external/authentication/set_password
 
 #### Method
 
@@ -2491,11 +2560,15 @@ response:
 | **password** | String | No |
 | **new_password** | String | No |
 
-### User password update by system admin
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| POST | curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password | curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password |
+
+### User password update by system admin - /external/authentication/set_password_by_admin
 
 Use this API to let system administrators change passwords for specified users. Defender for IoT admin user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### /external/authentication/set_password_by_admin
 
 #### Method
 
@@ -2567,6 +2640,15 @@ response:
 | **username** | String | No |
 | **new_password** | String | No |
 
-## See also
-[Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
-[Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+#### Curl command
+
+> [!div class="mx-tdBreakAll"]
+> | Type | APIs | Example |
+> |--|--|--|
+> | POST | curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin | curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https:/<span>/127.0.0.1/external/authentication/set_password_by_admin |
+
+## Next steps
+
+- [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+
+- [Investigate all enterprise sensor detections in a device inventory](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)

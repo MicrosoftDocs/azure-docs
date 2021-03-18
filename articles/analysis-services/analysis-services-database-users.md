@@ -25,6 +25,8 @@ When creating a tabular model project, you create roles and add users or groups 
 
 When adding a **security group**, use `obj:groupid@tenantid`.
 
+When adding a **service principal** use `app:appid@tenantid`.
+
 ## To add or manage roles and users in Visual Studio  
   
 1.  In **Tabular Model Explorer**, right-click **Roles**.  

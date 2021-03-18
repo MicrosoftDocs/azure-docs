@@ -145,7 +145,7 @@ See below on how these actions can be rectified.
 
 ### Q: I cannot add more than 3 Azure AD user accounts under the same user session on a Windows 10 device, why?
 
-**A**: Azure AD added support for multiple Azure AD accounts in Windows 10 1803 release. However, Windows 10 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign on (SSO). Once 3 accounts have been added, users will see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because accout limit is reached". 
+**A**: Azure AD added support for multiple Azure AD accounts in Windows 10 1803 release. However, Windows 10 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign on (SSO). Once 3 accounts have been added, users will see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because account limit is reached". 
 
 ---
 ## Azure AD join FAQ
@@ -300,6 +300,11 @@ If a password is changed outside the corporate network (for example, by using Az
 - For Windows 10 Azure AD registered devices, Go to **Settings** > **Accounts** > **Access Work or School**. Select your account and select **Disconnect**. Device registration is per user profile on Windows 10.
 - For iOS and Android, you can use the Microsoft Authenticator application **Settings** > **Device Registration** and select **Unregister device**.
 - For macOS, you can use the Microsoft Intune Company Portal application to unenroll the device from management and remove any registration. 
+
+For Windows 10 devices, this process can be automated with the [Workplace Join (WPJ) removal tool](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
+
+> [!NOTE]
+> This tool removes all SSO accounts on the device. After this operation, all applications will lose SSO state, and the device will be unenrolled from management tools (MDM) and unregistered from the cloud. The next time an application tries to sign in, users will be asked to add the account again.
 
 ---
 ### Q: How can I block users from adding additional work accounts (Azure AD registered) on my corporate Windows 10 devices?

@@ -1,10 +1,9 @@
 ---
-title: Media Services v2 to v3 migration scenario based guidance for live streaming | Microsoft Docs
+title: Media Services live streaming migration guidance
 description: This article is gives you live streaming scenario based guidance that will assist you min migrating from Azure Media Services v2 to v3.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.devlang: multiple
 ms.topic: conceptual
@@ -38,7 +37,7 @@ Test the new way of delivering Live events with Media Services before moving you
 - If you require fast-start of live events explore the new [Standby mode](live-events-outputs-concept.md#standby-mode) features.
 - If you want to transcribe your live event while it is happening, explore the new [live transcription](live-transcription.md) feature.
 - Create 24x7x365 live events in v3 if you need a longer streaming duration.
-- Use [Event Grid](monitor-events-portal-how-to.md) to monitor your live events.
+- Use [Event Grid](monitoring/monitor-events-portal-how-to.md) to monitor your live events.
 
 See Live events concepts, tutorials and how to guides below for specific steps.
 

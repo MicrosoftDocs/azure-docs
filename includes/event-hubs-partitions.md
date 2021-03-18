@@ -5,73 +5,36 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 01/05/2021
+ms.date: 03/15/2021
 ms.author: spelluru
 ms.custom: "include file"
 
 ---
 
-Event Hub organizes sequences of events into one or more partitions. As newer
-events arrive, they're added to the end of this sequence. A partition can be
-thought of as a "commit log."
+Event Hubs organizes sequences of events sent to an event hub into one or more partitions. As newer events arrive, they're added to the end of this sequence. 
 
-Partitions hold event data containing the body of the event, a user-defined
-property bag describing the event, and metadata such as its offset in the
-partition, its number in the stream sequence, and the service-side timestamp at
-which it was accepted.
+![Event Hubs](./media/event-hubs-partitions/multiple-partitions.png)
+
+A partition can be thought of as a "commit log". Partitions hold event data that contains body of the event, a user-defined property bag describing the event, metadata such as its offset in the partition, its number in the stream sequence, and service-side timestamp at which it was accepted.
 
 ![Diagram that displays the older to newer sequence of
 events.](./media/event-hubs-partitions/partition.png)
 
+### Advantages of using partitions
 Event Hubs is designed to help with processing of large volumes of events,
 and partitioning helps with that in two ways:
 
-First, even though Event Hubs is a PaaS service, there's a physical reality
+- Even though Event Hubs is a PaaS service, there's a physical reality
 underneath, and maintaining a log that preserves the order of events requires
 that these events are being kept together in the underlying storage and its
 replicas and that results in a throughput ceiling for such a log. Partitioning
-allows for multiple parallel logs to be used for the same Event Hub and
+allows for multiple parallel logs to be used for the same event hub and
 therefore multiplying the available raw IO throughput capacity.
+- Your own applications must be able to keep up with processing the volume
+of events that are being sent into an event hub. It may be complex and
+requires substantial, scaled-out, parallel processing capacity. The capacity of a single process to handle events is limited, so you need several processes. Partitions are how your solution feeds those processes and yet ensures that each event has a clear processing owner. 
 
-Second, your own applications must be able to keep up with processing the volume
-of events that are being sent into an Event Hub. It may be complex and
-requires substantial, scaled-out, parallel processing capacity. The rationale
-for partitions is the same as above: The capacity of a single process to handle
-events is limited, and therefore you need several processes, and partitions are
-how your solution feeds those processes and yet ensures that each event has a
-clear processing owner. 
-
-Event Hubs retains events for a configured retention time that applies across
-all partitions. Events are automatically removed when the retention period has
-been reached. If you specify a retention period of one day, the event will
-become unavailable exactly 24 hours after it has been accepted. You cannot
-explicitly delete events. 
-
-The allowed retention time is up to 7 days for Event Hubs Standard and up to 90
-days for Event Hubs Dedicated. If you need to archive events beyond the allowed
-retention period, you can have them [automatically stored in Azure Storage or
-Azure Data Lake by turning on the Event Hubs Capture
-feature](../articles/event-hubs/event-hubs-capture-overview.md), and if you need
-to search or analyze such deep archives, you can [easily import them into Azure
-Synapse](../articles/event-hubs/store-captured-data-data-warehouse.md) or other
-similar stores and analytics platforms. 
-
-The reason for Event Hubs' limit on data retention based on time is to prevent
-large volumes of historic customer data getting trapped in a deep store that is
-only indexed by a timestamp and only allows for sequential access. The
-architectural philosophy here is that historic data needs richer indexing and
-more direct access than the real-time eventing interface that Event Hubs or
-Kafka provide. Event stream engines are not well suited to play the role of data
-lakes or long-term archives for event sourcing. 
-
-Because partitions are independent and contain their own sequence of data, they
-often grow at different rates. In Event Hubs, that is no concern that requires
-administrative intervention as it would be, for instance, in Apache Kafka, but
-uneven distribution will lead to uneven load on your downstream event
-processors.
-
-![Event Hubs](./media/event-hubs-partitions/multiple-partitions.png)
-
+### Number of partitions
 The number of partitions is specified at creation and must be between 1 and 32
 in Event Hubs Standard. The partition count can be up to 2000 partitions per
 Capacity Unit in Event Hubs Dedicated. 
@@ -86,22 +49,6 @@ units of your cluster independent of the partition count. An Event Hub with 32
 partitions or an Event Hub with 1 partition incur the exact same cost when the
 namespace is set to 1 TU capacity. 
 
-Applications control the mapping of events to partitions in one of three ways:
-
-- By specifying partition key, which is consistently mapped (using a hash
-  function) to one of the available partitions. 
-- By not specifying a partition key, which enables to broker to randomly choose
-  a partition for a given event.
-- By explicitly sending events to a specific partition.
-
-Specifying a partition key enables keeping related events together in the same
-partition and in the exact order in which they were sent. The partition key is
-some string that is derived from your application context and identifies the
-interrelationship of the events.
-
-A sequence of events identified by a partition key is a *stream*. A partition is
-a multiplexed log store for many such streams. 
-
 The partition count for an event hub in a [dedicated Event Hubs cluster](../articles/event-hubs/event-hubs-dedicated-overview.md) can be [increased](../articles/event-hubs/dynamically-add-partitions.md) after the event hub has
 been created, but the distribution of streams across partitions will change when
 it's done as the mapping of partition keys to partitions changes, so you
@@ -115,14 +62,14 @@ preservation across all events or only a handful of substreams, you may not
 be able to take advantage of many partitions. Also, many partitions make the
 processing side more complex. 
 
-While partitions can be sent to directly, it's not recommended. Instead, you
-can use higher level constructs introduced in the [Event
-publishers](../articles/event-hubs/event-hubs-features.md#event-publishers)
-section. 
 
-For more information about partitions and the trade-off between availability and
-reliability, see the [Event Hubs programming
-guide](../articles/event-hubs/event-hubs-programming-guide.md#partition-key) and
-the [Availability and consistency in Event
-Hubs](../articles/event-hubs/event-hubs-availability-and-consistency.md)
-article.
+### Mapping of events to partitions
+You can use a partition key to map incoming event data into specific partitions for the purpose of data organization. The partition key is a sender-supplied value passed into an event hub. It is processed through a static hashing function, which creates the partition assignment. If you don't specify a partition key when publishing an event, a round-robin assignment is used.
+
+The event publisher is only aware of its partition key, not the partition to which the events are published. This decoupling of key and partition insulates the sender from needing to know too much about the downstream processing. A per-device or user unique identity makes a good partition key, but other attributes such as geography can also be used to group related events into a single partition.
+
+Specifying a partition key enables keeping related events together in the same partition and in the exact order in which they were sent. The partition key is some string that is derived from your application context and identifies the interrelationship of the events. A sequence of events identified by a partition key is a *stream*. A partition is a multiplexed log store for many such streams. 
+
+> [!NOTE]
+> While you can send events directly to partitions, we don't recommend it, especially when high availability is important to you. It downgrades the availability of an event hub to partition-level. For more information, see [Availability and Consistency](../articles/event-hubs/event-hubs-availability-and-consistency.md).
+

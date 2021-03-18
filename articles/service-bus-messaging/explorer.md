@@ -34,7 +34,7 @@ To use the Service Bus Explorer tool, you will need to do the following tasks:
 - Ensure that you are a member of one of these roles on the namespace: 
     - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
     - [Contributor](../role-based-access-control/built-in-roles.md#contributor) 
-    - [Owner](/role-based-access-control/built-in-roles.md#owner)
+    - [Owner](../role-based-access-control/built-in-roles.md#owner)
 
 
 ## Using the Service Bus Explorer
@@ -43,7 +43,7 @@ To use the Azure Service Bus explorer, you need to navigate to the Service Bus n
 
 If you are looking to perform operations against a Queue, pick **'Queues'** from the navigation menu. If you are looking to perform operations against a Topic (and it's related subscriptions), pick **Topics**. 
 
-:::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png"alt-text="Entity select":::
+:::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png" alt-text="Entity select":::
 
 After picking the **'Queues'** or **'Topics'**, pick the specific Queue or Topic.
 

@@ -1,6 +1,6 @@
 ---
 title: Media Services account ARM template
-titleSuffix: Azure Media Services
+: Azure Media Services
 description: This article shows you how to use an ARM template to create a media services account.
 services: media-services
 documentationcenter: ''

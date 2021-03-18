@@ -20,13 +20,10 @@ ms.author: mlottner
 
 This guide explains how to install and deploy the Defender for IoT C-based security agent on Linux.
 
-In this guide, you learn how to:
-
-> [!div class="checklist"]
-> * Install
-> * Verify deployment
-> * Uninstall the agent
-> * Troubleshoot
+- Install
+- Verify deployment
+- Uninstall the agent
+- Troubleshoot
 
 ## Prerequisites
 
@@ -34,7 +31,7 @@ For other platforms and agent flavors, see [Choose the right security agent](how
 
 1. To deploy the security agent, local admin rights are required on the machine you wish to install on (sudo).
 
-1. [Create a security module](quickstart-create-security-twin.md) for the device.
+1. [Create a Defender-IoT-micro-agent](quickstart-create-security-twin.md) for the device.
 
 ## Installation
 

@@ -36,7 +36,7 @@ Securing privileged access requires changes to:
 Secure your privileged access in a way that is managed and reported in the Microsoft services you care about. If you have on-premises admin accounts, see the guidance for on-premises and hybrid privileged access in Active Directory at [Securing Privileged Access](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
-> The guidance in this article refers primarily to features of Azure Active Directory that are included in Azure Active Directory Premium plans P1 and P2. Azure Active Directory Premium P2 is included in the EMS E5 suite and Microsoft 365 E5 suite. This guidance assumes your organization already has Azure AD Premium P2 licenses purchased for your users. If you do not have these licenses, some of the guidance might not apply to your organization. Also, throughout this article, the term global administrator (or global admin) means the same thing as "company administrator" or "tenant administrator."
+> The guidance in this article refers primarily to features of Azure Active Directory that are included in Azure Active Directory Premium plans P1 and P2. Azure Active Directory Premium P2 is included in the EMS E5 suite and Microsoft 365 E5 suite. This guidance assumes your organization already has Azure AD Premium P2 licenses purchased for your users. If you do not have these licenses, some of the guidance might not apply to your organization. Also, throughout this article, the term Global Administrator means the same thing as "company administrator" or "tenant administrator."
 
 ## Develop a roadmap
 
@@ -70,7 +70,7 @@ Azure AD Privileged Identity Management is included in Azure AD Premium P2 or EM
 
 After you turn on Azure AD Privileged Identity Management:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that is a global admin of your Azure AD production organization.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that is a Global Administrator of your Azure AD production organization.
 
 2. To select the Azure AD organization where you want to use Privileged Identity Management, select your user name in the upper right-hand corner of the Azure portal.
 
@@ -89,7 +89,7 @@ After turning on Azure AD Privileged Identity Management, view the users who are
 * Exchange administrator
 * SharePoint administrator
 
-If you don't have Azure AD Privileged Identity Management in your organization, you can use the [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember). Start with the global admin role because a global admin has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Azure portal, or by the Azure AD module for Microsoft PowerShell.
+If you don't have Azure AD Privileged Identity Management in your organization, you can use the [PowerShell API](/powershell/module/azuread/get-azureaddirectoryrolemember). Start with the Global Administrator role because a Global Administrator has the same permissions across all cloud services for which your organization has subscribed. These permissions are granted no matter where they were assigned: in the Microsoft 365 admin center, the Azure portal, or by the Azure AD module for Microsoft PowerShell.
 
 Remove any accounts that are no longer needed in those roles. Then, categorize the remaining accounts that are assigned to admin roles:
 
@@ -106,7 +106,7 @@ It's possible for a user to be accidentally locked out of their role. For exampl
 
 Emergency access accounts help restrict privileged access within an Azure AD organization. These accounts are highly privileged and aren't assigned to specific individuals. Emergency access accounts are limited to emergency for "break glass" scenarios where normal administrative accounts can't be used. Ensure that you control and reduce the emergency account's usage to only that time for which it's necessary.
 
-Evaluate the accounts that are assigned or eligible for the global admin role. If you don't see any cloud-only accounts using the \*.onmicrosoft.com domain (for "break glass" emergency access), create them. For more information, see [Managing emergency access administrative accounts in Azure AD](security-emergency-access.md).
+Evaluate the accounts that are assigned or eligible for the Global Administrator role. If you don't see any cloud-only accounts using the \*.onmicrosoft.com domain (for "break glass" emergency access), create them. For more information, see [Managing emergency access administrative accounts in Azure AD](security-emergency-access.md).
 
 #### Turn on multi-factor authentication and register all other highly privileged single-user non-federated admin accounts
 
@@ -137,15 +137,16 @@ The increase in "bring your own device" and work from home policies and the grow
 
 #### Identify Microsoft accounts in administrative roles that need to be switched to work or school accounts
 
-If your initial global administrators reuse their existing Microsoft account credentials when they began using Azure AD, replace the Microsoft accounts with individual cloud-based or synchronized accounts.
+If your initial Global Administrators reuse their existing Microsoft account credentials when they began using Azure AD, replace the Microsoft accounts with individual cloud-based or synchronized accounts.
 
-#### Ensure separate user accounts and mail forwarding for global administrator accounts
+#### Ensure separate user accounts and mail forwarding for Global Administrator accounts
 
-Personal email accounts are regularly phished by cyber attackers, a risk that makes personal email addresses unacceptable for global administrator accounts. To help separate internet risks from administrative privileges, create dedicated accounts for each user with administrative privileges.
+Personal email accounts are regularly phished by cyber attackers, a risk that makes personal email addresses unacceptable for Global Administrator accounts. To help separate internet risks from administrative privileges, create dedicated accounts for each user with administrative privileges.
 
-* Be sure to create separate accounts for users to do global admin tasks
-* Make sure that your global admins don't accidentally open emails or run programs with their admin accounts
-* Be sure those accounts have their email forwarded to a working mailbox
+* Be sure to create separate accounts for users to do Global Administrator tasks.
+* Make sure that your Global Administrators don't accidentally open emails or run programs with their admin accounts.
+* Be sure those accounts have their email forwarded to a working mailbox.
+* Global Administrator (and other privileged groups) accounts should be cloud-only accounts with no ties to on-premises Active Directory.
 
 #### Ensure the passwords of administrative accounts have recently changed
 
@@ -207,7 +208,7 @@ Microsoft accounts from other programs, such as Xbox, Live, and Outlook, shouldn
 
 #### Monitor Azure activity
 
-The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../azure-monitor/platform/alerts-activity-log.md).
+The Azure Activity Log provides a history of subscription-level events in Azure. It offers information about who created, updated, and deleted what resources, and when these events occurred. For more information, see [Audit and receive notifications about important actions in your Azure subscription](../../azure-monitor/alerts/alerts-activity-log.md).
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD
 
@@ -225,7 +226,7 @@ Stage 3 builds on the mitigations from Stage 2 and should be implemented in appr
 
 #### Complete an access review of users in administrator roles
 
-More corporate users are gaining privileged access through cloud services, which can lead to un-managed access. Users today can become global admins for Microsoft 365, Azure subscription administrators, or have admin access to VMs or via SaaS apps.
+More corporate users are gaining privileged access through cloud services, which can lead to un-managed access. Users today can become Global Administrators for Microsoft 365, Azure subscription administrators, or have admin access to VMs or via SaaS apps.
 
 Your organization should have all employees handle ordinary business transactions as unprivileged users, and then grant admin rights only as needed. Complete access reviews to identify and confirm the users who are eligible to activate admin privileges.
 
@@ -426,7 +427,7 @@ For more information about how Microsoft Office 365 handles security incidents, 
 
 **Q:** What do I do if I haven't implemented any secure access components yet?
 
-**Answer:** Define at least two break-glass account, assign MFA to your privileged admin accounts, and separate user accounts from Global admin accounts.
+**Answer:** Define at least two break-glass account, assign MFA to your privileged admin accounts, and separate user accounts from Global Administrator accounts.
 
 **Q:** After a breach, what is the top issue that needs to be addressed first?
 
@@ -434,9 +435,9 @@ For more information about how Microsoft Office 365 handles security incidents, 
 
 **Q:** What happens if our privileged admins have been deactivated?
 
-**Answer:** Create a Global admin account that is always kept up to date.
+**Answer:** Create a Global Administrator account that is always kept up to date.
 
-**Q:** What happens if there's only one global administrator left and they can't be reached?
+**Q:** What happens if there's only one Global Administrator left and they can't be reached?
 
 **Answer:** Use one of your break-glass accounts to gain immediate privileged access.
 

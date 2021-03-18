@@ -38,7 +38,7 @@ F5 BIG-IP can integrate and export logs directly to Azure Sentinel.
 
 ## Validate connectivity
 
-It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+It may take up to 20 minutes until your logs start to appear in Log Analytics. 
 
 
 

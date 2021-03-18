@@ -3,7 +3,7 @@ title: NDv2-series
 description: Specifications for the NDv2-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
@@ -33,6 +33,8 @@ Critically, the NDv2 is built for both computationally intense scale-up (harness
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 InfiniBand: Supported<br>
 Nvidia NVLink Interconnect: Supported<br>
 <br>

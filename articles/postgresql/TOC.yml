@@ -27,9 +27,14 @@
       - name: Minimal-downtime migration with DMS
         href: howto-migrate-online.md
         displayName: dms, data migration service
+      - name: Migrate from Oracle
+        href: howto-migrate-from-oracle.md
   - name: Versioning policy
     href: concepts-version-policy.md
     displayName: version, postgresql
+  - name: Known issues & limitations
+    href: concepts-known-issues-limitations.md
+    displayName: issues, limitations, postgresql 
 - name: Single Server
   expanded: true
   items:
@@ -110,6 +115,9 @@
     items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Servers
@@ -418,6 +426,8 @@
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
+        - name: Azure CLI
+          href: flexible-server/connect-azure-cli.md
         - name: Python
           href: flexible-server/connect-python.md
         - name: Java
@@ -569,14 +579,6 @@
       - name: Design a real-time dashboard
         href: tutorial-design-database-hyperscale-realtime.md
         displayName: hyperscale, tutorial, real-time
-  - name: Samples
-    items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
-      displayName: samples, azure cli
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-reference.md
   - name: Concepts
     items:
     - name: Distributed data
@@ -611,6 +613,8 @@
       items:
       - name: Monitor and tune
         href: concepts-hyperscale-monitoring.md
+      - name: Audit logs
+        href: concepts-hyperscale-audit.md
     - name: Configuration options
       href: concepts-hyperscale-configuration-options.md
     - name: Prepay for reserved capacity

@@ -103,9 +103,9 @@ For assigning policies, see:
 - [Assign an access policy using PowerShell](assign-access-policy-powershell.md)
 
 For adding role assignments, see:
-- [Add role assignment using Portal](../../role-based-access-control/role-assignments-portal.md)
-- [Add role assignment using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Add role assignment using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Assign Azure roles using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### Update managed identities

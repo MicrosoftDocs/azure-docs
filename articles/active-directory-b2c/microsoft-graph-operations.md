@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -30,18 +30,33 @@ To use MS Graph API, and interact with resources in your Azure AD B2C tenant, yo
 - [Update a user](/graph/api/user-update)
 - [Delete a user](/graph/api/user-delete)
 
-## User phone number management
+## User phone number management (beta)
+
+A phone number that can be used by a user to sign-in using [SMS or voice calls](identity-provider-local.md#phone-sign-in-preview), or [multi-factor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add](/graph/api/authentication-post-phonemethods)
-- [Get](/graph/api/b2cauthenticationmethodspolicy-get)
-- [Update](/graph/api/b2cauthenticationmethodspolicy-update)
+- [List](/graph/api/authentication-list-phonemethods)
+- [Get](/graph/api/phoneauthenticationmethod-get)
+- [Update](/graph/api/phoneauthenticationmethod-update)
 - [Delete](/graph/api/phoneauthenticationmethod-delete)
 
-For more information about managing user's sign-in phone number, see [B2C Authentication Methods](/graph/api/resources/b2cauthenticationmethodspolicy).
+Note, the [list](/graph/api/authentication-list-phonemethods) operation returns  only enabled phone numbers. The following phone number should be enabled to use with the list operations. 
 
-## Identity providers (user flow)
+![Enable phone sign-in](./media/microsoft-graph-operations/enable-phone-sign-in.png)
 
-Manage the identity providers available to your user flows in your Azure AD B2C tenant.
+## Self-service password reset email address (beta)
+
+An email address that can be used by a [username sign-in account](identity-provider-local.md#username-sign-in) to reset the password. For more information, see [Azure AD authentication methods API](/graph/api/resources/emailauthenticationmethod).
+
+- [Add](/graph/api/emailauthenticationmethod-post)
+- [List](/graph/api/emailauthenticationmethod-list)
+- [Get](/graph/api/emailauthenticationmethod-get)
+- [Update](/graph/api/emailauthenticationmethod-update)
+- [Delete](/graph/api/emailauthenticationmethod-delete)
+
+## Identity providers
+
+Manage the [identity providers](add-identity-provider.md) available to your user flows in your Azure AD B2C tenant.
 
 - [List identity providers registered in the Azure AD B2C tenant](/graph/api/identityprovider-list)
 - [Create an identity provider](/graph/api/identityprovider-post-identityproviders)
@@ -57,6 +72,13 @@ Configure pre-built policies for sign-up, sign-in, combined sign-up and sign-in,
 - [Create a user flow](/graph/api/identitycontainer-post-b2cuserflows)
 - [Get a user flow](/graph/api/b2cidentityuserflow-get)
 - [Delete a user flow](/graph/api/b2cidentityuserflow-delete)
+
+## User flow authentication methods (beta)
+
+Choose a mechanism for letting users register via local accounts. Local accounts are the accounts where Azure AD does the identity assertion. For more information, see [b2cAuthenticationMethodsPolicy resource type](/graph/api/resources/b2cauthenticationmethodspolicy).
+
+- [Get](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Update](/graph/api/b2cauthenticationmethodspolicy-update)
 
 ## Custom policies
 
@@ -110,6 +132,14 @@ Azure AD B2C provides a directory that can hold 100 custom attributes per user. 
 - [List audit logs](/graph/api/directoryaudit-list)
 
 For more information about accessing Azure AD B2C audit logs, see [Accessing Azure AD B2C audit logs](view-audit-logs.md).
+
+## Conditional Access
+
+- [List all of the Conditional Access policies](/graph/api/resources/conditionalaccessroot-list-policies)
+- [Read properties and relationships of a Conditional Access policy](/graph/api/conditionalaccesspolicy-get)
+- [Create a new Conditional Access policy](/graph/api/resources/application)
+- [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)
+- [Delete a Conditional Access policy](/graph/api/conditionalaccesspolicy-delete)
 
 ## Code sample: How to programmatically manage user accounts
 

@@ -1,19 +1,11 @@
 ﻿---
 title: 'Tutorial: Create a pipeline using Resource Manager Template '
 description: In this tutorial, you create an Azure Data Factory pipeline by using an Azure Resource Manager template. This pipeline copies data from an Azure blob storage to Azure SQL Database. 
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
-
-ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Tutorial: Use Azure Resource Manager template to create a Data Factory pipeline to copy data 
@@ -293,7 +285,7 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
     "parameters": { 
         "storageAccountName": { "value": "<Name of the Azure storage account>"    },
         "storageAccountKey": {
-			"value": "<Key for the Azure storage account>"
+            "value": "<Key for the Azure storage account>"
         },
         "sourceBlobContainer": { "value": "adftutorial" },
         "sourceBlobName": { "value": "emp.txt" },
@@ -315,24 +307,24 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 1. Start **Azure PowerShell** and run the following command:
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
    
-	```PowerShell
-	Connect-AzAccount   	
-	```  
+    ```PowerShell
+    Connect-AzAccount       
+    ```  
    * Run the following command to view all the subscriptions for this account.
    
-	```PowerShell
-	Get-AzSubscription
-	```   
+    ```PowerShell
+    Get-AzSubscription
+    ```   
    * Run the following command to select the subscription that you want to work with.
     
-	```PowerShell
-	Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-	```    
+    ```PowerShell
+    Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
+    ```    
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1.
 
-	```PowerShell   
-	New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
-	```
+    ```PowerShell   
+    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
+    ```
 
 ## Monitor pipeline
 

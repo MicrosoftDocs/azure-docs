@@ -3,7 +3,7 @@ title: Work with existing on-premises proxy servers and Azure Active Directory
 description: Covers how to work with existing on-premises proxy servers with Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity

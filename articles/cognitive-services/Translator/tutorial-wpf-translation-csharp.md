@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Tutorial: Create a translation app with WPF
 
-In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from the Translator and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](/visualstudio/designers/getting-started-with-wpf) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from the Translator and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 What is WPF? It's a UI framework that creates desktop client apps. The WPF development platform supports a broad set of app development features, including an app model, resources, controls, graphics, layout, data binding, documents, and security. It's a subset of the .NET Framework, so if you have previously built apps with the .NET Framework using ASP.NET or Windows Forms, the programming experience should be familiar. WPF uses the Extensible app Markup Language (XAML) to provide a declarative model for app programming, which we'll review in the coming sections.
 
@@ -36,7 +36,7 @@ This list includes the Cognitive Services used in this tutorial. Follow the link
 | Service | Feature | Description |
 |---------|---------|-------------|
 | Translator | [Get Languages](./reference/v3-0-languages.md) | Retrieve a complete list of supported languages for text translation. |
-| Translator | [Translate](./reference/v3-0-translate.md) | Translate text into more than 70 languages. |
+| Translator | [Translate](./reference/v3-0-translate.md) | Translate text into 90 languages and dialects. |
 | Translator | [Detect](./reference/v3-0-detect.md) | Detect the language of the input text. Includes confidence score for detection. |
 | Bing Spell Check | [Spell Check](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Correct spelling errors to improve translation accuracy. |
 
@@ -85,7 +85,7 @@ Let's add assemblies to our project to serialize and deserialize objects, and to
 1. After you've added these references to your project, you can click **OK** to close **Reference Manager**.
 
 > [!NOTE]
-> If you'd like to learn more about assembly references, see [How to: Add or remove reference using the Reference Manager](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> If you'd like to learn more about assembly references, see [How to: Add or remove reference using the Reference Manager](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager).
 
 ### Install NewtonSoft.Json
 
@@ -259,7 +259,7 @@ Last, we've added code to call methods to retrieve languages for translation and
 
 ## Get supported languages
 
-The Translator currently supports more than 70 languages. Since new language support will be added over time, we recommend calling the Languages resource exposed by the Translator rather than hardcoding the language list in your app.
+The Translator currently supports 90 languages and dialects. Since new language support will be added over time, we recommend calling the Languages resource exposed by the Translator rather than hardcoding the language list in your app.
 
 In this section, we'll create a `GET` request to the Languages resource, specifying that we want a list of languages available for translation.
 

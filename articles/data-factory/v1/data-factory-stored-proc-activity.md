@@ -1,17 +1,11 @@
 ---
 title: SQL Server Stored Procedure Activity
 description: Learn how you can use the SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database or Azure Synapse Analytics from a Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
-ms.workload: data-services
-
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
 robots: noindex
 ---
 # SQL Server Stored Procedure Activity
@@ -303,13 +297,13 @@ The following table describes these JSON properties:
 | name | Name of the activity |Yes |
 | description |Text describing what the activity is used for |No |
 | type | Must be set to: **SqlServerStoredProcedure** | Yes |
-| inputs | Optional. If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. |No |
+| inputs | Optional. If you do specify an input dataset, it must be available (in 'Ready' status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. |No |
 | outputs | You must specify an output dataset for a stored procedure activity. Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). <br/><br/>The output dataset must use a **linked service** that refers to an Azure SQL Database or Azure Synapse Analytics or a SQL Server Database in which you want the stored procedure to run. <br/><br/>The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. <br/><br/>In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity. |Yes |
 | storedProcedureName |Specify the name of the stored procedure in Azure SQL Database, Azure Synapse Analytics, or SQL Server that is represented by the linked service that the output table uses. |Yes |
 | storedProcedureParameters |Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property. |No |
 
 ## Passing a static value
-Now, let’s consider adding another column named ‘Scenario’ in the table containing a static value called ‘Document sample’.
+Now, let's consider adding another column named 'Scenario' in the table containing a static value called 'Document sample'.
 
 ![Sample data 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
 

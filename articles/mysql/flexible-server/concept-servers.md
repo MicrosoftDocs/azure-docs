@@ -33,7 +33,7 @@ An Azure Database for MySQL Flexible Server:
 - Provides a virtual network integration for the database server access
 - Provides way to save costs by pausing the flexible server when not in use
 - Provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
-- Is currently supported with version MySQL 5.7. For more information, see [Supported Azure Database for MySQL engine versions](./concepts-supported-versions.md).
+- Supports major version MySQL 5.7 and MySQL 8.0. For more information, see [Supported Azure Database for MySQL engine versions](./../concepts-supported-versions.md).
 
 Within an Azure Database for MySQL Flexible Server, you can create one or multiple databases. You can opt to create a single database per server to use all the resources or to create multiple databases to share the resources. The pricing is structured per-server, based on the configuration of compute tier, vCores, and storage (GB). For more information, see [compute and storage](./concepts-compute-storage.md).
 

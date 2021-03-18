@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 01/21/2021
+ms.date: 02/05/2021
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Stack Edge Pro issues

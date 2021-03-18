@@ -271,6 +271,8 @@ The following information can be helpful when you work with [resources](template
    > [!NOTE]
    > To ensure that secrets are encrypted when they are passed as parameters to VMs and extensions, use the `protectedSettings` property of the relevant extensions.
 
+* Specify explicit values for properties that have default values that could change over time. For example, if you are deploying an AKS cluster, you can either specify or omit the `kubernetesVersion` property. If you don't specify it, then [the cluster is defaulted to the N-1 minor version and latest patch](../../aks/supported-kubernetes-versions.md#azure-portal-and-cli-versions). When you deploy the cluster using an ARM template, this default behavior might not be what you expect. Redeploying your template may result in the cluster being upgraded to a new Kubernetes version unexpectedly. Instead, consider specifying an explicit version number and then manually changing it when you are ready to upgrade your cluster.
+
 ## Use test toolkit
 
 The ARM template test toolkit is a script that checks whether your template uses recommended practices. When your template isn't compliant with recommended practices, it returns a list of warnings with suggested changes. The test toolkit can help you learn how to implement best practices in your template.

@@ -17,7 +17,7 @@ You can use [Azure Backup](./backup-overview.md) to protect Azure Disks. This ar
 
 ## Supported regions
 
-Azure Disk Backup is available in preview in the following regions: West Central US, East US2, Korea Central, Korea South, Japan West, UAE North. 
+Azure Disk Backup is available in preview in the following regions: West US, West Central US, East US2, Canada Central, UK West, Switzerland North, Switzerland West, Australia Central, Australia Central 2, Korea Central, Korea South, Japan West, East Asia, UAE North, Brazil South, Central India. 
 
 More regions will be announced when they become available.
 
@@ -53,13 +53,15 @@ More regions will be announced when they become available.
 
 - Currently (during the preview), the use of PowerShell and Azure CLI to configure the backup and restore of disks isn't supported.
 
-- When configuring backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure backup](backup-managed-disks.md#configure-backup).
+- When configuring backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure backup](backup-managed-disks.md#configure-backup).
 
 - For successful backup and restore operations, role assignments are required by the Backup vault’s managed identity. Use only the role definitions provided in the documentation. Use of other roles like owner, contributor, and so on, isn't supported. You may face permission issues, if you start configuring backup or restore operations soon after assigning roles. This is because the role     assignments take a few minutes to take effect.
 
 - Managed disks allow changing the performance tier at deployment or afterwards without changing size of the disk. The Azure Disk Backup solution supports the performance tier changes to the source disk that is being backed up. During restore, the performance tier of the restored disk will be the same as that of the source disk at the time of backup. Follow the documentation [here](../virtual-machines/disks-performance-tiers-portal.md) to change your disk’s performance tier after restore operation.
 
 - [Private Links](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) support for managed disks allows you to restrict the export and import of managed disks so that it only occurs within your Azure virtual network. Azure Disk Backup supports backup of disks that have private endpoints enabled. This doesn't include the backup data or snapshots to be accessible through the private endpoint.
+
+- During the preview, you can't disable the backup, so the option **stop backup and retain backup data** is not supported. You can delete a backup instance, which will not only stop the backup but also delete all the backup data.
 
 ## Next steps
 

@@ -6,29 +6,25 @@ author: saveenr
 ms.service: synapse-analytics 
 ms.topic: overview 
 ms.subservice: overview
-ms.date: 10/28/2020 
+ms.date: 03/27/2021 
 ms.author: saveenr 
 ms.reviewer: jrasnick
 ---
 
 # What is Azure Synapse Analytics?
 
-Enterprise analytics must work at massive scale on any kind of data, whether raw, refined, or highly curated. This typically requires enterprises to stitch together big data and data warehousing technologies into complex data pipelines that work across data in relational stores and data lakes. These kinds of solutions are difficult to build, maintain, and secure. Their complexity delays delivering the insight enterprises need.
+**Azure Synapse** is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, **Pipelines** for data integration and ETL/ELT, and deep integration with other Azure services such as **Power BI**, **CosmosDB**, and **AzureML**.
 
-**Azure Synapse** is an integrated analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of **SQL** technologies used in enterprise data warehousing, **Spark** technologies used for big data, **Pipelines** for data integration and ETL/ELT, and deep integration with other Azure services such as **Power BI**, **CosmosDB**, and **AzureML**.
 
-## Key features & benefits
+## Industry-leading SQL
 
-### Industry-leading SQL
+**Synapse SQL** is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and machine learning scenarios.
 
-* **Synapse SQL** is a distributed query system that enables enterprises to implement data warehousing and data virtualization 
-scenarios using standard and familiar T-SQL experiences. It also expands the capabilities of SQL to address streaming and machine learning scenarios.
-
-* Synapse SQL offers both **serverless** and **dedicated** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
+* Synapse SQL offers both **serverless** and **dedicated** resource models. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
 * Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
-### Industry-standard Apache Spark
+## Industry-standard Apache Spark
 
 **Apache Spark for Azure Synapse** deeply and seamlessly integrates Apache Spark--the most popular open source big data engine used for data preparation, data engineering, ETL, and machine learning.
 
@@ -37,7 +33,7 @@ scenarios using standard and familiar T-SQL experiences. It also expands the cap
 * Fast Spark start-up and aggressive autoscaling.
 * Built-in support for .NET for Spark allowing you to reuse your C# expertise and existing .NET code within a Spark application.
 
-### Interop of SQL and Apache Spark on your Data Lake
+## Working with your Data Lake
 
 Azure Synapse removes the traditional technology barriers between using SQL and Spark together. You can seamlessly mix and match based on your needs and expertise.
 
@@ -45,15 +41,15 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 * SQL and Spark can directly explore and analyze Parquet, CSV, TSV, and JSON files stored in the data lake.
 * Fast scalable load and unload for data going between SQL and Spark databases
 
-### Built-in data integration via pipelines
+## Built-in data integration via pipelines
 
-Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
+Azure Synapse contains the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
 
 * Ingest data from 90+ data sources
 * Code-Free ETL with Data flow activities
 * Orchestrate Notebooks, Spark jobs, Stored procedures, SQL scripts, and more
 
-### Unified management, monitoring, and security
+## Unified management, monitoring, and security
 
 Azure Synapse provides a single way for enterprises to manage analytics resources, monitor usage and activity, and enforce security.
 
@@ -61,13 +57,13 @@ Azure Synapse provides a single way for enterprises to manage analytics resource
 * Fine-grained access control on data and code
 * A single dashboard to monitor resources, usage, and users across SQL and Spark
 
-### Synapse Studio
+## Unified experience
 
-**Synapse Studio** is the web-native experience that ties everything together for data engineers, allowing them in one location to do every task they need to build a complete solution.
+**Synapse Studio** is the user experience that ties everything together for data engineers. It allows them to do every task they need to build a complete analytics solution.
 
-* Build an end-to-end analytics solution in one place: ingest, explore, prepare, orchestrate, visualize
-* Industry-leading productivity for data engineers writing SQL or Spark code: authoring, debugging, and performance optimization
-* Integrate with enterprise CI/CD processes
+* Key data engingeer tasks in one place: ingest, explore, prepare, orchestrate, visualize
+* Industry-leading productivity for writing SQL or Spark code: authoring, debugging, and performance optimization
+* Integrate with enterprise CI/CD process
 
 ## Engage with the Synapse engineering team
 

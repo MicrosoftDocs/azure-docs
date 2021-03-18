@@ -25,7 +25,7 @@ While most of the custom policy options available are now generally available, t
 ## Features that are generally available
 
 - Author and upload custom authentication user journeys by using custom policies.
-    - Describe user journeys step-by-step as exchanges between claims providers.
+    - Describe user journeys step by step as exchanges between claims providers.
     - Define conditional branching in user journeys.
 - Interoperate with REST API-enabled services in your custom authentication user journeys.
 - Federate with identity providers that are compliant with the OpenIDConnect protocol.
@@ -33,14 +33,14 @@ While most of the custom policy options available are now generally available, t
 
 ## Responsibilities of custom policy feature-set developers
 
-Manual policy configuration grants lower-level access to the underlying platform of Azure AD B2C and results in the creation of a unique, trust framework. The many possible permutations of custom identity providers, trust relationships, integrations with external services, and step-by-step workflows require a methodical approach to design and configuration.
+Manual policy configuration grants lower-level access to the underlying platform of Azure AD B2C and results in the creation of a unique, trust framework. The many possible permutations of custom identity providers, trust relationships, integrations with external services, and step by step workflows require a methodical approach to design and configuration.
 
 Developers consuming the custom policy feature set should adhere to the following guidelines:
 
 - Become familiar with the configuration language of the custom policies and key/secrets management. For more information, see [TrustFrameworkPolicy](trustframeworkpolicy.md).
 - Take ownership of scenarios and custom integrations. Document your work and inform your live site organization.
 - Perform methodical scenario testing.
-- Follow software development and staging best practices with a minimum of one development and testing environment and one production environment.
+- Follow software development and staging best practices. A minimum of one development and testing environment is recommended.
 - Stay informed about new developments from the identity providers and services you integrate with. For example, keep track of changes in secrets and of scheduled and unscheduled changes to the service.
 - Set up active monitoring, and monitor the responsiveness of production environments. For more information about integrating with Application Insights, see [Azure Active Directory B2C: Collecting Logs](analytics-with-application-insights.md).
 - Keep contact email addresses current in the Azure subscription, and stay responsive to the Microsoft live-site team emails.
@@ -54,7 +54,7 @@ Developers consuming the custom policy feature set should adhere to the followin
 
 ## Features by stage and known issues
 
-Custom policy/Identity Experience Framework capabilities are under constant and rapid development. The following table is an index of features and component availability.
+Custom policy capabilities are under constant development. The following table is an index of features and component availability.
 
 
 ### Protocols and authorization flows
@@ -66,7 +66,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
 | [OAuth2 resource owner password credentials](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | POST and Redirect bindings. |
+| [SAML2](saml-service-provider.md)  |  |  |X  | POST and Redirect bindings. |
 | OAuth1 |  |  |  | Not supported. |
 | WSFED | X |  |  |  |
 
@@ -77,7 +77,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | For example, Google+.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | For example, Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | For example, Twitter. |
-| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
+| [SAML2](identity-provider-generic-saml.md) |  |   | X | For example, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 
@@ -140,7 +140,7 @@ Custom policy/Identity Experience Framework capabilities are under constant and 
 | Azure Portal-IEF UX |  |  | X |  |
 | Policy upload |  |  | X |  |
 | [Application Insights user journey logs](troubleshoot-with-application-insights.md) |  | X |  | Used for troubleshooting during development.  |
-| [Application Insights event logs](application-insights-technical-profile.md) |  | X |  | Used to monitor user flows in production. |
+| [Application Insights event logs](analytics-with-application-insights.md) |  | X |  | Used to monitor user flows in production. |
 
 
 ## Next steps

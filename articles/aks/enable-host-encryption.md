@@ -3,7 +3,7 @@ title: Enable host-based encryption on Azure Kubernetes Service (AKS)
 description: Learn how to configure a host-based encryption in an Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 03/03/2021
 
 ---
 
@@ -21,37 +21,14 @@ This feature can only be set at cluster creation or node pool creation time.
 
 ### Prerequisites
 
-- Ensure you have the `aks-preview` CLI extension v0.4.55 or higher installed
+- Ensure you have the `aks-preview` CLI extension v0.4.73 or higher version installed.
 - Ensure you have the `EnableEncryptionAtHostPreview` feature flag under `Microsoft.ContainerService` enabled.
 
-In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Send an email to encryptionAtHost@microsoft .com with your subscription Ids to get the feature enabled for your subscriptions.
-
-### Register `EncryptionAtHost`  preview features
+In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Email **encryptionAtHost@microsoft.com** with your subscription IDs to get the feature enabled for your subscriptions. 
 
 > [!IMPORTANT]
-> You must email encryptionAtHost@microsoft .com with your subscription Ids to get the feature enabled for compute resources. You cannot enable it yourself for those resources. You can enable it yourself on the container service.
+> You must email **encryptionAtHost@microsoft.com** with your subscription IDs to get the feature enabled for compute resources. You cannot enable it yourself for compute resources.
 
-To create an AKS cluster that uses host-based encryption, you must enable the `EnableEncryptionAtHostPreview` and `EncryptionAtHost` feature flags on your subscription.
-
-Register the `EncryptionAtHost` feature flag using the [az feature register][az-feature-register] command as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the `Microsoft.ContainerService` and `Microsoft.Compute` resource providers using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### Install aks-preview CLI extension
 
@@ -67,29 +44,29 @@ az extension update --name aks-preview
 
 ### Limitations
 
-- Can only be enabled on new node pools or new clusters.
+- Can only be enabled on new node pools.
 - Can only be enabled in [Azure regions][supported-regions] that support server-side encryption of Azure managed disks and only with specific [supported VM sizes][supported-sizes].
 - Requires an AKS cluster and node pool based on Virtual Machine Scale Sets(VMSS) as *VM set type*.
 
 ## Use host-based encryption on new clusters (preview)
 
-Configure the cluster agent nodes to use host-based encryption when the cluster is created. Use the `--aks-custom-headers` flag to set the `EnableEncryptionAtHost` header.
+Configure the cluster agent nodes to use host-based encryption when the cluster is created. 
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
 ```
 
-If you want to create clusters without host-based encryption, you can do so by omitting the custom `--aks-custom-headers` parameter.
+If you want to create clusters without host-based encryption, you can do so by omitting the `--enable-encryption-at-host` parameter.
 
 ## Use host-based encryption on existing clusters (preview)
 
-You can enable host-based encryption on existing clusters by adding a new node pool to your cluster. Configure a new node pool to use host-based encryption by using the `--aks-custom-headers` flag.
+You can enable host-based encryption on existing clusters by adding a new node pool to your cluster. Configure a new node pool to use host-based encryption by using the `--enable-encryption-at-host` parameter.
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --enable-encryption-at-host
 ```
 
-If you want to create new node pools without the host-based encryption feature, you can do so by omitting the custom `--aks-custom-headers` parameter.
+If you want to create new node pools without the host-based encryption feature, you can do so by omitting the `--enable-encryption-at-host` parameter.
 
 ## Next steps
 

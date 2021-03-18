@@ -46,4 +46,4 @@ To learn more about querying Azure Digital Twins, visit:
 * [*How-to: Query the twin graph*](how-to-query-graph.md)
 * [Query API reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)
 
-You can find Azure Digital Twins query-related limits in [*Reference: Service limits*](reference-service-limits.md).
+You can find Azure Digital Twins query-related limits in [*Azure Digital Twins service limits*](reference-service-limits.md).

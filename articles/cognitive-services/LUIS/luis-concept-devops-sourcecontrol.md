@@ -14,7 +14,7 @@ Software engineers who are developing a Language Understanding (LUIS) app can ap
 
 ## Source control and branch strategies for LUIS
 
-One of the key factors that the success of DevOps depends upon is [source control](/azure/devops/user-guide/source-control?view=azure-devops). A source control system allows developers to collaborate on code and to track changes. The use of branches allows developers to switch between different versions of the code base, and to work independently from other members of the team. When developers raise a [pull request](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) to propose updates from one branch to another, or when changes are merged, these can be the trigger for [automated builds](luis-concept-devops-automation.md) to build and continuously test code.
+One of the key factors that the success of DevOps depends upon is [source control](/azure/devops/user-guide/source-control). A source control system allows developers to collaborate on code and to track changes. The use of branches allows developers to switch between different versions of the code base, and to work independently from other members of the team. When developers raise a [pull request](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) to propose updates from one branch to another, or when changes are merged, these can be the trigger for [automated builds](luis-concept-devops-automation.md) to build and continuously test code.
 
 By using the concepts and guidance that are described in this document, you can develop a LUIS app while tracking changes in a source control system, and follow these software engineering best practices:
 
@@ -38,7 +38,7 @@ By using the concepts and guidance that are described in this document, you can 
 
 ## Source control
 
-To maintain the [App schema definition](./app-schema-definition.md) of a LUIS app in a source code management system, use the [LUDown format (`.lu`)](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  representation of the app. `.lu` format is preferred to `.json` format because it's human readable, which makes it easier to make and review changes in PRs.
+To maintain the [App schema definition](./app-schema-definition.md) of a LUIS app in a source code management system, use the [LUDown format (`.lu`)](/azure/bot-service/file-format/bot-builder-lu-file-format)  representation of the app. `.lu` format is preferred to `.json` format because it's human readable, which makes it easier to make and review changes in PRs.
 
 ### Save a LUIS app using the LUDown format
 
@@ -77,7 +77,7 @@ Do not include subscription keys or similar confidential values in files that yo
 - LUIS Authoring and Prediction keys
 - LUIS Authoring and Prediction endpoints
 - Azure subscription keys
-- Access tokens, such as the token for an Azure [service principal](/cli/azure/ad/sp?view=azure-cli-latest) used for automation authentication
+- Access tokens, such as the token for an Azure [service principal](/cli/azure/ad/sp) used for automation authentication
 
 #### Strategies for securely managing secrets
 
@@ -179,7 +179,7 @@ A LUIS app in LUDown format is human readable, which supports the communication 
 
 ## Versioning
 
-An application consists of multiple components that might include things such as a bot running in [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech service](../speech-service/overview.md), and more. To achieve the goal of loosely coupled applications, use [version control](/azure/devops/learn/git/what-is-version-control) so that each component of an application is versioned independently, allowing developers to detect breaking changes or updates just by looking at the version number. It's easier to version your LUIS app independently from other components if you maintain it in its own repo.
+An application consists of multiple components that might include things such as a bot running in [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech service](../speech-service/overview.md), and more. To achieve the goal of loosely coupled applications, use [version control](/azure/devops/learn/git/what-is-version-control) so that each component of an application is versioned independently, allowing developers to detect breaking changes or updates just by looking at the version number. It's easier to version your LUIS app independently from other components if you maintain it in its own repo.
 
 The LUIS app for the main branch should have a versioning scheme applied. When you merge updates to the `.lu` for a LUIS app into main, you'll then import that updated source into a new version in the LUIS app for the main branch.
 

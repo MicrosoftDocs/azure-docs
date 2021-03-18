@@ -2,7 +2,7 @@
 title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 02/17/2021
 ---
 
 # Service Bus Premium and Standard messaging tiers
@@ -21,9 +21,9 @@ Some high-level differences are highlighted in the following table.
 | Ability to scale workload up and down |N/A |
 | Message size up to 1 MB. This limit may be raised in the future. For latest important updates to the service, see [Messaging on Azure blog](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Message size up to 256 KB |
 
-**Service Bus Premium Messaging** provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4 or 8 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will. The result is predictable and repeatable performance for your Service Bus-based solution.
+**Service Bus Premium Messaging** provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will. The result is predictable and repeatable performance for your Service Bus-based solution.
 
-Not only is this performance more predictable and available, but it is also faster. Service Bus Premium Messaging builds on the storage engine introduced in [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). With Premium Messaging, peak performance is much faster than with the Standard tier.
+Not only is this performance more predictable and available, but it is also faster. With Premium Messaging, peak performance is much faster than with the Standard tier.
 
 ## Premium Messaging technical differences
 
@@ -35,9 +35,7 @@ Partitioned queues and topics aren't supported in Premium Messaging. For more in
 
 ### Express entities
 
-Because Premium messaging runs in an isolated run-time environment, express entities aren't supported in Premium namespaces. For more information about the express feature, see the [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property.
-
-If you have code running under Standard messaging and want to port it to the Premium tier, make sure the [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) property is set to **false** (the default value).
+Because Premium messaging runs in an isolated run-time environment, express entities aren't supported in Premium namespaces. An express entity holds a message in memory temporarily before writing it to persistent storage. If you have code running under Standard messaging and want to port it to the Premium tier, ensure that the express entity feature is disabled.
 
 ## Premium Messaging resource usage
 In general, any operation on an entity may cause CPU and memory usage. Here are some of these operations: 

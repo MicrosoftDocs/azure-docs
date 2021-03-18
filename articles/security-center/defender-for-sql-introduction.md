@@ -22,7 +22,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
 |Aspect|Details|
 |----|:----|
 |Release state:|**Azure Defender for Azure SQL database servers** - Generally available (GA)<br>**Azure Defender for SQL servers on machines** - Generally available (GA) |
-|Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [the pricing page](security-center-pricing.md)|
+|Pricing:|The two plans that form **Azure Defender for SQL** are billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Protected SQL versions:|[SQL on Azure virtual machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)<br>[Azure Arc enabled SQL servers](/sql/sql-server/azure-arc/overview)<br>On-premises SQL servers on Windows machines without Azure Arc<br>Azure SQL [single databases](../azure-sql/database/single-database-overview.md) and [elastic pools](../azure-sql/database/elastic-pool-overview.md)<br>[Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)<br>[Azure Synapse Analytics (formerly SQL DW) dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (**Partial**: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.)|
 |||
@@ -40,7 +40,7 @@ Azure Defender for SQL includes two Azure Defender plans that extend Azure Secur
     - [SQL Server on Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - On-premises SQL servers:
         - [Azure Arc enabled SQL Server (preview)](/sql/sql-server/azure-arc/overview)
-        - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/platform/agent-windows.md)
+        - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/agents/agent-windows.md)
 
 
 ## What are the benefits of Azure Defender for SQL?
@@ -68,7 +68,6 @@ Alerts include details of the incident that triggered them, as well as recommend
 
 ## Next steps
 
-In this article, you learned about Azure Defender for SQL.
+In this article, you learned about Azure Defender for SQL. To use the services that have been described:
 
-> [!div class="nextstepaction"]
-> [Scan your SQL servers for vulnerabilities with Azure Defender](defender-for-sql-usage.md)
+- Use Azure Defender for SQL servers on machines to [scan your SQL servers for vulnerabilities](defender-for-sql-usage.md)

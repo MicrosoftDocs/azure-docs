@@ -2,7 +2,8 @@
 title: Deploy Azure dedicated hosts using the Azure PowerShell 
 description: Deploy VMs to dedicated hosts using Azure PowerShell.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/12/2020
@@ -20,7 +21,6 @@ Make sure that you have installed Azure PowerShell version 2.8.0 or later, and y
 
 ## Limitations
 
-- Virtual machine scale sets are not currently supported on dedicated hosts.
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
 
 ## Create a host group

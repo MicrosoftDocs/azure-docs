@@ -27,7 +27,7 @@ RDP and SSH are some of the fundamental means through which you can connect to y
 
 This figure shows the architecture of an Azure Bastion deployment. In this diagram:
 
-* The Bastion host is deployed in the virtual network.
+* The Bastion host is deployed in the virtual network that contains the AzureBastionSubnet subnet that has a minimum /27 prefix.
 * The user connects to the Azure portal using any HTML5 browser.
 * The user selects the virtual machine to connect to.
 * With a single click, the RDP/SSH session opens in the browser.

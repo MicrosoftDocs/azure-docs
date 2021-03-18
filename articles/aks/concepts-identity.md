@@ -38,6 +38,7 @@ The following permissions are used by the AKS cluster identity, which is created
 
 | Permission | Reason |
 |---|---|
+| Microsoft.ContainerService/managedClusters/*  <br/> | Required for creating users and operating the cluster
 | Microsoft.Network/loadBalancers/delete <br/> Microsoft.Network/loadBalancers/read <br/> Microsoft.Network/loadBalancers/write | Required to configure the load balancer for a LoadBalancer service. |
 | Microsoft.Network/publicIPAddresses/delete <br/> Microsoft.Network/publicIPAddresses/read <br/> Microsoft.Network/publicIPAddresses/write | Required to find and configure public IPs for a LoadBalancer service. |
 | Microsoft.Network/publicIPAddresses/join/action | Required for configuring public IPs for a LoadBalancer service. |
@@ -162,7 +163,7 @@ With the Azure RBAC integration, AKS will use a Kubernetes Authorization webhook
 
 ![Azure RBAC for Kubernetes authorization flow](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-As shown on the above diagram, when using the Azure RBAC integration all requests to the Kubernetes API will follow the same authentication flow as explained on the [Azure Active integration section](#azure-active-directory-integration). 
+As shown on the above diagram, when using the Azure RBAC integration all requests to the Kubernetes API will follow the same authentication flow as explained on the [Azure Active Directory integration section](#azure-active-directory-integration). 
 
 But after that, instead of solely relying on Kubernetes RBAC for Authorization, the request is actually going to be authorized by Azure, as long as the identity that made the request exists in AAD. If the identity doesn't exist in AAD, for example a Kubernetes service account, then the Azure RBAC won't kick in, and it will be the normal Kubernetes RBAC.
 
@@ -170,6 +171,8 @@ In this scenario you could give users one of the four built-in roles, or create 
 
 This feature will allow you to, for example, not only give users permissions to the AKS resource across subscriptions but set up and give them the role and permissions that they will have inside each of those clusters that controls the access to the Kubernetes API. For example, you can grant the `Azure Kubernetes Service RBAC Viewer` role on the subscription scope and its recipient will be able to list and get all Kubernetes objects from all clusters, but not modify them.
 
+> [!IMPORTANT]
+> Please note that you need to enable Azure RBAC for Kubernetes authorization before using this feature. For more details and step by step guidance, [see here](manage-azure-rbac.md).
 
 #### Built-in roles
 
@@ -182,7 +185,6 @@ AKS provides the following four built-in roles. They are similar to the [Kuberne
 | Azure Kubernetes Service RBAC Admin  | Allows admin access, intended to be granted within a namespace. Allows read/write access to most resources in a namespace (or cluster scope), including the ability to create roles and role bindings within the namespace. This role doesn't allow write access to resource quota or to the namespace itself. |
 | Azure Kubernetes Service RBAC Cluster Admin  | Allows super-user access to perform any action on any resource. It gives full control over every resource in the cluster and in all namespaces. |
 
-**To learn how to enable Azure RBAC for Kubernetes authorization, [read here](manage-azure-rbac.md).**
 
 ## Summary
 
@@ -231,4 +233,4 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-identity]: operator-best-practices-identity.md
-[upgrade-per-cluster]: ../azure-monitor/insights/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli
+[upgrade-per-cluster]: ../azure-monitor/containers/container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli

@@ -15,13 +15,13 @@ ms.author: mbaldwin
 
 # Azure TLS certificate changes  
 
-Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements.
+Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements and will be revoked on February 15, 2021.
 
 ## When will this change happen?
 
 Existing Azure endpoints have been transitioning in a phased manner since August 13, 2020. All newly created Azure TLS/SSL endpoints contain updated certificates chaining up to the new Root CAs.
 
-Service specific details:
+All Azure services are impacted by this change. Here are some additional details for specific services:
 
 - [Azure Active Directory](../../active-directory/index.yml) (Azure AD) services began this transition on July 7, 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) and [DPS](../../iot-dps/index.yml) will remain on Baltimore CyberTrust Root CA but their intermediate CAs will change. [Click here for details](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456).

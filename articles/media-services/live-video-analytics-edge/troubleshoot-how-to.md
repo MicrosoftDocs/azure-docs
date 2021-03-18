@@ -93,6 +93,18 @@ Live Video Analytics is deployed as an IoT Edge module on the IoT Edge device, a
 
     > [!TIP]
     > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** as a guide for troubleshooting and diagnostics.
+
+You might also encounter issues when running the **[Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup)**. Some common issues include:
+
+* Using a subscription where you do not have owner privileges. This will cause the script to fail with a **ForbiddenError** or a **AuthorizationFailed** error.
+    * To get past this issue, ensure that you have **OWNER** privileges to the subscription you plan to use. If you cannot do it by yourself, please reach out to the subscription administrator to grant the right privileges.
+* **The template deployment failed because of policy violation.**
+    * To get pass this issue, please work with your IT admin to ensure that the call(s) to create virtual machine to bypass blocking ssh authentication. This will not be needed as we are using a secure Bastion network that requires a username and password to communicate with the Azure resources. These credentials will be stored in the **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** file in Cloud Shell, once the virtual machine is successfully created, deployed and attached to the IoT Hub.
+* The setup script cannot create a service principal and/or Azure resources.
+    * To get past this issue, please check that your subscription and the Azure tenant have not reached their maximum service limits. Learn more about [Azure AD service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) and [Azure subscription and service limits, quotas, and constraints.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
+
+> [!TIP]
+> If there are any additional issues that you may need help with, please **[collect logs and submit a support ticket](#collect-logs-for-submitting-a-support-ticket)**. You can also reach out to us by sending us an email at **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)**.
 ### Live Video Analytics working with external modules
 
 Live Video Analytics via the media graph extension processors can extend the media graph to send and receive data from other IoT Edge modules by using HTTP or gRPC protocols. As a [specific example](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), this media graph can send video frames as images to an external inference module such as Yolo v3 and receive JSON-based analytics results using HTTP protocol . In such a topology, the destination for the events is mostly the IoT hub. In situations where you don't see the inference events on the hub, check for the following:

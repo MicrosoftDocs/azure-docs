@@ -47,7 +47,7 @@ Below is the same data set using batch anomaly detection. The model built for th
 
 ## Data preparation
 
-The Anomaly Detector API accepts time series data formatted into a JSON request object. A time series can be any numerical data recorded over time in sequential order. You can send windows of your time series data to the Anomaly Detector API endpoint to improve the API's performance. The minimum number of data points you can send is 12, and the maximum is 8640 points. [Granularity](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) is defined as the rate that your data is sampled at. 
+The Anomaly Detector API accepts time series data formatted into a JSON request object. A time series can be any numerical data recorded over time in sequential order. You can send windows of your time series data to the Anomaly Detector API endpoint to improve the API's performance. The minimum number of data points you can send is 12, and the maximum is 8640 points. [Granularity](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity) is defined as the rate that your data is sampled at. 
 
 Data points sent to the Anomaly Detector API must have a valid Coordinated Universal Time (UTC) timestamp, and a numerical value. 
 

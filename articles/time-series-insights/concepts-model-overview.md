@@ -70,7 +70,7 @@ These components are combined to specify a time series model and to organize you
 
 [![Time Series Model overview chart](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-A time series model can be created and managed through the [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels). Time Series Model settings can be managed through the [Model Settings API](/rest/api/time-series-insights/reference-model-apis).
+A time series model can be created and managed through the [Azure Time Series Insights Explorer](./concepts-ux-panels.md). Time Series Model settings can be managed through the [Model Settings API](/rest/api/time-series-insights/reference-model-apis).
 
 ## Time Series Model instances
 

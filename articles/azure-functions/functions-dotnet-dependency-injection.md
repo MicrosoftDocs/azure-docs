@@ -5,7 +5,7 @@ author: ggailey777
 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 01/27/2021
 ms.author: glenga
 ms.reviewer: jehollan
 ---
@@ -251,6 +251,24 @@ public class HttpTrigger
 ```
 
 Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
+
+## Using ASP.NET Core user secrets
+
+When developing locally, ASP.NET Core provides a [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) that allows you to store secret information outside the project root. It makes it less likely that secrets are accidentally committed to source control. Azure Functions Core Tools (version 3.0.3233 or later) automatically reads secrets created by the ASP.NET Core Secret Manager.
+
+To configure a .NET Azure Functions project to use user secrets, run the following command in the project root.
+
+```bash
+dotnet user-secrets init
+```
+
+Then use the `dotnet user-secrets set` command to create or update secrets.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+To access user secrets values in your function app code, use `IConfiguration` or `IOptions`.
 
 ## Customizing configuration sources
 

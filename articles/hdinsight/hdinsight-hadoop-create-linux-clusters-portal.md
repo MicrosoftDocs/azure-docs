@@ -1,9 +1,6 @@
 ---
 title: Create Apache Hadoop clusters using web browser, Azure HDInsight
 description: Learn to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on HDInsight. Use web browser and the Azure portal.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020

@@ -145,5 +145,5 @@ After you download the starter pack.
 
 ## Next steps
 
-- [Add external identity providers](tutorial-add-identity-providers.md)
+- [Add external identity providers](add-identity-provider.md)
 - [Create a user flow](tutorial-create-user-flows.md)

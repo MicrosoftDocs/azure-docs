@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 02/09/2021
 ms.author: jeedes
 ---
 
@@ -21,7 +21,8 @@ In this tutorial, you'll learn how to integrate F5 with Azure Active Directory (
 * Enable your users to be automatically signed-in to F5 with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with single sign-on in Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+> [!NOTE]
+> F5 BIG-IP APM [Purchase Now](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/f5-networks.f5-big-ip-best?tab=Overview).
 
 ## Prerequisites
 
@@ -108,18 +109,18 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of F5 into Azure AD, you need to add F5 from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **F5** in the search box.
 1. Select **F5** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on for F5
+## Configure and test Azure AD SSO for F5
 
 Configure and test Azure AD SSO with F5 using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in F5.
 
-To configure and test Azure AD SSO with F5, complete the following building blocks:
+To configure and test Azure AD SSO with F5, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
@@ -132,7 +133,7 @@ To configure and test Azure AD SSO with F5, complete the following building bloc
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **F5** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **F5** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
@@ -181,19 +182,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **F5**.
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
-1. Click on **Conditional Access** .
-1. Click on **New Policy**.
-1. You can now see your F5 App as a resource for Conditional Access policy and apply any conditional access including Multifactor Auth, Device based access control or Identity Protection Policy.
 
 ## Configure F5 SSO
 
@@ -461,26 +453,23 @@ In this section, you create a user called B.Simon in F5. Work with [F5 Client s
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options. 
 
-When you click the F5 tile in the Access Panel, you should be automatically signed in to the F5 for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+#### SP initiated:
 
-## Additional resources
+* Click on **Test this application** in Azure portal. This will redirect to F5 Sign on URL where you can initiate the login flow.  
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
+* Go to F5 Sign-on URL directly and initiate the login flow from there.
 
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### IDP initiated:
 
-- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the F5 for which you set up the SSO 
 
-- [Try F5 with Azure AD](https://aad.portal.azure.com/)
+You can also use Microsoft My Apps to test the application in any mode. When you click the F5 tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the F5 for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
-- [Configure F5 single sign-on for Kerberos application](kerbf5-tutorial.md)
+> [!NOTE]
+> F5 BIG-IP APM [Purchase Now](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/f5-networks.f5-big-ip-best?tab=Overview).
 
-- [Configure F5 single sign-on for Advanced Kerberos application](advance-kerbf5-tutorial.md)
+## Next steps
 
-- [F5 BIG-IP APM and Azure AD integration for secure hybrid access](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
-
-- [Tutorial to deploy F5 BIG-IP Virtual Edition VM in Azure IaaS for secure hybrid access](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
-
-- [Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn) 
+Once you configure F5 you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

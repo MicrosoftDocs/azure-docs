@@ -36,7 +36,7 @@ Azure Service Fabric clusters that run on versions from 5.7 to 6.3.63.* will be 
 Upgrade to a supported Service Fabric version to prevent downtime or loss of functionality related to this change. Ensure that your clusters are running at least the following versions to prevent issues in your environment.
 
 > [!Note]
-> All released versions of 7.2 include the necessary changes.
+> **All released versions of 7.2 include the necessary changes**.
   
   | OS | Current Service Fabric runtime in the cluster | CU/Patch release |
   | --- | --- |--- |
@@ -59,9 +59,9 @@ Azure Service Fabric clusters that run on unchanged versions later than 6.3 will
   
   - **For clusters running a version of Service Fabric greater than 6.3 NOT using Open Networking feature**, the cluster will remain up.
 
- - **For clusters running a version of Service Fabric greater than 6.3 and use [Open Networking feature for Containers](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** ,the cluster could become unavailable and will cease functioning which could cause service interruptions for your workloads.
+ - **For clusters running a version of Service Fabric greater than 6.3 and use [Open Networking feature for Containers](./service-fabric-networking-modes.md#set-up-open-networking-mode)** ,the cluster could become unavailable and will cease functioning which could cause service interruptions for your workloads.
  
- -   **For clusters running [Windows Versions between 7.0.457 and 7.0.466 (both versions included) ](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) and the Windows OS has the Windows Containers Feature enabled. NOTE: Linux versions 7.0.457, 7.0.464 and  7.0.465 are NOT  impacted**.
+ -   **For clusters running [Windows Versions between 7.0.457 and 7.0.466 (both versions included) ](#supported-version-names) and the Windows OS has the Windows Containers Feature enabled. NOTE: Linux versions 7.0.457, 7.0.464 and  7.0.465 are NOT  impacted**.
     - **Impact**: The cluster will cease functioning which could cause service interruptions for your workloads.
     
 #### Required action
@@ -71,9 +71,15 @@ To prevent downtime or loss of functionality, ensure that your clusters are runn
 The versions of Service Fabric in the table contain the necessary changes to prevent loss of functionality. Make sure you're using one of these versions.  
 
 > [!Note]
-> All release versions of 7.2 include the necessary changes.
+> **Azure Service Fabric clusters running on version 6.5, have to perform multiple upgrades at the same time before infrastucuture change to avoid loss of functionality to the cluster**. 
+>   -   1. Upgrade to 7.0.466. **Clusters running the Windows OS that has the Windows Containers Feature enabled CANNOT be on this intermediate version. They need to perform  next step (ii) below.i.e.  Upgrade to be on safer and compliant verion to avoid service disruptions**
+>   -   2. Upgrade to latest complaint versions in 7.0* release (7.0.478)  or any of the higher versions listed below.
 
-  | OS | Current Service Fabric runtime in the cluster | CU/Patch release |
+
+> [!Note]
+> **All release versions of 7.2 include the necessary changes**.
+
+ | OS | Current Service Fabric runtime in the cluster | CU/Patch release |
   | --- | --- |--- |
   | Windows | 7.0.* | 7.0.478.9590 |
   | Windows | 7.1.* | 7.1.503.9590 |
@@ -107,17 +113,21 @@ The following table lists the versions of Service Fabric and their support end d
 | 7.0.470.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
 | 7.0.472.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
 | 7.0.478.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
-| 7.1.409.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
-| 7.1.417.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
-| 7.1.428.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
-| 7.1.456.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
-| 7.1.458.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
-| 7.1.459.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
-| 7.1.503.* | 7.0.466.* |Less than or equal to version  4.1 |March 31, 2021 |
+| 7.1.409.* | 7.0.466.* |Less than or equal to version  4.1 |July 31, 2021 |
+| 7.1.417.* | 7.0.466.* |Less than or equal to version  4.1 |July 31, 2021 |
+| 7.1.428.* | 7.0.466.* |Less than or equal to version  4.1 |July 31, 2021 |
+| 7.1.456.* | 7.0.466.* |Less than or equal to version  4.1 |July 31, 2021 |
+| 7.1.458.* | 7.0.466.* |Less than or equal to version  4.1 |July 31, 2021 |
+| 7.1.459.* | 7.0.466.* |Less than or equal to version  4.1 |July 31, 2021 |
+| 7.1.503.* | 7.0.466.* |Less than or equal to version  4.1 |July 31, 2021 |
+| 7.1.510.* | 7.0.466.* |Less than or equal to version  4.1 |July 31, 2021 |
 | 7.2.413.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
 | 7.2.432.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
 | 7.2.433.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
 | 7.2.445.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
+| 7.2.452.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
+| 7.2.457.* | 7.0.470.* |Less than or equal to version  4.2 |Current version, so no end date |
+| 7.2.477.* | 7.0.478.* |Less than or equal to version  4.2 |Current version, so no end date |
 
 ## Supported operating systems
 
@@ -194,7 +204,11 @@ The following table lists the version names of Service Fabric and their correspo
 | 7.1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 | 7.1 CU6 | 7.1.459.9590 | 7.1.455.1 |
 | 7.1 CU8 | 7.1.503.9590 | 7.1.508.1 |
-| 7.2 RTO | 7.2.413.9590 | Not applicable|
+| 7.1 CU10 | 7.1.510.9590 | NA |
+| 7.2 RTO | 7.2.413.9590 | NA |
 | 7.2 CU2 | 7.2.432.9590 | 7.2.431.1 |
-| 7.2 CU3 | 7.2.433.9590 | Not applicable|
+| 7.2 CU3 | 7.2.433.9590 | NA |
 | 7.2 CU4 | 7.2.445.9590 | 7.2.447.1 |
+| 7.2 CU5 | 7.2.452.9590 | 7.2.454.1 |
+| 7.2 CU6 | 7.2.457.9590 | 7.2.456.1 |
+| 7.2 CU7 | 7.2.477.9590 | 7.2.476.1 |

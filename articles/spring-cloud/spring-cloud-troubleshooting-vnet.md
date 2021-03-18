@@ -19,22 +19,22 @@ To create an instance of Azure Spring Cloud, you must have sufficient permission
 
 If you use the Azure portal to set up the Azure Spring Cloud service instance, the Azure portal will validate the permissions.
 
-To set up the Azure Spring Cloud service instance by using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), verify that:
+To set up the Azure Spring Cloud service instance by using the [Azure CLI](/cli/azure/get-started-with-azure-cli), verify that:
 
 - The subscription is active.
 - The location is supported by Azure Spring Cloud.
 - The resource group for the instance is already created.
 - The resource name conforms to the naming rule. It must contain only lowercase letters, numbers, and hyphens. The first character must be a letter. The last character must be a letter or number. The value must contain from 2 to 32 characters.
 
-To set up the Azure Spring Cloud service instance by using the Resource Manager template, refer to [Understand the structure and syntax of Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
+To set up the Azure Spring Cloud service instance by using the Resource Manager template, refer to [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
 
 ### Common creation issues
 
 | Error Message | How to fix |
 |------|------|
-| Resources created by Azure Spring Cloud were disallowed by policy. | Network resources will be created when deploy Azure Spring Cloud in your own virtual network. Please check whether you have [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) defined to block those creation. Resources failed to be created can be found in error message. |
+| Resources created by Azure Spring Cloud were disallowed by policy. | Network resources will be created when deploy Azure Spring Cloud in your own virtual network. Please check whether you have [Azure Policy](../governance/policy/overview.md) defined to block those creation. Resources failed to be created can be found in error message. |
 | Provided subnets have associated with route tables, please disassociate them. | Currently it is not supported to deploy Azure Spring Cloud in subnet associated with existing route tables, please dissociate them and try again. |
-| Required traffic is not whitelisted. | Please refer to [Customer Responsibilities for Running Azure Spring Cloud in VNET](spring-cloud-vnet-customer-responsibilities.md) to ensure required traffic is whitelisted. |
+| Required traffic is not allowlisted. | Please refer to [Customer Responsibilities for Running Azure Spring Cloud in VNET](spring-cloud-vnet-customer-responsibilities.md) to ensure required traffic is allowlisted. |
 
 ## My application can't be registered
 
@@ -42,4 +42,4 @@ This problem occurs if your virtual network is configured with custom DNS settin
 
 ## Other issues
 
-[Troubleshoot common Azure Spring Cloud issues](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-troubleshoot).
+[Troubleshoot common Azure Spring Cloud issues](./spring-cloud-troubleshoot.md).

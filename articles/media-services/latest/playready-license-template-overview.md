@@ -1,12 +1,11 @@
 ---
-title: Azure Media Services v3 with Microsoft PlayReady license template
+title: Media Services Microsoft PlayReady license template
 description: Learn about Azure Media Services v3 with the PlayReady license template and how to configure PlayReady licenses.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,7 +14,6 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Media Services v3 with PlayReady license template
 
@@ -61,7 +59,7 @@ The XML conforms to the PlayReady license template XML schema defined in the [Pl
 
 Media Services provides types that you can use to configure a PlayReady license template. 
 
-The snippet that follows uses Media Services .NET classes to configure the PlayReady license template. The classes are defined in the [Microsoft.Azure.Management.Media.Models](/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) namespace. The snippet configures the PlayRight of the PlayReady license. PlayRight grants the user the ability to play back the content subject to any restrictions configured in the license and on the PlayRight itself (for playback-specific policy). Much of the policy on a PlayRight concerns output restriction that control the types of outputs that the content can be played over. It also includes any restrictions that must be put in place when a given output is used. For example, if DigitalVideoOnlyContentRestriction is enabled, the DRM runtime only allows the video to be displayed over digital outputs. (Analog video outputs aren't allowed to pass the content.)
+The snippet that follows uses Media Services .NET classes to configure the PlayReady license template. The classes are defined in the [Microsoft.Azure.Management.Media.Models](/dotnet/api/microsoft.azure.management.media.models) namespace. The snippet configures the PlayRight of the PlayReady license. PlayRight grants the user the ability to play back the content subject to any restrictions configured in the license and on the PlayRight itself (for playback-specific policy). Much of the policy on a PlayRight concerns output restriction that control the types of outputs that the content can be played over. It also includes any restrictions that must be put in place when a given output is used. For example, if DigitalVideoOnlyContentRestriction is enabled, the DRM runtime only allows the video to be displayed over digital outputs. (Analog video outputs aren't allowed to pass the content.)
 
 > [!IMPORTANT]
 > PlayReady license has restrictions that are powerful. If the output protections are too restrictive, the content might be unplayable on some clients. For more information, see the [PlayReady Compliance Rules](https://www.microsoft.com/playready/licensing/compliance/).

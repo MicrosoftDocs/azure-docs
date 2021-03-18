@@ -89,28 +89,28 @@ conceptualContent:
         
     - title: Quickstarts & tutorials
       links: 
-        - url: ./learn/nodejs-quick-start.md
+        - url: ./app/nodejs-quick-start.md
           itemType: how-to-guide
           text: Node.js
-        - url: ./learn/mobile-center-quickstart.md
+        - url: ./app/mobile-center-quickstart.md
           itemType: how-to-guide
           text: Mobile app
         - url: ./app/website-monitoring.md
           itemType: how-to-guide
           text: Website monitoring
-        - url: ./learn/tutorial-runtime-exceptions.md
+        - url: ./app/tutorial-runtime-exceptions.md
           itemType: how-to-guide
           text: Find and diagnose runtime exceptions
-        - url: ./learn/tutorial-performance.md
+        - url: ./app/tutorial-performance.md
           itemType: how-to-guide
           text: Find and diagnose performance issues
-        - url: ./learn/tutorial-alert.md
+        - url: /azure/azure-monitor/alerts/tutorial-alert
           itemType: how-to-guide
           text: Monitor and alert on application health
-        - url: ./learn/tutorial-users.md
+        - url: ./app/tutorial-users.md
           itemType: how-to-guide
           text: Understand user behavior
-        - url: ./learn/tutorial-app-dashboards.md
+        - url: ./app/tutorial-app-dashboards.md
           itemType: how-to-guide
           text: Create custom dashboards
 
@@ -161,7 +161,7 @@ conceptualContent:
         - url: ./app/pre-aggregated-metrics-log-metrics.md
           itemType: how-to-guide
           text:  Log-based and pre-aggregated metrics
-        - url: ./platform/app-insights-metrics.md
+        - url: ./essentials/app-insights-metrics.md
           itemType: how-to-guide
           text:  Log-based metric definitions
         - url: ./app/ilogger.md
@@ -273,7 +273,7 @@ conceptualContent:
 
     - title:  Privacy, security, usage & cost
       links: 
-        - url: ./platform/personal-data-mgmt.md
+        - url: ./logs/personal-data-mgmt.md
           itemType: how-to-guide
           text:  Personal data handling
         - url: ./app/data-retention-privacy.md
@@ -366,7 +366,7 @@ conceptualContent:
         - url: ./app/code-sample-export-sql-stream-analytics.md
           itemType: how-to-guide
           text:  Export data model
-        - url: ./platform/logicapp-flow-connector.md
+        - url: ./logs/logicapp-flow-connector.md
           itemType: how-to-guide
           text:  Flow integration
         - url: ./app/automate-with-logic-apps.md
@@ -381,10 +381,10 @@ conceptualContent:
         - url: ./app/export-power-bi.md
           itemType: how-to-guide
           text:  PowerBI  integration
-        - url: ./platform/metrics-charts.md
+        - url: ./essentials/metrics-charts.md
           itemType: how-to-guide
           text:  Metric charts
-        - url: ./platform/workbooks-overview.md
+        - url: ./visualize/workbooks-overview.md
           itemType: how-to-guide
           text:  Workbooks (interactive reporting)
         - url: ./app/change-analysis.md
@@ -432,13 +432,13 @@ conceptualContent:
         - url: ./app/azure-functions-supported-features.md
           itemType: reference
           text:  Azure Functions integration
-        - url: /dotnet/api/overview/azure/insights?view=azure-dotnet
+        - url: /dotnet/api/overview/azure/insights
           itemType: reference
           text: .NET SDK 
-        - url: /java/api/overview/azure/appinsights?view=azure-java-stable
+        - url: /java/api/overview/azure/appinsights
           itemType: reference
           text: .Java
-        - url: /javascript/api/overview/azure/applicationinsights?view=azure-node-latest
+        - url: /javascript/api/overview/azure/applicationinsights
           itemType: reference
           text: Node.js
         - url: /rest/api/application-insights/
@@ -457,7 +457,7 @@ additionalContent:
         url: ./app/api-custom-events-metrics.md
       - title: Application Insights PowerShell
         summary: Learn how to install and use the Application Insights PowerShell cmdlets.
-        url: /powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0
+        url: /powershell/module/az.applicationinsights/new-azapplicationinsights
       - title: Azure CLI commands for Application Insights
         summary: Application Insights CLI extension commands (az extension add -n application-insights).
-        url: /cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest
+        url: /cli/azure/ext/application-insights/monitor/app-insights/component

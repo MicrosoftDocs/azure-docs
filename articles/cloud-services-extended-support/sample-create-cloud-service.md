@@ -17,27 +17,29 @@ These samples cover various ways to to create a new Azure Cloud Service (extende
 
 ```powershell
 # Create role profile object
-$role = New-AzCloudServiceCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
+PS C:\> $role = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
+PS C:\> $roleProfile = @{role = @($role)}
 
 # Create network profile object
-$publicIp = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp
-$feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 'ContosoFe' -PublicIPAddressId $publicIp.Id
-$loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'ContosoLB' -FrontendIPConfiguration $feIpConfig
+PS C:\> $publicIp = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp
+PS C:\> $feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 'ContosoFe' -PublicIPAddressId $publicIp.Id
+PS C:\> $loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'ContosoLB' -FrontendIPConfiguration $feIpConfig
+PS C:\> $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig}
 
 # Read Configuration File
-$cscfgFile = "<Path to cscfg configuration file>"
+$cscfgFile = ""
 $cscfgContent = Get-Content $cscfgFile | Out-String
 
-# Create Cloud Service
+# Create cloud service
 $cloudService = New-AzCloudService                                              `
--Name ContosoCS                                               `
--ResourceGroupName ContosOrg                                  `
--Location EastUS                                              `
--PackageUrl "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"    `
--Configuration $cscfgContent                                  `
--UpgradeMode 'Auto'                                           `
--RoleProfileRole $role                                       `
--NetworkProfileLoadBalancerConfiguration $loadBalancerConfig
+                  -Name ContosoCS                                               `
+                  -ResourceGroupName ContosOrg                                  `
+                  -Location EastUS                                              `
+                  -PackageUrl "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"    `
+                  -Configuration $cscfgContent                                  `
+                  -UpgradeMode 'Auto'                                           `
+                  -RoleProfile $roleProfile                                     `
+                  -NetworkProfile $networkProfile
 ```
 
 
@@ -45,141 +47,115 @@ $cloudService = New-AzCloudService                                              
 
 ```powershell
 # Create role profile object
-$role = New-AzCloudServiceCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
+PS C:\> $role = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
+PS C:\> $roleProfile = @{role = @($role)}
 
 # Create network profile object
-$publicIp = Get-AzPublicIpAddress -ResourceGroupName ContosoOrg -Name ContosIp
-$feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 'ContosoFe' -PublicIPAddressId $publicIp.Id
-$loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'ContosoLB' -FrontendIPConfiguration $feIpConfig
+PS C:\> $publicIp = Get-AzPublicIpAddress -ResourceGroupName ContosoOrg -Name ContosIp
+PS C:\> $feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 'ContosoFe' -PublicIPAddressId $publicIp.Id
+PS C:\> $loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'ContosoLB' -FrontendIPConfiguration $feIpConfig
+PS C:\> $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig}
 
 # Create RDP extension object
-$credential = Get-Credential
-$expiration = (Get-Date).AddYears(1)
-$extension = New-AzCloudServiceRemoteDesktopExtensionObject -Name 'RDPExtension' -Credential $credential -Expiration $expiration -TypeHandlerVersion '1.2.1'
+PS C:\> $credential = Get-Credential
+PS C:\> $expiration = (Get-Date).AddYears(1)
+PS C:\> $extension = New-AzCloudServiceRemoteDesktopExtensionObject -Name 'RDPExtension' -Credential $credential -Expiration $expiration -TypeHandlerVersion '1.2.1'
+PS C:\> $extensionProfile = @{extension = @($extension)}
 
 # Read Configuration File
-$cscfgFile = "<Path to cscfg configuration file>"
+$cscfgFile = ""
 $cscfgContent = Get-Content $cscfgFile | Out-String
 
-# Create Cloud Service
+# Create cloud service
 $cloudService = New-AzCloudService                                              `
--Name ContosoCS                                               `
--ResourceGroupName ContosOrg                                  `
--Location EastUS                                              `
--PackageUrl "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"    `
--Configuration $cscfgContent                                  `
--UpgradeMode 'Auto'                                           `
--RoleProfileRole $role                                        `
--NetworkProfileLoadBalancerConfiguration $loadBalancerConfig  `
--ExtensionProfileExtension $extension
+                  -Name ContosoCS                                               `
+                  -ResourceGroupName ContosOrg                                  `
+                  -Location EastUS                                              `
+                  -PackageUrl "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"    `
+                  -Configuration $cscfgContent                                  `
+                  -UpgradeMode 'Auto'                                           `
+                  -RoleProfile $roleProfile                                     `
+                  -NetworkProfile $networkProfile                               `
+                  -ExtensionProfile $extensionProfile
 ```
 
-## Create a Cloud Service with a single role and Windows Azure Diagnostics extension
+## Create new cloud service with single role and certificate from key vault
 
 ```PowerShell
 # Create role profile object
-$role = New-AzCloudServiceCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
-
-# Create network profile object
-$publicIp = Get-AzPublicIpAddress -ResourceGroupName ContosoOrg -Name ContosIp
-$feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 'ContosoFe' -PublicIPAddressId $publicIp.Id
-$loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'ContosoLB' -FrontendIPConfiguration $feIpConfig
-
-# Create WAD extension object
-$storageAccountKey = Get-AzStorageAccountKey -ResourceGroupName "ContosOrg" -Name "ContosSA"
-$configFile = "<WAD configuration file path>"
-$extension = New-AzCloudServiceDiagnosticsExtension -Name "WADExtension" -ResourceGroupName "ContosOrg" -CloudServiceName "ContosCS" -StorageAccountName "ContosSA" -StorageAccountKey $storageAccountKey[0].Value -DiagnosticsConfigurationPath $configFile -TypeHandlerVersion "1.5" -AutoUpgradeMinorVersion $true
-
-# Read Configuration File
-$cscfgFile = "<Path to cscfg configuration file>"
-$cscfgContent = Get-Content $cscfgFile | Out-String
-
-## Create Cloud Service
-$cloudService = New-AzCloudService                                              `
--Name ContosoCS                                               `
--ResourceGroupName ContosOrg                                  `
--Location EastUS                                              `
--PackageUrl "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"    `
--Configuration $cscfgContent                                  `
--UpgradeMode 'Auto'                                           `
--RoleProfileRole $role                                        `
--NetworkProfileLoadBalancerConfiguration $loadBalancerConfig  `
--ExtensionProfileExtension $extension
-```
-## Create new Cloud Service with single role and certificate from Key Vault
-
-```powershell
-# Create role profile object
-$role = New-AzCloudServiceCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
+$role = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
+$roleProfile = @{role = @($role)}
 
 # Create OS profile object
 $keyVault = Get-AzKeyVault -ResourceGroupName ContosOrg -VaultName ContosKeyVault
 $certificate=Get-AzKeyVaultCertificate -VaultName ContosKeyVault -Name ContosCert
 $secretGroup = New-AzCloudServiceVaultSecretGroupObject -Id $keyVault.ResourceId -CertificateUrl $certificate.SecretId
+$osProfile = @{secret = @($secretGroup)}
 
 # Create network profile object
 $publicIp = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp
 $feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 'ContosoFe' -PublicIPAddressId $publicIp.Id
- $loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'ContosoLB' -FrontendIPConfiguration $feIpConfig
+$loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'ContosoLB' -FrontendIPConfiguration $feIpConfig
+$networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig}
 
 # Read Configuration File
-$cscfgFile = "<Path to cscfg configuration file>"
+$cscfgFile = ""
 $cscfgContent = Get-Content $cscfgFile | Out-String
 
-# Create Cloud Service
+# Create cloud service
 $cloudService = New-AzCloudService                                              `
--Name ContosoCS                                               `
--ResourceGroupName ContosOrg                                  `
--Location EastUS                                              `
--PackageUrl "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"    `
--Configuration $cscfgContent                                  `
--UpgradeMode 'Auto'                                           `
--RoleProfileRole $role                                        `
--NetworkProfileLoadBalancerConfiguration $loadBalancerConfig  `
--OSProfileSecret $secretGroup
+                  -Name ContosoCS                                               `
+                  -ResourceGroupName ContosOrg                                  `
+                  -Location EastUS                                              `
+                  -PackageUrl "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"    `
+                  -Configuration $cscfgContent                                  `
+                  -UpgradeMode 'Auto'                                           `
+                  -RoleProfile $roleProfile                                     `
+                  -NetworkProfile $networkProfile                               `
+                  -OSProfile $osProfile
 ```
-
-## Create new Cloud Service with multiple roles and extensions
+## Create new cloud service with multiple roles and extensions
 
 ```powershell
 # Create role profile object
- $role1 = New-AzCloudServiceCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
- $role2 = New-AzCloudServiceCloudServiceRoleProfilePropertiesObject -Name 'ContosoBackend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
- $roles = @($role1, $role2)
+$role1 = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoFrontend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
+$role2 = New-AzCloudServiceRoleProfilePropertiesObject -Name 'ContosoBackend' -SkuName 'Standard_D1_v2' -SkuTier 'Standard' -SkuCapacity 2
+$roleProfile = @{role = @($role1, $role2)}
 
 # Create network profile object
- $publicIp = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp
- $feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 'ContosoFe' -PublicIPAddressId $publicIp.Id
- $loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'ContosoLB' -FrontendIPConfiguration $feIpConfig
+$publicIp = Get-AzPublicIpAddress -ResourceGroupName ContosOrg -Name ContosIp
+$feIpConfig = New-AzCloudServiceLoadBalancerFrontendIPConfigurationObject -Name 'ContosoFe' -PublicIPAddressId $publicIp.Id
+$loadBalancerConfig = New-AzCloudServiceLoadBalancerConfigurationObject -Name 'ContosoLB' -FrontendIPConfiguration $feIpConfig
+$networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig}
 
 # Create RDP extension object
- $credential = Get-Credential
- $expiration = (Get-Date).AddYears(1)
- $rdpExtension = New-AzCloudServiceRemoteDesktopExtensionObject -Name 'RDPExtension' -Credential $credential -Expiration $expiration -TypeHandlerVersion '1.2.1'
+$credential = Get-Credential
+$expiration = (Get-Date).AddYears(1)
+$rdpExtension = New-AzCloudServiceRemoteDesktopExtensionObject -Name 'RDPExtension' -Credential $credential -Expiration $expiration -TypeHandlerVersion '1.2.1'
 
 # Create Geneva extension object
- $genevaExtension = New-AzCloudServiceExtensionObject -Name GenevaExtension -Publisher Microsoft.Azure.Geneva -Type GenevaMonitoringPaaS -TypeHandlerVersion "2.14.0.2"
- $extensions = @($rdpExtension, $genevaExtension)
+$genevaExtension = New-AzCloudServiceExtensionObject -Name GenevaExtension -Publisher Microsoft.Azure.Geneva -Type GenevaMonitoringPaaS -TypeHandlerVersion "2.14.0.2"
+$extensionProfile = @{extension = @($rdpExtension, $genevaExtension)}
 
 # Add tags
 $tag=@{"Owner" = "Contoso"}
 
 # Read Configuration File
-$cscfgFile = "<Path to cscfg configuration file>"
+$cscfgFile = ""
 $cscfgContent = Get-Content $cscfgFile | Out-String
 
-# Create Cloud Service
+# Create cloud service
 $cloudService = New-AzCloudService                                              `
--Name ContosoCS                                               `
--ResourceGroupName ContosOrg                                  `
--Location EastUS                                              `
--PackageUrl "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"    `
--Configuration $cscfgContent                                  `
--UpgradeMode 'Auto'                                           `
--RoleProfileRole $roles                                       `
--NetworkProfileLoadBalancerConfiguration $loadBalancerConfig  `
--ExtensionProfileExtension $extensions                        `
--Tag $tag
+                  -Name ContosoCS                                               `
+                  -ResourceGroupName ContosOrg                                  `
+                  -Location EastUS                                              `
+                  -PackageUrl "https://xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"    `
+                  -Configuration $cscfgContent                                  `
+                  -UpgradeMode 'Auto'                                           `
+                  -RoleProfile $roleProfile                                     `
+                  -NetworkProfile $networkProfile                               `
+                  -ExtensionProfile $extensionProfile                           `
+                  -Tag $tag
 ```
 
 ## Next steps

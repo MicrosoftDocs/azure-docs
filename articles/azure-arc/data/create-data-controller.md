@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
 ---
 
@@ -32,7 +32,7 @@ Currently, the supported list of Kubernetes services and distributions are the f
 
 > [!IMPORTANT]
 > * The minimum supported version of Kubernetes is v1.17. See [Known issues](./release-notes.md#known-issues) for additional information. 
-> * The minimum supported version of OCP is 4.3.
+> * The minimum supported version of OCP is 4.5.
 > * See the [connectivity requirements](connectivity.md) to understand what connectivity is required between your environment and Azure.
 > * See the [storage configuration guidance](storage-configuration.md) to understand the details of how to configure your persistent storage.
 > * If you are using Azure Kubernetes Service, your cluster's worker node VM size should be at least **Standard_D8s_v3** and use **premium disks.** The cluster should not span multiple availability zones. 

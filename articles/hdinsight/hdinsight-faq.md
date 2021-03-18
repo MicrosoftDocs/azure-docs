@@ -4,7 +4,6 @@ description: Frequently asked questions about HDInsight
 keywords: frequently asked questions, faq
 author: Ramakoni1
 ms.author: ramakoni
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
@@ -57,7 +56,7 @@ Yes. To install additional components or customize cluster configuration, use:
 
 - [HDInsight Application Platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install applications.
 
-For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+For a list of supported components see [What are the Apache Hadoop components and versions available with HDInsight?](./hdinsight-component-versioning.md)
 
 ### Can I upgrade the individual components that are pre-installed on the cluster?
 
@@ -232,7 +231,7 @@ Do one of the following actions:
 
 ### How can I set up auditing for my blob storage account?
 
-To audit blob storage accounts, configure monitoring using the procedure at [Monitor a storage account in the Azure portal](../storage/common/storage-monitor-storage-account.md). An HDFS-audit log provides only auditing information for the local HDFS filesystem only (hdfs://mycluster).  It doesn't include operations that are done on remote storage.
+To audit blob storage accounts, configure monitoring using the procedure at [Monitor a storage account in the Azure portal](../storage/common/manage-storage-analytics-logs.md). An HDFS-audit log provides only auditing information for the local HDFS filesystem only (hdfs://mycluster).  It doesn't include operations that are done on remote storage.
 
 ### How can I transfer files between a blob container and an HDInsight head node?
 

@@ -41,7 +41,7 @@ landingContent:
         - text: Sovereign clouds
           url: sovereign-clouds.md
         - text: Containers FAQ
-          url: speech-container-faq.md
+          url: ./speech-container-howto.md
           
 - title: Help and feedback
   linkLists:

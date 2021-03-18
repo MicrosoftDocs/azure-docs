@@ -12,23 +12,25 @@ ms.custom: [amqp, contperf-fy21q1]
 
 # Configure an IoT Edge device to communicate through a proxy server
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 IoT Edge devices send HTTPS requests to communicate with IoT Hub. If your device is connected to a network that uses a proxy server, you need to configure the IoT Edge runtime to communicate through the server. Proxy servers can also affect individual IoT Edge modules if they make HTTP or HTTPS requests that aren't routed through the IoT Edge hub.
 
 This article walks through the following four steps to configure and then manage an IoT Edge device behind a proxy server:
 
-1. [**Install the IoT Edge runtime on your device**](#install-the-runtime-through-a-proxy)
+1. [**Install the IoT Edge runtime on your device**](#install-iot-edge-through-a-proxy)
 
    The IoT Edge installation scripts pull packages and files from the internet, so your device needs to communicate through the proxy server to make those requests. For Windows devices, the installation script also provides an offline installation option.
 
    This step is a one-time process to configure the IoT Edge device when you first set it up. The same connections are also required when you update the IoT Edge runtime.
 
-2. [**Configure the Docker daemon and the IoT Edge daemon on your device**](#configure-the-daemons)
+2. [**Configure IoT Edge and the container runtime on your device**](#configure-iot-edge-and-moby)
 
-   IoT Edge uses two daemons on the device, both of which need to make web requests through the proxy server. The IoT Edge daemon is responsible for communications with IoT Hub. The Moby daemon is responsible for container management, so communicates with container registries.
+   IoT Edge is responsible for communications with IoT Hub. The container runtime is responsible for container management, so communicates with container registries. Both of these components need to make web requests through the proxy server.
 
    This step is a one-time process to configure the IoT Edge device when you first set it up.
 
-3. [**Configure the IoT Edge agent properties in the config.yaml file on your device**](#configure-the-iot-edge-agent)
+3. [**Configure the IoT Edge agent properties in the config file on your device**](#configure-the-iot-edge-agent)
 
    The IoT Edge daemon starts the edgeAgent module initially. Then, the edgeAgent module retrieves the deployment manifest from IoT Hub and starts all the other modules. For the IoT Edge agent to make the initial connection to IoT Hub, configure the edgeAgent module environment variables manually on the device itself. After the initial connection, you can configure the edgeAgent module remotely.
 
@@ -52,7 +54,7 @@ Proxy URLs take the following format: **protocol**://**proxy_host**:**proxy_port
 
 * The **proxy_port** is the network port at which the proxy responds to network traffic.
 
-## Install the runtime through a proxy
+## Install IoT Edge through a proxy
 
 Whether your IoT Edge device runs on Windows or Linux, you need to access the installation packages through the proxy server. Depending on your operating system, follow the steps to install the IoT Edge runtime through a proxy server.
 
@@ -88,7 +90,7 @@ Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyC
 
 For more information about proxy parameters, see [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest). For more information about Windows installation parameters, see [PowerShell scripts for IoT Edge on Windows](reference-windows-scripts.md).
 
-## Configure the daemons
+## Configure IoT Edge and Moby
 
 IoT Edge relies on two daemons running on the IoT Edge device. The Moby daemon makes web requests to pull container images from container registries. The IoT Edge daemon makes web requests to communicate with IoT Hub.
 
@@ -112,6 +114,9 @@ The IoT Edge daemon is configured in a similar manner to the Moby daemon. Use th
 The IoT Edge daemon always uses HTTPS to send requests to IoT Hub.
 
 #### Linux
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 Open an editor in the terminal to configure the IoT Edge daemon.
 
@@ -143,6 +148,58 @@ Verify that your environment variable was created, and the new configuration was
 ```bash
 systemctl show --property=Environment iotedge
 ```
+:::moniker-end
+<!--end 1.1-->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+Open an editor in the terminal to configure the IoT Edge daemon.
+
+```bash
+sudo systemctl edit aziot-edged
+```
+
+Enter the following text, replacing **\<proxy URL>** with your proxy server address and port. Then, save and exit.
+
+```ini
+[Service]
+Environment="https_proxy=<proxy URL>"
+```
+
+Starting in version 1.2, IoT Edge uses the IoT identity service to handle device provisioning with IoT Hub or IoT Hub Device Provisioning Service. Open an editor in the terminal to configure the IoT identity service daemon.
+
+```bash
+sudo systemctl edit aziot-identityd
+```
+
+Enter the following text, replacing **\<proxy URL>** with your proxy server address and port. Then, save and exit.
+
+```ini
+[Service]
+Environment="https_proxy=<proxy URL>"
+```
+
+Refresh the service manager to pick up the new configurations.
+
+```bash
+sudo systemctl daemon-reload
+```
+
+Restart the IoT Edge system services for the changes to both daemons to take effect.
+
+```bash
+sudo iotedge system restart
+```
+
+Verify that your environment variables were created, and the new configuration was loaded.
+
+```bash
+systemctl show --property=Environment aziot-edged
+systemctl show --property=Environment aziot-identityd
+```
+:::moniker-end
+<!--end 1.2-->
 
 #### Windows
 
@@ -160,9 +217,12 @@ Restart-Service iotedge
 
 ## Configure the IoT Edge agent
 
-The IoT Edge agent is the first module to start on any IoT Edge device. It's started for the first time based on the information in the IoT Edge config.yaml file. The IoT Edge agent then connects to IoT Hub to retrieve deployment manifests, which declare what other modules should be deployed on the device.
+The IoT Edge agent is the first module to start on any IoT Edge device. It's started for the first time based on the information in the IoT Edge config file. The IoT Edge agent then connects to IoT Hub to retrieve deployment manifests, which declare what other modules should be deployed on the device.
 
 This step takes place once on the IoT Edge device during initial device setup.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 
 1. Open the config.yaml file on your IoT Edge device. On Linux systems, this file is located at **/etc/iotedge/config.yaml**. On Windows systems, this file is located at **C:\ProgramData\iotedge\config.yaml**. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor. On Windows, open a text editor like Notepad as administrator and then open the file.
 
@@ -196,11 +256,48 @@ This step takes place once on the IoT Edge device during initial device setup.
       Restart-Service iotedge
       ```
 
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+1. Open the config file on your IoT Edge device: `/etc/aziot/config.toml`. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor.
+
+2. In the config file, find the `[agent]` section, which contains all the configuration information for the edgeAgent module to use on startup. The IoT Edge agent definition includes an `[agent.env]` subsection where you can add environment variables.
+
+3. Add the **https_proxy** parameter to the environment variables section, and set your proxy URL as its value.
+
+   ```toml
+   [agent.env]
+   # "RuntimeLogLevel" = "debug"
+   # "UpstreamProtocol" = "AmqpWs"
+   "https_proxy" = "<proxy URL>"
+   ```
+
+4. The IoT Edge runtime uses AMQP by default to talk to IoT Hub. Some proxy servers block AMQP ports. If that's the case, then you also need to configure edgeAgent to use AMQP over WebSocket. Uncomment the `UpstreamProtocol` parameter.
+
+   ```toml
+   [agent.env]
+   # "RuntimeLogLevel" = "debug"
+   "UpstreamProtocol" = "AmqpWs"
+   "https_proxy" = "<proxy URL>"
+   ```
+
+5. Save the changes and close the editor. Apply your latest changes.
+
+   ```bash
+   sudo iotedge config apply
+   ```
+
+:::moniker-end
+<!-- end 1.2 -->
+
 ## Configure deployment manifests  
 
 Once your IoT Edge device is configured to work with your proxy server, you need to continue to declare the HTTPS_PROXY environment variable in future deployment manifests. You can edit deployment manifests either using the Azure portal wizard or by editing a deployment manifest JSON file.
 
-Always configure the two runtime modules, edgeAgent and edgeHub, to communicate through the proxy server so they can maintain a connection with IoT Hub. If you remove the proxy information from the edgeAgent module, the only way to reestablish connection is by editing the config.yaml file on the device, as described in the previous section.
+Always configure the two runtime modules, edgeAgent and edgeHub, to communicate through the proxy server so they can maintain a connection with IoT Hub. If you remove the proxy information from the edgeAgent module, the only way to reestablish connection is by editing the config file on the device, as described in the previous section.
 
 In addition to the edgeAgent and edgeHub modules, other modules may need the proxy configuration. Modules that need to access Azure resources besides IoT Hub, such as blob storage, must have the HTTPS_PROXY variable specified in the deployment manifest file.
 
@@ -214,7 +311,7 @@ To configure the IoT Edge agent and IoT Edge hub modules, select **Runtime Setti
 
 ![Configure advanced Edge Runtime settings](./media/how-to-configure-proxy-support/configure-runtime.png)
 
-Add the **https_proxy** environment variable to both the IoT Edge agent and IoT Edge hub module definitions. If you included the **UpstreamProtocol** environment variable in the config.yaml file on your IoT Edge device, add that to the IoT Edge agent module definition too.
+Add the **https_proxy** environment variable to both the IoT Edge agent and IoT Edge hub module definitions. If you included the **UpstreamProtocol** environment variable in the config file on your IoT Edge device, add that to the IoT Edge agent module definition too.
 
 ![Set https_proxy environment variable](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
@@ -240,7 +337,7 @@ With the environment variables included, your module definition should look like
 "edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
         "createOptions": ""
     },
     "env": {
@@ -270,7 +367,7 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
 
 If the proxy you're attempting to use performs traffic inspection on TLS-secured connections, it's important to note that authentication with X.509 certificates doesn't work. IoT Edge establishes a TLS channel that's encrypted end to end with the provided certificate and key. If that channel is broken for traffic inspection, the proxy can't reestablish the channel with the proper credentials, and IoT Hub and the IoT Hub device provisioning service return an `Unauthorized` error.
 
-To use a proxy that performs traffic inspection, you must use either shared access signature authentication or have IoT Hub and the IoT Hub device provisioning service added to an allowlist to avoid inspection.
+To use a proxy that performs traffic inspection, you must use either shared access signature authentication or have IoT Hub and the IoT Hub device provisioning service added to an allow list to avoid inspection.
 
 ## Next steps
 

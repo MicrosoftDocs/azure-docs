@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -39,8 +39,8 @@ To enable sign-in for users with a LinkedIn account in Azure Active Directory B2
 1. Enter **App name**, **LinkedIn Page**, **Privacy policy URL**, and **App logo**.
 1. Agree to the LinkedIn **API Terms of Use** and click **Create app**.
 1. Select the **Auth** tab. Under **Authentication Keys**, copy the values for **Client ID** and **Client Secret**. You'll need both of them to configure LinkedIn as an identity provider in your tenant. **Client Secret** is an important security credential.
-1. Select the edit pencil next to **Authorized redirect URLs for your app**, and then select **Add redirect URL**. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`, replacing `your-tenant-name` with the name of your tenant. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C. Select **Update**.
-2. By default, your LinkedIn app isn't approved for scopes related to sign in. To request a review, select the **Products** tab, and then select **Sign In with LinkedIn**. When the review is complete, the required scopes will be added to your application.
+1. Select the edit pencil next to **Authorized redirect URLs for your app**, and then select **Add redirect URL**. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-tenant-name` with the name of your tenant, and `your-domain-name` with your custom domain. You need to use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C. Select **Update**.
+1. By default, your LinkedIn app isn't approved for scopes related to sign in. To request a review, select the **Products** tab, and then select **Sign In with LinkedIn**. When the review is complete, the required scopes will be added to your application.
    > [!NOTE]
    > You can view the scopes that are currently allowed for your app on the **Auth** tab in the **OAuth 2.0 scopes** section.
 
@@ -59,13 +59,18 @@ To enable sign-in for users with a LinkedIn account in Azure Active Directory B2
 
 ## Add LinkedIn identity provider to a user flow 
 
+At this point, the LinkedIn identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the LinkedIn identity provider to a user flow:
+
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the LinkedIn identity provider.
 1. Under the **Social identity providers**, select **LinkedIn**.
 1. Select **Save**.
 1. To test your policy, select **Run user flow**.
 1. For **Application**, select the web application named *testapp1* that you previously registered. The **Reply URL** should show `https://jwt.ms`.
-1. Click **Run user flow**
+1. Select the **Run user flow** button.
+1. From the sign-up or sign-in page, select **LinkedIn** to sign in with LinkedIn account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
 
@@ -207,7 +212,16 @@ Add the **BuildingBlocks** element near the top of the *TrustFrameworkExtensions
 </OrchestrationStep>
 ```
 
-[!INCLUDE [active-directory-b2c-create-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
+
+## Test your custom policy
+
+1. Select your relying party policy, for example `B2C_1A_signup_signin`.
+1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. Select the **Run now** button.
+1. From the sign-up or sign-in page, select **LinkedIn** to sign in with LinkedIn account.
+
+If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ## Migration from v1.0 to v2.0
 

@@ -35,7 +35,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > ### Option 1 (Express): Register and auto configure your app and then download your code sample
 >
-> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations<span class="docon docon-navigate-external x-hidden-focus"></span></a> quickstart experience.
+> 1. Go to the <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Azure portal - App registrations</a> quickstart experience.
 > 1. Enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**.
@@ -45,7 +45,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 >
 > #### Step 1: Register your application
 >
-> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 > 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
@@ -53,13 +53,14 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. Under **Manage**, select **Authentication**.
-> 1. Under **Platform Configurations**, select **Add a platform**. A panel opens on the left. There, select the **Web Applications** region.
-> 1. Still on the left, set the **Redirect URI** value to `http://localhost:3000/`. Then, select **Access Token** and **ID Token**.
+> 1. Under **Platform Configurations** > **Add a platform**. Select **Web**.
+> 1. Set the **Redirect URI** value to `http://localhost:3000/`. 
+> 1. Select **Access Tokens** and **ID Tokens** under the **Implicit grant and hybrid flows**  .
 > 1. Select **Configure**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 1: Configure your application in the Azure portal
-> To make the code sample in this quickstart work, you need to add a `redirectUri` as `http://localhost:3000/` and enable **Implicit grant**.
+> For the code sample in this quickstart to work, add a **Redirect URI** of `http://localhost:3000/` and enable **Implicit grant**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
 >
@@ -106,15 +107,19 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > [!div renderon="docs"]
 >
 > Where:
-> - *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
-> - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
-> - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
->    - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
->    - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
->    - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
+> - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 >
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>    To find the value of **Application (client) ID**, go to the app's **Overview** page in the Azure portal.
+> - `Enter_the_Cloud_Instance_Id_Here` is the instance of the Azure cloud. For the main or global Azure cloud, simply enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
+> - `Enter_the_Tenant_info_here` is set to one of the following options:
+>    - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, `contoso.microsoft.com`).
+>
+>    To find the value of the **Directory (tenant) ID**, go to the app registration's **Overview** page in the Azure portal.
+>    - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
+>    - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`. To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
+>
+>    To find the value of **Supported account types**, go to the app registration's **Overview** page in the Azure portal.
+>
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
@@ -264,7 +269,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### Get a user token interactively
 
-There are situations where you need to force users to interact with the Microsoft identity platform. For example:
+There are situations where you force users to interact with the Microsoft identity platform. For example:
 * Users might need to reenter their credentials because their password has expired.
 * Your application is requesting access to additional resource scopes that the user needs to consent to.
 * Two-factor authentication is required.

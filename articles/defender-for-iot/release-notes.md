@@ -8,24 +8,63 @@ documentationcenter: na
 author: shhazam-ms
 manager: rkarlin
 editor: ''
-
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/06/2021
+ms.date: 03/14/2021
 ms.author: shhazam
 ---
 
-# What's new?
+# What's new in Azure Defender for IoT?
 
-Defender for IoT 10.0 provides feature enhancements that improve security, management, and usability.
+This article lists new features and feature enhancements for Defender for IoT.
 
-## Security
+Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+## March 2021
+
+### Sensor - enhanced custom alert rules (Public preview)
+
+You can now create custom alert rules based on the day, group of days and time-period network activity was detected.  Working with day and time rule conditions is useful, for example in cases where alert severity is derived by the time the alert event takes place. For example, create a custom rule that triggers a high severity alert when network activity is detected on a weekend or in the evening.
+
+This feature is available on the sensor with the release of version 10.2.
+
+### On-premises management console - export alerts (Public preview)
+
+Alert information can now be exported to a .csv file from the on-premises management console. You can export information of all alerts detected or export information based on the filtered view.
+
+This feature is available on the on-premises management  console with the release of version 10.2.
+
+### Add second network interface to On-premises management console (Public preview)
+
+You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have it’s connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
+
+This feature is available on the on-premises management console with the release of version 10.2.
+### Device builder - new micro agent (Public preview)
+
+A new device builder module is available. The module, referred to as a micro-agent, allows:
+
+- **Integration with Azure IoT Hub and Azure Defender for IoT** - build stronger endpoint security directly into your IoT devices by integrating it with the monitoring option provided by both the Azure IoT Hub and Azure Defender for IoT.
+- **Flexible deployment options with support for standard IoT operating systems** - can be deployed either as a binary package or as modifiable source code, with support for standard IoT operating systems like Linux and Azure RTOS.
+- **Minimal resource requirements with no OS kernel dependencies** - small footprint, low CPU consumption, and no OS kernel dependencies.
+- **Security posture management** – proactively monitor the security posture of your IoT devices.
+- **Continuous, real-time IoT/OT threat detection** - detect threats such as botnets, brute force attempts, crypto miners, and suspicious network activity
+
+The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
+
+This feature set is available with the current public preview cloud release.
+
+## January 2021
+
+- [Security](#security)
+- [Onboarding](#onboarding)
+- [Usability](#usability)
+- [Other updates](#other-updates)
+### Security
 
 Certificate and password recovery enhancements were made for this release.
 
-### Certificates
+#### Certificates
   
 This version lets you:
 
@@ -42,50 +81,50 @@ For Fresh Installations:
 - During first-time login, users are required to either use an SSL Certificate (recommended) or a locally generated self-signed certificate (not recommended)
 - Certificate validation is turned on by default for fresh installations.
 
-### Password recovery
+#### Password recovery
   
 Sensor and on-premises management console Administrative users can now recover passwords from the Azure Defender for IoT portal. Previously password recovery required intervention by the support team.
 
-## Onboarding
+### Onboarding
 
-### On-premises management console - committed devices
+#### On-premises management console - committed devices
 
 Following initial sign-in to the on-premises management console, users are now required to upload an activation file. The file contains the aggregate number of devices to be monitored on the organizational  network. This number is referred to as the number of committed devices.
 Committed devices are defined during the onboarding process on the Azure Defender for IoT portal, where the activation file is generated.
 First-time users and users upgrading are required to upload the activation file.
 After initial activation, the number of devices detected on the network might exceed the number of committed devices. This event might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of detected devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
 
-### Pricing page options
+#### Pricing page options
 
 Pricing page lets you onboard new subscriptions to Azure Defender for IoT and define committed devices in your network.  
 Additionally, the Pricing page now lets you manage existing subscriptions associated with a sensor and update device commitment.
 
-### View and manage onboarded sensors
+#### View and manage onboarded sensors
 
 A new Site and Sensors portal page lets you:
 
 - Add descriptive information about the sensor. For example, a zone associated with the sensor, or free-text tags.
 - View and filter sensor information. For example, view details about sensors that are cloud connected or locally managed or view information about sensors in a specific zone.  
 
-## Usability
+### Usability
 
-### Azure Sentinel new connector page
+#### Azure Sentinel new connector page
 
 The Azure Defender for IoT data connector page in Azure Sentinel has been redesigned. The data connector is now based on subscriptions rather than IoT Hubs; allowing customers to better manage their configuration connection to Azure Sentinel.
 
-### Azure portal permission updates  
+#### Azure portal permission updates  
 
 Security Reader and Security Administrator support has been added.
 
-## Other updates
+### Other updates
 
-### Access group - zone permissions
+#### Access group - zone permissions
   
 The on-premises management console Access Group rules will not include the option to grant access to a specific zone. There is no change in defining rules that use sites, regions, and business units.   Following upgrade, Access Groups that contained rules allowing access to specific zones will be modified to allow access to its parent site, including all its zones.
 
-### Terminology changes
+#### Terminology changes
 
-The term asset has been renamed device in the sensor and on-premises management console, reports and other solution interfaces.
+The term asset has been renamed device in the sensor and on-premises management console, reports, and other solution interfaces.
 In sensor and on-premises management console Alerts,  the term Manage this Event has been named Remediation Steps.
 
 ## Next steps

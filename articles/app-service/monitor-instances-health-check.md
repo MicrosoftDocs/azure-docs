@@ -13,7 +13,7 @@ ms.author: msangapu
 
 ![Health check failure][2]
 
-This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by removing unhealthy instances. Your [App Service plan](/overview-hosting-plans) should be scaled to two or more instances to use Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy.
+This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by removing unhealthy instances. Your [App Service plan](./overview-hosting-plans.md) should be scaled to two or more instances to use Health check. The Health check path should check critical components of your application. For example, if your application depends on a database and a messaging system, the Health check endpoint should connect to those components. If the application cannot connect to a critical component, then the path should return a 500-level response code to indicate the app is unhealthy.
 
 ## What App Service does with Health checks
 
@@ -58,6 +58,10 @@ Large enterprise development teams often need to adhere to security requirements
 ## Monitoring
 
 After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, click the **Metrics** in the top toolbar. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
+
+## Limitations
+
+Health check should not be enabled on Premium Functions sites. Due to the rapid scaling of Premium Functions, the health check requests can cause unnecessary fluctuations in HTTP traffic. Premium Functions have their own internal health probes that are used to inform scaling decisions.
 
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

@@ -205,7 +205,7 @@ myMsal.loginRedirect(loginRequest);
 
 # [JavaScript (MSAL.js 1.x)](#tab/javascript1)
 
-The redirect methods don't return a promise because of the move away from the main app. To process and access the returned tokens, you need to register success and error callbacks before you call the redirect methods.
+The redirect methods don't return a promise because of the move away from the main app. To process and access the returned tokens, register success and error callbacks before you call the redirect methods.
 
 ```javascript
 

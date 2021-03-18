@@ -1,10 +1,10 @@
 ---
-title: Azure advanced threat detection | Microsoft Docs
-description: Learn about built-in advanced threat detection functionality for Azure, such as the Azure AD Identity Protection service. 
+title: Azure threat protection | Microsoft Docs
+description: Learn about built-in threat protection functionality for Azure, such as the Azure AD Identity Protection service. 
 services: security
 documentationcenter: na
-author: UnifyCloud
-manager: barbkess
+author: TerryLanfear
+manager: rkarlin
 editor: TomSh
 
 ms.assetid:
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
-ms.author: TomSh
+ms.date: 02/03/2021
+ms.author: terrylan
 
 ---
 
-# Azure advanced threat detection
+# Azure threat protection
 
-Azure offers built in advanced threat detection functionality through services such as Azure Active Directory (Azure AD), Azure Monitor logs, and Azure Security Center. This collection of security services and capabilities provides a simple and fast way to understand what is happening within your Azure deployments.
+Azure offers built in threat protection functionality through services such as Azure Active Directory (Azure AD), Azure Monitor logs, and Azure Security Center. This collection of security services and capabilities provides a simple and fast way to understand what is happening within your Azure deployments.
 
 Azure provides a wide array of options to configure and customize security to meet the requirements of your app deployments. This article discusses how to meet these requirements.
 
@@ -81,46 +81,27 @@ In addition to providing valuable services on its own, Azure Monitor logs can in
 
 ### Holistic security and compliance posture
 
-The [Log Analytics Security and Audit dashboard](../../security-center/security-center-introduction.md) provides a comprehensive view into your organization’s IT security posture, with built-in search queries for notable issues that require your attention. The Security and Audit dashboard is the home screen for everything related to security in Azure Monitor logs. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom timeframe.
+[Azure Security Center](../../security-center/security-center-introduction.md) provides a comprehensive view into your organization’s IT security posture, with built-in search queries for notable issues that require your attention. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom time-frame.
 
 Azure Monitor logs help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including software update assessment, antimalware assessment, and configuration baselines. Security log data is readily accessible to streamline the security and compliance audit processes.
 
-![The Log Analytics Security and Audit dashboard](./media/threat-detection/azure-threat-detection-fig3.jpg)
-
-The Log Analytics Security and Audit dashboard is organized into four major categories:
-
--	**Security Domains**: Lets you further explore security records over time; access malware assessments; update assessments; view network security, identity, and access information; view computers with security events; and quickly access the Azure Security Center dashboard.
-
--	**Notable Issues**: Lets you quickly identify the number of active issues and the severity of the issues.
-
--	**Detections (Preview)**: Lets you identify attack patterns by displaying security alerts as they occur against your resources.
-
--	**Threat Intelligence**: Lets you identify attack patterns by displaying the total number of servers with outbound malicious IP traffic, the malicious threat type, and a map of the IPs locations.
-
--	**Common security queries**: Lists the most common security queries that you can use to monitor your environment. When you select any query, the Search pane opens and displays the results for that query.
-
 ### Insight and analytics
-At the center of [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md) is the repository, which is hosted by Azure.
+At the center of [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) is the repository, which is hosted by Azure.
 
 ![Insight and analytics diagram](./media/threat-detection/azure-threat-detection-fig4.png)
 
 You collect data into the repository from connected sources by configuring data sources and adding solutions to your subscription.
 
-![The Azure Monitor logs dashboard](./media/threat-detection/azure-threat-detection-fig5.png)
-
 Data sources and solutions each create separate record types with their own set of properties, but you can still analyze them together in queries to the repository. You can use the same tools and methods to work with a variety of data that's collected by various sources.
 
-
 Most of your interaction with Azure Monitor logs is through the Azure portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
-* [Log searches](../../azure-monitor/log-query/log-query-overview.md) where you construct queries to analyze collected data.
-* [Dashboards](../../azure-monitor/learn/tutorial-logs-dashboards.md), which you can customize with graphical views of your most valuable searches.
+* [Log searches](../../azure-monitor/logs/log-query-overview.md) where you construct queries to analyze collected data.
+* [Dashboards](../../azure-monitor/visualize/tutorial-logs-dashboards.md), which you can customize with graphical views of your most valuable searches.
 * [Solutions](../../azure-monitor/insights/solutions.md), which provide additional functionality and analysis tools.
-
-![Analysis tools](./media/threat-detection/azure-threat-detection-fig6.png)
 
 Solutions add functionality to Azure Monitor logs. They primarily run in the cloud and provide analysis of data that's collected in the log analytics repository. Solutions might also define new record types to be collected that can be analyzed with log searches or by using an additional user interface that the solution provides in the log analytics dashboard.
 
-The Security and Audit dashboard is an example of these types of solutions.
+Security Center is an example of these types of solutions.
 
 ### Automation and control: Alert on security configuration drifts
 
@@ -213,7 +194,7 @@ Azure Security Center operates with security research and data science teams thr
 
 These combined efforts culminate in new and improved detections, which you can benefit from instantly. There’s no action for you to take.
 
-## Advanced threat detection features: Other Azure services
+## Threat protection features: Other Azure services
 
 ### Virtual machines: Microsoft antimalware
 
@@ -364,7 +345,7 @@ Cloud App Security integrates visibility with your cloud by:
 
 On collecting data from these sources, Cloud App Security runs sophisticated analysis on it. It immediately alerts you to anomalous activities, and gives you deep visibility into your cloud environment. You can configure a policy in Cloud App Security and use it to protect everything in your cloud environment.
 
-## Third-party Advanced Threat Detection capabilities through the Azure Marketplace
+## Third-party threat protection capabilities through the Azure Marketplace
 
 ### Web Application Firewall
 
@@ -384,6 +365,6 @@ For examples of web application firewalls that are available in the Azure Market
 
 ## Next steps
 
-- [Responding to today’s threats](../../security-center/security-center-alerts-overview.md#respond-threats): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
+- [Responding to today’s threats](../../security-center/security-center-managing-and-responding-alerts.md): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
 
 - [Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Helps address your concerns about potential threats to your databases.

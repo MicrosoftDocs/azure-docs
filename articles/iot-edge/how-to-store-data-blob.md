@@ -12,6 +12,8 @@ services: iot-edge
 
 # Store data at the edge with Azure Blob Storage on IoT Edge
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 Azure Blob Storage on IoT Edge provides a [block blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) and [append blob](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure blob service, except the blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
 This module is useful in scenarios:
@@ -179,6 +181,7 @@ The Azure Blob Storage documentation includes quickstart sample code in several 
 The following quickstart samples use languages that are also supported by IoT Edge, so you could deploy them as IoT Edge modules alongside the blob storage module:
 
 * [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+  * The Azure Blob Storage on Iot Edge module v1.4.0 and earlier are compatible with WindowsAzure.Storage 9.3.3 SDK and v1.4.1 also supports Azure.Storage.Blobs 12.8.0 SDK.
 * [Python](../storage/blobs/storage-quickstart-blobs-python.md)
   * Versions before V2.1 of the Python SDK have a known issue where the module does not return blob creation time. Because of that issue, some methods like list blobs does not work. As a workaround, explicitly set the API version on the blob client to '2017-04-17'. Example:  `block_blob_service._X_MS_VERSION = '2017-04-17'`
   * [Append Blob Sample](https://github.com/Azure/azure-storage-python/blob/master/samples/blob/append_blob_usage.py)
@@ -287,7 +290,7 @@ This Azure Blob Storage on IoT Edge module now provides integration with Event G
 
 ## Release Notes
 
-Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) for this module
+Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) for this module. You might be able to find more information related to bug fixes and remediation in the release notes of a specific version.
 
 ## Suggestions
 

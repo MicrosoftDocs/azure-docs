@@ -1,10 +1,9 @@
 ---
-title: Step 1 - Understand the benefits of migrating to Media Services API V3 | Microsoft Docs
+title: The benefits of migrating to Media Services API V3
 description: This article lists the benefits of migrating from Media Services v2 to v3.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-                                                                      
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
@@ -34,7 +33,7 @@ There have been significant improvements to Media Services with V3.
 | Azure portal updates | The Azure portal has been updated to include the management of V3 API entities. It allows customers to use the portal to start live streaming, submit V3 transform jobs, manage content protection policies, streaming endpoints, get API access, manage linked storage accounts, and perform monitoring tasks. |
 | **Accounts and Storage** | |
 | Azure role-based access control (RBAC) | Customers can now define their own roles and control access to each entity in the Media Services ARM API. This helps control access to resources by AAD accounts. |
-| Managed Identities | Managed identities eliminate the need for developers to manage credentials by providing an identity for the Azure resource in Azure AD. See details on managed identities [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). |
+| Managed Identities | Managed identities eliminate the need for developers to manage credentials by providing an identity for the Azure resource in Azure AD. See details on managed identities [here](../../active-directory/managed-identities-azure-resources/overview.md). |
 | Private link support | Customers will access Media Services endpoints for Key Delivery, LiveEvents, and StreamingEndpoints via a PrivateEndpoint on their VNet. |
 | [Customer-manged keys](concept-use-customer-managed-keys-byok.md) or bring your own key (BYOK) support | Customers can encrypt the data in their Media Services account using a key in their Azure Key Vault. |
 | **Assets** | |
@@ -54,8 +53,8 @@ There have been significant improvements to Media Services with V3.
 |**Content protection** ||
 | [Content protection](content-key-policy-concept.md) supports multi-key features. | Customers can now use multiple content encryption keys on their Streaming locators. |
 | **Monitoring** | |
-| [Azure EventGrid](reacting-to-media-services-events.md) notification support | EventGrid notifications are more feature rich. There are more types of notifications, broader SDK support for receiving the notifications in your own application, and more existing Azure services that can act as event handlers. |
-| [Azure Monitor support and integration in the Azure portal](monitor-events-portal-how-to.md) | This allows customers to visualize Media Services account quota usage, real-time statistics of streaming endpoints, and ingest and archive statistics for live events. Customers are now able to set alerts and perform necessary actions based on real-time metric data. |
+| [Azure EventGrid](monitoring/reacting-to-media-services-events.md) notification support | EventGrid notifications are more feature rich. There are more types of notifications, broader SDK support for receiving the notifications in your own application, and more existing Azure services that can act as event handlers. |
+| [Azure Monitor support and integration in the Azure portal](monitoring/monitor-events-portal-how-to.md) | This allows customers to visualize Media Services account quota usage, real-time statistics of streaming endpoints, and ingest and archive statistics for live events. Customers are now able to set alerts and perform necessary actions based on real-time metric data. |
 
 ## Next steps
 

@@ -32,7 +32,7 @@ The Azure Migrate hub includes these tools:
 --- | --- | ---
 **Azure Migrate: Server Assessment** | Assess servers. | Discover and assess on-premises VMware VMs, Hyper-V VMs, and physical servers in preparation for migration to Azure.
 **Azure Migrate: Server Migration** | Migrate servers. | Migrate VMware VMs, Hyper-V VMs, physical servers, other virtualized machines, and public cloud VMs to Azure.
-**Data Migration Assistant** | Assess SQL Server databases for migration to Azure SQL Database, Azure SQL Managed Instance, or Azure VMs running SQL Server. | Data Migration Assistant helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. [Learn more](/sql/dma/dma-overview?view=sql-server-2017).
+**Data Migration Assistant** | Assess SQL Server databases for migration to Azure SQL Database, Azure SQL Managed Instance, or Azure VMs running SQL Server. | Data Migration Assistant helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. [Learn more](/sql/dma/dma-overview).
 **Azure Database Migration Service** | Migrate on-premises databases to Azure VMs running SQL Server, Azure SQL Database, or SQL Managed Instances. | [Learn more](../dms/dms-overview.md) about Database Migration Service.
 **Movere** | Assess servers. | [Learn more](#movere) about Movere.
 **Web app migration assistant** | Assess on-premises web apps and migrate them to Azure. |  Use Azure App Service Migration Assistant to assess on-premises websites for migration to Azure App Service.<br/><br/> Use Migration Assistant to migrate .NET and PHP web apps to Azure. [Learn more](https://appmigration.microsoft.com/) about Azure App Service Migration Assistant.
@@ -73,6 +73,9 @@ Server Assessment uses a lightweight [Azure Migrate appliance](migrate-appliance
 - The appliance discovers on-premises machines. It also continually sends machine metadata and performance data to Azure Migrate.
 - Appliance discovery is agentless. Nothing is installed on discovered machines.
 - After appliance discovery, you can gather discovered machines into groups and run assessments for each group.
+
+> [!Note]
+> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://go.microsoft.com/fwlink/?linkid=2155668) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
 
 ## Azure Migrate: Server Migration tool
 
@@ -116,7 +119,7 @@ If you're looking for expert help to get started, Microsoft has skilled [Azure E
 There are two versions of the Azure Migrate service.
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
-- **Previous version**: The previous version of Azure Migrate supports only assessment of on-premises VMware VMs. If you used the previous version, you should now use the current version. You can no longer create Azure Migrate projects using the previous version. And we recommend that you don't do new discoveries with it.
+- **Previous version**: The previous version of Azure Migrate, also known as classic Azure Migrate, supports only assessment of on-premises VMware VMs. Classic Azure Migrate is retiring in Feb 2024. After Feb 2024, classic version of Azure Migrate will no longer be supported and the inventory metadata in classic projects will be deleted. You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](./create-manage-projects.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a classic project, you can attach it to a project of current version after you delete the classic project.
 
     To access existing projects in the Azure portal, search for and select **Azure Migrate**. The **Azure Migrate** dashboard has a notification and a link to access old Azure Migrate projects.
 

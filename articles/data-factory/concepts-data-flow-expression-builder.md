@@ -6,7 +6,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/30/2020
+ms.date: 02/04/2021
 ---
 
 # Build expressions in mapping data flow
@@ -101,6 +101,9 @@ Some examples of string interpolation:
 * ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 * ```"{:playerName} is a {:playerRating} player"```
+
+> [!NOTE]
+> When using string interpolation syntax in SQL source queries, the query string must be on one single line, without '/n'.
 
 ## Commenting expressions
 

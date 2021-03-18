@@ -1,9 +1,6 @@
 ---
 title: Use Apache Hadoop Hive with Curl in HDInsight - Azure 
 description: Learn how to remotely submit Apache Pig jobs to Azure HDInsight using Curl.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive

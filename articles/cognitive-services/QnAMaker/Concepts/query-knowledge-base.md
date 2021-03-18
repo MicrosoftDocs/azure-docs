@@ -26,7 +26,7 @@ The process is explained in the following table.
 |1|The client application sends the user query to the [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker preprocesses the user query with language detection, spellers, and word breakers.|
 |3|This preprocessing is taken to alter the user query for the best search results.|
-|4|This altered query is sent to an Azure Cognitive Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries.|
+|4|This altered query is sent to an Azure Cognitive Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries. Azure search filters [stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) in this step.|
 |5|QnA Maker uses syntactic and semantic based featurization to determine the similarity between the user query and the fetched QnA results.|
 |6|The machine-learned ranker model uses the different features, from step 5, to determine the confidence scores and the new ranking order.|
 |7|The new results are returned to the client application in ranked order.|
@@ -49,7 +49,7 @@ The process is explained in the following table.
 |1|The client application sends the user query to the [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md).|
 |2|QnA Maker preprocesses the user query with language detection, spellers, and word breakers.|
 |3|This preprocessing is taken to alter the user query for the best search results.|
-|4|This altered query is sent to an Azure Cognitive Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries.|
+|4|This altered query is sent to an Azure Cognitive Search Index, which receives the `top` number of results. If the correct answer isn't in these results, increase the value of `top` slightly. Generally, a value of 10 for `top` works in 90% of queries. Azure search filters [stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) in this step.|
 |5|QnA Maker uses state-of-art transformer based model to determine the similarity between the user query and the candidate QnA results fetched from Azure Cognitive Search. The transformer based model is a deep learning multi-lingual model, which is works horizontally for all the languages to determine the confidence scores and the new ranking order.|
 |6|The new results are returned to the client application in ranked order.|
 |||
@@ -79,10 +79,9 @@ A user query is the question that the end user asks of the knowledge base, such 
     "userId": "sd53lsY="
 }
 ```
+You control the response by setting properties such as [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), and [strictFilters](../how-to/query-knowledge-base-with-metadata.md).
 
-You control the response by setting properties such as [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), and [strictFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
-
-Use [conversation context](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) with [multi-turn functionality](../how-to/multiturn-conversation.md) to keep the conversation going to refine the questions and answers, to find the correct and final answer.
+Use [conversation context](../how-to/query-knowledge-base-with-metadata.md) with [multi-turn functionality](../how-to/multiturn-conversation.md) to keep the conversation going to refine the questions and answers, to find the correct and final answer.
 
 ### The response from a call to generate an answer
 

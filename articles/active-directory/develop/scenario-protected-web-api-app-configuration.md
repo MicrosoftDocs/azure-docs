@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 # Protected web API: Code configuration
 
-To configure the code for your protected web API, you need to understand:
+To configure the code for your protected web API, understand:
 
 - What defines APIs as protected.
 - How to configure a bearer token.
@@ -172,7 +172,7 @@ services.AddControllers();
 > - `$"api://{ClientId}` in all other cases (for v1.0 [access tokens](access-tokens.md)).
 > For details, see Microsoft.Identity.Web [source code](https://github.com/AzureAD/microsoft-identity-web/blob/d2ad0f5f830391a34175d48621a2c56011a45082/src/Microsoft.Identity.Web/Resource/RegisterValidAudience.cs#L70-L83).
 
-The preceding code snippet is extracted from the [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). The detail of **AddMicrosoftIdentityWebApiAuthentication** is available in [Microsoft.Identity.Web](microsoft-identity-web.md). This method calls [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi?preserve-view=true&view=azure-dotnet-preview), which itself instructs the middleware on how to validate the token.
+The preceding code snippet is extracted from the [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/63087e83326e6a332d05fee6e1586b66d840b08f/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Startup.cs#L23-L28). The detail of **AddMicrosoftIdentityWebApiAuthentication** is available in [Microsoft.Identity.Web](microsoft-identity-web.md). This method calls [AddMicrosoftIdentityWebAPI](/dotnet/api/microsoft.identity.web.microsoftidentitywebapiauthenticationbuilderextensions.addmicrosoftidentitywebapi), which itself instructs the middleware on how to validate the token.
 
 ## Token validation
 
@@ -221,7 +221,7 @@ services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, opt
       // Your code to add extra configuration that will be executed after the current event implementation.
       options.TokenValidationParameters.ValidIssuers = new[] { /* list of valid issuers */ };
       options.TokenValidationParameters.ValidAudiences = new[] { /* list of valid audiences */};
-  }
+  };
 });
 ```
 

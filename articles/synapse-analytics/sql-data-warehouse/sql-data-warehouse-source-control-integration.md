@@ -2,13 +2,13 @@
 title: Source Control Integration
 description: Enterprise-class Database DevOps experience for dedicated SQL pool with native source control integration using Azure Repos (Git and GitHub).
 services: synapse-analytics
-author: kevinvngo 
+author: gaursa 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw 
 ms.date: 08/23/2019
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ---
 # Source Control Integration for dedicated SQL pool in Azure Synapse Analytics
@@ -45,7 +45,7 @@ This tutorial outlines how to integrate your SQL Server Data Tools (SSDT) databa
 
    ![Clone repo](./media/sql-data-warehouse-source-control-integration/4-clone-repo.png "Clone repo")
 
-For more information about connecting projects using Visual Studio, see the [Connect to projects in Team Explorer](/visualstudio/ide/connect-team-project?view=vs-2019&preserve-view=true). For guidance on cloning a repo using Visual Studio, review the [Clone an exiting Git repo](/azure/devops/repos/git/clone?tabs=visual-studio&view=azure-devops&preserve-view=true) article. 
+For more information about connecting projects using Visual Studio, see the [Connect to projects in Team Explorer](/visualstudio/ide/connect-team-project?view=vs-2019&preserve-view=true). For guidance on cloning a repo using Visual Studio, review the [Clone an exiting Git repo](/azure/devops/repos/git/clone?tabs=visual-studio) article. 
 
 ## Create and connect your project
 

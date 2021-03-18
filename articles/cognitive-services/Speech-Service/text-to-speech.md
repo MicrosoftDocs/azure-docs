@@ -36,6 +36,8 @@ In this overview, you learn about the benefits and capabilities of the text-to-s
 
 * Adjust speaking styles with SSML - Speech Synthesis Markup Language (SSML) is an XML-based markup language used to customize speech-to-text outputs. With SSML, you can adjust pitch, add pauses, improve pronunciation, speed up or slow down speaking rate, increase or decrease volume, and attribute multiple voices to a single document. See the [how-to](speech-synthesis-markup.md) for adjusting speaking styles.
 
+* Visemes - [Visemes](how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech (i.e. the position of the lips, jaw and tongue when producing a particular phoneme). It has a strong correlation with voices and phonemes. Using Viseme in Speech SDK, you can generate facial animation data, which is usually used for animated lip-reading communication, education, entertainment, and customer service. 
+
 ## Get started
 
 See the [quickstart](get-started-text-to-speech.md) to get started with text-to-speech. The text-to-speech service is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-text-to-speech.md), and the [Speech CLI](spx-overview.md)

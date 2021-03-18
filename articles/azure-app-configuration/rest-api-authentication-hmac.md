@@ -17,7 +17,7 @@ You can authenticate HTTP requests by using the HMAC-SHA256 authentication schem
 - **Credential** - \<Access Key ID\>
 - **Secret** - base64 decoded Access Key Value. ``base64_decode(<Access Key Value>)``
 
-The values for credential (also called `id`) and secret (also called `value`) must be obtained from the instance of Azure App Configuration. You can do this by using the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest).
+The values for credential (also called `id`) and secret (also called `value`) must be obtained from the instance of Azure App Configuration. You can do this by using the [Azure portal](https://portal.azure.com) or the [Azure CLI](/cli/azure/).
 
 Provide each request with all HTTP headers required for authentication. The minimum required are:
 
@@ -355,14 +355,14 @@ private static String buildContentHash(HttpUriRequest request) throws IOExceptio
 
 ```golang
 import (
-	"bytes"
-	"crypto/hmac"
-	"crypto/sha256"
-	"encoding/base64"
-	"io/ioutil"
-	"net/http"
-	"strings"
-	"time"
+    "bytes"
+    "crypto/hmac"
+    "crypto/sha256"
+    "encoding/base64"
+    "io/ioutil"
+    "net/http"
+    "strings"
+    "time"
 )
 
 //SignRequest Setup the auth header for accessing Azure App Configuration service

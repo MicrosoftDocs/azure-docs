@@ -79,7 +79,7 @@ For transact publishing scenarios, you can make a software license available fre
 
 In addition to using offer types and billing models to monetize an offer, you can transact a private offer, complete with negotiated, deal-specific pricing, or custom configurations. Private offers are supported by all three transact publishing options.
 
-This option allows higher or lower pricing than the publicly available offering. You can use private offers to discount or add a premium to an offer. You can make Private offers available to one or more customers by white-listing their Azure subscription at the offer level.
+This option allows higher or lower pricing than the publicly available offering. You can use private offers to discount or add a premium to an offer. You can make Private offers available to one or more customers by allowlisting their Azure subscription at the offer level.
 
 ### Commercial marketplace service fees
 

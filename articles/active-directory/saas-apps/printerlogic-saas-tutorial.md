@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/25/2021
 ms.author: jeedes
 ---
 
@@ -32,10 +32,10 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* PrinterLogic SaaS supports **SP and IDP** initiated SSO
-* PrinterLogic SaaS supports **Just In Time** user provisioning
+* PrinterLogic SaaS supports **SP and IDP** initiated SSO.
+* PrinterLogic SaaS supports **Just In Time** user provisioning.
 
-## Adding PrinterLogic SaaS from the gallery
+## Add PrinterLogic SaaS from the gallery
 
 To configure the integration of PrinterLogic SaaS into Azure AD, you need to add PrinterLogic SaaS from the gallery to your list of managed SaaS apps.
 
@@ -144,17 +144,16 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to AskYourTeam Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to PrinterLogic SaaS Sign on URL where you can initiate the login flow.  
 
-* Go to AskYourTeam Sign-on URL directly and initiate the login flow from there.
+* Go to PrinterLogic SaaS Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the AskYourTeam for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the PrinterLogic SaaS for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the AskYourTeam tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the AskYourTeam for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+You can also use Microsoft My Apps to test the application in any mode. When you click the PrinterLogic SaaS tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the PrinterLogic SaaS for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Next steps
 
-Once you configure PrinterLogic SaaS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure PrinterLogic SaaS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

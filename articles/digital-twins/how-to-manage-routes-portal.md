@@ -57,17 +57,29 @@ This section explains how to create one of these endpoints in the [Azure portal]
 
 Once you have created the endpoint resources, you can use them for an Azure Digital Twins endpoint. To create a new endpoint, go to your instance's page in the [Azure portal](https://portal.azure.com) (you can find the instance by entering its name into the portal search bar).
 
-1. From the instance menu, select _Endpoints_. Then from the *Endpoints* page that follows, select *+ Create an endpoint*. 
+1. From the instance menu, select _Endpoints_. Then from the *Endpoints* page that follows, select *+ Create an endpoint*. This will open the *Create an endpoint* page, where you'll fill in the fields in the following steps.
 
-1. On the *Create an Endpoint* page that opens up, enter a **Name** for your endpoint and choose the **Endpoint type**.
+    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot of creating an endpoint of type Event Grid." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-grid.png":::
+
+1. Enter a **Name** for your endpoint and choose the **Endpoint type**.
 
 1. Complete the other details that are required for your endpoint type, including your subscription and the endpoint resources described [above](#prerequisite-create-endpoint-resources).
+    1. For Event Hub and Service Bus endpoints only, you must select an **Authentication type**. You can use key-based authentication with a pre-created authorization rule, or identity-based authentication if you'll be using the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources-preview) for your Azure Digital Twins instance. 
 
-    :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot of creating an endpoint of type Event Hub." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub.png":::
+    :::row:::
+        :::column:::
+            :::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png" alt-text="Screenshot of creating an endpoint of type Event Hub." lightbox="media/how-to-manage-routes-portal/create-endpoint-event-hub-authentication.png":::
+        :::column-end:::
+        :::column:::
+        :::column-end:::
+    :::row-end:::
 
-1. Finish creating your endpoint by selecting the _Save_ button.
+1. Finish creating your endpoint by selecting _Save_.
 
-You can verify that the endpoint is successfully created by checking the notification icon in the top Azure portal bar: 
+>[!IMPORTANT]
+> In order to successfully use identity-based authentication for your endpoint, you'll need to create a managed identity for your instance by following the steps in [*How-to: Enable a managed identity for routing events (preview)*](./how-to-enable-managed-identities-portal.md).
+
+After creating your endpoint, you can verify that the endpoint was successfully created by checking the notification icon in the top Azure portal bar: 
 
 :::row:::
     :::column:::
@@ -81,15 +93,15 @@ If the endpoint creation fails, observe the error message and retry after a few 
 
 You can also view the endpoint that was created back on the *Endpoints* page for your Azure Digital Twins instance.
 
-Now the Event Grid, Event Hub, or Service Bus is available as an endpoint inside of Azure Digital Twins, under the name you chose for the endpoint. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
+Now the event grid, event hub, or Service Bus topic is available as an endpoint inside of Azure Digital Twins, under the name you chose for the endpoint. You'll typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
 
 ### Create an endpoint with dead-lettering
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
-In order to create an endpoint with dead-lettering enabled, you must use the [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+In order to create an endpoint with dead-lettering enabled, you must use the [CLI commands](how-to-use-cli.md) or [control plane APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
 
-For instructions on how to do this with the APIs, see the [*APIs and CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
+For instructions on how to do this with these tools, see the [*APIs and CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
 
 ## Create an event route
 

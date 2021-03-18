@@ -15,44 +15,40 @@ ms.collection: M365-identity-device-management
 
 # AADCloudSyncTools PowerShell Module for Azure AD Connect cloud sync
 
-With the release of public preview refresh 2, Microsoft has introduced the AADCloudSyncTools PowerShell Module.  This module provides a set of useful tools that you can use to help manage your Azure AD Connect Cloud Sync deployments.
+The AADCloudSyncTools module provides a set of useful tools that you can use to help manage your Azure AD Connect Cloud Sync deployments.
 
 ## Pre-requisites
 The following pre-requisites are required:
-- This module uses MSAL authentication, so it requires MSAL.PS module installed. It no longer depends on Azure AD or Azure AD Preview.   To verify, in an Admin PowerShell window, execute `Get-module MSAL.PS`. If the module is installed correctly you will get a response.  You can use `Install-AADCloudSyncToolsPrerequisites` to install the latest version of MSAL.PS
-- The AzureAD PowerShell module.  Some of the cmdlets rely on pieces of the AzureAD PowerShell module to accomplish their tasks.  To verify, in an Admin PowerShell window execute `Get-module AzureAD`. You should get a response.  You can use `Install-AADCloudSyncToolsPrerequisites` to install the latest version of the AzureAD PowerShell module.
-- Installing modules from PowerShell may enforce using TLS 1.2.  To ensure you can install modules, set the following: \
-`[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 `
+
+- All the prerequisites for this module can be automatically installed using `Install-AADCloudSyncToolsPrerequisites`
+- This module uses MSAL authentication, so it requires MSAL.PS module  installed. To verify, in a PowerShell window, execute `Get-module MSAL.PS -ListAvailable`. If the module is installed correctly you will get a response. You can use `Install-AADCloudSyncToolsPrerequisites` to install the latest version of MSAL.PS
+- Although the AzureAD PowerShell module is not a pre-requisite for any functionality of this module, it is useful to have so it is also automatically installed with using `Install-AADCloudSyncToolsPrerequisites`.
+- Manually installing modules from PowerShell require TLS 1.2 enforcement. To ensure you can install modules, set the following in the PowerShell session before using
+  ```
+   Install-Module:
+  [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+  ```
+
 
 ## Install the AADCloudSyncTools PowerShell module
 To install and use the AADCloudSyncTools module use the following steps:
 
-1.  Open Windows PowerShell with administrative privileges
-2.  Type `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` and hit enter.
-3.  Type or copy and paste the following: 
-	``` powershell
-	Import-module -Name "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"
-	```
-3.  Hit enter.
-4.  To verify the module was installed, enter or copy and paste the following"
-	```powershell
-	Get-module AADCloudSyncTools
-	```
-5.  You should now see information about the module.
-6.  Next run
-	``` powershell
-	Install-AADCloudSyncToolsPrerequisites
-	```
-7.  This will install the PowerShell Get modules.  Close the PowerShell Window.
-8.  Open Windows PowerShell with administrative privileges
-9.  Import the module again using step 3.
-10. Run `Install-AADCloudSyncToolsPrerequisites` to install the MSAL and AzureAD modules
+1. Open Windows PowerShell with administrative privileges
+2. Type or copy and paste the following: `Import-module -Name "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"`
+3. Hit enter.
+4. To verify the module was imported, enter or copy and paste the following: `Get-module AADCloudSyncTools`
+5. You should now see information about the module.
+6. Next, to install the AADCloudSyncTools module pre-requisites run: `Install-AADCloudSyncToolsPrerequisites`
+7. On the first run, the PoweShellGet module will be installed if not present. To load the new PowershellGet module close the PowerShell Window and open a new PowerShell session with administrative privileges. 
+8. Import the module again using step 3.
+9. Run `Install-AADCloudSyncToolsPrerequisites` to install the MSAL and AzureAD modules
 11. All pre-reqs should be successfully installed
  ![Install module](media/reference-powershell/install-1.png)
 
+
 ## AADCloudSyncTools  Cmdlets
 ### Connect-AADCloudSyncTools
-Uses AzureAD module to connect to Azure AD and the MSAL.PS module to request a token for Microsoft Graph
+Uses the MSAL.PS module to request a token for the Azure AD administrator to access Microsoft Graph 
 
 
 ### Export-AADCloudSyncToolsLogs

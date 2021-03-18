@@ -1,16 +1,13 @@
 ---
 title: Azure Custom Script Extension for Windows 
 description: Automate Windows VM configuration tasks by using the Custom Script extension
-services: virtual-machines-windows
-manager: carmonm
-author: bobbytreed
-ms.service: virtual-machines-windows
-ms.subservice: extensions
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.author: amjads
+author: amjads1
+ms.collection: windows
 ms.date: 08/31/2020
-ms.author: robreed
 
 ---
 # Custom Script Extension for Windows
@@ -27,6 +24,7 @@ This document details how to use the Custom Script Extension using the Azure Pow
 ### Operating System
 
 The Custom Script Extension for Windows will run on the extension supported extension OSs;
+
 ### Windows
 
 * Windows Server 2008 R2
@@ -62,7 +60,7 @@ If your script is on a local server, then you may still need additional firewall
 * The extension will only run a script once, if you want to run a script on every boot, then you need to use the extension to create a Windows Scheduled Task.
 * If you want to schedule when a script will run, you should use the extension to create a Windows Scheduled Task.
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you'll need to create your own solution.
-* Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*
+* Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Invoke-WebRequest*
 * Be aware of non-default directory locations that your scripts or commands may rely on, have logic to handle this situation.
 * Custom Script Extension will run under the LocalSystem Account
 * If you plan to use the *storageAccountName* and *storageAccountKey* properties, these properties must be collocated in *protectedSettings*.
@@ -243,8 +241,8 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
     -TypeHandlerVersion "1.10" `
-    -Settings $settings    `
-    -ProtectedSettings $protectedSettings `
+    -Settings $settings `
+    -ProtectedSettings $protectedSettings;
 ```
 
 ### Running scripts from a local share

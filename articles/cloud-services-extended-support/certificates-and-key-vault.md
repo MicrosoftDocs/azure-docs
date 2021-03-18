@@ -12,7 +12,7 @@ ms.custom:
 
 # Use certificates with Azure Cloud Services (extended support)
 
-Key Vault is used to store certificates that are associated to Cloud Services (extended support). Key Vaults can be created through [Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) and [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault.  
+Key Vault is used to store certificates that are associated to Cloud Services (extended support). Key Vaults can be created through [Azure portal](../key-vault/general/quick-create-portal.md) and [PowerShell](../key-vault/general/quick-create-powershell.md). Add the certificates to Key Vault, then reference the certificate thumbprints in Service Configuration file. You also need to enable Key Vault for appropriate permissions so that Cloud Services (extended support) resource can retrieve certificate stored as secrets from Key Vault.  
 
 ## Upload a certificate to Key Vault 
 
@@ -36,7 +36,7 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 
     :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="Image shows selecting the generate/ import option":::
 
-4.	Complete the required information to finish uploading the certificate. 
+4.	Complete the required information to finish uploading the certificate. The certificate needs to be in **.PFX** format.
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="Image shows importing window in the Azure portal.":::
 

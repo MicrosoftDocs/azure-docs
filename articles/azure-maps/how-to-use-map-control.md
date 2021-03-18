@@ -15,6 +15,8 @@ ms.custom: devx-track-js
 
 The Map Control client-side JavaScript library allows you to render maps and embedded Azure Maps functionality into your web or mobile application.
 
+This documentation uses the Azure Maps Web SDK, however the Azure Maps services can be used with any map control. [Here](open-source-projects.md#third-part-map-control-plugins) are some popular open-source map controls that the Azure Maps team has created plugin's for.
+
 ## Prerequisites
 
 To use the Map Control in a web page, you must have one of the following prerequisites:

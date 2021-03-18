@@ -32,7 +32,7 @@ When you enable encryption at host, data stored on the VM host is encrypted at r
 
 ## Prerequisites
 
-In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Send an email to encryptionAtHost@microsoft. com with your subscription Ids to get the feature enabled for your subscriptions.
+In order to be able to use encryption at host for your VMs or virtual machine scale sets, you must get the feature enabled on your subscription. Send an email to encryptionAtHost@microsoft.com with your subscription Ids to get the feature enabled for your subscriptions.
 
 Sign in to the Azure portal using the [provided link](https://aka.ms/diskencryptionupdates).
 

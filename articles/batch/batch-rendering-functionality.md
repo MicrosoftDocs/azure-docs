@@ -3,7 +3,7 @@ title: Rendering capabilities
 description: Standard Azure Batch capabilities are used to run rendering workloads and apps. Batch includes specific features to support rendering workloads.
 author: mscurrell
 ms.author: markscu
-ms.date: 01/14/2021
+ms.date: 03/12/2021
 ms.topic: how-to
 ---
 
@@ -23,11 +23,14 @@ Most rendering applications will require licenses obtained from a license server
 
 ## Batch pools using rendering VM images
 
+> [!IMPORTANT]
+> The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on 29 February 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+
 ### Rendering application installation
 
 An Azure Marketplace rendering VM image can be specified in the pool configuration if only the pre-installed applications need to be used.
 
-There is a Windows 2016 image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com), the VM images can be found by searching for 'batch rendering'.
+There is a Windows image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com), the VM images can be found by searching for 'batch rendering'.
 
 For an example pool configuration, see the [Azure CLI rendering tutorial](./tutorial-rendering-cli.md).  The Azure portal and Batch Explorer provide GUI tools to select a rendering VM image when you create a pool.  If using a Batch API, then specify the following property values for [ImageReference](/rest/api/batchservice/pool/add#imagereference) when creating a pool:
 
@@ -65,13 +68,10 @@ To be able to create the command line for rendering tasks, the installation loca
 
 |Application|Application Executable|Environment Variable|
 |---------|---------|---------|
-|Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
-|Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
-|Autodesk Maya 2017|render.exe|MAYA_2017_EXEC|
-|Autodesk Maya 2018|render.exe|MAYA_2018_EXEC|
-|Chaos Group V-Ray Standalone|vray.exe|VRAY_3.60.4_EXEC|
-Arnold 2017 command line|kick.exe|ARNOLD_2017_EXEC|
-|Arnold 2018 command line|kick.exe|ARNOLD_2018_EXEC|
+|Autodesk 3ds Max 2021|3dsmaxcmdio.exe|3DSMAX_2021_EXEC|
+|Autodesk Maya 2020|render.exe|MAYA_2020_EXEC|
+|Chaos Group V-Ray Standalone|vray.exe|VRAY_4.10.03_EXEC|
+|Arnold 2020 command line|kick.exe|ARNOLD_2020_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 
 ## Azure VM families

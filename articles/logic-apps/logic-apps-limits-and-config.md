@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 03/18/2021
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -45,7 +45,7 @@ Here are the limits for a single logic app run:
 | Name | Multi-tenant limit | Integration service environment limit | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Run duration | 90 days | 366 days | Run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p><p>To change the default limit, see [Change run duration and history retention in storage](#change-duration). |
-| Run history retention in storage | 90 days | 366 days | If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements. |
+| Run history retention in storage | 90 days | 366 days | If a run's duration exceeds the current run history retention limit, the run is removed from the runs history in storage. Whether the run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>To change the default limit and for more information, see [Change duration and run history retention in storage](#change-retention). To increase the maximum limit, [contact the Logic Apps team](mailto://logicappspm@microsoft.com) for help with your requirements. |
 | Minimum recurrence interval | 1 second | 1 second ||
 | Maximum recurrence interval | 500 days | 500 days ||
 |||||
@@ -135,7 +135,7 @@ Here are the limits for a single logic app definition:
 
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
-| Action: Executions per 5 minutes | 100,000 is the default limit, but 300,000 is the maximum limit. | To raise the default limit to the maximum for your logic app, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
+| Action: Executions per 5-minute rolling interval | - 100,000 executions (default) <p><p>- 300,000 executions (maximum in high throughput mode)  | To raise the default limit to the maximum limit for your logic app, see [Run in high throughput mode](#run-high-throughput-mode), which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary. |
 | Action: Concurrent outbound calls | ~2,500 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint: Concurrent inbound calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. |
 | Runtime endpoint: Read calls per 5 minutes  | 60,000 | This limit applies to calls that get the raw inputs and outputs from a logic app's run history. You can distribute the workload across more than one app as necessary. |
@@ -147,7 +147,7 @@ Here are the limits for a single logic app definition:
 
 #### Run in high throughput mode
 
-For a single logic app definition, the number of actions that execute every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default limit to the maximum for your logic app, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
+For a single logic app definition, the number of actions that execute every 5 minutes has a [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). To raise the default limit to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) for your logic app, which is three times the default limit, you can enable high throughput mode, which is in preview. Or, you can [distribute the workload across more than one logic app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) as necessary.
 
 1. In the Azure portal, on your logic app menu, under **Settings**, select **Workflow settings**.
 
@@ -189,21 +189,20 @@ For more information about your logic app resource definition, see [Overview: Au
 
 ### Integration service environment (ISE)
 
-Here are the throughput limits for the [Premium ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+* [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): Provides up to 500 executions per minute, but note these considerations:
 
-| Name | Limit | Notes |
-|------|-------|-------|
-| Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month | |
-| Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month | |
-| Maximum scale units that you can add | 10 | |
-||||
+  * Make sure that you use this SKU only for exploration, experiments, development, or testing - not for production or performance testing. This SKU has no service-level agreement (SLA), scale up capability, or redundancy during recycling, which means that you might experience delays or downtime.
 
-To go above these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+  * Backend updates might intermittently interrupt service.
 
-> [!NOTE]
-> The [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
-> has no published limits, no capabilities for scaling up, and no service-level agreement (SLA). Use this SKU
-> only for experimenting, development, and testing, not production or performance testing.
+* [Premium ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): The following table describes this SKU's throughput limits, but to exceed these limits in normal processing, or run load testing that might go above these limits, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
+
+  | Name | Limit | Notes |
+  |------|-------|-------|
+  | Base unit execution limit | System-throttled when infrastructure capacity reaches 80% | Provides ~4,000 action executions per minute, which is ~160 million action executions per month |
+  | Scale unit execution limit | System-throttled when infrastructure capacity reaches 80% | Each scale unit can provide ~2,000 additional action executions per minute, which is ~80 million more action executions per month |
+  | Maximum scale units that you can add | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 
@@ -241,11 +240,11 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 #### Character limits
 
-| Name | Notes |
-|------|-------|
+| Name | Limit | Notes |
+|------|-------|-------|
 | Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
-| Request URL character limit | 16,384 characters |
-|||
+| Request URL character limit | 16,384 characters | |
+||||
 
 <a name="retry-policy-limits"></a>
 
@@ -380,29 +379,42 @@ When you disable a logic app, no new runs are instantiated. All in-progress and 
 When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. If you have thousands of runs, cancellation might take significant time to complete.
 
 <a name="configuration"></a>
+<a name="firewall-ip-configuration"></a>
 
 ## Firewall configuration: IP addresses and service tags
 
-The IP addresses that Azure Logic Apps uses for inbound and outbound calls depend on the region where your logic app exists. *All* logic apps in the same region use the same IP address ranges. Some [Power Automate](/power-automate/getting-started) calls, such as **HTTP** and **HTTP + OpenAPI** requests, go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information about IP addresses used by Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config#ip-address-configuration).
+When your logic app needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](#inbound) and [outbound](#outbound) IP addresses used by the Logic Apps service or runtime in the Azure region where your logic app exists. *All* logic apps in the same region use the same IP address ranges.
 
-> [!TIP]
-> To help reduce complexity when you create security rules, you can optionally use
-> [service tags](../virtual-network/service-tags-overview.md), rather than
-> specify the Logic Apps IP addresses for each region, described later in this section.
-> These tags work across the regions where the Logic Apps service is available:
->
-> * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
-> * **LogicApps**: Represents the outbound IP address prefixes for the Logic Apps service.
+For example, to support calls that logic apps in the West US region send or receive through built-in triggers and actions, such as the [HTTP trigger or action](../connectors/connectors-native-http.md), your firewall needs to allow access for *all* the Logic Apps service inbound IP addresses *and* outbound IP addresses that exist in the West US region.
 
-* For [Azure China 21Vianet](/azure/china/), fixed or reserved IP addresses are unavailable for [custom connectors](../logic-apps/custom-connector-overview.md) and [managed connectors](../connectors/apis-list.md#managed-api-connectors), for example, Azure Storage, SQL Server, Office 365 Outlook, and so on.
+If your logic app also uses [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](#outbound) in your logic app's Azure region. Plus, if you use custom connectors that access on-premises resources through the [on-premises data gateway resource in Azure](logic-apps-gateway-connection.md), you need to set up the gateway installation to allow access for the corresponding *managed connectors [outbound IP addresses](#outbound)*.
 
-* To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewall with all the [inbound](#inbound) *and* [outbound](#outbound) IP addresses that are used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region.
+For more information about setting up communication settings on the gateway, see these topics:
 
-* To support the calls that [managed connectors](../connectors/apis-list.md#managed-api-connectors) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region.
+* [Adjust communication settings for the on-premises data gateway](/data-integration/gateway/service-gateway-communication)
+* [Configure proxy settings for the on-premises data gateway](/data-integration/gateway/service-gateway-proxy)
 
-* To enable communication for logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+<a name="ip-setup-considerations"></a>
 
-* If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+### Firewall IP configuration considerations
+
+Before you set up your firewall with IP addresses, review these considerations:
+
+* If you're using [Power Automate](/power-automate/getting-started), some actions, such as **HTTP** and **HTTP + OpenAPI**, go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information about the IP addresses used by Power Automate, see [Limits and configuration for Power Automate](/flow/limits-and-config#ip-address-configuration).
+
+* For [Azure China 21Vianet](/azure/china/), fixed or reserved IP addresses are unavailable for [custom connectors](../logic-apps/custom-connector-overview.md) and for [managed connectors](../connectors/apis-list.md#managed-api-connectors), such as Azure Storage, SQL Server, Office 365 Outlook, and so on.
+
+* If your logic apps run in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), make sure that you [open these ports too](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+
+* To help you simplify any security rules that you want to create, you can optionally use [service tags](../virtual-network/service-tags-overview.md) instead, rather than specify IP address prefixes for each region. These tags work across the regions where the Logic Apps service is available:
+
+  * **LogicAppsManagement**: Represents the inbound IP address prefixes for the Logic Apps service.
+
+  * **LogicApps**: Represents the outbound IP address prefixes for the Logic Apps service.
+
+  * **AzureConnectors**: Represents the IP address prefixes for managed connectors that make inbound webhook callbacks to the Logic Apps service and outbound calls to their respective services, such as Azure Storage or Azure Event Hubs.
+
+* If your logic apps have problems accessing Azure storage accounts that use [firewalls and firewall rules](../storage/common/storage-network-security.md), you have [various other options to enable access](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   For example, logic apps can't directly access storage accounts that use firewall rules and exist in the same region. However, if you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts that are in a different region except when you use the Azure Table Storage or Azure Queue Storage connectors. To access your Table Storage or Queue Storage, you can use the HTTP trigger and actions instead. For other options, see [Access storage accounts behind firewalls](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
@@ -415,10 +427,23 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 > [!TIP]
 > To help reduce complexity when you create security rules, you can optionally use the
 > [service tag](../virtual-network/service-tags-overview.md), **LogicAppsManagement**,
-> rather than specify inbound Logic Apps IP address prefixes for each region.
-> For managed connectors, you can optionally use the **AzureConnectors** service tag, 
-> rather than specify inbound managed connector IP address prefixes for each region.
-> These tags work across the regions where the Logic Apps service is available.
+> rather than specify inbound Logic Apps IP address prefixes for each region. Optionally, 
+> you can also use the **AzureConnectors** service tag for managed connectors that make 
+> inbound webhook callbacks to the Logic Apps service, rather than specify inbound managed 
+> connector IP address prefixes for each region. These tags work across the regions where 
+> the Logic Apps service is available.
+>
+> The following connectors make inbound webhook callbacks to the Logic Apps service:
+>
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, 
+> Azure Sentinel, Business Central, Calendly, Common Data Service, DocuSign, DocuSign Demo, 
+> Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, 
+> Shifts for Microsoft Teams, Teamwork Projects, Typeform
+>
+> \* **SAP**: The return caller depends on whether the deployment environment is either 
+> multi-tenant Azure or ISE. In the multi-tenant environment, the on-premises data gateway 
+> makes the call back to the Logic Apps service. In an ISE, the SAP connector makes the 
+> call back to the Logic Apps service.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -429,6 +454,7 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 | Australia East | 13.75.153.66, 104.210.89.222, 104.210.89.244, 52.187.231.161 |
 | Australia Southeast | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
 | Brazil South | 191.235.86.199, 191.235.95.229, 191.235.94.220, 191.234.166.198 |
+| Brazil Southeast | 20.40.32.59, 20.40.32.162, 20.40.32.80, 20.40.32.49 |
 | Canada Central | 13.88.249.209, 52.233.30.218, 52.233.29.79, 40.85.241.105 |
 | Canada East | 52.232.129.143, 52.229.125.57, 52.232.133.109, 40.86.202.42 |
 | Central India | 52.172.157.194, 52.172.184.192, 52.172.191.194, 104.211.73.195 |
@@ -485,9 +511,12 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 
 > [!TIP]
 > To help reduce complexity when you create security rules, you can optionally use the
-> [service tag](../virtual-network/service-tags-overview.md), **LogicApps**,
-> rather than specify outbound Logic Apps IP address prefixes for each region.
-> This tag works across the regions where the Logic Apps service is available. 
+> [service tag](../virtual-network/service-tags-overview.md), **LogicApps**, rather than 
+> specify outbound Logic Apps IP address prefixes for each region. Optionally, you can 
+> also use the **AzureConnectors** service tag for managed connectors that make outbound 
+> calls to their respective services, such as Azure Storage or Azure Event Hubs, rather than 
+> specify outbound managed connector IP address prefixes for each region. These tags work 
+> across the regions where the Logic Apps service is available.
 
 <a name="multi-tenant-outbound"></a>
 
@@ -498,6 +527,7 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 | Australia East | 13.75.149.4, 104.210.91.55, 104.210.90.241, 52.187.227.245, 52.187.226.96, 52.187.231.184, 52.187.229.130, 52.187.226.139 | 52.237.214.72, 13.72.243.10, 13.70.72.192 - 13.70.72.207, 13.70.78.224 - 13.70.78.255 |
 | Australia Southeast | 13.73.114.207, 13.77.3.139, 13.70.159.205, 52.189.222.77, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75 | 52.255.48.202, 13.70.136.174, 13.77.50.240 - 13.77.50.255, 13.77.55.160 - 13.77.55.191 |
 | Brazil South | 191.235.82.221, 191.235.91.7, 191.234.182.26, 191.237.255.116, 191.234.161.168, 191.234.162.178, 191.234.161.28, 191.234.162.131 | 191.232.191.157, 104.41.59.51, 191.233.203.192 - 191.233.203.207, 191.233.207.160 - 191.233.207.191 |
+| Brazil Southeast | 20.40.32.81, 20.40.32.19, 20.40.32.85, 20.40.32.60, 20.40.32.116, 20.40.32.87, 20.40.32.61, 20.40.32.113 | 23.97.120.109, 23.97.121.26 |
 | Canada Central | 52.233.29.92, 52.228.39.244, 40.85.250.135, 40.85.250.212, 13.71.186.1, 40.85.252.47, 13.71.184.150 | 52.237.32.212, 52.237.24.126, 13.71.170.208 - 13.71.170.223, 13.71.175.160 - 13.71.175.191 |
 | Canada East | 52.232.128.155, 52.229.120.45, 52.229.126.25, 40.86.203.228, 40.86.228.93, 40.86.216.241, 40.86.226.149, 40.86.217.241 | 52.242.30.112, 52.242.35.152, 40.69.106.240 - 40.69.106.255, 40.69.111.0 - 40.69.111.31 |
 | Central India | 52.172.154.168, 52.172.186.159, 52.172.185.79, 104.211.101.108, 104.211.102.62, 104.211.90.169, 104.211.90.162, 104.211.74.145 | 52.172.212.129, 52.172.211.12, 20.43.123.0 - 20.43.123.31, 104.211.81.192 - 104.211.81.207 |

@@ -91,6 +91,9 @@ You can use the following combinations of authorization and Azure Storage types:
 
 When accessing storage that is protected with the firewall, you can use **User Identity** or **Managed Identity**.
 
+> [!NOTE]
+> The firewall feature on Storage is in public preview and is available in all public cloud regions. 
+
 #### User Identity
 
 To access storage that is protected with the firewall via User Identity, you can use PowerShell module Az.Storage.
@@ -98,13 +101,14 @@ To access storage that is protected with the firewall via User Identity, you can
 
 Follow these steps to configure your storage account firewall and add an exception for Synapse workspace.
 
-1. Open PowerShell or [install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
-2. Install the updated Az. Storage Module: 
+1. Open PowerShell or [install PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows)
+2. Install the Az.Storage 3.4.0 module and Az.Synapse 0.7.0: 
     ```powershell
-    Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Storage -RequiredVersion 3.4.0
+    Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
-    > Make sure that you use version 3.0.1 or newer. You can check your Az.Storage version by running this command:  
+    > Make sure that you use **version 3.4.0**. You can check your Az.Storage version by running this command:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
@@ -115,19 +119,26 @@ Follow these steps to configure your storage account firewall and add an excepti
     Connect-AzAccount
     ```
 4. Define variables in PowerShell: 
-    - Resource group name - you can find this in Azure portal in overview of Synapse workspace.
+    - Resource group name - you can find this in Azure portal in overview of Storage account.
     - Account Name - name of storage account that is protected by firewall rules.
     - Tenant ID - you can find this in Azure portal in Azure Active Directory in tenant information.
-    - Resource ID - you can find this in Azure portal in overview of Synapse workspace.
+    - Workspace Name - Name of the Synapse workspace.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
         $accountName = "<storage account name>"
         $tenantId = "<tenant id>"
-        $resourceId = "<Synapse workspace resource id>"
+        $workspaceName = "<synapse workspace name>"
+        
+        $workspace = Get-AzSynapseWorkspace -Name $workspaceName
+        $resourceId = $workspace.Id
+        $index = $resourceId.IndexOf("/resourceGroups/", 0)
+        # Replace G with g - /resourceGroups/ to /resourcegroups/
+        $resourceId = $resourceId.Substring(0,$index) + "/resourcegroups/" + $resourceId.Substring($index + "/resourceGroups/".Length)
+        $resourceId
     ```
     > [!IMPORTANT]
-    > Make sure that resource id matches this template.
+    > Make sure that resource id matches this template in the print of the resourceId variable.
     >
     > It's important to write **resourcegroups** in lower case.
     > Example of one resource id: 
@@ -142,7 +153,15 @@ Follow these steps to configure your storage account firewall and add an excepti
 6. Verify that rule was applied in your storage account: 
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
-        $rule.ResourceAccessRules
+        $rule.ResourceAccessRules | ForEach-Object { 
+            if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+                Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+                $rule.ResourceAccessRules
+            } else {
+                Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+                $rule.ResourceAccessRules
+            }
+        }
     ```
 
 #### Managed Identity
@@ -171,16 +190,14 @@ To use the credential, a user must have `REFERENCES` permission on a specific cr
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-To ensure a smooth Azure AD pass-through experience, all users will, by default, have a right to use the `UserIdentity` credential.
-
 ## Server-scoped credential
 
-Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the URL of Azure storage. A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). You'll need to provide a CREDENTIAL NAME argument. It must match either part of the path or the whole path to data in Storage (see below).
+Server-scoped credentials are used when SQL login calls `OPENROWSET` function without `DATA_SOURCE` to read files on some storage account. The name of server-scoped credential **must** match the base URL of Azure storage (optionally followed by a container name). A credential is added by running [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?view=azure-sqldw-latest&preserve-view=true). You'll need to provide a CREDENTIAL NAME argument.
 
 > [!NOTE]
 > The `FOR CRYPTOGRAPHIC PROVIDER` argument is not supported.
 
-Server-level CREDENTIAL name must match the full path to the storage account (and optionally container) in the following format: `<prefix>://<storage_account_path>/<storage_path>`. Storage account paths are described in the following table:
+Server-level CREDENTIAL name must match the full path to the storage account (and optionally container) in the following format: `<prefix>://<storage_account_path>[/<container_name>]`. Storage account paths are described in the following table:
 
 | External Data Source       | Prefix | Storage account path                                |
 | -------------------------- | ------ | --------------------------------------------------- |
@@ -204,11 +221,13 @@ with SAS key on the Azure storage that matches URL in credential name.
 Exchange <*mystorageaccountname*> with your actual storage account name, and <*mystorageaccountcontainername*> with the actual container name:
 
 ```sql
-CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
+CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
 WITH IDENTITY='SHARED ACCESS SIGNATURE'
 , SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
 GO
 ```
+
+Optionally, you can use just the base URL of the storage account, without container name.
 
 ### [Managed Identity](#tab/managed-identity)
 
@@ -218,6 +237,8 @@ The following script creates a server-level credential that can be used by `OPEN
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 WITH IDENTITY='Managed Identity'
 ```
+
+Optionally, you can use just the base URL of the storage account, without container name.
 
 ### [Public access](#tab/public-access)
 

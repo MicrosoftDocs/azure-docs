@@ -43,7 +43,7 @@ In traditional on-premises clustered environments, a Windows failover cluster us
 
 SQL Server on Azure VMs offers various options as a shared storage solution for a deployment of SQL Server failover cluster instances: 
 
-||[Azure shared disks](../../../virtual-machines/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Azure shared disks](../../../virtual-machines/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-file-share.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
 |**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
@@ -103,7 +103,7 @@ To get started, see [SQL Server failover cluster instance with Storage Spaces Di
 
 ### Premium file share
 
-[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD backed and have consistently low latency. They're fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, because you can resize and scale a file share without any downtime.
+[Premium file shares](../../../storage/files/storage-how-to-create-file-share.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD backed and have consistently low latency. They're fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, because you can resize and scale a file share without any downtime.
 
 **Supported OS**: Windows Server 2012 and later   
 **Supported SQL version**: SQL Server 2012 and later   
