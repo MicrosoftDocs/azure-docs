@@ -113,7 +113,7 @@ For more information on how to create, view, and manage log alerts using Azure M
 5. Configure alert conditions. 
 ‎In the Condition section, select the link **Whenever the average custom log search is greater than logic defined count**. In the configure signal logic pane, scroll to Alert logic
 
-   [![Screenshot showing configure alerts screen.](./media/monitor-sign-in-health-for-resilience/configure-alerts2a.png)](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)
+   [![Screenshot showing configure alerts screen.](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)](./media/monitor-sign-in-health-for-resilience/configure-alerts.png)
  
    * **Threshold value**: 0. This value will alert on any results.
 
