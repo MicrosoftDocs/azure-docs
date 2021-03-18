@@ -1,5 +1,5 @@
 ---
-title: How to get viseme data for lip-sync
+title: How to get facial pose events for lip-sync
 titleSuffix: Azure Cognitive Services
 description: The Speech SDK supports viseme event in speech synthesis, which are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
 services: cognitive-services
@@ -31,7 +31,7 @@ To make viseme events, we convert input text into a set of phoneme sequences and
 
 | Parameter | Description |
 |-----------|-------------|
-| Viseme ID | Integer numbers that specify different visemes. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. See the [mapping table between Viseme ID and IPA](#visemes-and-phonemes-table).  |
+| Viseme ID | Integer numbers that specify different visemes. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. See the [mapping table between Viseme ID and phonemes](#visemes-and-phonemes-table).  |
 | Audio offset | The start time of each viseme, in ticks (100 nanoseconds) |
 
 To get visme events, subscribe to the `VisemeReceived` event in Speech SDK.

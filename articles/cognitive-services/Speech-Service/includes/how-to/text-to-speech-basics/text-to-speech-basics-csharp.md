@@ -244,7 +244,7 @@ To switch to a neural voice, change the `name` to one of the [neural voice optio
   </voice>
 </speak>
 ```
-## Visemes
+## Get facial pose events
 
 Speech can be a good way to drive the animation of facial expressions.
 Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
