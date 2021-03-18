@@ -32,13 +32,26 @@ az group create --name ADFQuickStartRG --location eastus
 [az storage account create](/cli/azure/storage/container#az_storage_container_create)
 
 ```azurecli
-az storage account create --resource-group ADFQuickStartRG --name ADFQuickStartStorage --location eastus
+az storage account create --resource-group ADFQuickStartRG --name adfquickstartstorage --location eastus
 ```
 
-Create a container and upload a blob
+Create a container
 ```azurecli
-
+az storage container create --resource-group timADFQuickStartRG --name adftutorial --account-name adfquickstartstorage --auth-mode key
 ```
+
+Create a file to upload:
+
+```console
+This is text.
+```
+
+```azurecli
+az storage blob upload --account-name adfquickstartstorage --name input/emp.txt --container-name adftutorial --file emp.txt --auth-mode key
+```
+
+
+unique name for df
 
 ```azurecli
 az datafactory factory create --resource-group ADFQuickStartRG --factory-name ADFQuickStartFactory
@@ -51,6 +64,13 @@ az datafactory factory show --resource-group ADFQuickStartRG --factory-name ADFQ
 
 create a linked service
 
+
+get the connection string:
+
+```azurecli
+az storage account show-connection-string --resource-group ADFQuickStartRG --name adfquickstartstorage --key primary
+```
+
 json file called AzureStorageLinkedService.json
 
 ```json
@@ -59,18 +79,20 @@ json file called AzureStorageLinkedService.json
 		"typeProperties":{
 		"connectionString":{
 		"type": "SecureString",	
-		"value":"DefaultEndpointsProtocol=https;AccountName=<>;AccountKey=<account-key>"
+		"value":<the connection string in quotation marks>
 		}
 	}
 }
 ```
 
 ```azurecli
-az datafactory linked-service create --resource-group ADFQuickStartRG --factory-name ADFQuickStartFactory  --linked-service-name AzureStorageLinkedService --properties @AzureStorageLinkedService.json
+az datafactory linked-service create --resource-group ADFQuickStartRG --factory-name ADFQuickStartFactory --linked-service-name AzureStorageLinkedService --properties @AzureStorageLinkedService.json
 ```
 
 
-create data sets
+create data sets 
+
+InputDataset.json
 
 ```json
 {
@@ -97,38 +119,29 @@ create data sets
 az datafactory dataset create --resource-group ADFQuickStartRG --dataset-name InputDataset --factory-name ADFQuickStartFactory --properties @InputDataset.json
 ```
 
+OutputDataset.json:
 
 ```json
 {
-  "etag": "0600f93e-0000-0100-0000-6050e6260000",
-  "id": "/subscriptions/<subscription-id>/resourceGroups/ADFQuickStartRG/providers/Microsoft.DataFactory/factories/ADFQuickStartFactory/datasets/OutputDataset",
-  "name": "OutputDataset",
-  "properties": {
-    "additionalProperties": null,
-    "annotations": [],
-    "compression": null,
-    "description": null,
-    "folder": null,
-    "linkedServiceName": {
-      "parameters": null,
-      "referenceName": "AzureStorageLinkedService"
-    },
-    "location": {
-      "additionalProperties": null,
-      "container": "adftutorial",
-      "fileName": null,
-      "folderPath": "output",
-      "type": "AzureBlobStorageLocation"
-    },
-    "parameters": null,
-    "schema": null,
-    "structure": null,
-    "type": "Binary"
-  },
-  "resourceGroup": "ADFQuickStartRG",
-  "type": "Microsoft.DataFactory/factories/datasets"
+	"type": 
+		"AzureBlob",
+		"linkedServiceName": {
+			"type":"LinkedServiceReference",
+			"referenceName":"AzureStorageLinkedService"
+			},
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "AzureBlobStorageLocation",
+                "fileName": "emp.txt",
+                "folderPath": "output",
+                "container": "adftutorial"
+		}
+	}
 }
 ```
+
 
 ```azurecli
 az datafactory dataset create --resource-group ADFQuickStartRG --dataset-name OutputDataset --factory-name ADFQuickStartFactory --properties @OutputDataset.json
@@ -197,24 +210,26 @@ az datafactory pipeline create --resource-group ADFQuickStartRG --factory-name A
 az datafactory pipeline create-run --resource-group ADFQuickStartRG --name Adfv2QuickStartPipeline --factory-name ADFQuickStartFactory
 ```
 
-<!-- 7. Clean up resources
-Required. If resources were created during the quickstart. If no resources were created, 
-state that there are no resources to clean up in this section.
--->
+
+```azurecli
+az datafactory pipeline-run show --factory-name ADFQuickStartFactory --resource-group ADFQuickStartRG --run-id <runId>
+```
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete
 <resources> with the following steps:
 
-1. From the left-hand menu...
-1. ...click Delete, type...and then click Delete
+```azurecli
+az group delete --name ADFQuickStartRG
+```
 
-<!-- 8. Next steps
-Required: A single link in the blue box format. Point to the next logical quickstart 
-or tutorial in a series, or, if there are no other quickstarts or tutorials, to some 
-other cool thing the customer can do. 
--->
+In this quickstart, you created the following JSON files:
+
+- AzureStorageLinkedService.json
+- InputDataset.json
+- OutputDataset.json
+- Adfv2QuickStartPipeline.json
 
 ## Next steps
 
