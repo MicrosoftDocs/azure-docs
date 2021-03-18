@@ -148,7 +148,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ### Add a button to the ViewController
 
-Create button in the `viewDidLoad` callback in **ViewController.swift**.
+Create a button in the `viewDidLoad` callback in **ViewController.swift**.
 
 ```swift
 override func viewDidLoad() {
