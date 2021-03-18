@@ -54,4 +54,4 @@ Tables in Spark databases are automatically visible, and they can be queried by 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze data in Storage](get-started-analyze-storage.md)
+> [Analyze data with a serverless Spark pool](get-started-analyze-spark.md)
