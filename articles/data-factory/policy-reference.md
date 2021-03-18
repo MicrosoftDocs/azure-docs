@@ -6,7 +6,7 @@ author: lrtoyou1223
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: [seo-lt-2019, references_regions]
-ms.date: 03/05/2021
+ms.date: 03/17/2021
 ---
 
 # Azure Policy built-in definitions for Data Factory (Preview)

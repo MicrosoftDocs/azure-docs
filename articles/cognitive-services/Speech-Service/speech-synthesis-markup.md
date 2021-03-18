@@ -83,11 +83,11 @@ The `voice` element is required. It is used to specify the voice that is used fo
 **Example**
 
 > [!NOTE]
-> This example uses the `en-US-AriaRUS` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
+> This example uses the `en-US-JennyNeural` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -139,7 +139,7 @@ speechConfig.setProperty(
 
 # [Python](#tab/python)
 
-For more information, see <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>.
+For more information, see <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>.
 
 ```python
 speech_config.set_property_by_name(
@@ -178,11 +178,11 @@ speechConfig!.setPropertyTo(
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         Good morning!
     </voice>
-    <voice name="en-US-Guy24kRUS">
-        Good morning to you too Aria!
+    <voice name="en-US-GuyNeural">
+        Good morning to you too Jenny!
     </voice>
 </speak>
 ```
@@ -463,7 +463,7 @@ The `s` element may contain text and the following elements: `audio`, `break`, `
 
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -502,7 +502,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
     </voice>
 </speak>
@@ -510,7 +510,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -518,7 +518,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -609,7 +609,7 @@ After you've published your custom lexicon, you can reference it from your SSML.
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <lexicon uri="http://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -699,7 +699,7 @@ Volume changes can be applied to standard voices at the word or sentence-level. 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -781,7 +781,7 @@ The speech synthesis engine speaks the following example as "Your first request 
  
 ```XML
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -819,7 +819,7 @@ Any audio included in the SSML document must meet these requirements:
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-AriaRUS">
+    <voice name="en-US-JennyNeural">
         <p>
             <audio src="https://contoso.com/opinionprompt.wav"/>
             Thanks for offering your opinion. Please begin speaking after the beep.
@@ -859,11 +859,122 @@ Only one background audio file is allowed per SSML document. However, you can in
 ```xml
 <speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
     <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
-    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)">
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)">
         The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
 ```
+
+## Bookmark element
+
+The `bookmark` element allows you insert bookmarks in the SSML and get the audio offset of each bookmark of audio stream for asynchronous notification.
+
+**Syntax**
+
+```xml
+<bookmark mark="string"/>
+```
+
+**Attributes**
+
+| Attribute | Description                                   | Required / Optional                                        |
+|-----------|-----------------------------------------------|------------------------------------------------------------|
+| `mark`     | Specifies the bookmark text of the `bookmark` element. | Required. |
+
+**Example**
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="en-US-GuyNeural">
+        <bookmark mark='bookmark_one'/> one.
+        <bookmark mark='bookmark_two'/> two. three. four.
+    </voice>
+</speak>
+```
+
+### Get bookmark using Speech SDK
+
+You can subscribe to the `BookmarkReached` event in Speech SDK to get the bookmark offsets.
+
+> [!NOTE]
+> `BookmarkReached` event is only available since Speech SDK version 1.16.0.
+
+
+# [C#](#tab/csharp)
+
+For more information, see <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>.
+
+```csharp
+synthesizer.BookmarkReached += (s, e) =>
+{
+    // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
+    Console.WriteLine($"Bookmark reached. Audio offset: " +
+        $"{e.AudioOffset / 10000}ms, bookmark text: {e.Text}.");
+};
+```
+
+# [C++](#tab/cpp)
+
+For more information, see <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>.
+
+```cpp
+synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
+{
+    cout << "bookmark reached. "
+        // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
+        << "Audio offset: " << e.AudioOffset / 10000 << "ms, "
+        << "Bookmark text: " << e.Text << "." << endl;
+};
+```
+
+# [Java](#tab/java)
+
+For more information, see <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>.
+
+```java
+synthesizer.BookmarkReached.addEventListener((o, e) -> {
+    // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
+    System.out.print("Bookmark reached. Audio offset: " + e.getAudioOffset() / 10000 + "ms, ");
+    System.out.println("bookmark text: " + e.getText() + ".");
+});
+```
+
+# [Python](#tab/python)
+
+For more information, see <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>.
+
+```python
+# The unit of evt.audio_offset is tick (1 tick = 100 nanoseconds), divide it by 10,000 to convert to milliseconds.
+speech_synthesizer.bookmark_reached.connect(lambda evt: print(
+    "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
+```
+
+# [JavaScript](#tab/javascript)
+
+For more information, see <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached`</a>.
+
+```javascript
+synthesizer.bookmarkReached = function (s, e) {
+    window.console.log("(Bookmark reached), Audio offset: " + e.audioOffset / 10000 + "ms. Bookmark text: " + e.text);
+}
+```
+
+# [Objective-C](#tab/objectivec)
+
+For more information, see <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
+
+```objectivec
+[synthesizer addBookmarkReachedEventHandler: ^ (SPXSpeechSynthesizer *synthesizer, SPXSpeechSynthesisBookmarkEventArgs *eventArgs) {
+    // The unit of AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to converted to milliseconds.
+    NSLog(@"Bookmark reached. Audio offset: %fms, bookmark text: %@.", eventArgs.audioOffset/10000., eventArgs.text);
+}];
+```
+
+# [Swift](#tab/swift)
+
+For more information, see <a href="https://docs.microsoft.com/swift/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>.
+
+---
 
 ## Next steps
 

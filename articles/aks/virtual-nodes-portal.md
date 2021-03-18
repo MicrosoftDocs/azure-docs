@@ -3,7 +3,7 @@ title: Create virtual nodes using the portal in Azure Kubernetes Services (AKS)
 description: Learn how to use the Azure portal to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 03/15/2021
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -49,17 +49,17 @@ In the top left-hand corner of the Azure portal, select **Create a resource** > 
 On the **Basics** page, configure the following options:
 
 - *PROJECT DETAILS*: Select an Azure subscription, then select or create an Azure resource group, such as *myResourceGroup*. Enter a **Kubernetes cluster name**, such as *myAKSCluster*.
-- *CLUSTER DETAILS*: Select a region, Kubernetes version, and DNS name prefix for the AKS cluster.
+- *CLUSTER DETAILS*: Select a region and Kubernetes version for the AKS cluster.
 - *PRIMARY NODE POOL*: Select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed.
      - Select the number of nodes to deploy into the cluster. For this article, set **Node count** to *1*. Node count **can** be adjusted after the cluster has been deployed.
 
-Click **Next: Scale**.
+Click **Next: Node Pools**.
 
-On the **Scale** page, select *Enabled* under **Virtual nodes**.
+On the **Node Pools** page, select *Enable virtual nodes*.
 
-![Create AKS cluster and enable the virtual nodes](media/virtual-nodes-portal/enable-virtual-nodes.png)
+:::image type="content" source="media/virtual-nodes-portal/enable-virtual-nodes.png" alt-text="In a browser, shows creating a cluster with virtual nodes enabled on the Azure portal. The option 'Enable virtual nodes' is highlighted.":::
 
-By default, an Azure Active Directory service principal is created. This service principal is used for cluster communication and integration with other Azure services. Alternatively, you can use a managed identity for permissions instead of a service principal. For more information, see [Use managed identities](use-managed-identity.md).
+By default, a cluster identity is created. This cluster identity is used for cluster communication and integration with other Azure services. By default, this cluster identity is a managed identity. For more information, see [Use managed identities](use-managed-identity.md). You can also use a service principal as your cluster identity.
 
 The cluster is also configured for advanced networking. The virtual nodes are configured to use their own Azure virtual network subnet. This subnet has delegated permissions to connect Azure resources between the AKS cluster. If you don't already have delegated subnet, the Azure portal creates and configures the Azure virtual network and subnet for use with the virtual nodes.
 
@@ -153,7 +153,7 @@ The pod is assigned an internal IP address from the Azure virtual network subnet
 To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
 ```console
-kubectl run -it --rm virtual-node-test --image=debian
+kubectl run -it --rm virtual-node-test --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Install `curl` in the pod using `apt-get`:

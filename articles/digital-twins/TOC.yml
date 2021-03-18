@@ -13,8 +13,12 @@
   items:
   - name: Code a client app
     href: tutorial-code.md
-  - name: Explore the basics with a sample client app
-    href: tutorial-command-line-app.md
+  - name: Create a graph
+    items:
+    - name: Use a sample client app
+      href: tutorial-command-line-app.md
+    - name: Use the Azure CLI commands
+      href: tutorial-command-line-cli.md
   - name: Connect an end-to-end solution
     href: tutorial-end-to-end.md
 - name: Concepts
@@ -97,10 +101,10 @@
     items:
     - name: Use the APIs and SDKs
       href: how-to-use-apis-sdks.md
+    - name: Create custom-language SDKs with AutoRest
+      href: how-to-create-custom-sdks.md
     - name: Make requests with Postman
       href: how-to-use-postman.md
-    - name: Create custom SDKs with AutoRest
-      href: how-to-create-custom-sdks.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md
   - name: Connect input
@@ -166,7 +170,7 @@
         - name: JavaScript SDK
           href: /javascript/api/@azure/digital-twins-core/
         - name: Python SDK
-          href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python
+          href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
   - name: Digital Twins CLI
     href: /cli/azure/ext/azure-iot/dt
 - name: Resources
@@ -208,9 +212,9 @@
       - name: Python SDK - Source code
         href: https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins
       - name: Go SDK - GoDoc
-        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins
+        href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt
       - name: Go - Source code
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins
+        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt
     - name: Data plane
       items:    
       - name: Data plane Swagger
@@ -296,4 +300,6 @@
     - name: Azure portal
       href: https://portal.azure.com
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json

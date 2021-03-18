@@ -65,7 +65,7 @@ The diagram below describes the scenario where one Azure IoT Edge gateway as dir
 ## Child gateway configuration
 
 >[!Note]
->If you have replicated containers used in your configuration in your own private registry, then there will need to be a modification to the config.toml settings and runtime settings in your module deployment. For more information, refer to [Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal#deploy-modules-to-the-lower-layer-device&preserve-view=true) for more details.
+>If you have replicated containers used in your configuration in your own private registry, then there will need to be a modification to the config.toml settings and runtime settings in your module deployment. For more information, refer to [Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device) for more details.
 
 1. Modify the image path for the Edge agent as demonstrated in the example below:
 

@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 03/05/2021
+ms.date: 03/17/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -79,6 +79,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-compute](../../../../includes/policy/reference/bycat/policies-compute.md)]
 
+## Container Instance
+
+[!INCLUDE [azure-policy-reference-policies-container-instance](../../../../includes/policy/reference/bycat/policies-container-instance.md)]
+
 ## Container Registry
 
 [!INCLUDE [azure-policy-reference-policies-container-registry](../../../../includes/policy/reference/bycat/policies-container-registry.md)]
@@ -150,6 +154,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Managed Application
 
 [!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
+
+## Migrate
+
+[!INCLUDE [azure-policy-reference-policies-migrate](../../../../includes/policy/reference/bycat/policies-migrate.md)]
 
 ## Monitoring
 

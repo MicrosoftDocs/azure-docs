@@ -326,7 +326,7 @@ Once the rekey operation is complete, click **Sync**. The sync operation automat
 
 To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. By default, App Service Certificates have a one-year validity period.
 
-Select **On** and click **Save**. Certificates can start automatically renewing 60 days before expiration if you have automatic renewal turned on.
+Select **On** and click **Save**. Certificates can start automatically renewing 30 days before expiration if you have automatic renewal turned on.
 
 ![Renew App Service certificate automatically](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 

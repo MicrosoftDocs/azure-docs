@@ -32,9 +32,9 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 ## Data types
 
-You can log multiple data types including scalar values, lists, tables, images, directories, and more. For more information, and Python code examples for different data types, see the [Run class reference page](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py).
+You can log multiple data types including scalar values, lists, tables, images, directories, and more. For more information, and Python code examples for different data types, see the [Run class reference page](/python/api/azureml-core/azureml.core.run%28class%29).
 
-### Logging Run Metrics 
+### Logging run metrics 
 
 Use the following methods in the logging APIs to influence the metrics visualizations. Note the [service limits](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) for these logged metrics. 
 
@@ -67,13 +67,13 @@ mlf_logger._run_id = run.id
 
 ## Interactive logging session
 
-Interactive logging sessions are typically used in notebook environments. The method [Experiment.start_logging()](/python/api/azureml-core/azureml.core.experiment%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) starts an interactive logging session. Any metrics logged during the session are added to the run record in the experiment. The method [run.complete()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) ends the sessions and marks the run as completed.
+Interactive logging sessions are typically used in notebook environments. The method [Experiment.start_logging()](/python/api/azureml-core/azureml.core.experiment%28class%29#start-logging--args----kwargs-) starts an interactive logging session. Any metrics logged during the session are added to the run record in the experiment. The method [run.complete()](/python/api/azureml-core/azureml.core.run%28class%29#complete--set-status-true-) ends the sessions and marks the run as completed.
 
 ## ScriptRun logs
 
-In this section, you learn how to add logging code inside of runs created when configured with ScriptRunConfig. You can use the [**ScriptRunConfig**](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) class to encapsulate scripts and environments for repeatable runs. You can also use this option to show a visual Jupyter Notebooks widget for monitoring.
+In this section, you learn how to add logging code inside of runs created when configured with ScriptRunConfig. You can use the [**ScriptRunConfig**](/python/api/azureml-core/azureml.core.scriptrunconfig) class to encapsulate scripts and environments for repeatable runs. You can also use this option to show a visual Jupyter Notebooks widget for monitoring.
 
-This example performs a parameter sweep over alpha values and captures the results using the [run.log()](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truelog-name--value--description----) method.
+This example performs a parameter sweep over alpha values and captures the results using the [run.log()](/python/api/azureml-core/azureml.core.run%28class%29#log-name--value--description----) method.
 
 1. Create a training script that includes the logging logic, `train.py`.
 

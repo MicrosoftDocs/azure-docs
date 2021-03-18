@@ -1,21 +1,19 @@
 ---
 title: H264 Multiple Bitrate 4x3 for iOS | Microsoft Docs
 description: The topic gives an overview of the **H264 Multiple Bitrate 4x3 for iOS** task preset.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 7f587c46-bda5-49e6-abad-203380e1d1ab
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
 
 # H264 Multiple Bitrate 4x3 for iOS

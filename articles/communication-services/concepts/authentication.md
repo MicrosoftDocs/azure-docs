@@ -2,191 +2,61 @@
 title: Authenticate to Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the various ways an app or service can authenticate to Communication Services.
-author: GrantMeStrength
+author: mikben
 
 manager: jken
 services: azure-communication-services
 
-ms.author: jken
-ms.date: 07/24/2020
+ms.author: mikben
+ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
+
 # Authenticate to Azure Communication Services
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+Every client interaction with Azure Communication Services needs to be authenticated. In a typical architecture, see [client and server architecture](./client-and-server-architecture.md), *access keys* or *managed identities* are used for authentication.
 
-This article provides information on authenticating clients to Azure Communication Services using *access keys* and *user access tokens*. Every client interaction with Azure Communication Services needs to be authenticated.
+Another type of authentication uses *user access tokens* to authenticate against services that require user participation. For example, the chat or calling service utilizes *user access tokens* to allow users to be added in a thread and have conversations with each other.
 
-The following table describes which authentication options are supported by the Azure Communication Services client libraries:
+## Authentication Options
 
-| Client library | Access key    | User access tokens |
-| -------------- | ------------- | ------------------ |
-| Administration | Supported     | Not Supported      |
-| SMS            | Supported     | Not Supported      |
-| Chat           | Not Supported | Supported          |
-| Calling        | Not Supported | Supported          |
+The following table shows the Azure Communication Services client libraries and their authentication options:
+
+| Client Library    | Authentication option                               |
+| ----------------- | ----------------------------------------------------|
+| Identity          | Access Key or Managed Identity                      |
+| SMS               | Access Key or Managed Identity                      |
+| Phone Numbers     | Access Key or Managed Identity                      |
+| Calling           | User Access Token                                   |
+| Chat              | User Access Token                                   |
 
 Each authorization option is briefly described below:
 
-- **Access Key** authentication for SMS and Administration operations. Access Key authentication is suitable for applications running in a trusted service environment. To authenticate with an access key, a client generates a [hash-based message authentication code (HMAC)](https://en.wikipedia.org/wiki/HMAC) and includes it within the `Authorization` header of each HTTP request. For more information, see [Authenticate with an Access Key](#authenticate-with-an-access-key).
-- **User Access Token** authentication for Chat and Calling. User access tokens let your client applications authenticate directly against Azure Communication Services. These tokens are generated on a server-side token provisioning service that you create. They're then provided to client devices that use the token to initialize the Chat and Calling client libraries. For more information, see [Authenticate with a User Access Token](#authenticate-with-a-user-access-token).
+### Access Key
 
-## Authenticate with an access key
+Access key authentication is suitable for service applications running in a trusted service environment. Your access key can be found in the Azure Communication Services portal. The service application uses it as a credential to initialize the corresponding client libraries. See an example of how it is used in the [Identity client library](../quickstarts/access-tokens.md). 
 
-Access key authentication uses a shared secret key to generate an HMAC for each HTTP request computed by using the SHA256 algorithm, and sends it in the `Authorization` header using the `HMAC-SHA256` scheme.
+Since the access key is part of the connection string of your resource, authentication with a connection string is equivalent to authentication with an access key.
 
-```
-Authorization: "HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"
-```
+If you wish to call ACS' APIs manually using an access key, then you will need to sign the request. Signing the request is explained, in detail, within a [tutorial](../tutorials/hmac-header-tutorial.md).
 
-The Azure Communication Services client libraries that use access key authentication should be initialized with your resource's connection string. If you're not using a client library, you can programmatically generate HMACs using your resource's access key. To learn more about connection strings, visit the [resource provisioning quickstart](../quickstarts/create-communication-resource.md).
+### Managed Identity
 
-### Sign an HTTP request
+Managed Identities, provides superior security and ease of use over other authorization options. For example, by using Azure AD, you avoid having to store your account access key within your code, as you do with Access Key authorization. While you can continue to use Access Key authorization with communication services applications, Microsoft recommends moving to Azure AD where possible. 
 
-If you're not using a client library to make HTTP requests to the Azure Communication Services REST APIs, you'll need to programmatically create HMACs for each HTTP request. The following steps describe how to construct the Authorization header:
+To set up a managed identity, [create a registered application from the Azure CLI](../quickstarts/managed-identity-from-cli.md). Then, the endpoint and credentials can be used to authenticate the client libraries. See examples of how [managed identity](../quickstarts/managed-identity.md) is used.
 
-1. Specify the Coordinated Universal Time (UTC) timestamp for the request in either the `x-ms-date` header, or in the standard HTTP `Date` header. The service validates this to guard against certain security attacks, including replay attacks.
-1. Hash the HTTP request body using the SHA256 algorithm then pass it, with the request, via the `x-ms-content-sha256` header.
-1. Construct the string to be signed by concatenating the HTTP Verb (e.g. `GET` or `PUT`), HTTP request path, and values of the `Date`, `Host` and `x-ms-content-sha256` HTTP headers in the following format:
-    ```
-    VERB + "\n"
-    URLPathAndQuery + "\n"
-    DateHeaderValue + ";" + HostHeaderValue + ";" + ContentHashHeaderValue
-    ```
-1. Generate an HMAC-256 signature of the UTF-8 encoded string that you created in the previous step. Next, encode your results as Base64. Note that you also need to Base64-decode your access key. Use the following format (shown as pseudo code):
-    ```
-    Signature=Base64(HMAC-SHA256(UTF8(StringToSign), Base64.decode(<your_access_key>)))
-    ```
-1. Specify the Authorization header as follows:
-    ```
-    Authorization="HMAC-SHA256 SignedHeaders=date;host;x-ms-content-sha256&Signature=<hmac-sha256-signature>"  
-    ```
-    Where `<hmac-sha256-signature>` is the HMAC computed in the previous step.
+### User Access Tokens
 
-## Authenticate with a user access token
-
-User access tokens let your client applications authenticate directly against Azure Communication Services. To achieve this you should set up a trusted service that authenticates your application users and issues user access tokens with the Administration client library. Visit the [client and server architecture](./client-and-server-architecture.md) conceptual documentation to learn more about our architectural considerations.
-
-The `CommunicationTokenCredential` class contains the logic for providing user access token credentials to the client libraries and managing their lifecycle.
-
-### Initialize the client libraries
-
-To initialize Azure Communication Services client libraries that require user access token authentication, you first create an instance of the `CommunicationTokenCredential` class, and then use it to initialize an API client.
-
-The following snippets show you how to initialize the chat client library with a user access token:
-
-#### [C#](#tab/csharp)
-
-```csharp
-// user access tokens should be created by a trusted service using the Administration client library
-var token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance
-var userCredential = new CommunicationTokenCredential(token);
-
-// initialize the chat client library with the credential
-var chatClient = new ChatClient(ENDPOINT_URL, userCredential);
-```
-
-#### [JavaScript](#tab/javascript)
-
-```javascript
-// user access tokens should be created by a trusted service using the Administration client library
-const token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance with the AzureCommunicationTokenCredential class
-const userCredential = new AzureCommunicationTokenCredential(token);
-
-// initialize the chat client library with the credential
-let chatClient = new ChatClient(ENDPOINT_URL, userCredential);
-```
-
-#### [Swift](#tab/swift)
-
-```swift
-// user access tokens should be created by a trusted service using the Administration client library
-let token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance
-let userCredential = try CommunicationTokenCredential(token: token)
-
-// initialize the chat client library with the credential
-let chatClient = try CommunicationChatClient(credential: userCredential, endpoint: ENDPOINT_URL)
-```
-
-#### [Java](#tab/java)
-
-```java
-// user access tokens should be created by a trusted service using the Administration client library
-String token = "<valid-user-access-token>";
-
-// create a CommunicationTokenCredential instance
-CommunicationTokenCredential userCredential = new CommunicationTokenCredential(token);
-
-// Initialize the chat client
-final ChatClientBuilder builder = new ChatClientBuilder();
-builder.endpoint(ENDPOINT_URL)
-    .credential(userCredential)
-    .httpClient(HTTP_CLIENT);
-ChatClient chatClient = builder.buildClient();
-```
-
----
-
-### Refreshing user access tokens
-
-User access tokens are short-lived credentials that need to be reissued to prevent your users from experiencing service disruptions. The `CommunicationTokenCredential` constructor accepts a refresh callback function that enables you to update user access tokens before they expire. You should use this callback to fetch a new user access token from your trusted service.
-
-#### [C#](#tab/csharp)
-
-```csharp
-var userCredential = new CommunicationTokenCredential(
-    initialToken: token,
-    refreshProactively: true,
-    tokenRefresher: cancellationToken => fetchNewTokenForCurrentUser(cancellationToken)
-);
-```
-
-#### [JavaScript](#tab/javascript)
-
-```javascript
-const userCredential = new AzureCommunicationTokenCredential({
-  tokenRefresher: async () => fetchNewTokenForCurrentUser(),
-  refreshProactively: true,
-  initialToken: token
-});
-```
-
-#### [Swift](#tab/swift)
-
-```swift
- let userCredential = try CommunicationTokenCredential(initialToken: token, refreshProactively: true) { |completionHandler|
-   let updatedToken = fetchTokenForCurrentUser()
-   completionHandler(updatedToken, nil)
- }
-```
-
-#### [Java](#tab/java)
-
-```java
-TokenRefresher tokenRefresher = new TokenRefresher() {
-    @Override
-    Future<String> getFetchTokenFuture() {
-        return fetchNewTokenForCurrentUser();
-    }
-}
-
-CommunicationTokenCredential credential = new CommunicationTokenCredential(tokenRefresher, token, true);
-```
----
-
-The `refreshProactively` option lets you decide how you'll manage the token lifecycle. By default, when a token is stale, the callback will block API requests and attempt to refresh it. When `refreshProactively` is set to `true` the callback is scheduled and executed asynchronously before the token expires.
+User access tokens are generated using the Identity client library and are associated with users created in the Identity client library. See an example of how to [create users and generate tokens](../quickstarts/access-tokens.md). Then, user access tokens are used to authenticate participants added to conversations in the Chat or Calling SDK. For more information, see [add chat to your app](../quickstarts/chat/get-started.md). User access token authentication is different compared to access key and managed identity authentication in that it is used to authenticate a user rather than a secured Azure resource.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Creating user access tokens](../quickstarts/access-tokens.md)
+> [Create and manage Communication Services resources](../quickstarts/create-communication-resource.md)
+> [Create an Azure Active Directory managed identity application from the Azure CLI](../quickstarts/managed-identity-from-cli.md)
+> [Create User Access Tokens](../quickstarts/access-tokens.md)
 
 For more information, see the following articles:
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)

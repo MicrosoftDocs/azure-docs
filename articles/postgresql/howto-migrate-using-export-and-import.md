@@ -9,6 +9,7 @@ ms.date: 09/22/2020
 ---
 # Migrate your PostgreSQL database using export and import
 [!INCLUDE[applies-to-postgres-single-flexible-server](includes/applies-to-postgres-single-flexible-server.md)]
+
 You can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) to extract a PostgreSQL database into a script file and [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to import the data into the target database from that file.
 
 ## Prerequisites

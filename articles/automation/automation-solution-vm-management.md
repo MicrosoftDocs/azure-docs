@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Start/Stop VMs during off-hours overview
 
-The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios. 
+The Start/Stop VMs during off-hours feature start or stops enabled Azure VMs. It starts or stops machines on user-defined schedules, provides insights through Azure Monitor logs, and sends optional emails by using [action groups](../azure-monitor/alerts/action-groups.md). The feature can be enabled on both Azure Resource Manager and classic VMs for most scenarios.
 
 This feature uses [Start-AzVm](/powershell/module/az.compute/start-azvm) cmdlet to start VMs. It uses [Stop-AzVM](/powershell/module/az.compute/stop-azvm) for stopping VMs.
 
@@ -29,6 +29,9 @@ The following are limitations with the current feature:
 
 - It manages VMs in any region, but can only be used in the same subscription as your Azure Automation account.
 - It is available in Azure and Azure Government for any region that supports a Log Analytics workspace, an Azure Automation account, and alerts. Azure Government regions currently don't support email functionality.
+
+> [!NOTE]
+> Before you install this version, we would like you to know about the [next version](https://github.com/microsoft/startstopv2-deployments), which is in preview right now.  This new version (V2) offers all the same functionality as this one, but is designed to take advantage of newer technology in Azure. It adds some of the commonly requested features from customers, such as multi-subscription support from a single Start/Stop instance.
 
 ## Prerequisites
 
@@ -83,7 +86,8 @@ You can enable VMs for the Start/Stop VMs during off-hours feature using a new A
 | Microsoft.Authorization/permissions/read |Subscription|
 | Microsoft.Authorization/roleAssignments/read | Subscription |
 | Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Resource Group |
+| Microsoft.Authorization/roleAssignments/delete | Subscription |
+| Microsoft.Automation/automationAccounts/connections/read | Resource Group |
 | Microsoft.Automation/automationAccounts/certificates/read | Resource Group |
 | Microsoft.Automation/automationAccounts/write | Resource Group |
 | Microsoft.OperationalInsights/workspaces/write | Resource Group |
@@ -159,7 +163,7 @@ Don't enable all schedules, because doing so might create overlapping schedule a
 |Scheduled_StopVM | User-defined, daily | Runs the **ScheduledStopStart_Parent** runbook with a parameter of `Stop` every day at the specified time. Automatically stops all VMs that meet the rules defined by variable assets. Enable the related schedule **Scheduled-StartVM**.|
 |Scheduled_StartVM | User-defined, daily | Runs the **ScheduledStopStart_Parent** runbook with a parameter value of `Start` every day at the specified time. Automatically starts all VMs that meet the rules defined by variable assets. Enable the related schedule **Scheduled-StopVM**.|
 |Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the **Sequenced_StopStop_Parent** runbook with a parameter value of `Stop` every Friday at the specified time. Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. For more information on tag values and asset variables, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StartVM**.|
-|Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the **SequencedStopStart_Parent** runbook with a parameter value of `Start` every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. For more information on tag values and variable assets, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StopVM**.
+|Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the **SequencedStopStart_Parent** runbook with a parameter value of `Start` every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. For more information on tag values and variable assets, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StopVM**.|
 
 ## Use the feature with classic VMs
 

@@ -1,7 +1,9 @@
 {
   "build_entry_point": "docs",
   "redirection_files": [
-    ".openpublishing.redirection.json"
+    ".openpublishing.redirection.json",
+    ".openpublishing.redirection.healthcare-apis.json",
+    ".openpublishing.redirection.media-services.json"
   ],
   "docsets_to_publish": [
     {
@@ -98,7 +100,7 @@
     {
       "path_to_root": "samples-mediaservices-integration",
       "url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
-      "branch": "master"
+      "branch": "main"
     },
     {
       "path_to_root": "samples-mediaservices-encryptiondrm",
@@ -206,6 +208,16 @@
       "path_to_root": "azure-functions-dotnet-worker",
       "url": "https://github.com/Azure/azure-functions-dotnet-worker",
       "branch": "main"
+    },   
+    {
+      "path_to_root": "azure-functions-templates-v3",
+      "url": "https://github.com/Azure/azure-functions-templates",
+      "branch": "v3.x"
+    },
+    {
+      "path_to_root": "azure-search-javascript-samples",
+      "url": "https://github.com/Azure-Samples/azure-search-javascript-samples",
+      "branch": "master"
     },
     {
       "path_to_root": "samples-personalizer",
@@ -533,6 +545,11 @@
       "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
       "branch": "master"
     },
+    {
+      "path_to_root": "js-e2e",
+      "url": "https://github.com/azure-samples/js-e2e",
+      "branch": "main"
+    },    
     {
       "path_to_root": "ImmersiveReaderSdk",
       "url": "https://github.com/microsoft/immersive-reader-sdk",

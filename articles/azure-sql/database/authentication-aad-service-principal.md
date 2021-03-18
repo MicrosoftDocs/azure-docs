@@ -47,7 +47,7 @@ Supporting this functionality is useful in Azure AD application automation proce
 
 To enable an Azure AD object creation in SQL Database and Azure Synapse on behalf of an Azure AD application, the following settings are required:
 
-1. Assign the server identity. The assigned server identity represents the Managed System Identity (MSI). Currently, the server identity for Azure SQL does not support User Managed Identity (UMI).
+1. Assign the server identity. The assigned server identity represents the Managed Service Identity (MSI). Currently, the server identity for Azure SQL does not support User Managed Identity (UMI).
     - For a new Azure SQL logical server, execute the following PowerShell command:
     
     ```powershell
