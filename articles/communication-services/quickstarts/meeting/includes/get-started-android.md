@@ -258,7 +258,7 @@ The following classes and interfaces handle some of the major features of the Az
 | ------------------------------------- | ------------------------------------------------------------ |
 | MeetingUIClient| The MeetingUIClient is the main entry point to the Teams Embed library. |
 | MeetingJoinOptions | MeetingJoinOptions are used for configurable options such as display name. |
-| CallState | The CallState is used to for reporting call state changes. The options are as follows: connecting, waitingInLobby, connected, and ended. |
+| CallState | The CallState is used to for reporting call state changes. The options are as follows: `connecting`, `waitingInLobby`, `connected`, and `ended`. |
 
 ## Create a MeetingClient from the user access token
 
