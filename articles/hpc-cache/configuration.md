@@ -91,7 +91,7 @@ This feature is available for Azure Blob storage targets only, and its configura
 
 Snapshots are taken every eight hours, at UTC 0:00, 08:00, and 16:00.
 
-Azure HPC Cache stores daily, weekly, and monthly snapshots until they are replaced by new ones. The limits are:
+Azure HPC Cache stores daily, weekly, and monthly snapshots until they are replaced by new ones. The snapshot retention limits are:
 
 * Up to 20 daily snapshots
 * Up to 8 weekly snapshots
