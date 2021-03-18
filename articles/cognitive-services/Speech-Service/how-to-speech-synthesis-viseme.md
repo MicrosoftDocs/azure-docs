@@ -16,6 +16,9 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 # Visemes
 
+> [!NOTE]
+> Viseme only works for `en-US-AriaNeural` voice for now, and will be available for all `en-US` voices by the end of April, 2021.
+
 A viseme is the visual description of a phoneme in spoken language.
 It defines the position of the face and mouth when speaking a word.
 Each viseme depicts the key facial poses for a specific set of phonemes.
@@ -23,7 +26,7 @@ There is no one-to-one correspondence between visemes and phonemes.
 Often several phonemes correspond to a single viseme, as several phonemes look the same on the face when produced, such as `s`, `z`.
 See the [mapping table between Visemes and phonemes](#visemes-and-phonemes-table).
 
-Using visemes, you can create more natural and intelligent news broadcast assistant, more interactive gaming and Cartoon characters, and more intuitive language teaching videos. The hearing-impaired can also pick up sounds visually and "lip-read" any speech content. 
+Using visemes, you can create more natural and intelligent news broadcast assistant, more interactive gaming and Cartoon characters, and more intuitive language teaching videos. The hearing-impaired can also pick up sounds visually and "lip-read" any speech content.
 
 ## Get viseme outputs with the Speech SDK
 
