@@ -10,17 +10,17 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ---
 
 # Azure Event Grid schemas for Media Services events
 
-[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+[!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
 This article provides the schemas and properties for Media Services events.
 
-For a list of sample scripts and tutorials, see [Media Services event source](../../event-grid/event-schema-subscriptions.md).
+For a list of sample scripts and tutorials, see [Media Services event source](../../../event-grid/event-schema-subscriptions.md).
 
 ## Job related event types
 
@@ -326,7 +326,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](live-event-error-codes.md).
+You can find the error result codes in [live Event error codes](../live-event-error-codes.md).
 
 ### LiveEventEncoderConnected
 
@@ -396,7 +396,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
 
-You can find the error result codes in [live Event error codes](live-event-error-codes.md).
+You can find the error result codes in [live Event error codes](../live-event-error-codes.md).
 
 The graceful disconnect result codes are:
 
@@ -666,10 +666,10 @@ An event has the following top-level data:
 
 ## Next steps
 
-[Register for job state change events](job-state-events-cli-how-to.md)
+[Register for job state change events](../job-state-events-cli-how-to.md)
 
 ## See also
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
-- [Live Event error codes](live-event-error-codes.md)
+- [Live Event error codes](../live-event-error-codes.md)

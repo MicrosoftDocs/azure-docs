@@ -142,4 +142,4 @@ If you need better performance, try using SAS credentials to access storage unti
 
 ## Next steps
 
-Review the [troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for solutions to common problems. If you're working with dedicated SQL pool rather than serverless SQL pool, see [Best practices for dedicated SQL pools](best-practices-sql-pool.md) for specific guidance.
+Review the [troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for solutions to common problems. If you're working with dedicated SQL pool rather than serverless SQL pool, see [Best practices for dedicated SQL pools](best-practices-dedicated-sql-pool.md) for specific guidance.

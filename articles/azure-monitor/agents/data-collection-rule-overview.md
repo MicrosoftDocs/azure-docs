@@ -78,6 +78,10 @@ The sample data collection rule below is for virtual machines with Azure Managem
 - Destinations
   - Sends all data to a Log Analytics workspace named centralWorkspace.
 
+> [!NOTE]
+> For an explanation of XPaths that are used to specify event collection in data collection rules, see [Limit data collection with custom XPath queries](data-collection-rule-azure-monitor-agent.md#limit-data-collection-with-custom-xpath-queries)
+
+
 ```json
 {
     "location": "eastus",

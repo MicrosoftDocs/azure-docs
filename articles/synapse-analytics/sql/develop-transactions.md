@@ -200,4 +200,4 @@ Dedicated SQL pool does have a few other restrictions that relate to transaction
 
 ## Next steps
 
-To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [Dedicated SQL pool](best-practices-sql-pool.md) and [serverless SQL pool](best-practices-sql-on-demand.md).
+To learn more about optimizing transactions, see [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Additional best practices guides are also provided for [Dedicated SQL pool](best-practices-dedicated-sql-pool.md) and [serverless SQL pool](best-practices-serverless-sql-pool.md).
