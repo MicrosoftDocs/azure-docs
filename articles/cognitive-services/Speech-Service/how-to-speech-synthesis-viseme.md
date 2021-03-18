@@ -1,7 +1,7 @@
 ---
 title: How to get viseme data for lip-sync
 titleSuffix: Azure Cognitive Services
-description: The Speech SDK supports viseme event in speech synthesis, which are used to represent the key poses in observed speech (i.e. the position of the lips, jaw and tongue when producing a particular phoneme).
+description: The Speech SDK supports viseme event in speech synthesis, which are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -14,7 +14,7 @@ ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
-# Visemes
+# Get facial pose events
 
 A viseme is the visual description of a phoneme in spoken language.
 It defines the position of the face and mouth when speaking a word.
@@ -25,18 +25,17 @@ See the [mapping table between Visemes and phonemes](#visemes-and-phonemes-table
 
 Using visemes, you can create more natural and intelligent news broadcast assistant, more interactive gaming and Cartoon characters, and more intuitive language teaching videos. The hearing-impaired can also pick up sounds visually and "lip-read" any speech content. 
 
-## Get viseme outputs with the Speech SDK
+## Get viseme events with the Speech SDK
 
-In viseme event, we convert the input text into a set of phoneme sequences and their corresponding viseme sequences.
-At the same time, the start time of each viseme will be predicted according to the selected voice.
-Viseme sequences can be represented by a set of viseme IDs, and viseme start time can be represented by audio offsets. Viseme ID and audio offset are defined as the output parameters of speech viseme event. They are used to drive the mouth animations that help simulate mouth motions of the input text.
+To make viseme events, we convert input text into a set of phoneme sequences and their corresponding viseme sequences. We estimate the start time of each viseme in the speech audio. Viseme events contain a sequence of viseme IDs, each with an offset into the audio where that viseme appears. These events can drive mouth animations that simulate a person speaking the input text.
 
 | Parameter | Description |
 |-----------|-------------|
 | Viseme ID | Integer numbers that specify different visemes. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. See the [mapping table between Viseme ID and IPA](#visemes-and-phonemes-table).  |
 | Audio offset | The start time of each viseme, in ticks (100 nanoseconds) |
 
-To get viseme event outputs, you need to subscribe the `VisemeReceived` event in Speech SDK. The following snippets illustrate how to subscribe the viseme event.
+To get visme events, subscribe to the `VisemeReceived` event in Speech SDK.
+The following snippets illustrate how to subscribe the viseme event.
 
 ::: zone pivot="programming-language-csharp"
 
