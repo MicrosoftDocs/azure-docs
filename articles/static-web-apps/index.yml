@@ -63,8 +63,6 @@ landingContent:
             url: deploy-nextjs.md
           - text: Deploy from Nuxt.js
             url: deploy-nuxtjs.md
-          - text: Deploy from Blazor
-            url: deploy-blazor.md
       - linkListType: learn
         links:
           - text: Publish a static web app with Gatsby
