@@ -13,7 +13,7 @@ Document Translation is a cloud-based feature of the [Azure Translator](../trans
 
 This documentation contains the following topic types:  
 
-* [**Quickstarts**](get-started-with-document-translation.md) are step-by-step instructions that enable you to make API calls to the feature and get results in a short period of time.  
+* [**Quickstarts**](get-started-with-document-translation.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](create-sas-tokens.md) contain instructions for using the feature in more specific or customized ways.  
 
 ## Document Translation key features
