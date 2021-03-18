@@ -20,14 +20,14 @@
   - name: 1 Create a Synapse workspace
     href: get-started-create-workspace.md
     displayName: get, started
-  - name: 2 Analyze using a dedicated SQL pool
-    href: get-started-analyze-sql-pool.md
+  - name: 2 Analyze using serverless SQL pool
+    href: get-started-analyze-sql-on-demand.md
     displayName: get, started
   - name: 3 Analyze using Spark
     href: get-started-analyze-spark.md
     displayName: get, started
-  - name: 4 Analyze using serverless SQL pool
-    href: get-started-analyze-sql-on-demand.md
+  - name: 4 Analyze using a dedicated SQL pool
+    href: get-started-analyze-sql-pool.md
     displayName: get, started
   - name: 5 Analyze data in a storage account
     href: get-started-analyze-storage.md
