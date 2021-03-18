@@ -75,7 +75,7 @@ You provide either a `ClientSecret` or a `CertificateName`. These settings are e
 
 # [Node.js](#tab/nodejs)
 
-Configuration parameters for the [Node.js deamon sample](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console/) are located in an *.env* file:
+Configuration parameters for the [Node.js daemon sample](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console/) are located in an *.env* file:
 
 ```Text 
 # Credentials
@@ -152,7 +152,7 @@ import com.microsoft.aad.msal4j.SilentParameters;
 
 # [Node.js](#tab/nodejs)
 
-Simply install the packages by running `npm install` in the folder where *package.json* fille resides. Then, import **msal-node** package:
+Simply install the packages by running `npm install` in the folder where *package.json* file resides. Then, import **msal-node** package:
 
 ```JavaScript 
 const msal = require('@azure/msal-node');
