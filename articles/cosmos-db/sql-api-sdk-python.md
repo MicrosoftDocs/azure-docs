@@ -38,7 +38,7 @@ ms.custom: devx-track-python
 |**API documentation**|[Python API reference documentation](/python/api/azure-cosmos/)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Get started**|[Get started with the Python SDK](create-sql-api-python.md)|
-|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5.3+](https://www.python.org/downloads/)|
+|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.6+](https://www.python.org/downloads/)|
 
 ## Release history
 
