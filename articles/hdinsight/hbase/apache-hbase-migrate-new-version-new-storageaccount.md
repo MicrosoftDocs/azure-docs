@@ -206,7 +206,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 1. Copy the hbase folder from the source cluster's storage account to the destination cluster's storage account use AzCopy.
 
 Sample AzCopy command:
-azcopy copy 'https://<source-account>.blob.core.windows.net/<source-storage-container>/hbase' 'https://<destination-account>.blob.core.windows.net/<destination-storage-container>' --recursive
+azcopy copy 'https://&lt;source-account&gt;.blob.core.windows.net/<source-storage-container>/hbase' 'https://<destination-account>.blob.core.windows.net/<destination-storage-container>' --recursive
 
 1. <TODO Backup and Restore> If your source HBase cluster does not have Enhanced Writes feature, skip this step. 
 
