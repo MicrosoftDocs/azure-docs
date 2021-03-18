@@ -17,7 +17,7 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/nested-virtualization",
+      "redirect_url": "https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
       "redirect_document_id": false
     },
     {
@@ -15983,6 +15983,11 @@
       "source_path_from_root": "/articles/cost-management/cost-analysis-common-uses.md",
       "redirect_url": "/azure/cost-management-billing/costs/cost-analysis-common-uses",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cost-management-billing/manage/create-subscription-template.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/billing/billing-set-up-alerts.md",
