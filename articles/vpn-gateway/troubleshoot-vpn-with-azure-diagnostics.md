@@ -1,6 +1,6 @@
 ---
 title: 'Troubleshoot Azure VPN Gateway using Diagnostic Logs'
-description: Troubleshoot Azure VPN Gateway using Diagnostic Logs.
+description: Troubleshoot Azure VPN Gateway using Diagnostic Logs
 services: vpn-gateway
 author: stegag
 
