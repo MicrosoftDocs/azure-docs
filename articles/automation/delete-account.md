@@ -81,7 +81,7 @@ To unlink from the workspace, perform the following steps.
 
 While it attempts to unlink the Automation account, you can track the progress under **Notifications** from the menu.
 
-After the Automation account is successfully unlinked from the workspace, perform the steps in the [standalone Automation account](#standalone-automation-account) section to delete the account.
+After the Automation account is successfully unlinked from the workspace, perform the steps in the [standalone Automation account](#delete-a-standalone-automation-account) section to delete the account.
 
 ## Delete a shared capability Automation account
 
@@ -133,7 +133,7 @@ While it attempts to unlink the Automation account, you can track the progress u
 
 ### Delete Automation account
 
-After the Automation account is successfully unlinked from the workspace, perform the steps in the [standalone Automation account](#standalone-automation-account) section to delete the account.
+After the Automation account is successfully unlinked from the workspace, perform the steps in the [standalone Automation account](#delete-a-standalone-automation-account) section to delete the account.
 
 ## Next steps
 
