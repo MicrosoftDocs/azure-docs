@@ -59,7 +59,7 @@
         href: adoddle-csaas-platform-tutorial.md
       - name: ADP
         href: adpfederatedsso-tutorial.md
-      - name: ADP Globalview
+      - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
       - name: Agiloft
         href: agiloft-tutorial.md
