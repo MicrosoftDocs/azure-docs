@@ -712,9 +712,6 @@ It may take a few minutes to update your AKS cluster depending on the node pool 
 
 ## Assign a public IP per node for your node pools
 
-> [!WARNING]
-> You must install the CLI version <x.x.x> or greater to use the public IP per node feature.
-
 AKS nodes do not require their own public IP addresses for communication. However, scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This scenario can be achieved on AKS by using Node Public IP.
 
 First, create a new resource group.
@@ -739,7 +736,6 @@ You can locate the public IPs for your nodes in various ways:
 
 * Use the Azure CLI command [az vmss list-instance-public-ips][az-list-ips].
 * Use [PowerShell or Bash commands][vmss-commands]. 
-* Use kubectl to display the public IPs assigned to the nodes.
 * You can also view the public IPs in the Azure portal by viewing the instances in the Virtual Machine Scale Set.
 
 > [!Important]
