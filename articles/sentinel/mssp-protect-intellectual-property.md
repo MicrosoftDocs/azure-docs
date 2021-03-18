@@ -37,7 +37,9 @@ For example:
 
 In such cases, we recommend that you use [Azure Lighthouse](multiple-tenants-service-providers.md) to provide customer access, which enables you to grant users or groups with access to a specific scope, such as a resource group or subscription, using one of the built-in roles.
 
-Alternately, if you need to provide your customers with access to the entire subscription, see [Protect intellectual property: Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#protect-intellectual-property-enterprise-agreements-ea--pay-as-you-go-payg).
+> [!TIP]
+> Alternately, if you need to provide your customers with access to the entire subscription, see [Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg).
+> 
 
 The following image describes how permissions might work when providing access to CSP customers:
 
