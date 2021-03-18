@@ -11,7 +11,7 @@ ms.author: inhenkel
 
 | Feature | North Europe | West Europe |
 | --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |![Azure EventGrid North Europe general availability](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid West Europe general availability](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Azure EventGrid North Europe general availability](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid West Europe general availability](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![VideoAnalyzerPreset North Europe general availability](../media/azure-clouds-regions/ga.svg)  | ![VideoAnalyzerPreset West Europe general availability](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset North Europe general availability](../media/azure-clouds-regions/ga.svg)  | ![AudioAnalyzerPreset West Europe general availability](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) |![StandardEncoderPreset North Europe general availability](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset West Europe general availability](../media/azure-clouds-regions/ga.svg) |

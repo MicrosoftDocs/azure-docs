@@ -11,23 +11,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel 
 ms.custom: devx-track-azurecli
 ---
 
 # Monitor Media Services metrics
 
-[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+[!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-[Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For a detailed description of this feature and to understand why you should use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services-data-reference.md).
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For a detailed description of this feature and to understand why you should use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](monitor-media-services-data-reference.md).
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using Azure CLI. This article shows how to monitor metrics with the Azure portal charts and Azure CLI.
 
 ## Prerequisites
 
-- [Create a Media Services account](./create-account-howto.md)
-- Review  [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services-data-reference.md)
+- [Create a Media Services account](../create-account-howto.md)
+- Review  [Monitor Media Services metrics and diagnostic logs](monitor-media-services-data-reference.md)
 
 ## View metrics in Azure portal
 
@@ -41,7 +41,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
     * &lt;Media Services account name&gt;/&lt;streaming endpoint name&gt;
     * &lt;storage account name&gt;
 
-    Filter then select the resource and press **Apply**. For details about supported resources and metrics, see [Monitor Media Services metrics](monitoring/monitor-media-services-data-reference.md).
+    Filter then select the resource and press **Apply**. For details about supported resources and metrics, see [Monitor Media Services metrics](monitor-media-services-data-reference.md).
 
     > [!NOTE]
     > To switch between resources you want to monitor, click on the **Source** box again and repeat this step.
@@ -64,9 +64,9 @@ To get other metrics, substitute "Egress" for the metric name you are interested
 
 ## See also
 
-- [Azure Monitor Metrics](../../azure-monitor/data-platform.md)
-- [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
+- [Azure Monitor Metrics](https://docs.microsoft.com/azure/azure-monitor/data-platform.md)
+- [Create, view, and manage metric alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-metric.md).
 
 ## Next steps
 
-[Diagnostic logs](media-services-diagnostic-logs-howto.md)
+[Diagnostic logs](../media-services-diagnostic-logs-howto.md)
