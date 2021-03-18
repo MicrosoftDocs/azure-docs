@@ -37,8 +37,8 @@ The top of the product description page highlights key characteristics, some of 
 
 | Field | Description                  | Where to add in the portal                |
 |---------------|-------------------------|----------------------------------|
-| Device class | Classification of the form factor and primary purpose of your device ([Learn more](./concepts-terminology.md))       | Basics tab of Device details|
-| Device type | Classification of device based on implementation readiness ([Learn more](./concepts-terminology.md)) | Basics tab of Device details |
+| Device class | Classification of the form factor and primary purpose of your device ([Learn more](./resources-glossary.md))       | Basics tab of Device details|
+| Device type | Classification of device based on implementation readiness ([Learn more](./resources-glossary.md)) | Basics tab of Device details |
 | Geo availability | Regions that your device is available for purchase  | Marketing details |
 | Operating systems  | Operating system(s) that your device supports  | Product details tab of Device details |
 | Target industries  | Top 3 industries that your device is optimized for  | Marketing details |
@@ -50,7 +50,7 @@ The remainder of the page is focused on displaying the technical specifications 
 
 | Field | Description                  | Where to add in the portal                |
 |---------------|-------------------------|----------------------------------|
-| Component type | Classification of the form factor and primary purpose of your device ([Learn more](./concepts-terminology.md))       | Product details of Device details|
+| Component type | Classification of the form factor and primary purpose of your device ([Learn more](./resources-glossary.md))       | Product details of Device details|
 | Component name| Name of the component you are describing | Product details of Device details |
 | Additional component information | Additional hardware specifications such as included sensors, connectivity, accelerators, etc.  | Additional component information of Device details ([Learn more](./how-to-using-the-components-feature.md))  |
 | Device dependency text | Partner-provided text describing the different dependencies the product requires to connect to Azure ([Learn more](./how-to-indirectly-connected-devices.md))   | Customer-facing comments section of Dependencies tab of Device details |
@@ -73,7 +73,7 @@ Also included within the Product Description page are links that navigate to par
 |---------------|-------------------------|----------------------------------|
 | Get Started guide* | PDF file with user instructions to connect and use your device with Azure services | Add 'Get Started' guide section of the portal|
 | Manufacturer's page*|Link to manufacturer's page. This page may be the specific product page for your device, or to the company home page if a marketing page is not available. | Manufacturer's marketing page in Marketing details |
-| Device model | Public DTDL models for IoT Plug and Play solutions  | Not editable in the portal. Device model must be uploaded to public model repository ([Learn more](https://aka.ms/modelrepo))  |
+| Device model | Public DTDL models for IoT Plug and Play solutions  | Not editable in the portal. Device model must be uploaded to the ([public model repository](https://aka.ms/modelrepo)  |
 | Device source code | URL to device source code for Dev Kit device types| Basics tab of Device details  |
 
  **Required for all published devices*

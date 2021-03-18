@@ -64,7 +64,7 @@ Example matrix of bundled products
 
 ![Bundle submission example](./media/IndirectConnectedDevice/Picture5.png )
 
-For a more detailed description on how to use the component functionality in the Azure Certified Device portal, see our help documentation at [https://aka.ms/acdhelp](https://aka.ms/acdhelp), particular section 2 on adding Device Details. 
+For a more detailed description on how to use the component functionality in the Azure Certified Device portal, see our [help documentation](./how-to-using-the-components-feature.md). 
 
 If a device is a passthrough device with a separate sensor in the same product, create one component to reflect the passthrough device, and another component to reflect the sensor. Components can be added to your project in the Product details tab of the Device details section:
 

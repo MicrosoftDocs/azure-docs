@@ -19,7 +19,7 @@ While completing the [tutorial to add device details](tutorial-02-adding-device-
 
 ## How to add components
 
-Every project submitted for certification will include one **Customer Ready Product** component (which in many cases will represent the holistic product itself). To better understand the distinction of a Customer Ready Product component type, view our [certification glossary](./concepts-terminology.md). All additional components are at your discretion to include to accurately capture your device.
+Every project submitted for certification will include one **Customer Ready Product** component (which in many cases will represent the holistic product itself). To better understand the distinction of a Customer Ready Product component type, view our [certification glossary](./resources-glossary.md). All additional components are at your discretion to include to accurately capture your device.
 
 1. Select `Add a component` on the Product details tab.
 

@@ -32,6 +32,11 @@
   - name: Edge Secured-core (Preview)
     href: program-requirements-edge-secured-core.md
 
+- name: concepts
+  items:
+    - name: Marketing concepts
+      href: concepts-marketing.md
+      
 - name: How-to guides
   items:
   - name: How to edit a published device
@@ -42,7 +47,5 @@
     href: how-to-using-the-components-feature.md
 - name: Resources
   items:
-    - name: Marketing concepts
-      href: concepts-marketing.md
-    - name: Certification terminology
-      href: concepts-terminology.md
+    - name: Certification Glossary
+      href: resources-glossary.md

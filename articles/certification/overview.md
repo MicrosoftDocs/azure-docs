@@ -9,7 +9,7 @@ ms.custom: template-overview
 ms.service: iot-pnp
 ---
 
-# What is the Azure Certified  (ACD) program?
+# What is Azure Certified Device?
 
 Thank you for your interest in the Azure Certified Device program! This program is your one stop for easily differentiating, promoting, and finding IoT devices built to run on Azure. From intelligent cameras to connected sensors to edge infrastructure, this enhanced IoT device certification program helps device builders increase their product visibility and saves customers time in building solutions.
 

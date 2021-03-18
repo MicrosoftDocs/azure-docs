@@ -39,7 +39,7 @@ All certified devices are required to demonstrate the ability to connect to IoT 
 
 1. Connect your device to IoT Hub using the Device Provisioning Service (DPS). DPS supports connectivity options of Symmetric keys, X.509 certification, and a Trusted Platform Module (TPM). This is required for all certifications.
 
-    - *For more information on connecting your device to Azure IoT Hub with DPS, visit [Provisioning devices overview](https://aka.ms/acddpsinfo "Device Provisioning Service overview").*
+    - *For more information on connecting your device to Azure IoT Hub with DPS, visit [Provisioning devices overview](../iot-dps/about-iot-dps.md "Device Provisioning Service overview").*
     
 1. If using symmetric keys, you'll then be asked to configure the DPS with the supplied DPS ID scope, Device ID, authentication key, and DPS endpoint. Otherwise, you will be asked to provide either X.509 certificate or endorsement key.
 
