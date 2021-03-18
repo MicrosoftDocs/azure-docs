@@ -1,5 +1,6 @@
 ﻿- name: Azure Certified Device documentation
   href: index.yml
+
 - name: Overview
   items:
   - name: What is the Azure Certified Device program?
@@ -38,7 +39,11 @@
     href: how-to-edit-published-device.md
   - name: How to certify a indirectly connected device
     href: how-to-indirectly-connected-devices.md
-  - name: How to use teh components feature
+  - name: How to use the components feature
     href: how-to-using-the-components-feature.md
 - name: Resources
   items:
+    - name: Marketing concepts
+      href: concepts-marketing.md
+    - name: Certification terminology
+      href: concepts-terminology.md

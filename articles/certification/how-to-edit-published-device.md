@@ -19,21 +19,21 @@ After your device has been certified and published to the Azure Certified Device
 
 ## Editing your published project
 
-On the project summary, you should notice that your project is in read-only mode since it has already been reviewed and accepted. To make changes, you will have to request an edit to your project and have the update re-approved by the Azure Certification team.
+On the project summary, you should notice that your project is in read-only mode since it has already been reviewed and accepted. To make changes, you will have to request an edit to your project and have the update reapproved by the Azure Certification team.
 
 1. Click the `Request Metadata Edit` button on the top of the page  
 
     ![Request metadata update](./media/images/request_metadata_edit.png)
 
 1. Acknowledge the notification on the page that you will be required to submit your product for review after editing.
-    * **Note**: By confirming this edit, you are **not** removing your device from the Azure Certified Device catalog if it has already been published. Your previous version of the product will remain on the catalog until you have re-published your device.
+    * **Note**: By confirming this edit, you are **not** removing your device from the Azure Certified Device catalog if it has already been published. Your previous version of the product will remain on the catalog until you have republished your device.
 
 1. Once acknowledging this warning, you can edit your device details. Make sure to leave a note in the `Comments for Reviewer` section of `Device Details` of what has been changed.
 
     ![Note of metadata edit](./media/images/edit-notes.png)
 
-1. On the project summary page, click `Submit for review` to have your changes re-approved by the Azure Certification team.
-1. After your changes have been reviewed and approved, you can then re-publish your changes to the catalog through the portal (See our [tutorial](#tutorial-04-publishing-your-device.md)).
+1. On the project summary page, click `Submit for review` to have your changes reapproved by the Azure Certification team.
+1. After your changes have been reviewed and approved, you can then republish your changes to the catalog through the portal (See our [tutorial](#tutorial-04-publishing-your-device.md)).
 
 ## Next steps
 

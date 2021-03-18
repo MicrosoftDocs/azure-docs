@@ -42,7 +42,7 @@ When creating your certification project, you will be asked to select a device t
 
 ## Component type
 
-When adding your device details to your certification project, you will describe your device by listing components by component type. You can view additional guidance on components [here](how-to-using-the-components-feature.md).
+When adding your device details to your certification project, you will describe your device by listing components by component type. You can view additional guidance on components [here](./how-to-using-the-components-feature.md).
 
 - **Customer Ready Product**
 
@@ -75,4 +75,4 @@ Component attachment method is an additional component detail that informs the c
 ## Next steps
 
 This glossary will guide you through the process of creating and certifying your project on the Azure Certified Device portal. You are now ready to begin your project!
-- [Tutorial: Creating your project](tutorial-01-creating-your-project.md)
+- [Tutorial: Creating your project](./tutorial-01-creating-your-project.md)

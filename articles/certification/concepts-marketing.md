@@ -37,8 +37,8 @@ The top of the product description page highlights key characteristics, some of 
 
 | Field | Description                  | Where to add in the portal                |
 |---------------|-------------------------|----------------------------------|
-| Device class | Classification of the form factor and primary purpose of your device ([Learn more](concepts-terminology.md))       | Basics tab of Device details|
-| Device type | Classification of device based on implementation readiness ([Learn more](concepts-terminology.md)) | Basics tab of Device details |
+| Device class | Classification of the form factor and primary purpose of your device ([Learn more](./concepts-terminology.md))       | Basics tab of Device details|
+| Device type | Classification of device based on implementation readiness ([Learn more](./concepts-terminology.md)) | Basics tab of Device details |
 | Geo availability | Regions that your device is available for purchase  | Marketing details |
 | Operating systems  | Operating system(s) that your device supports  | Product details tab of Device details |
 | Target industries  | Top 3 industries that your device is optimized for  | Marketing details |
@@ -50,10 +50,10 @@ The remainder of the page is focused on displaying the technical specifications 
 
 | Field | Description                  | Where to add in the portal                |
 |---------------|-------------------------|----------------------------------|
-| Component type | Classification of the form factor and primary purpose of your device ([Learn more](concepts-terminology.md))       | Product details of Device details|
+| Component type | Classification of the form factor and primary purpose of your device ([Learn more](./concepts-terminology.md))       | Product details of Device details|
 | Component name| Name of the component you are describing | Product details of Device details |
-| Additional component information | Additional hardware specifications such as included sensors, connectivity, accelerators, etc.  | Additional component information of Device details ([Learn more](how-to-using-the-components-feature.md))  |
-| Device dependency text | Partner-provided text describing the different dependencies the product requires to connect to Azure ([Learn more](how-to-indirectly-connected-devices.md))   | Customer-facing comments section of Dependencies tab of Device details |
+| Additional component information | Additional hardware specifications such as included sensors, connectivity, accelerators, etc.  | Additional component information of Device details ([Learn more](./how-to-using-the-components-feature.md))  |
+| Device dependency text | Partner-provided text describing the different dependencies the product requires to connect to Azure ([Learn more](./how-to-indirectly-connected-devices.md))   | Customer-facing comments section of Dependencies tab of Device details |
 | Device dependency link  | Link to a certified device that your current product requires  | Dependencies tab of Device details |
 
 ## Shop links
@@ -81,5 +81,5 @@ Also included within the Product Description page are links that navigate to par
 ## Next steps
 Now that you have an understanding of how we use the information you provide during certification, you are now ready to certify your device! Begin your certification project, or jump back into the device details stage to add your own marketing information.
 
-- [Start your certification journey](tutorial-00-selecting-your-certification.md)
-- [Adding device details](tutorial-02-adding-device-details.md)
+- [Start your certification journey](./tutorial-00-selecting-your-certification.md)
+- [Adding device details](./tutorial-02-adding-device-details.md)
