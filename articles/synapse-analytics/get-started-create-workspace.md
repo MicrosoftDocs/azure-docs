@@ -51,9 +51,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 * Go to the `https://web.azuresynapse.net` and sign in to your workspace.
 
 
-## The Built-in serverless SQL pool
 
-Every workspace comes with a pre-built serverless SQL pool called **Built-in**. This pool can't be deleted. Serverless SQL pools let you use SQL without having to reserve capacity with dedicated SQL pools. Unlike the dedicated SQL pools, billing for a serverless SQL pool is based on the amount of data scanned to run the query, not the number of capacity allocated to the pool.
 
 
 
