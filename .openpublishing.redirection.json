@@ -64493,6 +64493,11 @@
     "source_path": "articles/azure-monitor/app/visual-studio-trends.md",
     "redirect_url": "/azure/azure-monitor/app/visual-studio",
     "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/glossary.md",
+      "redirect_url": "/azure/cognitive-services/translator/custom-translator/terminology",
+      "redirect_document_id": false
     }
   ]
 }
