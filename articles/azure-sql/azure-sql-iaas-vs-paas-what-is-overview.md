@@ -30,7 +30,7 @@ If you're new to Azure SQL, check out the *What is Azure SQL* video from our in-
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
 
 > [!TIP]
-> How can we make Azure SQL better? [Take the survey](https://aka.ms/AzureSQLSurvey).
+> How can we make Azure SQL better? [Take the survey](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## Overview
 
