@@ -61,7 +61,7 @@ Try the quickstart [Acquire a token and call Microsoft Graph API from a Java con
 
 - For more information, see:
   - Understanding [Configuration](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md)
-  - Instantiating [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md).
+  - Instantiating [ConfidentialClientApplication](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/initialize-confidential-client-application.md)
   - [FAQ](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/faq.md)
 - Other samples/tutorials:
   - [MSAL Node console daemon sample](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-console)
