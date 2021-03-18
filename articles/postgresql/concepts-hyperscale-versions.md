@@ -25,7 +25,7 @@ customizable during creation. You can choose between PostgreSQL versions
 a preview feature.
 
 Depending on which version of PostgreSQL is running in a server group,
-different versions Postgres extensions will be installed as well.  In
+different versions of Postgres extensions will be installed as well.  In
 particular, Postgres 13 comes with Citus 10, and earlier Postgres versions come
 with Citus 9.5.
 
