@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 03/17/2021
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL – Hyperscale (Citus)
 
@@ -21,6 +21,8 @@ Azure Database for PostgreSQL - Hyperscale (Citus) currently supports a subset o
 ## Extensions supported by Azure Database for PostgreSQL
 
 The following tables list the standard PostgreSQL extensions that are currently supported by Azure Database for PostgreSQL. This information is also available by running `SELECT * FROM pg_available_extensions;`.
+
+The versions of each extension installed in a server group sometimes differ based on the version of PostgreSQL (11, 12, or 13). The tables list extension versions per database version.
 
 ### Data types extensions
 
