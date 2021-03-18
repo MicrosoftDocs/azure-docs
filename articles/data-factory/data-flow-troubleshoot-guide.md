@@ -26,7 +26,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 
 - **Message**: JSON parsing error, unsupported encoding or multiline
 - **Cause**: Possible problems with the JSON file: unsupported encoding, corrupt bytes, or using JSON source as a single document on many nested lines.
-- 
 - **Recommendation**: Verify that the JSON file's encoding is supported. On the source transformation that's using a JSON dataset, expand **JSON Settings** and turn on **Single Document**.
  
 ### Error code: DF-Executor-BroadcastTimeout
