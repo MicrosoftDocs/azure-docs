@@ -35,10 +35,11 @@ In this tutorial, you:
 ## Prerequisites
 
 You'll need the data and an updated version of the pytorch environment created in the previous tutorial.  Make sure you have completed these steps:
-    1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
-    1. [Create a new Python environment](tutorial-1st-experiment-sdk-train.md#environment)
-    1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local)
-    1. [Update the Conda environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
+
+1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
+1. [Create a new Python environment](tutorial-1st-experiment-sdk-train.md#environment)
+1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local)
+1. [Update the Conda environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
 
 ## Adjust the training script
 
