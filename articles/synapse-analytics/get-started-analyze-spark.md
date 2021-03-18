@@ -29,13 +29,10 @@ The Spark pool tells Azure Synapse how many Spark resources to use. You only pay
 
 ## Analyze NYC Taxi data in blob storage using Spark
 
-1. In the **Data** hub, click the **+** button to **Add a new resource**, then click >> **Browse gallery**. 
-1. Find **NYC Taxi & Limousine Commission - yellow taxi trip records** and click on it. 
-1. On the bottom of the page press **Continue**, then **Add dataset**. 
-1. After a moment, in **Data** hub under **Linked**, right-click on **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** and select **New notebook**, then **Load to Data Frame**.
-1. This will create a new Notebook with the following code:
+1. In Synapse Studio go to the **Develop** hub
+2. Create a newnNotebook with the default language set to **PySpark (Python)**.
+3. Create a new code cell and paste the following code into that cell.
     ```
-
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
