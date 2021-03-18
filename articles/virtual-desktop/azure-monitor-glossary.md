@@ -35,7 +35,7 @@ The total number of users that have started a session in the last 24 hours.
 
 ## Daily alerts
 
-The total number of alerts triggered day to day.
+The total number of alerts triggered each day.
 
 ## Daily connections and reconnections
 
