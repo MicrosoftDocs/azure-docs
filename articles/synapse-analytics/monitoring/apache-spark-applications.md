@@ -181,7 +181,7 @@ Click on **Compare applications** button and choose an application to compare pe
 
 Click the **Compare in Notebook** button on the **Compare applications** page to open the notebook. The default name of the .ipynb file is **Recurrent Application Analytics**.
 
-![comparison result](./media/how-to-monitor-spark-applications/compare-in-notebook.png)
+![compare in notebook](./media/how-to-monitor-spark-applications/compare-in-notebook.png)
 
 In the Notebook: Recurrent Application Analytics file, you can run it directly after setting the Spark pool and Language.
 
