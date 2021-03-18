@@ -110,4 +110,4 @@ A dedicated SQL pool consumes billable resources as long as it's active. You can
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using Spark](get-started-analyze-spark.md)
+> [Analyze data in an Azure Storage account](get-started-analyze-storage.md)
