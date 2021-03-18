@@ -22,7 +22,7 @@ Azure Communication Services Chat client libraries can be used to add rich, real
 The following list presents the set of features which are currently available in the Communication Services chat client libraries.	
 
 | Group of features | Capability | JavaScript  | Java | .NET | Python | iOS | Android |
-| ----------------- | ------------------- | --- | ----- | ---- | -----  | ---- | -----  |	
+|-----------------|-------------------|---|-----|----|-----|----|----|	
 | Core Capabilities | Create a chat thread between 2 or more users (up to 250 users)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |	
 |                   | Update the topic of a chat thread                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |	
 |                   | Add or remove participants from a chat thread                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
@@ -44,15 +44,16 @@ The following list presents the set of features which are currently available in
 |                   | Configure your Communication Services resource to receive chat operational logs for monitoring and diagnostic purposes          | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 
 
-**The proprietary signalling package is implemented using web sockets. It will fallback to long polling if web sockets are unsupported.	
+**The proprietary signaling package is implemented using web sockets. It will fallback to long polling if web sockets are unsupported.	
 
 ## JavaScript chat client library support by OS and browser	
 
 The following table represents the set of supported browsers and versions which are currently available.
 	
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|	
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|	
-| **Chat client library** | Firefox*, Chrome*, new Edge | Firefox*, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |	
+|--------------------------------|----------------|--------------|-------|------|------|------|-------|	
+| **Chat client library** | Firefox*, Chrome*, new Edge | Firefox*, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
+
 *Note that the latest version is supported in addition to the previous two releases.<br/>	
 
 ## Next steps	
