@@ -105,7 +105,7 @@
   - name: Data and Operations
     items:
       - name: Service Events (EventGrid)
-        href: ../../event-grid/event-schema-communication-services.md
+        href: ../event-grid/event-schema-communication-services.md
         maintainContext: true
       - name: Logging and diagnostics
         href: concepts/logging-and-diagnostics.md
