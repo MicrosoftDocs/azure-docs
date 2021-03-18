@@ -19,7 +19,7 @@ Translation systems built with [Custom Translator](https://portal.customtranslat
 
 Custom Translator supports more than three dozen languages, and maps directly to the languages available for NMT. For a complete list, see  [Microsoft Translator Languages](../language-support.md#customization).
 
-This documentation contains the following topic types:
+This documentation contains the following article types:
 
 * [**Quickstarts**](quickstart-build-deploy-custom-model.md) are getting-started instructions to guide you through making requests to the service.  
 * [**How-to guides**](how-to-create-project.md) contain instructions for using the feature in more specific or customized ways.  
