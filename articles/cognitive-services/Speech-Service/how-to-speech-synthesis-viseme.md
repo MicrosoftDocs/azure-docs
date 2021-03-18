@@ -21,7 +21,7 @@ It defines the position of the face and mouth when speaking a word.
 Each viseme depicts the key facial poses for a specific set of phonemes.
 There is no one-to-one correspondence between visemes and phonemes.
 Often several phonemes correspond to a single viseme, as several phonemes look the same on the face when produced, such as `s` and `z`.
-See the [mapping table between visemes and phonemes](#visemes-and-phonemes-table).
+See the [mapping table between visemes and phonemes](#map-phonemes-to-vismes).
 
 Using visemes, you can create more natural and intelligent news broadcast assistant, more interactive gaming and cartoon characters, and more intuitive language teaching videos. The hearing-impaired can also pick up sounds visually and "lip-read" speech content that shows visemes on an animated face.
 
@@ -31,7 +31,7 @@ To make viseme events, we convert input text into a set of phoneme sequences and
 
 | Parameter | Description |
 |-----------|-------------|
-| Viseme ID | Integer number that specifies a viseme. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. See the [mapping table between Viseme ID and phonemes](#visemes-and-phonemes-table).  |
+| Viseme ID | Integer number that specifies a viseme. In English (United States), we offer 22 different visemes to depict the mouth shapes for a specific set of phonemes. See the [mapping table between Viseme ID and phonemes](#map-phonemes-to-vismes).  |
 | Audio offset | The start time of each viseme, in ticks (100 nanoseconds). |
 
 To get visme events, subscribe to the `VisemeReceived` event in Speech SDK.
@@ -138,7 +138,7 @@ SPXSpeechSynthesizer *synthesizer =
 
 ::: zone-end
 
-## Visemes and phonemes table
+## Map phonemes to visemes
 
 Visemes vary by language. Each language has a set of visemes that correspond to its specific phonemes. The following table shows the correspondence between International Phonetic Alphabet (IPA) phonemes and viseme IDs for English (United States).
 
