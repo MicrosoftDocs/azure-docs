@@ -19,7 +19,7 @@ The [Azure App Configuration Push](https://marketplace.visualstudio.com/items?it
 - App Configuration resource - create one for free in the [Azure portal](https://portal.azure.com).
 - Azure DevOps project - [create one for free](https://go.microsoft.com/fwlink/?LinkId=2014881)
 - Azure App Configuration Push task - download for free from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=AzureAppConfiguration.azure-app-configuration-task-push).
-- Nodejs version 6.13.0 or above (on [self-hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install)) - download for free from the [Nodejs.org](https://nodejs.org/en/download/).
+- Latest agent version (for [self-hosted agents](https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser#install)).
 
 ## Create a service connection
 
