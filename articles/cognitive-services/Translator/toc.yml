@@ -1,11 +1,9 @@
 - name: Translator Service Documentation
   href: index.yml
-- name: Translator Overview
+- name: Overview
   items:
   - name: What is Translator?
-    href: translator-info-overview.md
-  - name: Quickstart
-    href: quickstart-translator.md   
+    href: translator-info-overview.md 
   - name: Language Support
     href: language-support.md
   - name: Pricing and limits
@@ -14,6 +12,8 @@
     href: https://www.microsoft.com/translator/faq.aspx 
 - name: Text Translation
   items:
+  - name: Quickstart
+    href: quickstart-translator.md  
   - name: Samples
     items:
     - name: Code Sample page

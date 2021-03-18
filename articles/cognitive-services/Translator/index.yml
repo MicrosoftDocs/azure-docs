@@ -88,8 +88,8 @@ landingContent:
         links:
           - text: Language support
             url: language-support.md
-          - text: Glossary
-            url: custom-translator/glossary.md
+          - text: Terminology
+            url: custom-translator/terminology.md
   - title: Resources
     linkLists:
       - linkListType: reference
