@@ -129,11 +129,12 @@ Command Result : 0 (Success)
 3.	Deploy UDRs for ingress traffic into the NVA tier. 
 4. As per design, HSM subnets will not initiate an outbound connection request to the platform tier.
 
-## Alternative to using Global VNET Peering
+### Alternative to using Global VNET Peering
 There are a couple of architectures you can use as an alternative to Global VNet peering.
 1.	Use [Vnet-to-Vnet VPN Gateway Connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 
 2.	Connect HSM VNET with another VNET with an ER circuit. This works best when a direct on-premises path is required or VPN VNET. 
 
+#### HSM with direct Express Route connectivity
 ![Diagram shows HSM with direct Express Route connectivity](media/networking/expressroute-connectivity.png)
 
 ## Next steps
