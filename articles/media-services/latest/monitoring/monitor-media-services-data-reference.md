@@ -6,7 +6,7 @@ ms.author: inhenkel
 manager: femila
 ms.topic: reference
 ms.service: media-services
-ms.date: 03/11/2021
+ms.date: 03/17/2021
 ---
 
 # Monitoring Media Services data reference
@@ -56,7 +56,7 @@ The following Media Services [Streaming Endpoints](/rest/api/media/streamingendp
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-**PLACEHOLDER** for dimensions table.
+<!--**PLACEHOLDER** for dimensions table.-->
 
 ## Resource logs
 

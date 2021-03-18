@@ -3,7 +3,8 @@ title: Apache Hadoop components and versions - Azure HDInsight
 description: Learn about the Apache Hadoop components and versions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: deshriva
+author: deshriva
+ms.author: deshriva
 ms.date: 02/08/2021
 ---
 

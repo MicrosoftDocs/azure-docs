@@ -192,13 +192,13 @@ For specific details, refer to your proxy server documentation.
 
 ## Blocking consumer applications (public preview)
 
-Applications from Microsoft that support both consumer accounts and organizational accounts, like [OneDrive](https://onedrive.live.com/) or [Microsoft Learn](https://docs.microsoft.com/learn/), can sometimes be hosted on the same URL.  This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
+Applications from Microsoft that support both consumer accounts and organizational accounts, like [OneDrive](https://onedrive.live.com/) or [Microsoft Learn](/learn/), can sometimes be hosted on the same URL.  This means that users that must access that URL for work purposes also have access to it for personal use, which may not be permitted under your operating guidelines.
 
 Some organizations attempt to fix this by blocking `login.live.com` in order to block personal accounts from authenticating.  This has several downsides:
 
 1. Blocking `login.live.com` blocks the use of personal accounts in B2B guest scenarios, which can intrude on visitors and collaboration.
-1. [Autopilot requires the use of `login.live.com`](https://docs.microsoft.com/mem/autopilot/networking-requirements) in order to deploy. Intune and Autopilot scenarios can fail when `login.live.com` is blocked.
-1. Organizational telemetry and Windows updates that rely on the login.live.com service for device IDs [will cease to work](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. [Autopilot requires the use of `login.live.com`](/mem/autopilot/networking-requirements) in order to deploy. Intune and Autopilot scenarios can fail when `login.live.com` is blocked.
+1. Organizational telemetry and Windows updates that rely on the login.live.com service for device IDs [will cease to work](/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### Configuration for consumer apps
 
@@ -211,7 +211,7 @@ At this time, authentication to consumer applications does not appear in the [ad
 The `restrict-msa` policy blocks the use of consumer applications, but allows through several other types of traffic and authentication:
 
 1. User-less traffic for devices.  This includes traffic for Autopilot, Windows Update, and organizational telemetry.
-1. B2B authentication of consumer accounts. Users with Microsoft accounts that are [invited to collaborate with a tenant](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) authenticate to login.live.com in order to access a resource tenant.
+1. B2B authentication of consumer accounts. Users with Microsoft accounts that are [invited to collaborate with a tenant](../external-identities/redemption-experience.md#invitation-redemption-flow) authenticate to login.live.com in order to access a resource tenant.
     1. This access is controlled using the `Restrict-Access-To-Tenants` header to allow or deny access to that resource tenant.
 1. "Passthrough" authentication, used by many Azure apps as well as Office.com, where apps use Azure AD to sign in consumer users in a consumer context.
     1. This access is also controlled using the `Restrict-Access-To-Tenants` header to allow or deny access to the special "passthrough" tenant (`f8cdef31-a31e-4b4a-93e4-5f571e91255a`).  If this tenant does not appear in your `Restrict-Access-To-Tenants` list of allowed domains, consumer accounts will be blocked by Azure AD from signing into these apps.

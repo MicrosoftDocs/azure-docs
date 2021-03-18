@@ -13,7 +13,15 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 
 Azure Percept Audio is an accessory device that adds speech AI capabilities to the Azure Percept DK. It contains a preconfigured audio processor and a four-microphone linear array, enabling you to apply voice commanding, keyword spotting, and far field speech to local listening devices using Azure Cognitive Services. Azure Percept Audio enables device manufacturers to extend Azure Percept DK beyond vision capabilities to new, smart voice-activated devices. It is integrated out-of-the-box with Azure Percept DK, Azure Percept Studio, and other Azure edge management services. It is available for purchase at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
 
+> [!div class="nextstepaction"]
+> [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
+
+<!---
 :::image type="content" source="./media/overview-azure-percept-audio/percept-audio.png" alt-text="Azure Percept Audio device.":::
+--->
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/Qj8NGn-7s5A]
 
 ## Azure Percept Audio components
 
@@ -62,4 +70,5 @@ Build a [no-code speech solution](./tutorial-no-code-speech.md) in [Azure Percep
 
 ## Next steps
 
-Order an Azure Percept Audio device at the [Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270).
+> [!div class="nextstepaction"]
+> [Buy an Azure Percept Audio device from the Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)

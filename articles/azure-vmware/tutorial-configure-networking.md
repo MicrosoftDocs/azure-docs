@@ -89,7 +89,7 @@ To sign in to vCenter and NSX manager, you'll need the URLs to the vCenter web c
 
 Navigate to your Azure VMware Solution private cloud, under **Manage**, select **Identity**, here you'll find the information needed.
 
-:::image type="content" source="./media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png" alt-text="Screenshot of the vCenter and NSX-T credentials and web client URLs." border="true" lightbox="media/tutorial-access-private-cloud/generate-vcenter-nsxt-passwords.png":::
+:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot of the vCenter and NSX-T credentials and web client URLs." border="true" lightbox="media/tutorial-access-private-cloud/ss4-display-identity.png":::
 
 ## Next steps
 
