@@ -58,6 +58,28 @@
       href: tutorial-wpf-translation-csharp.md
     - name: Create a Flask translation app, Python
       href: tutorial-build-flask-app-translation-synthesis.md 
+  - name: Reference
+    items:
+    - name: v3 Translator reference
+      href: reference/v3-0-reference.md
+    - name: Languages
+      href: reference/v3-0-languages.md
+    - name: Regional availability
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Request limits
+      href: request-limits.md
+    - name: Translate
+      href: reference/v3-0-translate.md
+    - name: Transliterate
+      href: reference/v3-0-transliterate.md
+    - name: Detect
+      href: reference/v3-0-detect.md
+    - name: BreakSentence
+      href: reference/v3-0-break-sentence.md
+    - name: Dictionary Lookup
+      href: reference/v3-0-dictionary-lookup.md
+    - name: Dictionary Examples
+      href: reference/v3-0-dictionary-examples.md      
 - name: Custom Translation
   items:
   - name: What is the Custom Translator?
@@ -126,28 +148,6 @@
       items:     
       - name: Document Translation REST API
         href: /rest/api/cognitiveservices/translator/translation   
-- name: Translator Reference
-  items:
-  - name: v3 Translator reference
-    href: reference/v3-0-reference.md
-  - name: Languages
-    href: reference/v3-0-languages.md
-  - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-  - name: Request limits
-    href: request-limits.md
-  - name: Translate
-    href: reference/v3-0-translate.md
-  - name: Transliterate
-    href: reference/v3-0-transliterate.md
-  - name: Detect
-    href: reference/v3-0-detect.md
-  - name: BreakSentence
-    href: reference/v3-0-break-sentence.md
-  - name: Dictionary Lookup
-    href: reference/v3-0-dictionary-lookup.md
-  - name: Dictionary Examples
-    href: reference/v3-0-dictionary-examples.md
 - name: Translator Resources
   items:
   - name: Support & help options
