@@ -85,8 +85,8 @@
             href: how-tos/text-analytics-how-to-use-kubernetes-service.md
           - name: Cognitive Services containers documentation
             href: ../containers/index.yml
-   - name: Migrate to version 3 of the API
-     href: migration-guide.md
+  - name: Migrate to version 3 of the API
+    href: migration-guide.md
 - name: Concepts
   items:
   - name: Example user scenarios
@@ -99,10 +99,8 @@
       href: concepts/text-offsets.md
     - name: Data limits
       href: concepts/data-limits.md
-  - name: Models
-    items: 
-    - name: Model versioning
-      href: concepts/model-versioning.md
+  - name: Model versioning
+    href: concepts/model-versioning.md
 - name: Tutorials
   items:
     - name: Integrate Power BI to analyze customer feedback
