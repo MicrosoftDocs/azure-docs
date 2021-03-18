@@ -111,7 +111,7 @@ There are 2 ways you can add Purview private endpoints after creating your Purvi
 
 1. Navigate to the Purview account from the Azure portal, select the Private endpoint connections under the **networking** section of **Settings**.
 
-:::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Create portal private endpoint":::
+:::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Create account private endpoint":::
 
 1. Click +Private endpoint to create a new private endpoint.
 
@@ -133,7 +133,7 @@ There are 2 ways you can add Purview private endpoints after creating your Purvi
 
 1. Fill in basic information and Vnet details.
  
-    :::image type="content" source="media/catalog-private-link/ingestion-pe-fill-details.png" alt-text="Create portal private endpoint":::
+    :::image type="content" source="media/catalog-private-link/ingestion-pe-fill-details.png" alt-text="Fill private endpoint details":::
 
 1. Click **Create** to finish set up.
 
