@@ -25,7 +25,7 @@ To work around the problem, temporarily change your firewall settings while crea
 1. Go to the storage account **Firewalls and virtual networks** page and change the setting "Allow access from" to **All networks**.
 1. Create the Blob storage target in your Azure HPC Cache.
 1. Create the storage target's namespace path.
-1. After the storage target and path has been created successfully, change the account's firewall setting back to **Selected networks**.
+1. After the storage target and path have been created successfully, change the account's firewall setting back to **Selected networks**.
 
 Azure HPC Cache does not use the service virtual network to access the finished storage target.
 
