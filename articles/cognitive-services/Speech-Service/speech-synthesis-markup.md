@@ -429,7 +429,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `type` | Specifies the location of silence be added: <ul><li>Leading – at the beginning of text </li><li>Tailing – in the end of text </li><li>Sentenceboundary – between adjacent sentences </li></ul> | Required |
+| `type` | Specifies the location of silence be added: <ul><li>`Leading` – at the beginning of text </li><li>`Tailing` – in the end of text </li><li>`Sentenceboundary` – between adjacent sentences </li></ul> | Required |
 | `Value` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000ms. Examples of valid values are `2s` and `500ms` | Required |
 
 **Example**
@@ -867,10 +867,11 @@ Only one background audio file is allowed per SSML document. However, you can in
 
 ## Bookmark element
 
+The bookmark element allows you to insert custom markers in SSML to get the offset of each marker in the audio stream.
+The bookmark element can be used to reference a specific location in the text/tag sequence, and it can also be used to insert a marker into the audio stream for asynchronous notification.
+
 > [!NOTE]
 > `bookmark` element only works for `en-US-AriaNeural` voice for now.
-
-The `bookmark` element allows you insert bookmarks in the SSML and get the audio offset of each bookmark of audio stream for asynchronous notification.
 
 **Syntax**
 
@@ -882,13 +883,13 @@ The `bookmark` element allows you insert bookmarks in the SSML and get the audio
 
 | Attribute | Description                                   | Required / Optional                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
-| `mark`     | Specifies the bookmark text of the `bookmark` element. | Required. |
+|  `mark`   | Specifies the reference text of the `bookmark` element. | Required. |
 
 **Example**
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-GuyNeural">
+    <voice name="en-US-AriaNeural">
         <bookmark mark='bookmark_one'/> one.
         <bookmark mark='bookmark_two'/> two. three. four.
     </voice>
