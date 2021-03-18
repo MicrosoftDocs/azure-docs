@@ -232,7 +232,7 @@ catch {
 }
 ```
 
-You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
+Replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available.
 
 ### Setup Token refreshing
 
