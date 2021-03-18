@@ -99,7 +99,7 @@ An additional [Type 2590 battery](https://www.bren-tronics.com/bt-70791ck.html) 
 
 | Specification            | Value      |
 |--------------------------|------------|
-| Onboard battery capacity | 73 Wh     |
+| Onboard battery capacity | 73 Wh      |
 
 ## Enclosure dimensions and weight
 
