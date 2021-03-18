@@ -77,7 +77,7 @@ The template creates the cache in the same location as the resource group.
 ```
 
 
-### Web app
+### Web app (Azure Cache for redis)
 Creates the web app with name specified in the **webSiteName** variable.
 
 Notice that the web app is configured with app setting properties that enable it to work with the Azure Cache for Redis. These app settings are dynamically created based on values provided during deployment.
@@ -89,8 +89,7 @@ Notice that the web app is configured with app setting properties that enable it
   "type": "Microsoft.Web/sites",
   "location": "[resourceGroup().location]",
   "dependsOn": [
-    "[concat('Microsoft.Web/serverFarms/', variables('hostingPlanName'))]",
-    "[concat('Microsoft.Cache/Redis/', variables('cacheName'))]"
+    "[concat('Microsoft.Web/serverFarms/', variables('hostingPlanName'))]"
   ],
   "tags": {
     "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]": "empty",
@@ -110,7 +109,45 @@ Notice that the web app is configured with app setting properties that enable it
         "[concat('Microsoft.Cache/Redis/', variables('cacheName'))]"
       ],
       "properties": {
-       "CacheConnection": "[concat(variables('cacheName'),'.redis.cache.windows.net,abortConnect=false,ssl=true,password=', listKeys(resourceId('Microsoft.Cache/Redis', variables('cacheName')), '2015-08-01').primaryKey)]"
+       "CacheConnection": "[concat(variables('cacheHostName'),'.redis.cache.windows.net,abortConnect=false,ssl=true,password=', listKeys(resourceId('Microsoft.Cache/Redis', variables('cacheName')), '2015-08-01').primaryKey)]"
+      }
+    }
+  ]
+}
+```
+
+
+### Web app (RedisEnterprise)
+For RedisEnterprise, because the resource types are slightly different, the way to do listKeys is different.
+
+```json
+{
+  "apiVersion": "2015-08-01",
+  "name": "[variables('webSiteName')]",
+  "type": "Microsoft.Web/sites",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Web/serverFarms/', variables('hostingPlanName'))]"
+  ],
+  "tags": {
+    "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]": "empty",
+    "displayName": "Website"
+  },
+  "properties": {
+    "name": "[variables('webSiteName')]",
+    "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-08-01",
+      "type": "config",
+      "name": "appsettings",
+      "dependsOn": [
+        "[concat('Microsoft.Web/Sites/', variables('webSiteName'))]",
+        "[concat('Microsoft.Cache/RedisEnterprise/databases/', variables('cacheName'), "/default")]",
+      ],
+      "properties": {
+       "CacheConnection": "[concat(variables('cacheHostName'),abortConnect=false,ssl=true,password=', listKeys(resourceId('Microsoft.Cache/RedisEnterprise', variables('cacheName'), 'default'), '2020-03-01').primaryKey)]"
       }
     }
   ]
