@@ -128,7 +128,7 @@ fi
 
 ### Turn on Voice over IP background mode.
 
-Select your app target and click Capabilities tab.
+Select your app target and click the Capabilities tab.
 
 Turn on `Background Modes` by clicking the `+ Capabilities` at the top and select `Background Modes`.
 
