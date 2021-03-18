@@ -2,7 +2,7 @@
 title: Job size exceeded error
 description: Describes how to troubleshoot errors when job size or template are too large.
 ms.topic: troubleshooting
-ms.date: 01/19/2021
+ms.date: 03/18/2021
 ---
 # Resolve errors for job size exceeded
 
@@ -17,7 +17,6 @@ When deploying a template, you receive an error stating the deployment has excee
 You get this error when the deployment exceeds one of the allowed limits. Typically, you see this error when either your template or the job that runs the deployment is too large.
 
 The deployment job can't exceed 1 MB. The job includes metadata about the request. For large templates, the metadata combined with the template can exceed the allowed size for a job.
-
 
 The template can't exceed 4 MB. The 4-MB limit applies to the final state of the template after it has been expanded for resource definitions that use [copy](copy-resources.md) to create many instances. The final state also includes the resolved values for variables and parameters.
 
@@ -39,6 +38,6 @@ You can set other resources as dependent on the linked template, and [get values
 
 Try to shorten the length of the names you use for [parameters](template-parameters.md), [variables](template-variables.md), and [outputs](template-outputs.md). When these values are repeated through copy loops, a large name gets multiplied many times.
 
-## Solution 3 - Use serial copy
+## Solution 3 - Don't use copy loop
 
-Consider changing your copy loop from [parallel to serial processing](copy-resources.md#serial-or-parallel). Use this option only when you suspect the error comes from deploying a large number of resources through copy. This change can significantly increase your deployment time because the resources aren't deployed in parallel.
+When you suspect the error comes from deploying a large number of resources through [copy](./copy-resources.md), deploy the resources individually instead of using copy loop.
