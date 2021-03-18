@@ -120,6 +120,8 @@ To delete a resource group, you need access to the delete action for the **Micro
 
 For a list of operations, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). For a list of built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
+If you have the required access, but the delete request fails, it may be because there's a [lock](lock-resources.md) on the resource group.
+
 ## Next steps
 
 * To understand Resource Manager concepts, see [Azure Resource Manager overview](overview.md).
