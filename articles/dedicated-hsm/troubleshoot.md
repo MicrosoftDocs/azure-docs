@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.custom: "mvc, seodec18"
-ms.date: 12/07/2018
-ms.author: mbaldwin
+ms.date: 03/18/2021
+ms.author: keithp
 
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
 ---
 # Troubleshooting the Azure Dedicated HSM service
 
-The Azure Dedicated HSM service has two distinct facets. Firstly, the registration and deployment in Azure of the HSM devices with their underlying network components. Secondly, the configuration of the HSM devices in preparation for use/integration with a given workload or application. Although the Thales Luna Network HSM devices are the same in Azure as you would purchase directly from Thales, the fact they are a resource in Azure creates some unique considerations. These considerations and any resulting troubleshooting insights or best practices, are documented here to ensure high visibility and access to critical information. Once the service is in use, definitive information is available via support requests to either Microsoft or Thales directly. 
+The Azure Dedicated HSM service has two distinct facets. Firstly, the registration and deployment in Azure of the HSM devices with their underlying network components. Secondly, the configuration of the HSM devices in preparation for use/integration with a given workload or application. Although the [Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) devices are the same in Azure as you would purchase directly from Thales, the fact they are a resource in Azure creates some unique considerations. These considerations and any resulting troubleshooting insights or best practices, are documented here to ensure high visibility and access to critical information. Once the service is in use, definitive information is available via support requests to either Microsoft or Thales directly. 
 
 > [!NOTE]
 > It should be noted that prior to performing any configuration on a newly deployed HSM device, it should be updated with any relevant patches. A specific required patch is [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) in Thales support portal which addresses a issue where the system becomes unresponsive during reboot.
@@ -31,7 +31,7 @@ Dedicated HSM is not freely available for use as it is delivering hardware resou
 
 ### Getting access to Dedicated HSM
 
-If you believe Dedicated HSM will fit your key storage requirements, then email HSMrequest@microsoft.com to request access. Outline your application, the regions you would like HSMs and the volume of HSMs you are looking for. If you work with a Microsoft representative, such as an Account Executive or Cloud Solution Architect for example, then include them in any request.
+First ask yourself what use cases do you have that cannot be addressed by [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview) or [Azure Managed HSM](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). If then you believe only Dedicated HSM will fit your key storage requirements, then email HSMrequest@microsoft.com to request access. Outline your application and use cases, the regions you would like HSMs and the volume of HSMs you are looking for. If you work with a Microsoft representative, such as an Account Executive or Cloud Solution Architect for example, then include them in any request.
 
 ## HSM Provisioning
 
@@ -54,7 +54,7 @@ The standard ARM template provided for deployment has HSM and ExpressRoute gatew
 
 ### HSM Deployment Using Terraform
 
-A few customers have used Terraform as an automation environment instead of ARM templates as supplied when registering for this service. The HSMs cannot be deployed this way but the dependent networking resources can. Terraform has a module to call out to a minimal ARM template that jut has the HSM deployment.  In this situation, care should be taken to ensure networking resources such as the required ExpressRoute Gateway are fully deployed before deploying HSMs. The following CLI command can be used to test for completed deployment and integrated as required. Replace the angle bracket place holders for your specific naming. You should look for a result of "provisioningState is Succeeded"
+A few customers have used Terraform as an automation environment instead of ARM templates as supplied when registering for this service. The HSMs cannot be deployed this way but the dependent networking resources can. Terraform has a module to call out to a minimal ARM template that just has the HSM deployment.  In this situation, care should be taken to ensure networking resources such as the required ExpressRoute Gateway are fully deployed before deploying HSMs. The following CLI command can be used to test for completed deployment and integrated as required. Replace the angle bracket place holders for your specific naming. You should look for a result of "provisioningState is Succeeded"
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
@@ -64,10 +64,10 @@ az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/p
 Deployments can fail if you exceed 2 HSMs per stamp and 4 HSMs per region. To avoid this situation, ensure you have deleted resources from previously failed deployments before deploying again. Refer to the "How do I see HSMs" item below to check resources. If you believe you need to exceed this quota, which is primarily there as a safeguard, then please email HSMrequest@microsoft.com with details.
 
 ### Deployment failure based on capacity
-When a particular stamp or region is becoming full, that is, nearly all free HSMs are provisioned, this can lead to deployment failures. Each stamp has 11 HSMs available for customers, which means 22 per region. There are also 3 spares and 1 test device in each stamp. If you believe you may have hit a limit, then email HSMrequest@microsoft.com for information on fill-level of specific stamps.
+When a particular stamp or region is becoming full, that is, nearly all free HSMs are provisioned, this can lead to deployment failures. Each stamp has 12 HSMs available for customers, which means 24 per region. There are also 2 spares and 1 test device in each stamp. If you believe you may have hit a limit, then email HSMrequest@microsoft.com for information on fill-level of specific stamps.
 
 ###  How do I see HSMs when provisioned?
-Due to Dedicated HSM being a whitelisted service, it is considered a "Hidden Type" in the Azure portal. To see the HSM resources, you must check the "Show hidden types" check box as shown below. The NIC resource always follows the HSM and is a good place to find out the IP address of the HSM prior to using SSH to connect.
+Due to Dedicated HSM being a allowlisted service, it is considered a "Hidden Type" in the Azure portal. To see the HSM resources, you must check the "Show hidden types" check box as shown below. The NIC resource always follows the HSM and is a good place to find out the IP address of the HSM prior to using SSH to connect.
 
 ![Screenshot that highlights the Show hidden types check](./media/troubleshoot/hsm-provisioned.png)
 
@@ -110,7 +110,7 @@ Providing incorrect credentials to HSMs can have destructive consequences. The f
 The following items are situation where configuration errors are either common or have an impact that is worthy of calling out:
 
 ### HSM Documentation and Software
-Software and documentation for the Thales SafeNet Luna 7 HSM devices is not available from Microsoft and must be downloaded from Thales directly. Registration is required using the Thales Customer ID received during the registration process. The devices, as provided by Microsoft, have software version 7.2 and firmware version 7.0.3. Early in 2020 Thales made documentation public and it can be found [here](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).  
+Software and documentation for the [Thales Luna 7 HSM](https://cpl.thalesgroup.com/encryption/hardware-security-modules/network-hsms) devices is not available from Microsoft and must be downloaded from Thales directly. Registration is required using the Thales Customer ID received during the registration process. The devices, as provided by Microsoft, have software version 7.2 and firmware version 7.0.3. Early in 2020 Thales made documentation public and it can be found [here](https://thalesdocs.com/gphsm/luna/7.2/docs/network/Content/Home_network.htm).  
 
 ### HSM Networking Configuration
 
@@ -118,7 +118,7 @@ Be careful when configuring the networking within the HSM.  The HSM has a connec
 
 ### HSM Device Reboot
 
-Some configuration changes require the HSM to be power cycled or rebooted. Microsoft testing of the HSM in Azure determined that on some occasions the reboot could stop responding. The implication is that a support request must be created in the Azure portal requesting hard-reboot and that could take up to 48 hours to complete considering it's a manual process in an Azure datacenter.  To avoid this situation, ensure you have deployed the reboot patch available from Thales directly. Refer to [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) in the Thales Luna Network HSM 7.2 Downloads for a recommended patch for an issue where the system becomes unresponsive during reboot (Note: you will need to have registered in the Thales support portal to download).
+Some configuration changes require the HSM to be power cycled or rebooted. Microsoft testing of the HSM in Azure determined that on some occasions the reboot could stop responding. The implication is that a support request must be created in the Azure portal requesting hard-reboot and that could take up to 48 hours to complete considering it's a manual process in an Azure datacenter.  To avoid this situation, ensure you have deployed the reboot patch available from Thales directly. Refer to [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) in the Thales Luna 7 HSM 7.2 Downloads for a recommended patch for an issue where the system becomes unresponsive during reboot (Note: you will need to have registered in the [Thales customer support portal](https://supportportal.thalesgroup.com/csm) to download).
 
 ### NTLS Certificates out of sync
 A client may lose connectivity to an HSM when a certificate expires or has been overwritten through configuration updates. The certificate exchange client configuration should be reapplied with each HSM.
