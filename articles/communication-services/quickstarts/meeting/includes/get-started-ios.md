@@ -236,7 +236,7 @@ You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for you
 
 ### Setup Token refreshing
 
-Create a `fetchTokenAsync` method. Then add your fetchToken logic to get the user token.
+Create a `fetchTokenAsync` method. Then add your `fetchToken` logic to get the user token.
 
 ```swift
 private func fetchTokenAsync(completionHandler: @escaping TokenRefreshOnCompletion) {
