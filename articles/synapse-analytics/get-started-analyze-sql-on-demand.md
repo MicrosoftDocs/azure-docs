@@ -16,6 +16,10 @@ ms.date: 12/31/2020
 
 In this tutorial, you'll learn how to analyze data with serverless SQL pool using data located in Spark databases. 
 
+## The Built-in serverless SQL pool
+
+Every workspace comes with a pre-built serverless SQL pool called **Built-in**. This pool can't be deleted. Serverless SQL pools let you use SQL without having to reserve capacity with dedicated SQL pools. Unlike the dedicated SQL pools, billing for a serverless SQL pool is based on the amount of data scanned to run the query, not the number of capacity allocated to the pool.
+
 ## Analyze NYC Taxi data in blob storage using serverless SQL pool
 
 1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow**, **New SQL Script**, and select **SELECT TOP 100 rows**
