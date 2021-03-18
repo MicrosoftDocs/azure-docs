@@ -30,7 +30,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 ## Create a workspace
 In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 
-    ![Azure portal](media/quick-create-workspace/azure-portal-01.png)
+![Azure portal](media/quick-create-workspace/azure-portal-01.png)
   
 Click **Add**, and then provide values for the following options:
 
