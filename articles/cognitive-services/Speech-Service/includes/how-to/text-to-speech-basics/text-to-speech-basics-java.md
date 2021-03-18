@@ -62,7 +62,7 @@ There are a few ways that you can initialize a [`SpeechConfig`](/java/api/com.mi
 In this example, you create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) using a subscription key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 ```java
-public class Program 
+public class Program
 {
     public static void main(String[] args) {
         SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
@@ -119,7 +119,7 @@ For many scenarios in speech application development, you likely need the result
 * Integrate the result with other API's or services.
 * Modify the audio data, write custom `.wav` headers, etc.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `null` for the `AudioConfig` in the `SpeechSynthesizer` constructor. 
+It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `null` for the `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
 > Passing `null` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
@@ -130,7 +130,7 @@ This time, you save the result to a [`SpeechSynthesisResult`](/java/api/com.micr
 public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
-    
+
     SpeechSynthesisResult result = synthesizer.SpeakText("Getting the response as an in-memory stream.");
     AudioDataStream stream = AudioDataStream.fromResult(result);
     System.out.print(stream.getStatus());
@@ -250,3 +250,10 @@ To switch to a neural voice, change the `name` to one of the [neural voice optio
   </voice>
 </speak>
 ```
+
+## Visemes
+
+Speech is usually treated as a good way to drive the animation of facial expressions.
+Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech (i.e. the position of the lips, jaw and tongue when producing a particular phoneme).
+You can subscribe the Viseme event in Speech SDK to generate facial animation data. Then, you can apply such data to a character to realize facial animation.
+Learn [how to get viseme outputs](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).

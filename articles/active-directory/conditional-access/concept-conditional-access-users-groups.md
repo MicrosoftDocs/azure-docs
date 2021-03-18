@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 03/17/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Users and groups
 
-A Conditional Access policy must include a user assignment as one of the signals in the decision process. Users can be included or excluded from Conditional Access policies. Azure Active Directory evaluates all policies and ensures that all requirements are met before granting access to the user. In addition to this article, we have a video on [how to include or exclude users from conditional access policies](https://www.youtube.com/watch?v=5DsW1hB3Jqs) that walks you through the process outlined below. 
+A Conditional Access policy must include a user assignment as one of the signals in the decision process. Users can be included or excluded from Conditional Access policies. Azure Active Directory evaluates all policies and ensures that all requirements are met before granting access to the user. 
 
-![User as a signal in the decisions made by Conditional Access](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
+> [!VIDEO https://www.youtube.com/embed/5DsW1hB3Jqs]
 
 ## Include users
 
@@ -74,7 +74,7 @@ By default the policy will provide an option to exclude the current user from th
 
 ![Warning, don't lock yourself out!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-[What to do if you are locked out of the Azure portal?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
+If you do find yourself locked out[What to do if you are locked out of the Azure portal?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## Next steps
 
