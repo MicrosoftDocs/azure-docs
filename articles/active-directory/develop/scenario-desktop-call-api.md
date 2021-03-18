@@ -113,7 +113,7 @@ catch(MsalUiRequiredException ex)
 
 # [Node.js](#tab/nodejs)
 
-Using a HTTP client like [Axios](https://www.npmjs.com/package/axios), call the API endpoint URI with access token as *authorization bearer*.
+Using an HTTP client like [Axios](https://www.npmjs.com/package/axios), call the API endpoint URI with an access token as *authorization bearer*.
 
 ```javascript
 const axios = require('axios');
