@@ -13,7 +13,7 @@ The JSON syntax for creating template can be verbose and require complicated exp
 
 To learn about Bicep, see the following video.
 
-> [!VIDEO https://myignite.microsoft.com/sessions/54873305-d4a9-46ac-8764-ec25f0860276]
+> [!VIDEO https://mediusprodstatic.studios.ms/asset-cccfdaf2-cdbe-49dd-9c58-91a4fe5ff0fd/OD340_1920x1080_AACAudio_5429.mp4?sv=2018-03-28&sr=b&sig=N3DuBaTrK3nt5TGwIagTbCqjVrzgwiJ9at80MXQJFwg%3D&st=2021-03-02T01%3A22%3A57Z&se=2026-03-02T01%3A27%3A57Z&sp=r&rscd=filename%3DIGFY21Q3-OD340-Learn%2Beverything%2Babout%2Bthe%2Bnext%2Bgeneration%2Bof%2BARM.mp4]
 
 ## Get started
 
