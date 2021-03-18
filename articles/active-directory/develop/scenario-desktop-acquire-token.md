@@ -454,7 +454,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 # [Node.js](#tab/nodejs)
 
-In MSAL Node, you acquire tokens via authorization code flow with *Proof Key for Code Exchange* (PKCE). The process has two steps: first, the application obtains a URL that can be used to generate an authorization code. This URL can be opened in a browser of choice, where the user can input their credentials, and will be redirected back to the `redirectUri` (registered during the app registration) with an authorization code. Second, The application passes the authorization code received as a part of the above step and exchanges it for a token.
+In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). The process has two steps: first, the application obtains a URL that can be used to generate an authorization code. This URL can be opened in a browser of choice, where the user can input their credentials, and will be redirected back to the `redirectUri` (registered during the app registration) with an authorization code. Second, The application passes the authorization code received as a part of the above step and exchanges it for a token.
 
 ```JavaScript
 const msal = require("@azure/msal-node");
