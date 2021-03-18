@@ -45,6 +45,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Name | Enter **myVNet**. |
     | Region | Select **(US) East US**. |
 
+    :::image type="content" source="./media/quick-create-portal/create-virtual-network.png" alt-text="Create virtual network Azure portal" border="true":::
+
 5. Select the **IP Addresses** tab, or select the **Next: IP Addresses** button at the bottom of the page.
 
 6. In **IPv4 address space**, select the existing address space and change it to **10.1.0.0/16**.
@@ -165,6 +167,8 @@ Create two VMs in the virtual network:
 
 3. In the VM menu bar, select **Connect**, then select **Bastion**.
 
+    :::image type="content" source="./media/quick-create-portal/connect-to-virtual-machine.png" alt-text="Connect to myVM1 with Azure Bastion" border="true":::
+
 4. In the **Connect** page, select the blue **Use Bastion** button.
 
 5. In the **Bastion** page, enter the username and password you created for the virtual machine previously.
@@ -175,53 +179,43 @@ Create two VMs in the virtual network:
 
 1. In the bastion connection of **myVM1**, open PowerShell.
 
-2. Enter `ping myVm2`.
+2. Enter `ping myvm2`.
 
     You'll receive a message similar to this output:
 
     ```powershell
-    Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.clouda
-    Request timed out.
-    Request timed out.
-    Request timed out.
-    Request timed out.
+    Pinging myvm2.cs4wv3rxdjgedggsfghkjrxuqf.bx.internal.cloudapp.net [10.1.0.5] with 32 bytes of data:
+    Reply from 10.1.0.5: bytes=32 time=3ms TTL=128
+    Reply from 10.1.0.5: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.5: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.5: bytes=32 time=1ms TTL=128
 
     Ping statistics for 10.1.0.5:
-    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+        Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+    Approximate round trip times in milli-seconds:
+        Minimum = 1ms, Maximum = 3ms, Average = 1ms
     ```
 
-    The `ping` fails, because `ping` uses the Internet Control Message Protocol (ICMP). By default, ICMP isn't allowed through the Windows firewall.
+3. Close the bastion connection to **myVM1**.
 
-3. To allow **myVM2** to ping **myVM1** in a later step, enter this command:
+4. Complete the steps in [Connect to myVM1](#connect-to-myvm1), but connect to **myVM2**.
 
-    ```powershell
-    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
-    ```
-
-    This command allows ICMP inbound through the Windows firewall:
-
-4. Close the bastion connection to **myVM1**.
-
-5. Complete the steps in [Connect to myVM1](#connect-to-myvm1), but connect to **myVM2**.
-
-6. Open PowerShell on **myVM2**, enter `ping myvm1`.
+5. Open PowerShell on **myVM2**, enter `ping myvm1`.
 
     You'll receive something like this message:
 
     ```powershell
-    Pinging myVm1.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
+    Pinging myvm1.cs4wv3rxdjgedggsfghkjrxuqf.bx.internal.cloudapp.net [10.1.0.4] with 32 bytes of data:
     Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
-    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
-    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
-    Reply from 10.1.0.4: bytes=32 time<1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
+    Reply from 10.1.0.4: bytes=32 time=1ms TTL=128
 
     Ping statistics for 10.1.0.4:
         Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
     Approximate round trip times in milli-seconds:
-        Minimum = 0ms, Maximum = 1ms, Average = 0ms
+        Minimum = 1ms, Maximum = 1ms, Average = 1ms
     ```
-
-    You receive replies from **myVM1**, because you allowed ICMP through the Windows firewall on **myVM1** VM in step 3.
 
 7. Close the bastion connection to **myVM2**.
 
