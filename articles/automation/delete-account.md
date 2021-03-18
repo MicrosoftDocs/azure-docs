@@ -101,7 +101,7 @@ To delete your Automation account linked to a Log Analytics workspace in support
    * For Update Management, select **Updates(workspace name)**.
    * For Change Tracking and Inventory, select **ChangeTracking(workspace name)**.
 
-6. On the **VMManagementSolution[Workspace]** page, select **Delete** from the menu. If more than one of the above listed features are deployed to the Automation account and linked workspace, you need to select and delete each one before proceeding.
+6. On the **Solution** page, select **Delete** from the menu. If more than one of the above listed features are deployed to the Automation account and linked workspace, you need to select and delete each one before proceeding.
 
 7. While the information is verified and the feature is deleted, you can track the progress under **Notifications**, chosen from the menu. You're returned to the Solutions page after the removal process.
 
