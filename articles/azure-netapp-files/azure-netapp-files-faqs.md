@@ -183,43 +183,6 @@ Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Dir
 
 The volume size reported by the SMB client is the maximum size the Azure NetApp Files volume can grow to. The size of the Azure NetApp Files volume as shown on the SMB client is not reflective of the quota or size of the volume. You can get the Azure NetApp Files volume size or quota through the Azure portal or the API.
 
-### SMB encryption FAQs
-
-This section answers commonly asked questions about SMB encryption (SMB 3.0 and SMB 3.1.1).
-
-#### What is SMB encryption?  
-
-[SMB encryption](/windows-server/storage/file-server/smb-security) provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks. SMB encryption is supported on SMB 3.0 and greater. 
-
-#### How does SMB encryption work?
-
-When sending a request to the storage, the client encrypts the request, which the storage then decrypts. Responses are similarly encrypted by the server and decrypted by the client.
-
-#### Which clients support SMB encryption?
-
-Windows 10, Windows 2012, and later versions support SMB encryption.
-
-#### With Azure NetApp Files, at what layer is SMB encryption enabled?  
-
-SMB encryption is enabled at the share level.
-
-#### What forms of SMB encryption are used by Azure NetApp Files?
-
-SMB 3.0 employs AES-CCM algorithm, while SMB 3.1.1 employs the AES-GCM algorithm
-
-#### Is SMB encryption required?
-
-SMB encryption is not required. As such, it is only enabled for a given share if the user requests that Azure NetApp Files enable it. Azure NetApp Files shares are never exposed to the internet. They are only accessible from within a given VNet, over VPN or express route, so Azure NetApp Files shares are inherently secure. The choice to enable SMB encryption is entirely up to the user. Be aware of the anticipated performance penalty before enabling this feature.
-
-#### <a name="smb_encryption_impact"></a>What is the anticipated impact of SMB encryption on client workloads?
-
-Although SMB encryption has impact to both the client (CPU overhead for encrypting and decrypting messages) and the storage (reductions in throughput), the following table highlights storage impact only. You should test the encryption performance impact against your own applications before deploying workloads into production.
-
-|     I/O profile    	|     Impact    	|
-|-	|-	|
-|     Read and write workloads    	|     10% to 15%     	|
-|     Metadata intensive    	|     5%  	|
-
 ### I’m having issues connecting to my SMB share. What should I do?
 
 As a best practice, set the maximum tolerance for computer clock synchronization to five minutes. For more information, see [Maximum tolerance for computer clock synchronization](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/jj852172(v=ws.11)). 
