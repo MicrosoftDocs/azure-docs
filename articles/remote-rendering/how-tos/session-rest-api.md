@@ -15,7 +15,7 @@ To use Azure Remote Rendering functionality, you need to create a *session*. Eac
 
 The REST API reference can be found [here](/rest/api/mixedreality/2021-01-01preview/remoterendering) and the swagger definitions [here](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality).
 We provide a PowerShell script in the [ARR samples repository](https://github.com/Azure/azure-remote-rendering) in the *Scripts* folder, called *RenderingSession.ps1*, which demonstrates the use of our service. The script and its configuration are described here: [Example PowerShell scripts](../samples/powershell-example-scripts.md).
-We also provide SDKs for [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/mixedreality/Azure.MixedReality.RemoteRendering), Java, and Python.
+We also provide SDKs for [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/remoterendering/Azure.MixedReality.RemoteRendering/README.md), Java, and Python.
 
 > [!IMPORTANT]
 > Latency is an important factor when using remote rendering. For the best experience create sessions in the region that is closest to you. The [Azure Latency Test](https://www.azurespeed.com/Azure/Latency) can be used to determine which region is closest to you.
