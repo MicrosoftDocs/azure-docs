@@ -41,7 +41,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Prepare a Spring or Steeltoe app for deployment
-            url: spring-cloud-howto-prepare-app-deployment.md
+            url: how-to-prepare-app-deployment.md
 
   - title: Configure your service
     linkLists: 
