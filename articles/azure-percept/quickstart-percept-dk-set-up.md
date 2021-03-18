@@ -131,9 +131,9 @@ To verify if your Azure account is an “owner” or “contributor” within th
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-16-iot-hub-success.png" alt-text="IoT Hub successfully deployed.":::
 
-1. **Enter a device name** for your dev kit and click **Next**.
+1. Enter a device name for your dev kit and click **Next**.
 
-1. Wait for the default AI models to download – this will take a few minutes.
+1. Wait for the device modules to download – this will take a few minutes.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-18-finalize.png" alt-text="Finalizing setup.":::
 
@@ -148,13 +148,13 @@ To verify if your Azure account is an “owner” or “contributor” within th
 
 1. Connect your host computer to the Wi-Fi network your devkit connected to in Step 2.
 
-1. Click **Continue to the Azure portal** to begin creating your custom AI models in Azure Percept Studio.
+1. Click **Continue to the Azure portal**.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-azure-portal-continue.png" alt-text="Go to Azure Percept Studio.":::
 
-## View your dev kit device stream in Azure Percept Studio and deploy a sample model
+## View your dev kit device stream and deploy a sample model
 
-1. The [Azure Percept Studio Overview page](https://go.microsoft.com/fwlink/?linkid=2135819) is your launch point for accessing many different workflows for both beginning and advanced edge AI solution development. Click on **Devices** from the left menu.
+1. The [Azure Percept Studio Overview page](https://go.microsoft.com/fwlink/?linkid=2135819) is your launch point for accessing many different workflows for both beginning and advanced edge AI solution development. To get started, click on **Devices** from the left menu.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-01-get-device-list.png" alt-text="View your list of devices.":::
 
@@ -170,7 +170,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-2-object-detection.png" alt-text="See object detection.":::
 
-1. Azure Percept Studio also has a number of sample AI models. To deploy a sample model to your dev kit, click **Deploy a sample model**.
+1. Azure Percept Studio also has a number of sample AI models. To deploy a sample model to your dev kit, navigate back to your device page and click **Deploy a sample model**.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-04-explore-prebuilt.png" alt-text="Explore pre-built models.":::
 
