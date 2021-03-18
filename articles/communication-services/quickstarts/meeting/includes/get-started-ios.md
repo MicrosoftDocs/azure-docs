@@ -249,7 +249,7 @@ private func fetchTokenAsync(completionHandler: @escaping TokenRefreshOnCompleti
 }
 ```
 
-You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource.
+Replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource.
 
 ## Join a meeting
 
