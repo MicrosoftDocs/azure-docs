@@ -176,7 +176,7 @@ Before creating a database, you need a [logical SQL server](../azure-sql/databas
 
 ## Access the database locally
 
-Visual Studio lets you explore and manage your new database easily in the **SQL Server Object Explorer**.
+Visual Studio lets you explore and manage your new database in Azure easily in the **SQL Server Object Explorer**. The new database already opened its firewall to the App Service app that you created, but to access it from your local computer (such as from Visual Studio), you must open a firewall for your local machine's public IP address. If your internet service provider changes your public IP address, you need to reconfigure the firewall to access the Azure database again.
 
 #### Create a database connection
 
