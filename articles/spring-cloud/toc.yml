@@ -110,7 +110,7 @@
         - name: Deploy Azure Spring Cloud in a virtual network
           href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
         - name: Access your application in a private network
-          href: spring-cloud-access-app-virtual-network.md
+          href: access-app-virtual-network.md
         - name: Expose applications to the Internet
           href: spring-cloud-expose-apps-gateway-azure-firewall.md
         - name: Customer responsibilities running Azure Spring Cloud in VNET
