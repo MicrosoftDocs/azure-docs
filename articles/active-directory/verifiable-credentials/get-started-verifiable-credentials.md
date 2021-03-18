@@ -34,7 +34,7 @@ In this tutorial, we go over the steps needed to issue your first verifiable cre
 
 ## Download the sample code
 
-To issue yourself a Verified Credential Ninja Card, you'll need to run a website on your local machine. The website is used to initiate a verifiable credential issuance process. We've provided a simple website, written in NodeJS, that we'll use throughout this tutorial.
+To issue yourself a Verified Credential Ninja Card, you need to run a website on your local machine. The website is used to initiate a verifiable credential issuance process. We've provided a simple website, written in NodeJS, that we use throughout this tutorial.
 
 First, download our sample code from GitHub [here](https://github.com/Azure-Samples/active-directory-verifiable-credentials), or clone the repository to your local machine:
 
@@ -46,7 +46,7 @@ You may want to familiarize yourself with the code in the sample websites. The `
 
 ## Run the issuer website
 
-You can run the steps from within visual studio code or any other terminal available in your operating system. When you run the sample website, your device needs to communicate with the Node server running on your local machine. We recommend using [ngrok](https://ngrok.com/) as an easy way to make your local development server available over the internet.
+You can run the steps from within Visual Studio Code or any command line available in your operating system. When you run the sample website, your device needs to communicate with the Node server running on your local machine. We recommend using [ngrok](https://ngrok.com/) as an easy way to make your local development server available over the internet.
 
 1. After you download and extract **ngrok**, we need to run:
 
