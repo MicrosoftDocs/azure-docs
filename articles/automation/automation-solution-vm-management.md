@@ -86,7 +86,8 @@ You can enable VMs for the Start/Stop VMs during off-hours feature using a new A
 | Microsoft.Authorization/permissions/read |Subscription|
 | Microsoft.Authorization/roleAssignments/read | Subscription |
 | Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Resource Group |
+| Microsoft.Authorization/roleAssignments/delete | Subscription |
+| Microsoft.Automation/automationAccounts/connections/read | Resource Group |
 | Microsoft.Automation/automationAccounts/certificates/read | Resource Group |
 | Microsoft.Automation/automationAccounts/write | Resource Group |
 | Microsoft.OperationalInsights/workspaces/write | Resource Group |
@@ -162,7 +163,7 @@ Don't enable all schedules, because doing so might create overlapping schedule a
 |Scheduled_StopVM | User-defined, daily | Runs the **ScheduledStopStart_Parent** runbook with a parameter of `Stop` every day at the specified time. Automatically stops all VMs that meet the rules defined by variable assets. Enable the related schedule **Scheduled-StartVM**.|
 |Scheduled_StartVM | User-defined, daily | Runs the **ScheduledStopStart_Parent** runbook with a parameter value of `Start` every day at the specified time. Automatically starts all VMs that meet the rules defined by variable assets. Enable the related schedule **Scheduled-StopVM**.|
 |Sequenced-StopVM | 1:00 AM (UTC), every Friday | Runs the **Sequenced_StopStop_Parent** runbook with a parameter value of `Stop` every Friday at the specified time. Sequentially (ascending) stops all VMs with a tag of **SequenceStop** defined by the appropriate variables. For more information on tag values and asset variables, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StartVM**.|
-|Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the **SequencedStopStart_Parent** runbook with a parameter value of `Start` every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. For more information on tag values and variable assets, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StopVM**.
+|Sequenced-StartVM | 1:00 PM (UTC), every Monday | Runs the **SequencedStopStart_Parent** runbook with a parameter value of `Start` every Monday at the specified time. Sequentially (descending) starts all VMs with a tag of **SequenceStart** defined by the appropriate variables. For more information on tag values and variable assets, see [Runbooks](#runbooks). Enable the related schedule, **Sequenced-StopVM**.|
 
 ## Use the feature with classic VMs
 

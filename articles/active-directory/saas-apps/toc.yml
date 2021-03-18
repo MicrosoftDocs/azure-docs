@@ -611,8 +611,6 @@
         href: exceed-ai-tutorial.md
       - name: ExcelityGlobal
         href: excelityglobal-tutorial.md
-      - name: Exium
-        href: exium-tutorial.md
       - name: ExpenseIn
         href: expensein-tutorial.md
       - name: Expensify
@@ -714,6 +712,8 @@
         href: fuse-tutorial.md
       - name: Fuze
         href: fuze-tutorial.md
+      - name: Grammarly
+        href: grammarly-provisioning-tutorial.md  
       - name: G Suite
         href: google-apps-tutorial.md
       - name: GaggleAMP

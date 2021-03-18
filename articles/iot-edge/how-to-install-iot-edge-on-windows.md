@@ -39,6 +39,7 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
   * Professional, Enterprise, or Server editions
   * Minimum RAM: 4 GB (8 GB recommended)
   * Minimum Storage: 10 GB
+  * If you're creating a new deployment by using a VM, make sure you configure nested virtualization correctly. For more information, see the [nested virtualization](nested-virtualization.md) guide.
 
 * Access to Windows Admin Center with the Azure IoT Edge extension for Windows Admin Center installed:
 

@@ -10,7 +10,7 @@ ms.topic: overview
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
-ms.date: 08/14/2020
+ms.date: 01/14/2021
 ---
 
 # What is Azure SQL Managed Instance?
@@ -31,7 +31,7 @@ The following diagram outlines key features of SQL Managed Instance:
 Azure SQL Managed Instance is designed for customers looking to migrate a large number of apps from an on-premises or IaaS, self-built, or ISV provided environment to a fully managed PaaS cloud environment, with as low a migration effort as possible. Using the fully automated [Azure Data Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), customers can lift and shift their existing SQL Server instance to SQL Managed Instance, which offers compatibility with SQL Server and complete isolation of customer instances with native VNet support. For more information on migration options and tools, see [Migration overview: SQL Server to Azure SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> With Software Assurance, you can exchange your existing licenses for discounted rates on SQL Managed Instance using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). SQL Managed Instance is the best migration destination in the cloud for SQL Server instances that require high security and a rich programmability surface.
 
 > [!TIP]
-> How can we make Azure SQL better? [Take the survey](https://aka.ms/AzureSQLSurvey).
+> How can we make Azure SQL better? [Take the survey](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## Key features and capabilities
 
@@ -74,8 +74,8 @@ The [vCore-based purchasing model](../database/service-tiers-vcore.md) for SQL M
 
 In the vCore model, you can choose between generations of hardware.
 
-- **Gen4** logical CPUs are based on Intel® E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD, physical cores, 7-GB RAM per core, and compute sizes between 8 and 24 vCores.
-- **Gen5** logical CPUs are based on Intel® E5-2673 v4 (Broadwell) 2.3 GHz, Intel® SP-8160 (Skylake), and  Intel® 8272CL (Cascade Lake) 2.5 GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
+- **Gen4** logical CPUs are based on Intel&reg; E5-2673 v3 (Haswell) 2.4 GHz processors, attached SSD, physical cores, 7-GB RAM per core, and compute sizes between 8 and 24 vCores.
+- **Gen5** logical CPUs are based on Intel&reg; E5-2673 v4 (Broadwell) 2.3 GHz, Intel&reg; SP-8160 (Skylake), and  Intel&reg; 8272CL (Cascade Lake) 2.5 GHz processors, fast NVMe SSD, hyper-threaded logical core, and compute sizes between 4 and 80 cores.
 
 Find more information about the difference between hardware generations in [SQL Managed Instance resource limits](resource-limits.md#hardware-generation-characteristics).
 
