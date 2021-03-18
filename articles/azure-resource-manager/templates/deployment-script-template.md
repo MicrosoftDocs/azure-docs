@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 2021-03-18
+ms.date: 03/18/2021
 ms.author: jgao
 
 ---
