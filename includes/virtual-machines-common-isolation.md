@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: virtual-machines
- author: styli365
+ author: rishabv90
  ms.service: virtual-machines
  ms.topic: include
  ms.date: 11/05/2020
- ms.author: sttsinar
+ ms.author: risverma
  ms.custom: include file
 ---
 
@@ -37,12 +37,12 @@ Isolated VM sizes have a hardware limited lifespan. Azure will issue reminders 1
 
 | Size | Isolation Retirement Date | 
 | --- | --- |
-| Standard_DS15_v2 | May 15, 2020 |
-| Standard_D15_v2  | May 15, 2020 |
-| Standard_G5  | February 15, 2021 |
-| Standard_GS5  | February 15, 2021 |
-| Standard_E64i_v3  | February 15, 2021 |
-| Standard_E64is_v3  | February 15, 2021 |
+| Standard_DS15_v2 | May 15, 2021 |
+| Standard_D15_v2  | May 15, 2021 |
+| Standard_G5  | February 15, 2022 |
+| Standard_GS5  | February 15, 2022 |
+| Standard_E64i_v3  | February 15, 2022 |
+| Standard_E64is_v3  | February 15, 2022 |
 
 
 ## FAQ
@@ -67,8 +67,8 @@ On contrary if isolation is required, our announcement will include the recommen
  
 | Date | Action |
 |---|---| 
-| May 15, 2019<sup>1</sup> | D/DS15_v2 isolation retirement announcement| 
-| May 15, 2020 | D/DS15_v2 isolation guarantee removed| 
+| May 15, 2020<sup>1</sup> | D/DS15_v2 isolation retirement announcement| 
+| May 15, 2021 | D/DS15_v2 isolation guarantee removed| 
 
 <sup>1</sup> Existing customer using these sizes will receive an announcement email with detailed instructions on the next steps.  
 
@@ -77,8 +77,8 @@ On contrary if isolation is required, our announcement will include the recommen
  
 | Date | Action |
 |---|---|
-| Feb 15, 2020<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 isolation retirement announcement |
-| Feb 15, 2021 | G5/GS5/E64i_v3/E64is_v3 isolation guarantee removed |
+| Feb 15, 2021<sup>1</sup> | G5/GS5/E64i_v3/E64is_v3 isolation retirement announcement |
+| Feb 15, 2022 | G5/GS5/E64i_v3/E64is_v3 isolation guarantee removed |
 
 <sup>1</sup> Existing customer using these sizes will receive an announcement email with detailed instructions on the next steps.  
 

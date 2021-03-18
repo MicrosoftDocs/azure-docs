@@ -1,17 +1,9 @@
 ---
-title: Quickstart - Integrate an Azure Storage account with Azure CDN
-description: Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage.
+title: 'Quickstart: Integrate an Azure Storage account with Azure CDN'
+description: In this quickstart, learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-
-ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
@@ -119,9 +111,6 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 3. To delete your storage account, select it from the dashboard, then select **Delete** from the top menu.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Use CDN to server static content from a web app](cdn-add-to-web-app.md)

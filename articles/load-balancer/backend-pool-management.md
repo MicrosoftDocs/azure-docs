@@ -245,7 +245,11 @@ JSON request body:
 ```
 
 ### Resource Manager Template
+
 Follow this [quickstart Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) to deploy a load balancer and virtual machines and add the virtual machines to the backend pool via network interface.
+
+Follow this [quickstart Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool) to deploy a load balancer and virtual machines and add the virtual machines to the backend pool via IP address.
+
 
 ## Configure backend pool by IP address and virtual network
 In scenarios with pre-populated backend pools, use IP and virtual network.

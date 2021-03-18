@@ -6,7 +6,7 @@ services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/10/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
 ---

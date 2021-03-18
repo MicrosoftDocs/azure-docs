@@ -104,7 +104,7 @@ landingContent:
           - text: .NET SDK
             url: /dotnet/api/overview/azure/cognitiveservices/client/faceapi
           - text: Python SDK
-            url: /python/api/azure-cognitiveservices-vision-face/?view=azure-python
+            url: /python/api/azure-cognitiveservices-vision-face/
           - text: Java SDK
             url: /java/api/overview/azure/cognitiveservices/client/faceapi
           - text: Node.js SDK

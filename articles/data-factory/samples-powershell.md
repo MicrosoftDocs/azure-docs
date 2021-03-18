@@ -6,7 +6,7 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 03/16/2021
 ---
 
 # Azure PowerShell samples for Azure Data Factory

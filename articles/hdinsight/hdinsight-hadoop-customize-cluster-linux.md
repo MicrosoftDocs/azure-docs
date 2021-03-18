@@ -4,7 +4,7 @@ description: Add custom components to HDInsight clusters by using script actions
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
-ms.date: 09/02/2020
+ms.date: 03/09/2021
 ---
 
 # Customize Azure HDInsight clusters by using script actions
@@ -20,7 +20,7 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
 - Must be stored on a URI that's accessible from the HDInsight cluster. The following are possible storage locations:
 
     - For regular (non-ESP) clusters:
-      - Data Lake Storage Gen1/Gen2: The service principal HDInsight uses to access Data Lake Storage must have read access to the script. The URI format for scripts stored in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`. The URI format for Data Lake Storage Gen2 scripts is `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+      - Data Lake Storage Gen1/Gen2: The service principal HDInsight uses to access Data Lake Storage must have read access to the script. The URI format for scripts stored in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`. 
       - A blob in an Azure Storage account that's either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
 
         > [!IMPORTANT]  
