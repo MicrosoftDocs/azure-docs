@@ -108,6 +108,8 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3
 
     * Optionally, [configure export policy for the volume](azure-netapp-files-configure-export-policy.md).
 
+    ![Specify dual-protocol](../media/azure-netapp-files/create-volume-protocol-dual.png)
+
 4. Click **Review + Create** to review the volume details. Then click **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 
