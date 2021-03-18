@@ -76,7 +76,7 @@ To use an Azure storage account for the workspace in a virtual network, use the 
         > [!IMPORTANT]
         > The storage account must be in the same virtual network and subnet as the compute instances or clusters used for training or inference.
 
-    1. Select the __Allow trusted Microsoft services to access this storage account__ check box. This does not give all Azure services access to your storage account.
+    1. Select the __Allow trusted Microsoft services to access this storage account__ check box. This change does not give all Azure services access to your storage account.
     
         * Resources of some services, **registered in your subscription**, can access the storage account **in the same subscription** for select operations. For example, writing logs or creating backups.
         * Resources of some services can be granted explicit access to your storage account by __assigning an Azure role__ to its system-assigned managed identity.
@@ -93,12 +93,12 @@ To use an Azure storage account for the workspace in a virtual network, use the 
 ## Secure Azure storage accounts with private endpoints
 
 Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. If the storage account uses private endpoints, you must configure two private endpoints for your default storage account:
-1. A private endpoint with a **blob** target sub-resource.
-1. A private endpoint with a **file** target sub-resource (fileshare).
+1. A private endpoint with a **blob** target subresource.
+1. A private endpoint with a **file** target subresource (fileshare).
 
 ![Screenshot showing private endpoint configuration page with blob and file options](./media/how-to-enable-studio-virtual-network/configure-storage-private-endpoint.png)
 
-To configure a private endpoint for a storage account that is **not** the default storage, select the **Target sub-resource** type that corresponds to the storage account you want to add.
+To configure a private endpoint for a storage account that is **not** the default storage, select the **Target subresource** type that corresponds to the storage account you want to add.
 
 For more information, see [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
 
@@ -110,7 +110,7 @@ To access data using the SDK, you must use the authentication method required by
 
 ### Disable data validation
 
-By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If the data is behind a virtual network, Azure Machine Learning can't complete these checks. To avoid this, you must create datastores and datasets that skip validation.
+By default, Azure Machine Learning performs data validity and credential checks when you attempt to access data using the SDK. If the data is behind a virtual network, Azure Machine Learning can't complete these checks. To bypass this check, you must create datastores and datasets that skip validation.
 
 ### Use datastores
 
@@ -171,7 +171,7 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 1. On the __Firewalls and virtual networks__ tab, do the following actions:
     1. Under __Allow access from__, select __Private endpoint and selected networks__.
     1. Under __Virtual networks__, select __Add existing virtual networks__ to add the virtual network where your experimentation compute resides.
-    1. Under __Allow trusted Microsoft services to bypass this firewall?__, select __Yes__.
+    1. Under __Allow trusted Microsoft services to bypass this firewall__, select __Yes__.
 
    [![The "Firewalls and virtual networks" section in the Key Vault pane](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
