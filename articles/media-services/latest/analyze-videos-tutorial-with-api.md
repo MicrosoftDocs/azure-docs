@@ -2,26 +2,17 @@
 title: Analyze videos with Media Services v3
 description: Learn how to analyze videos using Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
-
-ms.service: media-services
-ms.workload: 
+ms.service: media-services 
 ms.topic: tutorial
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.custom: seodec18
-
 ---
 
 # Tutorial: Analyze videos with Media Services v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
-
-> [!NOTE]
-> Even though this tutorial uses the [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent) examples, the general steps are the same for [REST API](/rest/api/media/liveevents), [CLI](/cli/azure/ams/live-event), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
 This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain deep insights into recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can run speech-to-text processing to convert customer support recordings into a searchable catalog, with indexes and dashboards. Then, they can obtain insights into their business. These insights include a list of common complaints, sources of such complaints, and other useful information.
 
@@ -144,7 +135,7 @@ The following function downloads the results from the output [Asset](/rest/api/m
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#DownloadResults)]
 
-### Clean up resource in your Media Services account
+### Clean up resources in your Media Services account
 
 Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms and persist StreamingLocators). If you want for your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes the job and output asset:
 
@@ -160,23 +151,10 @@ When we run the program, the job produces thumbnails for each face that it finds
 
 The output file of analyzing videos is called insights.json. This file contains insights about your video. You can find description of  elements found in the json file in the [Media intelligence](./analyzing-video-audio-files-concept.md) article.
 
-## Clean up resources
-
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier.
-
-Execute the following CLI command:
-
-```azurecli
-az group delete --name amsResourceGroup
-```
-
 ## Multithreading
 
-The Azure Media Services v3 SDKs aren't thread-safe. When working with a multi-threaded app, you should generate a new AzureMediaServicesClient object per thread.
-
-## Ask questions, give feedback, get updates
-
-Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
+> [!WARNING]
+> The Azure Media Services v3 SDKs aren't thread-safe. When working with a multi-threaded app, you should generate a new AzureMediaServicesClient object per thread.
 
 ## Next steps
 
