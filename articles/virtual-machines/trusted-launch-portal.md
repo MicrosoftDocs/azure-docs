@@ -129,13 +129,13 @@ Select the button below to deploy the policies to your subscription:
 
 The template needs to be deployed only once per subscription. It automatically installs `GuestAttestation` and `AzureSecurity` extensions on all supported VMs. If you get errors, try redeploying the template again.
 
-To get vTPM and secure boot recommendations for trusted launch VMs, see [Add a custom initiative to your subscription](https://docs.microsoft.com/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription).
+To get vTPM and secure boot recommendations for trusted launch VMs, see [Add a custom initiative to your subscription](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription).
  
 ## Sign things for Secure Boot on Linux
 
 In some cases, you might need to sign things for UEFI Secure Boot.  For example, you might need to go through [How to sign things for Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) for Ubuntu. In these cases, you need to enter the MOK utility enroll keys for your VM. To do this, you need to use the Azure Serial Console to access the MOK utility.
 
-1. Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
+1. Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Log in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual machines** and select your VM from the list.
 1. In the left menu, under **Support + troubleshooting**, select **Serial console**. A page will open to the right, with the serial console.
