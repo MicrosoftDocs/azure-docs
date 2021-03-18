@@ -69,4 +69,4 @@ To view the status of a specific instance of a deployed app, click the **Name** 
 
 
 ## See also
-* [Prepare a Spring or Steeltoe application for deployment in Azure Spring Cloud](spring-cloud-howto-prepare-app-deployment.md)
+* [Prepare a Spring or Steeltoe application for deployment in Azure Spring Cloud](how-to-prepare-app-deployment.md)

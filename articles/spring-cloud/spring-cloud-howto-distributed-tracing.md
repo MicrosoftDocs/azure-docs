@@ -19,7 +19,7 @@ In this article, you learn how to enable a .NET Core Steeltoe app to use distrib
 
 ## Prerequisites
 
-To follow these procedures, you need a Steeltoe app that is already [prepared for deployment to Azure Spring Cloud](spring-cloud-howto-prepare-app-deployment.md).
+To follow these procedures, you need a Steeltoe app that is already [prepared for deployment to Azure Spring Cloud](how-to-prepare-app-deployment.md).
 
 ## Dependencies
 
@@ -112,7 +112,7 @@ To follow these procedures, you need an Azure Spring Cloud service that is alrea
 
    After this change, the Zipkin sender can send to the web.
 
-1. Skip this step if you followed our [guide to preparing an Azure Spring Cloud application](spring-cloud-howto-prepare-app-deployment.md). Otherwise, go to your local development environment and edit your pom.xml file to include the following Spring Cloud Sleuth dependency:
+1. Skip this step if you followed our [guide to preparing an Azure Spring Cloud application](how-to-prepare-app-deployment.md). Otherwise, go to your local development environment and edit your pom.xml file to include the following Spring Cloud Sleuth dependency:
 
     ```xml
     <dependencyManagement>

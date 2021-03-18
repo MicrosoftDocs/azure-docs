@@ -51,7 +51,7 @@ This documentation includes sections that explain how to get started and leverag
     * [Build and deploy apps](spring-cloud-quickstart-deploy-apps.md)
     * [Use logs metrics and tracing](spring-cloud-quickstart-logs-metrics-tracing.md)
 * How-to
-    * [Develop](spring-cloud-howto-prepare-app-deployment.md): Prepare an existing Java Spring application for deployment to Azure Spring Cloud. When configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update Java Spring Cloud applications.
+    * [Develop](how-to-prepare-app-deployment.md): Prepare an existing Java Spring application for deployment to Azure Spring Cloud. When configured properly, Azure Spring Cloud provides robust services to monitor, scale, and update Java Spring Cloud applications.
     * [Deploy](spring-cloud-howto-staging-environment.md): How to set up a staging deployment by using the blue-green deployment pattern in Azure Spring Cloud. Blue/green deployment is an Azure DevOps Continuous Delivery pattern that relies on keeping an existing (blue) version live, while a new (green) one is deployed.
     * [Configure apps](spring-cloud-howto-start-stop-delete.md):  Start, stop, and delete your Azure Spring Cloud applications. Change an application's state in Azure Spring Cloud by using either the Azure portal or the Azure CLI.
     * [Scale](spring-cloud-howto-scale-manual.md): Scale any microservice application using the Azure Spring Cloud dashboard in the Azure portal or using autoscale settings. Public IPs are available to communicate with external resources, such as databases, storage, and key vaults.

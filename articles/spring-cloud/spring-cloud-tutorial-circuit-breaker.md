@@ -77,6 +77,6 @@ Hystrix metrics streams are also accessible from `test-endpoint`. As a backend s
 As a web app, Hystrix dashboard should be working on `test-endpoint`. If it is not working properly, there may be two reasons: first, using `test-endpoint` changed the base URL from `/ to /<APP-NAME>/<DEPLOYMENT-NAME>`, or, second, the web app is using absolute path for static resource. To get it working on `test-endpoint`, you might need to manually edit the <base>in the front-end files.
 
 ## Next steps
-* [Provision a service instance on the Azure CLI](./spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
-* [Prepare a Java Spring application for deployment in Azure Spring Cloud](./spring-cloud-howto-prepare-app-deployment.md)
+* [Provision a service instance on the Azure CLI](spring-cloud-quickstart.md#provision-an-instance-of-azure-spring-cloud)
+* [Prepare a Java Spring application for deployment in Azure Spring Cloud](how-to-prepare-app-deployment.md)
 
