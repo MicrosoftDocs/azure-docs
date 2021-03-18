@@ -50,24 +50,15 @@ The Spark pool tells Azure Synapse how many Spark resources to use. You only pay
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 
-Data is available in a table in **SQLPOOL1**. Load it into a Spark database named **nyctaxi**.
+Data is available via the dataframe named **data**. Load it into a Spark database named **nyctaxi**.
 
-1. In Synapse Studio, go to the **Develop** hub.
-1. Select **+** > **Notebook**.
-1. On the top of the notebook, set the **Attach to** value to **Spark1**.
-1. In the new notebook's first code cell, and then enter the following code:
+1. Add a new to the notebbook, and then enter the following code:
 
-
-    ```scala
-    %%spark
-    spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
-    val df = spark.read.sqlanalytics("SQLPOOL1.dbo.Trip") 
-    df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
+    ```py
+    data.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
 
-1. Run the script. It may take 2-3 minutes.
-1. On the **Data** hub, in the **Workspace** tab, right-click **Databases**, and then select **Refresh**. You should now see the database **nyctaxi (Spark)** in the list.
 
 
 ## Analyze the NYC Taxi data using Spark and notebooks
