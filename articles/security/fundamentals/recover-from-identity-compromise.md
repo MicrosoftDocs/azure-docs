@@ -1,5 +1,5 @@
 ---
-title: Use Microsoft security resources to recover from advanced system attacks | Microsoft Docs
+title: Use Microsoft security resources to help recover from systemic identity compromise | Microsoft Docs
 description: Learn how to use Microsoft security resources and recommendations to secure your system against systemic-identity compromises similar to the SolarWinds attack (Solorigate).
 services: sentinel
 documentationcenter: na
@@ -18,9 +18,9 @@ ms.author: bagol
 
 ---
 
-# Use Microsoft security resources to recover from advanced system attacks
+# Recovering from systemic identity compromise
 
-This article describes Microsoft resources and recommendations for recovering from advanced attacks against your organization, which may be similar in nature to the [Solorigate](https://aka.ms/solorigate) attack of December 2020.
+This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization, such as the [Solorigate](https://aka.ms/solorigate) attack of December 2020.
 
 > [!IMPORTANT]
 > This information is provided as-is and constitutes generalized guidance; the ultimate determination about how to apply this guidance to your IT environment and tenant(s) must consider your unique environment and needs, which each Customer is in the best position to determine.
