@@ -44,7 +44,7 @@
     - name: Metrics
       href: spring-cloud-concept-metrics.md
     - name: Azure Spring Boot Actuator
-      href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
+      href: concept-manage-monitor-app-spring-boot-actuator.md
 - name: Security
   items:
     - name: Security controls

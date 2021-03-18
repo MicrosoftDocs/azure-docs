@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md",
+      "redirect_url": "/articles/spring-cloud/concept-manage-monitor-app-spring-boot-actuator.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-app-status.md",
       "redirect_url": "/articles/spring-cloud/concept-app-status.md",
       "redirect_document_id": false
