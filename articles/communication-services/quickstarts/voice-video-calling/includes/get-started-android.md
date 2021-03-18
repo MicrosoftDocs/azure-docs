@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add VOIP calling to an Android app using Azure Communication Services
 description: In this tutorial, you learn how to use the Azure Communication Services Calling client library for Android
-author: matthewrobertson
+author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
