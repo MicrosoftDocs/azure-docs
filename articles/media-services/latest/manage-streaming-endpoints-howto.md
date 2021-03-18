@@ -97,7 +97,7 @@ if (streamingEndpoint != null)
     }
 ```
 
-See the complete [.NET code sample](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/DynamicPackagingVODContent/StreamHLSAndDASH/Program.cs#L112).
+See the complete [.NET code sample](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Streaming/StreamHLSAndDASH/Program.cs#L112).
 
 ---
 
