@@ -10,7 +10,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Get started with the client library or REST API
+  - name: Get started with client library or REST API
     href: quickstarts/client-library.md
   - name: Use the sample labeling tool
     href: quickstarts/label-tool.md
@@ -56,14 +56,14 @@
     href: concept-identification-cards.md    
 - name: Tutorials
   items:
+  - name: Extract form data in bulk
+    href: tutorial-bulk-processing.md
   - name: Use Form Recognizer with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Form Recognizer with AI Builder
     href: tutorial-ai-builder.md
   - name: Use Form Recognizer with Azure Functions
     href: tutorial-azure-function.md
-  - name: Extract form data in bulk
-    href: tutorial-bulk-processing.md
 - name: Reference
   items:
   - name: Form Recognizer API v2.1 preview.3
