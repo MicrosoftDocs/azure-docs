@@ -173,6 +173,8 @@
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core
   - name: Digital Twins CLI
     href: /cli/azure/ext/azure-iot/dt
+  - name: DTDL v2 spec
+    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
 - name: Resources
   items:
   - name: Digital Twins service limits
@@ -275,8 +277,6 @@
         href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
   - name: DTDL
     items:
-    - name: DTDL v2 spec
-      href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
     - name: DTDL extension for VS Code
       href: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl
     - name: DTDL parser library - NuGet
