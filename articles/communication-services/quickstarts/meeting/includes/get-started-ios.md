@@ -288,7 +288,7 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 
 ## Add localization support based on your app
 
-The Microsoft Teams SDK supports over hundred strings and resources. The framework bundle contains Base and English languages. The rest of them are included in the Localizations.zip file included with the package.
+The Microsoft Teams SDK supports over 100 strings and resources. The framework bundle contains Base and English languages. The rest of them are included in the `Localizations.zip` file included with the package.
 
 #### Add localizations to the SDK based on what your app supports
 
