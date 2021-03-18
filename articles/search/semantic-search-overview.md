@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 Semantic search is a collection of query-related features that support a higher-quality, more natural query experience. 
 
@@ -68,3 +68,5 @@ A new query type enables the relevance ranking and response structures of semant
 + [Add spell check to query terms](speller-how-to-add.md)
 + [Return a semantic answer](semantic-answers.md)
 + [Semantic ranking](semantic-ranking.md)
++ [Introducing semantic search (blog post)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-semantic-search-bringing-more-meaningful-results-to/ba-p/2175636)
++ [Find meaningful insights using semantic capabilities (AI Show video)](https://channel9.msdn.com/Shows/AI-Show/Find-meaningful-insights-using-semantic-capabilities-in-Azure-Cognitive-Search)
