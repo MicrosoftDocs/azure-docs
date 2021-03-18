@@ -12,8 +12,8 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18, devx-track-azurepowershell"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2020
-ms.author: johndaw
+ms.date: 03/18/2021
+ms.author: keithp
 ---
 
 # Tutorial – Deploying HSMs into an existing virtual network using PowerShell
@@ -64,7 +64,7 @@ The command should return a status of “Registered” (as shown below) before y
 
 ### Creating HSM resources
 
-An HSM device is provisioned into a customers’ virtual network. This implies the requirement for a subnet. A dependency for the HSM to enable communication between the virtual network and physical device is an ExpressRoute Gateway, and finally a virtual machine is required to access the HSM device using the Gemalto client software. These resources have been collected into a template file, with corresponding parameter file, for ease of use. The files are available by contacting Microsoft directly at HSMrequest@Microsoft.com.
+An HSM device is provisioned into a customers’ virtual network. This implies the requirement for a subnet. A dependency for the HSM to enable communication between the virtual network and physical device is an ExpressRoute Gateway, and finally a virtual machine is required to access the HSM device using the Thales client software. These resources have been collected into a template file, with corresponding parameter file, for ease of use. The files are available by contacting Microsoft directly at HSMrequest@Microsoft.com.
 
 Once you have the files, you must edit the parameter file to insert your preferred names for resources. This means editing lines with “value”: “”.
 
@@ -231,14 +231,14 @@ The output should look like the image shown below:
 
 ![Screenshot that shows the output from the hsm show command.](media/tutorial-deploy-hsm-powershell/output.png)
 
-At this point, you have allocated all resources for a highly available, two HSM deployment and validated access and operational state. Any further configuration or testing involves more work with the HSM device itself. For this, you should follow the instructions in the Gemalto Luna Network HSM 7 Administration Guide chapter 7 to initialize the HSM and create partitions. All documentation and software are available directly from Gemalto for download once you are registered in the Gemalto Customer Support Portal and have a Customer ID. Download Client Software version 7.2 to get all required components.
+At this point, you have allocated all resources for a highly available, two HSM deployment and validated access and operational state. Any further configuration or testing involves more work with the HSM device itself. For this, you should follow the instructions in the Thales Luna 7 HSM Administration Guide chapter 7 to initialize the HSM and create partitions. All documentation and software are available directly from Thales for download once you are registered in the [Thales customer support portal](https://supportportal.thalesgroup.com/csm) and have a Customer ID. Download Client Software version 7.2 to get all required components.
 
 ## Delete or clean up resources
 
 If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. The best way to "zeroize" a device is to get the HSM admin password wrong 3 times (note: this is not appliance admin, it's the actual HSM admin). As a safety measure to protect key material, the device cannot be deleted as an Azure resource until it is in the zeroized state.
 
 > [!NOTE]
-> if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
+> if you have issue with any Thales device configuration you should contact [Thales customer support](https://supportportal.thalesgroup.com/csm).
 
 If you want to remove the HSM resource in Azure you can use the following command replacing the "$" variables with your unique parameters:
 
