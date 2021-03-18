@@ -129,8 +129,14 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 
 ---
 
-## Part 2: Special network configuration
+## Part 1: Special network configuration
 
-Azure Arc enabled servers integrates with several Azure services to bring cloud management and governance to your hybrid servers. Most of these services already offer private endpoints, but you will need to configure your firewall and routing rules to allow access to Azure Active Directory and Azure Resource Manager over the Internet until these services offer private endpoints.
+Azure Arc enabled servers integrates with several Azure services to bring cloud management and governance to your hybrid servers. Most of these services already offer private endpoints, but you need to configure your firewall and routing rules to allow access to Azure Active Directory and Azure Resource Manager over the Internet until these services offer private endpoints.
 
 There are two ways you can achieve this:
+
+1. If your network is configured to route all Internet-bound traffic through the Azure VPN or Express Route circuit, you can configure the network security group associated with your subnet in Azure to allow outbound TCP 443 (HTTPS) access to AAD and ARM using [service tags](../../virtual-network/service-tags-overview.md). The NSG rules should look like the following:
+
+|Setting |Azure AD rule | Azure Resource Manager rule |
+|--------|--------------|-----------------------------|
+
