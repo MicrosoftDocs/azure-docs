@@ -187,7 +187,7 @@ In addition to advanced management and security features, SQL Database provides 
 
 ## Migration assets 
 
-For more assistance, see the following resources that were developed for real world migration projects.
+For more assistance, see the following resources that were developed for real-world migration projects.
 
 |Asset  |Description  |
 |---------|---------|
