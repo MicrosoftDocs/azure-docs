@@ -40,6 +40,8 @@ This section provides steps for deleting your Automation account based on the tw
 
 If your Automation account is not linked to a Log Analytics workspace, perform the following steps to delete it.
 
+# [Azure portal](#tab/azure-portal)
+
 1. Sign in to Azure at [https://portal.azure.com](https://portal.azure.com).
 
 2. In the Azure portal, navigate to **Automation Accounts**.
@@ -47,6 +49,16 @@ If your Automation account is not linked to a Log Analytics workspace, perform t
 3. Open your Automation account and select **Delete** from the menu.
 
 While the information is verified and the account is deleted, you can track the progress under **Notifications**, chosen from the menu.
+
+# [PowerShell](#tab/azure-powershell)
+
+This command removes the Automation account without prompting for validation.
+
+```powershell
+Remove-AzAutomationAccount -Name "automationAccountName" -Force -ResourceGroupName "resourceGroupName"
+```
+
+---
 
 ### Standalone Automation account linked to workspace
 
@@ -78,11 +90,25 @@ While it attempts to unlink the Automation account, you can track the progress u
 
 ### Delete Automation account
 
-1. In the Azure portal, navigate to **Automation Accounts**.
+# [Azure portal](#tab/azure-portal)
 
-2. Open your Automation account and select **Delete** from the menu.
+1. Sign in to Azure at [https://portal.azure.com](https://portal.azure.com).
+
+2. In the Azure portal, navigate to **Automation Accounts**.
+
+3. Open your Automation account and select **Delete** from the menu.
 
 While the information is verified and the account is deleted, you can track the progress under **Notifications**, chosen from the menu.
+
+# [PowerShell](#tab/azure-powershell)
+
+This command removes the Automation account without prompting for validation.
+
+```powershell
+Remove-AzAutomationAccount -Name "automationAccountName" -Force -ResourceGroupName "resourceGroupName"
+```
+
+---
 
 ### Shared capability Automation account
 
@@ -134,11 +160,25 @@ While it attempts to unlink the Automation account, you can track the progress u
 
 ### Delete Automation account
 
-1. In the Azure portal, navigate to **Automation Accounts**.
+# [Azure portal](#tab/azure-portal)
 
-2. Open your Automation account and select **Delete** from the menu.
+1. Sign in to Azure at [https://portal.azure.com](https://portal.azure.com).
+
+2. In the Azure portal, navigate to **Automation Accounts**.
+
+3. Open your Automation account and select **Delete** from the menu.
 
 While the information is verified and the account is deleted, you can track the progress under **Notifications**, chosen from the menu.
+
+# [PowerShell](#tab/azure-powershell)
+
+This command removes the Automation account without prompting for validation.
+
+```powershell
+Remove-AzAutomationAccount -Name "automationAccountName" -Force -ResourceGroupName "resourceGroupName"
+```
+
+---
 
 ## Next steps
 
