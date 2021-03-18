@@ -49,6 +49,16 @@ RECONFIGURE WITH OVERRIDE;
 
 For details on how this command affects SQL Managed Instance resources, see [Resource Governance](machine-learning-services-differences.md#resource-governance).
 
+### Enable Machine Learning Services in a failover group
+
+In a [failover group](failover-group-add-instance-tutorial.md), system databases are not replicated to the secondary instance (see [Limitations of failover groups](../database/auto-failover-group-overview.md#limitations-of-failover-groups) for more information).
+
+If the Managed Instance you're using is part of a failover group, do the following:
+
+- Run the `sp_configure` and `RECONFIGURE` commands on each instance of the failover group to enable Machine Learning Services.
+
+- Install the R/Python libraries on a user database rather than the master database.
+
 ## Next steps
 
 - See the [key differences from SQL Server Machine Learning Services](machine-learning-services-differences.md).
