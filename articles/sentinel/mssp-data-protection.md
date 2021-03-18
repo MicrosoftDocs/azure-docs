@@ -1,6 +1,6 @@
 ---
-title: `Managed security service providers (MSSPs):` Protect your Azure Sentinel data | Microsoft Docs
-description: Learn about how  managed security service providers (MSSPs) can protect their Azure Sentinel data.
+title: Protecting managed security service provider (MSSPs) intellectual property in Azure Sentinel | Microsoft Docs
+description: Learn about how  managed security service providers (MSSPs) can protect the intellectual property they've created in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: batamig
@@ -19,12 +19,11 @@ ms.date: 03/11/2021
 ms.author: bagol
 
 ---
-# MSSPs: Protecting your Azure Sentinel intellectual property
+# Protecting MSSP intellectual property in Azure Sentinel
 
 This article describes several methods that managed security service providers (MSSPs) can use to protect intellectual property they've developed in Azure Sentinel, such as Azure Sentinel analytics rules, hunting queries, playbooks, and workbooks.
 
-
-## Protect intellectual property: Cloud Solutions Providers (CSP)
+## Cloud Solutions Providers (CSP)
 
 If you're reselling Azure as a Cloud Solutions Provider (CSP), you're managing the customer's Azure subscription. Specified users from your MSSP tenant are granted with **Owner** access to the customer's Azure subscription, and the customer has no access by default.
 
@@ -54,7 +53,7 @@ In this image, the users granted with **Owner** access are the users in the Admi
 
 For more information, also see the [Azure Lighthouse documentation](/azure/lighthouse/concepts/cloud-solution-provider).
 
-## Protect intellectual property: Enterprise Agreements (EA) / Pay-as-you-go (PAYG)
+## Enterprise Agreements (EA) / Pay-as-you-go (PAYG)
 
 If your customer is buying directly from Microsoft, the customer already has full access to the Azure environment, and you cannot hide anything that's in the customer's Azure subscription.
 
