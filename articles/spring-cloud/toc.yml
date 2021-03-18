@@ -60,7 +60,7 @@
     - name: Develop
       items:
         - name: Prepare a Java Spring app for deployment
-          href: spring-cloud-howto-prepare-app-deployment.md
+          href: how-to-prepare-app-deployment.md
         - name: Set up a Config Server
           href: spring-cloud-howto-config-server.md
         - name: Enable Service Registration

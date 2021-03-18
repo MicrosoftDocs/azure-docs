@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-prepare-app-deployment.md",
+      "redirect_url": "/articles/spring-cloud/how-to-prepare-app-deployment.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/tutorial-govern-resources.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/tutorial-govern-resources",
       "redirect_document_id": false
