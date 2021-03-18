@@ -17,7 +17,7 @@ ms.custom: mvc, devx-track-azurecli
 
 This tutorial shows you how create a Azure App Service Web app with Azure Database for PostgreSQL - Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
-In this tutorial you will
+In this tutorial you will learn how to:
 >[!div class="checklist"]
 > * Create a PostgreSQL flexible server in a virtual network
 > * Create a subnet to delegate to App Service
