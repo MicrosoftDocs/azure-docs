@@ -209,6 +209,11 @@
       "branch": "main"
     },   
     {
+      "path_to_root": "azure-functions-dotnet-worker-test",
+      "url": "https://github.com/ggailey777/azure-functions-dotnet-worker",
+      "branch": "snippets"
+    },
+    {
       "path_to_root": "azure-functions-templates-v3",
       "url": "https://github.com/Azure/azure-functions-templates",
       "branch": "v3.x"

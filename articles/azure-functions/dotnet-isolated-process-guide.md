@@ -73,11 +73,15 @@ The following code shows an example of a `HostBuilder` pipeline:
 
 A `HostBuilder` is used to build and return a fully initialized `IHost` instance, which you run asynchronously to start your function app. 
 
+ConfigureFunctionsWorkerDefaults
+
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
 ### Configuration
 
-Having access to the host builder pipeline means that you can set any app-specific configurations during initialization. These configurations apply to your function app running in a separate process. To make changes to the functions host or trigger and binding configuration, you'll still need to use the [host.json file](functions-host-json.md).      
+Having access to the host builder pipeline means that you can set any app-specific configurations during initialization. These configurations apply to your function app running in a separate process. To make changes to the functions host or trigger and binding configuration, you'll still need to use the [host.json file](functions-host-json.md).   
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/FunctionApp/Program.cs" id="docsnippet_configure_defaults" :::   
 
 <!--The following example shows how to add configuration `args`, which are read as command-line arguments: 
  
@@ -103,13 +107,15 @@ The following example injects a singleton service dependency:
 
 To learn more, see [Dependency injection in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
-<!--### Middleware
+### Middleware
 
 .NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
 
+The `ConfigureFunctionsWorkerDefaults` extension method lets you register   
+
 While the full middleware registration set of APIs is not yet exposed, we do support middleware registration and have added an example to the sample application under the Middleware folder.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::-->
+:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
 
 ## Execution context
 
