@@ -59,7 +59,7 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
 1. Build your app if required by your application.
 
-    Run `npm build`, or the equivalent command for your project.
+    Run `npm run build`, or the equivalent command for your project.
 
 1. Start the CLI.
 
