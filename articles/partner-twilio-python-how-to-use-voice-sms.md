@@ -82,7 +82,7 @@ First, [set-up a new Azure Linux VM][azure_vm_setup] to act as a host for your n
 ### Add An Incoming Rule
   1. Go to the [Network Security Group][azure_nsg] page.
   2. Select the Network Security Group that corresponds with your Virtual Machine.
-  3. Add and **Outgoing Rule** for **port 80**. Be sure to allow incoming from any address.
+  3. Add an **Outgoing Rule** for **port 80**. Be sure to allow incoming from any address.
 
 ### Set the DNS Name Label
   1. Go to the [The Public IP Addresses][azure_ips] page.
@@ -147,6 +147,9 @@ call = client.calls.create(to=to_number,
                            url=url + urlencode({'Message': message}))
 print(call.sid)
 ```
+
+> [!IMPORTANT]
+> Phone numbers should be formatted with a '+' and country code e.g., +16175551212 (E.164 format). Twilio will also accept unformatted US numbers e.g., (415) 555-1212 or 415-555-1212.
 
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Web Site](#howto_provide_twiml_responses).
 
