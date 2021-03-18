@@ -19,11 +19,11 @@ Translator is a cloud-based machine translation service and is part of the [Azur
 
 This documentation contains the following topic types:  
 
-✔ [**Quickstarts**](quickstart-translator.md) are step-by-step instructions that enable you to make API calls to the service and get results in a short period of time.  
-✔ [**How-to guides**](translator-how-to-signup.md) contain instructions for using the service in more specific or customized ways.  
-✔ [**Concepts**](character-counts.md) provide in-depth explanations of the service functionality and features.  
-✔ [**Tutorials**](tutorial-wpf-translation-csharp.md) are longer guides that show you how to use the service as a component in broader business solutions.  
-✔ [**Reference**](reference/v3-0-reference.md) provide capability and configuration specifications for REST APIs.
+* [**Quickstarts**](quickstart-translator.md) are step-by-step instructions that enable you to make API calls to the service and get results in a short period of time.  
+* [**How-to guides**](translator-how-to-signup.md) contain instructions for using the service in more specific or customized ways.  
+* [**Concepts**](character-counts.md) provide in-depth explanations of the service functionality and features.  
+* [**Tutorials**](tutorial-wpf-translation-csharp.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+
 
 ## About Microsoft Translator
 

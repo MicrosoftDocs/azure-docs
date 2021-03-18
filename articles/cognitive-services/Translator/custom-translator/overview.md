@@ -21,10 +21,10 @@ Custom Translator supports more than three dozen languages, and maps directly to
 
 This documentation contains the following topic types:
 
-✔ [**Quickstarts**](quickstart-build-deploy-custom-model.md) are step-by-step instructions that enable you to make API calls to the feature and get results in a short period of time.  
-✔ [**How-to guides**](how-to-create-project.md) contain instructions for using the feature in more specific or customized ways.  
-✔ [**Concepts**](workspace-and-project.md) provide in-depth explanations of the feature functionality.  
-✔ [**Reference**](../reference/v3-0-reference.md) provide capability and configuration specifications for REST APIs.
+* [**Quickstarts**](quickstart-build-deploy-custom-model.md) are step-by-step instructions that enable you to make API calls to the feature and get results in a short period of time.  
+* [**How-to guides**](how-to-create-project.md) contain instructions for using the feature in more specific or customized ways.  
+* [**Concepts**](workspace-and-project.md) provide in-depth explanations of the feature functionality.  
+
 
 ## Features
 
