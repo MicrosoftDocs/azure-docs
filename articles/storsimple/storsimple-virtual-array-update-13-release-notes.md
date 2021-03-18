@@ -26,9 +26,11 @@ Update 1.3 corresponds to software version 10.0.10319.0.
 This update contains the following improvements:KB4540725
 
 - Transport Layer Security (TLS) 1.2 is a mandatory update and must be installed. From this release onward, TLS 1.2 becomes the standard protocol for all Azure portal communication.
+  
+   If you see the following warning, you must update the software on the device before proceeding: "One or more StorSimple devices are running an older software version. The latest available update for TLS 1.2 is a mandatory update and should be installed immediately on these devices. TLS 1.2 is used for all Azure portal communication and without this update, the device won’t be able to communicate with the StorSimple service."<!--Text matches Include file, but the Important format feels like overkill, and there's no way to indent the note, which relates directly to the bullet above.-->
+
 - Garbage collection bug fixes improve the performance of the garbage collection cycle when the device and storage account are in two distant regions.
 - Fix for backup failures due to blob timeouts.
-- Warnings of required updates for older software on the device. Warning appears in the Azure portal. User must install the updates before managing the device.
 - Updated OS/.NET framework security patches:
   - [KB4540725](https://support.microsoft.com/topic/servicing-stack-update-for-windows-8-1-rt-8-1-and-server-2012-r2-march-10-2020-cfa082a3-0b58-a8a3-7dc7-ab424de91b86): March 2020 SSU (Servicing Stack Update)
   - [KB4565541](https://support.microsoft.com/topic/july-14-2020-kb4565541-monthly-rollup-fed6b2b1-3d23-5981-34df-9215a8d8ce01): July 2020 rollup
