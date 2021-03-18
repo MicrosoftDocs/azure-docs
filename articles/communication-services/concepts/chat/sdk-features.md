@@ -21,8 +21,8 @@ Azure Communication Services Chat client libraries can be used to add rich, real
 
 The following list presents the set of features which are currently available in the Communication Services chat client libraries.	
 
-| Group of features | Capability                                                                                                          | JavaScript  | Java | .NET | Python | iOS | Android | 	
-| ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ----- | ---- | -----  | ---- | -----  |	
+| Group of features | Capability | JavaScript  | Java | .NET | Python | iOS | Android |
+| ----------------- | ------------------- | --- | ----- | ---- | -----  | ---- | -----  |	
 | Core Capabilities | Create a chat thread between 2 or more users (up to 250 users)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |	
 |                   | Update the topic of a chat thread                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |	
 |                   | Add or remove participants from a chat thread                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
@@ -42,6 +42,7 @@ The following list presents the set of features which are currently available in
 | Event Grid support             | Use integration with Azure Event Grid and configure your communication service to execute business logic based on chat activity or to plug in a custom push notification service   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 | Monitoring        | Use the API request metrics emitted in the Azure portal to build dashboards, monitor the health of your chat app, and set alerts to detect abnormalities      | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
 |                   | Configure your Communication Services resource to receive chat operational logs for monitoring and diagnostic purposes          | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
+
 
 **The proprietary signalling package is implemented using web sockets. It will fallback to long polling if web sockets are unsupported.	
 
