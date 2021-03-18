@@ -27,7 +27,7 @@ The Azure Dedicated HSM service has two distinct facets. Firstly, the registrati
 
 ## HSM Registration
 
-Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use a whitelisting process via email using HSMrequest@microsoft.com. 
+Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use a allowlisiting process via email using HSMrequest@microsoft.com. 
 
 ### Getting access to Dedicated HSM
 
