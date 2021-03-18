@@ -102,7 +102,7 @@ Set the style name to `AppTheme` in both your `theme.xml` and `theme.xml (night)
 
 ### Add permissions to application manifest
 
-Declare the required permissions in your Application Manifest (`app/src/main/AndroidManifest.xml`).  
+Add the `RECORD_AUDIO` permission to your Application Manifest (`app/src/main/AndroidManifest.xml`):  
 
 Add the `RECORD_AUDIO` permission.
 
