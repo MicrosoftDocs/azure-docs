@@ -132,7 +132,7 @@ Command Result : 0 (Success)
 ## Alternative to using Global VNET Peering
 There are a couple of architectures you can use as an alternative to Global VNet peering.
 1.	Use [Vnet-to-Vnet VPN Gateway Connection](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 
-2.	Connect HSM VNET with another VNET with an ER circuit (This works best when a direct on-premises path is required) or VPN VNET. 
+2.	Connect HSM VNET with another VNET with an ER circuit. This works best when a direct on-premises path is required or VPN VNET. 
 
 ![Diagram shows HSM with direct Express Route connectivity](media/networking/expressroute-connectivity.png)
 
