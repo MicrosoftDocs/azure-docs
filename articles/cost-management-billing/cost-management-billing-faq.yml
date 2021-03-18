@@ -19,6 +19,42 @@ sections:
         answer: |
           Answer.
 
+  - name: EA subscription ownership questions
+    questions:
+      - question: Can I associate my existing Azure account to Azure EA enrollment?
+        answer: |
+          Yes. All Azure subscriptions for which you're the account owner will be converted to your Enterprise Agreement. Included are subscriptions that use monthly credit such as Visual Studio, AzurePass, MPN, BizSpark, and more. You will lose monthly credit when converting such subscriptions.
+      - question: How many Azure account owners can you have per subscription?
+        answer: |
+          Only one account owner is permitted per subscription.  Additional roles can be added using Role-Based Access or (Access Control (IAM)) in the subscription tab in the upper left corner of the page of the [Azure portal](https://portal.azure.com).
+      - question: Is it possible to transfer subscription ownership to another account?
+        answer: |
+          Yes, you can transfer subscription ownership to different account. For example, if an Account A has three subscriptions, the enterprise administrator is able to transfer one subscription to Account B, one to Account C, and one to Account D. Or they can transfer all subscriptions to Account E.
+          
+          To transfer subscriptions:
+          
+          1. In the Azure Enterprise portal, select **Manage** > **Account**.
+          1. Hover over **Account** on the far right to see the **Transfer Ownership** (person icon) and **Transfer Subscription** (list icon) options. These options are only visible for active accounts.
+      - question: Can an Azure account owner be listed under more than one department?
+        answer: |
+          No, an account owner can only be associated to a single department. The policy helps ensure accurate monitoring and apportioning of costs and spending associated to the department it's aligned with under the EA enrollment in the Azure EA Portal.
+      - question: Can an Azure account owner be listed as a security group?
+        answer: |
+          No, a subscription owner must be a unique Microsoft account (MSA) or Azure Active Directory (Azure AD) authentication. To account for succession within your organization, you may consider creating generic accounts and using Azure AD to manage subscription access.
+      - question: Can an individual user own multiple subscriptions?
+        answer: |
+          An Azure account owner can create and manage an unlimited number of subscriptions.
+      - question: How can I access/view all my organization's subscriptions?
+        answer: |
+          Today this must be done by policy; meaning you would need to require that for every subscription created, your account is added to a subscription role using role-based access.
+      - question: Where do I go to create a subscription?
+        answer: |
+          Before you can create an enterprise Azure (EA) offer subscription, your account must be added to the role of account owner by your EA enrollment's administrator in the Azure EA Portal. You'll then need to sign in to the Azure EA Portal to obtain your entitlement to create EA offer type subscriptions. We recommend that your first EA subscription is created from the '+ Add Subscription' link in the subscription tab on the EA Portal.  However, once your account is entitled it may be easier to create subscriptions in portal.azure.com in the subscription tab in the upper left corner of the page, where you can both create and rename your subscription in a single step.
+      - question: Who can create a subscription?
+        answer: |
+          To create an enterprise Azure offer type subscription, you must be entitled in the role of account owner on the [EA portal](https://ea.azure.com).
+
+
   - name: Azure Marketplace billing questions
     questions:
       - question: What changed with Azure Marketplace services and Azure EA Prepayment?
