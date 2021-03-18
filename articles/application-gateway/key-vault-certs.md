@@ -45,13 +45,13 @@ Application Gateway integration with Key Vault requires a three-step configurati
    You then either import an existing certificate or create a new one in your key vault. The certificate will be used by applications that run through the application gateway. In this step, you can also use a Key Vault Secret which also allows storing a password-less, base-64 encoded PFX file. We recommend using a “Certificate” type because of the autorenewal capability that's available with this type of objects in the Key Vault. After you've created a Certificate or a Secret, you must define Access Policies in the Key Vault to allow the identity to be granted get access to the secret.
    
    > [!IMPORTANT]
-   > Starting March 15th 2021, the Key Vault recognizes Azure Application Gateway as one of the Trusted Services. This essentially gives you an ability to allow traffic to Key Vault only from the selected networks and still make it accessible for Application Gateway resource without any special network configuration. 
+   > Starting March 15th 2021, Key Vault recognizes Azure Application Gateway as one of the Trusted Services, thus allowing you to build a secure network boundary in Azure. This gives you an ability to deny access to traffic from all networks (including internet traffic) to Key Vault but still make it accessible for Application Gateway resource under your subscription. 
 
-   > For restricted network settings in Key Vault, you can configure it as shown to allow access to Application Gateway.  
-   > a) Under Key Vault’s Networking blade <br/> 
-   > b) choose Private endpoint and selected networks <br/>
-   > c) select Application Gateway’s virtual network and subnet. Also, configuration of ‘Microsoft.KeyVault' service endpoint is required while adding the subnet. <br/>
-   > d)  Select “Yes” to allow Trusted Services to bypass Key Vault’s firewall. <br/>
+   > You can configure your Application Gateway in a restricted network of Key Vault in the following manner. <br />
+   > a) Under Key Vault’s Networking blade <br />
+   > b) choose Private endpoint and selected networks in "Firewall and Virtual Networks" tab <br/>
+   > c) then using Virtual Networks, add your Application Gateway’s virtual network and Subnet. During the process also configure ‘Microsoft.KeyVault' service endpoint by selecting its checkbox. <br/>
+   > d) Finally, select “Yes” to allow Trusted Services to bypass Key Vault’s firewall. <br/>
    > <img width="1446" alt="AGW-KV-TrustedServices" src="https://user-images.githubusercontent.com/80025770/111464898-68772a80-8747-11eb-88aa-44f8e6bc59dc.png">
 
 
