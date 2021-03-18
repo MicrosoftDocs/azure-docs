@@ -84,9 +84,9 @@ Statistics on a country or region column in a customer table might never need to
 
 However, when your data warehouse only contains one country or region and you bring in data from a new country or region, then you need to update statistics on the country or region column.
 
-The following are recommendations updating statistics:
+The following are recommendations for updating statistics:
 
-|||
+|Type|Recommendation|
 |-|-|
 | **Frequency of stats updates**  | Conservative: Daily </br> After loading or transforming your data |
 | **Sampling** |  Less than 1 billion rows, use default sampling (20 percent). </br> With more than 1 billion rows, use sampling of two percent. |
