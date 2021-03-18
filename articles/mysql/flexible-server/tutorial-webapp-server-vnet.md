@@ -17,7 +17,7 @@ ms.custom: mvc, devx-track-azurecli
 
 This tutorial shows you how create a Azure App Service Web App with  MySQL Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
-In this tutorial you will learn
+In this tutorial you will learn how to:
 >[!div class="checklist"]
 > * Create a MySQL flexible server in a virtual network
 > * Create a subnet to delegate to App Service
