@@ -18,9 +18,9 @@ ms.reviewer: jrasnick
 
 ## Industry-leading SQL
 
-* **Synapse SQL** is a distributed query system for T-SQL that enables data warehousing and data virtualization 
-scenarios and extends T-SQL to address streaming and machine learning scenarios.
-* Synapse SQL offers both **serverless** and **dedicated** resource models, offering consumption and billing options to fit your needs. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
+**Synapse SQL** is a distributed query system for T-SQL that enables data warehousing and data virtualization scenarios and extends T-SQL to address streaming and machine learning scenarios.
+
+* Synapse SQL offers both **serverless** and **dedicated** resource models. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables
 * Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
@@ -33,7 +33,7 @@ scenarios and extends T-SQL to address streaming and machine learning scenarios.
 * Fast Spark start-up and aggressive autoscaling.
 * Built-in support for .NET for Spark allowing you to reuse your C# expertise and existing .NET code within a Spark application.
 
-## Interop of SQL and Apache Spark on your Data Lake
+## Working with your Data Lake
 
 Azure Synapse removes the traditional technology barriers between using SQL and Spark together. You can seamlessly mix and match based on your needs and expertise.
 
@@ -43,7 +43,7 @@ Azure Synapse removes the traditional technology barriers between using SQL and 
 
 ## Built-in data integration via pipelines
 
-Azure Synapse comes built-in with the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
+Azure Synapse contains the same Data Integration engine and experiences as Azure Data Factory, allowing you to create rich at-scale ETL pipelines without leaving Azure Synapse Analytics.
 
 * Ingest data from 90+ data sources
 * Code-Free ETL with Data flow activities
