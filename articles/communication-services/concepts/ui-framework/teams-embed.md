@@ -1,7 +1,7 @@
 ---
 title: UI Framework Teams Embed
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to join an Teams meeting with the Azure Communication Calling SDK
+description: In this document, you'll learn how the Azure Communication Services UI Framework Teams Embed capability can be used to build turnkey calling experiences.
 author: tophpalmer
 ms.author: chpalm
 ms.date: 11/16/2020
