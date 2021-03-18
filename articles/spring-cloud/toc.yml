@@ -38,17 +38,17 @@
 - name: Concepts
   items:
     - name: App and deployment
-      href: spring-cloud-concept-understand-app-and-deployment.md
+      href: concept-understand-app-and-deployment.md
     - name: Quotas and limits
       href: spring-cloud-quotas.md
     - name: Metrics
-      href: spring-cloud-concept-metrics.md
+      href: concept-metrics.md
     - name: Azure Spring Boot Actuator
       href: concept-manage-monitor-app-spring-boot-actuator.md
 - name: Security
   items:
     - name: Security controls
-      href: spring-cloud-concept-security-controls.md
+      href: concept-security-controls.md
     - name: Azure Policy Security controls
       href: ./security-controls-policy.md
     - name: Understand app status

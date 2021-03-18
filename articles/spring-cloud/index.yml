@@ -72,7 +72,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Understanding Azure Monitor Metrics for Spring Cloud
-            url: spring-cloud-concept-metrics.md
+            url: concept-metrics.md
 
   # Card
   - title: Bind with other services

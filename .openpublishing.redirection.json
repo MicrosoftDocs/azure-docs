@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-understand-app-and-deployment.md",
+      "redirect_url": "/articles/spring-cloud/concept-understand-app-and-deployment.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-security-controls.md",
+      "redirect_url": "/articles/spring-cloud/concept-security-controls.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-metrics.md",
+      "redirect_url": "/articles/spring-cloud/concept-metrics.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md",
       "redirect_url": "/articles/spring-cloud/concept-manage-monitor-app-spring-boot-actuator.md",
       "redirect_document_id": false
