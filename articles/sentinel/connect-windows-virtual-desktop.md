@@ -19,18 +19,30 @@ ms.author: bagol
 ---
 # Connect Windows Virtual Desktop data to Azure Sentinel
 
-This article describes how to connect your Windows Virtual Desktop data into Azure Sentinel. 
+This article describes how you can monitor your Windows Virtual Desktop environments using Azure Sentinel.
 
-Windows Virtual Desktop data is streamed into Sentinel via Log Analytics, and includes Windows event logs, Microsoft Defender Advanced Threat Protection (MDATP) alerts, and diagnostic logs from the WVD PaaS service itself.
+For example, monitoring your Windows Virtual Desktop environments can enable you to provide more remote work using virtualized desktops, while maintaining your organization's security posture.
+
+## Windows Virtual Desktop and Azure Sentinel architecture
+
+The following image shows how data is streamed into Azure Sentinel via Log Analytics:
+
+:::image type="content" source="media/windows-virtual-desktop-integration/windows-virtual-desktop-queries.png" alt-text="Windows Virtual Desktop data streaming into Azure Sentinel via Log Analytics.":::
+
+Windows Virtual Desktop data in Azure Sentinel includes the following types:
+
+|Data type  |Description  |
+|---------|---------|
+|**Windows event logs**     |  Windows event logs from the WVD environment are streamed into Azure Sentinel in the same manner as Windows event logs from other Windows machines outside of the WVD environment. <br><br>For more information, see [Connect Windows security events](connect-windows-security-events.md).  |
+|**Microsoft Defender for Endpoint (MDE) alerts**     |  To configure MDE for Windows Virtual Desktop, use the same procedure as you would for any other Windows endpoint. <br><br>For more information, see [Connect alerts from Microsoft Defender for Endpoint](/azure/sentinel/connect-microsoft-defender-advanced-threat-protection)       |
+|**Windows Virtual Desktop diagnostics**     |  Windows Virtual Desktop diagnostics is a feature of the Windows Virtual Desktop PaaS service, which logs information whenever someone assigned Windows Virtual Desktop role uses the service. <br><Br>Each log contains information about which Windows Virtual Desktop role was involved in the activity, any error messages that appear during the session, tenant information, and user information. <br><br>The diagnostics feature creates activity logs for both user and administrative actions.|
+|     |         |
 
 ## Connect Windows Virtual Desktop data
 
-Use the following sets of instructions from the Windows Virtual Desktop documentation:
+To start streaming Windows Virtual Desktop data into Azure Sentinel, use the instructions from the Windows Virtual Desktop documentation:
 
-
-1. [Configure Azure Monitor for Windows Virtual Desktop to monitor your deployment](/azure/virtual-desktop/azure-monitor).
-
-1. [Push Windows Virtual Desktop data to your Log Analytics workspace](/azure/virtual-desktop/diagnostics-log-analytics).
+[Push Windows Virtual Desktop data to your Log Analytics workspace](/azure/virtual-desktop/diagnostics-log-analytics).
 
 ## Find your data
 
