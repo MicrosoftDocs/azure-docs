@@ -10,6 +10,8 @@ ms.author: jgol
 
 # Configuring JMX metrics
 
+Application insights Java 3.0 agent collects some of the JMX metrics by default, but in many cases this is not enough. This document describes in the JMX configuration option in details.
+
 ## How do I collect additional JMX metrics?
 
 JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. You have to define the object name and attribute for each of the metrics you want collected.
