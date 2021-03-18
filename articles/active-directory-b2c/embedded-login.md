@@ -84,7 +84,7 @@ div.api_container{
 
 In some cases, you might want to notify to your application of which Azure AD B2C page is currently being presented. For example, when a user selects the sign-up option, you might want the application to respond by hiding the links for signing in with a social account or adjusting the iframe size.
 
-To notify your application of the current Azure AD B2C page, [enable your policy for JavaScript](javascript-samples.md), and then use HTML5 post messages. The following JavaScript code sends a post message to the app with `signUp`:
+To notify your application of the current Azure AD B2C page, [enable your policy for JavaScript](./javascript-and-page-layout.md), and then use HTML5 post messages. The following JavaScript code sends a post message to the app with `signUp`:
 
 ```javascript
 window.parent.postMessage("signUp", '*');
@@ -152,5 +152,5 @@ See the following related articles:
 
 - [User interface customization](customize-ui.md)
 - [RelyingParty](relyingparty.md) element reference
-- [Enable your policy for JavaScript](javascript-samples.md)
+- [Enable your policy for JavaScript](./javascript-and-page-layout.md)
 - [Code samples](code-samples.md)
