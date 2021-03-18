@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ---
 
 # Create and monitor Media Services events with Event Grid using the Azure CLI
 
-[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+[!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-Azure Event Grid is an eventing service for the cloud. This service uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Media Services events contain all the information you need to respond to changes in your data. You can identify a  Media Services event because the eventType property starts with "Microsoft.Media.". For more information, see [Media Services event schemas](media-services-event-schemas.md).
+Azure Event Grid is an eventing service for the cloud. This service uses [event subscriptions](../../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. Media Services events contain all the information you need to respond to changes in your data. You can identify a  Media Services event because the eventType property starts with "Microsoft.Media.". For more information, see [Media Services event schemas](media-services-event-schemas.md).
 
 In this article, you use the Azure CLI to subscribe to events for your Azure Media Services account. Then, you trigger events to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, you send the events to a web app that collects and displays the messages.
 
@@ -29,7 +29,7 @@ In this article, you use the Azure CLI to subscribe to events for your Azure Med
 
     Currently, not all [Media Services v3 CLI](/cli/azure/ams) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
-- [Create a Media Services account](./create-account-howto.md).
+- [Create a Media Services account](../create-account-howto.md).
 
     Make sure to remember the values that you used for the resource group name and Media Services account name.
 
@@ -46,7 +46,7 @@ Before subscribing to the events for the Media Services account, let's create th
 
 If you switch to the "Azure Event Grid Viewer" site, you see it has no events yet.
    
-[!INCLUDE [event-grid-register-provider-portal.md](../../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [event-grid-register-provider-portal.md](../../../../includes/event-grid-register-provider-portal.md)]
 
 ## Set the Azure subscription
 
@@ -96,15 +96,15 @@ Now, let's trigger events to see how Event Grid distributes the message to your 
 
 ## Send an event to your endpoint
 
-You can trigger events for the Media Services account by running an encoding job. You can follow [this quickstart](stream-files-dotnet-quickstart.md) to encode a file and start sending events. 
+You can trigger events for the Media Services account by running an encoding job. You can follow [this quickstart](../stream-files-dotnet-quickstart.md) to encode a file and start sending events. 
 
-View your web app again, and notice that a subscription validation event has been sent to it. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The endpoint has to set `validationResponse` to `validationCode`. For more information, see [Event Grid security and authentication](../../event-grid/security-authentication.md). You can view the web app code to see how it validates the subscription.
+View your web app again, and notice that a subscription validation event has been sent to it. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The endpoint has to set `validationResponse` to `validationCode`. For more information, see [Event Grid security and authentication](../../../event-grid/security-authentication.md). You can view the web app code to see how it validates the subscription.
 
 > [!TIP]
 > Select the eye icon to expand the event data. Do not refresh the page, if you want to view all the events.
 
-![View subscription event](./media/monitor-events-portal/view-subscription-event.png)
+![View subscription event](../media/monitor-events-portal/view-subscription-event.png)
 
 ## Next steps
 
-[Upload, encode, and stream](stream-files-tutorial-with-api.md)
+[Upload, encode, and stream](../stream-files-tutorial-with-api.md)
