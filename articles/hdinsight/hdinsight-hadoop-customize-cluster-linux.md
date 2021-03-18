@@ -19,15 +19,17 @@ A script action is Bash script that runs on the nodes in an HDInsight cluster. C
 
 - Must be stored on a URI that's accessible from the HDInsight cluster. The following are possible storage locations:
 
-    - For regular (non-ESP) clusters:
-      - Data Lake Storage Gen1/Gen2: The service principal HDInsight uses to access Data Lake Storage must have read access to the script. The URI format for scripts stored in Data Lake Storage Gen1 is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`. 
-      - A blob in an Azure Storage account that's either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
+- For regular (non-ESP) clusters:
+  - A blob in an Azure Storage account that's either the primary or additional storage account for the HDInsight cluster. HDInsight is granted access to both of these types of storage accounts during cluster creation.
+  - Data Lake Storage Gen1/Gen2: The service principal HDInsight uses to access Data Lake Storage must have read access to the script. 
+    - For Data Lake Storage Gen1, the Bash script URI format is `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`. 
+    - For Data Lake Storage Gen2, the Bash script URI format is `https://` URI with a [SAS token](../storage/blobs/data-lake-storage-access-control-model.md#shared-key-and-shared-access-signature-sas-authorization). However, `abfs://` URIs are not supported for script actions at this time.  The storage container has to be public, without the firewall enabled. For example, `https://storagesample.blob.core.windows.net/scriptaction/myscript.sh?sp=r&st=2021-03-17T00:00:00Z&se=2022-03-17T00:00:00Z&spr=https&sv=2020-03-17&sr=b&sig=yoursignature`.  
 
-        > [!IMPORTANT]  
-        > Do not rotate the storage key on this Azure Storage account, as it will cause subsequent script actions with scripts stored there to fail.
+    > [!IMPORTANT]  
+    > Do not rotate the storage key on this Azure Storage account, as it will cause subsequent script actions with scripts stored there to fail.
 
-      - A public file-sharing service accessible through `http://` paths. Examples are Azure Blob, GitHub, or OneDrive. For example URIs, see [Example script action scripts](#example-script-action-scripts).
-    - For clusters with ESP, the `wasb://` or `wasbs://` or `http[s]://` URIs are supported.
+  - A public file-sharing service accessible through `http://` paths. Examples are Azure Blob, GitHub, or OneDrive. For example URIs, see [Example script action scripts](#example-script-action-scripts).
+   - For clusters with ESP, the `wasb://` or `wasbs://` or `http[s]://` URIs are supported.
 
 - Can be restricted to run on only certain node types. Examples are head nodes or worker nodes.
 - Can be persisted or *ad hoc*.
