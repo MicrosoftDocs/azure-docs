@@ -28,7 +28,10 @@ After a guest user has redeemed your invitation for B2B collaboration, there mig
 To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while retaining the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UPN of the user doesn't change, but the user's sign-in name changes to the new email. The user can subsequently sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
 ## Reset the email address used for sign-in
-1. Ensure that you the email address used you are reseting to is on the user object, either in the `mail` or `otherMails` property. 
+
+If a user wants to sign in using a different email:
+
+1. Make sure the new email address is added to the `mail` or `otherMails` property of the user object. 
 2. Perform the reset operation on the user ensuring that the new email is specified in as the `InvitedUserEmailAddress`.
 
 > [!NOTE]
