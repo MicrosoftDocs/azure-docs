@@ -52,7 +52,7 @@
     - name: Azure Policy Security controls
       href: ./security-controls-policy.md
     - name: Understand app status
-      href: spring-cloud-concept-app-status.md
+      href: concept-app-status.md
     - name: Plan for disaster recovery
       href: disaster-recovery.md
 - name: How-to guides

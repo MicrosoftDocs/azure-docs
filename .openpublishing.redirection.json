@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-concept-app-status.md",
+      "redirect_url": "/articles/spring-cloud/concept-app-status.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-access-app-virtual-network.md",
+      "redirect_url": "/articles/spring-cloud/access-app-virtual-network.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-prepare-app-deployment.md",
       "redirect_url": "/articles/spring-cloud/how-to-prepare-app-deployment.md",
       "redirect_document_id": false
