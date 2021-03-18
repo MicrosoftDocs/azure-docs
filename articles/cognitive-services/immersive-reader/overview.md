@@ -75,10 +75,3 @@ Immersive Reader is a standalone web application. When invoked using the Immersi
 The Immersive Reader client library is available in C#, JavaScript, Java (Android),  Kotlin (Android), and Swift (iOS). Get started with:
 
 * [Quickstart: Use the Immersive Reader client library](quickstarts/client-libraries.md)
-
-## Next steps
-
-Get started with Immersive Reader:
-
-* Read the [Immersive Reader client library Reference](./reference.md)
-* Explore the [Immersive Reader client library on GitHub](https://github.com/microsoft/immersive-reader-sdk)
