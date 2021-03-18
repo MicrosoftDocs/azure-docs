@@ -263,7 +263,7 @@ CASE 3: If only the source cluster is with Enhanced Writes feature:
    hdfs dfs -cp <source-container-fullpath>/hbase-wal-backup/hbasewal/WALs <source-container-fullpath>/hbase-wals
    ```
 
-1. In the destination cluster, in the hdfs user context, copy the folder /hdp/apps/<new-version-name> and its contents from <destination-container-fullpath> to the /hdp/apps under <source-container-fullpath>. This can be achieved by running the below command on the destination cluster:
+12. In the destination cluster, using the hdfs user context, copy the folder /hdp/apps/<new-version-name> and its contents from <destination-container-fullpath> to the /hdp/apps under <source-container-fullpath>. This can be achieved by running the below command on the destination cluster:
    
    Then execute the following commands depending on the destination cluster version:
    
@@ -272,19 +272,18 @@ CASE 3: If only the source cluster is with Enhanced Writes feature:
    
    For example:
    sudo -u hdfs hdfs dfs -cp /hdp/apps/4.1.3.6 <source-container-fullpath>/hdp/apps
-   ```bash
-	
-	
-1. On the destination cluster, save your changes and restart all required services as indicated by Ambari.
+    ```	
+   
+13. On the destination cluster, save your changes and restart all required services as indicated by Ambari.
 
-1. Point your application to the destination cluster.
+14. Point your application to the destination cluster.
 
     > [!NOTE]  
     > The static DNS for your application changes when upgrading. Rather than hard-coding this DNS, you can configure a CNAME in your domain name's DNS settings that points to the cluster's name. Another option is to use a configuration file for your application that you can update without redeploying.
 
-1. Start the ingestion to see if everything is functioning as expected.
+15. Start the ingestion to see if everything is functioning as expected.
 
-1. If the destination cluster is satisfactory, delete the source cluster.
+16. If the destination cluster is satisfactory, delete the source cluster.
     
 ## Next steps
 
