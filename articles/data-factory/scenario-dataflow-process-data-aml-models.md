@@ -32,7 +32,7 @@ The AutoML project includes the following three data processing scenarios:
 
 * Split the training dataset and the test dataset.
     
-    The training dataset will be used for a training model. The test dataset will be used to evaluate models in a machine learning project. The mapping data flows Conditional split activity would split training data and test data.
+    The training dataset will be used for a training model. The test dataset will be used to evaluate models in a machine learning project. The Conditional split activity for mapping data flows would split training data and test data.
 
 * Remove unqualified data.
 
@@ -58,8 +58,8 @@ CREATE TABLE [dbo].[MyProducts](
 
 The following data flow will convert a SQL Database table to a Parquet file format:
 
-- **Source dataset**: Transaction table of SQL Database
-- **Sink dataset**: Blob storage with Parquet format
+- **Source dataset**: Transaction table of SQL Database.
+- **Sink dataset**: Blob storage with Parquet format.
 
 ## Remove unqualified data based on row count
 
