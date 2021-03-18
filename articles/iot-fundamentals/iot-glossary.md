@@ -115,7 +115,7 @@ The IoT Plug and Play device certification program verifies that a device meets 
 
 ### Device model
 
-A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-components.md).
+A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-components.md).
 
 ### Device builder
 
@@ -123,7 +123,7 @@ A device builder uses a [device model](#device-model) and [interfaces](#interfac
 
 ### Device modeling
 
-A [device builder](#device-builder) or [module builder](#module-builder)uses the [Digital Twins Definition Language](#digital-twins-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). A [solution builder](#solution-builder) can configure an IoT solution from the model.
+A [device builder](#device-builder) or [module builder](#module-builder)uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). A [solution builder](#solution-builder) can configure an IoT solution from the model.
 
 ### Desired configuration
 
@@ -183,7 +183,7 @@ A [direct method](../iot-hub/iot-hub-devguide-direct-methods.md) is a way for yo
 
 ### Digital twin
 
-A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language (DTDL)](#digital-twins-definition-language) to represent digital twins of physical devices or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin solutions. An [IoT Plug and Play](../iot-pnp/index.yml) device has a digital twin, described by a DTDL [device model](#device-model).
+A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language (DTDL)](#digital-twins-definition-language-dtdl) to represent digital twins of physical devices or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin solutions. An [IoT Plug and Play](../iot-pnp/index.yml) device has a digital twin, described by a DTDL [device model](#device-model).
 
 ### Digital twin change events
 
@@ -249,7 +249,7 @@ An interactive message is a [cloud-to-device](#cloud-to-device) message that tri
 
 In IoT Plug and Play, an interface describes related capabilities that are implemented by a [IoT Plug and Play device](#iot-plug-and-play-device) or [digital twin](#digital-twin). You can reuse interfaces across different [device models](#device-model). When an interface is used in a device model, it defines a [component](#component) of the device. A simple device only contains a default interface.
 
-In Azure Digital Twins, *interface* may be used to refer to the top level code item in a [DTDL](#digital-twins-definition-language) model definition.
+In Azure Digital Twins, *interface* may be used to refer to the top level code item in a [DTDL](#digital-twins-definition-language-dtdl) model definition.
 
 ### IoT Edge
 
@@ -367,13 +367,13 @@ In Azure Digital Twins, this type of event is fired when a data item—such as a
 
 ### Model
 
-A model defines a type of entity in your physical environment, including its properties, telemetries, components, and sometimes other information. Models are used to create [digital twins](#digital-twin) that represent specific physical objects of this type. Models are written in the [Digital Twins Definition Language](#digital-twins-definition-language).
+A model defines a type of entity in your physical environment, including its properties, telemetries, components, and sometimes other information. Models are used to create [digital twins](#digital-twin) that represent specific physical objects of this type. Models are written in the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl).
 
 In the [Azure Digital Twins service](../digital-twins/index.yml), models can define devices or higher-level abstract business concepts. In [IoT Plug and Play](../iot-pnp/index.yml), [device models](#device-model) are used to describe devices specifically.
 
 ### Model ID
 
-When an IoT Plug and Play device connects to an IoT Hub, it sends the **Model ID** of the [DTDL](#digital-twins-definition-language) model it implements. This ID enables the solution to find the device model.
+When an IoT Plug and Play device connects to an IoT Hub, it sends the **Model ID** of the [DTDL](#digital-twins-definition-language-dtdl) model it implements. This ID enables the solution to find the device model.
 
 ### Model repository
 
@@ -437,7 +437,7 @@ A protocol gateway is typically deployed in the cloud and provides protocol tran
 
 ### Relationship
 
-In the [Azure Digital Twins](../digital-twins/index.yml) service, relationships are used to connect [digital twins](#digital-twin) into knowledge graphs that digitally represent your entire physical environment. The types of relationships that your twins can have are defined as part of the twins' [model](#model) definitions—the [DTDL](#digital-twins-definition-language) model for a certain type of twin includes information about what relationships it can have to other twins.
+In the [Azure Digital Twins](../digital-twins/index.yml) service, relationships are used to connect [digital twins](#digital-twin) into knowledge graphs that digitally represent your entire physical environment. The types of relationships that your twins can have are defined as part of the twins' [model](#model) definitions—the [DTDL](#digital-twins-definition-language-dtdl) model for a certain type of twin includes information about what relationships it can have to other twins.
 
 ### Reported configuration
 
