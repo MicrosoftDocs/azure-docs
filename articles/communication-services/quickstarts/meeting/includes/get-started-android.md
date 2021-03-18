@@ -63,7 +63,7 @@ Then unzip the MicrosoftTeamsSDK folder into your projects app folder. Ex. `Team
 
 ### Add Teams Embed package to your build.gradle
 
-In your app level build.gradle add the following line at the end of the file.
+In your app-level `build.gradle` add the following line at the end of the file:
 
 ```groovy
 apply from: 'MicrosoftTeamsSDK/MicrosoftTeamsSDK.gradle'
