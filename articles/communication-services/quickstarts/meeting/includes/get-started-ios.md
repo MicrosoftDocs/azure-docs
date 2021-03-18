@@ -66,7 +66,7 @@ end
 
 ### Request access to the microphone, camera, etc.
 
-In order to access the device's microphone, camera, etc, you need to update your app's Information Property List. You set the associated value to a `string` that will be included in the dialog the system uses to request access from the user.
+To access the device's hardware, update your app's Information Property List. Set the associated value to a `string` that will be included in the dialog the system uses to request access from the user.
 
 Right-click the `Info.plist` entry of the project tree and select **Open As** > **Source Code**. Add the following lines the top level `<dict>` section, and then save the file.
 
