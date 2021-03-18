@@ -5,9 +5,7 @@
   items:
   - name: What is the Azure Certified Device program?
     href: overview.md
-- name: Quickstarts
-  expanded: true
-  items:
+
 
 - name: Tutorials
   items:
