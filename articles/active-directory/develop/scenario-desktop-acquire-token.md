@@ -131,7 +131,7 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 
 # [Node.js](#tab/nodejs)
 
-In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). MSAL Node uses an in-memory token cache to see if there are any user accounts in the cache. If there is, the account object can be passed `acquireTokenSilent()` API to retrieve a cached access token.
+In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). MSAL Node uses an in-memory token cache to see if there are any user accounts in the cache. If there is, the account object can be passed to the `acquireTokenSilent()` method to retrieve a cached access token.
 
 ```JavaScript
 
@@ -454,7 +454,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 # [Node.js](#tab/nodejs)
 
-In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). The process has two steps: first, the application obtains a URL that can be used to generate an authorization code. This URL can be opened in a browser of choice, where the user can input their credentials, and will be redirected back to the `redirectUri` (registered during the app registration) with an authorization code. Second, The application passes the authorization code received as a part of the above step and exchanges it for a token.
+In MSAL Node, you acquire tokens via authorization code flow with Proof Key for Code Exchange (PKCE). The process has two steps: first, the application obtains a URL that can be used to generate an authorization code. This URL can be opened in a browser of choice, where the user can input their credentials, and will be redirected back to the `redirectUri` (registered during the app registration) with an authorization code. Second, the application passes the authorization code received to the `acquireTokenByCode()` method which exchanges it for an access token.
 
 ```JavaScript
 const msal = require("@azure/msal-node");
@@ -998,7 +998,7 @@ This flow isn't supported on MSAL for macOS.
 
 # [Node.js](#tab/nodejs)
 
-This extract is from the [MSAL Node dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/username-password).
+This extract is from the [MSAL Node dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/username-password). In the code snippet below, the username and password are hardcoded for illustration purposes only. This should be avoided in production. Instead, a basic UI prompting the user to enter her username/password would be recommended. 
 
 ```JavaScript
 const msal = require("@azure/msal-node");
@@ -1012,6 +1012,8 @@ const msalConfig = {
 
 const pca = new msal.PublicClientApplication(msalConfig);
 
+// For testing, enter your username and password below.
+// In production, replace this with a UI prompt instead.
 const usernamePasswordRequest = {
     scopes: ["user.read"],
     username: "", // Add your username here
