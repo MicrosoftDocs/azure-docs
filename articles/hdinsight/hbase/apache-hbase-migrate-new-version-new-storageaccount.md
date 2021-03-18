@@ -214,7 +214,7 @@ CASE 2 - MIGRATING FROM ONPREMISE OR OTHER CLOUDS:
 
 If your source cluster is in on-premise or in other clouds, you could still a similar azcopy command after stopping HBase services on source cluster.
 
-azcopy copy '&lt;local-folder-path&gt;' 'https://&lt;destination-account&gt;.<blob or dfs>.core.windows.net/&lt;destination-storage-container&gt;' --recursive=true
+azcopy copy '&lt;local-folder-path&gt;' 'https://&lt;destination-account&gt;.&lt;blob or dfs&gt;.core.windows.net/&lt;destination-storage-container&gt;' --recursive=true
 
 <local-folder-path> is the rootdirectory of your hbase source cluster. This can be found from property "hbase.rootdir" in the hbase-site.xml file. If this field is not configured in your source cluster, the default would be /hbase.
 
