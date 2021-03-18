@@ -80,15 +80,17 @@ workspace('<customer-workspace>').SecurityEvent
 
 When adding a workspace statement to your analytics rules, consider the following:
 
-- Using this method means that there are no alerts in the customer's workspace, and therefore no incidents either. Both alerts and incidents will exist in your, MSSP workspace only.
+- **No alerts in the customer workspace**. Using this method means that there are no alerts in the customer's workspace, and therefore no incidents either. Both alerts and incidents will exist in your, MSSP workspace only.
 
-- This method also requires that you use a separate alert for each customer and detection, as the workspace statement will be different in each case. You can add the customer name to the alert rule name to easily identify the customer when the alert is triggered. This may result in a large number of rules, which you might want to manage using scripting, or [Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
+- **Create separate alerts for each customer**. This method also requires that you use a separate alert for each customer and detection, as the workspace statement will be different in each case. 
+
+    You can add the customer name to the alert rule name to easily identify the customer when the alert is triggered. This may result in a large number of rules, which you might want to manage using scripting, or [Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
 
     For example:
 
     :::image type="content" source="media/mssp-protect-intellectual-property/mssp-rules-per-customer.png" alt-text="Create separate rules in your MSSP workspace for each customer.":::
 
-- Creating separate rules for each customer and detection may cause you to reach the maximum number of analytics rules for your workspace. If you have many customers and expect to reach this limit, you may want to create a separate MSSP workspace for each customer.
+- **Create separate MSSP workspaces for each customer**. Creating separate rules for each customer and detection may cause you to reach the maximum number of analytics rules for your workspace. If you have many customers and expect to reach this limit, you may want to create a separate MSSP workspace for each customer.
 
     For example:
 
