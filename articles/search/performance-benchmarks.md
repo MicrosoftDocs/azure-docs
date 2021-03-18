@@ -1,10 +1,23 @@
+---
+title: Performance benchmarks
+titleSuffix: Azure Cognitive Search
+description: Learn about the performance of Azure Cognitive Search through various performance benchmarks
+author: dereklegenzoff
+manager: luisca
+ms.author: delegenz
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 03/18/2021
+---
+
+
 # Azure Cognitive Search performance benchmarks
 
 Azure Cognitive Search's performance depends on a variety of factors including the size of your search service and the types of queries you're sending. In order to help estimate the size of search service needed for your workload, we've run several benchmarks to document the performance for different search services and configurations. These benchmarks in no way guarantee a certain level of performance from your service but can give you an idea of the level of performance you can expect.
 
 To cover a range of different use cases we ran benchmarks for three main scenarios:
 
-* **E-commerce search** - This benchmark emulates a real e-commerce scenario and is based on the nordic e-commerce company [CDON](https://cdon.com).
+* **E-commerce search** - This benchmark emulates a real e-commerce scenario and is based on the Nordic e-commerce company [CDON](https://cdon.com).
 * **Document search** - This scenario is comprised of keyword search over full text documents representing typical document search.
 * **Application search** - Simpler than the e-commerce scenario, this benchmark emulates searching over SQL or Cosmos DB data from within an application.
 
@@ -13,13 +26,13 @@ While these scenarios reflect different use cases, every scenario is different s
 
 ## Testing methodology
 
-To benchmark Azure Cognitive Search's performance, we ran tests for three different scenarios at a variety of SKUs and replica/partition combinations.
+To benchmark Azure Cognitive Search's performance, we ran tests for three different scenarios at different SKUs and replica/partition combinations.
 
-To create these benchmarks, the following methodolgy was used:
+To create these benchmarks, the following methodology was used:
 
 1. The test begins at `X` QPS (usually 5 or 10 QPS) for 180 seconds 
 2. QPS then increased by `X` and ran for another 180 seconds
-3. Every 180 seconds, the test increated by `X` QPS until average latency increased above 1000ms or less than 99% of queries succeeded.
+3. Every 180 seconds, the test increased by `X` QPS until average latency increased above 1000 ms or less than 99% of queries succeeded.
 
 The graph below gives a visual example of what the test's query load looks like:
 
@@ -27,11 +40,11 @@ The graph below gives a visual example of what the test's query load looks like:
 
 Each scenario used at least 10,000 unique queries to avoid tests being overly skewed by caching.
 
-Note that these tests only include query workloads so when planning you'll also need to consider how high your indexing load will be. 
+> These tests only include query workloads so when planning you'll also need to consider how high your indexing load will be. 
 
 ### Definitions
 
-- **Maximum QPS** -  the maximum QPS numbers below are based on the highest QPS achieved in a test where 99% of queries completed successfuly without throttling and average latency stayed under 1000ms.
+- **Maximum QPS** -  the maximum QPS numbers below are based on the highest QPS achieved in a test where 99% of queries completed successfully without throttling and average latency stayed under 1000 ms.
 
 - **Percentage of max QPS** - A percentage of the maximum QPS achieved for a particular test. For example, if a given test reached a maximum of 100 QPS, 20% of max QPS would be 20 QPS.
 
@@ -47,7 +60,14 @@ If you have any questions or concerns, please reach out to us at azuresearch_con
 
 ## Benchmark 1: E-commerce search
 
-This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway and Denmark. They offers a wide range assortment that includes over 8 millions of products. In 2019, CDON had over 100 million visitors and 2 million active customers.
+:::row:::
+   :::column span="":::
+     <img src="./media/performance-benchmarks/cdon-logo-320x100.png" alt="CDON Logo" width="150"/>
+   :::column-end:::
+   :::column span="":::
+      This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers.
+   :::column-end:::
+:::row-end:::
 
 To run these tests, we used a snapshot of CDON's production search index and thousands of unique queries from their [website](https://cdon.com).
 
@@ -72,9 +92,9 @@ Query latency varies based on the load of the service and services under higher 
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
-| 20%  | 104ms  | 35ms  | 115ms   | 177ms | 257ms | 738ms |
-| 50%  | 140ms  | 47ms  | 144ms   | 241ms | 400ms | 1175ms |
-| 80%  | 239ms  | 77ms  | 248ms   | 466ms | 763ms | 1752ms | 
+| 20%  | 104 ms  | 35 ms  | 115 ms   | 177 ms | 257 ms | 738 ms |
+| 50%  | 140 ms  | 47 ms  | 144 ms   | 241 ms | 400 ms | 1175 ms |
+| 80%  | 239 ms  | 77 ms  | 248 ms   | 466 ms | 763 ms | 1752 ms | 
 
 
 ### S2 Performance
@@ -91,9 +111,9 @@ Query latency varies based on the load of the service and services under higher 
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
-| 20%  | 56ms | 21ms | 68ms  | 106ms  | 132ms | 210ms | 
-| 50%  | 71ms  | 26ms  | 83ms   | 132ms | 177ms | 329ms |
-| 80%  | 140ms  | 47ms  | 153ms   | 293ms | 452ms | 924ms | 
+| 20%  | 56 ms | 21 ms | 68 ms  | 106 ms  | 132 ms | 210 ms | 
+| 50%  | 71 ms  | 26 ms  | 83 ms   | 132 ms | 177 ms | 329 ms |
+| 80%  | 140 ms  | 47 ms  | 153 ms   | 293 ms | 452 ms | 924 ms | 
 
 ### S3 Performance
 
@@ -103,7 +123,7 @@ The chart below shows the highest query load a service could handle for an exten
 
 ![Highest maintainable QPS](./media/performance-benchmarks/s3-ecom-qps.png)
 
-In this case, we see that adding a second partition signficantly increases the maximum QPS but adding a third partition provides diminishing marginal returns.
+In this case, we see that adding a second partition significantly increases the maximum QPS but adding a third partition provides diminishing marginal returns. The smaller improvement is likely because all of the data is already being pulled into the S3's active memory with just two partitions.
 
 #### Query latency
 
@@ -111,9 +131,9 @@ Query latency varies based on the load of the service and services under higher 
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
-| 20%  | 50ms  | 20ms  | 64ms   | 83ms | 98ms | 160ms |
-| 50%  | 62ms  | 24ms  | 80ms   | 107ms | 130ms | 253ms |
-| 80%  | 115ms  | 38ms  | 121ms   | 218ms | 352ms | 828ms | 
+| 20%  | 50 ms  | 20 ms  | 64 ms   | 83 ms | 98 ms | 160 ms |
+| 50%  | 62 ms  | 24 ms  | 80 ms   | 107 ms | 130 ms | 253 ms |
+| 80%  | 115 ms  | 38 ms  | 121 ms   | 218 ms | 352 ms | 828 ms | 
 
 ## Benchmark 2: Document search
 
@@ -139,9 +159,9 @@ Query latency varies based on the load of the service and services under higher 
 
 | Percentage of max QPS  | Average latency | 25% | 75% | 90% | 95% | 99%|
 |---|---|---|---| --- | --- | --- | 
-| 20%  | 44ms  | 31ms  | 54ms   | 73ms | 83ms | 108ms |
-| 50%  | 63ms  | 39ms  | 81ms   | 105ms | 122ms | 163ms |
-| 80%  | 115ms  | 73ms  | 144ms   | 190ms | 222ms | 289ms | 
+| 20%  | 44 ms  | 31 ms  | 54 ms   | 73 ms | 83 ms | 108 ms |
+| 50%  | 63 ms  | 39 ms  | 81 ms   | 105 ms | 122 ms | 163 ms |
+| 80%  | 115 ms  | 73 ms  | 144 ms   | 190 ms | 222 ms | 289 ms | 
 ## Benchmark 3: Application search
 
 
