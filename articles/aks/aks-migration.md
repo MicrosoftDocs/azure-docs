@@ -109,7 +109,7 @@ Stateless application migration is the most straightforward case. Apply your res
 Carefully plan your migration of stateful applications to avoid data loss or unexpected downtime.
 
 If you use Azure Files, you can mount the file share as a volume into the new cluster:
-* [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-the-file-share-as-a-volume)
+* [Mount Static Azure Files as a Volume](./azure-files-volume.md#mount-file-share-as-an-persistent-volume)
 
 If you use Azure Managed Disks, you can only mount the disk if unattached to any VM:
 * [Mount Static Azure Disk as a Volume](./azure-disk-volume.md#mount-disk-as-volume)

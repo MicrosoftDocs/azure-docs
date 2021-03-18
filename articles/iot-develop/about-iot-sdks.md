@@ -102,7 +102,7 @@ These SDKs can run on any device that can support a higher-order language runtim
 * [GitHub Repository](https://github.com/Azure/azure-iot-sdk-node)
 * [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)
 * [Package](https://www.npmjs.com/package/azure-iot-device)
-* [Reference Documentation](/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest&preserve-view=true)
+* [Reference Documentation](/javascript/api/azure-iot-device/)
 * [Edge Module Reference Documentation](/javascript/api/azure-iot-device/moduleclient)
 
 #### Python Device SDK
@@ -111,7 +111,7 @@ These SDKs can run on any device that can support a higher-order language runtim
 * [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples)
 * [Package](https://pypi.org/project/azure-iot-device/)
 * [Reference Documentation](/python/api/azure-iot-device)
-* [Edge Module Reference Documentation](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python&preserve-view=true)
+* [Edge Module Reference Documentation](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient)
 
 ### Service SDKs
 Azure IoT also offers service SDKs that enable you to build solution-side applications to manage devices, gain insights, visualize data, and more. These SDKs are specific to each Azure IoT service and are available in C#, Java, JavaScript, and Python to simplify your development experience. 
@@ -126,7 +126,7 @@ The IoT Hub service SDKs allow you to build applications that easily interact wi
 
 **Java IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-java/tree/master/service) | [Package](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-service-sdk) | [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples) | [Reference Documentation](/java/api/com.microsoft.azure.sdk.iot.service)
 
-**JavaScript IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [Package](https://www.npmjs.com/package/azure-iothub) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [Reference Documentation](/javascript/api/azure-iothub/?view=azure-iot-typescript-latest&preserve-view=true)
+**JavaScript IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-node/tree/master/service) | [Package](https://www.npmjs.com/package/azure-iothub) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | [Reference Documentation](/javascript/api/azure-iothub/)
 
 **Python IoT Hub Service SDK**: [GitHub Repository](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub) | [Package](https://pypi.python.org/pypi/azure-iot-hub/) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub/samples) | [Reference Documentation](/python/api/azure-iot-hub)
 
@@ -142,7 +142,7 @@ Azure Digital Twins is a platform as a service (PaaS) offering that enables the 
 
 **Node.js ADT Service SDK**: [GitHub Repository](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core) | [Package](https://www.npmjs.com/package/@azure/digital-twins-core) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core/samples) | [Reference Documentation](/javascript/api/@azure/digital-twins-core/)
 
-**Python ADT Service SDK**: [GitHub Repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core) | [Package](https://pypi.org/project/azure-digitaltwins-core/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core/samples) | [Reference Documentation](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true)
+**Python ADT Service SDK**: [GitHub Repository](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core) | [Package](https://pypi.org/project/azure-digitaltwins-core/) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core/samples) | [Reference Documentation](/python/api/azure-digitaltwins-core/azure.digitaltwins.core)
 
 #### Device Provisioning Service
 

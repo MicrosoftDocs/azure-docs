@@ -16,15 +16,23 @@ ms.date: 12/31/2020
 
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
 
+## Create a serverless Apache Spark pool
+
+1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
+1. Select **New** 
+1. For **Apache Spark pool name** enter **Spark1**.
+1. For **Node size** enter **Small**.
+1. For **Number of nodes** Set the minimum to 3 and the maximum to 3
+1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
+
+The Spark pool tells Azure Synapse how many Spark resources to use. You only pay for the resources that you use. When you actively stop using the pool, the resources automatically time out and are recycled.
+
 ## Analyze NYC Taxi data in blob storage using Spark
 
-1. In the **Data** hub, click the **+** button to **Add a new resource**, then click >> **Browse gallery**. 
-1. Find **NYC Taxi & Limousine Commission - yellow taxi trip records** and click on it. 
-1. On the bottom of the page press **Continue**, then **Add dataset**. 
-1. After a moment, in **Data** hub under **Linked**, right-click on **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** and select **New notebook**, then **Load to Data Frame**.
-1. This will create a new Notebook with the following code:
+1. In Synapse Studio go to the **Develop** hub
+2. Create a newnNotebook with the default language set to **PySpark (Python)**.
+3. Create a new code cell and paste the following code into that cell.
     ```
-
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
@@ -42,24 +50,15 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 
-Data is available in a table in **SQLPOOL1**. Load it into a Spark database named **nyctaxi**.
+Data is available via the dataframe named **data**. Load it into a Spark database named **nyctaxi**.
 
-1. In Synapse Studio, go to the **Develop** hub.
-1. Select **+** > **Notebook**.
-1. On the top of the notebook, set the **Attach to** value to **Spark1**.
-1. In the new notebook's first code cell, and then enter the following code:
+1. Add a new to the notebbook, and then enter the following code:
 
-
-    ```scala
-    %%spark
-    spark.sql("CREATE DATABASE IF NOT EXISTS nyctaxi")
-    val df = spark.read.sqlanalytics("SQLPOOL1.dbo.Trip") 
-    df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
+    ```py
+    data.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
 
-1. Run the script. It may take 2-3 minutes.
-1. On the **Data** hub, in the **Workspace** tab, right-click **Databases**, and then select **Refresh**. You should now see the database **nyctaxi (Spark)** in the list.
 
 
 ## Analyze the NYC Taxi data using Spark and notebooks
@@ -110,4 +109,4 @@ df.write.sqlanalytics("SQLPOOL1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze data with serverless SQL pool](get-started-analyze-sql-on-demand.md)
+> [Analyze data with dedicated SQL pool](get-started-analyze-sql-pool.md)

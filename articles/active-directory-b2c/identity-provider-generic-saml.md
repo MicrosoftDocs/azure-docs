@@ -202,9 +202,16 @@ The following example shows a URL address for the SAML metadata of an Azure AD B
 https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
 ```
 
+When using a [custom domain](custom-domain.md), use the following format:
+
+```
+https://your-domain-name/<your-tenant-name>.onmicrosoft.com/<your-policy>/samlp/metadata?idptp=<your-technical-profile>
+```
+
 Replace the following values:
 
-- **your-tenant** with your tenant name, such as your-tenant.onmicrosoft.com.
+- **your-tenant-name** with your tenant name, such as your-tenant.onmicrosoft.com.
+- **your-domain-name** with your custom domain name, such as login.contoso.com.
 - **your-policy** with your policy name. For example, B2C_1A_signup_signin_adfs.
 - **your-technical-profile** with the name of your SAML identity provider technical profile. For example, Contoso-SAML2.
 

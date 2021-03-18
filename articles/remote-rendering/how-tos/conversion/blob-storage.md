@@ -60,7 +60,7 @@ To start converting a model, you need to upload it, using one of the following o
 
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on azure blob storage
 - [Azure command line](../../../storage/blobs/storage-quickstart-blobs-cli.md)
-- [Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Azure PowerShell module](/powershell/azure/install-az-ps)
   - see the [Example PowerShell scripts](../../samples/powershell-example-scripts.md)
 - [Using a storage SDK (Python, C# ... )](../../../storage/index.yml)
 - [Using the Azure Storage REST APIs](/rest/api/storageservices/blob-service-rest-api)

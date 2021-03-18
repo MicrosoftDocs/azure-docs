@@ -112,7 +112,10 @@
     - name: Automate responses to recommendations
       displayName: workflow
       href: workflow-automation.md
-    - name: Exempt a resource from a recommendation
+    - name: Disable a recommendation
+      href: tutorial-security-policy.md#disable-security-policies-and-disable-recommendations
+    - name: Exempt recommendations per resource, subscription, or management group
+      displayName: disable
       href: exempt-resource.md
     - name: Create custom security initiatives and policies
       href: custom-security-policies.md
@@ -237,7 +240,8 @@
     href: security-center-partner-integration.md
   - name: Protect network resources
     href: security-center-network-recommendations.md
-  - name: Protect identity and access
+  - name: Enforce and manage MFA
+    displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
     href: security-center-identity-access.md
   - name: Use Security Center's additional threat protections
     href: other-threat-protections.md

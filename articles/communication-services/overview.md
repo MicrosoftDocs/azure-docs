@@ -6,7 +6,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 
@@ -45,8 +45,8 @@ The following resources are a great place to start if you're new to Azure Commun
 | Resource                               |Description                           |
 |---                                    |---                                   |
 |**[Join your calling app to a Teams meeting](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, chat, and screen sharing.|
-|**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|You can begin using Azure Communication Services by using the Azure portal or Communication Services Administration client library to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
-|**[Create your first user access token](./quickstarts/access-tokens.md)**|User access tokens are used to authenticate your services against your Azure Communication Services resource. These tokens are provisioned and reissued using the Communication Services Administration client library.|
+|**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|You can begin using Azure Communication Services by using the Azure portal or Communication Services  client library to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
+|**[Create your first user access token](./quickstarts/access-tokens.md)**|User access tokens are used to authenticate your services against your Azure Communication Services resource. These tokens are provisioned and reissued using the Communication Services  client library.|
 |**[Get a phone number](./quickstarts/telephony-sms/get-phone-number.md)**|You can use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate outbound calls and build SMS communications solutions.|
 |**[Send an SMS from your app](./quickstarts/telephony-sms/send.md)**|The Azure Communication Services SMS client library allows you to send and receive SMS messages from your .NET and JavaScript applications.|
 |**[Get started with voice and video calling](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services allows you to add voice and video calling to your apps using the Calling client library. This library is powered by WebRTC and allows you to establish peer-to-peer, multimedia, real-time communications within your applications.|

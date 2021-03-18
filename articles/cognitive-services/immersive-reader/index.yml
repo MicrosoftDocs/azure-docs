@@ -43,29 +43,20 @@ landingContent:
           url: ./quickstarts/client-libraries.md?pivots=programming-language-kotlin
         - text: Use Swift (iOS)
           url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
-      - linkListType: tutorial
-        links:
-          - text: Android
-            url: tutorial-android.md
-          - text: iOS
-            url: tutorial-ios.md
-          - text: Python
-            url: tutorial-python.md
-          - text: Use multiple Immersive Reader resources
-            url: tutorial-multiple-resources.md
-
   - title: Explore Immersive Reader
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Create an Immersive Reader Resource
             url: how-to-create-immersive-reader.md
+          - text: Use multiple Immersive Reader resources
+            url: how-to-multiple-resources.md
+          - text: Launch the Immersive Reader
+            url: how-to-launch-immersive-reader.md
           - text: Set the cookie policy
             url: how-to/set-cookie-policy.md
           - text: Display math
             url: how-to/display-math.md
-          - text: Launch the Immersive Reader with HTML content
-            url: how-to-launch-with-html.md
           - text: Customize Immersive Reader button
             url: how-to-customize-launch-button.md
           - text: Cache the authentication token

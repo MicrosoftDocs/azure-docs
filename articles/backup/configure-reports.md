@@ -16,8 +16,8 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 
 ## Supported scenarios
 
-- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM). For Azure File share backup, data is displayed for all records created on or after June 1, 2020.
-- For Azure File share backup, data on protected instances is currently not displayed in the reports (defaults to zero for all backup items).
+- Backup reports are supported for Azure VMs, SQL in Azure VMs, SAP HANA in Azure VMs, Microsoft Azure Recovery Services (MARS) agent, Microsoft Azure Backup Server (MABS), and System Center Data Protection Manager (DPM). For Azure File share backup, data is displayed for records created on or after June 1, 2020.
+- For Azure File share backup, data on protected instances is displayed for records created after Feb 1st, 2021 (defaults to zero for older records).
 - For DPM workloads, Backup reports are supported for DPM Version 5.1.363.0 and above and Agent Version 2.0.9127.0 and above.
 - For MABS workloads, Backup reports are supported for MABS Version 13.0.415.0 and above and Agent Version 2.0.9170.0 and above.
 - Backup reports can be viewed across all backup items, vaults, subscriptions, and regions as long as their data is being sent to a Log Analytics workspace that the user has access to. To view reports for a set of vaults, you only need to have reader access to the Log Analytics workspace to which the vaults are sending their data. You don't need to have access to the individual vaults.
@@ -136,17 +136,31 @@ The **Backup Management Type** filter at the top of the tab should have the item
 
 ###### Policy adherence
 
-Using this tab, you can identify whether all of your backup instances have had at least one successful backup every day. You can view policy adherence by time period, or by backup instance.
+Using this tab, you can identify whether all of your backup instances have had at least one successful backup every day. For items with weekly backup policy, you can use this tab to determine whether all backup instances have had at least one successful backup a week.
+
+There are two types of policy adherence views available:
+
+* **Policy Adherence by Time Period**: Using this view, you can identify how many items have had at least one successful backup in a given day and how many have not had a successful backup in that day. You can click on a row to see details of all backup jobs that have been triggered on the selected day. Note that if you increase the time range to a larger value, such as the last 60 days, the grid is rendered in weekly view, and displays the count of all items that have had at least one successful backup on every day in the given week. Similarly, there is a monthly view for larger time ranges.
+
+In the case of items backed up weekly, this grid helps you identify all items that have had at least one successful backup in the given week. For a larger time range, such as the last 120 days, the grid is rendered in monthly view, and displays the count of all items that have had at least one successful backup in every week in the given month. Refer [Conventions used in Backup Reports](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) for more details around daily, weekly and monthly views.
+
+![Policy Adherence By Time Period](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
+
+* **Policy Adherence by Backup Instance**: Using this view, you can policy adherence details at a backup instance level. A cell which is green denotes that the backup instance had at least one successful backup on the given day. A cell which is red denotes that the backup instance did not have even one successful backup on the given day. Daily, weekly and monthly aggregations follow the same behavior as the Policy Adherence by Time Period view. You can click on any row to view all backup jobs on the given backup instance in the selected time range.
+
+![Policy Adherence By Backup Instance](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
 ###### Email Azure Backup reports
 
 Using the **Email Report** feature available in Backup Reports, you can create automated tasks to receive periodic reports via email. This feature works by deploying a logic app in your Azure environment that queries data from your selected Log Analytics (LA) workspaces, based on the inputs that you provide.
 
-Once the logic app is created, you'll need to authorize connections to Azure Monitor Logs and Office 365. To do this, navigate to **Logic Apps** in the Azure portal and search for the name of the task you've created. Selecting the **API connections** menu item opens up the list of API connections that you need to authorize.
+Once the logic app is created, you'll need to authorize connections to Azure Monitor Logs and Office 365. To do this, navigate to **Logic Apps** in the Azure portal and search for the name of the task you've created. Selecting the **API connections** menu item opens up the list of API connections that you need to authorize. [Learn more about how to configure emails and troubleshoot issues](backup-reports-email.md).
 
 ###### Customize Azure Backup reports
 
-Backup Reports uses functions on Azure Monitor logs. These functions operate on data in the raw Azure Backup tables in LA and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries.
+Backup Reports uses [system functions on Azure Monitor logs](backup-reports-system-functions.md). These functions operate on data in the raw Azure Backup tables in LA and return formatted data that helps you easily retrieve information of all your backup-related entities, using simple queries. 
+
+To create your own reporting workbooks using Backup Reports as a base, you can navigate to Backup Reports, click on **Edit** at the top of the report, and view/edit the queries being used in the reports. Refer to [Azure workbooks documentation](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) to learn more about how to create custom reports. 
 
 ## Export to Excel
 
@@ -169,6 +183,8 @@ If you use [Azure Lighthouse](../lighthouse/index.yml) with delegated access to 
 - The report shows details of jobs (apart from log jobs) that were *triggered* in the selected time range.
 - The values shown for **Cloud Storage** and **Protected Instances** are at the *end* of the selected time range.
 - The Backup items displayed in the reports are those items that exist at the *end* of the selected time range. Backup items that were deleted in the middle of the selected time range aren't displayed. The same convention applies for Backup policies as well.
+- If the selected time range spans a period of 30 days of less, charts are rendered in daily view, where there is one data point for every day. If the time range spans a period greater than 30 days and less than (or equal to) 90 days, charts are rendered in weekly view. For larger time ranges, charts are rendered in monthly view. Aggregating data weekly or monthly helps in better performance of queries and easier readability of data in charts.
+- The Policy Adherence grids also follow a similar aggregation logic as described above. However, there are a couple of minor differences. The first difference is that for items with weekly backup policy, there is no daily view (only weekly and monthly views are available). Further, in the grids for items with weekly backup policy, a 'month' is considered as a 4-week period (28 days), and not 30 days, to eliminate partial weeks from consideration.
 
 ## Query load times
 

@@ -2,7 +2,6 @@
 title: Server-side encryption of Azure managed disks
 description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
-
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.author: rogarana
@@ -73,10 +72,6 @@ Temporary disks and ephemeral OS disks are encrypted at rest with platform-manag
 ### Restrictions
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-restrictions](../../includes/virtual-machines-disks-encryption-at-host-restrictions.md)]
-
-#### Supported regions
-
-[!INCLUDE [virtual-machines-disks-encryption-at-host-regions](../../includes/virtual-machines-disks-encryption-at-host-regions.md)]
 
 #### Supported VM sizes
 

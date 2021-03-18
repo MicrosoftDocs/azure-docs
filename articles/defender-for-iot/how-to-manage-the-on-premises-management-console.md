@@ -410,6 +410,20 @@ The following procedure describes how to update the on-premises management conso
 
 1. Select the file that you downloaded from the Defender for IoT **Updates** page.
 
+## Mail server settings
+
+Define SMTP mail server settings for the on-premises management console.
+
+To define:
+
+1. Sign in to the CLI for the on-premises management with administrative credentials.
+1. Type ```nano /var/cyberx/properties/remote-interfaces.properties```.
+1. Select enter. The following prompts appear.
+```mail.smtp_server= ```
+```mail.port=25 ```
+```mail.sender=```
+1. Enter the SMTP server name  and sender and select enter.
+
 ## See also
 
 [Manage sensors from the management console](how-to-manage-sensors-from-the-on-premises-management-console.md)

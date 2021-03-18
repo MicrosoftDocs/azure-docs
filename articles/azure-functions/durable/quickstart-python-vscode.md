@@ -54,22 +54,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 Visual Studio Code installs the Azure Functions Core Tools, if needed. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files.
 
-A requirements.txt file is also created in the root folder. It specifies the Python packages needed to run your function app.
-
-## Update Azure Functions extension bundles version
-
-Python Azure Functions require version 2.x of [Azure Functions extension bundles](../functions-bindings-register.md#access-extensions-in-non-net-languages). Extension bundles are configured in *host.json*.
-
-1. Open *host.json* in the project. Update the extension bundle `version` to `[2.*, 3.0.0)`. This specifies a version range that is greater than or equal to 2.0, and less than 3.0.
-
-    ```json
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
-    }
-    ```
-
-1. VS Code must be reloaded before the updated extension bundle version is reflected. In the command palette, run search for the *Developer: Reload Window* command and run it.
+A *requirements.txt* file is also created in the root folder. It specifies the Python packages needed to run your function app.
 
 ## Install azure-functions-durable from PyPI
 
@@ -79,7 +64,7 @@ When you created the project, the Azure Functions VS Code extension automaticall
 
     ```
     azure-functions
-    azure-functions-durable>=1.0.0b12
+    azure-functions-durable
     ```
 
 1. Open the editor's integrated terminal in the current folder (<kbd>Ctrl+Shift+`</kbd>).

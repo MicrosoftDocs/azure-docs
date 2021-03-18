@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
 ---
 # Create volume replication for Azure NetApp Files
@@ -62,7 +62,7 @@ You can also select an existing NetApp account in a different region.
     * Capacity pool
     * Volume quota
         > [!NOTE] 
-        > It is recommended that the volume quota size mirror that of the source volume.
+        > The volume quota (size) for the destination volume should mirror that of the source volume. If you specify a size that is smaller than the source volume, the destination volume is automatically resized to the source volume size. 
     * Virtual network 
     * Subnet
 

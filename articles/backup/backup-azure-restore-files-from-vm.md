@@ -54,18 +54,18 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 ## Step 2: Ensure the machine meets the requirements before executing the script
 
-After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. If it does, then choose an alternate machine preferably from the same region that meets the requirements.  
+After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine preferably from the same region that meets the requirements**.  
 
 ### Dynamic disks
 
-You can't run the executable script on the VM with any of the following characteristics:
+You can't run the executable script on the VM with any of the following characteristics: Choose an alternate machine
 
 - Volumes that span multiple disks (spanned and striped volumes).
 - Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks.
 
 ### Windows Storage Spaces
 
-You cannot run the downloaded executable on the VM that is configured for Windows Storage Spaces.
+You cannot run the downloaded executable on the same backed-up VM if the backed up VM has Windows Storage Spaces. Choose an alternate machine.
 
 ### Virtual machine backups having large disks
 

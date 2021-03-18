@@ -2,12 +2,12 @@
 title: Windows Server Failover Cluster on Azure VMware Solution vSAN with native shared disks
 description: Set up Windows Server Failover Cluster (WSFC) on Azure VMware Solution and take advantage of solutions requiring WSFC capability.
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/09/2021
 ---
 
 # Windows Server Failover Cluster on Azure VMware Solution vSAN with native shared disks
 
-In this article, we'll walk through setting up Windows Server Failover Cluster on Azure VMware Solution. The implementation in this article is for proof of concept and pilot purposes.
+In this article, we'll walk through setting up Windows Server Failover Cluster on Azure VMware Solution. The implementation in this article is for proof of concept and pilot purposes. We recommend using a Cluster-in-a-Box (CIB) configuration until placement policies are available.
 
 Windows Server Failover Cluster (WSFC), previously known as Microsoft Service Cluster Service (MSCS), is a feature of the Windows Server Operating System (OS). WSFC is a business-critical feature, and for many applications is required. For example, WSFC is required for the following configurations:
 
@@ -140,7 +140,7 @@ The following activities aren't supported and might cause WSFC node failover:
         
       - **Validate Network Communication**. The Cluster Validation test will throw a warning that only one network interface per cluster node is available. You may ignore this warning. Azure VMware Solution provides the required availability and performance needed, since the nodes are connected to one of the NSX-T segments. However, keep this item as part of the Cluster Validation test, as it will validate other aspects of network communication.
 
-16. Create a DRS rule to separate the WSFC VMs cross Azure VMware Solution nodes. Use the following rules: one host-to-VM affinity and one VM-to-VM anti-affinity rule. This way cluster nodes won't run on the same Azure VMware Solution host.
+16. Create a DRS rule to place the WSFC VMs on the same Azure VMware Solution nodes. To do so, you need a host-to-VM affinity rule. This way, cluster nodes will run on the same Azure VMware Solution host. Again, this is for pilot purposes until placement policies are available.
 
     >[!NOTE]
     > For this you need to create a Support Request ticket. Our Azure support organization will be able to help you with this.

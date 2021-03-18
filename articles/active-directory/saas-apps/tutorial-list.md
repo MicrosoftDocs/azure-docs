@@ -6,11 +6,11 @@ author: jeevansd
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: tutorial
+ms.topic: landing-page
 ms.workload: identity
-ms.date: 12/04/2020
+ms.date: 03/09/2021
 ms.author: jeedes
-ms.custom: it-pro
+ms.custom: contperf-fy21q3-portal
 ms.reviewer: celested
 ---
 
