@@ -206,7 +206,8 @@ If you wish to create a new subscription, follow [these steps](https://docs.micr
 
 For a visual walkthrough of the steps described above, please see the following video (setup experience starts at 0:50):
 
-&nbsp;
+</br>
+
 > [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
 
 ## Next steps

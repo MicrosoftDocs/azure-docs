@@ -36,7 +36,8 @@ Through Azure Percept Studio, you can develop custom [vision](./tutorial-nocode-
 
 For custom vision solutions, both object detection and classification AI models are available. Simply upload and tag your training images, which can be taken directly with the Azure Percept Vision SoM of the Azure Percept DK, if desired. Model training and evaluation are easily performed in [Custom Vision](https://www.customvision.ai/), which is part of [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/#overview).
 
-&nbsp;
+</br>
+
 > [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
 
 For custom speech solutions, voice assistant templates are currently available for the following applications:

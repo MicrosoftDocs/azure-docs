@@ -27,7 +27,8 @@ Regardless of if you are a beginner or a more advanced AI model and solution dev
 <!---
 :::image type="content" source="./media/overview-azure-percept-studio/image-flow.png" alt-text="Image capture flow in Azure Percept Studio.":::
 --->
-&nbsp;
+</br>
+
 > [!VIDEO https://www.youtube.com/embed/rZsUuCytZWY]
 
 ## Next steps

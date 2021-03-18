@@ -46,7 +46,8 @@ Once you have received your Azure Percept DK, reference this guide for informati
 
 For a visual demonstration of the devkit assembly, please see 0:00 through 0:50 of the following video:
 
-&nbsp;
+</br>
+
 > [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
 
 ## Next steps
