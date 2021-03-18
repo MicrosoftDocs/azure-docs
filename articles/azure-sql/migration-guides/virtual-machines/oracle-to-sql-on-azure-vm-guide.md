@@ -174,7 +174,7 @@ To publish the schema and migrate the data, follow these steps:
 
    Review the synchronization status: 
 
-   ![Synchronize with Database](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database-review.png)
+   ![Review synchronization status](./media/oracle-to-sql-on-azure-vm-guide/synchronize-database-review.png)
 
 
 1. Right-click the Oracle schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. Alternatively, you can select Migrate Data from the top-line navigation.
