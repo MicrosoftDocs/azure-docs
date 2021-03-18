@@ -35,7 +35,7 @@ If a user wants to sign in using a different email:
 2. Perform the reset operation on the user ensuring that the new email is specified in as the `InvitedUserEmailAddress`.
 
 > [!NOTE]
->During public preview, when you are reseting to another email address, we recommend setting the `mail` property for the new email address as this enables them to redeem through signing into your directory in addition to using the invitation redemption link.
+>During public preview, when you're resetting the user's email address, we recommend setting the `mail` property to the new email address. This way the user can redeem the invitation by signing into your directory in addition to using the redemption link in the invitation.
 >
 ## Use PowerShell to reset redemption status
 
