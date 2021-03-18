@@ -59,7 +59,7 @@ The "searchFields" parameter is critical to returning a high quality answer, bot
 
 + A query string must not be null and should be formulated as question. In this preview, the "queryType" and "queryLanguage" must be set exactly as shown in the example.
 
-+ The "searchFields" parameter determines which fields provide tokens to the extraction model. Be sure to set this parameter. You must have at least one string field, but include any string field that you think is useful in providing an answer. Only about 8,000 tokens per document are passed into the model. Start the field list with concise fields, and then progress to text-rich fields. For precise guidance on how to set this field, see [Set searchFields](semantic-how-to-query-request.md#searchfields).
++ The "searchFields" parameter determines which fields provide tokens to the extraction model. Be sure to set this parameter. You must have at least one string field, but include any string field that you think is useful in providing an answer. Collectively across all fields in searchFields, only about 8,000 tokens per document are passed into the model. Start the field list with concise fields, and then progress to text-rich fields. For precise guidance on how to set this field, see [Set searchFields](semantic-how-to-query-request.md#searchfields).
 
 + For "answers", the basic parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a count, up to a maximum of five.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
@@ -111,15 +111,15 @@ Given the query "how do clouds form", the following answer is returned in the re
 
 For best results, return semantic answers on a document corpus having the following characteristics:
 
-+ "searchFields" should include one or more fields that provides sufficient text in which an answer is likely to be found.
-
-+ Semantic extraction and summarization have limits over how much content can be analyzed in a timely fashion. Collectively, only the first 20,000 tokens are analyzed. Anything beyond that is ignored. In practical terms, if you have large documents that run into hundreds of pages, you should try to break the content up into manageable parts first.
++ "searchFields" must provide fields that offer sufficient text in which an answer is likely to be found. Only verbatim text from a document can be appear as an answer.
 
 + query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
+
++ Semantic extraction and summarization have limits over how many tokens per document can be analyzed in a timely fashion. In practical terms, if you have large documents that run into hundreds of pages, you should try to break the content up into smaller documents first.
 
 ## Next steps
 
 + [Semantic search overview](semantic-search-overview.md)
 + [Semantic ranking algorithm](semantic-ranking.md)
-+ [Similarity algorithm](index-ranking-similarity.md)
++ [Similarity ranking algorithm](index-ranking-similarity.md)
 + [Create a semantic query](semantic-how-to-query-request.md)
