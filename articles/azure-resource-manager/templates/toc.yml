@@ -388,9 +388,13 @@
       href: deployment-script-template.md
     - name: Create deployment script dev environment
       href: deployment-script-template-configure-dev.md
-    - name: Modularize templates
-      displayName: linked templates, nested templates
-      href: linked-templates.md
+    - name: Reuse templates
+      items:
+      - name: Modularize templates
+        displayName: linked templates, nested templates
+        href: linked-templates.md
+      - name: Bicep modules
+        href: bicep-modules.md
     - name: Create multiple instances
       items:
       - name: Resources
