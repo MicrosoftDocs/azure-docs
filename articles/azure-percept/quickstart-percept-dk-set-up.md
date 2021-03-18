@@ -5,203 +5,190 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: quickstart
-ms.date: 02/15/2021
+ms.date: 03/17/2021
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
 # Set up your Azure Percept DK and deploy your first AI model
 
-Get started with Azure Percept DK and Azure Percept Studio by using the Azure Percept DK setup experience to connect your device to Azure and to deploy your first AI model. After verifying that your Azure account is compatible with Azure Percept Studio, you complete the setup experience to ensure your Azure Percept DK is configured to create Edge AI proof of concepts.
+Complete the Azure Percept DK setup experience to configure your dev kit and deploy your first AI model. After verifying that your Azure account is compatible with Azure Percept, you will:
 
-If you experience any issues during this Quick Start, refer to the [troubleshooting](./troubleshoot-dev-kit.md) guide for possible solutions.
+- Connect your dev kit to a Wi-Fi network
+- Set up an SSH login for remote access to your dev kit
+- Create a new IoT Hub to use with Azure Percept
+- Connect your dev kit to your IoT Hub and Azure account
+
+If you experience any issues during this process, refer to the [setup troubleshooting guide](./how-to-troubleshoot-setup.md) for possible solutions.
 
 ## Prerequisites
 
-- An Azure Percept DK.
-- A Windows, Linux, or OS X based host computer with wi-fi capability and a web browser.
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- The Azure account must have the “owner” or “contributor” role on the subscription. Learn more about [Azure role definitions](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
+- An Azure Percept DK (dev kit).
+- A Windows, Linux, or OS X based host computer with Wi-Fi capability and a web browser.
+- An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- The Azure account must have the **owner** or **contributor** role within the subscription. Follow the steps below to check your Azure account role. For more information on Azure role definitions, check out the [Azure role-based access control documentation](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
-### Prerequisite check
+    > [!CAUTION]
+    > If you have multiple Azure accounts, your browser may cache credentials from another account. To avoid confusion, it is recommended that you close all unused browser windows and log into the [Azure portal](https://portal.azure.com/) before starting the setup experience. See the [setup troubleshooting guide](./how-to-troubleshoot-setup.md) for additional information on how to ensure you are signed in with the correct account.
 
-To verify if your Azure account is an “owner” or “contributor” on the subscription, following these steps.
+### Check your Azure account role
 
-1. Go to the Azure portal and log in with the same Azure account you intend to use with Azure Percept Studio. 
+To verify if your Azure account is an “owner” or “contributor” within the subscription, follow these steps:
 
-    > [!NOTE]
-    > If you have multiple Azure accounts, your browser may cache credentials from another account. See the troubleshooting guide for more information on how to ensure you are signed in with the correct account.
+1. Go to the [Azure portal](https://portal.azure.com/) and log in with the same Azure account you intend to use with Azure Percept.
 
-1. Expand the main menu from the upper left corner of your screen and click on “Subscriptions” or select “Subscriptions” from the menu of icons on the home page. 
-    <!---
-    :::image type="content" source="./media/quickstart-percept-dk-setup/prereq-01-subscription.png" alt-text="supscription icon in Azure portal.":::
-    --->
-1. Select your subscription from the list. If you do not see your subscription in the list, make sure you are signed in with the correct Azure account. 
-    <!---
-    :::image type="content" source="./media/quickstart-percept-dk-setup/prereq-02-sub-list.png" alt-text="supscription list in Azure portal.":::
-    --->
-If you wish to create a new subscription, follow [these steps](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription).
+1. Click on the **Subscriptions** icon (it looks like a yellow key).
 
-1. From the Subscription menu select “Access control (IAM)”
-1. Click on the “View my access” button
-1. Check the role
-    - If it shows the role of “Reader” or if you get a message that says you do not have permissions to see roles, you will need to follow the necessary process in your organization to get your account role elevated.
-    - If it shows the role as “owner” or “contributor”, your account will work with Azure Percept Studio. 
+1. Select your subscription from the list. If you do not see your subscription, make sure you are signed in with the correct Azure account. If you wish to create a new subscription, follow [these steps](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription).
+
+1. From the Subscription menu, select **Access control (IAM)**.
+1. Click **View my access**.
+1. Check the role:
+    - If your role is listed as **Reader** or if you get a message that says you do not have permission to see roles, you will need to follow the necessary process in your organization to elevate your account role.
+    - If your role is listed as **owner** or **contributor**, your account will work with Azure Percept, and you may proceed with the setup experience.
 
 ## Launch the Azure Percept DK Setup Experience
 
-<!---
-> [!NOTE]
-> Connecting over ethernet? See [this how-to guide](<link needed>) for detailed instructions.
---->
-1. Connect your host computer directly to the dev kit’s wi-fi access point. This is done just like connecting to any other wi-fi network,
-    - **network name**: scz-xxxx (where “xxxx” is the last four digits of the dev kit’s MAC network address)
-    - **password**: can be found on the Welcome Card that came with the dev kit
+1. Connect your host computer directly to the dev kit’s Wi-Fi access point. Like connecting to any other Wi-Fi network, open the network and internet settings on your computer, click on the following network, and enter the network password when prompted:
+
+    - **Network name**: depending on your dev kit's operating system version, the name of the Wi-Fi access point is either **scz-xxxx** or **apd-xxxx** (where “xxxx” is the last four digits of the dev kit’s MAC address)
+    - **Password**: can be found on the Welcome Card that came with the dev kit
 
     > [!WARNING]
-    > While connected to the Azure Percept DK wi-fi access point, your host computer will temporarily lose its connection to the Internet. Active video conference calls, web streaming, or other network-based experiences will be interrupted until step 3 of the Azure Percept DK setup experience is completed.
+    > While connected to the Azure Percept DK Wi-Fi access point, your host computer will temporarily lose its connection to the Internet. Active video conference calls, web streaming, or other network-based experiences will be interrupted.
 
-1. Once connected to the dev kit’s wi-fi access point, the host device will automatically launch the Azure Percept DK setup experience in a new browser window. If it does not automatically open, you can launch it manually by opening a browser window and navigating to [http://10.1.1.1](http://10.1.1.1). 
-
-1. Now that you have launched the Azure Percept setup experience, you are ready to proceed through the setup experience. 
-
-    > [!NOTE]
-    > The Azure Percept DK setup experience web service will shut down after 30 minutes of non-use and at the completion of the setup experience. When this happens, it is recommended to restart the dev kit to avoid connectivity issues with the dev kit wi-fi access point.
-
-## Complete the Azure Percept DK Setup Experience
-
-1. Get Started - Click **Next** on the Welcome screen.
+1. Once connected to the dev kit’s Wi-Fi access point, the host computer will automatically launch the setup experience in a new browser window with **your.new.device/** in the address bar. If the tab does not open automatically, launch the setup experience by going to [http://10.1.1.1](http://10.1.1.1). Make sure your browser is signed in with the same Azure account credentials you intend to use with Azure Percept.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-01-welcome.png" alt-text="Welcome page.":::
 
-1. Connect to wi-fi - On the Network connection page, click **Connect to a new WiFi network** to connect your devkit to your wi-fi network.
+    > [!CAUTION]
+    > The setup experience web service will shut down after 30 minutes of non-use. If this happens, restart the dev kit to avoid connectivity issues with the dev kit's Wi-Fi access point.
 
-    If you have previously connected this dev kit to your wi-fi network or if you are already connected to the Azure Percept DK setup experience via your wi-fi network, click the **Skip** link.
+## Complete the Azure Percept DK Setup Experience
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-02-connect-to-wi-fi.png" alt-text="Connect to wi-fi.":::
+1. Click **Next** on the **Welcome** screen.
 
-1. Select your wi-fi network from the available connections and connect. (Will require your local wi-fi password)
+1. On the **Network connection** page, click **Connect to a new WiFi network**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-03-select-wi-fi.png" alt-text="Select wi-fi network."::: 
+    If you have already connected your dev kit to your Wi-Fi network, click **Skip**.
 
-1. Copy your IP address - Once your devkit has successfully connected to your network of choice, write down the **IPv4 address** displayed on the page. **You will need this IP address later in this quick start guide**. 
+1. Select your Wi-Fi network from the list of available networks and click **connect**. Enter your network password when prompted.
 
-    > [!NOTE]
-    > The IP address may change with each device boot.
+1. Once your dev kit has successfully connected to your network of choice, the page will show the IPv4 address assigned to your dev kit. **Write down the IPv4 address displayed on the page.** You will need the IP address when connecting to your dev kit over SSH for troubleshooting and device updates.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-04-success-wi-fi.png" alt-text="Copy IP address.":::
 
-1. Review and accept the License Agreement - Read through the License Agreement, select **I have read and agree to the License Agreement** (must scroll to the bottom of the agreement), and click **Next**.
+	> [!NOTE]
+    > The IP address may change with each device boot.
+
+1. Read through the License Agreement, select **I have read and agree to the License Agreement** (you must scroll to the bottom of the agreement), and click **Next**.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-05-eula.png" alt-text="Accept EULA.":::
 
-1. Create your SSH login account - Set up SSH for remote access to your devkit. Create a SSH username and password. 
+1. Enter an SSH account name and password, and **write down your login information for later use**.
 
     > [!NOTE]
-    > SSH (Secure Shell) is a network protocol used for secure communication between the host device and the dev kit. For more information about SSH, see [this article](https://en.wikipedia.org/wiki/SSH_(Secure_Shell)).
+    > SSH (Secure Shell) is a network protocol that enables you to connect to the dev kit remotely via a host computer.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-06-ssh-login.png" alt-text="Create SSH account."::: 
+1. On the next page, click **Setup as a new device** to create a new device within your Azure account.
 
-1. Begin the dev kit connection process - On the next screen, click **Connect with a new device** to begin the process of connecting your dev kit to Azure IoT Hub. 
+1. Click **Copy** to copy your device code. Afterward, click **Login to Azure**.
 
-    <!---
-    Connecting with an existing IoT Edge device connection string? See this [how-to guide](<link needed>) for reference.
-    --->
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-07-connect-device.png" alt-text="Connect to Azure."::: 
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-08-copy-code.png" alt-text="Copy device code.":::
 
-1. Copy the device code - Click the **Copy** link to copy your device code. Then click **Login to Azure**. 
+1. A new browser tab will open with a window that says **Enter code**. Paste the code into the window and click **Next**. Do NOT close the **Welcome** tab with the setup experience.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-08-copy-code.png" alt-text="Copy device code."::: 
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-09-enter-code.png" alt-text="Enter device code.":::
 
-1. Paste the device code - A new browser tab will open with a window that asks for the copied device code. Paste the code into the window and click **Next**.
+1. Sign into Azure Percept using the Azure account credentials you will use with your dev kit. Leave the browser tab open when complete.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-09-enter-code.png" alt-text="Enter device code."::: 
-
-1. Sign into Azure - The next window requires you to sign in with the Azure account you verified at the beginning of the Quick Start. Enter those login credentials and click **Next**. 
-
-    > [!NOTE]
+    > [!CAUTION]
     > Your browser may auto cache other credentials. Double check that you are signing in with the correct account.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-10-azure-sign-in.png" alt-text="Sign-in to Azure.":::
- 
-1. Do not close the setup experience browser tab at this step - After signing in you will be presented with a screen acknowledging that you have signed in. Although it says you many close the window, **we recommend that you do not close any windows**. 
+    After successfully signing into Azure Percent on the device, return to the **Welcome** tab to continue the setup experience.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-11-sign-in-success.png" alt-text="Sign-in success."::: 
+1. When the **Assign your device to your Azure IoT Hub** page appears on the **Welcome** tab, take one of the following actions:
 
-1. Return to the browser tab hosting the setup experience.
-1. Select your IoT Hub option
-    - If you already have an IoT Hub and it is listed on this page, you can select it and **jump to step 17**.
-    - If you do not have an IoT Hub or would like to create a new one, go to the bottom of the list and click on **Create a new Azure IoT Hub**.
+    - If you already have an IoT Hub you would like to use with Azure Percept and it is listed on this page, select it and jump to step 15.
+    - If you do not have an IoT Hub or would like to create a new one, click **Create a new Azure IoT Hub**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-13-iot-hub-select.png" alt-text="Select an IoT Hub."::: 
+    > [!IMPORTANT]
+    > If you have an IoT Hub, but it is not appearing in the list, you may have signed into Azure Percept with the wrong credentials. See the [setup troubleshooting guide](./how-to-troubleshoot-setup.md) for help.
 
-1. Create your new IoT Hub – Fill out all fields on this page. 
-    - Select the Azure subscription you will use with Azure Percept Studio
-    - Select an existing Resource Group. If one does not exist, click “Create new” and follow the prompts. 
-    - Select the Azure region. 
-    - Give your new IoT Hub a name
-    - Select the pricing tier (it will usually match the subscription)
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-13-iot-hub-select.png" alt-text="Select an IoT Hub.":::
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-14-create-iot-hub.png" alt-text="Create a new IoT Hub."::: 
+1. To create a new IoT Hub, complete the following fields:
 
-1. Wait for the IoT Hub to get deployed – It may take a few minutes
+    - Select the Azure subscription you will use with Azure Percept.
+    - Select an existing Resource Group. If one does not exist, click **Create new** and follow the prompts.
+    - Select the Azure region closest to your physical location.
+    - Give your new IoT Hub a name.
+    - Select the S1 (standard) pricing tier.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-15-iot-hub-deploy.png" alt-text="Deploy IoT Hub."::: 
+    > [!NOTE]
+    > If you end up needing a higher [message throughput](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling#message-throughput) for your edge AI applications, you may [upgrade your IoT Hub to a higher standard tier](https://docs.microsoft.com/azure/iot-hub/iot-hub-upgrade) in the Azure Portal at any time. B and F tiers do NOT support Azure Percept.
 
-1. Register your dev kit - When the deployment is completed, click the **Register** button
+1. IoT Hub deployment may take a few minutes. When the deployment is complete, click **Register**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-16-iot-hub-success.png" alt-text="IoT Hub successfully deployed."::: 
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-16-iot-hub-success.png" alt-text="IoT Hub successfully deployed.":::
 
-1. Name your dev kit - Enter a device name for your dev kit and click **Next**.
+1. Enter a device name for your dev kit and click **Next**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-17-device-name.png" alt-text="Name the device."::: 
+1. Wait for the device modules to download – this will take a few minutes.
 
-1. Wait for the default AI models to download – this will take a few minutes
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-18-finalize.png" alt-text="Finalizing setup.":::
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-18-finalize.png" alt-text="Finalizing setup."::: 
+1. When you see the **Device setup complete!** page, your dev kit has successfully linked to your IoT Hub and downloaded the necessary software. Your dev kit will automatically disconnect from the Wi-Fi access point resulting in these two notifications:
 
-1. See vision AI in action - Your devkit has been successfully linked to your Azure IoT Hub and it has received the default vision AI object detection model. The Azure Percept Vision camera can now make object detection inferencing without a connection to the cloud. 
-
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-2-preview-video-output.png" alt-text="Click Preview Video Output."::: 
-	   
+    <!---
     > [!NOTE]
     > The onboarding process and connection to the device Wifi access to your host computer shuts down at this point, but your dev kit will stay connected to the internet.   You can restart the onboarding experience with a dev kit reboot, which will allow you to go back through the onboarding and reconnect the device to a different IOT hub associated with the same or a different Azure Subscription..
+    --->
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Setup experience disconnect warning."::: 
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-19-0-warning.png" alt-text="Setup experience disconnect warning.":::
 
-1. Continue to the Azure portal – Go back to the setup experience window and click on the **Continue to the Azure portal** button to begin creating your custom AI models in Azure Percept Studio.
+1. Connect your host computer to the Wi-Fi network your devkit connected to in Step 2.
 
-    > [!NOTE]
-    > Verify that your host computer is no longer connected to the dev kit access point in your wifi settings and is now reconnected to your local wifi.
+1. Click **Continue to the Azure portal**.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-azure-portal-continue.png" alt-text="Go to Azure Percept Studio."::: 
+    :::image type="content" source="./media/quickstart-percept-dk-setup/main-20-azure-portal-continue.png" alt-text="Go to Azure Percept Studio.":::
 
-## View your Device in the Azure Percept Studio and deploy common prebuilt sample apps
+## View your dev kit video stream and deploy a sample model
 
-1. View your list of Devices from the [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) Overview Page. The Azure Percept Overview page is your launch point for accessing many different workflows for both beginning and advanced AI Edge Model and Solution Development
+1. The [Azure Percept Studio Overview page](https://go.microsoft.com/fwlink/?linkid=2135819) is your launch point for accessing many different workflows for both beginning and advanced edge AI solution development. To get started, click on **Devices** from the left menu.
 
-	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-01-get-device-list.png" alt-text="View your list of devices.":::
-	
-1. Verify the device you just created is connected and click on it.
+    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-01-get-device-list.png" alt-text="View your list of devices.":::
 
-	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-02-select-device.png" alt-text="Select your device.":::
+1. Verify your dev kit is listed as **Connected** and click on it to view the device page.
 
-1. View your device stream to see what your dev kit camera is seeing. A default object detection model is deployed out of the box and will detect a number of common objects.
+    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-02-select-device.png" alt-text="Select your device.":::
 
-	> [!NOTE]
-    > the first time you do this on a new device you will get a notification that a new module is being deployed in the upper right hand corner.  Once this is competed, you will be able to launch the window with the camera video stream. 
-	
-	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-1-start-video-stream.png" alt-text="View your video stream.":::
-	
-	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-2-object-detection.png" alt-text="See object detection.":::
+1. Click **View your device stream**. If this is the first time viewing the video stream of your device, you will see a notification that a new model is being deployed in the upper right-hand corner. This may take a few minutes.
 
-1. Explore Pre-built sample AI Models.   The Azure Precept Studio has a number of common pre-built samples which can be deployed with a single click.   Select “Deploy a sample model” to view and deploy these.
+    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-1-start-video-stream.png" alt-text="View your video stream.":::
 
-	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-04-explore-prebuilt.png" alt-text="Explore pre-built models.":::
-	
-1. Deploy a new pre-built sample to your connected device. Select a sample from the library and click on “Deploy to Device”
+    Once the model has deployed, you will get another notification with a **View stream** link. Click on the link to view the video stream from your Azure Percept Vision camera in a new browser window. The dev kit is preloaded with an AI model that automatically performs object detection of many common objects.
 
-	:::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="See object detection in action.":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-2-object-detection.png" alt-text="See object detection.":::
+
+1. Azure Percept Studio also has a number of sample AI models. To deploy a sample model to your dev kit, navigate back to your device page and click **Deploy a sample model**.
+
+    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-04-explore-prebuilt.png" alt-text="Explore pre-built models.":::
+
+1. Select a sample model from the library and click **Deploy to device**.
+
+    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-05-2-select-journey.png" alt-text="See object detection in action.":::
+
+1. Once the model has successfully deployed, you will see a notification with a **View stream** link in the upper right corner of the screen. To view the model inferencing in action, click the link in the notification or return to the device page and click **View your device stream**. Any models previously running on the dev kit will now be replaced with the new model.
+
+## Video walkthrough
+
+For a visual walkthrough of the steps described above, please see the following video (setup experience starts at 0:50):
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
 
 ## Next steps
 
-You can follow a similar flow to try out [prebuilt speech models](./tutorial-no-code-speech.md).
+> [!div class="nextstepaction"]
+> [Create a no-code vision solution](./tutorial-nocode-vision.md)

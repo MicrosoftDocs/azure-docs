@@ -260,5 +260,5 @@ Explore this reference architecture through the ARM, Terraform, and Azure CLI de
 [17]: ./spring-cloud-tutorial-deploy-in-azure-virtual-network.md#virtual-network-requirements
 [18]: https://cloudsecurityalliance.org/
 [19]: https://cloudsecurityalliance.org/research/working-groups/cloud-controls-matrix
-[20]: https://azure.microsoft.com/resources/cis-microsoft-azure-foundations-security-benchmark/
+[20]: /azure/security/benchmarks/v2-cis-benchmark
 [21]: https://www.cisecurity.org/

@@ -100,7 +100,7 @@ Add the setting with this Azure CLI command:
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
-Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section [*Assign permissions to the function app*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) in the end-to-end tutorial.
+Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section [*Assign permissions to the function app*](tutorial-end-to-end.md#configure-permissions-for-the-function-app) in the end-to-end tutorial.
 
 ### Create Device Provisioning enrollment
 
@@ -203,7 +203,7 @@ Next, you will need to configure the function environment variable for connectin
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
-Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section [*Assign permissions to the function app*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) in the end-to-end tutorial.
+Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section [*Assign permissions to the function app*](tutorial-end-to-end.md#configure-permissions-for-the-function-app) in the end-to-end tutorial.
 
 ### Create an IoT Hub route for lifecycle events
 

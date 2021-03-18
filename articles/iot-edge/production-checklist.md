@@ -13,6 +13,8 @@ ms.custom:  [amqp, mqtt]
 
 # Prepare to deploy your IoT Edge solution in production
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
 The information provided in this article isn't all equal. To help you prioritize, each section starts with lists that divide the work into two sections: **important** to complete before going to production, or **helpful** for you to know.

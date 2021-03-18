@@ -7,7 +7,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -129,9 +129,6 @@ For example, this iframe allows both camera and microphone access:
 ```html
 <iframe allow="camera *; microphone *">
 ```
-
-
-
 
 ## Next steps
 

@@ -103,7 +103,7 @@ You can also use a JSON file create a maintenance window instead of using parame
         "notAllowedTime": [
           {
             "start": "2021-05-26T03:00:00Z",
-            "end": "2021-05-30T012:00:00Z"
+            "end": "2021-05-30T12:00:00Z"
           }
         ]
 }

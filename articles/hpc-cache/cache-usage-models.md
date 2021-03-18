@@ -4,7 +4,7 @@ description: Describes the different cache usage models and how to choose among 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
 ---
 
@@ -24,7 +24,7 @@ File caching is how Azure HPC Cache expedites client requests. It uses these bas
 
   If write caching is disabled, the cache doesn't store the changed file and immediately writes it to the back-end storage system.
 
-* **Write-back delay** - For a cache with write caching turned on, write-back delay is the amount of time the cache waits for additional file changes before moving the file to the back-end storage system.
+* **Write-back delay** - For a cache with write caching turned on, write-back delay is the amount of time the cache waits for additional file changes before copying the file to the back-end storage system.
 
 * **Back-end verification** - The back-end verification setting determines how frequently the cache compares its local copy of a file with the remote version on the back-end storage system. If the back-end copy is newer than the cached copy, the cache fetches the remote copy and stores it for future requests.
 
@@ -38,7 +38,7 @@ You must choose a usage model for each NFS-mounted storage target that you use. 
 
 HPC cache usage models let you choose how to balance fast response with the risk of getting stale data. If you want to optimize speed for reading files, you might not care whether the files in the cache are checked against the back-end files. On the other hand, if you want to make sure your files are always up to date with the remote storage, choose a model that checks frequently.
 
-There are several options:
+These are the usage model options:
 
 * **Read heavy, infrequent writes** - Use this option if you want to speed up read access to files that are static or rarely changed.
 
@@ -48,13 +48,16 @@ There are several options:
 
   Do not use this option if there is a risk that a file might be modified directly on the storage system without first writing it to the cache. If that happens, the cached version of the file will be out of sync with the back-end file.
 
-* **Greater than 15% writes** - This option speeds up both read and write performance. When using this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly. The cached files will have recent changes that are not stored on the back end.
+* **Greater than 15% writes** - This option speeds up both read and write performance. When using this option, all clients must access files through the Azure HPC Cache instead of mounting the back-end storage directly. The cached files will have recent changes that have not yet been copied to the back end.
 
   In this usage model, files in the cache are only checked against the files on back-end storage every eight hours. The cached version of the file is assumed to be more current. A modified file in the cache is written to the back-end storage system after it has been in the cache for 20 minutes<!-- an hour --> with no additional changes.
 
 * **Clients write to the NFS target, bypassing the cache** - Choose this option if any clients in your workflow write data directly to the storage system without first writing to the cache, or if you want to optimize data consistency. Files that clients request are cached (reads), but any changes to those files from the client (writes) are not cached. They are passed through directly to the back-end storage system.
 
-  With this usage model, the files in the cache are frequently checked against the back-end versions for updates. This verification allows files to be changed outside of the cache while maintaining data consistency.
+  With this usage model, the files in the cache are frequently checked against the back-end versions for updates - every 30 seconds. This verification allows files to be changed outside of the cache while maintaining data consistency.
+
+  > [!TIP]
+  > Those first three basic usage models can be used to handle the majority of Azure HPC Cache workflows. The next options are for less common scenarios.
 
 * **Greater than 15% writes, checking the backing server for changes every 30 seconds** and **Greater than 15% writes, checking the backing server for changes every 60 seconds** - These options are designed for workflows where you want to speed up both reads and writes, but there's a chance that another user will write directly to the back-end storage system. For example, if multiple sets of clients are working on the same files from different locations, these usage models might make sense to balance the need for quick file access with low tolerance for stale content from the source.
 
@@ -66,7 +69,9 @@ There are several options:
 
 This table summarizes the usage model differences:
 
-| Usage model                   | Caching mode | Back-end verification | Maximum write-back delay |
+[!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
+
+<!-- | Usage model                   | Caching mode | Back-end verification | Maximum write-back delay |
 |-------------------------------|--------------|-----------------------|--------------------------|
 | Read heavy, infrequent writes | Read         | Never                 | None                     |
 | Greater than 15% writes       | Read/write   | 8 hours               | 20 minutes               |
@@ -75,7 +80,7 @@ This table summarizes the usage model differences:
 | Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
 | Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
 | Read heavy, checking the backing server every 3 hours | Read | 3 hours | None |
-
+-->
 If you have questions about the best usage model for your Azure HPC Cache workflow, talk to your Azure representative or open a support request for help.
 
 ## Next steps

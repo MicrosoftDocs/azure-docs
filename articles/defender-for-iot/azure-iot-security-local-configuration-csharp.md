@@ -80,7 +80,7 @@ For Windows:
 
 | Configuration name | Possible values | Details |
 |:-----------|:---------------|:--------|
-| moduleName | string | Name of the security module identity. This name must correspond to the module identity name in the device. |
+| moduleName | string | Name of the Defender-IoT-micro-agent identity. This name must correspond to the module identity name in the device. |
 | deviceId | string | ID of the device (as registered in Azure IoT Hub). |
 | schedulerInterval | TimeSpan string | Internal scheduler interval. |
 | gatewayHostname | string | Host name of the Azure Iot Hub. Usually <my-hub>.azure-devices.net |

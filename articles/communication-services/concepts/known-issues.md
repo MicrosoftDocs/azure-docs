@@ -6,7 +6,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 10/03/2020
+ms.date: 03/10/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
 ---
