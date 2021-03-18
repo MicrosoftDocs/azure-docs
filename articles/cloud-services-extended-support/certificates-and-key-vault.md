@@ -36,7 +36,7 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 
     :::image type="content" source="media/certs-and-key-vault-4.png" alt-text="Image shows selecting the generate/ import option":::
 
-4.	Complete the required information to finish uploading the certificate. 
+4.	Complete the required information to finish uploading the certificate. The certificate needs to be in **.PFX** format.
 
     :::image type="content" source="media/certs-and-key-vault-5.png" alt-text="Image shows importing window in the Azure portal.":::
 

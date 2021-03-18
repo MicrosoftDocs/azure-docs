@@ -21,7 +21,7 @@ ms.author: akshanka
 > * [Python](table-sdk-python.md)
  
 
-|   |   |
+|   | Links  |
 |---|---|
 |**SDK download**|[PyPI](https://pypi.python.org/pypi/azure-cosmosdb-table/)|
 |**API documentation**|[Python API reference documentation](/python/api/overview/azure/cosmosdb)|

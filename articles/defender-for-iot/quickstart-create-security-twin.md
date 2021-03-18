@@ -36,9 +36,9 @@ See [IoT Hub module twins](../iot-hub/iot-hub-devguide-module-twins.md) to learn
 
 Defender for IoT makes use of the module twin mechanism and maintains a security module twin named _azureiotsecurity_ for each of your devices.
 
-The security module twin holds all the information relevant to device security for each of your devices.
+The Defender-IoT-micro-agent twin holds all the information relevant to device security for each of your devices.
 
-To make full use of Defender for IoT features, you'll need to create, configure, and use this security module twins for every device in the service.
+To make full use of Defender for IoT features, you'll need to create, configure, and use this Defender-IoT-micro-agent twins for every device in the service.
 
 ## Create azureiotsecurity module twin
 

@@ -212,9 +212,9 @@
       - name: Python SDK - Source code
         href: https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins
       - name: Go SDK - GoDoc
-        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins
+        href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt
       - name: Go - Source code
-        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins
+        href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt
     - name: Data plane
       items:    
       - name: Data plane Swagger

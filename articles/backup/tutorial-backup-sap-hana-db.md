@@ -163,6 +163,18 @@ The command output should display the {SID}{DBNAME} key, with the user shown as 
 >[!NOTE]
 > Make sure you have a unique set of SSFS files under `/usr/sap/{SID}/home/.hdb/`. There should be only one folder in this path.
 
+Here is a summary of steps required for completing the pre-registration script run.
+
+|Who  |From  |What to run  |Comments  |
+|---------|---------|---------|---------|
+|```<sid>```adm (OS)     |  HANA OS       |   Read tutorial and download pre-registration script      |   Read the [pre-requisites above](#prerequisites)    Download Pre-registration script from [here](https://aka.ms/scriptforpermsonhana)  |
+|```<sid>```adm (OS) and SYSTEM user (HANA)    |      HANA OS   |   Run hdbuserstore Set command      |   e.g. hdbuserstore Set SYSTEM hostname>:3```<Instance#>```13 SYSTEM ```<password>``` **Note:**  Make sure to use hostname instead of IP address or FQDN      |
+|```<sid>```adm (OS)    |   HANA OS      |  Run hdbuserstore List command       |   Check if the result includes the default store like below : ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
+|Root (OS)     |   HANA OS        |    Run Azure Backup HANA pre-registration script      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
+|```<sid>```adm (OS)    |  HANA OS       |   Run hdbuserstore List command      |    Check if result includes new lines as below :  ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```     |
+
+After running the pre-registration script successfully and verifying, you can then proceed to check [the connectivity requirements](#set-up-network-connectivity) and then [configure backup](#discover-the-databases) from Recovery services vault
+
 ## Create a Recovery Services vault
 
 A Recovery Services vault is an entity that stores the backups and recovery points created over time. The Recovery Services vault also contains the backup policies that are associated with the protected virtual machines.
