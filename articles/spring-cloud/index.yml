@@ -66,7 +66,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Monitor your application by using distributed tracing and App Insights
-            url: spring-cloud-howto-distributed-tracing.md
+            url: how-to-distributed-tracing.md
           - text: Enable Diagnostic Services on your Java Spring application
             url: diagnostic-services.md
       - linkListType: concept

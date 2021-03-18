@@ -1,6 +1,41 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-launch-from-source.md",
+      "redirect_url": "/articles/spring-cloud/how-to-launch-from-source.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-intellij-deploy-apps.md",
+      "redirect_url": "/articles/spring-cloud/how-to-intellij-deploy-apps.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-integrate-azure-load-balancers.md",
+      "redirect_url": "/articles/spring-cloud/how-to-integrate-azure-load-balancers.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-github-actions.md",
+      "redirect_url": "/articles/spring-cloud/how-to-github-actions.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity.md",
+      "redirect_url": "/articles/spring-cloud/how-to-enable-system-assigned-managed-identity.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-distributed-tracing.md",
+      "redirect_url": "/articles/spring-cloud/how-to-distributed-tracing.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-deploy-powershell.md",
+      "redirect_url": "/articles/spring-cloud/how-to-deploy-powershell.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-config-server.md",
       "redirect_url": "/articles/spring-cloud/how-to-config-server.md",
       "redirect_document_id": false
