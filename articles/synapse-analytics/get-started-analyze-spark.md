@@ -121,4 +121,4 @@ df.write.sqlanalytics("SQLPOOL1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze data with serverless SQL pool](get-started-analyze-sql-on-demand.md)
+> [Analyze data with dedicated SQL pool](get-started-analyze-sql-pool.md)
