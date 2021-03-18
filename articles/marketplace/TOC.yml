@@ -53,11 +53,11 @@
     - name: Co-sell with Microsoft
       items:
       - name: Co-sell overview
-        href: marketplace-co-sell.md
+        href: co-sell-overview.md
       - name: Co-sell requirements
         href: co-sell-requirements.md 
       - name: Configure co-sell
-        href: commercial-marketplace-co-sell.md
+        href: co-sell-configure.md
       - name: Verify co-sell status
         href: co-sell-status.md   
       - name: Migrate co-sell solutions from OCP GTM

@@ -11,7 +11,7 @@ ms.author: inhenkel
 
 | Feature | Korea Central | Korea South |
 | --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) |![Azure EventGrid Korea Central general availability](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid Korea South general availability](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) |![Azure EventGrid Korea Central general availability](../media/azure-clouds-regions/ga.svg)  |![Azure EventGrid Korea South general availability](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![VideoAnalyzerPreset Korea Central general availability](../media/azure-clouds-regions/ga.svg)  | ![VideoAnalyzerPreset Korea South general availability](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) |![AudioAnalyzerPreset Korea Central general availability](../media/azure-clouds-regions/ga.svg)  | ![AudioAnalyzerPreset Korea South general availability](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) |![StandardEncoderPreset Korea Central general availability](../media/azure-clouds-regions/ga.svg)  | ![StandardEncoderPreset Korea South general availability](../media/azure-clouds-regions/ga.svg) |

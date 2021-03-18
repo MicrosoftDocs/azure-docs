@@ -37,7 +37,7 @@ Test the new way of delivering Live events with Media Services before moving you
 - If you require fast-start of live events explore the new [Standby mode](live-events-outputs-concept.md#standby-mode) features.
 - If you want to transcribe your live event while it is happening, explore the new [live transcription](live-transcription.md) feature.
 - Create 24x7x365 live events in v3 if you need a longer streaming duration.
-- Use [Event Grid](monitor-events-portal-how-to.md) to monitor your live events.
+- Use [Event Grid](monitoring/monitor-events-portal-how-to.md) to monitor your live events.
 
 See Live events concepts, tutorials and how to guides below for specific steps.
 

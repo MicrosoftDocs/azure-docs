@@ -16,6 +16,17 @@ ms.date: 12/31/2020
 
 In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
 
+## Create a serverless Apache Spark pool
+
+1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
+1. Select **New** 
+1. For **Apache Spark pool name** enter **Spark1**.
+1. For **Node size** enter **Small**.
+1. For **Number of nodes** Set the minimum to 3 and the maximum to 3
+1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
+
+The Spark pool tells Azure Synapse how many Spark resources to use. You only pay for the resources that you use. When you actively stop using the pool, the resources automatically time out and are recycled.
+
 ## Analyze NYC Taxi data in blob storage using Spark
 
 1. In the **Data** hub, click the **+** button to **Add a new resource**, then click >> **Browse gallery**. 
@@ -110,4 +121,4 @@ df.write.sqlanalytics("SQLPOOL1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze data with serverless SQL pool](get-started-analyze-sql-on-demand.md)
+> [Analyze data with dedicated SQL pool](get-started-analyze-sql-pool.md)
