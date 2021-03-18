@@ -43,7 +43,7 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
     display(df.limit(10))
     ```
 1. In the notebook, in the **Attach to** menu, choose the **Spark1** serverless Spark pool that we created earlier.
-1. Select **Run** on the cell. Synapse will start a new Spark session to run this cell if needed. If a new Spark session is needed, intially it will take about two seconds to be created. 
+1. Select **Run** on the cell. Synapse will start a new Spark session to run this cell if needed. If a new Spark session is needed, initially it will take about two seconds to be created. 
 1. If you just want to see the schema of the dataframe run a cell with the following code:
 
     ```py
@@ -54,7 +54,7 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
 
 Data is available via the dataframe named **data**. Load it into a Spark database named **nyctaxi**.
 
-1. Add a new to the notebbook, and then enter the following code:
+1. Add a new to the notebook, and then enter the following code:
 
     ```py
     data.write.mode("overwrite").saveAsTable("nyctaxi.trip")
