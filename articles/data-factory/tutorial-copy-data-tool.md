@@ -77,7 +77,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
     The name for your data factory must be _globally unique_. You might receive the following error message:
 
-    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
+   :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
     If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 1. Select the Azure **subscription** in which to create the new data factory.
