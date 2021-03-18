@@ -12,7 +12,7 @@ ms.date: 03/19/2021
 
 # Create a development and test offer
 
-To develop in a separate environment from your production offer, you’ll create a separate development (DEV) offer and a separate production (PROD) offer. For information about the benefits of using a separate DEV offer, see Plan a SaaS offer.
+To develop in a separate environment from your production offer, you’ll create a separate development (DEV) offer and a separate production (PROD) offer. For information about the benefits of using a separate DEV offer, see [Plan a SaaS offer](plan-saas-offer.md#development-and-test-offer).
 
 You’ll configure most settings the same in the DEV and PROD offers. For example, the official marketing language and assets, such as screenshots and logos should be the same. In the cases where the configuration is the same, you can copy-and-paste fields from the plans in the DEV offer to the plans in the PROD offer.
 
@@ -100,7 +100,7 @@ Don’t enable a free trial for the DEV offer.
 
 ## Co-sell with Microsoft page
 
-Don’t configure the Co-sell with Microsoft tab of the DEV offer.
+Don’t configure the **Co-sell with Microsoft** tab of the DEV offer.
 
 ## Resell through CSPs
 

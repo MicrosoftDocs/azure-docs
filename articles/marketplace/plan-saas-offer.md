@@ -74,7 +74,7 @@ If you’re creating a transactable offer, you'll need to gather the following i
   The webhook you provide should be up and running 24/7. This is the only way you’ll be notified about updates about your customers' SaaS subscriptions purchased via the commercial marketplace.
 
   > [!NOTE]
-  > Inside the Azure portal, we require that you create a single-tenant [Azure Active Directory (Azure AD) app registration](../active-directory/develop/howto-create-service-principal-portal.md). Use this app registration details to authenticate your solution when calling the marketplace APIs. To find the [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the Directory ID number that’s listed. For example, `50c464d3-4930-494c-963c-1e951d15360e`.
+  > Inside the Azure portal, we require that you create a single-tenant [Azure Active Directory (Azure AD) app registration](../active-directory/develop/howto-create-service-principal-portal.md). Use the app registration details to authenticate your solution when calling the marketplace APIs. To find the [tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the Directory ID number that’s listed. For example, `50c464d3-4930-494c-963c-1e951d15360e`.
 
 - **Azure Active Directory tenant ID**: (also known as directory ID). Inside the Azure portal, we require you to [register an Azure Active Directory (AD) app](../active-directory/develop/howto-create-service-principal-portal.md) so we can add it to the access control list (ACL) of the API to make sure you are authorized to call it. To find the tenant ID for your Azure Active Directory (AD) app, go to the [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) blade in Azure Active Directory. In the **Display name** column, select the app. Then look for the **Directory (tenant) ID** number listed (for example, `50c464d3-4930-494c-963c-1e951d15360e`).
 
@@ -257,7 +257,7 @@ Before you publish your offer live, you should use the preview functionality to 
 
 To develop and test your SaaS offer with the lowest amount of risk, we recommend that you create a development (DEV) offer for experimentation and testing. The DEV offer will be separate from your production (PROD) offer.
 
-To prevent accidental purchases of the DEV offer, you’ll never push the Go live button to publish the DEV offer live.
+To prevent accidental purchases of the DEV offer, you’ll never push the **Go live** button to publish the DEV offer live.
 
 ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown. The View validation report link is also shown under Automated validation.](./media/review-publish-offer/publish-status-saas.png)
 
@@ -265,13 +265,13 @@ Here are some reasons to create a separate DEV offer for the development team to
 
 - Avoid accidental customer charges
 - Evaluate pricing models
-- Not adding plans that does not target actual customers
+- Not adding plans that do not target actual customers
 
 ### Avoid accidental customer charges
 
-By using a DEV offer instead of the PROD offer, and treating them as development and production environments, you can avoid accidental charges to customers.
+By using a DEV offer instead of the PROD offer and treating them as development and production environments, you can avoid accidental charges to customers.
 
-We recommend that you register two different AAD apps for calling the marketplace APIs. Developers will use one AAD app with the DEV offer’s settings, and the operations team will use the PROD app registration. By doing this, you can isolate the development team from making inadvertent mistakes, such as calling the API to cancel a customer’s subscription who pays $100K per month. You can also avoid charging a customer for metered usage they didn’t consume.
+We recommend that you register two different Azure AD apps for calling the marketplace APIs. Developers will use one Azure AD app with the DEV offer’s settings, and the operations team will use the PROD app registration. By doing this, you can isolate the development team from making inadvertent mistakes, such as calling the API to cancel a customer’s subscription who pays $100K per month. You can also avoid charging a customer for metered usage they didn’t consume.
 
 ### Evaluate pricing models
 

@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 03/19/2021
 ---
 
 # How to create a SaaS offer in the commercial marketplace
@@ -17,6 +17,9 @@ As a commercial marketplace publisher, you can create a software as a service (S
 ## Before you begin
 
 If you haven’t already done so, read [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md). It will explain the technical requirements for your SaaS app, and the information and assets you’ll need when you create your offer. Unless you plan to publish a simple listing (**Contact me** listing option) in the commercial marketplace, your SaaS application must meet technical requirements around authentication.
+
+> [!IMPORTANT]
+> Essential information required for user successWe recommend that you create a separate development/test (PROD) offer and a separate production (PROD) offer. This article describes how to create a PROD offer. For details about creating a DEV offer, see [Create a development and test offer](create-saas-dev-test-offer.md).
 
 ## Create a new SaaS offer
 
