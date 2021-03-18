@@ -94,6 +94,7 @@ The usage is equivalent to [using a Speech resource with a custom domain name an
 
 * [Use Speech service through a private endpoint](speech-services-private-link.md)
 * [Azure VNet service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md)
+* [Azure Private Link](../../private-link/private-link-overview.md)
 * [Speech SDK](speech-sdk.md)
 * [Speech-to-text REST API](rest-speech-to-text.md)
 * [Text-to-speech REST API](rest-text-to-speech.md)

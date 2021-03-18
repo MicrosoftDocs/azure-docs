@@ -16,7 +16,7 @@ Azure offers private endpoints and VNet service endpoints for the traffic tunnel
 
 In particular, consider the following:
 - Both technologies ensure the traffic between the VNet and the Speech resource is *not* going through the public internet
-- Private endpoint provides a dedicated private IP address for your Speech resource. You have complete flexibility of controlling the access to this IP address, etc.
+- Private endpoint provides a dedicated private IP address for your Speech resource. This IP address is accessible only within a specific VNet and subnet. You have full control of the access to this IP address within your network infrastructure
 - VNet service endpoints do *not* provide a dedicated private IP address for the Speech resource, but instead encapsulate all packets sent to the Speech resource and deliver them directly through the Azure backbone network
 - Both technologies support on-premises scenarios. By default, when using VNet service endpoints Azure service resources secured to virtual networks aren't reachable from on-premises networks, but this [can be set up](../../../virtual-network/virtual-network-service-endpoints-overview.md#secure-azure-service-access-from-on-premises)
 - VNet service points are often used in cases, when you want to restrict the access for your Speech resource, based on the VNet(s) where the traffic originates from
