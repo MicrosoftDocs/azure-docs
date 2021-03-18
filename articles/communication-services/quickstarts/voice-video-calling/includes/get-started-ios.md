@@ -2,7 +2,7 @@
 title: Quickstart - Add calling to an iOS app using Azure Communication Services
 description: In this quickstart, you learn how to use the Azure Communication Services Calling client library for iOS.
 author: matthewrobertson
-ms.author: marobert
+ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
