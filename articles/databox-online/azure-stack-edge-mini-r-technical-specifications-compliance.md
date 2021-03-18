@@ -57,9 +57,9 @@ The Azure Stack Edge Mini R device has the following specifications for the netw
 |Network interfaces    |2 x 1 Gbps RJ45 <br> Shown as PORT 1 and PORT 2 in the local UI      |
 |Wi-Fi                 |802.11ac                                                            |
 
-## Router/switch
+## Router, switches
 
-The following routers/switches are compatible with the 10 Gbps SPF+ network interfaces (Port 3 and Port 4) on your Azure Stack Edge Mini R devices:
+The following routers and switches are compatible with the 10 Gbps SPF+ network interfaces (Port 3 and Port 4) on your Azure Stack Edge Mini R devices:
 
 |Router/Switch     |Notes                         |
 |------------------|------------------------------|
@@ -70,13 +70,13 @@ The following routers/switches are compatible with the 10 Gbps SPF+ network inte
 |[TRX R2](https://klastelecom.com/products/trx-r2/) (8-Core)  <!--Better link: https://www.klasgroup.com/products/voyagersw12gg/? On current link target, an "R6" link opens this page.-->        |                              |
 |[SW12GG](https://www.klasgroup.com/products/voyagersw12gg/)          |                                 |
 
-## Transceiver
+## Transceivers, cables
 
-The following copper SFP+ (10 Gbps) transceiver is strongly recommended for use with Azure Stack Edge Mini R devices. Compatible fiber-optic transceivers can be used with SFP+ network interfaces (Port 3 and Port 4) but have not been tested. 
+The following copper SFP+ (10 Gbps) transceivers and cables are strongly recommended for use with Azure Stack Edge Mini R devices. Compatible fiber-optic cables can be used with SFP+ network interfaces (Port 3 and Port 4) but have not been tested. 
 
-|SFP+ transceiver type | Supported products | Notes |
+|SFP+ transceiver type |Supported cables    | Notes |
 |----------------------|--------------------|-------|
-|SFP+ Direct-Attach Copper (10GSFP+Cu)| <ul><li>[FS SFP-10G-DAC](https://www.fs.com/c/fs-10g-sfp-dac-1115) (Available in industrial temperature -40ºC to +85ºC as custom order)</li><br><li>[10Gtek CAB-10GSFP-P0.5M](http://www.10gtek.com/10G-SFP+-182)</li><br><li>[Cisco SFP-H10GB-CU1M](https://www.cisco.com/c/en/us/products/collateral/interfaces-modules/transceiver-modules/data_sheet_c78-455693.html)</li></ul> |<ul><li>Also known as SFP+ Twinax DAC cables.</li><br><li>Recommended option because it has lowest power usage and is simplest.</li><br><li>Not supported: autonegotiation, connecting an SFP device to an SFP+ device</li></ul>|
+|SFP+ Direct-Attach Copper (10GSFP+Cu)| <ul><li>[FS SFP-10G-DAC](https://www.fs.com/c/fs-10g-sfp-dac-1115) (Available in industrial temperature -40ºC to +85ºC as custom order)</li><br><li>[10Gtek CAB-10GSFP-P0.5M](http://www.10gtek.com/10G-SFP+-182)</li><br><li>[Cisco SFP-H10GB-CU1M](https://www.cisco.com/c/en/us/products/collateral/interfaces-modules/transceiver-modules/data_sheet_c78-455693.html)</li></ul> |<ul><li>Also known as SFP+ Twinax DAC cables.</li><br><li>Recommended option because it has lowest power usage and is simplest.</li><br><li>Autonegotiation is not supported.</li><br><li>Connecting an SFP device to an SFP+ device is not supported.</li></ul>|
 
 ## Power supply unit
 
