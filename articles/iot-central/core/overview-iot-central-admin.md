@@ -28,7 +28,7 @@ As an _administrator_, you are  responsible for administrative tasks such as:
 
 The [IoT Central homepage](https://aka.ms/iotcentral-get-started) page is the place where you can learn more about the latest news and features available on IoT Central, create new applications, and see and launch your existing application.
 
-:::image type="content" source="media/overview-iot-central-admin/iot-central-homepage.png" alt-text="IoT Central homepage":::
+:::image type="content" source="media/overview-iot-central-admin/iot-central-homepage.png" alt-text="Screenshot of IoT Central homepage":::
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
@@ -36,7 +36,7 @@ To access and use the **Administration** section, you must be in the **Administr
 
 In the **Application Settings** page, you can change the name and URL of your application, then select **Save**.
 
-![Application settings page](media/overview-iot-central-admin/image-0-a.png)
+![Screenshot of Application settings page](media/overview-iot-central-admin/image-0-a.png)
 
 If your administrator creates a custom theme for your application, this page includes an option to hide the **Application Name** in the UI. This option is useful if the application logo in the custom theme includes the application name. For more information, see [Customize the Azure IoT Central UI](./howto-customize-ui.md).
 
