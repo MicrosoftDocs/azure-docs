@@ -149,7 +149,7 @@ print(call.sid)
 ```
 
 > [!IMPORTANT]
-> Phone numbers should be formatted with a '+' and country code e.g., +16175551212 (E.164 format). Twilio will also accept unformatted US numbers e.g., (415) 555-1212 or 415-555-1212.
+> Phone numbers should be formatted with a '+' and a country code. For example, +16175551212 (E.164 format). Twilio will also accept unformatted US numbers. For example, (415) 555-1212 or 415-555-1212.
 
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses from Your Own Web Site](#howto_provide_twiml_responses).
 
