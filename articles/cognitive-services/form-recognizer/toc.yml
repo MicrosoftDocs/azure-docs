@@ -7,40 +7,13 @@
     href: overview.md
   - name: What's new
     href: whats-new.md
-- name: Get started with Form Recognizer
+- name: Quickstarts
   expanded: true
   items:
-  - name: Using the client library or REST API
+  - name: Get started with the client library or REST API
     href: quickstarts/client-library.md
-  - name: Using the sample labeling tool
+  - name: Use the sample labeling tool
     href: quickstarts/label-tool.md
-- name: Tutorials
-  items:
-  - name: Use Form Recognizer with Cognitive Search
-    href: ../../search/cognitive-search-custom-skill-form.md
-  - name: Use Form Recognizer with AI Builder
-    href: tutorial-ai-builder.md
-  - name: Use Form Recognizer with Azure Functions
-    href: tutorial-azure-function.md
-  - name: Extract form data in bulk
-    href: tutorial-bulk-processing.md
-- name: Concepts
-  items:
-  - name: Layout API
-    expanded: true
-    items:
-    - name: Extract form data    
-      href: concept-layout.md
-  - name: Custom models
-    href: concept-custom.md  
-  - name: Receipts
-    href: concept-receipts.md
-  - name: Business cards
-    href: concept-business-cards.md
-  - name: Invoices
-    href: concept-invoices.md
-  - name: Identification cards
-    href: concept-identification-cards.md    
 - name: How-to guides
   items:
   - name: Build a training data set
@@ -64,6 +37,33 @@
       href: ../containers/index.yml
   - name: Back up and recover models
     href: disaster-recovery.md
+- name: Concepts
+  items:
+  - name: Layout API
+    expanded: true
+    items:
+    - name: Extract form data    
+      href: concept-layout.md
+  - name: Custom models
+    href: concept-custom.md  
+  - name: Receipts
+    href: concept-receipts.md
+  - name: Business cards
+    href: concept-business-cards.md
+  - name: Invoices
+    href: concept-invoices.md
+  - name: Identification cards
+    href: concept-identification-cards.md    
+- name: Tutorials
+  items:
+  - name: Use Form Recognizer with Cognitive Search
+    href: ../../search/cognitive-search-custom-skill-form.md
+  - name: Use Form Recognizer with AI Builder
+    href: tutorial-ai-builder.md
+  - name: Use Form Recognizer with Azure Functions
+    href: tutorial-azure-function.md
+  - name: Extract form data in bulk
+    href: tutorial-bulk-processing.md
 - name: Reference
   items:
   - name: Form Recognizer API v2.1 preview.3
