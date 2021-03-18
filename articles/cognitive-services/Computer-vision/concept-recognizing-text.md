@@ -128,18 +128,18 @@ See the following example of a successful JSON response:
 }
 ```
 
-## Natural reading order output
-With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example.
+## Natural reading order output (Latin only)
+With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
 
 :::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="OCR Reading order example":::
 
 ## Handwritten classification for text lines (Latin only)
-The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is supported only for Latin languages. The following example shows the handwritten classification for the text in the image.
+The [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. The following example shows the handwritten classification for the text in the image.
 
 :::image border type="content" source="./Images/ocr-handwriting-classification.png" alt-text="OCR handwriting classification example":::
 
 ## Select page(s) or page ranges for text extraction
-With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
+With the [Read 3.2 preview API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005), for large multi-page documents, use the `pages` query parameter to specify page numbers or page ranges to extract text from only those pages. The following example shows a document with 10 pages, with text extracted for both cases - all pages (1-10) and selected pages (3-6).
 
 :::image border type="content" source="./Images/ocr-select-pages.png" alt-text="Selected pages output":::
 
@@ -162,4 +162,4 @@ The [OCR API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/co
 
 - Get started with the [Computer Vision REST API or client library quickstarts](./quickstarts-sdk/client-library.md).
 - Learn about the [Read 3.1 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Learn about the [Read 3.2 public preview REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005) with support for a total of 73 languages.
+- Learn about the [Read 3.2 public preview REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005) with support for a total of 73 languages.

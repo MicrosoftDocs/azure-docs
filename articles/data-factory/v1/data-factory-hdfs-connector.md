@@ -101,6 +101,7 @@ A linked service links a data store to a data factory. You create a linked servi
     }
 }
 ```
+
 ## Dataset properties
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
@@ -354,25 +355,25 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **On gateway machine:**
 
-1.    Run the **Ksetup** utility to configure the Kerberos KDC server and realm.
+1. Run the **Ksetup** utility to configure the Kerberos KDC server and realm.
 
-    The machine must be configured as a member of a workgroup since a Kerberos realm is different from a Windows domain. This can be achieved by setting the Kerberos realm and adding a KDC server as follows. Replace *REALM.COM* with your own respective realm as needed.
+   The machine must be configured as a member of a workgroup since a Kerberos realm is different from a Windows domain. This can be achieved by setting the Kerberos realm and adding a KDC server as follows. Replace *REALM.COM* with your own respective realm as needed.
 
-    ```cmd
-    C:> Ksetup /setdomain REALM.COM
-    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-    ```
+   ```cmd
+   Ksetup /setdomain REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ```
 
-    **Restart** the machine after executing these 2 commands.
+   **Restart** the machine after executing these 2 commands.
 
-2.    Verify the configuration with **Ksetup** command. The output should be like:
+2. Verify the configuration with **Ksetup** command. The output should be like:
 
-    ```cmd
-    C:> Ksetup
-    default realm = REALM.COM (external)
-    REALM.com:
-        kdc = <your_kdc_server_address>
-    ```
+   ```cmd
+   Ksetup
+   default realm = REALM.COM (external)
+   REALM.com:
+      kdc = <your_kdc_server_address>
+   ```
 
 **In Azure Data Factory:**
 
@@ -441,54 +442,54 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **On domain controller:**
 
-1.    Run the following **Ksetup** commands to add a realm entry:
+1. Run the following **Ksetup** commands to add a realm entry:
 
-    ```cmd
-    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
-    ```
+   ```cmd
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```
 
-2.    Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM\@AD.COM**.
+2. Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM\@AD.COM**.
 
-    ```cmd
-    C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
-    ```
+   ```cmd
+   netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+   ```
 
-3.    Select encryption algorithm used in Kerberos.
+3. Select encryption algorithm used in Kerberos.
 
-    1. Go to Server Manager > Group Policy Management > Domain > Group Policy Objects > Default or Active Domain Policy, and Edit.
+   1. Go to Server Manager > Group Policy Management > Domain > Group Policy Objects > Default or Active Domain Policy, and Edit.
 
-    2. In the **Group Policy Management Editor** popup window, go to Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options, and configure **Network security: Configure Encryption types allowed for Kerberos**.
+   2. In the **Group Policy Management Editor** popup window, go to Computer Configuration > Policies > Windows Settings > Security Settings > Local Policies > Security Options, and configure **Network security: Configure Encryption types allowed for Kerberos**.
 
-    3. Select the encryption algorithm you want to use when connect to KDC. Commonly, you can simply select all the options.
+   3. Select the encryption algorithm you want to use when connect to KDC. Commonly, you can simply select all the options.
 
-        ![Config Encryption Types for Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
+      ![Config Encryption Types for Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
 
-    4. Use **Ksetup** command to specify the encryption algorithm to be used on the specific REALM.
+   4. Use **Ksetup** command to specify the encryption algorithm to be used on the specific REALM.
 
-       ```cmd
-       C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
-       ```
+      ```cmd
+      ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+      ```
 
-4.    Create the mapping between the domain account and Kerberos principal, in order to use Kerberos principal in Windows Domain.
+4. Create the mapping between the domain account and Kerberos principal, in order to use Kerberos principal in Windows Domain.
 
-    1. Start the Administrative tools > **Active Directory Users and Computers**.
+   1. Start the Administrative tools > **Active Directory Users and Computers**.
 
-    2. Configure advanced features by clicking **View** > **Advanced Features**.
+   2. Configure advanced features by clicking **View** > **Advanced Features**.
 
-    3. Locate the account to which you want to create mappings, and right-click to view **Name Mappings** > click **Kerberos Names** tab.
+   3. Locate the account to which you want to create mappings, and right-click to view **Name Mappings** > click **Kerberos Names** tab.
 
-    4. Add a principal from the realm.
+   4. Add a principal from the realm.
 
-        ![Map Security Identity](media/data-factory-hdfs-connector/map-security-identity.png)
+      ![Map Security Identity](media/data-factory-hdfs-connector/map-security-identity.png)
 
 **On gateway machine:**
 
 * Run the following **Ksetup** commands to add a realm entry.
 
    ```cmd
-   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
    ```
 
 **In Azure Data Factory:**
@@ -497,7 +498,6 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 > [!NOTE]
 > To map columns from source dataset to columns from sink dataset, see [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md).
-
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

@@ -19,7 +19,7 @@ This article lists and briefly describes key terms and concepts related to Azure
 
 ## Alerts
 
-Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 1](#severity-1-alerts) will appear in the Overview page. To learn how to set up alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/learn/tutorial-response.md).
+Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 1](#severity-1-alerts) will appear in the Overview page. To learn how to set up alerts, see [Respond to events with Azure Monitor Alerts](../azure-monitor/alerts/tutorial-response.md).
 
 ## Available sessions
 
@@ -123,7 +123,7 @@ The following table lists the recommended performance counters and time interval
 |RemoteFX Network(\*)\\Current TCP RTT|30 seconds|
 |RemoteFX Network(\*)\\Current UDP Bandwidth|30 seconds|
 
-To learn more about how to read performance counters, see [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md).
+To learn more about how to read performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
 
 To learn more about input delay performance counters, see [User Input Delay performance counters](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
@@ -184,7 +184,7 @@ The following table lists the required Windows events for Azure Monitor for Wind
 | Microsoft-FSLogix-Apps/Operational|Error, Warning, and Information|
 |Microsoft-FSLogix-Apps/Admin|Error, Warning, and Information|
 
-To learn more about Windows events, see [Windows event records properties](../azure-monitor/platform/data-sources-windows-events.md).
+To learn more about Windows events, see [Windows event records properties](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## Next steps
 

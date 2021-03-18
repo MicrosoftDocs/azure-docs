@@ -1,15 +1,16 @@
 ---
-title: Configure geo-replication for a Premium Azure Cache for Redis instance
+title: Configure geo-replication for Premium Azure Cache for Redis instances
 description: Learn how to replicate your Azure Cache for Redis Premium instances across Azure regions
 author: yegu-ms
+
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
 ---
-# Configure geo-replication for a Premium Azure Cache for Redis instance
+# Configure geo-replication for Premium Azure Cache for Redis instances
 
-In this article, you'll learn how to configure a geo-replicated Azure Cache instance using the Azure portal.
+In this article, you'll learn how to configure a geo-replicated Azure Cache using the Azure portal.
 
 Geo-replication links together two Premium Azure Cache for Redis instances and creates a data replication relationship. These cache instances are usually located in different Azure regions, though they aren't required to. One instance acts as the primary, and the other as the secondary. The primary handles read and write requests and propagates changes to the secondary. This process continues until the link between the two instances is removed.
 
@@ -164,7 +165,7 @@ To obtain a recovery point, [Export](cache-how-to-import-export-data.md#export) 
 
 ### Can I use PowerShell or Azure CLI to manage geo-replication?
 
-Yes, geo-replication can be managed using the Azure portal, PowerShell, or Azure CLI. For more information, see the [PowerShell docs](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) or [Azure CLI docs](/cli/azure/redis/server-link?view=azure-cli-latest).
+Yes, geo-replication can be managed using the Azure portal, PowerShell, or Azure CLI. For more information, see the [PowerShell docs](/powershell/module/az.rediscache/#redis_cache) or [Azure CLI docs](/cli/azure/redis/server-link).
 
 ### How much does it cost to replicate my data across Azure regions?
 
@@ -193,3 +194,4 @@ Yes, you can configure a [firewall](./cache-configure.md#firewall) with geo-repl
 Learn more about Azure Cache for Redis features.
 
 * [Azure Cache for Redis service tiers](cache-overview.md#service-tiers)
+* [High availability for Azure Cache for Redis](cache-high-availability.md)

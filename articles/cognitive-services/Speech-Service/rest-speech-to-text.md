@@ -19,11 +19,11 @@ Speech-to-text has two different REST APIs. Each API serves its special purpose 
 
 The Speech-to-text REST APIs are:
 - [Speech-to-text REST API v3.0](#speech-to-text-rest-api-v30) is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). v3.0 is a [successor of v2.0](./migrate-v2-to-v3.md).
-- [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio) is used for OnLine transcription as an alternative to the [Speech SDK](speech-sdk.md). Requests using this API can transmit only up to 60 seconds of audio per request. 
+- [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio) is used for online transcription as an alternative to the [Speech SDK](speech-sdk.md). Requests using this API can transmit only up to 60 seconds of audio per request. 
 
 ## Speech-to-text REST API v3.0
 
-Speech-to-text REST API v3.0 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). If you need to communicate with the OnLine transcription via REST, use [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio).
+Speech-to-text REST API v3.0 is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). If you need to communicate with the online transcription via REST, use [Speech-to-text REST API for short audio](#speech-to-text-rest-api-for-short-audio).
 
 Use REST API v3.0 to:
 - Copy models to other subscriptions in case you want colleagues to have access to a model you built, or in cases where you want to deploy a model to more than one region
@@ -46,7 +46,8 @@ See the full Speech-to-text REST API v3.0 Reference [here](https://centralus.dev
 
 ## Speech-to-text REST API for short audio
 
-As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert Speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use. The REST API for short audio is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
+As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert Speech-to-text using a REST API.
+The REST API for short audio is very limited, and it should only be used in cases were the [Speech SDK](speech-sdk.md) cannot.
 
 Before using the Speech-to-text REST API for short audio, consider the following:
 
@@ -147,7 +148,7 @@ var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 We strongly recommend streaming (chunked) uploading while posting the audio data, which can significantly reduce the latency. See [sample code in different programming languages](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment) for how to enable streaming.
 
 >[!NOTE]
->The pronunciation assessment feature is currently only available on `westus`, `eastasia` and `centralindia` regions. And this feature is currently only available on `en-US` language.
+>The pronunciation assessment feature is currently only available on `en-US` language.
 
 ### Sample request
 
@@ -336,3 +337,4 @@ A typical response for recognition with pronunciation assessment:
 - [Customize acoustic models](./how-to-custom-speech-train-model.md)
 - [Customize language models](./how-to-custom-speech-train-model.md)
 - [Get familiar with Batch transcription](batch-transcription.md)
+

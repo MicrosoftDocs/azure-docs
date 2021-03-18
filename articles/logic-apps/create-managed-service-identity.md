@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/15/2021
+ms.date: 03/09/2021
 ---
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
@@ -26,12 +26,16 @@ Currently, only [specific built-in triggers and actions](../logic-apps/logic-app
 * HTTP
 * HTTP + Webhook
 
+> [!NOTE]
+> While the HTTP trigger and action can authenticate connections to Azure Storage 
+> accounts behind Azure firewalls by using the system-assigned managed identity, 
+> they can't use the user-assigned managed identity to authenticate the same connections.
+
 **Managed connectors**
 
 * Azure Automation
 * Azure Event Grid
 * Azure Key Vault
-* Azure Monitor Logs
 * Azure Resource Manager
 * HTTP with Azure AD
 
@@ -303,7 +307,7 @@ Before you can use your logic app's managed identity for authentication, set up 
 * [Azure portal](#azure-portal-assign-access)
 * [Azure Resource Manager template](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) - For more information, see [Add role assignment by using Azure RBAC and Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Azure CLI ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true#az-role-assignment-create)) - For more information, see [Add role assignment by using Azure RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
+* Azure CLI ([az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)) - For more information, see [Add role assignment by using Azure RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
 * [Azure REST API](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>

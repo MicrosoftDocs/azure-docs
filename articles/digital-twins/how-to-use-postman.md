@@ -16,7 +16,7 @@ ms.date: 11/10/2020
 
 This article describes how to configure the [Postman REST client](https://www.getpostman.com/) to interact with the Azure Digital Twins APIs, through the following steps:
 
-1. Use the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to get a bearer token that you will use to make API requests in Postman.
+1. Use the [Azure CLI](/cli/azure/install-azure-cli) to get a bearer token that you will use to make API requests in Postman.
 1. Set up a Postman collection and configure the Postman REST client to use your bearer token to authenticate.
 1. Use the configured Postman to create and send a request to the Azure Digital Twins APIs.
 
@@ -36,9 +36,9 @@ Next, download the desktop version of the Postman client. Navigate to [*www.getp
 
 Now that you've set up Postman and your Azure Digital Twins instance, you'll need to get a bearer token that Postman requests can use to authorize against the Azure Digital Twins APIs.
 
-There are several possible ways to obtain this token. This article uses the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) to sign into your Azure account and obtain a token that way.
+There are several possible ways to obtain this token. This article uses the [Azure CLI](/cli/azure/install-azure-cli) to sign into your Azure account and obtain a token that way.
 
-If you have an Azure CLI [installed locally](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), you can start a command prompt on your machine to run the following commands.
+If you have an Azure CLI [installed locally](/cli/azure/install-azure-cli), you can start a command prompt on your machine to run the following commands.
 Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window in your browser and run the commands there.
 
 1. First, make sure you're logged into Azure with the appropriate credentials, by running this command:
@@ -47,7 +47,7 @@ Otherwise, you can open an [Azure Cloud Shell](https://shell.azure.com) window i
     az login
     ```
 
-1. Next, use the [az account get-access-token](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service.
+1. Next, use the [az account get-access-token](/cli/azure/account#az_account_get_access_token) command to get a bearer token with access to the Azure Digital Twins service. In this command, you'll pass in the resource ID for the Azure Digital Twins service endpoint (a static value of `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`), in order to get an access token that can access Azure Digital Twins resources.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0
@@ -135,7 +135,7 @@ To proceed with an example query, this article will use the Query API (and its [
 1. Check that the headers shown for the request in the *Headers* tab match those described in the reference documentation. For this request, several headers have been automatically filled. For the Query API, none of the header options are required, so this step is done.
 1. Check that the body shown for the request in the *Body* tab matches the needs described in the reference documentation. For the Query API, a JSON body is required to provide the query text. Here is an example body for this request that queries for all the digital twins in the instance:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="In the details of the new request, the Body tab is shown. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="In the details of the new request, the Body tab is shown. It contains a raw JSON body with a query of 'SELECT * FROM DIGITALTWINS'." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    For more information about crafting Azure Digital Twins queries, see [*How-to: Query the twin graph*](how-to-query-graph.md).
 

@@ -22,7 +22,7 @@
       href: character-counts.md
   - name: How-to guides
     items:
-    - name: Sign-up for Translator
+    - name: Create a Translator resource
       href: ./translator-how-to-signup.md
     - name: Migrate to V3 Text API
       href: migrate-to-v3.md
@@ -86,6 +86,22 @@
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+- name: Document Translation
+  items:
+  - name: Overview 
+    items:
+    - name: What is Document Translation?
+      href: document-translation/overview.md 
+  - name: How-to guides 
+    items:   
+    - name: Get started with Document Translation
+      href: document-translation/get-started-with-document-translation.md
+    - name:   Create SAS tokens 
+      href: document-translation/create-sas-tokens.md
+  - name: Reference
+    items:
+    - name: Document Translation API reference
+      href: /rest/api/cognitiveservices/translator/documenttranslation
 - name: Custom Translator
   items:
   - name: Overview
@@ -149,4 +165,4 @@
     - name: Compliance
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Encryption
-      href: translator-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md

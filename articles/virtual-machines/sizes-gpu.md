@@ -3,7 +3,7 @@ title: Azure VM sizes - GPU | Microsoft Docs
 description: Lists the different GPU optimized sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks and NICs as well as storage throughput and network bandwidth for sizes in this series.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
@@ -38,7 +38,7 @@ To take advantage of the GPU capabilities of Azure N-series VMs, NVIDIA or AMD G
 
 - N-series VMs can only be deployed in the Resource Manager deployment model.
 
-- N-series VMs differ in the type of Azure Storage they support for their disks. NC and NV VMs only support VM disks that are backed by Standard Disk Storage (HDD). NCv2, NCv3, ND, NDv2, and NVv2 VMs only support VM disks that are backed by Premium Disk Storage (SSD).
+- N-series VMs differ in the type of Azure Storage they support for their disks. NC and NV VMs only support VM disks that are backed by Standard Disk Storage (HDD). All other GPU VMs support VM disks that are backed by Standard Disk Storage and Premium Disk Storage (SSD).
 
 - If you want to deploy more than a few N-series VMs, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 

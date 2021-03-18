@@ -13,7 +13,7 @@ ms.reviewer: klaasl
 
 # Manage the default access tier of an Azure Storage account
 
-Each Azure Storage account has a default access tier, either hot, cool, or archive. You assign the access tier when you create a storage account. The default access tier is hot.
+Each Azure Storage account has a default access tier, either hot or cool. You assign the access tier when you create a storage account. The default access tier is hot.
 
 You can change the default account tier by setting the **Access tier** attribute on the storage account. Changing the account tier applies to all objects stored in the account that don't have an explicit tier set. Toggling the account tier from hot to cool incurs write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only and toggling from cool to hot incurs both read operations (per 10,000) and data retrieval (per GB) charges for all blobs in Blob Storage and GPv2 accounts.
 

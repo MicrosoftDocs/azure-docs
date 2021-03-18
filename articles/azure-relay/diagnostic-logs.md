@@ -9,8 +9,8 @@ When you start using your Azure Relay Hybrid Connections, you might want to moni
 
 You can view two types of logs for Azure Relay:
 
-- [Activity logs](../azure-monitor/platform/platform-logs-overview.md): These logs have information about operations performed against your namespace in the Azure portal or through Azure Resource Manager template. These logs are always enabled. For example: "Create or update namespace", "Create or update hybrid connection". 
-- [Diagnostic logs](../azure-monitor/platform/platform-logs-overview.md): You can configure diagnostic logs for a richer view of everything that happens with operations and actions that are conducted against your namespace by using the API, or through language SDK.
+- [Activity logs](../azure-monitor/essentials/platform-logs-overview.md): These logs have information about operations performed against your namespace in the Azure portal or through Azure Resource Manager template. These logs are always enabled. For example: "Create or update namespace", "Create or update hybrid connection". 
+- [Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md): You can configure diagnostic logs for a richer view of everything that happens with operations and actions that are conducted against your namespace by using the API, or through language SDK.
 
 ## View activity logs
 To view activity logs for your Azure Relay namespace, switch to the **Activity log** page in the Azure portal.
@@ -40,7 +40,7 @@ To enable diagnostics logs, do the following steps:
         ![Sample diagnostic settings](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Select **Save** on the toolbar to save the settings.
 
-The new settings take effect in about 10 minutes. The logs are displayed in the configured archival target, in the **Diagnostics logs** pane. For more information about configuring diagnostics settings, see the [overview of Azure diagnostics logs](../azure-monitor/platform/platform-logs-overview.md).
+The new settings take effect in about 10 minutes. The logs are displayed in the configured archival target, in the **Diagnostics logs** pane. For more information about configuring diagnostics settings, see the [overview of Azure diagnostics logs](../azure-monitor/essentials/platform-logs-overview.md).
 
 
 ## Schema for hybrid connections events

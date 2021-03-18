@@ -126,9 +126,11 @@ A workload may require splitting a cluster's nodes into separate pools for logic
 #### Limitations
 
 * All subnets assigned to nodepools must belong to the same virtual network.
-* System pods must have access to all nodes in the cluster to provide critical functionality such as DNS resolution via coreDNS.
-* Assignment of a unique subnet per node pool is limited to Azure CNI during preview.
-* Using network policies with a unique subnet per node pool is not supported during preview.
+* System pods must have access to all nodes/pods in the cluster to provide critical functionality such as DNS resolution and tunneling kubectl logs/exec/port-forward proxy.
+* If you expand your VNET after creating the cluster you must update your cluster (perform any managed clster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. If you don't know how to reconcile your cluster file a support ticket. 
+* Calico Network Policy is not supported. 
+* Azure Network Policy is not supported.
+* Kube-proxy expects a single contiguous cidr and uses it this for three optmizations. See this [K.E.P.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/20191104-iptables-no-cluster-cidr.md ) and --cluster-cidr [here](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) for details. In azure cni your first node pool's subnet will be given to kube-proxy. 
 
 To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
 
@@ -789,6 +791,7 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
+<<<<<<< HEAD
 [az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-upgrades
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az-aks-nodepool-add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az-aks-nodepool-list
@@ -796,6 +799,15 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az-aks-nodepool-upgrade
 [az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az-aks-nodepool-scale
 [az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az-aks-nodepool-delete
+=======
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az-aks-nodepool-list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az-aks-nodepool-delete
+>>>>>>> 86ef86d9ea6d937ab92069d36faba57a5c35f751
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
@@ -813,5 +825,10 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+<<<<<<< HEAD
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md&preserve-view=true#az-vmss-list-instance-public-ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
+=======
+[az-list-ips]: /cli/azure/vmss.md#az-vmss-list-instance-public-ips
+[reduce-latency-ppg]: reduce-latency-ppg.md
+>>>>>>> 86ef86d9ea6d937ab92069d36faba57a5c35f751

@@ -196,7 +196,7 @@ To automate the creation of the account is a two steps process:
 
 ### Prerequisites for connecting to Azure Government
 
--	An Azure subscription in [Azure Government](https://docs.microsoft.com/azure/azure-government/).
+-	An Azure subscription in [Azure Government](../../azure-government/index.yml).
 - An Azure AD account in Azure Government.
 - All pre-requirements of permissions and resources as described above in [Prerequisites for connecting to Azure](#prerequisites-for-connecting-to-azure).
 
@@ -217,7 +217,7 @@ To create a paid account via the Video Indexer portal:
     
 ### Create new account via the API on Azure Government
 
-To create a paid account in Azure Government, follow the instructions in [Create-Paid-Account](/azure/media-services/video-indexer/connect-to-azure). This API end point only includes Government cloud regions.
+To create a paid account in Azure Government, follow the instructions in [Create-Paid-Account](). This API end point only includes Government cloud regions.
 
 ### Limitations of Video Indexer on Azure Government
 

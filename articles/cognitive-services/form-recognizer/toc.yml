@@ -8,7 +8,7 @@
   - name: What's new
     href: whats-new.md
 - name: Get started with Form Recognizer
-  expaned: true
+  expanded: true
   items:
   - name: Using the client library or REST API
     href: quickstarts/client-library.md
@@ -20,22 +20,33 @@
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Form Recognizer with AI Builder
     href: tutorial-ai-builder.md
+  - name: Use Form Recognizer with Azure Functions
+    href: tutorial-azure-function.md
   - name: Extract form data in bulk
     href: tutorial-bulk-processing.md
 - name: Concepts
   items:
-  - name: Layout extraction
-    href: concept-layout.md
+  - name: Layout API
+    expanded: true
+    items:
+    - name: Extract form data    
+      href: concept-layout.md
+  - name: Custom models
+    href: concept-custom.md  
   - name: Receipts
     href: concept-receipts.md
   - name: Business cards
     href: concept-business-cards.md
   - name: Invoices
     href: concept-invoices.md
+  - name: Identification cards
+    href: concept-identification-cards.md    
 - name: How-to guides
   items:
   - name: Build a training data set
     href: build-training-data-set.md
+  - name: Use table tags to train your custom model
+    href: supervised-table-tags.md  
   - name: Deploy the sample labeling tool
     href: deploy-label-tool.md
   - name: Use containers
@@ -55,8 +66,8 @@
     href: disaster-recovery.md
 - name: Reference
   items:
-  - name: Form Recognizer API v2.1 preview
-    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync
+  - name: Form Recognizer API v2.1 preview.3
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm
   - name: Form Recognizer API v2.0
     href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
   - name: SDKs
@@ -64,7 +75,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/ai.formrecognizer-readme
     - name: Python
-      href: /python/api/azure-ai-formrecognizer/?view=azure-python
+      href: /python/api/azure-ai-formrecognizer/
     - name: Java
       href: /java/api/overview/azure/ai-formrecognizer-readme
     - name: JavaScript
@@ -75,10 +86,6 @@
     href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/form-recognizer/context/context
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/
-  - name: UserVoice
-    href: https://go.microsoft.com/fwlink/?linkid=2090535
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/form-recognizer
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
@@ -88,4 +95,4 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: form-recognizer-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md

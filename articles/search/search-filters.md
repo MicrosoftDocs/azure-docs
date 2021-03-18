@@ -8,47 +8,40 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/02/2021
 ms.custom: devx-track-csharp
 ---
 # Filters in Azure Cognitive Search 
 
-A *filter* provides criteria for selecting documents used in an Azure Cognitive Search query. Unfiltered search includes all documents in the index. A filter scopes a search query to a subset of documents. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
+A *filter* provides value-based criteria for selecting documents used in a query. A filter can be a single value or an OData [filter expression](search-query-odata-filter.md). In contrast with full text search, a filter value or expression only returns a strict match.
 
-Some search experiences impose filter requirements as part of the implementation, but you can use filters anytime you want to constrain search using *value-based* criteria (scoping search to product type "books" for category "non-fiction" published by "Simon & Schuster").
-
-If instead your goal is targeted search on specific data *structures* (scoping search to a customer-reviews field), there are alternative methods, described below.
+Some search experiences, such as [faceted navigation](search-filters-facets.md), depend on filters as part of the implementation, but you can use filters anytime you want to scope a query to specific values. If instead your goal is to scope a query to specific fields, there are alternative methods, described below.
 
 ## When to use a filter
 
 Filters are foundational to several search experiences, including "find near me", faceted navigation, and security filters that show only  those documents a user is allowed to see. If you implement any one of these experiences, a filter is required. It's the filter attached to the search query that provides the geolocation coordinates, the facet category selected by the user, or the security ID of the requestor.
 
-Example scenarios include the following:
+Common scenarios include the following:
 
-1. Use a filter to slice your index based on data values in the index. Given a schema with city, housing type, and amenities, you might create a filter to explicitly select documents that satisfy your criteria (in Seattle, condos, waterfront). 
++ Slice search results based on content in the index. Given a schema with hotel location, categories, and amenities, you might create a filter to explicitly match on criteria (in Seattle, on the water, with a view). 
 
-   Full text search with the same inputs often produces similar results, but a filter is more precise in that it requires an exact match of the filter term against content in your index. 
++ Implement a search experience comes with a filter requirement:
 
-2. Use a filter if the search experience comes with a filter requirement:
+  + [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
+  + Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
+  + [Security filters](search-security-trimming-for-azure-search.md) pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
 
-   * [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
-   * Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
-   * Security filters pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
-
-3. Use a filter if you want search criteria on a numeric field. 
-
-   Numeric fields are retrievable in the document and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
++ Do a "numbers search". Numeric fields are retrievable and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.
 
 ### Alternative methods for reducing scope
 
 If you want a narrowing effect in your search results, filters are not your only choice. These alternatives could be a better fit, depending on your objective:
 
- + `searchFields` query parameter pegs search to specific fields. For example, if your index provides separate fields for English and Spanish descriptions, you can use searchFields to target which fields to use for full text search. 
++ `searchFields` query parameter restricts search to specific fields. For example, if your index provides separate fields for English and Spanish descriptions, you can use searchFields to target which fields to use for full text search. 
 
 + `$select` parameter is used to specify which fields to include in a result set, effectively trimming the response before sending it to the calling application. This parameter does not refine the query or reduce the document collection, but if a smaller response is your goal, this parameter is an option to consider. 
 
 For more information about either parameter, see [Search Documents > Request > Query parameters](/rest/api/searchservice/search-documents#query-parameters).
-
 
 ## How filters are executed
 
@@ -57,7 +50,8 @@ At query time, a filter parser accepts criteria as input, converts the expressio
 Filtering occurs in tandem with search, qualifying which documents to include in downstream processing for document retrieval and relevance scoring. When paired with a search string, the filter effectively reduces the recall set of the subsequent search operation. When used alone (for example, when the query string is empty where `search=*`), the filter criteria is the sole input. 
 
 ## Defining filters
-Filters are OData expressions, articulated using a [subset of OData V4 syntax supported in Azure Cognitive Search](/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+
+Filters are OData expressions, articulated in the [filter syntax](search-query-odata-filter.md) supported by Cognitive Search.
 
 You can specify one filter for each **search** operation, but the filter itself can include multiple fields, multiple criteria, and if you use an **ismatch** function, multiple full-text search expressions. In a multi-part filter expression, you can specify predicates in any order (subject to the rules of operator precedence). There is no appreciable gain in performance if you try to rearrange predicates in a particular sequence.
 
@@ -95,15 +89,20 @@ The following examples illustrate several usage patterns for filter scenarios. F
 
 + Standalone **$filter**, without a query string, useful when the filter expression is able to fully qualify documents of interest. Without a query string, there is no lexical or linguistic analysis, no scoring, and no ranking. Notice the search string is just an asterisk, which means "match all documents".
 
-   ```
-   search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
-   ```
+  ```http
+  {
+    "search": "*",
+    "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu"
+  }
+  ```
 
 + Combination of query string and **$filter**, where the filter creates the subset, and the query string provides the term inputs for full text search over the filtered subset. The addition of terms (walking distance theaters) introduces search scores in the results, where documents that best match the terms are ranked higher. Using a filter with a query string is the most common usage pattern.
 
-   ```
-  search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
-   ```
+  ```http
+  {
+    "search": "walking distance theaters",
+    "filter": "Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'"
+  }
 
 + Compound queries, separated by "or", each with its own filter criteria (for example, 'beagles' in 'dog' or 'siamese' in 'cat'). Expressions combined with `or` are evaluated individually, with the union of documents matching each expression sent back in the response. This usage pattern is achieved through the `search.ismatchscoring` function. You can also use the non-scoring version, `search.ismatch`.
 
@@ -146,7 +145,9 @@ You can't modify existing fields to make them filterable. Instead, you need to a
 
 ## Text filter fundamentals
 
-Text filters match string fields against literal strings that you provide in the filter. Unlike full-text search, there is no lexical analysis or word-breaking for text filters, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'Sunny'` does not match, but `$filter=f eq 'sunny day'` will. 
+Text filters match string fields against literal strings that you provide in the filter: `$filter=Category eq 'Resort and Spa'`
+
+Unlike full-text search, there is no lexical analysis or word-breaking for text filters, so comparisons are for exact matches only. For example, assume a field *f* contains "sunny day", `$filter=f eq 'Sunny'` does not match, but `$filter=f eq 'sunny day'` will. 
 
 Text strings are case-sensitive. There is no lower-casing of upper-cased words: `$filter=f eq 'Sunny day'` will not find "sunny day".
 

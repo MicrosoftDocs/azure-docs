@@ -83,5 +83,5 @@ You can select **View detailed metrics** to access the detailed **Metrics** page
 
 ## Next steps
 
-* To learn more, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+* To learn more, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 * For a full description of all the Virtual WAN metrics, see [Virtual WAN logs and metrics](logs-metrics.md).

@@ -4,7 +4,7 @@ description: Create and manage users of sensors and the on-premises management c
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/03/2021
 ms.topic: article
 ms.service: azure
 ---
@@ -157,7 +157,7 @@ Two types of LDAP-based authentication are supported:
 
 ### Active Directory and Defender for IoT permissions
 
-You can associate Active Directory groups defined here with specific permission levels. For example, configure a specific Active Directory group and assign RO permissions to all users in the group. See [Create and manage users](how-to-create-and-manage-users.md) for details.
+You can associate Active Directory groups defined here with specific permission levels. For example, configure a specific Active Directory group and assign Read Only permissions to all users in the group.
 
 To configure Active Directory:
 
@@ -165,11 +165,11 @@ To configure Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="View your Active Directory system settings.":::
 
-1. On the **System Settings** pane, select **Active Directory**.
+2. On the **System Settings** pane, select **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edit your Active Directory configurations.":::
 
-1. In the **Edit Active Directory Configuration** dialog box, select **Active Directory Integration Enabled** > **Save**. The **Edit Active Directory Configuration** dialog box expands, and you can now enter the parameters to configure Active Directory.
+3. In the **Edit Active Directory Configuration** dialog box, select **Active Directory Integration Enabled** > **Save**. The **Edit Active Directory Configuration** dialog box expands, and you can now enter the parameters to configure Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Enter the parameters to configure Active Directory.":::
 
@@ -178,7 +178,7 @@ To configure Active Directory:
     > - For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
     > - You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
 
-1. Set the Active Directory server parameters, as follows:
+4. Set the Active Directory server parameters, as follows:
 
    | Server parameter | Description |
    |--|--|
@@ -188,11 +188,15 @@ To configure Active Directory:
    | Active Directory groups | Enter the group names that are defined in your Active Directory configuration on the LDAP server. |
    | Trusted domains | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted domains only for users who were defined under users. |
 
+#### ActiveDirectory Groups for the On-premises management console
+
+If you are creating Active Directory groups for on-premises management console users, you must create an Access Group rule for each Active Directory group. On-premises management console Active Directory credentials will not work if an Access Group rule does not exists for the Active Directory user group. See [Define global access control](how-to-define-global-user-access-control.md).
+
 1. Select **Save**.
 
-1. To add a trusted server, select **Add Server** and configure another server.
+2. To add a trusted server, select **Add Server** and configure another server.
 
-## Resetting a user's password for the sensor or on-premises management console
+## Resetting passwords
 
 ### CyberX or Support user
 

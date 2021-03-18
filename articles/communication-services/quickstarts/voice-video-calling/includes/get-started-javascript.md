@@ -3,12 +3,15 @@ title: Quickstart - Add VOIP calling to a web app using Azure Communication Serv
 description: In this tutorial, you learn how to use the Azure Communication Services Calling client library for JavaScript
 author: ddematheu
 ms.author: nimag
-ms.date: 08/11/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how start a call using the Azure Communication Services Calling client library for JavaScript.
+
+> [!NOTE]
+> This document uses version 1.0.0-beta.6 of the calling client library.
 
 ## Prerequisites
 
@@ -55,7 +58,7 @@ Create a file in the root directory of your project called **client.js** to cont
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -72,17 +75,17 @@ The following classes and interfaces handle some of the major features of the Az
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | CallClient                       | The CallClient is the main entry point to the Calling client library.                                                                       |
 | CallAgent                        | The CallAgent is used to start and manage calls.                                                                                            |
-| AzureCommunicationUserCredential | The AzureCommunicationUserCredential class implements the CommunicationUserCredential interface which is used to instantiate the CallAgent. |
+| AzureCommunicationTokenCredential | The AzureCommunicationTokenCredential class implements the CommunicationTokenCredential interface which is used to instantiate the CallAgent. |
 
 
 ## Authenticate the client
 
-You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationUserCredential` which will enable us to make and receive calls. Add the following code to **client.js**:
+You need to replace `<USER_ACCESS_TOKEN>` with a valid user access token for your resource. Refer to the [user access token](../../access-tokens.md) documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationTokenCredential` which will enable us to make and receive calls. Add the following code to **client.js**:
 
 ```javascript
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
     callAgent = await callClient.createCallAgent(tokenCredential);
     callButton.disabled = false;
 }
@@ -97,8 +100,8 @@ Add an event handler to initiate a call when the `callButton` is clicked:
 callButton.addEventListener("click", () => {
     // start a call
     const userToCall = calleeInput.value;
-    call = callAgent.call(
-        [{ communicationUserId: userToCall }],
+    call = callAgent.startCall(
+        [{ id: userToCall }],
         {}
     );
     // toggle button states

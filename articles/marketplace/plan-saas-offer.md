@@ -12,7 +12,7 @@ ms.date: 08/30/2020
 
 # How to plan a SaaS offer for the commercial marketplace
 
-This article explains the different options and requirements for publishing a software as a service (SaaS) offer to the Microsoft commercial marketplace. SaaS offers let you deliver and license software solutions to your customers via an online subscription instead of local installation on individual computers. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
+This article explains the different options and requirements for publishing software as a service (SaaS) offers to the Microsoft commercial marketplace. SaaS offers let you deliver and license software solutions to your customers via online subscriptions. As a SaaS publisher, you manage and pay for the infrastructure required to support your customers' use of your offer. This article will help you prepare your offer for publishing to the commercial marketplace with Partner Center.
 
 ## Listing options
 

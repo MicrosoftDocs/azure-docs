@@ -178,7 +178,7 @@ When you resume a job, AzCopy looks at the job plan file. The plan file lists al
 
 ## Change the location of the plan and log files
 
-By default, plan and log files are located in the `%USERPROFILE%\.azcopy` directory on Windows, or in the `$HOME$\.azcopy` directory on Mac and Linux. You can change this location.
+By default, plan and log files are located in the `%USERPROFILE%\.azcopy` directory on Windows, or in the `$HOME/.azcopy` directory on Mac and Linux. You can change this location.
 
 ### Change the location of plan files
 

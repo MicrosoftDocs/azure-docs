@@ -1,7 +1,7 @@
 ---
-title:  Overview of the Connected Machine Windows agent
+title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 02/03/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
 ---
 
@@ -28,6 +28,30 @@ The Azure Connected Machine agent package contains several logical components, w
 
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Extensions are downloaded from Azure and copied to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and for Linux to `/opt/GC_Ext/downloads`. On Windows, the extension is installed to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension is installed to `/var/lib/waagent/<extension>`.
 
+## Instance metadata
+
+Metadata information about the connected machine is collected after the Connected Machine agent registers with Arc enabled servers. Specifically:
+
+* Operating system name, type, and version
+* Computer name
+* Computer fully qualified domain name (FQDN)
+* Connected Machine agent version
+* Active Directory and DNS fully qualified domain name (FQDN)
+* UUID (BIOS ID)
+* Connected Machine agent heartbeat
+* Connected Machine agent version
+* Public key for managed identity
+* Policy compliance status and details (if using Azure Policy Guest Configuration policies)
+
+The following metadata information is requested by the agent from Azure:
+
+* Resource location (region)
+* Virtual machine ID
+* Tags
+* Azure Active Directory managed identity certificate
+* Guest configuration policy assignments
+* Extension requests - install, update, and delete.
+
 ## Download agents
 
 You can download the Azure Connected Machine agent package for Windows and Linux from the locations listed below.
@@ -39,6 +63,10 @@ You can download the Azure Connected Machine agent package for Windows and L
 The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. For more information, see [here](manage-agent.md).
 
 ## Prerequisites
+
+### Supported environments
+
+Arc enabled servers support the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. This includes virtual machines running on platforms like VMware, Azure Stack HCI, and other cloud environments. Arc enabled servers do not support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as they are already modeled as Azure VMs.
 
 ### Supported operating systems
 
@@ -57,9 +85,11 @@ The following versions of the Windows and Linux operating system are officially 
 
 ### Required permissions
 
-* To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
+* To onboard machines, you are a member of the **Azure Connected Machine Onboarding** or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
-* To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role. 
+* To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role in the resource group.
+
+* To select a resource group from the drop-down list when using the **Generate script** method, at a minimum you are a member of the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group.
 
 ### Azure subscription and service limits
 
@@ -81,7 +111,7 @@ To ensure the security of data in transit to Azure, we strongly encourage you to
 The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine connects through a firewall or proxy server to communicate over the Internet, review the following to understand the network configuration requirements.
 
 > [!NOTE]
-> Arc enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/platform/gateway.md) as a proxy for the Connected Machine agent.
+> Arc enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
 >
 
 If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. When you only allow the IP ranges or domain names required for the agent to communicate with the service, you need to allow access to the following Service Tags and URLs.

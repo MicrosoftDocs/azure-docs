@@ -3,9 +3,9 @@ title: Call service endpoints by using HTTP or HTTPS
 description: Send outbound HTTP or HTTPS requests to service endpoints from Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/18/2021
 tags: connectors
 ---
 
@@ -244,8 +244,8 @@ If an HTTP trigger or action includes these headers, Logic Apps removes these he
 
 * `Accept-*` headers except for `Accept-version`
 * `Allow`
-* `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type` when you use POST and PUT operations, but are not included for GET operations
-* `Cookie`
+* `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type`, which are honored when you use the POST and PUT operations. However, Logic Apps drops these headers when you use the GET operation.
+* `Cookie` header, but Logic Apps honors any value that you specify using the **Cookie** property.
 * `Expires`
 * `Host`
 * `Last-Modified`

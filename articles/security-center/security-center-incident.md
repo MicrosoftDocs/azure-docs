@@ -6,7 +6,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
 
 ---
@@ -24,11 +24,19 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
 ## Managing security incidents
 
-1. On the Security Center overview page, select the **Security alerts** tile. The incidents and alerts are listed. Notice that security incidents have a different icon to security alerts.
+1. On Security Center's alerts page, use the **Add filter** button to filter by alert name to the alert name **Security incident detected on multiple resources**. 
 
-    ![View security incidents](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
+    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Locating the incidents on the alerts page in Azure Security Center":::
 
-1. To view details, select an incident. The **Security incident** page shows more details. 
+    The list is now filtered to show only incidents. Notice that security incidents have a different icon to security alerts.
+
+    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="List of incidents on the alerts page in Azure Security Center":::
+
+1. To view details of an incident, select one from the list. A side pane appears with more details about the incident.
+
+    :::image type="content" source="media/security-center-incident/incident-quick-peek.png" alt-text="Side pane showing details of the incident":::
+
+1. To view more details, select **View full details**.
 
     [![Respond to security incidents in Azure Security Center](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 

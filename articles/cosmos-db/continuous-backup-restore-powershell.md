@@ -46,7 +46,7 @@ This article describes how to provision an account with continuous backup and re
 
 To provision an account with continuous backup, add an argument `-BackupPolicyType Continuous` along with the regular provisioning command.
 
-The following cmdlet is an example of a single region write account `pitracct2` with continuous backup policy created in "West US" region under "myrg" resource group:
+The following cmdlet is an example of a single region write account `pitracct2` with continuous backup policy created in *West US* region under *myrg* resource group:
 
 ```azurepowershell
 
@@ -61,7 +61,7 @@ New-AzCosmosDBAccount `
 
 ## <a id="provision-mongodb-api"></a>Provision a MongoDB API account with continuous backup
 
-The following cmdlet is an example of continuous backup account "pitracct2" created in "West US" region under "myrg" resource group:
+The following cmdlet is an example of continuous backup account *pitracct2* created in *West US* region under *myrg* resource group:
 
 ```azurepowershell
 
@@ -158,13 +158,13 @@ The response includes all the database accounts (both live and deleted) that can
   },
 ```
 
-Just like the "CreationTime" or "DeletionTime" for the account, there is a "CreationTime" or "DeletionTime" for the region too. These times allow you to choose the right region and a valid time range to restore into that region.
+Just like the `CreationTime` or `DeletionTime` for the account, there is a `CreationTime` or `DeletionTime` for the region too. These times allow you to choose the right region and a valid time range to restore into that region.
 
 **List all the versions of SQL databases in a live database account**
 
 Listing all the versions of databases allows you to choose the right database in a scenario where the actual time of existence of database is unknown.
 
-Run the following PowerShell command to list all the versions of databases. This command only works with live accounts. The "DatabaseAccountInstanceId" and the "LocationName" parameters are obtained from the "name" and "location" properties in the response of `Get-AzCosmosDBRestorableDatabaseAccount` cmdlet. The "DatabaseAccountInstanceId" attribute refers to "instanceId" property of source database account being restored:
+Run the following PowerShell command to list all the versions of databases. This command only works with live accounts. The `DatabaseAccountInstanceId` and the `LocationName` parameters are obtained from the `name` and `location` properties in the response of `Get-AzCosmosDBRestorableDatabaseAccount` cmdlet. The `DatabaseAccountInstanceId` attribute refers to `instanceId` property of source database account being restored:
 
 
 ```azurepowershell
@@ -177,7 +177,7 @@ Get-AzCosmosdbSqlRestorableDatabase `
 
 **List all the versions of SQL containers of a database in a live database account.**
 
-Use the following command to list all the versions of SQL containers. This command only works with live accounts. The "DatabaseRid" parameter is the "ResourceId" of the database you want to restore. It is the value of "ownerResourceid" attribute found in the response of `Get-AzCosmosdbSqlRestorableDatabase` cmdlet. The response also includes a list of operations performed on all the containers inside this database.
+Use the following command to list all the versions of SQL containers. This command only works with live accounts. The `DatabaseRid` parameter is the `ResourceId` of the database you want to restore. It is the value of `ownerResourceid` attribute found in the response of `Get-AzCosmosdbSqlRestorableDatabase` cmdlet. The response also includes a list of operations performed on all the containers inside this database.
 
 ```azurepowershell
 
@@ -204,7 +204,7 @@ Get-AzCosmosdbSqlRestorableResource `
 
 ## <a id="enumerate-mongodb-api"></a>Enumerate restorable resources for MongoDB
 
-The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. These commands only work for live accounts and they are similar to SQL API commands but with "MongoDB" in the command name instead of "sql".
+The enumeration commands described below help you discover the resources that are available for restore at various timestamps. Additionally, they also provide a feed of key events on the restorable account, database, and container resources. These commands only work for live accounts and they are similar to SQL API commands but with `MongoDB` in the command name instead of `sql`.
 
 **List all the versions of MongoDB databases in a live database account**
 

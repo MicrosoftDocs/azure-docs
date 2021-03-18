@@ -392,6 +392,9 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | actionGroups | resource group | 1-260 | Can't use:<br>`/&%\?` <br><br>Can't end with space or period.  |
 > | components | resource group | 1-260 | Can't use:<br>`%&\?/` <br><br>Can't end with space or period.  |
+> | scheduledQueryRules | resource group | 1-260 | Can't use:<br>`*<>%{}&:\\?/#` <br><br>Can't end with space or period.  |
+> | metricAlerts | resource group | 1-260 | Can't use:<br>`*#&+:<>?@%{}\/` <br><br>Can't end with space or period.  |
+> | activityLogAlerts | resource group | 1-260 | Can't use:<br>`<>*%{}&:\\?+/#` <br><br>Can't end with space or period.  |
 
 ## Microsoft.IoTCentral
 

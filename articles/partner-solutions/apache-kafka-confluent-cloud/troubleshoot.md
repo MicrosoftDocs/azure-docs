@@ -3,7 +3,7 @@ title: Troubleshooting Apache Kafka for Confluent Cloud - Azure partner solution
 description: This article provides information about troubleshooting and frequently asked questions (FAQ) for Confluent Cloud on Azure.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
 ---
@@ -23,6 +23,16 @@ To find the offer in the Azure Marketplace, use the following steps:
 1. Select the application tile.
 
 If the offer isn't displayed, contact [Confluent support](https://support.confluent.io). Your Azure Active Directory tenant ID must be on the list of allowed tenants. To learn how to find your tenant ID, see [How to find your Azure Active Directory tenant ID](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+
+## Purchase errors
+
+* Purchase fails because a valid credit card isn't connected to the Azure subscription or a payment method isn't associated with the subscription.
+
+  Use a different Azure subscription. Or, add or update the credit card or payment method for the subscription. For more information, see [updating the credit and payment method](../../cost-management-billing/manage/change-credit-card.md).
+
+* The EA subscription doesn't allow Marketplace purchases.
+
+  Use a different subscription. Or, check if your EA subscription is enabled for Marketplace purchase. For more information, see [Enable Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). If those options don't solve the problem, contact [Confluent support](https://support.confluent.io).
 
 ## Conflict error
 

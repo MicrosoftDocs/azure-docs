@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/17/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -21,17 +21,17 @@ You need the following to use Azure AD Connect cloud sync:
 
 - Domain Administrator or Enterprise Administrator credentials to create the Azure AD Connect Cloud Sync gMSA (group Managed Service Account) to run the agent service.	
 - A hybrid identity administrator account for your Azure AD tenant that is not a guest user.
-- An on-premises server for the provisioning agent with Windows 2012 R2 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- An on-premises server for the provisioning agent with Windows 2016 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - On-premises firewall configurations.
 
 ## Group Managed Service Accounts
 A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and uses a gMSA for running the agent.  You will be prompted for administrative credentials during setup, in order to create this account.  The account will appear as (domain\provAgentgMSA$).  For more information on a gMSA, see [Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### Prerequisites for gMSA:
-1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012
+1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2016.
 2.	[PowerShell RSAT modules](/windows-server/remote/remote-server-administration-tools) on a domain controller
-3.	At least one domain controller in the domain must be running Windows Server 2012.
-4.	A domain joined server where the agent is being installed needs to be either Windows Server 2012 or later.
+3.	At least one domain controller in the domain must be running Windows Server 2016.
+4.	A domain joined server where the agent is being installed needs to be either Windows Server 2016 or later.
 
 ### Custom gMSA account
 If you are creating a custom gMSA account, you need to ensure that the account has the following permissions.
@@ -60,7 +60,7 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
 ### In your on-premises environment
 
-1. Identify a domain-joined host server running Windows Server 2012 R2 or greater with a minimum of 4-GB RAM and .NET 4.7.1+ runtime.
+1. Identify a domain-joined host server running Windows Server 2016 or greater with a minimum of 4-GB RAM and .NET 4.7.1+ runtime.
 
 2. The PowerShell execution policy on the local server must be set to Undefined or RemoteSigned.
 

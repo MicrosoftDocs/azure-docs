@@ -13,13 +13,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 03/11/2021
 ms.author: b-juche
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
+
+## March 2021 
+
+* [Automatic resizing of a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+
+    In a cross-region replication relationship, a destination volume is automatically resized based on the size of the source volume. As such, you don’t need to resize the destination volume separately. This automatic resizing behavior is applicable when the volumes are in an active replication relationship, or when replication peering is broken with the resync operation. For this feature to work, you need to ensure sufficient headroom in the capacity pools for both the source and the destination volumes.
 
 ## December 2020
 
@@ -95,7 +101,7 @@ Azure NetApp Files is updated on a regular basis. This article provides a summar
 
 ## May 2020
 
-* [Backup policy users](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) (Preview)
+* [Backup policy users](create-active-directory-connections.md) (Preview)
 
     Azure NetApp Files allows you to include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files. The Backup policy users feature is currently in preview.
 

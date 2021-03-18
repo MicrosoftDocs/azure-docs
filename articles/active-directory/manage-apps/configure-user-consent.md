@@ -180,4 +180,4 @@ To learn more:
 * [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
-* [Azure AD on Microsoft Q&A.](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+* [Azure AD on Microsoft Q&A.](/answers/topics/azure-active-directory.html)

@@ -71,18 +71,9 @@ IP addressing can pose a few challenges that are easily overcome if you are awar
 #### Restrict access to the Azure Cognitive Search
 We strongly recommend that you restrict the access to the IP address of your search service and the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) in the ACL instead of making your SQL Azure VMs open to all connection requests.
 
-You can find out the IP address by pinging the FQDN (for example, `<your-search-service-name>.search.windows.net`) of your search service.
+You can find out the IP address by pinging the FQDN (for example, `<your-search-service-name>.search.windows.net`) of your search service. Although it is possible for the search service IP address to change, it's unlikely that it will change. The IP address tends to be static for the lifetime of the service.
 
 You can find out the IP address range of `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) by either using [Downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) or via the [Service Tag Discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). The IP address range is updated weekly.
-
-#### Managing IP address fluctuations
-If your search service has only one search unit (that is, one replica and one partition), the IP address will change during routine service restarts, invalidating an existing ACL with your search service's IP address.
-
-One way to avoid the subsequent connectivity error is to use more than one replica and one partition in Azure Cognitive Search. Doing so increases the cost, but it also solves the IP address problem. In Azure Cognitive Search, IP addresses don't change when you have more than one search unit.
-
-A second approach is to allow the connection to fail, and then reconfigure the ACLs in the NSG. On average, you can expect IP addresses to change every few weeks. For customers who do controlled indexing on an infrequent basis, this approach might be viable.
-
-A third viable (but not particularly secure) approach is to specify the IP address range of the Azure region where your search service is provisioned. The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). 
 
 #### Include the Azure Cognitive Search portal IP addresses
 If you are using the Azure portal to create an indexer, Azure Cognitive Search portal logic also needs access to your SQL Azure VM during creation time. Azure Cognitive Search portal IP addresses can be found by pinging `stamp2.search.ext.azure.com`.

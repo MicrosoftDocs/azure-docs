@@ -16,29 +16,47 @@
   - name: Use built-in analytics to detect threats
     href: tutorial-detect-threats-built-in.md
   - name: Create custom rules to detect threats
-    href: tutorial-detect-threats-custom.md  
+    href: tutorial-detect-threats-custom.md
   - name: Monitor your data
     href: tutorial-monitor-your-data.md
   - name: Investigate incidents
-    href: tutorial-investigate-cases.md 
-  - name: Respond to threats
-    href: tutorial-respond-threats-playbook.md    
+    href: tutorial-investigate-cases.md
+  - name: Use automation to respond to threats
+    href: tutorial-respond-threats-playbook.md
+  - name: Create KQL queries (Learn module)
+    href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
 - name: Concepts
   items:
-  - name: Assign permissions using roles
-    href: roles.md
+  - name: Classify data using entities
+    href: entities-in-azure-sentinel.md
+  - name: Manage access
+    items:
+    - name: Permissions in Azure Sentinel
+      href: roles.md
+    - name: Manage access by resource
+      href: resource-context-rbac.md
   - name: Advanced multistage attack detection
     href: fusion.md
-  - name: Bring your own machine learning platform
-    href: bring-your-own-ml.md
-  - name: Extend Azure Sentinel across workspaces and tenants
-    href: extend-sentinel-across-workspaces-tenants.md
+  - name: Automation (SOAR)
+    items:
+    - name: SOAR in Azure Sentinel
+      href: automation-in-azure-sentinel.md
+    - name: Automation rules for incident handling
+      href: automate-incident-handling-with-automation-rules.md
+    - name: Advanced automation with playbooks
+      href: automate-responses-with-playbooks.md
   - name: Identify advanced threats with UEBA
     href: identify-threats-with-entity-behavior-analytics.md
   - name: Import threat intelligence into Azure Sentinel
     href: import-threat-intelligence.md
+  - name: Bring your own machine learning platform
+    href: bring-your-own-ml.md
+  - name: Integrate Microsoft 365 Defender with Azure Sentinel
+    href: microsoft-365-defender-sentinel-integration.md
   - name: Use external data with watchlists
     href: watchlists.md
+  - name: Extend Azure Sentinel across workspaces and tenants
+    href: extend-sentinel-across-workspaces-tenants.md
   - name: Normalize your data across tables
     href: normalization.md
   - name: Security
@@ -56,44 +74,50 @@
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
-      - name: Office 365 (now with Teams!)
-        href: connect-office-365.md
-      - name: Dynamics 365 (new!)
-        href: connect-dynamics-365.md
-      - name: Cloud App Security
-        href: connect-cloud-app-security.md
       - name: Azure Activity Log
         href: connect-azure-activity.md
       - name: Azure AD Identity Protection
         href: connect-azure-ad-identity-protection.md
-      - name: Azure Information Protection
-        href: connect-azure-information-protection.md
-      - name: Microsoft 365 Defender
-        href: connect-microsoft-365-defender.md      
-      - name: Microsoft Defender for Endpoint (formerly MDATP)
-        href: connect-microsoft-defender-advanced-threat-protection.md
-      - name: Microsoft Defender for Identity (formerly Azure ATP)
-        href: connect-azure-atp.md
-      - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
-        href: connect-office-365-advanced-threat-protection.md
       - name: Azure Defender alerts from ASC
         href: connect-azure-security-center.md
-      - name: Azure Defender (formerly ASC) for IoT
-        href: connect-asc-iot.md
       - name: Azure DDoS Protection
         href: connect-azure-ddos-protection.md
       - name: Azure Firewall
         href: connect-azure-firewall.md
-      - name: Azure Web Application Firewall (WAF)
-        href: connect-azure-waf.md
+      - name: Azure Information Protection
+        href: connect-azure-information-protection.md
+      - name: Azure Key Vault
+        href: connect-azure-key-vault.md
+      - name: Azure Kubernetes Service (AKS)
+        href: connect-azure-kubernetes-service.md
       - name: Azure SQL database logs
         href: connect-azure-sql-logs.md
+      - name: Azure Web Application Firewall (WAF)
+        href: connect-azure-waf.md
+      - name: Defender for IoT (formerly ASC for IoT)
+        href: connect-asc-iot.md
       - name: Domain name server
         href: connect-dns.md
+      - name: Dynamics 365 (new!)
+        href: connect-dynamics-365.md
+      - name: Microsoft 365 Defender
+        href: connect-microsoft-365-defender.md
+        expanded: true
+        items:
+        - name: Cloud App Security
+          href: connect-cloud-app-security.md
+        - name: Microsoft Defender for Endpoint (formerly MDATP)
+          href: connect-microsoft-defender-advanced-threat-protection.md
+        - name: Microsoft Defender for Identity (formerly Azure ATP)
+          href: connect-azure-atp.md
+        - name: Microsoft Defender for Office 365 (formerly Office 365 ATP)
+          href: connect-office-365-advanced-threat-protection.md
+      - name: Office 365 (now with Teams!)
+        href: connect-office-365.md
       - name: Windows firewall
         href: connect-windows-firewall.md
       - name: Windows security events
-        href: connect-windows-security-events.md  
+        href: connect-windows-security-events.md
     - name: Connect external solutions
       items:
       - name: Agari Phishing Defense and Brand Protection
@@ -105,13 +129,15 @@
       - name: Apache HTTP Server
         href: connect-apache-http-server.md
       - name: Barracuda WAF
-        href: connect-barracuda.md 
+        href: connect-barracuda.md
       - name: Barracuda CloudGen Firewall
         href: connect-barracuda-cloudgen-firewall.md
       - name: BETTER Mobile Threat Defense
         href: connect-better-mtd.md
       - name: Beyond Security beSECURE
         href: connect-besecure.md
+      - name: Cisco Meraki
+        href: connect-cisco-meraki.md
       - name: Cisco Umbrella
         href: connect-cisco-umbrella.md
       - name: Cisco Unified Computing System
@@ -122,10 +148,16 @@
         href: connect-f5-big-ip.md
       - name: Forcepoint DLP
         href: connect-forcepoint-dlp.md
+      - name: Google Workspace (G Suite)
+        href: connect-google-workspace.md
       - name: Infoblox NIOS
         href: connect-infoblox.md
       - name: Juniper SRX
         href: connect-juniper-srx.md
+      - name: NXLog DNS logs
+        href: connect-nxlog-dns.md
+      - name: NXLog LinuxAudit
+        href: connect-nxlog-linuxaudit.md
       - name: Okta SSO
         href: connect-okta-single-sign-on.md
       - name: Orca Security
@@ -142,6 +174,8 @@
         href: connect-qualys-vm.md
       - name: Salesforce Service Cloud
         href: connect-salesforce-service-cloud.md
+      - name: Sophos Cloud Optix
+        href: connect-sophos-cloud-optix.md
       - name: Sophos XG Firewall
         href: connect-sophos-xg-firewall.md
       - name: Squadra Technologies secRMM
@@ -158,22 +192,28 @@
         href: connect-syslog.md
       - name: VMware Carbon Black Cloud Endpoint Standard
         href: connect-vmware-carbon-black.md
+      - name: VMware ESXi
+        href: connect-vmware-esxi.md
       - name: Zimperium Mobile Threat Defense
         href: connect-zimperium-mtd.md
       - name: Connect using Logstash
         href: connect-logstash.md
       - name: CEF-based solutions
         href: connect-common-event-format.md
-        items:  
+        items:
         - name: STEP 1 Deploy the log forwarder
           href: connect-cef-agent.md
         - name: STEP 2 Configure your security solution
           href: connect-cef-solution-config.md
-          items:  
+          items:
           - name: AI Vectra Detect
             href: connect-ai-vectra-detect.md
           - name: Akamai Security Events
             href: connect-akamai-security-events.md
+          - name: Aruba ClearPass
+            href: connect-aruba-clearpass.md
+          - name: Broadcom Symantec DLP
+            href: connect-broadcom-symantec-dlp.md
           - name: Check Point
             href: connect-checkpoint.md
           - name: Cisco ASA
@@ -185,7 +225,7 @@
           - name: ExtraHop Reveal(x)
             href: connect-extrahop.md
           - name: F5 ASM
-            href: connect-f5.md  
+            href: connect-f5.md
           - name: Forcepoint CASB, NGFW
             href: connect-forcepoint-casb-ngfw.md
           - name: Fortinet
@@ -207,29 +247,35 @@
           - name: WireX Systems NFP
             href: connect-wirex-systems.md
           - name: Zscaler
-            href: connect-zscaler.md   
-        - name: STEP 3 Validate connectivity 
+            href: connect-zscaler.md
+        - name: STEP 3 Validate connectivity
           href: connect-cef-verify.md
     - name: Create custom connectors
       href: create-custom-connector.md
     - name: Connect threat intelligence
-      href: connect-threat-intelligence.md  
+      href: connect-threat-intelligence.md
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md
     - name: Monitor data connector health
       href: monitor-data-connector-health.md
-  - name: Enable User and Entity Behavior Analytics
+  - name: Enable user and entity behavior analytics
     href: enable-entity-behavior-analytics.md
+  - name: Map data fields to entities
+    href: map-data-fields-to-entities.md
   - name: Manage multiple tenants (MSSP)
     href: multiple-tenants-service-providers.md
   - name: Work with incidents in multiple workspaces
     href: multiple-workspace-view.md
   - name: Set up customer-managed keys (CMK)
     href: customer-managed-keys.md
+  - name: Surface custom details in alerts
+    href: surface-custom-details-in-alerts.md
   - name: Create incidents from alerts
     href: create-incidents-from-alerts.md
   - name: Manage your SOC better with incident metrics
     href: manage-soc-with-incident-metrics.md
+  - name: Audit Azure Sentinel queries and activities
+    href: audit-sentinel-data.md
   - name: Hunting
     href: hunting.md
     items:
@@ -243,12 +289,14 @@
     href: offboard.md
 - name: Reference
   items:
+  - name: Top Azure Sentinel workbooks
+    href: top-workbooks.md
   - name: Azure RBAC roles
     items:
     - name: All Azure roles
-      href: /azure/role-based-access-control/built-in-roles#all
+      href: ../role-based-access-control/built-in-roles.md#all
     - name: Azure Sentinel roles
-      href: /azure/role-based-access-control/built-in-roles#security
+      href: ../role-based-access-control/built-in-roles.md#security
   - name: REST APIs
     items:
     - name: Azure Sentinel REST-API
@@ -259,6 +307,8 @@
       href: watchlist-with-rest-api.md
   - name: Azure Sentinel Logic Apps connector
     href: /connectors/azuresentinel/
+  - name: Entities reference
+    href: entities-reference.md
   - name: Network normalization schema
     href: normalization-schema.md
   - name: Data source schema reference
@@ -269,18 +319,18 @@
       href: /azure/data-explorer/kusto/query/
     - name: Kusto Query Language quick reference
       href: /azure/data-explorer/kql-quick-reference
+    - name: Azure Monitor log query optimizations
+      href: /azure/azure-monitor/logs/query-optimization
   - name: UEBA enrichments
     href: ueba-enrichments.md
 - name: Resources
   items:
   - name: Useful resources
     href: resources.md
-  - name: Azure Security, Privacy, & Compliance blog
-    href: /archive/blogs/azuresecurity/
+  - name: Azure Sentinel blog
+    href: https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-sentinel/
-  
 
-    

@@ -88,7 +88,7 @@
     - name: .NET
       items:
       - name: Reference
-        href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer
       - name: NuGet package
         href: https://go.microsoft.com/fwlink/?linkid=2092272
     - name: Go
@@ -98,13 +98,13 @@
     - name: Node.js
       items:
       - name: Reference
-        href: /javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest
+        href: /javascript/api/@azure/cognitiveservices-personalizer/
       - name: NPM
         href: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
     - name: Python
       items:
       - name: Reference
-        href: /python/api/overview/azure/cognitiveservices/personalizer?view=azure-python
+        href: /python/api/overview/azure/cognitiveservices/personalizer
       - name: Pypi package
         href: https://pypi.org/project/azure-cognitiveservices-personalizer/
 - name: Resources
@@ -118,7 +118,7 @@
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Encryption
-    href: personalizer-encryption-of-data-at-rest.md
+    href: encrypt-data-at-rest.md
   - name: Azure Roadmap
     href: https://go.microsoft.com/fwlink/?linkid=2092153
   - name: Pricing

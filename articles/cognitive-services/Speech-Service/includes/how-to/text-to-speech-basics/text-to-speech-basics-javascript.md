@@ -24,16 +24,16 @@ This article assumes that you have an Azure account and Speech service resource.
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Depending on your platform, use the following instructions:
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
+Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. Depending on your platform, use the following instructions:
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span
 class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web Browser <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web Browser </a>
 
 Additionally, depending on the target environment use one of the following:
 
 # [script](#tab/script)
 
-Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file, and place it in a folder accessible to your HTML file.
+Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript </a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file, and place it in a folder accessible to your HTML file.
 
 ```html
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
@@ -48,7 +48,7 @@ Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" targ
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 ```
 
-For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">export and import <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">export and import </a>.
 
 # [require](#tab/require)
 
@@ -56,7 +56,7 @@ For more information on `import`, see <a href="https://javascript.info/import-ex
 const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
-For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">what is require? <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">what is require? </a>.
 
 ---
 
@@ -157,14 +157,14 @@ For many scenarios in speech application development, you likely need the result
 * Integrate the result with other API's or services.
 * Modify the audio data, write custom `.wav` headers, etc.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `undefined` for the `AudioConfig` in the `SpeechSynthesizer` constructor. 
+It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `undefined` for the `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
 > Passing `undefined` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
 
-This time, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` of the output data, the default browser stream type. For server-code, convert the arrayBuffer to a buffer stream. 
+This time, you save the result to a [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult) variable. The `SpeechSynthesisResult.audioData` property returns an `ArrayBuffer` of the output data, the default browser stream type. For server-code, convert the arrayBuffer to a buffer stream.
 
-The following code works for client-side code. 
+The following code works for client-side code.
 
 ```javascript
 function synthesizeSpeech() {
@@ -184,9 +184,9 @@ function synthesizeSpeech() {
 }
 ```
 
-From here you can implement any custom behavior using the resulting `ArrayBuffer` object. The ArrayBuffer is a common type to receive in a browser and play from this format. 
+From here you can implement any custom behavior using the resulting `ArrayBuffer` object. The ArrayBuffer is a common type to receive in a browser and play from this format.
 
-For any server-based code, if you need to work with the data as a stream, instead of an ArrayBuffer, you need to convert the object into a stream. 
+For any server-based code, if you need to work with the data as a stream, instead of an ArrayBuffer, you need to convert the object into a stream.
 
 ```javascript
 function synthesizeSpeech() {
@@ -281,7 +281,7 @@ function xmlToString(filePath) {
 }
 ```
 
-For more information on `readFileSync`, see <a href="https://nodejs.org/api/fs.html#fs_fs_readlinksync_path_options" target="_blank">Node.js file system<span class="docon docon-navigate-external x-hidden-focus"></span></a>. From here, the result object is exactly the same as previous examples.
+For more information on `readFileSync`, see <a href="https://nodejs.org/api/fs.html#fs_fs_readlinksync_path_options" target="_blank">Node.js file system</a>. From here, the result object is exactly the same as previous examples.
 
 ```javascript
 function synthesizeSpeech() {
@@ -338,3 +338,11 @@ To switch to a neural voice, change the `name` to one of the [neural voice optio
   </voice>
 </speak>
 ```
+
+## Visemes
+
+Speech is usually treated as a good way to drive the animation of facial expressions.
+Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech (i.e. the position of the lips, jaw and tongue when producing a particular phoneme).
+You can subscribe the Viseme event in Speech SDK to generate facial animation data.
+Then, you can apply such data to a character to realize facial animation.
+Learn [how to get viseme outputs](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).

@@ -89,7 +89,7 @@ Under **Monitoring**, you can enable or disable **Diagnostic settings**. Under *
 
 To learn more about the common Azure settings listed, see the following articles:
 
-- [Activity log](../azure-monitor/platform/platform-logs-overview.md)
+- [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
 - [Access control (IAM)](../role-based-access-control/overview.md)
 - [Tags](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Locks](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -357,6 +357,11 @@ To do tasks on network security groups, security rules, and application security
 | Microsoft.Network/networkSecurityGroups/write                 |   Create or update network security group                             |
 | Microsoft.Network/networkSecurityGroups/delete                |   Delete network security group                                       |
 | Microsoft.Network/networkSecurityGroups/join/action           |   Associate a network security group to a subnet or network interface 
+
+
+>[!NOTE]
+> To perform `write` operations on a network security group, the subscription account must have at least `read` permissions for resource group along with `Microsoft.Network/networkSecurityGroups/write` permission.
+
 
 ### Network security group rule
 

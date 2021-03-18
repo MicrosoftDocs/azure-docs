@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
 ---
 
@@ -105,16 +105,22 @@ Audio with human-labeled transcripts offers the greatest accuracy improvements i
 
 Consider these details:
 
-* Custom Speech can only capture word context to reduce substitution errors, not insertion or deletion errors.
+* Training with audio will bring the most benefits if the audio is also hard to understand for humans. In most cases, you should start training by just using related text.
+* If you use one of the most heavily used languages such as US-English, there's a good chance that there's no need to train with audio data. For such languages, the base models offer already very good recognition results in most scenarios; it's probably enough to train with related text.
+* Custom Speech can only capture word context to reduce substitution errors, not insertion, or deletion errors.
 * Avoid samples that include transcription errors, but do include a diversity of audio quality.
 * Avoid sentences that are not related to your problem domain. Unrelated sentences can harm your model.
 * When the quality of transcripts vary, you can duplicate exceptionally good sentences (like excellent transcriptions that include key phrases) to increase their weight.
 * The Speech service will automatically use the transcripts to improve the recognition of domain-specific words and phrases, as if they were added as related text.
-* Training with audio will bring the most benefits if the audio is also hard to understand for humans. In most cases, you should start training by just using related text.
-* It can take several days for a training operation to complete. To improve the speed of training, make sure to create your Speech service subscription in a [region with dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+* It can take several days for a training operation to complete. To improve the speed of training, make sure to create your Speech service subscription in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
 
 > [!NOTE]
-> Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
+> Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data. Even if a base model supports training with audio data, the service might use only part of the audio. Still it will use all the transcripts.
+
+> [!NOTE]
+> In cases when you change the base model used for training, and you have audio in the training dataset, *always* check whether the new selected base model [supports training with audio data](language-support.md#speech-to-text). If the previously used base model did not support training with audio data, and the training dataset contains audio, training time with the new base model will **drastically** increase, and may easily go from several hours to several days and more. This is especially true if your Speech service subscription is **not** in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+>
+> If you face the issue described in the paragraph above, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. The latter option is highly recommended if your Speech service subscription is **not** in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
 
 ### Add new words with pronunciation
 

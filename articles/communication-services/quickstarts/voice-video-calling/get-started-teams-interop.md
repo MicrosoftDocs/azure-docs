@@ -4,19 +4,31 @@ titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to join an Teams meeting with the Azure Communication Calling SDK.
 author: matthewrobertson
 ms.author: chpalm
-ms.date: 10/10/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 
+zone_pivot_groups: acs-plat-web-ios-android
 ---
 
 # Quickstart: Join your calling app to a Teams meeting
 
-[!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+> [!IMPORTANT]
+> To enable/disable [Teams tenant interoperability](../../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
 Get started with Azure Communication Services by connecting your calling solution to Microsoft Teams using the JavaScript client library.
 
-[!INCLUDE [Join Teams meetings](./includes/teams-interop-javascript.md)]
+::: zone pivot="platform-web"
+[!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Calling with Android](./includes/teams-interop-android.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Calling with iOS](./includes/teams-interop-ios.md)]
+::: zone-end
 
 ## Clean up resources
 
