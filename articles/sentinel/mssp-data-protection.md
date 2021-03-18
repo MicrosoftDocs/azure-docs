@@ -79,9 +79,17 @@ When adding a workspace statement to your analytics rules, consider the followin
 
 - Using this method means that there are no alerts in the customer's workspace, and therefore no incidents either. Both alerts and incidents will exist in your, MSSP workspace only.
 
-- This method also requires that you use a separate alert for each customer and detection, as the workspace statement will be different in each case. You can add the customer name to the alert rule name to easily identify the customer when the alert is triggered. This may result in a large number of rules, which you might want to manage using scripting, or Azure Sentinel as Code.
+- This method also requires that you use a separate alert for each customer and detection, as the workspace statement will be different in each case. You can add the customer name to the alert rule name to easily identify the customer when the alert is triggered. This may result in a large number of rules, which you might want to manage using scripting, or [Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
+
+    For example:
+
+    :::image type="content" source="media/mssp-protect-intellectual-property/mssp-rules-per-customer.png" alt-text="Create separate rules in your MSSP workspace for each customer.":::
 
 - Creating separate rules for each customer and detection may cause you to reach the maximum number of analytics rules for your workspace. If you have many customers and expect to reach this limit, you may want to create a separate MSSP workspace for each customer.
+
+    For example:
+    
+    :::image type="content" source="media/mssp-protect-intellectual-property/mssp-rules-and-workspace-per-customer.png" alt-text="Create a workspace and rules in your MSSP tenant for each customer.":::
 
 > [!IMPORTANT]
 > The key to using this method successfully is using automation to manage a large set of rules across your workspaces.
@@ -89,6 +97,10 @@ When adding a workspace statement to your analytics rules, consider the followin
 ### Workbooks 
 
 If you have developed an Azure Sentinel workbook that you don't want your customer to copy, host the workbook in your MSSP tenant. Make sure that you have access to your customer workspaces via Azure Lighthouse, and then make sure to modify the workbook to use those customer workspaces.
+
+For example:
+
+:::image type="content" source="media/mssp-protect-intellectual-property/cross-workspace-workbook.png" alt-text="Cross-workspace workbooks":::
 
 For more information, see [Making your Azure Sentinel Workbooks multi-tenant (or multi-workspace)](https://techcommunity.microsoft.com/t5/azure-sentinel/making-your-azure-sentinel-workbooks-multi-tenant-or-multi/ba-p/1402357).
 
@@ -102,14 +114,19 @@ Exporting your workbook to Power BI:
 For more information, see [Import Azure Monitor log data into Power BI](/azure/azure-monitor/visualize/powerbi).
 ### Playbooks
 
-You can protect your playbooks as follows, depending on where the playbook's analytics rules have been created;
+You can protect your playbooks as follows, depending on where the playbook's analytics rules have been created:
 
-|Rule source  |Description  |
-|---------|---------|
-|**Analytics rules created in the MSSP workspace**     | Make sure to create your playbooks in the MSSP workspace, and that you get all incident and alert data from the MSSP workspace. <br><br>You can attach the playbooks whenever you create a new rule in your workspace.        |
-|**Analytics rules created in the MSSP workspace**     |    Use Azure Lighthouse to attach analytics rules from the customer's workspace to an playbook hosted in your MSSP workspace.  <br><br>In this case, the playbook gets the alert and incident data, as well as any other customer information, from the customer workspace.    |
-|     |         |
+- **Analytics rules created in the MSSP workspace**.  Make sure to create your playbooks in the MSSP workspace, and that you get all incident and alert data from the MSSP workspace. You can attach the playbooks whenever you create a new rule in your workspace.
 
+    For example:
+
+    :::image type="content" source="media/mssp-protect-intellectual-property/rules-in-mssp-workspace.png" alt-text="Rules created in the MSSP workspace.":::
+
+- **Analytics rules created in the customer workspace**. Use Azure Lighthouse to attach analytics rules from the customer's workspace to an playbook hosted in your MSSP workspace. In this case, the playbook gets the alert and incident data, as well as any other customer information, from the customer workspace.
+
+    For example:
+    
+    :::image type="content" source="media/mssp-protect-intellectual-property/rules-in-customer-workspace.png" alt-text="Rules created in the customer workspace.":::
 ## Next steps
 
 For more information, see:
