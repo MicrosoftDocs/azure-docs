@@ -87,6 +87,8 @@ If your Windows computer does not include OpenSSH, we recommend using [PuTTY](ht
 
     :::image type="content" source="./media/how-to-ssh-into-percept-dk/open-ssh-prompt.png" alt-text="Screenshot of Open SSH command prompt login.":::
 
+1. If this is the first time connecting to your dev kit through OpenSSH, you may also be prompted to accept the host's key. Enter **yes** to accept the key.
+
 1. Congratulations! You have successfully connected to your dev kit over SSH.
 
 ### Using PuTTY
