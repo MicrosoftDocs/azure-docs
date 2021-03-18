@@ -64,7 +64,7 @@ Using the system browser has the significant advantage of sharing the SSO state 
 
 On .NET Core, MSAL.NET will start the system browser as a separate process. MSAL.NET doesn't have control over this browser, but once the user finishes authentication, the web page is redirected in such a way that MSAL.NET can intercept the Uri.
 
-You can also configure apps written for .NET Classic or NET5 to use this browser, by specifying
+You can also configure apps written for .NET Classic or .NET 5 to use this browser by specifying:
 
 ```csharp
 await pca.AcquireTokenInteractive(s_scopes)
