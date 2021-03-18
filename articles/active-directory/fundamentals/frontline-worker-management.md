@@ -1,6 +1,6 @@
 ---
-title: Frontline Worker management - Azure Active Directory
-description: Learn about Frontline Worker management capabilities that are provided through the My Staff portal.
+title: Frontline worker management - Azure Active Directory
+description: Learn about frontline worker management capabilities that are provided through the My Staff portal.
 
 services: active-directory
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.reviewer: stevebal
 
 #Customer intent: As a manager of frontline workers, I want an intuitive portal so that I can easily onboard new workers and provision shared devices.
 ---
-# Frontline Worker management
+# Frontline worker management
 
-Frontline workers account for over 80 percent of the global workforce. Yet because of high scale, rapid turnover, and fragmented processes, frontline workers often lack the tools to make their demanding jobs a little easier. Frontline Worker management brings digital transformation to the entire frontline workforce including managers, frontline workers, operations, and IT.
+Frontline workers account for over 80 percent of the global workforce. Yet because of high scale, rapid turnover, and fragmented processes, frontline workers often lack the tools to make their demanding jobs a little easier. Frontline worker management brings digital transformation to the entire frontline workforce. The workforce may include managers, frontline workers, operations, and IT.
 
-Frontline Worker management empowers the frontline workforce by making the following activities easier to accomplish:
+Frontline worker management empowers the frontline workforce by making the following activities easier to accomplish:
 - Streamlining common IT tasks with My Staff
 - Easy onboarding of frontline workers through simplified authentication
 - Seamless provisioning of shared devices and offboarding of frontline workers
@@ -38,7 +38,7 @@ My Staff also enables frontline managers to register their team members' phone n
 
 ## Secure offboarding of frontline workers from shared devices
 
-Many companies use shared devices so frontline workers can do inventory management and point-of-sale transactions, without the IT burden of provisioning and tracking individual devices. With shared device sign-out, it's easy for a frontline worker to securely sign out of all apps and web browsers on any shared device before handing it back to a hub or passing it off to a teammate on the next shift. You can choose to integrate this capability into all your line-of-business [iOS](../develop/msal-ios-shared-devices.md) and [Android](../develop/msal-android-shared-devices.md) apps using the [Microsoft Authentication Library](../develop/msal-overview.md).
+Many companies use shared devices so frontline workers can do inventory management and point-of-sale transactions, without the IT burden of provisioning and tracking individual devices. With shared device sign-out, it's easy for a frontline worker to securely sign out of all apps on any shared device before handing it back to a hub or passing it off to a teammate on the next shift. Once a worker signs out of a shared device, Intune and Azure AD clear all of the company data so the device can safely be handed off to the next associate. You can choose to integrate this capability into all your line-of-business [iOS](../develop/msal-ios-shared-devices.md) and [Android](../develop/msal-android-shared-devices.md) apps using the [Microsoft Authentication Library](../develop/msal-overview.md).
 
 ![Shared device sign-out](media/concept-fundamentals-flw/shared-device-signout.png)
 
