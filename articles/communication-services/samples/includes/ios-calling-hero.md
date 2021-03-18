@@ -59,8 +59,8 @@ The group calling sample can be run locally using XCode. Developers can either u
 ### Before running the sample for the first time
 
 1. Install dependencies by running `pod install`.
-2. Open `ACSCall.xcworkspace` in XCode.
-3. Update `AppSettings.plist`. Set the value for the `acsTokenFetchUrl` key to be the URL for your Authentication Endpoint.
+2. Open `AzureCalling.xcworkspace` in XCode.
+3. Update `AppSettings.plist`. Set the value for the `communicationTokenFetchUrl` key to be the URL for your Authentication Endpoint.
 
 ### Run sample
 
@@ -68,9 +68,9 @@ Build and run the sample in XCode.
 
 ## (Optional) Securing an authentication endpoint
 
-For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services token. For production scenarios, we recommend using your own secured endpoint to provision your own tokens.
+For demonstration purposes, this sample uses a publicly accessible endpoint by default to fetch an Azure Communication Services access token. For production scenarios, we recommend using your own secured endpoint to provision your own tokens.
 
-With additional configuration, this sample supports connecting to an **Azure Active Directory** (Azure AD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. See steps below:
+With additional configuration, this sample supports connecting to an **Azure Active Directory** (Azure AD) protected endpoint so that user login is required for the app to fetch an Azure Communication Services access token. See steps below:
 
 1. Enable Azure Active Directory authentication in your app.  
    - [Register your app under Azure Active Directory (using iOS / macOS platform settings)](../../../active-directory/develop/tutorial-v2-ios.md) 
@@ -80,7 +80,7 @@ With additional configuration, this sample supports connecting to an **Azure Act
 :::image type="content" source="../media/calling/aad-overview.png" alt-text="Azure Active Directory configuration on Azure portal.":::
 
 3. Open `AppSettings.plist` in Xcode, add the following key values:
-   - `acsTokenFetchUrl`: The URL to request Azure Communication Services token 
+   - `communicationTokenFetchUrl`: The URL to request Azure Communication Services token 
    - `isAADAuthEnabled`: A boolean value to indicate if the Azure Communication Services token authentication is required or not
    - `aadClientId`: Your Application (client) ID
    - `aadTenantId`: Your Directory (tenant) ID
@@ -103,5 +103,5 @@ For more information, see the following articles:
 
 ### Additional reading
 
-- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
-- [Samples](./../overview.md) - Find more samples and examples on our samples overview page.
+- [Azure Communication Calling Features](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) - To learn more about the calling iOS sdk
+-[Azure Communication iOS Calling SDK](https://github.com/Azure/Communication/releases/)
