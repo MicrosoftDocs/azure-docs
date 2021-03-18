@@ -35,7 +35,7 @@ After reading this article, you will know how to:
 The StorSimple Device Manager service runs in Microsoft Azure and connects to multiple StorSimple Virtual Arrays. You use a central Microsoft Azure portal running in a browser to manage these devices. To connect to the StorSimple Device Manager service, do the following.
 
 #### To connect to the service
-1. Go to [https://ms.portal.azure.com](https://ms.portal.azure.com).
+1. Go to [https://portal.azure.com](https://portal.azure.com).
 2. Using your Microsoft account credentials, log on to the Microsoft Azure portal (located at the top-right of the pane).
 3. Navigate to Browse --> 'Filter' on StorSimple Device Managers to view all your device managers in a given subscription.
 
