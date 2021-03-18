@@ -265,6 +265,8 @@ The following entities are supported:
 [Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   |
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
+KeyPhrase is not available in all subcultures of Portuguese (Brazil) - ```pt-BR```.
+
 ## Spanish (Spain) entity support
 
 The following entities are supported:
@@ -310,8 +312,6 @@ The following entities are supported:
 [URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
-
-KeyPhrase is not available in all subcultures of Portuguese (Brazil) - ```pt-BR```.
 
 ## Turkish entity support
 
