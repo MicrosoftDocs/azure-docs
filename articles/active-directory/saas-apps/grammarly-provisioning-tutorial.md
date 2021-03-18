@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Grammarly to support provisioning with Azure AD
 
-Reach out to your Grammarly representative, or to [support@grammarly.com](support@grammarly.com) to request for your provisioning token.
+Reach out to your Grammarly representative, or write to <support@grammarly.com> to request for your provisioning token.
 
 ## Step 3. Add Grammarly from the Azure AD application gallery
 
