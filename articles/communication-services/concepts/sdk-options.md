@@ -11,26 +11,31 @@ ms.date: 03/15/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-# Client libraries and REST APIs
+# SDKs and REST APIs
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-Azure Communication Services capabilities are conceptually organized into six areas. Some areas have fully open-sourced client libraries. The Calling client library uses proprietary network interfaces and is currently closed-source, and the Chat library includes a closed-source dependency. Samples and additional technical details for client libraries are published in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
+Azure Communication Services capabilities are conceptually organized into six areas. Most areas have fully open-sourced client libraries programmed against published REST APIs that you can leverage directly over the Internet. The Calling client library uses proprietary network interfaces and is currently closed-source. Samples and additional technical details for SDKs are published in the [Azure Communication Services GitHub repo](https://github.com/Azure/communication).
 
-## Client libraries
+## REST APIs
+Communication Services APIs are documented alongside other Azure REST APIs in [docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using Postman. This documentation is also offered in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
-| Assembly               | Protocols             |Open vs. Closed Source| Namespaces                          | Capabilities                                                      |
-| ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
-| Azure Resource Manager | REST | Open            | Azure.ResourceManager.Communication | Provision and manage Communication Services resources             |
-| Common                 | REST | Open               | Azure.Communication.Common          | Provides base types for other client libraries |
-| Identity         | REST | Open               | Azure.Communication.Identity  | Manage users, access tokens |
-| Phone numbers         | REST | Open               | Azure.Communication.PhoneNumbers  | Managing phone numbers |
-| Chat                   | REST with proprietary signaling | Open with closed source signaling package    | Azure.Communication.Chat            | Add real-time text based chat to your applications  |
-| SMS                    | REST | Open              | Azure.Communication.SMS             | Send and receive SMS messages |
-| Calling                | Proprietary transport | Closed |Azure.Communication.Calling         | Leverage voice, video, screen-sharing, and other real-time data communication capabilities          |
+## SDKs
 
-Note that the Azure Resource Manager, Identity, and SMS client libraries are focused on service integration, and in many cases security issues arise if you integrate these functions into end-user applications. The Common and Chat client libraries are suitable for service and client applications. The Calling client library is designed for client applications. A client library focused on service scenarios is in development.
+| Assembly | Namespaces| Protocols | Capabilities |
+|------------------------|-------------------------------------|---------------------------------|--------------------------------------------------------------------------------------------|
+| Azure Resource Manager | Azure.ResourceManager.Communication | REST| Provision and manage Communication Services resources|
+| Common | Azure.Communication.Common| REST| Provides base types for other client libraries |
+| Identity | Azure.Communication.Identity| REST| Manage users, access tokens|
+| Phone numbers| Azure.Communication.PhoneNumbers| REST| Managing phone numbers |
+| Chat | Azure.Communication.Chat| REST with proprietary signaling | Add real-time text based chat to your applications |
+| SMS| Azure.Communication.SMS | REST| Send and receive SMS messages|
+| Calling| Azure.Communication.Calling | Proprietary transport | Leverage voice, video, screen-sharing, and other real-time data communication capabilities |
+
+The Azure Resource Manager, Identity, and SMS client libraries are focused on service integration, and in many cases security issues arise if you integrate these functions into end-user applications. The Common and Chat client libraries are suitable for service and client applications. The Calling client library is designed for client applications. A client library focused on service scenarios is in development.
+
+SDKs are typically updated and released every month, with release notes collated in [GitHub](https://github.com/azure/communication).
 
 ### Languages and publishing locations
 
@@ -47,18 +52,15 @@ Publishing locations for individual client library packages are detailed below.
 | Calling        | [npm](https://www.npmjs.com/package/@azure/communication-calling)         | -      | -      | -     | [GitHub](https://github.com/Azure/Communication/releases)     | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)            | -                              |
 | Reference Documentation     | [docs](https://azure.github.io/azure-sdk-for-js/communication.html)         | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)      | -      | [docs](http://azure.github.io/azure-sdk-for-java/communication.html)     | [docs](/objectivec/communication-services/calling/)      | [docs](/java/api/com.azure.communication.calling)            | -                              |
 
-## REST APIs
 
-Communication Services APIs are documented alongside other Azure REST APIs in [docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using Postman. This documentation is also offered in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
+## SDK platform support details
 
-## Additional support details
-
-### iOS and Android support details
+### iOS and Android 
 
 - Communication Services iOS client libraries target iOS version 13+, and Xcode 11+.
 - Android Java client libraries target Android API level 21+ and Android Studio 4.0+
 
-### .NET support details
+### .NET 
 
 With the exception of Calling, Communication Services packages target .NET Standard 2.0 which supports the platforms listed below.
 
@@ -76,20 +78,6 @@ Support via .NET Core 2.0:
 - Mono 5.4
 - Xamarin iOS 10.14
 - Xamarin Mac 3.8
-
-## Calling client library timeouts
-
-The following timeouts apply to the Communication Services calling client libraries:
-
-| Action           | Timeout in seconds |
-| -------------- | ---------- |
-| Reconnect/removal participant | 120 |
-| Add or remove new modality from a call (Start/stop video or screen sharing) | 40 |
-| Call Transfer operation timeout | 60 |
-| 1:1 call establishment timeout | 85 |
-| Group call establishment timeout | 85 |
-| PSTN call establishment timeout | 115 |
-| Promote 1:1 call to a group call timeout | 115 |
 
 
 ## API stability expectations
