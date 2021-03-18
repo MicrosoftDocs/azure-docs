@@ -4,7 +4,7 @@ description: Explains how to configure additional settings for the cache like MT
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: v-erkel
 ---
 
@@ -70,6 +70,8 @@ If you need to set a custom DNS server for your cache, use the provided fields:
   > [!NOTE]
   > The cache will use only the first DNS server it successfully finds. -->
 
+Consider using a test cache to check and refine your DNS setup before you use it in a production environment.
+
 ### Refresh storage target DNS
 
 If your DNS server updates IP addresses, the associated NFS storage targets will become temporarily unavailable. Read how to update your custom DNS system IP addresses in [Edit storage targets](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
@@ -95,4 +97,4 @@ Azure HPC Cache stores daily, weekly, and monthly snapshots until they are repla
 * Up to 8 weekly snapshots
 * Up to 3 monthly snapshots
 
-Access the snapshots from the `.snapshot` directory in your blob storage target's namespace.
+Access the snapshots from the `.snapshot` directory in the root of your mounted blob storage target.
