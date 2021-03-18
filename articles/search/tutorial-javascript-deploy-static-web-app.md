@@ -1,5 +1,5 @@
 ---
-title: JavaScript tutorial deploy search-enabled website
+title:  "JavaScript tutorial: Deploy search-enabled website"
 titleSuffix: Azure Cognitive Search
 description: Deploy search-enabled website to Azure Static web app.
 manager: nitinme
@@ -9,9 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
+ms.devlang: javascript
 ---
 
-# 3. Deploy the search-enabled website
+# 3 - Deploy the search-enabled website
 
 Deploy the search-enabled website as an Azure Static web app. This deployment includes both the React app and the Function app.  
 
@@ -28,11 +29,11 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
     |Prompt|Enter|
     |--|--|
-    |How do you want to create a static web app?|Use existing GitHub repository|
+    |How do you want to create a Static Web App?|Use existing GitHub repository|
     |Choose organization|Select your _own_ GitHub alias as the organization.|
     |Choose repository|Select **azure-search-javascript-samples** from the list. |
     |Choose branch of repository|Select **master** from the list. |
-    |Enter the name for the new static web app.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-javascript-samples`. |
+    |Enter the name for the new Static Web App.|Create a unique name for your resource. For example, you can prepend your name to the repository name such as, `joansmith-azure-search-javascript-samples`. |
     |Select a resource group for new resources.|Use the resource group you created for this tutorial.|
     |Choose build preset to configure default project structure.|Select **Custom**|
     |Select the location of your application code|`search-website`|
@@ -42,7 +43,7 @@ The Static Web app pulls the information and files for deployment from GitHub us
 
 1. The resource is created, select **Open Actions in GitHub** from the Notifications. This opens a browser window pointed to your forked repo. 
 
-    The list of actions indicates your web app, both client and functions, were successfully pushed to your Azure static web app. 
+    The list of actions indicates your web app, both client and functions, were successfully pushed to your Azure Static Web App. 
 
     Wait until the build and deployment complete before continuing. This may take a minute or two to finish.
 
@@ -79,9 +80,9 @@ The Azure Function app won't return Search data until the Search secrets are in 
 
 1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon.
 1. In the Side bar, **right-click on your Azure subscription** under the `Static web apps` area and find the Static web app you created for this tutorial.
-1. Right-click the static web app name and select **Browse site**.
+1. Right-click the Static Web App name and select **Browse site**.
     
-    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="Right-click the static web app name and select **Browse site**.":::    
+    :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-browse-static-web-app.png" alt-text="Right-click the Static Web App name and select **Browse site**.":::    
 
 1. Select **Open** in the pop-up dialog.
 1. In the website search bar, enter a search query such as `code`, _slowly_ so the suggest feature suggests book titles. Select a suggestion or continue entering your own query. Press enter when you've completed your search query. 

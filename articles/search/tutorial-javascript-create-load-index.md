@@ -1,5 +1,5 @@
 ---
-title: Tutorial creates Search index adds docs
+title: "JavaScript tutorial: Add search to web apps" 
 titleSuffix: Azure Cognitive Search
 description: Create index and import CSV data into Search index with JavaScript using the npm SDK @azure/search-documents.
 manager: nitinme
@@ -9,9 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 03/18/2021
 ms.custom: devx-track-js
+ms.devlang: javascript
 ---
 
-# 2. Create and load Search Index with JavaScript
+# 2 - Create and load Search Index with JavaScript
 
 Continue to build your Search-enabled website by:
 * Creating a Search resource with the VS Code extension
@@ -108,4 +109,4 @@ Note your **Search resource name**. You will need this to connect the Azure Func
 
 ## Next steps
 
-[Deploy your static web app](tutorial-javascript-deploy-static-web-app.md)
+[Deploy your Static Web App](tutorial-javascript-deploy-static-web-app.md)

@@ -1,5 +1,5 @@
 ---
-title: JavaScript Search SDK search queries
+title: "JavaScript tutorial: Search integration highlights"
 titleSuffix: Azure Cognitive Search
 description: Understand the JavaScript SDK Search queries used in the Search-enabled website
 manager: nitinme
@@ -9,11 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 03/09/2021
 ms.custom: devx-track-js
+ms.devlang: javascript
 ---
 
-# 4. Search queries integration for the search-enabled website
+4 - Search integration highlights
 
-The sample web site provides search across the books catalog. The Azure Cognitive Search queries are implemented in the Azure Function app. Those Function APIs are called in the React app. This allows the security of the Search keys to stay in the Functions instead of the client app, where they could be seen. 
+In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your JavaScript app, this article explains what you need to know.
 
 ## Azure SDK @azure/search-documents 
 
@@ -22,7 +23,7 @@ The Function app uses the Azure SDK for Cognitive Search:
 * NPM: [@azure/search-documents](https://www.npmjs.com/package/@azure/search-documents)
 * Reference Documentation: [Client Library](/javascript/api/overview/azure/search-documents-readme)
 
-The Function app authenticates through the SDK to the cloud-based Search API using the Search resource name, resource key, and index name. The secrets are stored in the Static Web App settings and pulled in to the Function as environment variables. 
+The Function app authenticates through the SDK to the cloud-based Cognitive Search API using your resource name, resource key, and index name. The secrets are stored in the Static Web App settings and pulled in to the Function as environment variables. 
 
 ## Configure secrets in a configuration file
 
@@ -30,7 +31,7 @@ The Function app authenticates through the SDK to the cloud-based Search API usi
 
 ## Azure Function: Search the catalog
 
-The `Search` API takes a search term and searches across the documents in the Search Index, returning a list of matches. 
+The `Search` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Search/index.js) takes a search term and searches across the documents in the Search Index, returning a list of matches. 
 
 Routing for the Search API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Search/function.json) bindings.
 
@@ -46,11 +47,11 @@ Call the Azure Function in the React client with the following code.
 
 ## Azure Function: Suggestions from the catalog
 
-The `Suggest` API takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the Search Index, returning a small list of matches. 
+The `Suggest` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Suggest/index.js) takes a search term while a user is typing and suggests search terms such as book titles and authors across the documents in the search index, returning a small list of matches. 
 
-The Search suggester, `sg`, was defined in the schema file used during bulk upload and defined in [good-books-index.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/bulk-insert/good-books-index.json).
+The search suggester, `sg`, is defined in the [schema file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/bulk-insert/good-books-index.json) used during bulk upload.
 
-Routing for the Suggest API is contained in the [function.json](https://github.com/dereklegenzoff/azure-search-react-template/blob/master/api/Search/function.json) bindings.
+Routing for the Suggest API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Suggest/function.json) bindings.
 
 :::code language="javascript" source="~/azure-search-javascript-samples/search-website/api/Suggest/index.js" highlight="4-9, 21" :::
 
@@ -62,9 +63,9 @@ Th Suggest function API is called in the React app at `\src\components\SearchBar
 
 ## Azure Function: Get specific document 
 
-The `Lookup` API takes a id and returns the document object from the Search Index. 
+The `Lookup` [API](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Lookup/index.js) takes a ID and returns the document object from the Search Index. 
 
-Routing for the Lookup API is contained in the [function.json](https://github.com/dereklegenzoff/azure-search-react-template/blob/master/api/Lookup/function.json) bindings.
+Routing for the Lookup API is contained in the [function.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/search-website/api/Lookup/function.json) bindings.
 
 :::code language="javascript" source="~/azure-search-javascript-samples/search-website/api/Lookup/index.js" highlight="4-9, 17" :::
 

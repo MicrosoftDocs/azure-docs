@@ -44,6 +44,16 @@
     href: search-get-started-arm.md
 - name: Tutorials
   items:
+  - name: Add Search to website
+    items: 
+    - name: 1 - Website overview
+      href: tutorial-javascript-overview.md
+    - name: 2 - Create search index
+      href: tutorial-javascript-create-load-index.md
+    - name: 3 - Deploy Static web app
+      href: tutorial-javascript-deploy-static-web-app.md
+    - name: 4 - Understand search integration
+      href: tutorial-javascript-search-query-integration.md    
   - name: Create a C# app
     items:
     - name: 1 - Basic search page
@@ -56,16 +66,6 @@
       href: tutorial-csharp-facets.md
     - name: 5 - Add results ordering
       href: tutorial-csharp-orders.md
-  - name: Add Search to website
-    items: 
-    - name: 1 - Overview of website
-      href: tutorial-javascript-overview.md
-    - name: 2 - Create Search Index
-      href: tutorial-javascript-create-load-index.md
-    - name: 3 - Deploy Static web app
-      href: tutorial-javascript-deploy-static-web-app.md
-    - name: 4 - Understand Search integration
-      href: tutorial-javascript-search-query-integration.md
   - name: Index Azure data
     items:
     - name: Index Azure SQL Database
