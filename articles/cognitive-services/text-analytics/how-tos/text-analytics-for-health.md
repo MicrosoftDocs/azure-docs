@@ -64,7 +64,7 @@ The meaning of medical content is highly affected by modifiers, such as negative
 * association
 
 > [!div class="mx-imgBorder"]
-> ![Health NEG](../media/ta-for-health/health-negation.png)
+> ![Health NEG](../media/ta-for-health/assertions.png)
 
 ---
 
