@@ -12,6 +12,9 @@ ms.service: azure-communication-services
 
 # Teams Embed
 
+[!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
+
+
 Teams Embed is an Azure Communication Services capability focused on common business-to-consumer and business-to-business calling interactions. The core of the Teams Embed system is [video and voice calling](../voice-video-calling/calling-sdk-features.md), but the Teams Embed system builds on Azure's calling primitives to deliver a complete user experience based on Microsoft Teams meetings.
 
 Teams Embed client libraries are closed-source and make these capabilities available to you in a turnkey, composite format. You drop Teams Embed into your app's canvas and the client library generates a complete user experience. Because this user experience is very similar to Microsoft Teams meetings you can take advantage of:
