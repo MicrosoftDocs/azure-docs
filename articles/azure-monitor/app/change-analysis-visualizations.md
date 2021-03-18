@@ -64,7 +64,7 @@ Application Change Analysis is a standalone detector in the Web App diagnose and
 ## Diagnose and Solve Problems tool
 Change Analysis is available as an insight card in Diagnose and Solve Problem tool. If a resource experiences issues and there are changes discovered in teh past 72 hours, the insights card will display the number of changes. Clicking on view change details link will lead to the filtered view from Change Analysis standalone UI.
 
-![SCreenshot of viewing change insight in Diagnose and Solve Problems tool](./media/change-analysis/change-insight-dnsp.png)
+![Screenshot of viewing change insight in Diagnose and Solve Problems tool.](./media/change-analysis/change-insight-diagnose-and-solve.png)
 
 
 
