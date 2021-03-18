@@ -136,7 +136,7 @@ To complete this tutorial, you need to:
     To disable triggers in target database:
 
     ```
-    SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
+    SELECT Concat('DROP TRIGGER ', Trigger_Name,' ON ', event_object_table, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
     ```
 
 ## Register the Microsoft.DataMigration resource provider
