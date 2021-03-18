@@ -5,7 +5,7 @@ author: alkohli
 ms.assetid: 
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 03/18/2021
 ms.author: alkohli
 
 ---
@@ -31,7 +31,9 @@ The following key improvements and bug fixes have been made in Update 5.1:
 
 * **TLS 1.2** - This StorSimple update will enforce TLS 1.2 on all clients. This is a mandatory update for all StorSimple 8000 series devices.
 
-   If you see the following warning, you must update the software on the device before proceeding: "One or more StorSimple devices are running an older software version. The latest available update for TLS 1.2 is a mandatory update and should be installed immediately on these devices. TLS 1.2 is used for all Azure portal communication and without this update, the device won’t be able to communicate with the StorSimple service."<!--Text matches Include file, but the Important format feels like overkill, and there's no way to indent the note, which relates directly to the bullet above.-->
+   If you see the following warning, you must update the software on the device before proceeding:
+
+   One or more StorSimple devices are running an older software version. The latest available update for TLS 1.2 is a mandatory update and should be installed immediately on these devices. TLS 1.2 is used for all Azure portal communication and without this update, the device won’t be able to communicate with the StorSimple service.
 
 ## Known issues in Update 5.1 from previous releases
 
