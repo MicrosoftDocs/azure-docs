@@ -13,26 +13,43 @@ metadata:
 title: Azure Cost Management + Billing frequently asked questions (FAQ)
 summary: |
 sections:
-  - name: Billing questions
+  - name: General billing questions
     questions:
       - question: Question?
         answer: |
           Answer.
+
+  - name: Azure Marketplace billing questions
+    questions:
+      - question: What changed with Azure Marketplace services and Azure EA Prepayment?
+        answer: |
+          As of March 1, 2018, some third-party reseller services consume Azure EA Prepayment. Except for Azure reserved VM instances (RIs), services were previously billed outside Azure EA Prepayment and were invoiced separately.
+          
+          We expanded the use of Azure Prepayment to include some of the third party published Azure Marketplace services that are purchased most frequently. Azure EA Prepayment for these services in Azure Marketplace helps simplify your purchase and payment management.
+
+          The change was made because customers wanted other ways to use the upfront Azure Prepayment. This change was frequently requested by customers, and it impacted a large portion of Azure Marketplace customers.
+      - question: How do I benefit from Azure prepayment for Azure Marketplace purchases with my EA agreement?
+        answer: |
+          You get a simpler billing experience and are better able to spend your Azure EA Prepayment. Because the services are included in your Azure Prepayment, your Azure EA Prepayment becomes more valuable.
+      - question: What Azure Marketplace services use Azure EA Prepayment, and how do I know?
+        answer: |
+          When you purchase a service that uses Azure Prepayment, Azure Marketplace presents a disclaimer. Some supported services are published by Red Hat, SUSE, Autodesk, and Oracle. Currently, similarly named services published by other parties don't deduct from Azure Prepayment. See [third-party services that use Azure Prepayment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) for a complete list of products participating in the program.
+      - question: What if my Azure EA Prepayment runs out for Azure Marketplace purchases?
+        answer: |
+          If you consume all your Azure Prepayment and go into overage, charges related to these services will appear on your next overage invoice along with any other consumption services. Before the March 1, 2018 change, these charges were invoiced with other Azure Marketplace services.
+      - question: Why don't all Azure Marketplaces consume Azure EA Prepayment?
+        answer: |
+          We frequently work to deliver the best customer experience related to Azure EA Prepayment. The latest changes to Azure EA prepayment addressed a large number of customers and a significant portion of the total spend in Azure Marketplace. Other services might be added in the future.
+      - question: How do Azure Marketplace services and Azure EA Prepayment changes affect indirect enrollment and partners?
+        answer: |
+          There's no impact to our indirect enrollment customers or partners. These services are subject to the same partner markup capabilities as other consumption services. The only change is that the charges appear on a different invoice, and the payment of the charges comes out of the customer's Azure EA Prepayment.
+      - question: Where can I see the Azure Marketplace services that consume Azure EA Prepayment?
+        answer: |
+          Specific Azure Marketplace offers can use Azure Prepayment funds. See [third-party services that use Azure Prepayment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment) for a complete list of products participating in the program.
       - question: Question?
         answer: |
           Answer.
-      - question: Question?
-        answer: |
-          Answer.
-      - question: Question?
-        answer: |
-          Answer.
-      - question: Question?
-        answer: |
-          Answer.
-      - question: Question?
-        answer: |
-          Answer.
+
   - name: Cost Management questions
     questions:
       - question: Question?
@@ -44,7 +61,7 @@ sections:
           
           The following items are currently unsupported by the cost allocation public preview:
           
-          - Scheduled [Exports](tutorial-export-acm-data.md)
+          - Scheduled [Exports](../costs/tutorial-export-acm-data.md)
           - Data exposed by the [Usage Details](/rest/api/consumption/usagedetails/list) API
           - Billing subscriptions area
           - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
