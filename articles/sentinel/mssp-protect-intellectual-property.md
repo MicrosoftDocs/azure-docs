@@ -84,7 +84,7 @@ When adding a workspace statement to your analytics rules, consider the followin
 
 - **Create separate alerts for each customer**. This method also requires that you use a separate alert for each customer and detection, as the workspace statement will be different in each case. 
 
-    You can add the customer name to the alert rule name to easily identify the customer when the alert is triggered. This may result in a large number of rules, which you might want to manage using scripting, or [Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
+    You can add the customer name to the alert rule name to easily identify the customer when the alert is triggered. Separate alerts may result in a large number of rules, which you might want to manage using scripting, or [Azure Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928).
 
     For example:
 
@@ -127,7 +127,7 @@ You can protect your playbooks as follows, depending on where the playbook's ana
 
     :::image type="content" source="media/mssp-protect-intellectual-property/rules-in-mssp-workspace.png" alt-text="Rules created in the MSSP workspace.":::
 
-- **Analytics rules created in the customer workspace**. Use Azure Lighthouse to attach analytics rules from the customer's workspace to an playbook hosted in your MSSP workspace. In this case, the playbook gets the alert and incident data, as well as any other customer information, from the customer workspace.
+- **Analytics rules created in the customer workspace**. Use Azure Lighthouse to attach analytics rules from the customer's workspace to a playbook hosted in your MSSP workspace. In this case, the playbook gets the alert and incident data, and any other customer information, from the customer workspace.
 
     For example:
 
@@ -140,4 +140,3 @@ For more information, see:
 - [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)
 - [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md)
 - [Tutorial: Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md)
-- 
