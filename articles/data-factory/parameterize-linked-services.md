@@ -33,13 +33,16 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 
 - Amazon Redshift
 - Amazon S3
+- Azure Blob Storage
 - Azure Cosmos DB (SQL API)
 - Azure Database for MySQL
 - Azure Databricks
+- Azure Data Lake Storage Gen2
 - Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
+- Azure Table Storage
 - MySQL
 - Oracle
 - SQL Server
