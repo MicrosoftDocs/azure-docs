@@ -124,7 +124,7 @@ To publish your schema and migrate your data, follow these steps:
    ![Synchronize with Database review](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
 
 
-1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. 
+1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. Alternatively, you can choose **Migrate Data** from the top line navigation bar after selecting the schema. 
 
    ![Migrate Data](./media/oracle-to-sql-database-guide/migrate-data.png)
 
