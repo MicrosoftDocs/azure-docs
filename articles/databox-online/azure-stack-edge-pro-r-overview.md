@@ -77,6 +77,8 @@ Azure Stack Edge Pro R physical device, Azure resource, and target storage accou
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro R data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 
+Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). Azure Stack Edge service does not have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
+
 ## Next steps
 
 - Review the [Azure Stack Edge Pro R system requirements](azure-stack-edge-gpu-system-requirements.md).
