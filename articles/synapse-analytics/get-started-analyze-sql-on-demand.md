@@ -24,7 +24,7 @@ Every workspace comes with a pre-configured serverless SQL pool called **Built-i
 
 ## Analyze NYC Taxi data in blob storage using serverless SQL pool
 
-In this section, you'll use a serverless SQL pool to analyze NYC Taxi data  in a Azure Blob Storage account.
+In this section, you'll use a serverless SQL pool to analyze NYC Taxi data in an Azure Blob Storage account.
 
 1. In Synapse Studio, go to the **Develop** hub
 1. Create a new SQL script.
