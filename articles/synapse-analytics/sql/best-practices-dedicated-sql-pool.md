@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 03/17/2021
 ms.author: martinle
 ms.reviewer: igorstan
 ---
@@ -26,16 +26,20 @@ For more information about reducing costs through pausing and scaling, see [Mana
 
 ## Maintain statistics
 
-While SQL Server automatically detects and creates or updates statistics on columns, dedicated SQL pools require manual maintenance of statistics. You'll want to maintain your statistics to ensure that the SQL pool plans are optimized.  The plans created by the optimizer are only as good as the available statistics.
+Dedicated SQL pool can be configured to automatically detect and create statistics on columns.  The query plans created by the optimizer are only as good as the available statistics.  
 
-> [!TIP]
-> Creating sampled statistics on every column is an easy way to get started with statistics.  
-
-It's equally important to update statistics as significant changes happen to your data.  A conservative approach may be to update your statistics daily or after each load.  There are always trade-offs between performance and the cost to create and update statistics.
+We recommend that you enable AUTO_CREATE_STATISTICS for your databases and keep the statistics updated daily or after each load to ensure that statistics on columns used in your queries are always up to date..
 
 To shorten statistics maintenance time, be selective about which columns have statistics, or need the most frequent updating. For example, you might want to update date columns where new values may be added daily. Focus on having statistics for columns involved in joins, columns used in the WHERE clause, and columns found in GROUP BY.
 
 Additional information on statistics can be found in the [Manage table statistics](develop-tables-statistics.md), [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [UPDATE STATISTICS](/sql/t-sql/statements/update-statistics-transact-sql?view=azure-sqldw-latest&preserve-view=true) articles.
+
+## Tune query performance with new product enhancements
+
+- [Performance tuning with materialized views](../sql-data-warehouse/performance-tuning-materialized-views.md)
+- [Performance tuning with ordered clustered columnstore index](../sql-data-warehouse/performance-tuning-ordered-cci.md)
+- [Performance tuning with result set caching](../sql-data-warehouse/performance-tuning-result-set-caching.md)
+
 
 ## Group INSERT statements into batches
 
@@ -45,7 +49,7 @@ One way to solve this issue is to develop one process that writes to a file, and
 
 ## Use PolyBase to load and export data quickly
 
-SQL pool supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  
+Dedicated SQL pool supports loading and exporting data through several tools including Azure Data Factory, PolyBase, and BCP.  For small amounts of data where performance isn't critical, any tool may be sufficient for your needs.  
 
 > [!NOTE]
 > Polybase is the best choice when you are loading or exporting large volumes of data, or you need faster performance.
@@ -56,7 +60,7 @@ To maximize throughput when using Gzip text files, break up files into 60 or mor
 
 - [Load data](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Guide for using PolyBase](data-loading-best-practices.md)
-- [Azure SQL pool loading patterns and strategies](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
+- [Dedicated SQL pool loading patterns and strategies](/archive/blogs/sqlcat/azure-sql-data-warehouse-loading-patterns-and-strategies)
 - [Load Data with Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Move data with Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest&preserve-view=true)
@@ -76,7 +80,7 @@ The most common example of a table distributed by a column outperforming a Round
 
 For example, if you have an orders table distributed by order_id, and a transactions table also distributed by order_id, when you join your orders table to your transactions table on order_id, this query becomes a pass-through query. Data movement operations are then eliminated. Fewer steps mean a faster query. Less data movement also makes for faster queries.
 
-> [!NOTE]
+> [!TIP]
 > When loading a distributed table, your incoming data shouldn't be sorted on the distribution key. Doing so will slow down your loads.
 
 The article links provided below will give you additional details about improving performance via selecting a distribution column. Also, you'll find information about how to define a distributed table in the WITH clause of your CREATE TABLE statement:
@@ -152,7 +156,11 @@ If you partition your data, each partition will need to have 1 million rows to b
 
 If your table doesn't have 6 billion rows, you have two main options. Either reduce the number of partitions or consider using a heap table instead.  It also may be worth experimenting to see if better performance can be gained by using a heap table with secondary indexes rather than a columnstore table.
 
-When querying a columnstore table, queries will run faster if you select only the columns you need.  More information on table and columnstore indexes and can be found within the [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Columnstore indexes guide](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true), and [Rebuilding columnstore indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuilding-indexes-to-improve-segment-quality) articles.
+When querying a columnstore table, queries will run faster if you select only the columns you need.  Further information on table and columnstore indexes and can be found in the articles below:
+- [Table indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+- [Columnstore indexes guide](/sql/relational-databases/indexes/columnstore-indexes-overview?view=azure-sqldw-latest&preserve-view=true)
+- [Rebuilding columnstore indexes](../sql-data-warehouse/sql-data-warehouse-tables-index.md?view=azure-sqldw-latest&preserve-view=true#rebuilding-indexes-to-improve-segment-quality) 
+- [Performance tuning with ordered clustered columnstore index](../sql-data-warehouse/performance-tuning-ordered-cci.md)
 
 ## Use larger resource class to improve query performance
 
@@ -170,7 +178,7 @@ The [Resource classes for workload management](../sql-data-warehouse/resource-cl
 
 ## Use DMVs to monitor and optimize your queries
 
-SQL pools have several DMVs that can be used to monitor query execution.  The monitoring article below walks you through step-by-step instructions on how to view details of an executing query.  To quickly find queries in these DMVs, using the LABEL option with your queries can help. For additional detailed information, please see the articles included in the list below:
+Dedicated SQL pools have several DMVs that can be used to monitor query execution.  The monitoring article below walks you through step-by-step instructions on how to view details of an executing query.  To quickly find queries in these DMVs, using the LABEL option with your queries can help. For additional detailed information, please see the articles included in the list below:
 
 - [Monitor your workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
@@ -188,8 +196,8 @@ SQL pools have several DMVs that can be used to monitor query execution.  The mo
 
 Also see the [Troubleshooting](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) article for common issues and solutions.
 
-If you need information not provided in this article, search the [Microsoft Q&A question page for Azure Synapse](/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the SQL pool Product Group.  
+If you need information not provided in this article, search the [Microsoft Q&A question page for Azure Synapse](/answers/topics/azure-synapse-analytics.html) is a place for you to pose questions to other users and to the Azure Synapse Analytics Product Group.  
 
-We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure SQL pool Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
+We actively monitor this forum to ensure that your questions are answered either by another user or one of us.  If you prefer to ask your questions on Stack Overflow, we also have an [Azure Synapse Analytics Stack Overflow Forum](https://stackoverflow.com/questions/tagged/azure-synapse).
 
-For feature requests, use the [Azure SQL pool Feedback](https://feedback.azure.com/forums/307516-sql-data-warehouse) page.  Adding your requests or up-voting other requests helps us to focus on the most in-demand features.
+For feature requests, use the [Azure Synapse Analytics Feedback](https://feedback.azure.com/forums/307516-sql-data-warehouse) page.  Adding your requests or up-voting other requests helps us to focus on the most in-demand features.

@@ -11,30 +11,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ---
 
 # Monitor Media Services diagnostic logs
 
-[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+[!INCLUDE [media services api v3 logo](../includes/v3-hr.md)]
 
-[Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For detailed description of this feature and to see why you would want to use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](monitoring/monitor-media-services.md).
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. For detailed description of this feature and to see why you would want to use Azure Media Services metrics and diagnostics logs, see [Monitor Media Services metrics and diagnostic logs](monitor-media-services.md).
 
 This article shows you how to route data to the storage account and then view the data.
 
 ## Prerequisites
 
-- [Create a Media Services account](./create-account-howto.md).
-- Review  [Monitor Media Services](monitoring/monitor-media-services.md).
+- [Create a Media Services account](../create-account-howto.md).
+- Review  [Monitor Media Services](monitor-media-services.md).
 
 ## Route data to the storage account using the portal
 
 1. Log in to the Azure portal at https://portal.azure.com.
 1. Navigate to your Media Services account in and click **Diagnostic Settings** under **Monitor**. Here you see a list of all resources in your subscription that produce monitoring data through Azure Monitor.
 
-    ![Screenshot that highlights Diagnostic settings under the Monitoring section.](media/media-services-diagnostic-logs/logs01.png)
+    ![Screenshot that highlights Diagnostic settings under the Monitoring section.](../media/media-services-diagnostic-logs/logs01.png)
 
 1. Click **Add diagnostic setting**.
 
@@ -45,7 +45,7 @@ This article shows you how to route data to the storage account and then view th
     Select the storage account to which you want to send logs and press **OK**.
 1. Check all the boxes under **Log** and **Metric**. Depending on the resource type, you may only have one of these options. These checkboxes control what categories of log and metric data available for that resource type are sent to the destination you've selected, in this case, a storage account.
 
-   ![Diagnostic settings section](media/media-services-diagnostic-logs/logs02.png)
+   ![Diagnostic settings section](../media/media-services-diagnostic-logs/logs02.png)
 1. Set the **Retention (days)** slider to 30. This slider sets a number of days to retain the monitoring data in the storage account. Azure Monitor automatically deletes data older than the number of days specified. A retention of zero days stores the data indefinitely.
 1. Click **Save**.
 
@@ -178,9 +178,9 @@ You may need to wait up to five minutes before the event appears in the storage 
 
 ## See also
 
-* [Azure Monitor Metrics](../../azure-monitor/data-platform.md)
-* [Azure Monitor Diagnostic logs](../../azure-monitor/essentials/platform-logs-overview.md)
-* [How to collect and consume log data from your Azure resources](../../azure-monitor/essentials/platform-logs-overview.md)
+* [Azure Monitor Metrics](https://docs.microsoft.com/azure/azure-monitor/data-platform.md)
+* [Azure Monitor Diagnostic logs](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md)
+* [How to collect and consume log data from your Azure resources](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md)
 
 ## Next steps
 
