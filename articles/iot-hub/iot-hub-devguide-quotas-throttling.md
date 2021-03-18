@@ -6,7 +6,7 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 03/18/2021
 ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support']
 ---
 
