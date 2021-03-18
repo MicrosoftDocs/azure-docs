@@ -11,7 +11,7 @@ ms.date: 03/08/2021
 
 # Glossary of IoT terms
 
-This article lists some of the common terms used in the IoT  articles.
+This article lists some of the common terms used in the IoT articles.
 
 ## A
 
@@ -26,6 +26,14 @@ Automatic device management in Azure IoT Hub automates many of the repetitive an
 ### Automatic device configuration
 
 Your solution back end can use [automatic device configurations](../iot-hub/iot-hub-automatic-device-management.md) to assign desired properties to a set of [device twins](#device-twin) and report status using system metrics and custom metrics. 
+
+### Azure Digital Twins
+
+Azure Digital Twins is a platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build knowledge graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences. To learn more, see [Azure Digital Twins](../digital-twins/index.yml).
+
+### Azure Digital Twins instance
+
+A single instance of the Azure Digital Twins service in a customer's subscription. While [Azure Digital Twins](#azure-digital-twins) refers to the Azure service as a whole, your Azure Digital Twins **instance** is your individual Azure Digital Twins resource. 
 
 ### Azure IoT device SDKs
 
@@ -51,7 +59,7 @@ In the context of [IoT Hub](#iot-hub), a back-end app is an app that connects to
 
 ### Built-in endpoints
 
-Every IoT hub includes a built-in [endpoint](../iot-hub/iot-hub-devguide-endpoints.md) that is Event Hub-compatible. You can use any mechanism that works with Event Hubs to read device-to-cloud messages from this endpoint.
+A type of [endpoint](#endpoint) that is built into IoT Hub. Every IoT hub includes a built-in [endpoint](../iot-hub/iot-hub-devguide-endpoints.md) that is Event Hub-compatible. You can use any mechanism that works with Event Hubs to read device-to-cloud messages from this endpoint.
 
 ## C
 
@@ -69,7 +77,7 @@ In IoT Plug and Play, commands defined in an [interface](#interface) represent m
 
 ### Component
 
-In IoT Plug and Play, components let you build a model [interface](#interface) as an assembly of other interfaces. A [device model](#device-model) can combine multiple interfaces as components. For example, a model might include a switch component and thermostat component. Multiple components in a model can also use the same interface type. For example, a model might include two thermostat components.
+In IoT Plug and Play and Azure Digital Twins, components let you build a model [interface](#interface) as an assembly of other interfaces. A [device model](#device-model) can combine multiple interfaces as components. For example, a model might include a switch component and thermostat component. Multiple components in a model can also use the same interface type. For example, a model might include two thermostat components.
 
 ### Configuration
 
@@ -107,7 +115,7 @@ The IoT Plug and Play device certification program verifies that a device meets 
 
 ### Device model
 
-A device model uses the [Digital Twins Definition Language](#digital-twins-definition-language) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-components.md).
+A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-components.md).
 
 ### Device builder
 
@@ -175,29 +183,45 @@ A [direct method](../iot-hub/iot-hub-devguide-direct-methods.md) is a way for yo
 
 ### Digital twin
 
-A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses models expressed in the [Digital Twins Definition Language](#digital-twins-definition-language) to enable a wide range of cloud-based solutions that use digital twins. An [IoT Plug and Play](../iot-pnp/index.yml) device has a digital twin, described by a DTDL [device model](#device-model).
+A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language (DTDL)](#digital-twins-definition-language) to represent digital twins of physical devices or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin solutions. An [IoT Plug and Play](../iot-pnp/index.yml) device has a digital twin, described by a DTDL [device model](#device-model).
 
 ### Digital twin change events
 
 When an [IoT Plug and Play device](#iot-plug-and-play-device) is connected to an IoT hub, the hub can use its routing capability to send notifications of digital twin changes. For example, whenever a [property](#properties) value changes on a device, IoT Hub can send a notification to an endpoint such as an Event hub.
 
-### Digital Twins Definition Language
+### Digital Twins Definition Language (DTDL)
 
-A language for describing models and interfaces for [IoT Plug and Play devices](#iot-plug-and-play-device). Use the [Digital Twins Definition Language version 2](https://github.com/Azure/opendigitaltwins-dtdl) to describe a [digital twin's](#digital-twin) capabilities and enable the IoT platform and IoT solutions to use the semantics of the entity.
+A JSON-LD language for describing [models](#model) and [interfaces](#interface) for [IoT Plug and Play devices](#iot-plug-and-play-device) and [Azure Digital Twins](../digital-twins/index.yml) entities. Use the [Digital Twins Definition Language version 2](https://github.com/Azure/opendigitaltwins-dtdl) to describe a [digital twin's](#digital-twin) capabilities and enable the IoT platform and IoT solutions to use the semantics of the entity. Digital Twins Definition Language is often abbreviated as DTDL.
 
 ### Digital twin route
 
-A route set up in an IoT hub to deliver [digital twin change events](#digital-twin-change-events) to and endpoint such as an Event hub.
+A route set up in an IoT hub to deliver [digital twin change events](#digital-twin-change-events) to an endpoint such as an Event hub.
+
+### Downstream services
+
+A relative term describing services that receive data from the current context. For instance, if you're thinking in the context of Azure Digital Twins, [Time Series Insights](../time-series-insights/index.yml) would be considered be a downstream service if you set up your data to flow from Azure Digital Twins into Time Series Insights.
 
 ## E
 
 ### Endpoint
+
+A named representation of a data routing service that can receive data from other services.
 
 An IoT hub exposes multiple [endpoints](../iot-hub/iot-hub-devguide-endpoints.md) that enable your apps to connect to the IoT hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing management endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management. There are service-facing [built-in endpoints](#built-in-endpoints) for reading device-to-cloud messages. You can create [custom endpoints](#custom-endpoints) to receive device-to-cloud messages dispatched by a [routing rule](#routing-rules).
 
 ### Event Hub-compatible endpoint
 
 To read [device-to-cloud](#device-to-cloud) messages sent to your IoT hub, you can connect to an endpoint on your hub and use any Event Hub-compatible method to read those messages. Event Hub-compatible methods include using the [Event Hubs SDKs](../event-hubs/event-hubs-programming-guide.md) and [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
+
+### Event handlers
+
+This can refer to any process that is triggered by the arrival of an event and does some processing action. One way to create event handlers is by adding event processing code to an Azure function, and sending data through it using [endpoints](#endpoint) and [event routing](#event-routing).
+
+### Event routing
+
+The process of sending events and their data from one device or service to the [endpoint](#endpoint) of another. 
+
+In Iot Hub, you can define [routing rules](#routing-rules) to describe how messages should be sent. In Azure Digital Twins, event routes are entities that are created for this purpose. Azure Digital Twins event routes can contain filters to limit what types of events are sent to each endpoint.
 
 ## F
 
@@ -224,6 +248,8 @@ An interactive message is a [cloud-to-device](#cloud-to-device) message that tri
 ### Interface
 
 In IoT Plug and Play, an interface describes related capabilities that are implemented by a [IoT Plug and Play device](#iot-plug-and-play-device) or [digital twin](#digital-twin). You can reuse interfaces across different [device models](#device-model). When an interface is used in a device model, it defines a [component](#component) of the device. A simple device only contains a default interface.
+
+In Azure Digital Twins, *interface* may be used to refer to the top level code item in a [DTDL](#digital-twins-definition-language) model definition.
 
 ### IoT Edge
 
@@ -331,7 +357,19 @@ IoT Plug and Play [devices](#iot-plug-and-play-device) are expected to follow a 
 
 Your solution back end can use [jobs](../iot-hub/iot-hub-devguide-jobs.md) to schedule and track activities on a set of devices registered with your IoT hub. Activities include updating device twin [desired properties](#desired-properties), updating device twin [tags](#tags), and invoking [direct methods](#direct-method). [IoT Hub](#iot-hub) also uses  to [import to and export](../iot-hub/iot-hub-devguide-identity-registry.md#import-and-export-device-identities) from the [identity registry](#identity-registry).
 
+## L
+
+### Lifecycle event
+
+In Azure Digital Twins, this type of event is fired when a data item—such as a digital twin, a relationship, or an event handler—is created or deleted from your Azure Digital Twins instance.
+
 ## M
+
+### Model
+
+A model defines a type of entity in your physical environment, including its properties, telemetries, components, and sometimes other information. Models are used to create [digital twins](#digital-twin) that represent specific physical objects of this type. Models are written in the [Digital Twins Definition Language](#digital-twins-definition-language).
+
+In the [Azure Digital Twins service](../digital-twins/index.yml), models can define devices or higher-level abstract business concepts. In [IoT Plug and Play](../iot-pnp/index.yml), [device models](#device-model) are used to describe devices specifically.
 
 ### Model ID
 
@@ -385,13 +423,21 @@ When you connect to a device-facing or service-facing endpoint on an IoT hub, yo
 
 ### Properties
 
-Properties are data fields defined in an [interface](#interface) that represent some state of a digital twin. You can declare properties as read-only or writable. Read-only properties, such as serial number, are set by code running on the [IoT Plug and Play device](#iot-plug-and-play-device) itself.  Writable properties, such as an alarm threshold, are typically set from the cloud-based IoT solution.
+Properties are data fields defined in an [interface](#interface) that represent some persistent state of a [digital twin](#digital-twin). You can declare properties as read-only or writable. Read-only properties, such as serial number, are set by code running on the [IoT Plug and Play device](#iot-plug-and-play-device) itself. Writable properties, such as an alarm threshold, are typically set from the cloud-based IoT solution.
+
+### Property change event
+
+An event that results from a property change in a [digital twin](#digital-twin).
 
 ### Protocol gateway
 
 A protocol gateway is typically deployed in the cloud and provides protocol translation services for devices connecting to [IoT Hub](#iot-hub). For more information, see [What is Azure IoT Hub?](../iot-hub/about-iot-hub.md).
 
 ## R
+
+### Relationship
+
+In the [Azure Digital Twins](../digital-twins/index.yml) service, relationships are used to connect [digital twins](#digital-twin) into knowledge graphs that digitally represent your entire physical environment. The types of relationships that your twins can have are defined as part of the twins' [model](#model) definitions—the [DTDL](#digital-twins-definition-language) model for a certain type of twin includes information about what relationships it can have to other twins.
 
 ### Reported configuration
 
@@ -453,11 +499,21 @@ In the context of a [device twin](../iot-hub/iot-hub-devguide-device-twins.md), 
 
 Devices collect telemetry data, such as wind speed or temperature, and use data-point messages to send the telemetry to an IoT hub.
 
-In IoT Plug and Play, telemetry fields defined in an [interface](#interface) represent measurements. These measurements are typically values such as sensor readings that are sent by the [IoT Plug and Play device](#iot-plug-and-play-device) as a stream of data.
+In IoT Plug and Play and Azure Digital Twins, telemetry fields defined in an [interface](#interface) represent measurements. These measurements are typically values such as sensor readings that are sent by devices, like [IoT Plug and Play devices](#iot-plug-and-play-device), as a stream of data.
+
+Unlike [properties](#properties), telemetry is not stored on a [digital twin](#digital-twin); it is a stream of time-bound data events that need to be handled as they occur.
+
+## Telemetry event
+
+An event that indicates the arrival of telemetry data.
 
 ### Token service
 
 You can use a token service to implement an authentication mechanism for your devices. It uses an IoT Hub [shared access policy](#shared-access-policy) with **DeviceConnect** permissions to create *device-scoped* tokens. These tokens enable a device to connect to your IoT hub. A device uses a custom authentication mechanism to authenticate with the token service. IF the device authenticates successfully, the token service issues a SAS token for the device to use to access your IoT hub.
+
+### Twin graph (or digital twin graph)
+
+In the [Azure Digital Twins](../digital-twins/index.yml) service, you can connect [digital twins](#digital-twin) with [relationships](#relationship) to create knowledge graphs that digitally represent your entire physical environment. A single [Azure Digital Twins instance](#azure-digital-twins-instance) can host many disconnected graphs, or one single interconnected graph.
 
 ### Twin queries
 
@@ -466,6 +522,12 @@ You can use a token service to implement an authentication mechanism for your de
 ### Twin synchronization
 
 Twin synchronization uses the [desired properties](#desired-properties) in your device twins or module twins to configure your devices or modules and retrieve [reported properties](#reported-properties) from them to store in the twin.
+
+## U
+
+### Upstream services
+
+A relative term describing services that feed data into the current context. For instance, if you're thinking in the context of Azure Digital Twins, IoT Hub is considered an upstream service because data flows from IoT Hub into Azure Digital Twins.
 
 ## X
 
