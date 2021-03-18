@@ -41,6 +41,8 @@ In such cases, we recommend that you use [Azure Lighthouse](multiple-tenants-ser
 > Alternately, if you need to provide your customers with access to the entire subscription, see [Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#enterprise-agreements-ea--pay-as-you-go-payg).
 > 
 
+### Sample CSP architecture 
+
 The following image describes how permissions might work when providing access to CSP customers:
 
 :::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="Protect your Azure Sentinel intellectual property with CSP customers.":::
@@ -103,7 +105,7 @@ For example:
 
 :::image type="content" source="media/mssp-protect-intellectual-property/cross-workspace-workbook.png" alt-text="Cross-workspace workbooks":::
 
-For more information, see [Making your Azure Sentinel Workbooks multi-tenant (or multi-workspace)](https://techcommunity.microsoft.com/t5/azure-sentinel/making-your-azure-sentinel-workbooks-multi-tenant-or-multi/ba-p/1402357).
+For more information, see [Cross-workspace workbooks<a name="using-cross-workspace-workbooks"></a>](extend-sentinel-across-workspaces-tenants.md#cross-workspace-workbooksa-nameusing-cross-workspace-workbooksa).
 
 If you want the customer to be able to view the workbook visualizations, while still keeping the code secret, we recommend that you export the workbook to Power BI.
 
