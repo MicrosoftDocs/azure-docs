@@ -382,16 +382,7 @@
          href: concept-monitoring-best-practices.md
        - name: Performance best practices
          href: concept-performance-best-practices.md
-     - name: Application development
-       items:
-       - name: Application development overview
-         href: concepts-database-application-development.md
-       - name: Drivers and tools compatibility
-         href: concepts-compatibility.md
-       - name: Develope with AKS
-         href: concepts-aks.md
-         displayName: drivers, tools
-       - name: Application best practices
+       - name: Application Development best practices
          href: app-development-best-practices.md
          displayName: application
        - name: Operational best practices
