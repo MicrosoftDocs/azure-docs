@@ -13,6 +13,8 @@ ms.custom:  [amqp, mqtt]
 
 # Common issues and resolutions for Azure IoT Edge
 
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+
 Use this article to find steps to resolve common issues that you may experience when deploying IoT Edge solutions. If you need to learn how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
 ## IoT Edge agent stops after about a minute

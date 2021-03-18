@@ -15,7 +15,7 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 If you have a problem with an alert firing or not firing when expected, refer to the articles below. You can see "fired" alerts in the Azure portal.
 
 - [Troubleshooting Azure Monitor Metric Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)  
-- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-metric.md)
+- [Troubleshooting Azure Monitor Log Alerts in Microsoft Azure](alerts-troubleshoot-log.md)
 
 If the alert fires as intended according to the Azure portal but the proper notifications do not occur, use the information in the rest of this article to troubleshoot that problem.
 

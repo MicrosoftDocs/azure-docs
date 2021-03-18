@@ -1410,7 +1410,7 @@ The [Authentication policy administrator](#authentication-policy-administrator) 
 
 
 > [!IMPORTANT]
-> This role is not currently capable of managing per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) commandlet Azure AD Powershell module.
+> This role is not currently capable of managing per-user MFA in the legacy MFA management portal. The same functions can be accomplished using the [Set-MsolUser](/powershell/module/msonline/set-msoluser) commandlet Azure AD Powershell module.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
