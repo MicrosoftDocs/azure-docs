@@ -69,7 +69,7 @@ Read the [Azure Key Vault documentation](../key-vault/general/overview.md) for d
 You must specify the encryption key source when you create your Azure HPC Cache. Follow the instructions in [Create an Azure HPC Cache](hpc-cache-create.md), and specify the key vault and key in the **Disk encryption keys** page. You can create a new key vault and key during cache creation.
 
 > [!TIP]
-> If the **Disk encryption keys** page does not appear, make sure that your cache is in one of the supported regions.
+> If the **Disk encryption keys** page does not appear, make sure that your cache is in one of the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
 The user who creates the cache must have privileges equal to the [Key Vault contributor role](../role-based-access-control/built-in-roles.md#key-vault-contributor) or higher.
 
