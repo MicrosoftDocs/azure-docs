@@ -41,11 +41,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud/spring-cloud-github-actions-key-vault.md",
-      "redirect_url": "/articles/spring-cloud/github-actions-key-vault.md",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-faq.md",
       "redirect_url": "/articles/spring-cloud/faq.md",
       "redirect_document_id": false
