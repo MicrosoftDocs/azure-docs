@@ -6,7 +6,7 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # Command-line and PowerShell reference for Azure Cosmos DB Emulator
@@ -70,10 +70,10 @@ The emulator comes with a PowerShell module to start, stop, uninstall, and retri
 Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
 ```
 
-or place the `PSModules` directory on your `PSModulesPath` and import it as shown in the following command:
+or place the `PSModules` directory on your `PSModulePath` and import it as shown in the following command:
 
 ```powershell
-$env:PSModulesPath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
+$env:PSModulePath += "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules"
 Import-Module Microsoft.Azure.CosmosDB.Emulator
 ```
 

@@ -1131,7 +1131,7 @@ The code extracts the email addresses from the trigger's `Body` property and ret
 
 ### Function action
 
-This action calls a previously created [Azure function](../azure-functions/functions-create-first-azure-function.md).
+This action calls a previously created [Azure function](../azure-functions/functions-get-started.md).
 
 ```json
 "<Azure-function-name>": {
@@ -1511,7 +1511,7 @@ Unlike other actions, the **Response** action has special restrictions:
 
 * Your workflow can use the **Response** action anywhere *except* inside **Foreach** loops, **Until** loops, including sequential loops, and parallel branches. 
 
-* The original HTTP request gets your workflow's response only when all actions required by the **Response** action are finished within the [HTTP request timeout limit](../logic-apps/logic-apps-limits-and-config.md#request-limits).
+* The original request gets your workflow's response only when all actions required by the **Response** action are finished within the [HTTP timeout limit](../logic-apps/logic-apps-limits-and-config.md#http-limits).
 
   However, if your workflow calls another logic app as a nested workflow, the parent workflow waits until the nested workflow finishes, no matter how much time passes before the nested workflow finishes.
 

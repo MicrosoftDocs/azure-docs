@@ -1,12 +1,12 @@
 ---
 title: Template functions - numeric
-description: Describes the functions to use in an Azure Resource Manager template to work with numbers.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers.
 ms.topic: conceptual
 ms.date: 11/18/2020
 ---
 # Numeric functions for ARM templates
 
-Resource Manager provides the following functions for working with integers in your Azure Resource Manager (ARM) template:
+Resource Manager provides the following functions for working with integers in your Azure Resource Manager template (ARM template):
 
 * [add](#add)
 * [copyIndex](#copyindex)
@@ -241,7 +241,7 @@ The output from the preceding example with the default values is:
 
 `float(arg1)`
 
-Converts the value to a floating point number. You only use this function when passing custom parameters to an application, such as a Logic App. The `float` function is not supported in Becip.  See [Support numeric types other than 32bit integers](https://github.com/Azure/bicep/issues/486).
+Converts the value to a floating point number. You only use this function when passing custom parameters to an application, such as a Logic App. The `float` function is not supported in Bicep.  See [Support numeric types other than 32bit integers](https://github.com/Azure/bicep/issues/486).
 
 ### Parameters
 
@@ -694,5 +694,5 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).

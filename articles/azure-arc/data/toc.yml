@@ -6,6 +6,8 @@
       href: overview.md
     - name: Release notes
       href: release-notes.md
+    - name: Known issues
+      href: known-issues.md
 - name: Quickstarts
   items:
     - name: Create data controller
@@ -42,14 +44,16 @@
             href: /sql/azdata/install/deploy-install-azdata-pip?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: Create data controller
       items:
-        - name: Create data controller (Azure data studio)
+        - name: Azure Data Studio
           href: create-data-controller-azure-data-studio.md
-        - name: Create data controller resource (portal)
+        - name: Azure portal
           href: create-data-controller-resource-in-azure-portal.md
-        - name: Create data controller (Azure Data CLI)
+        - name: Azure Data CLI (azdata)
           href: create-data-controller-using-azdata.md
-        - name: Create data controller using Kubernetes
+        - name: Kubernetes tools
           href: create-data-controller-using-kubernetes-native-tools.md
+        - name: Apply SCC (OpenShift)
+          href: how-to-apply-security-context-constraint.md
     - name: Common experiences across Azure Arc enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)
@@ -80,6 +84,8 @@
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Get data controller username & password
           href: retrieve-the-username-password-for-data-controller.md
+        - name: Update service principal credentials
+          href: update-service-principal-credentials.md
     - name: Troubleshooting
       items:
         - name: Guide
@@ -92,6 +98,8 @@
       items:
         - name: What is Azure Arc enabled PostgreSQL Hyperscale
           href: what-is-azure-arc-enabled-postgres-hyperscale.md
+        - name: Limitations
+          href: limitations-postgresql-hyperscale.md
     - name: Quickstarts
       items:
         - name: Supported versions
@@ -144,7 +152,7 @@
           items:
             - name: Migrate PostgreSQL data into a Postgres Hyperscale server group
               href: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
-            - name: Restore the sample database AdventureWorks
+            - name: Import the sample database AdventureWorks
               href: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
         - name: Troubleshoot
           href: troubleshoot-postgresql-hyperscale-server-group.md
@@ -174,6 +182,8 @@
               href: configure-managed-instance.md
             - name: Monitoring, log analytics, billing information, Azure portal
               href: monitoring-log-analytics-azure-portal-managed-instance.md
+            - name: High availability
+              href: managed-instance-high-availability.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Migrate
@@ -224,6 +234,8 @@
       href: /sql/azdata/reference/reference-azdata-arc-resource-kind?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql
       href: /sql/azdata/reference/reference-azdata-arc-sql?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
+    - name: arc-sql-endpoint
+      href: /sql/azdata/reference/reference-azdata-arc-sql-endpoint?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql-mi
       href: /sql/azdata/reference/reference-azdata-arc-sql-mi?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
     - name: arc-sql-mi-config
@@ -231,4 +243,4 @@
 - name: Resources
   items:
     - name: Azure Arc jumpstart
-      href: https://github.com/microsoft/azure_arc
+      href: https://azurearcjumpstart.io

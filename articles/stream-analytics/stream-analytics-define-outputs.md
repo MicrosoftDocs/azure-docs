@@ -1,13 +1,12 @@
 ---
 title: Outputs from Azure Stream Analytics
 description: This article describes data output options available for Azure Stream Analytics.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.custom: contperfq1
-ms.date: 10/2/2020
+ms.custom: contperf-fy21q1
+ms.date: 12/9/2020
 ---
 
 # Outputs from Azure Stream Analytics
@@ -20,12 +19,12 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 
 | Output type | Partitioning | Security | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory user </br> MSI|
-|[Azure SQL Database](sql-database-output.md)|Yes, optional.|SQL user auth </br> MSI (Preview)|
-|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth|
-|[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|MSI </br> Access key|
-|[Azure Event Hubs](event-hubs-output.md)|Yes, need to set the partition key column in output configuration.|Access key|
-|[Power BI](power-bi-output.md)|No|Azure Active Directory user </br> MSI|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Azure Active Directory user </br> , Managed Identity|
+|[Azure SQL Database](sql-database-output.md)|Yes, optional.|SQL user auth, </br> Managed Identity (preview)|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|Yes|SQL user auth, </br> Managed Identity (preview)|
+|[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Access key, </br> Managed Identity (preview)|
+|[Azure Event Hubs](event-hubs-output.md)|Yes, need to set the partition key column in output configuration.|Access key, </br> Managed Identity (preview)|
+|[Power BI](power-bi-output.md)|No|Azure Active Directory user, </br> Managed Identity|
 |[Azure Table storage](table-storage-output.md)|Yes|Account key|
 |[Azure Service Bus queues](service-bus-queues-output.md)|Yes|Access key|
 |[Azure Service Bus topics](service-bus-topics-output.md)|Yes|Access key|

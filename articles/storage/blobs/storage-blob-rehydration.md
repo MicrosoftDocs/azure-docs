@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 04/08/2020
+ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -25,16 +25,24 @@ While a blob is in the archive access tier, it's considered offline and can't be
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+### Lifecycle management
+
+Rehydrating a blob doesn't change it's `Last-Modified` time. Using the [lifecycle management](storage-lifecycle-management-concepts.md) feature can create a scenario where a blob is rehydrated, then a lifecycle management policy moves the blob back to archive because the `Last-Modified` time is beyond the threshold set for the policy. To avoid this scenario, use the *[Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier)* method. The copy method creates a new instance of the blob with an updated `Last-Modified` time and won't trigger the lifecycle management policy.
+
+## Monitor rehydration progress
+
+During rehydration, use the get blob properties operation to check the **Archive Status** attribute and confirm when the tier change is complete. The status reads "rehydrate-pending-to-hot" or "rehydrate-pending-to-cool" depending on the destination tier. Upon completion, the archive status property is removed, and the **Access Tier** blob property reflects the new hot or cool tier.
+
 ## Copy an archived blob to an online tier
 
-If you don't want to rehydrate your archive blob, you can choose to do a [Copy Blob](/rest/api/storageservices/copy-blob) operation. Your original blob will remain unmodified in archive while a new blob is created in the online hot or cool tier for you to work on. In the Copy Blob operation, you may also set the optional *x-ms-rehydrate-priority* property to Standard or High to specify the priority at which you want your blob copy created.
+If you don't want to rehydrate your archive blob, you can choose to do a [Copy Blob](/rest/api/storageservices/copy-blob) operation. Your original blob will remain unmodified in archive while a new blob is created in the online hot or cool tier for you to work on. In the **Copy Blob** operation, you may also set the optional *x-ms-rehydrate-priority* property to Standard or High to specify the priority at which you want your blob copy created.
 
 Copying a blob from archive can take hours to complete depending on the rehydrate priority selected. Behind the scenes, the **Copy Blob** operation reads your archive source blob to create a new online blob in the selected destination tier. The new blob may be visible when you list blobs but the data is not available until the read from the source archive blob is complete and data is written to the new online destination blob. The new blob is as an independent copy and any modification or deletion to it does not affect the source archive blob.
 
 > [!IMPORTANT]
 > Do not delete the the source blob until the copy is completed successfully at the destination. If the source blob is deleted then the destination blob may not complete copying and will be empty. You may check the *x-ms-copy-status* to determine the state of the copy operation.
 
-Archive blobs can only be copied to online destination tiers within the same storage account. Copying an archive blob to another archive blob is not supported. The following table indicates CopyBlob's capabilities.
+Archive blobs can only be copied to online destination tiers within the same storage account. Copying an archive blob to another archive blob is not supported. The following table shows the capabilities of a **Copy Blob** operation.
 
 |                                           | **Hot tier source**   | **Cool tier source** | **Archive tier source**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |

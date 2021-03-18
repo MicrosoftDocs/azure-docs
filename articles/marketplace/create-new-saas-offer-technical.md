@@ -15,7 +15,7 @@ ms.date: 09/02/2020
 This article describes how to enter technical details that help the Microsoft commercial marketplace connect to your solution. This connection enables us to provision your offer for the customer if they choose to acquire and manage it. For more details about these settings, see [Technical information](plan-saas-offer.md#technical-information).
 
 > [!NOTE]
-> If you choose to process transactions independently, you will not see this option. Instead, skip to [How to market your SaaS offer](create-new-saas-offer-marketing.md).
+> If you choose to process transactions independently, you will not see this option. Instead, skip to [How to sell your SaaS offer](create-new-saas-offer-marketing.md).
 
 ## Technical configuration
 

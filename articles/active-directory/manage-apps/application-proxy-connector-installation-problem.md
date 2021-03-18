@@ -3,12 +3,12 @@ title: Problem installing the Application Proxy Agent Connector
 description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector for Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 05/21/2018
+ms.date: 01/28/2021
 ms.author: kenwith
 ms.reviewer: japere
 ---
@@ -19,7 +19,7 @@ Microsoft Azure Active Directory Application Proxy Connector is an internal doma
 
 ## General Problem Areas with Connector installation
 
-When the installation of a connector fails, the root cause is usually one of the following areas:
+When the installation of a connector fails, the root cause is usually one of the following areas. **As a precursor to any troubleshooting, be sure to reboot the connector.**
 
 1.  **Connectivity** – to complete a successful installation, the new connector needs to register and establish future trust properties. This is done by connecting to the Azure Active Directory Application Proxy cloud service.
 

@@ -1,12 +1,11 @@
 ---
-title: Create an Azure Media Services job with multiple transform outputs
+title: Create a job with multiple transform outputs
 description: This topic demonstrates how to create an  Azure Media Services job with multiple transform outputs.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: 
 ms.topic: how-to
@@ -20,7 +19,6 @@ ms.custom: devx-track-csharp
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 This topic shows how to create a Transform with two Transform Outputs. The first one calls for the input to be encoded for adaptive bitrate streaming with a built-in [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) preset. The second one calls for the audio signal in the input video to be processed with the [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). After the Transform is created, you can submit a job that will process your video accordingly. Since in this example we are specifying two Transform Outputs, we must specify two Job Outputs. You can choose to direct both Job Outputs to the same Asset (as shown below), or you can have the results be written to separate Assets.
- 
 
 > [!TIP]
 > Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
@@ -64,6 +62,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
     return transform;
 }
 ```
+
 ## Submit a job
 
 Create a job with an HTTPS URL input and with two job outputs.

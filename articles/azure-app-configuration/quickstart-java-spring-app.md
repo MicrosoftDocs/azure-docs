@@ -3,14 +3,13 @@ title: Quickstart to learn how to use Azure App Configuration
 description: In this quickstart, create a Java Spring app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 documentationcenter: ''
-author: lisaguthrie
-manager: maiye
+author: AlexandraKemperMS
 editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
-ms.author: lcozzens
+ms.author: alkemper
 
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---

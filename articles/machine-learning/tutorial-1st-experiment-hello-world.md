@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
 ---
 
@@ -31,9 +31,6 @@ In this tutorial, you will:
 ## Prerequisites
 
 - Completion of [part 1](tutorial-1st-experiment-sdk-setup-local.md) if you don't already have an Azure Machine Learning workspace.
-- Introductory knowledge of the Python language and machine learning workflows.
-- Local development environment, such as Visual Studio Code, Jupyter, or PyCharm.
-- Python (version 3.5 to 3.7).
 
 ## Create and run a Python script locally
 
@@ -46,26 +43,22 @@ print("Hello world!")
 
 Your project directory structure will now look like:
 
-```Bash
-tutorial
-└──.azureml
-|  └──config.json
-└──src
-|  └──hello.py
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-hello-world/directory-structure.png" alt-text="Directory structure shows hello.py in src subdirectory":::
 
-### Test your script locally
 
-You can run your code locally, by using your favorite IDE or a terminal. Running code locally has the benefit of interactive debugging of code.
+### <a name="test"></a>Test your script locally
+
+You can run your code locally, by using your favorite IDE or a terminal. Running code locally has the benefit of interactive debugging of code.  In the window that has the activated *tutorial1* conda environment, run the Python file:
 
 ```bash
 cd <path/to/tutorial>
 python ./src/hello.py
 ```
 
-## Create a control script
+> [!div class="nextstepaction"]
+> [I ran the script locally](?success=run-local#control-script) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=run-local)
+
+## <a name="control-script"></a> Create a control script
 
 A *control script* allows you to run your `hello.py` script in the cloud. You use the control script to control how and where your machine learning code is run.  
 
@@ -94,7 +87,7 @@ Here's a description of how the control script works:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) connects to your Azure Machine Learning workspace, so that you can communicate with your Azure Machine Learning resources.
+      [Workspace](/python/api/azureml-core/azureml.core.workspace.workspace) connects to your Azure Machine Learning workspace, so that you can communicate with your Azure Machine Learning resources.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -102,7 +95,7 @@ Here's a description of how the control script works:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
+      [Experiment](/python/api/azureml-core/azureml.core.experiment.experiment) provides a simple way to organize multiple runs under a single name. Later you can see how experiments make it easy to compare metrics between dozens of runs.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -110,7 +103,7 @@ Here's a description of how the control script works:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. It also specifies what compute target the script will run on. In this code, the target is the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) wraps your `hello.py` code and passes it to your workspace. As the name suggests, you can use this class to _configure_ how you want your _script_ to _run_ in Azure Machine Learning. It also specifies what compute target the script will run on. In this code, the target is the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -118,7 +111,7 @@ Here's a description of how the control script works:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Submits your script. This submission is called a [run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py). A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics, and more.
+       Submits your script. This submission is called a [run](/python/api/azureml-core/azureml.core.run%28class%29). A run encapsulates a single execution of your code. Use a run to monitor the script progress, capture the output, analyze the results, visualize metrics, and more.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -130,17 +123,13 @@ Here's a description of how the control script works:
    :::column-end:::
 :::row-end:::
 
-## Submit and run your code in the cloud
+> [!div class="nextstepaction"]
+> [I created the control script](?success=create-control-script#submit) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=create-control-script)
+
+## <a name="submit"></a> Submit and run your code in the cloud
 
 Run your control script, which in turn runs `hello.py` on the compute cluster that you created in the [setup tutorial](tutorial-1st-experiment-sdk-setup-local.md).
 
-The very first run will take 5-10 minutes to complete. This is because the following occurs:
-
-* A docker image is built in the cloud
-* The compute cluster is resized from 0 to 1 node
-* The docker image is downloaded to the compute. 
-
-Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute - you can test this by resubmitting the code below after the first run has completed.
 
 ```bash
 python 03-run-hello.py
@@ -149,13 +138,23 @@ python 03-run-hello.py
 > [!TIP]
 > If running this code gives you an error that you do not have access to the subscription, see [Connect to a workspace](how-to-manage-workspace.md?tab=python#connect-multi-tenant) for information on authentication options.
 
-## Monitor your code in the cloud by using the studio
+> [!div class="nextstepaction"]
+> [I submitted code in the cloud](?success=submit-to-cloud#monitor) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)
 
-The output will contain a link to the studio that looks something like this:
+## <a name="monitor"></a>Monitor your code in the cloud by using the studio
+
+The output from your script will contain a link to the studio that looks something like this:
 `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
-Follow the link and go to the **Outputs + logs** tab. There you can see a 
-`70_driver_log.txt` file that looks like this:
+Follow the link.  At first, you'll see a status of **Preparing**.  The very first run will take 5-10 minutes to complete. This is because the following occurs:
+
+* A docker image is built in the cloud
+* The compute cluster is resized from 0 to 1 node
+* The docker image is downloaded to the compute. 
+
+Subsequent runs are much quicker (~15 seconds) as the docker image is cached on the compute. You can test this by resubmitting the code below after the first run has completed.
+
+Once the job completes, go to the **Outputs + logs** tab. There you can see a `70_driver_log.txt` file that looks like this:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.
@@ -182,6 +181,9 @@ Follow the link and go to the **Outputs + logs** tab. There you can see a
 On line 8, you see the "Hello world!" output.
 
 The `70_driver_log.txt` file contains the standard output from a run. This file can be useful when you're debugging remote runs in the cloud.
+
+> [!div class="nextstepaction"]
+> [I saw the log in studio](?success=monitor-in-studio#next-steps) [I ran into an issue](https://www.research.net/r/7C2NTH7?issue=monitor-in-studio)
 
 ## Next steps
 

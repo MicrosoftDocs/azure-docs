@@ -4,7 +4,7 @@ description: Debug SAML-based single sign-on to applications in Azure Active Dir
 services: active-directory
 ms.author: kenwith
 author: kenwith
-manager: CelesteDG
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: troubleshooting

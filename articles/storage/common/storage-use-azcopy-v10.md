@@ -4,10 +4,10 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/09/2020
+ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.custom: contperfq2
+ms.custom: contperf-fy21q2
 ---
 
 # Get started with AzCopy
@@ -74,7 +74,7 @@ Use this table as a guide:
 This option is available for blob Storage only. By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.  
 
 > [!NOTE]
-> In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](storage-use-azcopy-blobs.md).
+> In the current release, if you plan to copy blobs between storage accounts, you'll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](#transfer-data).
 
 To authorize access by using Azure AD, see [Authorize access to blobs with AzCopy and Azure Active Directory (Azure AD)](storage-use-azcopy-authorize-azure-active-directory.md).
 
@@ -90,19 +90,24 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](./storage-sas-overview.md).
 
+<a id="transfer-data"></a>
+
 ## Transfer data
 
 After you've authorized your identity or obtained a SAS token, you can begin transferring data.
 
+> [!NOTE]
+> The [Secure transfer required](storage-require-secure-transfer.md) setting of a storage account determines whether the connection to a storage account is secured with Transport Layer Security (TLS). This setting is enabled by default.   
+
 To find example commands, see any of these articles.
 
-- [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
-
-- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
-
-- [Transfer data with AzCopy and Amazon S3 buckets](storage-use-azcopy-s3.md)
-
-- [Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)
+| Service | Article |
+|--------|-----------|
+|Azure Blob Storage |[Upload files to Azure Blob Storage](storage-use-azcopy-blobs-upload.md)<br><br>[Download blobs from Azure Blob Storage](storage-use-azcopy-blobs-download.md)<br><br>[Copy blobs between Azure storage accounts](storage-use-azcopy-blobs-copy.md)<br><br>[Synchronize with Azure Blob Storage](storage-use-azcopy-blobs-synchronize.md)|
+|Azure Files |[Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)|
+|Amazon S3|[Copy data from Amazon S3 to Azure Storage](storage-use-azcopy-s3.md)|
+|Google Cloud Storage|[Copy data from Google Cloud Storage to Azure Storage (preview)](storage-use-azcopy-google-cloud.md)|
+|Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
 
 ## Use in a script
 

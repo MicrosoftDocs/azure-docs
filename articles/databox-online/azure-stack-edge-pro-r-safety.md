@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 02/12/2021
 ms.author: alkohli
 ---
 
@@ -33,7 +33,7 @@ The following hazard icons are to be observed when setting up and running your A
 | Icon | Description |
 |:--- |:--- |
 | ![Read All Instructions First](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Read All Instructions First |
-| ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
+| ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. || ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
 | ![Tip Hazard Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Tip Hazard|
 | ![Heavy Weight Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Heavy Weight Hazard|
 | ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |
@@ -82,7 +82,9 @@ The following hazard icons are to be observed when setting up and running your A
   * Isolated from strong electromagnetic fields produced by electrical devices.
   * Provided with properly grounded outlets.
   * Provided with adequate space to access the power supply cord(s), because they serve as the product's main power disconnect.
+* Ethernet cables are not provided with the product. To reduce electromagnetic interference, it is recommended that Cat 6 Shielded Twisted-pair (STP) cabling be used.
 * Set up the equipment in a work area allowing for adequate air circulation around the equipment; ensure that the front and back covers are fully removed while the device is running.
+* Ethernet cables are not provided with the product. To reduce electromagnetic interference, it is recommended that Cat 6 Shielded (STP) cabling be used.
 * Install the equipment in temperature-controlled area free of conductive contaminants and allow for adequate air circulation around the equipment.
 * Keep the equipment away from sources of liquid and excessively humid environments.
 * Do not allow any liquid or any foreign object to enter the system. Do not place beverages or any other liquid containers on or near the system.
@@ -111,6 +113,11 @@ The following hazard icons are to be observed when setting up and running your A
   * The device was dropped and the device casing is damaged.
   * You suspect the device needs service or repair.
 * Permanently unplug the unit before you move it or if you think it has become damaged in any way.
+* To prevent high leakage current, when a single transit case has more than one uninterrupted power supply (UPS), it is recommended that each UPS is connected to an independent branch circuit. However, in the event that a power distribution unit (PDU) or other device is used where the safety ground of each UPS relies on a single feeder grounding conductor of the PDU, the grounding terminal on the exterior of each UPS must also be used with a supplemental building ground conductor.
+
+  > [!NOTE]
+  > If a PDU is used which already has a supplemental grounding conductor, using the additional grounding terminal on the UPS is not required.
+
 * Provide a suitable power source with electrical overload protection to meet the following power specifications:
 
   * Voltage: 100 to 240 Volts AC
@@ -123,6 +130,7 @@ The following hazard icons are to be observed when setting up and running your A
 
 * For systems without an uninterrupted power supply (UPS), unplug all AC power cord(s) to completely remove AC power from the equipment.
 * For systems with UPS, unplug all AC power cord(s) and use the UPS power switch to de-energize the System. UPS contains hazardous AC and DC voltages.
+* If a system includes a UPS, the UPS was provided with a shielded input power cable. You must use the shielded input power cable, do not replace or modify the cord.
 
 ![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
 ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:**
@@ -153,7 +161,7 @@ The device is designed to operate in the following environments:
 |:--- |:--- |
 |Temperature specifications | <ul><li>Storage temperature: –33&deg;C–63&deg;C (–28&deg;F-145&deg;F) </li><li>Continuous operation: 5&deg;C–43&deg;C (41&deg;F–110&deg;F)</li><li>Maximum temperature gradient (operating and storage): 20&deg;C/h (68&deg;F/h)</li></ul> |
 |Relative humidity specifications | <ul><li>Storage: 5% to 95% RH with 33&deg;C (91&deg;F) maximum dew point. Atmosphere must be non-condensing at all times.</li><li>Operating: 5% to 85% relative humidity with 29&deg;C (84.2&deg;F) maximum dew point</li></ul> |
-| Maximum altitude specifications | <ul><li>Operating (Without UPS): 15,000 ft (4,572 meters)</li><li>Operating (With UPS): 6.561 ft (2,000 meters)</li><li>Storage: 40,000 ft (12,192 meters)</li></ul> |
+| Maximum altitude specifications | <ul><li>Operating (Without UPS): 15,000 ft (4,572 meters)</li><li>Operating (With UPS): 10,000 ft (3,048 meters)</li><li>Storage: 40,000 ft (12,192 meters)</li></ul> |
 
 <!--|Standard operating temperature specifications | <ul>Continuous operation (for altitude less than 950 m or 3117 ft): +5&deg;C–45&deg;C (41&deg;F–113&deg;F) with no direct sunlight on the equipment</ui>
 |Expanded operating temperature specifications | <ul><li>Continuous operation: 5&deg;C to 45&deg;C at 5% to 85% RH with 29&deg;C dew point.</li><li></= 1% of annual operating hours: –5&deg;C to 55&deg;C at 5% to 90% RH with 29&deg;C dew point. |
@@ -197,11 +205,11 @@ A device that has a UPS installed is designed to operate in the following enviro
 > Maximum corrosive contaminant levels measured at &lt;/= 50% relative humidity. --> 
 
 
-> ![Notice Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
+> ![Notice Icon - 2](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
 
-CANADA and USA:
+#### CANADA and USA:
 
-NOTICE: This equipment  has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
+> ![Notice Icon - 2](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;This equipment  has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
 This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device.
 
@@ -209,14 +217,15 @@ This device complies with part 15 of the FCC Rules and Industry Canada license-e
 
 
 CAN ICES-3(A)/NMB-3(A)
-Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA
 United States: (800) 426-9400
 Canada: (800) 933-4750
 
-EUROPEAN UNION:
-Request a copy of the EU Declaration of Conformity. 
+#### EUROPEAN UNION:
 
-![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+Request a copy of the EU Declaration of Conformity. Send email to [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
+
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) **WARNING!**
 
 This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
 
@@ -231,7 +240,6 @@ This product contains coin cell battery(ies).
 Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
 Telephone number: +353 1 295 3826
 Fax number: +353 1 706 4110
-
 
 
 ## Next steps

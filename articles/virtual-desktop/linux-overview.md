@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop Linux Support - Azure
-description: A brief overview Linux support for Windows Virtual Desktop.
+title: Windows Virtual Desktop Thin Client Support - Azure
+description: A brief overview of thin client support for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 01/23/2020
@@ -17,9 +17,11 @@ The following partners have approved Windows Virtual Desktop clients for Linux d
 
 |Partner|Partner documentation|Partner support|
 |:------|:--------------------|:--------------|
-|![IGEL logo](./media/partners/igel.png)|[IGEL client documentation](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL support](https://www.igel.com/support/)|
-|![NComputing logo](./media/partners/ncomputing.png)|[NComputing client documentation](https://www.ncomputing.com/microsoft)|[NComputing support](https://www.ncomputing.com/support/support-options)|
-|![Stratodesk logo](./media/partners/stratodesk.png)|[Stratodesk client documentation](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk support](https://www.stratodesk.com/support-3/)|
+|Dell |[Dell client documentation](https://www.delltechnologies.com/en-us/collaterals/unauth/data-sheets/products/thin-clients/dell-thinos-9-for-microsoft-wvd.pdf)|[Dell support](https://www.dell.com/support)|
+|IGEL |[IGEL client documentation](https://www.igel.com/igel-solution-family/windows-virtual-desktop/)|[IGEL support](https://www.igel.com/support/)|
+|NComputing |[NComputing client documentation](https://www.ncomputing.com/microsoft)|[NComputing support](https://www.ncomputing.com/support/support-options)|
+|Stratodesk |[Stratodesk client documentation](https://www.stratodesk.com/kb/Microsoft_Windows_Virtual_Desktop_(WVD))|[Stratodesk support](https://www.stratodesk.com/support/)|
+|HP |[HP client documentation](https://h20195.www2.hp.com/v2/GetDocument.aspx?docname=c07051097)|[HP support](https://support.hp.com/us-en/products/workstations-thin-clients)|
 
 ## Next steps
 

@@ -1,21 +1,21 @@
 ---
 title: FAQs for hybrid FIDO2 security key deployment - Azure Active Directory
-description: Learn about some frequently asked questions for passwordless hybrid FIDO2 security key sign-in using Azure Active Directory (preview)
+description: Learn about some frequently asked questions for passwordless hybrid FIDO2 security key sign-in using Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 02/22/2021
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Deployment frequently asked questions (FAQs) for hybrid FIDO2 security keys in Azure AD (preview)
+# Deployment frequently asked questions (FAQs) for hybrid FIDO2 security keys in Azure AD 
 
 This article covers deployment frequently asked questions (FAQs) for hybrid Azure AD joined devices and passwordless sign-in to on-prem resources. With this passwordless feature, you can enable Azure AD authentication on Windows 10 devices for hybrid Azure AD joined devices using FIDO2 security keys. Users can sign into Windows on their devices with modern credentials like FIDO2 keys and access traditional Active Directory Domain Services (AD DS) based resources with a seamless single sign-on (SSO) experience to their on-prem resources.
 
@@ -29,9 +29,6 @@ To get started with FIDO2 security keys and hybrid access to on-premises resourc
 * [Passwordless FIDO2 security keys](howto-authentication-passwordless-security-key.md)
 * [Passwordless Windows 10](howto-authentication-passwordless-security-key-windows.md)
 * [Passwordless on-premises](howto-authentication-passwordless-security-key-on-premises.md)
-
-> [!NOTE]
-> FIDO2 security keys are a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Security keys
 

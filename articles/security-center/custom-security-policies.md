@@ -1,25 +1,27 @@
 ---
 title: Create custom security policies in Azure Security Center | Microsoft Docs
 description: Azure custom policy definitions monitored by Azure Security Center.
-services: security-center
 author: memildin
 manager: rkarlin
-
 ms.service: security-center
 ms.topic: how-to
-ms.date: 04/22/2020
+ms.date: 02/25/2021
 ms.author: memildin
+zone_pivot_groups: manage-asc-initiatives
 ---
 
-
-
-# Using custom security policies
+# Create custom security initiatives and policies
 
 To help secure your systems and environment, Azure Security Center generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Security Center's knowledge of industry and regulatory standards.
 
 With this feature, you can add your own *custom* initiatives. You'll then receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create will appear alongside the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](security-center-compliance-dashboard.md).
 
 As discussed in [the Azure Policy documentation](../governance/policy/concepts/definition-structure.md#definition-location), when you specify a location for your custom initiative, it must be a management group or a subscription. 
+
+> [!TIP]
+> For an overview of the key concepts on this page, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md).
+
+::: zone pivot="azure-portal"
 
 ## To add a custom initiative to your subscription 
 
@@ -67,6 +69,113 @@ As discussed in [the Azure Policy documentation](../governance/policy/concepts/d
 
     [![Custom recommendations](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
+::: zone-end
+
+::: zone pivot="rest-api"
+
+## Configure a security policy in Azure Policy using the REST API
+
+As part of the native integration with Azure Policy, Azure Security Center enables you to take advantage Azure Policy’s REST API to create policy assignments. The following instructions walk you through creation of policy assignments, as well as customization of existing assignments. 
+
+Important concepts in Azure Policy: 
+
+- A **policy definition** is a rule 
+
+- An **initiative** is a collection of policy definitions (rules) 
+
+- An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
+
+Security Center has a built-in initiative, Azure Security Benchmark, that includes all of its security policies. To assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
+
+The built-in initiative has all of Security Center’s policies enabled by default. You can choose to disable certain policies from the built-in initiative. For example, to apply all of Security Center’s policies except **web application firewall**, change the value of the policy’s effect parameter to **Disabled**.
+
+## API examples
+
+In the following examples, replace these variables:
+
+- **{scope}** enter the name of the management group or subscription to which you're applying the policy
+- **{policyAssignmentName}** enter the name of the relevant policy assignment
+- **{name}** enter your name, or the name of the administrator who approved the policy change
+
+This example shows you how to assign the built-in Security Center initiative on a subscription or management group
+ 
+ ```
+    PUT  
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+
+    Request Body (JSON) 
+
+    { 
+
+      "properties":{ 
+
+    "displayName":"Enable Monitoring in Azure Security Center", 
+
+    "metadata":{ 
+
+    "assignedBy":"{Name}" 
+
+    }, 
+
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+
+    "parameters":{}, 
+
+    } 
+
+    } 
+ ```
+
+This example shows you how to assign the built-in Security Center initiative on a subscription, with the following policies disabled: 
+
+- System updates (“systemUpdatesMonitoringEffect”) 
+
+- Security configurations ("systemConfigurationsMonitoringEffect") 
+
+- Endpoint protection ("endpointProtectionMonitoringEffect") 
+
+ ```
+    PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+    
+    Request Body (JSON) 
+    
+    { 
+    
+      "properties":{ 
+    
+    "displayName":"Enable Monitoring in Azure Security Center", 
+    
+    "metadata":{ 
+    
+    "assignedBy":"{Name}" 
+    
+    }, 
+    
+    "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
+    
+    "parameters":{ 
+    
+    "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
+    
+    "systemConfigurationsMonitoringEffect":{"value":"Disabled"}, 
+    
+    "endpointProtectionMonitoringEffect":{"value":"Disabled"}, 
+    
+    }, 
+    
+     } 
+    
+    } 
+ ```
+This example shows you how to remove an assignment:
+ ```
+    DELETE   
+    https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
+ ```
+
+::: zone-end
+
+
 ## Enhance your custom recommendations with detailed information
 
 The built-in recommendations supplied with Azure Security Center include details such as severity levels and remediation instructions. If you want to add this type of information to your custom recommendations so that it appears in the Azure portal or wherever you access your recommendations, you'll need to use the REST API. 
@@ -82,7 +191,7 @@ The metadata should be added to the policy definition for a policy that is part 
  "metadata": {
 	"securityCenter": {
 		"RemediationDescription": "Custom description goes here",
-		"Severity": "High",
+		"Severity": "High"
     },
 ```
 
@@ -97,8 +206,8 @@ Below is an example of a custom policy including the metadata/securityCenter pro
 	"description": "Audit required resource groups lock",
 	"metadata": {
 		"securityCenter": {
-			"remediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
-			"severity": "High"
+			"RemediationDescription": "Resource Group locks can be set via Azure Portal -> Resource Group -> Locks",
+			"Severity": "High"
 		}
 	},
 	"parameters": {

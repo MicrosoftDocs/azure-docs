@@ -3,7 +3,7 @@ title: PowerShell samples for Azure AD Application Proxy
 description: Use these PowerShell samples for Azure AD Application Proxy to get information about Application Proxy apps and connectors in your directory, assign users and groups to apps, and get certificate information.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.collection: M365-identity-device-management
 
 # Azure AD PowerShell examples for Azure AD Application Proxy
 
-The following table includes links to PowerShell script examples for Azure AD Application Proxy. These samples require either the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), unless otherwise noted.
+The following table includes links to PowerShell script examples for Azure AD Application Proxy. These samples require either the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), unless otherwise noted.
 
 
-For more information about the cmdlets used in these samples, see [Application Proxy Application Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) and [Application Proxy Connector Management](/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
+For more information about the cmdlets used in these samples, see [Application Proxy Application Management](/powershell/module/azuread/#application_proxy_application_management) and [Application Proxy Connector Management](/powershell/module/azuread/#application_proxy_connector_management).
 
 | Link | Description |
 |---|---|

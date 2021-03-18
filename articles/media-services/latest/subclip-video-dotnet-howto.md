@@ -1,12 +1,11 @@
 ---
-title: Subclip a video when encoding with Azure Media Services 
+title: Subclip a video when encoding with Media Services
 description: This topic describes how to subclip a video when encoding with Azure Media Services using .NET SDK
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,7 +14,6 @@ ms.topic: how-to
 ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Subclip a video when encoding with Media Services - .NET
 

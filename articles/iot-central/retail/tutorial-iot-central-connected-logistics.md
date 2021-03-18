@@ -37,9 +37,9 @@ Create the application using following steps:
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Connected logistics template":::
 
-2. Select **Create app** under **Connected Logistics Application**.
+1. Select **Create app** under **Connected Logistics Application**.
 
-3. **Create app** opens the **New application** form. Enter the following details:
+1. **Create app** opens the **New application** form. Enter the following details:
 
 
     * **Application name**: you can use default suggested name or enter your friendly application name.
@@ -126,10 +126,8 @@ If you're not going to continue to use this application, delete the application 
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Template cleanup":::
 
 ## Next steps
-* Learn more about 
+
+Learn more about :
+
 > [!div class="nextstepaction"]
-> [Connected logistics concept](./architecture-connected-logistics.md)
-* Learn more about other 
-[IoT Central retail templates](./overview-iot-central-retail.md)
-* Learn more about 
-[IoT Central overview](../core/overview-iot-central.md)
+> [Connected logistics concepts](./architecture-connected-logistics.md)

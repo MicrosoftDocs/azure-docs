@@ -13,13 +13,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/05/2020
+ms.date: 12/04/2020
 ms.author: b-juche
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated on a regular basis. This article provides a summary about the latest new features and enhancements. 
+
+## December 2020
+
+* [Azure Application Consistent Snapshot Tool](azacsnap-introduction.md) (Public Preview)    
+
+    Azure Application Consistent Snapshot Tool (AzAcSnap) is a command-line tool that enables you to simplify data protection for third-party databases (SAP HANA) in Linux environments (for example, SUSE and RHEL).   
+
+    AzAcSnap leverages the volume snapshot and replication functionalities in Azure NetApp Files and Azure Large Instance. It provides the following benefits:
+
+    * Application-consistent data protection 
+    * Database catalog management 
+    * *Ad hoc* volume protection 
+    * Cloning of storage volumes 
+    * Support for disaster recovery 
 
 ## November 2020
 
@@ -81,7 +95,7 @@ Azure NetApp Files is updated on a regular basis. This article provides a summar
 
 ## May 2020
 
-* [Backup policy users](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) (Preview)
+* [Backup policy users](create-active-directory-connections.md) (Preview)
 
     Azure NetApp Files allows you to include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or folder level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share in Azure NetApp Files. The Backup policy users feature is currently in preview.
 

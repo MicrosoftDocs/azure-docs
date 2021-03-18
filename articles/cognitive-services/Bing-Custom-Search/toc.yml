@@ -75,15 +75,15 @@
     - name: SDKs
       items:
       - name: .NET
-        href: /dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
+        href: /dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme
       - name: Java - Custom Search
-        href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingcustomsearch
       - name: Java - Custom Image Search
-        href: /java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable
+        href: /java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch
       - name: Python
-        href: /python/api/azure-cognitiveservices-search-customsearch/?view=azure-python
+        href: /python/api/azure-cognitiveservices-search-customsearch/
       - name: Node.js
-        href: /javascript/api/@azure/cognitiveservices-customsearch/?view=azure-node-latest
+        href: /javascript/api/@azure/cognitiveservices-customsearch/
       - name: Go - Custom Search
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
       - name: Go - Custom Image Search

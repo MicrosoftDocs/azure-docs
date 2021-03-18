@@ -12,22 +12,18 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-# Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+# Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform.
 ---
 
 # Daemon app that calls web APIs - code configuration
 
 Learn how to configure the code for your daemon application that calls web APIs.
 
-## MSAL libraries that support daemon apps
+## Microsoft libraries supporting daemon apps
 
-These Microsoft libraries support daemon apps:
+The following Microsoft libraries support daemon apps:
 
-  MSAL library | Description
-  ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | The .NET Framework and .NET Core platforms are supported for building daemon applications. (UWP, Xamarin.iOS, and Xamarin.Android aren't supported because those platforms are used to build public client applications.)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Support for daemon applications in Python.
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Support for daemon applications in Java.
+[!INCLUDE [active-directory-develop-libraries-daemon](../../../includes/active-directory-develop-libraries-daemon.md)]
 
 ## Configure the authority
 
@@ -108,7 +104,7 @@ When you build a confidential client with certificates, the [parameters.json](ht
 
 ### Instantiate the MSAL application
 
-To instantiate the MSAL application, you need to add, reference, or import the MSAL package (depending on the language).
+To instantiate the MSAL application, add, reference, or import the MSAL package (depending on the language).
 
 The construction is different, depending on whether you're using client secrets or certificates (or, as an advanced scenario, signed assertions).
 
@@ -286,7 +282,7 @@ MSAL.NET has two methods to provide signed assertions to the confidential client
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-When you use `WithClientAssertion`, you need to provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md).
+When you use `WithClientAssertion`, provide a signed JWT. This advanced scenario is detailed in [Client assertions](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();

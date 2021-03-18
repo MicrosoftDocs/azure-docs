@@ -15,6 +15,8 @@ monikerRange: ">=iotedge-2020-11"
 
 # Publish and subscribe with Azure IoT Edge
 
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
+
 You can use Azure IoT Edge MQTT broker to publish and subscribe messages. This article shows you how to connect to this broker, publish and subscribe to messages over user-defined topics, and use IoT Hub messaging primitives. The IoT Edge MQTT broker is built-in the IoT Edge hub. For more information, see [the brokering capabilities of the IoT Edge hub](iot-edge-runtime.md).
 
 > [!NOTE]
@@ -173,7 +175,6 @@ Authorizations for IoT hub topics are handled slightly differently than user-def
 
 - Azure IoT devices or modules need an explicit authorization rule to connect to IoT Edge hub MQTT broker. A default connect authorization policy is provided below.
 - Azure IoT devices or modules can access their own IoT hub topics by default without any explicit authorization rule. However, authorizations stem from parent/child relationships in that case and these relationships must be set. IoT Edge modules are automatically set as children of their IoT Edge device but devices need to explicitly be set as children of their IoT Edge gateway.
-- Azure IoT devices or modules can access the topics, including IoT hub topics, of other devices or modules providing that appropriate explicit authorization rules are defined.
 
 Here is a default authorization policy that can be used to enable all Azure IoT devices or modules to **connect** to the broker:
 
@@ -248,7 +249,7 @@ Create two IoT Devices in IoT Hub and get their passwords. Using the Azure CLI f
 
 ### Authorize publisher and subscriber clients
 
-To authorize the publisher and subscriber, edit the IoT Edge hub twin either via Azure CLI, Visual Studio or Visual Studio code to include the following authorization policy:
+To authorize the publisher and subscriber, edit the IoT Edge hub twin by creating an IoT Edge deployment either via Azure CLI, Visual Studio or Visual Studio code to include the following authorization policy:
 
 ```json
 {
@@ -271,7 +272,7 @@ To authorize the publisher and subscriber, edit the IoT Edge hub twin either via
                },
                {
                   "identities": [
-                     "sub_client"
+                     "<iot_hub_name>.azure-devices.net/sub_client"
                   ],
                   "allow":[
                      {
@@ -280,13 +281,13 @@ To authorize the publisher and subscriber, edit the IoT Edge hub twin either via
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
                   ],
                },
                {
                   "identities": [
-                     "pub_client"
+                     "<iot_hub_name>.azure-devices.net/pub_client"
                   ],
                   "allow":[
                      {
@@ -295,9 +296,9 @@ To authorize the publisher and subscriber, edit the IoT Edge hub twin either via
                         ],
                         "resources":[
                            "test_topic"
-                        ],
+                        ]
                      }
-                  ],
+                  ]
                }
             ]
          }
@@ -363,8 +364,8 @@ The [Azure IoT Device SDKs](https://github.com/Azure/azure-iot-sdks) already let
 
 Sending telemetry data to IoT Hub is similar to publishing on a user-defined topic, but using a specific IoT Hub topic:
 
-- For a device, telemetry is sent on topic: `devices/<device_name>/messages/events`
-- For a module, telemetry is sent on topic: `devices/<device_name>/<module_name>/messages/events`
+- For a device, telemetry is sent on topic: `devices/<device_name>/messages/events/`
+- For a module, telemetry is sent on topic: `devices/<device_name>/<module_name>/messages/events/`
 
 Additionally, create a route such as `FROM /messages/* INTO $upstream` to send telemetry from the IoT Edge MQTT broker to IoT hub. To learn more about routing, see [Declare routes](module-composition.md#declare-routes).
 

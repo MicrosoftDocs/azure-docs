@@ -229,7 +229,7 @@ Next, add the app-specific settings.
 1. Click the **Sign-in with GitHub** button and authenticate with GitHub
 1. Select your preferred _Organization_
 1. Select **my-vanilla-api** from the _Repository_ drop-down
-1. Select **master** from the _Branch_ drop-down
+1. Select **main** from the _Branch_ drop-down
 1. Select the framework of your choice for build configuration from the _Build Presets_ drop-down
 
  > These fields will reflect the app type's default project structure. Change the values to suit your app.

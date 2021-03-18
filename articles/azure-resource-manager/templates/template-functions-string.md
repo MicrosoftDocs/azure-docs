@@ -1,12 +1,12 @@
 ---
 title: Template functions - string
-description: Describes the functions to use in an Azure Resource Manager template to work with strings.
+description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 03/02/2021
 ---
 # String functions for ARM templates
 
-Resource Manager provides the following functions for working with strings in your Azure Resource Manager (ARM) templates:
+Resource Manager provides the following functions for working with strings in your Azure Resource Manager template (ARM template):
 
 * [base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -300,6 +300,8 @@ The output from the preceding example with the default values is:
 
 Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array.
 
+To simplify string concatenation, Bicep supports a [string interpolation](https://en.wikipedia.org/wiki/String_interpolation#) syntax.
+
 ### Parameters
 
 | Parameter | Required | Type | Description |
@@ -345,6 +347,14 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 param prefix string = 'prefix'
 
 output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+```
+
+or
+
+```bicep
+param prefix string = 'prefix'
+
+output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
 ```
 
 ---
@@ -1524,7 +1534,7 @@ The following example uses the newGuid function to create a unique name for a st
 ```bicep
 param guidValue string = newGuid()
 
-var storageName = concat('storage', uniqueString(guidValue))
+var storageName = 'storage${uniqueString(guidValue)}'
 
 resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
   name: storageName
@@ -2462,7 +2472,7 @@ The following example shows how to create a unique name for a storage account ba
 
 ```bicep
 resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
-  name: concat('storage, uniqueString(resourceGroup().id)')
+  name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }
 ```
@@ -2762,7 +2772,7 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
+* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
+* To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

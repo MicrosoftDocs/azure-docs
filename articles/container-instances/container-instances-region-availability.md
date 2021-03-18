@@ -29,12 +29,13 @@ The following regions and maximum resources are available to container groups wi
 | Australia East | 4 | 16 | 4 | 16 | 50 | N/A |
 | Brazil South | 4 | 16 | 2 | 8 | 50 | N/A |
 | Canada Central | 4 | 16 | 4 | 16 | 50 | N/A |
-| Central India | 4 | 16 | N/A | N/A | 50 | V100 |
+| Central India | 4 | 16 | 4 | 4 | 50 | V100 |
 | Central US | 4 | 16 | 4 | 16 | 50 | N/A |
 | East Asia | 4 | 16 | 4 | 16 | 50 | N/A |
 | East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | East US 2 | 4 | 16 | 4 | 16 | 50 | N/A |
 | France Central | 4 | 16 | 4 | 16 | 50 | N/A |
+| Germany West Central | 3 | 16 | N/A | N/A | 50 | N/A |
 | Japan East | 2 | 8 | 4 | 16 | 50 | N/A |
 | Korea Central | 4 | 16 | N/A | N/A | 50 | N/A |
 | North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
@@ -42,7 +43,9 @@ The following regions and maximum resources are available to container groups wi
 | South Central US | 4 | 16 | 4 | 16 | 50 | N/A |
 | Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | South India | 4 | 16 | N/A | N/A | 50 | N/A |
+| Switzerland North | 3 | 16 | N/A | N/A | 50 | N/A |
 | UK South | 4 | 16 | 4 | 16 | 50 | N/A |
+| UAE North | 3 | 16 | N/A | N/A | 50 | N/A |
 | West Central US| 4 | 16 | 4 | 16 | 50 | N/A |
 | West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | West US | 4 | 16 | 4 | 16 | 50 | N/A |
@@ -76,9 +79,9 @@ The following regions and maximum resources are available to container groups wi
 
 | Region | 1B/2B Max CPU | 1B/2B Max Memory (GB) |3B Max CPU | 3B Max Memory (GB) | Storage (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australia East | 2 | 8 | 2 | 3.5 | 20 |
+| Australia East | 2 | 8 | 2 | 8 | 20 |
 | Brazil South | 4 | 16 | 4 | 16 | 20 |
-| Canada Central | 2 | 3.5 | 2 | 3.5 | 20 |
+| Canada Central | 2 | 8 | 2 | 3.5 | 20 |
 | Central India | 2 | 3.5 | 2 | 3.5 | 20 |
 | Central US | 2 | 3.5 | 2 | 3.5 | 20 |
 | East Asia | 2 | 3.5 | 2 | 3.5 | 20 |
@@ -87,15 +90,15 @@ The following regions and maximum resources are available to container groups wi
 | Japan East | 4 | 16 | 4 | 16 | 20 |
 | Korea Central | 4 | 16 | 4 | 16 | 20 |
 | North Central US | 4 | 16 | 4 | 16 | 20 |
-| North Europe | 2 | 3.5 | 2 | 8 | 20 |
-| South Central US | 2 | 3.5 | 2 | 3.5 | 20 |
+| North Europe | 2 | 8 | 2 | 8 | 20 |
+| South Central US | 2 | 3.5 | 2 | 8 | 20 |
 | Southeast Asia | N/A | N/A | 2 | 3.5 | 20 |
 | South India | 2 | 3.5 | 2 | 3.5 | 20 |
 | UK South | 2 | 8 | 2 | 3.5 | 20 |
-| West Central US | 4 | 16 | 4 | 16 | 20 |
+| West Central US | 4 | 16 | 2 | 8 | 20 |
 | West Europe | 4 | 16 | 4 | 16 | 20 |
 | West US | 4 | 16 | 2 | 8 | 20 |
-| West US 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+| West US 2 | 2 | 8 | 2 | 3.5 | 20 |
 
 
 ### Windows Server 2019 LTSC

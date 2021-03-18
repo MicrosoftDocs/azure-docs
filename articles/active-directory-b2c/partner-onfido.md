@@ -69,7 +69,7 @@ For more information about Onfido, see [Onfido API documentation](https://docume
 
 ### Part 1 - Deploy the API
 
-- Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+- Deploy the provided [API code](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/API/Onfido.Api) to an Azure service. The code can be published from Visual Studio, following these [instructions](/visualstudio/deployment/quickstart-deploy-to-azure).
 - Set-up CORS, add **Allowed Origin** as https://{your_tenant_name}.b2clogin.com
 
 >[!NOTE]

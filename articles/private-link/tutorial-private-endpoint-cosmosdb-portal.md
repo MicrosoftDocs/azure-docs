@@ -203,13 +203,9 @@ In this section, you'll create a Cosmos DB account and configure the private end
 
 5. Select **OK**.
 
-10. In the **Settings** section of the CosmosDB account, select **Keys**.
+6. In the **Settings** section of the CosmosDB account, select **Keys**.
 
-11. Select **myResourceGroup**.
-
-12. Select the storage account you created in the previous steps.
-
-14. Select copy on the **PRIMARY CONNECTION STRING**.
+7. Select copy on the **PRIMARY CONNECTION STRING**.
 
 ## Test connectivity to private endpoint
 
@@ -217,19 +213,19 @@ In this section, you'll use the virtual machine you created in the previous step
 
 1. Select **Resource groups** in the left-hand navigation pane.
 
-2. Select **myResourceGroup**.
+1. Select **myResourceGroup**.
 
-3. Select **myVM**.
+1. Select **myVM**.
 
-4. On the overview page for **myVM**, select **Connect** then **Bastion**.
+1. On the overview page for **myVM**, select **Connect** then **Bastion**.
 
-5. Select the blue **Use Bastion** button.
+1. Select the blue **Use Bastion** button.
 
-6. Enter the username and password that you entered during the virtual machine creation.
+1. Enter the username and password that you entered during the virtual machine creation.
 
-7. Open Windows PowerShell on the server after you connect.
+1. Open Windows PowerShell on the server after you connect.
 
-8. Enter `nslookup <storage-account-name>.documents.azure.com`. Replace **\<storage-account-name>** with the name of the storage account you created in the previous steps. 
+1. Enter `nslookup <cosmosdb-account-name>.documents.azure.com` and validate the name resolution. Replace **\<cosmosdb-account-name>** with the name of the Cosmos DB account you created in the previous steps. 
 
     ```powershell
     Server:  UnKnown
@@ -240,28 +236,32 @@ In this section, you'll use the virtual machine you created in the previous step
     Address:  10.1.0.5
     Aliases:  mycosmosdb8675.documents.azure.com
     ```
-
     A private IP address of **10.1.0.5** is returned for the Cosmos DB account name.  This address is in the subnet of the virtual network you created previously.
+    
+1. Get your Azure Cosmos DB primary connection string from portal. A valid connection string is in the format:
+   
+   For SQL API accounts: `https://<accountName>.documents.azure.com:443/;AccountKey=<accountKey>;` 
+   For Azure Cosmos DB API for MongoDB: `mongodb://<accountName>:<accountKey>@cdbmongo36.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false`
 
-9. Install [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) on the virtual machine.
+1. Install [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows&toc=%2fazure%2fstorage%2fblobs%2ftoc.json) on the virtual machine.
 
-10. Select **Finish** after the **Microsoft Azure Storage Explorer** is installed.  Leave the box checked to open the application.
+1. Select **Finish** after the **Microsoft Azure Storage Explorer** is installed.  Leave the box checked to open the application.
 
-11. In the **Connect to Azure Storage** screen, select **Cancel**.
+1. In the **Connect to Azure Storage** screen, select **Cancel**.
 
-12. In Storage Explorer, select the right mouse button on **Cosmos DB Accounts** and select **Connect to Cosmos DB**.
+1. In Storage Explorer, select the right mouse button on **Cosmos DB Accounts** and select **Connect to Cosmos DB**.
 
-13. Leave the default of **SQL** under **Select API**.
+1. Leave the default of **SQL** under **Select API**.
 
-14. In the box under **Connection String**, paste the connection string from the Cosmos DB account you copied in the previous steps.
+1. In the box under **Connection String**, paste the connection string from the Cosmos DB account you copied in the previous steps.
 
-15. Select **Next**.
+1. Select **Next**.
 
-16. Verify the settings are correct in **Connection Summary**.  
+1. Verify the settings are correct in **Connection Summary**.  
 
-17. Select **Connect**.
+1. Select **Connect**.
 
-18. Close the connection to **myVM**.
+1. Close the connection to **myVM**.
 
 
 ## Clean up resources

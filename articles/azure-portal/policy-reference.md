@@ -1,13 +1,11 @@
 ---
 title: Built-in policy definitions for Azure portal
 description: Lists Azure Policy built-in policy definitions for Azure portal. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 11/17/2020
+ms.date: 03/17/2021
 ms.topic: reference
-author: mblythe
-ms.author: mblythe
-ms.service: azure-portal
 ms.custom: subject-policy-reference
 ---
+
 # Azure Policy built-in definitions for Azure portal
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy

@@ -3,15 +3,15 @@ title: "Quickstart: Add Authentication to a Node web app with MSAL Node | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how to implement authentication with a Node.js web app and the Microsoft Authentication Library (MSAL) for Node.js.
 services: active-directory
-author: amikuma
-manager: saeeda
+author: mmacy
+manager: celested
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/22/2020
-ms.author: amikuma
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 # Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
 ---
@@ -24,9 +24,6 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node) with the authorization code flow.
 
-> [!IMPORTANT]
-> MSAL Node [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
-
 ## Prerequisites
 
 * Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -38,17 +35,25 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 >
 > #### Step 1: Register your application
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com).
-> 1. If your account gives you access to more than one tenant, select your account at the top right, and then set your portal session to the Azure AD tenant you want to use.
-> 1. Select [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Select **New registration**.
-> 1. When the **Register an application** page appears, enter a name for your application.
+> 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. Under **Manage**, select **App registrations** > **New registration**.
+> 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
 > 1. Set the **Redirect URI** value to `http://localhost:3000/redirect`.
 > 1. Select **Register**. 
 > 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
-> 1. Under **Certificates & secrets**, select **New client secret**.  Leave the description blank and default expiration, and then click **Add**.
+> 1. Under **Manage**, select **Certificates & secrets** > **New client secret**.  Leave the description blank and default expiration, and then select **Add**.
 > 1. Note the **Value** of the **Client Secret** for later use.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### Step 1: Configure the application in Azure portal
+> For the code sample for this quickstart to work, you need to create a client secret and add a reply URL as **http://localhost:3000/redirect**.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Make this change for me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download the project
 
@@ -92,16 +97,17 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 > Modify the values in the `config` section as described here:
 >
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
+>
+>    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
 > - `Enter_the_Client_Secret_Here` is the **Value** of the **Client secret** for the application you registered.
+>
+>    To retrieve or generate a new **Client secret**, under **Manage**, select **Certificates & secrets**.
 >
 > The default `authority` value represents the main (global) Azure cloud:
 >
 > ```javascript
 > authority: "https://login.microsoftonline.com/common",
 > ```
->
-> > [!TIP]
-> > To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal. Go under **Certificates & secrets** to retrieve or generate a new **Client secret**.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run

@@ -2,9 +2,9 @@
 title: How to use Micrometer with Azure Application Insights Java SDK
 description: A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications.
 ms.topic: conceptual
-author: lgayhardt
+author: MS-jgol
 ms.custom: devx-track-java
-ms.author: lagayhar
+ms.author: jgol
 ms.date: 11/01/2018
 
 ---
@@ -12,6 +12,8 @@ ms.date: 11/01/2018
 # How to use Micrometer with Azure Application Insights Java SDK (not recommended)
 
 > [!IMPORTANT]
+> The approach described in this document is no longer recommended.
+> 
 > The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Micrometer telemetry is auto-collected with the Application Insights Java 3.0 agent - follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
 
 > [!NOTE]
@@ -89,17 +91,17 @@ Default Metrics:
 *    Automatically configured metrics for Tomcat, JVM, Logback Metrics, Log4J metrics, Uptime Metrics, Processor Metrics, FileDescriptorMetrics.
 *    For example, if Netflix Hystrix is present on class path we get those metrics as well. 
 *    The following metrics can be available by adding respective beans. 
-        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
         - OkHttp3 metrics 
         - Kafka Metrics 
 
- 
+
 
 How to turn off automatic metrics collection: 
- 
+
 - JVM Metrics: 
     - management.metrics.binders.jvm.enabled=false 
 - Logback Metrics: 
@@ -132,15 +134,15 @@ Steps:
 
     ```XML
         <dependency>
-        	<groupId>io.micrometer</groupId>
-        	<artifactId>micrometer-registry-azure-monitor</artifactId>
-        	<version>1.1.0</version>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-azure-monitor</artifactId>
+            <version>1.1.0</version>
         </dependency>
-        
+
         <dependency>
-        	<groupId>com.microsoft.azure</groupId>
-        	<artifactId>applicationinsights-web-auto</artifactId>
-        	<version>2.5.0</version>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>applicationinsights-web-auto</artifactId>
+            <version>2.5.0</version>
         </dependency>
      ```
 
@@ -149,17 +151,17 @@ Steps:
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-    
+
        <!-- The key from the portal: -->
        <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-    
+
        <!-- HTTP request component (not required for bare API) -->
        <TelemetryModules>
           <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
           <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
           <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
        </TelemetryModules>
-    
+
        <!-- Events correlation (not required for bare API) -->
        <!-- These initializers add context data to each event -->
        <TelemetryInitializers>
@@ -169,7 +171,7 @@ Steps:
           <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
           <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
        </TelemetryInitializers>
-    
+
     </ApplicationInsights>
     ```
 
@@ -178,17 +180,17 @@ Steps:
     ```Java
         @WebServlet("/hello")
         public class TimedDemo extends HttpServlet {
-    
+
           private static final long serialVersionUID = -4751096228274971485L;
-    
+
           @Override
           @Timed(value = "hello.world")
           protected void doGet(HttpServletRequest request, HttpServletResponse response)
               throws ServletException, IOException {
-    
+
             response.getWriter().println("Hello World!");
             MeterRegistry registry = (MeterRegistry) getServletContext().getAttribute("AzureMonitorMeterRegistry");
-    
+
         //create new Timer metric
             Timer sampleTimer = registry.timer("timer");
             Stream<Integer> infiniteStream = Stream.iterate(0, i -> i+1);
@@ -207,9 +209,9 @@ Steps:
           public void destroy() {
             System.out.println("Servlet " + this.getServletName() + " has stopped");
           }
-    
+
         }
-    
+
     ```
 
 4. Sample configuration class:
@@ -217,10 +219,10 @@ Steps:
     ```Java
          @WebListener
          public class MeterRegistryConfiguration implements ServletContextListener {
-     
+
            @Override
            public void contextInitialized(ServletContextEvent servletContextEvent) {
-     
+
          // Create AzureMonitorMeterRegistry
            private final AzureMonitorConfig config = new AzureMonitorConfig() {
              @Override
@@ -230,23 +232,23 @@ Steps:
             @Override
                public Duration step() {
                  return Duration.ofSeconds(60);}
-     
+
              @Override
              public boolean enabled() {
                  return false;
              }
          };
-     
+
       MeterRegistry azureMeterRegistry = AzureMonitorMeterRegistry.builder(config);
-     
+
              //set the config to be used elsewhere
              servletContextEvent.getServletContext().setAttribute("AzureMonitorMeterRegistry", azureMeterRegistry);
-     
+
            }
-     
+
            @Override
            public void contextDestroyed(ServletContextEvent servletContextEvent) {
-     
+
            }
          }
     ```
@@ -262,20 +264,20 @@ Other sample code on how to create different types of metrics can be found in[th
 Create a bean of the respective metric category. For example, say we need Guava cache Metrics:
 
 ```Java
-	@Bean
-	GuavaCacheMetrics guavaCacheMetrics() {
-		Return new GuavaCacheMetrics();
-	}
+    @Bean
+    GuavaCacheMetrics guavaCacheMetrics() {
+        Return new GuavaCacheMetrics();
+    }
 ```
 There are several metrics that are not enabled by default but can be bound in the above fashion. For a complete list, refer to [the official Micrometer GitHub repo](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder ).
 
 ### Non-Spring apps
 Add the following binding code to the configuration  file:
 ```Java 
-	New GuavaCacheMetrics().bind(registry);
+    New GuavaCacheMetrics().bind(registry);
 ```
 
 ## Next steps
 
 * To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
-* To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/?view=azure-java-stable).
+* To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/).

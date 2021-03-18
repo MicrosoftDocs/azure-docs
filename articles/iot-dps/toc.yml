@@ -13,7 +13,8 @@
       href: quick-setup-auto-provision.md
     - name: Azure CLI
       href: quick-setup-auto-provision-cli.md
-    - name: Azure RM template
+    - name: ARM template
+      displayName: Resource Manager
       href: quick-setup-auto-provision-rm.md
   - name: Provision a symmetric key device
     items:
@@ -115,16 +116,20 @@
     href: concepts-device-oem-security-practices.md
 - name: How-to guides
   items:
-  - name: Connect MXChip IoT DevKit to IoT Hub
-    href: how-to-connect-mxchip-iot-devkit.md
-  - name: Provision devices using custom allocation policies
-    href: how-to-use-custom-allocation-policies.md
+  - name: Development
+    items:
+    - name: Connect MXChip IoT DevKit to IoT Hub
+      href: how-to-connect-mxchip-iot-devkit.md
+    - name: How to send additional data from devices
+      href: how-to-send-additional-data.md
+    - name: Provision devices using custom allocation policies
+      href: how-to-use-custom-allocation-policies.md
+    - name: Communicate with your DPS using MQTT protocol
+      href: iot-dps-mqtt-support.md    
   - name: Manage Device Provisioning Service
     items:
     - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
-    - name: Manage enrollments - Service SDKs
-      href: how-to-manage-enrollments-sdks.md
     - name: Configure verified CA certificates
       href: how-to-verify-certificates.md
     - name: Roll device certificates
@@ -139,8 +144,6 @@
       href: how-to-control-access.md
     - name: Configure IP filtering
       href: iot-dps-ip-filtering.md
-    - name: Configure Device Provisioning Service using Azure CLI
-      href: how-to-manage-dps-with-cli.md
   - name: Provision IoT Edge devices
     items: 
     - name: Linux
@@ -149,16 +152,8 @@
     - name: Windows
       href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
       maintainContext: true
-  - name: Use attestation mechanisms with SDK
-    href: use-hsm-with-sdk.md
-  - name: Use SDK tools for development
-    href: how-to-use-sdk-tools.md
-  - name: How to send additional data from devices
-    href: how-to-send-additional-data.md
   - name: Troubleshooting
     href: how-to-troubleshoot-dps.md 
-  - name: Communicate with your DPS using MQTT protocol
-    href: iot-dps-mqtt-support.md    
 - name: Reference
   items:
   - name: REST API
@@ -180,7 +175,9 @@
 - name: Resources
   items:
   - name: Support and help options
-    href: ../iot-fundamentals/iot-support-help.md
+    href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
+  - name: IoT Glossary
+    href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-dps/toc.json&bc=/azure/iot-dps/breadcrumb/toc.json
   - name: Azure IoT services
     items:
     - name: IoT Hub

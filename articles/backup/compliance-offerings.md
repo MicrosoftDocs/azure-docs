@@ -17,7 +17,7 @@ You can find below compliance offerings for Azure Backup to ensure your service 
 * [CSA-Star-Certification](/microsoft-365/compliance/offering-csa-star-certification)
 * [CSA-STAR-Self-Assessment](/microsoft-365/compliance/offering-csa-star-self-assessment)
 * [ISO 20000-1:2011](/microsoft-365/compliance/offering-iso-20000-1-2011)
-* [ISO 22301](/microsoft-365/compliance/offering-iso-22301)
+* [ISO 22301](/compliance/regulatory/offering-iso-22301)
 * [ISO 27001](/microsoft-365/compliance/offering-iso-27017)
 * [ISO 27017](/microsoft-365/compliance/offering-iso-27017)
 * [ISO 27018](/microsoft-365/compliance/offering-iso-27018)
@@ -32,7 +32,7 @@ You can find below compliance offerings for Azure Backup to ensure your service 
 
 ## Industry
 
-* [HIPAA](/microsoft-365/compliance/offering-hipaa-hitech)
+* [HIPAA](/compliance/regulatory/offering-hipaa-hitech)
 * [HITRUST](/microsoft-365/compliance/offering-hitrust)
 * [PCI DSS](/microsoft-365/compliance/offering-pci-dss)
 

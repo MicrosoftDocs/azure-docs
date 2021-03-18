@@ -2,7 +2,7 @@
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/12/2020
 ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
@@ -54,22 +54,27 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 ## Step 2: Ensure the machine meets the requirements before executing the script
 
-After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. If it does, then choose an alternate machine preferably from the same region that meets the requirements.  
+After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine preferably from the same region that meets the requirements**.  
 
 ### Dynamic disks
 
-You can't run the executable script on the VM with any of the following characteristics:
+You can't run the executable script on the VM with any of the following characteristics: Choose an alternate machine
 
 - Volumes that span multiple disks (spanned and striped volumes).
 - Fault-tolerant volumes (mirrored and RAID-5 volumes) on dynamic disks.
 
 ### Windows Storage Spaces
 
-You cannot run the downloaded executable on the VM that is configured for Windows Storage Spaces.
+You cannot run the downloaded executable on the same backed-up VM if the backed up VM has Windows Storage Spaces. Choose an alternate machine.
 
 ### Virtual machine backups having large disks
 
 If the backed-up machine has large number of disks (>16) or large disks (> 4 TB each) it's not recommended to execute the script on the same machine for restore, since it will have a significant impact on the VM. Instead it's recommended to have a separate VM only for file recovery (Azure VM D2v3 VMs) and then shut it down when not required. 
+
+See requirements to restore files from backed-up VMs with large disk:<br>
+[Windows OS](#for-backed-up-vms-with-large-disks-windows)<br>
+[Linux OS](#for-backed-up-vms-with-large-disks-linux)
+
 
 ## Step 3: OS requirements to successfully run the script
 
@@ -112,6 +117,7 @@ The script also requires Python and bash components to execute and connect secur
 | --------------- | ---- |
 | bash | 4 and above |
 | python | 2.6.6 and above  |
+| .NET | 4.6.2 and above |
 | TLS | 1.2 should be supported  |
 
 ## Step 4: Access requirements to successfully run the script
@@ -150,7 +156,7 @@ When you run the executable, the operating system mounts the new volumes and ass
 
    ![Recovery volumes attached](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
-**For backed-up VMs with large disks (Windows)**
+#### For backed-up VMs with large disks (Windows)
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
   
@@ -176,12 +182,12 @@ In Linux, the volumes of the recovery point are mounted to the folder where the 
   ![Linux File recovery menu](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
 
 
-**For backed-up VMs with large disks (Linux)**
+#### For backed-up VMs with large disks (Linux)**
 
 If the file recovery process hangs after you run the file-restore script (for example, if the disks are never mounted, or they're mounted but the volumes don't appear), perform the following  steps:
 
 1. In the file /etc/iscsi/iscsid.conf, change the setting from:
-    - `node.conn[0].timeo.noop_out_timeout = 5`  to `node.conn[0].timeo.noop_out_timeout = 30`
+    - `node.conn[0].timeo.noop_out_timeout = 5`  to `node.conn[0].timeo.noop_out_timeout = 120`
 2. After making the above changes, rerun the script. If there are transient failures, ensure there is a gap of 20 to 30 minutes between reruns to avoid successive bursts of requests impacting the target preparation. This interval between re-runs will ensure the target is ready for connection from the script.
 3. After file recovery, make sure you go back to the portal and select **Unmount disks** for recovery points where you weren't able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
 

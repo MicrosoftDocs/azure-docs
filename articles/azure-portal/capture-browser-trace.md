@@ -1,15 +1,8 @@
 ---
-title: Capture a browser trace for troubleshooting | Microsoft Docs 
+title: Capture a browser trace for troubleshooting
 description: Capture network information from a browser trace to help troubleshoot issues with the Azure portal.
-services: azure-portal
-keywords: 
-author: mgblythe
-ms.author: mblythe
 ms.date: 05/11/2020
 ms.topic: troubleshooting
-
-ms.service: azure-portal
-manager:  mtillman
 ---
 
 # Capture a browser trace for troubleshooting

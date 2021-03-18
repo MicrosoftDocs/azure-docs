@@ -55,7 +55,7 @@ You can use the following APIs to retrieve the same information found in the Mon
 
 ### Activity logs and service health
 
-The [**Activity log**](../azure-monitor/platform/activity-log.md#view-the-activity-log) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
+The [**Activity log**](../azure-monitor/essentials/activity-log.md#view-the-activity-log) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
 
 Common entries include references to API keys - generic informational notifications like *Get Admin Key* and *Get Query keys*. These activities indicate requests that were made using the admin key (create or delete objects) or query key, but do not show the request itself. For information of this grain, you must configure diagnostic logging.
 
@@ -87,7 +87,7 @@ Azure Monitor provides several storage options, and your choice determines how y
 * Choose Azure Blob storage if you want to [visualize log data](search-monitor-logs-powerbi.md) in a Power BI report.
 * Choose Log Analytics if you want to explore data through Kusto queries.
 
-Azure Monitor has its own billing structure and the diagnostic logs referenced in this section have an associated cost. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor/platform/usage-estimated-costs.md).
+Azure Monitor has its own billing structure and the diagnostic logs referenced in this section have an associated cost. For more information, see [Usage and estimated costs in Azure Monitor](../azure-monitor//usage-estimated-costs.md).
 
 ## Monitor user access
 
@@ -104,4 +104,4 @@ There is no way to log this information separately from the query string that in
 Fluency with Azure Monitor is essential for oversight of any Azure service, including resources like Azure Cognitive Search. If you are not familiar with Azure Monitor, take the time to review articles related to resources. In addition to tutorials, the following article is a good place to start.
 
 > [!div class="nextstepaction"]
-> [Monitoring Azure resources with Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)
+> [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md)

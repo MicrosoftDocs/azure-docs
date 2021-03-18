@@ -13,9 +13,8 @@ ms.author: dobett
 
 Azure IoT technologies and services provide you with options to create a wide variety of IoT solutions that enable digital transformation for your organization. For example, you can:
 
-- Use [Azure IoT Central](https://apps.azureiotcentral.com), a managed IoT application platform, to build and deploy a secure, enterprise-grade IoT solution. IoT Central features a collection of industry-specific application templates, such as retail and healthcare, to accelerate your solution development process.
-- Extend the open-source code base for an Azure IoT [solution accelerator](https://www.azureiotsolutions.com) to implement a common IoT scenario such as remote monitoring or predictive maintenance.
-- Use Azure IoT platform services such as [Azure IoT Hub](../iot-hub/about-iot-hub.md) and the [Azure IoT device SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build a custom IoT solution from scratch.
+* Use [Azure IoT Central](https://apps.azureiotcentral.com), a managed IoT application platform, to build and deploy a secure, enterprise-grade IoT solution. IoT Central features a collection of industry-specific application templates, such as retail and healthcare, to accelerate your solution development process.
+* Use Azure IoT platform services such as [Azure IoT Hub](../iot-hub/about-iot-hub.md) and the [Azure IoT device SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build a custom IoT solution from scratch.
 
 ![Azure IoT technologies, services, and solutions](./media/iot-services-and-technologies/iot-technologies-services.png)
 
@@ -35,10 +34,8 @@ The [Azure IoT solution accelerators](https://www.azureiotsolutions.com) are a c
 
 Azure IoT solution accelerators provide a high level of control over your IoT solution. The solution accelerators include prebuilt solutions for common IoT scenarios that you can deploy to your Azure subscription in minutes. The scenarios include:
 
-  - Remote monitoring
-  - Connected factory
-  - Predictive maintenance
-  - Device simulation
+* Connected factory
+* Device simulation
 
 The open-source code base for all the solution accelerators is available on GitHub. Download the code to customize a solution accelerator to meet your specific IoT requirements.
 
@@ -87,4 +84,3 @@ For a hands-on experience, try one of the quickstarts:
 
 - [Create an Azure IoT Central application](../iot-central/core/quick-deploy-iot-central.md)
 - [Send telemetry from a device to an IoT hub](../iot-hub/quickstart-send-telemetry-cli.md)
-- [Try a cloud-based remote monitoring solution](../iot-accelerators/quickstart-remote-monitoring-deploy.md)

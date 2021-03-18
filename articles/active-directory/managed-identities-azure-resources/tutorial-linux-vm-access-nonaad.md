@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 #Customer intent: As a developer or administrator I want to configure a Linux virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
@@ -33,9 +33,9 @@ You learn how to:
  
 ## Prerequisites
 
-- An understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
+- A basic understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 - You also need a Linux Virtual machine that has system assigned managed identities enabled.
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a Linux virtual machine with the Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
@@ -59,6 +59,20 @@ First, we need to create a Key Vault and grant our VM’s system-assigned manage
 1. Select **Review+ create**
 1. Select **Create**
 
+### Create a secret
+
+Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. For the purpose of this tutorial, we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
+
+1. Navigate to your newly created Key Vault.
+1. Select **Secrets**, and click **Add**.
+1. Select **Generate/Import**
+1. In the **Create a secret** screen from **Upload options** leave **Manual** selected.
+1. Enter a name and value for the secret.  The value can be anything you want. 
+1. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
+1. Click **Create** to create the secret.
+
+   ![Create a secret](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
+
 ## Grant access
 
 The managed identity used by the virtual machine needs to be granted access to read the secret that we will store in the Key Vault.
@@ -74,20 +88,6 @@ The managed identity used by the virtual machine needs to be granted access to r
 1. Select **Add**
 1. Select **Save**.
 
-## Create a secret
-
-Next, add a secret to the Key Vault, so you can retrieve it later using code running in your VM. For the purpose of this tutorial, we are using PowerShell but the same concepts apply to any code executing in this virtual machine.
-
-1. Navigate to your newly created Key Vault.
-1. Select **Secrets**, and click **Add**.
-1. Select **Generate/Import**
-1. In the **Create a secret** screen from **Upload options** leave **Manual** selected.
-1. Enter a name and value for the secret.  The value can be anything you want. 
-1. Leave the activation date and expiration date clear, and leave **Enabled** as **Yes**. 
-1. Click **Create** to create the secret.
-
-   ![Create a secret](./media/tutorial-linux-vm-access-nonaad/create-secret.png)
- 
 ## Access data
 
 To complete these steps, you need an SSH client.  If you are using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/about). If you need assistance configuring your SSH client's keys, see [How to Use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md), or [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
@@ -118,7 +118,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
     You can use this access token to authenticate to Azure Key Vault.  The next CURL request shows how to read a secret from Key Vault using CURL and the Key Vault REST API.  You’ll need the URL of your Key Vault, which is in the **Essentials** section of the **Overview** page of the Key Vault.  You will also need the access token you obtained on the previous call. 
         
     ```bash
-    curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl 'https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
     The response will look like this: 

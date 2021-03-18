@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 09/02/2020
+ms.date: 12/10/2020
 ---
 
 # Mapping data flows in Azure Data Factory
@@ -24,7 +24,7 @@ Mapping data flows provide an entirely visual experience with no coding required
 
 Data flows are created from the factory resources pane like pipelines and datasets. To create a data flow, select the plus sign next to **Factory Resources**, and then select **Data Flow**. 
 
-![New data flow](media/data-flow/new-data-flow.png "new data flow")
+![New data flow](media/data-flow/new-data-flow.png)
 
 This action takes you to the data flow canvas, where you can create your transformation logic. Select **Add source** to start configuring your source transformation. For more information, see [Source transformation](data-flow-source.md).
 
@@ -32,17 +32,17 @@ This action takes you to the data flow canvas, where you can create your transfo
 
 Mapping data flow has a unique authoring canvas designed to make building transformation logic easy. The data flow canvas is separated into three parts: the top bar, the graph, and the configuration panel. 
 
-![Screenshot shows the data flow canvas with top bar, graph, and configuration panel labeled.](media/data-flow/canvas1.png "Canvas")
+![Screenshot shows the data flow canvas with top bar, graph, and configuration panel labeled.](media/data-flow/canvas-1.png "Canvas")
 
 ### Graph
 
 The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation. Learn more on how to [manage the data flow graph](concepts-data-flow-manage-graph.md).
 
-![Screenshot shows the graph part of the canvas with a Search text box.](media/data-flow/canvas2.png "Canvas")
+![Screenshot shows the graph part of the canvas with a Search text box.](media/data-flow/canvas-2.png)
 
 ### Configuration panel
 
-The configuration panel shows the settings specific to the currently selected transformation. If no transformation is selected, it shows the data flow. In the overall data flow configuration, you can edit the name and description under the **General** tab or add parameters via the **Parameters** tab. For more information, see [Mapping data flow parameters](parameters-data-flow.md).
+The configuration panel shows the settings specific to the currently selected transformation. If no transformation is selected, it shows the data flow. In the overall data flow configuration, you can add parameters via the **Parameters** tab. For more information, see [Mapping data flow parameters](parameters-data-flow.md).
 
 Each transformation contains at least four configuration tabs.
 
@@ -94,63 +94,64 @@ The Azure Data Factory team has created a [performance tuning guide](concepts-da
 
 ## Available regions
 
-Mapping data flows are available in the following regions:
+=======
+Mapping data flows are available in the following regions in ADF:
 
-| Azure region | Data flows in ADF | Data flows in Synapse Studio |
-| ------------ | ----------------- | ---------------------------- |
-|  Australia Central | | |	
-| Australia Central 2 | | |
-| Australia East | ✓ |	✓ |
-| Australia Southeast	| ✓ | ✓ |
-| Brazil South	| ✓ |  |
-| Canada Central | ✓ |  |
-| Central India	| ✓ |	✓ |
-| Central US	| ✓ |	✓ |
-| China East |		| ✓ |
-| China East 2	|	|	 |
-| China Non-Regional | | |
-| China North |		| |
-| China North 2	| |  |
-| East Asia	| ✓ | |
-| East US	| ✓ | ✓ |
-| East US 2	| ✓ | ✓ |
-| France Central | ✓ | ✓ |
-| France South	| | |
-| Germany Central (Sovereign) | | |
-| Germany Non-Regional (Sovereign) | | |
-| Germany North (Public) | | |
-| Germany Northeast (Sovereign) | | |
-| Germany West Central (Public) |  | ✓ |
-| Japan East | ✓ |	|
-| Japan West |	| |
-| Korea Central	| ✓ |  |
-| Korea South | | |
-| North Central US	| ✓ | ✓ |
-| North Europe	| ✓ |	 |
-| Norway East | | |
-| Norway West | | |
-| South Africa North	| ✓ | |
-| South Africa West	|  |	|
-| South Central US	| |	✓ |
-| South India | | |
-| Southeast Asia	| ✓ | ✓ |
-| Switzerland North	| 	|  |
-| Switzerland West | | |
-| UAE Central | | |
-| UAE North	|  |	|
-| UK South	| ✓ |	| ✓ |
-| UK West |		| ✓ |
-| US DoD Central | |  |
-| US DoD East | |  |
-| US Gov Arizona |		|  |
-| US Gov Non-Regional | |  |
-| US Gov Texas | |  |
-| US Gov Virginia |		|  |
-| West Central US |		| ✓ |
-| West Europe	| ✓ |	✓ |
-| West India | | |
-| West US	| ✓ |   |
-| West US 2	| ✓ |	✓ | 
+| Azure region | Data flows in ADF |
+| ------------ | ----------------- |
+|  Australia Central | |
+| Australia Central 2 | |
+| Australia East | ✓ |
+| Australia Southeast	| ✓ |
+| Brazil South	| ✓ |
+| Canada Central | ✓ |
+| Central India	| ✓ |
+| Central US	| ✓ |
+| China East |		|
+| China East 2	|	|
+| China Non-Regional | |
+| China North |		|
+| China North 2	| |
+| East Asia	| ✓ |
+| East US	| ✓ |
+| East US 2	| ✓ |
+| France Central | ✓ |
+| France South	| |
+| Germany Central (Sovereign) | |
+| Germany Non-Regional (Sovereign) | |
+| Germany North (Public) | |
+| Germany Northeast (Sovereign) | |
+| Germany West Central (Public) |  |
+| Japan East | ✓ |
+| Japan West |	|
+| Korea Central	| ✓ |
+| Korea South | |
+| North Central US	| ✓ |
+| North Europe	| ✓ |
+| Norway East | |
+| Norway West | |
+| South Africa North	| ✓ |
+| South Africa West	|  |
+| South Central US	| |
+| South India | |
+| Southeast Asia	| ✓ |
+| Switzerland North	| 	|
+| Switzerland West | |
+| UAE Central | |
+| UAE North	|  |
+| UK South	| ✓ |
+| UK West |		|
+| US DoD Central | |
+| US DoD East | |
+| US Gov Arizona |		|
+| US Gov Non-Regional | |
+| US Gov Texas | |
+| US Gov Virginia |		|
+| West Central US |		|
+| West Europe	| ✓ |
+| West India | |
+| West US	| ✓ |
+| West US 2	| ✓ |
 
 ## Next steps
 

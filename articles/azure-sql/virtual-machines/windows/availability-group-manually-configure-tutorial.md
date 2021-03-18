@@ -9,6 +9,8 @@ tags: azure-service-management
 
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
+ms.subservice: hadr
+
 
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server

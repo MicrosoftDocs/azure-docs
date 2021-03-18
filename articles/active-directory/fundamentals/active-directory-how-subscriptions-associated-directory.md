@@ -1,6 +1,6 @@
 ---
 title: Add an existing Azure subscription to your tenant - Azure AD
-description: Instructions about how to add an existing Azure subscription to your Azure Active Directory tenant.
+description: Instructions about how to add an existing Azure subscription to your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/05/2021
 ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18, contperfq4"
+ms.custom: "it-pro, seodec18, contperf-fy20q4"
 ms.collection: M365-identity-device-management
 ---
 
@@ -39,19 +39,19 @@ Before you can associate or add your subscription, do the following tasks:
 
 - Review the following list of changes that will occur after you associate or add your subscription, and how you might be affected:
 
-  - Users that have been assigned roles using Azure RBAC will lose their access
-  - Service Administrator and Co-Administrators will lose access
-  - If you have any key vaults, they'll be inaccessible and you'll have to fix them after association
-  - If you have any managed identities for resources such as Virtual Machines or Logic Apps, you must re-enable or recreate them after the association
-  - If you have a registered Azure Stack, you'll have to re-register it after association
+  - Users that have been assigned roles using Azure RBAC will lose their access.
+  - Service Administrator and Co-Administrators will lose access.
+  - If you have any key vaults, they'll be inaccessible and you'll have to fix them after association.
+  - If you have any managed identities for resources such as Virtual Machines or Logic Apps, you must re-enable or recreate them after the association.
+  - If you have a registered Azure Stack, you'll have to re-register it after association.
   - For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 
 - Sign in using an account that:
 
-  - Has an [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment for the subscription. For information about how to assign the Owner role, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+  - Has an [Owner](../../role-based-access-control/built-in-roles.md#owner) role assignment for the subscription. For information about how to assign the Owner role, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
   - Exists in both the current directory and in the new directory. The current directory is associated with the subscription. You'll associate the new directory with the subscription. For more information about getting access to another directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
 
-- Make sure you're not using an Azure Cloud Service Providers (CSP) subscription (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), a Microsoft Internal subscription (MS-AZR-0015P), or a Microsoft Imagine subscription (MS-AZR-0144P).
+- Make sure that you're not using an Azure Cloud Service Providers (CSP) subscription (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), a Microsoft Internal subscription (MS-AZR-0015P), or a Microsoft Azure for Students Starter subscription (MS-AZR-0144P).
 
 ## Associate a subscription to a directory<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
 
@@ -61,17 +61,17 @@ To associate an existing subscription to your Azure AD directory, follow these s
 
 1. Select **Change directory**.
 
-   ![Subscriptions page, with Change directory option highlighted](media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/change-directory-in-azure-subscriptions.png" alt-text="Screenshot that shows the Subscriptions page, with the Change directory option highlighted.":::
 
 1. Review any warnings that appear, and then select **Change**.
 
-   ![Change the directory page, showing the directory to change to](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png" alt-text="Screenshot that shows the Change the directory page with a sample directory and the Change button highlighted.":::
 
    After the directory is changed for the subscription, you will get a success message.
 
 1. Select **Switch directories** on the subscription page to go to your new directory.
 
-   ![Directory switcher page, with sample information](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+   :::image type="content" source="media/active-directory-how-subscriptions-associated-directory/directory-switcher.png" alt-text="Screenshot that shows the Directory switcher page with sample information.":::
 
    It can take several hours for everything to show up properly. If it seems to be taking too long, check the **Global subscription filter**. Make sure the moved subscription isn't hidden. You may need to sign out of the Azure portal and sign back in to see the new directory.
 
@@ -83,9 +83,9 @@ After you associate a subscription to a different directory, you might need to d
 
 - If you have any key vaults, you must change the key vault tenant ID. For more information, see [Change a key vault tenant ID after a subscription move](../../key-vault/general/move-subscription.md).
 
-- If you used system-assigned Managed Identities for resources, you must re-enable these identities. If you used user-assigned Managed Identities, you must re-create these identities. After re-enabling or recreating the Managed Identities, you must re-establish the permissions assigned to those identities. For more information, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
+- If you used system-assigned Managed Identities for resources, you must re-enable these identities. If you used user-assigned Managed Identities, you must re-create these identities. After re-enabling or recreating the Managed Identities, you must re-establish the permissions assigned to those identities. For more information, see [What are managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
-- If you've registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](/azure-stack/operator/azure-stack-registration).
+- If you've registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack Hub with Azure](/azure-stack/operator/azure-stack-registration).
 
 - For more information, see [Transfer an Azure subscription to a different Azure AD directory](../../role-based-access-control/transfer-subscription.md).
 

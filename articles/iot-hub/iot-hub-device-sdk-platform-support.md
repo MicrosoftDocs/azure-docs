@@ -29,7 +29,7 @@ Microsoft publishes open-source SDKs on GitHub for the following languages: C, .
 
 For each of the listed SDKs, Microsoft:
 
-* Continuously builds and runs end-to-end tests against the master branch of the relevant SDK in GitHub on several popular platforms.  To provide test coverage across different compiler versions, we generally test against the latest LTS version and the most popular version.
+* Continuously builds and runs end-to-end tests against the main branch of the relevant SDK in GitHub on several popular platforms.  To provide test coverage across different compiler versions, we generally test against the latest LTS version and the most popular version.
 
 * Provides installation guidance or installation packages if applicable.
 

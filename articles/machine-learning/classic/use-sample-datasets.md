@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Use the sample datasets - Azure'
 description: Descriptions of the datasets used in sample models included in Machine Learning Studio (classic). You can use these sample datasets for your experiments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: sample
 
 author: likebupt

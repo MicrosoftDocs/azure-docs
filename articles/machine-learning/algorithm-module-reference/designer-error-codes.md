@@ -282,7 +282,7 @@ If the model was trained using any of the specialized training modules, connect 
 ## Error 0014  
  Exception occurs if the count of column unique values is greater than allowed.  
 
- This error occurs when a column contains too many unique values.  For example, you might see this error if you specify that a column be handled as categorical data, but there are too many unique values in the column to allow processing to complete. You might also see this error if there is a mismatch between the number of unique values in two inputs.   
+ This error occurs when a column contains too many unique values, like an ID column or text column. You might see this error if you specify that a column be handled as categorical data, but there are too many unique values in the column to allow processing to complete. You might also see this error if there is a mismatch between the number of unique values in two inputs.   
 
 The error of unique values is greater than allowed will occur if meeting **both** following conditions:
 
@@ -295,7 +295,9 @@ Open the module that generated the error, and identify the columns used as input
 
 For columns that you intend to use for grouping or categorization, take steps to reduce the number of unique values in columns. You can reduce in different ways, depending on the data type of the column. 
 
-Usually in this scenario, the column hitting the error is meaningless as a feature to train models. Hence, you can use [Edit Metadata](../algorithm-module-reference/edit-metadata.md) to mark that column as **Clear feature** and it will not be used during training a model. 
+For ID columns which is not meaningful features during training a model, you can use [Edit Metadata](../algorithm-module-reference/edit-metadata.md) to mark that column as **Clear feature** and it will not be used during training a model. 
+
+For text columns, you can use [Feature Hashing](../algorithm-module-reference/feature-hashing.md) or [Extract N-Gram Features from Text module](../algorithm-module-reference/extract-n-gram-features-from-text.md) to preprocess text columns.
 <!--
 + For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
 + For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
@@ -1588,3 +1590,8 @@ To get more help, we recommend that you post the detailed message that accompani
 |Library exception.|
 |Library exception: {exception}.|
 |Unknown library exception: {exception}. {customer_support_guidance}.|
+
+
+## Execute Python Script Module
+
+Search **in azureml_main** in **70_driver_logs** of **Execute Python Script Module** and you could find which line occurred error. For example, "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main" indicates that the error occurred in the 17 line of your python script.

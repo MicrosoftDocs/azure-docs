@@ -118,7 +118,7 @@ To set the Azure AD administrator:
     ![select active directory](./media/secure-database-tutorial/admin-settings.png)  
 
     > [!IMPORTANT]
-    > You need to be either a "Company Administrator" or "Global Administrator" to perform this task.
+    > You need to be a "Global Administrator" to perform this task.
 
 1. On the **Add admin** page, search and select the AD user or group and choose **Select**. All members and groups of your Active Directory are listed, and entries grayed out are not supported as Azure AD administrators. See [Azure AD features and limitations](authentication-aad-overview.md#azure-ad-features-and-limitations).
 
@@ -140,7 +140,7 @@ For information about configuring Azure AD, see:
 - [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md)
 - [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administer your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md)
-- [Manage Azure AD using PowerShell](/powershell/azure/?view=azureadps-2.0)
+- [Manage Azure AD using PowerShell](/powershell/azure/)
 - [Hybrid identity required ports and protocols](../../active-directory/hybrid/reference-connect-ports.md)
 
 ## Manage database access

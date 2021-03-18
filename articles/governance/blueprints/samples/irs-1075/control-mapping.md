@@ -1,7 +1,7 @@
 ---
 title: IRS 1075 blueprint sample controls
 description: Control mapping of the IRS 1075 blueprint sample. Each control is mapped to one or more Azure Policy definitions that assists with assessment.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
 ---
 # Control mapping of the IRS 1075 blueprint sample
