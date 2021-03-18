@@ -141,6 +141,18 @@ Availability Zones can be enabled via:
 
 * Within a globally distributed database environment, there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO). To see the RPO and RTO for Azure Cosmos DB, see [Consistency levels and data durability](./consistency-levels.md#rto)
 
+## What to expect during a region outage
+
+For single-region accounts, clients will experience loss of read and write availability.
+
+Multi-region accounts will experience different behaviors depending on the following table.
+
+| Write regions | Automatic failover | What to expect | What to do |
+| -- | -- | -- | -- |
+| Single write region | Not enabled | In case of outage in a read region, all clients will redirect to other regions. No read or write availability loss. No data loss. <p/> In case of an outage in the write region, clients will experience write availability loss. Data loss will be dependent on the constistency level selected. <p/> Cosmos DB will restore write availability automatically when the outage ends. | During the outage, ensure that there is enough capacity provisioned in the remaining regions to support read traffic. <p/> Do *not* trigger a manual failover during the outage, as it will not succeed. <p/> When the outage is over, re-adjust provisioned capacity as appropriate. |
+| Single write region | Enabled | In case of outage in a read region, all clients will redirect to other regions. No read or write availability loss. No data loss. <p/> In case of an outage in the write region, clients will experience write availability loss until Cosmos DB automatically elects a new region as the new write region according to your preferences. Data loss will be dependent on the constistency level selected. | During the outage, ensure that there is enough capacity provisioned in the remaining regions to support read traffic. <p/> Do *not* trigger a manual failover during the outage, as it will not succeed. <p/> When the outage is over, you may recover the non-replicated data in the failed region from your [conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed), move the write region back to the original region, and re-adjust provisioned capacity as appropriate. |
+| Multiple write regions | Not applicable | No read or write availability loss. <p/> Data loss as per consistency level selected. | During the outage, ensure that there is enough capacity provisioned in the remaining regions to support additional traffic. <p/> When the outage is over, you may recover the non-replicated data in the failed region from your [conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed) and re-adjust provisioned capacity as appropriate. |
+
 ## Next steps
 
 Next you can read the following articles:
