@@ -36,7 +36,7 @@ For example:
 
 - Use this method to enable customers to view *Workbooks* and *Playbooks*, which are separate resources that can reside in their own resource group.
 
-In such cases, we recommend that you use [Azure Lighthouse](multiple-tenants-service-providers.md) to provide customer access, which enables you to grant users or groups with access to a specific scope, such as a resource group or subscription, using one of the built-in roles. 
+In such cases, we recommend that you use [Azure Lighthouse](multiple-tenants-service-providers.md) to provide customer access, which enables you to grant users or groups with access to a specific scope, such as a resource group or subscription, using one of the built-in roles.
 
 Alternately, if you need to provide your customers with access to the entire subscription, see [Protect intellectual property: Enterprise Agreements (EA) / Pay-as-you-go (PAYG)](#protect-intellectual-property-enterprise-agreements-ea--pay-as-you-go-payg).
 
@@ -44,7 +44,7 @@ The following image describes how permissions might work when providing access t
 
 :::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="Protect your Azure Sentinel intellectual property with CSP customers.":::
 
-In this image, the users granted with **Owner** access are the users in the Admin Agents group, in the MSSP Azure AD tenant attached to the CSP contract. Typically, **Owner** access is provided to MSSP tenant users using the [Admin-On-Behalf-Of (AOBO)](/partner-center/azure-plan-manage) mechanism. 
+In this image, the users granted with **Owner** access are the users in the Admin Agents group, in the MSSP Azure AD tenant attached to the CSP contract. Typically, **Owner** access is provided to MSSP tenant users using the [Admin-On-Behalf-Of (AOBO)](/partner-center/azure-plan-manage) mechanism.
 
 > [!NOTE]
 > - Sometimes, the MSSP Azure AD tenant attached to the CSP contract is separate from the MSSP's main tenant.
@@ -56,7 +56,7 @@ For more information, also see the [Azure Lighthouse documentation](/azure/light
 
 ## Protect intellectual property: Enterprise Agreements (EA) / Pay-as-you-go (PAYG)
 
-If your customer is buying directly from Microsoft, the customer already has full access to the Azure environment, and you cannot hide anything that's in the customer's Azure subscription. 
+If your customer is buying directly from Microsoft, the customer already has full access to the Azure environment, and you cannot hide anything that's in the customer's Azure subscription.
 
 Instead, protect your intellectual property that you've developed in Azure Sentinel as follows, depending on the type of resource you need to protect:
 
@@ -88,13 +88,13 @@ When adding a workspace statement to your analytics rules, consider the followin
 - Creating separate rules for each customer and detection may cause you to reach the maximum number of analytics rules for your workspace. If you have many customers and expect to reach this limit, you may want to create a separate MSSP workspace for each customer.
 
     For example:
-    
+
     :::image type="content" source="media/mssp-protect-intellectual-property/mssp-rules-and-workspace-per-customer.png" alt-text="Create a workspace and rules in your MSSP tenant for each customer.":::
 
 > [!IMPORTANT]
 > The key to using this method successfully is using automation to manage a large set of rules across your workspaces.
 
-### Workbooks 
+### Workbooks
 
 If you have developed an Azure Sentinel workbook that you don't want your customer to copy, host the workbook in your MSSP tenant. Make sure that you have access to your customer workspaces via Azure Lighthouse, and then make sure to modify the workbook to use those customer workspaces.
 
@@ -125,7 +125,7 @@ You can protect your playbooks as follows, depending on where the playbook's ana
 - **Analytics rules created in the customer workspace**. Use Azure Lighthouse to attach analytics rules from the customer's workspace to an playbook hosted in your MSSP workspace. In this case, the playbook gets the alert and incident data, as well as any other customer information, from the customer workspace.
 
     For example:
-    
+
     :::image type="content" source="media/mssp-protect-intellectual-property/rules-in-customer-workspace.png" alt-text="Rules created in the customer workspace.":::
 ## Next steps
 
