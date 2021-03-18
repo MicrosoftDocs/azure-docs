@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -63,6 +63,9 @@ Enter a **Name** for your application. Enter *b2clogin.com* in the **Authorized 
 1. Select **Save**.
 
 ## Add Google identity provider to a user flow 
+
+At this point, the Google identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Google identity provider to a user flow:
+
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Google identity provider.
