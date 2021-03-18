@@ -17,7 +17,7 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/nested-virtualization",
+      "redirect_url": "https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
       "redirect_document_id": false
     },
     {
