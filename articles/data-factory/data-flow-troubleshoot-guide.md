@@ -22,12 +22,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Cause**: A dataset contains a container that doesn't exist in storage.
 - **Recommendation**: Make sure that the container referenced in your dataset exists and can be accessed.
 
-### Error code: DF-Executor-SystemImplicitCartesian
-
-- **Message**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows.
-- **Cause**: Implicit cartesian products for INNER joins between logical plans aren't supported. If you're using columns in the join, create a unique key with at least one column from both sides of the relationship.
-- **Recommendation**: For non-equality based joins, use CUSTOM CROSS join.
-
 ### Error code: DF-Executor-SystemInvalidJson
 
 - **Message**: JSON parsing error, unsupported encoding or multiline
@@ -104,11 +98,6 @@ This article explores common troubleshooting methods for mapping data flows in A
 - **Message**: Please make sure that the access key in your Linked Service is correct
 - **Cause**: The account name or access key is incorrect.
 - **Recommendation**: Ensure the account name or access key specified in your linked service is correct. 
-
-### Error code: DF-Executor-InvalidType
-- **Message**: Please make sure that the type of parameter matches with type of value passed in. Passing float parameters from pipelines isn't currently supported.
-- **Cause**: The data type for the declared type isn't compatible with the actual parameter value. 
-- **Recommendation**: Supply the correct data types.
 
 ### Error code: DF-Executor-ColumnUnavailable
 - **Message**: Column name used in expression is unavailable or invalid.
