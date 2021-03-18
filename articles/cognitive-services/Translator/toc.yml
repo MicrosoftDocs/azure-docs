@@ -58,7 +58,7 @@
       href: tutorial-wpf-translation-csharp.md
     - name: Create a Flask translation app, Python
       href: tutorial-build-flask-app-translation-synthesis.md 
-- name: Custom Translator
+- name: Custom Translation
   items:
   - name: What is the Custom Translator?
     href: custom-translator/overview.md
