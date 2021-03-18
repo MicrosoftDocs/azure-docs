@@ -156,7 +156,7 @@ Before creating a database, you need a [logical SQL server](../azure-sql/databas
 
 1. In the **Database connection string Name**, type _MyDbConnection_. This name must match the connection string that is referenced in _Models/MyDatabaseContext.cs_.
 
-1. In **Database connection user name** and **Database connection password**, type the administrator username and password you used in [Create a server](#create-a-server).
+1. In **Database connection user name** and **Database connection password**, type the administrator username and password you used in [Create a server](#create-a-server-and-database).
 
 1. Make sure **Azure App Settings** is selected and click **Finish**.
 
@@ -222,9 +222,9 @@ For more information about using Entity Framework Code First Migrations, see [Ge
 
 Open _Models\Todo.cs_ in the code editor. Add the following property to the `ToDo` class:
 
-    ```csharp
-    public bool Done { get; set; }
-    ```
+```csharp
+public bool Done { get; set; }
+```
     
 #### Run Code First Migrations locally
 
