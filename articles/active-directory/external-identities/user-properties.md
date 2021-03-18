@@ -103,7 +103,7 @@ It's possible to turn off the default limitations so that a guest user in the co
 ![Screenshot showing the External users option in the user settings](media/user-properties/remove-guest-limitations.png)
 
 ## Can I make guest users visible in the Exchange Global Address List?
-Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see [Add guests to the global address list](https://docs.microsoft.com/microsoft-365/solutions/per-group-guest-access?view=o365-worldwide#add-guests-to-the-global-address-list).
+Yes. By default, guest objects aren't visible in your organization's global address list, but you can use Azure Active Directory PowerShell to make them visible. For details, see [Add guests to the global address list](/microsoft-365/solutions/per-group-guest-access#add-guests-to-the-global-address-list).
 
 ## Can I update a guest user's email address?
 
