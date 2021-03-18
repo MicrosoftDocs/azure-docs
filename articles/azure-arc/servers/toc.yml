@@ -27,7 +27,7 @@
       href: security-overview.md
 - name: How-to guides
   items:
-  - name: Connect to Azure Arc
+  - name: Deploy
     items:
     - name: Connected Machine agent overview
       href: agent-overview.md
