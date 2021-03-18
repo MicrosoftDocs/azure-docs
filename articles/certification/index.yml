@@ -8,9 +8,9 @@ metadata:
   description: This program is your one stop for easily differentiating, promoting, and finding IoT devices built to run on Azure. 
   ms.service: iot-pnp
   ms.topic: landing-page
-  author: philmea
-  ms.author: philmea
-  ms.date: 03/10/2021
+  author: cbroad
+  ms.author: cbroad
+  ms.date: 03/18/2021
 
 landingContent:
   - title: About the Azure Certified Device program
@@ -18,4 +18,4 @@ landingContent:
     - linkListType: overview
       links:
         - text: What is the Azure Certified Device program?
-          url: overview.md
+          url: ./overview.md
