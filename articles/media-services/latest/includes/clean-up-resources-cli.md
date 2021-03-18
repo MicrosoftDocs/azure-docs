@@ -7,9 +7,8 @@ ms.author: inhenkel
 ms.custom: portal
 ---
 
-Delete a resource group with the CLI.
+### Delete a resource group with the CLI.
 
-Execute the following CLI command:
 
 ```azurecli
 az group delete --name amsResourceGroup

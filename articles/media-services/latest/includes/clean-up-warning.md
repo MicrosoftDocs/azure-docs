@@ -7,4 +7,5 @@ ms.author: inhenkel
 ms.custom: portal
 ---
 
-It is important that you delete resources if you no longer need them as you will be billed for them.
+>[!WARNING]
+> It is important that you delete resources if you no longer need them as you will be billed for them.
