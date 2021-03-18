@@ -57,7 +57,7 @@ This category contains the following entity:
     :::column span="":::
       **Supported document languages**
 
-      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt`-`pt`, `ru`, `es`, `sv`, `tr`   
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
       
    :::column-end:::
 :::row-end:::
@@ -144,7 +144,7 @@ This category contains the following entity:
     :::column span="":::
       **Supported document languages**
 
-      `ar`, `cs`, `da`, `nl`, `en`, `fi`, `fr`, `de`, `he`, `hu`, `it`, `ja`, `ko`, `no`, `pl`, `pt-br`, `pt-pt`, `ru`, `es`, `sv`, `tr`   
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
       
    :::column-end:::
 
@@ -384,8 +384,8 @@ The entity in this category can have the following subcategories.
     :::column-end:::
     :::column span="2":::
       **Supported document languages**
-
-      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
       
     :::column-end:::
 :::row-end:::
@@ -439,7 +439,7 @@ The entity in this category can have the following subcategories.
     :::column span="2":::
         **Supported document languages**
 
-        `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `pt-pt`, `pt-br`   
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
       
    :::column-end:::
 :::row-end:::
