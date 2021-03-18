@@ -1,6 +1,6 @@
 ---
-title: How to create the Web PubSub instance
-description: An overview on options to create Web PubSub instance and how to do it
+title: How to create the Azure Web PubSub instance
+description: An overview on options to create Azure Web PubSub instance and how to do it
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 03/17/2021
 ---
 
-# How to create Web PubSub instance
+# How to create Azure Web PubSub instance
 
 To build an application with Azure Web PubSub service, you need to create the Web PubSub instance and then connect your clients and servers. This how-to guide shows you the options to create Azure Web PubSub instance.
 
-## Create Web PubSub instance with Azure portal 
+## Create Azure Web PubSub instance with Azure portal 
 
 The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-based, unified console that provides an alternative to command-line tools. You can manage your Azure subscription with the Azure portal. Build, manage, and monitor everything from simple web apps to complex cloud deployments. You could also create Azure Web PubSub service instance with Azure portal.
 
@@ -37,8 +37,8 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
 
 1. Select **Create** to start deploying the Web PubSub service instance.
 
-## Create Web PubSub instance with Azure CLI
+## Create Azure Web PubSub instance with Azure CLI
 
-The [Azure command-line interface (Azure CLI)\(https://docs.microsoft.com/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. You could also create Azure Web PubSub service instance with Azure CLI after GA.
+The [Azure command-line interface (Azure CLI)](https://docs.microsoft.com/cli/azure) is a set of commands used to create and manage Azure resources. The Azure CLI is available across Azure services and is designed to get you working quickly with Azure, with an emphasis on automation. You could also create Azure Web PubSub service instance with Azure CLI after GA.
 
 
