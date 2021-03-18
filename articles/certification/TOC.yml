@@ -5,9 +5,10 @@
   items:
   - name: What is the Azure Certified Device program?
     href: overview.md
-
+    expanded: true
 
 - name: Tutorials
+  expanded: true
   items:
   - name: Selecting the right certification
     href: tutorial-00-selecting-your-certification.md
