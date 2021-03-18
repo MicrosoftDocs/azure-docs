@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 ms.devlang: javascript
 ---
 
-4 - Search integration highlights
+# 4 - Search integration highlights
 
 In the previous lessons, you added search to a Static Web App. This lesson highlights the essential steps that establish integration. If you are looking for a cheat sheet on how to integrate search into your JavaScript app, this article explains what you need to know.
 

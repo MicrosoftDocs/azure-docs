@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 ms.devlang: javascript
 ---
 
-1 - Overview of adding search to a website
+# 1 - Overview of adding search to a website
 
 This tutorial builds a website to search through a catalog of books then deploys the website to an Azure Static Web App. 
 
