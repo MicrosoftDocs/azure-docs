@@ -16,13 +16,19 @@ When published to the cloud, an Azure Static Web Apps site has many services tha
 
 - The static web app
 - Azure Functions API
-- Authentication, authorization, and routing services
+- Authentication and authorization services
+- Routing and configuration services
 
 These services must communicate with each other, and Azure Static Web Apps handles this integration for you in the cloud.
 
 Running locally, however, these services aren't automatically tied together.
 
-To provide the same experience you get in Azure, the [Azure Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) provides direct access your local Azure Functions API, and a local mock authentication and authorization server.
+To provide a similar experience as to what you get in Azure, the [Azure Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli) provides the following services:
+
+- A local static site server
+- A proxy to your API endpoints - available through Azure Functions Core Tools
+- A mock authentication and authorization server
+- Local routes and configuration settings enforcement
 
 ## How it works
 
@@ -61,15 +67,26 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
     Run `npm run build`, or the equivalent command for your project.
 
+1. Change into the output directory for your app. Output folders are often named _build_ or something similar.
+
 1. Start the CLI.
 
     `swa start`
 
 1. Navigate to [http://localhost:4280](http://localhost:4280) to view the app in the browser.
 
+### Other ways to start the CLI
+
+| Description | Command |
+|--- | --- |
+| Serve a specific folder | `swa start ./output-folder` |
+| Use a framework development server | `swa start http://localhost:3000` |
+| Start Functions app in a folder | `swa start ./output-folder --api ./api` |
+| Use a running Functions app | `swa start ./output-folder --api http://localhost:7071` |
+
 ## Authorization and authentication emulation
 
-The Static Web Apps CLI emulates the security flow implemented in Azure. When a user logs in, you can define a fake identity profile returned to the app.
+The Static Web Apps CLI emulates the [security flow](./authentication-authorization.md) implemented in Azure. When a user logs in, you can define a fake identity profile returned to the app.
 
 For instance, when you try to navigate to `/.auth/login/github`, a page is returned that allows you to define an identity profile.
 
@@ -82,13 +99,13 @@ The emulator provides a page allowing you to provide the following [client princ
 
 | Value | Description |
 | --- | --- |
-| **Username** | The account name associated with the security provider. This appears as the `userDetails` property in the client principal. |
+| **Username** | The account name associated with the security provider. This value appears as the `userDetails` property in the client principal. |
 | **User ID** | Any alpha numeric value to act as the Azure Static Web Apps unique identifier. |
 | **Roles** | A list of role names, where each name is on a new line.  |
 
 Once logged in:
 
-- You can use the `/.auth/me` endpoint to retrieve the user's [client principal](./user-information.md).
+- You can use the `/.auth/me` endpoint, or an function endpoint to retrieve the user's [client principal](./user-information.md).
 
 - Navigating to `./auth/logout` clears the client principal and logs out the mock user.
 
