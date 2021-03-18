@@ -136,7 +136,7 @@ Follow these guidelines to ensure optimum results when two or more searchFields 
 
 + Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
 
-If only one field specified, use a descriptive field where the answer to semantic queries may be found, such as the main content of a document. Choose a field that provides sufficient content. To ensure timely processing, only about 8,000 tokens of the collective contents of searchFields undergo semantic evaluation and ranking.
+If only one field specified, use a descriptive field where the answer to semantic queries may be found, such as the main content of a document. Choose a field that provides sufficient content. To ensure timely processing, only about 8,000 tokens of the aggregate contents of searchFields undergo semantic evaluation and ranking.
 
 #### Step 3: Remove orderBy clauses
 
@@ -186,7 +186,7 @@ The response for the above example query returns the following match as the top 
 Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results will carry forward to semantic search. As a next step, review the features that contribute to initial results, including analyzers that affect how strings are tokenized, scoring profiles that can tune results, and the default relevance algorithm.
 
 + [Analyzers for text processing](search-analyzers.md)
-+ [Similarity and scoring in Cognitive Search](index-similarity-and-scoring.md)
-+ [Add scoring profiles](index-add-scoring-profiles.md)
++ [Similarity ranking algorithm](index-similarity-and-scoring.md)
++ [Scoring profiles](index-add-scoring-profiles.md)
 + [Semantic search overview](semantic-search-overview.md)
-+ [Add spell check to query terms](speller-how-to-add.md)
++ [Semantic ranking algorithm](semantic-ranking.md)
