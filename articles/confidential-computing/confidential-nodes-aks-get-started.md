@@ -4,7 +4,7 @@ description: In this quickstart, you will learn to create an AKS cluster with co
 author: agowdamsft
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 2/25/2020
+ms.date: 03/18/2020
 ms.author: amgowda
 ms.custom: contentperf-fy21q3
 ---
@@ -34,7 +34,7 @@ This quickstart requires:
 
 1. An active Azure Subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 1. Azure CLI version 2.0.64 or later installed and configured on your deployment machine (Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
-1. Minimum of six **DCsv2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription is eight cores. If you plan to provision a cluster that requires more than eight cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket.
+1. A minimum of six **DCsv2** cores available in your subscription for use. By default, the VM cores quota for the confidential computing per Azure subscription is eight cores. If you plan to provision a cluster that requires more than eight cores, follow [these](../azure-portal/supportability/per-vm-quota-requests.md) instructions to raise a quota increase ticket.
 
 ## Create a new AKS cluster with confidential computing nodes and add-on
 
@@ -53,21 +53,20 @@ az group create --name myResourceGroup --location westus2
 Now create an AKS cluster using the [az aks create][az-aks-create] command:
 
 ```azurecli-interactive
-# Create a new AKS cluster with system node pool with Confidential Computing addon enabled
 az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom
 ```
 
-The above creates a new AKS cluster with a system node pool with the add-on enabled. Now proceed adding a user node of Confidential Computing Nodepool type on AKS (DCsv2).
+The above creates a new AKS cluster with a system node pool with the add-on enabled. Next, add a user node pool with confidential computing capabilities to the AKS cluster.
 
 ### Add a confidential computing node pool to the AKS cluster 
 
-Run the following command to add a user node pool of `Standard_DC2s_v2` size with three nodes. You can choose other supported list of DCsv2 SKUs and regions from [here](../virtual-machines/dcv2-series.md):
+Run the following command to add a user node pool of `Standard_DC2s_v2` size with three nodes. You can choose another SKU from the supported list of [DCsv2 SKUs and regions](../virtual-machines/dcv2-series.md).
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-vm-size Standard_DC2s_v2
 ```
 
-After running, a new node pool with **DCsv2** should be visible with Confidential computing add-on daemonsets ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)).
+After running, a new node pool with **DCsv2** should be visible with confidential computing add-on daemonsets ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)).
 
 ### Verify the node pool and add-on
 
