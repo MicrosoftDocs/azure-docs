@@ -44,7 +44,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://docs.microsoft.com/en-us/samples/browse/?products=azure-stream-analytics
+    href: /samples/browse/?products=azure-stream-analytics
 - name: Concepts
   items:
   - name: End-to-end solution patterns
