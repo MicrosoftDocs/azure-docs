@@ -57,9 +57,7 @@ Select **Test Connection** to test the credentials by having Azure AD attempt to
 
 Expand **Mappings** to view and edit the user attributes that flow between Azure AD and the target application when user accounts are provisioned or updated.
 
-There's a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps also manage group objects. Select a mapping in the table to open the mapping editor to the right, where you can view and customize them.
-
-![Shows the Attribute Mapping screen](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+There's a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps also manage group objects. Select a mapping in the table to open the mapping editor, where you can view and customize them.
 
 Supported customizations include:
 

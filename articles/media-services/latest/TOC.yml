@@ -86,7 +86,7 @@
       href: stream-files-nodejs-quickstart.md
   - name: Python
     items:
-    - name: Python Basic Encoding Quickstart
+    - name: Python Basic Encoding
       href: quickstart-basic-encoding-python.md
   - name: Azure portal
     items:
