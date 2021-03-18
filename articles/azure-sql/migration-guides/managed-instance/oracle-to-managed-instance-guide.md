@@ -44,11 +44,26 @@ To create an assessment, follow these steps:
 1. Open [SQL Server Migration Assistant for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Select **File** and then choose **New Project**. 
 1. Provide a project name, a location to save your project, and then select Azure SQL Managed Instance as the migration target from the drop-down. Select **OK**.
-1. Enter in values for the Oracle connection details on the Connect to **Connect to Oracle** dialog box.
+
+   ![New Project](./media/oracle-to-managed-instance-guide/new-project.png)
+
+1. Select **Connect to Oracle**. Enter in values for Oracle connection details on the **Connect to Oracle** dialog box.
+
+   ![Connect to Oracle](./media/oracle-to-managed-instance-guide/connect-to-oracle.png)
+
+   Select the Oracle schema(s) you want to migrate: 
+
+   ![Choose Oracle schema](./media/oracle-to-managed-instance-guide/select-schema.png)
+
 1. Right-click the Oracle schema you want to migrate in the **Oracle Metadata Explorer**, and then choose **Create report**. This will generate an HTML report. Alternatively, you can choose **Create report** from the navigation bar after selecting the database.
+
+   ![Create Report](./media/oracle-to-managed-instance-guide/create-report.png)
+
 1. Review the HTML report to understand conversion statistics and any errors or warnings. You can also open the report in Excel to get an inventory of Oracle objects and the effort required to perform schema conversions. The default location for the report is in the report folder within SSMAProjects.
 
    For example: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2020_11_12T02_47_55\`
+
+   ![Assessment Report](./media/oracle-to-managed-instance-guide/assessment-report.png)
 
 
 ### Validate data types
@@ -58,6 +73,9 @@ Validate the default data type mappings and change them based on requirements if
 1. Select **Tools** from the menu. 
 1. Select **Project Settings**. 
 1. Select the **Type mappings** tab. 
+
+   ![Type Mappings](./media/oracle-to-managed-instance-guide/type-mappings.png)
+
 1. You can change the type mapping for each table by selecting the table in the **Oracle Metadata Explorer**.
 
 ### Convert schema
@@ -69,8 +87,21 @@ To convert the schema, follow these steps:
     1. Enter connection details to connect your database in Azure SQL Managed Instance.
     1. Choose your target database from the drop-down.
     1. Select **Connect**.
-1. Right-click the schema and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
+
+    ![Connect to SQL Managed Instance](./media/oracle-to-managed-instance-guide/connect-to-sql-managed-instance.png)
+
+1. Right-click the Oracle schema in the **Oracle Metadata Explorer** and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
+
+   ![Convert Schema](./media/oracle-to-managed-instance-guide/convert-schema.png)
+
 1. After the conversion completes, compare and review the converted objects to the original objects to identify potential problems and address them based on the recommendations.
+
+   ![Compare table recommendations](./media/oracle-to-managed-instance-guide/table-comparison.png)
+
+   Compare the converted Transact-SQL text to the original stored procedures and review the recommendations: 
+
+   ![Compare procedure recommendations](./media/oracle-to-managed-instance-guide/procedure-comparison.png)
+
 1. Save the project locally for an offline schema remediation exercise. Select **Save Project** from the **File** menu.
 
 ## Migrate
@@ -80,10 +111,26 @@ After you have completed assessing your databases and addressing any discrepanci
 To publish your schema and migrate your data, follow these steps:
 
 1. Publish the schema: Right-click the database from the **Databases** node in the **Azure SQL Managed Instance Metadata Explorer** and choose **Synchronize with Database**.
+
+   ![Synchronize with Database](./media/oracle-to-managed-instance-guide/synchronize-with-database.png)
+
+   Review the mapping between your source project and your target:
+
+   ![Synchronize with Database Review](./media/oracle-to-managed-instance-guide/synchronize-with-database-review.png)
+
 1. Migrate the data: Right-click the schema from the **Oracle Metadata Explorer** and choose **Migrate Data**. 
+
+   ![Migrate Data](./media/oracle-to-managed-instance-guide/migrate-data.png)
+
 1. Provide connection details for both Oracle and Azure SQL Managed Instance.
 1. View the **Data Migration report**.
+
+   ![Data Migration Report](./media/oracle-to-managed-instance-guide/data-migration-report.png)
+
 1. Connect to your Azure SQL Managed Instance by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) and validate the migration by reviewing the data and schema.
+
+   ![Validate in SSMA](./media/oracle-to-managed-instance-guide/validate-data.png)
+
 
 Alternatively, you can also use SQL Server Integration Services (SSIS) to perform the migration. To learn more, see: 
 
