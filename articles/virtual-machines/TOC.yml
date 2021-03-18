@@ -590,10 +590,10 @@
     items:
     - name: CLI
       displayName: Images, imaging, marketplace, publisher, plan, offer
-      href: cli-findimage.md
+      href: ./linux/cli-ps-findimage.md
     - name: PowerShell
       displayName: Images, imaging, marketplace
-      href: ps-findimage.md
+      href: ./windows/cli-ps-findimage.md
     - name: Windows client images
       displayName: Images, imaging, marketplace, Windows, Client
       href: ./windows/client-images.md
