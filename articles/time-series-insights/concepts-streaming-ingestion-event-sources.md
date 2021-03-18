@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 03/18/2021
 ---
 
 # Azure Time Series Insights Gen2 event sources
@@ -24,13 +24,13 @@ Events must be sent as UTF-8 encoded JSON.
 
 The event source is the link between your hub and your Azure Time Series Insights Gen2 environment, and a separate resource of type `Time Series Insights event source` is created in your resource group. The IoT Hub or Event Hub resource(s) can live in the same Azure subscription as your Azure Time Series Insights Gen2 environment or a different subscription. However, it is a best practice to house your Azure Time Series Insights environment and the IoT Hub or Event Hub within the same Azure region.
 
-You can use the [Azure portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
+You can use the [Azure portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/event-source), [Azure Resource Manager templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
 
 ## Start options
 
 When creating an event source, you have the option to specify what pre-existing data should be collected. This setting is optional. The following options are available:
 
-| Name   |  Description  |  ARM Template Example |
+| Name   |  Description  |  Azure Resource Manager template example |
 |----------|-------------|------|
 | EarliestAvailable | Ingest all pre-existing data stored within the IoT or Event Hub | `"ingressStartAt": {"type": "EarliestAvailable"}` |
 | EventSourceCreationTime |  Begin ingesting data that arrives after the event source is created. Any pre-existing data that was streamed prior to the creation of the event source will be ignored. This is the default setting in the Azure portal   |   `"ingressStartAt": {"type": "EventSourceCreationTime"}` |
@@ -43,15 +43,15 @@ When creating an event source, you have the option to specify what pre-existing 
 
 * EarliestAvailable
 
-![EarliestAvailable Diagram](media/concepts-streaming-event-sources/earliestavailable.png)
+![EarliestAvailable Diagram](media/concepts-streaming-event-sources/event-source-earliest-available.png)
 
 * EventSourceCreationTime
 
-![EventSourceCreationTime Diagram](media/concepts-streaming-event-sources/creationtime.png)
+![EventSourceCreationTime Diagram](media/concepts-streaming-event-sources/event-source-creation-time.png)
 
 * CustomEnqueuedTime
 
-![CustomEnqueuedTime Diagram](media/concepts-streaming-event-sources/customenqueuedtime.png)
+![CustomEnqueuedTime Diagram](media/concepts-streaming-event-sources/event-source-custom-enqueued-time.png)
 
 
 ## Streaming ingestion best practices
@@ -93,7 +93,7 @@ Using the streaming pipeline to import historical data is not currently supporte
 
 ## Event source timestamp
 
-When configuring an event source, you'll be asked to provide a timestamp ID property. The timestamp property is used to track events over time, this is the time that will be used as the $event.$ts in the [Query APIs](/rest/api/time-series-insights/dataaccessgen2/query/execute) and for plotting series in the Azure Time Series Insights Explorer. If no property is provided at creation time, or if the timestamp property is missing from an event, then the event's IoT Hub or Events Hubs enqueued time will be used as the default. Timestamp property values are stored in UTC.
+When configuring an event source, you'll be asked to provide a timestamp ID property. The timestamp property is used to track events over time, this is the time that will be used as the timestamp `$ts` in the [Query APIs](/rest/api/time-series-insights/dataaccessgen2/query/execute) and for plotting series in the Azure Time Series Insights Explorer. If no property is provided at creation time, or if the timestamp property is missing from an event, then the event's IoT Hub or Events Hubs enqueued time will be used as the default. Timestamp property values are stored in UTC.
 
 In general, users will opt to customize the timestamp property and use the time when the sensor or tag generated the reading rather than using the default hub enqueued time. This is particularly necessary when devices have intermittent connectivity loss and a batch of delayed messages are forwarded to Azure Time Series Insights Gen2.
 
