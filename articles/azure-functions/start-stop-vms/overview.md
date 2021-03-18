@@ -58,7 +58,7 @@ Email notifications are also sent as a result of the actions performed on the VM
 
 ## New releases
 
- When a new version of Start/Stop VMs (preview) is released, your instance is auto-updated without having to manually redeploy.
+When a new version of Start/Stop VMs (preview) is released, your instance is auto-updated without having to manually redeploy.
 
 ## Supported scoping options
 
