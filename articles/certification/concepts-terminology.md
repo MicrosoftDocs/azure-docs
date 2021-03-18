@@ -9,13 +9,13 @@ ms.date: 03/03/2021
 ms.custom: template-concept
 ---
 
-# Glossary
+# Azure Certified Device program glossary
 
 This guide provides definitions of terms commonly used in the Azure Certified Device program and portal. Refer to this glossary for clarification to the certification process. For your convenience, this glossary is categorized based on major certification concepts that you may have questions about.
 
 ## Device class
 
-When creating your certification project, you will be asked to specify a device class. This refers to the form factor or classification that best represents your device.
+When creating your certification project, you will be asked to specify a device class. Device class refers to the form factor or classification that best represents your device.
 
 - **Gateway**
 
@@ -31,18 +31,18 @@ When creating your certification project, you will be asked to specify a device 
 
 ## Device type
 
-When creating your certification project, you will be asked to select a device type from the two options below.
+You will also be asked to select one of two device types during the certification process.
 
 - **Finished Product**
 
-    A device that is solution-ready and capable of production deployment, typically in a finished form factor with firmware and an operating system. These may be general-purpose devices that require additional customization or specialized devices that require no modifications for usage.
+    A device that is solution-ready and ready for production deployment. Typically in a finished form factor with firmware and an operating system. These may be general-purpose devices that require additional customization or specialized devices that require no modifications for usage.
 - **Solution-Ready Dev Kit**
 
     A development kit containing hardware and software ideal for easy prototyping, typically not in a finished form factor. Usually includes sample code and tutorials to enable quick prototyping.
 
 ## Component type
 
-When adding your device details to your certification project, you will describe your device by listing components by component type. You can view additional guidance on components [here](./how-to-using-the-components-feature.md).
+In the Device details section, you'll describe your device by listing components by component type. You can view more guidance on components [here](./how-to-using-the-components-feature.md).
 
 - **Customer Ready Product**
 
@@ -59,7 +59,7 @@ When adding your device details to your certification project, you will describe
 
 ## Component attachment method
 
-Component attachment method is an additional component detail that informs the customer about how the component is integrated into the overall product. 
+Component attachment method is another component detail that informs the customer about how the component is integrated into the overall product.
 
 - **Integrated**
  
@@ -74,5 +74,5 @@ Component attachment method is an additional component detail that informs the c
 
 ## Next steps
 
-This glossary will guide you through the process of creating and certifying your project on the Azure Certified Device portal. You are now ready to begin your project!
+This glossary will guide you through the process of certifying your project on the portal. You're now ready to begin your project!
 - [Tutorial: Creating your project](./tutorial-01-creating-your-project.md)
