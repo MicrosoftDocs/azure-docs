@@ -62,7 +62,7 @@
         - name: Prepare a Java Spring app for deployment
           href: how-to-prepare-app-deployment.md
         - name: Set up a Config Server
-          href: spring-cloud-howto-config-server.md
+          href: how-to-config-server.md
         - name: Enable Service Registration
           href: spring-cloud-howto-service-registration.md
     - name: Deploy
@@ -102,7 +102,7 @@
         - name: Application Insights using Java In-Process Agent
           href: how-to-application-insights.md
         - name: Resilience4J Circuit Breaker Metrics
-          href: spring-cloud-howto-circuit-breaker-metrics.md
+          href: how-to-circuit-breaker-metrics.md
         - name: Structured application log
           href: spring-cloud-structured-app-log.md
     - name: Network
@@ -126,17 +126,17 @@
     - name: Integrate
       items:
         - name: Bind an app to Azure CosmosDB
-          href: spring-cloud-howto-bind-cosmos.md
+          href: how-to-bind-cosmos.md
         - name: Bind an app to Azure Cache for Redis
-          href: spring-cloud-howto-bind-redis.md
+          href: how-to-bind-redis.md
         - name: Bind an app to Azure MySQL
-          href: spring-cloud-howto-bind-mysql.md
+          href: how-to-bind-mysql.md
         - name: Integrate with Azure Load Balance Solutions
           href: spring-cloud-howto-integrate-azure-load-balancers.md
     - name: Automate
       items:
         - name: CI/CD with Azure DevOps
-          href: spring-cloud-howto-cicd.md
+          href: how-to-cicd.md
         - name: CI/CD with GitHub Actions
           href: spring-cloud-howto-github-actions.md
         - name: Auth with Key Vault in GitHub Actions

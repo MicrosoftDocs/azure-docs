@@ -48,13 +48,13 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Use Config Server to maintain application configuration
-            url: spring-cloud-howto-config-server.md
+            url: how-to-config-server.md
           - text: Manually scale your application
             url: spring-cloud-howto-scale-manual.md
       - linkListType: how-to-guide
         links:
           - text: Automate your CI/CD pipeline in Azure Spring Cloud
-            url: spring-cloud-howto-cicd.md
+            url: how-to-cicd.md
           - text: Enable Blue-Green deployments using Azure Spring Cloud
             url: spring-cloud-howto-staging-environment.md           
           - text: Use persistent storage in Azure Spring Cloud
@@ -80,11 +80,11 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Bind your application with Azure Cache for Redis
-            url: spring-cloud-howto-bind-redis.md
+            url: how-to-bind-redis.md
           - text: Bind your application to an Azure MySQL DB
-            url: spring-cloud-howto-bind-mysql.md 
+            url: how-to-bind-mysql.md 
           - text: Bind your application to Azure CosmosDB
-            url: spring-cloud-howto-bind-cosmos.md
+            url: how-to-bind-cosmos.md
    # Card
   - title: API reference
     linkLists:

@@ -1,6 +1,36 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-config-server.md",
+      "redirect_url": "/articles/spring-cloud/how-to-config-server.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-circuit-breaker-metrics.md",
+      "redirect_url": "/articles/spring-cloud/how-to-circuit-breaker-metrics.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-cicd.md",
+      "redirect_url": "/articles/spring-cloud/how-to-cicd.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-bind-redis.md",
+      "redirect_url": "/articles/spring-cloud/how-to-bind-redis.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-bind-mysql.md",
+      "redirect_url": "/articles/spring-cloud/how-to-bind-mysql.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-bind-cosmos.md",
+      "redirect_url": "/articles/spring-cloud/how-to-bind-cosmos.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-application-insights.md",
       "redirect_url": "/articles/spring-cloud/how-to-application-insights.md",
       "redirect_document_id": false
