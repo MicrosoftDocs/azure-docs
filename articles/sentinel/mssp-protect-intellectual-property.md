@@ -105,7 +105,7 @@ For example:
 
 :::image type="content" source="media/mssp-protect-intellectual-property/cross-workspace-workbook.png" alt-text="Cross-workspace workbooks":::
 
-For more information, see [Cross-workspace workbooks<a name="using-cross-workspace-workbooks"></a>](extend-sentinel-across-workspaces-tenants.md#cross-workspace-workbooksa-nameusing-cross-workspace-workbooksa).
+For more information, see [Cross-workspace workbooks](extend-sentinel-across-workspaces-tenants.md#cross-workspace-workbooks).
 
 If you want the customer to be able to view the workbook visualizations, while still keeping the code secret, we recommend that you export the workbook to Power BI.
 
