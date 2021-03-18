@@ -65,4 +65,4 @@ Every workspace comes with a pre-built serverless SQL pool called **Built-in**. 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using a dedicated SQL pool](get-started-analyze-sql-pool.md)
+> [Analyze using a serverless SQL pool](get-started-analyze-sql-on-demand.md)
