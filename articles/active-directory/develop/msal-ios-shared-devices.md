@@ -1,7 +1,7 @@
 ---
 title: Shared device mode for iOS devices
 titleSuffix: Microsoft identity platform | Azure
-description: Learn how to enable shared device mode to allow Firstline Workers to share an iOS device
+description: Learn how to enable shared device mode to allow Frontline Workers to share an iOS device
 services: active-directory
 author: brandwe
 manager: CelesteDG
@@ -21,7 +21,7 @@ ms.custom: aaddev
 >[!IMPORTANT]
 > This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
-Firstline Workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
+Frontline Workers such as retail associates, flight crew members, and field service workers often use a shared mobile device to perform their work. These shared devices can present security risks if your users share their passwords or PINs, intentionally or not, to access customer and business data on the shared device.
 
 Shared device mode allows you to configure an iOS 13 or higher device to be more easily and securely shared by employees. Employees can sign in and access customer information quickly. When they're finished with their shift or task, they can sign out of the device and it's immediately ready for use by the next employee.
 
@@ -91,7 +91,7 @@ On a user change, you should ensure both the previous user's data is cleared and
 
 ### Detect shared device mode
 
-Detecting shared device mode is important for your application. Many applications will require a change in their user experience (UX) when the application is used on a shared device. For example, your application might have a "Sign-Up" feature, which isn't appropriate for a Firstline Worker because they likely already have an account. You may also want to add extra security to your application's handling of data if it's in shared device mode.
+Detecting shared device mode is important for your application. Many applications will require a change in their user experience (UX) when the application is used on a shared device. For example, your application might have a "Sign-Up" feature, which isn't appropriate for a Frontline Worker because they likely already have an account. You may also want to add extra security to your application's handling of data if it's in shared device mode.
 
 Use the `getDeviceInformationWithParameters:completionBlock:` API in the `MSALPublicClientApplication` to determine if an app is running on a device in shared device mode.
 
@@ -226,6 +226,6 @@ signoutParameters.signoutFromBrowser = YES; // Only needed for Public Preview.
 
 ## Next steps
 
-To see shared device mode in action, the following code sample on GitHub includes an example of running a Firstline Worker app on an iOS device in shared device mode:
+To see shared device mode in action, the following code sample on GitHub includes an example of running a Frontline Worker app on an iOS device in shared device mode:
 
 [MSAL iOS Swift Microsoft Graph API Sample](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)

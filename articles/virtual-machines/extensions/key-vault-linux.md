@@ -14,7 +14,7 @@ ms.author: mbaldwin
 ---
 # Key Vault virtual machine extension for Linux
 
-The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults.  Upon detecting a change, the extension retrieves, and installs the corresponding certificates. The extension will install the full certificate chain on the VM. The Key Vault VM extension is published and supported by Microsoft, currently on Linux VMs. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Linux. 
+The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults.  Upon detecting a change, the extension retrieves, and installs the corresponding certificates. The Key Vault VM extension is published and supported by Microsoft, currently on Linux VMs. This document details the supported platforms, configurations, and deployment options for the Key Vault VM extension for Linux. 
 
 ### Operating system
 
@@ -31,6 +31,7 @@ The Key Vault VM extension supports these Linux distributions:
 
 - PKCS #12
 - PEM
+
 
 ## Prerequisities
   - Key Vault instance with certificate. See [Create a Key Vault](../../key-vault/general/quick-create-portal.md)
@@ -53,6 +54,20 @@ The Key Vault VM extension supports these Linux distributions:
                     "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
                   }
    `
+## Key Vault VM extension version
+* Ubuntu-18.04 and  SUSE-15 users can chose to upgrade their key vault vm extension version to `V2.0` to avail full certificate chain download feature. Issuer certificates (intermediate and root) will be appended to the leaf certificate in the PEM file.
+
+* If you prefer to upgrade to `v2.0`, you would need to delete `v1.0` first, then install `v2.0`.
+```
+  az vm extension delete --name KeyVaultForLinux --resource-group ${resourceGroup} --vm-name ${vmName}
+  az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 2.0
+```  
+  The flag --version 2.0 is optional because the latest version will be installed by default.	
+
+* If the VM has certificates downloaded by v1.0, deleting the v1.0 AKVVM extension will NOT delete the downloaded certificates.  After installing v2.0, the existing certificates will NOT be modified.  You would need to delete the certificate files or roll-over the certificate to get the PEM file with full-chain on the VM.
+
+
+
 
 ## Extension schema
 
@@ -69,7 +84,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
@@ -106,7 +121,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForLinux | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 2.0 | int |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | It is ignored on Linux | string |
 | linkOnRenewal | false | boolean |
@@ -139,7 +154,7 @@ The JSON configuration for a virtual machine extension must be nested inside the
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
           "secretsManagementSettings": {
@@ -186,7 +201,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
        
     
         # Start the deployment
-        Set-AzVmExtension -TypeHandlerVersion "1.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+        Set-AzVmExtension -TypeHandlerVersion "2.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
     
     ```
 
@@ -206,7 +221,7 @@ The Azure PowerShell can be used to deploy the Key Vault VM extension to an exis
         
         # Add Extension to VMSS
         $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "1.0" -Setting $settings
+        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -Setting $settings
 
         # Start the deployment
         Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
@@ -225,6 +240,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
+         --version 2.0 `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
@@ -236,6 +252,7 @@ The Azure CLI can be used to deploy the Key Vault VM extension to an existing vi
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
         --vmss-name "<vmssName>" `
+        --version 2.0 `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 Please be aware of the following restrictions/requirements:
