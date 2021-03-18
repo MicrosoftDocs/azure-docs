@@ -1,13 +1,13 @@
 ---
-title: How to plan for an at-scale deployment of Azure Arc enabled servers
+title: How to plan and deploy Azure Arc enabled servers
 description: Learn how to enable a large number of machines to Azure Arc enabled servers to simplify configuration of essential security, management, and monitoring capabilities in Azure.
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.topic: conceptual
 ---
 
-# Plan and deploy Arc enabled servers at-scale
+# Plan and deploy Arc enabled servers
 
-Deployment of an IT infrastructure service or business application is a challenge for any company. In order to execute it well and avoid any unwelcome surprises and unplanned costs, you need to thoroughly plan for it to ensure that you're as ready as possible. To plan for deploying Azure Arc enabled servers at-scale, it should cover the design and deployment criteria that needs to be met in order to successfully complete the tasks to support an at-scale deployment.
+Deployment of an IT infrastructure service or business application is a challenge for any company. In order to execute it well and avoid any unwelcome surprises and unplanned costs, you need to thoroughly plan for it to ensure that you're as ready as possible. To plan for deploying Azure Arc enabled servers at any scale, it should cover the design and deployment criteria that needs to be met in order to successfully complete the tasks.
 
 For the deployment to proceed smoothly, your plan should establish a clear understanding of:
 
