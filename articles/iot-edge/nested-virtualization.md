@@ -1,5 +1,5 @@
 ---
-title: Nested Virtualization for Azure IoT Edge for Linux on Windows | Microsoft Docs
+title: Nested virtualization for Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Learn about how to navigate nested virtualization in Azure IoT Edge for Linux on Windows.
 author: fcabrera
 manager: kgremban
@@ -37,11 +37,11 @@ In any scenario where the VM cannot obtain an IP address through an external swi
 ## Windows Server
 For Windows Server users, note that Azure IoT Edge for Linux on Windows does not automatically support the default switch.
 
-* Consequences for local VM: ensure the EFLOW VM can obtain an IP address through the external switch.
+* Consequences for local VM: Ensure the EFLOW VM can obtain an IP address through the external switch.
 
-* Consequences for Azure VM: since there's no external switch on Azure VMs, it is not possible to deploy EFLOW before setting up an internal switch on the server.
+* Consequences for Azure VM: Because there's no external switch on Azure VMs, it's not possible to deploy EFLOW before you set up an internal switch on the server.
 
 There is no default switch on Server SKUs by default (regardless of whether the Server SKU runs on an Azure VM or not). When deploying on an Azure VM where the external switch cannot be used, the default switch needs to be set up and configured manually before Azure IoT Edge for Linux on Windows deployment. Our deployment functionality covers this as it requires IP configuration for the internal switch, a NAT configuration, and installing and configuring a DHCP server. Our deployment functionality in public preview states that it does not fiddle around with these settings not to impair network configurations on productive deployments.
 
-* Relevant information on how to set up the default switch manually can be found here: [How to enable nested virtualization in Azure Virtual Machines - Azure Virtual Machines | Microsoft Docs](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)
-* Documentation on how to set up a DHCP server for this scenario can be found here: [Deploy DHCP Using Windows PowerShell | Microsoft Docs](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-deploy-wps)
+* Relevant information on how to set up the default switch manually can be found here: [How to enable nested virtualization in Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)
+* Documentation on how to set up a DHCP server for this scenario can be found here: [Deploy DHCP using Windows PowerShell](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-deploy-wps)
