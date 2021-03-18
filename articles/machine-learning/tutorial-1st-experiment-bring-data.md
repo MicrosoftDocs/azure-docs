@@ -34,7 +34,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* You need the data and an updated version of the pytorch environment created in the previous tutorial.  Make sure you have completed these steps:
+You'll need the data and an updated version of the pytorch environment created in the previous tutorial.  Make sure you have completed these steps:
     1. [Create the training script](tutorial-1st-experiment-sdk-train.md#create-training-scripts)
     1. [Create a new Python environment](tutorial-1st-experiment-sdk-train.md#environment)
     1. [Test locally](tutorial-1st-experiment-sdk-train.md#test-local)
@@ -90,7 +90,7 @@ locally. Add to your tutorial directory structure a folder called `data`. Your d
     ```bash
     conda deactivate
 
-1. Now create and activate the new environment.  This will rebuild the pytorch-aml-env with the  [updated environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
+1. Now create and activate the new environment.  This will rebuild the pytorch-aml-env with the [updated environment file](tutorial-1st-experiment-sdk-train.md#update-the-conda-environment-file)
 
 
     ```bash
