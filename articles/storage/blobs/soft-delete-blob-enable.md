@@ -7,13 +7,17 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 03/17/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: "devx-track-azurecli, devx-track-csharp"
 ---
 
 # Enable and manage soft delete for blobs
+
+
+Soft deleted objects are invisible unless explicitly listed.
+
 
 Blob soft delete protects your data from being accidentally or erroneously modified or deleted. When blob soft delete is enabled for a storage account, blobs, blob versions, and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
 
@@ -22,6 +26,8 @@ If there is a possibility that your data may accidentally be modified or deleted
 To learn how to also enable soft delete for containers, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
 
 ## Enable blob soft delete
+
+When you create a new storage account, soft delete is disabled by default. You can enable or disable soft delete for a storage account at any time by using the Azure portal, PowerShell, or Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
