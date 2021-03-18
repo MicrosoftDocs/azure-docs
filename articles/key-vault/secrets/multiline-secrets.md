@@ -34,7 +34,7 @@ You can then pass this file to the Azure CLI [az keyvault secret set](/cli/azure
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "MultilineSecret" --file "secretfile.txt"
 ```
 
-With Azure PowerShell, you must first read in the file using the [Get-Content](/powershell/module/microsoft.powershell.management/get-content) cmdlet, then convert it to a secure string using [ConvertTo-SecureString](powershell/module/microsoft.powershell.security/convertto-securestring). 
+With Azure PowerShell, you must first read in the file using the [Get-Content](/powershell/module/microsoft.powershell.management/get-content) cmdlet, then convert it to a secure string using [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring). 
 
 ```azurepowershell-interactive
 $RawSecret =  Get-Content "secretfile.txt" -Raw
