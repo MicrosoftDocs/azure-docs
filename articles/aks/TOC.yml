@@ -270,9 +270,10 @@
               href: servicemesh-osm-install.md
             - name: Tasks and Usage Scenarios
               items:
+                - name: Enable Observability with Container Insights
+                  href: servicemesh-osm-observability.md
                 - name: Manage multi-container application with OSM
                   href: servicemesh-osm-quickstart.md
-              href: servicemesh-osm-scenario-use.md
             - name: OSM Troubleshooting Guides
               href: servicemesh-osm-troubleshooting.md
         - name: Secure pod traffic with network policies
