@@ -52,7 +52,7 @@ Watching this video helps you understand the Data Factory UI:
 1. For **Name**, enter **ADFTutorialDataFactory**.
    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
 
-   :::image type="content" source="./media/doc-common-process/create-data-factory.png" alt-text="Create data factory.":::
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
 1. For **Version**, select **V2**.
 
