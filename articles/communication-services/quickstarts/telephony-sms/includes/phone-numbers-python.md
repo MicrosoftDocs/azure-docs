@@ -44,7 +44,7 @@ The `PhoneNumbersClient` is enabled to use Azure Active Directory Authentication
 pip install azure-identity
 ```
 
-Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` as environment variables with their corresponding values from your registered AAD application.
+Creating a `DefaultAzureCredential` object requires you to have `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID` already set as environment variables with their corresponding values from your registered AAD application.
 
 Once you have installed the `azure-identity` library, we can continue authenticating the client.
 
@@ -74,7 +74,6 @@ from azure.communication.phonenumbers import PhoneNumbersClient
 connection_string = 'https://<RESOURCE_NAME>.communication.azure.com/;accesskey=<YOUR_ACCESS_KEY>'
 try:
     print('Azure Communication Services - Phone Numbers Quickstart')
-    credential = DefaultAzureCredential()
     phone_numbers_client = PhoneNumbersClient.from_connection_string(connection_string)
 except Exception as ex:
     print('Exception:')
@@ -83,15 +82,15 @@ except Exception as ex:
 
 ## Functions
 
-Once your `PhoneNumbersClient` has been authenticated, we can start working on the different functions it can do.
+Once the `PhoneNumbersClient` has been authenticated, we can start working on the different functions it can do.
 
 ### Search for Available Phone Numbers
 
-In order to purchase phone numbers, you must first search for available phone numbers. To search for phone numbers, provide the area code, assignment type, [phone number capabilities](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services), [phone number type](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services), and quantity. Note that for the toll-free phone number type, providing the area code is optional.
+In order to purchase phone numbers, you must first search for any available phone numbers. To search for phone numbers, provide the area code, assignment type, [phone number capabilities](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services), [phone number type](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services), and quantity (default quantity is set to 1). Note that for the toll-free phone number type, providing the area code is optional.
 
 ```python
 import os
-from azure.communication.phonenumbers import PhoneNumbersClient, PhoneNumberCapabilityValue, PhoneNumberAssignmentType, PhoneNumberType, PhoneNumberCapabilities
+from azure.communication.phonenumbers import PhoneNumbersClient, PhoneNumberCapabilityType, PhoneNumberAssignmentType, PhoneNumberType, PhoneNumberCapabilities
 from azure.identity import DefaultAzureCredential
 
 # You can find your endpoint from your resource in the Azure Portal
@@ -101,20 +100,23 @@ try:
     credential = DefaultAzureCredential()
     phone_numbers_client = PhoneNumbersClient(endpoint, credential)
     capabilities = PhoneNumberCapabilities(
-        calling = PhoneNumberCapabilityValue.INBOUND,
-        sms = PhoneNumberCapabilityValue.INBOUND_OUTBOUND
+        calling = PhoneNumberCapabilityType.INBOUND,
+        sms = PhoneNumberCapabilityType.INBOUND_OUTBOUND
     )
     search_poller = self.phone_number_client.begin_search_available_phone_numbers(
         "US",
         PhoneNumberType.TOLL_FREE,
         PhoneNumberAssignmentType.APPLICATION,
         capabilities,
-        area_code="833",
         polling = True
     )
     search_result = search_poller.result()
-    print("The phone numbers you reserved were:")
-    print(search_result.phone_numbers)
+    print ('Search id: ' + search_result.search_id)
+    phone_number_list = search_result.phone_numbers
+    print('Reserved phone numbers:')
+    for phone_number in phone_number_list:
+        print(phone_number)
+
 except Exception as ex:
     print('Exception:')
     print(ex)
@@ -128,7 +130,7 @@ The result of searching for phone numbers is a `PhoneNumberSearchResult`. This c
 import os
 from azure.communication.phonenumbers import (
     PhoneNumbersClient, 
-    PhoneNumberCapabilityValue, 
+    PhoneNumberCapabilityType, 
     PhoneNumberAssignmentType, 
     PhoneNumberType, 
     PhoneNumberCapabilities
@@ -142,8 +144,8 @@ try:
     credential = DefaultAzureCredential()
     phone_numbers_client = PhoneNumbersClient(endpoint, credential)
     capabilities = PhoneNumberCapabilities(
-        calling = PhoneNumberCapabilityValue.INBOUND,
-        sms = PhoneNumberCapabilityValue.INBOUND_OUTBOUND
+        calling = PhoneNumberCapabilityType.INBOUND,
+        sms = PhoneNumberCapabilityType.INBOUND_OUTBOUND
     )
     search_poller = phone_numbers_client.begin_search_available_phone_numbers(
         "US",
@@ -153,43 +155,48 @@ try:
         area_code="833",
         polling = True
     )
-    search_result = search_poller.result()
-    print("The phone numbers you reserved were:")
-    print(search_result.phone_numbers)
+    search_result = poller.result()
+    print ('Search id: ' + search_result.search_id)
+    phone_number_list = search_result.phone_numbers
+    print('Reserved phone numbers:')
+    for phone_number in phone_number_list:
+        print(phone_number)
+
     purchase_poller = phone_numbers_client.begin_purchase_phone_numbers(search_result.search_id, polling = True)
-    purchase_result = purchase_poller.result()
+    purchase_poller.result()
     print("The status of the purchase operation was: " + purchase_poller.status())
 except Exception as ex:
     print('Exception:')
     print(ex)
 ```
 
-### Get phone number(s)
+### Get purchased phone number(s)
 
 After a purchasing number, you can retrieve it from the client. 
 
 ```python
-phone_number_information = phone_numbers_client.get_phone_number("+18001234567")
-print("Phone number's country code: " + phone_number_information.country_code)
+purchased_phone_number_information = phone_numbers_client.get_purchased_phone_number("+18001234567")
+print('Phone number: ' + purchased_phone_number_information.phone_number)
+print('Country code: ' + purchased_phone_number_information.country_code)
 ```
 
-You can also retrieve all the acquired phone numbers.
+You can also retrieve all the purchased phone numbers.
 
 ```python
-acquired_phone_numbers = phone_numbers_client.list_acquired_phone_numbers()
-print('Acquired phone numbers:')
-for acquired_phone_number in acquired_phone_numbers:
-    print(acquired_phone_number.phone_number)
+purchased_phone_numbers = phone_numbers_client.list_purchased_phone_numbers()
+print('Purchased phone numbers:')
+for purchased_phone_number in purchased_phone_numbers:
+    print(purchased_phone_number.phone_number)
 ```
 
 ### Update Phone Number Capabilities
 
-You can update the capabilities of a previously acquired phone number.
+You can update the capabilities of a previously purchased phone number.
 ```python
 update_poller = phone_numbers_client.begin_update_phone_number_capabilities(
     "+18001234567",
-    PhoneNumberCapabilityValue.OUTBOUND,
-    PhoneNumberCapabilityValue.OUTBOUND,
+    PhoneNumberCapabilityType.OUTBOUND,
+    PhoneNumberCapabilityType.OUTBOUND,
     polling = True
 )
 update_poller.result()
@@ -201,7 +208,7 @@ print('Status of the operation: ' + update_poller.status())
 You can release a purchased phone number.
 
 ```python
-release_poller = phone_numbers_client.begin_release_phone_number(phone_number_to_release)
+release_poller = phone_numbers_client.begin_release_phone_number("+18001234567")
 release_poller.result()
 print('Status of the operation: ' + release_poller.status())
 ```
