@@ -39,6 +39,9 @@ This article lists the steps to set up IoT Edge on a Windows device. These steps
   * Professional, Enterprise, or Server editions
   * Minimum RAM: 4 GB (8 GB recommended)
   * Minimum Storage: 10 GB
+  * If you're creating a new deployment using Windows 10, make sure you enable Hyper-V. For more information, see how to [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md).
+  * If you're creating a new deployment using Windows Server, make sure you instal Hyper-V role. For more information, see how to [Install the Hyper-V role on Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server.md).
+  * If you're creating a new deployment using a VM, make sure you configure nested virtualization correctly. For more information, see the [nested virtualization](nested-virtualization.md) guide.
 
 * Access to Windows Admin Center with the Azure IoT Edge extension for Windows Admin Center installed:
 
