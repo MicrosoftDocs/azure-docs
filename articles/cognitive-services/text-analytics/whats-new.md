@@ -19,6 +19,7 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## March 2021
 
+### General API updates
 * Release of the new API v3.1-preview.4 which includes 
    * Changes in the Opinion Mining JSON response body: 
       * `aspects` is now `targets` and `opinions` is now `assessments`. 
@@ -28,12 +29,6 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
    * Entity linking is now available as an asynchronous task in the `/analyze` endpoint.
    * A new `pii-categories` parameter is now available in the `/pii` endpoint.
       * This parameter lets you specify select PII entities as well as those not supported by default for the input language.
-* A new model version `2021-03-01` for the `/health` endpoint which provides
-    * A rename of the `Gene` entity type to `GeneOrProtein`.
-    * A new `Date` entity type.
-    * Assertion detection which replaces negation detection (only available in API v3.1-preview.4).
-    * A new preferred `name` property for linked entities that is normalized from various ontologies and coding systems (only available in API v3.1-preview.4). 
-* **Processed Text Records** is now available as a metric in the **Monitoring** section for your Text Analytics resource in the Azure portal.  
 * Updated client libraries, which include asynchronous Analyze, and Text Analytics for health operations. You can find examples on GitHub:
 
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
@@ -42,6 +37,23 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3.1-Preview.4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
+> 
+
+### Text Analytics for health updates
+
+* A new model version `2021-03-01` for the `/health` endpoint and on-premise container which provides
+    * A rename of the `Gene` entity type to `GeneOrProtein`.
+    * A new `Date` entity type.
+    * Assertion detection which replaces negation detection (only available in API v3.1-preview.4).
+    * A new preferred `name` property for linked entities that is normalized from various ontologies and coding systems (only available in API v3.1-preview.4). 
+* A new container image with tag `3.0.015370001-onprem-amd64` and the new model-version `2021-03-01` has been released to the container preview repository. 
+* The Text Analytics for health container image will be moving to a new repository next month.  Please watch for an email communication on the location of its new home.
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics for health](how-tos/text-analytics-for-health.md)
+>
+
+### Text Analytics resource portal update
+* **Processed Text Records** is now available as a metric in the **Monitoring** section for your Text Analytics resource in the Azure portal.  
 
 ## February 2021
 

@@ -334,30 +334,47 @@ The following JSON is an example of the Text Analytics for health API response b
             "id": "1",
             "entities": [
                 {
-                    "id": "0",
                     "offset": 25,
                     "length": 5,
                     "text": "100mg",
                     "category": "Dosage",
-                    "confidenceScore": 1.0,
-                    "isNegated": false
+                    "confidenceScore": 1.0
                 },
                 {
-                    "id": "1",
                     "offset": 31,
                     "length": 10,
                     "text": "remdesivir",
                     "category": "MedicationName",
                     "confidenceScore": 1.0,
-                    "isNegated": false,
+                    "name": "remdesivir",
                     "links": [
                         {
                             "dataSource": "UMLS",
                             "id": "C4726677"
                         },
                         {
+                            "dataSource": "DRUGBANK",
+                            "id": "DB14761"
+                        },
+                        {
+                            "dataSource": "GS",
+                            "id": "6192"
+                        },
+                        {
+                            "dataSource": "MEDCIN",
+                            "id": "398132"
+                        },
+                        {
+                            "dataSource": "MMSL",
+                            "id": "d09540"
+                        },
+                        {
                             "dataSource": "MSH",
                             "id": "C000606551"
+                        },
+                        {
+                            "dataSource": "MTHSPL",
+                            "id": "3QKI37EEHE"
                         },
                         {
                             "dataSource": "NCI",
@@ -366,67 +383,86 @@ The following JSON is an example of the Text Analytics for health API response b
                         {
                             "dataSource": "NCI_FDA",
                             "id": "3QKI37EEHE"
+                        },
+                        {
+                            "dataSource": "NDDF",
+                            "id": "018308"
+                        },
+                        {
+                            "dataSource": "RXNORM",
+                            "id": "2284718"
+                        },
+                        {
+                            "dataSource": "SNOMEDCT_US",
+                            "id": "870592005"
+                        },
+                        {
+                            "dataSource": "VANDF",
+                            "id": "4039395"
                         }
                     ]
                 },
                 {
-                    "id": "2",
                     "offset": 42,
                     "length": 13,
                     "text": "intravenously",
                     "category": "MedicationRoute",
-                    "confidenceScore": 1.0,
-                    "isNegated": false
+                    "confidenceScore": 1.0
                 },
                 {
-                    "id": "3",
-                    "offset": 56,
-                    "length": 4,
-                    "text": "over",
-                    "category": "Time",
-                    "confidenceScore": 0.87,
-                    "isNegated": false
-                },
-                {
-                    "id": "4",
                     "offset": 73,
                     "length": 7,
                     "text": "120 min",
                     "category": "Time",
-                    "confidenceScore": 0.99,
-                    "isNegated": false
+                    "confidenceScore": 0.94
                 }
             ],
             "relations": [
                 {
                     "relationType": "DosageOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/0",
-                    "target": "#/documents/0/entities/1"
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/0",
+                            "role": "Dosage"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        }
+                    ]
                 },
                 {
                     "relationType": "RouteOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/2",
-                    "target": "#/documents/0/entities/1"
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/2",
+                            "role": "Route"
+                        }
+                    ]
                 },
                 {
                     "relationType": "TimeOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/3",
-                    "target": "#/documents/0/entities/1"
-                },
-                {
-                    "relationType": "TimeOfMedication",
-                    "bidirectional": false,
-                    "source": "#/documents/0/entities/4",
-                    "target": "#/documents/0/entities/1"
+                    "entities": [
+                        {
+                            "ref": "#/documents/0/entities/1",
+                            "role": "Medication"
+                        },
+                        {
+                            "ref": "#/documents/0/entities/3",
+                            "role": "Time"
+                        }
+                    ]
                 }
-            ]
+            ],
+            "warnings": []
         }
     ],
     "errors": [],
-    "modelVersion": "2020-09-03"
+    "modelVersion": "2021-03-01"
 }
 ```
 
