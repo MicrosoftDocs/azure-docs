@@ -87,6 +87,8 @@ After the Automation account is successfully unlinked from the workspace, perfor
 
 To delete your Automation account linked to a Log Analytics workspace in support of Update Management, Change Tracking and Inventory, and/or Start/Stop VMs during off-hours, perform the following steps.
 
+# [Azure portal](#tab/azure-portal)
+
 1. Sign in to Azure at [https://portal.azure.com](https://portal.azure.com).
 
 2. Navigate to your Automation account, and select **Linked workspace** under **Related resources**.
@@ -104,6 +106,16 @@ To delete your Automation account linked to a Log Analytics workspace in support
 6. On the **Solution** page, select **Delete** from the menu. If more than one of the above listed features are deployed to the Automation account and linked workspace, you need to select and delete each one before proceeding.
 
 7. While the information is verified and the feature is deleted, you can track the progress under **Notifications**, chosen from the menu. You're returned to the Solutions page after the removal process.
+
+# [PowerShell](#tab/azure-powershell)
+
+To remove an installed solution using Azure PowerShell, use the [Remove-AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution) cmdlet.
+
+```powershell
+Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName resourceGroupName -Name solutionName
+```
+
+---
 
 ### Unlink workspace from Automation account
 
