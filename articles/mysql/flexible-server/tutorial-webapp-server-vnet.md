@@ -61,7 +61,7 @@ Copy the connection string and the name of the newly created virtual network. Th
 > Make a note of your password that will be generate for you if not provided. If you forget the password you would have to reset the password using ``` az mysql flexible-server update``` command
 
 ## Create Subnet for App Service Endpoint
-We now need to have subnet that is delegated to App Service Web App endopoint. Run the following command to create a new subnet in the same virtual network as the database server was created. 
+We now need to have subnet that is delegated to App Service Web App endpoint. Run the following command to create a new subnet in the same virtual network as the database server was created. 
 
 ```azurecli
 az network vnet subnet create -g myresourcegroup --vnet-name VNETName --name webappsubnetName  --address-prefixes 10.0.1.0/24  --delegations Microsoft.Web/serverFarms --service-endpoints Microsoft.Web
