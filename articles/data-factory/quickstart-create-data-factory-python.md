@@ -61,7 +61,7 @@ Pipelines can ingest data from disparate data stores. Pipelines process or trans
     pip install azure-mgmt-datafactory
     ```
 
-    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5, 3.6 and 3.7.
+    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7 and 3.6+.
 
 4. To install the Python package for Azure Identity authentication, run the following command:
 
