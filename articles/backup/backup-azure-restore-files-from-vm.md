@@ -75,6 +75,7 @@ See requirements to restore files from backed-up VMs with large disk:<br>
 [Windows OS](#for-backed-up-vms-with-large-disks-windows)<br>
 [Linux OS](#for-backed-up-vms-with-large-disks-linux)
 
+After you have chosen the right machine to run the ILR script, ensure it meets the [OS requirements](#step-3-os-requirements-to-successfully-run-the-script) and [access requirements](#step-4-access-requirements-to-successfully-run-the-script). 
 
 ## Step 3: OS requirements to successfully run the script
 
@@ -120,6 +121,8 @@ The script also requires Python and bash components to execute and connect secur
 | .NET | 4.6.2 and above |
 | TLS | 1.2 should be supported  |
 
+Also see, if you have the [right machine to execute the ILR script](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) and it meets the [access requirements](#step-4-access-requirements-to-successfully-run-the-script).
+
 ## Step 4: Access requirements to successfully run the script
 
 If you run the script on a computer with restricted access, ensure there's access to:
@@ -142,6 +145,7 @@ For Linux, the script requires 'open-iscsi' and 'lshw' components to connect to 
 
 The access to `download.microsoft.com` is required to download components used to build a secure channel between the machine where the script is run and the data in the recovery point.
 
+Also see, if you have the [right machine to execute the ILR script](#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script) and it meets the [OS requirements](#step-3-os-requirements-to-successfully-run-the-script).
 
 ## Step 5: Running the script and identifying volumes
 
