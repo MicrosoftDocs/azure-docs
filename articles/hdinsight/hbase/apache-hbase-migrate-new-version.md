@@ -268,7 +268,7 @@ CASE 3: If only the source cluster is with Enhanced Writes feature:
    Then execute the following commands depending on the destination cluster version:
    
    ```bash   
-   sudo -u hdfs hdfs dfs -cp /hdp/apps/4.1.3.6 <source-container-fullpath>/hdp/apps   
+   sudo -u hdfs hdfs dfs -cp /hdp/apps/<new-version-name> <source-container-fullpath>/hdp/apps   
    
    For example:
    sudo -u hdfs hdfs dfs -cp /hdp/apps/4.1.3.6 <source-container-fullpath>/hdp/apps
