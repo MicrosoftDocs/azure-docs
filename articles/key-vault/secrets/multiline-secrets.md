@@ -16,11 +16,11 @@ ms.author: mbaldwin
 ---
 # Store a multi-line secret in Azure Key Vault
 
-The [Azure CLI quickstart](quick-create-cli.md) and [Azure PowerShell quickstart](quick-create-powershell.md) demonstrate how to store a single-line secrets.   You can also use Key Vault to store a multi-line secret, such as a JSON file or RSA private key.
+The [Azure CLI quickstart](quick-create-cli.md) and [Azure PowerShell quickstart](quick-create-powershell.md) demonstrate how to store a single-line secret.   You can also use Key Vault to store a multi-line secret, such as a JSON file or RSA private key.
 
 Multi-line secrets cannot be passed to the Azure CLI [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) command or the Azure PowerShell [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet through the commandline. Instead, you must first store the multi-line secret as a text file. 
 
-For example, you could create a text file called "secretfile.txt" that contains the following:
+For example, you could create a text file called "secretfile.txt" containing the following lines:
 
 ```bash
 This is my
@@ -34,7 +34,7 @@ You can then pass this file to the Azure CLI [az keyvault secret set](/cli/azure
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "MultilineSecret" --file "secretfile.txt"
 ```
 
-With Azure PowerShell, you must first read in the file using the [Get-Content](/powershell/module/microsoft.powershell.management/get-content) cmdlet, then convert it to a secure string using [ConvertTo-SecureString](powershell/module/microsoft.powershell.security/convertto-securestring. 
+With Azure PowerShell, you must first read in the file using the [Get-Content](/powershell/module/microsoft.powershell.management/get-content) cmdlet, then convert it to a secure string using [ConvertTo-SecureString](powershell/module/microsoft.powershell.security/convertto-securestring). 
 
 ```azurepowershell-interactive
 $RawSecret =  Get-Content "secretfile.txt" -Raw

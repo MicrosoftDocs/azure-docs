@@ -64,7 +64,7 @@ For additional ease of management, we'll also use the same resource group as the
 
 We will also need to provide a storage account name. Storage account names must be unique, between 3 and 24 characters in length, and use numbers and lower-case letters only.  Lastly, we will be creating a storage account of the "Standard_LRS" SKU.
 
-With the Azure CLI, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+With the Azure CLI, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. 
 
 ```azurecli-interactive
 az storage account create --name "<your-unique-storage-account-name>" -g "myResourceGroup" --sku "Standard_LRS"
@@ -144,7 +144,7 @@ With Azure PowerShell, use the [Set-AzDiagnosticSetting](/powershell/module/az.m
 Set-AzDiagnosticSetting "<key-vault-resource-id>" -StorageAccountId $sa.id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
-# [Azure Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 To configuring Diagnostic settings in the portal, follow these steps.
 
