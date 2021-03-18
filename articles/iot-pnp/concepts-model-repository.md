@@ -42,38 +42,50 @@ All interfaces in the `dtmi` folders are also available from the public endpoint
 
 ### Resolve models
 
-To programmatically access these interfaces, you need to convert a DTMI to a relative path that you can use to query the public endpoint.
+To programmatically access these interfaces, you can use the `ModelsRepositoryClient` available in the NuGet package [Azure.IoT.ModelsRepository](https://www.nuget.org/packages/Azure.IoT.ModelsRepository). This client is configured by default to query the public DMR available at [devicemodels.azure.com](https://devicemodels.azure.com/) and can be configured to any custom repository.
 
-To convert a DTMI to an absolute path, use the `DtmiToPath` function with `IsValidDtmi`:
-
-```cs
-static string DtmiToPath(string dtmi)
-{
-    if (!IsValidDtmi(dtmi))
-    {
-        return null;
-    }
-    // dtmi:com:example:Thermostat;1 -> dtmi/com/example/thermostat-1.json
-    return $"/{dtmi.ToLowerInvariant().Replace(":", "/").Replace(";", "-")}.json";
-}
-
-static bool IsValidDtmi(string dtmi)
-{
-    // Regex defined at https://github.com/Azure/digital-twin-model-identifier#validation-regular-expressions
-    Regex rx = new Regex(@"^dtmi:[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?(?::[A-Za-z](?:[A-Za-z0-9_]*[A-Za-z0-9])?)*;[1-9][0-9]{0,8}$");
-    return rx.IsMatch(dtmi);
-}
-```
-
-With the resulting path and the base URL for the repository we can obtain the interface:
+The client accepts a `DTMI` as input and returns a dictionary with all required interfaces:
 
 ```cs
-const string _repositoryEndpoint = "https://devicemodels.azure.com";
+using Azure.IoT.ModelsRepository;
 
-string dtmiPath = DtmiToPath(dtmi.ToString());
-string fullyQualifiedPath = $"{_repositoryEndpoint}{dtmiPath}";
-string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
+var client = new ModelsRepositoryClient();
+IDictionary<string, string> models = client.GetModels("dtmi:com:example:TemperatureController;1");
+models.Keys.ToList().ForEach(k => Console.WriteLine(k));
 ```
+
+The expected output should display the `DTMI` of the three interfaces found in the dependency chain:
+
+```txt
+dtmi:com:example:TemperatureController;1
+dtmi:com:example:Thermostat;1
+dtmi:azure:DeviceManagement:DeviceInformation;1
+```
+
+The `ModelsRepositoryClient` can be configured to query a custom model repository -available through http(s)- and specify the dependency resolution using any of the available `ModelDependencyResolution`:
+
+- Disabled. Returns the specified interface only, without any dependency.
+- Enabled. Returns all the interfaces in the dependency chain
+- TryFromExpanded. Use the `.expanded.json` file to retrieve the pre-calculated dependencies 
+
+> [!Tip] 
+> Custom repositories might not expose the `.expanded.json` file, when not available the client will fallback to process each dependency locally.
+
+The next sample code shows how to initialize the `ModelsRepositoryClient` by using a custom repository base URL, in this case using the `raw` URLs from the GitHub API without using the `expanded` form -since it's not available in the `raw` endpoint. The `AzureEventSourceListener` is initialized to inspect the HTTP request performed by the client:
+
+```cs
+using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
+
+var client = new ModelsRepositoryClient(
+    new Uri("https://raw.githubusercontent.com/Azure/iot-plugandplay-models/main"),
+    new ModelsRepositoryClientOptions(dependencyResolution: ModelDependencyResolution.Enabled));
+
+IDictionary<string, string> models = client.GetModels("dtmi:com:example:TemperatureController;1");
+
+models.Keys.ToList().ForEach(k => Console.WriteLine(k));
+```
+
+There are more samples available within the source code in the Azure SDK GitHub repository: [Azure.Iot.ModelsRepository/samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/modelsrepository/Azure.IoT.ModelsRepository/samples)
 
 ## Publish a model
 

@@ -15985,6 +15985,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cost-management-billing/manage/create-subscription-template.md",
+      "redirect_url": "/azure/cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/billing/billing-set-up-alerts.md",
       "redirect_url": "/azure/cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending",
       "redirect_document_id": false
@@ -16947,6 +16952,11 @@
     {
       "source_path_from_root": "/articles/databox-online/data-box-edge-limits.md",
       "redirect_url": "/azure/databox-online/azure-stack-edge-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/databox-online/azure-stack-edge-k-series-overview.md",
+      "redirect_url": "/azure/databox-online/azure-stack-edge-mini-r-overview",
       "redirect_document_id": false
     },
     {
@@ -28346,7 +28356,17 @@
     },
     {
       "source_path_from_root": "/articles/marketplace/partner-center-portal/commercial-marketplace-co-sell.md",
-      "redirect_url": "/azure/marketplace/commercial-marketplace-co-sell",
+      "redirect_url": "/azure/marketplace/co-sell-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/marketplace-co-sell.md",
+      "redirect_url": "/azure/marketplace/co-sell-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/marketplace/commercial-marketplace-co-sell.md",
+      "redirect_url": "/azure/marketplace/co-sell-configure",
       "redirect_document_id": false
     },
     {
@@ -36667,6 +36687,22 @@
     {
       "source_path_from_root": "/articles/stream-analytics/vs-code-how-to.md",
       "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql/best-practices-sql-pool.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql/best-practices-sql-on-demand.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-serverless-sql-pool",
       "redirect_document_id": false
     },
     {

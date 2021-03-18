@@ -20,6 +20,12 @@ keywords: readers, language learners, display pictures, improve reading, read co
 
 [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft One Note to improve your web applications. 
 
+This documentation contains the following types of articles:  
+
+* The [quickstarts](quickstarts/client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [how-to guides](how-to-create-immersive-reader.md) contain instructions for using the service in more specific or customized ways.
+* The [reference](reference.md) provides capability and configuration specifications for Immersive Reader SDK.
+
 ## Use Immersive Reader to improve reading accessibility 
 
 Immersive Reader is designed to make reading easier and more accessible for everyone. Let's take a look at a few of Immersive Reader's core features.
@@ -69,10 +75,3 @@ Immersive Reader is a standalone web application. When invoked using the Immersi
 The Immersive Reader client library is available in C#, JavaScript, Java (Android),  Kotlin (Android), and Swift (iOS). Get started with:
 
 * [Quickstart: Use the Immersive Reader client library](quickstarts/client-libraries.md)
-
-## Next steps
-
-Get started with Immersive Reader:
-
-* Read the [Immersive Reader client library Reference](./reference.md)
-* Explore the [Immersive Reader client library on GitHub](https://github.com/microsoft/immersive-reader-sdk)
