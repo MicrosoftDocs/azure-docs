@@ -35,19 +35,19 @@ When authoring linked service on UI,  Data Factory provides built-in parameteriz
 - Amazon S3
 - Azure Blob Storage
 - Azure Cosmos DB (SQL API)
+- Azure Data Lake Storage Gen2
 - Azure Database for MySQL
 - Azure Databricks
-- Azure Data Lake Storage Gen2
 - Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
 - Azure Table Storage
+- Generic HTTP
+- Generic REST
 - MySQL
 - Oracle
 - SQL Server
-- Generic HTTP
-- Generic REST
 
 For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:
 
