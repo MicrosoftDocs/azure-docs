@@ -1,5 +1,5 @@
 ---
-title: IoT Central administrator guide
+title: Azure IoT Central administrator guide
 description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of the administrator role in IoT Central. 
 author: TheJasonAndrew
 ms.author: v-anjaso
@@ -16,7 +16,7 @@ This article provides an overview of the administrator role in IoT Central.
 
 To access and use the Administration section, you must be in the Administrator role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the Administrator role for that application.
 
-An an _administrator_, you are  responsible for administrative tasks such as:
+As an _administrator_, you are  responsible for administrative tasks such as:
 
 * Managing Roles
 * Curate Permissions
