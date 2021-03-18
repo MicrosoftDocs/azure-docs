@@ -73,7 +73,7 @@ Sync project with gradle files.
 
 ### Create application class
 
-Create new java class file named `TeamsEmbedAndroidGettingStarted`. This will be the application class which must extend `TeamsSDKApplication`. [Android Documentation](https://developer.android.com/reference/android/app/Application)
+Create new Java class file named `TeamsEmbedAndroidGettingStarted`. This will be the application class which must extend `TeamsSDKApplication`. [Android Documentation](https://developer.android.com/reference/android/app/Application)
 
 :::image type="content" source="../media/android/application-class-location.png" alt-text="Screenshot showing where to create application class in Android Studio":::
 
