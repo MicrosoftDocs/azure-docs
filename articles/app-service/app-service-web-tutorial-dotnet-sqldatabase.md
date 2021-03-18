@@ -316,7 +316,9 @@ Now that your code change works, including database migration, you publish it to
 
     ![Open publish settings](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 
-1. In the wizard, select **Execute Code First Migrations (runs on application start)**, then click **Save**.
+1. In the **MyDatabaseContext** dropdown, select the database connection for your Azure SQL Database.
+
+1. Select **Execute Code First Migrations (runs on application start)**, then click **Save**.
 
     ![Enable Code First Migrations in Azure app](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
