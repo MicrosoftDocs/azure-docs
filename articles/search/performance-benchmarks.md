@@ -62,7 +62,7 @@ If you have any questions or concerns, please reach out to us at azuresearch_con
 
 :::row:::
    :::column span="1":::
-     <img src="./media/performance-benchmarks/cdon-logo-320x100.png" alt="CDON Logo" width="150"/>
+     <img src="./media/performance-benchmarks/cdon-logo-320x100v2.png" alt="CDON Logo" width="150"/>
    :::column-end:::
    :::column span="3":::
       This benchmark was created in partnership with the e-commerce company, [CDON](https://cdon.com), the Nordic region's largest online marketplace with operations in Sweden, Finland, Norway and Denmark. Through its 1,500 merchants, CDON offers a wide range assortment that includes over 8 million products. In 2020, CDON had over 120 million visitors and 2 million active customers.
