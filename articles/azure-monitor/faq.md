@@ -701,6 +701,10 @@ The log collection from containers in the kube-system namespace is disabled by d
 
 To learn how to upgrade the agent, see [Agent management](containers/container-insights-manage-agent.md).
 
+### Why are log lines larger than 16KB split into multiple records in Log Analytics?
+
+The agent uses the [Docker json file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16KB](https://github.com/moby/moby/pull/22982) into multiple lines when copied from stdout or stderr to a file.
+
 ### How do I enable multi-line logging?
 
 Currently Container insights doesn't support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
