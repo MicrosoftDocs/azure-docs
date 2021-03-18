@@ -1100,7 +1100,7 @@ groups:
   - id: programming-language-ruby
     title: Ruby
   - id: rest
-    title: Rest
+    title: REST
 - id: azure-maps-android
 # Owner: richbrun
   title: Programming languages
