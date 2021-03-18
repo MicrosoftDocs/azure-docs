@@ -4,7 +4,7 @@ description: Learn how to copy data from a cloud or on-premises HTTP source to s
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/17/2021
 ms.author: jingwang
 ---
 # Copy data from an HTTP endpoint by using Azure Data Factory
@@ -248,7 +248,7 @@ The following properties are supported for HTTP under `storeSettings` settings i
 | additionalHeaders         | Additional HTTP request headers.                             | No       |
 | requestBody              | The body for the HTTP request.                               | No       |
 | httpRequestTimeout           | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**. | No       |
-| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No       |
 
 **Example:**
 

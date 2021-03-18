@@ -36684,6 +36684,22 @@
       "redirect_url": "/azure/stream-analytics/vscode-explore-jobs",
       "redirect_document_id": false
     },
+
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql/best-practices-sql-pool.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-dedicated-sql-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/synapse-analytics/sql/best-practices-sql-on-demand.md",
+      "redirect_url": "/azure/synapse-analytics/sql/best-practices-serverless-sql-pool",
+      "redirect_document_id": false
+    },
     {
       "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/index.yml",
       "redirect_url": "/azure/synapse-analytics/",

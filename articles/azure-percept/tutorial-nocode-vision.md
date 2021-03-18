@@ -158,6 +158,16 @@ If you created a new Azure resource for this tutorial and you no longer wish to 
 1. Click the checkbox next to the resource created during this tutorial. The resource type will be listed as **Cognitive Services**.
 1. Click the **Delete** icon near the top of the screen.
 
+## Video walkthrough
+
+For a visual walkthrough of the steps described above, please see the following video:
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
+
+</br>
+
 ## Next Steps
 
 Next, check out the vision how-to articles for information on additional vision solution features in Azure Percept Studio.
