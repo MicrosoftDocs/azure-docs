@@ -52,8 +52,8 @@ Then, you must supply basic device information. You can to edit this information
     |------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
     | Project name           | Internal name that will not be visible on the Azure Certified Device catalog                                                        |
     | Device name            | Public name for your device                                                                                                |
-    | Device type            | Specification of Finished Product or Solution-Ready Developer Kit.     For more information about the terminology, see [Certification glossary](./concepts-glossary.md).                                                                     |
-    | Device class           | Gateway, Sensor, or other.  For more information about the terminology, see [Certification glossary](./concepts-glossary.md).                                                                    |
+    | Device type            | Specification of Finished Product or Solution-Ready Developer Kit.     For more information about the terminology, see [Certification glossary](./concepts-terminology.md).                                                                     |
+    | Device class           | Gateway, Sensor, or other.  For more information about the terminology, see [Certification glossary](./concepts-terminology.md).                                                                    |
     | Device source code URL | Required if you are certifying a Solution-Ready Dev Kit, optional otherwise. URL must be to a GitHub location for your device code. |
 1. Select the `Next` button to continue to the `Certifications` tab.
 
