@@ -27,11 +27,21 @@ Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](
 
 ## March 2021
 
+- [Print your Azure Sentinel workbooks or save as PDF](#print-your-azure-sentinel-workbooks-or-save-as-pdf)
 - [Incident filters and sort preferences now saved in your session (Public preview)](#incident-filters-and-sort-preferences-now-saved-in-your-session-public-preview)
-- [Improved incident searches (Public preview)](#improved-incident-search-public-preview)
 - [Microsoft 365 Defender incident integration (Public preview)](#microsoft-365-defender-incident-integration-public-preview)
 - [New Microsoft service connectors using Azure Policy](#new-microsoft-service-connectors-using-azure-policy)
  
+### Print your Azure Sentinel workbooks or save as PDF
+
+Now you can print Azure Sentinel workbooks, which also enables you to export to them to PDFs and save locally or share.
+
+In your workbook, select the options menu > :::image type="icon" source="media/whats-new/print-icon.png" border="false"::: **Print content**. Then select your printer, or select **Save as PDF** as needed.
+
+:::image type="content" source="media/whats-new/print-workbook.png" alt-text="Print your workbook or save as PDF.":::
+
+For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md).
+
 ### Incident filters and sort preferences now saved in your session (Public preview)
 
 Now your incident filters and sorting is saved throughout your Azure Sentinel session, even while navigating to other areas of the product.
