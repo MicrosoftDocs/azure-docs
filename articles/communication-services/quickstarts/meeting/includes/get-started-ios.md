@@ -165,7 +165,7 @@ override func viewDidLoad() {
     button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 ```
 
-Create outlet for button in **ViewController.swift**.
+Create an outlet for the button in **ViewController.swift**.
 
 ```swift
 @IBAction func joinMeetingTapped(_ sender: UIButton) {
