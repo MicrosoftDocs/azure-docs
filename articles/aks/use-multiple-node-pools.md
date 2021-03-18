@@ -791,7 +791,6 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
-<<<<<<< HEAD
 [az-aks-get-upgrades]: /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az-aks-get-upgrades
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az-aks-nodepool-add
 [az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az-aks-nodepool-list
@@ -799,15 +798,6 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az-aks-nodepool-upgrade
 [az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az-aks-nodepool-scale
 [az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest&preserve-view=true#az-aks-nodepool-delete
-=======
-[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
-[az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/aks/nodepool#az-aks-nodepool-list
-[az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
-[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool#az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/aks/nodepool#az-aks-nodepool-delete
->>>>>>> 86ef86d9ea6d937ab92069d36faba57a5c35f751
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-group-create]: /cli/azure/group#az-group-create
@@ -825,10 +815,5 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
-<<<<<<< HEAD
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md&preserve-view=true#az-vmss-list-instance-public-ips
 [reduce-latency-ppg]: reduce-latency-ppg.md
-=======
-[az-list-ips]: /cli/azure/vmss.md#az-vmss-list-instance-public-ips
-[reduce-latency-ppg]: reduce-latency-ppg.md
->>>>>>> 86ef86d9ea6d937ab92069d36faba57a5c35f751
