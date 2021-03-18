@@ -64579,7 +64579,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/cognitive-services/translator/custom-translator/glossary.md",
+      "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/glossary.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/terminology",
       "redirect_document_id": false
     }
