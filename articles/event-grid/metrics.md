@@ -8,7 +8,7 @@ ms.date: 03/17/2021
 # Metrics supported by Azure Event Grid
 This article provides lists of Event Grid metrics that are categorized by namespaces. 
 
-## Microsoft.EventGrid/systemTopics
+## System topics
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -25,7 +25,7 @@ This article provides lists of Event Grid metrics that are categorized by namesp
 |UnmatchedEventCount|Yes|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this topic|No Dimensions|
 
 
-## Microsoft.EventGrid/customTopics
+## Custom topics
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -41,7 +41,7 @@ This article provides lists of Event Grid metrics that are categorized by namesp
 |PublishSuccessLatencyInMs|Yes|Publish Success Latency|Milliseconds|Total|Publish success latency in milliseconds|No Dimensions|
 |UnmatchedEventCount|Yes|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this topic|No Dimensions|
 
-## Microsoft.EventGrid/domains
+## Domains
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -56,7 +56,7 @@ This article provides lists of Event Grid metrics that are categorized by namesp
 |PublishSuccessCount|Yes|Published Events|Count|Total|Total events published to this topic|Topic|
 |PublishSuccessLatencyInMs|Yes|Publish Success Latency|Milliseconds|Total|Publish success latency in milliseconds|No Dimensions|
 
-## Microsoft.EventGrid/eventSubscriptions
+## Event subscriptions
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -68,7 +68,7 @@ This article provides lists of Event Grid metrics that are categorized by namesp
 |MatchedEventCount|Yes|Matched Events|Count|Total|Total events matched to this event subscription|No Dimensions|
 
 
-## Microsoft.EventGrid/extensionTopics
+## Extension topics
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -77,7 +77,7 @@ This article provides lists of Event Grid metrics that are categorized by namesp
 |PublishSuccessLatencyInMs|Yes|Publish Success Latency|Milliseconds|Total|Publish success latency in milliseconds|No Dimensions|
 |UnmatchedEventCount|Yes|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this topic|No Dimensions|
 
-## Microsoft.EventGrid/partnerNamespaces
+## Partner namespaces
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -93,7 +93,7 @@ This article provides lists of Event Grid metrics that are categorized by namesp
 |UnmatchedEventCount|Yes|Unmatched Events|Count|Total|Total events not matching any of the event subscriptions for this topic|No Dimensions|
 
 
-## Microsoft.EventGrid/partnerTopics
+## Partner topics
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
