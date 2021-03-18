@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -60,6 +60,8 @@ To enable sign-in for users with an Amazon account in Azure Active Directory B2C
 1. Select **Save**.
 
 ## Add Amazon identity provider to a user flow 
+
+At this point, the Amazon identity provider has been set up, but it's not yet available in any of the sign-in pages. To add the Amazon identity provider to a user flow:
 
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Click the user flow that you want to add the Amazon identity provider.

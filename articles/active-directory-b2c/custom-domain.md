@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -18,6 +18,8 @@ zone_pivot_groups: b2c-policy-type
 # Enable custom domains for Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 This article describes how to enable custom domains in your redirect URLs for Azure Active Directory B2C (Azure AD B2C). Using a custom domain with your application provides a more seamless user experience. From the user's perspective, they remain in your domain during the sign-in process rather than redirecting to the Azure AD B2C default domain *<tenant-name>.b2clogin.com*.
 
@@ -44,7 +46,7 @@ When using custom domains, consider the following:
 
 - You can set up multiple custom domains. For the maximum number of supported custom domains, see [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits) for Azure Front Door.
 - Azure Front Door is a separate Azure service, so additional charges will be incurred. For more information, see [Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor).
-- Currently, the Azure Front Door [Web Application Firewall](../web-application-firewall/afds/afds-overview.md) feature is not supported.
+- To use Azure Front Door [Web Application Firewall](../web-application-firewall/afds/afds-overview.md), you need to confirm your firewall configuration and rules work correctly with your Azure AD B2C user flows.
 - After you configure custom domains, users will still be able to access the Azure AD B2C default domain name *<tenant-name>.b2clogin.com* (unless you're using a custom policy and you [block access](#block-access-to-the-default-domain-name).
 - If you have multiple applications, migrate them all to the custom domain because the browser stores the Azure AD B2C session under the domain name currently being used.
 
@@ -189,7 +191,7 @@ Replace:
 - **policy-name** with your policy name. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
 
-The [SAML service provider](connect-with-saml-service-providers.md) metadata may look like the following: 
+The [SAML service provider](./saml-service-provider.md) metadata may look like the following: 
 
 ```html
 https://custom-domain-name/tenant-name/policy-name/Samlp/metadata
@@ -256,12 +258,10 @@ Copy the URL, change the domain name manually, and then paste it back to your br
 
 Azure Front Door passes the user's original IP address. This is the IP address that you'll see in the audit reporting or your custom policy.
 
-### Can I use a third-party wab application firewall (WAF) with B2C?
+### Can I use a third-party web application firewall (WAF) with B2C?
 
-Currently, Azure AD B2C supports a custom domain through the use of Azure Front Door only. Don't add another WAF in front of Azure Front Door.
-
+To use your own web application firewall in front of Azure Front Door, you need to configure and validate that everything works correctly with your Azure AD B2C user flows.
 
 ## Next steps
 
 Learn about [OAuth authorization requests](protocols-overview.md).
-

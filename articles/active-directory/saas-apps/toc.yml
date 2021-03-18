@@ -59,7 +59,7 @@
         href: adoddle-csaas-platform-tutorial.md
       - name: ADP
         href: adpfederatedsso-tutorial.md
-      - name: ADP Globalview
+      - name: ADP Globalview (Deprecated)
         href: adglobalview-tutorial.md
       - name: Agiloft
         href: agiloft-tutorial.md
@@ -712,6 +712,8 @@
         href: fuse-tutorial.md
       - name: Fuze
         href: fuze-tutorial.md
+      - name: Grammarly
+        href: grammarly-provisioning-tutorial.md  
       - name: G Suite
         href: google-apps-tutorial.md
       - name: GaggleAMP
@@ -728,6 +730,8 @@
         href: github-ae-tutorial.md
       - name: GitHub Enterprise Cloud - Enterprise Account
         href: github-enterprise-cloud-enterprise-account-tutorial.md  
+      - name: GitHub Enterprise Managed User
+        href: github-enterprise-managed-user-tutorial.md
       - name: GlassFrog
         href: glassfrog-tutorial.md
       - name: GlobalOne

@@ -6,12 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 3/12/2021
+ms.reviewer: stmummer
+ms.date: 3/17/2021
 ---
 
 # Co-sell requirements
 
-This article provides the requirements for the various levels of co-sell status. For the latest list of offer types that support co-sell, see  [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md). For an overview of co-sell, see [Co-sell with Microsoft sales teams and partners overview](marketplace-co-sell.md).
+This article provides the requirements for the various levels of co-sell status. For the latest list of offer types that support co-sell, see  [Configure Co-sell for a commercial marketplace offer](co-sell-configure.md). For an overview of co-sell, see [Co-sell with Microsoft sales teams and partners overview](co-sell-overview.md).
 
 This table shows all possible co-sell statuses:
 
@@ -20,7 +21,7 @@ This table shows all possible co-sell statuses:
 | Not co-sell ready | The minimum [requirements for Co-sell ready status](#requirements-for-co-sell-ready-status) have not been met. |
 | Co-sell ready | All [requirements for Co-sell ready status](#requirements-for-co-sell-ready-status) have been met. |
 | Azure IP Co-sell incentivized | Co-sell ready requirements have been met in addition to [these additional requirements](#requirements-for-azure-ip-co-sell-incentivized-status). |
-| Biz Apps ISV Connect Premium incentive  | This status applies to Dynamics 365 and Power Apps offers and indicates that all [requirements for this status](#requirements-for-biz-apps-isv-connect-premium-incentive-status) have been met. |
+| Business Applications Co-sell incentivized | This status applies to Dynamics 365 and Power Apps offers in the [Microsoft Business Applications ISV Connect Program](business-applications-isv-program.md) and indicates that all [requirements for this status](#requirements-for-business-applications-co-sell-incentivized-status) have been met. |
 |||
 
 ## Requirements for Co-sell ready status
@@ -32,15 +33,15 @@ For an offer to achieve co-sell ready status, you must meet the following requir
 - Have an MPN ID and an active [commercial marketplace account in Partner Center](./partner-center-portal/create-account.md).
 - Make sure you have a complete [business profile](/partner-center/create-a-marketing-profile) in Partner Center. As a qualified Microsoft partner, your business profile helps to showcase your business to customers who are looking for your unique solutions and expertise to address their business needs, resulting in [referrals](/partner-center/referrals).
 - Complete the **Co-sell with Microsoft** tab and publish the offer to the commercial marketplace.
-- Provide a sales contact for each co-sell eligible geography and required bill of materials)
+- Provide a sales contact for each co-sell eligible geography and required bill of materials.
 
 **Services partners**:
 
 - For offers of the _Service solution_ type, you must have an active gold competency in any competency area.
- 
+
 **Business Applications ISVs**:
 
-- Dynamics 365 Customer Engagement & PowerApps and Dynamics 365 Finance & Ops (except Dynamics 365 business central), and PowerApps solutions require ISV Connect enrollment.
+- Dynamics 365 & PowerApps (except Dynamics 365 Business Central) solutions require ISV Connect enrollment.
 
 ### Complete the Co-sell with Microsoft tab
 
@@ -77,13 +78,9 @@ Requirement 2 - Pass the Microsoft technical validation for an Azure-based solut
 Requirement 3 – Provide a reference architecture diagram:
 - Upload a reference architecture diagram with your Co-sell documents in Partner Center for review. For guidance on creating this diagram, see [Reference architecture diagram](reference-architecture-diagram.md). For information about uploading the diagram, see [Configure Co-sell for a commercial marketplace offer](commercial-marketplace-co-sell.md).
 
-## Requirements for Biz Apps ISV Connect Premium incentive status
+## Requirements for Business Applications Co-sell incentivized status
 
-This status applies to IP-based solutions, apps, and services built on Dynamics 365 or Power Apps.
-
-You don’t need to achieve co-sell ready status (listed above) to achieve the Biz Apps ISV Connect Standard incentive. But, after an app achieves co-sell ready status, it may be considered for Biz Apps ISV Connect Premium incentive status based on the past 12 months of revenue share and co-sell results/thresholds.
-
-Requirement - You must have an active enrollment in the [ISV Connect](business-applications-isv-program.md) premium tier.
+This status applies to IP-based solutions built on Dynamics 365 or Power Apps (except for Dynamics 365 Business Central) that are enrolled in the ISV Connect program. However, offers must also complete the requirements for Co-sell ready status (described above) in order for Microsoft sellers to be able to Co-sell the offer with you.
 
 ## Next steps
 

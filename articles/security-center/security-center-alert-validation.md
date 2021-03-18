@@ -1,17 +1,11 @@
 ---
 title: Alert validation in Azure Security Center | Microsoft Docs
 description: Learn how to validate that your security alerts are correctly configured in Azure Security Center
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date:  02/17/2021
+ms.date:  03/17/2021
 ms.author: memildin
 
 ---
@@ -34,7 +28,7 @@ Use sample alerts to:
 
 To create sample alerts:
 
-1. From the toolbar on the alerts page, select **Create sample alerts**. 
+1. As a user with the role **Security admin** or **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
 1. Select the subscription.
 1. Select the relevant Azure Defender plan/s for which you want to see alerts. 
 1. Select **Create sample alerts**.
