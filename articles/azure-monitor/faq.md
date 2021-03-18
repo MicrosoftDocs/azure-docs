@@ -703,7 +703,7 @@ To learn how to upgrade the agent, see [Agent management](containers/container-i
 
 ### Why are log lines larger than 16KB split into multiple records in Log Analytics?
 
-The agent uses the [Docker json file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16KB](https://github.com/moby/moby/pull/22982) into multiple lines when copied from stdout or stderr to a file.
+The agent uses the [Docker JSON file logging driver](https://docs.docker.com/config/containers/logging/json-file/) to capture the stdout and stderr of containers. This logging driver splits log lines [larger than 16KB](https://github.com/moby/moby/pull/22982) into multiple lines when copied from stdout or stderr to a file.
 
 ### How do I enable multi-line logging?
 
