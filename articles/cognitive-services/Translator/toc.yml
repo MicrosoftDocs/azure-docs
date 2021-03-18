@@ -63,9 +63,7 @@
   - name: What is the Custom Translator?
     href: custom-translator/overview.md
   - name: Quickstart
-    href: custom-translator/quickstart-build-deploy-custom-model.md 
-  - name: Terminology
-    href: custom-translator/terminology.md  
+    href: custom-translator/quickstart-build-deploy-custom-model.md  
   - name: FAQ
     href: custom-translator/faq.md
   - name: How-to guides
@@ -92,6 +90,8 @@
       href: custom-translator/unsupported-language-deployments.md
   - name: Concepts
     items:
+    - name: Terminology
+      href: custom-translator/terminology.md    
     - name: Customize and improve text translation
       href: customization.md  
     - name: Workspaces and projects

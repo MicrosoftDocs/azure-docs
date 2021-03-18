@@ -17,6 +17,14 @@ keywords: translator, text translation, machine translation, translation service
 
 Translator is a cloud-based machine translation service and is part of the [Azure Cognitive Services](../../index.yml?panel=ai&pivot=products) family of cognitive APIs used to build intelligent apps. Translator is easy to integrate in your applications, websites, tools, and solutions. It allows you to add multi-language user experiences in [90 languages and dialects](./language-support.md). And it can be used on any hardware platform with any operating system for text translation.
 
+This documentation contains the following topic types:  
+
+✔ [**Quickstarts**](quickstart-translator.md) are step-by-step instructions that enable you to make API calls to the service and get results in a short period of time.  
+✔ [**How-to guides**](translator-how-to-signup.md) contain instructions for using the service in more specific or customized ways.  
+✔ [**Concepts**](character-counts.md) provide in-depth explanations of the service functionality and features.  
+✔ [**Tutorials**](tutorial-wpf-translation-csharp.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+✔ [**Reference**](reference/v3-0-reference.md) provide capability and configuration specifications for REST APIs.
+
 ## About Microsoft Translator
 
 Translator powers many Microsoft products and services, and is used by thousands of businesses worldwide in their applications and workflows.
@@ -49,12 +57,3 @@ With Custom Translator, you can build translation systems to handle the terminol
 - Try our [Quickstart](quickstart-translator.md) to quickly call the Translator service.
 - [API reference](./reference/v3-0-reference.md) provides the technical documentation for the APIs.
 - [Pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
-
-## Learn more
-
-**Translator Service** documentation contains the following articles:  
-✔ [**Quickstarts**](quickstart-translator.md) are step-by-step instructions that enable you to make API calls to the service and get results in a short period of time.  
-✔ [**How-to guides**](translator-how-to-signup.md) contain instructions for using the service in more specific or customized ways.  
-✔ [**Concepts**](character-counts.md) provide in-depth explanations of the service functionality and features.  
-✔ [**Tutorials**](tutorial-wpf-translation-csharp.md) are longer guides that show you how to use the service as a component in broader business solutions.  
-✔ [**References**](reference/v3-0-reference.md) provide capability and configuration specifications for REST APIs.

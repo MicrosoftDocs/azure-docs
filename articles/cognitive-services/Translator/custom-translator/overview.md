@@ -19,6 +19,13 @@ Translation systems built with [Custom Translator](https://portal.customtranslat
 
 Custom Translator supports more than three dozen languages, and maps directly to the languages available for NMT. For a complete list, see  [Microsoft Translator Languages](../language-support.md#customization).
 
+This documentation contains the following topic types:
+
+✔ [**Quickstarts**](quickstart-build-deploy-custom-model.md) are step-by-step instructions that enable you to make API calls to the feature and get results in a short period of time.  
+✔ [**How-to guides**](how-to-create-project.md) contain instructions for using the feature in more specific or customized ways.  
+✔ [**Concepts**](workspace-and-project.md) provide in-depth explanations of the feature functionality.  
+✔ [**Reference**](../reference/v3-0-reference.md) provide capability and configuration specifications for REST APIs.
+
 ## Features
 
 Custom Translator provides different features to build custom translation system and later access it.
@@ -61,11 +68,3 @@ Custom systems can be seamlessly accessed and integrated into any product or bus
 - Read about [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
 
 - With [Quickstart](quickstart-build-deploy-custom-model.md) learn to build a translation model in Custom Translator.
-
-## Learn more
-
-**Custom Translator** documentation contains the following articles:  
-✔ [**Quickstarts**](quickstart-build-deploy-custom-model.md) are step-by-step instructions that enable you to make API calls to the feature and get results in a short period of time.  
-✔ [**How-to guides**](how-to-create-project.md) contain instructions for using the feature in more specific or customized ways.  
-✔ [**Concepts**](workspace-and-project.md) provide in-depth explanations of the feature functionality.  
-✔ [**Reference**](../reference/v3-0-reference.md) provide capability and configuration specifications for REST APIs.
