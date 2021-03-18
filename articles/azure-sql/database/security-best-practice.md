@@ -799,23 +799,32 @@ Most security standards address data availability in terms of operational contin
 ## Block creation or modification of resources through T-SQL 
 To block creation or modification of resources through T-SQL and enforce resource management through ARM for a given subscription, the subscription level preview features in Azure Portal can be used. This is particularly useful when you are using Azure Policies to enforce organizational standards through ARM. Since T-SQL does not adhere to the Azure Policies, a block on T-SQL create or modify operations can be applied. The following section describes how you can register or unregister a preview feature with Microsoft.Sql resource provider in Azure Portal: 
 
-**Register Block T-SQL CRUD**
-
+### Register Block T-SQL CRUD
 Here is how you can block T-SQL CRUD operations at the subscription level:
 1. Go to your subscriptioion on Azure Portal
 2. Click on **Preview Features** tab. 
 3. Select **Block T-SQL CRUD**.
 4. After you click on Block T-SQL CRUD, a new blade will open, click **Register**, to register this block with Microsoft.Sql resource provider.
 
-  
-**Re-register Microsoft.sql resource provider** 
+![select block tsql crud](./media/block-tsql-crud/BlockTSQLCrud.png)
 
+![register block tsql crud](./media/block-tsql-crud/BlockTSQLCrud_register.png)
+
+  
+### Re-register Microsoft.sql resource provider 
 After you register the block of T-SQL CRUD with Microsoft.Sql resource provider, you must re-register the Microsoft.Sql resource provider for the changes to take effect. To re-register the Microsfot.Sql resource provider:
 1. Go to your subscription on Azure Portal.
 2. Click on **Resource Providers** tab.
 3. Search and select **Microsoft.Sql** resource provider.
 4. Click **Re-register**. 
 
+> [!NOTE]
+> The re-registration step is mandatory for the T-SQL block to be applied to your subscription. 
+
+![re-register Microsoft.Sql resource provider](./media/block-tsql-crud/BlockTSQLCrud_re-register.png)
+
+### Removing Block T-SQL CRUD
+To remove the block on T-SQL create or modify operations from your subscription, first unregister the previously registered T-SQL block and then re-register the Microsoft.Sql resource provider as shown above for the removal of T-SQL block to take effect. 
 
 
 ## Next steps
