@@ -11,6 +11,7 @@ ms.date: 03/18/2021
 # Compatibility level for Azure Stream Analytics jobs
 
 This article describes the compatibility level option in Azure Stream Analytics.
+
 Stream Analytics is a managed service, with [regular feature updates and constant performance improvements](https://azure.microsoft.com/updates/?product=stream-analytics). Most of the service's runtimes updates are automatically made available to end users, independently from the compatibility level. However, when a new functionality introduces a change in the behavior of existing jobs, or a change in the way data is consumed in running jobs, we introduce this change under a new compatibility level. 
 You can keep your existing Stream Analytics jobs running without major changes by leaving the compatibility level setting lowered. When you are ready for the latest runtime behaviors, you can opt-in by raising the compatibility level.
 
