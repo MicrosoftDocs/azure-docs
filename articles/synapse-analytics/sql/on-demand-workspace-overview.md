@@ -48,7 +48,7 @@ Serverless SQL pool endpoint is provided within every Azure Synapse workspace. Y
 
 ## Client tools
 
-Serverless SQL pool enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can [connect to and query Synapse SQL](connect-overview.md) on-demand. You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes.
+Serverless SQL pool enables existing SQL ad-hoc querying and business intelligence tools to tap into the data lake. As it provides familiar T-SQL syntax, any tool capable to establish TDS connection SQL offerings can [connect to and query Synapse SQL](connect-overview.md). You can connect with Azure Data Studio and run ad-hoc queries or connect with Power BI to gain insights in a matter of minutes.
 
 ## T-SQL support
 
