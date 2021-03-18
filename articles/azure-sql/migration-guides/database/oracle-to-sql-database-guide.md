@@ -95,7 +95,7 @@ To convert the schema, follow these steps:
     ![Connect to SQL Database](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
 
 
-1. Right-click the Oracle schema in the **Oracle Meatadata Explorer** and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
+1. Right-click the Oracle schema in the **Oracle Metadata Explorer** and then choose **Convert Schema**. Alternatively, you can choose **Convert Schema** from the top navigation bar after selecting your schema.
 
    ![Convert Schema](./media/oracle-to-sql-database-guide/convert-schema.png)
 
