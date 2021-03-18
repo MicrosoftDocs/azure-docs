@@ -64577,6 +64577,11 @@
       "source_path_from_root": "/articles/media-services/media-services-metrics-diagnostic-logs.md",
       "redirect_url": "/azure/media-services/monitoring/monitor-media-services-data-reference",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/cognitive-services/translator/custom-translator/glossary.md",
+      "redirect_url": "/azure/cognitive-services/translator/custom-translator/terminology",
+      "redirect_document_id": false
     }
   ]
 }
