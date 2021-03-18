@@ -26,7 +26,7 @@ The event source is the link between your hub and your Azure Time Series Insight
 
 You can use the [Azure portal](./tutorials-set-up-tsi-environment.md#create-an-azure-time-series-insights-gen2-environment), [Azure CLI](https://github.com/Azure/azure-cli-extensions/tree/master/src/timeseriesinsights), [ARM Templates](time-series-insights-manage-resources-using-azure-resource-manager-template.md), and the [REST API](/rest/api/time-series-insights/management(gen1/gen2)/eventsources) to create, edit, or remove your environment's event sources.
 
-## Start Options
+## Start options
 
 When creating an event source, you have the option to specify what pre-existing data should be collected. This setting is optional. The following options are available:
 
