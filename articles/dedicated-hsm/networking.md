@@ -111,7 +111,7 @@ Since adding the NVA proxy solution also allows for an NVA firewall in the trans
 > [!NOTE]
 > Because the NVA proxy tier will SNAT the client IP address as it forwards to the HSM NIC, no UDRs are required between the HSM VNet and the DMZ hub VNet.  
 
-### Alternate to UDRs
+### Alternative to UDRs
 The NVA tier solution mentioned above works as an alternative to UDRs. There are some important points to note.
 1.	Network Address Translation should be configured on NVA to allow for return traffic to be routed correctly.
 2. Customers should disable the client ip-check in Luna HSM configuration to use VNA for NAT. The following commands servce as an example.
