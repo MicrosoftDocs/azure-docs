@@ -9,7 +9,7 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 12/31/2020 
+ms.date: 03/17/2021 
 ---
 
 # Creating a Synapse workspace
@@ -59,19 +59,10 @@ Every workspace comes with a pre-built serverless SQL pool called **Built-in**. 
 
 
 
-## Create a serverless Apache Spark pool
 
-1. In Synapse Studio, on the left-side pane, select **Manage** > **Apache Spark pools**.
-1. Select **New** 
-1. For **Apache Spark pool name** enter **Spark1**.
-1. For **Node size** enter **Small**.
-1. For **Number of nodes** Set the minimum to 3 and the maximum to 3
-1. Select **Review + create** > **Create**. Your Apache Spark pool will be ready in a few seconds.
-
-The Spark pool tells Azure Synapse how many Spark resources to use. You only pay for the resources that you use. When you actively stop using the pool, the resources automatically time out and are recycled.
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using a dedicated SQL pool](get-started-analyze-sql-pool.md)
+> [Analyze using a serverless SQL pool](get-started-analyze-sql-on-demand.md)
