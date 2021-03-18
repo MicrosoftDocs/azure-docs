@@ -2,10 +2,10 @@
   href: index.yml
 
 - name: Overview
+  expanded: true
   items:
   - name: What is the Azure Certified Device program?
     href: overview.md
-    expanded: true
 
 - name: Tutorials
   expanded: true
