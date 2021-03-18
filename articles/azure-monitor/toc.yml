@@ -718,12 +718,16 @@
               href: app/java-in-process-agent.md
             - name: Configuration options
               href: app/java-standalone-config.md
-            - name: Telemetry processors
+            - name: Advanced configurations
               items:
-              - name: Overview
-                href: app/java-standalone-telemetry-processors.md
-              - name: Examples
-                href: app/java-standalone-telemetry-processors-examples.md
+              - name: JMX metrics
+                href: app/java-jmx-metrics-configuration.md
+              - name: Telemetry processors
+                items:
+                - name: Overview
+                  href: app/java-standalone-telemetry-processors.md
+                - name: Examples
+                  href: app/java-standalone-telemetry-processors-examples.md
             - name: JVM arguments setup
               href: app/java-standalone-arguments.md
             - name: Upgrade from 2.x SDK
@@ -966,8 +970,6 @@
       items:
       - name: F5 insights
         href: app/visual-studio.md
-      - name: Trends
-        href: app/visual-studio-trends.md
       - name: CodeLens
         href: app/visual-studio-codelens.md
     - name: Other platforms
@@ -1038,6 +1040,8 @@
       href: vm/vminsights-workbooks.md
     - name: Disable monitoring
       href: vm/vminsights-optout.md
+    - name: Troubleshoot
+      href: vm/vminsights-troubleshoot.md
   - name: Container insights 
     items:
     - name: Overview
@@ -1126,6 +1130,18 @@
       href: insights/network-insights-overview.md
     - name: Key Vault
       href: insights/key-vault-insights-overview.md
+    - name: SQL insights (preview)
+      items:
+      - name: Overview
+        href: insights/sql-insights-overview.md
+      - name: FAQ
+        href: faq.md#sql-insights-preview
+      - name: Enable
+        href: insights/sql-insights-enable.md
+      - name: Alerts
+        href: insights/sql-insights-alerts.md
+      - name: Troubleshoot
+        href: insights/sql-insights-troubleshoot.md
     - name: Storage
       displayname: storage, monitor, insights, storage accounts, azure storage
       href: insights/storage-insights-overview.md

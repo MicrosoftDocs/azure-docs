@@ -20,14 +20,14 @@
   - name: 1 Create a Synapse workspace
     href: get-started-create-workspace.md
     displayName: get, started
-  - name: 2 Analyze using a dedicated SQL pool
-    href: get-started-analyze-sql-pool.md
+  - name: 2 Analyze using serverless SQL pool
+    href: get-started-analyze-sql-on-demand.md
     displayName: get, started
   - name: 3 Analyze using Spark
     href: get-started-analyze-spark.md
     displayName: get, started
-  - name: 4 Analyze using serverless SQL pool
-    href: get-started-analyze-sql-on-demand.md
+  - name: 4 Analyze using a dedicated SQL pool
+    href: get-started-analyze-sql-pool.md
     displayName: get, started
   - name: 5 Analyze data in a storage account
     href: get-started-analyze-storage.md
@@ -112,6 +112,8 @@
         items: 
         - name: Synapse workspace IP firewall rules
           href: ./security/synapse-workspace-ip-firewall.md
+        - name: Connectivity settings
+          href: ./security/connectivity-settings.md
         - name: Synapse workspace Managed virtual network
           href: ./security/synapse-workspace-managed-vnet.md
           displayname: vnet
@@ -193,10 +195,8 @@
         href: troubleshoot/reading-utf8-text.md
 - name: Migration guides
   items:
-  - name: SQL Server to Azure Synapse Analytics
-    href: migration-guides/sql-server-to-synapse-analytics-guide.md
-  - name: Oracle to Azure Synapse Analytics
-    href: migration-guides/oracle-to-synapse-analytics-guide.md
+  - name: Migrate to a dedicated SQL pool
+    href: migration-guides/migrate-to-synapse-analytics-guide.md
 - name: Synapse SQL
   items:
   - name: Overview
@@ -221,9 +221,9 @@
     - name: Cost management for serverless SQL pool
       href: sql/data-processed.md
     - name: Best practices serverless SQL pool
-      href: sql/best-practices-sql-on-demand.md
+      href: sql/best-practices-serverless-sql-pool.md
     - name: Best practices dedicated SQL pools
-      href: sql/best-practices-sql-pool.md
+      href: sql/best-practices-dedicated-sql-pool.md
   - name: Quickstarts
     items:
     - name: Use serverless SQL pool

@@ -1,10 +1,10 @@
 ---
-author: PatrickFarley
+author: laujan
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/17/2019
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 * Supported file formats: JPEG, PNG, PDF, and TIFF 

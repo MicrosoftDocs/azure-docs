@@ -584,8 +584,8 @@
               displayName: parameterized query, parameterized, parameter, parameters
               href: sql-query-parameterized-queries.md
             - name: Pagination
-              displayName: continuation tokens
-              href: sql-query-parameterized-queries.md
+              displayName: continuation tokens, paging, pagination
+              href: sql-query-pagination.md
             - name: LINQ to SQL
               displayName: linq, .NET
               href: sql-query-linq-to-sql.md
@@ -880,9 +880,9 @@
             - name: Azure Event Hubs and Azure Storage
               href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
             - name: Use Spring Boot Starter
-              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Spring Data developer guide
-              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+              href: /azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: ODBC driver
               href: odbc-driver.md
     - name: Reference
@@ -1003,7 +1003,7 @@
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-cassandra.md
         - name: Store and manage Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Troubleshoot common issues
           href: cassandra-troubleshoot.md
         - name: Cassandra and Spark
@@ -1157,7 +1157,7 @@
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
         - name: Store and manage Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
@@ -1238,7 +1238,7 @@
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data
-          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=%2fazure%2fcosmos-db%2fcontext%2fcontext
+          href: /azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Manage using Resource Manager templates
           href: templates-samples-gremlin.md
           displayName: ARM

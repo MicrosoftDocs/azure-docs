@@ -30,6 +30,8 @@
     href: data-flow-create.md
 - name: Tutorials
   items:
+  - name: List of tutorials
+    href: data-factory-tutorials.md
   - name: Copy and ingest data
     items:
     - name: From Azure Blob Storage to Azure SQL Database
@@ -694,14 +696,16 @@
       href: azure-ssis-integration-runtime-package-store.md
   - name: Create triggers
     items:
-    - name: Create a storage event trigger
-      href: how-to-create-event-trigger.md
     - name: Create a schedule trigger
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
     - name: Create a tumbling window trigger dependency
       href: tumbling-window-trigger-dependency.md
+    - name: Create a storage event trigger
+      href: how-to-create-event-trigger.md
+    - name: Create a custom event trigger
+      href: how-to-create-custom-event-trigger.md
     - name: Reference trigger metadata in pipeline
       href: how-to-use-trigger-parameterization.md
   - name: Data Catalog and Governance
