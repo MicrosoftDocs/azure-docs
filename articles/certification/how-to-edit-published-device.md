@@ -33,10 +33,10 @@ On the project summary, you should notice that your project is in read-only mode
     ![Note of metadata edit](./media/images/edit-notes.png)
 
 1. On the project summary page, click `Submit for review` to have your changes reapproved by the Azure Certification team.
-1. After your changes have been reviewed and approved, you can then republish your changes to the catalog through the portal (See our [tutorial](#tutorial-04-publishing-your-device.md)).
+1. After your changes have been reviewed and approved, you can then republish your changes to the catalog through the portal (See our [tutorial](./tutorial-04-publishing-your-device.md)).
 
 ## Next steps
 
 You've now successfully edited your device on the Azure Certified Device catalog. You can check out your changes on the catalog, or certify another device!
 - [Azure Certified Device catalog](https://devicecatalog.azure.com/)
-- [Get started with certifying a device](tutorial-01-creating-your-project.md)
+- [Get started with certifying a device](./tutorial-01-creating-your-project.md)

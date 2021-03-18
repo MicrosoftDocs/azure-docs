@@ -59,7 +59,7 @@ The remainder of the page is focused on displaying the technical specifications 
 ## Shop links
 Available both on the product tile and product description page is a Shop button. When clicked by the customer, a window opens that allows them to select a distributor (you are allowed to list up to 5 distributors). Once selected, the customer is redirected to the partner-provided URL.
 
-![Shop](./media/concepts-marketing/shop.png)
+![Image of Shop pop-up experience](./media/concepts-marketing/shop.png)
 
 | Field | Description                  | Where to add in the portal                |
 |---------------|-------------------------|----------------------------------|

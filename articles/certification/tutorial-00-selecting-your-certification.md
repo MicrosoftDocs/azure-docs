@@ -11,9 +11,9 @@ ms.custom: template-tutorial
 
 # Tutorial: Select your certification program
 
-Congratulations on choosing to certify your device through the Azure Certified Device program! We are excited to have you join our ecosystem of certified devices. To begin, you must first determine which of the four certification programs best suit your device capabilities.
+Congratulations on choosing the Azure Certified Device program! We're excited to have you join our ecosystem of certified devices. To begin, you must first determine which of the four certification programs best suit your device capabilities.
 
-In this tutorial, you will learn how to:
+In this tutorial, you learn to:
 
 > [!div class="checklist"]
 > * Select the best certification program(s) for your device
@@ -24,9 +24,9 @@ In this tutorial, you will learn how to:
 
 ## Selecting a certification program for your device
 
-Each of the four certification programs delivers a different customer value. At the core of the certification program is the **Azure Certified Device** certification. All devices are required to be meet the baseline requirements outlined by this certification. The other three certification badges build on top of the Azure Certified Device requirements. You will only be able to select one of the three incremental badges (IoT Plug and Play, Edge Managed, and Edge Secured Core) to certify your device with.
+All devices are required to meet the baseline requirements outlined by the **Azure Certified Device** certification. The other three certification badges build on this program and deliver a different customer value. You can select one of the three incremental badges (IoT Plug and Play, Edge Managed, and Edge Secured Core).
 
-1. Review the each of the certification programs' primary customer value and promise in the table below. Click on the links provided to view the technical requirements your device must meet to pass our Azure IoT Certification Service testing.
+1. Review each of the certification programs' primary customer value and promise in the table below. Select on the links provided to view the technical requirements your device must meet to pass our Azure IoT Certification Service testing.
 
     | Certification program         |  Overview                      |
     ------------------------------|-------------------------------------------------|
@@ -38,6 +38,6 @@ Each of the four certification programs delivers a different customer value. At 
 
 ## Next steps
 
-You are now ready to begin the process of registering and testing your device for using our certification service. Advance to the next article to begin your project.
+You're now ready to begin certifying your device! Advance to the next article to begin your project.
 > [!div class="nextstepaction"]
 >[Tutorial: Creating your project](tutorial-01-creating-your-project.md)

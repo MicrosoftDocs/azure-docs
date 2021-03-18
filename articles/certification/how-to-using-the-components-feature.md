@@ -21,7 +21,7 @@ While completing the [tutorial to add device details](tutorial-02-adding-device-
 
 Every project submitted for certification will include one **Customer Ready Product** component (which in many cases will represent the holistic product itself). To better understand the distinction of a Customer Ready Product component type, view our [certification glossary](concepts-terminology). All additional components are at your discretion to include to accurately capture your device.
 
-1. Click `Add a component` on the Product details tab.
+1. Select `Add a component` on the Product details tab.
 
     ![Add a component link](./media/images/Add_a_component_link.png)
 
@@ -33,13 +33,13 @@ Every project submitted for certification will include one **Customer Ready Prod
 
     ![Save Product Details button](./media/images/Save_Product_Details_button.png)
 
-1. Once you have saved your component, you can further tailor the hardware capabilities it supports. Click the `Edit` link by the component name.  
+1. Once you have saved your component, you can further tailor the hardware capabilities it supports. Select the `Edit` link by the component name.  
 
     ![Edit Component button](./media/images/component_edit.png)
 
 1. Provide relevant hardware capability information where appropriate.  
 
-    ![Edit Component button](./media/images/component_selection_area.png)  
+    ![Image of editable component sections](./media/images/component_selection_area.png)  
 
     The editable component fields (shown above) include:
 
@@ -49,7 +49,7 @@ Every project submitted for certification will include one **Customer Ready Prod
     - **Sensors**: Specify available sensors such as GPS and vibration
     - **Additional Specs**: Additional information about the device such as physical dimensions and storage/battery information
 
-1. Click `Save Product Details` at the bottom of the Product details page.
+1. Select `Save Product Details` at the bottom of the Product details page.
 
 ## Component use requirements and recommendations
 
@@ -80,16 +80,16 @@ Below are examples of how an OEM called Contoso would use the components feature
 
        - **Note**: The peripheral component is considered integrated because it is not removable.
 
-     ![Image of peripheral](./media/images/Peripheral.png)
+     ![Image of peripheral example component](./media/images/Peripheral.png)
 
 1. Falcon is a device that includes an integrated System on Module from INC Electronics that uses a built-in processor Apollo52 from company Espressif and has an ARM64 architecture.
     1. No. of components: 2
     1. Component device type: Customer Ready Product, System on Module
     1. Attachment type: Discrete, Integrated
 
-       - **Note**: The peripheral component is considered integrated because it is not removable. The SoM component would also include the additional processor information.
+       - **Note**: The peripheral component is considered integrated because it is not removable. The SoM component would also include processor information.
 
-     ![Image of peripheral](./media/images/System_On_Module.png)
+     ![Image of system on module example component ](./media/images/System_On_Module.png)
 
 ## Additional tips
 
@@ -97,7 +97,7 @@ We've provided below more clarifications regarding our component usage policy. I
 
 1. A project must contain **only** one Customer Ready Product component. If you are certifying a project with two independent devices, those devices should be certified separately.
 1. It is primarily up to you to use (or not use) components to promote your device's capabilities to potential customers.
-1. During our review of your device, the Azure Certification team will only require at least one Customer Ready Product component to be listed. However, we may request edits to the component information if the details are not clear or appear to be lacking (e.g. Component manufacturer is not supplied for a Customer Ready Product type).
+1. During our review of your device, the Azure Certification team will only require at least one Customer Ready Product component to be listed. However, we may request edits to the component information if the details are not clear or appear to be lacking (for example, component manufacturer is not supplied for a Customer Ready Product type).
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Publish your device
 
-Congratulations on successfully certifying your device! Your product is joining an ecosystem of exceptional devices that work great with Azure. Now that your device has been certified, you can optionally publish your device details to the [Azure Certified Device catalog](devicecatalog.azure.com) for a world of customers to discover and buy.
+Congratulations on successfully certifying your device! Your product is joining an ecosystem of exceptional devices that work great with Azure. Now that your device has been certified, you can optionally publish your device details to the [Azure Certified Device catalog](https://devicecatalog.azure.com) for a world of customers to discover and buy.
 
 In this tutorial, you learn how to:
 
