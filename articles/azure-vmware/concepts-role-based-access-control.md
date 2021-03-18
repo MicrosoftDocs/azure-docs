@@ -2,7 +2,7 @@
 title: Concepts - vSphere role-based access control (vSphere RBAC)
 description: Learn about the key capabilities of vSphere role-based access control for Azure VMware Solution 
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 03/18/2021
 ---
 
 # vSphere role-based access control (vSphere RBAC) for Azure VMware Solution
@@ -10,19 +10,19 @@ ms.date: 03/16/2021
 In Azure VMware Solution, vCenter has a built-in local user called cloudadmin and assigned to the built-in CloudAdmin role. The local cloudadmin user is used to set up users in AD. In general, the CloudAdmin role creates and manages workloads in your private cloud. In Azure VMware Solution, the CloudAdmin role has vCenter privileges that differ from other VMware cloud solutions.     
 
 > [!NOTE]
-> Azure VMware Solution offers custom roles on vCenter but currently does not offer them on the Azure VMware Solution portal. For more information, see the [Create custom roles on vCenter](#create-custom-roles-on-vcenter) section later in this article. 
+> Azure VMware Solution offers custom roles on vCenter does not offer them on the Azure VMware Solution portal. For more information, see the [Create custom roles on vCenter](#create-custom-roles-on-vcenter) section later in this article. 
 
 In a vCenter and ESXi on-premises deployment, the administrator has access to the vCenter administrator@vsphere.local account. They can also have more Active Directory (AD) users/groups assigned. 
 
 In an Azure VMware Solution deployment, the administrator doesn't have access to the administrator user account. But they can assign AD users and groups to the CloudAdmin role on vCenter.  
 
-The private cloud user doesn't have access to and can't configure specific management components supported and managed by Microsoft. For example, clusters, hosts, datastores, and distributed virtual switches.
+The private cloud user doesn't have access and can not configure specific management components supported and managed by Microsoft. For example clusters, hosts, datastores, and distributed virtual switches.
 
 ## Azure VMware Solution CloudAdmin role on vCenter
 
 You can view the privileges granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud vCenter.
 
-1. Log into the SDDC vSphere Client and go to **Menu** > **Administration**.
+1. Log into vCenter and go to **Menu** > **Administration**.
 1. Under **Access Control**, select **Roles**.
 1. From the list of roles, select **CloudAdmin** and then select **Privileges**. 
 
@@ -57,7 +57,7 @@ Azure VMware Solution supports the use of custom roles with equal or lesser priv
 
 The CloudAdmin role can create, modify, or delete custom roles that have privileges lesser than or equal to their current role. You may be able to create roles that have privileges greater than CloudAdmin but you will not be able to assign the role to any users or groups or delete the role.
 
-To prevent the creation of roles that can't be assigned or deleted, Azure VMware Solution recommends cloning the CloudAdmin role as the basis for creating new custom roles.
+To prevent the creation of roles that can't be assigned or deleted it is recommends to clone the CloudAdmin role as the basis for creating new custom roles.
 
 ### Create a custom role
 1. Sign into vCenter with cloudadmin\@vsphere.local or a user with the CloudAdmin role.
