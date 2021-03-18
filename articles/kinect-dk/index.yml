@@ -83,7 +83,7 @@ landingContent:
           - text: Sensor SDK API
             url: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
           - text: Body tracking SDK API
-            url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html
+            url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.1.0/index.html
           - text: Vision Services
             url: https://azure.microsoft.com/services/cognitive-services/directory/vision/
           - text: Speech Services
