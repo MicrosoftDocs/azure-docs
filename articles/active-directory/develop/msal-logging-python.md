@@ -47,7 +47,7 @@ logging.getLogger("msal").setLevel(logging.WARN)
 
 ### Configure MSAL logging with Azure App Insights
 
-Python logs are given to a log handler, which by default is the `StreamHandler`. To send MSAL logs to an Application Insights with an Instrumentation Key, use the `AzureLogHandler` provided by the `opencensus-ext-azure` library:
+Python logs are given to a log handler, which by default is the `StreamHandler`. To send MSAL logs to an Application Insights with an Instrumentation Key, use the `AzureLogHandler` provided by the `opencensus-ext-azure` library.
 
 To install, `opencensus-ext-azure` add the `opencensus-ext-azure` package from PyPI to your dependencies or pip install:
 
