@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.author: mbaldwin
+ms.author: keithp
 
 ---
 # Azure Dedicated HSM high availability
