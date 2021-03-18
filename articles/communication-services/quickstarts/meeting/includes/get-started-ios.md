@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how to join a teams meeting using the Azure Communication Services Teams Embed library for iOS.
+In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Teams Embed library for iOS.
 
 ## Prerequisites
 
