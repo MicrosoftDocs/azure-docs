@@ -32,7 +32,8 @@ To manage these scenarios previously, you had to manually delete the guest userâ
 If a user wants to sign in using a different email:
 
 1. Make sure the new email address is added to the `mail` or `otherMails` property of the user object. 
-2. Perform the reset operation on the user ensuring that the new email is specified in as the `InvitedUserEmailAddress`.
+2.  Replace the email address in the `InvitedUserEmailAddress` property with the new email address.
+3. Use one of the methods below to reset the user's redemption status.
 
 > [!NOTE]
 >During public preview, when you're resetting the user's email address, we recommend setting the `mail` property to the new email address. This way the user can redeem the invitation by signing into your directory in addition to using the redemption link in the invitation.
