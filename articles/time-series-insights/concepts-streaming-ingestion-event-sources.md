@@ -115,3 +115,4 @@ The time zone offset should be formatted as one of the following:
 - Read the [JSON Flattening and Escaping Rules](./concepts-json-flattening-escaping-rules.md) to understand how events will be stored.
 
 - Understand your environment's [throughput limitations](./concepts-streaming-ingress-throughput-limits.md)
+
