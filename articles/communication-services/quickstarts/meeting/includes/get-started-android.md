@@ -299,7 +299,7 @@ You can also get the required meeting information from the **Join Meeting** URL 
 
 ## Start a meeting using the meeting client
 
-Joining a meeting can be done via the MeetingClient, and just requires a meetingURL and the JoinOptions. Replace `<MEETING_URL>` with a teams meeting url.
+Joining a meeting can be done via the `MeetingClient`, and just requires a `meetingURL` and the `JoinOptions`. Replace `<MEETING_URL>` with a teams meeting url.
 
 ```java
 /**
