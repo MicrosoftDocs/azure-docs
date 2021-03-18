@@ -24,10 +24,10 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
       * `aspects` is now `targets` and `opinions` is now `assessments`. 
    * Changes in the JSON response body of the hosted web API of Text Analytics for health: 
       * The `isNegated` boolean name of a detected entity object for Negation is deprecated and replaced by Assertion Detection.
-      * A new property called `role` that is part of the extracted relation between an attribute and an entity as well as the relation between entities.  This adds specificity to the detected relation type.
+      * A new property called `role` is now part of the extracted relation between an attribute and an entity as well as the relation between entities.  This adds specificity to the detected relation type.
    * Entity linking is now available as an asynchronous task in the `/analyze` endpoint.
    * A new `pii-categories` parameter is now available in the `/pii` endpoint.
-      * This parameter lets you to specify select PII entities as well as those not supported by default for the input language.
+      * This parameter lets you specify select PII entities as well as those not supported by default for the input language.
 * A new model version `2021-03-01` for the `/health` endpoint which provides
     * A rename of the `Gene` entity type to `GeneOrProtein`.
     * A new `Date` entity type.
