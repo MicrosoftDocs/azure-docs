@@ -14,6 +14,43 @@ If you enabled Application Insights Snapshot Debugger for your application, but 
 
 There can be many different reasons why snapshots aren't generated. You can start by running the snapshot health check to identify some of the possible common causes.
 
+## Make sure you're using the appropriate Snapshot Debugger Endpoint
+
+Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+For App Service and applications using the Application Insights SDK, you have to update the connection string using the supported overrides for Snapshot Debugger as defined below:
+
+|Connection String Property    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+For more information about other connection overrides, see [Application Insights documentation](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+
+For Function App, you have to update the `host.json` using the supported overrides below:
+
+|Property    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Below is an example of the `host.json` updated with the US Government Cloud agent endpoint:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
+
 ## Use the snapshot health check
 Several common problems result in the Open Debug Snapshot not showing up. Using an outdated Snapshot Collector, for example; reaching the daily upload limit; or perhaps the snapshot is just taking a long time to upload. Use the Snapshot Health Check to troubleshoot common problems.
 
@@ -31,9 +68,10 @@ If that doesn't solve the problem, then refer to the following manual troublesho
 
 Make sure you're using the correct instrumentation key in your published application. Usually, the instrumentation key is read from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
 
-## <a id="SSL"></a>Check SSL client settings (ASP.NET)
+## <a id="SSL"></a>Check TLS/SSL client settings (ASP.NET)
 
-If you have an ASP.NET application hosted in Azure App Service or in IIS on a virtual machine, your application could fail to connect to the Snapshot Debugger service due to a missing SSL security protocol.
+If you have an ASP.NET application that it is hosted in Azure App Service or in IIS on a virtual machine, your application could fail to connect to the Snapshot Debugger service due to a missing SSL security protocol.
+
 [The Snapshot Debugger endpoint requires TLS version 1.2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). The set of SSL security protocols is one of the quirks enabled by the httpRuntime targetFramework value in the system.web section of web.config.
 If the httpRuntime targetFramework is 4.5.2 or lower, then TLS 1.2 isn't included by default.
 
@@ -61,6 +99,10 @@ If you're using a preview version of .NET Core or your application references Ap
 
 ## Check the Diagnostic Services site extension' Status Page
 If Snapshot Debugger was enabled through the [Application Insights pane](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) in the portal, it was enabled by the Diagnostic Services site extension.
+
+> [!NOTE]
+> Codeless installation of Application Insights Snapshot Debugger follows the .NET Core support policy.
+> For more information about supported runtimes, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 You can check the Status Page of this extension by going to the following url:
 `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`

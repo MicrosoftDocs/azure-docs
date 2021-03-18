@@ -13,6 +13,11 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- March 2021
+  - [Backup center is now generally available](#backup-center-is-now-generally-available)
+  - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
+- February 2021
+  - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 - January 2021
   - [Azure Disk Backup (in preview)](#azure-disk-backup-in-preview)
   - [Encryption at rest using customer-managed keys (general availability)](#encryption-at-rest-using-customer-managed-keys)
@@ -29,6 +34,26 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup SAP HANA in RHEL Azure Virtual Machines (in preview)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Zone redundant storage (ZRS) for backup data (in preview)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## Backup center is now generally available
+
+Backup center simplifies data protection management at-scale by enabling you to discover, govern, monitor, operate, and optimize backup management from one single central console.
+
+For more information, see [Overview of Backup Center](backup-center-overview.md).
+
+## Archive Tier support for Azure Backup (in preview)
+
+Azure Backup now allows you to reduce the cost of long-term retention backups with the availability of Archive Tier for Azure virtual machines and SQL Server in Azure virtual machines.
+
+For more information, see [Archive Tier support (Preview)](archive-tier-support.md).
+
+## Backup for Azure Blobs (in preview)
+
+Operational backup for Blobs is a managed, local data protection solution that lets you protect your block blobs from various data loss scenarios like corruptions, blob deletions, and accidental storage account deletion. The data is stored locally within the source storage account itself and can be recovered to a selected point in time whenever needed. So it provides a simple, secure, and cost-effective means to protect your blobs.
+
+Operational backup for Blobs integrates with Backup Center, among other Backup management capabilities, to provide a single pane of glass that can help you govern, monitor, operate, and analyze backups at scale.
+
+For more information, see [Overview of operational backup for Azure Blobs (in preview)](blob-backup-overview.md).
 
 ## Azure Disk Backup (in preview)
 

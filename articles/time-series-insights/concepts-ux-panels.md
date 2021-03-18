@@ -20,7 +20,7 @@ This article describes the various features and options available within the Azu
 
 To get started with the Azure Time Series Insights Explorer, you must:
 
-* Have an Azure Time Series Insights Gen2 environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Gen2](./tutorials-set-up-tsi-environment.md) tutorial.
+* Have an Azure Time Series Insights Gen2 environment provisioned. Learn more about provisioning an instance by reading the [Azure Time Series Insights Gen2](./tutorial-set-up-environment.md) tutorial.
 * [Provide data access](./concepts-access-policies.md) to the Azure Time Series Insights Gen2 environment that you created for the account. You can provide access to others as well as to yourself.
 * Add an event source to the Azure Time Series Insights Gen2 environment to push data to the environment:
   * Learn [how to connect to an event hub](./how-to-ingest-data-event-hub.md)
@@ -87,7 +87,7 @@ The well displays instance fields and other metadata associated with selected Ti
 
 You may remove specific data elements from your current data well by selecting the red **Delete** (trash can) control on the left side of the element. The well also lets you control how each element is displayed in the chart. You can choose to add min/max shadows, data points, shift the element in time and visualize the instance a stepped manner.
 
-Additionally, The explorations control lets you create time shifts and scatter plots easily.  
+Additionally, The explorations control lets you create time shifts and scatter plots easily.
 
   [![Well layout options](media/v2-update-explorer/well-layout-options.png)](media/v2-update-explorer/well-layout-options.png#lightbox)
 

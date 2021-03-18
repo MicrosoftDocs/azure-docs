@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 03/17/2021
 ms.author: inhenkel
 ---
 
@@ -55,7 +55,7 @@ Use **Transforms** to configure common tasks for encoding or analyzing videos. E
 
 ### Viewing schema
 
-In Media Services v3, presets are strongly typed entities in the API itself. You can find the "schema" definition for these objects in [Open API Specification (or Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). You can also view the preset definitions (like **StandardEncoderPreset**) in the [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet), or other Media Services v3 SDK reference documentation.
+In Media Services v3, presets are strongly typed entities in the API itself. You can find the "schema" definition for these objects in [Open API Specification (or Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). You can also view the preset definitions (like **StandardEncoderPreset**) in the [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset), or other Media Services v3 SDK reference documentation.
 
 ### Creating Transforms
 
@@ -87,7 +87,7 @@ Use [Asset as job input](job-input-from-local-file-how-to.md) if the input conte
 
 ### Checking Job progress
 
-The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](job-state-events-cli-how-to.md).
+The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](monitoring/job-state-events-cli-how-to.md).
 
 ### Updating Jobs
 

@@ -12,7 +12,7 @@ ms.custom: CLI
 
 | Feature| East Asia | Southeast Asia |
 | --- | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) | ![Azure EventGrid East Asia general availability](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid Southeast Asia general availability](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) | ![Azure EventGrid East Asia general availability](../media/azure-clouds-regions/ga.svg) | ![Azure EventGrid Southeast Asia general availability](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![ VideoAnalyzerPreset East Asia general availability](../media/azure-clouds-regions/ga.svg) | ![VideoAnalyzerPreset Southeast Asia general availability](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![AudioAnalyzerPreset East Asia general availability](../media/azure-clouds-regions/ga.svg) | ![ AudioAnalyzerPreset Southeast Asia general availability](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) | ![StandardEncoderPreset East Asia general availability](../media/azure-clouds-regions/ga.svg) | ![ StandardEncoderPreset Southeast Asia general availability](../media/azure-clouds-regions/ga.svg) |

@@ -3,12 +3,15 @@ title: Quickstart - Add VOIP calling to an Android app using Azure Communication
 description: In this tutorial, you learn how to use the Azure Communication Services Calling client library for Android
 author: matthewrobertson
 ms.author: marobert
-ms.date: 08/11/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling client library for Android.
+
+> [!NOTE]
+> This document uses version 1.0.0-beta.8 of the calling client library.
 
 ## Prerequisites
 
@@ -73,7 +76,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.8'
     ...
 }
 ```
@@ -175,11 +178,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.azure.android.communication.common.CommunicationUser;
-import com.azure.android.communication.common.CommunicationUserCredential;
-import com.azure.communication.calling.CallAgent;
-import com.azure.communication.calling.CallClient;
-import com.azure.communication.calling.StartCallOptions;
+import com.azure.android.communication.common.CommunicationUserIdentifier;
+import com.azure.android.communication.common.CommunicationTokenCredential;
+import com.azure.android.communication.calling.CallAgent;
+import com.azure.android.communication.calling.CallClient;
+import com.azure.android.communication.calling.StartCallOptions;
 
 
 import java.util.ArrayList;
@@ -259,6 +262,7 @@ The following classes and interfaces handle some of the major features of the Az
 | CallClient| The CallClient is the main entry point to the Calling client library.|
 | CallAgent | The CallAgent is used to start and manage calls. |
 | CommunicationUserCredential | The CommunicationUserCredential is used as the token credential to instantiate the CallAgent.|
+| CommunicationIdentifier | The CommunicationIdentifier is used as different type of participant that would could be part of a call.|
 
 ## Create an agent from the user access token
 
@@ -273,7 +277,7 @@ private void createAgent() {
     String userToken = "<User_Access_Token>";
 
     try {
-        CommunicationUserCredential credential = new CommunicationUserCredential(userToken);
+        CommunicationTokenCredential credential = new CommunicationTokenCredential(userToken);
         callAgent = new CallClient().createCallAgent(getApplicationContext(), credential).get();
     } catch (Exception ex) {
         Toast.makeText(getApplicationContext(), "Failed to create call agent.", Toast.LENGTH_SHORT).show();
@@ -296,9 +300,9 @@ private void startCall() {
     
     StartCallOptions options = new StartCallOptions();
 
-    callAgent.call(
+    callAgent.startCall(
         getApplicationContext(),
-        new CommunicationUser[] {new CommunicationUser(calleeId)},
+        new CommunicationUserIdentifier[] {new CommunicationUserIdentifier(calleeId)},
         options);
 }
 ```

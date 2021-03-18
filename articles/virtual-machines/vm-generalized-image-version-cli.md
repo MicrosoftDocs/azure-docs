@@ -3,7 +3,7 @@ title: Create a VM from a generalized image using the Azure CLI
 description: Create a VM from a generalized image version using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020

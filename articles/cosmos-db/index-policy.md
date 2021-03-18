@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 02/10/2021
 ms.author: tisande
 ---
 
@@ -285,7 +285,7 @@ WHERE c.firstName = "John" AND Contains(c.lastName, "Smith", true)
 ORDER BY c.firstName, c.lastName
 ```
 
-The following considerations are used when creating composite indexes to optimize a query with a filter and `ORDER BY` clause:
+The following considerations apply when creating composite indexes to optimize a query with a filter and `ORDER BY` clause:
 
 * If you do not define a composite index on a query with a filter on one property and a separate `ORDER BY` clause using a different property, the query will still succeed. However, the RU cost of the query can be reduced with a composite index, particularly if the property in the `ORDER BY` clause has a high cardinality.
 * If the query filters on properties, these should be included first in the `ORDER BY` clause.
@@ -303,6 +303,26 @@ The following considerations are used when creating composite indexes to optimiz
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.timestamp ASC``` | `No` |
+
+### Queries with a filter and an aggregate 
+
+If a query filters on one or more properties and has an aggregate system function, it may be helpful to create a composite index for the properties in the filter and aggregate system function. This optimization applies to the [SUM](sql-query-aggregate-sum.md) and [AVG](sql-query-aggregate-avg.md) system functions.
+
+The following considerations apply when creating composite indexes to optimize a query with a filter and aggregate system function.
+
+* Composite indexes are optional when running queries with aggregates. However, the RU cost of the query can often be significantly reduced with a composite index.
+* If the query filters on multiple properties, the equality filters must be the first properties in the composite index.
+* You can have a maximum of one range filter per composite index and it must be on the property in the aggregate system function.
+* The property in the aggregate system function should be defined last in the composite index.
+* The `order` (`ASC` or `DESC`) does not matter.
+
+| **Composite Index**                      | **Sample Query**                                  | **Supported by Composite Index?** |
+| ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John"``` | `No` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name > "John"``` | `No` |
+| ```(name ASC, age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age = 25``` | `Yes` |
+| ```(age ASC, timestamp ASC)```          | ```SELECT AVG(c.timestamp) FROM c WHERE c.name = "John" AND c.age > 25``` | `No` |
 
 ## <index-transformation>Modifying the indexing policy
 

@@ -24,9 +24,9 @@
     items:
     - name: Firebase Cloud Messaging
       items:
-      - name: Send push notifications to all registrations (SDK version 1.0.0-preview1)
+      - name: Send push notifications to all registrations (Current SDK)
         href: android-sdk.md
-      - name: Send push notifications to all registrations (SDK version 0.6)
+      - name: Send push notifications to all registrations (Legacy SDK)
         href: notification-hubs-android-push-notification-google-fcm-get-started.md
       - name: Send push notifications to specific devices
         href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -50,10 +50,10 @@
       items:
       - name: Prerequisites for iOS tutorials
         href: ios-sdk-get-started.md
-      - name: Objective-C (version 3.0.0-preview1)
-        href: ios-sdk-300.md
-      - name: Objective-C (version 2.0.4)
-        href: ios-sdk-204.md
+      - name: Objective-C (Current SDK)
+        href: ios-sdk-current.md
+      - name: Objective-C (Legacy SDK)
+        href: ios-sdk-legacy.md
     - name: Send push notifications to specific devices
       href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
     - name: Send push notifications to specific users
@@ -120,7 +120,7 @@
   - name: Create notification hub using SDKs
     items:
     - name: Create notification hub - .NET
-      href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+      href: /dotnet/api/overview/azure/notification-hubs
     - name: Create notification hub - Node.js
       href: notification-hubs-nodejs-push-notification-tutorial.md
     - name: Create notification hub - Java

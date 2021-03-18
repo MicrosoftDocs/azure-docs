@@ -4,7 +4,7 @@ description: Learn how to copy data from a cloud or on-premises HTTP source to s
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 03/17/2021
 ms.author: jingwang
 ---
 # Copy data from an HTTP endpoint by using Azure Data Factory
@@ -60,7 +60,8 @@ The following properties are supported for the HTTP linked service:
 | type | The **type** property must be set to **HttpServer**. | Yes |
 | url | The base URL to the web server. | Yes |
 | enableServerCertificateValidation | Specify whether to enable server TLS/SSL certificate validation when you connect to an HTTP endpoint. If your HTTPS server uses a self-signed certificate, set this property to **false**. | No<br /> (the default is **true**) |
-| authenticationType | Specifies the authentication type. Allowed values are **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. <br><br> See the sections that follow this table for more properties and JSON samples for these authentication types. | Yes |
+| authenticationType | Specifies the authentication type. Allowed values are **Anonymous**, **Basic**, **Digest**, **Windows**, and **ClientCertificate**. User-based OAuth isn't supported. You can additionally configure authentication headers in `authHeader` property. See the sections that follow this table for more properties and JSON samples for these authentication types. | Yes |
+| authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 ### Using Basic, Digest, or Windows authentication
@@ -157,6 +158,35 @@ If you use **certThumbprint** for authentication and the certificate is installe
 }
 ```
 
+### Using authentication headers
+
+In addition, you can configure request headers for authentication along with the built-in authentication types.
+
+**Example: Using API key authentication**
+
+```json
+{
+    "name": "HttpLinkedService",
+    "properties": {
+        "type": "HttpServer",
+        "typeProperties": {
+            "url": "<HTTP endpoint>",
+            "authenticationType": "Anonymous",
+            "authHeader": {
+                "x-api-key": {
+                    "type": "SecureString",
+                    "value": "<API key>"
+                }
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## Dataset properties
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
@@ -215,10 +245,10 @@ The following properties are supported for HTTP under `storeSettings` settings i
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The type property under `storeSettings` must be set to **HttpReadSettings**. | Yes      |
 | requestMethod            | The HTTP method. <br>Allowed values are **Get** (default) and **Post**. | No       |
-| addtionalHeaders         | Additional HTTP request headers.                             | No       |
+| additionalHeaders         | Additional HTTP request headers.                             | No       |
 | requestBody              | The body for the HTTP request.                               | No       |
 | httpRequestTimeout           | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**. | No       |
-| maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No       |
 
 **Example:**
 

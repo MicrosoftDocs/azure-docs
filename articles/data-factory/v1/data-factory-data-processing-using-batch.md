@@ -570,10 +570,7 @@ In this step, you create a linked service for your Batch account that is used to
    d. Enter the batch URI for the **batchUri** JSON property.
 
       > [!IMPORTANT]
-      > The URL from the **Batch Account** blade is in the following format:
-     \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON script, you need to remove a88"accountname."** from the URL. An example is `"batchUri": "https://eastus.batch.azure.com"`.
-      >
-      >
+      > The URL from the **Batch Account** blade is in the following format: `<accountname>.<region>.batch.azure.com`. For the `batchUri` property in the JSON script, you need to remove `<accountname>.` from the URL. An example is `"batchUri": "https://eastus.batch.azure.com"`.
 
       ![Batch Account blade](./media/data-factory-data-processing-using-batch/image9.png)
 

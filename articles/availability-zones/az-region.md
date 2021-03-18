@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
@@ -45,12 +45,13 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Americas           | Europe               | Africa              | Asia Pacific   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| Canada Central     | France Central       | South Africa North* | Japan East     |
-| Central US         | Germany West Central |                     | Southeast Asia |
-| East US            | North Europe         |                     | Australia East |
-| East US 2          | UK South             |                     |                |
-| South   Central US | West Europe          |                     |                |
-| US   Gov Virginia* |                      |                     |                |
+| Brazil South       | France Central       | South Africa North* | Japan East     |
+| Canada Central     | Germany West Central |                     | Southeast Asia |
+| Central US         | North Europe         |                     | Australia East |
+| East US            | UK South             |                     |                |
+| East US 2          | West Europe          |                     |                |
+| South   Central US |                      |                     |                |
+| US Gov Virginia     |                      |                     |                |
 | West   US 2        |                      |                     |                |
 
 
@@ -101,6 +102,8 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |     Virtual   Machines: Dv3-Series                              | :large_blue_diamond:  |
 |     Virtual   Machines: ESv3-Series                             | :large_blue_diamond:  |
 |     Virtual   Machines: Ev3-Series                              | :large_blue_diamond:  |
+|     Virtual   Machines: F-Series                                | :large_blue_diamond:  |
+|     Virtual   Machines: FS-Series                               | :large_blue_diamond:  |
 |     Virtual   Network                                           | :large_blue_diamond:  |
 |     VPN Gateway                                                 | :large_blue_diamond:  |
 
@@ -118,17 +121,24 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Azure Database for MySQL – Flexible Server      |      :large_blue_diamond:  |
 | Azure Database for PostgreSQL – Flexible Server |      :large_blue_diamond:  |
 | Azure DDoS Protection                           |      :large_blue_diamond:  |
+| Azure Disk Encryption                           |      :large_blue_diamond:  |
 | Azure Firewall                                  |      :large_blue_diamond:  |
 | Azure Firewall Manager                          |      :large_blue_diamond:  |
 | Azure Kubernetes Service (AKS)                  |      :large_blue_diamond:  |
 | Azure Private Link                              |      :large_blue_diamond:  |
 | Azure Red Hat OpenShift                         |      :large_blue_diamond:  |
 | Azure Site Recovery                             |      :large_blue_diamond:  |
+| Azure SQL: Virtual Machine                      |      :large_blue_diamond:  |
+| Azure Search                                    |      :large_blue_diamond:  |
+| Azure Web Application Firewall                  |      :large_blue_diamond:  |
 | Container Registry                              |      :large_blue_diamond:  |
 | Event Grid                                      |      :large_blue_diamond:  |
 | Network Watcher                                 |      :large_blue_diamond:  |
+| Network Watcher: Traffic Analytics              |      :large_blue_diamond:  |
 | Power BI Embedded                               |      :large_blue_diamond:  |
 | Premium Blob Storage                            |      :large_blue_diamond:  |
+| Storage: Azure Premium Files                    |      :large_blue_diamond:  |
+| Virtual Machines: Azure Dedicated Host          |      :large_blue_diamond:  |
 | Virtual Machines: Ddsv4-Series                  |      :large_blue_diamond:  |
 | Virtual Machines: Ddv4-Series                   |      :large_blue_diamond:  |
 | Virtual Machines: Dsv4-Series                   |      :large_blue_diamond:  |
@@ -140,6 +150,9 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Virtual Machines: Fsv2-Series                   |      :large_blue_diamond:  |
 | Virtual Machines: M-Series                      |      :large_blue_diamond:  |
 | Virtual WAN                                     |      :large_blue_diamond:  |
+| Virtual WAN: ExpressRoute                       |      :large_blue_diamond:  |
+| Virtual WAN: Point-to-Site VPN Gateway          |      :large_blue_diamond:  |
+| Virtual WAN: Site-to-Site VPN Gateway           |      :large_blue_diamond:  |
 
 
 **Non-regional**
@@ -148,21 +161,31 @@ To achieve comprehensive business continuity on Azure, build your application ar
 |-----------------------------------------------|:-------------------:|
 |     Azure DNS                                 |     :globe_with_meridians:             |
 |     Azure Active   Directory                  |     :globe_with_meridians:             |
+|     Azure Advanced Threat Protection          |     :globe_with_meridians:             |
 |     Azure Advisor                             |     :globe_with_meridians:             |
+|     Azure Blueprints                          |     :globe_with_meridians:             |
 |     Azure Bot Services                        |     :globe_with_meridians:             |
+|     Azure Front Door                          |     :globe_with_meridians:             |
 |     Azure   Defender for IoT                  |     :globe_with_meridians:             |
+|     Azure Front Door                           |     :globe_with_meridians:             |
 |     Azure   Information Protection            |     :globe_with_meridians:             |
 |     Azure   Lighthouse                        |     :globe_with_meridians:             |
 |     Azure Managed   Applications              |     :globe_with_meridians:             |
 |     Azure Maps                                |     :globe_with_meridians:             |
 |     Azure Policy                              |     :globe_with_meridians:             |
 |     Azure   Resource Graph                    |     :globe_with_meridians:             |
+|     Azure Sentinel                            |     :globe_with_meridians:             |
 |     Azure Stack                               |     :globe_with_meridians:             |
 |     Azure Stack   Edge                        |     :globe_with_meridians:             |
 |     Cloud Shell                               |     :globe_with_meridians:             |
+|     Content Delivery Network                  |     :globe_with_meridians:             |
+|     Cost Management                           |     :globe_with_meridians:             |
 |     Customer Lockbox   for Microsoft Azure    |     :globe_with_meridians:             |
+|     Intune                                    |     :globe_with_meridians:             |
 |     Microsoft   Azure Peering Service         |     :globe_with_meridians:             |
 |     Microsoft   Azure portal                  |     :globe_with_meridians:             |
+|     Microsoft Cloud App Security              |     :globe_with_meridians:             |
+|     Microsoft Graph                           |     :globe_with_meridians:             |
 |     Security   Center                         |     :globe_with_meridians:             |
 |     Traffic   Manager                         |     :globe_with_meridians:             |
 

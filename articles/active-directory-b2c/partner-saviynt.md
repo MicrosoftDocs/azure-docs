@@ -65,7 +65,7 @@ The following architecture diagram shows the implementation.
 
 1. To create a Saviynt account, contact [Saviynt](https://saviynt.com/contact-us/)
 
-2. Create delegated administration policies and assign users as [delegated administrators](../active-directory/roles/concept-delegation.md) with various roles.
+2. Create delegated administration policies and assign users as delegated administrators with various roles.
 
 ## Configure Azure AD B2C with Saviynt
 

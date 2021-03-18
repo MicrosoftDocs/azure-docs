@@ -71,10 +71,15 @@
       href: /azure/python/tutorial-vs-code-serverless-python-01
     - name: OpenAPI definition for serverless APIs
       href: functions-openapi-definition.md
-    - name: Connect to a Virtual Network
-      href: functions-create-vnet.md
-    - name: Establish private site access
-      href: functions-create-private-site-access.md
+    - name: Networking
+      items:  
+        - name: Connect to a Virtual Network
+          href: functions-create-vnet.md
+          displayName: vnet 
+        - name: Establish private site access
+          href: functions-create-private-site-access.md
+        - name: Use an outbound NAT gateway
+          href: functions-how-to-use-nat-gateway.md  
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Create a serverless web app
@@ -197,6 +202,9 @@
           href: supported-languages.md
         - name: C# (class library)
           href: functions-dotnet-class-library.md
+        - name: C# (isolated process)
+          displayName: .NET isolated, .NET 5
+          href: dotnet-isolated-process-guide.md  
         - name: C# script (.csx)
           href: functions-reference-csharp.md
         - name: F#
@@ -267,6 +275,8 @@
                   href: ./functions-create-your-first-function-visual-studio.md
                 - name: Visual Studio Code
                   href: ./create-first-function-vs-code-csharp.md
+                - name: C# isolated (.NET 5)
+                  href: dotnet-isolated-process-developer-howtos.md  
                 - name: Java using Gradle
                   href: functions-create-first-java-gradle.md
                 - name: Java using Eclipse
@@ -360,6 +370,8 @@
           href: set-runtime-version.md
         - name: Disable a function
           href: disable-function.md
+        - name: Networking
+          href: configure-networking-how-to.md
         - name: Geo-disaster recovery
           href: functions-geo-disaster-recovery.md
     - name: Monitor
@@ -451,9 +463,9 @@
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
-          href: /java/api/overview/azure/functions/runtime?view=azure-java-stable
+          href: /java/api/overview/azure/functions/runtime
         - name: Python
-          href: /python/api/azure-functions/azure.functions?view=azure-python
+          href: /python/api/azure-functions/azure.functions
     - name: App settings reference
       href: functions-app-settings.md
     - name: Triggers and bindings

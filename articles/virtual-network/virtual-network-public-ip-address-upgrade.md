@@ -32,7 +32,7 @@ The following scenarios are reviewed in this article:
 In order to upgrade a public IP, it must not be associated with any resource (see [this page](./virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address) for more information about how to disassociate public IPs).
 
 >[!IMPORTANT]
->Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  This means they cannot be associated with an Azure resource that is either zone-redundant or tied to a pre-specified zone in regions where this is offered.
+>Public IPs upgraded from Basic to Standard SKU continue to have no guaranteed [availability zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).  Please ensure this is kept in mind when choosing which resources to associate the IP address with.
 
 ---
 # [**Basic to Standard - PowerShell**](#tab/option-upgrade-powershell)
