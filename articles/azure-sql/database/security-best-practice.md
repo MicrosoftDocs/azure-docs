@@ -800,7 +800,7 @@ Most security standards address data availability in terms of operational contin
 To block creation or modification of resources through T-SQL and enforce resource management through ARM for a given subscription, the subscription level preview features in Azure Portal can be used. This is particularly useful when you are using Azure Policies to enforce organizational standards through ARM. Since T-SQL does not adhere to the Azure Policies, a block on T-SQL create or modify operations can be applied. The following section describes how you can register or unregister a preview feature with Microsoft.Sql resource provider in Azure Portal: 
 
 ### Register Block T-SQL CRUD
-Here is how you can block T-SQL CRUD operations at the subscription level:
+Here is how you can block T-SQL CRUD operations at the subscription level. CRUD operations here refer to the T-SQL used to create or modify SQL database / server. That is Create, Alter or Drop/Delete database statements. 
 1. Go to your subscriptioion on Azure Portal
 2. Click on **Preview Features** tab. 
 3. Select **Block T-SQL CRUD**.
