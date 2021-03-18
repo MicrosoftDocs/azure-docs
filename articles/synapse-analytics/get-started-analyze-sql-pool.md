@@ -9,13 +9,25 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 12/31/2020 
+ms.date: 03/18/2020 
 ---
 
 # Analyze data with dedicated SQL pools
 
-Azure Synapse Analytics provides you with the capability to analyze data with a dedicated SQL pool. In this tutorial, you'll use the NYC Taxi data to explore a dedicated SQL pool's capabilities.
+In this tutorial, you'll use the NYC Taxi data to explore a dedicated SQL pool's capabilities.
 
+## Create a dedicated SQL pool
+
+1. In Synapse Studio, on the left-side pane, select **Manage** > **SQL pools**.
+1. Select **New**
+1. For **SQL pool name** select **SQLPOOL1**
+1. For **Performance level** choose **DW100C**
+1. Select **Review + create** > **Create**. Your dedicated SQL pool will be ready in a few minutes. Your dedicated SQL pool is associated with a dedicated SQL pool database that's also called **SQLPOOL1**.
+
+A dedicated SQL pool consumes billable resources as long as it's active. You can pause the pool later to reduce costs.
+
+> [!NOTE] 
+> When creating a new dedicated SQL pool (formerly SQL DW) in your workspace, the dedicated SQL pool provisioning page will open. Provisioning will take place on the logical SQL server.
 ## Load the NYC Taxi Data into SQLPOOL1
 
 1. In Synapse Studio, navigate to the **Develop** hub, click the **+** button to add new resource, then create new SQL script.
@@ -98,4 +110,4 @@ Azure Synapse Analytics provides you with the capability to analyze data with a 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Analyze using Spark](get-started-analyze-spark.md)
+> [Analyze data in an Azure Storage account](get-started-analyze-storage.md)
