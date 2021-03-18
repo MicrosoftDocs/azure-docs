@@ -1,5 +1,5 @@
 ---
-title: Use PowerShell to find and use Azure Marketplace images and plans 
+title: Find and use marketplace purchase plan information using PowerShell 
 description: Use Azure PowerShell to find and use publisher, offer, SKU, version and plan information for Marketplace VM images.
 author: cynthn
 ms.service: virtual-machines
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/17/2021
 ms.author: cynthn
-
+ms.custom: contperf-fy21q3
 ---
 # Find and use Azure Marketplace VM images with Azure PowerShell     
 
 This article describes how to use Azure PowerShell to find VM images in the Azure Marketplace. You can then specify a Marketplace image and plan information when you create a VM.
 
-You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) storefront, the [Azure portal](https://portal.azure.com), or the [Azure CLI](../linux/cli-ps-findimage.md). 
+You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or the [Azure CLI](cli-findimage.md). 
 
 
 ## Terminology
@@ -26,12 +26,12 @@ A Marketplace image in Azure has the following attributes:
 * **SKU**: An instance of an offer, such as a major release of a distribution. Examples: 18.04-LTS, 2019-Datacenter
 * **Version**: The version number of an image SKU. 
 
-To identify a Marketplace image when you deploy a VM programmatically, supply these values individually as parameters. Some tools accept an image *URN*, which combines these values, separated by the colon (:) character: *Publisher*:*Offer*:*Sku*:*Version*. In a URN, you can replace the version number with "latest", which selects the latest version of the image. 
+These values can be passed individually or as an image *URN*, combining the values separated by the colon (:). For example: *Publisher*:*Offer*:*Sku*:*Version*. You can replace the version number in the URN with `latest`,to use the latest version of the image. 
 
-If the image publisher provides additional license and purchase terms, then you must accept those terms and enable programmatic deployment. You'll also need to supply *purchase plan* parameters when deploying a VM programmatically. See [Deploy an image with Marketplace terms](#deploy-an-image-with-marketplace-terms).
+If the image publisher provides additional license and purchase terms, then you must accept those before you can use the image.  For more information, see [Deploy an image with Marketplace terms](#deploy-an-image-with-marketplace-terms).
 
 
-## Create a VM from VHD with plan information
+## Create a new VM from a VHD with purchase plan information
 
 If you have an existing VHD that was created using an Azure Marketplace image, you might need to supply the purchase plan information when you create a new VM from that VHD.
 
@@ -44,7 +44,7 @@ $vm = Get-azvm `
 $vm.Plan
 ```
 
-If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription Id and the time stamp of the delete operation.
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
 
 To create a VM using a VHD, refer to this article [Create a VM from a specialized VHD](create-vm-specialized.md) and add in a line to add the plan information to the VM configuration using [Set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) similar to the following:
 
