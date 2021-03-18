@@ -81,7 +81,7 @@ Before you start cabling your device, you need the following:
 - At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
 - One 10-GbE SFP+ cable for each data network interface to be configured. At least one data network interface from PORT 3 or PORT 4 needs to be connected to the Internet (with connectivity to Azure).
 
-  Use of the highest-performing copper SFP+ (10 Gbps) transceiver is strongly recommended. Compatible fiber-optic transceivers can be used but have not been tested. For more information, see [Transceiver and cable specifications](azure-stack-edge-mini-r-technical-specifications-compliance.md#transceivers-cables) for Azure Stack Edge Mini R.
+  Use of the highest-performing copper SFP+ (10 Gbps) transceiver is strongly recommended. Compatible fiber-optic transceivers can be used but have not been tested. For more information, see [transceiver and cable specifications](azure-stack-edge-mini-r-technical-specifications-compliance.md#transceivers-cables) for Azure Stack Edge Mini R.
    
 - Access to one power distribution unit (recommended).
 
@@ -97,7 +97,7 @@ On your Azure Stack Edge device:
     - The device has 1 SSD disk in the slot. 
     - The device also has a CFx card that serves as storage for the operating system disk.
     
-- The front panel has network interfaces and access to Wi-Fi.
+- The front panel has network interfaces and access to Wi-Fi. 
 
     - 2 X 1 GbE RJ 45 network interfaces (PORT 1 and PORT 2 on the local UI of the device)
     - 2 X 10 GbE SFP+ network interfaces (PORT 3 and PORT 4 on the local UI of the device) 
