@@ -148,6 +148,8 @@
         href: manage/understand-mca-roles.md
       - name: Link partner ID
         href: manage/link-partner-id.md
+      - name: Link partner ID to Power Apps accounts
+        href: manage/link-partner-id-power-apps-accounts.md
     - name: Administer subscriptions
       items:
       - name: Assign access to cost management data
@@ -214,8 +216,6 @@
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
       - name: Create MPA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-      - name: Create subscriptions - ARM template
-        href: manage/create-subscription-template.md
       - name: Create subscriptions programmatically - preview APIs
         href: manage/programmatically-create-subscription-preview.md
     - name: Manage Enterprise Agreement subscriptions

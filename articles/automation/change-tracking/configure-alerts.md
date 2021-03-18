@@ -45,11 +45,11 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 3. Under **Actions**, enter a name that specifies the action, for example, **Email Notification**.
 
-4. For **Action Type**, select the appropriate type, for example, **Email/SMS/Push/Voice**.
+4. For **Action Type**, select the appropriate type, for example, **Email/SMS message/Push/Voice**.
 
-5. Select **Edit details**.
+5. Select the pencil icon to edit the action details.
 
-6. Fill in the pane for your action type. For example, if using **Email/SMS/Push/Voice**, enter an action name, select the **Email** checkbox, enter a valid email address, and then select **OK**.
+6. Fill in the pane for your action type. For example, if using **Email/SMS message/Push/Voice** to send an email, enter an action name, select the **Email** checkbox, enter a valid email address, and then select **OK**.
 
     ![Configure an email action group](./media/configure-alerts/configure-email-action-group.png)
 

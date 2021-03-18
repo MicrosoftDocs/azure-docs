@@ -3,7 +3,8 @@ metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: conceptual
-  ms.date:  03/15/2021
+  ms.date:  03/17/2021
+
     
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
@@ -152,11 +153,16 @@ sections:
       - question: Is NSX required in on-premises environments or networks that connect to a private cloud?
         answer: No, you aren't required to use NSX on-premises.
 
+      - question: Is VMware Horizon version 2012 compatible with Azure VMware Solution?
+        answer: Yes.
+
       - question: What is the upgrade and update schedule for VMware software in a private cloud?
         answer: The private cloud software bundle upgrades keep the software within one version of the most recent software bundle release from VMware. The private cloud software versions may differ from the most recent versions of the individual software components (ESXi, NSX-T, vCenter, vSAN).
 
       - question: How often will the private cloud software stack be updated?
         answer: The private cloud software is upgraded on a schedule that tracks the software bundle's release from VMware. Your private cloud doesn't require downtime for upgrades.
+      - question: Can I change the default vSphere Web Client timeout value?
+        answer: Yes. For information on changing the timeout value, see [Configure the vSphere Web Client Timeout Value](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-975412DE-CDCB-49A1-8E2A-0965325D33A5.html).
 
   - name: Connectivity
     questions:
@@ -213,25 +219,8 @@ sections:
 
       - question: How can I change my credentials?
         answer: |
-          Your vCenter CloudAdmin and NSX-T admin credentials don’t expire; however, if you wish to update your passwords, you can follow the steps below to generate new passwords for these accounts.
-
-          > [!NOTE]
-          > If you use your CloudAdmin credentials for connected services like HCX, vCenter Orchestrator, vCloud Director, or vRealize, your connections will stop working once you update your password.  These services should be stopped before initiating the password rotation.  Failure to do so may result in temporary locks on your vCenter CloudAdmin and NSX-T admin accounts, as these services will continuously call using your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](https://docs.microsoft.com/azure/azure-vmware/concepts-identity).
-
-          1. In your Azure VMware Solutions portal, open up a command line.
-
-          2. Run the following command to update your vCenter CloudAdmin password.  You will need to replace {SubscriptionID}, {ResourceGroup}, and {PrivateCloudName} with the actual values of the private cloud that the CloudAdmin account belongs to.
-
-            ```
-            az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
-            ```
+          For information on resetting your credentials, see [Reset vSphere credentials for Azure VMware Solution](reset-vsphere-credentials.md).
           
-          3. Run the following command to update your NSX-T admin password. You will need to replace {SubscriptionID}, {ResourceGroup}, and {PrivateCloudName} with the actual values of the private cloud that the NSX-T admin account belongs to.
-
-            ```
-            az resource invoke-action --action rotateNSXTPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
-            ```
-
   - name: Billing and Support
     questions:
       - question: How will pricing be structured for Azure VMware Solution?

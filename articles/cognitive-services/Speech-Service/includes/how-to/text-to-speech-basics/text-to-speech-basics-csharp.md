@@ -62,14 +62,14 @@ There are a few ways that you can initialize a [`SpeechConfig`](/dotnet/api/micr
 In this example, you create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) using a subscription key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 ```csharp
-public class Program 
+public class Program
 {
     static async Task Main()
     {
         await SynthesizeAudioAsync();
     }
 
-    static async Task SynthesizeAudioAsync() 
+    static async Task SynthesizeAudioAsync()
     {
         var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     }
@@ -83,7 +83,7 @@ Next, you create a [`SpeechSynthesizer`](/dotnet/api/microsoft.cognitiveservices
 To start, create an `AudioConfig` to automatically write the output to a `.wav` file, using the `FromWavFileOutput()` function, and instantiate it with a `using` statement. A `using` statement in this context automatically disposes of unmanaged resources and causes the object to go out of scope after disposal.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
@@ -93,7 +93,7 @@ static async Task SynthesizeAudioAsync()
 Next, instantiate a `SpeechSynthesizer` with another `using` statement. Pass your `config` object and the `audioConfig` object as params. Then, executing speech synthesis and writing to a file is as simple as running `SpeakTextAsync()` with a string of text.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
@@ -109,7 +109,7 @@ Run the program, and a synthesized `.wav` file is written to the location you sp
 In some cases, you may want to directly output synthesized speech directly to a speaker. To do this, simply omit the `AudioConfig` param when creating the `SpeechSynthesizer` in the example above. This outputs to the current active output device.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config);
@@ -125,7 +125,7 @@ For many scenarios in speech application development, you likely need the result
 * Integrate the result with other API's or services.
 * Modify the audio data, write custom `.wav` headers, etc.
 
-It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `null` for the `AudioConfig` in the `SpeechSynthesizer` constructor. 
+It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `null` for the `AudioConfig` in the `SpeechSynthesizer` constructor.
 
 > [!NOTE]
 > Passing `null` for the `AudioConfig`, rather than omitting it like in the speaker output example above, will not play the audio by default on the current active output device.
@@ -133,11 +133,11 @@ It's simple to make this change from the previous example. First, remove the `Au
 This time, you save the result to a [`SpeechSynthesisResult`](/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesisresult) variable. The `AudioData` property contains a `byte []` of the output data. You can work with this `byte []` manually, or you can use the [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) class to manage the in-memory stream. In this example you use the `AudioDataStream.FromResult()` static function to get a stream from the result.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config, null);
-    
+
     var result = await synthesizer.SpeakTextAsync("Getting the response as an in-memory stream.");
     using var stream = AudioDataStream.FromResult(result);
 }
@@ -164,7 +164,7 @@ There are various options for different file types depending on your requirement
 In this example, you specify a high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting the `SpeechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, you use [`AudioDataStream`](/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream) to get an in-memory stream of the result, and then write it to a file.
 
 ```csharp
-static async Task SynthesizeAudioAsync() 
+static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     config.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
@@ -197,15 +197,15 @@ First, create a new XML file for the SSML config in your root project directory,
 Next, you need to change the speech synthesis request to reference your XML file. The request is mostly the same, but instead of using the `SpeakTextAsync()` function, you use `SpeakSsmlAsync()`. This function expects an XML string, so you first load your SSML config as a string using `File.ReadAllText()`. From here, the result object is exactly the same as previous examples.
 
 > [!NOTE]
-> If you're using Visual Studio, your build config likely will not find your XML file by default. To fix this, right click the XML file and 
+> If you're using Visual Studio, your build config likely will not find your XML file by default. To fix this, right click the XML file and
 > select **Properties**. Change **Build Action** to *Content*, and change **Copy to Output Directory** to *Copy always*.
 
 ```csharp
-public static async Task SynthesizeAudioAsync() 
+public static async Task SynthesizeAudioAsync()
 {
     var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
     using var synthesizer = new SpeechSynthesizer(config, null);
-    
+
     var ssml = File.ReadAllText("./ssml.xml");
     var result = await synthesizer.SpeakSsmlAsync(ssml);
 
@@ -244,3 +244,10 @@ To switch to a neural voice, change the `name` to one of the [neural voice optio
   </voice>
 </speak>
 ```
+## Visemes
+
+Speech is usually treated as a good way to drive the animation of facial expressions.
+Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech (i.e. the position of the lips, jaw and tongue when producing a particular phoneme).
+You can subscribe the Viseme event in Speech SDK to generate facial animation data.
+Then, you can apply such data to a character to realize facial animation.
+Learn [how to get viseme outputs](../../../how-to-speech-synthesis-viseme.md#get-viseme-outputs-with-the-speech-sdk).
