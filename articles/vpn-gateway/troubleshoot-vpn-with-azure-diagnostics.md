@@ -1,6 +1,6 @@
 ---
-title: 'Troubleshooting Azure VPN Gateway using Diagnostic Logs'
-description: Troubleshooting Azure VPN Gateway using Diagnostic Logs.
+title: 'Troubleshoot Azure VPN Gateway using Diagnostic Logs'
+description: Troubleshoot Azure VPN Gateway using Diagnostic Logs.
 services: vpn-gateway
 author: stegag
 
@@ -11,7 +11,7 @@ ms.author: stegag
 
 ---
 
-# Troubleshooting Azure VPN Gateway using Diagnostic Logs
+# Troubleshoot Azure VPN Gateway using Diagnostic Logs
 
 This article helps understand the different logs available for VPN Gateway diagnostics and how to use them to effectively troubleshoot VPN gateway issues.
 
@@ -55,7 +55,7 @@ This query on **GatewayDiagnosticLog** will show you multiple columns.
 
 The example below shows the activity logged when a new configuration was applied:
 
-![Set Gateway Operation example](./media/troubleshoot-vpn-with-AzureDagnostics/image26-setgateway.png)
+![Set Gateway Operation example](./media/troubleshoot-vpn-with-AzureDagnostics/image-26-set-gateway.png)
 
 Notice that a SetGatewayConfiguration will be logged every time some configuration is modified both on a VPN Gateway or a Local Network Gateway. <br/>
 Cross referencing the results from the **GatewayDiagnosticLog** table with those of the **TunnelDiagnosticLog** table can help us determine if a tunnel connectivity failure has started at the same time as a configuration was changed, or a maintenance took place. If so, we have a great pointer towards the possible root cause.
@@ -87,14 +87,14 @@ This query on **TunnelDiagnosticLog** will show you multiple columns.
 
 Example output:
 
-![Tunnel Connected Event example](./media/troubleshoot-vpn-with-AzureDagnostics/image16-tunnelconnected.png)
+![Tunnel Connected Event example](./media/troubleshoot-vpn-with-AzureDagnostics/image-16-tunnel-connected.png)
 
 The **TunnelDiagnosticLog** is very useful to troubleshoot past events about unexpected VPN disconnections. Its lightweight nature offers the possibility to analyze large time ranges over several days with little effort.<br/>
 Only after you identify the timestamp of a disconnection, you can switch to the more detailed analysis of the **IKEdiagnosticLog** table to dig deeper into the reasoning of the disconnections shall those be IPsec related.
 <br/><br/>Some troubleshooting tips:
-1.  If you see a disconnection event on one gateway instance, followed by a connection event on the **different** gateway instance in a few seconds, you are looking at a gateway failover. This is usually an expected behavior due to maintenance on a gateway instance. To learn more about this behavior, see [About Azure VPN gateway redundancy](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy).
-<br/>The same behavior will be observed if you intentionally run a Gateway Reset on the Azure side - which causes a reboot of the active gateway instance. To learn more about this behavior, see [Reset a VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-resetgw-classic)
-3.  If you see a disconnection event on one gateway instance, followed by a connection event on the **same** gateway instance in a few seconds, you may be looking at a network glitch causing a DPD timeout, or a disconnection erroneously sent by the onprem device.
+- If you see a disconnection event on one gateway instance, followed by a connection event on the **different** gateway instance in a few seconds, you are looking at a gateway failover. This is usually an expected behavior due to maintenance on a gateway instance. To learn more about this behavior, see [About Azure VPN gateway redundancy](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy).
+- The same behavior will be observed if you intentionally run a Gateway Reset on the Azure side - which causes a reboot of the active gateway instance. To learn more about this behavior, see [Reset a VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-resetgw-classic)
+- If you see a disconnection event on one gateway instance, followed by a connection event on the **same** gateway instance in a few seconds, you may be looking at a network glitch causing a DPD timeout, or a disconnection erroneously sent by the on-premises device.
 
 ## <a name="RouteDiagnosticLog"></a>RouteDiagnosticLog
 
@@ -121,7 +121,7 @@ The output will show useful information about BGP peers connected/disconnected a
 Example:
 
 
-![BGP Route Examples](./media/troubleshoot-vpn-with-AzureDagnostics/image31-bgproute.png)
+![BGP Route Examples](./media/troubleshoot-vpn-with-AzureDagnostics/image-31-bgp-route.png)
 
 
 ## <a name="IKEDiagnosticLog"></a>IKEDiagnosticLog
@@ -146,20 +146,20 @@ This query on **IKEDiagnosticLog** will show you multiple columns.
 |***Name*** | ***Description*** |
 |---		| ---				|
 |**TimeGenerated** | the timestamp of each event, in UTC timezone|
-| **RemoteIP** | the IP address of the onprem VPN device. In real world scenarios, it is useful to filter by the IP address of the relevant onprem device shall there be more than one |
+| **RemoteIP** | the IP address of the on-premises VPN device. In real world scenarios, it is useful to filter by the IP address of the relevant on-premises device shall there be more than one |
 |**LocalIP** | the IP address of the VPN Gateway we are troubleshooting. In real world scenarios, it is useful to filter by the IP address of the relevant VPN gateway shall there be more than one in your subscription |
-|**Event** | contains a diagnostic message useful for troubleshooting. They usually start with a keyword and refer to the actions performed by the Azure Gateway <br> **\[SEND\]** indicates an event caused by an IPSec packet sent by the Azure Gateway  <br> **\[RECEIVED\]** indicates an event in consequence of a packet received from onprem device  <br>**\[LOCAL\]** indicates an action taken locally by the Azure Gateway |
+|**Event** | contains a diagnostic message useful for troubleshooting. They usually start with a keyword and refer to the actions performed by the Azure Gateway <br> **\[SEND\]** indicates an event caused by an IPSec packet sent by the Azure Gateway  <br> **\[RECEIVED\]** indicates an event in consequence of a packet received from on-premises device  <br>**\[LOCAL\]** indicates an action taken locally by the Azure Gateway |
 
 
 Notice how RemoteIP, LocalIP and Event columns are not present in the original column list on AzureDiagnostics database, but are added to the query by parsing the output of the "Message" column to simplify its analysis.
 
 Troubleshooting tips:
 
-1. In order to identify the start of an IPSec negotiation, you need to find the initial SA\_INIT message. Such message could be sent by either side of the tunnel. Whoever sends the first packet is called "initiator" in IPsec terminology, while the other side becomes the "responder". The first SA\_INIT message is always the one where rCookie = 0.
+- In order to identify the start of an IPSec negotiation, you need to find the initial SA\_INIT message. Such message could be sent by either side of the tunnel. Whoever sends the first packet is called "initiator" in IPsec terminology, while the other side becomes the "responder". The first SA\_INIT message is always the one where rCookie = 0.
 
-2. If the IPsec tunnel fails to establish, Azure will keep retrying every few seconds. For this reason troubleshooting "VPN down" issues is very convenient on IKEdiagnosticLog because you do not have to wait for a specific time to reproduce the issue. Also, the failure will in theory always be the same every time we try so you could just zoom into one "sample" failing negotiation at any time.
+- If the IPsec tunnel fails to establish, Azure will keep retrying every few seconds. For this reason troubleshooting "VPN down" issues is very convenient on IKEdiagnosticLog because you do not have to wait for a specific time to reproduce the issue. Also, the failure will in theory always be the same every time we try so you could just zoom into one "sample" failing negotiation at any time.
 
-3. The SA\_INIT contains the IPSec parameters that the peer wants to use for this IPsec negotiation. 
+- The SA\_INIT contains the IPSec parameters that the peer wants to use for this IPsec negotiation. 
 The official document lists the IPsec parameters supported by the Azure Gateway with default settings  
 [https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec)
 
@@ -186,8 +186,8 @@ This query on **P2SDiagnosticLog** will show you multiple columns.
 
 The output will show all of the Point to Site settings that the gateway has applied, as well as the IPsec policies in place.
 
-![P2S Logs example](./media/troubleshoot-vpn-with-AzureDagnostics/image28-p2slogevent.png)
+![P2S Logs example](./media/troubleshoot-vpn-with-AzureDagnostics/image-28-p2s-log-event.png)
 
 Also, whenever a client will connect via IKEv2 or OpenVPN Point to Site, the table will log packet activity, EAP/RADIUS conversations and successful/failure results by user
 
-![EAP logs example](./media/troubleshoot-vpn-with-AzureDagnostics/image29-eap.png)
+![EAP logs example](./media/troubleshoot-vpn-with-AzureDagnostics/image-29-eap.png)
