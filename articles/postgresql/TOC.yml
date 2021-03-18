@@ -629,6 +629,8 @@
       href: concepts-hyperscale-limits.md
     - name: Prepay for reserved capacity
       href: concepts-hyperscale-reserved-pricing.md
+    - name: PostgreSQL versions
+      href: concepts-hyperscale-versions.md
     - name: PostgreSQL extensions
       href: concepts-hyperscale-extensions.md
   - name: API Reference
