@@ -122,6 +122,8 @@
       items:
       - name: Create SAS tokens for Document Translation 
         href: document-translation/create-sas-tokens.md 
+    - name: Reference
+      items:     
       - name: Document Translation REST API
         href: /rest/api/cognitiveservices/translator/translation   
 - name: Reference
