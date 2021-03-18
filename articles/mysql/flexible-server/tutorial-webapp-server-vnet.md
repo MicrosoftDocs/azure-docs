@@ -17,6 +17,14 @@ ms.custom: mvc, devx-track-azurecli
 
 This tutorial shows you how create a Azure App Service Web App with  MySQL Flexible Server (Preview) inside a [Virtual network](../../virtual-network/virtual-networks-overview.md).
 
+In this tutorial you will learn
+>[!div class="checklist"]
+> * Create a MySQL flexible server in a virtual network
+> * Create a subnet to delegate to App Service
+> * Create a web app
+> * Add the web app to the virtual network
+> * Connect to Postgres from the web app 
+
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
