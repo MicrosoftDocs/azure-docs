@@ -85,7 +85,8 @@ Azure AD will send an email notification 60, 30, and 7 days before the SAML cert
 1. For each email address you want to delete, select the **Delete** icon (a garbage can) next to the email address.
 1. Select **Save**.
 
-You can add up to 5 email addresses to the Notification list (including email of the admin who added the application). If you need more people to be notified, utilize the distribution lists emails. 
+You can add up to 5 email addresses to the Notification list (including the email address of the admin who added the application). If you need more people to be notified, use the distribution list emails.
+
 You will receive the notification email from aadnotification@microsoft.com. To avoid the email going to your spam location, add this email to your contacts.
 
 ## Renew a certificate that will soon expire
