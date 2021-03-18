@@ -60,7 +60,7 @@ If you've already completed the [integrate Functions with an Azure virtual netwo
 
 1. In **Create virtual network**, select **Create**.
 
-Next, you create a function app in the [Premium plan]. This plan provides serverless scale while supporting virtual network integration.
+Next, you create a function app in the [Premium plan](functions-premium-plan.md). This plan provides serverless scale while supporting virtual network integration.
 
 ## Create a function app in a Premium plan
 
@@ -186,7 +186,7 @@ Now, let's create the NAT gateway. When you start with the [previous virtual net
     | **Region** | East US (or location you assigned to your other resources) |
     | **Availability Zone** | None |
 
-1. Select **Next: Outbound IP**. In the **Public IP addresses** field, select the previously created public IP address. Leave **Public IP Prefixes** unselected
+1. Select **Next: Outbound IP**. In the **Public IP addresses** field, select the previously created public IP address. Leave **Public IP Prefixes** unselected.
 
 1. Select **Next: Subnet**. Select the *myResourceGroup-vnet* resource in the **Virtual network** field and *Function-Net* subnet.
 
@@ -202,14 +202,16 @@ Now, you must add an application setting `WEBSITE_VNET_ROUTE_ALL` set to a value
 
 1. Navigate to your function app in the Azure portal and select **Configuration** from the left-hand menu.
 
-1. Under **Application settings**, select **+ New application setting* and complete use the following values to fill out the fields:
+1. Under **Application settings**, select **+ New application setting** and complete use the following values to fill out the fields:
+
     |Field Name  |Value |
+    |---|---|
     |**Name**    |WEBSITE_VNET_ROUTE_ALL|
     |**Value**   |1|
 
-1. Select **OK** to close the new application setting dialog
+1. Select **OK** to close the new application setting dialog.
 
-1. Select **Save** and then **Continue** to save the settings
+1. Select **Save** and then **Continue** to save the settings.
 
 The function app's now configured to route traffic through its associated virtual network.
 
