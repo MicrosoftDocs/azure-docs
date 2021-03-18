@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ---
 
-# Azure Time Series Insights Gen2 Event Sources
+# Azure Time Series Insights Gen2 event sources
 
 Your Azure Time Series Insights Gen2 environment can have up to two streaming event sources. Two types of Azure resources are supported as inputs:
 
@@ -114,4 +114,3 @@ The time zone offset should be formatted as one of the following:
 - Read the [JSON Flattening and Escaping Rules](./concepts-json-flattening-escaping-rules.md) to understand how events will be stored.
 
 - Understand your environment's [throughput limitations](./concepts-streaming-ingress-throughput-limits.md)
-
