@@ -18,11 +18,11 @@ In this tutorial, you'll learn how to analyze data with serverless SQL pool usin
 
 ## Analyze NYC Taxi data in blob storage using serverless SQL pool
 
-1. In the **Data** hub under **Linked**, right-click on **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow**, **New SQL Script**, and select **SELECT TOP 100 rows**
-1. This will create a new SQL script with the following code:
+1. In Synapse Studio go to the **Develop** hub
+2. Create a new SQL script.
+4. Paste the following code into the script.
 
     ```
-    -- This is auto-generated code
     SELECT
         TOP 100 *
     FROM
@@ -32,24 +32,6 @@ In this tutorial, you'll learn how to analyze data with serverless SQL pool usin
         ) AS [result];
     ```
 1. Click **Run**
-
-## Analyze NYC Taxi data in Spark databases using serverless SQL pool
-
-Tables in Spark databases are automatically visible, and they can be queried by serverless SQL pool.
-
-1. In Synapse Studio, go to the **Develop** hub and create a new SQL script.
-1. Set **Connect to** to the **Built-in** serverless SQL pool.
-1. Paste the following text into the script and run the script.
-
-    ```sql
-    SELECT *
-    FROM nyctaxi.dbo.passengercountstats
-    ```
-
-    > [!NOTE]
-    > The first time you run a query that uses serverless SQL pool, it takes about 10 seconds for serverless SQL pool to gather the SQL resources needed to run your queries. Subsequent queries will be much faster.
-  
-
 
 ## Next steps
 
