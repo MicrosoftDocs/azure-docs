@@ -300,7 +300,7 @@ The Microsoft Teams SDK supports over 100 strings and resources. The framework b
 
 Remove i386 and x86_64 architectures from the frameworks in case of archiving.
 
-Add i386 and x86_64 architectures removing script to Build Phases before the framework codesign phase in case you would like to Archive your application.
+Add the `i386` and `x86_64` architectures removing script to the Build Phases before the framework codesign phase if you'd like to archive your application.
 
 In the Project Navigator, select your project. In the Editor pane, go to Build Phases → Click on + sign → Create a New Run Script Phase.
 
