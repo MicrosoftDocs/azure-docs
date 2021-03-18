@@ -24,7 +24,7 @@ This article then describes how to remove private endpoints later, but still use
 
 
 
-Setting up a Speech resource for the VNet service endpoint scenarios requires performing the following tasks:
+Setting up a Speech resource for the private endpoint scenarios requires performing the following tasks:
 1. [Create a custom domain name](#create-a-custom-domain-name)
 1. [Enable private endpoints](#enable-private-endpoints)
 1. [Adjust existing applications and solutions](#adjust-existing-applications-and-solutions)
