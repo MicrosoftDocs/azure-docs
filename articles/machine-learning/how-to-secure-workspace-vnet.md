@@ -52,6 +52,9 @@ Azure Private Link lets you connect to your workspace using a private endpoint. 
 
 For more information on setting up a Private Link workspace, see [How to configure Private Link](how-to-configure-private-link.md).
 
+> [!NOTE]
+> Securing a workspace with private endpoints does not ensure end-to-end security by itself. You must follow the steps in the rest of this article, and the VNet series, to secure all components of your solution. For example, you can enable a private workspace that still communicates to storage services using public IP addresses.
+
 ## Secure Azure storage accounts with service endpoints
 
 Azure Machine Learning supports storage accounts configured to use either service endpoints or private endpoints. In this section, you learn how to secure an Azure storage account using service endpoints. For private endpoints, see the next section.
