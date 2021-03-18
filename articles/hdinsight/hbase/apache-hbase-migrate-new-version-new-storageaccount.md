@@ -208,7 +208,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 CASE 1 - MIGRATING FROM ANOTHER HDINSIGHT CLUSTER:
 
 Sample AzCopy command:
-azcopy copy 'https://&lt;source-account&gt;.blob.core.windows.net/<source-storage-container>/hbase' 'https://&lt;destination-account&gt;.blob.core.windows.net/&lt;destination-storage-container&gt;' --recursive
+azcopy copy 'https://&lt;source-account&gt;.blob.core.windows.net/&lt;source-storage-container&gt;/hbase' 'https://&lt;destination-account&gt;.blob.core.windows.net/&lt;destination-storage-container&gt;' --recursive
 
 CASE 2 - MIGRATING FROM ONPREMISE OR OTHER CLOUDS:
 
