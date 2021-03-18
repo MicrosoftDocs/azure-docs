@@ -27,13 +27,15 @@ Setting up a Speech resource for the VNet service endpoint scenarios requires pe
 1. [Adjust existing applications and solutions](#adjust-existing-applications-and-solutions)
 
 > [!NOTE]
-> Setting up and using VNet service endpoints for Speech Services is very similar to setting up and using the private endpoints. In this article we reference the correspondent sections of the [article on using private endpoints](speech-services-private-link.md), when the content is equivalent.
+> Setting up and using VNet service endpoints for Speech service is very similar to setting up and using the private endpoints. In this article we reference the correspondent sections of the [article on using private endpoints](speech-services-private-link.md), when the content is equivalent.
 
 [!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints.md)]
 
+This article describes the usage of the VNet service endpoints with Speech service. Usage of the private endpoints is described [here](speech-services-private-link.md).
+
 ## Create a custom domain name
 
-VNet service endpoints require a [custom subdomain name for Cognitive Services](../cognitive-services-custom-subdomains.md). Create a custom domain referring to [this section](speech-services-private-link.md#create-a-custom-domain-name) of the private endpoint article.
+VNet service endpoints require a [custom subdomain name for Cognitive Services](../cognitive-services-custom-subdomains.md). Create a custom domain referring to [this section](speech-services-private-link.md#create-a-custom-domain-name) of the private endpoint article. Note, that all warnings in the section are also applicable to the VNet service endpoint scenario.
 
 ## Configure VNet(s) and the Speech resource networking settings
 
@@ -57,7 +59,7 @@ You need to add all Virtual networks that are allowed access via the service end
 
 ### Enabling service endpoint for an existing VNet
 
-As described in the previous section when you add a VNet as allowed for the speech resource the `Microsoft.CognitiveServices` service endpoint is automatically enabled. However, if later you disable it for whatever reason, you need to re-enable it manually to restore the service point access to the Speech resource (as well as other Cognitive Services resources):
+As described in the previous section when you add a VNet as allowed for the speech resource the `Microsoft.CognitiveServices` service endpoint is automatically enabled. However, if later you disable it for whatever reason, you need to re-enable it manually to restore the service endpoint access to the Speech resource (as well as other Cognitive Services resources):
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the required VNet.
@@ -68,7 +70,7 @@ As described in the previous section when you add a VNet as allowed for the spee
 
 ## Adjust existing applications and solutions
 
-A Speech resource with a custom domain enabled uses a different way to interact with Speech Services. This is true for a custom-domain-enabled Speech resource both with and without service endpoints. Information in this section applies to both scenarios.
+A Speech resource with a custom domain enabled uses a different way to interact with Speech Services. This is true for a custom-domain-enabled Speech resource both with and without service endpoints configured. Information in this section applies to both scenarios.
 
 ### Use a Speech resource with a custom domain name and allowed VNet(s) configured
 
@@ -90,7 +92,7 @@ The usage is equivalent to [using a Speech resource with a custom domain name an
 
 ## Learn more
 
-* [Use Speech Services through a private endpoint](speech-services-private-link.md)
+* [Use Speech service through a private endpoint](speech-services-private-link.md)
 * [Azure VNet service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md)
 * [Speech SDK](speech-sdk.md)
 * [Speech-to-text REST API](rest-speech-to-text.md)
