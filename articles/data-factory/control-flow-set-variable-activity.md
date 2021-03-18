@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 04/07/2020
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jonburchel 
+ms.reviewer: jburchel
 ---
 # Set Variable Activity in Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jonburchel 
+ms.reviewer: jburchel
 robots: noindex
 ---
 # Troubleshoot Data Factory issues

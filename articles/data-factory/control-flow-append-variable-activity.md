@@ -5,7 +5,7 @@ ms.service: data-factory
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jonburchel 
+ms.reviewer: jburchel
 ms.date: 10/09/2018
 ---
 
