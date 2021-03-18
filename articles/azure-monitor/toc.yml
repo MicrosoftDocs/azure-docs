@@ -720,7 +720,7 @@
               href: app/java-standalone-config.md
             -name: Advanced configurations
              items:
-            - name: 
+            - name: JMX metrics
               href: app/java-jmx-metrics-configuration.md
             - name: Telemetry processors
               items:
