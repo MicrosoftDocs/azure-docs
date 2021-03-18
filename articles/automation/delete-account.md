@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # How to delete your Azure Automation account
 
-After you enable an Azure Automation account to help automate IT or business process, or enable its other features to support operations management of your Azure and non-Azure machines such as Update Management, you may decide to stop using the Automation account. If you have enabled features that depend on integration with an Azure Monitor Log Analytics workspace, there are additional steps required to complete this action.
+After you enable an Azure Automation account to help automate IT or business process, or enable its other features to support operations management of your Azure and non-Azure machines such as Update Management, you may decide to stop using the Automation account. If you have enabled features that depend on integration with an Azure Monitor Log Analytics workspace, there are more steps required to complete this action.
 
 Removing your Automation account can be done using one of the following methods based on the supported deployment models:
 
@@ -34,7 +34,7 @@ To delete your Automation account, and also the Log Analytics workspace if linke
 This section provides steps for deleting your Automation account based on the two deployment scenarios:
 
 1. Your Automation account is not linked to a Log Analytics workspace.
-1. Your Automation account supporting shared capabilities and is linked to a Log Analytics workspace. It could be simply linked to the workspace in support of forwarding job status and job streams and/or, supporting Update Management, Change Tracking and Inventory, and/or Start/Stop VMs during off-hours.
+1. Your Automation account supporting shared capabilities and is linked to a Log Analytics workspace. It could be linked to the workspace in support of forwarding job status and job streams and/or, supporting Update Management, Change Tracking and Inventory, and/or Start/Stop VMs during off-hours.
 
 ### Standalone Automation account
 
@@ -60,7 +60,7 @@ To delete your Automation account linked to a Log Analytics workspace in support
 
 4. Click **Solutions** under **General**.
 
-5. On the Solutions page, select one of the following based on the features(s) deployed in the account:
+5. On the Solutions page, select one of the following based on the feature(s) deployed in the account:
 
    * For Start/Stop VMs during off-hours, select **Start-Stop-VM[workspace name]**.
    * For Update Management, select **Updates(workspace name)**.
@@ -80,7 +80,7 @@ To unlink from your Automation account, perform the following steps.
 
 2. Open your Automation account and select **Linked workspace** under **Related Resources** on the left.
 
-3. On the **Unlink workspace** page, select **Unlink workspace** and respond to prompts.
+3. On the **Unlink workspace** page, select **Unlink workspace**, and respond to prompts.
 
    ![Unlink workspace page](media/automation-solution-vm-management-remove/automation-unlink-workspace-blade.png)
 
@@ -92,7 +92,7 @@ To unlink from the workspace, perform the following steps.
 
 2. From the workspace, select **Automation Account** under **Related Resources**.
 
-3. On the Automation Account page, select **Unlink account** and respond to prompts.
+3. On the Automation Account page, select **Unlink account**, and respond to prompts.
 
 While it attempts to unlink the Automation account, you can track the progress under **Notifications** from the menu.
 
