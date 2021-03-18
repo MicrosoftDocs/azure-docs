@@ -50,6 +50,6 @@
     tocHref: /azure/developer/java/
     topicHref: /azure/cosmos-db/index    
     items:
-    - name: Cosmos DB
+    - name: Spring integration
       tocHref: /azure/developer/java/spring-framework/     
       topicHref: /azure/cosmos-db/index
