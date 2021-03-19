@@ -181,22 +181,24 @@ Specifies the maximum number of language worker processes, with a default value 
 |---|------------|
 |FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
 
-## PYTHON\_THREADPOOL\_THREAD\_COUNT
-
-Specifies the maximum number of threads that a Python language worker would use to execute function invocations, with a default value of `1` for Python version `3.8` and below. For Python version `3.9` and above, the value is set to `None`. Note that this setting does not guarantee the number of threads that would be set during executions. The setting allows Python to expand the number of threads to the specified value. The setting only applies to Python functions apps. Additionally, the setting applies to synchronous functions invocation and not for coroutines.
-
-|Key|Sample value|Max value|
-|---|------------|---------|
-|PYTHON\_THREADPOOL\_THREAD\_COUNT|2|32|
-
-
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, `dotnet`). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` ([C# class library](functions-dotnet-class-library.md)/[C# script](functions-reference-csharp.md)), `dotnet-isolated` ([.NET isolated process](dotnet-isolated-process-guide.md)), `node` ([JavaScript/TypeScript](functions-reference-node.md)), `java` ([Java](functions-reference-java.md)), `powershell` ([PowerShell](functions-reference-powershell.md)), and `python` ([Python](functions-reference-python.md)).
+The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, `dotnet`). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_WORKER\_RUNTIME|dotnet|
+|FUNCTIONS\_WORKER\_RUNTIME|node|
+
+Valid values:
+
+| Value | Language |
+|---|---|
+| `dotnet` | [C# (class library)](functions-dotnet-class-library.md)<br/>[C# (script)](functions-reference-csharp.md) |
+| `dotnet-isolated` | [C# (isolated process)](dotnet-isolated-process-guide.md) |
+| `java` | [Java](functions-reference-java.md) |
+| `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
+| `powershell` | [PowerShell](functions-reference-powershell.md) |
+| `python` | [Python](functions-reference-python.md) |
 
 ## PIP\_EXTRA\_INDEX\_URL
 
@@ -207,6 +209,14 @@ The value for this setting indicates a custom package index URL for Python apps.
 |PIP\_EXTRA\_INDEX\_URL|http://my.custom.package.repo/simple |
 
 To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+
+## PYTHON\_THREADPOOL\_THREAD\_COUNT
+
+Specifies the maximum number of threads that a Python language worker would use to execute function invocations, with a default value of `1` for Python version `3.8` and below. For Python version `3.9` and above, the value is set to `None`. Note that this setting does not guarantee the number of threads that would be set during executions. The setting allows Python to expand the number of threads to the specified value. The setting only applies to Python functions apps. Additionally, the setting applies to synchronous functions invocation and not for coroutines.
+
+|Key|Sample value|Max value|
+|---|------------|---------|
+|PYTHON\_THREADPOOL\_THREAD\_COUNT|2|32|
 
 ## SCALE\_CONTROLLER\_LOGGING\_ENABLED
 
