@@ -21,7 +21,7 @@ The amount of available capacity can vary based on size, region, time of day, an
 
 ## Eviction policy
 
-VMs can be evicted based on capacity or the max price you set. When creating a Azure Spot Virtual Machine, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
+VMs can be evicted based on capacity or the max price you set. When creating an Azure Spot Virtual Machine, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
 The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing you to redeploy it later. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your quota and you will be charged storage costs for the underlying disks. 
 
