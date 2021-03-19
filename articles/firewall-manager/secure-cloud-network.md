@@ -231,12 +231,12 @@ Now, test the firewall rules to confirm that it works as expected.
 
 1. Connect a remote desktop to firewall public IP address, and sign in.
 
-3. Open Internet Explorer and browse to https://www.microsoft.com.
+3. Open Internet Explorer and browse to `https://www.microsoft.com`.
 4. Select **OK** > **Close** on the Internet Explorer security alerts.
 
    You should see the Microsoft home page.
 
-5. Browse to https://www.google.com.
+5. Browse to `https://www.google.com`.
 
    You should be blocked by the firewall.
 
