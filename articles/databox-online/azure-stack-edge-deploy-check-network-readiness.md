@@ -71,11 +71,9 @@ Install the Azure Stack Edge Network Readiness tool on the client computer:
 
 4. Run the tool. To run `New-AzStackEdgeMultiOrder.ps1`, you would type the following:
 
-STOPPING HERE. The rest is 
-
 #### Usage notes
 
-You'll need to provide XXX when you run the tool. 
+You'll need to provide XXX when you run the tool. <!--Not yet written.-->
 
 #### Parameter info
 
@@ -88,10 +86,38 @@ You'll need to provide XXX when you run the tool.
 
 ## Sample tool output
 
-The following is sample output from running THE TOOL. SUMMARY OF KEY NETWORK CHARACTERISTICS.
+The following is sample output from running THE TOOL. SUMMARY OF KEY RESULTS.<!--Text below has not been anonymized. Raw data from test run.-->
 
-## Sample logfile
+```powershell
+PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'vibhan-dtp.northamerica.corp.microsoft.com' -TimeServer 'pool.ntp.org' -Proxy 'http://10.57.48.80:8080' -SkipTests DuplicateIP -WindowsUpdateServer "http://storsimpleprod.frontendprodmt.selfhost.corp.microsoft.com" -OutputPath C:\vibhan
 
-XXX
 
-## Sample report
+Invoke-AzsNetworkValidation v1.2100.1396.426 started.
+The following tests will be executed: LinkLayer, IPConfig, DnsServer, TimeServer, AzureEndpoint, WindowsUpdateServer, DnsRegistration, Proxy
+Validating input parameters
+Validating Azure Stack Edge Network Readiness
+        Link Layer: OK
+        IP Configuration: OK
+ Using network adapter name 'vEthernet (corp-1g-Static)', description 'Hyper-V Virtual Ethernet Adapter'
+        DNS Server 10.50.10.50: OK
+        DNS Server 10.50.50.50: OK
+        Time Server pool.ntp.org: OK
+        Proxy Server 10.57.48.80: OK
+        Azure ARM Endpoint: OK
+        Azure Graph Endpoint: OK
+        Azure Login Endpoint: OK
+        Azure ManagementService Endpoint: OK
+        Windows Update Server storsimpleprod.frontendprodmt.selfhost.corp.microsoft.com port 80: Fail
+        DNS Registration for vibhan-dtp.northamerica.corp.microsoft.com: OK
+        DNS Registration for login.vibhan-dtp.northamerica.corp.microsoft.com: Fail
+        DNS Registration for management.vibhan-dtp.northamerica.corp.microsoft.com: Fail
+        DNS Registration for *.blob.vibhan-dtp.northamerica.corp.microsoft.com: Fail
+        DNS Registration for compute.vibhan-dtp.northamerica.corp.microsoft.com: Fail
+
+Log location (contains PII): C:\vibhan\AzsReadinessChecker.log
+Report location (contains PII): C:\vibhan\AzsReadinessCheckerReport.json
+Invoke-AzsNetworkValidation Completed
+```
+
+
+
