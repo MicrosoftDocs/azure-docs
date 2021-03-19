@@ -25,9 +25,9 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Azure Databricks
 * Azure Data Lake Analytics
 * Azure Container Instance
+* Kubernetes
 
 To use compute targets managed by Azure Machine Learning, see:
-
 
 * [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md)
 * [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md)
@@ -332,27 +332,31 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## <a id="aks"></a>Azure Kubernetes Service (preview)
+## <a id="kubernetes"></a>Kubernetes (preview)
 
-Azure Kubernetes Service (AKS) allows for various configuration options when used with Azure Machine Learning. For more information, see [How to create and attach Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
+Azure Machine Learning provides you with the following options for attaching Kubernetes clusters for training:
 
-1. Install the Python SDK
-1. Attach the cluster
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure. 
+- [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure. For more information, see [Connect to your Kubernetes cluster using Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster)
 
-    ```python
-    from azureml.contrib.core.compute.kubernetescompute import KubernetesCompute
-    
-    k8s_config = {
-    }
-    
-    attach_config = KubernetesCompute.attach_configuration(
-        resource_id="<YOUR-RESOURCE-ID>",
-        aml_k8s_config=k8s_config
-    )
-    
-    compute_target = KubernetesCompute.attach(ws, "aks-compute", attach_config)
-    compute_target.wait_for_completion(show_output=True)
-    ```
+To attach your Kubernetes cluster use the Azure Machine Learning SDK or the Azure Machine Learning studio. For more information on studio, see [Attach compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
+
+The following code shows how to attach an Azure Kubernetes cluster 
+
+```python
+from azureml.contrib.core.compute.kubernetescompute import KubernetesCompute
+
+k8s_config = {
+}
+
+attach_config = KubernetesCompute.attach_configuration(
+    resource_id="<YOUR-RESOURCE-ID>",
+    aml_k8s_config=k8s_config
+)
+
+compute_target = KubernetesCompute.attach(ws, "aks-compute", attach_config)
+compute_target.wait_for_completion(show_output=True)
+```
 
 ## Notebook examples
 
