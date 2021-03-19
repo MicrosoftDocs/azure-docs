@@ -1,7 +1,7 @@
 ---
 title: Azure Certified Device program - Tutorial - Selecting your certification program
 description: Step-by-step guide to selecting the right certification programs for your device
-author: cbroad
+author: Chuckb1300
 ms.author: cbroad
 ms.service: iot-pnp
 ms.topic: tutorial
@@ -11,24 +11,20 @@ ms.custom: template-tutorial
 
 # Tutorial: Select your certification program
 
-Congratulations on choosing the Azure Certified Device program! We're excited to have you join our ecosystem of certified devices. To begin, you must first determine which of the four certification programs best suit your device capabilities.
+Congratulations on choosing the Azure Certified Device program! We're excited to have you join our ecosystem of certified devices. To begin, you must first determine which certification programs best suit your device capabilities.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
 > * Select the best certification program(s) for your device
 
-## Prerequisites
-
-- There are no pre-requisites for this tutorial
-
 ## Selecting a certification program for your device
 
 All devices are required to meet the baseline requirements outlined by the [**Azure Certified Device**](./program-requirements-azure-certified-device.md) certification. The other three certification badges build on this program and deliver a different customer value. You can select one or more of the three incremental badges (IoT Plug and Play, Edge Managed, and Edge Secured Core *preview).
 
-1. Review each of the certification programs' capability requirements in the table below. Select on the links provided to view the technical requirements your device must meet to pass our Azure IoT Certification Service testing.
+1. Review each of the certification programs' requirements in the table below. Detailed requirements for each program can be seleted from the headers.
 
-    |Requirement|IoT Plug and Play|Edge Managed|Edge Secured-core|
+    |Requirement|[IoT Plug and Play](./program-requirements-edge-secured-core.md)|[Edge Managed](./program-requirements-edge-managed.md)|[Edge Secured-core](./program-requirements-edge-secured-core.md)|
     ---|---|---|---
     | Processor | Any|MPU/CPU|MPU/CPU|
     | OS | Any|[Tier 1 OS](../iot-edge/support.md?view=iotedge-2018-06&preserve-view=true))|[Tier 1 OS](../iot-edge/support.md?view=iotedge-2018-06&preserve-view=true)|
@@ -36,7 +32,7 @@ All devices are required to meet the baseline requirements outlined by the [**Az
     | Defender for IoT | Not supported|Required|Required|
     | ADU/Windows Update | Not supported|Required|Required|
 
-1. Once you feel that you understand what is required of your device, select which certification programs you would like to certify your device with. This may be the Azure Certified Device certification, or a combination of the baseline certification with one of the three incremental badges. 
+1. Once you feel that you understand what is required of your device, review teh technical requirements for the program. This may be the Azure Certified Device certification, or a combination of the baseline certification with one of the three incremental badges. 
 
 ## Next steps
 
