@@ -2,7 +2,7 @@
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 11/24/2020
 ms.custom: seodec18
 
 ---
@@ -31,11 +31,13 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | DC | Not supported |
 | Dv2, DSv2 | All sizes |
 | Dv3, Dsv3 | All sizes |
-| Dav4, Dasv4 | All sizes |
+| Dav4 | All sizes |
+| Dasv4 | All sizes |
 | Ddv4, Ddsv4 |  All sizes |
 | Dv4, Dsv4 | Not supported |
 | Ev3, Esv3 | All sizes, except for E64is_v3 |
-| Eav4, Easv4 | All sizes |
+| Eav4 | All sizes |
+| Easv4 | All sizes |
 | Edv4, Edsv4 |  All sizes |
 | Ev4, Esv4 | Not supported |
 | F, Fs | All sizes |
@@ -52,7 +54,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | NC | All sizes |
 | NCv2 | All sizes |
 | NCv3 | All sizes |
-| NCasT4_v3 | All sizes |
+| NCasT4_v3 | None - not yet available |
 | ND | All sizes |
 | NDv2 | None - not yet available |
 | NV | All sizes |
@@ -97,22 +99,7 @@ Use one of the following APIs to return a list of Windows and Linux VM images cu
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI: [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
 
-Avoid the following images with impending end-of-life (EOL) dates, past which Batch support will be retired:
-
-| Publisher              | Offer                        | Version                                        | End-of-Life (EOL) Date |
-|------------------------|------------------------------|------------------------------------------------|------------------------|
-| Canonical              | UbuntuServer                 | 16.04-LTS                                      | 2021-05-21             |
-| Canonical              | UbuntuServer                 | 16_04-lts-gen2                                 | 2021-05-21             |
-| Canonical              | UbuntuServer                 | 16.04.0-LTS                                    | 2021-05-21             |
-| microsoft-azure-batch  | ubuntu-server-container      | 16.04-lts                                      | 2021-05-21             |
-| microsoft-azure-batch  | ubuntu-server-container-rdma | 16.04-lts                                      | 2021-05-21             |
-| microsoft-azure-batch  | centos-container-rdma        | 8-1                                            | 2021-12-31             |
-| microsoft-azure-batch  | centos-container             | 8-2                                            | 2021-12-31             |
-| OpenLogic              | CentOS                       | 8_2                                            | 2021-12-31             |
-| OpenLogic              | CentOS                       | 8_1                                            | 2021-12-31             |
-| OpenLogic              | CentOS                       | 8_2-gen2                                       | 2021-12-31             |
-| Oracle                 | Oracle-Linux                 | 81                                             | 2021-12-31             |
-| MicrosoftWindowsServer | WindowsServer                | Datacenter-Core-2004-with-Containers-smalldisk | 2022-01-14             |
+It is strongly recommended to avoid images with impending Batch support end of life (EOL) dates. These dates can be discovered via the [`ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Please see the [Batch best practices guide](https://docs.microsoft.com/azure/batch/best-practices) for more information regarding Batch pool VM image selection.
 
 ## Next steps
 
