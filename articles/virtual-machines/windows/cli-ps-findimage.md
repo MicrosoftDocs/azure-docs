@@ -17,6 +17,22 @@ This article describes how to use Azure PowerShell to find VM images in the Azur
 You can also browse available images and offers using the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or the [Azure CLI](cli-findimage.md). 
 
 
+<style>
+.VMSize { font-weight: bold; }
+.Score { font-weight: bold; color: green; }
+.PerVcpu { font-weight: bold; color: purple; }
+</style>
+
+## Av2 - General Compute
+(09/24/2020 PBIID:7668456)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg ACU | Min ACU/vCPU | Avg ACU/vCPU | Max ACU/vCPU | StdDev% | Var % | #Runs | #VMs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| <span class="VMSize">Standard_A1_v2</span> | 3:i2660 | 1 | 1 | 1.9 | <span class="Score">133</span> | 130.4 | <span class="PerVcpu">132.6</span> | 134.2 | 0.78% | 2.82% | 42 | 6 |
+| <span class="VMSize">Standard_A1_v2</span> | 4:i2673 | 1 | 1 | 1.9 | <span class="Score">139</span> | 128.1 | <span class="PerVcpu">139.5</span> | 146.0 | 2.63% | 12.84% | 70 | 10 |
+
+
+
 ## Terminology
 
 A Marketplace image in Azure has the following attributes:
