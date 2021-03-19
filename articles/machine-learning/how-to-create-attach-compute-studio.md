@@ -163,6 +163,9 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
           gpu: example-cluster
         ```
 
+    > [!IMPORTANT]
+    > To attach an AKS cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
+
 1. Select __Attach__. 
 
 
