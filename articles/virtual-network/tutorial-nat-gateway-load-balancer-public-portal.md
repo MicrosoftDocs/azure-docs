@@ -95,13 +95,13 @@ Create a health probe named **myHealthProbe** to monitor the health of the VMs.
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myHealthProbe**. |
-    | Protocol | Select **HTTP**. |
+    | Protocol | Select **TCP**. |
     | Port | Enter **80**.|
     | Interval | Enter **15** for number of **Interval** in seconds between probe attempts. |
     | Unhealthy threshold | Select **2** for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
-    | | |
+   
 
-3. Leave the rest the defaults and Select **OK**.
+3. Leave the rest the defaults and Select **Add**.
 
 ### Create a load balancer rule
 
