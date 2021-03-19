@@ -20,10 +20,10 @@ You can use private endpoints for your Purview accounts to allow clients and use
 
 1. Fill basic information, and set connectivity method to Private endpoint in **Networking** tab. Set up your ingestion private endpoints by providing details of **Subscription, Vnet and Subnet** that you want to pair with your private endpoint.
 
-> [!NOTE]
-> Create an ingestion private endpoint only if you intend to enable network isolation for end-to-end scan scenarios, for both your Azure and on-premises sources. We currently do not support ingestion private endpoints working with your AWS sources.
+    > [!NOTE]
+    > Create an ingestion private endpoint only if you intend to enable network isolation for end-to-end scan scenarios, for both your Azure and on-premises sources. We currently do not support ingestion private endpoints working with your AWS sources.
 
-:::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Create a Private Endpoint in the Azure portal":::
+    :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Create a Private Endpoint in the Azure portal":::
 
 1. You can also optionally choose to set up a **Private DNS zone** for each ingestion private endpoint.
 
@@ -114,7 +114,7 @@ There are 2 ways you can add Purview private endpoints after creating your Purvi
 
 1. Navigate to the Purview account from the Azure portal, select the Private endpoint connections under the **networking** section of **Settings**.
 
-:::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Create account private endpoint":::
+    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Create account private endpoint":::
 
 1. Click +Private endpoint to create a new private endpoint.
 
@@ -164,9 +164,10 @@ There are 2 ways you can add Purview private endpoints after creating your Purvi
 
 To cut off access to the Purview account completely from public internet, follow the steps below. This setting will apply to both private endpoint and ingestion private endpoint connections.
 
-1. navigate to the Purview account from the Azure portal, select the Private endpoint connections under the **networking** section of **Settings**.
+1. Navigate to the Purview account from the Azure portal, select the Private endpoint connections under the **networking** section of **Settings**.
 1. Navigate to the firewall tab and ensure that the toggle is set to **Deny**.
-     :::image type="content" source="media/catalog-private-link/private-endpoint-firewall.png" alt-text="Private endpoint firewall settings":::
+
+    :::image type="content" source="media/catalog-private-link/private-endpoint-firewall.png" alt-text="Private endpoint firewall settings":::
 
 ## Next steps
 
