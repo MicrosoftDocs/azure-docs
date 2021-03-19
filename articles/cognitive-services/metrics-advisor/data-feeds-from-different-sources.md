@@ -209,7 +209,7 @@ The timestamp field must match one of these two formats:
 
 ## <span id="table">Azure Table Storage</span>
 
-* **Connection String**: Please refer to [View and copy a connection string](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) for information on how to retrieve the connection string from Azure Table Storage.
+* **Connection String**: Please create an SAS (shared access signature) URL and fill in here. The most straightforward way to generate a SAS URL is using the Azure Portal. By using the Azure portal, you can navigate graphically. To create an SAS URL via the Azure portal, first, navigate to the storage account you’d like to access under the Settings section then click Shared access signature. Check at least "Table" and "Object" checkboxes, then click the Generate SAS and connection string button. Table service SAS URL is what you need to copy and fill in the text box in the Metrics Advisor workspace.
 
 * **Table Name**: Specify a table to query against. This can be found in your Azure Storage Account instance. Click **Tables** in the **Table Service** section.
 
