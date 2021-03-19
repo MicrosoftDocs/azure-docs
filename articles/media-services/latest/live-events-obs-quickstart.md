@@ -6,7 +6,7 @@ ms.service: media-services
 ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
-ms.date: 08/31/2020
+ms.date: 03/19/2021
 ---
 
 # Create an Azure Media Services live stream with OBS
@@ -138,13 +138,71 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 1. Select **Output** from the **Settings** menu.
 
-1. Enter *2* into the **Keyframe interval** field. This sets the fragment length to 2 seconds. For lower latency live delivery, use the value of 1 second.
+1. Select the **Output Mode** dropdown at the top of the page and choose **Advanced** to access all of the available encoder settings.
 
-1. OPTIONAL: Set the **CPU Usage Preset** to *veryfast* if you are using a computer that is low on processing power. Optionally, you can set the kbps to something lower if there are undesirable network conditions.
+1. Select the **Streaming** tab to set up the encoder.
 
-   ![OBS output settings](media/live-events-obs-quickstart/live-event-obs-advanced-output-settings.png)
+1. Select the right encoder for your system.  If your hardware supports GPU acceleration, choose from NVIDIA **NVENC** H.264 or Intel **QuickSync** H.264. If your system does not have a supported GPU, select the **X264** software encoder option.
+
+#### X264 Encoder settings
+
+1. If you have selected the **X264** encoding option, check the **Rescale Output** box and select either 1920x1080 if you are using a Premium Live Event in Media Services, or 1280x720 if you are using a Standard (720P) Live Event.  If you are using a pass-through live event, you can choose any available resolution.
+
+1. Set the **Bitrate** to anywhere between 1500 and 4000 Kbps. You may choose to adjust this based on available CPU capabilities and bandwidth on your network to achieve the desired quality setting.
+
+1. Enter *2* into the **Keyframe interval** field. This sets the key frame interval to 2 seconds which controls the final size of the fragments delivered over HLS or DASH from Media Services. Never set the key frame interval any higher than 4 seconds.  If you are seeing high latency when broadcasting, you should always double check or inform your application users to always set this value to 2 seconds. When attempting to achieve lower latency live delivery you can choose to set this value to as low as 1 second.
+
+1. OPTIONAL: Set the CPU Usage Preset to **veryfast** and run a few test to see if your local CPU can handle the combination of bitrate and preset with enough overhead. It is recommended to try not to choose settings that would result in an average CPU higher than 80% to avoid any issues during live streaming. To improve quality, you can test with **faster** and **fast** preset settings until you reach your CPU limitations.
+
+   ![OBS X264 encoder settings](media/live-events-obs-quickstart/live-event-obs-x264-settings.png)
 
 1. Leave the rest of the settings unchanged and click **OK**.
+
+#### Nvidia NVENC Encoder settings
+
+1. If you have selected the **NVENC** GPU encoding option, check the **Rescale Output** box and select either 1920x1080 if you are using a Premium Live Event in Media Services, or 1280x720 if you are using a Standard (720P) Live Event. If you are using a pass-through live event, you can choose any available resolution.
+
+1. Set the **Rate Control** to CBR for Constant Bitrate rate control.
+
+1. Set the **Bitrate** anywhere between 1500 and 4000 Kbps. You may choose to adjust this based on available CPU capabilities and bandwidth on your network to achieve the desired quality setting.
+
+1. Set the **Keyframe Interval** to 2 seconds as noted above under the X264 options. Do not exceed 4 seconds, as this can significantly impact the latency of your live broadcast.
+
+1. Set the **Preset** to Low-Latency, Low-Latency Performance, or Low-Latency Quality depending on the CPU speed on your local machine. Experiment with these settings to achieve the best balance between quality and CPU utilization on your own hardware.
+
+1. Set the **Profile** to high.
+
+1. Leave the **Look-ahead** unchecked.
+
+1. Leave the **Psycho Visual Tuning** unchecked.
+
+1. Set the **GPU** to 0 to automatically decide which GPUs to allocate. If desired, you can restrict GPU usage.
+
+1. Set the **Max B-frames** to 2
+
+   ![OBS NVidia NVENC GPU encoder settings](media/live-events-obs-quickstart/live-event-obs-NVENC-settings.png)
+
+#### Intel QuickSync Encoder settings
+
+1. If you have selected the Intel **QuickSync** GPU encoding option, check the **Rescale Output** box and select either 1920x1080 if you are using a Premium Live Event in Media Services, or 1280x720 if you are using a Standard (720P) Live Event. If you are using a pass-through live event, you can choose any available resolution.
+
+1. Set the **Target Usage** to "balanced" or adjust as needed based on your CPU and GPU combined load. Adjust as necessary and experiment to achieve an 80% max CPU utilization on average with the quality that your hardware is capable of producing.
+
+1. Set the **Profile** to high.
+
+1. Set the **Keyframe Interval** to 2 seconds as noted above under the X264 options. Do not exceed 4 seconds, as this can significantly impact the latency of your live broadcast.
+
+1. Set the **Rate Control** to CBR for Constant Bitrate rate control.
+
+1. Set the **Bitrate** anywhere between 1500 and 4000 Kbps. You may choose to adjust this based on available CPU capabilities and bandwidth on your network to achieve the desired quality setting.
+
+1. Set the **Latency** to "low" or "ultra-low".
+
+1. Set the **B frames** to 2.
+
+1. Leave the **Subjective Video Enhancements** unchecked.
+
+   ![OBS Intel QuickSync GPU encoder settings](media/live-events-obs-quickstart/live-event-obs-QuickSync-settings.png)
 
 ### Start streaming
 
