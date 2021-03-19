@@ -1,24 +1,42 @@
 ---
-title: Upgrade an Azure Service Fabric cluster
-description: Learn about upgrading the version or configuration of an Azure Service Fabric cluster—setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and what you can expect when the upgrades are performed.
+title: Upgrading Azure Service Fabric clusters
+description: Learn about options for updating your Azure Service Fabric cluster
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 03/26/2021
 ---
-# Upgrading and updating an Azure Service Fabric cluster
+# Upgrading and updating Azure Service Fabric clusters
 
-For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
+An Azure Service Fabric cluster is a resource you own, but it's partly managed by Microsoft. This article describes the options for when and how to update your Azure Service Fabric cluster.
 
-## Controlling the fabric version that runs on your cluster
+## Automatic versus manual upgrades
 
-Make sure your cluster is always running a [supported fabric version](service-fabric-versions.md). Each time Microsoft announces the release of a new version of Service Fabric, the previous version is marked for end of support after a minimum of 60 days from that date. New releases are announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
+Its critical to ensure your Service Fabric cluster is always running a [supported runtime version](service-fabric-versions.md). Each time Microsoft announces the release of a new version of Service Fabric, the previous version is marked for *end of support* after a minimum of 60 days from that date. New releases are announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric).
 
-14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state until you upgrade to a supported fabric version.
+14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a *Warning* health state. The cluster remains in a warning state until you upgrade to a supported runtime version.
 
-You can set your cluster to receive automatic fabric upgrades as they are released by Microsoft or you can select a supported fabric version you want your cluster to be on.  To learn more, read [upgrade the Service Fabric version of your cluster](service-fabric-cluster-upgrade-version-azure.md).
+You can set your cluster to receive automatic Service Fabric upgrades as they are released by Microsoft, or you can manually choose from a list of currently supported versions. These options are available in the **Fabric upgrades** section of your Service Fabric cluster resource.
 
-## Fabric upgrade behavior during automatic upgrades
+:::image type="content" source="./media/service-fabric-cluster-upgrade/fabric-upgrade-mode.png" alt-text="Select Automatic or Manual upgrades in the 'Fabric upgrades' section of your cluster resource in Azure portal.":::
 
-Microsoft maintains the fabric code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, upgrades are performed in the following phases:
+You can also set your cluster upgrade mode and select a runtime version [using a Resource Manager template](service-fabric-cluster-upgrade-version-azure.md#upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template).
+
+Automatic upgrades are the recommended upgrade mode, as this option ensures your cluster stays in a supported state and benefits from the latest fixes and features while also allowing you to schedule updates in a manner that is least disruptive to your workloads using a [wave deployment](#wave-deployment-for-automatic-upgrades) strategy.
+
+## Wave deployment for automatic upgrades
+
+With wave deployment, you can minimize the disruption of an upgrade to your cluster by selecting the maturity level of an upgrade, depending on your workload. For example, you can set up a *Test* -> *Stage* -> *Production* wave deployment pipeline for your various Service Fabric clusters in order to test the compatibility of a runtime upgrade before you apply it to your production workloads.
+
+To opt in to wave deployment, specify one of the following wave values for your cluster (in its deployment template):
+
+* **Wave 0**: Clusters are updated as soon as a new Service Fabric build is released. Intended for test/dev clusters.
+* **Wave 1**: Clusters are updated one week (7 days) after a new build is released. Intended for pre-prod/staging clusters.
+* **Wave 2**: Clusters are updated two weeks (14 days) after a new build is released. Intended for production clusters.
+
+You can register for email notifications if a cluster upgrade fails, and also have the option to pause / resume upgrades on your cluster. See [Enable and manage wave deployment](service-fabric-cluster-upgrade-version-azure.md#enable-and-manage-wave-deployment) to get started.
+
+## Phases of automatic upgrade
+
+Microsoft maintains the Service Fabric runtime code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To minimize the impact of these upgrades on your applications, they are performed in the following phases:
 
 ### Phase 1: An upgrade is performed by using all cluster health policies
 
@@ -60,52 +78,43 @@ An email with this information is sent to the subscription owner, along with the
 
 If the cluster health policies are met, the upgrade is considered successful and marked complete. This can happen during the initial upgrade or any of the upgrade reruns in this phase. There is no email confirmation of a successful run.
 
-## Manage certificates
+## Custom polices for manual upgrades
+
+You can specify custom polices for manual cluster upgrades. These policies get applied each time you select a new runtime version, which triggers the system to kick off the upgrade of your cluster. If you do not override the policies, the defaults are used. For more, see [Set custom polices for manual upgrades](service-fabric-cluster-upgrade-version-azure.md#set-custom-polices-for-manual-upgrades).
+
+## Other cluster updates
+
+Outside of upgrading the runtime, there are a number of other actions you may need to perform to keep your cluster up to date, including the following:
+
+### Managing certificates
 
 Service Fabric uses [X.509 server certificates](service-fabric-cluster-security.md) that you specify when you create a cluster to secure communications between cluster nodes and authenticate clients. You can add, update, or delete certificates for the cluster and client in the [Azure portal](https://portal.azure.com) or using PowerShell/Azure CLI.  To learn more, read [add or remove certificates](service-fabric-cluster-security-update-certs-azure.md)
 
-## Open application ports
+### Opening application ports
 
 You can change application ports by changing the Load Balancer resource properties that are associated with the node type. You can use the Azure portal, or you can use PowerShell/Azure CLI. For more information, read [Open application ports for a cluster](create-load-balancer-rule.md).
 
-## Define node properties
+### Defining node properties
 
 Sometimes you may want to ensure that certain workloads run only on certain types of nodes in the cluster. For example, some workload may require GPUs or SSDs while others may not. For each of the node types in a cluster, you can add custom node properties to cluster nodes. Placement constraints are the statements attached to individual services that select for one or more node properties. Placement constraints define where services should run.
 
 For details on the use of placement constraints, node properties, and how to define them, read [node properties and placement constraints](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
-## Add capacity metrics
+### Adding capacity metrics
 
 For each of the node types, you can add custom capacity metrics that you want to use in your applications to report load. For details on the use of capacity metrics to report load, refer to the Service Fabric Cluster Resource Manager Documents on [Describing Your Cluster](service-fabric-cluster-resource-manager-cluster-description.md) and [Metrics and Load](service-fabric-cluster-resource-manager-metrics.md).
 
-## Set health policies for automatic upgrades
-
-You can specify custom health policies for fabric upgrade. If you have set your cluster to Automatic fabric upgrades, then these policies get applied to the Phase-1 of the automatic fabric upgrades.
-If you have set your cluster for Manual fabric upgrades, then these policies get applied each time you select a new version triggering the system to kick off the fabric upgrade in your cluster. If you do not override the policies, the defaults are used.
-
-You can specify the custom health policies or review the current settings under the "fabric upgrade" blade, by selecting the advanced upgrade settings. Review the following picture on how to.
-
-![Manage custom health policies][HealthPolices]
-
-## Customize Fabric settings for your cluster
+### Customizing settings for your cluster
 
 Many different configuration settings can be customized on a cluster, such as the reliability level of the cluster and node properties. For more information, read [Service Fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md).
 
-## Patch the OS in the cluster nodes
+### Upgrading OS images for cluster nodes
 
-The patch orchestration application (POA) is a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. The [Patch Orchestration Application for Windows](service-fabric-patch-orchestration-application.md) can be deployed on your cluster to install patches in an orchestrated manner while keeping the services available all the time.
+Enabling automatic OS image upgrades for your Service Fabric cluster nodes is a best practice. In order to do so, there are several cluster requirements and steps to take. Another option is using Patch Orchestration Application (POA, a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. To learn more about these options, see [Patch the Windows operating system in your Service Fabric cluster](service-fabric-patch-orchestration-application.md).
 
 ## Next steps
 
-* Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)
-* Learn how to [scale your cluster in and out](service-fabric-cluster-scale-in-out.md)
+* [Manage Service Fabric upgrades](service-fabric-cluster-upgrade-version-azure.md)
+* Customize your [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md)
+* [Scale your cluster in and out](service-fabric-cluster-scale-in-out.md)
 * Learn about [application upgrades](service-fabric-application-upgrade.md)
-
-<!--Image references-->
-[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
-[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
-[AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
-[HealthPolices]: ./media/service-fabric-cluster-upgrade/Manage_AutomodeWadvSettings.PNG
-[ARMUpgradeMode]: ./media/service-fabric-cluster-upgrade/ARMUpgradeMode.PNG
-[Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
-[Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG

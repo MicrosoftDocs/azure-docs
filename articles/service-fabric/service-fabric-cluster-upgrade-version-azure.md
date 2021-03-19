@@ -1,22 +1,17 @@
 ---
-title: Upgrade a cluster's Azure Service Fabric version
-description: Upgrade the Service Fabric code and/or configuration that runs a Service Fabric cluster, including setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and so on. What can you expect when the upgrades are performed?
-
-ms.topic: conceptual
-ms.date: 11/12/2018
+title: Manage Service Fabric cluster upgrades
+description: Manage when and how your Service Fabric cluster runtime is updated
+ms.topic: how-to
+ms.date: 03/26/2021
 ---
-# Upgrade the Service Fabric version of a cluster
+# Manage Service Fabric cluster upgrades
 
-For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes how to upgrade the version of Service Fabric running in your Azure cluster.
+You can set your Service Fabric cluster to receive automatic upgrades as they are released by Microsoft, or you can choose to install them manually.
 
-You can set your cluster to receive automatic fabric upgrades as they are released by Microsoft or you can select a supported fabric version you want your cluster to be on.
-
-You do this by setting the "upgradeMode" cluster configuration on the portal or using Resource Manager at the time of creation or later on a live cluster 
+You do this by setting the "upgradeMode" cluster configuration on the portal or using Resource Manager at the time of creation or later on a live cluster.
 
 > [!NOTE]
-> Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). The new release is available to choose then. 
-> 
-> 
+> Make sure to keep your Service Fabric cluster is always running a supported version. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric). The new release is available to choose then.
 
 14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state until you upgrade to a supported fabric version.
 
@@ -25,12 +20,12 @@ You can set the cluster to automatic or manual when you are creating the cluster
 
 ![Screenshot shows the Create Service Fabric cluster pane with option 2 Cluster configuration selected and the Cluster configuration pane open.][Create_Manualmode]
 
-You can set the cluster to automatic or manual when on a live cluster, using the manage experience. 
+You can set the cluster to automatic or manual when on a live cluster, using the manage experience.
 
 ### Upgrading to a new version on a cluster that is set to Manual mode via portal.
 To upgrade to a new version, all you need to do is select the available version from the dropdown and save. The Fabric upgrade gets kicked off automatically. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.
 
-If the cluster health policies are not met, the upgrade is rolled back. Scroll down this document to read more on how to set those custom health policies. 
+If the cluster health policies are not met, the upgrade is rolled back. Scroll down this document to read more on how to set those custom health policies.
 
 Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
 
@@ -49,13 +44,13 @@ If the cluster health policies are not met, the upgrade is rolled back.
 
 Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
 
-## Set custom health polices for upgrades
-You can specify custom health polices for fabric upgrade. If you have set your cluster to Automatic fabric upgrades, then these policies get applied to the [Phase-1 of the automatic fabric upgrades](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades).
-If you have set your cluster for Manual fabric upgrades, then these policies get applied each time you select a new version triggering the system to kick off the fabric upgrade in your cluster. If you do not override the policies, the defaults are used.
+## Set custom polices for manual upgrades
 
-You can specify the custom health policies or review the current settings under the "fabric upgrade" blade, by selecting the advanced upgrade settings. Review the following picture on how to. 
+You can specify custom health polices for manual cluster upgrades. These policies get applied each time you select a new runtime version, which triggers the system to kick off the upgrade of your cluster. If you do not override the policies, the defaults are used.
 
-![Manage custom health policies][HealthPolices]
+You can specify the custom health policies or review the current settings under the **Fabric upgrades** section of your cluster resource in Azure portal by selecting *Custom* option for **Upgrade policy**.
+
+:::image type="content" source="./media/service-fabric-cluster-upgrade/custom-upgrade-policy.png" alt-text="Select the 'Custom' upgrade policy option in the 'Fabric upgrades' section of your cluster resource in Azure portal in order to set custom health policies during upgrade":::
 
 ## List all available versions for all environments for a given subscription
 Run the following command, and you should get an output similar to this.
