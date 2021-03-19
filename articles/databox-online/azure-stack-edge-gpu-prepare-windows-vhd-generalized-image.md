@@ -31,7 +31,7 @@ A Windows VHD or VHDX can be used to create a *generalized* image or a *speciali
 |Used when     |Creating multiple new VMs from the same image.         |Migrating a specific machine or restoring a VM from previous backup.         |
 
 
-This article covers steps required to deploy from a generalized image. To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-gpu-placeholder.md) for your device.
+This article covers steps required to deploy from a generalized image. To deploy from a specialized image, see [Use specialized Windows VHD](azure-stack-edge-placeholder.md) for your device.
 
 > [!IMPORTANT]
 > This procedure does not cover cases where the source VHD is configured with custom configurations and settings. For example, additional actions may be required to generalize a VHD containing custom firewall rules or proxy settings. For more information on these additional actions, see [Prepare a Windows VHD to upload to Azure - Azure Virtual Machines](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
@@ -79,12 +79,12 @@ For your device, you'll need fixed-size VHDs to create VM images. You'll need to
 
 1. On the **Choose disk format** page, select **VHD** format and then select **Next>**.
 
-   ![Locate virtual hard disk page](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-4.png)
+   ![Choose disk format page](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-4.png)
 
 
 1. On the **Choose disk type** page, choose **Fixed size** and select **Next>**.
 
-   ![Locate virtual hard disk page](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-5.png)
+   ![Choose disk type page](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/convert-fixed-vhd-5.png)
 
 
 1. On the **Configure disk** page, browse to the location and specify a name for the fixed size VHD disk. Select **Next>**.
@@ -119,13 +119,13 @@ You'll use this fixed VHD for all the subsequent steps in this article.
 
 1. On the **Specify generation** page, choose **Generation 1** for the .vhd device image type, and then select **Next**.    
 
-    ![Specify name and location for your VM](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/create-virtual-machine-3.png)
+    ![Specify generation](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/create-virtual-machine-3.png)
 
 1. Assign your desired memory and networking configurations.
 
 1. On the **Connect virtual hard disk** page, choose **Use an existing virtual hard disk**, specify the location of the Windows fixed VHD that we created earlier, and then select **Next**.
 
-    ![Specify name and location for your VM](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/create-virtual-machine-4.png)
+    ![Connect virtual hard disk page](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/create-virtual-machine-4.png)
 
 1. Review the **Summary** and then select **Finish** to create the virtual machine.
 
