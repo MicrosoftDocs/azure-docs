@@ -24,7 +24,7 @@ The OSS component versions associated with HDInsight 4.0 are listed in the follo
 | Apache Hive            | 3.1.0         |
 | Apache Ranger          | 1.1.0         |
 | Apache HBase           | 2.1.6         |
-| Apache Sqoop           | 1.4.7         |
+| Apache Sqoop           | 1.5.0         |
 | Apache Oozie           | 4.3.1         |
 | Apache Zookeeper       | 3.4.6         |
 | Apache Phoenix         | 5             |
