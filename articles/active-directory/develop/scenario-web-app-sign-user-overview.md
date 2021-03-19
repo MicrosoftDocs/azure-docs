@@ -40,6 +40,12 @@ If you're a Java developer, try the following quickstart:
 
 [Quickstart: Add sign-in with Microsoft to a Java web app](quickstart-v2-java-webapp.md)
 
+# [Node.js](#tab/nodejs)
+
+If you're a Node.js developer, try the following quickstart:
+
+[Quickstart: Add sign-in with Microsoft to a Node.js web app](quickstart-v2-nodejs-webapp-msal.md)
+
 # [Python](#tab/python)
 
 If you develop with Python, try the following quickstart:
@@ -59,7 +65,7 @@ Web apps authenticate a user in a web browser. In this scenario, the web app dir
 As a second phase, you can enable your application to call web APIs on behalf of the signed-in user. This next phase is a different scenario, which you'll find in [Web app that calls web APIs](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Adding sign-in to a web app is about protecting the web app and validating a user token, which is what  **middleware** libraries do. In the case of .NET, this scenario does not yet require the Microsoft Authentication Library (MSAL), which is about acquiring a token to call protected APIs. Authentication libraries will be introduced in the follow-up scenario, when the web app needs to call web APIs.
+> Adding sign-in to a web app is about protecting the web app and validating a user token, which is what  **middleware** libraries do. In the case of .NET, this scenario does not yet require the Microsoft Authentication Library (MSAL), which is about acquiring a token to call protected APIs. Authentication libraries for .NET will be introduced in the follow-up scenario, when the web app needs to call web APIs.
 
 ## Specifics
 
@@ -87,6 +93,11 @@ Move on to the next article in this scenario,
 
 Move on to the next article in this scenario,
 [App registration](./scenario-web-app-sign-user-app-registration.md?tabs=java).
+
+# [Node.js](#tab/nodejs)
+
+Move on to the next article in this scenario,
+[App registration](./scenario-web-app-sign-user-app-registration.md?tabs=nodejs).
 
 # [Python](#tab/python)
 
