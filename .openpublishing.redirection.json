@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-vnet-customer-responsibilities.md",
+      "redirect_url": "/articles/spring-cloud/vnet-customer-responsibilities.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-setup-autoscale.md",
       "redirect_url": "/articles/spring-cloud/how-to-setup-autoscale.md",
       "redirect_document_id": false
