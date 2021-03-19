@@ -210,7 +210,7 @@ Next, you'll need to create a Shared access policy to configure the event hub wi
 To do this, 
 1. Navigate to the event hub you just created in the Azure portal and select **Shared access policies** in the menu options on the left.
 1. Select **Add**. In the *Add SAS Policy* window that opens, enter a policy name of your choice and select *Listen* checkbox.
-1. Select Create.
+1. Select **Create**.
     
 :::image type="content" source="media/how-to-provision-using-dps/add-event-hub-sas-policy.png" alt-text="The Azure portal view to add an event hub SAS policy" lightbox="media/how-to-provision-using-dps/add-event-hub-sas-policy.png":::
 
