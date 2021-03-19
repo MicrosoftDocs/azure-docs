@@ -18,6 +18,14 @@ In this article, you'll find a collection of best practices for using serverless
 
 Serverless SQL pool allows you to query files in your Azure storage accounts. It doesn't have local storage or ingestion capabilities. So all files that the query targets are external to serverless SQL pool. Everything related to reading files from storage might have an impact on query performance.
 
+## Client applications and network connections
+
+Make sure that your client application is connected to the closest possible Synapse workspace with the optimal connection.
+- Colocate a client application with the Synapse workspace. If you are using applications such as Power BI or Azure Analysis Service, make sure that they are in the same region where you have placed your Synapse workspace. If needed, create the separate workspaces that are paired with your client applications. Placing a client application and the Synapse workspace in different region could cause bigger latency and slower streaming of results.
+- If you are reading data from your on-premises application, make sure that the Synapse workspace is in the region that is close to your location.
+- Make sure that you don't have some network bandwidth issues while reading a large amount of data.
+- Do not use Synapse studio to return a large amount of data. Synapse studio is web tool that uses HTTPS protocol to transfer data. Use Azure Data Studio or SQL Server Management Studio to read a large amount of data.
+
 ## Storage and content layout
 
 ### Colocate your storage and serverless SQL pool
@@ -50,6 +58,10 @@ If possible, you can prepare files for better performance:
 - Try to keep your CSV file size between 100 MB and 10 GB.
 - It's better to have equally sized files for a single OPENROWSET path or an external table LOCATION.
 - Partition your data by storing partitions to different folders or file names. See [Use filename and filepath functions to target specific partitions](#use-filename-and-filepath-functions-to-target-specific-partitions).
+
+### Colocate your CosmosDB analytical storage and serverless SQL pool
+
+Make sure that your CosmosDB analytical storage is placed in the same region as Synapse workspace. Cross-region queries might cause huge latencies.
 
 ## CSV optimizations
 
