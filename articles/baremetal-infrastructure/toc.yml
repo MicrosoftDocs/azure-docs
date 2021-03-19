@@ -24,7 +24,7 @@
     - name: Onboarding requirements
       href: /azure/virtual-machines/workloads/sap/hana-onboarding-requirements?context=/azure/baremetal-infrastructure/context/context
     - name: SAP HANA data tiering and extension nodes
-      href: /azure/virtual-machines/workloads/sap/hana-data-tiering-extension-nodes?context=/azure/baremetal-infrastructure/context/context
+      href: ../virtual-machines/workloads/sap/hana-data-tiering-extension-nodes.md?context=/azure/baremetal-infrastructure/context/context.yml
     - name: Operations model and responsibilities
       href: /azure/virtual-machines/workloads/sap/hana-operations-model?context=/azure/baremetal-infrastructure/context/context
     - name: Compatible Operating Systems
