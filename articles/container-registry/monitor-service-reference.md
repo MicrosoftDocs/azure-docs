@@ -1,12 +1,12 @@
 ---
 title: Monitoring Azure Container Registry data reference 
-description: Important reference material needed when you monitor your Azure container registry 
+description: Important reference material needed when you monitor your Azure container registry. Provides details about metrics, resource logs, and log schemas. 
 author: dlepow
 ms.author: danlep
 ms.topic: reference
 ms.custom: subject-monitoring
 ms.service: container-registry
-ms.date: 03/10/2021
+ms.date: 03/19/2021
 ---
 
 # Monitoring Azure Container Registry data reference
@@ -78,12 +78,16 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 
 ## Activity log
 
-The following table lists the operations related to Azure Container Registry that may be created in the Activity log.
+The following table lists operations related to Azure Container Registry that may be created in the [Activity log](/azure/azure-monitor/platform/activity-log). This list is not exhaustive.
 
 | Operation | Description |
 |:---|:---|
-| TBD - what are some common entries that are useful to customers?| |
-| | |
+| Create or Update Container Registry | Create a container registry or update a registry property |
+| Delete Container Registry | Delete a container registry |
+| List Container Registry Login Credentials | Show credentials for registry's admin account |
+| Import Image | Import an image or other artifact to a registry |
+| Create Role Assignment | Assign an identity an RBAC role to access a resource  |
+
 
 ## Schemas
 
@@ -93,7 +97,7 @@ The following schemas are in use by Azure Container Registry's resource logs.
 |:--- |:---|
 | [ContainerRegistryLoginEvents](/azure/azure-monitor/reference/tables/ContainerRegistryLoginEvents)  | Schema for registry authentication events and status, including the incoming identity and IP address |
 | [ContainerRegistryRepositoryEvents](/azure/azure-monitor/reference/tables/ContainerRegistryRepositoryEvents) | Schema for operations on images and other artifacts in registry repositories |
-## See Also
+## Next steps
 
 - See [Monitor Azure Container Registry](monitor-service.md) for a description of monitoring an Azure container registry.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.

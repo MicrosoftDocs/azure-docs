@@ -1,12 +1,12 @@
 ---
 title: Monitor Azure Container Registry 
-description: Start here to learn how to monitor your Azure container registry 
+description: Start here to learn how to monitor your Azure container registry using features of Azure Monitor
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.custom: subject-monitoring 
 ms.service: container-registry
-ms.date: 03/10/2021
+ms.date: 03/19/2021
 ---
 
 # Monitor Azure Container Registry
@@ -15,7 +15,7 @@ When you have critical applications and business processes relying on Azure reso
 
 ## Monitor overview
 
-The **Overview** page in the Azure portal for each registry includes a brief view of recent resource usage and activity, such as storage used and pull requests. This high-level information is useful, but only a small amount of the monitoring data is shown there. 
+The **Overview** page in the Azure portal for each registry includes a brief view of recent resource usage and activity, such as push and pull operations. This high-level information is useful, but only a small amount of the monitoring data is shown there. 
 
 :::image type="content" source="media/monitor-service/metrics-overview.png" alt-text="Registry metrics overview"::: 
 
@@ -48,8 +48,9 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Container Registry are listed in [Azure Container Registry monitoring data reference](monitor-service-reference.md#resource-logs).
 
 > [!TIP]
-> You can also create registry diagnostic settings by navigating to your registry in the portal. Then, select **Diagnostic settings** under **Monitoring**.
+> You can also create registry diagnostic settings by navigating to your registry in the portal. In the menu, select **Diagnostic settings** under **Monitoring**.
 
+The following image shows the options when you enable diagnostic setting for a registry.
 
 :::image type="content" source="media/monitor-service/diagnostic-settings.png" alt-text="Diagnostic settings for container registry":::
 
@@ -60,7 +61,7 @@ The metrics and logs you can collect are discussed in the following sections.
 You can analyze metrics for an Azure container registry with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
 
 > [!TIP]
-> You can also go to the metrics explorer by navigating to your registry in the portal. Then, select **Metrics (preview)** under **Monitoring**.
+> You can also go to the metrics explorer by navigating to your registry in the portal. In the menu, select **Metrics (preview)** under **Monitoring**.
 
 For a list of the platform metrics collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference metrics](monitor-service-reference.md#metrics)  
 
@@ -70,7 +71,7 @@ For reference, you can see a list of [all resource metrics supported in Azure Mo
 
 The following Azure CLI commands can be used to get information about the Azure Container Registry metrics.
 
-* [az acr show-usage](/cli/azure/acr/#az_acr_show_usage) - Get the storage used by an Azure container registry
+* [az acr show-usage](/cli/azure/acr/#az_acr_show_usage) - Show the current storage used by an Azure container registry
 * [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) - List metric definitions and dimensions
 * [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) - Retrieve metric values
 
@@ -85,13 +86,13 @@ You can use the Azure Monitor REST API to get information programmatically about
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for Azure Container Registry resource logs is found in the [Azure Container Registry Data Reference](monitor-service-reference.md#schemas) 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/diagnostic-logs-schema#top-level-resource-logs-schema). The schema for Azure Container Registry resource logs is found in the [Azure Container Registry Data Reference](monitor-service-reference.md#schemas). 
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-For a list of the types of resource logs collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference](monitor-service-reference.md#resource-logs)  
+For a list of the types of resource logs collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference](monitor-service-reference.md#resource-logs).  
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Container Reference data reference](monitor-service-reference.md#azure-monitor-logs-tables)  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure Container Reference data reference](monitor-service-reference.md#azure-monitor-logs-tables).  
 
 ### Sample Kusto queries
 
@@ -195,7 +196,7 @@ The following table lists common and recommended alert rules for Azure Container
 1. In **Actions**, select **Add action groups** > **+ Create action group**.
     1. Enter details of the action group.
     1. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter a recipient such as *admin@contoso.com*. Select **Review + create**.
-1. Enter a name and description of the alert rule and select the severity level.
+1. Enter a name and description of the alert rule, and select the severity level.
 1. Select **Create alert rule**.
 
 ## Next steps
