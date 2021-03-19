@@ -53,7 +53,7 @@ Application Gateway integration with Key Vault requires a three-step configurati
    > c) then using Virtual Networks, add your Application Gateway’s virtual network and Subnet. During the process also configure ‘Microsoft.KeyVault' service endpoint by selecting its checkbox. <br/>
    > d) Finally, select “Yes” to allow Trusted Services to bypass Key Vault’s firewall. <br/>
    > 
-   > ![AppGW-KV-TrustedServices](media/key-vault-certs/AGW-KV-TrustedServices.png)
+   > ![Key Vault Firewall](media/key-vault-certs/key-vault-firewall.png)
 
 
    > [!NOTE]
