@@ -19,13 +19,27 @@ This article lists some of the common terms used in the IoT articles.
 
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
 
-### Automatic device management
+### Allocation policy
 
-Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](../iot-hub/iot-hub-automatic-device-management.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy-at-scale.md).
+In the [Device Provisioning Service](#device-provisioning-service), the allocation policy determines how the service assigns devices to [Linked IoT hubs](#linked-iot-hub).
+
+### Attestation mechanism
+
+In the [Device Provisioning Service](#device-provisioning-service), the attestation mechanism is the method used for confirming a device's identity. The attestation mechanism is configured on an [enrollment](#enrollment).
+
+Attestation mechanisms include X.509 certificates, Trusted Platform Modules, and symmetric keys.
+
+### Automatic deployment
+
+In IoT Edge, an automatic deployment configures a target set of IoT Edge devices to run a set of IoT Edge modules. Each deployment continuously ensures that all devices that match its target condition are running the specified set of modules, even when new devices are created or are modified to match the target condition. Each IoT Edge device only receives the highest priority deployment whose target condition it meets. Learn more about [IoT Edge automatic deployment](../iot-edge/module-deployment-monitoring.md).
 
 ### Automatic device configuration
 
-Your solution back end can use [automatic device configurations](../iot-hub/iot-hub-automatic-device-management.md) to assign desired properties to a set of [device twins](#device-twin) and report status using system metrics and custom metrics. 
+Your solution back end can use [automatic device configurations](../iot-hub/iot-hub-automatic-device-management.md) to assign desired properties to a set of [device twins](#device-twin) and report status using system metrics and custom metrics.
+
+### Automatic device management
+
+Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](../iot-hub/iot-hub-automatic-device-management.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy-at-scale.md).
 
 ### Azure Digital Twins
 
@@ -33,7 +47,7 @@ Azure Digital Twins is a platform as a service (PaaS) offering for creating digi
 
 ### Azure Digital Twins instance
 
-A single instance of the Azure Digital Twins service in a customer's subscription. While [Azure Digital Twins](#azure-digital-twins) refers to the Azure service as a whole, your Azure Digital Twins **instance** is your individual Azure Digital Twins resource. 
+A single instance of the Azure Digital Twins service in a customer's subscription. While [Azure Digital Twins](#azure-digital-twins) refers to the Azure service as a whole, your Azure Digital Twins **instance** is your individual Azure Digital Twins resource.
 
 ### Azure IoT device SDKs
 
@@ -109,21 +123,9 @@ A data-point message is a [device-to-cloud](#device-to-cloud) message that conta
 
 In IoT Plug and Play, all [device models](#device-model) have a default component. A simple device model only has a default component - such a model is also known as a no component device. A more complex model has multiple components nested underneath the default component.
 
-### Device certification
+### Deployment manifest
 
-The IoT Plug and Play device certification program verifies that a device meets the IoT Plug and Play certification requirements. You can add a certified device to the public [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
-
-### Device model
-
-A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-components.md).
-
-### Device builder
-
-A device builder uses a [device model](#device-model) and [interfaces](#interface) when implementing code to run on an [IoT Plug and Play device](#iot-plug-and-play-device). Device builders typically use one of the [Azure IoT device SDKs](#azure-iot-device-sdks) to implement the device client.
-
-### Device modeling
-
-A [device builder](#device-builder) or [module builder](#module-builder)uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). A [solution builder](#solution-builder) can configure an IoT solution from the model.
+In [IoT Edge](#iot-edge), the deployment manifest is a JSON document containing the information to be copied in one or more IoT Edge devices' module twin(s) to deploy a set of modules, routes, and associated module desired properties.
 
 ### Desired configuration
 
@@ -133,10 +135,6 @@ In the context of a [device twin](../iot-hub/iot-hub-devguide-device-twins.md), 
 
 In the context of a [device twin](../iot-hub/iot-hub-devguide-device-twins.md), desired properties is a subsection of the device twin that is used with [reported properties](#reported-properties) to synchronize device configuration or condition. Desired properties can only be set by a [back-end app](#back-end-app) and are observed by the [device app](#device-app).
 
-### Device-to-cloud
-
-Refers to messages sent from a connected device to [IoT Hub](#iot-hub). These messages may be [data-point](#data-point-message) or [interactive](#interactive-message) messages. For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
-
 ### Device
 
 In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse. The [device catalog](https://catalog.azureiotsolutions.com/) provides a list of hardware devices certified to work with [IoT Hub](#iot-hub).
@@ -144,6 +142,14 @@ In the context of IoT, a device is typically a small-scale, standalone computing
 ### Device app
 
 A device app runs on your [device](#device) and handles the communication with your [IoT hub](#iot-hub). Typically, you use one of the [Azure IoT device SDKs](#azure-iot-device-sdks) when you implement a device app. In many of the IoT tutorials, you use a [simulated device](#simulated-device) for convenience.
+
+### Device builder
+
+A device builder uses a [device model](#device-model) and [interfaces](#interface) when implementing code to run on an [IoT Plug and Play device](#iot-plug-and-play-device). Device builders typically use one of the [Azure IoT device SDKs](#azure-iot-device-sdks) to implement the device client.
+
+### Device certification
+
+The IoT Plug and Play device certification program verifies that a device meets the IoT Plug and Play certification requirements. You can add a certified device to the public [Certified for Azure IoT device catalog](https://aka.ms/devicecatalog).
 
 ### Device condition
 
@@ -155,7 +161,7 @@ Device data refers to the per-device data stored in the IoT Hub [identity regist
 
 ### Device identity
 
-The device identity is the unique identifier assigned to every device registered in the [identity registry](#identity-registry).
+The device identity (or device ID) is the unique identifier assigned to every device registered in the IoT Hub [identity registry](#identity-registry).
 
 ### Device management
 
@@ -165,21 +171,33 @@ Device management encompasses the full lifecycle associated with managing the de
 
 [IoT hub](#iot-hub) enables common device management patterns including rebooting, performing factory resets, and performing firmware updates on your devices.
 
-### Device REST API
+### Device model
 
-You can use the [Device REST API](/rest/api/iothub/device) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
+A device model is a type of [model](#model) that uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to describe the capabilities of an IoT Plug and Play device. A simple device model uses a single interface to describe the device capabilities. A more complex device model includes multiple components, each of which describe a set of capabilities. To learn more, see [IoT Plug and Play components in models](../iot-pnp/concepts-components.md).
+
+### Device modeling
+
+A [device builder](#device-builder) or [module builder](#module-builder)uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). A [solution builder](#solution-builder) can configure an IoT solution from the model.
 
 ### Device provisioning
 
 Device provisioning is the process of adding the initial [device data](#device-data) to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub [identity registry](#identity-registry). As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
 
+### Device Provisioning Service
+
+IoT Hub Device Provisioning Service (DPS) is a helper service for [IoT Hub](#iot-hub) that you use to configure zero-touch device provisioning to a specified IoT hub. With the DPS, you can provision millions of devices in a secure and scalable manner.
+
+### Device REST API
+
+You can use the [Device REST API](/rest/api/iothub/device) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
+
 ### Device twin
 
 A device twin is JSON document that stores device state information such as metadata, configurations, and conditions. IoT Hub persists a device twin for each device that you provision in your IoT hub. Device twins enable you to synchronize device conditions and configurations between the device and the solution back end. You can query device twins to locate specific devices and for the status of long-running operations.
 
-### Direct method
+### Device-to-cloud
 
-A [direct method](../iot-hub/iot-hub-devguide-direct-methods.md) is a way for you to trigger a method to execute on a device by invoking an API on your IoT hub.
+Refers to messages sent from a connected device to [IoT Hub](#iot-hub). These messages may be [data-point](#data-point-message) or [interactive](#interactive-message) messages. For more information, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
 
 ### Digital twin
 
@@ -189,17 +207,21 @@ A digital twin is a collection of digital data that represents a physical object
 
 When an [IoT Plug and Play device](#iot-plug-and-play-device) is connected to an IoT hub, the hub can use its routing capability to send notifications of digital twin changes. For example, whenever a [property](#properties) value changes on a device, IoT Hub can send a notification to an endpoint such as an Event hub.
 
-### Digital Twins Definition Language (DTDL)
-
-A JSON-LD language for describing [models](#model) and [interfaces](#interface) for [IoT Plug and Play devices](#iot-plug-and-play-device) and [Azure Digital Twins](../digital-twins/index.yml) entities. Use the [Digital Twins Definition Language version 2](https://github.com/Azure/opendigitaltwins-dtdl) to describe a [digital twin's](#digital-twin) capabilities and enable the IoT platform and IoT solutions to use the semantics of the entity. Digital Twins Definition Language is often abbreviated as DTDL.
-
 ### Digital twin route
 
 A route set up in an IoT hub to deliver [digital twin change events](#digital-twin-change-events) to an endpoint such as an Event hub.
 
+### Digital Twins Definition Language (DTDL)
+
+A JSON-LD language for describing [models](#model) and [interfaces](#interface) for [IoT Plug and Play devices](#iot-plug-and-play-device) and [Azure Digital Twins](../digital-twins/index.yml) entities. Use the [Digital Twins Definition Language version 2](https://github.com/Azure/opendigitaltwins-dtdl) to describe a [digital twin's](#digital-twin) capabilities and enable the IoT platform and IoT solutions to use the semantics of the entity. Digital Twins Definition Language is often abbreviated as DTDL.
+
+### Direct method
+
+A [direct method](../iot-hub/iot-hub-devguide-direct-methods.md) is a way for you to trigger a method to execute on a device by invoking an API on your IoT hub.
+
 ### Downstream services
 
-A relative term describing services that receive data from the current context. For instance, if you're thinking in the context of Azure Digital Twins, [Time Series Insights](../time-series-insights/index.yml) would be considered be a downstream service if you set up your data to flow from Azure Digital Twins into Time Series Insights.
+A relative term describing services that receive data from the current context. For instance, if you're thinking in the context of Azure Digital Twins, [Time Series Insights](../time-series-insights/index.yml) would be considered a downstream service if you set up your data to flow from Azure Digital Twins into Time Series Insights.
 
 ## E
 
@@ -209,13 +231,21 @@ A named representation of a data routing service that can receive data from othe
 
 An IoT hub exposes multiple [endpoints](../iot-hub/iot-hub-devguide-endpoints.md) that enable your apps to connect to the IoT hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing management endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management. There are service-facing [built-in endpoints](#built-in-endpoints) for reading device-to-cloud messages. You can create [custom endpoints](#custom-endpoints) to receive device-to-cloud messages dispatched by a [routing rule](#routing-rules).
 
-### Event Hub-compatible endpoint
+### Enrollment
 
-To read [device-to-cloud](#device-to-cloud) messages sent to your IoT hub, you can connect to an endpoint on your hub and use any Event Hub-compatible method to read those messages. Event Hub-compatible methods include using the [Event Hubs SDKs](../event-hubs/event-hubs-programming-guide.md) and [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
+In the [Device Provisioning Service](#device-provisioning-service), an enrollment is the record of individual devices or groups of devices that may register with a [Linked IoT hub](#linked-iot-hub) through autoprovisioning.
+
+### Enrollment group
+
+In the [Device Provisioning Service](#device-provisioning-service), an enrollment group identifies a group of devices that share an X.509 or symmetric key [attestation mechanism](#attestation-mechanism).
 
 ### Event handlers
 
 This can refer to any process that is triggered by the arrival of an event and does some processing action. One way to create event handlers is by adding event processing code to an Azure function, and sending data through it using [endpoints](#endpoint) and [event routing](#event-routing).
+
+### Event Hub-compatible endpoint
+
+To read [device-to-cloud](#device-to-cloud) messages sent to your IoT hub, you can connect to an endpoint on your hub and use any Event Hub-compatible method to read those messages. Event Hub-compatible methods include using the [Event Hubs SDKs](../event-hubs/event-hubs-programming-guide.md) and [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
 
 ### Event routing
 
@@ -235,11 +265,33 @@ A field gateway enables connectivity for devices that cannot connect directly to
 
 A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). See also [Field Gateway](#field-gateway), [Cloud Gateway](#cloud-gateway), and [Custom Gateway](#custom-gateway).
 
+### Gateway device
+
+A device is an example of a [field Gateway](#field-gateway). A gateway device could be standard IoT [device](#device) or an [IoT Edge device](#iot-edge-device).
+
+A gateway device enables connectivity for downstream devices that cannot connect directly to [IoT Hub](#iot-hub).
+
+## H
+
+### Hardware security module
+
+A hardware security module (HSM) is used for secure, hardware-based storage of device secrets. It is the most secure form of secret storage for a device. Both X.509 certificates and symmetric keys can be stored in an HSM. In the [Device Provisioning Service](#device-provisioning-service), an [attestation mechanism](#attestation-mechanism) can use an HSM.
+
 ## I
+
+### ID scope
+
+The ID scope is unique value assigned to a [Device Provisioning Service (DPS)](#device-provisioning-service) instance when it's created.
+
+IoT Central applications make use of DPS instances and make the ID Scope available through the IoT Central UI.
 
 ### Identity registry
 
 The [identity registry](../iot-hub/iot-hub-devguide-identity-registry.md) is the built-in component of an IoT hub that stores information about the individual devices permitted to connect to an IoT hub.
+
+### Individual enrollment
+
+In the [Device Provisioning Service](#device-provisioning-service), an individual enrollment identifies a single device that uses an X.509 leaf certificate or symmetric key as an [attestation mechanism](#attestation-mechanism).
 
 ### Interactive message
 
@@ -249,7 +301,7 @@ An interactive message is a [cloud-to-device](#cloud-to-device) message that tri
 
 In IoT Plug and Play, an interface describes related capabilities that are implemented by a [IoT Plug and Play device](#iot-plug-and-play-device) or [digital twin](#digital-twin). You can reuse interfaces across different [device models](#device-model). When an interface is used in a device model, it defines a [component](#component) of the device. A simple device only contains a default interface.
 
-In Azure Digital Twins, *interface* may be used to refer to the top level code item in a [DTDL](#digital-twins-definition-language-dtdl) model definition.
+In Azure Digital Twins, *interface* may be used to refer to the top-level code item in a [DTDL](#digital-twins-definition-language-dtdl) model definition.
 
 ### IoT Edge
 
@@ -261,59 +313,19 @@ The part of the IoT Edge runtime responsible for deploying and monitoring module
 
 ### IoT Edge device
 
-An IoT Edge device uses containerized [IoT Edge modules](#iot-edge-module) to run Azure services, third-party services, or your own code. On the IoT Edge device, the [IoT Edge runtime](#iot-edge-runtime) manages the modules. You can remotely monitor and manage an IoT Edge device from the cloud.
-
-### IoT Edge automatic deployment
-
-An IoT Edge automatic deployment configures a target set of IoT Edge devices to run a set of IoT Edge modules. Each deployment continuously ensures that all devices that match its target condition are running the specified set of modules, even when new devices are created or are modified to match the target condition. Each IoT Edge device only receives the highest priority deployment whose target condition it meets. Learn more about [IoT Edge automatic deployment](../iot-edge/module-deployment-monitoring.md).
-
-### IoT Edge deployment manifest
-
-A Json document containing the information to be copied in one or more IoT Edge devices' module twin(s) to deploy a set of modules, routes, and associated module desired properties.
-
-### IoT Edge gateway device
-
-An IoT Edge device with downstream device. The downstream device can be either IoT Edge or not IoT Edge device.
+An IoT Edge device uses containerized IoT Edge [modules](#modules) to run Azure services, third-party services, or your own code. On the IoT Edge device, the [IoT Edge runtime](#iot-edge-runtime) manages the modules. You can remotely monitor and manage an IoT Edge device from the cloud.
 
 ### IoT Edge hub
 
 The part of the IoT Edge runtime responsible for module to module communications, upstream (toward IoT Hub) and downstream (away from IoT Hub) communications.
 
-### IoT Edge leaf device
-
-An IoT Edge device with no downstream device.
-
-### IoT Edge module
-
-An IoT Edge module is a Docker container that you can deploy to IoT Edge devices. It performs a specific task, such as ingesting a message from a device, transforming a message, or sending a message to an IoT hub. It communicates with other modules and sends data to the IoT Edge runtime. [Understand the requirements and tools for developing IoT Edge modules](../iot-edge/module-development.md).
-
-### IoT Edge module identity
-
-A record in the IoT Hub module identity registry detailing the existence and security credentials to be used by a module to authenticate with an edge hub or IoT Hub.
-
-### IoT Edge module image
-
-The docker image that is used by the IoT Edge runtime to instantiate module instances.
-
-### IoT Edge module twin
-
-A Json document persisted in the IoT Hub that stores the state information for a module instance.
-
-### IoT Edge priority
-
-When two IoT Edge deployments target the same device, the deployment with higher priority gets applied. If two deployments have the same priority, the deployment with the later creation date gets applied. Learn more about [priority](../iot-edge/module-deployment-monitoring.md#priority).
-
 ### IoT Edge runtime
 
 IoT Edge runtime includes everything that Microsoft distributes to be installed on an IoT Edge device. It includes Edge agent, Edge hub, and the IoT Edge security daemon.
 
-### IoT Edge set modules to a single device
+### IoT extension for Azure CLI
 
-An operation that copies the content of an IoT Edge manifest on one device module twin. The underlying API is a generic apply configuration, which simply takes an IoT Edge manifest as an input.
-
-### IoT Edge target condition
-
-In an IoT Edge deployment, target condition is any Boolean condition on device twins' tags to select the target devices of the deployment, for example **tag.environment = prod**. The target condition is continuously evaluated to include any new devices that meet the requirements or remove devices that no longer do. Learn more about [target condition](../iot-edge/module-deployment-monitoring.md#target-condition)
+[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
 
 ### IoT Hub
 
@@ -331,25 +343,21 @@ The [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) is a
 
 You can use the [IoT Hub Resource REST API](/rest/api/iothub/iothubresource) to manage the IoT hubs in your Azure subscription performing operations such as creating, updating, and deleting hubs.
 
-### IoT solution accelerators
-
-Azure IoT solution accelerators package together multiple Azure services into solutions. These solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What are Azure IoT solution accelerators?](../iot-accelerators/about-iot-accelerators.md)
-
-### The IoT extension for Azure CLI 
-
-[The IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) is a cross-platform, command-line tool. The tool enables you to manage your devices in the [identity registry](#identity-registry), send and receive messages and files from your devices, and monitor your IoT hub operations.
-
 ### IoT Plug and Play bridge
 
 IoT Plug and Play bridge is an open-source application that enables existing sensors and peripherals attached to Windows or Linux gateways to connect as [IoT Plug and Play devices](#iot-plug-and-play-device).
+
+### IoT Plug and Play conventions
+
+IoT Plug and Play [devices](#iot-plug-and-play-device) are expected to follow a set of conventions when they exchange data with a solution.
 
 ### IoT Plug and Play device
 
 An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device model](#device-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. An IoT Plug and Play device might be implemented directly or as an IoT Edge module. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices.
 
-### IoT Plug and Play conventions
+### IoT solution accelerators
 
-IoT Plug and Play [devices](#iot-plug-and-play-device) are expected to follow a set of conventions when they exchange data with a solution.
+Azure IoT solution accelerators package together multiple Azure services into solutions. These solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What are Azure IoT solution accelerators?](../iot-accelerators/about-iot-accelerators.md)
 
 ## J
 
@@ -359,9 +367,17 @@ Your solution back end can use [jobs](../iot-hub/iot-hub-devguide-jobs.md) to sc
 
 ## L
 
+### Leaf device
+
+In [IoT Edge](#iot-edge), a leaf device is a device with no downstream device.
+
 ### Lifecycle event
 
 In Azure Digital Twins, this type of event is fired when a data item—such as a digital twin, a relationship, or an event handler—is created or deleted from your Azure Digital Twins instance.
+
+### Linked IoT hub
+
+The [Device Provisioning Service (DPS)](#device-provisioning-service), can provision devices to IoT hubs that have been linked to it. Linking an IoT hub to a DPS instance lets the service register a device ID and set the initial configuration in the device twin.
 
 ## M
 
@@ -387,19 +403,27 @@ An API for managing and interacting with the model repository. For example, you 
 
 A module builder uses a [device model](#device-model) and [interfaces](#interface) when implementing code to run on an [IoT Plug and Play device](#iot-plug-and-play-device). Module builders implement the code as a module or an IoT Edge module to deploy to the IoT Edge runtime on a device.
 
+### Module identity
+
+The module identity is the unique identifier assigned to every module that belongs to a device. Module identity is also registered in the [identity registry](#identity-registry).
+
+The module identify details the security credentials the module uses to authenticate with the [IoT Hub](#iot-hub) or, in the case of an IoT Edge module to the [IoT Edge hub](#iot-edge-hub).
+
+### Module image
+
+The docker image that the [IoT Edge runtime](#iot-edge-runtime) uses to instantiate module instances.
+
+### Module twin
+
+Similar to device twin, a module twin is JSON document that stores module state information such as metadata, configurations, and conditions. IoT Hub persists a module twin for each module identity that you provision under a device identity in your IoT hub. Module twins enable you to synchronize module conditions and configurations between the module and the solution back end. You can query module twins to locate specific modules and query the status of long-running operations.
+
 ### Modules
 
 On the device side, the IoT Hub device SDKs enable you to create [modules](../iot-hub/iot-hub-devguide-module-twins.md) where each one opens an independent connection to IoT Hub. This functionality enables you to use separate namespaces for different components on your device.
 
 Module identity and module twin provide the same capabilities as [device identity](#device-identity) and [device twin](#device-twin) but at a finer granularity. This finer granularity enables capable devices, such as operating system-based devices or firmware devices managing multiple components, to isolate configuration and conditions for each of those components.
 
-### Module identity
-
-The module identity is the unique identifier assigned to every module that belongs to a device. Module identity is also registered in the [identity registry](#identity-registry).
-
-### Module twin
-
-Similar to device twin, a module twin is JSON document that stores module state information such as metadata, configurations, and conditions. IoT Hub persists a module twin for each module identity that you provision under a device identity in your IoT hub. Module twins enable you to synchronize module conditions and configurations between the module and the solution back end. You can query module twins to locate specific modules and query the status of long-running operations.
+In [IoT Edge](#iot-edge), a module is a Docker container that you can deploy to IoT Edge devices. It performs a specific task, such as ingesting a message from a device, transforming a message, or sending a message to an IoT hub. It communicates with other modules and sends data to the [IoT Edge runtime](#iot-edge-runtime).
 
 ### MQTT
 
@@ -435,6 +459,14 @@ A protocol gateway is typically deployed in the cloud and provides protocol tran
 
 ## R
 
+### Registration
+
+A registration is the record of a device in the IoT Hub [Identity registry](#identity-registry). You can register or device directly, or use the [Device Provisioning Service](#device-provisioning-service) to automate device registration.
+
+### Registration ID
+
+The registration ID is used to uniquely identify a device [registration](#registration) with the [Device Provisioning Service](#device-provisioning-service). The registration ID may be the same value as the [Device identity](#device-identity).
+
 ### Relationship
 
 In the [Azure Digital Twins](../digital-twins/index.yml) service, relationships are used to connect [digital twins](#digital-twin) into knowledge graphs that digitally represent your entire physical environment. The types of relationships that your twins can have are defined as part of the twins' [model](#model) definitions—the [DTDL](#digital-twins-definition-language-dtdl) model for a certain type of twin includes information about what relationships it can have to other twins.
@@ -461,17 +493,21 @@ You configure [routing rules](../iot-hub/iot-hub-devguide-messages-read-custom.m
 
 SASL PLAIN is a protocol that the AMQP protocol uses to transfer security tokens.
 
+### Service operations endpoint
+
+An [endpoint](#endpoint) for managing service settings used by a service administrator. For example, in the [Device Provisioning Service](#device-provisioning-service) you use the service endpoint to manage enrollments.
+
 ### Service REST API
 
 You can use the [Service REST API](/rest/api/iothub/service/configuration) from the solution back end to manage your devices. The API enables you to retrieve and update [device twin](#device-twin) properties, invoke [direct methods](#direct-method), and schedule [jobs](#job). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
 
-### Shared access signature
-
-Shared Access Signatures (SAS) are an authentication mechanism based on SHA-256 secure hashes or URIs. SAS authentication has two components: a _Shared Access Policy_ and a _Shared Access Signature_ (often called a token). A device uses SAS to authenticate with an IoT hub. [Back-end apps](#back-end-app) also use SAS to authenticate with the service-facing endpoints on an IoT hub. Typically, you include the SAS token in the [connection string](#connection-string) that an app uses to establish a connection to an IoT hub.
-
 ### Shared access policy
 
 A shared access policy defines the permissions granted to anyone who has a valid [primary or secondary key](#primary-and-secondary-keys) associated with that policy. You can manage the shared access policies and keys for your hub in the portal.
+
+### Shared access signature
+
+Shared Access Signatures (SAS) are an authentication mechanism based on SHA-256 secure hashes or URIs. SAS authentication has two components: a _Shared Access Policy_ and a _Shared Access Signature_ (often called a token). A device uses SAS to authenticate with an IoT hub. [Back-end apps](#back-end-app) also use SAS to authenticate with the service-facing endpoints on an IoT hub. Typically, you include the SAS token in the [connection string](#connection-string) that an app uses to establish a connection to an IoT hub.
 
 ### Simulated device
 
@@ -495,6 +531,10 @@ In the context of a [device twin](../iot-hub/iot-hub-devguide-device-twins.md), 
 
 In the context of a [device twin](../iot-hub/iot-hub-devguide-device-twins.md), tags are device metadata stored and retrieved by the solution back end in the form of a JSON document. Tags are not visible to apps on a device.
 
+### Target condition
+
+In an IoT Edge deployment, the target condition selects the target devices of the deployment, for example **tag.environment = prod**. The target condition is continuously evaluated to include any new devices that meet the requirements or remove devices that no longer do.
+
 ### Telemetry
 
 Devices collect telemetry data, such as wind speed or temperature, and use data-point messages to send the telemetry to an IoT hub.
@@ -503,7 +543,7 @@ In IoT Plug and Play and Azure Digital Twins, telemetry fields defined in an [in
 
 Unlike [properties](#properties), telemetry is not stored on a [digital twin](#digital-twin); it is a stream of time-bound data events that need to be handled as they occur.
 
-## Telemetry event
+### Telemetry event
 
 An event that indicates the arrival of telemetry data.
 
