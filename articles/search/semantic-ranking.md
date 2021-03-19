@@ -24,22 +24,26 @@ Semantic ranking is both resource and time intensive. In order to complete proce
 
 Prior to scoring for relevance, content must be reduced to a quantity of parameters that can be handled efficiently by the semantic ranker. Content reduction includes the following sequence of steps.
 
-1. Content reduction starts by using the initial results produced by the default [similarity ranking algorithm](index-ranking-similarity.md) of keywords. Search results can include 1,000 matches, but semantic ranking will only process the top 50. For any given query, initial results might be less than 50, depending on how many matches were found. Whatever the document count, the initial result set is the document corpus for semantic ranking.
+1. Content reduction starts by using the initial results produced by the default [similarity ranking algorithm](index-ranking-similarity.md) of keywords. Search results can include up to 1,000 matches, but semantic ranking will only process a maximum 50. 
+
+   For any given query, however, initial results could be much less than 50, depending on how many matches were found. Whatever the document count, the initial result set is the document corpus for semantic ranking.
 
 1. For each document in the corpus, the contents of each field in "searchFields" is extracted and consolidated into a long string.
 
-1. The long string is then trimmed to ensure the overall length is not more than 8,000 tokens. The trimming exercise is why it's recommended that you position concise fields first in "searchFields" to ensure they are included in the string. If you have very large documents with text-heavy fields, anything after the maximum token limit is ignored.
+1. The long string is then trimmed to ensure the overall length is not more than 8,000 tokens. The trimming exercise is why it's important to position concise fields first in "searchFields", to ensure they are included in the string. If you have very large documents with text-heavy fields, anything after the maximum token limit is ignored.
+
+   Parameter inputs to the models are tokens not characters or strings. Tokenization is determined in part by the analyzer assignment on searchable fields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
 
 Each document is now represented by a single long string that is 8,000 tokens or less.
 
 > [!NOTE]
-> Parameter inputs to the models are tokens not characters or strings. Tokenization is determined in part by the analyzer assignment on searchable fields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
+> String and token limits are subject to change, even within the public preview time frame. Token counts are mentioned to give you context for assessing the captions and answers that come back, relative to the documents as a whole. If search fails to deliver an expected answer from deep within a document, knowing about content trimming helps you understand why. 
 
 ## Summarization
 
 After string reduction, it's now possible to pass the parameters through machine reading comprehension and language representation to determine which sentences and phrases best summarize the model, relative to the query.
 
-Inputs to summarization is the long string (about 10,000 words). From that input, the summarization model evaluates the content to find passages that are most representative.
+Inputs to summarization are the long string. From that input, the summarization model evaluates the content to find passages that are most representative.
 
 Output is a caption, in plain text and with highlights. The caption is smaller than the long string, usually around 100 words per document, and it is considered the most representative of the document. 
 
