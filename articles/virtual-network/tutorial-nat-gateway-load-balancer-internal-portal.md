@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Integrate NAT gateway with an internal load balancer - Azure portal'
 titleSuffix: Virtual Network NAT
-description: In this tutorial, learn how to integrate a Virtual Network NAT gateway with a internal load Balancer using the Azure portal.
+description: In this tutorial, learn how to integrate a Virtual Network NAT gateway with an internal load Balancer using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -11,11 +11,13 @@ ms.date: 03/19/2021
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Integrate a NAT gateway with a internal load balancer using the Azure portal
+# Tutorial: Integrate a NAT gateway with an internal load balancer using the Azure portal
 
-In this tutorial, you'll learn how to integrate a NAT gateway with a internal load balancer.
+In this tutorial, you'll learn how to integrate a NAT gateway with an internal load balancer.
 
-By default, an Azure Standard Load Balancer is secure. Outbound connectivity is explicitly defined by enabling outbound SNAT (Source Network Address Translation). SNAT is enabled for an internal backend pool via another public load balancer, network routing, or a public IP defined on a virtual machine.
+By default, an Azure Standard Load Balancer is secure. Outbound connectivity is explicitly defined by enabling outbound SNAT (Source Network Address Translation). 
+
+SNAT is enabled for an internal backend pool via another public load balancer, network routing, or a public IP defined on a virtual machine.
 
 The NAT gateway integration replaces the need for the deployment of a public load balancer, network routing, or a public IP defined on a virtual machine in the backend pool.
 
