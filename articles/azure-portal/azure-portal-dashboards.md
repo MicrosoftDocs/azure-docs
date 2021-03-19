@@ -32,7 +32,7 @@ In this example, we create a new private dashboard and assign a name. Follow the
 
     ![Screenshot of tile gallery and empty grid](./media/azure-portal-dashboards/dashboard-name.png)
 
-1. In the page header select Select **Done customizing** to exit edit mode, then select **Save**.
+1. In the page header select **Done customizing** to exit edit mode, then select **Save**.
 
     :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot of dashboard save process":::
 
@@ -42,7 +42,7 @@ The dashboard view now shows your new dashboard. Select the arrow next to the da
 
 Now, let's edit the dashboard to add, resize, and arrange tiles that represent your Azure resources.
 
-### Add tiles from the dashboard
+### Add tiles from the tile gallery
 
 To add tiles to a dashboard, follow these steps:
 
@@ -52,10 +52,13 @@ To add tiles to a dashboard, follow these steps:
 
 1. Browse the **Tile Gallery** or use the search field to find the tile you want.
 
-1. Select **Add** to add the tile to the dashboard with a default size and location. Or, drag the tile to the grid and place it where you want.
+1. Select **Add** to add the tile to the dashboard with a default size and location. Or, drag the tile to the grid and place it where you want. Add any tiles you want, but here are a couple of ideas:
 
-> [!TIP]
-> If you work with more than one organization, add the **Organization identity** tile to your dashboard to clearly show which organization the resources belong to.
+    - Add **All resources** to see any resources you've already created.
+
+    - If you work with more than one organization, add the **Organization identity** tile to your dashboard to clearly show which organization the resources belong to.
+
+1. In the page header select **Save**.
 
 ### Add tiles from a resource page
 
@@ -77,11 +80,11 @@ To change the size of a tile or to rearrange the tiles on a dashboard, follow th
 
 ### Additional tile configuration
 
-Some tiles might require more configuration to show the information you want. For example, the **Metrics chart** tile has to be set up to display a metric from **Azure Monitor**. You can also customize tile data to override the dashboard's default time settings.
+Some tiles might require more configuration to show the information you want. For example, the **Metrics chart** tile has to be set up to display a metric from Azure Monitor. You can also customize tile data to override the dashboard's default time settings.
 
-Any tile that needs to be set up displays a **Configure tile** banner until you customize the tile. To customize the tile:
+Any tile that needs to be set up displays a banner until you customize the tile. For the **Metrics chart**, the banner is **Edit in Metrics**.To customize the tile:
 
-1. Select **Done customizing** in the page header to exit edit mode.
+1. In the page header select **Save** to exit edit mode.
 
 1. Select the banner, then do the required setup.
 
@@ -94,7 +97,7 @@ Any tile that needs to be set up displays a **Configure tile** banner until you 
 
 Data on the dashboard automatically shows activity for the past 24 hours. To show a different time span for just this tile, follow these steps:
 
-1. Select **Customize tile data** from the context menu or the ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) filter from the upper left corner of the tile.
+1. Select **Customize tile data** from the context menu or from the ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) filter in the upper left corner of the tile.
 
     ![Screenshot of tile context menu](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
@@ -163,6 +166,10 @@ To permanently delete a private or shared dashboard, follow these steps:
 1. For a private dashboard, select **OK** on the confirmation dialog to remove the dashboard. For a shared dashboard, on the confirmation dialog, select the checkbox to confirm that the published dashboard will no longer be viewable by others. Then, select **OK**.
 
     ![Screenshot of delete confirmation](./media/azure-portal-dashboards/dashboard-delete-dash.png)
+
+## Recover a deleted dashboard
+
+If you're in the public Azure cloud, and you delete a _published_ dashboard in the Azure portal, you can recover that dashboard within 14 days of the delete. For information, see [Recover a deleted dashboard in the Azure portal](recover-shared-deleted-dashboard.md).
 
 ## Next steps
 
