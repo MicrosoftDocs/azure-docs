@@ -66,15 +66,15 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 ### Functional changes
 
  - Updated default sync rules to limit membership in written back groups to 50k members.
-   - Added new default sync rules for limiting membership count in group writeback (Out to AD - Group Writeback Member Limit) and group sync to AAD (Out to AAD - Group Writeup Member Limit) groups.
+   - Added new default sync rules for limiting membership count in group writeback (Out to AD - Group Writeback Member Limit) and group sync to Azure Active Directory (Out to AAD - Group Writeup Member Limit) groups.
    - Added member attribute to the 'Out to AD - Group SOAInAAD - Exchange' rule to limit members in written back groups to 50k
  - Updated Sync Rules to support Group Writeback v2
-   -If the “In from AAD - Group SOAInAAD” rule is cloned and AAD Connect is upgraded.
+   -If the “In from AAD - Group SOAInAAD” rule is cloned and AADConnect is upgraded.
      -The updated rule will be disabled by default and so the targetWritebackType will be null.
-     - AAD Connect will writeback all Cloud Groups (including AAD Security Groups enabled for writeback) as Distribution Groups.
-   -If the “Out to AD - Group SOAInAAD” rule is cloned and AAD Connect is upgraded.
+     - AADConnect will writeback all Cloud Groups (including Azure Active Directory Security Groups enabled for writeback) as Distribution Groups.
+   -If the “Out to AD - Group SOAInAAD” rule is cloned and AADConnect is upgraded.
      - The updated rule will be disabled by default. However, a new sync rule “Out to AD - Group SOAInAAD - Exchange” which is added will be enabled.
-     - Depending on the Cloned Custom Sync Rule's precedence, AAD Connect will flow the Mail and Exchange attributes.
+     - Depending on the Cloned Custom Sync Rule's precedence, AADConnect will flow the Mail and Exchange attributes.
      - If the Cloned Custom Sync Rule does not flow some Mail and Exchange attributes, then new Exchange Sync Rule will add those attributes.
  - Added support for [Selective Password hash Synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-selective-password-hash-synchronization)
  - Added the new [Single Object Sync cmdlet](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-single-object-sync). Use this cmdlet to troubleshoot your Azure AD Connect sync configuration. 
@@ -105,7 +105,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
  - Removed Explicit column from CS Search page in the Old Sync UI
  - Additional UI has been added to the Group Writeback flow to prompt the user for credentials or to configure their own permissions using the ADSyncConfig module if credentials have not already been provided in an earlier step.
  - Auto-create MSA for ADSync Service Account on a DC. 
- - 	Added ability to set and get AAD DirSync feature Group Writeback V2 in the existing cmdlets:
+ - 	Added ability to set and get Azure Active Directory DirSync feature Group Writeback V2 in the existing cmdlets:
     - Set-ADSyncAADCompanyFeature
     - Get-ADSyncAADCompanyFeature
  - Added 2 cmdlets to read AWS API version
@@ -120,7 +120,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
  - Increase granularity for Set-ADSyncPasswordHashSyncPermissions cmdlet - Updated PHS permissions script (Set-ADSyncPasswordHashSyncPermissions) to include an optional "ADobjectDN" parameter. 
  - Accessibility bug fix. The screen reader would now describe the UX element that holds the list of forests as "**Forests list**" instead of "**Forest List list**"
  - Updated screen reader output for some items in the Azure AD Connect wizard. Updated button hover color to satisfy contrast requirements. Updated Synchronization Service Manager title color to satisfy contrast requirements.
- - Fixed an issue with installing AADC from exported configuration having custom extension attributes - Added a condition to skip checking for extension attributes in the target schema while applying the sync rule.
+ - Fixed an issue with installing AADConnect from exported configuration having custom extension attributes - Added a condition to skip checking for extension attributes in the target schema while applying the sync rule.
  - Appropriate permissions are added on install if the Group Writeback feature is enabled.
  - Fix duplicate default sync rule precedence on import
  - Fixed an issue that caused a staging error during V2 API delta import for a conflicting object that was repaired via the health portal.
@@ -130,8 +130,8 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
  - Modified policy import and export to fail if custom rule has duplicate precedence 
  - Fixed a bug in the domain selection logic.
  - Fixes an issue with build 1.5.18.0 if you use mS-DS-ConsistencyGuid as the source anchor and have clone the In from AD - Group Join rule.
- - Fresh AADC installs will use the Export Deletion Threshold stored in the cloud if there is one available and there is not a different one passed in.
- - Fixed issue where AAD Connect does not read AD displayName changes of hybrid-joined devices
+ - Fresh AADConnect installs will use the Export Deletion Threshold stored in the cloud if there is one available and there is not a different one passed in.
+ - Fixed issue where AADConnect does not read AD displayName changes of hybrid-joined devices
 
 ## 1.5.45.0
 
