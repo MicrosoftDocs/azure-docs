@@ -58,7 +58,7 @@ Authorization, such as role-specific authorization, can be handled by inspecting
 
 ## How it works
 
-### Authentication module architecture
+### Feature architecture
 
 #### Windows (non-container deployment)
 
