@@ -3,7 +3,7 @@ title: Azure confidential computing solutions on virtual machines
 description: Learn about Azure confidential computing solutions on virtual machines.
 author: JBCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
@@ -24,7 +24,7 @@ Start deploying a DCsv2-Series VM via the Microsoft commercial marketplace by fo
 
 ### Current available sizes and regions
 
-To get a list of all generally available confidential compute VM sizes in available regions and availability zones, run the following command in the [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+To get a list of all generally available confidential compute VM sizes in available regions and availability zones, run the following command in the [Azure CLI](/cli/azure/install-azure-cli-windows):
 
 ```azurecli-interactive
 az vm list-skus `
@@ -71,7 +71,7 @@ Follow a quickstart tutorial to deploy a DCsv2-Series virtual machine in less th
 
 When using virtual machines in Azure, you're responsible for implementing a high availability and disaster recovery solution to avoid any downtime. 
 
-Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
+Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/availability-set-overview.md). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
 
 ## Deployment with Azure Resource Manager (ARM) Template
 

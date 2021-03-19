@@ -8,12 +8,11 @@ documentationcenter: na
 author: shhazam-ms
 manager: rkarlin
 editor: ''
-
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2021
+ms.date: 03/14/2021
 ms.author: shhazam
 ---
 
@@ -22,19 +21,25 @@ ms.author: shhazam
 This article lists new features and feature enhancements for Defender for IoT.
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-## February 2021
+## March 2021
 
-### Sensor - enhanced custom alert rules
+### Sensor - enhanced custom alert rules (Public preview)
 
 You can now create custom alert rules based on the day, group of days and time-period network activity was detected.  Working with day and time rule conditions is useful, for example in cases where alert severity is derived by the time the alert event takes place. For example, create a custom rule that triggers a high severity alert when network activity is detected on a weekend or in the evening.
 
-This feature is available on the sensor with the release of version 10.1.
+This feature is available on the sensor with the release of version 10.2.
 
-### On-premises management console - export alerts
+### On-premises management console - export alerts (Public preview)
 
 Alert information can now be exported to a .csv file from the on-premises management console. You can export information of all alerts detected or export information based on the filtered view.
 
-This feature is available on the on-premises management  console with the release of version 10.1.
+This feature is available on the on-premises management  console with the release of version 10.2.
+
+### Add second network interface to On-premises management console (Public preview)
+
+You can now enhance the security of your deployment by adding a second network interface to your on-premises management console. This feature allows your on-premises management to have it’s connected sensors on one secure network, while allowing your users to access the on-premises management console through a second separate network interface.
+
+This feature is available on the on-premises management console with the release of version 10.2.
 ### Device builder - new micro agent (Public preview)
 
 A new device builder module is available. The module, referred to as a micro-agent, allows:
@@ -45,7 +50,7 @@ A new device builder module is available. The module, referred to as a micro-age
 - **Security posture management** – proactively monitor the security posture of your IoT devices.
 - **Continuous, real-time IoT/OT threat detection** - detect threats such as botnets, brute force attempts, crypto miners, and suspicious network activity
 
-The deprecated security module documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
+The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
 
 This feature set is available with the current public preview cloud release.
 

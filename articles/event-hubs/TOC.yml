@@ -136,9 +136,13 @@
           href: ./security-controls-policy.md
         - name: Security baseline
           href: security-baseline.md
-    - name: AMQP 1.0 protocol guide
-      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
-      maintainContext: true
+    - name: AMQP
+      items: 
+      - name: AMQP 1.0 protocol guide
+        href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md        
+        maintainContext: true
+      - name: AMQP errors
+        href: event-hubs-amqp-troubleshoot.md
 - name: How-to guides
   items:
     - name: Create a schema registry
@@ -214,7 +218,7 @@
         - name: Set up diagnostic logs
           href: event-hubs-diagnostic-logs.md
         - name: Stream Azure Diagnostics data using Event Hubs
-          href: ../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md
+          href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md
         - name: Automatically scale throughput units
           href: event-hubs-auto-inflate.md
         - name: Event Hubs management libraries
@@ -268,23 +272,23 @@
             - name: Migrate from azure-eventhubs to azure-messaging-eventhubs
               href: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md
             - name: azure-messaging-eventhubs (latest)
-              href: /java/api/overview/azure/messaging-eventhubs-readme?view=azure-java-stable
+              href: /java/api/overview/azure/messaging-eventhubs-readme
             - name: azure-eventhubs (legacy)
               href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy
         - name: Management library
-          href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.eventhub
     - name: Python
       items:
         - name: Client library
-          href: /python/api/overview/azure/eventhub-readme?view=azure-python
+          href: /python/api/overview/azure/eventhub-readme
         - name: Management library
-          href: /python/api/overview/azure/event-hub?view=azure-python
+          href: /python/api/overview/azure/event-hub
     - name: JavaScript
       items:
         - name: Client library
-          href: /javascript/api/overview/azure/event-hubs-readme?view=azure-node-latest
+          href: /javascript/api/overview/azure/event-hubs-readme
         - name: Management library
-          href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
+          href: /javascript/api/@azure/arm-eventhub/
     - name: Go
       items:
         - name: Client library

@@ -48,11 +48,10 @@
       href: understand/analyze-unexpected-charges.md
     - name: Manage costs with automation
       href: costs/manage-automation.md
+    - name: Retrieve large datasets with exports
+      href: costs/ingest-azure-usage-at-scale.md
     - name: Cost Management for partners
       href: costs/get-started-partners.md
-    - name: Migrate from EA reporting to Azure Resource Manager APIs
-      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
-
   - name: Reservations
     items:
     - name: What are Azure Reservations?
@@ -149,6 +148,8 @@
         href: manage/understand-mca-roles.md
       - name: Link partner ID
         href: manage/link-partner-id.md
+      - name: Link partner ID to Power Apps accounts
+        href: manage/link-partner-id-power-apps-accounts.md
     - name: Administer subscriptions
       items:
       - name: Assign access to cost management data
@@ -215,8 +216,6 @@
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
       - name: Create MPA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-      - name: Create subscriptions - ARM template
-        href: manage/create-subscription-template.md
       - name: Create subscriptions programmatically - preview APIs
         href: manage/programmatically-create-subscription-preview.md
     - name: Manage Enterprise Agreement subscriptions
@@ -279,6 +278,8 @@
       href: manage/cost-management-budget-scenario.md
     - name: Use cost alerts
       href: costs/cost-mgt-alerts-monitor-usage-spending.md
+    - name: Export cost data with a Storage SAS key
+      href: costs/export-cost-data-storage-account-sas-key.md
     - name: Allocate costs
       href: costs/allocate-costs.md
     - name: Connect with Power BI Desktop
@@ -293,6 +294,10 @@
       href: manage/mca-check-azure-credits-balance.md
     - name: Migrate from EA to MCA APIs
       href: costs/migrate-cost-management-api.md
+    - name: Assign roles to EA SPNs
+      href: manage/assign-roles-azure-service-principals.md
+    - name: Migrate from EA reporting to Azure Resource Manager APIs
+      href: costs/migrate-from-enterprise-reporting-to-azure-resource-manager-apis.md
   - name: Purchase and administer reservations
     items:
     - name: Determine what to purchase
@@ -439,14 +444,6 @@
       href: manage/review-subscription-billing.md
     - name: Review resource usage
       href: manage/review-service-usage-api.md
-  - name: .NET samples
-    items:
-    - name: Invoice API code sample
-      href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
-    - name: Usage API code sample
-      href: https://github.com/Azure-Samples/billing-dotnet-usage-api
-    - name: RateCard API code sample
-      href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
 - name: Cloudyn
   items:
   - name: Overview

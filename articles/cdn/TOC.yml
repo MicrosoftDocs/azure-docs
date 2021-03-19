@@ -13,7 +13,7 @@
   - name: Create a profile and endpoint
     href: cdn-create-new-endpoint.md
   - name: Create profile and endpoint - ARM Template
-    displayName: Resource Manager
+    displayName: Resource Manager, az group, az deployment group, New-AzResourceGroup, New-AzResourceGroupDeployment, Remove-AzResourceGroup
     href: create-profile-endpoint-template.md
 - name: Tutorials
   items:
@@ -27,12 +27,15 @@
     href: cdn-custom-ssl.md
   - name: Set caching rules
     href: cdn-caching-rules-tutorial.md
-  - name: Enforce HTTPS by using the Standard rules engine
-    href: cdn-standard-rules-engine.md
 - name: Samples
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=cdn
+  - name: Azure CLI
+    items:
+      - name: Create a profile and endpoint
+        displayName: az cdn profile, az cdn endpoint, az cdn origin, az cdn custom-domain, cdn origin-group      
+        href: ./scripts/cli/cdn-azure-cli-create-endpoint.md
 - name: Concepts
   items:
   - name: Security
@@ -76,6 +79,8 @@
       href: cdn-improve-performance.md
     - name: Endpoint multi-origin
       href: endpoint-multiorigin.md
+    - name: Enforce HTTPS by using the Standard rules engine
+      href: cdn-standard-rules-engine.md
     - name: Control caching behavior
       items:
       - name: Control caching behavior by using caching rules

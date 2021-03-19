@@ -154,7 +154,9 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 5. Select **Add**. 
 
-    Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault.
+> [!NOTE]
+> Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault. Any CDN instance created in this subscription will have access to the certificates in this key vault. 
+
  
 ### Select the certificate for Azure CDN to deploy
  
@@ -350,6 +352,11 @@ The following table shows the operation progress that occurs when you disable HT
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
     To ensure a newer certificate is deployed to PoP infrastructure, upload your new certificate to Azure KeyVault. In your TLS settings on Azure CDN, choose the newest certificate version and select save. Azure CDN will then propagate your new updated cert. 
+
+8. *Do I need to re-enable HTTPS after the endpoint restarts?*
+
+    Yes. If you're using **Azure CDN from Akamai**, if the endpoint stops and restarts, you must re-enable the HTTPS setting if the setting was active before.
+
 
 ## Next steps
 

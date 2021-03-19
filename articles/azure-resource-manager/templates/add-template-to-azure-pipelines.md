@@ -2,7 +2,7 @@
 title: CI/CD with Azure Pipelines and templates
 description: Describes how to configure continuous integration in Azure Pipelines by using Azure Resource Manager templates. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there.
 ms.topic: conceptual
-ms.date: 02/05/2021
+ms.date: 03/09/2021
 ---
 # Integrate ARM templates with Azure Pipelines
 
@@ -228,4 +228,5 @@ When you select **Save**, the build pipeline is automatically run. Go back to th
 
 ## Next steps
 
-To learn about using ARM templates with GitHub Actions, see [Deploy Azure Resource Manager templates by using GitHub Actions](deploy-github-actions.md).
+* To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
+* To learn about using ARM templates with GitHub Actions, see [Deploy Azure Resource Manager templates by using GitHub Actions](deploy-github-actions.md).

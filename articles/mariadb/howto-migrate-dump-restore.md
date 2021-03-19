@@ -4,6 +4,7 @@ description: This article explains two common ways to back up and restore databa
 author: savjani
 ms.author: pariks
 ms.service: mariadb
+ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 2/27/2020
 ---

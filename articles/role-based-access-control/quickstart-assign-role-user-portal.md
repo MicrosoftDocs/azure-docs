@@ -57,7 +57,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Grant access
 
-In Azure RBAC, to grant access, you create a role assignment.
+In Azure RBAC, to grant access, you assign an Azure role.
 
 1. In the list of **Resource groups**, click the new **rbac-resource-group** resource group.
 
@@ -81,7 +81,7 @@ In Azure RBAC, to grant access, you create a role assignment.
 
 1. In the **Select** list, select yourself or another user.
 
-1. Click **Save** to create the role assignment.
+1. Click **Save** to assign the role.
 
    After a few moments, the user is assigned the Virtual Machine Contributor role at the rbac-resource-group resource group scope.
 

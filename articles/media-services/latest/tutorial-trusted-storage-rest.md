@@ -14,14 +14,17 @@ In this tutorial, you'll learn:
 
 > [!div class="checklist"]
 > - How to enable trusted storage for Azure Media Services
-> - How to use Manged Identities for trusted storage
-> - How to give Azure Services to access to a storage account when using a firewall or VPN
+> - How to use Managed Identities for trusted storage
+> - How to give Azure Services to access to a storage account when using network access control such as a firewall or VPN
 
 With the 2020-05-01 API, you can enable trusted storage by associating a Managed Identity with a Media Services account.
 
+>[!NOTE]
+>Trusted storage is only available in the API, and is not currently enabled in the Azure portal.
+
 Media Services can automatically access your storage account using system authentication. Media Services validates that the Media Services account and the storage account are in the same subscription. It also validates that the user adding the association has access the storage account with Azure Resource Manager RBAC.
 
-However, if you want to use a firewall to secure your storage account and enable trusted storage, [Managed Identities](concept-managed-identities.md) authentication is the preferred option. It allows Media Services to access the storage account that has been configured with a firewall or a VNet restriction through trusted storage access.
+However, if you want to use network access control to secure your storage account and enable trusted storage, [Managed Identities](concept-managed-identities.md) authentication is required. It allows Media Services to access the storage account that has been configured with a firewall or a VNet restriction through trusted storage access.
 
 ## Overview
 
@@ -52,7 +55,13 @@ If you don't know how to get your tenant ID and subscription ID, see [How to fin
 
 If you don't know how to create a service principal and secret, see [Get credentials to access Media Services API](access-api-howto.md).
 
+## Use a REST client
+
+This script is intended for use with a REST client such as what is available in Visual Studio code extensions.  Adapt it for your development environment.
+
 ## Set initial variables
+
+This part of the script is for use in a REST client. You may use variables differently within your development environment.
 
 ```rest
 ### AAD details
@@ -76,7 +85,6 @@ If you don't know how to create a service principal and secret, see [Get credent
 @storageName = the name of the storage you'll be creating
 @accountName = the name of the account you'll be creating
 @resourceLocation = East US (or the location that works best for your region)
-@index = 4
 ```
 
 ## Get a token for Azure Resource Manager
@@ -91,6 +99,8 @@ resource={{armResource}}&client_id={{servicePrincipalId}}&client_secret={{servic
 ```
 
 ## Get a token for the Graph API
+
+This part of the script is for use in a REST client. You may use variables differently within your development environment.
 
 ```rest
 // @name getGraphToken
@@ -218,7 +228,7 @@ Authorization: Bearer {{getArmToken.response.body.access_token}}
 
 ### Set the storage role assignment
 
-The role assignment says that the service principal for the Media Services account has the storage role *Storage Blob Data Contributor*.  This may take a while and it's important to wait or the Media Services account win't be set up correctly.
+The role assignment says that the service principal for the Media Services account has the storage role *Storage Blob Data Contributor*.  This may take a while and it's important to wait or the Media Services account won't be set up correctly.
 
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageName}}/providers/Microsoft.Authorization/roleAssignments/{{$guid}}?api-version=2020-04-01-preview

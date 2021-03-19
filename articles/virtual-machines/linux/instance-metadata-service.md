@@ -8,9 +8,11 @@ ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 01/04/2021
+ms.date: 02/21/2021
 ms.author: sukumari
 ms.reviewer: azmetadatadev
 ---
+
+# Azure Instance Metadata Service (Linux)
 
 [!INCLUDE [virtual-machines-imds](../../../includes/virtual-machines-imds.md)]

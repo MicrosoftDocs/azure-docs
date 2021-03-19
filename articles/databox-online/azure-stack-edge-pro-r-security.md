@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Security and data protection for Azure Stack Edge Pro R and Azure Stack Edge Mini R
 
-[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+[!INCLUDE [applies-to-pro-r-and-mini-r--skus](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
 
 Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge Pro R and Azure Stack Edge Mini R help you ensure that only authorized entities can view, modify, or delete your data.
 
@@ -72,7 +72,7 @@ You can:
 
 ### Establish trust with the device via certificates
 
-Azure Stack Edge rugged device lets you bring your own certificates and install those to be used for all public endpoints. For more information, go to [Upload your certificate](azure-stack-edge-j-series-manage-certificates.md#upload-certificates). For a list of all the certificates that can be installed on your device, go to [Manage certificates on your device](azure-stack-edge-j-series-manage-certificates.md).
+Azure Stack Edge rugged device lets you bring your own certificates and install those to be used for all public endpoints. For more information, go to [Upload your certificate](azure-stack-edge-gpu-manage-certificates.md#upload-certificates). For a list of all the certificates that can be installed on your device, go to [Manage certificates on your device](azure-stack-edge-gpu-manage-certificates.md).
 
 - When you configure compute on your device, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
 
@@ -128,7 +128,7 @@ When the device undergoes a hard reset, a secure wipe is performed on the device
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
 
-- Rotate and then [sync your storage account keys](azure-stack-edge-j-series-manage-storage-accounts.md) regularly to help protect your storage account from unauthorized users.
+- Rotate and then [sync your storage account keys](azure-stack-edge-gpu-manage-storage-accounts.md) regularly to help protect your storage account from unauthorized users.
 
 ## Manage personal information
 
@@ -136,7 +136,7 @@ The Azure Stack Edge service collects personal information in the following scen
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge](azure-stack-edge-j-series-manage-shares.md).
+To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge](azure-stack-edge-gpu-manage-shares.md).
 
 For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trustcenter).
 

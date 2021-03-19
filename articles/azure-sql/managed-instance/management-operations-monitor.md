@@ -32,7 +32,7 @@ Most management operations are [long running operations](management-operations-o
 There are several ways to monitor managed instance management operations:
 
 - [Resource group deployments](../../azure-resource-manager/templates/deployment-history.md)
-- [Activity log](../../azure-monitor/platform/activity-log.md)
+- [Activity log](../../azure-monitor/essentials/activity-log.md)
 - [Managed instance operations API](#managed-instance-operations-api)
 
 

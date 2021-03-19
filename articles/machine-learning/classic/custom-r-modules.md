@@ -3,7 +3,7 @@ title: 'ML Studio (classic): Create & deploy custom R modules - Azure'
 description: Learn how to author and deploy a custom R modules in ML Studio (classic). 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt

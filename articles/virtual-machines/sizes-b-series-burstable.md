@@ -2,7 +2,7 @@
 title: B-series burstable - Azure Virtual Machines
 description: Describes the B-series of burstable Azure VM sizes.
 services: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-general
 author: styli365
 ms.service: virtual-machines
 ms.topic: conceptual
@@ -104,7 +104,7 @@ For a D16s_v3 which has 16 vCPUs and 64 GiB of memory the hourly rate is $0.936 
 
 **A**: The **Credit** metric allows you to view how many credits your VM have been banked and the **ConsumedCredit** metric will show how many CPU credits your VM has consumed from the bank.    You will be able to view these metrics from the metrics pane in the portal or programmatically through the Azure Monitor APIs.
 
-For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../azure-monitor/platform/data-platform.md).
+For more information on how to access the metrics data for Azure, see [Overview of metrics in Microsoft Azure](../azure-monitor/data-platform.md).
 
 ### Q: How are credits accumulated and consumed?
 

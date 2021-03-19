@@ -12,15 +12,23 @@ manager: clarkn
 The Windows Virtual Desktop Agent can cause connection issues because of multiple factors:
    - An error on the broker that makes the agent stop the service.
    - Problems with updates.
-   - Issues with installing the during agent installation, which disrupts connection to the session host.
+   - Issues with installing during the agent installation, which disrupts connection to the session host.
 
 This article will guide you through solutions to these common scenarios and how to address connection issues.
+
+>[!NOTE]
+>For troubleshooting issues related to session connectivity and the Windows Virtual Desktop agent, we recommend you review the event logs in **Event Viewer** > **Windows Logs** > **Application**. Look for events that have one of the following sources to identify your issue:
+>
+>- WVD-Agent
+>- WVD-Agent-Updater
+>- RDAgentBootLoader
+>- MsiInstaller
 
 ## Error: The RDAgentBootLoader and/or Remote Desktop Agent Loader has stopped running
 
 If you're seeing any of the following issues, this means that the boot loader, which loads the agent, was unable to install the agent properly and the agent service isn't running:
 - **RDAgentBootLoader** is either stopped or not running.
-- There is no status for **Remote Desktop Agent Loader**.
+- There's no status for **Remote Desktop Agent Loader**.
 
 To resolve this issue, start the RDAgent boot loader:
 
@@ -57,9 +65,9 @@ To resolve this issue, create a valid registration token:
    > [!div class="mx-imgBorder"]
    > ![Screenshot of IsRegistered 1](media/isregistered-registry.png)
 
-## Error: Agent cannot connect to broker with INVALID_FORM or NOT_FOUND. URL
+## Error: Agent cannot connect to broker with INVALID_FORM
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **INVALID_FORM** or **NOT_FOUND. URL** in the description, something went wrong with the communication between the agent and the broker. The agent cannot connect to the broker and is unable to reach a particular URL. This may be because of your firewall or DNS settings.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 that says "INVALID_FORM" in the description, something went wrong with the communication between the agent and the broker. The agent can't connect to the broker or reach a particular URL because of certain firewall or DNS settings.
 
 To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
 1. Open the Registry Editor. 
@@ -94,13 +102,43 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](safe-url-list.md).
 9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Windows Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). For more information, see [Connection Security](network-connectivity.md#connection-security).
 
-## Error: 3703 or 3019
+## Error: 3703
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703, that says **RD Gateway Url: is not accessible** or any event with ID 3019 in the description, the agent is unable to reach the gateway URLs or the web socket transport URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Windows Virtual Desktop.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703 that says "RD Gateway Url: is not accessible" in the description, the agent is unable to reach the gateway URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Windows Virtual Desktop.
 
 To resolve this issue, verify that your firewall and/or DNS settings are not blocking these URLs:
 1. [Use Azure Firewall to protect Windows Virtual Desktop deployments.](../firewall/protect-windows-virtual-desktop.md).
 2. Configure your [Azure Firewall DNS settings](../firewall/dns-settings.md).
+
+## Error: 3019
+
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3019, this means the agent can't reach the web socket transport URLs. To successfully connect to your session host and allow network traffic to bypass these restrictions, you must unblock the URLs listed in the the [Required URL list](safe-url-list.md). Work with the Azure Networking team to make sure your firewall, proxy, and DNS settings aren't blocking these URLs. You can also check your network trace logs to identify where the Windows Virtual Desktop service is being blocked. If you open a support request for this particular issue, make sure to attach your network trace logs to the request.
+
+## Error: InstallationHealthCheckFailedException
+
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 that says "InstallationHealthCheckFailedException" in the description, that means the stack listener isn't working because the terminal server has toggled the registry key for the stack listener.
+
+To resolve this issue:
+1. Check to see if [the stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+2. If the stack listener isn't working, [manually uninstall and reinstall the stack component](#error-vms-are-stuck-in-unavailable-or-upgrading-state).
+
+## Error: ENDPOINT_NOT_FOUND
+
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 that says "ENDPOINT_NOT_FOUND" in the description that means the broker couldn't find an endpoint to establish a connection with. This connection issue can happen for one of the following reasons:
+
+- There aren't VMs in your host pool
+- The VMs in your host pool aren't active
+- All VMs in your host pool have exceeded the max session limit
+- None of the VMs in your host pool have the agent service running on them
+
+To resolve this issue:
+
+1. Make sure the VM is powered on and hasn't been removed from the host pool.
+2. Make sure that the VM hasn't exceeded the max session limit.
+3. Make sure the [agent service is running](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) and the [stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+4. Make sure [the agent can connect to the broker](#error-agent-cannot-connect-to-broker-with-invalid_form).
+5. Make sure [your VM has a valid registration token](#error-invalid_registration_token).
+6. Make sure [the VM registration token hasn't expired](faq.md#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
 
 ## Error: InstallMsiException
 
@@ -164,29 +202,38 @@ To resolve this issue:
 >To change the **fReverseConnectMode** or **fEnableWinStation** mode for multiple VMs at a time, you can do one of the following two things:
 >
 >- Export the registry key from the machine that you already have working and import it into all other machines that need this change.
->- Create a general policy object (GPO) that sets the registry key value for the machines that need the change.
+>- Create a group policy object (GPO) that sets the registry key value for the machines that need the change.
 
 7. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **ClusterSettings**.
 8. Under **ClusterSettings**, find **SessionDirectoryListener** and make sure its data value is **rdp-sxs...**.
 9. If **SessionDirectoryListener** isn't set to **rdp-sxs...**, you'll need to follow the steps in the [Uninstall the agent and boot loader](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) section to first uninstall the agent, boot loader, and stack components, and then [Reinstall the agent and boot loader](#step-4-reinstall-the-agent-and-boot-loader). This will reinstall the side-by-side stack.
 
-## Error: Users keep getting disconnected from session hosts
+## Error: Heartbeat issue where users keep getting disconnected from session hosts
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 0, that says **CheckSessionHostDomainIsReachableAsync** in the description and/or users keep getting disconnected from their session hosts, your server isn't picking up a heartbeat from the Windows Virtual Desktop service.
+If your server isn't picking up a heartbeat from the Windows Virtual Desktop service, you'll need to change the heartbeat threshold. Follow the instructions in this section if one or more of the following scenarios apply to you:
 
-To resolve this issue, change the heartbeat threshold:
+- You're receiving a **CheckSessionHostDomainIsReachableAsync** error
+- You're receiving a **ConnectionBrokenMissedHeartbeatThresholdExceeded** error
+- You're receiving a **ConnectionEstablished:UnexpectedNetworkDisconnect** error
+- User clients keep getting disconnected
+- Users keep getting disconnected from their session hosts
+
+To change the heartbeat threshold:
 1. Open your command prompt as an administrator.
 2. Enter the **qwinsta** command and run it.
 3. There should be two stack components displayed: **rdp-tcp** and **rdp-sxs**. 
-   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number as shown in the following screenshot. If it is, make sure to write this number down for later.
+   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number. If it is, make sure to write down this number for later.
 4. Open the Registry Editor.
 5. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
-6. Under **WinStations** you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
+6. Under **WinStations**, you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
 7. Create a new registry DWORD by right-clicking the registry editor, then selecting **New** > **DWORD (32-bit) Value**. When you create the DWORD, enter the following values:
    - HeartbeatInterval: 10000
    - HeartbeatWarnCount: 30 
    - HeartbeatDropCount: 60 
 8. Restart your VM.
+
+>[!NOTE]
+>If changing the heartbeat threshold doesn't resolve your issue, you may have an underlying network issue that you'll need need to contact the Azure Networking team about.
 
 ## Error: DownloadMsiException
 
@@ -196,15 +243,20 @@ To resolve this issue, make space on your disk by:
    - Deleting files that are no longer in user
    - Increasing the storage capacity of your VM
 
+## Error: Agent fails to update with MissingMethodException
+
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3389 that says "MissingMethodException: Method not found" in the description, that means the Windows Virtual Desktop agent didn't update successfully and reverted to an earlier version. This may be because the version number of the .NET framework currently installed on your VMs is lower than 4.7.2. To resolve this issue, you need to upgrade the .NET to version 4.7.2 or later by following the installation instructions in the [.NET Framework documentation](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+
+
 ## Error: VMs are stuck in Unavailable or Upgrading state
 
 Open a PowerShell window as an administrator and run the following cmdlet:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
+Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
-If the status listed for the session host or hosts in your host pool always says **Unavailable** or **Upgrading**, the agent or stack installation may have failed
+If the status listed for the session host or hosts in your host pool always says "Unavailable" or "Upgrading," the agent or stack didn't install successfully.
 
 To resolve this issue, reinstall the side-by-side stack:
 1. Open a command prompt as an administrator.
@@ -247,7 +299,7 @@ The name of your VM has already been registered and is probably a duplicate.
 To resolve this issue:
 1. Follow the steps in the [Remove the session host from the host pool](#step-2-remove-the-session-host-from-the-host-pool) section.
 2. [Create another VM](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal). Make sure to choose a unique name for this VM.
-3. Go to the Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
+3. Go to the [Azure portal](https://portal.azure.com) and open the **Overview** page for the host pool your VM was in. 
 4. Open the **Session Hosts** tab and check to make sure all session hosts are in that host pool.
 5. Wait for 5-10 minutes for the session host status to say **Available**.
 
@@ -263,6 +315,7 @@ If you can't find your issue in this article or the instructions didn't help you
 - You're not seeing your VMs show up in the session hosts list
 - You don't see the **Remote Desktop Agent Loader** in the Services window
 - You don't see the **RdAgentBootLoader** component in the Task Manager
+- You're receiving a **Connection Broker couldn't validate the settings** error on custom image VMs
 - The instructions in this article didn't resolve your issue
 
 ### Step 1: Uninstall all agent, boot loader, and stack component programs
@@ -313,12 +366,12 @@ You must generate a new registration key that is used to re-register your VM to 
 ### Step 4: Reinstall the agent and boot loader
 
 By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well. To reinstall the agent and boot loader:
-1. Sign in to your VM as an administrator and follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader**.
+1. Sign in to your VM as an administrator and use the correct version of the agent installer for your deployment depending on which version of Windows your VM is running. If you have a Windows 10 VM, follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader**. If you have a Windows 7 VM, follow steps 13-14 in [Register virtual machines](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Manager**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of agent and bootloader download page](media/download-agent.png)
 
-2. Right-click the agent and boot loader installers you just downloaded.
+2. Right-click the agent and boot loader installers you downloaded.
 3. Select **Properties**.
 4. Select **Unblock**.
 5. Select **Ok**.

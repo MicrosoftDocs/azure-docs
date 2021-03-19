@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: sstein
-ms.date: 08/25/2020
+ms.date: 1/21/2021
 ---
 
 # Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance
@@ -26,7 +26,7 @@ For each database, Azure SQL Database and Azure SQL Managed Instance maintain a 
 
 ## What to expect during a planned maintenance event
 
-Maintenance event can produce single or multiple failovers, depending on the constellation of the primary and secondary replicas at the beginning of the maintenance event. On average, 1.7 failovers occur per planned maintenance event. Reconfigurations/failovers generally finish within 30 seconds. The average is 8 seconds. If already connected, your application must reconnect to the new primary replica of your database. If a new connection is attempted while the database is undergoing a reconfiguration before the new primary replica is online, you get error 40613 (Database Unavailable): *"Database '{databasename}' on server '{servername}' is not currently available. Please retry the connection later."* If your database has a long-running query, this query will be interrupted during a reconfiguration and will need to be restarted.
+Maintenance event can produce single or multiple failovers, depending on the constellation of the primary and secondary replicas at the beginning of the maintenance event. On average, 1.7 failovers occur per planned maintenance event. Reconfigurations/failovers generally finish within 30 seconds. The average is eight seconds. If already connected, your application must reconnect to the new primary replica of your database. If a new connection is attempted while the database is undergoing a reconfiguration before the new primary replica is online, you get error 40613 (Database Unavailable): *"Database '{databasename}' on server '{servername}' is not currently available. Please retry the connection later."* If your database has a long-running query, this query will be interrupted during a reconfiguration and will need to be restarted.
 
 ## How to simulate a planned maintenance event
 
@@ -40,7 +40,12 @@ Any client production application that connects to a cloud database service shou
 
 If your database is experiencing log-on failures, check the [Resource Health](../../service-health/resource-health-overview.md#get-started) window in the [Azure portal](https://portal.azure.com) for the current status. The Health History section contains the downtime reason for each event (when available).
 
+## Maintenance window feature
+
+The maintenance Window feature allows for the configuration of predictable maintenance window schedules for eligible Azure SQL databases and SQL managed instances. See [Maintenance window](maintenance-window.md) for more information.
+
 ## Next steps
 
 - Learn more about [Resource Health](resource-health-to-troubleshoot-connectivity.md) for Azure SQL Database and Azure SQL Managed Instance.
 - For more information about retry logic, see [Retry logic for transient errors](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+- Configure maintenance window schedules with the [Maintenance window](maintenance-window.md) feature.

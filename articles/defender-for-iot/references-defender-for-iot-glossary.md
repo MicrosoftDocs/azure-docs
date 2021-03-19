@@ -13,6 +13,9 @@ ms.service: azure
 
 This glossary provides a brief description of important terms and concepts for the Azure Defender for IoT platform. Select the **Learn more** links to go to related terms in the glossary. This will help you more quickly learn and use product tools.
 
+> [!Note]
+> Any term with a `(DB)` listed in it's name, is an agent-based device builder term. 
+
 <a name="glossary-a"></a>
 
 ## A
@@ -53,6 +56,7 @@ This glossary provides a brief description of important terms and concepts for t
 | **Device inventory - sensor** | The device inventory displays an extensive range of device attributes detected by Defender for IoT. Options are available to:<br /><br />- Filter displayed information.<br /><br />- Export this information to a CSV file.<br /><br />- Import Windows registry details. | **[Group](#g)** <br /><br />**[Device inventory- on-premises management console](#d)** |
 | **Device inventory - on-premises management console** | Device information from connected sensors can be viewed from the on-premises management console in the device inventory. This gives users of the on-premises management console a comprehensive view of all network information. | **[Device inventory - sensor](#d)<br /><br />[Device inventory - data integrator](#d)** |
 | **Device inventory - data integrator** | The data integration capabilities of the on-premises management console let you enhance the data in the device inventory with information from other enterprise resources. Example resources are CMDBs, DNS, firewalls, and Web APIs. | **[Device inventory - on-premises management console](#d)** |
+| **Device twins** `(DB)` | Device twins are JSON documents that store device state information including metadata, configurations, and conditions. | [Module Twin](#m) <br /> <br />[Defender-IoT-micro-agent twin](#s) |
 
 ## E
 
@@ -85,6 +89,7 @@ This glossary provides a brief description of important terms and concepts for t
 
 | Term | Description | Learn more |
 |--|--|--|
+| **IoT Hub** `(DB)` | Managed service, hosted in the cloud, that acts as a central message hub for bi-directional communication between your IoT application and the devices it manages.  |   |
 | **Integrations** | Expand Defender for IoT capabilities by sharing device information with partner systems. Organizations can bridge previously siloed security, NAC, incident management, and device management solutions to accelerate system-wide responses and more rapidly mitigate risks. | **[Forwarding rule](#f)** |
 | **Internal subnet** | Subnet configurations defined by Defender for IoT. In some cases, such as environments that use public ranges as internal ranges, you can instruct Defender for IoT to resolve all subnets as internal subnets. Subnets are displayed in the map and in various Defender for IoT reports. | **[Subnets](#s)** |
 
@@ -98,8 +103,11 @@ This glossary provides a brief description of important terms and concepts for t
 
 ## M
 
+
 | Term | Description | Learn more |
 |--|--|--|
+| **Micro Agent** `(DB)` | Provides depth security capabilities for IoT devices including security posture and threat detection. | |
+| **Module twin** `(DB)` | Module twins are JSON documents that store module state information including metadata, configurations, and conditions. | [Device twin](#d) <br /> <br />[Defender-IoT-micro-agent twin](#s) |
 | **Mute Alert Event** | Instruct Defender for IoT to continuously ignore activity with identical devices and comparable traffic. | **[Alert](#glossary-a)<br /><br />[Exclusion rule](#e)<br /><br />[Acknowledge alert event](#glossary-a)<br /><br />[Learn alert event](#l)** |
 
 ## N
@@ -135,6 +143,7 @@ This glossary provides a brief description of important terms and concepts for t
 | Term | Description | Learn more |
 |--|--|--|
 | **Security alert** | Alerts that deal with security issues, such as excessive SMB sign in attempts or malware detections. | **[Alert](#glossary-a)<br /><br />[Operational alert](#o)** |
+| **Defender-IoT-micro-agent twin** `(DB)` | The Defender-IoT-micro-agent twin holds all of the information that is relevant to device security, for each specific device in your solution. | [Device twin](#d) <br /> <br />[Module Twin](#m)  |
 | **Selective probing** | Defender for IoT passively inspects IT and OT traffic and detects relevant information on devices, their attributes, their behavior, and more. In certain cases, some information might not be visible in passive network analyses.<br /><br />When this happens, you can use the safe, granular probing tools in Defender for IoT to discover important information on previously unreachable devices. | - |
 | **Sensor** | The physical or virtual machine on which the Defender for IoT platform is installed. | **[On-premises management console](#o)** |
 | **Site** | A location that a factory or other entity. The site should contain a zone or several zones in which a sensor is installed. | **[Zone](#z)** |

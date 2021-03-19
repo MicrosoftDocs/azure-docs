@@ -64,7 +64,7 @@ When you're debugging application crashes, start by checking the running status 
 
 
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ### My application experiences high CPU usage or high memory usage
 
@@ -86,7 +86,7 @@ For more information, see [Metrics for Azure Spring Cloud](spring-cloud-concept-
 
 If all instances are up and running, go to Azure Log Analytics to query your application logs and review your code logic. This will help you see whether any of them might affect scale partitioning. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
 ### Checklist for deploying your Spring application to Azure Spring Cloud
 
@@ -161,7 +161,7 @@ If you're migrating an existing Spring Cloud-based solution to Azure, ensure tha
 
 You can also check the _Service Registry_ client logs in Azure Log Analytics. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
 ### I want to inspect my application's environment variables
 
@@ -210,7 +210,7 @@ Look for the child node named `systemEnvironment`.  This node contains your appl
 
 Go to **App management** to ensure that the application statuses are _Running_ and _UP_.
 
-Check to see weather _JMX_ is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.  
+Check to see whether _JMX_ is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.  
 
 Check to see whether the `spring-boot-actuator` dependency is enabled in your application package and that it successfully boots up.
 
@@ -221,7 +221,7 @@ Check to see whether the `spring-boot-actuator` dependency is enabled in your ap
 </dependency>
 ```
 
-If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you [set up your workspace correctly](../azure-monitor/learn/quick-create-workspace.md). If you're using a free tier of Azure Log Analytics, note that [the free tier does not provide a service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you [set up your workspace correctly](../azure-monitor/logs/quick-create-workspace.md). If you're using a free tier of Azure Log Analytics, note that [the free tier does not provide a service-level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 
 ## Next steps
 

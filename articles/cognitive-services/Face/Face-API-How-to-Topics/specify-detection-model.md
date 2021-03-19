@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
 ---
@@ -39,6 +39,7 @@ When you use the [Face - Detect] API, you can assign the model version with the 
 
 * `detection_01`
 * `detection_02`
+* `detection_03`
 
 A request URL for the [Face - Detect] REST API will look like this:
 
@@ -48,7 +49,7 @@ If you are using the client library, you can assign the value for `detectionMode
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_04", detectionModel: "detection_03");
 ```
 
 ## Add face to Person with specified model
@@ -58,17 +59,17 @@ The Face service can extract face data from an image and associate it with a **P
 See the following code example for the .NET client library.
 
 ```csharp
-// Create a PersonGroup and add a person with face detected by "detection_02" model
+// Create a PersonGroup and add a person with face detected by "detection_03" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
+await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_03");
 ```
 
-This code creates a **PersonGroup** with ID `mypersongroupid` and adds a **Person** to it. Then it adds a Face to this **Person** using the `detection_02` model. If you don't specify the *detectionModel* parameter, the API will use the default model, `detection_01`.
+This code creates a **PersonGroup** with ID `mypersongroupid` and adds a **Person** to it. Then it adds a Face to this **Person** using the `detection_03` model. If you don't specify the *detectionModel* parameter, the API will use the default model, `detection_01`.
 
 > [!NOTE]
 > You don't need to use the same detection model for all faces in a **Person** object, and you don't need to use the same detection model when detecting new faces to compare with a **Person** object (in the [Face - Identify] API, for example).
@@ -78,13 +79,13 @@ This code creates a **PersonGroup** with ID `mypersongroupid` and adds a **Perso
 You can also specify a detection model when you add a face to an existing **FaceList** object. See the following code example for the .NET client library.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_04");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
+await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_03");
 ```
 
-This code creates a **FaceList** called `My face collection` and adds a Face to it with the `detection_02` model. If you don't specify the *detectionModel* parameter, the API will use the default model, `detection_01`.
+This code creates a **FaceList** called `My face collection` and adds a Face to it with the `detection_03` model. If you don't specify the *detectionModel* parameter, the API will use the default model, `detection_01`.
 
 > [!NOTE]
 > You don't need to use the same detection model for all faces in a **FaceList** object, and you don't need to use the same detection model when detecting new faces to compare with a **FaceList** object.
@@ -93,14 +94,14 @@ This code creates a **FaceList** called `My face collection` and adds a Face to 
 
 The different face detection models are optimized for different tasks. See the following table for an overview of the differences.
 
-|**detection_01**  |**detection_02**  |
-|---------|---------|
-|Default choice for all face detection operations. | Released in May 2019 and available optionally in all face detection operations.
-|Not optimized for small, side-view, or blurry faces.  | Improved accuracy on small, side-view, and blurry faces. |
-|Returns face attributes (head pose, age, emotion, and so on) if they're specified in the detect call. |  Does not return face attributes.     |
-|Returns face landmarks if they're specified in the detect call.   | Does not return face landmarks.  |
+|**detection_01**  |**detection_02**  |**detection_03** 
+|---------|---------|---|
+|Default choice for all face detection operations. | Released in May 2019 and available optionally in all face detection operations. |  Released in February 2021 and available optionally in all face detection operations.
+|Not optimized for small, side-view, or blurry faces.  | Improved accuracy on small, side-view, and blurry faces. | Further improved accuracy, including on smaller faces (64x64 pixels) and rotated face orientations.
+|Returns main face attributes (head pose, age, emotion, and so on) if they're specified in the detect call. |  Does not return face attributes.     | Returns "faceMask" and "noseAndMouthCovered" attributes if they're specified in the detect call.
+|Returns face landmarks if they're specified in the detect call.   | Does not return face landmarks.  | Does not return face landmarks.
 
-The best way to compare the performances of the `detection_01` and `detection_02` models is to use them on a sample dataset. We recommend calling the [Face - Detect] API on a variety of images, especially images of many faces or of faces that are difficult to see, using each detection model. Pay attention to the number of faces that each model returns.
+The best way to compare the performances of the detection models is to use them on a sample dataset. We recommend calling the [Face - Detect] API on a variety of images, especially images of many faces or of faces that are difficult to see, using each detection model. Pay attention to the number of faces that each model returns.
 
 ## Next steps
 

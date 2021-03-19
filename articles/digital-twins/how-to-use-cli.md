@@ -26,7 +26,7 @@ In addition to managing your Azure Digital Twins instance in the Azure portal, A
 * Managing [routes](concepts-route-events.md)
 * Configuring [security](concepts-security.md) via Azure role-based access control (Azure RBAC)
 
-The command set is called **az dt**, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [*az dt* command reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest).
+The command set is called **az dt**, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [*az dt* command reference](/cli/azure/ext/azure-iot/dt).
 
 ## Uses (deploy and validate)
 
@@ -51,11 +51,11 @@ For instructions on how to install or update the Azure CLI to a newer version, s
 
 ### Get the extension
 
-You can make sure you have the latest version of the `azure-iot` extension with these steps. You can run these commands in the [Azure Cloud Shell](../cloud-shell/overview.md) or a [local Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+You can make sure you have the latest version of the `azure-iot` extension with these steps. You can run these commands in the [Azure Cloud Shell](../cloud-shell/overview.md) or a [local Azure CLI](/cli/azure/install-azure-cli).
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](../../includes/digital-twins-cloud-shell-extensions.md)]
 
 ## Next steps
 
 Explore the CLI and its full set of commands through the reference docs:
-* [*az dt* command reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [*az dt* command reference](/cli/azure/ext/azure-iot/dt)

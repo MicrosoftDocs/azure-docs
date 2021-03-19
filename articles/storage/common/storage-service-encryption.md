@@ -14,7 +14,7 @@ ms.subservice: common
 
 # Azure Storage encryption for data at rest
 
-Azure Storage automatically encrypts your data when it is persisted to the cloud. Azure Storage encryption protects your data and to help you to meet your organizational security and compliance commitments.
+Azure Storage uses server-side encryption (SSE) to automatically encrypt your data when it is persisted to the cloud. Azure Storage encryption protects your data and to help you to meet your organizational security and compliance commitments.
 
 ## About Azure Storage encryption
 
@@ -28,7 +28,7 @@ Every block blob, append blob, or page blob that was written to Azure Storage af
 
 For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
-For information about encryption and key management for Azure managed disks, see [Server-side encryption of Azure managed disks](../../virtual-machines/disk-encryption.md) for Windows VMs or [Server-side encryption of Azure managed disks](../../virtual-machines/disk-encryption.md) for Linux VMs.
+For information about encryption and key management for Azure managed disks, see [Server-side encryption of Azure managed disks](../../virtual-machines/disk-encryption.md).
 
 ## About encryption key management
 

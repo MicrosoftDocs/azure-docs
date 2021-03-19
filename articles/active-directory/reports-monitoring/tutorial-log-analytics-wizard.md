@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 Familiarize yourself with these articles:
 
-- [Tutorial: Collect and analyze resource logs from an Azure resource](../../azure-monitor/learn/tutorial-resource-logs.md)
+- [Tutorial: Collect and analyze resource logs from an Azure resource](../../azure-monitor/essentials/tutorial-resource-logs.md)
 
 - [How to integrate activity logs with Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -48,7 +48,7 @@ Familiarize yourself with these articles:
 
 - [KQL quick reference](/azure/data-explorer/kql-quick-reference)
 
-- [Azure Monitor Workbooks](../../azure-monitor/platform/workbooks-overview.md)
+- [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md)
 
 
 

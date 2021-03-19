@@ -22,7 +22,7 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Squid Proxy connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article explains how to connect your Squid Proxy appliance to Azure Sentinel. The Squid Proxy data connector allows you to easily connect your Squid logs with Azure Sentinel, so that you can view the data in workbooks, use it to create custom alerts, and incorporate it to improve investigation. Integration between Squid Proxy and Azure Sentinel makes use of Syslog.
+This article explains how to connect your Squid Proxy appliance to Azure Sentinel. The Squid Proxy data connector allows you to easily connect your Squid logs with Azure Sentinel, so that you can view the data in workbooks, use it to create custom alerts, and incorporate it to improve investigation. Integration between Squid Proxy and Azure Sentinel makes use of local file processing by the Log Analytics agent.
 
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
@@ -31,9 +31,9 @@ This article explains how to connect your Squid Proxy appliance to Azure Sentine
 
 - You must have read and write permission on the Azure Sentinel workspace.
 
-## Forward Squid Proxy logs to the Syslog agent  
+## Forward Squid Proxy logs to the Log Analytics agent  
 
-Configure Squid Proxy to forward Syslog messages to your Azure workspace via the Syslog agent.
+Configure Squid Proxy to send log files to your Azure workspace via the Log Analytics agent.
 
 1. In the Azure Sentinel navigation menu, select **Data connectors**.
 

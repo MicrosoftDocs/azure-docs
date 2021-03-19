@@ -18,12 +18,10 @@ Indexer execution can occur when you first create the [indexer](search-indexer-o
 You can clear the high water mark by resetting the indexer if you want to reprocess from scratch. Reset APIs are available at decreasing levels in the object hierarchy:
 
 + The entire search corpus (use [Reset Indexers](#reset-indexers))
-+ A specific document or list of documents (use [Reset Skills (preview)](#reset-skills))
-+ A specific skill or enrichment in a document (use [Reset Documents (preview)](#reset-docs))
++ A specific document or list of documents (use [Reset Documents - preview](#reset-docs))
++ A specific skill or enrichment in a document (use [Reset Skills - preview](#reset-skills))
 
 The Reset APIs are used to refresh cached content (applicable in [AI enrichment](cognitive-search-concept-intro.md) scenarios), or to clear the high water mark and rebuild the index.
-
-If specified, the reset parameters become the sole determinant of what gets processed, regardless of other changes in the underlying data. For example, if 20 blobs were added or updated since the last indexer run, but you only reset one document, only that one document will be processed.
 
 Reset, followed by run, can reprocess existing documents and new documents, but does not remove orphaned search documents in the search index that were created on previous runs. For more information about deletion, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -68,12 +66,12 @@ A reset flag is cleared after the run is finished. Any regular change detection 
 
 <a name="reset-skills"></a>
 
-## Reset individual skills (preview)
+## Reset skills (preview)
 
 > [!IMPORTANT] 
 > [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-For indexers that have skillsets, you can reset specific skills to force processing of that skill and any downstream skills that depend on its output. [Cached enrichments](search-howto-incremental-index.md) pertaining to the affected skills are also refreshed.
+For indexers that have skillsets, you can reset specific skills to force processing of that skill and any downstream skills that depend on its output. [Cached enrichments](search-howto-incremental-index.md) are also refreshed. Resetting skills invalidates the cached skill results, which is useful when a new version of a skill is deployed and you want the indexer to rerun that skill for all documents. 
 
 [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is available through REST **`api-version=2020-06-30-Preview`**.
 
@@ -94,14 +92,16 @@ If no skills are specified, the entire skillset is executed and if caching is en
 
 <a name="reset-docs"></a>
 
-## Reset individual documents (preview)
+## Reset docs (preview)
 
 > [!IMPORTANT] 
 > [Reset Documents](/rest/api/searchservice/preview-api/reset-documents) is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The [Reset documents API](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents) accepts a list of document keys so that you can refresh specific documents. 
+The [Reset documents API](/rest/api/searchservice/preview-api/reset-documents) accepts a list of document keys so that you can refresh specific documents. If specified, the reset parameters become the sole determinant of what gets processed, regardless of other changes in the underlying data. For example, if 20 blobs were added or updated since the last indexer run, but you only reset one document, only that one document will be processed.
 
-All fields in the search document are refreshed from corresponding fields in the data source. If the document is enriched through a skillset and has cached data, the cached parts are also refreshed. The skillset is invoked for just the specified documents.
+On a per-document basis, all fields in that search document are refreshed with values from the data source. You cannot pick and choose which fields to refresh. 
+
+If the document is enriched through a skillset and has cached data, the  skillset is invoked for just the specified documents, and the cached is updated for the reprocessed documents.
 
 When testing this API for the first time, the following APIs will help you validate and test the behaviors:
 

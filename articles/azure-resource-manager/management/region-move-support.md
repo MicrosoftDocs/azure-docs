@@ -146,7 +146,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft.Purview](#microsoftpurview)
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
@@ -1513,7 +1513,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | capacities |  No | 
 
-## Microsoft.ProjectBabylon
+## Microsoft.Purview
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Region move | 

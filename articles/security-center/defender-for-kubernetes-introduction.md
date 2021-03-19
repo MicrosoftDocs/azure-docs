@@ -25,7 +25,7 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 |Aspect|Details|
 |----|:----|
 |Release state:|General Availability (GA)|
-|Pricing:|**Azure Defender for Kubernetes** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Pricing:|**Azure Defender for Kubernetes** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
 |Required roles and permissions:|**Security admin** can dismiss alerts.<br>**Security reader** can view findings.|
 |Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
@@ -67,7 +67,7 @@ For Azure Defender to monitor your AKS nodes, they must be running the Log Analy
 
 If your clusters are already running the Azure Monitor for containers agent, you can install the Log Analytics agent too and the two agents can work alongside one another without any problems.
 
-[Learn more about the Azure Monitor for containers agent](../azure-monitor/insights/container-insights-manage-agent.md).
+[Learn more about the Azure Monitor for containers agent](../azure-monitor/containers/container-insights-manage-agent.md).
 
 
 ## Next steps
@@ -75,7 +75,7 @@ If your clusters are already running the Azure Monitor for containers agent, you
 In this article, you learned about Security Center's Kubernetes protection including Azure Defender for Kubernetes. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Enable Azure Defender](enable-azure-defender.md)
 
 For related material, see the following articles: 
 

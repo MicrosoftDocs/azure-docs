@@ -1,12 +1,9 @@
 ---
 title: Pipelines and activities in Azure Data Factory 
 description: 'Learn about pipelines and activities in Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ---

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 02/18/2021
 ms.author: victorh
 ---
 
@@ -67,7 +67,9 @@ You can create a custom rule by selecting **Add custom rule** under the **Custom
 
 ### Default Rule Set (DRS)
 
-Azure-managed Default Rule Set is enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group,  select the **check box** in front of the rule number, and select **Disable** on the tab above. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** tab above.
+Azure-managed Default Rule Set is enabled by default. Current default version is DefaultRuleSet_1.0. From WAF **Managed rules**, **Assign**,  recently available ruleset Microsoft_DefaultRuleSet_1.1 is available in the drop down list.
+
+To disable an individual rule within a rule group, expand the rules within that rule group,  select the **check box** in front of the rule number, and select **Disable** on the tab above. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** tab above.
 
  :::image type="content" source="../media/waf-front-door-create-portal/managed2.png" alt-text="Screenshot of the Managed rules page showing a rule set, rule groups, rules, and Enable, Disable, and Change Action buttons. One rule is checked." border="false":::
 

@@ -115,7 +115,7 @@ Yes, certain Telemetry Channels will persist data locally if an endpoint cannot 
 
 Telemetry channels that utilize local storage create temp files in the TEMP or APPDATA directories, which are restricted to the specific account running your application. This may happen when an endpoint was temporarily unavailable or you hit the throttling limit. Once this issue is resolved, the telemetry channel will resume sending all the new and persisted data.
 
-This persisted data is not encrypted locally. If this is a concern, review the data and restrict the collection of private data. (For more information, see [How to export and delete private data](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
+This persisted data is not encrypted locally. If this is a concern, review the data and restrict the collection of private data. (For more information, see [How to export and delete private data](../logs/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
 
 If a customer needs to configure this directory with specific security requirements, it can be configured per framework. Please make sure that the process running your application has write access to this directory, but also make sure this directory is protected to avoid telemetry being read by unintended users.
 
@@ -235,7 +235,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## Personal data stored in Application Insights
 
-Our [Application Insights personal data article](../platform/personal-data-mgmt.md) discusses this issue in-depth.
+Our [Application Insights personal data article](../logs/personal-data-mgmt.md) discusses this issue in-depth.
 
 #### Can my users turn off Application Insights?
 Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
@@ -288,7 +288,7 @@ For [SDKs for other platforms][platforms], see their documents.
 You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 > [!NOTE]
-> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../platform/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](./ip-collection.md) will walk you through your options.
+> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../logs/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](./ip-collection.md) will walk you through your options.
 
 ## Credits
 This product includes GeoLite2 data created by MaxMind, available from [https://www.maxmind.com](https://www.maxmind.com).

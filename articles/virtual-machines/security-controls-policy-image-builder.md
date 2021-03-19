@@ -1,12 +1,13 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Image Builder
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Image Builder. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 02/04/2021
+ms.date: 03/17/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+ms.collection: linux
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Image Builder

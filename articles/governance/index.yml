@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 01/29/2021
+  ms.date: 03/16/2021
 
 highlightedContent:
   items:
@@ -113,6 +113,8 @@ additionalContent:
               url: /powershell/module/az.resources/#resources
             - text: Azure SDK for .NET
               url: /dotnet/api/overview/azure/managementgroups
+            - text: Azure SDK for Go
+              url: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
             - text: Azure SDK for JavaScript
               url: /javascript/api/@azure/arm-managementgroups/managementgroups
             - text: Azure SDK for Python
@@ -135,20 +137,8 @@ additionalContent:
               url: https://www.powershellgallery.com/packages/Az.GuestConfiguration
               note: (Guest Configuration)
             - text: REST
-              url: /rest/api/policy-insights/
-              note: (Policy Insights)
-            - text: REST
-              url: /rest/api/resources/policyassignments
-              note: (Assignments)
-            - text: REST
-              url: /rest/api/resources/policydefinitions
-              note: (Definitions)
-            - text: REST
-              url: /rest/api/resources/policyexemptions
-              note: (Exemptions)
-            - text: REST
-              url: /rest/api/resources/policysetdefinitions
-              note: (Initiatives)
+              url: /rest/api/policy/
+              note: (Policy)
             - text: REST
               url: /rest/api/guestconfiguration/
               note: (Guest Configuration)

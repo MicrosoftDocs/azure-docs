@@ -6,7 +6,7 @@ ms.author: jeanb
 
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/06/2018
+ms.date: 3/12/2021
 ms.custom: "seodec18, devx-track-csharp"
 ---
 # Management .NET SDK: Set up and run analytics jobs using the Azure Stream Analytics API for .NET
@@ -202,6 +202,12 @@ The **TestConnection** method tests whether the Stream Analytics job is able to 
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
+The result of the TestConnection call is a *ResourceTestResult* object that contains two properties:
+
+- *status*: It can be one of the following strings: ["TestNotAttempted", "TestSucceeded", "TestFailed"]
+- *error*: It's of type ErrorResponse containing the following properties:
+   - *code*: a required property of type string. The value is standard System.Net.HttpStatusCode received while testing.
+   - *message*: a required property of type string representing the error. 
 
 ## Create a Stream Analytics output target
 Creating an output target is similar to creating a Stream Analytics input source. Like input sources, output targets are tied to a specific job. To use the same output target for different jobs, you must call the method again and specify a different job name.

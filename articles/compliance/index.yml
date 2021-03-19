@@ -15,7 +15,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 07/07/2020
+  ms.date: 02/28/2021
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -169,6 +169,10 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-finma-switzerland
           itemType: concept
           text: FINMA (Switzerland)
+
+    # Card
+    - title: Financial services
+      links:
         - url: /azure/compliance/offerings/offering-finra-4511-us
           itemType: concept
           text: FINRA 4511 (US)
@@ -178,11 +182,6 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-fsa-denmark
           itemType: concept
           text: FSA (Denmark)
-
-
-    # Card
-    - title: Financial services
-      links:
         - url: /azure/compliance/offerings/offering-glba-us
           itemType: concept
           text: GLBA (US)
@@ -198,9 +197,16 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-osfi-canada
           itemType: concept
           text: OSFI (Canada)
+
+    # Card
+    - title: Financial services
+      links:
         - url: /azure/compliance/offerings/offering-ospar-singapore
           itemType: concept
           text: OSPAR (Singapore)
+        - url: /azure/compliance/offerings/offering-pci-3ds
+          itemType: concept
+          text: PCI 3DS
         - url: /azure/compliance/offerings/offering-pci-dss
           itemType: concept
           text: PCI DSS
@@ -390,6 +396,8 @@ additionalContent:
               url: /microsoft-365/compliance/gdpr-breach-azure-dynamics
             - text: Data protection impact assessments
               url: /microsoft-365/compliance/gdpr-dpia-azure
+            - text: Data residency in Azure
+              url: https://azure.microsoft.com/global-infrastructure/data-residency/
 
         - title: Compliance blueprints
           links:
@@ -408,7 +416,7 @@ additionalContent:
             - text: IRS 1075
               url: ../governance/blueprints/samples/irs-1075/index.md
             - text: ISO 27001
-              url: ../governance/blueprints/samples/iso27001/index.md
+              url: ../governance/blueprints/samples/iso-27001-2013.md
             - text: NIST SP 800-53 R4
               url: ../governance/blueprints/samples/nist-sp-800-53-r4.md
             - text: PCI-DSS v3.2.1
@@ -467,13 +475,15 @@ additionalContent:
             - text: IT-Grundschutz workbook
               url: https://azure.microsoft.com/resources/it-grundschutz-konformitt-mit-azure/
             - text: NEN7510-2011 standard coverage guide
-              url: https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=3285c45c-921c-49ad-b881-be43e0b70490&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_Compliance_Guides
+              url: https://azure.microsoft.com/resources/azure-nen7510-coverage-report-guide 
             - text: NERC CIP standards
               url: https://azure.microsoft.com/resources/microsoft-azure-nerc-cip-standards-and-cloud-computing/
             - text: NZ GCIO cloud computing considerations
               url: https://azure.microsoft.com/resources/microsoft-azure-response-to-nz-gcio-cloud-computing-information-security-privacy-considerations
+            - text: PCI 3DS shared responsibility
+              url: https://download.microsoft.com/download/b/5/e/b5e4adc3-56c1-4e02-b7a0-81adb7d50a0b/PCI3DS_Azure_Shared_Responsibility_Matrix.xlsx
             - text: PCI DSS 3.2.1 responsibility matrix
-              url: ../governance/blueprints/samples/pci-dss-3.2.1/index.md
+              url: https://download.microsoft.com/download/2/2/e/22e4f646-04e1-445c-92ed-724a6166e321/PCI_DSS_3.2.1_Azure_Shared_Responsibility_Matrix.xlsx
             - text: SCI guidance
               url: https://azure.microsoft.com/resources/microsoft-azure-regulation-systems-compliance-and-integrity-sci-cloud-implementation-guide/
             - text: SOX guidance
@@ -504,3 +514,7 @@ additionalContent:
               url: https://azure.microsoft.com/resources/microsoft-azure-cloud-services-us-uk-and-eu-export-controls/
             - text: Azure enables a world of compliance
               url: https://azure.microsoft.com/resources/azure-enables-a-world-of-compliance/
+            - text: Azure cloud platform for PCI 3DS
+              url: https://azure.microsoft.com/resources/azure-cloud-platform-for-pci-3ds/
+            - text: A practical guide to sesigning secure health solutions
+              url: https://azure.microsoft.com/resources/a-practical-guide-to-designing-secure-health-solutions-using-microsoft-azure/

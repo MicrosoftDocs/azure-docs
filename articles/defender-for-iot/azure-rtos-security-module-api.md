@@ -1,6 +1,6 @@
 ---
-title: Security Module for Azure RTOS API
-description: Reference API for the Security Module for Azure RTOS.
+title: Defender-IoT-micro-agent for Azure RTOS API
+description: Reference API for the Defender-IoT-micro-agent for Azure RTOS.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -17,11 +17,12 @@ ms.date: 09/07/2020
 ms.author: mlottner
 ---
 
-# Security Module for Azure RTOS API (preview)
 
-This API is intended for use with the Security Module for Azure RTOS only. For additional resources, see the [Security Module for Azure RTOS GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases). 
+# Defender-IoT-micro-agent for Azure RTOS API (preview)
 
-## Enable Security Module for Azure RTOS
+This API is intended for use with the Defender-IoT-micro-agent for Azure RTOS only. For additional resources, see the [Defender-IoT-micro-agent for Azure RTOS GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases). 
+
+## Enable Defender-IoT-micro-agent for Azure RTOS
 
 **nx_azure_iot_security_module_enable**
 
@@ -33,7 +34,7 @@ UINT nx_azure_iot_security_module_enable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 ### Description
 
-This routine enables the Azure IoT Security Module subsystem. An internal state machine manages collection of security events and sends them to Azure IoT Hub. Only one NX_AZURE_IOT_SECURITY_MODULE instance is required and needed to manage data collection.
+This routine enables the Azure IoT Defender-IoT-micro-agent subsystem. An internal state machine manages collection of security events and sends them to Azure IoT Hub. Only one NX_AZURE_IOT_SECURITY_MODULE instance is required and needed to manage data collection.
 
 ### Parameters
 
@@ -53,7 +54,7 @@ This routine enables the Azure IoT Security Module subsystem. An internal state 
 
 Threads
 
-## Disable Azure IoT Security Module
+## Disable Azure IoT Defender-IoT-micro-agent
 
 **nx_azure_iot_security_module_disable**
 
@@ -66,7 +67,7 @@ UINT nx_azure_iot_security_module_disable(NX_AZURE_IOT *nx_azure_iot_ptr);
 
 ### Description
 
-This routine disables the Azure IoT Security Module subsystem.
+This routine disables the Azure IoT Defender-IoT-micro-agent subsystem.
 
 ### Parameters
 
@@ -89,6 +90,6 @@ Threads
 
 ## Next steps
 
-To learn more about how to get started with Azure RTOS Security Module, see the following articles:
+To learn more about how to get started with Azure RTOS Defender-IoT-micro-agent, see the following articles:
 
-- Review the Defender for IoT RTOS security module [overview](iot-security-azure-rtos.md).
+- Review the Defender for IoT RTOS Defender-IoT-micro-agent [overview](iot-security-azure-rtos.md).

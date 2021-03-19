@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 03/18/2021
 ms.author: aahi
 ms.custom: references_regions 
 ---
@@ -16,6 +16,53 @@ ms.custom: references_regions
 # What's new in the Text Analytics API?
 
 The Text Analytics API is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
+
+## March 2021
+
+### General API updates
+* Release of the new API v3.1-preview.4 which includes 
+   * Changes in the Opinion Mining JSON response body: 
+      * `aspects` is now `targets` and `opinions` is now `assessments`. 
+   * Changes in the JSON response body of the hosted web API of Text Analytics for health: 
+      * The `isNegated` boolean name of a detected entity object for Negation is deprecated and replaced by Assertion Detection.
+      * A new property called `role` is now part of the extracted relation between an attribute and an entity as well as the relation between entities.  This adds specificity to the detected relation type.
+   * Entity linking is now available as an asynchronous task in the `/analyze` endpoint.
+   * A new `pii-categories` parameter is now available in the `/pii` endpoint.
+      * This parameter lets you specify select PII entities as well as those not supported by default for the input language.
+* Updated client libraries, which include asynchronous Analyze, and Text Analytics for health operations. You can find examples on GitHub:
+
+    * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript)
+    
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics API v3.1-Preview.4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
+
+### Text Analytics for health updates
+
+* A new model version `2021-03-01` for the `/health` endpoint and on-premise container which provides
+    * A rename of the `Gene` entity type to `GeneOrProtein`.
+    * A new `Date` entity type.
+    * Assertion detection which replaces negation detection (only available in API v3.1-preview.4).
+    * A new preferred `name` property for linked entities that is normalized from various ontologies and coding systems (only available in API v3.1-preview.4). 
+* A new container image with tag `3.0.015370001-onprem-amd64` and the new model-version `2021-03-01` has been released to the container preview repository. 
+* The Text Analytics for health container image will be moving to a new repository next month.  Please watch for an email communication on the location of its new home.
+> [!div class="nextstepaction"]
+> [Learn more about Text Analytics for health](how-tos/text-analytics-for-health.md)
+>
+
+### Text Analytics resource portal update
+* **Processed Text Records** is now available as a metric in the **Monitoring** section for your Text Analytics resource in the Azure portal.  
+
+## February 2021
+
+* The `2021-01-15` model version for the PII endpoint in [Named Entity Recognition](how-tos/text-analytics-how-to-entity-linking.md) v3.1-preview.x, which provides 
+  * Expanded support for 9 new languages
+  * Improved AI quality of named entity categories for supported languages.
+* The S0 through S4 pricing tiers are being retired on March 8th, 2021. If you have an existing Text Analytics resource using the S0 through S4 pricing tier, you should update it to use the Standard (S) [pricing tier](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier).
+* The [language detection container](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment) is now generally available.
+* v2.1 of the API is being retired. 
 
 ## January 2021
 
@@ -32,7 +79,7 @@ These model versions are currently unavailable in the East US region.
 
 ## December 2020
 
-* [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API
+* [Updated pricing](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) details for the Text Analytics API.
 
 ## November 2020
 
@@ -45,8 +92,7 @@ These model versions are currently unavailable in the East US region.
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-
-
+    * 
 > [!div class="nextstepaction"]
 > [Learn more about Text Analytics API v3.1-Preview.3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 

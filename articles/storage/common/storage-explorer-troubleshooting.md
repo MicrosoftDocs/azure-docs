@@ -53,14 +53,22 @@ If you don’t have a role that grants any management layer permissions, Storage
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-If you want to access blob containers or queues, you can attach to those resources using your Azure credentials.
+If you want to access blob containers, ADLS Gen2 containers or directories, or queues, you can attach to those resources using your Azure credentials.
 
 1. Open the Connect dialog.
-2. Select "Add a resource via Azure Active Directory (Azure AD)". Select Next.
-3. Select the user account and tenant associated with the resource you're attaching to. Select Next.
-4. Select the resource type, enter the URL to the resource, and enter a unique display name for the connection. Select Next then Connect.
+1. Select the resource type you want to connect to.
+1. Select **Sign in using Azure Active Directory (Azure AD)**. Select **Next**.
+1. Select the user account and tenant associated with the resource you're attaching to. Select **Next**.
+1. Enter the URL to the resource, and enter a unique display name for the connection. Select **Next** then **Connect**.
 
-For other resource types, we don't currently have an Azure RBAC-related solution. As a workaround, you can request a SAS URI to [attach to your resource](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
+For other resource types, we don't currently have an Azure RBAC-related solution. As a workaround, you can request a SAS URL then attach to your resource by following these steps:
+
+1. Open the Connect dialog.
+1. Select the resource type you want to connect to.
+1. Select **Shared access signature (SAS)**. Select **Next**.
+1. Enter the SAS URL you received and enter a unique display name for the connection. Select **Next** then **Connect**.
+ 
+For more information on attaching to resources, see [Attach to an Individual Resource](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#attach-to-an-individual-resource).
 
 ### Recommended Azure built-in roles
 

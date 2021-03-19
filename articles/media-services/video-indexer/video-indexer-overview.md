@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 02/05/2021
 ms.author: juliako
 ---
 
@@ -80,7 +80,7 @@ The following list shows the insights you can retrieve from your videos using Vi
 * **Speaker enumeration**: Maps and understands which speaker spoke which words and when. Sixteen speakers can be detected in a single audio-file.
 * **Speaker statistics**: Provides statistics for speakers' speech ratios.
 * **Textual content moderation**: Detects explicit text in the audio transcript.
-* **Audio effects**: Identifies audio effects like hand claps, speech, and silence.
+* **Audio effects** (public preview): Detects the following audio effects in the non-speech segments of the content: Gunshot, Glass shatter, Alarm, Siren, Explosion, Dog Bark, Screaming, Laughter, Crowd reactions (cheering, clapping, and booing) and Silence. Note: the full set of events is available only when choosing ‘Advanced Audio Analysis’ in upload preset, otherwise only ‘Silence’ and ‘Crowd reaction’ will be available.
 * **Emotion detection**: Identifies emotions based on speech (what's being said) and voice tonality (how it's being said). The emotion could be joy, sadness, anger, or fear.
 * **Translation**: Creates translations of the audio transcript to 54 different languages.
 

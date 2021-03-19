@@ -877,7 +877,7 @@ In the sample code, requests are authenticated using the Microsoft.AspNetCore.Au
 
 A bearer token is also required to use of the provided [postman tests](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) and perform local debugging using localhost. The sample code uses ASP.NET Core environments to change the authentication options during development stage and enable the use a self-signed token.
 
-For more information on multiple environments in ASP.NET Core, see [Use multiple environments in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+For more information on multiple environments in ASP.NET Core, see [Use multiple environments in ASP.NET Core](/aspnet/core/fundamentals/environments).
 
 The following code enforces that requests to any of the service’s endpoints are authenticated using a bearer token signed with a custom key:
 

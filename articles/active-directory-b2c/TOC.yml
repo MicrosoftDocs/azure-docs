@@ -26,11 +26,7 @@
     href: tutorial-register-applications.md
   - name: 3 - Create user flows
     href: tutorial-create-user-flows.md
-  - name: Add identity providers
-    href: tutorial-add-identity-providers.md
-  - name: Customize the UI
-    href: tutorial-customize-ui.md
-  - name: Authenticate users
+  - name: 4 - Authenticate users
     items:
     - name: ASP.NET
       href: tutorial-web-app-dotnet.md
@@ -41,7 +37,7 @@
     - name: Python
       href: tutorial-web-app-python.md
       displayName: flask
-  - name: Grant API access
+  - name: 5 - Grant API access
     items:
     - name: ASP.NET
       href: tutorial-web-api-dotnet.md
@@ -105,9 +101,14 @@
       href: tutorial-register-applications.md
     - name: Register a single-page application (SPA)
       href: tutorial-register-spa.md
-    - name: Register a SAML service provider
-      href: connect-with-saml-service-providers.md
-      displayName: SP, RP, service provider, connect
+    - name: SAML application
+      items:
+      - name: Configure a SAML application
+        href: saml-service-provider.md
+        displayName: SP, service provider
+      - name: Configure SAML application options
+        href: saml-service-provider-options.md
+        displayName: SP, service provider 
     - name: Register a Microsoft Graph application
       href: microsoft-graph-get-started.md
       displayName: migrate, migration, microsoft graph
@@ -125,10 +126,14 @@
       href: add-sign-up-and-sign-in-policy.md
     - name: Sign-in policy
       href: add-sign-in-policy.md
-    - name: Password reset policy
-      href: add-password-reset-policy.md
-    - name: Password change policy
-      href: add-password-change-policy.md
+    - name: Password reset policies
+      items:
+      - name: Self-service password reset
+        href: add-password-reset-policy.md
+      - name: Self-service password change
+        href: add-password-change-policy.md
+      - name: Force password reset
+        href: force-password-reset.md
     - name: Profile editing policy
       href: add-profile-editing-policy.md
     - name: Resource owner password credentials policy
@@ -150,6 +155,8 @@
       displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
+    - name: Apple (Preview)
+      href: identity-provider-apple-id.md 
     - name: Azure AD (Single-tenant)
       href: identity-provider-azure-ad-single-tenant.md
     - name: Azure AD (Multi-tenant)
@@ -158,8 +165,14 @@
       href: identity-provider-azure-ad-b2c.md
     - name: Facebook
       href: identity-provider-facebook.md
-    - name: Generic identity provider
+    - name: Generic OpenId Connect
       href: identity-provider-generic-openid-connect.md
+    - name: Generic SAML identity provider
+      items:
+      - name: Configure a SAML identity provider
+        href: identity-provider-generic-saml.md
+      - name: Configure SAML identity provider options
+        href: identity-provider-generic-saml-options.md
     - name: GitHub
       href: identity-provider-github.md
     - name: Google
@@ -196,6 +209,9 @@
       href: customize-ui-with-html.md
     - name: JavaScript and page layouts
       href: javascript-and-page-layout.md
+    - name: Embedded sign-in with iframe
+      displayName: iframe
+      href: embedded-login.md
     - name: Customize language
       href: language-customization.md
       displayName: localization
@@ -217,14 +233,14 @@
       href: configure-tokens.md
   - name: Define custom attributes
     href: user-flow-custom-attributes.md
-  - name: Identity Protection and Conditional Access
+  - name: Risk-based authentication
     items:
-    - name: Set up Identity Protection and Conditional Access
-      href: conditional-access-identity-protection-setup.md
-    - name: Add Conditional Access
+    - name: Investigate risk with Identity Protection
+      href: identity-protection-investigate-risk.md
+    - name: Configure Conditional Access
       href: conditional-access-user-flow.md
   - name: Configure age gating
-    href: basic-age-gating.md
+    href: age-gating.md
   - name: API connectors (preview)
     items:
     - name: Overview
@@ -327,9 +343,6 @@
             href: aad-sspr-technical-profile.md
           - name: Claims transformation
             href: claims-transformation-technical-profile.md
-          - name: Conditional Access 
-            href: conditional-access-technical-profile.md
-            displayName: ca
           - name: ID token hint
             href: id-token-hint.md
           - name: JWT token issuer
@@ -386,6 +399,8 @@
       href: partner-keyless.md
     - name: LexisNexis
       href: partner-lexisnexis.md
+    - name: Microsoft Dynamics 365 Fraud Protection
+      href: partner-dynamics-365-fraud-protection.md
     - name: N8 Identity
       href: partner-n8identity.md
     - name: Nevis
@@ -408,11 +423,13 @@
       href: partner-whoiam.md
     - name: Zscaler
       href: partner-zscaler.md
-  - name: Use b2clogin.com
+  - name: Domain name
     items:
     - name: b2clogin.com overview
       href: b2clogin.md
-    - name: Migrate web API to b2clogin.com
+    - name: Configure a custom domain
+      href: custom-domain.md
+    - name: Configure web API domains 
       href: multiple-token-endpoints.md
       displayName: migrate, b2clogin, owin
   - name: Automation
@@ -432,20 +449,20 @@
   - name: Secure API Management API
     href: secure-api-management.md
     displayName: apim, api management, migrate, b2clogin.com
-  - name: Secure phone-based MFA
-    href: phone-based-mfa.md
-    displayName: multi-factor authentication, Azure Monitor, Log Analytics
   - name: Logs and monitoring
     items:
     - name: Audit logs
       href: view-audit-logs.md
-      displayName: log, logs, logging, usage, events
+      displayName: log, logs, logging, usage, events, reports, reporting
     - name: Azure Monitor
       href: azure-monitor.md
-      displayName: log, logs, logging, usage, events
+      displayName: log, logs, logging, usage, events, reports, reporting, dashboard
     - name: Usage analytics
       href: analytics-with-application-insights.md
-      displayName: application insights, app insights
+      displayName: application insights, app insights, reports, reporting
+    - name: Secure phone-based MFA
+      href: phone-based-mfa.md
+      displayName: multi-factor authentication, Azure Monitor, Log Analytics, reports, reporting, dashboard
   - name: Compliance
     items:
     - name: User access
@@ -522,4 +539,4 @@
     href: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
     displayName: technical
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
+    href: azure-ad-external-identities-videos.md
