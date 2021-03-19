@@ -62,7 +62,7 @@ At cache creation time you must specify a vault, key, and key version to use for
 Read the [Azure Key Vault documentation](../key-vault/general/overview.md) for details.
 
 > [!NOTE]
-> The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Make sure that the region you choose [supports the customer-managed keys feature](hpc-cache-overview.md#region-availability).
+> The Azure Key Vault must use the same subscription and be in the same region as the Azure HPC Cache. Make sure that the region you choose [supports both products](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=hpc-cache,key-vault).
 
 ## 2. Create the cache with customer-managed keys enabled
 
