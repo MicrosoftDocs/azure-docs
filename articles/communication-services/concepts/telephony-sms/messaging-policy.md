@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ---
 
 # Azure Communication Services Messaging Policy
-Azure Communication Services is transforming the way our customers engage with their clients by building rich, custom communication experiences that leverage the same enterprise-grade services that back Microsoft Teams and Skype. Integrate chat and SMS messaging functionality into your communications solutions to reach your customers anytime and anywhere they need support —you just need to comply with a few simple messaging requirements to get started.
+Azure Communication Services is transforming the way our customers engage with their clients by building rich, custom communication experiences that leverage the same enterprise-grade services that back Microsoft Teams and Skype. Integrate SMS messaging functionality into your communications solutions to reach your customers anytime and anywhere they need support —you just need to comply with a few simple messaging requirements to get started.
 
 We know that messaging requirements can seem daunting to learn, but they are really as easy as remembering “COMS”:
 - C - Consent
