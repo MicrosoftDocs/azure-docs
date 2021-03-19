@@ -7,5 +7,5 @@
     topicHref: /azure/baremetal-infrastructure/index
     items: 
      - name: Workloads
-       tocHref: /azure/virtual-machines/workloads/
+       tocHref: /azure/virtual-machines/workloads/sap/
        topicHref: /azure/baremetal-infrastructure/index
