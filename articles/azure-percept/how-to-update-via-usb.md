@@ -89,7 +89,7 @@ This guide will show you how to successfully update your dev kit's operating sys
         sudo reboot -f
         ```
 
-1. Navigate back to the other command prompt or terminal. When the update is finished, you will see the following screen with ```Success 1```:
+1. Navigate back to the other command prompt or terminal. When the update is finished, you will see a message with ```Success 1    Failure 0```:
 
     > [!NOTE]
     > After updating, your device will be reset to factory settings and you will lose your Wi-Fi connection and SSH login.
