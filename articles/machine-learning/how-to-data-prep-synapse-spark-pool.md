@@ -18,7 +18,7 @@ ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
 
 # Attach Apache Spark pools (powered by Azure Synapse Analytics) for data wrangling (preview)
 
-In this article, you learn how to attach and launch an Apache Spark pool powered by [Azure Synapse Analytics](/synapse-analytics/overview-what-is.md) for data wrangling at scale. 
+In this article, you learn how to attach and launch an Apache Spark pool powered by [Azure Synapse Analytics](/synapse-analytics/overview-what-is) for data wrangling at scale. 
 
 This article contains guidance for performing data wrangling tasks interactively within a dedicated Synapse session in a Jupyter notebook. If you prefer to use Azure Machine Learning pipelines, see [How to use Apache Spark (powered by Azure Synapse Analytics) in your machine learning pipeline (preview)](how-to-use-synapsesparkstep.md).
 
