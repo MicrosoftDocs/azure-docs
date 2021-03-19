@@ -141,11 +141,12 @@ The following table summarizes these additional parameters. See the [Forecasting
 |`forecast_horizon`|Defines how many periods forward you would like to forecast. The horizon is in units of the time series frequency. Units are based on the time interval of your training data, for example, monthly, weekly that the forecaster should predict out.|✓|
 |`enable_dnn`|[Enable Forecasting DNNs]().||
 |`time_series_id_column_names`|The column name(s) used to uniquely identify the time series in data that has multiple rows with the same timestamp. If time series identifiers are not defined, the data set is assumed to be one time-series. To learn more about single time-series, see the [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
-|`freq`| The time series dataset frequency. This parameter represents the period with which events are expected to occur, such as daily, weekly, yearly, etc. The frequency must be a [pandas offset alias](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects).||
+|`freq`| The time series dataset frequency. This parameter represents the period with which events are expected to occur, such as daily, weekly, yearly, etc. The frequency must be a [pandas offset alias](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#dateoffset-objects). Learn more about [frequency](#frequency-target-data-aggregation)||
 |`target_lags`|Number of rows to lag the target values based on the frequency of the data. The lag is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependent variable doesn't match up or correlate by default. ||
 |`feature_lags`| The features to lag will be automatically decided by automated ML when `target_lags` are set and `feature_lags` is set to `auto`. Enabling feature lags may help to improve accuracy. Feature lags are disabled by default. ||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model. Learn more about [target rolling window aggregation](#target-rolling-window-aggregation).||
-|`short_series_handling_config`| Enables short time series handling to avoid failing during training due to insufficient data. Short series handling is set to `auto` by default. Learn more about [short series handling](#short-series-handling).|
+|`short_series_handling_config`| Enables short time series handling to avoid failing during training due to insufficient data. Short series handling is set to `auto` by default. Learn more about [short series handling](#short-series-handling).||
+|`target_aggregation_function`| The function to be used to aggregate the time series target column to conform to the frequency specified via the `freq` parameter. The `freq` parameter must be set, in order to use the `target_aggregation_function`. Defaults to `None`, most scenarios using `sum` is sufficient . Learn more about [target column aggregation](#frequency-target-data-aggregation). 
 
 
 The following code, 
@@ -256,6 +257,22 @@ If you're using the Azure Machine Learning studio for your experiment, see [how 
 
 Additional optional configurations are available for forecasting tasks, such as enabling deep learning and specifying a target rolling window aggregation. 
 
+### Frequency & target data aggregation
+
+Leverage the frequency, `freq`, parameter to help avoid failures caused by irregular data, i.e. data that doesn't follow a set cadence, like hourly or daily data. 
+
+For highly irregular data or for varying business needs, users can optionally set their desired forecast frequency, `freq`, and specify the `target_aggregation_function` to aggregate the target column of the time series. If you have very irregular time series that doesn't align to any one frequency or to simply save some time on data preparation, leverage these two settings in your `AutoMLConfig` object.
+
+When the `target_aggregation_function` parameter is used, <li> The target column values are agreggated based on the specified operation. Typically, `sum` is appropriate for most scenarios<li> Numerical predictor columns in your data can be aggregated by sum, mean, min, max, or all, for all of the above. As a result, automated ML generates a new column(s) suffixed with the aggregation function name and  applies the selected aggregate operation.  <li> For categorical predictor columns, the data is aggregated by mode, the most prominent category in the window.
+
+Supported aggregation operations for the target column values include:
+|Function | description
+|---|---
+|`sum`| Sum of target values
+|`mean`| Mean or average of target values
+|`min`| Minimum value of a target  
+|`max`| Maximum value of a target  
+
 ### Enable deep learning
 
 > [!NOTE]
@@ -283,7 +300,7 @@ To enable DNN for an AutoML experiment created in the Azure Machine Learning stu
 
 View the [Beverage Production Forecasting notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example leveraging DNNs.
 
-### Target Rolling Window Aggregation
+### Target rolling window aggregation
 Often the best information a forecaster can have is the recent value of the target.  Target rolling window aggregations allow you to add a rolling aggregation of data values as features. Generating and using these additional features as extra contextual data helps with the accuracy of the train model.
 
 For example, say you want to predict energy demand. You might want to add a rolling window feature of three days to account for thermal changes of heated spaces. In this example, create this window by setting `target_rolling_window_size= 3` in the `AutoMLConfig` constructor. 
