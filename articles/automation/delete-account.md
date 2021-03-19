@@ -87,6 +87,8 @@ After the Automation account is successfully unlinked from the workspace, perfor
 
 To delete your Automation account linked to a Log Analytics workspace in support of Update Management, Change Tracking and Inventory, and/or Start/Stop VMs during off-hours, perform the following steps.
 
+### Step 1. Delete the solution from the linked workspace
+
 # [Azure portal](#tab/azure-portal)
 
 1. Sign in to Azure at [https://portal.azure.com](https://portal.azure.com).
@@ -99,9 +101,9 @@ To delete your Automation account linked to a Log Analytics workspace in support
 
 5. On the Solutions page, select one of the following based on the feature(s) deployed in the account:
 
-   * For Start/Stop VMs during off-hours, select **Start-Stop-VM[workspace name]**.
-   * For Update Management, select **Updates(workspace name)**.
-   * For Change Tracking and Inventory, select **ChangeTracking(workspace name)**.
+    * For Start/Stop VMs during off-hours, select **Start-Stop-VM[workspace name]**.
+    * For Update Management, select **Updates(workspace name)**.
+    * For Change Tracking and Inventory, select **ChangeTracking(workspace name)**.
 
 6. On the **Solution** page, select **Delete** from the menu. If more than one of the above listed features are deployed to the Automation account and linked workspace, you need to select and delete each one before proceeding.
 
@@ -117,7 +119,7 @@ Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName resourceGroupName -Name
 
 ---
 
-### Unlink workspace from Automation account
+### Step 2. Unlink workspace from Automation account
 
 There are two options for unlinking the Log Analytics workspace from your Automation account. You can perform this process from the Automation account or from the linked workspace.
 
@@ -143,7 +145,7 @@ To unlink from the workspace, perform the following steps.
 
 While it attempts to unlink the Automation account, you can track the progress under **Notifications** from the menu.
 
-### Delete Automation account
+### Step 3. Delete Automation account
 
 After the Automation account is successfully unlinked from the workspace, perform the steps in the [standalone Automation account](#delete-a-standalone-automation-account) section to delete the account.
 
