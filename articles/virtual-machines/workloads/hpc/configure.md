@@ -17,7 +17,7 @@ This article shares some guidance on configuring and optimizing the InfiniBand-e
 
 ## VM images
 On InfiniBand enabled VMs, the appropriate drivers are required to enable RDMA.
-- The [CentOS-HPC VM images](#centOS-hpc-vm-images) in the Marketplace come pre-configured with the appropriate IB drivers and are the easiest way to get started.
+- The [CentOS-HPC VM images](#centos-hpc-vm-images) in the Marketplace come pre-configured with the appropriate IB drivers and are the easiest way to get started.
 - The [Ubuntu VM images](#ubuntu-vm-images) can be configured with the right IB drivers. It is recommended to create [custom VM images](../../linux/tutorial-custom-images.md) with the appropriate drivers and configuration and reuse those recurringly.
 
 On GPU enabled [N-series](../../sizes-gpu.md) VMs, the appropriate GPU drivers are additionally required which can be added through the [VM extensions](../../extensions/hpccompute-gpu-linux.md) or [manually](../../linux/n-series-driver-setup.md). Some VM images on the Marketplace also come pre-installed with the Nvidia GPU drivers, including some VM images from Nvidia.

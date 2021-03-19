@@ -19,7 +19,7 @@ There are various ways to enable InfiniBand on the capable VM sizes.
 
 ## VM Images with InfiniBand drivers
 See [VM Images](configure.md#vm-images) for a list of supported VM Images on the Marketplace, which come pre-loaded with InfiniBand drivers (for SR-IOV or non-SR-IOV VMs) or can be configured with the appropriate drivers for [RDMA capable VMs](../../sizes-hpc.md#rdma-capable-instances).
-- The [CentOS-HPC](configure.md#centOS-hpc-vm-images) VM images in the Marketplace are the easiest way to get started.
+- The [CentOS-HPC](configure.md#centos-hpc-vm-images) VM images in the Marketplace are the easiest way to get started.
 - The [Ubuntu](configure.md#ubuntu-vm-images) VM images can be configured with the right IB drivers.
 
 ## InfiniBand Driver VM Extensions
