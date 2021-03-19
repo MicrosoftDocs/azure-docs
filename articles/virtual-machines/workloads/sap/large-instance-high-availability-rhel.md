@@ -118,8 +118,6 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
     
     	Ref time (UTC) : Thu Jan 28 18:46:10 2021
     
-    	
-    
     	chronyc sources
     
     	210 Number of sources = 8
@@ -146,7 +144,6 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	    ```
 	    node1:~ # yum update
 	    ```
- 
 
 7. Install the SAP HANA and RHEL-HA repositories.
 
@@ -185,8 +182,6 @@ In this section, you learn how to configure Watchdog. This section uses the same
 	vendor preset: disabled)
 
 	Active: inactive (dead)
-
-	
 
 	Nov 28 23:02:40 sollabdsm35 systemd[1]: Collecting watchdog.service
 
@@ -427,22 +422,16 @@ In this section, you initialize the cluster. This section uses the same two host
 	```
 	systemctl start pcsd
 	```
-  
-  
 
 5.  Run the cluster authentication only from node1.
 
 	```
 	pcs cluster auth sollabdsm35 sollabdsm36
 
-
-
 	    Username: hacluster
 
 			Password:
-
 			sollabdsm35.localdomain: Authorized
-
 			sollabdsm36.localdomain: Authorized
 
 	 ``` 
@@ -493,20 +482,16 @@ In this section, you initialize the cluster. This section uses the same two host
 
 8. If one node is not joining the cluster check if the firewall is still running.
 
-  
-
 9. Create and enable the SBD Device
 	```
 	pcs stonith create SBD fence_sbd devices=/dev/mapper/3600a098038303f4c467446447a
 	```
   
-
 10. Stop the cluster restart the cluster services (on all nodes).
 
 	```
 	pcs cluster stop --all
 	```
-
 
 11. Restart the cluster services (on all nodes).
 
@@ -654,6 +639,7 @@ In this section, you initialize the cluster. This section uses the same two host
 19. For the rest of the SAP HANA clustering you can disable STONITH by setting:
 
    * pcs property set `stonith-enabled=false`
+   * It sometimes is easier to keep STONITH deactivated during the setup of the cluster., because you will avoid unexpected reboots of the system
    * This parameter must be set to true for productive usage. If this parameter is not set to true, the cluster will be not supported.
    * pcs property set `stonith-enabled=true`
 
@@ -705,16 +691,12 @@ There are two options for integrating HANA. The first option is a cost optimized
    
 	   -rw-r----- 1 hr2adm sapsys 1996496896 Oct 26 23:31 backup_databackup_3_1
    
-	   ```
-	
+	   ```	
 
 	3. Backup all database containers of this database.
-       ```
-   
+       ``` 
 	   * hdbsql -i 00 -u system -p $YourPass -d SYSTEMDB "BACKUP DATA USING
-	   FILE ('/tmp/sydb')"
-   
-	   
+	   FILE ('/tmp/sydb')"	   
    
 	   * hdbsql -i 00 -u system -p $YourPass -d SYSTEMDB "BACKUP DATA FOR HR2
 	   USING FILE ('/tmp/rh2')"
@@ -1336,20 +1318,17 @@ Node Attributes:
 With option the `AUTOMATED_REGISTER=false`, you cannot switch back and forth.
 
 If this option is set to false, you must re-register the node:
-
-  
 ```
 hdbnsutil -sr_register --remoteHost=node2 --remoteInstance=00 --replicationMode=syncmem --name=DC1
 ```
-  
 
 Now node2, which was the primary, acts as the secondary host.
 
 Consider setting this option to true to automate the registration of the demoted host.
-
   
 ```
 pcs resource update SAPHana_HR2_00-primary AUTOMATED_REGISTER=true
-
 pcs cluster node clear node1
 ```
+
+If you prefer automatic registering or not is dependent on the customer scenario. If you decide to automatically reregister the node after a takeover it would be easier for the operation team. On the other hand, you might want to register the node by yourself because you might would run additional tests before reregistering the node to make sure everything works as you expect.
