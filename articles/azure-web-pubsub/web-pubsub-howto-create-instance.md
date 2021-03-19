@@ -18,8 +18,6 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
 
 1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type *Web PubSub* in the search box and press enter.
 
-    ![Screenshot shows search for Web PubSub service in the Azure portal.](media/web-pubsub-create-instance-portal/search-web-pubsub.png)
-
 1. Select **Web PubSub** from the search results, then select **Create**.
 
 1. Enter the following settings.
@@ -32,8 +30,6 @@ The [Azure portal](https://docs.microsoft.com/azure/azure-portal/) is a web-base
     | **Location** | Choose a [region](https://azure.microsoft.com/regions/) near you. |
     | **Pricing tier** | Learn more details about [Azure Web PubSub service pricing tiers](https://azure.microsoft.com/pricing/details/web-[pubsub]). |
     | **Unit count** |  Unit count specifies how many connections your Web PubSub service instance can accept. Each unit supports 1,000 concurrent connections at most. It is only configurable in the Standard tier. |
-
-    ![Screenshot shows Web PubSub Basics tab with values.](media/web-pubsub-create-instance-portal/create-web-pubsub-instance.png)
 
 1. Select **Create** to start deploying the Web PubSub service instance.
 
