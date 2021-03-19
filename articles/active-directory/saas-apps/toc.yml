@@ -1188,6 +1188,8 @@
         href: mongodb-cloud-tutorial.md
       - name: Montage Online
         href: montageonline-tutorial.md
+      - name: Moqups
+        href: moqups-tutorial.md
       - name: Motus
         href: motus-tutorial.md
       - name: MOVEit Transfer - Azure AD integration
