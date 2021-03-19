@@ -17,6 +17,9 @@ ms.date: 04/08/2021
 
 Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
 
+> [!NOTE]
+> To use Azure Kubernetes Service cluster for training, see [Set up compute targets for model training and deployment](how-to-attach-compute-targets.md#aks).
+
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
