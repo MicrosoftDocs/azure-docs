@@ -1,11 +1,11 @@
 ---
 title: Azure Certified Device program - Tutorial - Selecting your certification program
 description: Step-by-step guide to selecting the right certification programs for your device
-author: nikuntjo
-ms.author: nikuntjo
+author: cbroad
+ms.author: cbroad
 ms.service: iot-pnp
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 03/19/2021
 ms.custom: template-tutorial 
 ---
 
