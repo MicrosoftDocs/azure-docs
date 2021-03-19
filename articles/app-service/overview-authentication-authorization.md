@@ -75,7 +75,7 @@ This module handles several things for your app:
 
 The module runs separately from your application code and is configured using app settings. No SDKs, specific languages, or changes to your application code are required. 
 
-#### Containers
+#### Linux and containers
 
 The authentication and authorization module runs in a separate container, isolated from your application code. Using what's known as the [Ambassador pattern](/azure/architecture/patterns/ambassador), it interacts with the incoming traffic to perform similar functionality as on Windows. Because it does not run in-process, no direct integration with specific language frameworks is possible; however, the relevant information that your app needs is passed through using request headers as explained below.
 
