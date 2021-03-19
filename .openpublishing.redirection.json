@@ -2,12 +2,12 @@
   "redirections": [
     {
       "source_path_from_root": "azure/articles/spring-cloud/spring-cloud-tutorial-config-server.md",
-      "redirect_url": "/azure/articles/spring-cloud/how-to-config-server.md",
+      "redirect_url": "/articles/spring-cloud/how-to-config-server.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "azure/articles/spring-cloud/spring-cloud-tutorial-distributed-tracing.md",
-      "redirect_url": "/azure/articles/spring-cloud/how-to-distributed-tracing.md",
+      "redirect_url": "/articles/spring-cloud/how-to-distributed-tracing.md",
       "redirect_document_id": false
     },
     {
@@ -32,27 +32,27 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-sample-app-introduction.md",
-      "redirect_url": "/azure/articles/spring-cloud/quickstart-sample-app-introduction.md",
+      "redirect_url": "/articles/spring-cloud/quickstart-sample-app-introduction.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-provision-service-instance.md",
-      "redirect_url": "/azure/articles/spring-cloud/spring-cloud-quickstart-provision-service-instance.md",
+      "redirect_url": "/articles/spring-cloud/spring-cloud-quickstart-provision-service-instance.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-logs-metrics-tracing.md",
-      "redirect_url": "/azure/spring-cloud/quickstart-logs-metrics-tracing.md",
+      "redirect_url": "/articles/spring-cloud/quickstart-logs-metrics-tracing.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-deploy-apps.md",
-      "redirect_url": "/azure/articles/spring-cloud/quickstart-deploy-apps.md",
+      "redirect_url": "/articles/spring-cloud/quickstart-deploy-apps.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud/spring-cloud-overview.md",
-      "redirect_url": "/azure/articles/spring-cloud/spring-cloud/overview.md",
+      "redirect_url": "/articles/spring-cloud/spring-cloud/overview.md",
       "redirect_document_id": false
     },
     {
@@ -62,12 +62,12 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-start-stop-delete.md",
-      "redirect_url": "/azure/articles/spring-cloud/how-to-start-stop-delete.md",
+      "redirect_url": "/articles/spring-cloud/how-to-start-stop-delete.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-staging-environment.md",
-      "redirect_url": "/azure/articles/spring-cloud/spring-cloud/how-to-staging-environment.md",
+      "redirect_url": "/articles/spring-cloud/spring-cloud/how-to-staging-environment.md",
       "redirect_document_id": false
     },
     {
