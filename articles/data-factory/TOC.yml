@@ -15,7 +15,7 @@
     href: quickstart-create-data-factory-portal.md
   - name: Create data factory - Copy data tool
     href: quickstart-create-data-factory-copy-data-tool.md
-  - name: Create data facory - Azure CLI
+  - name: Create data factory - Azure CLI
     href: quickstart-create-data-factory-azure-cli.md
   - name: Create data factory - Azure PowerShell
     href: quickstart-create-data-factory-powershell.md
