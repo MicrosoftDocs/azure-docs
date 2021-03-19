@@ -83,7 +83,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 |Validation|Partner confirmation that they were able to send an update to the device through Microsoft update, Azure Device update, or other approved services.|
-|Resources| [Device Update for IoT Hub](../iot-hub-device-update/)|
+|Resources| [Device Update for IoT Hub](../iot-hub-device-update.md)|
 
 ---
 |Name|SecuredCore.Manageability.Configuration|

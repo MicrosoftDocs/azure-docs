@@ -32,11 +32,11 @@
   - name: Edge Secured-core (Preview)
     href: program-requirements-edge-secured-core.md
 
-- name: concepts
+- name: Concepts
   items:
     - name: Marketing concepts
       href: concepts-marketing.md
-      
+
 - name: How-to guides
   items:
   - name: How to edit a published device
