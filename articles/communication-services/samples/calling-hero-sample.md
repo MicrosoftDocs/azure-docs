@@ -15,4 +15,3 @@ ms.service: azure-communication-services
 # Get started with the group calling hero sample
 
 [!INCLUDE [Web Calling Hero Sample](./includes/web-calling-hero.md)]
-
