@@ -85,11 +85,8 @@ You may enable the benefit on existing VMs by visiting the **Configuration** opt
 1. Go the **Configuration** option on the left. You will see the Licensing section. To enable the AHB conversion, check the 'Yes' radio button and check the Confirmation checkbox.
 ![AHB Configuration blade after creating](./media/azure-hybrid-benefit/create-configuration-blade.png)
 
-
 >[!NOTE]
 > If you have created a **Custom Snapshot** or a **Shared Image (SIG)** of a RHEL or SLES PAYG Marketplace image, you can only use Azure CLI to enable Azure Hybrid Benefit. This is known limitation and currently there is no timeline to provide this capability on the Azure Portal as well.
-
-
 
 ## Enable and disable the benefit in the Azure CLI
 
