@@ -87,7 +87,8 @@ Automated ML doesn't differentiate between binary and multiclass metrics. The sa
 
 For example, instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately, and then taking the average of the two.
 
-It is still possible to calculate binary metrics manually from the information in the confusion matrix chart supplied by Automated ML. For example, binary precision can be calculated as `tp / (tp + fp)` using three of the four cells in the 2x2 confusion matrix.
+Automated ML doesn't calculate binary metrics, that is metrics for binary classification datasets. However, these metrics can be manually calculated using the [confusion matrix](#confusion-matrix) that is automatically generated for that particular run. 
+For example,  you can calculate precision, `tp / (tp + fp)`,  with the true positive and false positive values indicated in the 2x2 confusion matrix that Automated ML generated for that run.
 
 ## Confusion matrix
 
