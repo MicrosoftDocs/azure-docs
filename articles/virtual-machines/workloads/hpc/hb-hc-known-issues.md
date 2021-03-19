@@ -19,8 +19,8 @@ This article attempts to list recent common issues and their solutions when usin
 On Ubuntu-18.04, the kernel version 5.4.0-1041-azure is incompatible with the MOFED versions 5.2-2 and 5.2-1.0.4.0. We recommend rolling back to kernel version 5.4.0-1040-azure or using a Marketplace image with older kernel, and not updating the kernel. This issue is expected to be resolved with a newer MOFED (TBD).
 
 ## Known Issues on HBv3
-- InfiniBand is currently supported only on the 120-core VM (Standard_HB120rs_v3). Support on other VMs sizes will be enabled soon.
-- Azure Accelerated Networking is not supported on HBv3-series in all regions. This feature will be enabled soon.
+- Currently, InfiniBand is supported only on the 120-core VM (Standard_HB120rs_v3).
+- Currently, Azure Accelerated Networking is not supported on HBv3-series in all regions.
 
 ## Accelerated Networking on HB, HC, HBv2, and NDv2
 
