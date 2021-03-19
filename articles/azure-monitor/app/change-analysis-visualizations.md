@@ -18,11 +18,11 @@ Search for Change Analysis in the search bar on Azure portal to launch the exper
 
 ![Screenshot of searching Change Analysis in Azure portal](./media/change-analysis/search-change-analysis.png)
 
-All resources under a selected subscription are displayed with changes from the past 24 hours. To optimize for the page load performance, the service is displaying 10 resources at a time. Select the next page to view more resources. We are working on removing this limitation.
+All resources under a selected subscription are displayed with changes from the past 24 hours. All changes are displayed with old value and new value to provide insights at one glance.
 
 ![Screenshot of Change Analysis blade in Azure portal](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Clicking into a resource to view all its changes. If needed, drill down into a change to view json formatted change details and insights.
+Clicking into a change to view full Resource Manager snippet and other properties.
 
 ![Screenshot of change details](./media/change-analysis/change-details.png)
 
@@ -36,11 +36,6 @@ The UI supports selecting multiple subscriptions to view resource changes. Use t
 
 ![Screenshot of subscription filter that supports selecting multiple subscriptions](./media/change-analysis/multiple-subscriptions-support.png)
 
-### Web App Diagnose and Solve Problems
-
-In Azure Monitor, Change Analysis is also built into the self-service **Diagnose and solve problems** experience. Access this experience from the **Overview** page of your App Service application.
-
-![Screenshot of the "Overview" button and the "Diagnose and solve problems" button](./media/change-analysis/change-analysis.png)
 
 ## Application Change Analysis in the Diagnose and solve problems tool
 
@@ -65,6 +60,13 @@ Application Change Analysis is a standalone detector in the Web App diagnose and
 5. Change data is also available in select **Web App Down** and **Application Crashes** detectors. You'll see a graph that summarizes the type of changes over time along with details on those changes. By default, changes in the past 24 hours are displayed to help with immediate problems.
 
      ![Screenshot of the change diff view](./media/change-analysis/change-view.png)
+
+## Diagnose and Solve Problems tool
+Change Analysis is available as an insight card in Diagnose and Solve Problem tool. If a resource experiences issues and there are changes discovered in the past 72 hours, the insights card will display the number of changes. Clicking on view change details link will lead to the filtered view from Change Analysis standalone UI.
+
+![Screenshot of viewing change insight in Diagnose and Solve Problems tool.](./media/change-analysis/change-insight-diagnose-and-solve.png)
+
+
 
 ## Virtual Machine Diagnose and Solve Problems
 
