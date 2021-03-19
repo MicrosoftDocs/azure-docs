@@ -2,4 +2,4 @@
 brand: azure
 uhfHeaderId: azure
 breadcrumb_path: /azure/baremetal-infrastructure/breadcrumbs/toc.json
-toc_rel: /azure/baremetal-infrastructure/workloads/toc.json
+toc_rel: /azure/baremetal-infrastructure/workloads/sap/toc.json
