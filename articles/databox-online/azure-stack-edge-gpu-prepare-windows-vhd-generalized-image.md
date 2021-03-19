@@ -1,6 +1,6 @@
 ---
-title: Create VM images from a windows VHD for your Azure Stack Edge Pro GPU device
-description: Describes how to create linux or Windows VM images to use with your Azure Stack Edge Pro GPU device.
+title: Create VM images from generalized image of Windows VHD for your Azure Stack Edge Pro GPU device
+description: Describes how to VM images from generalized images starting from a Windows VHD or a VHDX. Use this generalized image to create VM images to use with VMs deployed on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
@@ -102,7 +102,7 @@ For your device, you'll need fixed-size VHDs to create VM images. You'll need to
     Convert-VHD -Path <source VHD path> -DestinationPath <destination-path.vhd> -VHDType Fixed 
     ```
 -->
-    Use this fixed VHD for all the subsequent steps in this article.
+You'll use this fixed VHD for all the subsequent steps in this article.
 
 
 ## Create a Hyper-V VM from fixed VHD
