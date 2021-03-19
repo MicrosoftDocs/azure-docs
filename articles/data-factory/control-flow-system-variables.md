@@ -62,6 +62,20 @@ These system variables can be referenced anywhere in the trigger JSON for trigge
 | @triggerBody().folderName  |Path to the folder that contains the file specified by `@triggerBody().fileName`. The first segment of the folder path is the name of the Azure Blob Storage container.  |
 | @trigger().startTime |Time at which the trigger fired to invoke the pipeline run. |
 
+## Custom event trigger scope
+
+These system variables can be referenced anywhere in the trigger JSON for triggers of type [CustomEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
+
+>[!NOTE]
+>Azure Data Factory expects custom event to be formatted with [Azure Event Grid event schema](../event-grid/event-schema.md).
+
+| Variable Name | Description
+| --- | --- |
+| @triggerBody().event.eventType | Type of events that triggered the Custom Event Trigger run. Event type is customer defined field and take on any values of string type. |
+| @triggerBody().event.subject | Subject of the custom event that caused the trigger to fire. |
+| @triggerBody().event.data._keyName_ | Data field in custom event is a free from JSON blob, which customer can use to send messages and data. Please use data._keyName_ to reference each field. For example, @triggerBody().event.data.callback returns the value for the _callback_ field stored under _data_. |
+| @trigger().startTime | Time at which the trigger fired to invoke the pipeline run. |
+
 ## Next steps
 
 * For information about how these variables are used in expressions, see [Expression language & functions](control-flow-expression-language-functions.md).

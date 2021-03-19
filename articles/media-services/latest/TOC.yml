@@ -86,7 +86,7 @@
       href: stream-files-nodejs-quickstart.md
   - name: Python
     items:
-    - name: Python Basic Encoding Quickstart
+    - name: Python Basic Encoding
       href: quickstart-basic-encoding-python.md
   - name: Azure portal
     items:
@@ -214,14 +214,18 @@
       href: content-key-policy-concept.md                    
   - name: Monitoring
     items:
-    - name: Events with Event Grid
-      href: reacting-to-media-services-events.md  
-    - name: Event Grid schemas
-      href: media-services-event-schemas.md    
-    - name: Metrics and diagnostic logs
-      href: media-services-metrics-diagnostic-logs.md      
-    - name: Diagnostic logs schemas
-      href: media-services-diagnostic-logs-schema.md          
+      - name: Monitor with Azure Monitor
+        items:
+        - name: Monitor Media Services
+          href: monitoring/monitor-media-services.md
+        - name: Monitoring Media Services data reference
+          href: monitoring/monitor-media-services-data-reference.md
+      - name: Monitor with Event Grid
+        items:
+        - name: Events with Event Grid
+          href: monitoring/reacting-to-media-services-events.md  
+        - name: Event Grid schemas
+          href: monitoring/media-services-event-schemas.md              
   - name: Compatible players
     items:
     - name: Media players for Media Services
@@ -390,15 +394,15 @@
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
-      href: monitor-events-portal-how-to.md
+      href: monitoring/monitor-events-portal-how-to.md
     - name: Monitor events - CLI
-      href: job-state-events-cli-how-to.md 
+      href: monitoring/job-state-events-cli-how-to.md 
   - name: Use Azure Monitor
     items:
     - name: Monitor metrics
-      href: media-services-metrics-howto.md
+      href: monitoring/media-services-metrics-howto.md
     - name: Monitor diagnostic logs
-      href: media-services-diagnostic-logs-howto.md
+      href: monitoring/media-services-diagnostic-logs-howto.md
   - name: Protect content
     items:
     - name: Get content key policy

@@ -30,11 +30,11 @@ Device recommendations provide insights and suggestions to improve device securi
 
 | Severity | Name | Data Source | Description |
 |--|--|--|--|
-| Medium | Open Ports on device | Classic security module | A listening endpoint was found on the device. |
-| Medium | Permissive firewall policy found in one of the chains. | Classic security module | Allowed firewall policy found (INPUT/OUTPUT). Firewall policy should deny all traffic by default, and define rules to allow necessary communication to/from the device. |
-| Medium | Permissive firewall rule in the input chain was found | Classic security module | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or ports. |
-| Medium | Permissive firewall rule in the output chain was found | Classic security module | A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or ports. |
-| Medium | Operation system baseline validation has failed | Classic security module | Device doesn't comply with [CIS Linux benchmarks](https://www.cisecurity.org/cis-benchmarks/). |
+| Medium | Open Ports on device | Classic Defender-IoT-micro-agent| A listening endpoint was found on the device. |
+| Medium | Permissive firewall policy found in one of the chains. | Classic Defender-IoT-micro-agent| Allowed firewall policy found (INPUT/OUTPUT). Firewall policy should deny all traffic by default, and define rules to allow necessary communication to/from the device. |
+| Medium | Permissive firewall rule in the input chain was found | Classic Defender-IoT-micro-agent| A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or ports. |
+| Medium | Permissive firewall rule in the output chain was found | Classic Defender-IoT-micro-agent| A rule in the firewall has been found that contains a permissive pattern for a wide range of IP addresses or ports. |
+| Medium | Operation system baseline validation has failed | Classic Defender-IoT-micro-agent| Device doesn't comply with [CIS Linux benchmarks](https://www.cisecurity.org/cis-benchmarks/). |
 
 ### Agent based operational recommendations
 
@@ -42,9 +42,9 @@ Operational recommendations provide insights and suggestions to improve security
 
 | Severity | Name | Data Source | Description |
 |--|--|--|--|
-| Low | Agent sends unutilized messages | Classic security module | 10% or more of security messages were smaller than 4 KB during the last 24 hours. |
-| Low | Security twin configuration not optimal | Classic security module | Security twin configuration is not optimal. |
-| Low | Security twin configuration conflict | Classic security module | Conflicts were identified in the security twin configuration. |  |
+| Low | Agent sends unutilized messages | Classic Defender-IoT-micro-agent| 10% or more of security messages were smaller than 4 KB during the last 24 hours. |
+| Low | Security twin configuration not optimal | Classic Defender-IoT-micro-agent| Security twin configuration is not optimal. |
+| Low | Security twin configuration conflict | Classic Defender-IoT-micro-agent| Conflicts were identified in the security twin configuration. |  |
 
 ## Next steps
 

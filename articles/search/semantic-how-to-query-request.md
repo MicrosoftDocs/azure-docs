@@ -8,16 +8,16 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ---
-# Create a semantic query in Cognitive Search
+# Create a query for semantic captions in Cognitive Search
 
 > [!IMPORTANT]
-> Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
-In this article, learn how to formulate a search request that uses semantic ranking. The request will return semantic captions, and optionally [semantic answers](semantic-answers.md), with highlights over the most relevant terms and phrases.
+In this article, learn how to formulate a search request that uses semantic ranking and returns semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases. Both captions and answers are returned in queries formulated using the "semantic" query type.
 
-Both captions and answers are extracted verbatim from text in the search document. The semantic subsystem determines what content has the characteristics of a caption or answer, but it does not compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic search.
+Captions and answers are extracted verbatim from text in the search document. The semantic subsystem determines what part of your content has the characteristics of a caption or answer, but it does not compose new sentences or phrases. For this reason, content that includes explanations or definitions work best for semantic search.
 
 ## Prerequisites
 
@@ -25,11 +25,11 @@ Both captions and answers are extracted verbatim from text in the search documen
 
 + Access to semantic search preview: [sign up](https://aka.ms/SemanticSearchPreviewSignup)
 
-+ An existing search index, containing English content
++ An existing search index containing English content
 
 + A search client for sending queries
 
-  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that you've modified to make REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
+  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query.
 
 + A [query request](/rest/api/searchservice/preview-api/search-documents) must include the semantic option and other parameters described in this article.
 
@@ -57,9 +57,13 @@ Only the top 50 matches from the initial results can be semantically ranked, and
 
 ## Query with Search explorer
 
-[Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after you get access to the preview. Query options can enable semantic queries, searchFields, and spell correction.
+[Search explorer](search-explorer.md) has been updated to include options for semantic queries. These options become visible in the portal after completing the following steps:
 
-You can also paste the required query parameters into the query string.
+1. [Sign up](https://aka.ms/SemanticSearchPreviewSignup) and admittance of your search service into the preview program
+
+1. Open the portal with this syntax: `https://portal.azure.com/?feature.semanticSearch=true`
+
+Query options include switches to enable semantic queries, searchFields, and spell correction. You can also paste the required query parameters into the query string.
 
 :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Query options in Search explorer" border="true":::
 
@@ -93,7 +97,7 @@ The following table summarizes the query parameters used in a semantic query so 
 |-----------|-------|-------------|
 | queryType | String | Valid values include simple, full, and semantic. A value of "semantic" is required for semantic queries. |
 | queryLanguage | String | Required for semantic queries. Currently, only "en-us" is implemented. |
-| searchFields | String | A comma-delimited list of searchable fields. Optional but recommended. Specifies the fields over which semantic ranking occurs. </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence. For more usage instructions, see [Step 2: Set searchFields](#searchfields). |
+| searchFields | String | A comma-delimited list of searchable fields. Specifies the fields over which semantic ranking occurs, from which captions and answers are extracted. </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence. For more usage instructions, see [Step 2: Set searchFields](#searchfields). |
 | speller | String | Optional parameter, not specific to semantic queries, that corrects misspelled terms before they reach the search engine. For more information, see [Add spell correction to queries](speller-how-to-add.md). |
 | answers |String | Optional parameters that specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. The default is one. This example shows a count of three answers: "extractive\|count3"`. For more information, see [Return semantic answers](semantic-answers.md).|
 
@@ -120,13 +124,11 @@ While content in a search index can be composed in multiple languages, the query
 
 #### Step 2: Set searchFields
 
-This parameter is optional in that there is no error if you leave it out, but providing an ordered list of fields is strongly recommended for both captions and answers.
-
 The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to what fields are the most important to process.
 
-The order of the searchFields is critical. If you already use searchFields in existing simple or full Lucene queries, be sure that you revisit this parameter to check for field order when switching to a semantic query type.
+The order of the searchFields is critical. If you already use searchFields in existing code for simple or full Lucene queries, revisit this parameter to check for field order when switching to a semantic query type.
 
-Follow these guidelines to ensure optimum results when two or more searchFields are specified:
+For two or more searchFields:
 
 + Include only string fields and top-level string fields in collections. If you happen to include non-string fields or lower-level fields in a collection, there is no error, but those fields won't be used in semantic ranking.
 
@@ -136,7 +138,7 @@ Follow these guidelines to ensure optimum results when two or more searchFields 
 
 + Follow those fields by descriptive fields where the answer to semantic queries may be found, such as the main content of a document.
 
-If only one field specified, use a descriptive field where the answer to semantic queries may be found, such as the main content of a document. Choose a field that provides sufficient content. To ensure timely processing, only the first 20,000 tokens of the collective contents of searchFields undergo semantic evaluation and ranking.
+If only one field specified, use a descriptive field where the answer to semantic queries may be found, such as the main content of a document. 
 
 #### Step 3: Remove orderBy clauses
 
@@ -186,7 +188,7 @@ The response for the above example query returns the following match as the top 
 Recall that semantic ranking and responses are built over an initial result set. Any logic that improves the quality of the initial results will carry forward to semantic search. As a next step, review the features that contribute to initial results, including analyzers that affect how strings are tokenized, scoring profiles that can tune results, and the default relevance algorithm.
 
 + [Analyzers for text processing](search-analyzers.md)
-+ [Similarity and scoring in Cognitive Search](index-similarity-and-scoring.md)
-+ [Add scoring profiles](index-add-scoring-profiles.md)
++ [Similarity ranking algorithm](index-similarity-and-scoring.md)
++ [Scoring profiles](index-add-scoring-profiles.md)
 + [Semantic search overview](semantic-search-overview.md)
-+ [Add spell check to query terms](speller-how-to-add.md)
++ [Semantic ranking algorithm](semantic-ranking.md)

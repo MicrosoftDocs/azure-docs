@@ -47,7 +47,7 @@ The C-based security agent has a lower memory footprint, and is the ideal choice
 | **[Authentication](concept-security-agent-authentication-methods.md) to IoT Hub** | Yes | Yes |
 | **Security data [collection](how-to-agent-configuration.md#supported-security-events)** | Yes | Yes |
 | **Event aggregation** | Yes | Yes |
-| **Remote configuration through [security module twin](concept-security-module.md)** | Yes | Yes |
+| **Remote configuration through [Defender-IoT-micro-agent twin](concept-security-module.md)** | Yes | Yes |
 
 ## Security agent installation guidelines
 

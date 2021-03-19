@@ -8,7 +8,7 @@
   - name: What's new
     href: whats-new.md
 - name: Get started with Form Recognizer
-  expaned: true
+  expanded: true
   items:
   - name: Using the client library or REST API
     href: quickstarts/client-library.md
@@ -26,18 +26,27 @@
     href: tutorial-bulk-processing.md
 - name: Concepts
   items:
-  - name: Layout extraction
-    href: concept-layout.md
+  - name: Layout API
+    expanded: true
+    items:
+    - name: Extract form data    
+      href: concept-layout.md
+  - name: Custom models
+    href: concept-custom.md  
   - name: Receipts
     href: concept-receipts.md
   - name: Business cards
     href: concept-business-cards.md
   - name: Invoices
     href: concept-invoices.md
+  - name: Identification cards
+    href: concept-identification-cards.md    
 - name: How-to guides
   items:
   - name: Build a training data set
     href: build-training-data-set.md
+  - name: Use table tags to train your custom model
+    href: supervised-table-tags.md  
   - name: Deploy the sample labeling tool
     href: deploy-label-tool.md
   - name: Use containers
@@ -57,8 +66,8 @@
     href: disaster-recovery.md
 - name: Reference
   items:
-  - name: Form Recognizer API v2.1 preview
-    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync
+  - name: Form Recognizer API v2.1 preview.3
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm
   - name: Form Recognizer API v2.0
     href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
   - name: SDKs
