@@ -352,7 +352,7 @@ When you create or attach an AKS cluster, you can configure the cluster to use a
 >[!NOTE]
 > For more information about how to secure inferencing environment, please see [Secure an Azure Machine Learning Inferencing Environment](how-to-secure-inferencing-vnet.md)
 
-## Detach an AKS cluster
+## <a id="detach"></a>Detach an AKS cluster
 
 To detach a cluster from your workspace, use one of the following methods:
 

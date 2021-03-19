@@ -145,6 +145,7 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     * Azure Databricks (for use in machine learning pipelines)
     * Azure Data Lake Analytics (for use in machine learning pipelines)
     * Azure HDInsight
+    * Kubernetes (preview)
 
 1. Fill out the form and provide values for the required properties.
 
@@ -153,6 +154,14 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     >
     > * [Create and use SSH keys on Linux or macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
     > * [Create and use SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md)
+
+    For Kubernetes compute targets, you can provide a configuration file to define your namespace and node selectors to deploy training jobs to. By default, all jobs are deployed to the default namespace. Below is a sample of a config file.
+
+        ```yaml
+        namespace: example-namespace
+        nodeSelector:
+          gpu: example-cluster
+        ```
 
 1. Select __Attach__. 
 

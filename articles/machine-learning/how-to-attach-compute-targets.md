@@ -358,6 +358,8 @@ compute_target = KubernetesCompute.attach(ws, "aks-compute", attach_config)
 compute_target.wait_for_completion(show_output=True)
 ```
 
+To detach your compute, see [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md#detach)
+
 ## Notebook examples
 
 See these notebooks for examples of training with various compute targets:
