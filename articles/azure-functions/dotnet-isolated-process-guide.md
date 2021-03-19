@@ -79,14 +79,14 @@ A [HostBuilder] is used to build and return a fully initialized [IHost] instance
 
 The [ConfigureFunctionsWorkerDefaults] method is used to add the settings required for the function app to run out-of-process, which includes the following functionality:
 
-+ A default set of converters.
-+ Add command line arguments.
-+ Integration with Azure Functions logging.
++ Default set of converters.
++ Set the default [JsonSerializerOptions] to ignore casing on property names.
++ Integrate with Azure Functions logging.
 + Output binding middleware and features.
 + Function execution middleware.
 + Default gRPC support. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/FunctionApp/Program.cs" id="docsnippet_configure_defaults" :::   
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_defaults" :::   
 
 Having access to the host builder pipeline means that you can also set any app-specific configurations during initialization. You can call the [ConfigureAppConfiguration] method on [HostBuilder] one or more times to add the configurations required by your function app. To learn more about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
 
@@ -106,9 +106,9 @@ To learn more, see [Dependency injection in ASP.NET Core](/aspnet/core/fundament
 
 .NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
 
-The [ConfigureFunctionsWorkerDefaults] extension method also has an overload that lets you register your own middleware, as you can see in the following example.  
+The [ConfigureFunctionsWorkerDefaults] extension method has an overload that lets you register your own middleware, as you can see in the following example.  
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
 
 For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
@@ -146,7 +146,7 @@ To write to an output binding, you must apply an output binding attribute to the
 
 The data written to an output binding is always the return value of the function. If you need to write to more than one output binding, you must create a custom return type. This return type must have the output binding attribute applied to one or more properties of the class. The following example writes to both an HTTP response and a queue output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker-test/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
 
 ### HTTP trigger
 
@@ -219,3 +219,4 @@ For information on workarounds to know issues running .NET isolated process func
 [HttpResponseData]: /dotnet/api/microsoft.azure.functions.worker.http.httpresponsedata?view=azure-dotnet&preserve-view=true
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true
 [ObjectResult]: /dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true
+[JsonSerializerOptions]: /api/system.text.json.jsonserializeroptions?view=net-5.0&preserve-view=true
