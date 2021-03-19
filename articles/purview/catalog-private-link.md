@@ -100,6 +100,9 @@ If you want to ensure network isolation for your metadata flowing from the sourc
     
     :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Running Azure scan using self-hosted IR":::
 
+> [!NOTE]
+> We currently do not support MSI credential method when you scan your Azure sources using a self-hosted IR. You must use one of the other supported credential method for that Azure source.
+
 ## Enable private endpoint on existing Purview accounts
 
 There are 2 ways you can add Purview private endpoints after creating your Purview account:
