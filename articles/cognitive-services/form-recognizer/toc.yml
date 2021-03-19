@@ -8,7 +8,6 @@
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Get started with client library or REST API
     href: quickstarts/client-library.md
