@@ -99,7 +99,7 @@ Your Event Hubs namespace looks like the following screenshot:
 On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
 
 1. Navigate to the **Data Export** page, select **+ New Export**.
-1. Use the following settings to configure the export, then select **Save**:
+1. Use the following settings to configure the export:
 
     | Setting | Value |
     | ------- | ----- |
@@ -108,13 +108,9 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
     | Data| Select telemetry | 
     | Destinations| Create a destination, as shown below, for your export and then select it in the destination dropdown menu. |
 
-![Data export configuration](media/howto-create-custom-analytics/dataexport1.png)
+:::image type="content" source="media/howto-create-custom-analytics/dataexport1.png" alt-text="Screenshot of Data export destination configuration.":::
 
-3. When finished, select **Save**.
-
-## Create a Destination
-
-If you do not have a Destination, you need to create one by clicking **Create One** and then filling out the following:
+1. Select **Create a destination**.
 
 | Setting | Value |
 | ------- | ----- |
@@ -125,7 +121,10 @@ If you do not have a Destination, you need to create one by clicking **Create On
 
 1. Click **Create** to finish.
 
-![Data export destination configuration](media/howto-create-custom-analytics/dataexport2.png)
+
+:::image type="content" source="media/howto-create-custom-analytics/dataexport2.png" alt-text="Screenshot of Data export destination configuration.":::
+
+1. When finished, select **Save**.
 
 Wait until the export status is **Running** before you continue.
 
