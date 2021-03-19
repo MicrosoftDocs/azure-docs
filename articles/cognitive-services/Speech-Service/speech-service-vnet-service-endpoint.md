@@ -21,6 +21,8 @@ This article explains how to set up and use VNet service endpoints with Speech s
 > [!NOTE]
 > Before you proceed, review [how to use virtual networks with Cognitive Services](../cognitive-services-virtual-networks.md).
 
+This article also describes [how to remove VNet service endpoints later, but still use the Speech resource](#use-a-speech-resource-with-a-custom-domain-name-and-without-allowed-vnets).
+
 Setting up a Speech resource for the VNet service endpoint scenarios requires performing the following tasks:
 1. [Create Speech resource custom domain name](#create-a-custom-domain-name)
 1. [Configure VNet(s) and the Speech resource networking settings](#configure-vnets-and-the-speech-resource-networking-settings)
