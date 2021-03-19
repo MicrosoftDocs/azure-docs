@@ -24,11 +24,11 @@ Semantic ranking is both resource and time intensive. In order to complete proce
 
 Before scoring for relevance, content must be reduced to a quantity of parameters that can be handled efficiently by the semantic ranker. Content reduction includes the following sequence of steps.
 
-1. Content reduction starts by using the initial results produced by the default [similarity ranking algorithm](index-ranking-similarity.md) of keywords. Search results can include up to 1,000 matches, but semantic ranking will only process the top 50. 
+1. Content reduction starts by using the initial results returned by the default [similarity ranking algorithm](index-ranking-similarity.md) used for keyword search. Search results can include up to 1,000 matches, but semantic ranking will only process the top 50. 
 
    Given the query, initial results could be much less than 50, depending on how many matches were found. Whatever the document count, the initial result set is the document corpus for semantic ranking.
 
-1. For each document in the corpus, the contents of each field in "searchFields" is extracted and combined into a long string.
+1. Across the document corpus, the contents of each field in "searchFields" is extracted and combined into a long string.
 
 1. Any strings that are excessively long are trimmed to ensure the overall length meets the input requirements of the summarization model. This trimming exercise is why it's important to position concise fields first in "searchFields", to ensure they are included in the string. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
 
@@ -51,7 +51,7 @@ A [semantic answer](semantic-answers.md) will also be returned if you specified 
 
 ## Scoring and ranking
 
-At this point, you now have captions for each document. The captions are evaluated to assess relevance.
+At this point, you now have captions for each document. The captions are evaluated for relevance to the query.
 
 1. Scoring is determined by evaluating each caption for conceptual and semantic relevance, relative to the query provided.
 
@@ -59,7 +59,7 @@ At this point, you now have captions for each document. The captions are evaluat
 
    :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
 
-1. The output of this phase is an @search.rerankerScore assigned to each document. Once all documents are scored, they are listed in descending order and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
+1. The output of this phase is a @search.rerankerScore assigned to each document. Once all documents are scored, they are listed in descending order and included in the query response payload. The payload includes answers, plain text and highlighted captions, and any fields that you marked as retrievable or specified in a select clause.
 
 ## Next steps
 
