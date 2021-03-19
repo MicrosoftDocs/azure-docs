@@ -43,15 +43,18 @@ In this section, you'll create a Standard Azure Load Balancer.
 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
+    | **Project details** |   |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and enter **TutorPubLBNAT-rg** in the text box.|
+    | Resource group         | Select **Create new** and enter **TutorPubLBNAT-rg** in the text box. </br> Select **OK**.|
+    | **Instance details** |   |
     | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **(US) East US**.                                        |
     | Type          | Select **Public**.                                        |
     | SKU           | Leave the default **Standard**. |
     | Tier          | Leave the default **Regional**. |
-    | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**. |
-    | Public IP address name | Type **myPublicIP-LB** in the text box.|
+    | **Public IP address** |   |
+    | Public IP address | Select **Create new**. </br> If you have an existing Public IP you would like to use, select **Use existing**. |
+    | Public IP address name | Enter **myPublicIP-LB** in the text box.|
     | Availability zone | Select **Zone-redundant** to create a resilient load balancer. To create a zonal load balancer, select a specific zone from 1, 2, or 3 |
     | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](../virtual-network/ipv6-overview.md)  |
     | Routing preference | Leave the default of **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](../virtual-network/routing-preference-overview.md). |
@@ -130,7 +133,7 @@ In this section, you'll create a load balancer rule:
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
     | Health probe | Select **myHealthProbe**. |
-    | Idle timeout (minutes) | Move the slider to **15** minutes. |
+    | Idle timeout (minutes) | Enter **15** minutes. |
     | TCP reset | Select **Enabled**. |
     | Outbound source network address translation (SNAT) | Select **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
 
@@ -232,7 +235,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
-    | Place this virtual machine behind an existing load-balancing solution? | Select **Yes** |
+    | Place this virtual machine behind an existing load-balancing solution? | Select the check box.|
     | **Load balancing settings** |
     | Load balancing options | Select **Azure load balancer** |
     | Select a load balancer | Select **myLoadBalancer**  |
@@ -297,7 +300,7 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 
 2. Make note of the public IP address:
 
-    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
+    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Screenshot discover public IP address of NAT gateway." border="true":::
 
 3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **TutorPubLBNAT-rg** resource group.
 
@@ -313,7 +316,7 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 
 9. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
 
-    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Internet Explorer showing external outbound IP" border="true":::
+    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Screenshot Internet Explorer showing external outbound IP." border="true":::
 
 ## Clean up resources
 
