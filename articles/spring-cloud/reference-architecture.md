@@ -207,7 +207,7 @@ The following list shows the CIS controls that address network security in this 
 | 6.5 | Ensure that Network Watcher is 'Enabled'. |
 | 6.6 | Ensure that ingress using UDP is restricted from the internet. |
 
-Azure Spring Cloud requires management traffic to egress from Azure when deployed in a secured environment. To accomplish this, you must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md).
+Azure Spring Cloud requires management traffic to egress from Azure when deployed in a secured environment. To accomplish this, you must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Cloud in VNET](./spring-cloud-vnet-customer-responsibilities.md).
 
 #### Application security
 
