@@ -136,7 +136,7 @@ Automation webhooks can also be invoked by [Azure Resource Manager (ARM) templat
    > [!NOTE]
    > For security reasons, the URI is only returned the first time a template is deployed.
 
-This sample template creates a test environment and returns the URI for a created webhook.
+This sample template creates a test environment and returns the URI for the webhook it creates.
 
 ```json
 {
