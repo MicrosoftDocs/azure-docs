@@ -99,6 +99,23 @@ Use one of the following APIs to return a list of Windows and Linux VM images cu
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - Azure CLI: [az batch pool supported-images](/cli/azure/batch/pool/supported-images)
 
+Avoid the following images with impending end-of-life (EOL) dates, past which Batch support will be retired:
+
+| Publisher              | Offer                        | Version                                        | End-of-Life (EOL) Date |
+|------------------------|------------------------------|------------------------------------------------|------------------------|
+| Canonical              | UbuntuServer                 | 16.04-LTS                                      | 2021-05-21             |
+| Canonical              | UbuntuServer                 | 16_04-lts-gen2                                 | 2021-05-21             |
+| Canonical              | UbuntuServer                 | 16.04.0-LTS                                    | 2021-05-21             |
+| microsoft-azure-batch  | ubuntu-server-container      | 16.04-lts                                      | 2021-05-21             |
+| microsoft-azure-batch  | ubuntu-server-container-rdma | 16.04-lts                                      | 2021-05-21             |
+| microsoft-azure-batch  | centos-container-rdma        | 8-1                                            | 2021-12-31             |
+| microsoft-azure-batch  | centos-container             | 8-2                                            | 2021-12-31             |
+| OpenLogic              | CentOS                       | 8_2                                            | 2021-12-31             |
+| OpenLogic              | CentOS                       | 8_1                                            | 2021-12-31             |
+| OpenLogic              | CentOS                       | 8_2-gen2                                       | 2021-12-31             |
+| Oracle                 | Oracle-Linux                 | 81                                             | 2021-12-31             |
+| MicrosoftWindowsServer | WindowsServer                | Datacenter-Core-2004-with-Containers-smalldisk | 2022-01-14             |
+
 ## Next steps
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
