@@ -79,7 +79,7 @@ For example, you use a simulated device to send 200 device-to-cloud messages per
 
 Device identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-When initiating identity operations through [bulk device operations](iot-hub-bulk-identity-mgmt.md), the same throttle limits apply. For example, if you want to submit bulk operation to create 50 devices, and you have a S1 IoT Hub with 1 unit, only two of these bulk requests are accepted per minute. This because the identity operation throttle for for an S1 IoT Hub with 1 unit is 100/min/unit. Also in this case, a third request (and beyond) in the same minute would be rejected because the limit had already been reached. 
+When initiating identity operations through [bulk registry update operations](https://docs.microsoft.com/rest/api/iothub/service/bulkregistry/updateregistry) (*not* bulk import and export jobs), the same throttle limits apply. For example, if you want to submit bulk operation to create 50 devices, and you have a S1 IoT Hub with 1 unit, only two of these bulk requests are accepted per minute. This because the identity operation throttle for for an S1 IoT Hub with 1 unit is 100/min/unit. Also in this case, a third request (and beyond) in the same minute would be rejected because the limit had already been reached. 
 
 ### Device connections throttle
 
