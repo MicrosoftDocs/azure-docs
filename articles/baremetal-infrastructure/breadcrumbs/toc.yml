@@ -5,3 +5,7 @@
   - name: BareMetal Infrastructure
     tocHref: /azure/
     topicHref: /azure/baremetal-infrastructure/index
+    items: 
+     - name: Workloads
+       tocHref: /azure/virtual-machines/workloads/sap-hli/
+       topicHref: /azure/baremetal-infrastructure/index
