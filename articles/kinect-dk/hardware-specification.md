@@ -42,6 +42,8 @@ The Azure Kinect device consists of the following size and weight dimensions.
 
 ![Azure Kinect DK dimensions](./media/resources/hardware-specs-media/dimensions.png)
 
+A STEP file for the Azure Kinect device is available [here](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/assets). 
+
 ## Operating environment
 
 Azure Kinect DK is intended for developers and commercial businesses operating under the following ambient conditions:
