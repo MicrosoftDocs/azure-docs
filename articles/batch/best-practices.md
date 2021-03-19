@@ -30,6 +30,9 @@ This article discusses a collection of best practices and useful tips for using 
 - **Pools should have more than one compute node.**
     Individual nodes are not guaranteed to always be available. While uncommon, hardware failures, operating system updates, and a host of other issues can cause individual nodes to be offline. If your Batch workload requires deterministic, guaranteed progress, you should allocate pools with multiple nodes.
 
+- **Do not use images with an imminent end-of-life (EOL) date.**
+    Batch supports a variety of open-source images, each of which has end-of-life (EOL) dates past which publishers no longer offer standard maintenance and security updates. Once an EOL date passes, Batch retires support for the image such that new pools cannot use them. Use newer, stable image versions to minimize the likelihood of version migrations, which may incur breaking changes. 
+
 - **Do not reuse resource names.**
     Batch resources (jobs, pools, etc.) often come and go over time. For example, you may create a pool on Monday, delete it on Tuesday, and then create another pool on Thursday. Each new resource you create should be given a unique name that you haven't used before. This can be done by using a GUID (either as the entire resource name, or as a part of it) or embedding the time the resource was created in the resource name. Batch supports [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), which can be used to give a resource a human readable name even if the actual resource ID is something that isn't that human friendly. Using unique names makes it easier for you to differentiate which particular resource did something in logs and metrics. It also removes ambiguity if you ever have to file a support case for a resource.
 
