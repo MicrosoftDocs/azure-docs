@@ -4,7 +4,7 @@ description: Learn how Azure Hybrid Benefit can help you save money on your Linu
 services: virtual-machines
 documentationcenter: ''
 author: mathapli
-manager: westonh
+manager: rochakm
 ms.service: virtual-machines
 ms.subservice: azure-hybrid-benefit
 ms.collection: linux
@@ -34,7 +34,7 @@ You can also choose to convert a VM that has had the benefit enabled on it back 
 
 Azure Hybrid Benefit is available for all RHEL and SLES PAYG images from Azure Marketplace. The benefit is not yet available for RHEL or SLES BYOS images or custom images from Azure Marketplace.
 
-Reserved instances, Azure Dedicated Host instances, and SQL hybrid benefits are not eligible for Azure Hybrid Benefit if you're already using the benefit with Linux VMs.
+Azure Dedicated Host instances, and SQL hybrid benefits are not eligible for Azure Hybrid Benefit if you're already using the benefit with Linux VMs.
 
 ## Get started
 
@@ -173,6 +173,16 @@ For more information about Red Hat subscription compliance, software updates, an
 ### SUSE
 
 To use Azure Hybrid Benefit for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://www.suse.com/support/kb/doc/?id=000019868). 
+
+## Azure Hybrid Benefit on Reserved Instances is in Preview
+
+Azure Reservations (Azure Reserved Virtual Machine Instances) help you save money by committing to one-year or three-year plans for multiple products. You can learn more about [Reserved instances here](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations). The Azure Hybrid Benefit is available in Preview for [Reserved Virtual Machine Instance(RIs)](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations#charges-covered-by-reservation). 
+This means that if you have purchased compute costs at a discounted rate using RI, you can apply AHB benefit on the licensing costs for RHEL and SUSE on top of it. The steps to apply AHB benefit for an RI instance remains exactly same as it is for a regular VM.
+![AHB for RIs](./media/azure-hybrid-benefit/azure-hybrid-benefit-ri.png)
+
+>[!NOTE]
+>Prepurchased the RHEL or SUSE licenses at a discounted rate using Azure Reservations are out of scope for Azure Hybrid Benefit. Please wait for the reservation tenure to complete before addint the Azure Hybrid Benefit.
+
 
 ## Frequently asked questions
 *Q: Can I use a license type of `RHEL_BYOS` with a SLES image, or vice versa?*
