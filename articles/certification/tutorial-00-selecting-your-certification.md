@@ -31,7 +31,7 @@ All devices are required to meet the baseline requirements outlined by the [**Az
     |Requirement|IoT Plug and Play|Edge Managed|Edge Secured-core|
     ---|---|---|---
     | Processor | Any|MPU/CPU|MPU/CPU|
-    | OS | Any|[Tier 1 OS](../iot-edge/support.md?view=iotedge-2018-06))|[Tier 1 OS](../iot-edge/support.md?view=iotedge-2018-06)|
+    | OS | Any|[Tier 1 OS](../iot-edge/support.md?view=iotedge-2018-06&preserve-view=true))|[Tier 1 OS](../iot-edge/support.md?view=iotedge-2018-06&preserve-view=true)|
     | IoT Edge runtime | Not supported |Required|Required|
     | Defender for IoT | Not supported|Required|Required|
     | ADU/Windows Update | Not supported|Required|Required|
