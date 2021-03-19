@@ -54,7 +54,7 @@ When you signed your new Microsoft Customer Agreement, you should have been give
 
 If you have both the enterprise administrator and billing account owner roles, you see the following page in the Azure portal. You can continue setting up your EA enrollments and Microsoft Customer Agreement billing account for transition.
 
-![Screenshot showing the Set up your billing account page](./media/mca-setup-account/setup-billing-account-page.png)
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page.png" alt-text="Screenshot showing the Set up your billing account page" lightbox="./media/mca-setup-account/setup-billing-account-page.png" :::
 
 If you don't have the enterprise administrator role for the enterprise agreement or the billing profile owner role for the Microsoft Customer Agreement, then use the following information to get the access that you need to complete setup.
 
@@ -62,7 +62,7 @@ If you don't have the enterprise administrator role for the enterprise agreement
 
 You see the following page in the Azure portal if you have a billing account or billing profile owner role but you're not an enterprise administrator.
 
-![Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition.](./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png)
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" alt-text="Screenshot showing the Set up your billing account page - Prepare your Enterprise Agreement enrollments for transition." lightbox="./media/mca-setup-account/setup-billing-account-page-not-ea-administrator.png" :::
 
 You have two options:
 
@@ -75,7 +75,7 @@ If you're given the enterprise administrator role, copy the link on the Set up y
 
 If you're an enterprise administrator but you don't have a billing account or billing profile owner role for your Microsoft Customer Agreement, You see the following page in the Azure portal.
 
-![Screenshot showing the Set up your billing account page - Microsoft Customer Agreement billing account.](./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png)
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" alt-text="Screenshot showing the Set up your billing account page - Microsoft Customer Agreement billing account." lightbox="./media/mca-setup-account/setup-billing-account-page-not-billing-account-profile-owner.png" :::
 
 You have two options:
 
