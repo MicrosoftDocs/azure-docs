@@ -24,6 +24,11 @@ You can access the Activity log from most menus in the Azure portal. The menu th
 
 For a description of Activity log categories see [Azure Activity Log event schema](activity-log-schema.md#categories).
 
+## Download the Activity log
+Select **Download as CSV** to download the events in the current view.
+
+
+
 ### View change history
 
 For some events, you can view the Change history, which shows what changes happened during that event time. Select an event from the Activity Log you want to look deeper into. Select the **Change history (Preview)** tab to view any associated changes with that event.
