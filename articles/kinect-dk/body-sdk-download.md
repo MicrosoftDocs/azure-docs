@@ -4,7 +4,7 @@ description: Understand how to download each version of the Azure Kinect Sensor 
 author: qm13
 ms.author: quentinm
 ms.prod: kinect-dk
-ms.date: 03/05/2021
+ms.date: 03/18/2021
 ms.topic: conceptual
 keywords: azure, kinect, sdk, download update, latest, available, install, body, tracking
 ---
