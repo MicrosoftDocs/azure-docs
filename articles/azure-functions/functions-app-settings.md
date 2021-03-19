@@ -192,7 +192,7 @@ Specifies the maximum number of threads that a Python language worker would use 
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell), and `python` (Python).
+The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, `dotnet`). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` ([C# class library](functions-dotnet-class-library.md)/[C# script](functions-reference-csharp.md)), `dotnet-isolated` ([.NET isolated process](dotnet-isolated-process-guide.md)), `node` ([JavaScript/TypeScript](functions-reference-node.md)), `java` ([Java](functions-reference-java.md)), `powershell` ([PowerShell](functions-reference-powershell.md)), and `python` ([Python](functions-reference-python.md)).
 
 |Key|Sample value|
 |---|------------|

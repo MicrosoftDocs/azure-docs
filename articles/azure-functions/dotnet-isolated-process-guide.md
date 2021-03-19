@@ -73,8 +73,6 @@ The following code shows an example of a `HostBuilder` pipeline:
 
 A `HostBuilder` is used to build and return a fully initialized `IHost` instance, which you run asynchronously to start your function app. 
 
-ConfigureFunctionsWorkerDefaults
-
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
 ### Configuration
