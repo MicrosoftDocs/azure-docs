@@ -132,6 +132,10 @@ For an example, a typical set of item features might look like this:
 
 17.  Run the pipeline.
 
+## Results
+
+After pipeline run is completed, to use the model for scoring, connect the [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) to [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md), to predict values for new input examples.
+
 ##  Technical notes
 
 The Wide & Deep jointly trains wide linear models and deep neural networks to combine the strengths of memorization and generalization. The wide component accepts a set of raw features and feature transformations to memorize feature interactions. And with less feature engineering, the deep component generalize to unseen feature combinations through low-dimensional dense feature embeddings. 

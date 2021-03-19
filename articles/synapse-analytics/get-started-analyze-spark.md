@@ -57,7 +57,7 @@ Data is available via the dataframe named **data**. Load it into a Spark databas
 1. Add a new to the notebook, and then enter the following code:
 
     ```py
-    data.write.mode("overwrite").saveAsTable("nyctaxi.trip")
+    df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 ## Analyze the NYC Taxi data using Spark and notebooks
 
