@@ -211,8 +211,7 @@ To do this,
 1. Navigate to the event hub you just created in the Azure portal and select **Shared access policies** in the menu options on the left.
 1. Select **Add**. In the *Add SAS Policy* window that opens, enter a policy name of your choice and select *Listen* checkbox.
 1. Select Create.
-
-
+    
 :::image type="content" source="media/how-to-provision-using-dps/add-event-hub-sas-policy.png" alt-text="The Azure portal view to add an event hub SAS policy" lightbox="media/how-to-provision-using-dps/add-event-hub-sas-policy.png":::
 
 #### Configure event hub with function app
@@ -264,10 +263,10 @@ Follow the steps to create an event hub endpoint:
 
     :::image type="content" source="media/how-to-provision-using-dps/event-hub-custom-endpoint.png" alt-text="Visual Studio view to add an event hub custom endpoint" lightbox="media/how-to-provision-using-dps/event-hub-custom-endpoint.png":::
 
-3. In the window *Add an event hub endpoint* page, 
-    1. *Endpoint name*: Choose an endpoint name of your choice
-    2. *Event hub namespace*: Select your event hub namespace from the dropdown list
-    3. *Event hub instance*: Choose the event hub name that you created in the previous step.
+3. In the window *Add an event hub endpoint* page that opens, choose the following values:
+    * *Endpoint name*: Choose an endpoint name of your choice
+    * *Event hub namespace*: Select your event hub namespace from the dropdown list
+    * *Event hub instance*: Choose the event hub name that you created in the previous step.
 4. Select **Create**. Keep this window open to add a route in the next step.
 
     :::image type="content" source="media/how-to-provision-using-dps/add-event-hub-endpoint.png" alt-text="Visual Studio view to add an event hub endpoint" lightbox="media/how-to-provision-using-dps/add-event-hub-endpoint.png":::
@@ -276,15 +275,18 @@ Next, you'll add a route with the endpoint you created in the above step with a 
 
 Navigate to the *Routes* tab and select **Add** to add a route.
 
-    :::image type="content" source="media/how-to-provision-using-dps/add-message-route.png" alt-text="Visual Studio view to add a route to send events" lightbox="media/how-to-provision-using-dps/add-message-route.png":::
+:::image type="content" source="media/how-to-provision-using-dps/add-message-route.png" alt-text="Visual Studio view to add a route to send events" lightbox="media/how-to-provision-using-dps/add-message-route.png":::
 
-    - *Name*: Choose a name for your route. 
-    - *Endpoint*: Choose the event hubs endpoint you created in the above step from the dropdown.
-    - *Data source*: Choose **Device Lifecycle Events**.
-    - *Routing query*: `opType='deleteDeviceIdentity'`. This query limits the device lifecycle events to only send the delete events.
-    - Select *Save*.
+In the *Add a route* page that opens, choose the following values:
 
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Add a route to send lifecycle events" lightbox="media/how-to-provision-using-dps/lifecycle-route.png":::
+   * *Name*: Choose a name for your route. 
+   * *Endpoint*: Choose the event hubs endpoint you created in the above step from the dropdown.
+   * *Data source*: Choose **Device Lifecycle Events**.
+   * *Routing query*: `opType='deleteDeviceIdentity'`. This query limits the device lifecycle events to only send the delete events.
+
+Select *Save*.
+
+:::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Add a route to send lifecycle events" lightbox="media/how-to-provision-using-dps/lifecycle-route.png":::
 
 Once you have gone through this flow, everything is set to retire devices end-to-end.
 
