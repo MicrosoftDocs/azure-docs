@@ -142,7 +142,9 @@ In this section, you'll create a virtual network and subnet.
 
 1. On the upper-left side of the screen, select **Create a resource > Networking > Virtual network** or search for **Virtual network** in the search box.
 
-2. In **Create virtual network**, enter or select this information in the **Basics** tab:
+2. Select **Create**. 
+
+3. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
     | **Setting**          | **Value**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -153,28 +155,28 @@ In this section, you'll create a virtual network and subnet.
     | Name             | Enter **myVNet**                                    |
     | Region           | Select **East US** |
 
-3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+4. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
-4. In the **IP Addresses** tab, enter this information:
+5. In the **IP Addresses** tab, enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | IPv4 address space | Enter **10.1.0.0/16** |
 
-5. Under **Subnet name**, select the word **default**.
+6. Under **Subnet name**, select the word **default**.
 
-6. In **Edit subnet**, enter this information:
+7. In **Edit subnet**, enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
     | Subnet name | Enter **myBackendSubnet** |
     | Subnet address range | Enter **10.1.0.0/24** |
 
-7. Select **Save**.
+8. Select **Save**.
 
-8. Select the **Security** tab.
+9. Select the **Security** tab.
 
-9. Under **BastionHost**, select **Enable**. Enter this information:
+10. Under **BastionHost**, select **Enable**. Enter this information:
 
     | Setting            | Value                      |
     |--------------------|----------------------------|
@@ -183,9 +185,9 @@ In this section, you'll create a virtual network and subnet.
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
 
 
-8. Select the **Review + create** tab or select the **Review + create** button.
+11. Select the **Review + create** tab or select the **Review + create** button.
 
-9. Select **Create**.
+12. Select **Create**.
 
 ## Create virtual machines
 
@@ -208,7 +210,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability Options | Select **Availability zones** |
     | Availability zone | Select **1** |
     | Image | Select **Windows Server 2019 Datacenter** |
-    | Azure Spot instance | Select **No** |
+    | Azure Spot instance | Leave the default |
     | Size | Choose VM size or take default setting |
     | **Administrator account** |  |
     | Username | Enter a username |
@@ -232,7 +234,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | **Load balancing**  |
     | Place this virtual machine behind an existing load-balancing solution? | Select **Yes** |
     | **Load balancing settings** |
-    | Load balancing options | Select **Azure load balancing** |
+    | Load balancing options | Select **Azure load balancer** |
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
    
@@ -297,7 +299,7 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 
     :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM** that is located in the **myResourceGroupNAT** resource group.
+3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **TutorPubLBNAT-rg** resource group.
 
 4. On the **Overview** page, select **Connect**, then **Bastion**.
 
@@ -305,7 +307,7 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 
 6. Enter the username and password entered during VM creation.
 
-7. Open **Internet Explorer** on **myTestVM**.
+7. Open **Internet Explorer** on **myVM1**.
 
 8. Enter **https://whatsmyip.com** in the address bar.
 
