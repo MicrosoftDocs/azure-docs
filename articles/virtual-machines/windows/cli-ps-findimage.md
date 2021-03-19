@@ -29,9 +29,19 @@ You can also browse available images and offers using the [Azure Marketplace](ht
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg ACU | Min ACU/vCPU | Avg ACU/vCPU | Max ACU/vCPU | StdDev% | Var % | #Runs | #VMs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | <span class="VMSize">Standard_A1_v2</span> | 3:i2660 | 1 | 1 | 1.9 | <span color="Green"><b>133</b></span> | 130.4 | <span class="PerVcpu">132.6</span> | 134.2 | 0.78% | 2.82% | 42 | 6 |
-| <span class="VMSize">Standard_A1_v2</span> | 4:i2673 | 1 | 1 | 1.9 | <span class="Score">139</span> | 128.1 | <span class="PerVcpu">139.5</span> | 146.0 | 2.63% | 12.84% | 70 | 10 |
+| <span class="VMSize">Standard_A1_v2</span> | 4:i2673 | 1 | 1 | 1.9 | <td style="background-color:red;">139</td> | 128.1 | <span class="PerVcpu">139.5</span> | 146.0 | 2.63% | 12.84% | 70 | 10 |
 
-
+<table style="background-color:#FFFFE0;">
+<tr style="background-color:#BDB76B;">
+<th>Table Header</th><th>Table Header</th>
+</tr>
+<tr>
+<td>Table cell 1</td><td>Table cell 2</td>
+</tr>
+<tr>
+<td>Table cell 3</td><td style="background-color:red;">Table cell 4</td>
+</tr>
+</table>
 
 ## Terminology
 
