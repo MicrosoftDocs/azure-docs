@@ -100,7 +100,7 @@ There are two versions of the agent. If you're exercising image-based scenario, 
   ```
 Device Update for Azure IoT Hub software is subject to the following license terms:
    * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+   * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device update for IoT Hub agent.
 
