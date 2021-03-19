@@ -1,5 +1,5 @@
 ---
-title: Run the Azure Stack Network Readiness Checker (NRC) tool
+title: Check network readiness before deploying an Azure Stack Edge with GPU device.<!--Verify SKUs.-->
 description: Pre-quality network before deploying Azure Stack Edge devices.
 services: databox
 author: v-dalc
@@ -13,34 +13,31 @@ ms.author: alkohli
 # Customer intent: As an IT admin, I want to expedite deployment of Azure Stack devices by checking network settings in advance.
 ---
 
-# Run Network Readiness Tool for Azure Stack Edge
+# Check network readiness for Azure Stack Edge devices
 
-Use the Azure Stack Network Readiness Checker tool to make sure your network meets all requirements before you deploy an Azure Stack Edge device.<!--Add a bit more detail about what's checked?--> This can reduce deployment time and avoid Support calls.<!--Marketing or friendly advice?-->
+This article describes how to check your network readiness for deploying Azure Stack Edge devices. Use the Azure Stack Network Readiness Checker tool to make sure your network meets all requirements before you deploy an Azure Stack Edge device.<!--Add a bit more detail about what's checked?--> This can reduce deployment time and avoid Support calls.<!--Marketing or friendly advice?--><!--SYNC: ORDER OF PRESENTATION: 1) What does this article do? 2) What is the tool?-->
 
-The Network Readiness Tool is a PowerShell module that checks XX, XX, on the network. You can run the tool on a Windows or Linux computer on the network where you'll deploy your Azure Stack Edge devices.<!--Oversimplified? OS requirements? Check PowerShell requirements.-->
+The Network Readiness Tool is a PowerShell module that checks XX, XX, on the network. You can run the tool on a Windows or Linux computer on the network where you'll deploy your Azure Stack Edge devices.<!--Oversimplified? OS requirements? Check PowerShell requirements. SYNC: 1) Confirm whether this has been tested in Linux. 2) Check ASE SKUs.-->
 
 The Network Readiness Tool runs a series of mandatory and optional tests to find out whether the network is ready for Azure Stack Edge deployments. You can run a full set of tests or skip the tests you don't need.<!--It's not clear whether the settings or the tests are "Mandatory." Format line includes all tests for both -RunTests and -SkipTests. Get detail from config tutorials for network and device; tool spec; some notes from Vibha.-->
 
-|Test               |Checks for   |Mandatory setting?| 
+|Test               |Checks for   |Required setting?| 
 |-------------------|-------------|------------------|
-|LinkLayer          |             |Mandatory         |
-|IPConfig           |             |Mandatory         |
-|DnsServer          |             |Mandatory         |
-|TimeServer         |             |Mandatory         |
-|DuplicateIP        |             |Mandatory         |
-|Proxy              |             |Mandatory         |
-|AzureEndpoint      |             |Mandatory         |
-|WindowsUpdateServer|             |Mandatory         |
-|DnsRegistration    |             |Mandatory         |
-|                   |             |Optional          |
-|                   |             |Optional          |
-|                   |             |Optional          |
+|LinkLayer          |             |Required         |
+|IPConfig           |             |Required         |
+|DnsServer          |One or more. |Required         |
+|TimeServer         |             |Required         |
+|DuplicateIP        |             |Required         |
+|Proxy              |If using a proxy server.  |Optional         |
+|AzureEndpoint      |             |Required         |
+|WindowsUpdateServer|Mandatory for the purpose of this test?  |Required         |
+|DnsRegistration    |             |Required         |
 
 ## Prerequisites
 
 Before you begin, make sure you have:
 
-- A computer running on the network where you'll deploy the Azure Stack device<!--No section needed?-->
+- A computer running on the network where you'll deploy the Azure Stack device<!--No section needed? Make sure you have access to a client that is running on the network. SYNC: They will have this information. 1) Link to the checklist at "0-Get Checklist" in Azure Stack Edge Pro tutorials. 2) This article becomes a prerequisite for "Connect" tutorial. 3) Also mention this article in the "Get checklist" tutorial.-->
 - Network and device settings<!--Short list, with full discussion in "Parameters"-->
 - PowerShell 7.0
 - Azure Stack Network Readiness Checker tool (Microsoft.AzureStack.ReadinessChecker module)
