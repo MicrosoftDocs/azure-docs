@@ -3,7 +3,7 @@ title: Manage schedules in Azure Automation
 description: This article tells how to create and work with a schedule in Azure Automation.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ---
 
@@ -33,7 +33,7 @@ The cmdlets in the following table create and manage Automation schedules with P
 
 ## Create a schedule
 
-You can create a new schedule for your runbooks in the Azure portal or with PowerShell. To avoid affecting your runbooks and the processes they automate, you should first test any runbooks that have linked schedules with an Automation account dedicated for testing. A test validates that your scheduled runbooks continue to work correctly. If you see a problem, you can troubleshoot and apply any changes required before you migrate the updated runbook version to production.
+You can create a new schedule for your runbooks from the Azure portal, with PowerShell, or using an Azure Resource Manager (ARM) template. To avoid affecting your runbooks and the processes they automate, you should first test any runbooks that have linked schedules with an Automation account dedicated for testing. A test validates that your scheduled runbooks continue to work correctly. If you see a problem, you can troubleshoot and apply any changes required before you migrate the updated runbook version to production.
 
 > [!NOTE]
 > Your Automation account doesn't automatically get any new versions of modules unless you've updated them manually by selecting the [Update Azure modules](../automation-update-azure-modules.md) option from **Modules**. Azure Automation uses the latest modules in your Automation account when a new scheduled job is run. 
