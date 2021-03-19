@@ -131,10 +131,13 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 4. On the **Select Recovery Type** screen, select where you want to restore the data and then select **Next**.
 
-    - **Recover to original instance**: When you recover to the original instance, the original VHD is deleted. MABS recovers the VHD and other configuration files to the original location using Hyper-V VSS writer. At the end of the recovery process, virtual machines are still highly available.
+    - **Recover to original instance**: When you recover to the original instance, the original VHD and all associated checkpoints are deleted. MABS recovers the VHD and other configuration files to the original location using Hyper-V VSS writer. At the end of the recovery process, virtual machines are still highly available.
         The resource group must be present for recovery. If it isn't available, recover to an alternate location and then make the virtual machine highly available.
 
     - **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Hyper-V virtual machine to a different Hyper-V host, independent of processor architecture. Hyper-V virtual machines that are recovered to a cluster node won't be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
+    
+        >[!NOTE]
+        >If you select the original host the behavior is the same as **Recover to original instance**. The original VHD and all associated checkpoints will be deleted.
 
     - **Copy to a network folder**: MABS supports item-level recovery (ILR), which allows you to do item-level recovery of files, folders, volumes, and virtual hard disks (VHDs) from a host-level backup of Hyper-V virtual machines to a network share or a volume on a MABS protected server. The MABS protection agent doesn't have to be installed inside the guest to perform item-level recovery. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
 

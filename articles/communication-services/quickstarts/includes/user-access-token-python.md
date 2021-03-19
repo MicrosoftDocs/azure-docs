@@ -6,7 +6,7 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
@@ -32,7 +32,7 @@ ms.author: tchladek
 
    ```python
    import os
-   from azure.communication.identity import CommunicationIdentityClient
+   from azure.communication.identity import CommunicationIdentityClient, CommunicationUserIdentifier
 
    try:
       print('Azure Communication Services - Access Tokens Quickstart')

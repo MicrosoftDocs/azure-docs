@@ -121,6 +121,8 @@ Slots cannot use Private Endpoint.
 
 Remote Debugging functionality is not available when Private Endpoint is enabled for the Web App. The recommendation is to deploy the code to a slot and remote debug it there.
 
+FTP access is provided through the inbound public IP address. Private Endpoint does not support FTP access to the Web App.
+
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 
 ## Next steps

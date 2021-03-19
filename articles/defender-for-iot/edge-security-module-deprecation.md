@@ -14,11 +14,11 @@ ms.topic: how-to
 
 This article describes Azure Defender for IoT features and support for different capabilities within Defender for IoT.
 
-## Defender for IoT C, C#, and Edge security module deprecation
+## Defender for IoT C, C#, and Edge Defender-IoT-micro-agent deprecation
 
-The new micro agent will replace the current C, C#, and Edge security module.  
+The new micro agent will replace the current C, C#, and Edge Defender-IoT-micro-agent.  
 
-The new micro agent is based on the knowledge, and experience gathered from the exiting security module development, customers, and partners feedback with four important improvements: 
+The new micro agent is based on the knowledge, and experience gathered from the exiting Defender-IoT-micro-agent development, customers, and partners feedback with four important improvements: 
 
 - **Depth security value**: The new agent will run on the host level, which will provide more visibility to the underlying operations of the device, and to allow for better security coverage.
 

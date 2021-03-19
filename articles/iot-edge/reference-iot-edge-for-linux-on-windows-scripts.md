@@ -8,9 +8,12 @@ ms.date: 02/16/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "=iotedge-2018-06"
 ---
 
 # PowerShell scripts for IoT Edge for Linux on Windows
+
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
 Understand the PowerShell scripts that deploy, provision, and get the status your IoT Edge for Linux on Windows virtual machine.
 

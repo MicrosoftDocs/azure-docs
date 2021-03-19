@@ -22,9 +22,6 @@ If you need a web server to render content, you can use [Azure App Service](http
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-> [!NOTE]
-> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
-
 ## Setting up a static website
 
 Static website hosting is a feature that you have to enable on the storage account.

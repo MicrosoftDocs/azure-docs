@@ -25,4 +25,4 @@ If you don't want to use Azure Cloud Shell, you can install PowerShell locally i
 
 To find the version of PowerShell that you're running locally, use the **'Get-Module -ListAvailable Az'** cmdlet. To update, see [Install the Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). For more information, see [how to install and configure Azure PowerShell](/powershell/azure/azurerm/overview).
 
-If you use PowerShell on macOS, follow the steps in [Installing PowerShell on macOS.](/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-6)
+If you use PowerShell on macOS, follow the steps in [Installing PowerShell on macOS.](/powershell/scripting/install/installing-powershell-core-on-macos)

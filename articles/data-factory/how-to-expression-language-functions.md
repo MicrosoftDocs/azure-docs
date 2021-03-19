@@ -1,12 +1,12 @@
 ---
 title: How to use parameters and expressions in Azure Data Factory
 description: This How To article provides information about expressions and functions that you can use in creating data factory entities.
-author: dcstwh
-ms.author: weetok
+author: ssabat
+ms.author: susabat
 ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 03/08/2020
 ---
 
 # How to use parameters, expressions and functions in Azure Data Factory
@@ -16,7 +16,11 @@ ms.date: 11/25/2019
 > * [Current version](how-to-expression-language-functions.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-In this article, we will primarily focus on learning concepts with examples and tutorials on exploring the ability to create parameterized data pipelines within Azure Data Factory. Parameterization and dynamic expressions are such notable additions to ADF because it can save a tremendous amount of time and allow for a much more flexible Extract, Transform, Load (ETL) or Extract, Load, Transform (ELT) solution, which will dramatically reduce the cost of solution maintenance and speed up the implementation of new features into existing pipelines. These gains are because parameterization minimizes the amount of hard coding and increases the number of reusable objects and processes in a solution.
+In this document, we will primarily focus on learning fundamental concepts with various examples to explore the ability to create parameterized data pipelines within Azure Data Factory. Parameterization and dynamic expressions are such notable additions to ADF because they can save a tremendous amount of time and allow for a much more flexible Extract, Transform, Load (ETL) or Extract, Load, Transform (ELT) solution, which will dramatically reduce the cost of solution maintenance and speed up the implementation of new features into existing pipelines. These gains are because parameterization minimizes the amount of hard coding and increases the number of reusable objects and processes in a solution.
+
+## Azure data factory UI and parameters
+
+If you are new to Azure data factory parameter usage in ADF user interface, please review [Data factory UI for linked services with parameters](https://docs.microsoft.com/azure/data-factory/parameterize-linked-services#data-factory-ui)  and [Data factory UI for metadata driven pipeline with parameters](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization#data-factory-ui) for visual explanation.
 
 ## Parameter and expression concepts 
 
@@ -34,7 +38,7 @@ For example:
 "name": "@pipeline().parameters.password"
 ```
 
-Expressions can appear anywhere in a JSON string value and always result in another JSON value. If a JSON value is an expression, the body of the expression is extracted by removing the at-sign (\@). If a literal string is needed that starts with \@, it must be escaped by using \@\@. The following examples show how expressions are evaluated.  
+Expressions can appear anywhere in a JSON string value and always result in another JSON value. Here, *password* is a pipeline parameter in the expression. If a JSON value is an expression, the body of the expression is extracted by removing the at-sign (\@). If a literal string is needed that starts with \@, it must be escaped by using \@\@. The following examples show how expressions are evaluated.  
   
 |JSON value|Result|  
 |----------------|------------|  
@@ -298,13 +302,20 @@ These functions are useful inside conditions, they can be used to evaluate any t
 | [ticks](control-flow-expression-language-functions.md#ticks) | Return the `ticks` property value for a specified timestamp. |
 | [utcNow](control-flow-expression-language-functions.md#utcNow) | Return the current timestamp as a string. |
 
-## Detailed Azure data factory copy pipeline with parameters 
+## Detailed examples for practice
+
+### Detailed Azure data factory copy pipeline with parameters 
 
 This [Azure Data factory copy pipeline parameter passing tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
 
-## Detailed  Mapping data flow pipeline with parameters 
+### Detailed  Mapping data flow pipeline with parameters 
 
 Please follow [Mapping data flow with parameters](https://docs.microsoft.com/azure/data-factory/parameters-data-flow) for comprehensive example on how to use parameters in data flow.
+
+### Detailed Metadata driven pipeline with parameters
+
+Please follow [Metadata driven pipeline with parameters](https://docs.microsoft.com/azure/data-factory/how-to-use-trigger-parameterization) to learn more about how to use parameters to design metadata driven pipelines. This is a popular use case for parameters.
+
 
 ## Next steps
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

@@ -93,20 +93,25 @@ Media Services supports the following built-in encoding presets:
 
 [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) is used to set a built-in preset for encoding the input video with the Standard Encoder.
 
-The following presets are currently supported:
+The following built-in presets are currently supported:
 
 - **EncoderNamedPreset.AACGoodQualityAudio**: produces a single MP4 file containing only stereo audio encoded at 192 kbps.
-- **EncoderNamedPreset.AdaptiveStreaming** (recommended): For more information, see [auto-generating a bitrate ladder](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset.ContentAwareEncoding**: exposes a preset for content-aware encoding. Given any input content, the service attempts to automatically determine the optimal number of layers, and appropriate bitrate and resolution settings for delivery by adaptive streaming. The underlying algorithms will continue to evolve over time. The output will contain MP4 files with video and audio interleaved. For more information, see [content-aware encoding](content-aware-encoding.md).
-
+- **EncoderNamedPreset.AdaptiveStreaming** (recommended): This supports H.264 adaptive bitrate encoding. For more information, see [auto-generating a bitrate ladder](autogen-bitrate-ladder.md).
+- **EncoderNamerPreset.H265AdaptiveStreaming** : Similar to the AdaptiveStreaming preset, but uses the HEVC (H.265) codec. Produces a set of GOP aligned MP4 files with H.265 video and stereo AAC audio. Auto-generates a bitrate ladder based on the input resolution, bitrate and frame rate. The auto-generated preset will never exceed the input resolution. For example, if the input is 720p, output will remain 720p at best.
+- **EncoderNamedPreset.ContentAwareEncoding**: exposes a preset for H.264 content-aware encoding. Given any input content, the service attempts to automatically determine the optimal number of layers, and appropriate bitrate and resolution settings for delivery by adaptive streaming. The underlying algorithms will continue to evolve over time. The output will contain MP4 files with video and audio interleaved. For more information, see [content-aware encoding](content-aware-encoding.md).
+- **EncoderNamedPreset.H265ContentAwareEncoding**: exposes a preset for HEVC (H.265) content-aware encoding.Produces a set of GOP-aligned MP4s by using content-aware encoding. Given any input content, the service performs an initial lightweight analysis of the input content, and uses the results to determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low and medium complexity videos, where the output files will be at lower bitrates but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved.
   > [!NOTE]
-  > Make sure to use **ContentAwareEncoding** not  ContentAwareEncodingExperimental.
+  > Make sure to use **ContentAwareEncoding** not  ContentAwareEncodingExperimental which is now deprecated
+
 - **EncoderNamedPreset.H264MultipleBitrate1080p**: produces a set of eight GOP-aligned MP4 files, ranging from 6000 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 1080p and goes down to 360p.
 - **EncoderNamedPreset.H264MultipleBitrate720p**: produces a set of six GOP-aligned MP4 files, ranging from 3400 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 720p and goes down to 360p.
 - **EncoderNamedPreset.H264MultipleBitrateSD**: produces a set of five GOP-aligned MP4 files, ranging from 1600 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 480p and goes down to 360p.
 - **EncoderNamedPreset.H264SingleBitrate1080p**: produces an MP4 file where the video is encoded with H.264 codec at 6750 kbps and a picture height of 1080 pixels, and the stereo audio is encoded with AAC-LC codec at 64 kbps.
 - **EncoderNamedPreset.H264SingleBitrate720p**: produces an MP4 file where the video is encoded with H.264 codec at 4500 kbps and a picture height of 720 pixels, and the stereo audio is encoded with AAC-LC codec at 64 kbps.
 - **EncoderNamedPreset.H264SingleBitrateSD**: produces an MP4 file where the video is encoded with H.264 codec at 2200 kbps and a picture height of 480 pixels, and the stereo audio is encoded with AAC-LC codec at 64 kbps.
+- **EncoderNamedPreset.H265SingleBitrate720P**: produces an MP4 file where the video is encoded with HEVC (H.265) codec at 1800 kbps and a picture height of 720 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+- **EncoderNamedPreset.H265SingleBitrate1080p**: produces an MP4 file where the video is encoded with HEVC (H.265) codec at 3500 kbps and a picture height of 1080 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
+- **EncoderNamedPreset.H265SingleBitrate4K**: produces an MP4 file where the video is encoded with HEVC (H.265) codec at 9500 kbps and a picture height of 2160 pixels, and the stereo audio is encoded with AAC-LC codec at 128 kbps.
 
 To see the most up-to-date presets list, see [built-in presets to be used for encoding videos](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
@@ -133,6 +138,7 @@ Media Services fully supports customizing all values in presets to meet your spe
 - [Customize presets with CLI](custom-preset-cli-howto.md)
 - [Customize presets with REST](custom-preset-rest-howto.md)
 
+
 ## Preset schema
 
 In Media Services v3, presets are strongly typed entities in the API itself. You can find  the "schema" definition for these objects in [Open API Specification (or Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). You can also view the preset definitions (like **StandardEncoderPreset**) in the [REST API](/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset) (or other Media Services v3 SDK reference documentation).
@@ -140,6 +146,7 @@ In Media Services v3, presets are strongly typed entities in the API itself. You
 ## Scaling encoding in v3
 
 To scale media processing, see [Scale with CLI](media-reserved-units-cli-how-to.md).
+For accounts created in with the **2020-05-01** version of the API or through the Azure portal, scaling and media reserved units are no longer required. Scaling will be automatic and handled by the service internally.
 
 ## Billing
 

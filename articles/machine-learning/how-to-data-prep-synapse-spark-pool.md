@@ -23,7 +23,7 @@ In this article, you learn how to attach and launch an Apache Spark pool powered
 This article contains guidance for performing data wrangling tasks interactively within a dedicated Synapse session in a Jupyter notebook. If you prefer to use Azure Machine Learning pipelines, see [How to use Apache Spark (powered by Azure Synapse Analytics) in your machine learning pipeline (preview)](how-to-use-synapsesparkstep.md).
 
 >[!IMPORTANT]
-> The Azure Machine Learning and Azure Synapse Analytics integration is in preview. The capabilities presented in this article employ the `azureml-synapse` package which contains [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) preview features that may change at any time.
+> The Azure Machine Learning and Azure Synapse Analytics integration is in preview. The capabilities presented in this article employ the `azureml-synapse` package which contains [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features that may change at any time.
 
 ## Azure Machine Learning and Azure Synapse Analytics integration (preview)
 
@@ -58,7 +58,7 @@ View all the linked services associated with your machine learning workspace.
 LinkedService.list(ws)
 ```
 
-This example retrieves an existing linked service, `synapselink1`, from the workspace, `ws`, with the [`get()`](/python/api/azureml-core/azureml.core.linkedservice?preserve-view=true&view=azure-ml-py#get-workspace--name-) method.
+This example retrieves an existing linked service, `synapselink1`, from the workspace, `ws`, with the [`get()`](/python/api/azureml-core/azureml.core.linkedservice#get-workspace--name-) method.
 ```python
 linked_service = LinkedService.get(ws, 'synapselink1')
 ```
