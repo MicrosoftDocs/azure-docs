@@ -11,3 +11,21 @@
   items:
   - name: Serverless Application
     href: web-pubsub-quickstart-serverless.md
+
+- name: How-to guides
+  items:
+  - name: Develop
+    items:
+    - name: Create instance
+      href: web-pubsub-howto-create-instance.md
+
+- name: Resources
+  items:
+  - name: Solutions
+    href: /azure/architecture/
+  - name: Region availability
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=web-pubsub
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/web-pubsub/
+  - name: StackOverflow
+    href: https://stackoverflow.com/search?q=azure+web+pubsub

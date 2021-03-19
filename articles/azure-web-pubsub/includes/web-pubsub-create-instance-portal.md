@@ -18,8 +18,6 @@ Your application will connect to a Web PubSub service instance in Azure.
 
 1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type *Web PubSub* in the search box and press enter.
 
-    ![Screenshot shows search for Web PubSub service in the Azure portal.](../media/web-pubsub-create-instance-portal/search-web-pubsub.png)
-
 1. Select **Web PubSub** from the search results, then select **Create**.
 
 1. Enter the following settings.
@@ -32,7 +30,5 @@ Your application will connect to a Web PubSub service instance in Azure.
     | **Location** | West US | Choose a [region](https://azure.microsoft.com/regions/) near you. |
     | **Pricing tier** | Free | Try Azure Web PubSub service for free. |
     | **Unit count** |  Not applicable | Unit count specifies how many connections your Web PubSub service instance can accept. It is only configurable in the Standard tier. |
-
-    ![Screenshot shows Web PubSub Basics tab with values.](../media/web-pubsub-create-instance-portal/create-web-pubsub-instance.png)
 
 1. Select **Create** to start deploying the Web PubSub service instance.
