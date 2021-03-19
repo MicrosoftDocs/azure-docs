@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/18/2020
+ms.date: 03/17/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -211,13 +211,7 @@ If you do not require activation of a role that requires approval, you can cance
 
 ### Permissions are not granted after activating a role
 
-When you activate a role in Privileged Identity Management, the activation may not instantly propagate to all portals that require the privileged role. Sometimes, even if the change is propagated, web caching in a portal may result in the change not taking effect immediately. If your activation is delayed, here is what you should do.
-
-1. Sign out of the Azure portal and then sign back in.
-
-    When you activate an Azure AD role, you will see the stages of your activation. Once all the stages are complete, you will see a **Sign out** link. You can use this link to sign out. This will solve most cases for activation delay.
-
-1. In Privileged Identity Management, verify that you are listed as the member of the role.
+When you activate a role in Privileged Identity Management, your activation might be delayed in admin portals other than the Azure portal, such as the Office 365 portal. If your activation is delayed, sign out of the portal you're in and then sign back in. Then, use Privileged Identity Management to verify that you are listed as the member of the role.
 
  ---
 
