@@ -868,7 +868,8 @@ Only one background audio file is allowed per SSML document. However, you can in
 ## Bookmark element
 
 The bookmark element allows you to insert custom markers in SSML to get the offset of each marker in the audio stream.
-The bookmark element can be used to reference a specific location in the text/tag sequence, and it can also be used to insert a marker into the audio stream for asynchronous notification.
+We will not read out the bookmark elements.
+The bookmark element can be used to reference a specific location in the text or tag sequence.
 
 > [!NOTE]
 > `bookmark` element only works for `en-US-AriaNeural` voice for now.
@@ -887,11 +888,12 @@ The bookmark element can be used to reference a specific location in the text/ta
 
 **Example**
 
+As an example, you might want to know the time offset of each flower word as following
+
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-AriaNeural">
-        <bookmark mark='bookmark_one'/> one.
-        <bookmark mark='bookmark_two'/> two. three. four.
+        We are selling <bookmark mark='flower_1'/>roses and <bookmark mark='flower_2'/>daisies.
     </voice>
 </speak>
 ```
@@ -903,6 +905,10 @@ You can subscribe to the `BookmarkReached` event in Speech SDK to get the bookma
 > [!NOTE]
 > `BookmarkReached` event is only available since Speech SDK version 1.16.0.
 
+`BookmarkReached` events are raised as the output audio data becomes available, which will be faster than playback to an output device.
+
+* `AudioOffset` reports the output audio's elapsed time between the beginning of synthesis and the bookmark element. This is measured in hundred-nanosecond units (HNS) with 10,000 HNS equivalent to 1 millisecond.
+* `Text` is the reference text of the bookmark element, which is the string you set in the `mark` attribute.
 
 # [C#](#tab/csharp)
 
@@ -917,6 +923,12 @@ synthesizer.BookmarkReached += (s, e) =>
 };
 ```
 
+For the example SSML above, the `BookmarkReached` event will be triggered twice, and the console output will be
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
 # [C++](#tab/cpp)
 
 For more information, see <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>.
@@ -924,11 +936,17 @@ For more information, see <a href="https://docs.microsoft.com/cpp/cognitive-serv
 ```cpp
 synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
 {
-    cout << "bookmark reached. "
+    cout << "Bookmark reached. "
         // The unit of e.AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to convert to milliseconds.
         << "Audio offset: " << e.AudioOffset / 10000 << "ms, "
-        << "Bookmark text: " << e.Text << "." << endl;
+        << "bookmark text: " << e.Text << "." << endl;
 };
+```
+
+For the example SSML above, the `BookmarkReached` event will be triggered twice, and the console output will be
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 ```
 
 # [Java](#tab/java)
@@ -943,6 +961,12 @@ synthesizer.BookmarkReached.addEventListener((o, e) -> {
 });
 ```
 
+For the example SSML above, the `BookmarkReached` event will be triggered twice, and the console output will be
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
 # [Python](#tab/python)
 
 For more information, see <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>.
@@ -953,14 +977,26 @@ speech_synthesizer.bookmark_reached.connect(lambda evt: print(
     "Bookmark reached: {}, audio offset: {}ms, bookmark text: {}.".format(evt, evt.audio_offset / 10000, evt.text)))
 ```
 
+For the example SSML above, the `bookmark_reached` event will be triggered twice, and the console output will be
+```text
+Bookmark reached, audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached, audio offset: 1462.5ms, bookmark text: flower_2.
+```
+
 # [JavaScript](#tab/javascript)
 
 For more information, see <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached`</a>.
 
 ```javascript
 synthesizer.bookmarkReached = function (s, e) {
-    window.console.log("(Bookmark reached), Audio offset: " + e.audioOffset / 10000 + "ms. Bookmark text: " + e.text);
+    window.console.log("(Bookmark reached), Audio offset: " + e.audioOffset / 10000 + "ms, bookmark text: " + e.text);
 }
+```
+
+For the example SSML above, the `bookmarkReached` event will be triggered twice, and the console output will be
+```text
+(Bookmark reached), Audio offset: 825ms, bookmark text: flower_1.
+(Bookmark reached), Audio offset: 1462.5ms, bookmark text: flower_2.
 ```
 
 # [Objective-C](#tab/objectivec)
@@ -972,6 +1008,12 @@ For more information, see <a href="https://docs.microsoft.com/objectivec/cogniti
     // The unit of AudioOffset is tick (1 tick = 100 nanoseconds), divide by 10,000 to converted to milliseconds.
     NSLog(@"Bookmark reached. Audio offset: %fms, bookmark text: %@.", eventArgs.audioOffset/10000., eventArgs.text);
 }];
+```
+
+For the example SSML above, the `BookmarkReached` event will be triggered twice, and the console output will be
+```text
+Bookmark reached. Audio offset: 825ms, bookmark text: flower_1.
+Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 ```
 
 # [Swift](#tab/swift)
