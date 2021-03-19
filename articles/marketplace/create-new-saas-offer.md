@@ -19,7 +19,7 @@ As a commercial marketplace publisher, you can create a software as a service (S
 If you haven’t already done so, read [Plan a SaaS offer for the commercial marketplace](plan-saas-offer.md). It will explain the technical requirements for your SaaS app, and the information and assets you’ll need when you create your offer. Unless you plan to publish a simple listing (**Contact me** listing option) in the commercial marketplace, your SaaS application must meet technical requirements around authentication.
 
 > [!IMPORTANT]
-> We recommend that you create a separate development/test (PROD) offer and a separate production (PROD) offer. This article describes how to create a PROD offer. For details about creating a DEV offer, see [Create a development and test offer](create-saas-dev-test-offer.md).
+> We recommend that you create a separate development/test (DEV) offer and a separate production (PROD) offer. This article describes how to create a PROD offer. For details about creating a DEV offer, see [Create a development and test offer](create-saas-dev-test-offer.md).
 
 ## Create a new SaaS offer
 
