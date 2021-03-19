@@ -55,6 +55,8 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Portal settings
+    href: manage.md
   - name: Cross-region load balancer
     href: cross-region-overview.md
   - name: What's new?
@@ -105,8 +107,6 @@
     href: instance-metadata-service-load-balancer.md
 - name: How-to
   items:
-  - name: Portal settings
-    href: manage.md
   - name: Virtual machine scale sets
     items:
     - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
