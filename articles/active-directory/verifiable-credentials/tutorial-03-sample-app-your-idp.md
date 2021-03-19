@@ -15,14 +15,14 @@ ms.reviewer:
 
 ---
 
-# Tutorial 3 - Configure Azure Active Directory (AAD) to work with the Verifiable Credential service
+# Tutorial 3 - Configure Azure Active Directory to work with the Verifiable Credential service
 
 > [!IMPORTANT]
 > Azure Verifiable Credentials is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Now that you have your Azure tenant set up with the Verifiable Credential service, we will walk through the steps necessary to enable your identity provider (IdP) to issue verifiable credentials using the sample app.
+Now that you have your Azure tenant set up with the Verifiable Credential service, we walk through the steps necessary to enable your Azure Active Directory (AAD) to issue verifiable credentials using the sample app.
 
 In this article you:
 
@@ -43,11 +43,11 @@ Any identity provider that supports the OpenID Connect protocol is supported. Ex
 
 This tutorial assumes you've already completed the steps in the [previous tutorial](create-sample-card-your-issuer.md) and have access to the environment you used.
 
-## Register an App so DID Wallets are allowed to sign in users
+## Register an App to enable DID Wallets to sign in users
 
-To issue a Verifiable Credential, you need to register an app so Authenticator or any other Verifiable Credential Wallet is allowed to sign in users through their app.  
+To issue a verifiable credential, you need to register an app so Authenticator or any other verifiable credential wallet is allowed to sign in users.  
 
-Register an application called 'VC Wallet App' in your identity provider and obtain a client ID. 
+Register an application called 'VC Wallet App' in Azure Active Directory (AAD) and obtain a client ID.
 
 1. Follow the instructions for registering an application with [Azure AD](../develop/quickstart-register-app.md) When registering, use the values below.
 
@@ -55,49 +55,57 @@ Register an application called 'VC Wallet App' in your identity provider and obt
    - Supported account types: Accounts in this organizational directory only
    - Redirect URI: vcclient://openid/
 
-![register an application](media/tutorial-sample-app-your-idp/MUnp9lS.png)
+   ![register an application](media/tutorial-sample-app-your-idp/register-application.png)
 
-Now that you've completed registering the application, write down the Application (client) ID. You need this value later.
+2. After you register the application, write down the Application (client) ID. You need this value later.
 
-![application client ID](media/tutorial-sample-app-your-IdP/aWyalLO.png)
+   ![application client ID](media/tutorial-sample-app-your-IdP/client-id.png)
 
-Now select the Endpoints button and copy the OpenID Connect metadata document URI. You will need this information for the next section. 
+3. Select the **Endpoints** button and copy the OpenID Connect metadata document URI. You need this information for the next section. 
 
-![issuer endpoints](media/tutorial-sample-app-your-IdP/aGCw9I7.png)
+![issuer endpoints](media/tutorial-sample-app-your-IdP/application-endpoints.png)
 
 ## Your IdP with the Ninja Credential 
 
-Now let's create a new Ninja credential with your own IdP. 
+Now let's create a new Ninja credential using your Azure Active Directory. 
 
-Replace the client_id and configuration with the two objects we copied in the previous section. 
-
-Configuration equates to the OpenID Connect metadata document URI. 
-
-```json
-{
-  "attestations": {
-    "idTokens": [
-      {
-        "mapping": {
-          "firstName": { "claim": "given_name" },
-          "lastName": { "claim": "family_name" }
-        },
-        "configuration": "https://dIdPlayground.b2clogin.com/dIdPlayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
-        "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
-        "redirect_uri": "vcclient://openid"
+1. Copy the rules file below and save it to **modified_ninjaRules.json**.
+    
+    ```json
+    {
+      "attestations": {
+        "idTokens": [
+          {
+            "mapping": {
+              "firstName": { "claim": "given_name" },
+              "lastName": { "claim": "family_name" }
+            },
+            "configuration": "https://dIdPlayground.b2clogin.com/dIdPlayground.onmicrosoft.com/B2C_1_sisu/v2.0/.well-known/openid-configuration",
+            "client_id": "8d5b446e-22b2-4e01-bb2e-9070f6b20c90",
+            "redirect_uri": "vcclient://openid"
+          }
+        ]
+      },
+      "validityInterval": 2592000,
+      "vc": {
+        "type": ["VerifiedCredentialNinja"]
       }
-    ]
-  },
-  "validityInterval": 2592000,
-  "vc": {
-    "type": ["VerifiedCredentialNinja"]
-  }
-}
-```
+    }
+    ```
+
+2. Open the file in your editor and replace the **client_id** and **configuration** values with the two objects we copied in the previous section.
+
+![highlighting the two values that need to be modified as part of this step](media/tutorial-sample-app-your-IdP/rules-file.png)
+
+The value **Configuration** is the OpenID Connect metadata document URI.
 
 ## Create new VC with this rules file and old display file
 
-Follow same instructions from before and get the contract URL.
+Follow the steps we followed earlier. Once that you have a new vv get the contract URL.
+
+1. Upload the new rules file to our container
+1. At the verifiable credentials page create a new credential called **ninjaCatModified** using the old display file and the new rules file (**modified_ninjaRules.json**).
+1.
 
 Save the contract URL, we will need it in the next section. 
 
