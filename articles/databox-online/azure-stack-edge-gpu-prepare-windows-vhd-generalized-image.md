@@ -54,7 +54,7 @@ The high-level workflow to prepare a Windows VHD for use as a generalized image 
 Before you prepare a Windows VHD for use as a generalized image on Azure Stack Edge, make sure that:
 
 - You have a VHD or a VHDX containing a supported version of Windows. See [Supported guest operating Systems]() for your Azure Stack Edge Pro. 
-- You have access to a Windows client with Hyper-V Manager installed. This client system should be running PowerShell 5.0 or later.
+- You have access to a Windows client with Hyper-V Manager installed. 
 - You have access to an Azure Blob storage account to store your VHD after it is prepared.
 
 ## Prepare a generalized Windows image from VHD
@@ -165,7 +165,7 @@ Use the *sysprep* utility to generalize the VHD.
 
 Your VHD can now be used to create a generalized image on Azure Stack Edge. 
 
-1. Upload the VHD to Azure blob storage. See the detailed instructions in 
+1. Upload the VHD to Azure blob storage. See the detailed instructions in [Upload a VHD using Azure Storage Explorer](../devtest-labs/devtest-lab-upload-vhd-using-storage-explorer.md).
 1. After the upload is complete, you can use the uploaded image to create VM images and VMs. 
 
 <!-- this should be added to deploy VM articles - If you experience any issues creating VMs from your new image, you can use VM console access to help troubleshoot. For information on console access, see [link].-->
