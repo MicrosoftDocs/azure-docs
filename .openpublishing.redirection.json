@@ -1,6 +1,67 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-vnet-customer-responsibilities.md",
+      "redirect_url": "/articles/spring-cloud/vnet-customer-responsibilities.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-setup-autoscale.md",
+      "redirect_url": "/articles/spring-cloud/how-to-setup-autoscale.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-managed-identities-key-vault.md",
+      "redirect_url": "/articles/spring-cloud/tutorial-managed-identities-key-vault.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-managed-identities-functions.md",
+      "redirect_url": "/articles/spring-cloud/tutorial-managed-identities-functions.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network.md",
+      "redirect_url": "/articles/spring-cloud/how-to-deploy-in-azure-virtual-network.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-custom-domain.md",
+      "redirect_url": "/articles/spring-cloud/tutorial-custom-domain.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-circuit-breaker.md",
+      "redirect_url": "/articles/spring-cloud/tutorial-circuit-breaker.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-alerts-action-groups.md",
+      "redirect_url": "/articles/spring-cloud/tutorial-alerts-action-groups.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-troubleshooting-vnet.md",
+      "redirect_url": "/articles/spring-cloud/troubleshooting-vnet.md",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-troubleshoot.md",
+      "redirect_url": "/articles/spring-cloud/troubleshoot.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-structured-app-log.md",
+      "redirect_url": "/articles/spring-cloud/structured-app-log.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-resources.md",
+      "redirect_url": "/articles/spring-cloud/resources.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-tutorial-config-server.md",
       "redirect_url": "/articles/spring-cloud/how-to-config-server.md",
       "redirect_document_id": false

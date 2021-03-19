@@ -26,15 +26,15 @@
 - name: Tutorials
   items:
     - name: Alerts and action groups
-      href: spring-cloud-tutorial-alerts-action-groups.md
+      href: tutorial-alerts-action-groups.md
     - name: Circuit Breaker Dashboard
-      href: spring-cloud-tutorial-circuit-breaker.md
+      href: tutorial-circuit-breaker.md
     - name: Custom DNS name
-      href: spring-cloud-tutorial-custom-domain.md
+      href: tutorial-custom-domain.md
     - name: Managed identity to connect Key Vault
-      href: spring-cloud-tutorial-managed-identities-key-vault.md
+      href: tutorial-managed-identities-key-vault.md
     - name: Managed identity to invoke Azure Functions
-      href: spring-cloud-tutorial-managed-identities-functions.md
+      href: tutorial-managed-identities-functions.md
 - name: Concepts
   items:
     - name: App and deployment
@@ -88,7 +88,7 @@
         - name: Manually scale an app
           href: how-to-scale-manual.md
         - name: Autoscale an app
-          href: spring-cloud-tutorial-setup-autoscale.md
+          href: how-to-setup-autoscale.md
         - name: Identify outbound public IP addresses
           href: how-to-outbound-public-ip.md
     - name: Monitor
@@ -104,19 +104,19 @@
         - name: Resilience4J Circuit Breaker Metrics
           href: how-to-circuit-breaker-metrics.md
         - name: Structured application log
-          href: spring-cloud-structured-app-log.md
+          href: structured-app-log.md
     - name: Network
       items: 
         - name: Deploy Azure Spring Cloud in a virtual network
-          href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+          href: how-to-deploy-in-azure-virtual-network.md
         - name: Access your application in a private network
           href: access-app-virtual-network.md
         - name: Expose applications to the Internet
           href: expose-apps-gateway-azure-firewall.md
         - name: Customer responsibilities running Azure Spring Cloud in VNET
-          href: spring-cloud-vnet-customer-responsibilities.md
+          href: vnet-customer-responsibilities.md
         - name: Troubleshooting Azure Spring Cloud in virtual networks
-          href: spring-cloud-troubleshooting-vnet.md
+          href: troubleshooting-vnet.md
     - name: Secure
       items:
         - name: Enable system-assigned managed identity
@@ -150,7 +150,7 @@
         - name: Self diagnose running in VNET
           href: how-to-self-diagnose-running-in-vnet.md
         - name: Troubleshooting guide
-          href: spring-cloud-troubleshoot.md
+          href: troubleshoot.md
     - name: Migrate
       items:
         - name: Spring Cloud
@@ -174,7 +174,7 @@
 - name: Troubleshoot
   items:
   - name: Troubleshooting guide
-    href: spring-cloud-troubleshoot.md
+    href: troubleshoot.md
 - name: Reference
   items:
   - name: Azure CLI plugin
@@ -182,7 +182,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.springcloud
   - name: Resources
-    href: spring-cloud-resources.md
+    href: resources.md
   - name: Frequently asked questions
     href: faq.md
   - name: REST API reference
