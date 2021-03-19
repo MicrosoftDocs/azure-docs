@@ -129,7 +129,6 @@ Keep these limitations in mind:
 - Guest users can't sign in with a Temporary Access Pass.
 - Users in scope for Self Service Password Reset (SSPR) registration policy will be required to register one of the SSPR methods after they have signed in with a Temporary Access Pass. If the user is only going to use FIDO2 key, exclude them from the SSPR policy or disable the SSPR registration policy. 
 - A Temporary Access Pass cannot be used with the Network Policy Server (NPS) extension and Active Directory Federation Services (AD FS) adapter.
-- Federated users using [Alternate Login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) are not offered to use a Temporary Access Pass, instead the user will get redirected to the federated IdP. When using a UPN in Azure AD, the user will be able to sign-in with a Temporary Access Pass without a redirect to the federated IdP.
 - When Seamless SSO is enabled on the tenant, the users are prompted to enter a password. The **Use your Temporary Access Pass instead** link will be available for the user to sign-in with a Temporary Access Pass.
 
   ![Screenshot of Use a Temporary Access Pass instead](./media/how-to-authentication-temporary-access-pass/alternative.png)
