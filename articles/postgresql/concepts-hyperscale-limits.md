@@ -64,12 +64,15 @@ When clients connect through pgBouncer, the number of connections that can
 actively run in the database doesn't change. Instead, pgBouncer queues excess
 connections and runs them when the database is ready.
 
-Hyperscale (Citus) is now offering a feature preview of a managed instance of
-pgBouncer for server groups. It supports up to 2,000 simultaneous client
-connections. To connect through pgBouncer, go to the **Connection strings**
-page for your server group in the Azure portal. Enable the checkbox **PgBouncer
-connection strings**. The listed connection strings will change to the values
-applications should use.
+Hyperscale (Citus) is now offering a managed instance of pgBouncer for server
+groups (in preview). It supports up to 2,000 simultaneous client connections.
+To connect through pgBouncer, follow these steps:
+
+1. Go to the **Connection strings** page for your server group in the Azure
+   portal.
+2. Enable the checkbox **PgBouncer connection strings**. (The listed connection
+   strings will change.)
+3. Update client applications to connect with the new string.
 
 ## Storage scaling
 
