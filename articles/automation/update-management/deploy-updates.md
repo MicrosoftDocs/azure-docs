@@ -17,7 +17,7 @@ Under each scenario, the deployment you create targets that selected machine or 
 * The target machine to update is set to target itself automatically
 * When configuring the schedule, you can specify **Update now**, occurs once, or uses a recurring schedule.
 
-> [!NOTE]
+> [!IMPORTANT]
 > While creating an update deployment, you accept the terms of the Software License Terms (EULA) provided by the company offering updates for their operating system.
 
 ## Sign in to the Azure portal
