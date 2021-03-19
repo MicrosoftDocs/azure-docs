@@ -80,7 +80,7 @@ With additional configuration, this sample supports connecting to an **Azure Act
 
 :::image type="content" source="../media/calling/aad-overview-android.png" alt-text="Azure Active Directory configuration on Azure portal.":::
 
-3. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set `is_aad_auth_enabled` to enable Azure Active Directory
+3. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set `isAADAuthEnabled` to enable Azure Active Directory
 4. Edit `AndroidManifest.xml` and set `android:path` to keystore signature hash. (Optional. The current value uses hash from bundled debug.keystore. If different keystore is used, this must be updated.)
    ```
    <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
@@ -89,7 +89,7 @@ With additional configuration, this sample supports connecting to an **Azure Act
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
-                    android:host="com.azure.samples.acscall"
+                    android:host="com.azure.samples.communication.calling"
                     android:path="/Signature hash" <!-- do not remove /. The current hash in AndroidManifest.xml is for debug.keystore. -->
                     android:scheme="msauth" />
             </intent-filter>
@@ -114,8 +114,8 @@ With additional configuration, this sample supports connecting to an **Azure Act
       }
    ```
 
-6. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `token_generation_address` to be the URL for your secure Authentication Endpoint.
-7. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `aad_scopes` from `Azure Active Directory` `Expose an API` scopes
+6. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `communicationTokenFetchUrl` to be the URL for your secure Authentication Endpoint.
+7. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set the value for the key `aadScopes` from `Azure Active Directory` `Expose an API` scopes
 
 ## Clean up resources
 
@@ -133,5 +133,7 @@ For more information, see the following articles:
 
 ### Additional reading
 
+- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
+- [Samples](./../overview.md) - Find more samples and examples on our samples overview page.
 - [Azure Communication Calling Features](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) - To learn more about the calling Android sdk
 -[Azure Communication Android Calling SDK](https://search.maven.org/artifact/com.azure.android/azure-communication-calling)
