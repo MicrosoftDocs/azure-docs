@@ -1,53 +1,53 @@
 {
   "redirections": [
     {
-      "source_path_from_root": "/articles/spring-cloud-quotas.md",
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quotas.md",
       "redirect_url": "/articles/spring-cloud/quotas.md",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud-quickstart.md",
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart.md",
       "redirect_url": "/articles/spring-cloud/quickstart.md",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud-reference-architecture.md",
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-reference-architecture.md",
       "redirect_url": "/articles/spring-cloud/reference-architecture.md",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud-quickstart-setup-config-server.md",
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-setup-config-server.md",
       "redirect_url": "/articles/spring-cloud/quickstart-setup-config-server.md",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud-quickstart-sample-app-introduction.md",
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-sample-app-introduction.md",
       "redirect_url": "/azure/articles/spring-cloud/quickstart-sample-app-introduction.md",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud-quickstart-provision-service-instance.md",
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-provision-service-instance.md",
       "redirect_url": "/azure/articles/spring-cloud/spring-cloud-quickstart-provision-service-instance.md",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud-quickstart-logs-metrics-tracing.md",
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-logs-metrics-tracing.md",
       "redirect_url": "/azure/spring-cloud/quickstart-logs-metrics-tracing.md",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud-quickstart-deploy-apps.md",
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-quickstart-deploy-apps.md",
       "redirect_url": "/azure/articles/spring-cloud/quickstart-deploy-apps.md",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud/spring-cloud-overview.md",
-      "redirect_url": "/azure/articles/spring-cloud/overview.md",
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud/spring-cloud-overview.md",
+      "redirect_url": "/azure/articles/spring-cloud/spring-cloud/overview.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-principles-microservice-apps.md",
-      "redirect_url": "/azure/articles/spring-cloud/principles-microservice-apps.md",
+      "redirect_url": "/articles/spring-cloud/principles-microservice-apps.md",
       "redirect_document_id": false
     },
     {
@@ -57,7 +57,7 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-staging-environment.md",
-      "redirect_url": "/azure/articles/spring-cloud/how-to-staging-environment.md",
+      "redirect_url": "/azure/articles/spring-cloud/spring-cloud/how-to-staging-environment.md",
       "redirect_document_id": false
     },
     {
@@ -77,7 +77,7 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-scale-manual.md",
-      "redirect_url": "/azure/articles/spring-cloud/how-to-scale-manual.md",
+      "redirect_url": "/azure/articles/spring-cloud/spring-cloud/how-to-scale-manual.md",
       "redirect_document_id": false
     },
 
@@ -98,7 +98,7 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-outbound-public-ip.md",
-      "redirect_url": "/azure/spring-cloud/how-to-outbound-public-ip.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-outbound-public-ip.md",
       "redirect_document_id": false
     },
     {
