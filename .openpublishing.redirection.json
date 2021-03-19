@@ -53546,7 +53546,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/active-directory/manage-apps/non-gallery-app.md",
+      "source_path_from_root": "/articles/active-directory/manage-apps/non-gallery-apps.md",
       "redirect_url": "/azure/active-directory/manage-apps/plan-an-application-integration",
       "redirect_document_id": false
     },
