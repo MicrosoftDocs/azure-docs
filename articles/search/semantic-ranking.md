@@ -24,25 +24,35 @@ The semantic ranking is both resource and time intensive. In order to complete p
 
 For semantic ranking, the model uses both machine reading comprehension and transfer learning to re-score the documents based on how well each one matches the intent of the query.
 
-1. For each document, the semantic ranker evaluates the fields in the searchFields parameter in order, consolidating the contents into one large string.
+### Preparation (passage extraction) phase
 
-1. The string is then trimmed to ensure the overall length is not more than 8,000 tokens. If you have very large documents, with a content field or merged_content field that has many pages of content, anything after the token limit is ignored.
+For each document in the initial results, there is a passage extraction exercise that identifies key passages. This is a downsizing exercise that reduces content to an amount that can be processed swiftly.
 
-1. Each of the 50 documents is now represented by a single long string. This string is sent to the summarization model. The summarization model produces captions (and answers), using machine reading comprehension to identify passages that appear to summarize the content or answer the question. The output of the summarization model is a further reduced string, which be at most 128 tokens.
+1. For each of the 50 documents, each field in the searchFields parameter is evaluated in consecutive order. Contents from each field are consolidated into one long string. 
 
-1. The smaller string becomes the caption of the document, and it represents the most relevant passages found in the larger string. The set of 50 (or fewer) captions is then ranked in order relevance. 
+1. The long string is then trimmed to ensure the overall length is not more than 8,000 tokens. For this reason, it's recommended that you position concise fields first so that they are included in the string. If you have very large documents with text-heavy fields, anything after the token limit is ignored.
 
-Conceptual and semantic relevance is established through vector representation and term clusters. Whereas a keyword similarity algorithm might give equal weight to any term in the query, the semantic model has been trained to recognize the interdependency and relationships among words that are otherwise unrelated on the surface. As a result, if a query string includes terms from the same cluster, a document containing both will rank higher than one that doesn't.
+1. Each document is now represented by a single long string that is up to 8,000 tokens. These strings are sent to the summarization model, which will reduce the string further. The summarization model evaluates the long string for key sentences or passages that best summarize the document or answer the question.
 
-:::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
+1. The output of this phase is a caption (and optionally, an answer). The caption is at most 128 tokens per document, and it is considered the most representative of the document.
+
+### Scoring and ranking phases
+
+In this phase, all 50 captions are evaluated to assess relevance.
+
+1. Scoring is determined by evaluating each caption for conceptual and semantic relevance, relative to the query provided.
+
+   The following diagram provides an illustration of what "semantic relevance" means. Consider the term "capital", which could be used in the context of finance, law, geography, or grammar. If a query includes terms from the same vector space (for example, "capital" and "investment"), a document that also includes tokens in the same cluster will score higher than one that doesn't.
+
+   :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Vector representation for context" border="true":::
+
+1. The output of this phase is an @search.rerankerScore assigned to each document. Once all documents are scored, they are listed in descending order and included in the query response payload.
 
 ## Next steps
 
-Semantic ranking is offered on Standard tiers, in specific regions. For more information and to sign up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
-
-A new query type enables the relevance ranking and response structures of semantic search. [Create a semantic query](semantic-how-to-query-request.md) to get started.
+Semantic ranking is offered on Standard tiers, in specific regions. For more information and to sign up, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing). A new query type enables the relevance ranking and response structures of semantic search. To get started, [Create a semantic query](semantic-how-to-query-request.md).
 
 Alternatively, review either of the following articles for related information.
 
-+ [Add spell check to query terms](speller-how-to-add.md)
++ [Semantic search overview](semantic-search-overview.md)
 + [Return a semantic answer](semantic-answers.md)
