@@ -19,13 +19,23 @@ This article lists some of the common terms used in the IoT articles.
 
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](../iot-hub/iot-hub-devguide-messaging.md).
 
+### Allocation policy
+
+In the [Device Provisioning Service](#device-provisioning-service), the allocation policy determines how the service assigns devices to [Linked IoT hubs](#linked-iot-hub).
+
+### Attestation mechanism
+
+In the [Device Provisioning Service](#device-provisioning-service), the attestation mechanism is the method used for confirming a device's identity. The attestation mechanism is configured on an [enrollment](#enrollment).
+
+Attestation mechanisms include X.509 certificates, Trusted Platform Modules, and symmetric keys.
+
 ### Automatic device management
 
 Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](../iot-hub/iot-hub-automatic-device-management.md) and [IoT Edge automatic deployments](../iot-edge/how-to-deploy-at-scale.md).
 
 ### Automatic device configuration
 
-Your solution back end can use [automatic device configurations](../iot-hub/iot-hub-automatic-device-management.md) to assign desired properties to a set of [device twins](#device-twin) and report status using system metrics and custom metrics. 
+Your solution back end can use [automatic device configurations](../iot-hub/iot-hub-automatic-device-management.md) to assign desired properties to a set of [device twins](#device-twin) and report status using system metrics and custom metrics.
 
 ### Azure Digital Twins
 
@@ -125,6 +135,10 @@ A device builder uses a [device model](#device-model) and [interfaces](#interfac
 
 A [device builder](#device-builder) or [module builder](#module-builder)uses the [Digital Twins Definition Language](#digital-twins-definition-language-dtdl) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). A [solution builder](#solution-builder) can configure an IoT solution from the model.
 
+### Device Provisioning Service
+
+IoT Hub Device Provisioning Service (DPS) is a helper service for [IoT Hub](#iot-hub) that you use to configure zero-touch device provisioning to a specified IoT hub. With the DPS, you can provision millions of devices in a secure and scalable manner.
+
 ### Desired configuration
 
 In the context of a [device twin](../iot-hub/iot-hub-devguide-device-twins.md), desired configuration refers to the complete set of properties and metadata in the device twin that should be synchronized with the device.
@@ -155,7 +169,7 @@ Device data refers to the per-device data stored in the IoT Hub [identity regist
 
 ### Device identity
 
-The device identity is the unique identifier assigned to every device registered in the [identity registry](#identity-registry).
+The device identity (or device ID) is the unique identifier assigned to every device registered in the IoT Hub [identity registry](#identity-registry).
 
 ### Device management
 
@@ -199,7 +213,7 @@ A route set up in an IoT hub to deliver [digital twin change events](#digital-tw
 
 ### Downstream services
 
-A relative term describing services that receive data from the current context. For instance, if you're thinking in the context of Azure Digital Twins, [Time Series Insights](../time-series-insights/index.yml) would be considered be a downstream service if you set up your data to flow from Azure Digital Twins into Time Series Insights.
+A relative term describing services that receive data from the current context. For instance, if you're thinking in the context of Azure Digital Twins, [Time Series Insights](../time-series-insights/index.yml) would be considered a downstream service if you set up your data to flow from Azure Digital Twins into Time Series Insights.
 
 ## E
 
@@ -208,6 +222,14 @@ A relative term describing services that receive data from the current context. 
 A named representation of a data routing service that can receive data from other services.
 
 An IoT hub exposes multiple [endpoints](../iot-hub/iot-hub-devguide-endpoints.md) that enable your apps to connect to the IoT hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing management endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management. There are service-facing [built-in endpoints](#built-in-endpoints) for reading device-to-cloud messages. You can create [custom endpoints](#custom-endpoints) to receive device-to-cloud messages dispatched by a [routing rule](#routing-rules).
+
+### Enrollment
+
+In the [Device Provisioning Service](#device-provisioning-service), an enrollment is the record of individual devices or groups of devices that may register with a [Linked IoT hub](#linked-iot-hub) through autoprovisioning.
+
+### Enrollment group
+
+In the [Device Provisioning Service](#device-provisioning-service), an enrollment group identifies a group of devices that share an X.509 or symmetric key [attestation mechanism](#attestation-mechanism).
 
 ### Event Hub-compatible endpoint
 
@@ -235,11 +257,27 @@ A field gateway enables connectivity for devices that cannot connect directly to
 
 A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). See also [Field Gateway](#field-gateway), [Cloud Gateway](#cloud-gateway), and [Custom Gateway](#custom-gateway).
 
+## H
+
+### Hardware security module
+
+A hardware security module (HSM) is used for secure, hardware-based storage of device secrets. It is the most secure form of secret storage for a device. Both X.509 certificates and symmetric keys can be stored in an HSM. In the [Device Provisioning Service](#device-provisioning-service), an [attestation mechanism](#attestation-mechanism) can use an HSM.
+
 ## I
+
+### ID scope
+
+The ID scope is unique value assigned to a [Device Provisioning Service (DPS)](#device-provisioning-service) instance when it's created.
+
+IoT Central applications make use of DPS instances and make the ID Scope available through the IoT Central UI.
 
 ### Identity registry
 
 The [identity registry](../iot-hub/iot-hub-devguide-identity-registry.md) is the built-in component of an IoT hub that stores information about the individual devices permitted to connect to an IoT hub.
+
+### Individual enrollment
+
+In the [Device Provisioning Service](#device-provisioning-service), an individual enrollment identifies a single device that uses an X.509 leaf certificate or symmetric key as an [attestation mechanism](#attestation-mechanism).
 
 ### Interactive message
 
@@ -249,7 +287,7 @@ An interactive message is a [cloud-to-device](#cloud-to-device) message that tri
 
 In IoT Plug and Play, an interface describes related capabilities that are implemented by a [IoT Plug and Play device](#iot-plug-and-play-device) or [digital twin](#digital-twin). You can reuse interfaces across different [device models](#device-model). When an interface is used in a device model, it defines a [component](#component) of the device. A simple device only contains a default interface.
 
-In Azure Digital Twins, *interface* may be used to refer to the top level code item in a [DTDL](#digital-twins-definition-language-dtdl) model definition.
+In Azure Digital Twins, *interface* may be used to refer to the top-level code item in a [DTDL](#digital-twins-definition-language-dtdl) model definition.
 
 ### IoT Edge
 
@@ -363,6 +401,10 @@ Your solution back end can use [jobs](../iot-hub/iot-hub-devguide-jobs.md) to sc
 
 In Azure Digital Twins, this type of event is fired when a data item—such as a digital twin, a relationship, or an event handler—is created or deleted from your Azure Digital Twins instance.
 
+### Linked IoT hub
+
+The [Device Provisioning Service (DPS)](#device-provisioning-service), can provision devices to IoT hubs that have been linked to it. Linking an IoT hub to a DPS instance lets the service register a device ID and set the initial configuration in the device twin.
+
 ## M
 
 ### Model
@@ -435,6 +477,14 @@ A protocol gateway is typically deployed in the cloud and provides protocol tran
 
 ## R
 
+### Registration
+
+A registration is the record of a device in the IoT Hub [Identity registry](#identity-registry). You can register or device directly, or use the [Device Provisioning Service](#device-provisioning-service) to automate device registration.
+
+### Registration ID
+
+The registration ID is used to uniquely identify a device [registration](#registration) with the [Device Provisioning Service](#device-provisioning-service). The registration ID may be the same value as the [Device identity](#device-identity).
+
 ### Relationship
 
 In the [Azure Digital Twins](../digital-twins/index.yml) service, relationships are used to connect [digital twins](#digital-twin) into knowledge graphs that digitally represent your entire physical environment. The types of relationships that your twins can have are defined as part of the twins' [model](#model) definitions—the [DTDL](#digital-twins-definition-language-dtdl) model for a certain type of twin includes information about what relationships it can have to other twins.
@@ -464,6 +514,10 @@ SASL PLAIN is a protocol that the AMQP protocol uses to transfer security tokens
 ### Service REST API
 
 You can use the [Service REST API](/rest/api/iothub/service/configuration) from the solution back end to manage your devices. The API enables you to retrieve and update [device twin](#device-twin) properties, invoke [direct methods](#direct-method), and schedule [jobs](#job). Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
+
+### Service operations endpoint
+
+An [endpoint](#endpoint) for managing service settings used by a service administrator. For example, in the [Device Provisioning Service](#device-provisioning-service) you use the service endpoint to manage enrollments.
 
 ### Shared access signature
 
@@ -503,7 +557,7 @@ In IoT Plug and Play and Azure Digital Twins, telemetry fields defined in an [in
 
 Unlike [properties](#properties), telemetry is not stored on a [digital twin](#digital-twin); it is a stream of time-bound data events that need to be handled as they occur.
 
-## Telemetry event
+### Telemetry event
 
 An event that indicates the arrival of telemetry data.
 
