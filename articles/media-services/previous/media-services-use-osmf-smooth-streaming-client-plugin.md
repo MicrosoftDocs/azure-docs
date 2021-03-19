@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/10/2021
+ms.date: 3/10/2021f
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ---
@@ -28,7 +28,7 @@ SS for OSMF includes two versions of plugin:
 * Static Smooth Streaming plugin for OSMF (.swc)
 * Dynamic Smooth Streaming plugin for OSMF (.swf)
 
-This document assumes that the reader has a general working knowledge of OSMF and OSMF plug-ins. For more information about OSMF, please see the documentation on the [official OSMF site](http://osmf.org/).
+This document assumes that the reader has a general working knowledge of OSMF and OSMF plug-ins. For more information about OSMF, please see the documentation on the official OSMF site.
 
 ### Smooth Streaming plugin for OSMF 2.0
 The plugin supports loading and playback of on-demand Smooth Streaming content with the following features:
@@ -331,7 +331,7 @@ package
 ## Strobe Media  Playback with the SS ODMF Dynamic Plugin
 The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Playback (SMP)](https://sourceforge.net/adobe/smp/home/Strobe%20Media%20Playback/). You can use the SS for OSMF plugin to add Smooth Streaming content playback to SMP. To do this, copy "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" under a web server for HTTP load using the following steps:
 
-1. Browse the [Strobe Media Playback setup page](http://osmf.org/dev/2.0gm/setup.html). 
+1. Browse the [Strobe Media Playback setup page](http://www.koopman.me/bob3/setup.html). 
 2. Set the src to a Smooth Streaming source, (e.g. http:\//devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
 3. Make the desired configuration changes and click Preview and Update.
    
@@ -388,7 +388,7 @@ The Smooth Streaming for OSMF dynamic plugin is compatible with [Strobe Media Pl
 2. Save your HTML page and publish to a web server. Browse to the published web page using your favorite Flash&reg; Player enabled Internet browser (Internet Explorer, Chrome, Firefox, so on).
 3. Enjoy Smooth Streaming content inside Adobe&reg; Flash&reg; Player.
 
-For more information on general OSMF development, please see the official [OSMF development page](http://osmf.org/resources.html).
+For more information on general OSMF development, please see the official [OSMF development page](https://www.adobe.com/devnet/video/articles1/osmf_overview.html).
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
