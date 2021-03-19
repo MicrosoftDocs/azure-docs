@@ -56,7 +56,7 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 ## 1.6.2.3
 
 >[!NOTE]
-> - This release will initially be made available for download only. We will initiate the auto upgrade process later.
+> - This release will be made available for download only.
 > - The upgrade to this release will require a full synchronization due to sync rule changes.
 > - This release defaults the AADConnect server to the new V2 end point. Note that this end point is not supported in the German national cloud, the Chinese national cloud and the US government cloud and if you need to deploy this version in these clouds you need to follow [these instructions](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) to switch back to the V1 end point. Failure to do so will result in errors in synchronization.
 
