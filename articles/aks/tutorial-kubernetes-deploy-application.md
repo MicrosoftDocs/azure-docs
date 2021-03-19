@@ -75,9 +75,7 @@ kubectl apply -f azure-vote-all-in-one-redis.yaml
 
 The following example output shows the resources successfully created in the AKS cluster:
 
-```console
-$ kubectl apply -f azure-vote-all-in-one-redis.yaml
-
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
