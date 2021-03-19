@@ -108,7 +108,7 @@
             - name: Import a SOAP API and convert to REST
               href: restify-soap-api.md
             - name: Import an App Service
-              href: import-app-svc-as-api.md
+              href: import-app-service-as-api.md
             - name: Import a Function App
               href: import-function-app-as-api.md
             - name: Import a Logic App

@@ -11,7 +11,7 @@ ms.author: vlvinogr
 * [Import an OpenAPI specification](../articles/api-management/import-api-from-oas.md)
 * [Import a SOAP API](../articles/api-management/import-soap-api.md)
 * [Import a SOAP API and convert to REST](../articles/api-management/restify-soap-api.md)
-* [Import an Azure App Service](../articles/api-management/import-app-svc-as-api.md)
+* [Import an Azure App Service](../articles/api-management/import-app-service-as-api.md)
 * [Import an Azure Function App](../articles/api-management/import-function-app-as-api.md)
 * [Import an Azure Logic App](../articles/api-management/import-logic-app-as-api.md)
 * [Import a Service Fabric service](../articles/service-fabric/service-fabric-tutorial-deploy-api-management.md)

@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/api-management/import-api-app-as-api.md",
+      "redirect_url": "/api-management/import-app-service-as-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/copy-vm.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/copy-vm",
       "redirect_document_id": false
