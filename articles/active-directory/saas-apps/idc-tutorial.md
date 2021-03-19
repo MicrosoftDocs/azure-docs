@@ -124,7 +124,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure IDC SSO
 
-To configure single sign-on on the **IDC** side, send the downloaded **Federation Metadata XML** and appropriate copied URLs from the Azure portal to the [IDC support team](idc_support@idc.com). IDC configures this setting so the SAML SSO connection is set properly on both sides.
+To configure single sign-on on the **IDC** side, send the downloaded **Federation Metadata XML** and appropriate copied URLs from the Azure portal to the [IDC support team](mailto:idc_support@idc.com). IDC configures this setting so the SAML SSO connection is set properly on both sides.
 
 ### Create IDC test user
 
