@@ -41,6 +41,12 @@
       href: tutorial-cross-region-powershell.md
     - name: Create cross-region load balancer - Azure CLI
       href: tutorial-cross-region-cli.md
+  - name: NAT gateway
+    items:
+    - name: Integrate NAT gateway public load balancer
+      href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+    - name: Integrate NAT gateway internal load balancer
+      href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
 - name: Samples
   items:
   - name: Azure CLI
