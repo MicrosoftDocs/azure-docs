@@ -51,7 +51,7 @@ In this section, you'll create a Standard Azure Load Balancer.
     | SKU           | Leave the default **Standard**. |
     | Tier          | Leave the default **Regional**. |
     | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**. |
-    | Public IP address name | Type **myPublicIP** in the text box.|
+    | Public IP address name | Type **myPublicIPLB** in the text box.|
     | Availability zone | Select **Zone-redundant** to create a resilient load balancer. To create a zonal load balancer, select a specific zone from 1, 2, or 3 |
     | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](../virtual-network/ipv6-overview.md)  |
     | Routing preference | Leave the default of **Microsoft network**. </br> For more information on routing preference, see [What is routing preference (preview)?](../virtual-network/routing-preference-overview.md). |
@@ -275,7 +275,7 @@ In this section, you'll create a NAT gateway and assign it to the subnet in the 
 
     | **Setting** | **Value** |
     | ----------- | --------- |
-    | Public IP addresses | Select **Create a new public IP address**. </br> In **Name**, enter **myPublicIP**. </br> Select **OK**. |
+    | Public IP addresses | Select **Create a new public IP address**. </br> In **Name**, enter **myPublicIP-NAT**. </br> Select **OK**. |
 
 6. Select the **Subnet** tab, or select the **Next: Subnet** button at the bottom of the page.
 
