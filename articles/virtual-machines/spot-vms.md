@@ -54,9 +54,9 @@ Azure Spot Virtual Machines can be deployed to any region, except Microsoft Azur
 
 The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
 
--	Enterprise Agreement
--	Pay-as-you-go offer code 003P
--	Sponsored
+-	Enterprise Agreement 
+-	Pay-as-you-go offer code (003P)
+-	Sponsored (0036P and 0136P)
 - For Cloud Service Provider (CSP), contact your partner
 
 
