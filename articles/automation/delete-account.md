@@ -114,7 +114,7 @@ To delete your Automation account linked to a Log Analytics workspace in support
 To remove an installed solution using Azure PowerShell, use the [Remove-AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution) cmdlet.
 
 ```powershell
-Remove-AzMonitorLogAnalyticsSolution  -ResourceGroupName resourceGroupName -Name solutionName
+Remove-AzMonitorLogAnalyticsSolution -ResourceGroupName "resourceGroupName" -Name "solutionName"
 ```
 
 ---
