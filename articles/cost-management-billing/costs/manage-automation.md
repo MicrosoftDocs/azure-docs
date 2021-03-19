@@ -177,9 +177,9 @@ Languages supported by a culture code:
 | pl-pl | Polish (Poland) |
 | tr-tr	| Turkish (Turkey) |
 | da-dk	| Danish (Denmark) |
-| dn-gb	| English (United Kingdom) |
+| en-gb	| English (United Kingdom) |
 | hu-hu	| Hungarian (Hungary) |
-| nb-bo	| Norwegian Bokmal (Norway) |
+| nb-no	| Norwegian Bokmal (Norway) |
 | nl-nl	| Dutch (Netherlands) |
 | pt-pt	| Portuguese (Portugal) |
 | sv-se	| Swedish (Sweden) |
