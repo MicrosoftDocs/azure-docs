@@ -93,7 +93,7 @@ Vowpal Wabbit supports incremental training by adding new data to an existing mo
 + To generate scores from the model, use [Score Vowpal Wabbit Model](score-vowpal-wabbit-model.md).
 
 > [!NOTE]
-> If you need to deploy the trained model in the designer, make sure that [Score Vowpal Wabbit Model](score-vowpal-wabbit-model.md) instead of **Score Model** is connected to the input of [Web Service Output module](web-service-input-output) in the inference pipeline.
+> If you need to deploy the trained model in the designer, make sure that [Score Vowpal Wabbit Model](score-vowpal-wabbit-model.md) instead of **Score Model** is connected to the input of [Web Service Output module](web-service-input-output.md) in the inference pipeline.
 
 ## Technical notes
 

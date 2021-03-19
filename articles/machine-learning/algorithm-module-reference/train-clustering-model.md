@@ -49,7 +49,7 @@ After training has completed:
 + To generate scores from the model, use [Assign Data to Clusters](assign-data-to-clusters.md).
 
 > [!NOTE]
-> If you need to deploy the trained model in the designer, make sure that [Assign Data to Clusters](assign-data-to-clusters.md) instead of **Score Model** is connected to the input of [Web Service Output module](web-service-input-output) in the inference pipeline.
+> If you need to deploy the trained model in the designer, make sure that [Assign Data to Clusters](assign-data-to-clusters.md) instead of **Score Model** is connected to the input of [Web Service Output module](web-service-input-output.md) in the inference pipeline.
 
 ## Next steps
 
