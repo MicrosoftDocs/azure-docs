@@ -96,11 +96,7 @@ In the newly created function code file, paste in the following code, rename the
 
 Publish the project with *DpsAdtAllocationFunc.cs* function to a function app in Azure.
 
-<<<<<<< HEAD
 [!INCLUDE [digital-twins-publish-and-configure-function-app.md](../../includes/digital-twins-publish-and-configure-function-app.md)]
-=======
-Ensure that the permissions and Managed Identity role assignment are configured correctly for the function app, as described in the section [*Assign permissions to the function app*](tutorial-end-to-end.md#configure-permissions-for-the-function-app) in the end-to-end tutorial.
->>>>>>> 755afe8585ffedcf4f60ad789fbd1a3bd4a0e05d
 
 ### Create Device Provisioning enrollment
 
