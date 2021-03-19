@@ -97,7 +97,7 @@ Once the upload completes, the Search Index is ready to use. Review your new Ind
 Note your **Search resource name**. You will need this to connect the Azure Function app to your Search resource. 
 
 > [!CAUTION]
-> While you may be tempted use your Search admin key in the Azure Function, that isn't following the principle of least privilege. The Azure Function will use the query key to conform to least privilege. 
+> While you may be tempted to use your Search admin key in the Azure Function, that isn't following the principle of least privilege. The Azure Function will use the query key to conform to least privilege. 
 
 ## Next steps
 

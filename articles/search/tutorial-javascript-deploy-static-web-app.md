@@ -76,7 +76,7 @@ The Azure Function app won't return Search data until the Search secrets are in 
     |SearchIndexName|`good-books`|
     |SearchFacets|`authors*,language_code`|
 
-## Use website Search in your Static web app
+## Use search in your Static web app
 
 1. In Visual Studio Code, open the [Activity bar](https://code.visualstudio.com/docs/getstarted/userinterface), and select the Azure icon.
 1. In the Side bar, **right-click on your Azure subscription** under the `Static web apps` area and find the Static web app you created for this tutorial.
