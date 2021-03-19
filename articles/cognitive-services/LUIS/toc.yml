@@ -70,16 +70,16 @@
     - name: Add Patterns
       displayName: syntax, template, roles
       href: luis-how-to-model-intent-pattern.md
-  - name: Train
-    href: luis-how-to-train.md
-    displayName: negative sampling, nondeterministic, non-deterministic, UseAllTrainingData
-  - name: Test
+  - name: Train and test your app
     items:
-    - name: Interactive testing
-      href: luis-interactive-test.md
-    - name: Batch testing
-      href: luis-how-to-batch-test.md
-      displayName: import, export
+      - name: Train your app
+        href: luis-how-to-train.md
+        displayName: negative sampling, nondeterministic, non-deterministic, UseAllTrainingData
+      - name: Interactive testing
+        href: luis-interactive-test.md
+      - name: Batch testing
+        href: luis-how-to-batch-test.md
+        displayName: import, export
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Query prediction runtime
@@ -115,16 +115,10 @@
       diplayName: import, export, container
     - name: With Traffic Manager
       href: luis-traffic-manager.md
-  - name: Use APIs
-    items:
-    - name: For Developers
-      href: developer-reference-resource.md
-    - name: App schema
-      href: app-schema-definition.md
-    - name: Get intent using the REST API
-      href: luis-get-started-get-intent-from-rest.md
-    - name: Change model using the REST API
-      href: get-started-get-model-rest-apis.md
+  - name: Get intent using the REST API
+    href: luis-get-started-get-intent-from-rest.md
+  - name: Change model using the REST API
+    href: get-started-get-model-rest-apis.md
   - name: Deploy
     items:
     - name: Use containers
@@ -141,9 +135,6 @@
         displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, French, German, Italian, Korean, Portuguese, Spanish, Turkish, Keigo, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
       - name: Cognitive Services containers documentation
         href: ../containers/index.yml
-  - name: Use DevOps
-    href: luis-how-to-devops-with-github.md
-  
 - name: Concepts
   items:
   - name: Artificial intelligence
@@ -210,16 +201,14 @@
       displayName: import
   - name: Applying DevOps practices with LUIS
     items:
+    - name: Use DevOps
+      href: luis-how-to-devops-with-github.md
     - name: Source control and branch strategies for LUIS
       href: luis-concept-devops-sourcecontrol.md
     - name: Testing for DevOps
       href: luis-concept-devops-testing.md
     - name: CI/CD workflows
       href: luis-concept-devops-automation.md 
-
-
-
-      
 - name: Tutorials
   items:
   - name: Build decomposable app
