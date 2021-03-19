@@ -60,7 +60,7 @@ Authorization, such as role-specific authorization, can be handled by inspecting
 
 ### Authentication module architecture
 
-#### Windows
+#### Windows (non-container deployment)
 
 The authentication and authorization module runs in the same sandbox as your application code. When it's enabled, every incoming HTTP request passes through it before being handled by your application code.
 
