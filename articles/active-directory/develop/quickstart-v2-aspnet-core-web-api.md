@@ -39,12 +39,12 @@ In this quickstart, you download an ASP.NET Core web API code sample and review 
 > 1. For **Name**, enter a name for your application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of your app will see this name, and you can change it later.
 > 1. Select **Register**.
 > 1. Under **Manage**, select **Expose an API** > **Add a scope**. For **Application ID URI**, accept the default by selecting **Save and continue**, and then enter the following details:
->    - **Scope name**: **access_as_user**
+>    - **Scope name**: `access_as_user`
 >    - **Who can consent?**: **Admins and users**
->    - **Admin consent display name**: **Access AspNetCoreWebApi-Quickstart**
->    - **Admin consent description**: **Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.**
->    - **User consent display name**: **Access AspNetCoreWebApi-Quickstart**
->    - **User consent description**: **Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.**
+>    - **Admin consent display name**: `Access AspNetCoreWebApi-Quickstart`
+>    - **Admin consent description**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
+>    - **User consent display name**: `Access AspNetCoreWebApi-Quickstart`
+>    - **User consent description**: `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
 >    - **State**: **Enabled**
 > 1. Select **Add scope** to complete the scope addition.
 
