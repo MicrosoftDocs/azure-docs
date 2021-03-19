@@ -22,36 +22,6 @@ This guide shows you how you can attach Kubernetes clusters as a compute to run 
 
 To use your Kubernetes cluster for training, you need to attach it to your Azure Machine Learning workspace. 
 
-# [Studio ](#tab/studio)
-
-1. Navigate to the [portal](https://ml.azure.com).
-1. Select the **Compute** tab.
-1. Select **Attached compute**.
-1. Select **New+ > Kubernetes service**.
-1. Enter the name of your compute.
-
-# [Python SDK](#tab/sdk)
-
-1. Install the SDK
-1. Attach the cluster
-
-    ```python
-    from azureml.contrib.core.compute.kubernetescompute import KubernetesCompute
-    
-    k8s_config = {
-    }
-    
-    attach_config = KubernetesCompute.attach_configuration(
-        resource_id="<YOUR-RESOURCE-ID>",
-        aml_k8s_config=k8s_config
-    )
-    
-    compute_target = KubernetesCompute.attach(ws, "aks-compute", attach_config)
-    compute_target.wait_for_completion(show_output=True)
-    ```
-
----
-
 ## Submit training job (Kubernetes)
 
 Given an experiment, use the Python SDK
