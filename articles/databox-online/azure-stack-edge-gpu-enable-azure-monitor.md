@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/02/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ---
 
 # Enable Azure Monitor on your Azure Stack Edge Pro GPU device
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Monitoring containers on your Azure Stack Edge Pro GPU device is critical, specially when you are running multiple compute applications. Azure Monitor lets you collect container logs and memory and processor metrics from the Kubernetes cluster running on your device.
 
@@ -45,7 +47,7 @@ Take the following steps to create a log analytics workspace. A log analytics wo
 
         ![Review + Create for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
-For more information, see the detailed steps in [Create a Log Analytics workspace via Azure portal](../azure-monitor/learn/quick-create-workspace.md).
+For more information, see the detailed steps in [Create a Log Analytics workspace via Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 
 
@@ -53,7 +55,7 @@ For more information, see the detailed steps in [Create a Log Analytics workspac
 
 Take the following steps to enable Container Insights on your workspace. 
 
-1. Follow the detailed steps in the [How to add the Azure Monitor Containers solution](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
+1. Follow the detailed steps in the [How to add the Azure Monitor Containers solution](../azure-monitor/containers/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
 
     ```yml
     {

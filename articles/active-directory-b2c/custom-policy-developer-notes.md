@@ -66,7 +66,7 @@ Custom policy capabilities are under constant development. The following table i
 | [OAuth2 implicit flow](implicit-flow-single-page-application.md) |  |  | X |  |
 | [OAuth2 resource owner password credentials](ropc-custom.md) |  | X |  |  |
 | [OIDC Connect](openid-connect.md) |  |  | X |  |
-| [SAML2](connect-with-saml-service-providers.md)  |  |  |X  | POST and Redirect bindings. |
+| [SAML2](saml-service-provider.md)  |  |  |X  | POST and Redirect bindings. |
 | OAuth1 |  |  |  | Not supported. |
 | WSFED | X |  |  |  |
 
@@ -77,7 +77,7 @@ Custom policy capabilities are under constant development. The following table i
 | [OpenID Connect](openid-connect-technical-profile.md) |  |  | X | For example, Google+.  |
 | [OAuth2](oauth2-technical-profile.md) |  |  | X | For example, Facebook.  |
 | [OAuth1](oauth1-technical-profile.md) |  | X |  | For example, Twitter. |
-| [SAML2](saml-identity-provider-technical-profile.md) |  |   | X | For example, Salesforce, ADFS. |
+| [SAML2](identity-provider-generic-saml.md) |  |   | X | For example, Salesforce, ADFS. |
 | WSFED| X |  |  |  |
 
 

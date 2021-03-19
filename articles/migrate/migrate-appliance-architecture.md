@@ -11,81 +11,58 @@ ms.date: 06/09/2020
 
 # Azure Migrate appliance architecture
 
-This article describes the Azure Migrate appliance architecture and processes. The Azure Migrate appliance is a lightweight appliance that's deployed on premises, to discover VMs and physical servers for migration to Azure. 
+This article describes the Azure Migrate appliance architecture and processes. The Azure Migrate appliance is a lightweight appliance that's deployed on premises, to discover VMs and physical servers for migration to Azure.
 
 ## Deployment scenarios
 
 The Azure Migrate appliance is used in the following scenarios.
 
-**Scenario** | **Tool** | **Used for** 
+**Scenario** | **Tool** | **Used to** 
 --- | --- | ---
-**VMware VM assessment** | Azure Migrate:Server Assessment | Discover VMware VMs.<br/><br/> Discover machine apps and dependencies.<br/><br/> Collect machine metadata and performance metadata and send to Azure.
-**VMware VM migration (agentless)** | Azure Migrate:Server Migration | Discover VMware VMs<br/><br/>  Replicate VMware VMs with [agentless migration](server-migrate-overview.md).
-**Hyper-V VM assessment** | Azure Migrate:Server Assessment | Discover Hyper-V VMs.<br/><br/> Collect machine metadata and performance metadata and send to Azure.
-**Physical machine** |  Azure Migrate:Server Assessment |  Discover physical servers.<br/><br/> Collect machine metadata and performance metadata and send to Azure.
+**Discovery and assessment of servers running in VMware environment** | Azure Migrate:Server Assessment | Discover servers running in your VMware environment<br/><br/> Perform discovery of installed applications, agentless dependency analysis and discover SQL Server instances and databases.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Agentless migration of servers running in VMware environment** | Azure Migrate:Server Migration | Discover servers running in your VMware environment.<br/><br/> Replicate servers without installing any agents on them.
+**Discovery and assessment of servers running in Hyper-V environment** | Azure Migrate:Server Assessment | Discover servers running in your Hyper-V environment.<br/><br/> Collect server configuration and performance metadata for assessments.
+**Discovery and assessment of physical or virtualized servers on-premises** |  Azure Migrate:Server Assessment |  Discover physical or virtualized servers on-premises.<br/><br/> Collect server configuration and performance metadata for assessments.
 
-## Appliance components
+## Deployment methods
 
-The appliance has a number of components.
+The appliance can be deployed using a couple of methods:
 
-- **Management app**: This is a web app for user input during appliance deployment. Used when assessing machines for migration to Azure.
-- **Discovery agent**: The agent gathers machine configuration data. Used when assessing machines for migration to Azure. 
-- **Collector agent**: The agent collects performance data. Used when assessing machines for migration to Azure.
-- **DRA agent**: Orchestrates VM replication, and coordinates communication between replicated machines and Azure. Used only when replicating VMware VMs to Azure using agentless migration.
-- **Gateway**: Sends replicated data to Azure. Used only when replicating VMware VMs to Azure using agentless migration.
-- **Auto update service**: Updates appliance components (runs every 24 hours).
+- The appliance can be deployed using a template for servers running in VMware or Hyper-V environment ([OVA template for VMware](how-to-set-up-appliance-vmware.md) or [VHD for Hyper-V](how-to-set-up-appliance-hyper-v.md)).
+- If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V environment using a [PowerShell installer script](deploy-appliance-script.md).
+- In Azure Government, you should deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](deploy-appliance-script-government.md).
+- For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script.Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
+- Download links are available in the tables below.
 
+## Appliance services
 
+The appliance has the following services:
 
-## Appliance deployment
+- **Appliance configuration manager**: This is a web application which can be configured with source details to start the discovery and assessment of servers. 
+- **Discovery agent**: The agent collects server configuration metadata which can be used to create as on-premises assessments.
+- **Assessment agent**: The agent collects server performance metadata which can be used to create performance-based assessments.
+- **Auto update service**: The service keeps all the agents running on the appliance up-to-date. It automatically runs once every 24 hours.
+- **DRA agent**: Orchestrates server replication, and coordinates communication between replicated servers and Azure. Used only when replicating servers to Azure using agentless migration.
+- **Gateway**: Sends replicated data to Azure. Used only when replicating servers to Azure using agentless migration.
+- **SQL discovery and assessment agent**: sends the configuration and performance metadata of SQL Server instances and databases to Azure.
 
-- The Azure Migrate appliance can be set up using a template for [Hyper-V](how-to-set-up-appliance-hyper-v.md) or [VMware](how-to-set-up-appliance-vmware.md) or using a PowerShell script installer for [VMware/Hyper-V](deploy-appliance-script.md), and for [physical servers](how-to-set-up-appliance-physical.md). 
-- Appliance support requirements and deployment prerequisites are summarized in the [appliance support matrix](migrate-appliance.md).
+> [!Note]
+> The last 3 services are only available in the appliance used for discovery and assessment of servers running in your VMware environment.<br/> Discovery and assessment of SQL Server instances and databases running in your VMware environment is now in preview. To try out this feature, use [**this link**](https://aka.ms/AzureMigrate/SQL) to create a project in **Australia East** region. If you already have a project in Australia East and want to try out this feature, please ensure that you have completed these [**prerequisites**](how-to-discover-sql-existing-project.md) on the portal.
 
-
-## Appliance registration
-
-During appliance setup, you register the appliance with Azure Migrate, and the actions summarized in the table occur.
-
-**Action** | **Details** | **Permissions**
---- | --- | ---
-**Register source providers** | These resources providers are registered in the subscription you choose during appliance setup: Microsoft.OffAzure, Microsoft.Migrate and Microsoft.KeyVault.<br/><br/> Registering a resource provider configures your subscription to work with the resource provider. | To register the resource providers, you need a Contributor or Owner role on the subscription.
-**Create Azure AD app-communication** | Azure Migrate creates an Azure Active Directory (Azure AD) app for communication (authentication and authorization) between the agents running on the appliance, and their respective services running on Azure.<br/><br/> This app does not have privileges to make Azure Resource Manager calls, or Azure RBAC access on any resource. | You need [these permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) for Azure Migrate to create the app.
-**Create Azure AD apps-Key vault** | This app is created only for agentless migration of VMware VMs to Azure.<br/><br/> It's used exclusively to access the key vault created in the user's subscription for agentless migration.<br/><br/> It has Azure RBAC access on the Azure key vault (created in customer's tenant), when discovery is initiated from the appliance. | You need [these permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) for Azure Migrate to create the app.
-
-
-
-## Collected data
-
-Data collected by the client for all deployment scenarios is summarized in the [appliance support matrix](migrate-appliance.md).
 
 ## Discovery and collection process
 
-![Architecture](./media/migrate-appliance-architecture/architecture1.png)
+:::image type="content" source="./media/migrate-appliance-architecture/architecture1.png" alt-text="Appliance architecture":::
 
-The appliance communicates with vCenter Servers and Hyper-V hosts/cluster using the following process.
+The appliance communicates with the discovery sources using the following process.
 
-1. **Start discovery**:
-    - When you start the discovery on the Hyper-V appliance, it communicates with the Hyper-V hosts on WinRM port 5985 (HTTP).
-    - When you start discovery on the VMware appliance, it communicates with the vCenter server on TCP port 443 by default. IF the vCenter server listens on a different port, you can configure it in the appliance web app.
-2. **Gather metadata and performance data**:
-    - The appliance uses a Common Information Model (CIM) session to gather Hyper-V VM data from the Hyper-V host on port 5985.
-    - The appliance communicates with port 443 by default, to gather VMware VM data from the vCenter Server.
-3. **Send data**: The appliance sends the collected data to Azure Migrate Server Assessment and Azure Migrate Server Migration over SSL port 443. The appliance can connect to Azure over the internet or via ExpressRoute (requires Microsoft peering).
-    - For performance data, the appliance collects real-time utilization data.
-        - Performance data is collected every 20 seconds for VMware, and every 30 seconds for Hyper-V, for each performance metric.
-        - The collected data is rolled up to create a single data point for 10 minutes.
-        - The peak utilization value is selected from all of the 20/30-second data points, and sent to Azure for assessment calculation.
-        - Based on the percentile value specified in the assessment properties (50th/90th/95th/99th), the ten-minute points are sorted in ascending order, and the appropriate percentile value is used to compute the assessment
-    - For Server Migration, the appliance starts collecting VM data, and replicates it to Azure.
-4. **Assess and migrate**: You can now create assessments from the metadata collected by the appliance using Azure Migrate Server Assessment. In addition, you can also start migrating VMware VMs using Azure Migrate Server Migration to orchestrate agentless VM replication.
-
-## Appliance upgrades
-
-The appliance is upgraded as the Azure Migrate agents running on the appliance are updated. This happens automatically because auto-update is enabled on the appliance by default. You can change this default setting to update the agents manually.
-
-You turn off auto-update in the registry by setting the HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" key to 0 (DWORD).
-
+**Process** | **VMware appliance** | **Hyper-V appliance** | **Physical appliance**
+---|---|---|---
+**Start discovery** | The appliance communicates with the vCenter server on TCP port 443 by default. If the vCenter server listens on a different port, you can configure it in the appliance configuration manager. | The appliance communicates with the Hyper-V hosts on WinRM port 5985 (HTTP). | The appliance communicates with Windows servers over WinRM port 5985 (HTTP) with Linux servers over port 22 (TCP).
+**Gather configuration and performance metadata** | The appliance collects the metadata of servers running on vCenter Server using vSphere APIs by connecting on port 443 (default port) or any other port vCenter Server listens on. | The appliance collects the metadata of servers running on Hyper-V hosts using a Common Information Model (CIM) session with hosts on port 5985.| The appliance collects metadata from Windows servers using Common Information Model (CIM) session with servers on port 5985 and from Linux servers using SSH connectivity on port 22.
+**Send discovery data** | The appliance sends the collected data to Azure Migrate:  Server Assessment and Azure Migrate: Server Migration over SSL port 443.<br/><br/> The appliance can connect to Azure over the internet or via ExpressRoute (requires Microsoft peering). | The appliance sends the collected data to Azure Migrate: Server Assessment over SSL port 443.<br/><br/> The appliance can connect to Azure over the internet or via ExpressRoute (requires Microsoft peering).| The appliance sends the collected data to Azure Migrate: Server Assessment over SSL port 443.<br/><br/> The appliance can connect to Azure over the internet or via ExpressRoute (requires Microsoft peering).
+**Data collection frequency** | Configuration metadata is collected and sent every 30 minutes. <br/><br/> Performance metadata is collected every 20 seconds and is aggregated to send a data point to Azure every 10 minutes. <br/><br/> Software inventory data is sent to Azure once every 12 hours. <br/><br/> Agentless dependency data is collected every 5 mins, aggregated on appliance and sent to Azure every 6 hours. <br/><br/> The SQL Server configuration data is updated once every 24 hours and the performance data is captured every 30 seconds.| Configuration metadata is collected and sent every 30 mins. <br/><br/> Performance metadata is collected every 30 seconds and is aggregated to send a data point to Azure every 10 minutes.|  Configuration metadata is collected and sent every 30 mins. <br/><br/> Performance metadata is collected every 5 minutes and is aggregated to send a data point to Azure every 10 minutes.
+**Assess and migrate** | You can create assessments from the metadata collected by the appliance using Azure Migrate:Server Assessment tool.<br/><br/>In addition, you can also start migrating servers running in your VMware environment using Azure Migrate:  Server Migration tool to orchestrate agentless server replication.| You can create assessments from the metadata collected by the appliance using Azure Migrate: Server Assessment tool. | You can create assessments from the metadata collected by the appliance using Azure Migrate: Server Assessment tool.
 
 ## Next steps
 

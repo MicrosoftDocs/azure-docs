@@ -1,7 +1,7 @@
 ---
 title: Rendering applications
 description: It's possible to use any rendering applications with Azure Batch. However, Azure Marketplace VM images are available with common applications pre-installed.
-ms.date: 02/12/2021
+ms.date: 03/12/2021
 ms.topic: how-to
 ---
 
@@ -9,13 +9,16 @@ ms.topic: how-to
 
 It's possible to use any rendering applications with Azure Batch. However, Azure Marketplace VM images are available with common applications pre-installed.
 
-Where applicable, pay-per-use licensing is available for the pre-installed rendering applications. When a Batch pool is created, the required applications can be specified and both the cost of VM and applications will be billed per minute. Application prices are listed on the [Azure Batch pricing page](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
+Where applicable, pay-for-use licensing is available for the pre-installed rendering applications. When a Batch pool is created, the required applications can be specified and both the cost of VM and applications will be billed per minute. Application prices are listed on the [Azure Batch pricing page](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 Some applications only support Windows, but most are supported on both Windows and Linux.
 
+> [!IMPORTANT]
+> The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on 29 February 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+
 ## Applications on latest CentOS 7 rendering image
 
-The following list applies to the CentOS rendering image, version 1.1.7.
+The following list applies to the CentOS rendering image, version 1.2.0.
 
 * Autodesk Maya I/O 2020 Update 4.6
 * Autodesk Arnold for Maya 2020 (Arnold version 6.2.0.0) MtoA-4.2.0-2020

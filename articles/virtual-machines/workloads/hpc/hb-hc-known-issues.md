@@ -3,9 +3,9 @@ title: Troubleshooting known issues with HPC and GPU VMs - Azure Virtual Machine
 description: Learn about troubleshooting known issues with HPC and GPU VM sizes in Azure. 
 author: vermagit
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: hpc
 ms.topic: article
-ms.date: 1/19/2021
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
 
@@ -15,9 +15,13 @@ ms.reviewer: cynthn
 
 This article provides the most common issues and solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
 
-## Accelerated Networking on HB, HC, HBv2 and NDv2
+## Known Issues on HBv3
+- InfiniBand is currently supported only on the 120-core VM (Standard_HB120rs_v3). Support on other VMs sizes will be enabled soon.
+- Azure Accelerated Networking is not supported on HBv3-series in all regions. This feature will be enabled soon.
 
-[Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is now available on the RDMA and InfiniBand capable and SR-IOV enabled VM sizes [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) and [NDv2](../../ndv2-series.md). This capability now allows enhanced throughout (up to 30 Gbps) and latencies over the Azure Ethernet network. Though this is separate from the RDMA capabilities over the InfiniBand network, some platform changes for this capability may impact behavior of certain MPI implementations when runing jobs over InfiniBand. Specifically the InfiniBand interface on some VMs may have a slightly different name (mlx5_1 as opposed to earlier mlx5_0) and this may require tweaking of the MPI command lines especially when using the UCX interface (commonly with OpenMPI and HPC-X).
+## Accelerated Networking on HB, HC, HBv2, and NDv2
+
+[Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is now available on the RDMA and InfiniBand capable and SR-IOV enabled VM sizes [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md), and [NDv2](../../ndv2-series.md). This capability now allows enhanced throughout (up to 30 Gbps) and latencies over the Azure Ethernet network. Though this is separate from the RDMA capabilities over the InfiniBand network, some platform changes for this capability may impact behavior of certain MPI implementations when running jobs over InfiniBand. Specifically the InfiniBand interface on some VMs may have a slightly different name (mlx5_1 as opposed to earlier mlx5_0) and this may require tweaking of the MPI command lines especially when using the UCX interface (commonly with OpenMPI and HPC-X).
 More details on this are available on this [blog article](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) with instructions on how to address any observed issues.
 
 ## InfiniBand driver installation on N-series VMs
@@ -50,11 +54,7 @@ This 'duplicate MAC with cloud-init on Ubuntu" is a known issue. The workaround 
 
 ## DRAM on HB-series
 
-HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM.
-
-## Accelerated Networking
-
-Azure Accelerated Networking on IB-enabled HPC and GPU VMs is not enabled at this time. We will notify customers when this feature is supported.
+HB-series VMs can only expose 228 GB of RAM to guest VMs at this time. Similarly, 458 GB on HBv2 and 448 GB on HBv3 VMs. This is due to a known limitation of Azure hypervisor to prevent pages from being assigned to the local DRAM of AMD CCX’s (NUMA domains) reserved for the guest VM.
 
 ## qp0 Access Restriction
 
@@ -110,5 +110,5 @@ You may ignore the following kernel warning messages when booting an HB-series V
 ## Next steps
 
 - Review the [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md) to learn about optimally configuring workloads for performance and scalability.
-- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher-level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

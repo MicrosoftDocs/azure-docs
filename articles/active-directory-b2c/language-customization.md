@@ -111,6 +111,7 @@ If you want to change the string for a custom user attribute, or you want to add
       "Value": "<ExtensionAttributeValue>"
     }
     [...]
+  ]
 }
 ```
 
@@ -125,22 +126,24 @@ If you want to provide a set list of values for responses, you need to create a 
 ```json
 {
   "LocalizedStrings": [...],
-  "LocalizedCollections": [{
+  "LocalizedCollections": [
+    {
       "ElementType":"ClaimType",
       "ElementId":"<UserAttribute>",
       "TargetCollection":"Restriction",
       "Override": true,
       "Items":[
-           {
-                "Name":"<Response1>",
-                "Value":"<Value1>"
-           },
-           {
-                "Name":"<Response2>",
-                "Value":"<Value2>"
-           }
-     ]
-  }]
+        {
+          "Name":"<Response1>",
+          "Value":"<Value1>"
+        },
+        {
+          "Name":"<Response2>",
+          "Value":"<Value2>"
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -177,7 +180,7 @@ https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 
 ## Add custom languages
 
-You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the user flow. Language and locale codes are limited to those in the ISO 639-1 standard. The locale code format should be "ISO_639-1_code"-"CountryCode" For Eg: en-GB. For more information on locale ID formats, please refer to https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
+You can also add languages that Microsoft currently does not provide translations for. You'll need to provide the translations for all the strings in the user flow. Language and locale codes are limited to those in the ISO 639-1 standard. The locale code format should be "ISO_639-1_code"-"CountryCode", for example `en-GB`. For more information on locale ID formats, please refer to https://docs.microsoft.com/openspecs/office_standards/ms-oe376/6c085406-a698-4e12-9d4d-c3b0ee3dbc4a
 
 1. In your Azure AD B2C tenant, select **User flows**.
 2. Click the user flow where you want to add custom languages, and then click **Languages**.
@@ -219,7 +222,7 @@ The [LocalizedResources](localization.md#localizedresources) of the `Localizatio
 You configure localized resources elements for the content definition and any language you want to support. To customize the unified sign-up or sign-in pages for English and Spanish, you add the following `LocalizedResources` elements after the close of the `</SupportedLanguages>` element.
 
 > [!NOTE]
-> In the following sample we added the pound `#` symbol at the begging of each line, so you can easly find the localized labels on the screen.
+> In the following sample we added the pound `#` symbol at the beginning of each line, so you can easily find the localized labels on the screen.
 
 ```xml
 <!--Local account sign-up or sign-in page English-->

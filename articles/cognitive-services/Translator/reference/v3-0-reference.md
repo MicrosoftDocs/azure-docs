@@ -30,7 +30,7 @@ Microsoft Translator is served out of multiple datacenter locations. Currently t
 
 * **Americas:** East US, South Central US, West Central US, and West US 2 
 * **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
-* **Europe:** North Europe and West Europe
+* **Europe:** North Europe, West Europe, Switzerland North<sup>1,2</sup>, and Switzerland West<sup>1,2</sup>
 
 Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.
 
@@ -42,6 +42,17 @@ To force the request to be handled by a specific Azure geography, change the Glo
 |Azure|United States|	api-nam.cognitive.microsofttranslator.com|
 |Azure|Europe|	api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
+
+<sup>1</sup> Customer with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’ then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
+```curl
+// Pass secret key and region using headers to a custom endpoint
+curl -X POST " my-ch-n.cognitiveservices.azure.com/translator/text/v3.0/translate?to=fr" \
+-H "Ocp-Apim-Subscription-Key: xxx" \
+-H "Ocp-Apim-Subscription-Region: switzerlandnorth" \
+-H "Content-Type: application/json" \
+-d "[{'Text':'Hello'}]" -v
+```
+<sup>2</sup>Custom Translator is not currently available in Switzerland.
 
 ## Authentication
 
@@ -225,7 +236,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 503000| Service is temporarily unavailable. Please retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 
 ## Metrics 
-Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](../../../azure-monitor/platform/data-platform-metrics.md).
+Metrics allow you to view the translator usage and availability information in Azure portal, under metrics section as shown in the below screenshot. For more information, see [Data and platform metrics](../../../azure-monitor/essentials/data-platform-metrics.md).
 
 ![Translator Metrics](../media/translatormetrics.png)
 

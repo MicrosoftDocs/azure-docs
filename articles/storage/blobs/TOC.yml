@@ -153,18 +153,18 @@
         href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Data protection
       items:
+      - name: Soft delete for containers
+        href: soft-delete-container-overview.md
       - name: Versioning
         href: versioning-overview.md
       - name: Soft delete for blobs
         href: soft-delete-blob-overview.md
-      - name: Soft delete for containers
-        href: soft-delete-container-overview.md
+      - name: Point-in-time restore
+        href: point-in-time-restore-overview.md
       - name: Snapshots
         href: snapshots-overview.md
       - name: Change feed
-        href: storage-blob-change-feed.md
-      - name: Point-in-time restore
-        href: point-in-time-restore-overview.md
+        href: storage-blob-change-feed.md        
       - name: Immutable blobs
         href: storage-blob-immutable-storage.md
     - name: Redundancy and disaster recovery
@@ -246,14 +246,18 @@
           href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Monitor, diagnose, and troubleshoot
           href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: NFS 3.0 protocol support
+      items:
+      - name: Overview
+        href: network-file-system-protocol-support.md
+      - name: Performance considerations
+        href: network-file-system-protocol-support-performance.md
     - name: Event handling
       href: storage-blob-event-overview.md
     - name: Page blob features
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
-    - name: NFS 3.0 protocol support
-      href: network-file-system-protocol-support.md
   - name: How to
     items:
     - name: Create and manage storage accounts
@@ -291,6 +295,8 @@
         href: storage-blob-copy.md
       - name: Use blob index tags
         href: storage-blob-index-how-to.md
+      - name: Calculate blobs count and total size
+        href: calculate-blob-count-size.md
     - name: Authorize access to blob data
       items:
       - name: Authorization options for users
@@ -391,22 +397,26 @@
             href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Configure TLS version for a client application
             href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Configure network routing preference
+          href: ../common/configure-network-routing-preference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Configure Azure Defender for threat protection
         href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Protect blob data
       items:
+      - name: Lock a storage account
+        href: ../common/lock-account-resource.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Enable soft delete for containers
+        href: soft-delete-container-enable.md
       - name: Enable blob versioning
         href: versioning-enable.md
       - name: Enable soft delete for blobs
         href: soft-delete-blob-enable.md
-      - name: Enable soft delete for containers
-        href: soft-delete-container-enable.md
+      - name: Enable point-in-time restore
+        href: point-in-time-restore-manage.md
       - name: Create snapshots (.NET)
         href: snapshots-manage-dotnet.md
       - name: Process change feed logs
-        href: storage-blob-change-feed-how-to.md
-      - name: Enable point-in-time restore
-        href: point-in-time-restore-manage.md
+        href: storage-blob-change-feed-how-to.md        
       - name: Set and manage immutability policies
         href: storage-blob-immutability-policies-manage.md
     - name: Manage redundancy and failover
@@ -459,6 +469,8 @@
           href: ../common/storage-use-azcopy-blobs-copy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Examples: Amazon S3 buckets'
           href: ../common/storage-use-azcopy-s3.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: 'Examples: Google Cloud Storage buckets'
+          href: ../common/storage-use-azcopy-google-cloud.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Configure, optimize, troubleshoot
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
@@ -557,6 +569,8 @@
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
         href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Storage Explorer command line options
+        href: ../common/storage-explorer-command-line-options.md
       - name: Storage Explorer security
         href: ../common/storage-explorer-security.md
       - name: Storage Explorer blob versioning
@@ -635,20 +649,16 @@
     items:
     - name: Introduction to Data Lake Storage
       href: data-lake-storage-introduction.md
-  - name: Quickstarts
-    items:
-    - name: Analyze data with Databricks
-      href: data-lake-storage-quickstart-create-databricks-account.md
   - name: Tutorials
     items:
-    - name: Extract, transform, and load data using Azure Databricks
-      href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Access Data Lake Storage data with Databricks using Spark
+    - name: Use with Databricks and Spark
       href: data-lake-storage-use-databricks-spark.md
-    - name: Extract, transform, load data with Apache Hive on Azure HDInsight
+    - name: Use with Apache Hive and HDInsight
       href: data-lake-storage-tutorial-extract-transform-load-hive.md
-    - name: Insert data into Databricks Delta tables by using Event Grid
+    - name: Use with Databricks Delta and Event Grid
       href: data-lake-storage-events.md
+    - name: Use with other Azure services
+      href: data-lake-storage-integrate-with-services-tutorials.md
   - name: Concepts
     items:
     - name: Processing big data
@@ -705,7 +715,7 @@
     items:
     - name: Create a storage account
       href: create-data-lake-storage-account.md
-    - name: Migrate
+    - name: Migrate accounts and data stores
       items:
       - name: Migrate from Data Lake Storage Gen1
         href: data-lake-storage-migrate-gen1-to-gen2.md
@@ -713,31 +723,7 @@
         href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
       - name: Migrate an HDFS store online
         href: migrate-gen2-wandisco-live-data-platform.md
-    - name: Manage
-      items:
-      - name: .NET
-        href: data-lake-storage-directory-file-acl-dotnet.md
-      - name: Java
-        href: data-lake-storage-directory-file-acl-java.md
-      - name: Python
-        href: data-lake-storage-directory-file-acl-python.md
-      - name: JavaScript
-        href: data-lake-storage-directory-file-acl-javascript.md
-      - name: PowerShell
-        href: data-lake-storage-directory-file-acl-powershell.md
-      - name: CLI
-        href: data-lake-storage-directory-file-acl-cli.md
-      - name: Storage Explorer
-        href: data-lake-storage-explorer.md
-      - name: Hadoop File System CLI
-        href: data-lake-storage-use-hdfs-data-lake-storage.md
-      - name: Set ACLs recursively
-        href: recursive-access-control-lists.md
-    - name: Query
-      items:
-      - name: Filter data with query acceleration
-        href: data-lake-storage-query-acceleration-how-to.md
-    - name: Transfer
+    - name: Transfer data
       items:
       - name: AzCopy
         items:
@@ -761,9 +747,47 @@
         href: data-lake-storage-use-distcp.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Optimize
+    - name: Manage access control
       items:
-      - name: Optimize performance
+      - name: Storage Explorer
+        href: data-lake-storage-explorer-acl.md
+      - name: PowerShell
+        href: data-lake-storage-acl-powershell.md
+      - name: CLI
+        href: data-lake-storage-acl-cli.md
+      - name: .NET
+        href: data-lake-storage-acl-dotnet.md
+      - name: Java
+        href: data-lake-storage-acl-java.md
+      - name: Python
+        href: data-lake-storage-acl-python.md
+      - name: JavaScript
+        href: data-lake-storage-acl-javascript.md
+    - name: Work with data
+      items:
+      - name: Storage Explorer
+        href: data-lake-storage-explorer.md
+      - name: PowerShell
+        href: data-lake-storage-directory-file-acl-powershell.md
+      - name: CLI
+        href: data-lake-storage-directory-file-acl-cli.md
+      - name: .NET
+        href: data-lake-storage-directory-file-acl-dotnet.md
+      - name: Java
+        href: data-lake-storage-directory-file-acl-java.md
+      - name: Python
+        href: data-lake-storage-directory-file-acl-python.md
+      - name: JavaScript
+        href: data-lake-storage-directory-file-acl-javascript.md
+      - name: Query acceleration
+        href: data-lake-storage-query-acceleration-how-to.md
+      - name: Hadoop File System CLI
+        href: data-lake-storage-use-hdfs-data-lake-storage.md
+    - name: Use with Azure services
+      href: data-lake-storage-integrate-with-services-tutorials.md
+    - name: Optimize performance
+      items:
+      - name: Performance optimization overview
         href: data-lake-storage-performance-tuning-guidance.md
       - name: Optimize Spark on HDInsight
         href: data-lake-storage-performance-tuning-spark.md
@@ -873,3 +897,5 @@
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    - name: Partners
+      href: ../solution-integration/

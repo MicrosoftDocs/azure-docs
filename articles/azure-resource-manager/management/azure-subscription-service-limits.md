@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 03/15/2021
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -165,7 +165,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ### Application Insights
 
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-app-insights.md)]
+[!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
 ## Azure Policy limits
 
@@ -182,6 +182,10 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 ## Azure SignalR Service limits
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
+
+## Azure VMware Solution limits
+
+[!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
 
 ## Backup limits
 

@@ -100,9 +100,9 @@ For more information about the AppSource trial experience, see [this video](http
 
 ## Get support
 
-For Azure AD integration, we use [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html) with the community to provide support.
+For Azure AD integration, we use [Microsoft Q&A](/answers/topics/azure-active-directory.html) with the community to provide support.
 
-We highly recommend you ask your questions on [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html) first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+We highly recommend you ask your questions on [Microsoft Q&A](/answers/topics/azure-active-directory.html) first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`[azure-active-directory]`](/answers/topics/azure-active-directory.html).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
 

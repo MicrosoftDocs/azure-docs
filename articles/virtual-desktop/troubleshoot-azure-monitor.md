@@ -20,9 +20,9 @@ If the configuration workbook isn't working properly to automate setup, you can 
 
 - To manually enable diagnostics or access the Log Analytics workspace, see [Send Windows Virtual Desktop diagnostics to Log Analytics](diagnostics-log-analytics.md).
 - To install the Log Analytics extension on a host manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
-- To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
-- To add or remove performance counters, see [Configuring performance counters](../azure-monitor/platform/data-sources-performance-counters.md).
-- To configure events for a Log Analytics workspace, see [Collect Windows event log data sources with Log Analytics agent](../azure-monitor/platform/data-sources-windows-events.md).
+- To set up a new Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+- To add or remove performance counters, see [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md).
+- To configure events for a Log Analytics workspace, see [Collect Windows event log data sources with Log Analytics agent](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## My data isn't displaying properly
 
@@ -36,9 +36,9 @@ If your data isn't displaying properly, check your configuration, permissions, a
     - Read-access to the subscription's resource groups that hold your Windows Virtual Desktop session hosts 
     - Read-access to the Log Analytics workspace
 
-- You may need to open outgoing ports in your server's firewall to allow Azure Monitor to send data to the portal, see [Outgoing ports](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
+- You may need to open outgoing ports in your server's firewall to allow Azure Monitor to send data to the portal, see [Outgoing ports](../azure-monitor/app/ip-addresses.md). 
 
-- Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/platform/data-ingestion-time.md).
+- Not seeing data from recent activity? You may want to wait for 15 minutes and refresh the feed. Azure Monitor has a 15-minute latency period for populating log data. To learn more, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
 
 If you're not missing any information but your data still isn't displaying properly, there may be an issue in the query or the data sources. Review our known issues and limitations. 
 
@@ -46,7 +46,7 @@ If you're not missing any information but your data still isn't displaying prope
 
 Azure Monitor for Windows Virtual Desktop uses Azure Monitor Workbooks. Workbooks lets you save a copy of the Windows Virtual Desktop workbook template and make your own customizations.
 
-By design, custom Workbook templates will not automatically adopt updates from the products group. For more information, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md) and the [Workbooks overview](../azure-monitor/platform/workbooks-overview.md).
+By design, custom Workbook templates will not automatically adopt updates from the products group. For more information, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md) and the [Workbooks overview](../azure-monitor/visualize/workbooks-overview.md).
 
 ## I can't interpret the data
 
@@ -56,8 +56,8 @@ Learn more about data terms at the [Azure Monitor for Window Virtual Desktop glo
 
 If you want to monitor more Performance Counters or Events, you can enable them to send to your Log Analytics workspace and monitor them in Host Diagnostics: Host browser. 
 
-- To add Performance counters, see [Configuring Performance counters](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-performance-counters)
-- To add Windows Events, see [Configuring Windows Event logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events#configuring-windows-event-logs)
+- To add Performance counters, see [Configuring Performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)
+- To add Windows Events, see [Configuring Windows Event logs](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs)
 
 Can't find a data point to help diagnose an issue? Send us feedback!
 

@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 03/01/2021
 ms.author: apimpm
 ---
 # API Management cross domain policies
@@ -57,7 +57,10 @@ This policy can be used in the following policy [sections](./api-management-howt
 - **Policy scopes:** all scopes
 
 ## <a name="CORS"></a> CORS
-The `cors` policy adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
+The `cors` policy adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients. 
+
+> [!NOTE]
+> If request matches an operation with an OPTIONS method defined in the API, pre-flight request processing logic associated with CORS policies will not be executed. Therefore, such operations can be used to implement custom pre-flight processing logic.
 
 CORS allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (i.e. XMLHttpRequests calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
 
@@ -66,7 +69,7 @@ You need to apply the CORS policy to enable the interactive console in the devel
 ### Policy statement
 
 ```xml
-<cors allow-credentials="false|true">
+<cors allow-credentials="false|true" terminate-unmatched-request="true|false">
     <allowed-origins>
         <origin>origin uri</origin>
     </allowed-origins>
@@ -133,6 +136,7 @@ This example demonstrates how to support pre-flight requests, such as those with
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|The `Access-Control-Allow-Credentials` header in the preflight response will be set to the value of this attribute and affect the client's ability to submit credentials in cross-domain requests.|No|false|
+|terminate-unmatched-request|This attribute controls the processing of cross-origin requests that don't match the CORS policy settings. When OPTIONS request is processed as a pre-flight request and doesn't match CORS policy settings: If the attribute is set to `true`, immediately terminate the request with an empty 200 OK response; If the attribute is set to `false`, check inbound for other in-scope CORS policies that are direct children of the inbound element and apply them.  If no CORS policies are found, terminate the request with an empty 200 OK response. When GET or HEAD request includes the Origin header (and therefore is processed as a cross-origin request) and doesn't match CORS policy settings: If the attribute is set to `true`, immediately terminate the request with an empty 200 OK response; If the attribute is set to `false`, allow the request to proceed normally and don't add CORS headers to the response.|No|true|
 |preflight-result-max-age|The `Access-Control-Max-Age` header in the preflight response will be set to the value of this attribute and affect the user agent's ability to cache pre-flight response.|No|0|
 
 ### Usage

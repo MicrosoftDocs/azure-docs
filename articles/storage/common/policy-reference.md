@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Storage
 description: Lists Azure Policy built-in policy definitions for Azure Storage. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 02/09/2021
+ms.date: 03/17/2021
 ms.topic: reference
 author: tamram
 ms.author: tamram
@@ -21,6 +21,14 @@ the link in the **Version** column to view the source on the
 ## Microsoft.Storage
 
 [!INCLUDE [azure-policy-reference-service-storage](../../../includes/policy/reference/byrp/microsoft.storage.md)]
+
+## Microsoft.StorageCache
+
+[!INCLUDE [azure-policy-reference-service-storagecache](../../../includes/policy/reference/byrp/microsoft.storagecache.md)]
+
+## Microsoft.StorageSync
+
+[!INCLUDE [azure-policy-reference-service-storagesync](../../../includes/policy/reference/byrp/microsoft.storagesync.md)]
 
 ## Microsoft.ClassicStorage
 

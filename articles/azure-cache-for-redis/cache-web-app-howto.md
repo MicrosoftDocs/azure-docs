@@ -16,6 +16,10 @@ ms.custom: "devx-track-csharp, mvc"
 
 In this quickstart, you use Visual Studio 2019 to create an ASP.NET web application that connects to Azure Cache for Redis to store and retrieve data from the cache. You then deploy the app to Azure App Service.
 
+## Skip to the code on GitHub
+
+If you want to skip straight to the code, see the [ASP.NET quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet) on GitHub.
+
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
@@ -23,29 +27,29 @@ In this quickstart, you use Visual Studio 2019 to create an ASP.NET web applicat
 
 ## Create the Visual Studio project
 
-1. Open Visual Studio, and then and select **File** >**New** > **Project**.
+1. Open Visual Studio, and then select **File** > **New** > **Project**.
 
-2. In the **New Project** dialog box, take the following steps:
+2. In the **Create a new project** dialog box, take the following steps:
 
     ![Create project](./media/cache-web-app-howto/cache-create-project.png)
 
-    a. In the **Templates** list, expand the **Visual C#** node.
+    a. In the search box, enter _C# ASP.NET Web Application_.
 
-    b. Select **Cloud**.
+    b. Select **ASP.NET Web Application (.NET Framework)**.
 
-    c. Select **ASP.NET Web Application**.
+    c. Select **Next**.
 
-    d. Verify that **.NET Framework 4.5.2** or higher is selected.
+3. In the **Project name** box, give the project a name. For this example, we used **ContosoTeamStats**.
 
-    e. In the **Name** box, give the project a name. For this example, we used **ContosoTeamStats**.
+4. Verify that **.NET Framework 4.6.1** or higher is selected.
 
-    f. Select **OK**.
+5. Select **Create**.
    
-3. Select **MVC** as the project type.
+6. Select **MVC** as the project type.
 
-4. Make sure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default **Authentication** setting might be something else. To change it, select **Change Authentication** and then **No Authentication**.
+7. Make sure that **No Authentication** is specified for the **Authentication** settings. Depending on your version of Visual Studio, the default **Authentication** setting might be something else. To change it, select **Change Authentication** and then **No Authentication**.
 
-5. Select **OK** to create the project.
+8. Select **Create** to create the project.
 
 ## Create a cache
 
@@ -119,10 +123,11 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
 1. In **Solution Explorer**, expand the **Controllers** folder, and then open the *HomeController.cs* file.
 
-2. Add the following two `using` statements at the top of the file to support the cache client and app settings.
+2. Add the following `using` statements at the top of the file to support the cache client, app settings, and string builder.
 
     ```csharp
     using System.Configuration;
+    using System.Text;
     using StackExchange.Redis;
     ```
 

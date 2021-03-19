@@ -29,7 +29,7 @@ Based on your use case, you can use a managed service account (MSA), a computer 
 
 ### Group MSA accounts
 
-Use [group managed service accounts](service-accounts-group-managed.md) (gMSAs) whenever possible for services running in your on-premises environment. gMSAs provide a single identity solution for a service running on a server farm, or behind a network load balancer. They can also be used for a service running on a single server. [gMSAs have specific requirements that must be met](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
+Use [group managed service accounts](service-accounts-group-managed.md) (gMSAs) whenever possible for services running in your on-premises environment. gMSAs provide a single identity solution for a service running on a server farm, or behind a network load balancer. They can also be used for a service running on a single server. [gMSAs have specific requirements that must be met](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts)
 
 ### Standalone MSA accounts
 
@@ -134,4 +134,3 @@ See the following articles on securing service accounts
 
 * [Govern on-premises service accounts](service-accounts-govern-on-premises.md)
 
- 

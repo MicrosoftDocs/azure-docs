@@ -2,17 +2,17 @@
 title: Tutorial - Deploy and configure VMware HCX
 description: Learn how to deploy and configure a VMware HCX solution for your Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 03/13/2021
 ---
 
 # Deploy and configure VMware HCX
 
 This article shows you how to deploy and configure the on-premises VMware HCX Connector for your Azure VMware Solution private cloud. With VMware HCX, you can migrate your VMware workloads to Azure VMware Solution and other connected sites through various migration types. Because Azure VMware Solution deploys and configures the HCX Cloud Manager, you must download, activate, and configure the HCX Connector in your on-premises VMware datacenter.
 
-VMware HCX Advanced Connector is pre-deployed in Azure VMware Solution. It supports up to three site connections (on-premises to cloud, or cloud to cloud). If you need more than three site connections, submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to enable the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on. The add-on is currently in preview. 
+VMware HCX Advanced Connector is pre-deployed in Azure VMware Solution. It supports up to three site connections (on-premises to cloud, or cloud to cloud). If you need more than three site connections, submit a [support request](https://portal.azure.com/#create/Microsoft.Support) to enable the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on.  
 
 >[!TIP]
->Although the VMware Configuration Maximum tool describes site pairs maximum to be 25 between the on-premises Connector and Cloud Manager, the licensing limits this to three for Advanced and 10 for Enterprise Edition.
+>Although the VMware Configuration Maximum tool describes site pairs maximum to be 25 between the on-premises Connector and Cloud Manager, the licensing limits this to three for HCX Advanced and 10 for HCX Enterprise Edition.
 
 >[!NOTE]
 >VMware HCX Enterprise is available with Azure VMware Solution as a preview service. It's free and is subject to terms and conditions for a preview service. After the VMware HCX Enterprise service is generally available, you'll get a 30-day notice that billing will switch over. You'll also have the option to turn off or opt-out of the service. There is no simple downgrade path from VMware HCX Enterprise to VMware HCX Advanced. If you decide to downgrade, you'll have to redeploy, incurring downtime.
@@ -53,9 +53,9 @@ Make sure that your on-premises vSphere environment (source environment) meets t
 
 ### Network and ports
 
-* [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) is configured between on-premises and Azure VMware Solution SDDC ExpressRoute circuits.
+* [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) is configured between on-premises and Azure VMware Solution private cloud ExpressRoute circuits.
 
-* [All required ports](https://ports.vmware.com/home/VMware-HCX) are open for communication between on-premises components and Azure VMware Solution SDDC.
+* [All required ports](https://ports.vmware.com/home/VMware-HCX) are open for communication between on-premises components and Azure VMware Solution private.
 
 ### IP addresses
 
@@ -71,12 +71,15 @@ Before you deploy the virtual appliance to your on-premises vCenter, you must do
 
    :::image type="content" source="media/tutorial-vmware-hcx/find-hcx-ip-address.png" alt-text="Screenshot of the VMware HCX IP address." lightbox="media/tutorial-vmware-hcx/find-hcx-ip-address.png":::
 
-1. Select **Manage** > **Identity** and select **vCenter admin password** to identify the password.
+1. Select **Manage** > **Identity**. 
+
+   The URLs and user credentials for private cloud vCenter and NSX-T Manager display.
 
    > [!TIP]
-   > The vCenter password was defined when you set up the private cloud. It's the same password you'll use to sign in to Azure VMware Solution HCX Manager.
+   > The vCenter password was defined when you set up the private cloud. It's the same password you'll use to sign in to Azure VMware Solution HCX Manager. You can select **Generate a new password** to generate new vCenter and NSX-T passwords.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="find hcx password." lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Display private cloud vCenter and NSX Manager URLs and credentials." border="true":::
+
 
 1. Open a browser window, sign in to the Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin\@vsphere.local** user credentials
 
@@ -149,7 +152,7 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
    > [!NOTE]
    > Typically, it's the same as your vCenter FQDN or IP address.
 
-1. Verify that the information entered is correct, and select **Restart**.
+1. Verify that the information entered is correct and select **Restart**.
     
    > [!NOTE]
    > You'll experience a delay after restarting before being prompted for the next step.
@@ -161,7 +164,7 @@ After the services restart, you'll see vCenter showing as green on the screen th
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Activate HCX](https://www.youtube.com/embed/PnVg6SZkQsY?rel=0&amp;vq=hd720) video.
 
    > [!IMPORTANT]
-   > Whether you're using VMware HCX Advanced or VMware HCX Enterprise, you may need to install the patch from VMware's [KB article 81558](https://kb.vmware.com/s/article/81558). 
+   > Whether you're using HCX Advanced or HCX Enterprise, you may need to install the patch from VMware's [KB article 81558](https://kb.vmware.com/s/article/81558). 
 
 ## Configure the VMware HCX Connector
 
@@ -175,7 +178,7 @@ You can connect or pair the VMware HCX Cloud Manager in Azure VMware Solution wi
 
 1. Under **Infrastructure**, select **Site Pairing**, and then select the **Connect To Remote Site** option (in the middle of the screen). 
 
-1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin@vsphere.local username, and the password. Then select **Connect**.
+1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the Azure VMware Solution cloudadmin\@vsphere.local username, and the password. Then select **Connect**.
 
    > [!NOTE]
    > To successfully establish a site pair:
@@ -274,7 +277,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
 ### Create a service mesh
 
-Now it's time to configure a service mesh between on-premises and Azure VMware Solution SDDC.
+Now it's time to configure a service mesh between on-premises and Azure VMware Solution private cloud.
 
 
 
@@ -361,7 +364,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: N
 
 ## Next steps
 
-If the appliance interconnect tunnel status is **UP** and green, you can migrate and protect Azure VMware Solution VMs by using VMware HCX. Azure VMware Solution supports workload migrations (with or without a network extension). You can still migrate workloads in your vSphere environment, along with on-premises creation of networks and deployment of VMs onto those networks.  
+If the HCX interconnect tunnel status is **UP** and green, you can migrate and protect Azure VMware Solution VMs by using VMware HCX. Azure VMware Solution supports workload migrations (with or without a network extension). You can still migrate workloads in your vSphere environment, along with on-premises creation of networks and deployment of VMs onto those networks.  
 
 For more information on using HCX, go to the VMware technical documentation:
 

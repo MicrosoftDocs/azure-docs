@@ -7,11 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/08/2021
+ms.date: 03/08/2021
 ms.author: alkohli
 ---
 
 # Azure Stack Edge 2101 release notes
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 The following release notes identify the critical open issues and the resolved issues for the 2101 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
 
@@ -23,7 +25,7 @@ This article applies to the **Azure Stack Edge 2101** release, which maps to sof
 
 The following new features are available in the Azure Stack Edge 2101 release. 
 
-- **General availability of Azure Stack Edge Pro R and Azure Stack Edge Mini R devices** - Starting with this release, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices will be available. For more information, see [What is Azure Stack Edge Pro R](azure-stack-edge-j-series-overview.md) and [What is Azure Stack Edge Mini R](azure-stack-edge-k-series-overview.md).  
+- **General availability of Azure Stack Edge Pro R and Azure Stack Edge Mini R devices** - Starting with this release, Azure Stack Edge Pro R and Azure Stack Edge Mini R devices will be available. For more information, see [What is Azure Stack Edge Pro R](azure-stack-edge-pro-r-overview.md) and [What is Azure Stack Edge Mini R](azure-stack-edge-mini-r-overview.md).  
 - **Cloud management of Virtual Machines** - Beginning this release, you can create and manage the virtual machines on your device via the Azure portal. For more information, see [Deploy VMs via the Azure portal](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 - **Integration with Azure Monitor** - You can now use Azure Monitor to monitor containers from the compute applications that run on your device. The Azure Monitor metrics store is not supported in this release. For more information, see how to [Enable Azure Monitor on your device](azure-stack-edge-gpu-enable-azure-monitor.md).
 - **Edge container registry** - In this release, an Edge container registry is available that provides a repository at the edge on your device. You can use this registry to store and manage container images. For more information, see [Enable Edge container registry](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 

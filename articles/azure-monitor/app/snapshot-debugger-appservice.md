@@ -11,7 +11,11 @@ ms.reviewer: mbullwin
 
 # Enable Snapshot Debugger for .NET apps in Azure App Service
 
-Snapshot Debugger currently works for ASP.NET and ASP.NET Core apps that are running on Azure App Service on Windows service plans. We recommend that you run your application on the Basic service tier or higher when using snapshot debugger. For most applications, the Free and Shared service tiers don't have enough memory or disk space to save snapshots.
+Snapshot Debugger currently supports ASP.NET and ASP.NET Core apps that are running on Azure App Service on Windows service plans.
+
+We recommend you run your application on the Basic service tier, or higher, when using snapshot debugger.
+
+For most applications, the Free and Shared service tiers don't have enough memory or disk space to save snapshots.
 
 ## <a id="installation"></a> Enable Snapshot Debugger
 To enable Snapshot Debugger for an app, follow the instructions below.
@@ -24,7 +28,10 @@ If you're running a different type of Azure service, here are instructions for e
 * [On-premises virtual or physical machines](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
 > [!NOTE]
-> If you're using a preview version of .NET Core or your application references Application Insights SDK, directly or indirectly via a dependent assembly, follow the instructions for [Enable Snapshot Debugger for other environments](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) first to include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package with the application, and then complete the rest of the instructions below. 
+> If you're using a preview version of .NET Core, or your application references Application Insights SDK, directly or indirectly via a dependent assembly, follow the instructions for [Enable Snapshot Debugger for other environments](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) to include the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package with the application, and then complete the rest of the instructions below. 
+>
+> Codeless installation of Application Insights Snapshot Debugger follows the .NET Core support policy.
+> For more information about supported runtimes, see [.NET Core Support Policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Snapshot Debugger is pre-installed as part of the App Services runtime, but you need to turn it on to get snapshots for your App Service app.
 
@@ -42,6 +49,16 @@ Once you've deployed an app, follow the steps below to enable the snapshot debug
 4. Snapshot Debugger is now enabled using an App Services App Setting.
 
     ![App Setting for Snapshot Debugger][snapshot-debugger-app-setting]
+
+## Enable Snapshot Debugger for other clouds
+
+Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide) through the Application Insights Connection String.
+
+|Connection String Property    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+For more information about other connection overrides, see [Application Insights documentation](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## Disable Snapshot Debugger
 

@@ -40,7 +40,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 You can analyze the data in your workspace default ADLS Gen2 account or you can link an ADLS Gen2 or Blob storage account to your workspace through "**Manage**" > "**Linked Services**" > "**New**" (The steps below will refer to the primary ADLS Gen2 account).
 
 1. In Synapse Studio, go to the **Data** hub, and then select **Linked**.
-1. Go to **Storage accounts** > **myworkspace (Primary - contosolake)**.
+1. Go to **Azure data Lake Storage Gen2** > **myworkspace (Primary - contosolake)**.
 1. Select **users (Primary)**. You should see the **NYCTaxi** folder. Inside you should see two folders called **PassengerCountStats_csvformat** and **PassengerCountStats_parquetformat**.
 1. Open the **PassengerCountStats_parquetformat** folder. Inside, you'll see a parquet file with a name like `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet`.
 1. Right-click **.parquet**, then select **New notebook**, then select **Load to DataFrame**. A new notebook is created with a cell like this:

@@ -5,7 +5,9 @@ services: virtual-machines
 documentationcenter: ''
 author: mathapli
 manager: westonh
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: azure-hybrid-benefit
+ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020

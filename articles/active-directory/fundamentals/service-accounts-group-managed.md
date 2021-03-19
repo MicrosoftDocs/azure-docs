@@ -36,7 +36,7 @@ gMSAs offer a single identity solution with greater security while reducing admi
 Use gMSAs as the preferred account type for on-premises services unless a service, such as Failover Clustering, doesn't support it.
 
 > [!IMPORTANT]
-> You must test your service with gMSAs prior to deployment into production. To do so, set up a test environment and ensure the application can use the gMSA, and access the resources it needs to access. For more information, see [Support for group managed service accounts](https://docs.microsoft.com/system-center/scom/support-group-managed-service-accounts?view=sc-om-2019).
+> You must test your service with gMSAs prior to deployment into production. To do so, set up a test environment and ensure the application can use the gMSA, and access the resources it needs to access. For more information, see [Support for group managed service accounts](/system-center/scom/support-group-managed-service-accounts?view=sc-om-2019).
 
 
 If a service doesn't support the use of gMSAs, your next best option is to use a standalone Managed Service Account (sMSA). sMSAs provide the same functionality as a gMSA, but are intended for deployment on a single server only.
@@ -103,18 +103,18 @@ You can use the following Active Directory PowerShell cmdlets for managing gMSAs
 `Uninstall-ADServiceAccount`
 
 > [!NOTE]
-> Beginning with Windows Server 2012, the *-ADServiceAccount cmdlets work with gMSAs by default. For more information on usage of the above cmdlets, see [**Getting Started with Group Managed Service Accounts**](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
+> Beginning with Windows Server 2012, the *-ADServiceAccount cmdlets work with gMSAs by default. For more information on usage of the above cmdlets, see [**Getting Started with Group Managed Service Accounts**](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 
 ## Move to a gMSA
 gMSAs are the most secure type of service account for on-premises needs. If you can move to one, you should. Additionally, consider moving your services to Azure and your service accounts to Azure Active directory.
 
-1.  Ensure that the [KDS Root Key is deployed in the forest](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key). This is a one-time operation.
+1.  Ensure that the [KDS Root Key is deployed in the forest](/windows-server/security/group-managed-service-accounts/create-the-key-distribution-services-kds-root-key). This is a one-time operation.
 
-2. [Create a new gMSA](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
+2. [Create a new gMSA](/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts).
 
 3. Install the new gMSA on each host running the service.
    > [!NOTE] 
-   > For more information on creation and installation of gMSA on a host, prior to configuring your service to use gMSA, see [Getting Started with Group Managed Service Accounts](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11))
+   > For more information on creation and installation of gMSA on a host, prior to configuring your service to use gMSA, see [Getting Started with Group Managed Service Accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11))
 
  
 4. Change your service identity to gMSA and specify a blank password.

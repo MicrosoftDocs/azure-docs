@@ -11,7 +11,7 @@ ms.author: surmb
 ---
 # Metrics for Application Gateway
 
-Application Gateway publishes data points, called metrics, to [Azure Monitor](../azure-monitor/overview.md) for the performance of your Application Gateway and backend instances. These metrics are numerical values in an ordered set of time-series data that describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric is not reported. For more information, see [Azure Monitor metrics](../azure-monitor/platform/data-platform-metrics.md).
+Application Gateway publishes data points, called metrics, to [Azure Monitor](../azure-monitor/overview.md) for the performance of your Application Gateway and backend instances. These metrics are numerical values in an ordered set of time-series data that describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric is not reported. For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
 
 ## Metrics supported by Application Gateway V2 SKU
 
@@ -196,7 +196,7 @@ In the following image, you see an example with three metrics displayed for the 
 
 :::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Metric view." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
-To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### Alert rules on metrics
 
@@ -226,9 +226,9 @@ A list of alerts appears after you create a metric alert. It provides an overvie
 
 ![List of alerts and rules][9]
 
-To learn more about alert notifications, see [Receive alert notifications](../azure-monitor/platform/alerts-overview.md).
+To learn more about alert notifications, see [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md).
 
-To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
+To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## Next steps
 

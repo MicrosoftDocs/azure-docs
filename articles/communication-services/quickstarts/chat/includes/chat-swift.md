@@ -6,7 +6,7 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 2/11/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
@@ -44,16 +44,18 @@ Create a Podfile:
 
 Open the Podfile and add the following dependencies to the `ChatQuickstart` target:
 ```
-pod 'AzureCommunication', '~> 1.0.0-beta.8'
-pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
+pod 'AzureCommunication', '~> 1.0.0-beta.9'
+pod 'AzureCommunicationChat', '~> 1.0.0-beta.9'
 ```
 
 Install the dependencies, this will also create an Xcode workspace:
 `pod install`
 
+**After running pod install, re-open the project in Xcode by selecting the newly created `.xcworkspace`.**
+
 ### Setup the placeholders
 
-Open the workspace file `ChatQuickstart.xcworkspace` in Xcode and then open `ViewController.swift`.
+Open the workspace `ChatQuickstart.xcworkspace` in Xcode and then open `ViewController.swift`.
 
 In this Quickstart, we will add our code to `viewController`, and view the output in the Xcode console. This quickstart does not address building a UI in iOS. 
 
@@ -119,6 +121,10 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
 Replace `<ACS_RESOURCE_ENDPOINT>` with the endpoint of your ACS Resource.
 Replace `<ACCESS_TOKEN>` with a valid ACS access token.
 
+This quickstart does not cover creating a service tier to manage tokens for your chat application, although it is recommended. See the following documentation for more detail [Chat Architecture](../../../concepts/chat/concepts.md)
+
+Learn more about [User Access Tokens](../../access-tokens.md).
+
 ## Object model 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Chat client library for JavaScript.
 
@@ -138,7 +144,7 @@ let request = CreateThreadRequest(
     topic: "Quickstart",
     participants: [
         Participant(
-            id: "<USER_ID>",
+            id: CommunicationUserIdentifier("<USER_ID>"),
             displayName: "Jack"
         )
     ]
@@ -158,7 +164,7 @@ chatClient.create(thread: request) { result, _ in
 semaphore.wait()
 ```
 
-Replace `<<USER_ID>>` with a valid Communication Services user ID.
+Replace `<USER_ID>` with a valid Communication Services user ID.
 
 We're using a semaphore here to wait for the completion handler before continuing. We will use the `threadId` from the response returned to the completion handler in later steps.
 
@@ -202,7 +208,7 @@ Replace the comment `<ADD A USER>` with the following code:
 
 ```
 let user = Participant(
-    id: "<USER_ID>",
+    id: CommunicationUserIdentifier("<USER_ID>"),
     displayName: "Jane"
 )
 
@@ -232,7 +238,8 @@ chatThreadClient.listParticipants { result, _ in
     case let .success(participants):
         var iterator = participants.syncIterator
         while let participant = iterator.next() {
-            print(participant.user.identifier)
+            let user = participant.id as! CommunicationUserIdentifier
+            print(user.identifier)
         }
     case .failure:
         print("Failed to list participants")
@@ -250,7 +257,7 @@ Replace the `<REMOVE A USER>` comment with the following code:
 ```
 chatThreadClient
     .remove(
-        participant: "<USER_ID>"
+        participant: CommunicationUserIdentifier("<USER_ID>")
     ) { result, _ in
         switch result {
         case .success:

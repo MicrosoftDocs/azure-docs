@@ -1,5 +1,5 @@
 ---
-title: Find your Text Analytics resource endpoint and key - v2
+title: Find your Text Analytics resource endpoint and key
 titleSuffix: Azure Cognitive Services
 description: Learn how to create a Cognitive Services Text Analytics resource.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 01/08/2019
+ms.date: 02/09/2021
 ms.author: aahi
 ---
 > [!IMPORTANT]

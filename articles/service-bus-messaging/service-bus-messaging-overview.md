@@ -2,7 +2,7 @@
 title: Azure Service Bus messaging overview | Microsoft Docs
 description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration message broker. 
 ms.topic: overview
-ms.date: 01/28/2021
+ms.date: 02/16/2021
 ---
 
 # What is Azure Service Bus?
@@ -113,11 +113,10 @@ Client-side batching enables a queue or topic client to accumulate a set of mess
 A transaction groups two or more operations together into an *execution scope*. Service Bus allows you to group operations against multiple messaging entities within the scope of a single transaction. A message entity can be a queue, topic, or subscription. For more information, see [Overview of Service Bus transaction processing](service-bus-transactions.md).
 
 ### Autodelete on idle
-
-Autodelete on idle enables you to specify an idle interval after which a queue or topic subscription is automatically deleted. The minimum duration is 5 minutes. For more information, see the [QueueDescription.AutoDeleteOnIdle Property](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
+Autodelete on idle enables you to specify an idle interval after which a queue or topic subscription is automatically deleted. The minimum duration is 5 minutes. 
 
 ### Duplicate detection
-The duplicate detection feature enables the sender to resend the same message again and for the broker to drop a potential duplicate. The duplicate detection is based on tracking the `message-id` property of a message, meaning the application needs to take care to use the same value when resending the message, which might be directly derived from some application-specific context. For more information, see [Duplicate detection](duplicate-detection.md).
+The duplicate detection feature enables the sender to resend the same message again and for the broker to drop a potential duplicate. For more information, see [Duplicate detection](duplicate-detection.md).
 
 ### Geo-disaster recovery
 

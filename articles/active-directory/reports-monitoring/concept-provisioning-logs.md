@@ -56,8 +56,8 @@ For you to view the provisioning activity report, your tenant must have an Azure
 Customers can interact with the provisioning logs in four ways:
 
 - Accessing the logs from the Azure portal, as described in the next section.
-- Streaming the provisioning logs into [Azure Monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics). This method allows for extended data retention and building custom dashboards, alerts, and queries.
-- Querying the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) for the provisioning logs.
+- Streaming the provisioning logs into [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). This method allows for extended data retention and building custom dashboards, alerts, and queries.
+- Querying the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) for the provisioning logs.
 - Downloading the provisioning logs as a CSV or JSON file.
 
 ## Access the logs from the Azure portal
@@ -204,7 +204,7 @@ The JSON file is downloaded in minified format to reduce the size of the downloa
 
 Here are some sample commands to work with the JSON file by using PowerShell. You can use any programming language that you're comfortable with.  
 
-First, [read the JSON file](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) by running this command:
+First, [read the JSON file](/powershell/module/microsoft.powershell.utility/convertfrom-json) by running this command:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

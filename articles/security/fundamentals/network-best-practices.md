@@ -202,7 +202,7 @@ Azure Private Link provide the following benefits:
 - **Global reach**: Connect privately to services running in other regions. The consumer's virtual network could be in region A and it can connect to services in region B.
 - **Simple to set up and manage**: You no longer need reserved, public IP addresses in your virtual networks to secure Azure resources through an IP firewall. There are no NAT or gateway devices required to set up the private endpoints. Private endpoints are configured through a simple workflow. On service side, you can also manage the connection requests on your Azure service resource with ease. Azure Private Link works for consumers and services belonging to different Azure Active Directory tenants too. 
 	
-To learn more about private endpoints and the Azure services and regions that private endpoints are available for, see [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
+To learn more about private endpoints and the Azure services and regions that private endpoints are available for, see [Azure Private Link](../../private-link/private-link-overview.md).
 
 
 ## Next steps

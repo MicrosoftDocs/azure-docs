@@ -101,7 +101,7 @@ For troubleshooting connectivity issues, review the following:
    ![ingress/egress numbers](./media/connect-application-instance/ingress-egress-numbers.png)
 
 - Check that the client machine (that is running the VPN client) has route entries for all the virtual networks that you need to access. The routes are stored in
-`%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+`%AppData%\Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
    ![route.txt](./media/connect-application-instance/route-txt.png)
 

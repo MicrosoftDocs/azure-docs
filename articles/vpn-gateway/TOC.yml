@@ -85,7 +85,7 @@
         href: create-routebased-vpn-gateway-cli.md
     - name: Verify a VPN gateway connection
       href: vpn-gateway-verify-connection-resource-manager.md
-    - name: Reset a VPN gateway
+    - name: Reset a VPN gateway or connection
       href: reset-gateway.md
     - name: Delete a VPN gateway
       items:
@@ -176,7 +176,11 @@
       - name: Work with VPN client profile files
         href: about-vpn-profile-download.md 
       - name: Intune - Deploy VPN client profile
-        href: vpn-profile-intune.md       
+        href: vpn-profile-intune.md
+    - name: Multiple authentication types
+      items:
+      - name: Azure portal
+        href: howto-point-to-site-multi-auth.md          
     - name: OpenVPN
       items:
       - name: Configure OpenVPN tunnel type
@@ -205,6 +209,8 @@
         href: vpn-gateway-bgp-resource-manager-ps.md
       - name: Azure CLI
         href: bgp-how-to-cli.md
+    - name: BGP diagnostics
+      href: bgp-diagnostics.md
     - name: Configure forced tunneling
       items:
       - name: Azure PowerShell
@@ -299,7 +305,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network#vpn
   - name: Azure PowerShell (classic)
-    href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
+    href: /powershell/module/servicemanagement/azure.service/#azure
   - name: REST
     href: /rest/api/network/virtualnetworkgateways
   - name: REST (classic)

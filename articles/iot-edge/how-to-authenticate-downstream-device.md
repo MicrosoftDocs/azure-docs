@@ -12,6 +12,8 @@ services: iot-edge
 
 # Authenticate a downstream device to Azure IoT Hub
 
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+
 In a transparent gateway scenario, downstream devices (sometimes called leaf devices or child devices) need identities in IoT Hub like any other device. This article walks through the options for authenticating a downstream device to IoT Hub, and then demonstrates how to declare the gateway connection.
 
 There are three general steps to set up a successful transparent gateway connection. This article covers the second step:
@@ -30,7 +32,7 @@ Complete the steps in [Configure an IoT Edge device to act as a transparent gate
 
 If you're using X.509 authentication, you will generate certificates for your downstream device. Have the same root CA certificate and the certificate generating script that you used for the transparent gateway article available to use again.
 
-This article refers to the *gateway hostname* at several points. The gateway hostname is declared in the **hostname** parameter of the config.yaml file on the IoT Edge gateway device. It's referred to in the connection string of the downstream device. The gateway hostname needs to be resolvable to an IP Address, either using DNS or a host file entry on the downstream device.
+This article refers to the *gateway hostname* at several points. The gateway hostname is declared in the **hostname** parameter of the config file on the IoT Edge gateway device. It's referred to in the connection string of the downstream device. The gateway hostname needs to be resolvable to an IP Address, either using DNS or a host file entry on the downstream device.
 
 ## Register device with IoT Hub
 
@@ -187,7 +189,7 @@ Connection strings for downstream devices need the following components:
 * The authentication method, whether symmetric key or X.509 certificates
   * If using symmetric key authentication provide either the primary or secondary key: `SharedAccessKey={key}`
   * If using X.509 certificate authentication, provide a flag: `x509=true`
-* The gateway device that the device connects through. Provide the **hostname** value from the IoT Edge gateway device's config.yaml file: `GatewayHostName={gateway hostname}`
+* The gateway device that the device connects through. Provide the **hostname** value from the IoT Edge gateway device's config file: `GatewayHostName={gateway hostname}`
 
 All together, a complete connection string looks like:
 

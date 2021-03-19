@@ -18,8 +18,8 @@ Learn about the data and resources collected by Azure Monitor from your Azure Ti
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for Azure Time Series Insights. For a list of all Azure Monitor support metrics (including Azure Time Series Insights), see [Azure Monitor supported metrics](../azure-monitor/platform/metrics-supported.md). 
-The resource provider for these metrics is [Microsoft.TimeSeriesInsights/environments/eventsources](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) and [Microsoft.TimeSeriesInsights/environments](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironments).
+This section lists all the automatically collected platform metrics collected for Azure Time Series Insights. For a list of all Azure Monitor support metrics (including Azure Time Series Insights), see [Azure Monitor supported metrics](../azure-monitor/essentials/metrics-supported.md). 
+The resource provider for these metrics is [Microsoft.TimeSeriesInsights/environments/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) and [Microsoft.TimeSeriesInsights/environments](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments).
 
 
 ### Ingress

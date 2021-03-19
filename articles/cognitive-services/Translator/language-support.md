@@ -13,7 +13,7 @@ ms.author: lajanuar
 ---
 # Language and region support for text and speech translation
 
-Use Translator to translate to and from any of the 70+ text translation languages. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
+Use Translator to translate to and from any of the 90 text translation languages and dialects. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
 
 You can also use Translator in conjunction with Custom Translator to build neural translation systems that understand the terminology used in your own business and industry, and with Microsoft Speech Service to add speech translation to your app.
 
@@ -31,8 +31,12 @@ Translator supports the following languages for text to text translation.
 | Language | Language code |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albanian | `sq` |
+| Amharic | `am` |
 | Arabic | `ar` |
+| Armenian | `hy` |
 | Assamese | `as` |
+| Azerbaijani | `az` |
 | Bangla | `bn` |
 | Bosnian (Latin) | `bs` |
 | Bulgarian | `bg` |
@@ -68,11 +72,13 @@ Translator supports the following languages for text to text translation.
 | Japanese | `ja` |
 | Kannada | `kn` |
 | Kazakh | `kk` |
+| Khmer | `km` |
 | Klingon | `tlh-Latn` |
 | Klingon (plqaD) | `tlh-Piqd` |
 | Korean | `ko` |
 | Kurdish (Central) | `ku` |
 | Kurdish (Northern) | `kmr` |
+| Lao | `lo` |
 | Latvian | `lv` |
 | Lithuanian | `lt` |
 | Malagasy | `mg` |
@@ -81,6 +87,8 @@ Translator supports the following languages for text to text translation.
 | Maltese | `mt` |
 | Maori | `mi` |
 | Marathi | `mr` |
+| Myanmar | `my` |
+| Nepali | `ne` |
 | Norwegian | `nb` |
 | Odia | `or` |
 | Pashto | `ps` |
@@ -104,6 +112,7 @@ Translator supports the following languages for text to text translation.
 | Tamil | `ta` |
 | Telugu | `te` |
 | Thai | `th` |
+| Tigrinya | `ti` |
 | Tongan | `to` |
 | Turkish | `tr` |
 | Ukrainian | `uk` |
@@ -124,6 +133,7 @@ Translator detects the following languages for translation and transliteration.
 | Language | Language code |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albanian | `sq` |
 | Arabic | `ar` |
 | Bulgarian | `bg` |
 | Catalan | `ca` |
@@ -146,6 +156,7 @@ Translator detects the following languages for translation and transliteration.
 | Hungarian | `hu` |
 | Icelandic | `is` |
 | Indonesian | `id` |
+| Inuktitut | `iu` |
 | Irish | `ga` |
 | Italian | `it` |
 | Japanese | `ja` |

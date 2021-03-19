@@ -29,7 +29,7 @@ This article lists supported Azure and third-party data source schemas, with lin
 | **Network**                          | IIS Logs               | W3CIISLog              | [Azure Monitor W3CIISLog reference](/azure/azure-monitor/reference/tables/w3ciislog) |
 | **Network**                          | VMinsights             | VMConnection           | [Azure Monitor VMConnection reference](/azure/azure-monitor/reference/tables/vmconnection) |
 | **Network**                          | Wire Data Solution     | WireData               | [Azure Monitor WireData reference](/azure/azure-monitor/reference/tables/wiredata) |
-| **Network**                          | NSG Flow Logs          | AzureNetworkAnalytics  | [Schema and data aggregation in Traffic Analytics](/azure/network-watcher/traffic-analytics-schema) |
+| **Network**                          | NSG Flow Logs          | AzureNetworkAnalytics  | [Schema and data aggregation in Traffic Analytics](../network-watcher/traffic-analytics-schema.md) |
 | | | | |
 
 > [!NOTE]

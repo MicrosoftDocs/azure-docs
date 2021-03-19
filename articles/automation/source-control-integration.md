@@ -3,7 +3,7 @@ title: Use source control integration in Azure Automation
 description: This article tells how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/12/2020
+ms.date: 03/10/2021
 ms.topic: conceptual
 ---
 
@@ -25,7 +25,7 @@ Azure Automation supports three types of source control:
 
 * A source control repository (GitHub or Azure Repos)
 * A [Run As account](automation-security-overview.md#run-as-accounts)
-* The [latest Azure modules](automation-update-azure-modules.md) in your Automation account, including the `Az.Accounts` module (Az module equivalent of `AzureRM.Profile`)
+* The [`AzureRM.Profile` module](/powershell/module/azurerm.profile/) must be imported into your Automation account. Note that the equivalent Az module (`Az.Accounts`) will not work with Automation source control.
 
 > [!NOTE]
 > Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs.

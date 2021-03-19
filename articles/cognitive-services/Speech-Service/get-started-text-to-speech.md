@@ -49,6 +49,20 @@ keywords: text to speech
 [!INCLUDE [CLI Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-cli.md)]
 ::: zone-end
 
+## Get position information
+
+Your project may need to know when a word is spoken by speech-to-text so that it can take specific action based on that timing. As an example, if you wanted to highlight words as they were spoken, you would need to know what to highlight, when to highlight it, and for how long to highlight it.
+
+You can accomplish this using the `WordBoundary` event available within `SpeechSynthesizer`. This event is raised at the beginning of each new spoken word and will provide a time offset within the spoken stream as well as a text offset within the input prompt.
+
+* `AudioOffset` reports the output audio's elapsed time between the beginning of synthesis and the start of the next word. This is measured in hundred-nanosecond units (HNS) with 10,000 HNS equivalent to 1 millisecond.
+* `WordOffset` reports the character position in the input string (original text or [SSML](speech-synthesis-markup.md)) immediately before the word that's about to be spoken.
+
+> [!NOTE]
+> `WordBoundary` events are raised as the output audio data becomes available, which will be faster than playback to an output device. Appropriately synchronizing stream timing to "real time" must be accomplished by the caller.
+
+You can find examples of using `WordBoundary` in the [text-to-speech samples](https://aka.ms/csspeech/samples) on GitHub.
+
 ## Next steps
 
 * [Get started with Custom Voice](how-to-custom-voice.md)

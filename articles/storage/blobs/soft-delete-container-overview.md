@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
@@ -23,8 +23,8 @@ For end to end protection for your blob data, Microsoft recommends enabling the 
 - Blob versioning, to automatically maintain previous versions of a blob. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 - Blob soft delete, to restore a blob or version that has been deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md).
 
-> [!WARNING]
-> Deleting a storage account cannot be undone. Container soft delete does not protect against the deletion of a storage account, but only against the deletion of containers in that account. To protect a storage account from deletion, configure a lock on the storage account resource. For more information about locking Azure Resource Manager resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
+> [!IMPORTANT]
+> Container soft delete is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## How container soft delete works
 
@@ -42,14 +42,14 @@ After the retention period has expired, the container is permanently deleted fro
 
 Disabling container soft delete does not result in permanent deletion of containers that were previously soft-deleted. Any soft-deleted containers will be permanently deleted at the expiration of the retention period that was in effect at the time that the container was deleted.
 
+> [!IMPORTANT]
+> Container soft delete does not protect against the deletion of a storage account, but only against the deletion of containers in that account. To protect a storage account from deletion, configure a lock on the storage account resource. For more information about locking Azure Resource Manager resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
+
 ## About the preview
 
 Container soft delete is available in preview in all Azure regions.
 
-> [!IMPORTANT]
-> The container soft delete preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
-
-Version 2019-12-12 and higher of the Azure Storage REST API supports container soft delete.
+Version 2019-12-12 or higher of the Azure Storage REST API supports container soft delete.
 
 ### Storage account support
 

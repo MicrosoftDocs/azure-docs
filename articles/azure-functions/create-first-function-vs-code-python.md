@@ -4,6 +4,10 @@ description: Learn how to create a Python function, then publish the local proje
 ms.topic: quickstart
 ms.date: 11/04/2020
 ms.custom: devx-track-python
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-vs-code-python-uiex
 ---
 
 # Quickstart: Create a function in Azure with Python using Visual Studio Code
