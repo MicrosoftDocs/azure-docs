@@ -332,9 +332,27 @@ For a more detailed example, see an [example notebook](https://aka.ms/pl-adla) o
 
 Azure Container Instances (ACI) are created dynamically when you deploy a model. You cannot create or attach ACI to your workspace in any other way. For more information, see [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md).
 
-## <a id="aks"></a>Azure Kubernetes Service
+## <a id="aks"></a>Azure Kubernetes Service (preview)
 
 Azure Kubernetes Service (AKS) allows for various configuration options when used with Azure Machine Learning. For more information, see [How to create and attach Azure Kubernetes Service](how-to-create-attach-kubernetes.md).
+
+1. Install the Python SDK
+1. Attach the cluster
+
+    ```python
+    from azureml.contrib.core.compute.kubernetescompute import KubernetesCompute
+    
+    k8s_config = {
+    }
+    
+    attach_config = KubernetesCompute.attach_configuration(
+        resource_id="<YOUR-RESOURCE-ID>",
+        aml_k8s_config=k8s_config
+    )
+    
+    compute_target = KubernetesCompute.attach(ws, "aks-compute", attach_config)
+    compute_target.wait_for_completion(show_output=True)
+    ```
 
 ## Notebook examples
 

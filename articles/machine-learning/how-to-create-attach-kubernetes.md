@@ -144,7 +144,7 @@ To find the default version that is used when **creating** a cluster through Azu
 ...
 ```
 
-## Create a new AKS inferencing cluster
+## Create a new AKS cluster
 
 **Time estimate**: Approximately 10 minutes.
 
@@ -201,45 +201,7 @@ For information on creating an AKS cluster in the portal, see [Create compute ta
 
 ---
 
-## Attach an existing AKS cluster (preview)
-
-**Time estimate:** Approximately 5 minutes.
-
-If you already have AKS cluster in your Azure subscription, you can use it with your workspace.
-
-### Training
-
-# [Python](#tab/python)
-
-1. Install the Python SDK
-1. Attach the cluster
-
-    ```python
-    from azureml.contrib.core.compute.kubernetescompute import KubernetesCompute
-    
-    k8s_config = {
-    }
-    
-    attach_config = KubernetesCompute.attach_configuration(
-        resource_id="<YOUR-RESOURCE-ID>",
-        aml_k8s_config=k8s_config
-    )
-    
-    compute_target = KubernetesCompute.attach(ws, "aks-compute", attach_config)
-    compute_target.wait_for_completion(show_output=True)
-    ```
-
-# [Azure CLI](#tab/azure-cli)
-
-Attaching an existing AKS cluster for training using the Azure CLI is not supported at this time.
-
-# [Portal](#tab/azure-portal)
-
-For information on attaching an AKS cluster in the portal, see [Attach compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
-
----
-
-### Inferencing
+## Attach an existing AKS cluster
 
 **Time estimate:** Approximately 5 minutes.
 
