@@ -67,7 +67,7 @@ To stop protection and delete the backup data, perform the following steps:
 
          ![The Delete Backup Data pane.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-   Using this option, you can delete a scheduled backup and a backup that is created on demand.
+   This option deletes a scheduled backup and a backup that is created on demand.
 3. Check the **Notification** icon: ![The Notification icon.](./media/backup-azure-delete-vault/messages.png) After the process finishes, the service displays the following message: *Stopping backup and deleting backup data for "*Backup Item*"*. *Successfully completed the operation*.
 4. Select **Refresh** on the **Backup Items** menu, to make sure the backup item was deleted.
 
