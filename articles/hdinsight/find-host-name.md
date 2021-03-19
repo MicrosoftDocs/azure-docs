@@ -14,7 +14,7 @@ HDInsight cluster is created with public DNS clustername.azurehdinsight.net. Whe
 
 In this article, you learn how to get the host names of cluster nodes. You can get it manually through Ambari UI or automated through Ambari REST API.
 
-[!WARNING]
+> [!WARNING]
 > Please use the following recommended approaches to fetch host names of cluster nodes. The numbers in the host name is not guaranteed in sequence and HDInsight may change the host name format to align with VMs with release refresh. Don’t take the dependency on any certain naming convention that exists today. 
 >
 
