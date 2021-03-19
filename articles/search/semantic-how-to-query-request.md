@@ -13,7 +13,7 @@ ms.date: 03/18/2021
 # Create a query for semantic captions in Cognitive Search
 
 > [!IMPORTANT]
-> Semantic query type is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview, available through the preview REST API and Azure portal. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 In this article, learn how to formulate a search request that uses semantic ranking and returns semantic captions (and optionally [semantic answers](semantic-answers.md)), with highlights over the most relevant terms and phrases. Both captions and answers are returned in queries formulated using the "semantic" query type.
 
