@@ -6,10 +6,10 @@ services: active-directory
 author: kenwith
 manager: daveba
 ms.service: active-directory
+ms.subservice: app-mgmt
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2018
+ms.date: 03/19/2021
 ms.author: kenwith
 ms.reviewer: asteen
 ---
@@ -63,6 +63,17 @@ The following articles discuss the different ways applications integrate with Az
 * [Using applications in the Azure application gallery](what-is-single-sign-on.md)
 * [Integrating SaaS applications tutorials list](../saas-apps/tutorial-list.md)
 
+## Capabilities for apps not listed in the Azure AD gallery
+
+You can add any application that already exists in your organization, or any third-party application  from a vendor who is not already part of the Azure AD gallery. Depending on your [license agreement](https://azure.microsoft.com/pricing/details/active-directory/), the following capabilities are available:
+
+- Self-service integration of any application that supports [Security Assertion Markup Language (SAML) 2.0](https://wikipedia.org/wiki/SAML_2.0) identity providers (SP-initiated or IdP-initiated)
+- Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](sso-options.md#password-based-sso)
+- Self-service connection of applications that use the [System for Cross-Domain Identity Management (SCIM) protocol for user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+- Ability to add links to any application in the [Office 365 app launcher](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) or [My Apps](sso-options.md#linked-sign-on)
+
+If you're looking for developer guidance on how to integrate custom apps with Azure AD, see [Authentication Scenarios for Azure AD](../develop/authentication-vs-authorization.md). When you develop an app that uses a modern protocol like [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) to authenticate users, you can register it with the Microsoft identity platform by using the [App registrations](../develop/quickstart-register-app.md) experience in the Azure portal.
+
 ### Authentication Types
 Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) and [Password based single sign on](what-is-single-sign-on.md).
 
@@ -82,11 +93,9 @@ The following articles describe ways you can manage access to applications once 
 * [Sharing accounts](../enterprise-users/users-sharing-accounts.md)
 
 ## Next steps
-For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](../fundamentals/active-directory-deployment-plans.md). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Azure portal](https://portal.azure.com). 
+For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](../fundamentals/active-directory-deployment-plans.md). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Azure portal](https://portal.azure.com).
 
 To download a deployment plan from the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Enterprise Applications** | **Pick an App** | **Deployment Plan**.
-
-Please provide feedback on deployment plans by taking the [Deployment plan survey](https://aka.ms/DeploymentPlanFeedback).
