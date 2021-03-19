@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Integrate NAT gateway with a public load balancer - Azure portal'
 titleSuffix: Virtual Network NAT
-description: In this tutorial, learn how to integrate a Virtual Network NAT gateway with a public Azure Load Balancer using the Azure portal.
+description: In this tutorial, learn how to integrate a Virtual Network NAT gateway with a public load Balancer using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: virtual-network
@@ -15,7 +15,7 @@ ms.custom: template-tutorial
 
 In this tutorial, you'll learn how to integrate a NAT gateway with a public load balancer.
 
-By, default a Azure Standard Load Balancer is secure by default. Outbound connectivity is explicitly defined by enabling outbound SNAT (Source Network Address Translation) in a load balancing rule or with outbound rules. 
+By, default an Azure Standard Load Balancer is secure by default. Outbound connectivity is explicitly defined by enabling outbound SNAT (Source Network Address Translation). SNAT is enabled in a load-balancing rule or outbound rules. 
 
 The NAT gateway integration replaces the need for outbound rules for backend pool outbound SNAT. 
 
@@ -34,7 +34,7 @@ An Azure account with an active subscription. [Create an account for free]
 
 ## Create load balancer
 
-In this section you'll create a Standard Azure Load Balancer. 
+In this section, you'll create a Standard Azure Load Balancer. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Create a resource**. 
@@ -231,7 +231,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
-    | Place this virtual machine behind an existing load balancing solution? | Select **Yes** |
+    | Place this virtual machine behind an existing load-balancing solution? | Select **Yes** |
     | **Load balancing settings** |
     | Load balancing options | Select **Azure load balancing** |
     | Select a load balancer | Select **myLoadBalancer**  |
@@ -241,7 +241,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
   
 6. Review the settings, and then select **Create**.
 
-7. Follow the steps 1 to 7 to create two additional VMs with the following values and all the other settings the same as **myVM1**:
+7. Follow the steps 1 to 7 to create a VM with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 |
     | ------- | ----- |
