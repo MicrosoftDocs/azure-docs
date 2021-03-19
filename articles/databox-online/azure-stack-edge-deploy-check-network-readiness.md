@@ -6,7 +6,7 @@ author: v-dalc
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: howto
+ms.topic: how-to
 ms.date: 03/19/2021
 ms.author: alkohli
 
@@ -15,7 +15,7 @@ ms.author: alkohli
 
 # Run Network Readiness Tool for Azure Stack Edge
 
-Use the Azure Stack Network Readiness Checker tool to make sure your network meets all requirements before you deploy an Azure Stack Edge device.<!--Add a bit more detail about what's checked?--> This can reduce depoloyment time and avoid Support calls.<!--Marketing or friendly advice?-->
+Use the Azure Stack Network Readiness Checker tool to make sure your network meets all requirements before you deploy an Azure Stack Edge device.<!--Add a bit more detail about what's checked?--> This can reduce deployment time and avoid Support calls.<!--Marketing or friendly advice?-->
 
 The Network Readiness Tool is a PowerShell module that checks XX, XX, on the network. You can run the tool on a Windows or Linux computer on the network where you'll deploy your Azure Stack Edge devices.<!--Oversimplified? OS requirements? Check PowerShell requirements.-->
 
@@ -55,7 +55,7 @@ When you run the tool, you'll need to provide the following network and device s
 
 ### Install PowerShell
 
-1. Install PowerShell 7.0 on the client. For guidance, see [What's new in PowerShell 7.0](https://docs.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1).<!--Have them optionally check the installed version?-->
+1. Install PowerShell 7.0 on the client. For guidance, see [What's new in PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70.md?view=powershell-7.1&preserve-view=true).<!--Have them optionally check the installed version?-->
 
 ### Install the Network Readiness Checker (NRC)
 
