@@ -300,7 +300,7 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 
 2. Make note of the public IP address:
 
-    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
+    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/find-public-ip.png" alt-text="Screenshot discover public IP address of NAT gateway." border="true":::
 
 3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **TutorPubLBNAT-rg** resource group.
 
@@ -316,7 +316,7 @@ In this section, we'll test the NAT gateway. We'll first discover the public IP 
 
 9. Verify the IP address displayed matches the NAT gateway address you noted in the previous step:
 
-    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Internet Explorer showing external outbound IP" border="true":::
+    :::image type="content" source="./media/tutorial-nat-gateway-load-balancer-public-portal/my-ip.png" alt-text="Screenshot Internet Explorer showing external outbound IP." border="true":::
 
 ## Clean up resources
 
