@@ -131,9 +131,9 @@ The client can't determine when the runbook job completes or its completion stat
 
 ### Use a webhook from an ARM template
 
-Automation webhooks can also be invoked by [!INCLUDE [Azure Resource Manager (ARM) templates](../../includes/resource-manager-quickstart-introduction.md)]. The ARM template issues a `POST` request and receives a return code just like any other client would. See [!Use a webhook](#use-a-webhook).
+Automation webhooks can also be invoked by [!INCLUDE [Azure Resource Manager (ARM) templates](../../includes/resource-manager-quickstart-introduction.md)]. The ARM template issues a `POST` request and receives a return code just like any other client. See [!Use a webhook](#use-a-webhook).
 
-This sample template returns the URI for a given webhook.
+This sample template creates a test environment and returns the URI for a created webhook.
 
    > [!NOTE]
    > For security reasons, the URI is only returned the first time the template is deployed.
