@@ -41,22 +41,25 @@ Consent may be obtained in a variety of ways, such as when an individual enters 
 
 ## Double Opt-In Consent:
 Azure Communication Services recommends that you use double opt-in consent for all messaging campaigns. Double opt-in consent is a two-step process in which an individual first provides consent to receive messages of a certain type from you and then you send a follow-up opt-in message to confirm their consent. You should only send additional messages once the message recipient confirms their consent.
+
 The initial confirmation message that you send should include your identity, the option to opt-out of additional messages (such as the use of a “STOP” command), a toll-free number or “HELP” command for additional information, notification that the individual is enrolled in a recurring message program, a brief description of the program, the frequency with which you intend to send recurring messages, and any associated fees. 
 
 ### Does Azure Communication Services ever require double opt-in consent?
 Yes, while double opt-in consent is always recommended, Azure Communication Services requires that you use double opt-in consent for some types of messaging campaigns due to their frequent use in phishing schemes or their tendency to result in consumer complaints. These campaigns include:
-•	Auto-warranty messages
-•	Short-term health insurance plans
-•	Debt refinancing or interest rate reduction messages if not made by a financial institution
-•	Lead generation messages
-•	Sweepstakes, contests, and giveaways
-•	Work-from-home offers
+- Auto-warranty messages
+- Short-term health insurance plans
+- Debt refinancing or interest rate reduction messages if not made by a financial institution
+- Lead generation messages
+- Sweepstakes, contests, and giveaways
+- Work-from-home offers
+
 The campaigns for which double opt-in consent are required are subject to change at the discretion of Azure Communication Services.
 
 ### Exceptions to Traditional Consent Rules:
 While prior express consent is normally required before sending a message, there are two situations in which consent to message an individual is implied.
-•	Individual Initiates a Communication. If an individual initiates a communication by sending a message to you, then you may provide relevant information in response to a specific inquiry or request contained in the message. However, the implied consent that the individual provided is limited to the conversation that the individual initiated unless you obtain consent for further communications.
-•	Exemptions for Specific Services. There are several specific services for which you may have implied consent to initiate a message¬¬—the most common of these are: package delivery messages, financial institution messages that concern time-sensitive topics (such as potentially fraudulent transactions or data breaches), and healthcare provider messages that include time-sensitive information and a treatment purpose (such as appointment or exam reminders, lab results, and prescription notifications). None of these messages may include solicitations or advertisements.
+
+- Individual Initiates a Communication. If an individual initiates a communication by sending a message to you, then you may provide relevant information in response to a specific inquiry or request contained in the message. However, the implied consent that the individual provided is limited to the conversation that the individual initiated unless you obtain consent for further communications.
+- Exemptions for Specific Services. There are several specific services for which you may have implied consent to initiate a message - the most common of these are: package delivery messages, financial institution messages that concern time-sensitive topics (such as potentially fraudulent transactions or data breaches), and healthcare provider messages that include time-sensitive information and a treatment purpose (such as appointment or exam reminders, lab results, and prescription notifications). None of these messages may include solicitations or advertisements.
 
 ## Opt-Out
 Message recipients may revoke consent and opt-out of receiving future messages through any reasonable means. You may not designate an exclusive means for message recipients to revoke consent. 
@@ -74,19 +77,21 @@ If an individual requests to opt-out of future messages on an Azure Communicatio
 
 ### Adult Content:
 Message content that includes elements of sex, hate, alcohol, firearms, tobacco, gambling, or sweepstakes and contests may trigger additional requirements or is expressly prohibited in some jurisdictions. If you send a message that includes this content, then it is your duty to abide by all applicable laws of the jurisdictions in which the communications are received. At the request of law enforcement or Azure Communication Services, you must be prepared to provide proof of consent with local laws that regulate adult content.
+
 Even where such content is not unlawful, you should include an age verification mechanism at opt-in to age-gate the intended message recipient from adult content. In the United States, additional legal requirements apply to marketing communications directed at children under the age of 13. 
 
 ### Prohibited Content:
 Azure Communication Services prohibits certain message content regardless of consent. Prohibited content includes:
-•	Unlawful content (e.g., gambling-related messages in China)
-•	Hate speech, defamatory speech, harassment, or other speech determined to be patently offensive
-•	Pornographic content
-•	Obscene or vulgar content
-•	Intimidation and threats
-•	Content that intends to defraud, deceive, cause harm, or wrongfully obtain anything of value 
-•	Content that incites harm, discrimination, or violence
-•	Content that spreads malware
-•	Content that intends to evade age-gating requirements
+- Unlawful content (e.g., gambling-related messages in China)
+- Hate speech, defamatory speech, harassment, or other speech determined to be patently offensive
+- Pornographic content
+- Obscene or vulgar content
+- Intimidation and threats
+- Content that intends to defraud, deceive, cause harm, or wrongfully obtain anything of value 
+- Content that incites harm, discrimination, or violence
+- Content that spreads malware
+- Content that intends to evade age-gating requirements
+
 We reserve the right to modify the list of prohibited message content at any time.
 
 ## Spoofing
