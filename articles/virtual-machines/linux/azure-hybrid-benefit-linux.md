@@ -172,7 +172,7 @@ For more information about Red Hat subscription compliance, software updates, an
 
 ### SUSE
 
-To use Azure Hybrid Benefit for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://www.suse.com/support/kb/doc/?id=000019868). 
+To use Azure Hybrid Benefit for your SLES VMs, and for information about moving from SLES PAYG to BYOS or moving from SLES BYOS to PAYG, see [SUSE Linux Enterprise and Azure Hybrid Benefit](https://www.suse.com/c/suse-linux-enterprise-and-azure-hybrid-benefit/). 
 
 ## Frequently asked questions
 *Q: Can I use a license type of `RHEL_BYOS` with a SLES image, or vice versa?*
