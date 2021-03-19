@@ -46146,6 +46146,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/migrate/tutorial-containerize-aspnet-kubernetes.md",
+      "redirect_url": "tutorial-app-containerization-aspnet-kubernetes",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/common/storage-access-blobs-queues-portal.md",
       "redirect_url": "articles/storage/blobs/authorize-blob-access-portal",
       "redirect_document_id": false
