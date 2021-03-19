@@ -43,7 +43,7 @@ Before integrating applications with Azure AD, it is important to know where you
   * How are your groups organized?
   * Who are the group members?
   * What permissions/role assignments do the groups currently have?
-* Will you need to clean up user/group databases before integrating?  (This is a pretty important question. Garbage in, garbage out.)
+* Will you need to clean up user/group databases before integrating?  (This is an important question. Garbage in, garbage out.)
 
 ### Access management inventory
 * How do you currently manage user access to applications? Does that need to change?  Have you considered other ways to manage access, such as with [Azure RBAC](../../role-based-access-control/role-assignments-portal.md) for example?
@@ -75,7 +75,7 @@ You can add any application that already exists in your organization, or any thi
 If you're looking for developer guidance on how to integrate custom apps with Azure AD, see [Authentication Scenarios for Azure AD](../develop/authentication-vs-authorization.md). When you develop an app that uses a modern protocol like [OpenId Connect/OAuth](../develop/active-directory-v2-protocols.md) to authenticate users, you can register it with the Microsoft identity platform by using the [App registrations](../develop/quickstart-register-app.md) experience in the Azure portal.
 
 ### Authentication Types
-Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols as well as Password Single Sign On. For more information about application authentication types for use with Azure AD see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) and [Password based single sign on](what-is-single-sign-on.md).
+Each of your applications may have different authentication requirements. With Azure AD, signing certificates can be used with applications that use SAML 2.0, WS-Federation, or OpenID Connect Protocols and Password Single Sign On. For more information about application authentication types, see [Managing Certificates for Federated Single Sign-On in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) and [Password based single sign on](what-is-single-sign-on.md).
 
 ### Enabling SSO with Azure AD App Proxy
 With Microsoft Azure AD Application Proxy, you can provide access to applications located inside your private network securely, from anywhere and on any device. After you have installed an application proxy connector within your environment, it can be easily configured with Azure AD.
