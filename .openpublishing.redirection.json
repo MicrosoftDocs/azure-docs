@@ -2,32 +2,32 @@
   "redirections": [
     {
       "source_path_from_root": "/articles/spring-cloud-quotas.md",
-      "redirect_url": "/azure/spring-cloud/quotas.md",
+      "redirect_url": "/azure/articles/spring-cloud/quotas.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud-quickstart.md",
-      "redirect_url": "/azure/spring-cloud/quickstart.md",
+      "redirect_url": "/azure/articles/spring-cloud/quickstart.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud-reference-architecture.md",
-      "redirect_url": "/azure/spring-cloud/reference-architecture.md",
+      "redirect_url": "/azure/articles/spring-cloud/reference-architecture.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud-quickstart-setup-config-server.md",
-      "redirect_url": "/azure/spring-cloud/quickstart-setup-config-server.md",
+      "redirect_url": "/azure/articles/spring-cloud/quickstart-setup-config-server.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud-quickstart-sample-app-introduction.md",
-      "redirect_url": "/azure/spring-cloud/quickstart-sample-app-introduction.md",
+      "redirect_url": "/azure/articles/spring-cloud/quickstart-sample-app-introduction.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud-quickstart-provision-service-instance.md",
-      "redirect_url": "/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance.md",
+      "redirect_url": "/azure/articles/spring-cloud/spring-cloud-quickstart-provision-service-instance.md",
       "redirect_document_id": false
     },
     {
@@ -37,37 +37,37 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud-quickstart-deploy-apps.md",
-      "redirect_url": "/azure/spring-cloud/quickstart-deploy-apps.md",
+      "redirect_url": "/azure/articles/spring-cloud/quickstart-deploy-apps.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-overview.md",
-      "redirect_url": "/azure/spring-cloud/overview.md",
+      "redirect_url": "/azure/articles/spring-cloud/overview.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-principles-microservice-apps.md",
-      "redirect_url": "/azure/spring-cloud/principles-microservice-apps.md",
+      "redirect_url": "/azure/articles/spring-cloud/principles-microservice-apps.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-start-stop-delete.md",
-      "redirect_url": "/azure/spring-cloud/how-to-start-stop-delete.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-start-stop-delete.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-staging-environment.md",
-      "redirect_url": "/azure/spring-cloud/how-to-staging-environment.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-staging-environment.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-service-registration.md",
-      "redirect_url": "/azure/spring-cloud/how-to-service-registration.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-service-registration.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-self-diagnose-solve.md",
-      "redirect_url": "/azure/spring-cloud/how-to-self-diagnose-solve.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-self-diagnose-solve.md",
       "redirect_document_id": false
     },
     {
@@ -77,23 +77,23 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-scale-manual.md",
-      "redirect_url": "/azure/spring-cloud/how-to-scale-manual.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-scale-manual.md",
       "redirect_document_id": false
     },
 
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-provision-azure-spring-cloud-instance-terraform.md",
-      "redirect_url": "/azure/spring-cloud/how-to-provision-azure-spring-cloud-instance-terraform.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-provision-azure-spring-cloud-instance-terraform.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-persistent-storage.md",
-      "redirect_url": "/azure/spring-cloud/how-to-persistent-storage.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-persistent-storage.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-permissions.md",
-      "redirect_url": "/azure/spring-cloud/how-to-permissions.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-permissions.md",
       "redirect_document_id": false
     },
     {
@@ -103,7 +103,7 @@
     },
     {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-log-streaming.md",
-      "redirect_url": "/azure/spring-cloud/how-to-log-streaming.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-log-streaming.md",
       "redirect_document_id": false
     },
     {
