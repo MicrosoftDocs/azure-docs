@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 03/19/2021
 ms.author: banders
 ---
 
@@ -45,25 +45,26 @@ Before you start the setup, we recommend you do the following actions:
 To complete the setup, you need the following access:
 
 - Owner of the billing profile that was created when the Microsoft Customer Agreement was signed. To learn more about billing profiles, see [understand billing profiles](../understand/mca-overview.md#billing-profiles).
-
 - Enterprise administrator on the enrollment that is renewed.
+
+### Get permission needed to complete setup
+
+When you signed your new Microsoft Customer Agreement, you should have been given the option to **Start account setup**. You didn't completed that process. You were also sent an email with a link to start your account set up. Selecting the **Start account setup** link or selecting the link in the mail opens the Azure portal to the Set up your billing account page, shown below.
+
+![Screenshot showing the Set up your billing account page](./media/mca-setup-account/setup-billing-account-page.png)
+
+If you don't have the enterprise administrator role for the enterprise agreement or the billing profile owner role for the Microsoft Customer Agreement, then use the following information to get the access that you need to complete setup.
 
 ### If you're not an enterprise administrator on the enrollment
 
-You can request the enterprise administrators of the enrollment to complete the setup of your billing account.
+You can request the enterprise administrators of the enrollment to complete the setup for your Microsoft Customer Agreement billing account.
 
 1. Sign in to the Azure portal using the link in the email that was sent to you when you signed the Microsoft Customer Agreement.
-
-2. If you don't have the email, sign in using the following link. Replace `<enrollmentNumber>` with the enrollment number of your enterprise agreement that was renewed.
-
+    1. If you don't have the email, sign in using the following link. Replace `<enrollmentNumber>` with the enrollment number of your enterprise agreement that was renewed.
    `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
-
-3. Select the enterprise administrators that you want to send the request.
-
+1. Select the enterprise administrators that you want to send the request.  
    ![Screenshot that shows inviting the enterprise administrators](./media/mca-setup-account/ea-mca-invite-admins.png)
-
-4. Select **Send request**.
-
+1. Select **Send request**.  
    The administrators will receive an email with instructions to complete the setup.
 
 ### If you're not an owner of the billing profile

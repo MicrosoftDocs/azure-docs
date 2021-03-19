@@ -3,7 +3,7 @@ title: Azure EA portal administration
 description: This article explains the common tasks that an administrator accomplishes in the Azure EA portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/13/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -31,7 +31,9 @@ Only existing Azure enterprise administrators can create other enterprise admini
 
 ### Create another enterprise administrator
 
-To add another enterprise administrator:
+Use one of the following options, based on your situation.
+
+#### If you're already an enterprise administrator
 
 1. Sign in to the [Azure Enterprise portal](https://ea.azure.com).
 1. Go to **Manage** > **Enrollment Detail**.
@@ -39,7 +41,11 @@ To add another enterprise administrator:
 
 Make sure that you have the user's email address and preferred authentication method, such as a work, school, or Microsoft account.
 
-If you're not the enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. After you're added to an enrollment, you receive an activation email.
+#### If you're not already an enterprise administrator
+
+If you're not an enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. The enterprise administrator uses the preceding steps to add you as an enterprise administrator. After you're added to an enrollment, you receive an activation email.
+
+##### If your enterprise administrator can't help you
 
 If your enterprise administrator can't assist you, create an [Azure Enterprise portal support request](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Provide the following information:
 
