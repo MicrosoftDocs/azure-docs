@@ -124,7 +124,7 @@ The Chat JavaScript client library includes real-time signaling. This allows cli
 
 ## Chat events
 
-Real-time signaling allows your users to chat in real-time. Your services can use Azure Event Grid to subscribe to chat-related events. For more details, see [Event Handling conceptual](../event-handling.md).
+Real-time signaling allows your users to chat in real-time. Your services can use Azure Event Grid to subscribe to chat-related events. For more details, see [Event Handling conceptual](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?tabs=event-grid-event-schema).
 
 ## Using Cognitive Services with Chat client library to enable intelligent features
 
