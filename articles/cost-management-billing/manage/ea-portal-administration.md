@@ -41,11 +41,11 @@ Use one of the following options, based on your situation.
 
 Make sure that you have the user's email address and preferred authentication method, such as a work, school, or Microsoft account.
 
-#### If you're not already an enterprise administrator
+#### If you're not an enterprise administrator
 
 If you're not an enterprise administrator, contact an enterprise administrator to request that they add you to an enrollment. The enterprise administrator uses the preceding steps to add you as an enterprise administrator. After you're added to an enrollment, you receive an activation email.
 
-##### If your enterprise administrator can't help you
+#### If your enterprise administrator can't help you
 
 If your enterprise administrator can't assist you, create an [Azure Enterprise portal support request](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c). Provide the following information:
 
