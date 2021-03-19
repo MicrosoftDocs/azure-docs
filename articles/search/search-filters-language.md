@@ -9,7 +9,6 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.custom: devx-track-csharp
 ---
 
 # How to filter by language in Azure Cognitive Search 

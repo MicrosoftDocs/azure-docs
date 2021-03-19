@@ -1,5 +1,5 @@
 - name: Azure Storage validated partner solutions
-  href: /azure/storage/solution-integration
+  href: ./index.yml
 - name: Analytics and big data partners
   items:
   - name: Overview of validated partners
