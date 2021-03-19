@@ -35,7 +35,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 |Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Download and deploy security agent from Github</li><li>Validate alert message from Azure Defender for IoT.</li></ol>|
-|Resources|(How to configure agent based solutions)[../defender-for-iot/how-to-configure-agent-based-solution.md]|
+|Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
 
 ---
 |Name|SecuredCore.Encryption.Storage|
@@ -71,7 +71,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that the device has a TPM present and that it can be provisioned through IoT Hub using TPM endorsement key.|
-|Resources|(Quick setup auto provision)[../iot-dps/quick-setup-auto-provision.md]|
+|Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision)|
 
 ---
 |Name|SecuredCore.Update|
@@ -83,7 +83,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 |Validation|Partner confirmation that they were able to send an update to the device through Microsoft update, Azure Device update, or other approved services.|
-|Resources| [Device Update for IoT Hub](../iot-hub-device-update.md)|
+|Resources|[Device Update for IoT Hub](../iot-hub-device-update.md)|
 
 ---
 |Name|SecuredCore.Manageability.Configuration|
@@ -101,12 +101,12 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |Name|SecuredCore.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate the device can be returned to a default state.|
+|Description|The purpose of this test is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
 |Target Availability|2021|
 |Applies To|Any device|
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that user data and configuration of the device can be erased and the device returned to its default state.|
+|Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
 |Resources||
 
 ---
@@ -156,7 +156,7 @@ Edge Secured-core is an incremental certification in the Azure Certified Device 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Resources.md]| (IoT Hub TLS support)[../iot-hub/iot-hub-tls-support.md] <br /> (TLS cipher suites in Windows 10)[../../windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903.md] |
+|Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [TLS Cipher suites in Windows 10](../../windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
 
 ---
 |Name|SecuredCore.Protection.SignedUpdates|
@@ -240,7 +240,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |OS|Agnostic|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
-|Resources| (Azure attestation)[../attestation/] |
+|Resources| [Microsoft Azure Attestation](../attestation.md) |
 
 ---
 |Name|SecuredCore.Hardware.MemoryProtection|
