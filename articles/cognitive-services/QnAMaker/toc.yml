@@ -14,8 +14,6 @@
       href: Quickstarts/create-publish-knowledge-base.md
     - name: Client libraries or REST API
       href: Quickstarts/quickstart-sdk.md
-  - name: Query a knowledge base with REST APIs
-    href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
 - name: Tutorials
   items:
   - name: Integrate with Power Virtual Agent
@@ -84,6 +82,8 @@
       href: How-To/change-default-answer.md
   - name: Query knowledge base
     items:
+    - name: Query with REST APIs
+      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - name: Using GenerateAnswer API
       href: How-To/metadata-generateanswer-usage.md
       displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404

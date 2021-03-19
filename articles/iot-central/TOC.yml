@@ -134,6 +134,8 @@
       href: core/overview-iot-central-developer.md
     - name: Solution builder guide
       href: core/overview-iot-central-solution-builder.md
+    - name: Operator guide
+      href: core/overview-iot-central-operator.md
     - name: What are application templates?
       href: core/concepts-app-templates.md
     - name: Industry specific application templates

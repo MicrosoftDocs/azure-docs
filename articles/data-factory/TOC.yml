@@ -30,6 +30,8 @@
     href: data-flow-create.md
 - name: Tutorials
   items:
+  - name: List of tutorials
+    href: data-factory-tutorials.md
   - name: Copy and ingest data
     items:
     - name: From Azure Blob Storage to Azure SQL Database
@@ -787,7 +789,9 @@
     - name: Pipeline Triggers 
       href: pipeline-trigger-troubleshoot-guide.md 
     - name: Data Flows
-      href: data-flow-troubleshoot-guide.md
+      items:
+      - name: Data flows overview
+        href: data-flow-troubleshoot-guide.md
     - name: Continuous Integration and Deployment 
       href: ci-cd-github-troubleshoot-guide.md      
     - name: Security and access control
