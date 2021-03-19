@@ -157,11 +157,11 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
 
     For Kubernetes compute targets, you can provide a configuration file to define your namespace and node selectors to deploy training jobs to. By default, all jobs are deployed to the default namespace. Below is a sample of a config file.
 
-        ```yaml
-        namespace: example-namespace
-        nodeSelector:
-          gpu: example-cluster
-        ```
+    ```yaml
+    namespace: example-namespace
+    nodeSelector:
+        gpu: example-cluster
+    ```
 
     > [!IMPORTANT]
     > To attach an AKS cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.

@@ -339,9 +339,6 @@ Azure Machine Learning provides you with the following options for attaching Kub
 * [Azure Kubernetes Service](/azure/aks/intro-kubernetes.md). Azure Kubernetes Service provides a managed cluster in Azure. 
 * [Azure Arc Kubernetes](/azure/azure-arc/kubernetes/overview). Use Azure Arc enabled Kubernetes clusters if your cluster is hosted outside of Azure. For more information, see [Connect to your Kubernetes cluster using Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster)
 
-> [!IMPORTANT]
-> To attach an AKS cluster, you must be subscription owner or have permission to access AKS cluster resources under the subscription. Otherwise, the cluster list on "attach new compute" page will be blank.
-
 To attach your Kubernetes cluster use the Azure Machine Learning SDK or the Azure Machine Learning studio. For more information on studio, see [Attach compute targets in Azure Machine Learning studio](how-to-create-attach-compute-studio.md#attached-compute).
 
 The following code shows how to attach an Azure Kubernetes cluster to your Azure Machine Learning workspace.
