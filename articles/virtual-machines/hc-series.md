@@ -33,7 +33,7 @@ HC-series VMs feature 100 Gb/sec Mellanox EDR InfiniBand. These VMs are connecte
 Learn more about the:
 - [architecture and VM topology](./workloads/hpc/hc-series-overview.md),
 - supported [software stack](./workloads/hpc/hc-series-overview.md#software-specifications) including supported OS, and
-- expected [performance](./workloads/hpc/hc-performance.md) of the HC-series VM.
+- expected [performance](./workloads/hpc/hc-series-performance.md) of the HC-series VM.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 
