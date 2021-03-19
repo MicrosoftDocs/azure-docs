@@ -82,15 +82,15 @@
         - name: Start, stop, and delete an app
           href: spring-cloud-howto-start-stop-delete.md
         - name: Use persistent storage
-          href: spring-cloud-howto-persistent-storage.md
+          href: how-to-persistent-storage.md
     - name: Scale
       items: 
         - name: Manually scale an app
-          href: spring-cloud-howto-scale-manual.md
+          href: how-to-scale-manual.md
         - name: Autoscale an app
           href: spring-cloud-tutorial-setup-autoscale.md
         - name: Identify outbound public IP addresses
-          href: spring-cloud-howto-outbound-public-ip.md
+          href: how-to-outbound-public-ip.md
     - name: Monitor
       items:
         - name: Distributed tracing and App Insights
@@ -98,7 +98,7 @@
         - name: Analyze logs and metrics
           href: diagnostic-services.md
         - name: Stream logs in real-time
-          href: spring-cloud-howto-log-streaming.md
+          href: how-to-log-streaming.md
         - name: Application Insights using Java In-Process Agent
           href: how-to-application-insights.md
         - name: Resilience4J Circuit Breaker Metrics
@@ -122,7 +122,7 @@
         - name: Enable system-assigned managed identity
           href: how-to-enable-system-assigned-managed-identity.md
         - name: Create roles and permissions
-          href: spring-cloud-howto-permissions.md
+          href: how-to-permissions.md
     - name: Integrate
       items:
         - name: Bind an app to Azure CosmosDB
@@ -142,13 +142,13 @@
         - name: Auth with Key Vault in GitHub Actions
           href: github-actions-key-vault.md
         - name: Provision an Azure Spring Cloud instance with terraform
-          href: spring-cloud-howto-provision-azure-spring-cloud-instance-terraform.md
+          href: how-to-provision-azure-spring-cloud-instance-terraform.md
     - name: Troubleshoot
       items:
         - name: Self diagnose and solve problems
           href: spring-cloud-howto-self-diagnose-solve.md
         - name: Self diagnose running in VNET
-          href: spring-cloud-howto-self-diagnose-running-in-vnet.md
+          href: how-to-self-diagnose-running-in-vnet.md
         - name: Troubleshooting guide
           href: spring-cloud-troubleshoot.md
     - name: Migrate

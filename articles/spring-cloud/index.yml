@@ -50,7 +50,7 @@ landingContent:
           - text: Use Config Server to maintain application configuration
             url: how-to-config-server.md
           - text: Manually scale your application
-            url: spring-cloud-howto-scale-manual.md
+            url: how-to-scale-manual.md
       - linkListType: how-to-guide
         links:
           - text: Automate your CI/CD pipeline in Azure Spring Cloud
@@ -58,7 +58,7 @@ landingContent:
           - text: Enable Blue-Green deployments using Azure Spring Cloud
             url: spring-cloud-howto-staging-environment.md           
           - text: Use persistent storage in Azure Spring Cloud
-            url: spring-cloud-howto-persistent-storage.md
+            url: how-to-persistent-storage.md
 
   # Card
   - title: Monitor your application

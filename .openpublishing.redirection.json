@@ -1,6 +1,42 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-self-diagnose-running-in-vnet.md",
+      "redirect_url": "/azure/spring-cloud/how-to-self-diagnose-running-in-vnet.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-scale-manual.md",
+      "redirect_url": "/azure/spring-cloud/how-to-scale-manual.md",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-provision-azure-spring-cloud-instance-terraform.md",
+      "redirect_url": "/azure/spring-cloud/how-to-provision-azure-spring-cloud-instance-terraform.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-persistent-storage.md",
+      "redirect_url": "/azure/spring-cloud/how-to-persistent-storage.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-permissions.md",
+      "redirect_url": "/azure/spring-cloud/how-to-permissions.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-outbound-public-ip.md",
+      "redirect_url": "/azure/spring-cloud/how-to-outbound-public-ip.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-log-streaming.md",
+      "redirect_url": "/azure/spring-cloud/how-to-log-streaming.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-howto-launch-from-source.md",
       "redirect_url": "/articles/spring-cloud/how-to-launch-from-source.md",
       "redirect_document_id": false
