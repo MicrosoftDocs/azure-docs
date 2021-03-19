@@ -111,7 +111,7 @@
           href: speech-synthesis-markup.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
-        - name: Get viseme data for lip-sync
+        - name: Get facial pose events for lip-sync
           href: how-to-speech-synthesis-viseme.md
     - name: Customization
       items:
