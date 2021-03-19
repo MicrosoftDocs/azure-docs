@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 03/19/2021
 ms.author: victorh
 ---
 
@@ -43,14 +43,14 @@ The two virtual networks will each have a workload server in them and will be pr
 1. From the Azure portal home page, select **Create a resource**.
 2. Search for **Virtual network**, and select **Create**.
 2. For **Subscription**, select your subscription.
-1. For **Resource group**, select **Create new**, and type **fw-manager** for the name and select **OK**.
+1. For **Resource group**, select **Create new**, and type **fw-manager-rg** for the name and select **OK**.
 2. For **Name**, type **Spoke-01**.
 3. For **Region**, select **(US) East US**.
 4. Select **Next: IP Addresses**.
-1. For **Address space**, type **10.1.0.0/16**.
+1. For **Address space**, type **10.0.0.0/16**.
 3. Under **Subnet name**, select **default**.
 4. For **Subnet name**, type  **Workload-01-SN**.
-5. For **Subnet address range**, type **10.1.1.0/24**.
+5. For **Subnet address range**, type **10.0.1.0/24**.
 6. Select **Save**.
 1. Select **Review + create**.
 2. Select **Create**.
@@ -58,9 +58,9 @@ The two virtual networks will each have a workload server in them and will be pr
 Repeat this procedure to create another similar virtual network:
 
 Name: **Spoke-02**<br>
-Address space: **10.2.0.0/16**<br>
+Address space: **10.1.0.0/16**<br>
 Subnet name: **Workload-02-SN**<br>
-Subnet address range: **10.2.1.0/24**
+Subnet address range: **10.1.1.0/24**
 
 ### Create the secured virtual hub
 
@@ -70,21 +70,22 @@ Create your secured virtual hub using Firewall Manager.
 2. In the search box, type **Firewall Manager** and select **Firewall Manager**.
 3. On the **Firewall Manager** page, select **View secured virtual hubs**.
 4. On the **Firewall Manager | Secured virtual hubs** page, select **Create new secured virtual hub**.
-5. For **Resource group**, select **fw-manager**.
+5. For **Resource group**, select **fw-manager-rg**.
 7. For **Region**, select **East US**.
 1. For the **Secured virtual hub name**, type **Hub-01**.
-2. For **Hub address space**, type **10.0.0.0/16**.
+2. For **Hub address space**, type **10.2.0.0/16**.
 3. For the new vWAN name, type **Vwan-01**.
 4. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
 5. Select **Next: Azure Firewall**.
 6. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: Trusted Security Partner**.
 7. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
-8. Select **Create**. It will take about 30 minutes to deploy.
+8. Select **Create**. 
 
-Now you can get the firewall public IP address.
+   It takes about 30 minutes to deploy.
 
-1. After the deployment is complete, on the Azure portal select **All services**.
-1. Type **firewall manager** and then select **Firewall Manager**.
+You can get the firewall public IP address after the deployment completes.
+
+1. Open **Firewall Manager**.
 2. Select **Virtual hubs**.
 3. Select **hub-01**.
 7. Select **Public IP configuration**.
@@ -94,12 +95,12 @@ Now you can get the firewall public IP address.
 
 Now you can peer the hub and spoke virtual networks.
 
-1. Select the **fw-manager** resource group, then select the **Vwan-01** virtual WAN.
+1. Select the **fw-manager-rg** resource group, then select the **Vwan-01** virtual WAN.
 2. Under **Connectivity**, select **Virtual network connections**.
 3. Select **Add connection**.
 4. For **Connection name**, type **hub-spoke-01**.
 5. For **Hubs**, select **Hub-01**.
-6. For **Resource group**, select **fw-manager**.
+6. For **Resource group**, select **fw-manager-rg**.
 7. For **Virtual network**, select **Spoke-01**.
 8. Select **Create**.
 
@@ -113,7 +114,7 @@ Repeat to connect the **Spoke-02** virtual network: connection name - **hub-spok
 
    |Setting  |Value  |
    |---------|---------|
-   |Resource group     |**fw-manager**|
+   |Resource group     |**fw-manager-rg**|
    |Virtual machine name     |**Srv-workload-01**|
    |Region     |**(US) East US)**|
    |Administrator user name     |type a user name|
@@ -143,7 +144,7 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 
 1. From Firewall Manager, select **View Azure Firewall policies**.
 2. Select **Create Azure Firewall Policy**.
-1. For **Resource group**, select **fw-manager**.
+1. For **Resource group**, select **fw-manager-rg**.
 1. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **East US**.
 1. Select **Next: DNS Settings**.
 1. Select **Next: TLS Inspection (preview)**.
@@ -160,17 +161,13 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 1. Ensure **Destination type** is **FQDN**.
 1. For **Destination**, type **\*.microsoft.com**.
 1. Select **Add**.
-1. Select **Review + create**, and then select **Create**.
 
 Add a DNAT rule so you can connect a remote desktop to the **Srv-Workload-01** virtual machine.
 
-1. From **Firewall Manager**, select **Azure Firewall Policies** and then select **Policy-01**.
-1. Select **Rule Collections**.
 1. Select **Add/Rule collection**.
-1. For **Name**, type **DNAT-rdp**.
+1. For **Name**, type **dnat-rdp**.
 1. For **Rule collection type**, select **DNAT**.
 1. For **Priority**, type **100**.
-1. For **Rule collection group**, select **DefaultDnatRuleCollectionGroup**.
 1. For the rule **Name** type **Allow-rdp**.
 1. For the **Source type**, select **IP address**.
 1. For **Source**, type **\***.
@@ -184,12 +181,11 @@ Add a DNAT rule so you can connect a remote desktop to the **Srv-Workload-01** v
 
 Add a network rule so you can connect a remote desktop from **Srv-Workload-01** to **Srv-Workload-02**.
 
-1. Select **Add/Rule collection**.
+1. Select **Add a rule collection**.
 2. For **Name**, type **vnet-rdp**.
 3. For **Rule collection type**, select **Network**.
 4. For **Priority**, type **100**.
 1. For **Rule collection action**, select **Allow**.
-1. For **Rule collection group**, select **DefaultNetworkRuleCollectionGroup**.
 1. For the rule **Name** type **Allow-vnet**.
 1. For the **Source type**, select **IP address**.
 1. For **Source**, type **\***.
@@ -198,6 +194,8 @@ Add a network rule so you can connect a remote desktop from **Srv-Workload-01** 
 1. For **Destination Type**, select **IP Address**.
 1. For **Destination**, type the **Srv-Workload-02** private IP address that you noted previously.
 1. Select **Add**.
+1. Select **Review + create**.
+1. Select **Create**.
 
 ## Associate policy
 
@@ -259,7 +257,7 @@ So now you've verified that the firewall network rule is working:
 
 ## Clean up resources
 
-When you are done testing your firewall resources, delete the **fw-manager** resource group to delete all firewall-related resources.
+When you are done testing your firewall resources, delete the **fw-manager-rg** resource group to delete all firewall-related resources.
 
 ## Next steps
 
