@@ -73,6 +73,12 @@ To verify the connection to your cluster, run the [kubectl get nodes][kubectl-ge
 
 ```
 $ kubectl get nodes
+```
+The following example output shows the nodes in the cluster:
+
+```output
+Result
+----------------
 
 NAME                                STATUS   ROLES   AGE     VERSION
 aks-nodepool1-37463671-vmss000000   Ready    agent   2m37s   v1.18.10
