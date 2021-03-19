@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "azure/articles/spring-cloud/spring-cloud-tutorial-config-server.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-config-server.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "azure/articles/spring-cloud/spring-cloud-tutorial-distributed-tracing.md",
+      "redirect_url": "/azure/articles/spring-cloud/how-to-distributed-tracing.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-quotas.md",
       "redirect_url": "/articles/spring-cloud/quotas.md",
       "redirect_document_id": false
