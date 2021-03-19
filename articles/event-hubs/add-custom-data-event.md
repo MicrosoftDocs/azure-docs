@@ -49,8 +49,7 @@ For the full code sample, see [Send Event Data batch with properties](https://gi
 ## JavaScript
 
 ```javascript
-let batch = await producer.createBatch(batchOptions);
-const isAdded = batch.tryAdd({ body: "First event", properties: {"priority": 1, "score": 9.0 } });
+let eventData = { body: "First event", properties: { "priority": 1, "score": 9.0  } };
 ```
 
 
