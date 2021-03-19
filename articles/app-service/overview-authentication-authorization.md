@@ -15,7 +15,7 @@ Azure App Service provides built-in authentication and authorization capabilitie
 
 Implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards, and keep your implementation up to date. The built-in authentication feature for App Service and Azure Functions can save you time and effort by providing out-of-the-box authentication with federated identity providers, allowing you to focus on the rest of your application.
 
-- Azure App Service that allows you to integrate a variety of auth capabilities into your web app or API without implementing them yourself.
+- Azure App Service allows you to integrate a variety of auth capabilities into your web app or API without implementing them yourself.
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
 - You can integrate with multiple login providers. For example, Azure AD, Facebook, Google, Twitter.
 
@@ -36,7 +36,7 @@ When you enable authentication and authorization with one of these providers, it
 
 ## Frequently asked questions
 
-**Do I have to use the built-in authentication feature?**
+**Am I limited to using the built-in authentication feature?**
 
 You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, keep in mind that you will need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
 
@@ -46,7 +46,7 @@ Give each app registration its own permission and consent. Avoid permission shar
 
 **Are all requests redirected to HTTPS?**
 
-Enabling this feature will cause all requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to enforce HTTPS. You can disable this with the  `requireHttps` setting in the V2 configuration. Ensure no security tokens ever get transmitted over non-secure HTTP connections.
+Enabling this feature will cause all requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to enforce HTTPS. You can disable this with the  `requireHttps` setting in the V2 configuration. However, we do recommend sticking with HTTPS, and you should ensure no security tokens ever get transmitted over non-secure HTTP connections.
 
 **Will this restrict access to content and APIs?**
 
@@ -58,9 +58,17 @@ Authorization, such as role-specific authorization, can be handled by inspecting
 
 ## How it works
 
-### Feature architecture
+[Feature architecture on Windows (non-container deployment)](#feature-architecture-on-windows-(non-container-deployment))
+[Feature architecture on Linux and containers](#feature-architecture-on-Linux-and-containers)
+[Authentication flow](#authentication-flow)
+[Authorization behavior](#authorization-behavior)
+[Allow Anonymous requests (no action)](#allow-anonymous-requests-(no-action))
+[Allow only authenticated requests](#allow-only-authenticated-requests)
+[User and Application claims](#user-and-application-claims)
+[Token store](#token-store)
+[Logging and tracing](#logging-and-tracing)
 
-#### Windows (non-container deployment)
+#### Feature architecture on Windows (non-container deployment)
 
 The authentication and authorization module runs in the same sandbox as your application code. When it's enabled, every incoming HTTP request passes through it before being handled by your application code.
 
@@ -75,38 +83,11 @@ This module handles several things for your app:
 
 The module runs separately from your application code and is configured using app settings. No SDKs, specific languages, or changes to your application code are required. 
 
-#### Linux and containers
+#### Feature architecture on Linux and containers
 
 The authentication and authorization module runs in a separate container, isolated from your application code. Using what's known as the [Ambassador pattern](/azure/architecture/patterns/ambassador), it interacts with the incoming traffic to perform similar functionality as on Windows. Because it does not run in-process, no direct integration with specific language frameworks is possible; however, the relevant information that your app needs is passed through using request headers as explained below.
 
-### User/Application claims
-
-For all language frameworks, App Service makes the claims in the incoming token (whether that be from an authenticated end user or a client application) available to your code by injecting them into the request headers. For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard .NET code pattern, including the `[Authorize]` attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable. For Java apps, the claims are [accessible from the Tomcat servlet](configure-language-java.md#authenticate-users-easy-auth).
-
-For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not populated for .NET code, but you can still find the user claims in the request headers, or get the `ClaimsPrincipal` object from the request context or even through a binding parameter. See [working with client identities](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) for more information.
-
-For more information, see [Access user claims](app-service-authentication-how-to.md#access-user-claims).
-
-At this time, ASP.NET Core does not currently support populating the current user with the Authentication/Authorization feature. However, some [3rd party, open source middleware components](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) do exist to help fill this gap.
-
-### Token store
-
-App Service provides a built-in token store, which is a repository of tokens that are associated with the users of your web apps, APIs, or native mobile apps. When you enable authentication with any provider, this token store is immediately available to your app. If your application code needs to access data from these providers on the user's behalf, such as:
-
-- post to the authenticated user's Facebook timeline
-- read the user's corporate data using the Microsoft Graph API
-
-You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](app-service-authentication-how-to.md#refresh-identity-provider-tokens) when they become invalid. 
-
-The ID tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
-
-If you don't need to work with tokens in your app, you can disable the token store in your app's **Authentication / Authorization** page.
-
-### Logging and tracing
-
-If you [enable application logging](troubleshoot-diagnostic-logs.md), you will see authentication and authorization traces directly in your log files. If you see an authentication error that you didn't expect, you can conveniently find all the details by looking in your existing application logs. If you enable [failed request tracing](troubleshoot-diagnostic-logs.md), you can see exactly what role the authentication and authorization module may have played in a failed request. In the trace logs, look for references to a module named `EasyAuthModule_32/64`.
-
-### Authentication flow
+#### Authentication flow
 
 The authentication flow is the same for all providers, but differs depending on whether you want to sign in with the provider's SDK:
 
@@ -128,7 +109,7 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 <a name="authorization"></a>
 
-### Authorization behavior
+#### Authorization behavior
 
 In the [Azure portal](https://portal.azure.com), you can configure App Service authorization with a number of behaviors when incoming request is not authenticated.
 
@@ -153,6 +134,34 @@ With this option, you don't need to write any authentication code in your app. F
 
 > [!NOTE]
 > By default, any user in your Azure AD tenant can request a token for your application from Azure AD. You can [configure the application in Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
+
+
+#### User and Application claims
+
+For all language frameworks, App Service makes the claims in the incoming token (whether that be from an authenticated end user or a client application) available to your code by injecting them into the request headers. For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard .NET code pattern, including the `[Authorize]` attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable. For Java apps, the claims are [accessible from the Tomcat servlet](configure-language-java.md#authenticate-users-easy-auth).
+
+For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not populated for .NET code, but you can still find the user claims in the request headers, or get the `ClaimsPrincipal` object from the request context or even through a binding parameter. See [working with client identities](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) for more information.
+
+For more information, see [Access user claims](app-service-authentication-how-to.md#access-user-claims).
+
+At this time, ASP.NET Core does not currently support populating the current user with the Authentication/Authorization feature. However, some [3rd party, open source middleware components](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) do exist to help fill this gap.
+
+#### Token store
+
+App Service provides a built-in token store, which is a repository of tokens that are associated with the users of your web apps, APIs, or native mobile apps. When you enable authentication with any provider, this token store is immediately available to your app. If your application code needs to access data from these providers on the user's behalf, such as:
+
+- post to the authenticated user's Facebook timeline
+- read the user's corporate data using the Microsoft Graph API
+
+You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](app-service-authentication-how-to.md#refresh-identity-provider-tokens) when they become invalid. 
+
+The ID tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
+
+If you don't need to work with tokens in your app, you can disable the token store in your app's **Authentication / Authorization** page.
+
+#### Logging and tracing
+
+If you [enable application logging](troubleshoot-diagnostic-logs.md), you will see authentication and authorization traces directly in your log files. If you see an authentication error that you didn't expect, you can conveniently find all the details by looking in your existing application logs. If you enable [failed request tracing](troubleshoot-diagnostic-logs.md), you can see exactly what role the authentication and authorization module may have played in a failed request. In the trace logs, look for references to a module named `EasyAuthModule_32/64`.
 
 ## More resources
 
