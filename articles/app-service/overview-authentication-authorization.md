@@ -40,7 +40,7 @@ When you enable authentication and authorization with one of these providers, it
 
 You're not required to use this feature for authentication and authorization. You can use the bundled security features in your web framework of choice, or you can write your own utilities. However, keep in mind that you will need to ensure that your solution stays up to date with the latest security, protocol, and browser updates.
 
-**Can I link an existing app service for multiple App Services?**
+**Can I link an existing app registration for multiple apps or slots?**
 
 Give each app registration its own permission and consent. Avoid permission sharing between environments by using separate app registrations for separate deployment slots. When testing new code, this practice can help prevent issues from affecting the production app.
 
