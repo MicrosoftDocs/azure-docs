@@ -49,14 +49,6 @@ Get your Search resource admin key with the Visual Studio Code extension.
 
 1. Keep this admin key, you will need to use it in [a later section](#prepare-the-bulk-import-script-for-search). 
 
-## Download the book catalog to your local computer
-
-This tutorial uploads data directly into the Search Index from a comma-separated list (CSV) of books.
-
-1. Open the [books.csv](https://raw.githubusercontent.com/zygmuntz/goodbooks-10k/master/books.csv) file and save the contents to the local repository's subdirectory location, `search-web/bulk-insert` with the same file name `books.csv`. 
-
-1. In Visual Studio Code, right-click this subdirectory and open an integrated terminal. 
-
 ## Prepare the bulk import script for Search
 
 The script uses the Azure SDK for Cognitive Search:
@@ -69,7 +61,7 @@ The script uses the Azure SDK for Cognitive Search:
     * YOUR-SEARCH-RESOURCE-NAME
     * YOUR-SEARCH-ADMIN-KEY
 
-    :::code language="javascript" source="~/azure-search-javascript-samples/search-website/bulk-insert/bulk_insert_books.js" highlight="13,14" :::
+    :::code language="javascript" source="~/azure-search-javascript-samples/search-website/bulk-insert/bulk_insert_books.js" highlight="16,17" :::
 
 1. Open an integrated terminal in Visual Studio for the project directory's subdirectory, `search-web/bulk-insert`, and run the following command to install the dependencies. 
 
