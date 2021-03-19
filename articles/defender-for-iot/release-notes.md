@@ -50,7 +50,7 @@ A new device builder module is available. The module, referred to as a micro-age
 - **Security posture management** – proactively monitor the security posture of your IoT devices.
 - **Continuous, real-time IoT/OT threat detection** - detect threats such as botnets, brute force attempts, crypto miners, and suspicious network activity
 
-The deprecated security module documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
+The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
 
 This feature set is available with the current public preview cloud release.
 

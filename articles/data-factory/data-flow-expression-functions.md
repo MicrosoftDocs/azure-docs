@@ -153,14 +153,13 @@ Collects all values of the expression in the aggregated group into an array. Str
 ___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
-Gets all output columns for a stream. You can pass an optional stream name as the second argument.  
+Gets the names of all output columns for a stream. You can pass an optional stream name as the second argument.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
-
 ___
 ### <code>columns</code>
 <code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Gets all output columns for a stream. You can pass an optional stream name as the second argument.   
+Gets the values of all output columns for a stream. You can pass an optional stream name as the second argument.   
 * ``columns()``
 * ``columns('DeriveStream')``
 ___

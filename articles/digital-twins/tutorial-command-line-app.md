@@ -38,18 +38,17 @@ In this tutorial, you will...
 
 Now that the app and authentication are set up, run the project with this button in the toolbar:
 
-:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="The Visual Studio start button (SampleClientApp project)":::
+:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Screenshot of the Visual Studio start button (SampleClientApp project)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
 
 A console window will open, carry out authentication, and wait for a command. 
 * Authentication is handled through the browser: your default web browser will open with an authentication prompt. Use this prompt to sign in with your Azure credentials. You can then close the browser tab or window.
 
 Here is a screenshot of what the project console looks like:
 
-:::image type="content" source="media/tutorial-command-line/app/command-line-app.png" alt-text="Welcome message from the command-line app":::
+:::image type="content" source="media/tutorial-command-line/app/command-line-app.png" alt-text="Screenshot of the welcome message from the command-line app." lightbox="media/tutorial-command-line/app/command-line-app.png":::
 
 > [!TIP]
 > For a list of all the possible commands you can use with this project, enter `help` in the project console and press return.
-> :::image type="content" source="media/tutorial-command-line/app/command-line-app-help.png" alt-text="Output of the help command":::
 
 Keep the project console running for the rest of the steps in this tutorial.
 
@@ -84,7 +83,7 @@ After designing models, you need to upload them to your Azure Digital Twins inst
 
 1. Verify the models were created by running the command `GetModels true`. This will query the Azure Digital Twins instance for all models that have been uploaded, and print out their full information. Look for the edited *Room* model in the results:
 
-    :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Results of GetModels, showing the updated Room model":::
+    :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Screenshot of the result from GetModels, showing the updated Room model." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
 ### Errors
 
@@ -129,7 +128,7 @@ To create a digital twin, you use the `CreateDigitalTwin` command. You must refe
 
     The output from these commands should indicate the twins were created successfully. 
     
-    :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Excerpt from the results of CreateDigitalTwin commands, showing floor0, floor1, room0, and room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Screenshot showing an excerpt from the result of the CreateDigitalTwin commands, which includes floor0, floor1, room0, and room1." lightbox="media/tutorial-command-line/app/output-create-digital-twin.png":::
 
 1. You can verify that the twins were created by running the `Query` command. This command queries your Azure Digital Twins instance for all the digital twins it contains. Look for the *room0*, *room1*, *floor0*, and *floor1* twins in the results.
 
@@ -181,7 +180,7 @@ To add a relationship, use the `CreateRelationship` command. Specify the twin th
     
     The output from these commands confirms that the relationships were created successfully:
     
-    :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Excerpt from the results of CreateRelationship commands, showing relationship0 and relationship1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Screenshot of an excerpt from the result of the CreateRelationship commands, which includes relationship0 and relationship1." lightbox="media/tutorial-command-line/app/output-create-relationship.png":::
 
 1. You can verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
     * To see all relationships coming off of each floor (viewing the relationships from one side):
@@ -202,7 +201,7 @@ To add a relationship, use the `CreateRelationship` command. Specify the twin th
 
 The twins and relationships you have set up in this tutorial form the following conceptual graph:
 
-:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="A graph showing floor0 connected via relationship0 to room0, and floor1 connected via relationship1 to room1" border="false":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="A diagram showing a conceptual graph. floor0 is connected via relationship0 to room0, and floor1 is connected via relationship1 to room1." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
 ## Query the twin graph to answer environment questions
 
@@ -218,7 +217,7 @@ Run the following commands in the running project console to answer some questio
 
     This allows you to take stock of your environment at a glance, and make sure everything is represented as you'd like it to be within Azure Digital Twins. The result of this is an output containing each digital twin with its details. Here is an excerpt:
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Partial results of twin query, showing room0 and floor1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Screenshot showing a partial result from the twin query, including room0 and floor1.":::
 
     >[!NOTE]
     >In the sample project, the command `Query` without any additional arguments is the equivalent of `Query SELECT * FROM DIGITALTWINS`. To query all the twins in your instance using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](how-to-use-cli.md), use the longer (complete) query.
@@ -231,7 +230,7 @@ Run the following commands in the running project console to answer some questio
 
     You can restrict your query to twins of a certain type, to get more specific information about what's represented. The result of this shows *room0* and *room1*, but does **not** show *floor0* or *floor1* (since they are floors, not rooms).
     
-    :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Results of model query, showing only room0 and room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Screenshot of the result from the model query, showing only room0 and room1.":::
 
 1. **What are all the rooms on *floor0*?** (query by relationship)
 
@@ -241,7 +240,7 @@ Run the following commands in the running project console to answer some questio
 
     You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. Only *room0* is on *floor0*, so it's the only room in the result.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Results of relationship query, showing room0":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Screenshot of the result from the relationship query, showing room0.":::
 
 1. **What are all the twins in my environment with a temperature above 75?** (query by property)
 
@@ -251,7 +250,7 @@ Run the following commands in the running project console to answer some questio
 
     You can query the graph based on properties to answer a variety of questions, including finding outliers in your environment that might need attention. Other comparison operators (*<*,*>*, *=*, or *!=*) are also supported. *room1* shows up in the results here, because it has a temperature of 80.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Results of property query, showing only room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Screenshot of the result from the property query, showing only room1.":::
 
 1. **What are all the rooms on *floor0* with a temperature above 75?** (compound query)
 
@@ -261,7 +260,7 @@ Run the following commands in the running project console to answer some questio
 
     You can also combine the earlier queries like you would in SQL, using combination operators such as `AND`, `OR`, `NOT`. This query uses `AND` to make the previous query about twin temperatures more specific. The result now only includes rooms with temperatures above 75 that are on *floor0*—which in this case, is none of them. The result set is empty.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="Results of compound query, showing no results":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="Screenshot of the result from the compound query, showing no results." lightbox="media/tutorial-command-line/app/output-query-compound.png":::
 
 ## Clean up resources
 

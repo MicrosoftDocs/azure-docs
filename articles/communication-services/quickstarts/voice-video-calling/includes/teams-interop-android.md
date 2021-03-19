@@ -3,7 +3,7 @@ title: Quickstart - Join a Teams meeting from an Android app
 description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling client library for Android
 author: chpalm
 ms.author: mikben
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---

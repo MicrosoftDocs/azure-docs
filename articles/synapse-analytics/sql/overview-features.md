@@ -46,7 +46,7 @@ Query languages used in Synapse SQL can have different supported features depend
 
 |   | Dedicated | Serverless |
 | --- | --- | --- |
-| **SELECT statement** | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true) are not supported. | Yes. Transact-SQL query clauses [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), and query hints are not supported. |
+| **SELECT statement** | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), OFFSET/FETCH  are not supported. | Yes. Transact-SQL query clauses [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), GROUPNG SETS, and query hints are not supported. |
 | **INSERT statement** | Yes | No |
 | **UPDATE statement** | Yes | No |
 | **DELETE statement** | Yes | No |
@@ -153,5 +153,5 @@ Data that is analyzed can be stored in various storage formats. The following ta
 ## Next steps
 Additional information on best practices for dedicated SQL pool and serverless SQL pool can be found in the following articles:
 
-- [Best Practices for dedicated SQL pool](best-practices-sql-pool.md)
-- [Best practices for serverless SQL pool](best-practices-sql-on-demand.md)
+- [Best Practices for dedicated SQL pool](best-practices-dedicated-sql-pool.md)
+- [Best practices for serverless SQL pool](best-practices-serverless-sql-pool.md)
