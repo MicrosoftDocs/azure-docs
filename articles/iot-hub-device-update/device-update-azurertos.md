@@ -10,9 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for Azure IoT Hub tutorial using AzureRTOS
 
-This is the implementation of Device Update for IoT Hub Agent in Azure RTOS NetX Duo. It provides simple APIs for device builders to integrate the Device Update capability in their application.
-
-See the [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get started guides to learn configure, build and deploy the over-the-air (OTA) updates to the devices.
+This tutorial will walk through how to create the Device Update for IoT Hub Agent in Azure RTOS NetX Duo. It also provides simple APIs for developers to integrate the Device Update capability in their application. Explore [samples](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) of key semiconductors evaluation boards that include the get started guides to learn configure, build, and deploy the over-the-air (OTA) updates to the devices.
 
 In this tutorial you will learn how to:
 > [!div class="checklist"]
@@ -32,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 Each board-specific sample AzureRTOS project contains code and documentation on how to use Device Update for IoT Hub on it.  
 1. Download the board-specific sample files from [AzureRTOS releases](https://github.com/azure-rtos/samples/releases).
-2. Follow the sample for how to prepare Azure Resources, Account and register IoT devices to it.
+2. Follow the sample for how to prepare Azure Resources, Account, and register IoT devices to it.
 3. Next follow the sample to build a new firmware image and import manifest for your board.
 4. Publish firmware image and manifest to Device Update for IoT Hub.
 5. Download and run the project on your device
@@ -41,7 +39,7 @@ Each board-specific sample AzureRTOS project contains code and documentation on 
 
 1. Keep the device application running from the previous step.
 2. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
-3. From 'IoT Devices' on the left navigation pane find your IoT device and navigate to the Device Twin.
+3. From 'IoT Devices' on the left navigation pane, find your IoT device and navigate to the Device Twin.
 4. In the Device Twin, delete any existing Device Update tag value by setting them to null.
 5. Add a new Device Update tag value as shown below.
 
@@ -95,7 +93,7 @@ You have now completed a successful end-to-end image update using Device Update 
 
 ## Clean up resources
 
-When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. 
+When no longer needed clean up your device update account, instance, IoT Hub and IoT device. 
 
 ## Next steps
 
