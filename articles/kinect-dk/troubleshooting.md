@@ -172,8 +172,12 @@ The Azure Kinect depth engine on Linux uses OpenGL. OpenGL requires a window ins
 
 1. Enable automatic login for the user account you plan to use. Refer to [this](https://vitux.com/how-to-enable-disable-automatic-login-in-ubuntu-18-04-lts/) article for instructions on enabling automatic login.
 2. Power down the system, disconnect the monitor and power up the system. Automatic login forces the creation of an x-server session.
-2. Connect via ssh and set the DISPLAY env variable `export DISPLAY=:0`
-3. Start your Azure Kinect application.
+3. Connect via ssh and set the DISPLAY env variable `export DISPLAY=:0`
+4. Start your Azure Kinect application.
+
+The [xtrlock](http://manpages.ubuntu.com/manpages/xenial/man1/xtrlock.1x.html) utility may be used to immediately lock the screen after automatic login. Add the following command to the startup application or systemd service:
+
+`bash -c “xtrlock -b”`
 
 ## Missing C# documentation
 
