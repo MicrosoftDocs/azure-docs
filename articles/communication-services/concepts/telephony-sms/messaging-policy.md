@@ -1,3 +1,17 @@
+---
+title: Messaging Policy
+titleSuffix: An Azure Communication Services concept document
+description: Learn about SMS messaging policies.
+author: prakulka
+manager: nmurav
+services: azure-communication-services
+
+ms.author: prakulka
+ms.date: 03/19/2021
+ms.topic: overview
+ms.service: azure-communication-services
+---
+
 # Azure Communication Services Messaging Policy
 Azure Communication Services is transforming the way our customers engage with their clients by building rich, custom communication experiences that leverage the same enterprise-grade services that back Microsoft Teams and Skype. Integrate chat and SMS messaging functionality into your communications solutions to reach your customers anytime and anywhere they need support —you just need to comply with a few simple messaging requirements to get started.
 
