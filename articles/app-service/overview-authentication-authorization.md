@@ -46,7 +46,7 @@ Give each app registration its own permission and consent. Avoid permission shar
 
 **Are all requests redirected to HTTPS?**
 
-Enabling this EasyAuth will cause all non-secure HTTP requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to enforce HTTPS. You can disable this via the require Https setting in the auth settings configuration file. Ensure no security tokens ever get transmitted over non-secure HTTP connections.
+Enabling this feature will cause all requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to enforce HTTPS. You can disable this with the  `requireHttps` setting in the V2 configuration. Ensure no security tokens ever get transmitted over non-secure HTTP connections.
 
 **Will this restrict access to content and APIs?**
 
