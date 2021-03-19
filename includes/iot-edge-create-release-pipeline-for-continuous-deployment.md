@@ -74,6 +74,9 @@ Create a new pipeline, and add a new stage:
     | Choose single/multiple device | Choose whether you want the release pipeline to deploy to one or multiple devices. If you deploy to a single device, enter the **IoT Edge device ID**. If you are deploying to multiple devices, specify the device **target condition**. The target condition is a filter to match a set of IoT Edge devices in IoT Hub. If you want to use device tags as the condition, you need to update your corresponding devices tags with IoT Hub device twin. Update the **IoT Edge deployment ID** and **IoT Edge deployment priority** in the advanced settings. For more information about creating a deployment for multiple devices, see [Understand IoT Edge automatic deployments](../articles/iot-edge/module-deployment-monitoring.md). |
     | Device ID or target condition | Depending on the prior selection, specify a device ID or [target condition](../articles/iot-edge/module-deployment-monitoring.md#target-condition) to deploy to multiple devices. |
     | Advanced | For the IoT Edge deployment ID, specify `$(System.TeamProject)-$(Release.EnvironmentName)`. This variable maps the project and release name with your IoT Edge deployment ID. |
+    
+
+If your task involves using an image that reside within a private Docker Trusted Registry not visible to the public cloud, you can enable the environment variable **SKIP_MODULE_IMAGE_VALIDATION** to `true` to skip the image validation. 
 
     ![Add Azure IoT Edge tasks for your dev stage](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 
