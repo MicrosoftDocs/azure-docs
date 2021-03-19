@@ -15,6 +15,7 @@ ms.author: stegag
 
 This article helps understand the different logs available for VPN Gateway diagnostics and how to use them to effectively troubleshoot VPN gateway issues.
 
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 The following logs are available in Azure:
 
@@ -191,3 +192,8 @@ The output will show all of the Point to Site settings that the gateway has appl
 Also, whenever a client will connect via IKEv2 or OpenVPN Point to Site, the table will log packet activity, EAP/RADIUS conversations and successful/failure results by user
 
 ![EAP logs example](./media/troubleshoot-vpn-with-AzureDagnostics/image-29-eap.png)
+
+## Next Steps
+
+To configure alerts on tunnel resource logs, see [Set up alerts on VPN Gateway resource logs](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
+
