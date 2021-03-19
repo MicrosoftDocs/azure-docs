@@ -157,6 +157,14 @@ There are 2 ways you can add Purview private endpoints after creating your Purvi
 > [!NOTE]
 > You will need to follow the same steps as above for the target sub-resource selected as **Portal** as well.
 
+## Firewalls to restrict public access
+
+To cut off access to the Purview account completely from public internet, follow the steps below. This setting will apply to both private endpoint and ingestion private endpoint connections.
+
+1. navigate to the Purview account from the Azure portal, select the Private endpoint connections under the **networking** section of **Settings**.
+1. Navigate to the firewall tab and ensure that the toggle is set to **Deny**.
+     :::image type="content" source="media/catalog-private-link/private-endpoint-firewall.png" alt-text="Private endpoint firewall settings":::
+
 ## Next steps
 
 - [Browse the Azure Purview Data Catalog](how-to-browse-catalog.md)
