@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Auto-manage devices using DPS
+title: Auto-manage devices using Device Provisioning Service
 titleSuffix: Azure Digital Twins
 description: See how to set up an automated process to provision and retire IoT devices in Azure Digital Twins using Device Provisioning Service (DPS).
 author: baanders
@@ -86,7 +86,7 @@ Add a new function of type *HTTP-trigger* to the function app project in Visual 
 
 #### Step 2: Fill in function code
 
-Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add additional packages to your project as well, if the packages used in the code aren't part of the project already.
+Add a new NuGet package to the project: [Microsoft.Azure.Devices.Provisioning.Service](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/). You might need to add more packages to your project as well, if the packages used in the code aren't part of the project already.
 
 In the newly created function code file, paste in the following code, rename the function to *DpsAdtAllocationFunc.cs*, and save the file.
 
@@ -215,7 +215,7 @@ To do this,
 
 :::image type="content" source="media/how-to-provision-using-dps/add-event-hub-sas-policy.png" alt-text="The Azure portal view to add an event hub SAS policy" lightbox="media/how-to-provision-using-dps/add-event-hub-sas-policy.png":::
 
-#### Configure Event Hub with function app
+#### Configure event hub with function app
 
 Next, you will need to configure the function environment variable for connecting to the newly created event hub.
 
@@ -281,16 +281,9 @@ Next, you'll add a route with the endpoint you created in the above step with a 
 1. Add a *Routing query* `opType='deleteDeviceIdentity'` to limit the device lifecycle events to only send the delete events.
 1. Select *Save*.
 
-:::image type="content" source="media/how-to-provision-using-dps/add-message-route.png" alt-text="Visual Studio view to add a route to send events" lightbox="media/how-to-provision-using-dps/add-message-route.png.png":::
+:::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Add a route to send lifecycle events":::
 
 Once you have gone through this flow, everything is set to retire devices end-to-end.
-
-Instructions for creating an IoT Hub route are described in this article: [*Use IoT Hub message routing to send device-to-cloud messages to different endpoints*](../iot-hub/iot-hub-devguide-messages-d2c.md). The section *Non-telemetry events* explains that you can use **device lifecycle events** as the data source for the route.
-
-The steps you need to go through for this setup are:
-1. Create a custom IoT Hub event hub endpoint. This endpoint should target the event hub you created in the [*Create an event hub*](#create-an-event-hub) section.
-2. Add a *Device Lifecycle Events* route. Use the endpoint created in the previous step. You can limit the device lifecycle events to only send the delete events by adding the routing query `opType='deleteDeviceIdentity'`.
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Add a route":::
 
 ### Validate
 
@@ -300,7 +293,7 @@ In the [first half of this article](#auto-provision-device-using-device-provisio
 
 Now, go to the IoT Hub and delete that device (you can do this with an [Azure CLI command](/cli/azure/ext/azure-iot/iot/hub/module-identity#ext_azure_iot_az_iot_hub_module_identity_delete) or in the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)).
 
-The device will be automatically removed from Azure Digital Twins. 
+The device will be automatically removed from Azure Digital Twins.
 
 Use the following [Azure Digital Twins CLI](how-to-use-cli.md) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
 
