@@ -262,6 +262,8 @@
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:
+    - name: Troubleshoot Azure VPN Gateway using Diagnostic Logs
+      href: troubleshoot-vpn-with-azure-diagnostics.md
     - name: Community-suggested VPN or firewall device settings
       href: vpn-gateway-third-party-settings.md
     - name: Configure and validate VNet or VPN connections
