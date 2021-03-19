@@ -85,7 +85,7 @@ You can find out the IP address range of `AzureCognitiveSearch` [service tag](..
 
 If you are using the Azure portal to create an indexer, Azure Cognitive Search portal logic also needs access to your SQL Azure VM during creation time. Azure Cognitive Search portal IP addresses can be found by pinging `stamp2.search.ext.azure.com`, which is the domain of the traffic manager.
 
-Clusters in different regions connect to this traffic manager. The ping might return the IP address and domain of `stamp2.search.ext.azure.com`, but if your service is in a different region, the IP and domain name will be different. The IP address returned from the ping is the correct one for portal in your region.
+Clusters in different regions connect to this traffic manager. The ping might return the IP address and domain of `stamp2.search.ext.azure.com`, but if your service is in a different region, the IP and domain name will be different. The IP address returned from the ping is the correct one for Azure portal in your region.
 
 ## Next steps
 
