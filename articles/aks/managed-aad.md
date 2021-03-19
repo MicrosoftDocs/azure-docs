@@ -304,7 +304,7 @@ Make sure the admin of the security group has given your account an *Active* ass
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
-[aad-pricing]: /azure/pricing/details/active-directory
+[aad-pricing]: https://azure.microsoft.com/pricing/details/active-directory/
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
