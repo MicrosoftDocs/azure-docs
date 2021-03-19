@@ -28,7 +28,7 @@ All devices are required to meet the baseline requirements outlined by the [**Az
 
 1. Review each of the certification programs' capability requirements in the table below. Select on the links provided to view the technical requirements your device must meet to pass our Azure IoT Certification Service testing.
 
-    |    |IoT Plug and Play|Edge Managed|Edge Secured-core|
+    |Requirement|IoT Plug and Play|Edge Managed|Edge Secured-core|
     ---|---|---|---
     | Processor | Any|MPU/CPU|MPU/CPU|
     | OS | Any|[Tier 1 OS](../iot-edge/support.md?view=iotedge-2018-06))|[Tier 1 OS](../iot-edge/support.md?view=iotedge-2018-06)|
