@@ -17,7 +17,7 @@ ms.custom: how-to
 
 In this article, you learn how to view your experiment runs and metrics in TensorBoard using [the `tensorboard` package](/python/api/azureml-tensorboard/) in the main Azure Machine Learning SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
 
-[TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) is a suite of web applications for inspecting and understanding your experiment structure and performance.
+[TensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
 How you launch TensorBoard with Azure Machine Learning experiments depends on the type of experiment:
 + If your experiment natively outputs log files that are consumable by TensorBoard, such as PyTorch, Chainer and TensorFlow experiments, then you can [launch TensorBoard directly](#launch-tensorboard) from experiment's run history. 
