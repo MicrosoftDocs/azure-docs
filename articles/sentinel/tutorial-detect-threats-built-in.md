@@ -53,7 +53,9 @@ The following template types are available:
     These templates are based on proprietary Microsoft machine learning algorithms, so you cannot see the internal logic of how they work and when they run. Because the logic is hidden and therefore not customizable, you can only create one rule with each template of this type.
 
     > [!IMPORTANT]
-    > The machine learning behavioral analytics rule templates are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+    > - The machine learning behavioral analytics rule templates are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+    >
+    > - By creating and enabling any rules based on machine learning templates, **you give Microsoft permission to copy ingested data outside of your Azure Sentinel workspace's geography** as necessary for processing by the machine learning engines and models.
 
 - **Scheduled**
 
