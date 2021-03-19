@@ -22,6 +22,7 @@ Jump to [Text-to-Speech Quotas and limits](#text-to-speech-quotas-and-limits-per
 In the tables below Parameters without "Adjustable" row are **not** adjustable for all price tiers.
 
 #### Online Transcription
+For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
 
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|

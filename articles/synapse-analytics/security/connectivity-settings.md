@@ -16,7 +16,7 @@ This article will explain connectivity settings in Azure Synapse Analytics and h
 
 
 ## Connection policy
-The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Default*. You cannot change this in Azure Synapse Analytics. You can learn more about how that affects connections to Synapse SQL in Azure Synapse Analytics [here](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy). 
+The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Default*. You cannot change this in Azure Synapse Analytics. You can learn more about how that affects connections to Synapse SQL in Azure Synapse Analytics [here](../../azure-sql/database/connectivity-architecture.md#connection-policy). 
 
 ## Minimal TLS version
 Synapse SQL in Azure Synapse Analytics allows connections using all TLS versions. You cannot set the minimal TLS version for Synapse SQL in Azure Synapse Analytics.

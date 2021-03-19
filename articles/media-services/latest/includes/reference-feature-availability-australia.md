@@ -11,7 +11,7 @@ ms.author: inhenkel
 
 | Feature| Australia Central | Australia Central 2 | Australia East | Australia Southeast |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: |
-| [Azure EventGrid](../reacting-to-media-services-events.md) | | |![ Azure EventGrid Australia East general availability](../media/azure-clouds-regions/ga.svg) |![Azure EventGrid Australia Southeast general availability](../media/azure-clouds-regions/ga.svg) |
+| [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) | | |![ Azure EventGrid Australia East general availability](../media/azure-clouds-regions/ga.svg) |![Azure EventGrid Australia Southeast general availability](../media/azure-clouds-regions/ga.svg) |
 | [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) | | |![VideoAnalyzerPreset Australia East general availability](../media/azure-clouds-regions/ga.svg) |![VideoAnalyzerPreset Australia Southeast general availability](../media/azure-clouds-regions/ga.svg) |
 | [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) | | |![AudioAnalyzerPreset Australia East general availability](../media/azure-clouds-regions/ga.svg) |![AudioAnalyzerPreset Australia Southeast general availability](../media/azure-clouds-regions/ga.svg) |
 | [StandardEncoderPreset](../encoding-concept.md) | | |![StandardEncoderPreset Australia East general availability](../media/azure-clouds-regions/ga.svg) |![StandardEncoderPreset Australia Southeast general availability](../media/azure-clouds-regions/ga.svg) |
