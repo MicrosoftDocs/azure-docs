@@ -14,7 +14,7 @@ ms.date: 03/12/2021
 # Return a semantic answer in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search features are in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), and are not guaranteed to have the same implementation at general availability. These features are billable. For more information, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
 
 When formulating a [semantic query](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
@@ -24,27 +24,27 @@ In this article, learn how to request a semantic answer, unpack the response, an
 
 All prerequisites that apply to [semantic queries](semantic-how-to-query-request.md) also apply to answers, including service tier and region.
 
-+ Queries formulated using the semantic query parameters, and include the "answers" parameter. Required parameters are discussed in this article.
++ Query logic must include the semantic query parameters, and include the "answers" parameter. Required parameters are discussed in this article.
 
-+ Query strings must be formulated in language having the characteristics of a question (what, where, when, how).
++ Query strings entered by the user must be formulated in language having the characteristics of a question (what, where, when, how).
 
 + Search documents must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in "searchFields".
 
 ## What is a semantic answer?
 
-A semantic answer is an artifact of a [semantic query](semantic-how-to-query-request.md). It consists of one or more verbatim passages from a search document, formulated as an answer to a query that looks like a question. For an answer to be returned, phrases or sentences must exist in a search document that have the language characteristics of an answer, and the query itself must be posed as a question.
+A semantic answer is a substructure of a [semantic query response](semantic-how-to-query-request.md). It consists of one or more verbatim passages from a search document, formulated as an answer to a query that looks like a question. For an answer to be returned, phrases or sentences must exist in a search document that have the language characteristics of an answer, and the query itself must be posed as a question.
 
-Cognitive Search uses a machine reading comprehension model to formulate answers. The model produces a set of potential answers from the available documents, and when it reaches a high enough confidence level, it will propose an answer.
+Cognitive Search uses a machine reading comprehension model to pick the best answer. The model produces a set of potential answers from the available content, and when it reaches a high enough confidence level, it will propose an answer.
 
-Answers are returned as an independent, top-level object in the query response payload that you can choose to render on  search pages, along side search results. Structurally, it's an array element of a response that includes text, a document key, and a confidence score.
+Answers are returned as an independent, top-level object in the query response payload that you can choose to render on  search pages, along side search results. Structurally, it's an array element within the response consisting of text, a document key, and a confidence score.
 
 <a name="query-params"></a>
 
 ## How to request semantic answers in a query
 
-To return a semantic answer, the query must have the semantic query type, language, search fields, and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
+To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "searchFields", and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
 
-The "searchFields" parameter is critical to returning a high quality answer, both in terms of content and order. 
+The "searchFields" parameter is crucial to returning a high quality answer, both in terms of content and order (see below). 
 
 ```json
 {
@@ -59,9 +59,9 @@ The "searchFields" parameter is critical to returning a high quality answer, bot
 
 + A query string must not be null and should be formulated as question. In this preview, the "queryType" and "queryLanguage" must be set exactly as shown in the example.
 
-+ The "searchFields" parameter determines which fields provide tokens to the extraction model. Be sure to set this parameter. You must have at least one string field, but include any string field that you think is useful in providing an answer. Collectively across all fields in searchFields, only about 8,000 tokens per document are passed into the model. Start the field list with concise fields, and then progress to text-rich fields. For precise guidance on how to set this field, see [Set searchFields](semantic-how-to-query-request.md#searchfields).
++ The "searchFields" parameter determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. For precise guidance on how to set this field so that it works for both captions and answers, see [Set searchFields](semantic-how-to-query-request.md#searchfields). 
 
-+ For "answers", the basic parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a count, up to a maximum of five.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
++ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a count as shown in the above example, up to a maximum of five.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
 
 ## Deconstruct an answer from the response
 
@@ -111,7 +111,7 @@ Given the query "how do clouds form", the following answer is returned in the re
 
 For best results, return semantic answers on a document corpus having the following characteristics:
 
-+ "searchFields" must provide fields that offer sufficient text in which an answer is likely to be found. Only verbatim text from a document can be appear as an answer.
++ "searchFields" must provide fields that offer sufficient text in which an answer is likely to be found. Only verbatim text from a document can appear as an answer.
 
 + query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
 
