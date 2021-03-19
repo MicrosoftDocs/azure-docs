@@ -13,7 +13,7 @@ Azure App Service provides built-in authentication and authorization capabilitie
 
 ## Why use the built in authentication?
 
-Implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) takes significant effort. You must make sure to follow industry best practices and standards, and keep your implementation up to date. Threat actors are constantly upping their game, and you must stay one step ahead of them to keep your users and data secure. The EasyAuth feature exists to save you time and effort by doing this work for you.
+Implementing a secure solution for authentication (signing-in users) and authorization (providing access to secure data) can take significant effort. You must make sure to follow industry best practices and standards, and keep your implementation up to date. The built-in authentication feature for App Service and Azure Functions can save you time and effort by providing out-of-the-box authentication with federated identity providers, allowing you to focus on the rest of your application.
 
 - Azure App Service that allows you to integrate a variety of auth capabilities into your web app or API without implementing them yourself.
 - It’s built directly into the platform and doesn’t require any particular language, SDK, security expertise, or even any code to utilize.
