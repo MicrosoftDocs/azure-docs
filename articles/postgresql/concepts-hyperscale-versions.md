@@ -29,7 +29,7 @@ different versions of Postgres extensions will be installed as well.  In
 particular, Postgres 13 comes with Citus 10, and earlier Postgres versions come
 with Citus 9.5.
 
-## Next steps
+**Next steps**
 
 * See which [extensions](concepts-hyperscale-extensions.md) are installed in
   which versions.
