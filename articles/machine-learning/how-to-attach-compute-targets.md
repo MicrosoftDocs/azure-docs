@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/10/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
 ---
