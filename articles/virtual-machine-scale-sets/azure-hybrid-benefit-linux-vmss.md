@@ -14,14 +14,16 @@ ms.date: 03/20/2021
 ms.author: mathapli
 ---
 
->[!NOTE]
-> This article describes the Azure Hybrid Benefit for Linux VMSS. There is a separate [article available [here AHB for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux), which is already available to Azure customers since November, 2020. 
 
 
 # Azure Hybrid Benefit for Linux VMSS (Public Preview)
 **Azure Hybrid Benefit for Linux VMSS is in public preview now**. The AHB licensing benefit can help reduce the cost of running your Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) [virtual machine scale sets (VMSS)](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) in the Microsoft cloud.
 
 With this benefit, you pay for only the infrastructure costs of your VM because your RHEL or SLES subscription covers the software fee. The benefit is available for all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
+
+
+>[!NOTE]
+> This article describes the Azure Hybrid Benefit for Linux VMSS. There is a separate [article available [here AHB for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux), which is already available to Azure customers since November, 2020. 
 
 ## Benefit description
 Azure Hybrid allows you to use the existing Cloud access licenses from Red Hat or SUSE and flexibly convert your RHEL and SLES PAYG VMSS instances to bring-your-own-subscription (BYOS) billing. 
