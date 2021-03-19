@@ -33,7 +33,7 @@ Prior to scoring for relevance, content must be reduced to a quantity of paramet
 Each document is now represented by a single long string that is 8,000 tokens or less.
 
 > [!NOTE]
-> Parameter inputs to the models are tokens not characters or strings. Tokenization is determined in part by the analyzer assignment on searchable fields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](rest/api/searchservice/test-analyzer).
+> Parameter inputs to the models are tokens not characters or strings. Tokenization is determined in part by the analyzer assignment on searchable fields. For insights into how strings are tokenized, you can review the token output of an analyzer using the [Test Analyzer REST API](/rest/api/searchservice/test-analyzer).
 
 ## Summarization
 
