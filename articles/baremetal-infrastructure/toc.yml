@@ -11,10 +11,10 @@
     href: connect-baremetal-infrastructure.md
 - name: Workloads
   items: 
-  - name: SAP
+  - name: BareMetal workload types
+    href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context  
+  - name: SAP HANA on Azure (Large Instances)
     items:
-    - name: BareMetal workload types
-      href: /azure/virtual-machines/workloads/sap/get-started?context=/azure/baremetal-infrastructure/workloads/sap/context/context
     - name: Certification
       href: /azure/virtual-machines/workloads/sap/hana-certification?context=/azure/baremetal-infrastructure/workloads/sap/context/context
     - name: Available SKUs for HLI
