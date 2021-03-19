@@ -33,9 +33,9 @@ The recommended topology for the primary node type requires the resources outlin
 Diagram that shows the Azure Service Fabric Availability Zone architecture
  ![Diagram that shows the Azure Service Fabric Availability Zone architecture.][sf-architecture]
 
-Sample node list depicting FD/UD formats in a VMSS spanning zones
+Sample node list depicting FD/UD formats in a virtual machine scale set spanning zones
 
- ![Sample node list depicting FD/UD formats in a VMSS spanning zones.][sf-multi-az-nodes]
+ ![Sample node list depicting FD/UD formats in a virtual machine scale set spanning zones.][sf-multi-az-nodes]
 
 **Distribution of Service replica's across zones**:
 When a service is deployed on the nodeTypes which are spanning zones, the replica’s are placed to ensure they land up in separate zones. This is ensured as the fault domain’s on the nodes present in each of these nodeTypes are configured with the zone information (i.e FD = fd:/zone1/1 etc..). For example: for 5 replicas or instances of a service the distribution will be 2-2-1 and runtime will try to ensure equal distribution across AZs.
@@ -385,13 +385,13 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 
 * The first value is **multipleAvailabilityZones** which should be set to true for the nodeType.
 * The second value is **sfZonalUpgradeMode** and is optional. This property can’t be modified if a nodetype with multiple AZ’s is already present in the cluster.
-      The property controls the logical grouping of VMs in upgrade domains.
-          * If value is set to "Parallel": VMs under the nodetype will be grouped in UDs ignoring the zone info in 5 UDs. This will result in UD0 across all zones to get upgraded at the same time. This deployment mode is faster for upgrades but is not recommended as it goes against the SDP guidelines, which state that the updates should be applied only one zone at a time.
-          * If value is omitted or set to "Hierarchical": VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs. This ensures that the updates go zone wise, moving to next zone only after completing 5 UDs within the first zone, slowly across 15 UDs (3 zones, 5 UDs), which is safer from the perspective of the cluster and the user application.
-          * This property only defines the upgrade behavior for ServiceFabric application and code upgrades. The underlying virtual machine scale set upgrades will still be parallel in all AZ’s.
-      This property will not have any impact on the UD distribution for node types which do not have multiple zones enabled.
+  The property controls the logical grouping of VMs in upgrade domains.
+  **If value is set to "Parallel":** VMs under the nodetype will be grouped in UDs ignoring the zone info in 5 UDs. This will result in UD0 across all zones to get upgraded at the same time. This deployment mode is faster for upgrades but is not recommended as it goes against the SDP guidelines, which state that the updates should be applied only one zone at a time.
+  **If value is omitted or set to "Hierarchical":** VMs will be grouped to reflect the zonal distribution in up to 15 UDs. Each of the 3 zones will have 5 UDs. This ensures that the updates go zone wise, moving to next zone only after completing 5 UDs within the first zone, slowly across 15 UDs (3 zones, 5 UDs), which is safer from the perspective of the cluster and the user application.
+  This property only defines the upgrade behavior for ServiceFabric application and code upgrades. The underlying virtual machine scale set upgrades will still be parallel in all AZ’s.
+  This property will not have any impact on the UD distribution for node types which do not have multiple zones enabled.
 * The third value is **vmssZonalUpgradeMode = Parallel**. This is a *mandatory* property to be configured in the cluster, if a nodeType with multiple AZs is added. This property defines the upgrade mode for the virtual machine scale set updates which will happen in parallel in all AZ’s at once.
-      Right now this property can only be set to parallel.
+  Right now this property can only be set to parallel.
 * The Service Fabric cluster resource apiVersion should be "2020-12-01-preview" or higher.
 * The cluster code version should be "7.2.445" or higher.
 
@@ -420,7 +420,7 @@ The Service Fabric nodeType must be enabled to support multiple availability zon
 >[!NOTE]
 > * Public IP and Load Balancer Resources should be using the Standard SKU as described earlier in the article.
 > * "multipleAvailabilityZones" property on the nodeType can only be defined at the time of nodeType creation and can't be modified later. Hence, existing nodeTypes can't be configured with this property.
-> * When "sfZonalUpgradeMode" is omitted or set to "Hierarchical", the cluster and application deployments will be slower as there are more upgrade domains in the cluster. It is important to correctly adjust the upgrade policy timeouts to incorporate for the upgrade time duration for 15 upgrade domains. The upgrade policy for both app and cluster should be updated to ensure the deployment does not exceed the ARM deployment timeouts of 12hours. This means deployment should not take more than 12hours for 15UDs i.e should not take more than 40 min/UD.
+> * When "sfZonalUpgradeMode" is omitted or set to "Hierarchical", the cluster and application deployments will be slower as there are more upgrade domains in the cluster. It is important to correctly adjust the upgrade policy timeouts to incorporate for the upgrade time duration for 15 upgrade domains. The upgrade policy for both app and cluster should be updated to ensure the deployment does not exceed the Azure Resource Manager deployment timeouts of 12hours. This means deployment should not take more than 12hours for 15UDs i.e should not take more than 40 min/UD.
 > * Set the cluster **reliabilityLevel = Platinum** to ensure the cluster survives the one zone down scenario.
 
 >[!NOTE]
