@@ -213,8 +213,11 @@ You'll create an Azure [event hub](../event-hubs/event-hubs-about.md) to receive
 Next, you'll need to create a Shared access policy to configure the event hub with your function app.
 To do this, 
 1. Navigate to the event hub you just created in the Azure portal and select **Shared access policies** in the menu options on the left.
-2. Select **Add**. In the *Add SAS Policy* window that opens, enter a policy name of your choice and select *Listen* checkbox.
-3. Select Create.
+1. Select **Add**. In the *Add SAS Policy* window that opens, enter a policy name of your choice and select *Listen* checkbox.
+1. Select Create.
+
+
+:::image type="content" source="media/how-to-provision-using-dps/add-event-hub-sas-policy.png" alt-text="The Azure portal view to add an event hub SAS policy" lightbox="media/how-to-provision-using-dps/add-event-hub-sas-policy.png":::
 
 #### Configure Event Hub with function app
 
@@ -227,9 +230,11 @@ Next, you will need to configure the function environment variable for connectin
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
+:::image type="content" source="media/how-to-provision-using-dps/event-hub-sas-policy-connection-string.png" alt-text="The Azure portal view to copy the connection string-primary key" lightbox="media/how-to-provision-using-dps/event-hub-sas-policy-connection-string.png":::
+
 ### Add a function to retire with IoT Hub lifecycle events
 
-Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to retire device using IoT Hub lifecycle events. This function will use the IoT Hub device lifecycle event to retire an existing device. 
+Inside your function app project that you created in the [prerequisites](#prerequisites) section, you'll create a new function to retire device using IoT Hub lifecycle events. This function will use the IoT Hub device lifecycle event to retire an existing device.
 
 For more about lifecycle events, see [*IoT Hub Non-telemetry events*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). For more information about using Event Hubs with Azure functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
@@ -260,20 +265,29 @@ Follow the steps to create an event hub endpoint.
 
 1. In the Azure portal, navigate to the IoT hub you created in the [prerequisites](#prerequisites) section and select **Message routing** in the menu options on the left.
 2. Select **Custom endpoints** tab to add an event hubs type endpoint.
+
+:::image type="content" source="media/how-to-provision-using-dps/event-hub-custom-endpoint.png" alt-text="Visual Studio view to add an event hub custom endpoint" lightbox="media/how-to-provision-using-dps/event-hub-custom-endpoint.png":::
+
 3. In the window *Add an event hub endpoint* page, choose an endpoint name of your choice, select your Event hub namespace from the dropdown list and for *Event hub instance*, choose the event hub name that you created in the previous step.
 4. Select **Create**. Keep this window open to add a route in the next step.
+
+:::image type="content" source="media/how-to-provision-using-dps/add-event-hub-endpoint.png" alt-text="Visual Studio view to add an event hub endpoint" lightbox="media/how-to-provision-using-dps/add-event-hub-endpoint.png":::
 
 Next, you'll add a route with the endpoint you created in the above step with a routing query to send the delete events. Follow the steps to create a route:
 
 1. Navigate to *Routes* tab and select **Add** to add a route.
-2. Choose a *Name* for your route. 
-3. For *Endpoint*, choose the event hubs endpoint you created in the above step from the dropdown.
-4. For *Data source*, choose **Device Lifecycle Events**.
-5. Add a *Routing query* `opType='deleteDeviceIdentity'` to limit the device lifecycle events to only send the delete events.
-6. Select *Save*.
+
+:::image type="content" source="media/how-to-provision-using-dps/add-message-route.png" alt-text="Visual Studio view to add a route to send events" lightbox="media/how-to-provision-using-dps/add-message-route.png.png":::
+
+1. Choose a *Name* for your route. 
+1. For *Endpoint*, choose the event hubs endpoint you created in the above step from the dropdown.
+1. For *Data source*, choose **Device Lifecycle Events**.
+1. Add a *Routing query* `opType='deleteDeviceIdentity'` to limit the device lifecycle events to only send the delete events.
+1. Select *Save*.
+
+:::image type="content" source="media/how-to-provision-using-dps/add-message-route.png" alt-text="Visual Studio view to add a route to send events" lightbox="media/how-to-provision-using-dps/add-message-route.png.png":::
 
 Once you have gone through this flow, everything is set to retire devices end-to-end.
-
 
 Instructions for creating an IoT Hub route are described in this article: [*Use IoT Hub message routing to send device-to-cloud messages to different endpoints*](../iot-hub/iot-hub-devguide-messages-d2c.md). The section *Non-telemetry events* explains that you can use **device lifecycle events** as the data source for the route.
 
