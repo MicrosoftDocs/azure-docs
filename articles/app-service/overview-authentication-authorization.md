@@ -50,7 +50,7 @@ Enabling this EasyAuth will cause all non-secure HTTP requests to your appli
 
 **Will this restrict access to content and APIs?**
 
-App Service provides authentication but doesn't restrict authorized access to your site content and APIs. To restrict app access only to users authenticated by Azure Active Directory, set Action to take when request is not authenticated to Log in with Azure Active Directory.
+App Service can be used for authentication with or without restricting access to your site content and APIs. To restrict app access only to authenticated users, set **Action to take when request is not authenticated** to  log in with one of the configured identity providers. To authenticate but not restrict access, set **Action to take when request is not authenticated** to "Allow anonymous requests (no action)."
 
 **Can I authorize it with role-specific authorization?**
 
