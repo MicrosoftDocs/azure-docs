@@ -15,11 +15,9 @@ ms.reviewer: mifarca
 
 # Export apps with secrets and certificates expiring beyond the required date
 
-This PowerShell script example exports all apps secrets and certificates expiring beyond the required date for the specified apps from your directory in a CSV file.
+This PowerShell script example exports all app registrations secrets and certificates expiring beyond a required period for the specified apps from your directory in a CSV file non-interactively.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
-
-This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/azure/active-directory/install-adv2) (AzureAD) or the [AzureAD V2 PowerShell for Graph module preview version](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true) (AzureADPreview).
 
 ## Sample script
 
@@ -27,13 +25,15 @@ This sample requires the [AzureAD V2 PowerShell for Graph module](/powershell/az
 
 ## Script explanation
 
+This script is working non-interactively. The admin using it will need to change the values in the "#PARAMETERS TO CHANGE" section with their own App ID, Application Secret, Tenant Name, the period for the apps credentials expiration and the Path where the CSV will be exported.
+This script uses the [Client_Credential Oauth Flow](../../develop/v2-oauth2-client-creds-grant-flow.md) 
+The function "RefreshToken" will build the access token based on the values of the parameters modified by the admin.
+
 The "Add-Member" command is responsible for creating the columns in the CSV file.
-You can modify the "$Path" variable directly in PowerShell, with a CSV file path, in case you'd prefer the export to be non-interactive.
 
 | Command | Notes |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Retrieves an application from your directory. |
-| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner?view=azureadps-2.0&preserve-view=true) | Retrieves the owners of an application from your directory. |
+| [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1) | Sends HTTP and HTTPS requests to a web page or web service. It parses the response and returns collections of links, images, and other significant HTML elements. |
 
 ## Next steps
 

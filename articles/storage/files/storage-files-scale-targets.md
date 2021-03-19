@@ -129,13 +129,13 @@ The rate of performance is 20 objects per second. Customers can estimate the tim
 
 **Initial sync of data from Windows Server to Azure File share**:Many Azure File Sync deployments start with an empty Azure file share because all the data is on the Windows Server. In these cases, the initial cloud change enumeration is fast and the majority of time will be spent syncing changes from the Windows Server into the Azure file share(s). 
 
-While sync uploads data to the Azure file share, there is no downtime on the local file server, and administrators can [setup network limits](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-registration#set-azure-file-sync-network-limits) to restrict the amount of bandwidth used for background data upload.
+While sync uploads data to the Azure file share, there is no downtime on the local file server, and administrators can [setup network limits](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) to restrict the amount of bandwidth used for background data upload.
 
-Initial sync is typically limited by the initial upload rate of 20 files per second per sync group. Customers can estimate the time to upload all their data to azure using the following formulae to get time in days:  
+Initial sync is typically limited by the initial upload rate of 20 files per second per sync group. Customers can estimate the time to upload all their data to Azure using the following formulae to get time in days:  
 
-   **Time (in days) for uploading files to a sync group = (Number of objects in cloud endpoint)/(20 * 60 * 60 * 24)**
+   **Time (in days) for uploading files to a sync group = (Number of objects in server endpoint)/(20 * 60 * 60 * 24)**
 
-Splitting your data into multiple server endpoints and sync groups can speed up this initial data upload, because the upload can be done in parallel for multiple sync groups at a rate of 20 items per second each. So, two sync groups would be running at a combined rate of 40 items per second. The total time to complete would be the time estimate for the sync group with the most files to sync
+Splitting your data into multiple server endpoints and sync groups can speed up this initial data upload, because the upload can be done in parallel for multiple sync groups at a rate of 20 items per second each. So, two sync groups would be running at a combined rate of 40 items per second. The total time to complete would be the time estimate for the sync group with the most files to sync.
 
 **Namespace download throughput** When a new server endpoint is added to an existing sync group, the Azure File Sync agent does not download any of the file content from the cloud endpoint. It first syncs the full namespace and then triggers background recall to download the files, either in their entirety or, if cloud tiering is enabled, to the cloud tiering policy set on the server endpoint.
 

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -274,6 +274,19 @@ Example:
 ## Session management
 
 You can manage the session between Azure AD B2C and the SAML relying party application using the `UseTechnicalProfileForSessionManagement` element and the [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider).
+
+## Force users to re-authenticate 
+
+To force users to re-authenticate, the application can include the `ForceAuthn` attribute in the SAML authentication request. The `ForceAuthn` attribute is a Boolean value. When set to true, the users session will be invalidated at Azure AD B2C, and the user is forced to re-authenticate. The following SAML authentication request demonstrates how to set the `ForceAuthn` attribute to true. 
+
+
+```xml
+<samlp:AuthnRequest 
+       Destination="https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1A_SAML2_signup_signin/samlp/sso/login"
+       ForceAuthn="true" ...>
+    ...
+</samlp:AuthnRequest>
+```
 
 ## Debug the SAML protocol
 

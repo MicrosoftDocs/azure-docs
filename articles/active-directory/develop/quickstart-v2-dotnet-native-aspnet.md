@@ -37,6 +37,8 @@ You can obtain the sample in either of two ways:
    ```
 * [Download it as a ZIP file](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 ## Register your web API
 
 In this section, you register your web API in **App registrations** in the Azure portal.

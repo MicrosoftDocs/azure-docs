@@ -35,9 +35,7 @@ You can find the JSON schema example at the end of this article.
 Contains a collection of AssetFile elements for the encoding job.  
 
 > [!NOTE]
-> The following four child elements must appear in a sequence.  
-> 
-> 
+> The following four child elements must appear in a sequence.
 
 | Name  | Description |
 | --- | --- | 

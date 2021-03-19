@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ---
 
 # Overview: Azure Logic Apps Preview
@@ -56,7 +56,7 @@ The following table briefly summarizes the differences in the way that workflows
 | Azure Logic Apps (Multi-tenant) | Workflows *from customers across multiple tenants* share the same processing (compute), storage, network, and so on. |
 | Azure Logic Apps (Preview, single-tenant) | Workflows *in the same logic app and a single tenant* share the same processing (compute), storage, network, and so on. |
 | Integration service environment (unavailable in Preview) | Workflows in the *same environment* share the same processing (compute), storage, network, and so on. |
-||||
+|||
 
 Meanwhile, you can still create the multi-tenant logic app type in the Azure portal and in Visual Studio Code by using the multi-tenant Azure Logic Apps extension. Although the development experiences differ between the multi-tenant and single-tenant logic app types, your Azure subscription can include both types. You can view and access all the deployed logic apps in your Azure subscription, but the apps are organized in their own categories and sections.
 
@@ -124,7 +124,11 @@ Azure Logic Apps Preview includes many current and additional capabilities, for 
 
 * Create logic apps and their workflows from [400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) for Software-as-a-Service (SaaS) and Platform-as-a-Service (PaaS) apps and services plus connectors for on-premises systems.
 
-  * Some managed connectors, such as Azure Service Bus, Azure Event Hubs, SQL Server, and MQ, run similarly to the built-in triggers and actions that are native to the Azure Logic Apps Preview runtime, for example, the Request trigger and HTTP action.
+  * Some managed connectors are now available as built-in versions, which run similarly to the built-in triggers and actions, such as the Request trigger and HTTP action, that run natively on the Azure Logic Apps Preview runtime. For example, these new built-in connectors include Azure Service Bus, Azure Event Hubs, SQL Server, and MQ.
+
+    > [!NOTE]
+    > For the built-in SQL Server connector , only the **Execute Query** action can directly connect to Azure 
+    > virtual networks without requiring the [on-premises data gateway](logic-apps-gateway-connection.md).
 
   * Create your own built-in connectors for any service you need by using the [preview release's extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, but unlike [custom connectors](../connectors/apis-list.md#custom-apis-and-connectors) that aren't currently supported for preview, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the preview runtime.
 

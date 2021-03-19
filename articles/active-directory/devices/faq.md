@@ -145,7 +145,7 @@ See below on how these actions can be rectified.
 
 ### Q: I cannot add more than 3 Azure AD user accounts under the same user session on a Windows 10 device, why?
 
-**A**: Azure AD added support for multiple Azure AD accounts in Windows 10 1803 release. However, Windows 10 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign on (SSO). Once 3 accounts have been added, users will see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because accout limit is reached". 
+**A**: Azure AD added support for multiple Azure AD accounts in Windows 10 1803 release. However, Windows 10 restricts the number of Azure AD accounts on a device to 3 to limit the size of token requests and enable reliable single sign on (SSO). Once 3 accounts have been added, users will see an error for subsequent accounts. The Additional problem information on the error screen provides the following message indicating the reason - "Add account operation is blocked because account limit is reached". 
 
 ---
 ## Azure AD join FAQ

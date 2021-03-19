@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/20/2020
+ms.date: 03/10/2021
 ---
 
 # How to create a virtual machine offer on Azure Marketplace
