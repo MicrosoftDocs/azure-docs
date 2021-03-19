@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://www.idc.com/saml-welcome/<SamlWelcomeCode>`
 
     > [!NOTE]
-    > The Reply URL value is not real. Update the value with the actual Reply URL. Contact the [IDC Client support team](idc_support@idc.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > The Reply URL value is not real. Update the value with the actual Reply URL. Contact the [IDC Client support team](mailto:idc_support@idc.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
