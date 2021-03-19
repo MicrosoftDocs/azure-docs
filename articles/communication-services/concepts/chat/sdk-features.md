@@ -22,7 +22,7 @@ Azure Communication Services Chat client libraries can be used to add rich, real
 The following list presents the set of features which are currently available in the Communication Services chat client libraries.	
 
 | Group of features | Capability | JavaScript  | Java | .NET | Python | iOS | Android |
-|-----------------|-------------------|---|-----|----|-----|----|----|	
+|-----------------|-------------------|---|-----|----|-----|----|----|
 | Core Capabilities | Create a chat thread between 2 or more users (up to 250 users)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |	
 |                   | Update the topic of a chat thread                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |	
 |                   | Add or remove participants from a chat thread                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |	
@@ -50,8 +50,8 @@ The following list presents the set of features which are currently available in
 
 The following table represents the set of supported browsers and versions which are currently available.
 	
-|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|	
-|--------------------------------|----------------|--------------|-------|------|------|------|-------|	
+|                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | iPad OS|
+|--------------------------------|----------------|--------------|-------|------|------|------|-------|
 | **Chat client library** | Firefox*, Chrome*, new Edge | Firefox*, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
 
 *Note that the latest version is supported in addition to the previous two releases.<br/>	
