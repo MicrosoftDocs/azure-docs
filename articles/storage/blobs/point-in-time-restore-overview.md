@@ -85,6 +85,8 @@ Point-in-time restore for block blobs has the following limitations and known is
 
 ## Pricing and billing
 
+There is no charge to enable point-in-time restore. However, enabling point-in-time restore also enables blob versioning, soft delete, and change feed, each of which which may result in additional charges.
+
 Billing for point-in-time restore depends on the amount of data processed to perform the restore operation. The amount of data processed is based on the number of changes that occurred between the restore point and the present moment. For example, assuming a relatively constant rate of change to block blob data in a storage account, a restore operation that goes back in time 1 day would cost 1/10th of a restore that goes back in time 10 days.
 
 To estimate the cost of a restore operation, review the change feed log to estimate the amount of data that was modified during the restore period. For example, if the retention period for change feed is 30 days, and the size of the change feed is 10 MB, then restoring to a point 10 days earlier would cost approximately one-third of the price listed for an LRS account in that region. Restoring to a point that is 27 days earlier would cost approximately nine-tenths of the price listed.
