@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create an Azure Data Factory using Azure CLI"
-description: Create an Azure Data Factory, including a linked service, datasets, and a pipeline, and then run the pipeline to perform a simple action.
+description: This quickstart creates an Azure Data Factory, including a linked service, datasets, and a pipeline. You can run the pipeline to do a file copy action.
 author: linda33wj
 ms.author: jingwang
 ms.service: azure-cli
@@ -13,7 +13,7 @@ ms.custom:
 
 # Quickstart: Create an Azure Data Factory using Azure CLI
 
-This quickstart describes how to use Azure CLI to create an Azure Data Factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md).
+This quickstart describes how to use Azure CLI to create an Azure Data Factory. The pipeline you create in this data factory copies data from one folder to another folder in an Azure blob storage. For information on how to transform data using Azure Data Factory, see [Transform data in Azure Data Factory](transform-data.md).
 
 For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
 
@@ -21,208 +21,242 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [azure-cli-prepare-your-environment](../../includes/azure-cli-prepare-your-environment.md)]
 
-## 
+> [!NOTE]
+> To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the contributor or owner role, or an administrator of the Azure subscription. For more information, see [Azure roles](quickstart-create-data-factory-powershell.md#azure-roles).
 
-To create a resource group, use the [az group create](/cli/azure/group#az_group_create) command:
+## Prepare a container and test file
 
-```azurecli
-az group create --name ADFQuickStartRG --location eastus
-```
+This quickstart uses an Azure storage account, which includes a container with a file.
 
-[az storage account create](/cli/azure/storage/container#az_storage_container_create)
+1. To create a resource group, use the [az group create](/cli/azure/group#az_group_create) command:
 
-```azurecli
-az storage account create --resource-group ADFQuickStartRG --name adfquickstartstorage --location eastus
-```
+   ```azurecli
+   az group create --name ADFQuickStartRG --location eastus
+   ```
 
-Create a container
-```azurecli
-az storage container create --resource-group timADFQuickStartRG --name adftutorial --account-name adfquickstartstorage --auth-mode key
-```
+1. Create a storage account by using the [az storage account create](/cli/azure/storage/container#az_storage_container_create) command:
 
-Create a file to upload:
+   ```azurecli
+   az storage account create --resource-group ADFQuickStartRG --name adfquickstartstorage --location eastus
+   ```
 
-```console
-This is text.
-```
+1. Create a container named `adftutorial` by using the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command:
 
-```azurecli
-az storage blob upload --account-name adfquickstartstorage --name input/emp.txt --container-name adftutorial --file emp.txt --auth-mode key
-```
+   ```azurecli
+   az storage container create --resource-group ADFQuickStartRG --name adftutorial --account-name adfquickstartstorage --auth-mode key
+   ```
 
+1. Create a file named `emp.txt` to upload in the local directory. If you're working in Azure Cloud Shell, the local directory is the current Bash directory where you enter other commands. You can use standard Bash commands, like `CAT`, to create a file:
 
-unique name for df
+   ```console
+   CAT > emp.txt
+   This is text.
+   ```
 
-```azurecli
-az datafactory factory create --resource-group ADFQuickStartRG --factory-name ADFQuickStartFactory
-```
+   Use Ctrl-d to save your new file.
 
-```azurecli
-az datafactory factory show --resource-group ADFQuickStartRG --factory-name ADFQuickStartFactory
-```
+1. To upload the new file to your Azure storage container, use the [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) command:
 
+   ```azurecli
+   az storage blob upload --account-name adfquickstartstorage --name input/emp.txt --container-name adftutorial --file emp.txt --auth-mode key
+   ```
 
-create a linked service
+   This command uploads to a new folder named `input`. The folder name is necessary for the rest of the quickstart.
 
+## Create a data factory
 
-get the connection string:
-
-```azurecli
-az storage account show-connection-string --resource-group ADFQuickStartRG --name adfquickstartstorage --key primary
-```
-
-json file called AzureStorageLinkedService.json
-
-```json
-{
-	"type":"AzureStorage",
-		"typeProperties":{
-		"connectionString":{
-		"type": "SecureString",	
-		"value":<the connection string in quotation marks>
-		}
-	}
-}
-```
+To create an Azure data factory, run the [az datafactory factory create](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_create) command:
 
 ```azurecli
-az datafactory linked-service create --resource-group ADFQuickStartRG --factory-name ADFQuickStartFactory --linked-service-name AzureStorageLinkedService --properties @AzureStorageLinkedService.json
+az datafactory factory create --resource-group ADFQuickStartRG --factory-name <data factory name>
 ```
 
+> [!IMPORTANT]
+> Replace `<data factory name>` with a globally unique data factory name, for example, ADFTutorialFactorySP1127.
 
-create data sets 
-
-InputDataset.json
-
-```json
-{
-	"type": 
-		"AzureBlob",
-		"linkedServiceName": {
-			"type":"LinkedServiceReference",
-			"referenceName":"AzureStorageLinkedService"
-			},
-        "annotations": [],
-        "type": "Binary",
-        "typeProperties": {
-            "location": {
-                "type": "AzureBlobStorageLocation",
-                "fileName": "emp.txt",
-                "folderPath": "input",
-                "container": "adftutorial"
-		}
-	}
-}
-```
+You can see the data factory that you created by using the [az datafactory factory show](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_show)
 
 ```azurecli
-az datafactory dataset create --resource-group ADFQuickStartRG --dataset-name InputDataset --factory-name ADFQuickStartFactory --properties @InputDataset.json
+az datafactory factory show --resource-group ADFQuickStartRG --factory-name <data factory name>
 ```
 
-OutputDataset.json:
+## Create a linked service and datasets
 
-```json
-{
-	"type": 
-		"AzureBlob",
-		"linkedServiceName": {
-			"type":"LinkedServiceReference",
-			"referenceName":"AzureStorageLinkedService"
-			},
-        "annotations": [],
-        "type": "Binary",
-        "typeProperties": {
-            "location": {
-                "type": "AzureBlobStorageLocation",
-                "fileName": "emp.txt",
-                "folderPath": "output",
-                "container": "adftutorial"
-		}
-	}
-}
-```
+Next, create a linked service and two datasets.
 
+1. Get the connection string for your storage account by using the [az storage account show-connection-string](/cli/azure/ext/datafactory/datafactory/factory#ext_datafactory_az_datafactory_factory_show) command:
 
-```azurecli
-az datafactory dataset create --resource-group ADFQuickStartRG --dataset-name OutputDataset --factory-name ADFQuickStartFactory --properties @OutputDataset.json
-```
+   ```azurecli
+   az storage account show-connection-string --resource-group ADFQuickStartRG --name adfquickstartstorage --key primary
+   ```
 
+1. Prepare the following JSON file, named `AzureStorageLinkedService.json`, in your working directory:
 
-Adfv2QuickStartPipeline.json
+   ```json
+   {
+       "type":"AzureStorage",
+           "typeProperties":{
+           "connectionString":{
+           "type": "SecureString",
+           "value":<the connection string, including quotation marks>
+           }
+       }
+   }
+   ```
 
-```json
-{
-    "name": "Adfv2QuickStartPipeline",
-    "properties": {
-        "activities": [
-            {
-                "name": "CopyFromBlobToBlob",
-                "type": "Copy",
-                "dependsOn": [],
-                "policy": {
-                    "timeout": "7.00:00:00",
-                    "retry": 0,
-                    "retryIntervalInSeconds": 30,
-                    "secureOutput": false,
-                    "secureInput": false
-                },
-                "userProperties": [],
-                "typeProperties": {
-                    "source": {
-                        "type": "BinarySource",
-                        "storeSettings": {
-                            "type": "AzureBlobStorageReadSettings",
-                            "recursive": true
-                        }
-                    },
-                    "sink": {
-                        "type": "BinarySink",
-                        "storeSettings": {
-                            "type": "AzureBlobStorageWriteSettings"
-                        }
-                    },
-                    "enableStaging": false
-                },
-                "inputs": [
-                    {
-                        "referenceName": "InputDataset",
-                        "type": "DatasetReference"
-                    }
-                ],
-                "outputs": [
-                    {
-                        "referenceName": "OutputDataset",
-                        "type": "DatasetReference"
-                    }
-                ]
-            }
-        ],
-        "annotations": []
-    }
-}
-```
+1. Create a linked service by using the [az datafactory linked-service create](/cli/azure/ext/datafactory/datafactory/linked-service#ext_datafactory_az_datafactory_linked_service_create) command:
 
-```azurecli
-az datafactory pipeline create --resource-group ADFQuickStartRG --factory-name ADFQuickStartFactory --name Adfv2QuickStartPipeline --pipeline @Adfv2QuickStartPipeline.json
-```
+   ```azurecli
+   az datafactory linked-service create --resource-group ADFQuickStartRG --factory-name <data factory name> --linked-service-name AzureStorageLinkedService --properties @AzureStorageLinkedService.json
+   ```
 
-```azurecli
-az datafactory pipeline create-run --resource-group ADFQuickStartRG --name Adfv2QuickStartPipeline --factory-name ADFQuickStartFactory
-```
+1. Prepare the following JSON file, named `InputDataset.json`, in your working directory:
 
+   ```json
+   {
+       "type": 
+           "AzureBlob",
+           "linkedServiceName": {
+               "type":"LinkedServiceReference",
+               "referenceName":"AzureStorageLinkedService"
+               },
+           "annotations": [],
+           "type": "Binary",
+           "typeProperties": {
+               "location": {
+                   "type": "AzureBlobStorageLocation",
+                   "fileName": "emp.txt",
+                   "folderPath": "input",
+                   "container": "adftutorial"
+           }
+       }
+   }
+   ```
 
-```azurecli
-az datafactory pipeline-run show --factory-name ADFQuickStartFactory --resource-group ADFQuickStartRG --run-id <runId>
-```
+1. Create an input dataset by using the [az datafactory dataset create](/cli/azure/ext/datafactory/datafactory/dataset#ext_datafactory_az_datafactory_dataset_create) command:
+
+   ```azurecli
+   az datafactory dataset create --resource-group ADFQuickStartRG --dataset-name InputDataset --factory-name ADFQuickStartFactory --properties @InputDataset.json
+   ```
+
+1. Prepare the following JSON file, named `OutputDataset.json`, in your working directory:
+
+   ```json
+   {
+       "type": 
+           "AzureBlob",
+           "linkedServiceName": {
+               "type":"LinkedServiceReference",
+               "referenceName":"AzureStorageLinkedService"
+               },
+           "annotations": [],
+           "type": "Binary",
+           "typeProperties": {
+               "location": {
+                   "type": "AzureBlobStorageLocation",
+                   "fileName": "emp.txt",
+                   "folderPath": "output",
+                   "container": "adftutorial"
+           }
+       }
+   }
+   ```
+
+1. Create an output dataset by using the [az datafactory dataset create](/cli/azure/ext/datafactory/datafactory/dataset#ext_datafactory_az_datafactory_dataset_create) command:
+
+   ```azurecli
+   az datafactory dataset create --resource-group ADFQuickStartRG --dataset-name OutputDataset --factory-name ADFQuickStartFactory --properties @OutputDataset.json
+   ```
+
+## Create and run the pipeline
+
+Finally, create and run the pipeline.
+
+1. Prepare the following JSON file, named `Adfv2QuickStartPipeline.json`, in your working directory:
+
+   ```json
+   {
+       "name": "Adfv2QuickStartPipeline",
+       "properties": {
+           "activities": [
+               {
+                   "name": "CopyFromBlobToBlob",
+                   "type": "Copy",
+                   "dependsOn": [],
+                   "policy": {
+                       "timeout": "7.00:00:00",
+                       "retry": 0,
+                       "retryIntervalInSeconds": 30,
+                       "secureOutput": false,
+                       "secureInput": false
+                   },
+                   "userProperties": [],
+                   "typeProperties": {
+                          "source": {
+                           "type": "BinarySource",
+                           "storeSettings": {
+                               "type": "AzureBlobStorageReadSettings",
+                               "recursive": true
+                           }
+                       },
+                       "sink": {
+                           "type": "BinarySink",
+                           "storeSettings": {
+                               "type": "AzureBlobStorageWriteSettings"
+                           }
+                       },
+                       "enableStaging": false
+                   },
+                   "inputs": [
+                       {
+                           "referenceName": "InputDataset",
+                           "type": "DatasetReference"
+                       }
+                   ],
+                   "outputs": [
+                       {
+                           "referenceName": "OutputDataset",
+                           "type": "DatasetReference"
+                       }
+                   ]
+               }
+           ],
+           "annotations": []
+       }
+   }
+   ```
+
+1. To create a pipeline, run the [az datafactory pipeline create](/cli/azure/ext/datafactory/datafactory/pipeline#ext_datafactory_az_datafactory_pipeline_create) command:
+
+   ```azurecli
+   az datafactory pipeline create --resource-group ADFQuickStartRG --factory-name <data factory name> --name Adfv2QuickStartPipeline --pipeline @Adfv2QuickStartPipeline.json
+   ```
+
+1. Run the pipeline by using the [az datafactory pipeline create-run](/cli/azure/ext/datafactory/datafactory/pipeline#ext_datafactory_az_datafactory_pipeline_create_run) command:
+
+   ```azurecli
+   az datafactory pipeline create-run --resource-group ADFQuickStartRG --name Adfv2QuickStartPipeline --factory-name <data factory name>
+   ```
+
+   This command returns a run ID. Copy it for use in the next command.
+
+1. Verify that the pipeline run succeeded by using the [az datafactory pipeline-run show](/cli/azure/ext/datafactory/datafactory/pipeline-run#ext_datafactory_az_datafactory_pipeline_run_show) command:
+
+   ```azurecli
+   az datafactory pipeline-run show --resource-group ADFQuickStartRG --factory-name <data factory name> --run-id <runId>
+   ```
+
+You can also verify that your pipeline ran as expected by using the [Azure portal](https://portal.azure.com/). For more information, see [Review deployed resources](quickstart-create-data-factory-powershell.md#review-deployed-resources).
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete
-<resources> with the following steps:
+All of the resources in this quickstart are part of the same resource group. To remove them all, use the [az group delete](/cli/azure/group#az_group_delete) command:
 
 ```azurecli
 az group delete --name ADFQuickStartRG
 ```
+
+If you're using this resource group for anything else, instead, delete individual resources. For instance, to remove the linked service, use the [az datafactory linked-service delete](/cli/azure/ext/datafactory/datafactory/linked-service#ext_datafactory_az_datafactory_linked_service_delete) command.
 
 In this quickstart, you created the following JSON files:
 
@@ -231,13 +265,11 @@ In this quickstart, you created the following JSON files:
 - OutputDataset.json
 - Adfv2QuickStartPipeline.json
 
+Delete them by using standard Bash commands.
+
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-quickstart.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+- [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md)
+- [Linked services in Azure Data Factory](concepts-linked-services.md)
+- [Datasets in Azure Data Factory](concepts-datasets-linked-services.md)
+- [Transform data in Azure Data Factory](transform-data.md)
