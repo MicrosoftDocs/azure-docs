@@ -294,6 +294,8 @@
     items:
     - name: Application Proxy FAQ
       href: application-proxy-faq.md
+    - name: Application Management certificates FAQ
+      href: application-management-certs-faq.md
     - name: Application Proxy version history
       href: application-proxy-release-version-history.md
     - name: Reasons apps appear in Enterprise Applications
