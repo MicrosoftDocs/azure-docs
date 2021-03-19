@@ -85,6 +85,11 @@ Your custom branding won't immediately appear when your users go to sites such a
         - **Show option to remain signed in.** You can choose to let your users remain signed in to Azure AD until explicitly signing out. If you choose **No**,  this option is hidden, and users must sign in each time the browser is closed and reopened.
 
             This capability is only available on the default branding object and not on any language-specific object. To learn more about configuring and troubleshooting the option to remain signed in, see [Configure the 'Stay signed in?' prompt for Azure AD accounts](keep-me-signed-in.md)
+            
+
+        - **Assistive text.** At this time some tenants may be presented with assistive text when exicuting the "change a password" flow (Strong password required. ect...). An example of assistive text is shown below. Currently assistive text is not customizable. Every tenant may not display assistive text.
+        
+        ![Assistive text](https://user-images.githubusercontent.com/39276631/111838823-1ce38e80-88b7-11eb-8b76-df8c960c952d.PNG)
         
             >[!NOTE]
             >Some features of SharePoint Online and Office 2010 depend on users being able to choose to remain signed in. If you set this option to **No**, your users may see additional and unexpected prompts to sign-in.
