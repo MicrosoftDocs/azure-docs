@@ -264,9 +264,9 @@ Follow the steps to create an event hub endpoint:
     :::image type="content" source="media/how-to-provision-using-dps/event-hub-custom-endpoint.png" alt-text="Visual Studio view to add an event hub custom endpoint" lightbox="media/how-to-provision-using-dps/event-hub-custom-endpoint.png":::
 
 3. In the window *Add an event hub endpoint* page that opens, choose the following values:
-    * *Endpoint name*: Choose an endpoint name of your choice
-    * *Event hub namespace*: Select your event hub namespace from the dropdown list
-    * *Event hub instance*: Choose the event hub name that you created in the previous step.
+    * **Endpoint name**: Choose an endpoint name of your choice
+    * **Event hub namespace**: Select your event hub namespace from the dropdown list
+    * **Event hub instance**: Choose the event hub name that you created in the previous step.
 4. Select **Create**. Keep this window open to add a route in the next step.
 
     :::image type="content" source="media/how-to-provision-using-dps/add-event-hub-endpoint.png" alt-text="Visual Studio view to add an event hub endpoint" lightbox="media/how-to-provision-using-dps/add-event-hub-endpoint.png":::
@@ -279,12 +279,12 @@ Navigate to the *Routes* tab and select **Add** to add a route.
 
 In the *Add a route* page that opens, choose the following values:
 
-   * *Name*: Choose a name for your route. 
-   * *Endpoint*: Choose the event hubs endpoint you created in the above step from the dropdown.
-   * *Data source*: Choose **Device Lifecycle Events**.
-   * *Routing query*: `opType='deleteDeviceIdentity'`. This query limits the device lifecycle events to only send the delete events.
+   * **Name**: Choose a name for your route. 
+   * **Endpoint**: Choose the event hubs endpoint you created in the above step from the dropdown.
+   * **Data source**: Choose *Device Lifecycle Events*.
+   * **Routing query**: `opType='deleteDeviceIdentity'`. This query limits the device lifecycle events to only send the delete events.
 
-Select *Save*.
+Select **Save**.
 
 :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Add a route to send lifecycle events" lightbox="media/how-to-provision-using-dps/lifecycle-route.png":::
 
