@@ -27,6 +27,15 @@ to keep nodes healthy:
    * Maximum connections: 600
    * Maximum user connections: 597
 
+> [!NOTE]
+> In a server group with [preview features](hyperscale-preview-features.md)
+> enabled, the connection limits to the coordinator are slightly different:
+>
+> * Coordinator node max connections
+>    * 300 for 0-3 vCores
+>    * 500 for 4-15 vCores
+>    * 1000 for 16+ vCores
+
 Attempts to connect beyond these limits will fail with an error. The system
 reserves three connections for monitoring nodes, which is why there are three
 fewer connections available for user queries than connections total.
@@ -36,6 +45,34 @@ which request many short-lived connections. We recommend using a connection
 pooler, both to reduce idle transactions and reuse existing connections. To
 learn more, visit our [blog
 post](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
+
+### Managed pgBouncer (preview)
+
+> [!IMPORTANT]
+> The managed pgBouncer connection pooler in Hyperscale (Citus) is currently in
+> preview. This preview version is provided without a service level agreement,
+> and it's not recommended for production workloads. Certain features might not
+> be supported or might have constrained capabilities.  For more information,
+> see [Supplemental Terms of Use for Microsoft Azure
+> Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Connection poolers such as pgBouncer allow more clients to connect to the
+coordinator node at once. Applications connect to the pooler, and the pooler
+relays commands to the destination database.
+
+When clients connect through pgBouncer, the number of connections that can
+actively run in the database doesn't change. Instead, pgBouncer queues excess
+connections and runs them when the database is ready.
+
+Hyperscale (Citus) is now offering a managed instance of pgBouncer for server
+groups (in preview). It supports up to 2,000 simultaneous client connections.
+To connect through pgBouncer, follow these steps:
+
+1. Go to the **Connection strings** page for your server group in the Azure
+   portal.
+2. Enable the checkbox **PgBouncer connection strings**. (The listed connection
+   strings will change.)
+3. Update client applications to connect with the new string.
 
 ## Storage scaling
 
