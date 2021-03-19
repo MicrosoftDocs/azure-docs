@@ -14,9 +14,9 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Azure Stack Edge Pro GPU solution can run non-containerized workloads via the virtual machines. This article describes how you can connect to the console of a virtual machine deployed on your device. 
+Azure Stack Edge Pro GPU solution runs non-containerized workloads via the virtual machines. This article describes how to connect to the console of a virtual machine deployed on your device. 
 
-The virtual machine console allows you to access your VMs with keyboard, mouse, and screen features using the commonly available remote desktop tools. You can access the console and troubleshoot any issues experienced when deploying a virtual machine on your device.
+The virtual machine console allows you to access your VMs with keyboard, mouse, and screen features using the commonly available remote desktop tools. You can access the console and troubleshoot any issues experienced when deploying a virtual machine on your device. You can connect to the virtual machine console even if your VM has failed to provision.
 
 
 ## Workflow
@@ -30,11 +30,21 @@ The high-level workflow has the following steps:
 
 ## Prerequisites
 
-To connect to a virtual machine console, you must have access to a client system that:
+Before you being, make sure that you have completed the following prerequisites:
+
+#### For your device
+
+You should have access to an Azure Stack Edge Pro GPU device that is activated. The device must have one or more VM delpoyed on it. You can deploy VMs via Azure PowerShell, via the templates, or via the Azure portal.
+
+#### For client accessing the device
+
+Make sure that you have access to a client system that:
 
 1. Can access the PowerShell interface of the device. The client is running a [Supported operating system](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device).
 1. The client is running PowerShell 7.0 or later. This version of PowerShell will work for Windows, Mac, and Linux clients. See instructions to [install PowerShell 7.0](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1&preserve-view=true#where-can-i-install-powershell).
 1. Has remote desktop capabilities. Depending on whether you are using Windows, MacOS, or Linux, you should install one of these [Remote desktop clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). This article provides instructions with [Windows Remote Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client) and [FreeRDP](https://www.freerdp.com/). <!--Which version of FreeRDP to use?-->
+
+
 
 
 ## Connect to a virtual machine console
