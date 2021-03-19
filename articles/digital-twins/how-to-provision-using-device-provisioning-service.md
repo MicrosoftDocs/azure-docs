@@ -217,7 +217,7 @@ To do this,
 
 #### Configure event hub with function app
 
-Next, you will need to configure the function environment variable for connecting to the newly created event hub.
+Next, you'll need to configure the newly created event hub with your function app.
 
 1. Open the policy that you just created and copy the **Connection string-primary key** value to configure event hub with your function app.
 2. Add the setting with the Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the Azure CLI [installed on your machine](/cli/azure/install-azure-cli).
@@ -257,31 +257,34 @@ Publish the project with *DeleteDeviceInTwinFunc.cs* function to a function app 
 Now you'll set up an IoT Hub route, to route device lifecycle events. In this case, you will specifically listen to device delete events, identified by `if (opType == "deleteDeviceIdentity")`. This will trigger the delete of the digital twin item, finalizing the retirement of a device and its digital twin.
 
 You'll first need to create an event hub endpoint and then add a route to send lifecycle events.
-Follow the steps to create an event hub endpoint.
+Follow the steps to create an event hub endpoint:
 
 1. In the Azure portal, navigate to the IoT hub you created in the [prerequisites](#prerequisites) section and select **Message routing** in the menu options on the left.
 2. Select **Custom endpoints** tab to add an event hubs type endpoint.
 
-:::image type="content" source="media/how-to-provision-using-dps/event-hub-custom-endpoint.png" alt-text="Visual Studio view to add an event hub custom endpoint" lightbox="media/how-to-provision-using-dps/event-hub-custom-endpoint.png":::
+    :::image type="content" source="media/how-to-provision-using-dps/event-hub-custom-endpoint.png" alt-text="Visual Studio view to add an event hub custom endpoint" lightbox="media/how-to-provision-using-dps/event-hub-custom-endpoint.png":::
 
-3. In the window *Add an event hub endpoint* page, choose an endpoint name of your choice, select your Event hub namespace from the dropdown list and for *Event hub instance*, choose the event hub name that you created in the previous step.
+3. In the window *Add an event hub endpoint* page, 
+    1. *Endpoint name*: Choose an endpoint name of your choice
+    2. *Event hub namespace*: Select your event hub namespace from the dropdown list
+    3. *Event hub instance*: Choose the event hub name that you created in the previous step.
 4. Select **Create**. Keep this window open to add a route in the next step.
 
-:::image type="content" source="media/how-to-provision-using-dps/add-event-hub-endpoint.png" alt-text="Visual Studio view to add an event hub endpoint" lightbox="media/how-to-provision-using-dps/add-event-hub-endpoint.png":::
+    :::image type="content" source="media/how-to-provision-using-dps/add-event-hub-endpoint.png" alt-text="Visual Studio view to add an event hub endpoint" lightbox="media/how-to-provision-using-dps/add-event-hub-endpoint.png":::
 
 Next, you'll add a route with the endpoint you created in the above step with a routing query to send the delete events. Follow the steps to create a route:
 
-1. Navigate to *Routes* tab and select **Add** to add a route.
+Navigate to the *Routes* tab and select **Add** to add a route.
 
-:::image type="content" source="media/how-to-provision-using-dps/add-message-route.png" alt-text="Visual Studio view to add a route to send events" lightbox="media/how-to-provision-using-dps/add-message-route.png":::
+    :::image type="content" source="media/how-to-provision-using-dps/add-message-route.png" alt-text="Visual Studio view to add a route to send events" lightbox="media/how-to-provision-using-dps/add-message-route.png":::
 
-1. Choose a *Name* for your route. 
-1. For *Endpoint*, choose the event hubs endpoint you created in the above step from the dropdown.
-1. For *Data source*, choose **Device Lifecycle Events**.
-1. Add a *Routing query* `opType='deleteDeviceIdentity'` to limit the device lifecycle events to only send the delete events.
-1. Select *Save*.
+    - *Name*: Choose a name for your route. 
+    - *Endpoint*: Choose the event hubs endpoint you created in the above step from the dropdown.
+    - *Data source*: Choose **Device Lifecycle Events**.
+    - *Routing query*: `opType='deleteDeviceIdentity'`. This query limits the device lifecycle events to only send the delete events.
+    - Select *Save*.
 
-:::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Add a route to send lifecycle events" lightbox="media/how-to-provision-using-dps/lifecycle-route.png":::
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Add a route to send lifecycle events" lightbox="media/how-to-provision-using-dps/lifecycle-route.png":::
 
 Once you have gone through this flow, everything is set to retire devices end-to-end.
 
@@ -307,6 +310,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id "<Device Registration
 ```
 
 You should see that the twin of the device cannot be found in the Azure Digital Twins instance anymore.
+
 :::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Command window showing twin not found" lightbox="media/how-to-provision-using-dps/show-retired-twin.png":::
 
 ## Clean up resources
