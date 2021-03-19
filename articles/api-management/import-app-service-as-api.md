@@ -1,6 +1,6 @@
 ---
 title: Import an App Service to Azure API Management with the Azure portal  | Microsoft Docs
-description: This article shows you how to use Azure API Management to import an API hosted in Azure App Service as an API.
+description: This article shows you how to use Azure API Management to import an API hosted in Azure App Service.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -27,8 +27,8 @@ In this article, you learn how to:
 
 API Management supports import of APIs hosted in App Service that include an OpenAPI specification and those without an OpenAPI specification.
 
-* If the API includes an OpenAPI specification, API Management imports it to define API operations that map exactly to the backend API.
-* If the app doesn't provide an OpenAPI specification, API Management generates wildcard operations for the common HTTP verbs (GET, PUT, and so on). Wildcard operations can be used to pass specific API requests through to the backend API. You can also edit the wildcard operations or [add API operations](add-api-manually.md) to map to the backend API.
+* If the API includes an OpenAPI specification, API Management creates API operations that map exactly to the backend API.
+* If the app doesn't provide an OpenAPI specification, API Management generates wildcard operations for the common HTTP verbs (GET, PUT, and so on). Wildcard operations can be used to pass API requests through to the backend API. You can also edit the wildcard operations or [add API operations](add-api-manually.md) to map to the backend API.
 
 ## Prerequisites
 
@@ -83,17 +83,16 @@ Operations can be called directly from the Azure portal, which provides a conven
 
 ### Test wildcard operation in the portal
 
-When the API import creates wildcard operations, the operations might not map directly to the backend API. For example, your backend API might support a GET operation at the following path:
+When wildcard operations are imported, the operations might not map directly to the backend API. For example, the wildcard GET operation imported in API Management uses the path `/` by default. However, your backend API might support a GET operation at the following path:
 
 `/api/TodoItems`
 
-However, the wildcard GET operation imported in API Management uses the path `/` by default.
+If you want to test the operation in API Management, you can edit the operation to match the backend path `/api/TodoItems`.
 
-Before testing the operation in API Management, you can edit the operation to match the backend path `/api/TodoItems`.
-
-1. Select the API you created.
+1. Select the API you created, and select the operation.
 1. Select the **Design** tab.
 1. In **Frontend**, select the pencil icon to open the form-based editor.
+    :::image type="content" source="media/import-app-service-as-api/test-wildcard-operation.png" alt-text="Update wildcard operation":::
 1. Update the path next to the GET operation.
 1. Test the operation in the **Test** tab.
 
