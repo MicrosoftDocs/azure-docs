@@ -32,19 +32,21 @@ The recommended topology for the primary node type requires the resources outlin
 
  ![Diagram that shows the Azure Service Fabric Availability Zone architecture.][sf-architecture]
 
+##Sample node list depicting FD/UD formats in a VMSS spanning zones
+
  ![Sample node list depicting FD/UD formats in a VMSS spanning zones.][sf-multi-az-nodes]
 
-#Distribution of Service replica's across zones
-When a service is deployed on the nodeTypes which are spanning zones, the replica’s are placed to ensure they land up in separate zones. This is ensured as the fault domain’s on the nodes present in each of these nodeTypes are configured with the zone information (i.e FD = fd:/zone1/1 etc..). For example: for 5 replicas or instances of a service the distribution will be 2-2-1 and runtime will try to ensure equal distribution across AZs.
+**Distribution of Service replica's across zones**
+*When a service is deployed on the nodeTypes which are spanning zones, the replica’s are placed to ensure they land up in separate zones. This is ensured as the fault domain’s on the nodes present in each of these nodeTypes are configured with the zone information (i.e FD = fd:/zone1/1 etc..). For example: for 5 replicas or instances of a service the distribution will be 2-2-1 and runtime will try to ensure equal distribution across AZs.
 
-#User Service Replica Configuration
-Stateful user services deployed on the CrossAZ nodeTypes should be configured with this configuration: replica count with target = 9, min = 5. This configuration will help the service to be working even when one zone goes down since 6 replica’s will be still up in the other two zones. An application upgrade in such a scenario will also go through.
+**User Service Replica Configuration**
+*Stateful user services deployed on the CrossAZ nodeTypes should be configured with this configuration: replica count with target = 9, min = 5. This configuration will help the service to be working even when one zone goes down since 6 replica’s will be still up in the other two zones. An application upgrade in such a scenario will also go through.
 
-#Cluster ReliabilityLevel
-This defines the number of seed nodes in the cluster and also replica size of the system services. As a crossAZ setup has a higher number of nodes, which are spread across zones to enable zone resiliency, a higher reliability value will ensure node more seed nodes and system service replica’s are present and are evenly distributed across zones, so that in the event of a zone failure the cluster and the system services remain unimpacted. For example, ReliabilityLevel = Platinum will ensure there are 9 seed nodes spread across zones in the cluster with 3 seeds in each zone.
+**Cluster ReliabilityLevel**
+*This defines the number of seed nodes in the cluster and also replica size of the system services. As a crossAZ setup has a higher number of nodes, which are spread across zones to enable zone resiliency, a higher reliability value will ensure node more seed nodes and system service replica’s are present and are evenly distributed across zones, so that in the event of a zone failure the cluster and the system services remain unimpacted. For example, ReliabilityLevel = Platinum will ensure there are 9 seed nodes spread across zones in the cluster with 3 seeds in each zone.
 
-#Zone down scenario
-When a zone goes down, all the nodes in that zone will appear as down. Service replica’s on these nodes will also be down. Since there are replica’s in the other zones, the service continues to be responsive with primary replica’s failing over to the zones which are functioning. The services will appear in warning state as the target replica count is not yet achieved and since the VM count is still more than min target replica size. Subsequently, SF load balancer will bring up replica’s in the working zones to match the configured target replica count. At this point the services will appear healthy. When the zone which was down comes back up the load balance will again spread all the service replica’s evenly across all the zones.
+**Zone down scenario**
+*When a zone goes down, all the nodes in that zone will appear as down. Service replica’s on these nodes will also be down. Since there are replica’s in the other zones, the service continues to be responsive with primary replica’s failing over to the zones which are functioning. The services will appear in warning state as the target replica count is not yet achieved and since the VM count is still more than min target replica size. Subsequently, SF load balancer will bring up replica’s in the working zones to match the configured target replica count. At this point the services will appear healthy. When the zone which was down comes back up the load balance will again spread all the service replica’s evenly across all the zones.
 
 ## Networking requirements
 ### Public IP and Load Balancer Resource
