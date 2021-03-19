@@ -183,7 +183,7 @@ Specifies the maximum number of language worker processes, with a default value 
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, `dotnet`). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  
+The language worker runtime to load in the function app.  This corresponds to the language being used in your application (for example, `dotnet`). Starting with version 2.x of the Azure Functions runtime, a given function app can only support a single language.   
 
 |Key|Sample value|
 |---|------------|
