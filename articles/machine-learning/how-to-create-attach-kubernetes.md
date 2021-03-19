@@ -201,7 +201,7 @@ For information on creating an AKS cluster in the portal, see [Create compute ta
 
 ---
 
-## Attach an existing AKS cluster
+## Attach an existing AKS cluster (preview)
 
 **Time estimate:** Approximately 5 minutes.
 
@@ -228,6 +228,10 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
     compute_target = KubernetesCompute.attach(ws, "aks-compute", attach_config)
     compute_target.wait_for_completion(show_output=True)
     ```
+
+# [Azure CLI](#tab/azure-cli)
+
+Attaching an existing AKS cluster using the Azure CLI is not supported at this time.
 
 # [Portal](#tab/azure-portal)
 
