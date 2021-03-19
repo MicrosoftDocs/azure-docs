@@ -292,9 +292,9 @@
           href: application-proxy-understand-cors-issues.md
   - name: Reference
     items:
-    - name: Application Proxy FAQ
+    - name: App Proxy FAQ
       href: application-proxy-faq.md
-    - name: Application Management certificates FAQ
+    - name: App Management certificates FAQ
       href: application-management-certs-faq.md
     - name: Application Proxy version history
       href: application-proxy-release-version-history.md
