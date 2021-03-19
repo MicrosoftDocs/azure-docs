@@ -25,9 +25,13 @@ If you are looking for basic data protection coverage for your storage account a
 
 - Configure an Azure Resource Manager lock on the storage account to protect the account from deletion or configuration changes. [Learn more...](../common/lock-account-resource.md)
 - Enable container soft delete for the storage account to recover a deleted container and its contents. [Learn more...](soft-delete-container-enable.md)
-- Enable blob versioning for the storage account to recover a deleted or overwritten blob. [Learn more...](versioning-enable.md)
+- Save the state of a blob at regular intervals:
+  - For Blob Storage workloads, enable blob versioning to automatically save the state of your data each time a blob is deleted or overwritten. [Learn more...](versioning-enable.md)
+  - For Azure Data Lake Storage workloads, take manual snapshots to save the state of your data at a particular point in time. [Learn more...](snapshots-overview.md)
 
 These options, as well as additional data protection options for other scenarios, are described in more detail in the following section.
+
+For an overview of the costs involved with these features, see [Summary of cost considerations](#summary-of-cost-considerations).
 
 ## Overview of data protection options
 
@@ -53,14 +57,16 @@ The following table summarizes the Azure Storage data protection options accordi
 | Azure Resource Manager lock | Yes | No<sup>1</sup> | No | No |
 | Immutability policy on a container | Yes<sup>2</sup> | Yes | Yes | Yes |
 | Container soft delete | No | Yes | No | No |
-| Blob versioning | No | No | Yes | Yes |
-| Blob soft delete | No | No | Yes | Yes |
-| Point-in-time restore | No | No | Yes | Yes |
+| Blob versioning<sup>3</sup> | No | No | Yes | Yes |
+| Blob soft delete<sup>3</sup> | No | No | Yes | Yes |
+| Point-in-time restore<sup>3</sup> | No | No | Yes | Yes |
 | Blob snapshot | No | No | No | Yes |
-| Roll-your-own solution for copying data to a second account | No | Yes | Yes | Yes |
+| Roll-your-own solution for copying data to a second account<sup>4</sup> | No | Yes | Yes | Yes |
 
 <sup>1</sup> An Azure Resource Manager lock does not protect a container from deletion.<br />
-<sup>2</sup> While a legal hold or a locked time-based retention policy is in effect for a container, the storage account is also protected from deletion.
+<sup>2</sup> While a legal hold or a locked time-based retention policy is in effect for a container, the storage account is also protected from deletion.<br />
+<sup>3</sup> Not currently supported for Data Lake Storage workloads.<br />
+<sup>4</sup> AzCopy and Azure Data Factory are options that are supported for both Blob Storage and Data Lake Storage workloads. Object replication is supported for Blob Storage workloads only.<br />
 
 ## Recover deleted or overwritten data
 
@@ -71,11 +77,13 @@ If you should need to recover data that has been overwritten or deleted, how you
 | Storage account | Attempt to recover the deleted storage account<br />[Learn more...](../common/storage-account-recover.md) | The storage account was originally created with the Azure Resource Manager deployment model and was deleted within the past 14 days. A new storage account with the same name has not been created since the original account was deleted. |
 | Container | Recover the soft-deleted container and its contents<br />[Learn more...](soft-delete-container-enable.md) | Container soft delete is enabled and the container soft delete retention period has not yet expired. |
 | Containers and blobs | Restore data from a second storage account | All container and blob operations have been effectively replicated to a second storage account. |
-| Blob (any type) | Restore a blob from a previous version<br />[Learn more...](versioning-enable.md) | Blob versioning is enabled and the blob has one or more previous versions. |
-| Blob (any type) | Recover a soft-deleted blob<br />[Learn more...](soft-delete-blob-enable.md) | Blob soft delete is enabled and the soft delete retention interval has not expired. |
+| Blob (any type) | Restore a blob from a previous version<sup>1</sup><br />[Learn more...](versioning-enable.md) | Blob versioning is enabled and the blob has one or more previous versions. |
+| Blob (any type) | Recover a soft-deleted blob<sup>1</sup><br />[Learn more...](soft-delete-blob-enable.md) | Blob soft delete is enabled and the soft delete retention interval has not expired. |
 | Blob (any type) | Restore a blob from a snapshot<br />[Learn more...](snapshots-manage-dotnet.md) | The blob has one or more snapshots. |
-| Set of block blobs | Recover a set of block blobs to their state at an earlier point in time<br />[Learn more...](point-in-time-restore-manage.md) | Point-in-time restore is enabled and the restore point is within the retention interval. The storage account has not been compromised or corrupted. |
-| Blob version | Recover a soft-deleted version<br />[Learn more...](soft-delete-blob-enable.md) | Blob soft delete is enabled and the soft delete retention interval has not expired. |
+| Set of block blobs | Recover a set of block blobs to their state at an earlier point in time<sup>1</sup><br />[Learn more...](point-in-time-restore-manage.md) | Point-in-time restore is enabled and the restore point is within the retention interval. The storage account has not been compromised or corrupted. |
+| Blob version | Recover a soft-deleted version<sup>1</sup><br />[Learn more...](soft-delete-blob-enable.md) | Blob soft delete is enabled and the soft delete retention interval has not expired. |
+
+<sup>1</sup> Not currently supported for Data Lake Storage workloads.
 
 ## Summary of cost considerations
 
