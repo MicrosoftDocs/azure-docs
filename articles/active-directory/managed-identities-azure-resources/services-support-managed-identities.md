@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 01/28/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -146,8 +146,8 @@ Refer to the following list to configure managed identity for Azure Container In
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | Not available | Not available | Not available |
-| User assigned | Preview | Not available | Not available | Not available |
+| System assigned | ![Available][check] | Preview | Not available | Preview |
+| User assigned | Preview | Preview | Not available | Preview |
 
 Refer to the following list to configure managed identity for Azure Container Registry Tasks (in regions where available):
 
