@@ -49,6 +49,14 @@ Azure Digital Twins is a platform as a service (PaaS) offering for creating digi
 
 A single instance of the Azure Digital Twins service in a customer's subscription. While [Azure Digital Twins](#azure-digital-twins) refers to the Azure service as a whole, your Azure Digital Twins **instance** is your individual Azure Digital Twins resource.
 
+### Azure Digital Twins
+
+Azure Digital Twins is a platform as a service (PaaS) offering for creating digital representations of real-world things, places, business processes, and people. Build knowledge graphs that represent entire environments, and use them to gain insights to drive better products, optimize operations and costs, and create breakthrough customer experiences. To learn more, see [Azure Digital Twins](../digital-twins/index.yml).
+
+### Azure Digital Twins instance
+
+A single instance of the Azure Digital Twins service in a customer's subscription. While [Azure Digital Twins](#azure-digital-twins) refers to the Azure service as a whole, your Azure Digital Twins **instance** is your individual Azure Digital Twins resource. 
+
 ### Azure IoT device SDKs
 
 There are _device SDKs_ available for multiple languages that enable you to create [device apps](#device-app) that interact with an IoT hub. The IoT Hub tutorials show you how to use these device SDKs. You can find the source code and further information about the device SDKs in this GitHub [repository](https://github.com/Azure/azure-iot-sdks).
