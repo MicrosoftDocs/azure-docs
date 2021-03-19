@@ -711,9 +711,7 @@
       - name: Fuse
         href: fuse-tutorial.md
       - name: Fuze
-        href: fuze-tutorial.md
-      - name: Grammarly
-        href: grammarly-provisioning-tutorial.md  
+        href: fuze-tutorial.md  
       - name: G Suite
         href: google-apps-tutorial.md
       - name: GaggleAMP
@@ -2207,6 +2205,8 @@
         href: github-enterprise-managed-user-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Grammarly
+        href: grammarly-provisioning-tutorial.md        
       - name: GroupTalk
         href: grouptalk-provisioning-tutorial.md
       - name: Gtmhub
