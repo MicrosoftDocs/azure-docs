@@ -25,9 +25,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Spring Cloud?
-            url: spring-cloud-overview.md
+            url: overview.md
           - text: Understanding Azure Spring Cloud quotas and limits
-            url: spring-cloud-quotas.md
+            url: quotas.md
 
   # Card (optional)
   - title: Get started
@@ -35,9 +35,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Quickstart - Deploy your first Azure Spring Cloud application
-            url: spring-cloud-quickstart.md 
+            url: quickstart.md 
           - text: Introduction to PiggyMetrics sample app
-            url: spring-cloud-quickstart-sample-app-introduction.md
+            url: quickstart-sample-app-introduction.md
       - linkListType: tutorial
         links:
           - text: Prepare a Spring or Steeltoe app for deployment
@@ -56,7 +56,7 @@ landingContent:
           - text: Automate your CI/CD pipeline in Azure Spring Cloud
             url: how-to-cicd.md
           - text: Enable Blue-Green deployments using Azure Spring Cloud
-            url: spring-cloud-howto-staging-environment.md           
+            url: how-to-staging-environment.md           
           - text: Use persistent storage in Azure Spring Cloud
             url: how-to-persistent-storage.md
 

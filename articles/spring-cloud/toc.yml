@@ -4,25 +4,25 @@
 - name: Overview
   items:
     - name: What is Azure Spring Cloud?
-      href: spring-cloud-overview.md
+      href: overview.md
 - name: Quickstarts
   expanded: true
   items:
     - name: Launch your first app
-      href: spring-cloud-quickstart.md
+      href: quickstart.md
     - name: Build and run microservices
       expanded: true
       items:
       - name: Introduction to the sample app
-        href: spring-cloud-quickstart-sample-app-introduction.md
+        href: quickstart-sample-app-introduction.md
       - name: Provision Azure Spring Cloud service
-        href: spring-cloud-quickstart-provision-service-instance.md
+        href: quickstart-provision-service-instance.md
       - name: Set up configuration server
-        href: spring-cloud-quickstart-setup-config-server.md
+        href: quickstart-setup-config-server.md
       - name: Build and deploy apps
-        href: spring-cloud-quickstart-deploy-apps.md
+        href: quickstart-deploy-apps.md
       - name: Use logs, metrics and tracing
-        href: spring-cloud-quickstart-logs-metrics-tracing.md
+        href: quickstart-logs-metrics-tracing.md
 - name: Tutorials
   items:
     - name: Alerts and action groups
@@ -40,7 +40,7 @@
     - name: App and deployment
       href: concept-understand-app-and-deployment.md
     - name: Quotas and limits
-      href: spring-cloud-quotas.md
+      href: quotas.md
     - name: Metrics
       href: concept-metrics.md
     - name: Azure Spring Boot Actuator
@@ -64,11 +64,11 @@
         - name: Set up a Config Server
           href: how-to-config-server.md
         - name: Enable Service Registration
-          href: spring-cloud-howto-service-registration.md
+          href: how-to-service-registration.md
     - name: Deploy
       items:
         - name: Set up a staging environment
-          href: spring-cloud-howto-staging-environment.md
+          href: how-to-staging-environment.md
         - name: Launch Java app from source code
           href: how-to-launch-from-source.md
         - name: Use IntelliJ to deploy apps
@@ -80,7 +80,7 @@
     - name: Configure
       items:
         - name: Start, stop, and delete an app
-          href: spring-cloud-howto-start-stop-delete.md
+          href: how-to-start-stop-delete.md
         - name: Use persistent storage
           href: how-to-persistent-storage.md
     - name: Scale
@@ -146,7 +146,7 @@
     - name: Troubleshoot
       items:
         - name: Self diagnose and solve problems
-          href: spring-cloud-howto-self-diagnose-solve.md
+          href: how-to-self-diagnose-solve.md
         - name: Self diagnose running in VNET
           href: how-to-self-diagnose-running-in-vnet.md
         - name: Troubleshooting guide
@@ -162,7 +162,7 @@
 - name: Architecture
   items:
     - name: Reference architecture
-      href: spring-cloud-reference-architecture.md
+      href: reference-architecture.md
 - name: DevOps deployment
   items:
   - name: CI/CD with Azure DevOps
