@@ -550,7 +550,7 @@
         "articles/azure-resource-manager/templates/**/*.md": "jgao",
         "articles/azure-vmware/**/*.md": "v-patsho",
         "articles/backup/**/*.md": "v-amallick",
-        "articles/baremetal-infrastructure/**/*.md": "v-hbory",
+        "articles/baremetal-infrastructure/**/*.md": "v-hborys",
         "articles/batch/**/*.md": "jenhayes",
         "articles/blockchain/**/*.md": "patricka",
         "articles/chef/**/*.md": "tarcher",
