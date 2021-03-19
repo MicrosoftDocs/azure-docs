@@ -59,8 +59,6 @@
       items:
       - name: Get started with app integration
         href: plan-an-application-integration.md
-      - name: Plan for apps not listed in the gallery
-        href: non-gallery-apps.md
       - name: Plan a My Apps deployment
         href: my-apps-deployment-plan.md
     - name: Single sign-on

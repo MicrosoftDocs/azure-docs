@@ -1,9 +1,9 @@
 ---
-title: Use JavaScript to set ACLs in Azure Data Lake Storage Gen2
+title: Use JavaScript (Node.js) to set ACLs in Azure Data Lake Storage Gen2
 description: Use Azure Storage Data Lake client library for JavaScript to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 02/17/2021
+ms.date: 03/19/2021
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
@@ -12,9 +12,9 @@ ms.custom: devx-track-js
 
 ---
 
-# Use JavaScript to manage ACLs in Azure Data Lake Storage Gen2
+# Use JavaScript SDK in Node.js to manage ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use JavaScript to get, set, and update the access control lists of directories and files. 
+This article shows you how to use Node.js to get, set, and update the access control lists of directories and files. 
 
 [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
@@ -45,7 +45,11 @@ npm install @azure/storage-file-datalake
 Import the `storage-file-datalake` package by placing this statement at the top of your code file. 
 
 ```javascript
-const AzureStorageDataLake = require("@azure/storage-file-datalake");
+const {
+AzureStorageDataLake,
+DataLakeServiceClient,
+StorageSharedKeyCredential
+} = require("@azure/storage-file-datalake");
 ```
 
 ## Connect to the account
