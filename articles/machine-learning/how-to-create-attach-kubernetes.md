@@ -231,7 +231,7 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 
 # [Azure CLI](#tab/azure-cli)
 
-Attaching an existing AKS cluster using the Azure CLI is not supported at this time.
+Attaching an existing AKS cluster for training using the Azure CLI is not supported at this time.
 
 # [Portal](#tab/azure-portal)
 
