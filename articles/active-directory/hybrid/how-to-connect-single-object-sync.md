@@ -83,7 +83,7 @@ To run the Single Object Sync tool, perform the following steps:
 |StagingMode|This is an optional switch parameter.</br></br>This parameter can be used to prevent exporting the changes to Azure Active Directory.</br></br>**Note**: The cmdlet will commit the sync operation. </br></br>**Note**: Azure AD Connect Staging server will not export the changes to Azure Active Directory.|
 |NoHtmlReport|This is an optional switch parameter.</br></br>This parameter can be used to prevent generating the HTML report. 
 
-## Single Object Sync Throttling 
+## Single Object Sync throttling 
 
 The Single Object Sync tool **is** intended for investigating and troubleshooting per object synchronization issues. It is **not** intended to replace the synchronization cycle run by the Scheduler. The import from Azure Active Directory and export to Azure Active Directory are subject to throttling limits. Please retry after 5 minutes, if you reach the throttling limit. 
 

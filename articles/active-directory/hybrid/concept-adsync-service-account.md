@@ -71,11 +71,12 @@ The Virtual Service Account cannot be used on a Domain Controller due to [Window
 If you use a remote SQL Server, then we recommend to using a group Managed Service Account. For more information on how to prepare your Active Directory for group Managed Service account, see [Group Managed Service Accounts Overview](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)). 
 
 To use this option, on the [Install required components](how-to-connect-install-custom.md#install-required-components) page, select **Use an existing service account**, and select **Managed Service Account**. 
+
  ![managed service account](media/concept-adsync-service-account/account-2.png)
 
 It is also supported to use a standalone managed service account. However, these can only be used on the local machine and there is no benefit to using them over the default Virtual Service Account. 
 
-### Auto-Generated standalone Managed Service Account 
+### Auto-generated standalone Managed Service Account 
 
 If you install Azure AD Connect on a Domain Controller, a standalone Managed Service Account is created by the installation wizard (unless you specify the account to use in custom settings). The account is prefixed **ADSyncMSA_** and used for the actual sync service to run as. 
 
