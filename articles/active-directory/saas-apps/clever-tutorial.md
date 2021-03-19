@@ -116,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Clever SSO
 
-Follow the instructions given in the [link](https://support.clever.com/hc/s/articles/205889768?language=en_US) to configure single sign-on on Clever side.
+Follow the instructions given in the [link](https://support.clever.com/hc/s/articles/205889768) to configure single sign-on on Clever side.
 
 ### Create Clever test user
 
