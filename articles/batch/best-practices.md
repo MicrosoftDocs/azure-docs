@@ -30,7 +30,7 @@ This article discusses a collection of best practices and useful tips for using 
 - **Pools should have more than one compute node.**
     Individual nodes are not guaranteed to always be available. While uncommon, hardware failures, operating system updates, and a host of other issues can cause individual nodes to be offline. If your Batch workload requires deterministic, guaranteed progress, you should allocate pools with multiple nodes.
 
-- **Do not use images with an imminent end-of-life (EOL) date.**
+- **Do not use images with impending end-of-life (EOL) dates.**
     Batch supports a variety of open-source images, each of which has end-of-life (EOL) dates past which publishers no longer offer standard maintenance and security updates. Once an EOL date passes, Batch retires support for the image such that new pools cannot use them. Use newer, stable image versions to minimize the likelihood of version migrations, which may incur breaking changes. 
 
 - **Do not reuse resource names.**
