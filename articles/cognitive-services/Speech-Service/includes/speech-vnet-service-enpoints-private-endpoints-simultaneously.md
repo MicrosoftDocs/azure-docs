@@ -3,7 +3,7 @@ author: alexeyo26
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/08/2021
+ms.date: 03/19/2021
 ms.author: alexeyo
 ---
 
