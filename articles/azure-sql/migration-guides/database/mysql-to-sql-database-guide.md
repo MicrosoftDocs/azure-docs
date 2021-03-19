@@ -86,15 +86,13 @@ To convert the schema, follow these steps:
 
 1. After the schema is finished converting, compare the converted code to the original code to identify potential problems. 
 
-   ![Convert Schema Compare And Review](./media/oracle-to-sql-server/compare-schema.png)
-
    Compare converted objects to original objects: 
 
-   ![Convert Schema Compare And Review object code](./media/oracle-to-sql-server/table-mapping.png)
+   ![ Compare And Review object ](./media/mysql-to-sql-database-guide/table-comparison.png)
 
    Compare converted procedures to original procedures: 
 
-   ![Convert Schema Compare And Review object code](./media/oracle-to-sql-server/procedure-comparison.png)
+   ![Compare And Review object code](./media/mysql-to-sql-database-guide/procedure-comparison.png)
 
 
 ## Migrate 
