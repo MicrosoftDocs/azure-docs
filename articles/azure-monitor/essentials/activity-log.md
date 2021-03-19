@@ -27,7 +27,7 @@ For a description of Activity log categories see [Azure Activity Log event schem
 ## Download the Activity log
 Select **Download as CSV** to download the events in the current view.
 
-
+![Download Activity log](media/activity-log/download-activity-log.png)
 
 ### View change history
 
