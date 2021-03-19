@@ -60,7 +60,7 @@ Create a new pipeline, and add a new stage:
 
     If you have other variables in your project, you can specify the name and value in this tab. The **Generate deployment manifest** can only recognize the variables that are in `${VARIABLE}` flavor. Make sure you are using this flavor in your `*.template.json` files.
     
-    ```json
+    ```json-interactive
     "registryCredentials": {
       "<ACR name>": { // Your Azure Container Registry **Registry name** value
         "username": "${ACR_USER}",
