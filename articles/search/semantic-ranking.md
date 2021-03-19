@@ -1,7 +1,7 @@
 ---
 title: Semantic ranking
 titleSuffix: Azure Cognitive Search
-description: Describes the semantic ranking algorithm in Cognitive Search.
+description: Learn how the semantic ranking algorithm works in Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
@@ -18,13 +18,9 @@ ms.date: 03/18/2021
 
 Semantic ranking is an extension of the query execution pipeline that improves the precision and recall by reranking the top matches of an initial result set. Semantic ranking is backed by state-of-the-art machine reading comprehension models, trained for queries expressed in natural language as opposed to linguistic matching on keywords. In contrast with the [default similarity ranking algorithm](index-ranking-similarity.md), the semantic ranker uses the context and meaning of words to determine relevance.
 
-## How semantic ranking works
+Semantic ranking is both resource and time intensive. In order to complete processing within the expected latency of a query operation, inputs are consolidated and simplified so that summarization and analysis can be completed as quickly as possible.
 
-The semantic ranking is both resource and time intensive. In order to complete processing within the expected latency of a query operation, inputs are consolidated and simplified so that analysis can be completed as quickly as possible.
-
-For semantic ranking, the model uses both machine reading comprehension and transfer learning to re-score the documents based on how well each one matches the intent of the query.
-
-### Preparation for semantic ranking
+## Preparation for semantic ranking
 
 Prior to scoring for relevance, content must be reduced to a quantity of parameters that can be handled efficiently by the semantic ranker. Content reduction includes the following sequence of steps.
 
@@ -36,7 +32,7 @@ Prior to scoring for relevance, content must be reduced to a quantity of paramet
 
 Each document is now represented by a single long string that is 8,000 tokens or less.
 
-### Summarization
+## Summarization
 
 After string reduction, it's now possible to pass the parameters through machine reading comprehension and language representation to determine which sentences and phrases best summarize the model, relative to the query.
 
@@ -44,7 +40,7 @@ Output of this phase is a caption (and optionally, an answer). The caption is at
 
 An answer will also be returned if you specified the "answers" parameter, if the query was posed as a question, and if a passage can be found in the long string that looks like a plausible answer.
 
-### Scoring and ranking phases
+## Scoring and ranking
 
 At this point, you now have captions that are no more than 128 tokens per document. The captions are evaluated to assess relevance.
 
