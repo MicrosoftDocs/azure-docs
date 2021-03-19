@@ -8,7 +8,7 @@ ms.date: 03/16/2021
 
 # Create a dashboard in the Azure portal
 
-Dashboards are a focused and organized view of your cloud resources in the Azure portal. Use dashboards as a workspace where you can quickly launch tasks for day-to-day operations and monitor resources. Build custom dashboards based on projects, tasks, or user roles, for example.
+Dashboards are a focused and organized view of your cloud resources in the Azure portal. Use dashboards as a workspace where you can monitor resources and quickly launch tasks for day-to-day operations. Build custom dashboards based on projects, tasks, or user roles, for example.
 
 The Azure portal provides a default dashboard as a starting point. You can edit the default dashboard and create and customize additional dashboards. This article describes how to create a new dashboard and customize it. For information on sharing dashboards, see [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md).
 
@@ -28,11 +28,13 @@ In this example, we create a new private dashboard and assign a name. Follow the
 
     This action opens the **Tile Gallery**, from which you'll select tiles, and an empty grid where you'll arrange the tiles.
 
-    ![Screenshot of tile gallery and empty grid](./media/azure-portal-dashboards/dashboard-name.png)
-
 1. Select the **My Dashboard** text in the dashboard label and enter a name that will help you easily identify the custom dashboard.
 
-1. Select **Done customizing** in the page header to exit edit mode.
+    ![Screenshot of tile gallery and empty grid](./media/azure-portal-dashboards/dashboard-name.png)
+
+1. In the page header select Select **Done customizing** to exit edit mode, then select **Save**.
+
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-save.png" alt-text="Screenshot of dashboard save process":::
 
 The dashboard view now shows your new dashboard. Select the arrow next to the dashboard name to see dashboards available to you. The list might include dashboards that other users have created and shared.
 
