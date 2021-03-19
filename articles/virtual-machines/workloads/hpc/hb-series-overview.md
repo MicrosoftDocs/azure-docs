@@ -47,13 +47,13 @@ The following diagram shows the segregation of cores reserved for Azure Hypervis
 |-----------------------------|-----------------------|
 | Max MPI Job Size            | 18000 cores (300 VMs in a single virtual machine scale set with singlePlacementGroup=true)  |
 | MPI Support                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
-| Additional Frameworks       | Unified Communication X, libfabric, PGAS |
+| Additional Frameworks       | UCX, libfabric, PGAS |
 | Azure Storage Support       | Standard and Premium Disks (maximum 4 disks) |
-| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+  |
-| Orchestrator Support        | CycleCloud, Batch  |
+| OS Support for SRIOV RDMA   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4+, WinServer 2016+  |
+| Orchestrator Support        | CycleCloud, Batch, AKS; [cluster configuration options](../../sizes-hpc.md#cluster-configuration-options) |
 
 ## Next steps
 
 - Learn more about [AMD EPYC architecture](https://bit.ly/2Epv3kC) and [multi-chip architectures](https://bit.ly/2GpQIMb). For more detailed information, see the [HPC Tuning Guide for AMD EPYC Processors](https://bit.ly/2T3AWZ9).
-- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
