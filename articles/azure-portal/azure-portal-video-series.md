@@ -2,7 +2,7 @@
 title: Azure portal how-to video series
 description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
 keywords: 
-ms.date: 03/16/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
 ---
 
@@ -22,7 +22,7 @@ Catch up on these recent videos you may have missed:
 
 | [How to easily manage your virtual machine](https://www.youtube.com/watch?v=vQClJHt2ulQ) | [How to use pills to filter in the Azure portal](https://www.youtube.com/watch?v=XyKh_3NxUlM)  | [How to get a visualization view of your resources](https://www.youtube.com/watch?v=wudqkkJd5E4) |
 | ------| ------ | ------ |
-| [![Image of YouTube video about how to easily manage your virtual machine](https://i.ytimg.com/vi/vQClJHt2ulQ/hqdefault.jpg)](http://www.youtube.com/watch?v=vQClJHt2ulQ) | [![Image of YouTube video about how to use pills to filter in the Azure portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?XyKh_3NxUlM) | [![Image of YouTube video about how to get a visualization view of your resources](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) |
+| [![Image of YouTube video about how to easily manage your virtual machine](https://i.ytimg.com/vi/vQClJHt2ulQ/hqdefault.jpg)](http://www.youtube.com/watch?v=vQClJHt2ulQ) | [![Image of YouTube video about how to use pills to filter in the Azure portal](https://i.ytimg.com/vi/XyKh_3NxUlM/hqdefault.jpg)](https://www.youtube.com/watch?v=XyKh_3NxUlM) | [![Image of YouTube video about how to get a visualization view of your resources](https://i.ytimg.com/vi/wudqkkJd5E4/hqdefault.jpg)](http://www.youtube.com/watch?v=wudqkkJd5E4) |
 
 ## Video playlist
 

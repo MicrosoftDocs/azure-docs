@@ -43,7 +43,7 @@ To delete a view:
 
 1. Select **Manage view** then **Browse all views**.
 
-1. In the **Saved views for "All resources"** pane, select the view then select the **Delete** icon ![Delete view icon](media/manage-filter-resource-views/icon-delete.png).
+1. In the **Saved views** pane, select the view then select the **Delete** icon ![Delete view icon](media/manage-filter-resource-views/icon-delete.png).
 
 ## Export information from a view
 
