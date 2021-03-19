@@ -122,7 +122,7 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
 1. Click **Create** to finish.
 
 
-:::image type="content" source="media/howto-create-custom-analytics/dataexport2.png" alt-text="Screenshot of Data export destination configuration.":::
+:::image type="content" source="media/howto-create-custom-analytics/dataexport2.png" alt-text="Image of Data export destination configuration.":::
 
 1. When finished, select **Save**.
 
