@@ -16,7 +16,7 @@ ms.custom: how-to
 
 # Upgrade compute instance and compute cluster host OS
 
-Azure Machine Learning _compute cluster__ and __compute instance__ are managed compute infrastructure. As a managed service, Microsoft manages the host OS and the packages and software versions that are installed.
+Azure Machine Learning __compute cluster__ and __compute instance__ are managed compute infrastructure. As a managed service, Microsoft manages the host OS and the packages and software versions that are installed.
 
 The host OS for compute cluster and compute instance has been Ubuntu 16.04 LTS. On **April 30, 2021**, Ubuntu is ending support for 16.04. Starting on __March 15, 2021__, Microsoft will automatically update the host OS to Ubuntu 18.04 LTS. Updating to 18.04 will ensure continued security updates and support from the Ubuntu community. For more information on Ubuntu ending support for 16.04, see the [Ubuntu release blog](https://wiki.ubuntu.com/Releases).
 
@@ -42,7 +42,7 @@ If you have existing compute clusters or compute instances created before __Marc
 * __Azure Machine Learning compute instance__: Create a new compute instance (which will use Ubuntu 18.04) and delete the old instance.
 
     * Any notebook stored in the workspace file share, data stores, of datasets will be accessible from the new compute instance.
-    * If you have created custom conda environments, you can export those environments from the existing instance and import on the new instance. For information on conda export and import, see [Managing environments](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html) at docs.conda.io.
+    * If you have created custom conda environments, you can export those environments from the existing instance and import on the new instance. For information on conda export and import, see [Conda documentation](https://docs.conda.io/) at docs.conda.io.
 
     For more information, see the [What is compute instance](concept-compute-instance.md) and [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) articles
 
