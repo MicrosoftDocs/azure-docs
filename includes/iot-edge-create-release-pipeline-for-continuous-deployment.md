@@ -76,7 +76,7 @@ Create a new pipeline, and add a new stage:
     | Advanced | For the IoT Edge deployment ID, specify `$(System.TeamProject)-$(Release.EnvironmentName)`. This variable maps the project and release name with your IoT Edge deployment ID. |
     
 
-If your task involves using an image that reside within a private Docker Trusted Registry not visible to the public cloud, you can enable the environment variable **SKIP_MODULE_IMAGE_VALIDATION** to `true` to skip the image validation. 
+    If your task involves using an image that resides in a private Docker Trusted Registry that isn't visible to the public cloud, you can set the **SKIP_MODULE_IMAGE_VALIDATION** environment variable to `true` to skip image validation. 
 
     ![Add Azure IoT Edge tasks for your dev stage](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-quality-assurance-task.png)
 
