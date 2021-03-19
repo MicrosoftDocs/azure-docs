@@ -2,22 +2,22 @@
   "redirections": [
     {
       "source_path_from_root": "/articles/spring-cloud-quotas.md",
-      "redirect_url": "/azure/articles/spring-cloud/quotas.md",
+      "redirect_url": "/articles/spring-cloud/quotas.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud-quickstart.md",
-      "redirect_url": "/azure/articles/spring-cloud/quickstart.md",
+      "redirect_url": "/articles/spring-cloud/quickstart.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud-reference-architecture.md",
-      "redirect_url": "/azure/articles/spring-cloud/reference-architecture.md",
+      "redirect_url": "/articles/spring-cloud/reference-architecture.md",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/spring-cloud-quickstart-setup-config-server.md",
-      "redirect_url": "/azure/articles/spring-cloud/quickstart-setup-config-server.md",
+      "redirect_url": "/articles/spring-cloud/quickstart-setup-config-server.md",
       "redirect_document_id": false
     },
     {
