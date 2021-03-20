@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 03/19/2021
 ---
 
 # Preview features for PostgreSQL - Hyperscale (Citus)
@@ -28,8 +28,8 @@ Here are the features currently available for preview:
   Store selected tables' columns (rather than rows) contiguously
   on disk. Supports on-disk compression. Good for analytic and
   data warehousing workloads.
-* **PostgreSQL 12 and 13**. Use the latest database version
-  in your server group.
+* **[PostgreSQL 12 and 13](concepts-hyperscale-versions.md)**.
+  Use the latest database version in your server group.
 * **[Basic tier](concepts-hyperscale-tiers.md)**. Run a server
   group using only a coordinator node and no worker nodes. An
   economical way to do initial testing and development, and
@@ -39,15 +39,16 @@ Here are the features currently available for preview:
   reflected in its replica, and queries against the replica
   cause no extra load on the original. Replicas are a useful
   tool to improve performance for read-only workloads.
-* **Managed pgBouncer**. A connection pooler that allows
-  many clients to connect to the server group at once, while
-  limiting the number of active connections. It satisfies
-  connection requests while keeping the coordinator node
-  running smoothly.
-* **pgAudit**. Provides detailed session and object audit
-  logging via the standard PostgreSQL logging facility. It
-  produces audit logs required to pass certain government,
-  financial, or ISO certification audits.
+* **[Managed
+  pgBouncer](concepts-hyperscale-limits.md#managed-pgbouncer-preview)**.
+  A connection pooler that allows many clients to connect to
+  the server group at once, while limiting the number of active
+  connections. It satisfies connection requests while keeping
+  the coordinator node running smoothly.
+* **[pgAudit](concepts-hyperscale-audit.md)**. Provides detailed
+  session and object audit logging via the standard PostgreSQL
+  logging facility. It produces audit logs required to pass
+  certain government, financial, or ISO certification audits.
 
 ### Available regions for preview features
 
