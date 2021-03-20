@@ -7,7 +7,7 @@ ms.topic: how-to
 zone_pivot_groups: development-environment-functions
 ---
 
-# Develop and publish .NET 5 function using Azure Functions 
+# Develop and publish .NET 5 functions using Azure Functions 
 
 This article shows you how to work with C# functions using .NET 5.0, which run out-of-process from the Azure Functions runtime. You'll learn how to create, debug locally, and publish these .NET isolated process functions to Azure. In Azure, these functions run in an isolated process that supports .NET 5.0. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
 
@@ -148,7 +148,7 @@ At this point, you can run the `func start` command from the root of your projec
  
 1. In the Azure Functions runtime output, make a note of the process ID of the host process, to which you'll attach a debugger. Also note the URL of your local function.
 
-1. From the **Debug** menu in Visual Studio, select **Attach to Process...**, locate the dotnet.exe process that matches the process ID, and select **Attach**. 
+1. From the **Debug** menu in Visual Studio, select **Attach to Process...**, locate the process that matches the process ID, and select **Attach**. 
     
     :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="Attach the debugger to the Functions host process":::    
 

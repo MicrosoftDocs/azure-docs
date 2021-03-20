@@ -6,7 +6,7 @@ ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 12/03/2020
+ms.date: 03/12/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF 
@@ -173,19 +173,21 @@ Azure Resource Manager restricts template size to be 4mb. Limit the size of your
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Please follow best practice at [Using Linked and Nested Templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
-### Cannot connect to GIT Enterprise 
+### Cannot connect to GIT Enterprise Cloud 
 
 ##### Issue
 
-You cannot connect to GIT Enterprise because of permission issues. You can see error like **422 - Unprocessable Entity.**
+You cannot connect to GIT Enterprise Cloud because of permission issues. You can see error like **422 - Unprocessable Entity.**
 
 #### Cause
 
-You have not configured Oauth for ADF. Your URL is misconfigured.
+* You are using Git Enterprise on prem server. 
+* You have not configured Oauth for ADF. 
+* Your URL is misconfigured.
 
 ##### Resolution
 
-You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will first try *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* and fail. Then, it will try *https://hostname/api/v3/orgs/<org>/<repo>...*, and succeed. 
+You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will try *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/<org>/<repo>...*, and succeed. 
  
 ### Recover from a deleted data factory
 

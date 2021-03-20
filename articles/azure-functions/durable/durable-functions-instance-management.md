@@ -199,6 +199,9 @@ The method returns an object with the following properties:
   * **Terminated**: The instance was stopped abruptly.
 * **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
 
+> [!NOTE]
+> An orchestrator is not marked as `Completed` until all of its scheduled tasks have finished _and_ the orchestrator has returned. In other words, it is not sufficient for an orchestrator to reach its `return` statement for it to be marked as `Completed`. This is particularly relevant for cases where `WhenAny` is used; those orchestrators often `return` before all the scheduled tasks have executed.
+
 This method returns `null` (.NET), `undefined` (JavaScript), or `None` (Python) if the instance doesn't exist.
 
 # [C#](#tab/csharp)

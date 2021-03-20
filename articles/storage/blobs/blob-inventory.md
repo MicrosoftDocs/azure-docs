@@ -202,4 +202,5 @@ Sample event:
 
 ## Next steps
 
-[Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Manage the Azure Blob Storage lifecycle](storage-lifecycle-management-concepts.md)

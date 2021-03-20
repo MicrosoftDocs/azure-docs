@@ -60,8 +60,6 @@ Azure Cosmos DB uses hash-based partitioning to spread logical partitions across
 
 Transactions (in stored procedures or triggers) are allowed only against items in a single logical partition.
 
-You can learn more about [how Azure Cosmos DB manages partitions](partitioning-overview.md). (It's not necessary to understand the internal details to build or run your applications, but added here for a curious reader.)
-
 ## Replica sets
 
 Each physical partition consists of a set of replicas, also referred to as a [*replica set*](global-dist-under-the-hood.md). Each replica set hosts an instance of the database engine. A replica set makes the data stored within the physical partition durable, highly available, and consistent. Each replica that makes up the physical partition inherits the partition's storage quota. All replicas of a physical partition collectively support the throughput that's allocated to the physical partition. Azure Cosmos DB automatically manages replica sets.

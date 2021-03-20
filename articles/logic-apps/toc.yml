@@ -214,14 +214,16 @@
       href: ../connectors/connectors-create-api-azureblobstorage.md
     - name: Azure Container Instances
       href: ../connectors/connectors-create-api-container-instances.md
+    - name: Azure Event Grid
+      href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Azure Event Hubs
-      href: ../connectors/connectors-create-api-azure-event-hubs.md      
+      href: ../connectors/connectors-create-api-azure-event-hubs.md
     - name: Azure Functions
       href: logic-apps-azure-functions.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
     - name: Azure Service Bus
-      href: ../connectors/connectors-create-api-servicebus.md        
+      href: ../connectors/connectors-create-api-servicebus.md
     - name: Azure SQL Database
       href: ../connectors/connectors-create-api-sqlazure.md
     - name: Bing Search

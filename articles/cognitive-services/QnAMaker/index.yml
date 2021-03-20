@@ -99,7 +99,7 @@ landingContent:
           - text: "Power apps: Create a QnA Maker powered bot"
             url: tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
           - text: "Bot Framework: Dispatch between LUIS and QnA Maker apps"
-            url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs&view=azure-bot-service-4.0
+            url: /azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs
           - text: Other bot samples
             url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
 

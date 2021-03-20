@@ -1,10 +1,10 @@
 ---
-author: PatrickFarley
+author: laujan
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
-ms.author: pafarley
+ms.author: lajanuar
 ---
 
 Examine the `"confidence"` values for each key/value result under the `"pageResults"` node. You should also look at the confidence scores in the `"readResults"` node, which correspond to the text read operation. The confidence of the read results does not affect the confidence of the key/value extraction results, so you should check both.

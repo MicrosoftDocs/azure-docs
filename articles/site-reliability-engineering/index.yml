@@ -174,7 +174,7 @@ conceptualContent:
           itemType: get-started
           text: GitHub Actions
 
-        - url:  /azure/devops/pipelines/index?view=azure-devops
+        - url:  /azure/devops/pipelines/index
           itemType: get-started
           text: Azure Pipelines
     # Card

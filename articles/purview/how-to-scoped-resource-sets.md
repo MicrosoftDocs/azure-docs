@@ -1,5 +1,5 @@
 ---
-title: 'How to: create a scoped resource set configuration'
+title: How to create a scoped resource set configuration
 description: Learn how to create a scoped resource set configuration rule to overwrite how assets get grouped into resource sets
 author: djpmsft
 ms.author: daperlov
@@ -19,20 +19,29 @@ When scanning a storage account, Azure Purview uses a set of defined patterns to
 
 Follow the steps below to create a new scoped resource set configuration:
 
-1. Go to the management center. Select **Scoped resource sets** from the menu. Click **+ New** to create a new configuration rule set.
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Create new scoped resource set rule" border="true":::
+1. Go to the management center. Select **Scoped resource sets** from the menu. Select **+ New** to create a new configuration rule set.
 
-1. Enter the scope of your scoped resource set configuration. Select your storage account type and the name of the storage account you wish to create a rule set on. Each set of rules is applied relative to a folder path scope specified in the **Folder path** field. 
-        :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Enter storage account scope" border="true":::
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-rule.png" alt-text="Create new scoped resource set rule" border="true":::
+
+1. Enter the scope of your scoped resource set configuration. Select your storage account type and the name of the storage account you wish to create a rule set on. Each set of rules is applied relative to a folder path scope specified in the **Folder path** field.
+
+   :::image type="content" source="media/how-to-scoped-resource-sets/create-new-scoped-resource-set-scope.png" alt-text="Create scoped resource set configurations" border="true":::
 
 1. To enter a rule for a configuration scope, select **+ New Rule**.
+
 1. Enter in the following fields to create a rule:
-    1. **Rule name:** The name of the configuration rule. This field has no effect on the assets the rule applies to.
-    1. **Qualified name:** A qualified path that uses a combination of text, dynamic replacers, and static replacers to match assets to the configuration rule. This path is relative to the scope of the configuration rule. See the [syntax](#syntax) section below for detailed instructions on how to specify qualified names. 
-    1. **Display name:** The display name of the asset. This field is optional. Use plain text and static replacers to customize how an asset is displayed in the catalog. For more detailed instructions, see the [syntax](#syntax) section below.
-    1. **Do not group as resource set:** If enabled, matched resource won't be grouped into a resource set. 
-        :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Enter scoped resource set configuration" border="true"::: 
-1. Save the rule by clicking **Add**. 
+
+   1. **Rule name:** The name of the configuration rule. This field has no effect on the assets the rule applies to.
+
+   1. **Qualified name:** A qualified path that uses a combination of text, dynamic replacers, and static replacers to match assets to the configuration rule. This path is relative to the scope of the configuration rule. See the [syntax](#syntax) section below for detailed instructions on how to specify qualified names.
+
+   1. **Display name:** The display name of the asset. This field is optional. Use plain text and static replacers to customize how an asset is displayed in the catalog. For more detailed instructions, see the [syntax](#syntax) section below.
+
+   1. **Do not group as resource set:** If enabled, matched resource won't be grouped into a resource set.
+
+      :::image type="content" source="media/how-to-scoped-resource-sets/scoped-resource-set-rule-example.png" alt-text="Create new configuration rule." border="true":::
+
+1. Save the rule by clicking **Add**.
 
 ## <a name="syntax"></a> Scoped resource set syntax
 
@@ -64,21 +73,23 @@ Below are the available types that can be used in static and dynamic replacers:
 | ---- | --------- |
 | string | A series of 1 or more Unicode characters including delimiters like spaces. |
 | int | A series of 1 or more 0-9 ASCII characters, it can be 0 prefixed (e.g. 0001). |
-| guid | A series of 32 or 8-4-4-4-12 string representation of an UUID as defineddefa in https://tools.ietf.org/html/rfc4122 |
-| date | A series of 6 or 8 0-9 ASCII characters with optionally separators: yyyymmdd, yyyy-mm-dd, yymmdd, yy-mm-dd, specified in https://tools.ietf.org/html/rfc3339 |
-| time | A series of 4 or 6 0-9 ASCII characters with optionally separators: HHmm, HH:mm, HHmmss, HH:mm:ss specified in https://tools.ietf.org/html/rfc3339 |
-| timestamp | A series of 12 or 14 0-9 ASCII characters with optionally separators: yyyy-mm-ddTHH:mm, yyyymmddhhmm, yyyy-mm-ddTHH:mm:ss, yyyymmddHHmmss specified in https://tools.ietf.org/html/rfc3339 |
-| boolean | Can contain ‘true’ or ‘false’, case insensitive. |
-| number | A series of 0 or more 0-9 ASCII characters, it can be 0 prefixed (e.g. 0001) followed by optionally a dot ‘.’ and a series of 1 or more 0-9 ASCII characters, it can be 0 postfixed (e.g. .100) | 
+| guid | A series of 32 or 8-4-4-4-12 string representation of an UUID as defineddefa in [RFC 4122](https://tools.ietf.org/html/rfc4122). |
+| date | A series of 6 or 8 0-9 ASCII characters with optionally separators: yyyymmdd, yyyy-mm-dd, yymmdd, yy-mm-dd, specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| time | A series of 4 or 6 0-9 ASCII characters with optionally separators: HHmm, HH:mm, HHmmss, HH:mm:ss specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| timestamp | A series of 12 or 14 0-9 ASCII characters with optionally separators: yyyy-mm-ddTHH:mm, yyyymmddhhmm, yyyy-mm-ddTHH:mm:ss, yyyymmddHHmmss specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). |
+| boolean | Can contain 'true' or 'false', case insensitive. |
+| number | A series of 0 or more 0-9 ASCII characters, it can be 0 prefixed (e.g. 0001) followed by optionally a dot '.' and a series of 1 or more 0-9 ASCII characters, it can be 0 postfixed (e.g. .100) |
 | hex | A series of 1 or more ASCII characters from the set 0-1 and A-F, the value can be 0 prefixed |
-| locale | A string that matches the syntax specified in https://tools.ietf.org/html/rfc5646 |
+| locale | A string that matches the syntax specified in [RFC 5646](https://tools.ietf.org/html/rfc5646). |
 
-## Order of scoped resource set rules getting applied.
+## Order of scoped resource set rules getting applied
 
 Below is the order of operations for applying scoped resource set rules:
 
-1. More specific scopes will take priority if an asset matches to two rules. For example, rules in a scope `container/folder` will apply before rules in scope `container`. 
+1. More specific scopes will take priority if an asset matches to two rules. For example, rules in a scope `container/folder` will apply before rules in scope `container`.
+
 1. Order of rules within a specific scope. This can be edited in the UX.
+
 1. If an asset doesn't match to any specified rule, the default resource set heuristics apply.
 
 ## Examples
@@ -90,16 +101,16 @@ SAP data extraction into full and delta loads
 #### Inputs
 
 Files:
--	`https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
--	`https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
--	`https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
--	`https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
--	`https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/13/saptable_customer_20200101_20200102_02.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/delta/2020/01/15/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_01.txt`
+- `https://myazureblob.blob.core.windows.net/bar/customer/full/2020/01/17/saptable_customer_20200101_20200102_02.txt`
 
-#### Scoped Resource Set Rule 
+#### Scoped Resource Set Rule
 
-**Scope:** https://myazureblob.blob.core.windows.net/bar/
+**Scope:** `https://myazureblob.blob.core.windows.net/bar/`
 
 **Display name:** 'External  Customer'
 
@@ -107,7 +118,7 @@ Files:
 
 **Resource Set:** true
 
-#### Output 
+#### Output
 
 One resource set asset
 
@@ -119,17 +130,18 @@ One resource set asset
 
 IoT data in avro format
 
-#### Inputs 
+#### Inputs
 
 Files:
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### Scoped Resource Set Rules 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Scope:** https://myazureblob.blob.core.windows.net/bar/
+#### Scoped Resource Set Rules
+
+**Scope:** `https://myazureblob.blob.core.windows.net/bar/`
 
 Rule 1
 
@@ -145,11 +157,11 @@ Rule 2
 
 **Qualified Name:** `raw/machinename-90/{date:date}/{time:time}-{id:int}.avro`
 
-#### *Resource Set: true* 
+#### *Resource Set: true*
 
-#### Outputs 
+#### Outputs
 
-2 resource sets 
+2 resource sets
 
 Resource Set 1
 
@@ -167,17 +179,18 @@ Resource Set 2
 
 IoT data in avro format
 
-#### Inputs 
+#### Inputs
 
 Files:
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--	`https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### Scoped Resource Set Rule 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.netbar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Scope:** https://myazureblob.blob.core.windows.net/bar/
+#### Scoped resource set rule
+
+**Scope:** `https://myazureblob.blob.core.windows.net/bar/`
 
 **Display name:** 'Machine-{{machineid}}'
 
@@ -185,7 +198,7 @@ Files:
 
 **Resource Set:** true
 
-#### Outputs 
+#### Outputs
 
 Resource Set 1
 
@@ -201,27 +214,28 @@ Resource Set 2
 
 ### Example 4
 
-Don’t group into resource sets
+Don't group into resource sets
 
-#### Inputs 
+#### Inputs
 
 Files:
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
--	`https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-#### Scoped Resource Set Rule 
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/01-01-2020/22:33:22-002.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-89/02-01-2020/22:33:22-001.avro`
+- `https://myazureblob.blob.core.windows.net/bar/raw/machinename-90/01-01-2020/22:33:22-001.avro`
 
-**Scope:** https://myazureblob.blob.core.windows.net/bar/
+#### Scoped resource set rule
 
-**Display name:** 'Machine-{{machineid}}'
+**Scope:** `https://myazureblob.blob.core.windows.net/bar/`
+
+**Display name:** `Machine-{{machineid}}`
 
 **Qualified Name:** `raw/machinename-{{machineid:int}}/{{:date}}/{{:time}}-{{:int}}.avro`
 
 **Resource Set:** false
 
-#### Outputs 
+#### Outputs
 
 4 individual assets
 

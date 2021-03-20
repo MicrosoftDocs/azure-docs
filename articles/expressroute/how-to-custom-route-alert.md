@@ -1,6 +1,6 @@
 ---
 title: 'ExpressRoute: How to configure custom alerts for advertised routes'
-description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks in order to prevent hitting the 200 routes limit.
+description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks in order to prevent hitting the 1000 routes limit.
 services: expressroute
 author: duongau
 
@@ -12,7 +12,7 @@ ms.author: duau
 ---
 # Configure custom alerts to monitor advertised routes
 
-This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the [200 routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+This article helps you use Azure Automation and Logic Apps to constantly monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks. Monitoring can help prevent hitting the 1000 routes limit](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
 
 **Azure Automation** allows you to automate execution of custom PowerShell script stored in a *runbook*. When using the configuration in this article, the runbook contains a PowerShell script that queries one or more ExpressRoute gateways. It collects a dataset containing the resource group, ExpressRoute gateway name, and number of network prefixes advertised on-premises.
 
@@ -44,7 +44,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 * The custom alert discussed in this article is an add-on to achieve better operation and control. It is not a replacement for the native alerts in ExpressRoute.
 * Data collection for ExpressRoute gateways runs in the background. Runtime can be longer than expected. To avoid job queuing, the workflow recurrence must be set up properly.
-* Deployments by scripts or ARM templates could happen faster than the custom alarm trigger. This could result in increasing in number of network prefixes in ExpressRoute gateway above the limit of 200 routes.
+* Deployments by scripts or ARM templates could happen faster than the custom alarm trigger. This could result in increasing in number of network prefixes in ExpressRoute gateway above the limit of 1000 routes.
 
 ## <a name="accounts"></a>Create and configure accounts
 
@@ -405,7 +405,7 @@ Once the JSON is parsed, the **Parse JSON Data Operations** action stores the co
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
-9. The logic condition is true when one of two dynamic variables, numRoute1 or numRoute2, is greater than the threshold. In this example, the threshold is fixed to 160 (80% of max value of 200 routes). You can change the threshold value to fit your requirements. For consistency, the value should be the same value used in the runbook PowerShell script.
+9. The logic condition is true when one of two dynamic variables, numRoute1 or numRoute2, is greater than the threshold. In this example, the threshold is fixed to 800 (80% of max value of 1000 routes). You can change the threshold value to fit your requirements. For consistency, the value should be the same value used in the runbook PowerShell script.
 
    :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="Logic condition":::
 
