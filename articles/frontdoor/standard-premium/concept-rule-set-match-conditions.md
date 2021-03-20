@@ -184,7 +184,6 @@ In this example, we match all requests where the query string contains the strin
     "matchValues": [
       "language=en-US"
     ],
-    "transforms": [],
     "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters"
   }
 }
@@ -201,7 +200,6 @@ In this example, we match all requests where the query string contains the strin
     matchValues: [
       'language=en-US'
     ]
-    transforms: []
     '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleQueryStringConditionParameters'
   }
 }
@@ -248,7 +246,6 @@ In this example, we match all requests where the request has not originated from
     "matchValues": [
       "US"
     ],
-    "transforms": [],
     "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters"
   }
 }
@@ -265,7 +262,6 @@ In this example, we match all requests where the request has not originated from
     matchValues: [
       'US'
     ]
-    transforms: []
     '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters'
   }
 }
@@ -459,13 +455,54 @@ In this example, we match all requests where the request file extension is `.pdf
 
 ## Request header
 
-Identifies requests that use a specific header in the request.
+The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists regardless of its value, or to check if the header matches a specified value.
 
-#### Required fields
+### Properties
 
-Header name | Operator | Header value | Case transform
-------------|----------|--------------|---------------
-String | [Operator list](#operator-list) | String, Int | Lowercase, Uppercase
+| Property | Supported values |
+|-|-|
+| Post args | A string value representing the name of the POST argument. |
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | A string or integer value representing the value of the request header. If multiple values are provided, they are combined using OR logic. |
+| Case transform | `Lowercase`, `Uppercase` |
+
+### Example
+
+In this example, we match all requests where the request contains a header named `MyCustomHeader`, regardless of its value.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-header.png" alt-text="Request header match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "RequestHeader",
+  "parameters": {
+    "selector": "MyCustomHeader",
+    "operator": "Any",
+    "negateCondition": false,
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RequestHeader'
+  parameters: {
+    selector: 'MyCustomHeader',
+    operator: 'Any'
+    negateCondition: false
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestHeaderConditionParameters'
+  }
+}
+```
+
+---
 
 ## Request method
 
