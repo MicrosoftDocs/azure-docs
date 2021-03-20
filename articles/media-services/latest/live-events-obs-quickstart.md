@@ -206,19 +206,19 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 ### Set Audio settings
 
-In the next procedure, you will adjust the audio encoding settings. 
+In the next procedure, you will adjust the audio encoding settings.
 
 1. Select the Output->Audio tab in Settings.
 
 1. Set the Track 1 **Audio Bitrate** to 128 Kbps.
 
-   ![OBS Intel QuickSync GPU encoder settings](media/live-events-obs-quickstart/live-event-obs-Audio-settings.png)
+   ![OBS Audio Bitrate settings](media/live-events-obs-quickstart/live-event-obs-Audio-settings.png)
 
 1. Select the Audio tab in Settings.
 
 1. Set the **Sample Rate** to 44.1 kHz.
 
-  ![OBS Intel QuickSync GPU encoder settings](media/live-events-obs-quickstart/live-event-obs-Audio-samplerate-settings.png)
+   ![OBS Audio Sample Rate settings](media/live-events-obs-quickstart/live-event-obs-Audio-samplerate-settings.png)
 
 ### Start streaming
 
