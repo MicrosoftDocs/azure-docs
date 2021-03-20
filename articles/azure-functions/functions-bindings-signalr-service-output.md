@@ -747,6 +747,11 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
+## Troubleshooting
+
+### My Function returns 403 forbidden when I add SignalR output bindings
+If you notice that your function works fine without output bindings, but returns a 403 forbidden error when you add output bindings, you should check the Network access control settings of your SignalR instance. Especially in Enterprises environments there can be policies in place which deny public access. If that is the case you can set up a virtual network and private endpoint to make your SignalR instance accessible for your Functions.
+
 ## Next steps
 
 - [Handle messages from SignalR Service  (Trigger binding)](./functions-bindings-signalr-service-trigger.md)
