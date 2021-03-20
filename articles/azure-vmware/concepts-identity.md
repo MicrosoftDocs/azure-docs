@@ -9,29 +9,7 @@ ms.date: 03/22/2021
 
 Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Access and identity management use CloudAdmin group privileges for vCenter and restricted administrator rights for NSX-T Manager. It ensures that your private cloud platform upgrades automatically with the newest features and patches.  
-
 For more information, see [private cloud upgrades concepts article][concepts-upgrades].
-
-
-
-
 
 ## vCenter access and identity
 
@@ -113,7 +91,7 @@ To prevent the creation of roles that can't be assigned or deleted, Azure VMware
 
 Use the *administrator* account to access NSX-T Manager. It has full privileges and lets you create and manage Tier-1 (T1) Gateways, segments (logical switches), and all services. The privileges give you access to the NSX-T Tier-0 (T0) Gateway. A change to the T0 Gateway could result in degraded network performance or no private cloud access. Open a support request in the Azure portal to request any changes to your NSX-T T0 Gateway.
 
-  
+ 
 ## Next steps
 
 Now that you've covered Azure VMware Solution access and identity concepts, you may want to learn about:
