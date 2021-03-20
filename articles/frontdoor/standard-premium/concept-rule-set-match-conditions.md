@@ -407,6 +407,8 @@ The **request file extension** match condition identifies requests that include 
 
 In this example, we match all requests where the request file extension is `.pdf` or `.docx`. We transform the request file extension to lowercase before performing the match, so `.PDF`, `.DocX` and other case variations will also trigger this match condition.
 
+<!-- TODO fix example - I used . where I shouldn't -->
+
 # [Portal](#tab/portal)
 
 :::image type="content" source="../media/concept-rule-set-match-conditions/request-file-extension.png" alt-text="Request file extension match condition":::
@@ -562,15 +564,71 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 ---
 
-## Request protocol
+## Request path
 
-Identifies requests that use the specified protocol used.
+Identifies requests that include the specified path in the requesting URL.
 
 #### Required fields
 
-Operator | Supported values
----------|----------------
-Equals, Not equals | HTTP, HTTPS
+Operator | Value | Case Transform
+---------|-------|---------------
+[Operator list](#operator-list) | String, Int | Lowercase, Uppercase
+
+## Request protocol
+
+The **request protocol** match condition identifies requests that use the specified protocol (HTTP or HTTPS).
+
+> [!INFORMATION]
+> *Protocol* is sometimes called *scheme*.
+
+### Properties
+
+| Property | Supported values |
+|-|-|
+| Operator | `Equal`, `NotEqual` |
+| Request method | `HTTP`, `HTTPS` |
+
+### Example
+
+In this example, we match all requests where the request uses the `HTTP` protocol.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-protocol.png" alt-text="Request protocol match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "RequestScheme",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "HTTP"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RequestScheme'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'HTTP
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters'
+  }
+}
+```
+
+---
 
 ## Request URL
 
@@ -585,16 +643,6 @@ Operator | Request URL | Case transform
 #### Key information
 
 When you use this rule condition, be sure to include protocol information. For example: *https://www.\<yourdomain\>.com*.
-
-## Request path
-
-Identifies requests that include the specified path in the requesting URL.
-
-#### Required fields
-
-Operator | Value | Case Transform
----------|-------|---------------
-[Operator list](#operator-list) | String, Int | Lowercase, Uppercase
 
 ## <a name = "operator-list"></a>Operator list
 
