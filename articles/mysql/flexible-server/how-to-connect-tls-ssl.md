@@ -17,6 +17,8 @@ Azure Database for MySQL Flexible Server supports connecting your client applica
 
 Azure Database for MySQL Flexible Server only supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 will be denied. For all flexible servers enforcement of TLS connections is enabled and you cannot disable TLS/SSL for connecting to flexible server.
 
+To use with your appliations, [download SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)
+
 ## Applications that require certificate verification for TLS/SSL connectivity
 In some cases, applications require a local certificate file generated from a trusted Certificate Authority (CA) certificate file to connect securely. Azure Database for MySQL Flexible Server uses *DigiCert Global Root CA*. Download this certificate needed to communicate over SSL from [DigiCert Global Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) and save the certificate file to your preferred location. For example, this tutorial uses `c:\ssl`.
 
@@ -53,6 +55,16 @@ Some application frameworks that use MySQL for their database services do not en
 Connection strings that are pre-defined in the "Connection Strings" page available for your server in the Azure portal include the required parameters for common languages to connect to your database server using TLS/SSL. The TLS/SSL parameter varies based on the connector. For example, "useSSL=true", "sslmode=required", or "ssl_verify_cert=true" and other variations.
 
 To establish an encrypted connection to your flexible server over TLS/SSL from your application, refer to the following code samples:
+
+### WordPress
+Download [SSL public certificate](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem) and add the following lines in wp-config.php after the line ```// ** MySQL settings - You can get this info from your web host ** //```.
+
+```php
+//** Connect with SSL** //
+define('MYSQL_CLIENT_FLAGS', MYSQLI_CLIENT_SSL);
+//** SSL CERT **//
+define(‘MYSQL_SSL_CERT’,’/FULLPATH/on-client/to/DigiCertGlobalRootCA.crt.pem’);
+```
 
 ### PHP
 
