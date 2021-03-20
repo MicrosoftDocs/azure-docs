@@ -45,6 +45,9 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
+6.  For deployment via ARM Template, certificateUrl can be found by navigating to the certificate in the key vault labeled as Secret Identifier
+
+    :::image type="content" source="media/certs-and-key-vault-6.png" alt-text="Image shows the secret identifier field in the key vault.":::
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
