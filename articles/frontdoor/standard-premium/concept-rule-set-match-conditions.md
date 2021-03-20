@@ -335,6 +335,66 @@ In this example, we match all requests where the request body contains the strin
 
 ---
 
+## Request file name
+
+The **request file name** match condition identifies requests that include the specified file name in the requesting URL.
+
+### Properties
+
+| Property | Supported values |
+|-|-|
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | A string or integer value representing the value of the request file name. If multiple values are provided, they are combined using OR logic. |
+| Case transform | `Lowercase`, `Uppercase` |
+
+### Example
+
+In this example, we match all requests where the request file name is `media.mp4`. We transform the body to lowercase before performing the match, so `MEDIA.MP4` and other case variations will also trigger this match condition.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-file-name.png" alt-text="Query string match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "UrlFileName",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "media.mp4"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'UrlFileName'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'media.mp4'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters'
+  }
+}
+```
+
+---
+
 ## Request header
 
 Identifies requests that use a specific header in the request.
@@ -396,16 +456,6 @@ Operator | Extension | Case transform
 #### Key information
 
 For extension, don't include a leading period; for example, use *html* instead of *.html*.
-
-## Request file name
-
-Identifies requests that include the specified file name in the requesting URL.
-
-#### Required fields
-
-Operator | File name | Case transform
----------|-----------|---------------
-[Operator list](#operator-list)| String, Int | Lowercase, Uppercase
 
 ## Request path
 
