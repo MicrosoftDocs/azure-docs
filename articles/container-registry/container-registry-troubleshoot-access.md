@@ -7,14 +7,16 @@ ms.date: 10/01/2020
 
 # Troubleshoot network issues with registry
 
-This article helps you troubleshoot problems you might encounter when accessing an Azure container registry in a virtual network or behind a firewall. 
+This article helps you troubleshoot problems you might encounter when accessing an Azure container registry in a virtual network or behind a firewall or proxy server. 
 
 ## Symptoms
 
 May include one or more of the following:
 
 * Unable to push or pull images and you receive error `dial tcp: lookup myregistry.azurecr.io`
+* Unable to push or pull images and you receive error `Client.Timeout exceeded while awaiting headers`
 * Unable to push or pull images and you receive Azure CLI error `Could not connect to the registry login server`
+* Unable to push or pull images and you receive a Docker daemon `proxyconnect tcp` error
 * Unable to pull images from registry to Azure Kubernetes Service or another Azure service
 * Unable to access a registry behind an HTTPS proxy and you receive error `Error response from daemon: login attempt failed with status: 403 Forbidden`
 * Unable to configure virtual network settings and you receive error `Failed to save firewall and virtual network settings for container registry`
@@ -43,7 +45,7 @@ If you're experiencing problems using the registry wih Azure Kubernetes Service,
 
 ## Potential solutions
 
-### Configure client firewall access
+### Configure client firewall or proxy access
 
 To access a registry from behind a client firewall or proxy server, configure firewall rules to access the registry's public REST and data endpoints. If [dedicated data endpoints](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) are enabled, you need rules to access:
 
@@ -52,7 +54,7 @@ To access a registry from behind a client firewall or proxy server, configure fi
 
 For a geo-replicated registry, configure access to the data endpoint for each regional replica.
 
-Behind an HTTPS proxy, ensure that both your Docker client and Docker daemon are configured for proxy behavior.
+Behind an HTTPS proxy, ensure that both your Docker client and Docker daemon are configured for proxy behavior. If you change your proxy settings for the Docker daemon, be sure to restart the daemon. 
 
 Registry resource logs in the ContainerRegistryLoginEvents table may help diagnose an attempted connection that is blocked.
 
