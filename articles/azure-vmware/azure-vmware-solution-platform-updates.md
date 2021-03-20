@@ -2,12 +2,24 @@
 title: Platform updates for Azure VMware Solution
 description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
-ms.date: 03/16/2021
+ms.date: 03/22/2021
 ---
 
 # Platform updates for Azure VMware Solution
 
-Important updates to Azure VMware Solution will be applied starting in March 2021. You'll receive notification through Azure Service Health that includes the timeline of the maintenance. For more details about the key upgrade processes and features in Azure VMware Solution, see [Azure VMware Solution private cloud updates and upgrades](concepts-upgrades.md).
+Important updates to Azure VMware Solution will be applied starting in March 2021. You'll receive notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Azure VMware Solution private cloud updates and upgrades](concepts-upgrades.md).
+
+## March 23, 2021
+All new Azure VMware Solution private clouds are deployed with VMware vCenter version 6.7U3l and NSX-T version 3.1.1. Any existing private clouds will be updated and upgraded **through June 2021** with the latest features available in these releases. 
+
+You'll receive an email with the planned maintenance date and time. You'll have the option to reschedule an upgrade. The email also provides details on the upgraded component, its impact on workloads, private cloud access, and other Azure services.  You'll receive a notification an hour before the upgrade and again when it finishes.
+
+**Component version post-upgrade**
+- ESXi - Build 17167734
+- vCenter 6.7U3l
+- vSAN 6.7
+- NSX Data Center 3.1.1
+- HCX R146
 
 ## March 15, 2021 
 
@@ -19,7 +31,7 @@ For more information on this vCenter version, see [VMware vCenter Server 6.7 Upd
 
 ## March 4, 2021
 
-- Azure VMware Solutions will apply patches through March 15, 2021, to ESXi in existing private clouds to [VMware ESXi 6.7, Patch Release ESXi670-202011002](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/esxi670-202011002.html).
+- Azure VMware Solution will apply the [VMware ESXi 6.7, Patch Release ESXi670-202011002](https://docs.vmware.com/en/VMware-vSphere/6.7/rn/esxi670-202011002.html) to existing privates **through March 15, 2021**.
 
 - Documented workarounds for the vSphere stack, as per [VMSA-2021-0002](https://www.vmware.com/security/advisories/VMSA-2021-0002.html), will also be applied through March 15, 2021.
 
