@@ -17,7 +17,7 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
-      "redirect_url": "/previous-versions/azure/virtual-machines/windows/nested-virtualization",
+      "redirect_url": "https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
       "redirect_document_id": false
     },
     {
@@ -13291,7 +13291,12 @@
     },
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
-      "redirect_url": "/azure/baremetal-infrastructure/workloads/sap/baremetal-infrastructure-portal",
+      "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/baremetal-infrastructure/baremetal-overview-architecture.md",
+      "redirect_url": "/azure/baremetal-infrastructure/concepts-baremetal-infrastructure-overview",
       "redirect_document_id": false
     },
     {
@@ -46146,6 +46151,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/migrate/tutorial-containerize-aspnet-kubernetes.md",
+      "redirect_url": "tutorial-app-containerization-aspnet-kubernetes",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/common/storage-access-blobs-queues-portal.md",
       "redirect_url": "articles/storage/blobs/authorize-blob-access-portal",
       "redirect_document_id": false
@@ -53543,6 +53553,11 @@
     {
       "source_path_from_root": "/articles/active-directory/manage-apps/add-non-gallery-app.md",
       "redirect_url": "/azure/active-directory/manage-apps/add-application-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/manage-apps/non-gallery-apps.md",
+      "redirect_url": "/azure/active-directory/manage-apps/plan-an-application-integration",
       "redirect_document_id": false
     },
     {
@@ -63406,6 +63421,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/communication-services/concepts/event-handling.md",
+      "redirect_url": "/azure/event-grid/event-schema-communication-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/app/change-analysis.md#visualizations-for-application-change-analysis",
       "redirect_url": "/articles/azure-monitor/app/change-analysis-visualizations",
       "redirect_document_id": false
@@ -64498,6 +64518,11 @@
     "source_path": "articles/azure-monitor/app/visual-studio-trends.md",
     "redirect_url": "/azure/azure-monitor/app/visual-studio",
     "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/glossary.md",
+      "redirect_url": "/azure/cognitive-services/translator/custom-translator/terminology",
+      "redirect_document_id": false
     }
   ]
 }

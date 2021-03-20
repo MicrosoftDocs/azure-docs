@@ -6,7 +6,7 @@ manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
 ms.author: parkerra
-ms.date: 11/20/2020
+ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -28,7 +28,7 @@ You'll learn how to:
 
 To complete this quickstart:
 
-- You need a Windows computer with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later are installed. Your Visual Studio installation must include the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
+- You need a Windows computer with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity (LTS)</a> and <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> or later installed. Use **Unity 2020 LTS** with ASA SDK version 2.9 or later (which uses the [Unity XR Plug-in Framework](https://docs.unity3d.com/Manual/XRPluginArchitecture.html)) or **Unity 2019 LTS** with ASA SDK version 2.8 or earlier. Your Visual Studio installation must include the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component. You must also install <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
 - You need a HoloLens device on which [developer mode](/windows/mixed-reality/using-visual-studio) enabled. [Windows 10 May 2020 Update](/windows/mixed-reality/whats-new/release-notes-may-2020) must be installed on the device. To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 - On your app, you need to enable the **SpatialPerception** capability. This setting is in **Build Settings** > **Player Settings** > **Publishing Settings** > **Capabilities**.
 - On your app, you need to enable **Virtual Reality Supported** with **Windows Mixed Reality SDK**. This setting is in **Build Settings** > **Player Settings** > **XR Settings**.
