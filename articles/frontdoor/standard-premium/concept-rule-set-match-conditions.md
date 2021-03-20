@@ -215,7 +215,7 @@ In this example, we match all requests where the query string contains the strin
 
 The **remote address** match condition identifies requests based on the requester's location or IP address.
 
-* Use CIDR notation. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
+* Use CIDR notation when specifying IP address blocks. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
     * **IPv4 example**: *5.5.5.64/26* matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
     * **IPv6 example**: *1:2:3:/48* matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3: ffff:ffff:ffff:ffff:ffff.
 * When you specify multiple IP addresses and IP address blocks, 'OR' logic is applied.
@@ -293,7 +293,7 @@ In this example, we match all requests where the request body contains the strin
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/query-string.png" alt-text="Query string match condition":::
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-body.png" alt-text="Query string match condition":::
 
 # [JSON](#tab/json)
 
