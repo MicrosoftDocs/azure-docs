@@ -111,5 +111,5 @@ The tables below have the following columns:
 
 ## Next steps
 
-See [Enable SQL insights](sql-insights-enable.md) for instructions on enabling SQL insights
-See [Frequently asked questions](../faq.md#sql-insights-preview) for frequently asked questions about SQL insights
+- See [Enable SQL insights](sql-insights-enable.md) for instructions on enabling SQL insights
+- See [Frequently asked questions](../faq.md#sql-insights-preview) for frequently asked questions about SQL insights
