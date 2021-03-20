@@ -108,7 +108,7 @@ OBS starts with a default scene but with no inputs selected.
 
    ![OBS audio device selection dropdown list](media/live-events-obs-quickstart/live-event-select-audio-device.png)
 
-### Set up streaming in OBS
+### Set up streaming and advanced encoding settings in OBS
 
 In the next procedure, you'll go back to Azure Media Services in your browser to copy the input URL to enter into the output settings:
 
@@ -148,7 +148,7 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 1. If you have selected the **X264** encoding option select the **Rescale Output** box. Select either 1920x1080 if you are using a Premium Live Event in Media Services or 1280x720 if you're using a Standard (720P) Live Event.  If you're using a pass-through live event, you can choose any available resolution.
 
-1. Set the **Bitrate** to anywhere between 1500 Kbps and 4000 Kbps. You may wish to adjust the bitrate based on available CPU capabilities and bandwidth on your network to achieve the desired quality setting.
+1. Set the **Bitrate** to anywhere between 1500 Kbps and 4000 Kbps. We recommend 2500 Kbps if you are using a Standard encoding Live Event at 720P. If you are using a 1080P Premium Live Event, 4000 Kbps is recommended. You may wish to adjust the bitrate based on available CPU capabilities and bandwidth on your network to achieve the desired quality setting.
 
 1. Enter *2* into the **Keyframe interval** field. The value sets the key frame interval to 2 seconds, which controls the final size of the fragments delivered over HLS or DASH from Media Services. Never set the key frame interval any higher than 4 seconds.  If you are seeing high latency when broadcasting, you should always double check or inform your application users to always set this value to 2 seconds. When attempting to achieve lower latency live delivery you can choose to set this value to as low as 1 second.
 
@@ -164,17 +164,17 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 1. Set the **Rate Control** to CBR for Constant Bitrate rate control.
 
-1. Set the **Bitrate** anywhere between 1500 Kbps and 4000 Kbps. You may choose to adjust this based on available CPU capabilities and bandwidth on your network to achieve the desired quality setting.
+1. Set the **Bitrate** anywhere between 1500 Kbps and 4000 Kbps. We recommend 2500 Kbps if you are using a Standard encoding Live Event at 720P. If you are using a 1080P Premium Live Event, 4000 Kbps is recommended. You may choose to adjust this based on available CPU capabilities and bandwidth on your network to achieve the desired quality setting.
 
 1. Set the **Keyframe Interval** to 2 seconds as noted above under the X264 options. Do not exceed 4 seconds, as this can significantly impact the latency of your live broadcast.
 
 1. Set the **Preset** to Low-Latency, Low-Latency Performance, or Low-Latency Quality depending on the CPU speed on your local machine. Experiment with these settings to achieve the best balance between quality and CPU utilization on your own hardware.
 
-1. Set the **Profile** to high.
+1. Set the **Profile** to "main" or "high" if you are using a more powerful hardware configuration.
 
-1. Leave the **Look-ahead** unchecked.
+1. Leave the **Look-ahead** unchecked. If you have a very powerful machine you can check this.
 
-1. Leave the **Psycho Visual Tuning** unchecked.
+1. Leave the **Psycho Visual Tuning** unchecked. If you have a very powerful machine you can check this.
 
 1. Set the **GPU** to 0 to automatically decide which GPUs to allocate. If desired, you can restrict GPU usage.
 
@@ -186,23 +186,39 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 1. If you have selected the Intel **QuickSync** GPU encoding option, check the **Rescale Output** box and select either 1920x1080 if you are using a Premium Live Event in Media Services, or 1280x720 if you are using a Standard (720P) Live Event. If you are using a pass-through live event, you can choose any available resolution.
 
-1. Set the **Target Usage** to "balanced" or adjust as needed based on your CPU and GPU combined load. Adjust as necessary and experiment to achieve an 80% max CPU utilization on average with the quality that your hardware is capable of producing.
+1. Set the **Target Usage** to "balanced" or adjust as needed based on your CPU and GPU combined load. Adjust as necessary and experiment to achieve an 80% max CPU utilization on average with the quality that your hardware is capable of producing. If you are on more constrained hardware, test with "fast" or drop to "very fast" if you are having performance issues.
 
-1. Set the **Profile** to high.
+1. Set the **Profile** to "main" or "high" if you are using a more powerful hardware configuration.
 
 1. Set the **Keyframe Interval** to 2 seconds as noted above under the X264 options. Do not exceed 4 seconds, as this can significantly impact the latency of your live broadcast.
 
 1. Set the **Rate Control** to CBR for Constant Bitrate rate control.
 
-1. Set the **Bitrate** anywhere between 1500 and 4000 Kbps. You may choose to adjust this based on available CPU capabilities and bandwidth on your network to achieve the desired quality setting.
+1. Set the **Bitrate** anywhere between 1500 and 4000 Kbps.  We recommend 2500 Kbps if you are using a Standard encoding Live Event at 720P. If you are using a 1080P Premium Live Event, 4000 Kbps is recommended. You may choose to adjust this based on available CPU capabilities and bandwidth on your network to achieve the desired quality setting.
 
-1. Set the **Latency** to "low" or "ultra-low".
+1. Set the **Latency** to "low".
 
 1. Set the **B frames** to 2.
 
 1. Leave the **Subjective Video Enhancements** unchecked.
 
    ![OBS Intel QuickSync GPU encoder settings](media/live-events-obs-quickstart/live-event-obs-QuickSync-settings.png)
+
+### Set Audio settings
+
+In the next procedure, you will adjust the audio encoding settings. 
+
+1. Select the Output->Audio tab in Settings.
+
+1. Set the Track 1 **Audio Bitrate** to 128 Kbps.
+
+   ![OBS Intel QuickSync GPU encoder settings](media/live-events-obs-quickstart/live-event-obs-Audio-settings.png)
+
+1. Select the Audio tab in Settings.
+
+1. Set the **Sample Rate** to 44.1 kHz.
+
+  ![OBS Intel QuickSync GPU encoder settings](media/live-events-obs-quickstart/live-event-obs-Audio-samplerate-settings.png)
 
 ### Start streaming
 
