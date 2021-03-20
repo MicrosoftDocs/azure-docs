@@ -1283,7 +1283,7 @@
   items:
   - name: Overview
     displayName: Networking Overview
-    href: network-overview.md
+    href: network-overview.md?context=/azure/virtual-machines/context/context
   - name: Best practices
     href: /virtual-network/concepts-and-best-practices.md?context=/azure/virtual-machines/context/context
   - name: Create virtual network
@@ -1377,12 +1377,10 @@
     - name: Windows using PowerShell
       displayName: Use multipe NICs
       href: ./windows/multiple-nics.md
-  - name: Use accelerated networking
-    href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
-  - name: Assign public DNS name
-    href: create-fqdn.md
   - name: Find and delete unattached NICs
     href: ./linux/find-unattached-nics.md
+  - name: Assign public DNS name
+    href: create-fqdn.md
   - name: Assign public DNS name
     href: create-fqdn.md
   - name: DNS resolution
