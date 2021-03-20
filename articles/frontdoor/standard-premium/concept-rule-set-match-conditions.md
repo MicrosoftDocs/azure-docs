@@ -512,7 +512,7 @@ The **request method** match condition identifies requests that use the specifie
 
 <!-- TODO check rules about combining this match condition with actions - I got this error when I tried to use it with the 'URL redirect' action: "Error: The delivery policy rule is not valid because the rule has a RequestMethod Condition and UrlRedirect Action, which would cause infinite redirects." -->
 
-> [!INFORMATION]
+> [!NOTE]
 > Only the GET request method can generate cached content in Azure Front Door. All other request methods are proxied through the network.
 
 ### Properties
@@ -631,7 +631,7 @@ In this example, we match all requests where the request file path begins with `
 
 The **request protocol** match condition identifies requests that use the specified protocol (HTTP or HTTPS).
 
-> [!INFORMATION]
+> [!NOTE]
 > *Protocol* is sometimes called *scheme*.
 
 ### Properties
@@ -685,17 +685,66 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 
 ## Request URL
 
-Identifies requests that match the specified URL.
+Identifies requests that match the specified URL. The entire URL is evaluated.
 
-#### Required fields
+> [!TIP]
+> When you use this rule condition, be sure to include the protocol. For example, use `https://www.contoso.com` instead of just `www.contoso.com`.
 
-Operator | Request URL | Case transform
----------|-------------|---------------
-[Operator list](#operator-list) | String, Int | Lowercase, Uppercase
+### Properties
 
-#### Key information
+| Property | Supported values |
+|-|-|
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | A string or integer value representing the value of the request URL. If multiple values are provided, they are combined using OR logic. |
+| Case transform | `Lowercase`, `Uppercase` |
 
-When you use this rule condition, be sure to include protocol information. For example: *https://www.\<yourdomain\>.com*.
+### Example
+
+In this example, we match all requests where the request URL begins with `https://api.contoso.com/customers/123`. We transform the request file extension to lowercase before performing the match, so requests to `https://api.contoso.com/Customers/123` and other case variations will also trigger this match condition.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-url.png" alt-text="Request URL match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "RequestUri",
+  "parameters": {
+    "operator": "BeginsWith",
+    "negateCondition": false,
+    "matchValues": [
+      "https://api.contoso.com/customers/123"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RequestUri'
+  parameters: {
+    operator: 'BeginsWith'
+    negateCondition: false
+    matchValues: [
+      'https://api.contoso.com/customers/123'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestUriConditionParameters'
+  }
+}
+```
+
+---
 
 ## <a name = "operator-list"></a>Operator list
 
