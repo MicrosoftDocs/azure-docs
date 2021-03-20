@@ -289,11 +289,11 @@ The **request body** match condition identifies requests based on specific text 
 
 ### Example
 
-In this example, we match all requests where the request body contains the string `ERROR`. We transform the body to uppercase before performing the match, so `error` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request body contains the string `ERROR`. We transform the request body to uppercase before performing the match, so `error` and other case variations will also trigger this match condition.
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/request-body.png" alt-text="Query string match condition":::
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-body.png" alt-text="Request body match condition":::
 
 # [JSON](#tab/json)
 
@@ -349,11 +349,11 @@ The **request file name** match condition identifies requests that include the s
 
 ### Example
 
-In this example, we match all requests where the request file name is `media.mp4`. We transform the body to lowercase before performing the match, so `MEDIA.MP4` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request file name is `media.mp4`. We transform the file name to lowercase before performing the match, so `MEDIA.MP4` and other case variations will also trigger this match condition.
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="../media/concept-rule-set-match-conditions/request-file-name.png" alt-text="Query string match condition":::
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-file-name.png" alt-text="Request file name match condition":::
 
 # [JSON](#tab/json)
 
@@ -389,6 +389,68 @@ In this example, we match all requests where the request file name is `media.mp4
       'Lowercase'
     ]
     '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFilenameConditionParameters'
+  }
+}
+```
+
+---
+
+## Request file extension
+
+The **request file extension** match condition identifies requests that include the specified file extension in the file name in the requesting URL.
+
+### Properties
+
+| Property | Supported values |
+|-|-|
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | A string or integer value representing the value of the request file extension. Don't include a leading period; for example, use `html` instead of `.html`. If multiple values are provided, they are combined using OR logic. |
+| Case transform | `Lowercase`, `Uppercase` |
+
+### Example
+
+In this example, we match all requests where the request file extension is `.pdf` or `.docx`. We transform the request file extension to lowercase before performing the match, so `.PDF`, `.DocX` and other case variations will also trigger this match condition.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-file-extension.png" alt-text="Request file extension match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "UrlFileExtension",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      ".pdf",
+      ".docx"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models."
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'UrlFileExtension'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      '.pdf'
+      '.docx'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters'
   }
 }
 ```
@@ -442,20 +504,6 @@ Operator | Request URL | Case transform
 #### Key information
 
 When you use this rule condition, be sure to include protocol information. For example: *https://www.\<yourdomain\>.com*.
-
-## Request file extension
-
-Identifies requests that include the specified file extension in the file name in the requesting URL.
-
-#### Required fields
-
-Operator | Extension | Case transform
----------|-----------|---------------
-[Operator list](#operator-list)  | String, Int | Lowercase, Uppercase
-
-#### Key information
-
-For extension, don't include a leading period; for example, use *html* instead of *.html*.
 
 ## Request path
 
