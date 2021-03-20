@@ -1,6 +1,6 @@
 ---
 title: Azure Files and Azure NetApp Files Comparison | Microsoft Docs
-description: Comparison of Azure Files and Azure NetApp Files to help you decide the appropriate Azure file storage solution for your workload.
+description: Comparison of Azure Files and Azure NetApp Files.
 author: jeffpatt24
 services: storage
 ms.service: storage
