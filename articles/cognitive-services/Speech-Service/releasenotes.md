@@ -19,6 +19,10 @@ ms.custom: seodec18
 
 **Note**: The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download it [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
+## Known issues
+
+**C++/C#/Java**: `DialogServiceConnector` cannot use a `CustomCommandsConfig` to access a Custom Commands application and will instead encounter a connection error. This can be worked around by manually adding your application ID to the request with `config.SetServiceProperty("X-CommandsAppId", "your-application-id", ServicePropertyChannel.UriQueryParameter)`. The expected behavior of `CustomCommandsConfig` will be restored in the next release.
+
 **Highlights summary**
 - Smaller memory and disk footprint making the SDK more efficient - this time the focus was on Android.
 - Improved support for compressed audio for both speech-to-text and text-to-speech, creating more efficient client/server communication.
