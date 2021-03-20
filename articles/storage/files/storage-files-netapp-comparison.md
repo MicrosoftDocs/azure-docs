@@ -32,9 +32,20 @@ Most workloads that require cloud file storage work well on either Azure Files o
 | Migration Tools  | <ul><li>Azure Data Box</li><li>Azure File Sync</li><li>Storage Migration Service</li><li>AzCopy</li><li>Robocopy</li></ul><br> To learn more, see [Migrate to Azure file shares](https://docs.microsoft.com/azure/storage/files/storage-files-migration-overview). | <ul><li>[Global File Cache](https://cloud.netapp.com/global-file-cache/azure)</li><li>[CloudSync](https://cloud.netapp.com/cloud-sync-service), [XCP](https://xcp.netapp.com/)</li><li>Storage Migration Service</li><li>AzCopy</li><li>Robocopy</li><li>Application-based (e.g. HSR, Dataguard, AOAG)</li></ul> |
 | Tiers | <ul><li>Premium</li><li>Transaction Optimized</li><li>Hot</li><li>Cool</li></ul><br> To learn more, see [storage tiers](https://docs.microsoft.com/azure/storage/files/storage-files-planning#storage-tiers). | <ul><li>Ultra</li><li>Premium</li><li>Standard</li></ul><br> All tiers provide sub-ms minimum latency.<br><br> To learn more, see [Service Levels](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) and [Performance Considerations](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-considerations). |
 | Pricing (East US) | <ul><li>Premium: $0.16 per provisioned GiB</li><li>Transaction Optimized: $0.06 per used GiB</li><li>Hot: $0.0287 per used GiB</li><li>Cool: $0.0228 per used GiB</li></ul><br> Notes:<br><ul><li>Premium tier: Pricing includes all transaction costs.</li><li>Standard tiers: Transactions are billed separately.</li><li>All tiers: Snapshot are measured on incremental capacity only.</li><li>Pricing varies by region. For more details, see [Azure Files Pricing](https://azure.microsoft.com/pricing/details/storage/files/).</li></ul>  | <ul><li>Ultra: $0.40 per provisioned GiB</li><li>Premium: $0.30 per provisioned GiB</li><li>Standard: $0.15 per provisioned GiB</li></ul><br> Notes:<br><ul><li>All tiers: Pricing includes all transactions.</li><li>All tiers: Snapshots are measured on incremental capacity only.</li><li>Pricing varies by region. For more details, see [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/).</li></ul> |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
 
+### Scalability and Performance
+
+| Category | Azure Files | Azure NetApp Files |
+|---------|---------|---------|
+| Minimum Share/Volume Size | Premium<br><ul><li>100 GiB</li></ul><br>Standard<br><ul><li>1 GiB</li></ul> | All tiers<br><ul><li>100 GiB (Minimum capacity pool size: 4TiB)</li></ul> |
+| Maximum Share/Volume Size | Premium<br><ul><li>100 TiB</li></ul><br>Standard<br><ul><li>100 TiB</li></ul> | All tiers<br><ul><li>100 TiB (500 TiB capacity pool limit)</li></ul><br>Up to 12.5 PiB per Azure NetApp account. |
+| Maximum Share/Volume IOPS | Premium<br><ul><li>Up to 100k</li></ul><br>Standard<br><ul><li>Up to 10k</li></ul> | Ultra and Premium<br><ul><li>Up to 450k </li></ul><br>Standard<br><ul><li>Up to 320k</li></ul> |
+| Maximum Share/Volume Throughput | Premium<br><ul><li>Up to 10 GiB/s</li></ul><br>Standard<br><ul><li>Up to 300 MiB/s</li></ul> | Ultra and Premium<br><ul><li>Up to 4.5 GiB/s</li></ul><br>Standard<br><ul><li>Up to 3.2GiB/s</li></ul> |
+| Maximum File Size | Premium<br><ul><li>4 TiB</li></ul><br>Standard<br><ul><li>1 TiB</li></ul> | All tiers<br><ul><li>16 TiB</li></ul> |
+| Maximum IOPS Per File | Premium<br><ul><li>Up to 8,000</li></ul><br>Standard<br><ul><li>1,000</li></ul> | All tiers<br><ul><li>Up to volume limit</li></ul> |
+| Maximum Throughput Per File | Premium<br><ul><li>300 MiB/s (Up to 1 GiB/s with SMB multichannel)</li></ul><br>Standard<br><ul><li>60 MiB/s</li></ul> | All tiers<br><ul><li>Up to volume limit</li></ul> |
+| SMB Multichannel | Yes ([Preview](https://docs.microsoft.com/azure/storage/files/storage-files-smb-multichannel-performance)) | Yes |
+| Latency | Single-millisecond minimum latency (2 to 3ms for small IO) | Sub-millisecond minimum latency (<1ms for random IO)<br><br>To learn more, see [performance benchmarks](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux). |
+
+For more details on scalability and performance targets, see [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#azure-files-scale-targets) and [Azure NetApp Files](https://docs.microsoft.com/en-us/azure-netapp-files/azure-netapp-files-resource-limits).
 
