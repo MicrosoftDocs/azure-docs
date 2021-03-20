@@ -566,13 +566,66 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 ## Request path
 
-Identifies requests that include the specified path in the requesting URL.
+The **request path** match condition identifies requests that include the specified path in the requesting URL.
 
-#### Required fields
+<!-- TODO define path -->
+<!-- TODO include leading slash or not? -->
 
-Operator | Value | Case Transform
----------|-------|---------------
-[Operator list](#operator-list) | String, Int | Lowercase, Uppercase
+### Properties
+
+| Property | Supported values |
+|-|-|
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | A string or integer value representing the value of the request path. If multiple values are provided, they are combined using OR logic. |
+| Case transform | `Lowercase`, `Uppercase` |
+
+### Example
+
+In this example, we match all requests where the request file path begins with `files/secure/`. We transform the request file extension to lowercase before performing the match, so requests to `files/SECURE/` and other case variations will also trigger this match condition.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-path.png" alt-text="Request path match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "UrlPath",
+  "parameters": {
+    "operator": "BeginsWith",
+    "negateCondition": false,
+    "matchValues": [
+      "/files/secure/"
+    ],
+    "transforms": [
+      "Lowercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'UrlPath'
+  parameters: {
+    operator: 'BeginsWith'
+    negateCondition: false
+    matchValues: [
+      '/files/secure/'
+    ]
+    transforms: [
+      'Lowercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlPathMatchConditionParameters'
+  }
+}
+```
+
+---
 
 ## Request protocol
 
