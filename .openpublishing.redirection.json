@@ -13290,11 +13290,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/concepts-role-based-access-control.md",
-      "redirect_url": "/azure/azure-vmware/concepts-identity",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/baremetal-infrastructure-portal.md",
       "redirect_url": "/azure/baremetal-infrastructure/connect-baremetal-infrastructure",
       "redirect_document_id": false
