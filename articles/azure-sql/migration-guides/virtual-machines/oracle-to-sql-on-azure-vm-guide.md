@@ -1,6 +1,6 @@
 ---
-title: "Oracle to SQL Server on Azure VM: Migration guide"
-description: This guide teaches you to migrate your Oracle schemas to SQL Server on Azure VMs using SQL Server Migration Assistant for Oracle.
+title: "Oracle to SQL Server on Azure Virtual Machines: Migration guide"
+description: This guide teaches you to migrate your Oracle schemas to SQL Server on Azure Virtual Machines by using SQL Server Migration Assistant for Oracle.
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
 ms.custom: 
@@ -11,42 +11,42 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ---
-# Migration guide: Oracle to SQL Server on Azure VM
+# Migration guide: Oracle to SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-This guide teaches you to migrate your Oracle schemas to SQL Server on Azure VM using SQL Server Migration Assistant for Oracle. 
+This guide teaches you to migrate your Oracle schemas to SQL Server on Azure Virtual Machines by using SQL Server Migration Assistant for Oracle. 
 
 For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
 
 ## Prerequisites 
 
-To migrate your Oracle schema to SQL Server on Azure VM, you need:
+To migrate your Oracle schema to SQL Server on Azure Virtual Machines, you need:
 
-- To verify your source environment is supported.
-- To download [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
+- A supported source environment.
+- [SQL Server Migration Assistant (SSMA) for Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258).
 - A target [SQL Server VM](../../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
-- The [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
+- The [necessary permissions for SSMA for Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) and the [provider](/sql/ssma/oracle/connect-to-oracle-oracletosql).
 
 ## Pre-migration
 
-As you prepare for migrating to the cloud, verify that your source environment is supported and that you have addressed any prerequisites. This will help to ensure an efficient and successful migration.
+To prepare to migrate to the cloud, verify that your source environment is supported and that you've addressed any prerequisites. This will help to ensure an efficient and successful migration.
 
-This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered. 
+This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration problems or blockers, and then resolving any problems that you uncover. 
 
 ### Discover
 
-Use the [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to identify existing data sources and details about the features that are being used by your business to get a better understanding of and plan for the migration. This process involves scanning the network to identify all your organization's Oracle instances together with the version and features in use.
+Use [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883) to identify existing data sources and details about the features your business is using to get a better understanding of the migration and plan for it. This process involves scanning the network to identify your organization's Oracle instances and the versions and features you're using.
 
-To use the MAP Toolkit to perform an inventory scan, follow these steps: 
+To use MAP Toolkit to do an inventory scan, follow these steps: 
 
-1. Open the [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883).
-1. Select **Create/Select database**.
+1. Open [MAP Toolkit](https://go.microsoft.com/fwlink/?LinkID=316883).
+1. Select **Create/Select database**:
 
-   ![Select database](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
+   ![Screenshot that shows the Create/Select database option.](./media/oracle-to-sql-on-azure-vm-guide/select-database.png)
 
-1. Select **Create an inventory database**, enter a name for the new inventory database you're creating, provide a brief description, and then select **OK**. 
+1. Select **Create an inventory database**, enter a name for the new inventory database you're creating, provide a brief description, and then select **OK**: 
 
-   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="Create an inventory database":::
+   :::image type="content" source="media/oracle-to-sql-on-azure-vm-guide/create-inventory-database.png" alt-text="Screenshot that shows the interface for creating an inventory database.":::
 
 1. Select **Collect inventory data** to open the **Inventory and Assessment Wizard**. 
 
