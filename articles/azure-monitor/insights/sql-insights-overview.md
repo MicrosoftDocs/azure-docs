@@ -13,8 +13,7 @@ SQL insights monitors the performance and health of your SQL deployments.  It ca
 SQL insights does not install anything on your SQL IaaS deployments. Instead, it uses dedicated monitoring virtual machines to remotely collect data for both SQL PaaS and SQL IaaS deployments.  The SQL insights monitoring profile allows you to manage the data sets to be collected based upon the type of SQL, including Azure SQL DB, Azure SQL Managed Instance, and SQL server running on an Azure virtual machine.
 
 ## Pricing
-
-There's no direct cost for SQL insights. All costs are incurred by the Log Analytics and virtual machines resources used in conjunction with SQL insights.  
+There is no direct cost for SQL insights. All costs are incurred by the Log Analytics workspaces that store the data and the virtual machines that gather the data. 
 
 For virtual machines, you're charged based on the pricing that published on the [virtual machines pricing page](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/).
 
@@ -50,7 +49,10 @@ Open SQL insights by selecting **SQL (preview)** from the **Insights** section o
 :::image type="content" source="media/sql-insights/portal.png" alt-text="SQL insights in Azure portal.":::
 
 ## Enable SQL insights 
-See [Enable SQL insights](sql-insights-enable.md) for the detailed procedure to enable SQL insights in addition to steps for troubleshooting.
+See [Enable SQL insights](sql-insights-enable.md) for instructions on enabling SQL insights.
+
+## Troubleshoot SQL insights 
+See [Troubleshooting SQL insights](sql-insights-troubleshoot.md) for instructions on troubleshooting SQL insights.
 
 ## Data collected by SQL insights
 Different sets of data are available for Azure SQL Database, Azure SQL Managed Instance, and SQL Server. The tables below describe the available data. You can customize which data sets to collect and the frequency of collection when you [create a monitoring profile](../insights/../azure-monitor/insights/sql-insights-enable.md#create-sql-monitoring-profile).
