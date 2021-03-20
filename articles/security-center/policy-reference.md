@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Security Center
 description: Lists Azure Policy built-in policy definitions for Azure Security Center. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin

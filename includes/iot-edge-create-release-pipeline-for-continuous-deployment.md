@@ -58,8 +58,18 @@ Create a new pipeline, and add a new stage:
     * **ACR_PASSWORD**: Your Azure Container Registry password.
     * **ACR_USER**: Your Azure Container Registry username.
 
-    If you have other variables in your project, you can specify the name and value in this tab. The **Generate deployment manifest** can only recognize the variables are in `${VARIABLE}` flavor. Make sure you are using this flavor in your `*.template.json` files.
-
+    If you have other variables in your project, you can specify the name and value in this tab. The **Generate deployment manifest** can only recognize the variables that are in `${VARIABLE}` flavor. Make sure you are using this flavor in your `*.template.json` files.
+    
+    ```json-interactive
+    "registryCredentials": {
+      "<ACR name>": { // Your Azure Container Registry **Registry name** value
+        "username": "${ACR_USER}",
+        "password": "${ACR_PASSWORD}",
+        "address": "${ACR_ADDRESS}"
+      }
+    }
+    ```
+    
     ![Configure the variables for your release pipeline in the Variables tab](./media/iot-edge-create-release-pipeline-for-continuous-deployment/configure-variables.png)
 
 10. Select the second **Azure IoT Edge** task and configure it with the following values:

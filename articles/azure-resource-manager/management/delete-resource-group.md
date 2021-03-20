@@ -2,7 +2,7 @@
 title: Delete resource group and resources
 description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded. 
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 03/18/2021
 ms.custom: seodec18
 ---
 
@@ -114,6 +114,13 @@ az resource delete \
 
 ---
 
+## Required access
+
+To delete a resource group, you need access to the delete action for the **Microsoft.Resources/subscriptions/resourceGroups** resource. You also need delete for all resources in the resource group.
+
+For a list of operations, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). For a list of built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
+
+If you have the required access, but the delete request fails, it may be because there's a [lock](lock-resources.md) on the resource group.
 
 ## Next steps
 
