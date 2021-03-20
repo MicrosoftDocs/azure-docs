@@ -186,7 +186,9 @@ This tutorial explains how to create a Cloud Service (extended support) deployme
     ```
 
 6. (Optional) Create an extension profile to add extensions to your cloud service. For this example, we are adding the remote desktop and Windows Azure diagnostics extension.
-    
+   > [!Note] 
+   > The password for remote desktop must be between 8-123 characters long and must satisfy at least 3 of password complexity requirements from the following: 1) Contains an uppercase character 2) Contains a lowercase character 3) Contains a numeric digit 4) Contains a special character 5) Control characters are not allowed
+
     ```json
         "extensionProfile": {
           "extensions": [
