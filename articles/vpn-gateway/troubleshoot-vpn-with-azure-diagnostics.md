@@ -153,7 +153,7 @@ This query on **IKEDiagnosticLog** will show you multiple columns.
 |**TimeGenerated** | the timestamp of each event, in UTC timezone.|
 | **RemoteIP** | the IP address of the on-premises VPN device. In real world scenarios, it is useful to filter by the IP address of the relevant on-premises device shall there be more than one. |
 |**LocalIP** | the IP address of the VPN Gateway we are troubleshooting. In real world scenarios, it is useful to filter by the IP address of the relevant VPN gateway shall there be more than one in your subscription. |
-|**Event** | contains a diagnostic message useful for troubleshooting. They usually start with a keyword and refer to the actions performed by the Azure Gateway **\[SEND\]** indicates an event caused by an IPSec packet sent by the Azure Gateway  **\[RECEIVED\]** indicates an event in consequence of a packet received from on-premises device **\[LOCAL\]** indicates an action taken locally by the Azure Gateway. |
+|**Event** | contains a diagnostic message useful for troubleshooting. They usually start with a keyword and refer to the actions performed by the Azure Gateway: **\[SEND\]** indicates an event caused by an IPSec packet sent by the Azure Gateway.  **\[RECEIVED\]** indicates an event in consequence of a packet received from on-premises device.  **\[LOCAL\]** indicates an action taken locally by the Azure Gateway. |
 
 
 Notice how RemoteIP, LocalIP and Event columns are not present in the original column list on AzureDiagnostics database, but are added to the query by parsing the output of the "Message" column to simplify its analysis.
