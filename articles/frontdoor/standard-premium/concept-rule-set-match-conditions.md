@@ -98,7 +98,7 @@ Use the **Post args** match condition to match requests based on the arguments p
 |-|-|
 | Post args | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | A string or integer value representing the value of the POST argument. If multiple values are provided, they are combined using OR. |
+| Value | A string or integer value representing the value of the POST argument. If multiple values are provided, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -161,8 +161,8 @@ Use the **Query string** match condition to match requests that contain a specif
 
 | Property | Supported values |
 |-|-|
-| Operator | _Any operator from the [standard operator list](#operator-list)._ |
-| Query string | A set of values representing the possible query string values to match. If multiple values are provided, they are combined using OR. |
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Query string | A set of values representing the possible query string values to match. If multiple values are provided, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -211,36 +211,129 @@ In this example, we match all requests where the query string contains the strin
 
 ## Remote address
 
-Identifies requests based on the requester's location or IP address.
+<!-- TODO how are unknown addresses handled? -->
 
-#### Required fields
+The **remote address** match condition identifies requests based on the requester's location or IP address.
 
-Operator | Supported values
----------|-----------------
-Geo Match | Country code
-IP Match | IP address (space-separated)
-Not Geo Match | Country code
-Not IP Match | IP address (space-separated)
-
-#### Key information
-
-* Use CIDR notation.
-* For multiple IP addresses and IP address blocks, 'OR' logic is operated.
-    * **IPv4 example**: if you add two IP addresses *1.2.3.4* and *10.20.30.40*, the condition is matched if any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
-    * **IPv6 example**:  if you add two IP addresses *1:2:3:4:5:6:7:8* and *10:20:30:40:50:60:70:80*, the condition is matched if any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
-* The syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
+* Use CIDR notation. This means that the syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
     * **IPv4 example**: *5.5.5.64/26* matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
     * **IPv6 example**: *1:2:3:/48* matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3: ffff:ffff:ffff:ffff:ffff.
+* When you specify multiple IP addresses and IP address blocks, 'OR' logic is applied.
+    * **IPv4 example**: if you add two IP addresses *1.2.3.4* and *10.20.30.40*, the condition is matched if any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
+    * **IPv6 example**:  if you add two IP addresses *1:2:3:4:5:6:7:8* and *10:20:30:40:50:60:70:80*, the condition is matched if any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
+
+### Properties
+
+| Property | Supported values |
+|-|-|
+| Operator | `Geo Match`, `Geo Not Match`, `IP Match`, or `IP Not Match` |
+| Value | <ul><li>For the `IP Match` or `IP Not Match` operators, specify one or more IP address ranges. These will be combined using OR logic.</li><li>For the `Geo Match` or `Geo Not Match` operators, specify one or more locations using their country code.</li></ul> |
+
+### Example
+
+In this example, we match all requests where the request has not originated from the United States.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/remote-address.png" alt-text="Remote address match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "RemoteAddress",
+  "parameters": {
+    "operator": "GeoMatch",
+    "negateCondition": true,
+    "matchValues": [
+      "US"
+    ],
+    "transforms": [],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RemoteAddress'
+  parameters: {
+    operator: 'GeoMatch'
+    negateCondition: true
+    matchValues: [
+      'US'
+    ]
+    transforms: []
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters'
+  }
+}
+```
+
+---
 
 ## Request body
 
-Identifies requests based on specific text that appears in the body of the request.
+The **request body** match condition identifies requests based on specific text that appears in the body of the request.
 
-#### Required fields
+<!-- TODO any requirements for body max length, encoding, etc? -->
 
-Operator | Request body | Case transform
----------|--------------|---------------
-[Operator list](#operator-list) | String, Int | Lowercase, Uppercase
+### Properties
+
+| Property | Supported values |
+|-|-|
+| Operator | Any operator from the [standard operator list](#operator-list). |
+| Value | A string or integer value representing the value of the request body. If multiple values are provided, they are combined using OR logic. |
+| Case transform | `Lowercase`, `Uppercase` |
+
+### Example
+
+In this example, we match all requests where the request body contains the string `ERROR`. We transform the body to uppercase before performing the match, so `error` and other case variations will also trigger this match condition.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/query-string.png" alt-text="Query string match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "RequestBody",
+  "parameters": {
+    "operator": "Contains",
+    "negateCondition": false,
+    "matchValues": [
+      "ERROR"
+    ],
+    "transforms": [
+      "Uppercase"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RequestBody'
+  parameters: {
+    operator: 'Contains'
+    negateCondition: false
+    matchValues: [
+      'ERROR'
+    ]
+    transforms: [
+      'Uppercase'
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestBodyConditionParameters'
+  }
+}
+```
+
+---
 
 ## Request header
 
