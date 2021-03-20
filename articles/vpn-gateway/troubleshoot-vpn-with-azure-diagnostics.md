@@ -21,13 +21,13 @@ The following logs are available in Azure:
 
 |***Name*** | ***Description*** |
 |---		| ---				|
-|**GatewayDiagnosticLog** | Contains diagnostic logs for gateway configuration events, primary changes and maintenance events. |
+|**GatewayDiagnosticLog** | Contains diagnostic logs for gateway configuration events, primary changes, and maintenance events. |
 |**TunnelDiagnosticLog** | Contains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable. |
 |**RouteDiagnosticLog** | Logs changes to static routes and BGP events that occur on the gateway. |
 |**IKEDiagnosticLog** | Logs IKE control messages and events on the gateway. |
 |**P2SDiagnosticLog** | Logs point-to-site control messages and events on the gateway. |
 
-Notice that there are several columns available in these tables. In this article we are only presenting the most relevant ones for easier log consumption.
+Notice that there are several columns available in these tables. In this article, we are only presenting the most relevant ones for easier log consumption.
 
 ## <a name="setup"></a>Set up logging
 
@@ -35,7 +35,7 @@ To learn how set up diagnostic log events from Azure VPN Gateway using Azure Log
 
 ## <a name="GatewayDiagnosticLog"></a>GatewayDiagnosticLog
 
-Configuration changes are audited in the **GatewayDiagnosticLog** table. Note that it could take some minutes before changes you execute are reflected in the logs.
+Configuration changes are audited in the **GatewayDiagnosticLog** table. It could take some minutes before changes you execute are reflected in the logs.
 
 Here you have a sample query as reference.
 
@@ -82,7 +82,7 @@ This query on **TunnelDiagnosticLog** will show you multiple columns.
 |---		| ---				|
 |**TimeGenerated** | the timestamp of each event, in UTC timezone.|
 |**OperationName** | the event that happened. It can be either *TunnelConnected* or *TunnelDisconnected*.|
-| **Instance\_s** | the gateway role instance that triggered the event. It can be either GatewayTenantWorker\_IN\_0 or GatewayTenantWorker\_IN\_1 which are the names of the two instances of the gateway.|
+| **Instance\_s** | the gateway role instance that triggered the event. It can be either GatewayTenantWorker\_IN\_0 or GatewayTenantWorker\_IN\_1, which are the names of the two instances of the gateway.|
 | **Resource** | indicates the name of the VPN gateway. |
 | **ResourceGroup** | indicates the resource group where the gateway is.|
 
@@ -126,7 +126,7 @@ The output will show useful information about BGP peers connected/disconnected a
 Example:
 
 
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-31-bgp-route.png" alt-text="Example of BGP route exachange activity seen in RouteDiagnosticLog.":::
+:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/image-31-bgp-route.png" alt-text="Example of BGP route exchange activity seen in RouteDiagnosticLog.":::
 
 
 ## <a name="IKEDiagnosticLog"></a>IKEDiagnosticLog
@@ -156,13 +156,13 @@ This query on **IKEDiagnosticLog** will show you multiple columns.
 |**Event** | contains a diagnostic message useful for troubleshooting. They usually start with a keyword and refer to the actions performed by the Azure Gateway: **\[SEND\]** indicates an event caused by an IPSec packet sent by the Azure Gateway.  **\[RECEIVED\]** indicates an event in consequence of a packet received from on-premises device.  **\[LOCAL\]** indicates an action taken locally by the Azure Gateway. |
 
 
-Notice how RemoteIP, LocalIP and Event columns are not present in the original column list on AzureDiagnostics database, but are added to the query by parsing the output of the "Message" column to simplify its analysis.
+Notice how RemoteIP, LocalIP, and Event columns are not present in the original column list on AzureDiagnostics database, but are added to the query by parsing the output of the "Message" column to simplify its analysis.
 
 Troubleshooting tips:
 
 - In order to identify the start of an IPSec negotiation, you need to find the initial SA\_INIT message. Such message could be sent by either side of the tunnel. Whoever sends the first packet is called "initiator" in IPsec terminology, while the other side becomes the "responder". The first SA\_INIT message is always the one where rCookie = 0.
 
-- If the IPsec tunnel fails to establish, Azure will keep retrying every few seconds. For this reason troubleshooting "VPN down" issues is very convenient on IKEdiagnosticLog because you do not have to wait for a specific time to reproduce the issue. Also, the failure will in theory always be the same every time we try so you could just zoom into one "sample" failing negotiation at any time.
+- If the IPsec tunnel fails to establish, Azure will keep retrying every few seconds. For this reason, troubleshooting "VPN down" issues is very convenient on IKEdiagnosticLog because you do not have to wait for a specific time to reproduce the issue. Also, the failure will in theory always be the same every time we try so you could just zoom into one "sample" failing negotiation at any time.
 
 - The SA\_INIT contains the IPSec parameters that the peer wants to use for this IPsec negotiation. 
 The official document   
@@ -171,7 +171,7 @@ The official document
 
 ## <a name="P2SDiagnosticLog"></a>P2SDiagnosticLog
 
-The last available table for VPN diagnostics is **P2SDiagnosticLog**. This traces the activity for Point to Site.
+The last available table for VPN diagnostics is **P2SDiagnosticLog**. This table traces the activity for Point to Site.
 
 Here you have a sample query as reference.
 
