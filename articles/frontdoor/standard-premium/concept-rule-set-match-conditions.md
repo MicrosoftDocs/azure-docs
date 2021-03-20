@@ -461,7 +461,7 @@ The **request header** match condition identifies requests that include a specif
 
 | Property | Supported values |
 |-|-|
-| Post args | A string value representing the name of the POST argument. |
+| Header name | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
 | Value | A string or integer value representing the value of the request header. If multiple values are provided, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
@@ -506,17 +506,61 @@ In this example, we match all requests where the request contains a header named
 
 ## Request method
 
-Identifies requests that use the specified request method.
+The **request method** match condition identifies requests that use the specified HTTP request method.
 
-#### Required fields
+<!-- TODO check rules about combining this match condition with actions - I got this error when I tried to use it with the 'URL redirect' action: "Error: The delivery policy rule is not valid because the rule has a RequestMethod Condition and UrlRedirect Action, which would cause infinite redirects." -->
 
-Operator | Supported values
----------|----------------
-Equals, Not equals | GET, POST, PUT, DELETE, HEAD, OPTIONS, TRACE
+> [!INFORMATION]
+> Only the GET request method can generate cached content in Azure Front Door. All other request methods are proxied through the network.
 
-#### Key information
+### Properties
 
-Only the GET request method can generate cached content in Azure Front Door. All other request methods are proxied through the network.
+| Property | Supported values |
+|-|-|
+| Operator | `Equal`, `NotEqual` |
+| Request method | One or more HTTP methods from: `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`. If multiple values are provided, they are combined using OR logic. |
+
+### Example
+
+In this example, we match all requests where the request uses the `DELETE` method.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="../media/concept-rule-set-match-conditions/request-method.png" alt-text="Request method match condition":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "RequestMethod",
+  "parameters": {
+    "operator": "Equal",
+    "negateCondition": false,
+    "matchValues": [
+      "DELETE"
+    ],
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RequestMethod'
+  parameters: {
+    operator: 'Equal'
+    negateCondition: false
+    matchValues: [
+      'DELETE
+    ]
+    '@odata.type': '#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters'
+  }
+}
+```
+
+---
 
 ## Request protocol
 
