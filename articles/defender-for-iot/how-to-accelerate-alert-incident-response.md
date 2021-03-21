@@ -73,7 +73,7 @@ These fields should be configured in the partner solution to display the alert g
 ### Default alert groups
 
 The following alert groups are automatically defined:
-|  |  |  |
+| Alert type | Reason for alert  | Location of alert |
 |--|--|--|
 | Abnormal communication behavior | Custom alerts | Remote access |
 | Abnormal HTTP communication behavior | Discovery | Restart and stop commands |
