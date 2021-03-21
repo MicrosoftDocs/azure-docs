@@ -1,7 +1,7 @@
 ---
 title: Migration solutions for Azure VMware Solution virtual machines
 description: Learn about leading migration solutions for your Azure VMware Solution virtual machines.
-ms.topic: how-to
+ms.topic: reference
 ms.date: 03/22/2021
 ---
 
