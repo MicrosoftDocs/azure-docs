@@ -29,7 +29,7 @@ Windows 10 Enterprise multi-session can't run in on-premises production environm
 
 ## Can I upgrade a Windows 10 VM to Windows 10 Enterprise multi-session?
 
-No. It's not currently possible to upgrade an existing virtual machine (VM) that's running Windows 10 Professional or Enterprise to Windows 10 Enterprise multi-session. Also, if you deploy a Windows 10 Enterprise multi-session VM and then update product key to another edition, you won't be able to switch the VM back to Windows 10 Enterprise multi-session and will need to redeploy the VM.
+No. It's not currently possible to upgrade an existing virtual machine (VM) that's running Windows 10 Professional or Enterprise to Windows 10 Enterprise multi-session. Also, if you deploy a Windows 10 Enterprise multi-session VM and then update the product key to another edition, you won't be able to switch the VM back to Windows 10 Enterprise multi-session and will need to redeploy the VM.
 
 ## How do I customize the Windows 10 Enterprise multi-session image for my organization?
 
