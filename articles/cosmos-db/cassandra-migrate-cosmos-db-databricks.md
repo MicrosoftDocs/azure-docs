@@ -5,7 +5,7 @@ author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 03/10/2021
 ms.author: thvankra
 ms.reviewer: thvankra
 ---
@@ -37,20 +37,18 @@ There are various ways to migrate database workloads from one platform to anothe
 
 ## Provision an Azure Databricks cluster
 
-You can follow instructions to [Provision an Azure Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). However, please note Apache Spark 3.x is not currently supported for the Apache Cassandra Connector. You will need to provision a Databricks runtime with a supported v2.x version of Apache Spark. We recommend selecting a version of the Databricks runtime which supports the latest version of Spark 2.x, with no later than Scala version 2.11:
+You can follow instructions to [Provision an Azure Databricks cluster](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). We recommend selecting Databricks runtime version 7.5, which supports Spark 3.0:
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks runtime":::
 
 
 ## Add dependencies
 
-You will need to add the Apache Spark Cassandra connector library to your cluster in order to connect to both native and Cosmos DB Cassandra endpoints. In your cluster select libraries -> install new -> maven -> search packages:
+You will need to add the Apache Spark Cassandra connector library to your cluster in order to connect to both native and Cosmos DB Cassandra endpoints. In your cluster select libraries -> install new -> maven. add `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` in maven coordinates:
 
 :::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages.png" alt-text="Databricks search packages":::
 
-Type `Cassandra` in the search box, and select the latest `spark-cassandra-connector` maven repository available, then select install:
-
-:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-search-packages-2.png" alt-text="Databricks select packages":::
+Select install, and ensure you restart the cluster when installation is complete. 
 
 > [!NOTE]
 > Ensure that you restart the Databricks cluster after the Cassandra Connector library has been installed.
@@ -86,7 +84,6 @@ val cosmosCassandra = Map(
     "table" -> "<TABLE>",
     //throughput related settings below - tweak these depending on data volumes. 
     "spark.cassandra.output.batch.size.rows"-> "1",
-    "spark.cassandra.connection.connections_per_executor_max" -> "10",
     "spark.cassandra.output.concurrent.writes" -> "1000",
     "spark.cassandra.concurrent.reads" -> "512",
     "spark.cassandra.output.batch.grouping.buffer.size" -> "1000",
@@ -105,11 +102,12 @@ DFfromNativeCassandra
   .write
   .format("org.apache.spark.sql.cassandra")
   .options(cosmosCassandra)
+  .mode(SaveMode.Append)
   .save
 ```
 
 > [!NOTE]
-> The `spark.cassandra.output.batch.size.rows`, `spark.cassandra.output.concurrent.writes` and `connections_per_executor_max` configurations are important to avoid [rate limiting](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), which happens when requests to Azure Cosmos DB exceed provisioned throughput/([request units](./request-units.md)). You may need to adjust these settings depending on the number of executors in the Spark cluster, and potentially the size (and therefore RU cost) of each record being written to the target tables.
+> The values for `spark.cassandra.output.batch.size.rows` and `spark.cassandra.output.concurrent.writes`, as well as the number of workers in your Spark cluster, are important configurations to tune in order to avoid [rate limiting](/samples/azure-samples/azure-cosmos-cassandra-java-retry-sample/azure-cosmos-db-cassandra-java-retry-sample/), which happens when requests to Azure Cosmos DB exceed provisioned throughput/([request units](./request-units.md)). You may need to adjust these settings depending on the number of executors in the Spark cluster, and potentially the size (and therefore RU cost) of each record being written to the target tables.
 
 ## Troubleshooting
 
@@ -118,19 +116,8 @@ You may see an error code of 429 or `request rate is large` error text, despite 
 
 - **Throughput allocated to the table is less than 6000 [request units](./request-units.md)**. Even at minimum settings, Spark will be able to execute writes at a rate of around 6000 request units or more. If you have provisioned a table in a keyspace with shared throughput provisioned, it is possible that this table has less than 6000 RUs available at runtime. Ensure the table you are migrating to has at least 6000 RUs available to it when running the migration, and if necessary allocate dedicated request units to that table. 
 - **Excessive data skew with large data volume**. If you have a large amount of data (that is table rows) to migrate into a given table but have a significant skew in the data (i.e. a large number of records being written for the same partition key value), then you may still experience rate-limiting even if you have a large amount of [request units](./request-units.md) provisioned in your table. This is because request units are divided equally among physical partitions, and heavy data skew can result in a bottleneck of requests to a single partition, causing rate limiting. In this scenario, it is advised to reduce to minimal throughput settings in Spark to avoid rate limiting and force the migration to run slowly. This scenario can be more common when migrating reference or control tables, where access is less frequent but skew can be high. However, if a significant skew is present in any other type of table, it may also be advisable to review your data model to avoid hot partition issues for your workload during steady-state operations. 
-- **Unable to get count on large table**. Running `select count(*) from table` is not currently supported for large tables. You can get the count from metrics in Azure portal (see our [troubleshooting article](cassandra-troubleshoot.md)), but if you need to determine the count of a large table from within the context of a Spark job, you can copy the data to a temporary table and then use Spark SQL to get the count, e.g. below (replace `<primary key>` with some field from the resulting temporary table).
 
-  ```scala
-  val ReadFromCosmosCassandra = sqlContext
-    .read
-    .format("org.apache.spark.sql.cassandra")
-    .options(cosmosCassandra)
-    .load
 
-  ReadFromCosmosCassandra.createOrReplaceTempView("CosmosCassandraResult")
-  %sql
-  select count(<primary key>) from CosmosCassandraResult
-  ```
 
 ## Next steps
 

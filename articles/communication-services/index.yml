@@ -40,7 +40,7 @@ landingContent:
           - text: Authentication and authorization
             url: concepts/authentication.md
           - text: Event handling
-            url: concepts/event-handling.md
+            url: https://docs.microsoft.com/azure/event-grid/event-schema-communication-services
           - text: Notifications
             url: concepts/notifications.md
   - title: Voice and video calling

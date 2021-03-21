@@ -9,6 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/15/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
