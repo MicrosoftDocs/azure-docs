@@ -20,7 +20,7 @@ ms.author: bagol
 
 # Recovering from systemic identity compromise
 
-This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization, such as the [Solorigate](https://aka.ms/solorigate) attack of December 2020.
+This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization, such as the [Nobelium](https://aka.ms/solorigate) attack of December 2020.
 
 > [!IMPORTANT]
 > This information is provided as-is and constitutes generalized guidance; the ultimate determination about how to apply this guidance to your IT environment and tenant(s) must consider your unique environment and needs, which each Customer is in the best position to determine.
@@ -56,6 +56,27 @@ If you do create a new Office 365 tenant, make sure to follow all best practices
 
 For more information, see [Best practices for securely using Microsoft 365](https://www.microsoft.com/security/blog/2019/01/10/best-practices-for-securely-using-microsoft-365-the-cis-microsoft-365-foundations-benchmark-now-available/).
 
+## Identify indications of compromise
+
+We recommend that customers follow updates from system providers, including both Microsoft and any partners, and implement any new detections and protections provided and identify published incidents of compromise (IOCs).
+
+For example, check for updates in the following Microsoft security products, and implement any recommended changes:
+
+- [Azure Sentinel](/azure/sentinel/)
+- [Microsoft 365 security solutions and services](/microsoft-365/security/)
+- [Windows 10 Enterprise Security](/windows/security/)
+- [Microsoft Cloud App Security ](/cloud-app-security/)
+
+For more information, see Microsoft's security documentation:
+
+- [Microsoft security documentation](/security/)
+- [Azure security documentation](/azure/security/)
+
+> [!NOTE]
+> Implementing new updates will help identify any prior campaigns and prevent future campaigns against your system.
+>
+> Keep in mind that lists of IOCs may not be exhaustive, and may expand as investigations continue.
+>
 ## Investigate your environment
 
 Once your incident responders and key personnel have a secure place to collaborate, you can start investigating the compromised environment.
@@ -69,6 +90,7 @@ Microsoft's security services provide extensive resources for detailed investiga
 >
 > Make sure to configure your log retention to support your organization’s investigation goals going forward. Retain evidence as needed for legal, regulatory, or insurance purposes.
 >
+
 
 
 ### Investigate and review cloud environment logs
@@ -152,7 +174,7 @@ This section provides possible methods and steps to consider when building your 
 >
 > Ensure that any actions taken are performed from a trusted device, built from a [clean source](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material). For example, use a fresh, [privileged access workstation](/security/compass/concept-azure-managed-workstation).
 >
-#### Remove trust on your current servers
+### Remove trust on your current servers
 
 If your organization has lost control of the token-signing certificates or federated trust, the most assured approach is to remove trust, and switch to cloud-mastered identity while remediating on-premises.
 
@@ -303,7 +325,7 @@ In addition to the recommended actions listed above, we recommend that you consi
 
 - **Reset passwords** after eviction for any user accounts that may have been compromised. Make sure to also implement a mid-term plan to reset credentials for all accounts in your directory.
 
-- **Revoke refresh tokens** immediately after rotating your credentials. 
+- **Revoke refresh tokens** immediately after rotating your credentials.
 
     For more information, see:
 
@@ -333,9 +355,9 @@ We recommend the following actions to ensure your general security posture:
 
 We recommend the following actions to ensure identity-related security posture:
 
-- **Review Microsoft's [Five steps to securing your identity infrastructure](steps-secure-identity.md)**, and prioritize the steps as appropriate for your Identity architecture.
+- **Review Microsoft's [Five steps to securing your identity infrastructure](steps-secure-identity.md)**, and prioritize the steps as appropriate for your identity architecture.
 
-- **Consider migrating to Azure AD Security Defaults** for your authentication policy. For more information, see [What are security defaults?](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
+- **[Consider migrating to Azure AD Security Defaults](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)** for your authentication policy.
 
 - **Eliminate your organization’s use of legacy authentication**, if systems or applications still require it. For more information, see [Block legacy authentication to Azure AD with Conditional Access](/azure/active-directory/conditional-access/block-legacy-authentication).
 
@@ -371,4 +393,14 @@ We recommend the following actions to ensure identity-related security posture:
     Auditpol.exe /set /subcategory:”Application Generated” /failure:enable /success:enable
     ```
 
-- **Implement Sysmon in the environment** using a configuration found here.
+## Next steps
+
+- **Get help from inside Microsoft products**, including the Microsoft 365 security center, Office 365 Security & Compliance center, and Microsoft Defender Security Center by selecting the **?** button in the top navigation bar.
+
+- **For deployment assistance**, contact us at [FastTrack](https://fasttrack.microsoft.com)
+
+- **If you have product support-related needs**, file a Microsoft support case at https://support.microsoft.com/contactus.
+
+    > [!IMPORTANT]
+    > If you believe you have been compromised and require assistance through an incident response, open a **Sev A** Microsoft support case.
+    >
