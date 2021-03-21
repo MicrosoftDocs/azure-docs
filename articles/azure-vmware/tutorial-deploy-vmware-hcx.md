@@ -260,7 +260,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 1. From **Select Distributed Switches for Network Extensions**, select the switches that contain the virtual machines to be migrated to Azure VMware Solution on a layer-2 extended network. Then select **Continue**.
 
    > [!NOTE]
-   > If you are not migrating virtual machines on layer-2 extended networks, you can skip this step.
+   > If you are not migrating virtual machines on layer-2 (L2) extended networks, you can skip this step.
    
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Screenshot that shows the selection of distributed virtual switches and the Continue button." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 

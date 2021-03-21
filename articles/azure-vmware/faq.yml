@@ -96,6 +96,9 @@ sections:
       - question: Is data stored on the vSAN datastores encrypted at rest?
         answer: Yes, all vSAN data is encrypted by default using keys stored in Azure Key Vault.
 
+      - question: Can I rename a datastore or cluster during creation?
+        answer: Currently, you can't change the name of datastores or clusters through Powershell or AzureCLI while creation.
+
       - question:  What independent software vendors (ISVs) backup solutions work with Azure VMware Solution?
         answer: Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution.  However, any backup solution that uses VMware VADP with the HotAdd transport mode would work right out of the box on Azure VMware Solution.
 
@@ -186,8 +189,7 @@ sections:
       - question: Do I need to restrict internet access from VMs on logical networks to the internet?
         answer: |
           Yes. You'll need to use NSX-T manager to create a firewall to restrict VM access to the internet.
-          
-          
+                   
       - question: Can Azure VMware Solution use Azure Virtual WAN hosted ExpressRoute Gateways?
         answer: Yes.
 
