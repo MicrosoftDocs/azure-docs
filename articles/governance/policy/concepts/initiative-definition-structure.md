@@ -1,7 +1,7 @@
 ---
 title: Details of the initiative definition structure
 description: Describes how policy initiative definitions are used to group policy definitions for deployment to Azure resources in your organization.
-ms.date: 10/07/2020
+ms.date: 03/16/2021
 ms.topic: conceptual
 ---
 # Azure Policy initiative definition structure
@@ -334,7 +334,7 @@ This information is:
 - Displayed in the Azure portal on the overview of a **control** on a Regulatory Compliance
   initiative.
 - Available via REST API. See the `Microsoft.PolicyInsights` resource provider and the
-  [policyMetadata operation group](/rest/api/policy-insights/policymetadata/getresource).
+  [policyMetadata operation group](/rest/api/policy/policymetadata/getresource).
 - Available via Azure CLI. See the [az policy metadata](/cli/azure/policy/metadata) command.
 
 > [!IMPORTANT]

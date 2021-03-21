@@ -49,7 +49,7 @@ In this step, you create a data factory and open the Data Factory UX to create a
 
    The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-     ![New data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 4. Select the Azure **subscription** in which you want to create the data factory.
 5. For **Resource Group**, take one of the following steps:
 

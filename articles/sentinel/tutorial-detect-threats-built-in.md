@@ -1,6 +1,6 @@
 ﻿---
-title: Investigate alerts with Azure Sentinel| Microsoft Docs
-description: Learn how to use out-of-the-box, built-in Azure threat detection templates that notify you when something suspicious happens.
+title: Detect threats with built-in analytics rules in Azure Sentinel | Microsoft Docs
+description: Learn how to use out-of-the-box threat detection rules, based on built-in templates, that notify you when something suspicious happens.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2020
+ms.date: 03/19/2021
 ms.author: yelevin
 
 ---
@@ -53,7 +53,9 @@ The following template types are available:
     These templates are based on proprietary Microsoft machine learning algorithms, so you cannot see the internal logic of how they work and when they run. Because the logic is hidden and therefore not customizable, you can only create one rule with each template of this type.
 
     > [!IMPORTANT]
-    > The machine learning behavioral analytics rule templates are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+    > - The machine learning behavioral analytics rule templates are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+    >
+    > - By creating and enabling any rules based on the ML behavior analytics templates, **you give Microsoft permission to copy ingested data outside of your Azure Sentinel workspace's geography** as necessary for processing by the machine learning engines and models.
 
 - **Scheduled**
 
@@ -74,4 +76,3 @@ The following template types are available:
 In this tutorial, you learned how to get started detecting threats using Azure Sentinel. 
 
 To learn how to automate your responses to threats, [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
-
