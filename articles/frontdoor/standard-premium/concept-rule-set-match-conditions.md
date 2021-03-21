@@ -54,7 +54,7 @@ Use the **device type** match condition to identify requests that have been made
 
 | Property | Supported values |
 |-------|------------------|
-| Operator | `Equal`, `Not Equal` |
+| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_ |
 | Value | `Mobile`, `Desktop` |
 
 ### Example
@@ -111,7 +111,7 @@ Use the **post args** match condition to identify requests based on the argument
 |-|-|
 | Post args | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | A string or integer value representing the value of the POST argument. If multiple values are provided, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the POST argument to match. If multiple values are specified, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -168,14 +168,14 @@ In this example, we match all POST requests where a `customerName` argument is p
 
 ## <a name="QueryString"></a> Query string
 
-Use the **query string** match condition to identify requests that contain a specific query string. The entire query string is matched as a single string. You can specify multiple values to match, and these are combined using OR logic.
+Use the **query string** match condition to identify requests that contain a specific query string. The entire query string is matched as a single string, without the leading `?`. You can specify multiple values to match, and these are combined using OR logic.
 
 ### Properties
 
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Query string | A set of values representing the possible query string values to match. If multiple values are provided, they are combined using OR logic. |
+| Query string | One or more string or integer values representing the value of the query string to match. Do not specify the `?` at the start of the query string. If multiple values are specified, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -237,8 +237,8 @@ The **remote address** match condition identifies requests based on the requeste
 
 | Property | Supported values |
 |-|-|
-| Operator | `Geo Match`, `Geo Not Match`, `IP Match`, or `IP Not Match` |
-| Value | <ul><li>For the `IP Match` or `IP Not Match` operators, specify one or more IP address ranges. These will be combined using OR logic.</li><li>For the `Geo Match` or `Geo Not Match` operators, specify one or more locations using their country code.</li></ul> |
+| Operator | <ul><li>In the Azure portal: `Geo Match`, `Geo Not Match`, `IP Match`, or `IP Not Match`</li><li>In ARM templates: `GeoMatch`, `IPMatch`; use the `negateCondition` property to specify _Geo Not Match_ or _IP Not Match_</li></ul> |
+| Value | <ul><li>For the `IP Match` or `IP Not Match` operators: specify one or more IP address ranges. These will be combined using OR logic.</li><li>For the `Geo Match` or `Geo Not Match` operators: specify one or more locations using their country code.</li></ul> |
 
 ### Example
 
@@ -293,7 +293,7 @@ The **request body** match condition identifies requests based on specific text 
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | A string or integer value representing the value of the request body. If multiple values are provided, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request body text to match. If multiple values are specified, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -353,7 +353,7 @@ The **request file name** match condition identifies requests that include the s
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | A string or integer value representing the value of the request file name. If multiple values are provided, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request file name to match. If multiple values are specified, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -413,7 +413,7 @@ The **request file extension** match condition identifies requests that include 
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | A string or integer value representing the value of the request file extension. Don't include a leading period; for example, use `html` instead of `.html`. If multiple values are provided, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request file extension to match. Don't include a leading period; for example, use `html` instead of `.html`. If multiple values are specified, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -475,7 +475,7 @@ The **request header** match condition identifies requests that include a specif
 |-|-|
 | Header name | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | A string or integer value representing the value of the request header. If multiple values are provided, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request header to match. If multiple values are specified, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -531,8 +531,8 @@ The **request method** match condition identifies requests that use the specifie
 
 | Property | Supported values |
 |-|-|
-| Operator | `Equal`, `NotEqual` |
-| Request method | One or more HTTP methods from: `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`. If multiple values are provided, they are combined using OR logic. |
+| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_ |
+| Request method | One or more HTTP methods from: `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`. If multiple values are specified, they are combined using OR logic. |
 
 ### Example
 
@@ -578,17 +578,14 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 ## <a name="UrlPath"></a> Request path
 
-The **request path** match condition identifies requests that include the specified path in the request URL. The path is the part of the URL after the hostname. For example, in the URL `https://www.contoso.com/files/secure/file1.pdf`, the path is `files/secure/file1.pdf`.
-
-> [!TIP]
-> Make sure not to include a slash at the start of the path. For example, use `files/secure` instead of `/files/secure`.
+The **request path** match condition identifies requests that include the specified path in the request URL. The path is the part of the URL after the hostname and a slash. For example, in the URL `https://www.contoso.com/files/secure/file1.pdf`, the path is `files/secure/file1.pdf`.
 
 ### Properties
 
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | A string or integer value representing the value of the request path. If multiple values are provided, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request path to match. Do not include the leading slash. If multiple values are specified, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -650,7 +647,7 @@ The **request protocol** match condition identifies requests that use the specif
 
 | Property | Supported values |
 |-|-|
-| Operator | `Equal`, `NotEqual` |
+| Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_ |
 | Request method | `HTTP`, `HTTPS` |
 
 ### Example
@@ -707,7 +704,7 @@ Identifies requests that match the specified URL. The entire URL is evaluated.
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | A string or integer value representing the value of the request URL. If multiple values are provided, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request URL to match. If multiple values are specified, they are combined using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
