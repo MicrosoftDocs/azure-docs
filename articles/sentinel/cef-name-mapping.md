@@ -141,7 +141,7 @@ The following **CommonSecurityLog** field names don't have mappings in CEF keys:
 |**OriginalLogSeverity**     |  Always empty, supported for integration with CiscoASA. <br>For details about log severity values, see the [LogSeverity](#logseverity) field.       |
 |**RemoteIP**     |     The remote IP address. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.     |
 |**RemotePort**     |   The remote port. <br>This value is based on [CommunicationDirection](#communicationdirection) field, if possible.      |
-|**SimplifiedDeviceAction**     |   Simplifies the [DeviceAction](#deviceaction) value to a static set of values, while keeping the orignal value in the [DeviceAction](#deviceaction) field. <br>For example:  `Denied` > `Deny`.      |
+|**SimplifiedDeviceAction**     |   Simplifies the [DeviceAction](#deviceaction) value to a static set of values, while keeping the original value in the [DeviceAction](#deviceaction) field. <br>For example:  `Denied` > `Deny`.      |
 |     |         |
 
 
