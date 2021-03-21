@@ -407,8 +407,6 @@ The **request file extension** match condition identifies requests that include 
 
 In this example, we match all requests where the request file extension is `.pdf` or `.docx`. We transform the request file extension to lowercase before performing the match, so `.PDF`, `.DocX` and other case variations will also trigger this match condition.
 
-<!-- TODO fix example - I used . where I shouldn't -->
-
 # [Portal](#tab/portal)
 
 :::image type="content" source="../media/concept-rule-set-match-conditions/request-file-extension.png" alt-text="Request file extension match condition":::
@@ -422,15 +420,14 @@ In this example, we match all requests where the request file extension is `.pdf
     "operator": "Equal",
     "negateCondition": false,
     "matchValues": [
-      ".pdf",
-      ".docx"
+      "pdf",
+      "docx"
     ],
     "transforms": [
       "Lowercase"
     ],
-    "@odata.type": "#Microsoft.Azure.Cdn.Models."
+    "@odata.type": "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlFileExtensionMatchConditionParameters"
   }
-}
 ```
 
 # [Bicep](#tab/bicep)
@@ -442,8 +439,8 @@ In this example, we match all requests where the request file extension is `.pdf
     operator: 'Equal'
     negateCondition: false
     matchValues: [
-      '.pdf'
-      '.docx'
+      'pdf'
+      'docx'
     ]
     transforms: [
       'Lowercase'
