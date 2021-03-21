@@ -108,7 +108,7 @@ When [scenario 2](#scenario2) below is configured, the host for each backend ins
 
  #### Description
  
-When using a Standard internal load balancer there is no use of ephemeral IP addresses for SNAT. This is to support security by default and ensure that all IP addresses used by resource are configurable and can be reserved. In order to achieve outbound connectivity to the internet when using a Standard internal load balancer, configure an instance level public IP address to follow the behavior in (scenario 1)[#scenario1] or add the backend instances to a Standard public load balancer with an outbound rule configured in additon to the internal load balancer to follow the behavior in (scenario 2)[#scenario2]. 
+When using a Standard internal load balancer there is no use of ephemeral IP addresses for SNAT. This is to support security by default and ensure that all IP addresses used by resource are configurable and can be reserved. In order to achieve outbound connectivity to the internet when using a Standard internal load balancer, configure an instance level public IP address to follow the behavior in [scenario 1](#scenario1) or add the backend instances to a Standard public load balancer with an outbound rule configured in additon to the internal load balancer to follow the behavior in [scenario 2](#scenario2). 
 
  ### <a name="scenario4"></a>Scenario 4: Virtual machine without public IP and behind Basic Load Balancer
 
@@ -133,7 +133,7 @@ When using a Standard internal load balancer there is no use of ephemeral IP add
 
  Don't use this scenario for adding IPs to an allow list. Use scenario 1 or 2 where you explicitly declare outbound behavior. [SNAT](#snat) ports are preallocated as described in the [Default SNAT ports allocation table](#snatporttable).
 
-## <a name="scenarios"></a> Exhausting ports
+## <a name="portexhaustion"></a> Exhausting ports
 
 Every connection to the same destination IP and destination port will use a SNAT port. This connection maintains a distinct **traffic flow** from the backend instance or **client** to a **server**. This process gives the server a distinct port on which to address traffic. Without this process, the client machine is unaware of which flow a packet is part of.
 
