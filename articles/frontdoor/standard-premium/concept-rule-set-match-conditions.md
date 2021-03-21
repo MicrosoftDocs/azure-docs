@@ -14,11 +14,11 @@ ms.author: yuajia
 > [!Note]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
-This tutorial shows you how to create a Rule Set with your first set of rules in the Azure portal. In Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md), a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in Azure Front Door Standard/Premium Rule Set.
+In Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md), a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in Azure Front Door Standard/Premium Rule Set.
 
-The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are done. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values (noted as "space-separated"), the "OR" operator is assumed.
+The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are done. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values, OR logic is used.
 
-For example, you can use a match condition to:
+You can use a match condition to:
 
 * Filter requests based on a specific IP address, country, or region.
 * Filter requests by header information.
@@ -31,11 +31,24 @@ For example, you can use a match condition to:
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The following match conditions are available to use in Azure Front Door Standard/Premium Rules Set:
+## Match conditions
 
-## Device type
+- [Device type](#IsDevice) - Identifies requests that have been made from a mobile device or desktop device.
+- [Post args](#PostArgs) - Identifies requests based on the arguments provided within a POST body.
+- [Query string](#QueryString) - Identifies requests that contain a specific query string.
+- [Remote address](#RemoteAddress) - Identifies requests based on the requester's location or IP address.
+- [Request body](#RequestBody) - Identifies requests based on specific text that appears in the body of the request.
+- [Request file name](#UrlFileName) - Identifies requests that include the specified file name in the request URL.
+- [Request file extension](#UrlFileExtension) - Identifies requests that include the specified file extension in the file name in the request URL.
+- [Request header](#RequestHeader) - Identifies requests that include a specific header in the request.
+- [Request method](#RequestMethod) - Identifies requests that use the specified HTTP request method.
+- [Request path](#UrlPath) - Identifies requests that include the specified path in the request URL.
+- [Request protocol](#RequestScheme) - Identifies requests that use the specified protocol (HTTP or HTTPS).
+- [Request URL](#RequestUrl) - Identifies requests that match the specified URL. The entire URL is evaluated.
 
-Use the **Device type** match condition to identify requests that have been made from a mobile device or desktop device.  
+## <a name="IsDevice"></a> Device type
+
+Use the **device type** match condition to identify requests that have been made from a mobile device or desktop device.  
 
 ### Properties
 
@@ -86,9 +99,9 @@ In this example, we match all requests that have been detected as coming from a 
 
 ---
 
-## Post args
+## <a name="PostArgs"></a> Post args
 
-Use the **Post args** match condition to match requests based on the arguments provided within a POST body. A single match condition matches a single argument from the POST body. You can specify multiple values for this condition, and they are evaluated using OR logic.
+Use the **post args** match condition to identify requests based on the arguments provided within a POST body. A single match condition matches a single argument from the POST body. You can specify multiple values for this condition, and they are evaluated using OR logic.
 
 <!-- TODO Does this only work with certain content types? -->
 
@@ -153,9 +166,9 @@ In this example, we match all POST requests where a `customerName` argument is p
 ---
 
 
-## Query string
+## <a name="QueryString"></a> Query string
 
-Use the **Query string** match condition to match requests that contain a specific query string. The entire query string is matched as a single string. You can specify multiple values to match, and these are combined using OR logic.
+Use the **query string** match condition to identify requests that contain a specific query string. The entire query string is matched as a single string. You can specify multiple values to match, and these are combined using OR logic.
 
 ### Properties
 
@@ -207,7 +220,7 @@ In this example, we match all requests where the query string contains the strin
 
 ---
 
-## Remote address
+## <a name="RemoteAddress"></a> Remote address
 
 <!-- TODO how are unknown addresses handled? -->
 
@@ -269,7 +282,7 @@ In this example, we match all requests where the request has not originated from
 
 ---
 
-## Request body
+## <a name="RequestBody"></a> Request body
 
 The **request body** match condition identifies requests based on specific text that appears in the body of the request.
 
@@ -331,9 +344,9 @@ In this example, we match all requests where the request body contains the strin
 
 ---
 
-## Request file name
+## <a name="UrlFileName"></a> Request file name
 
-The **request file name** match condition identifies requests that include the specified file name in the requesting URL.
+The **request file name** match condition identifies requests that include the specified file name in the request URL.
 
 ### Properties
 
@@ -391,9 +404,9 @@ In this example, we match all requests where the request file name is `media.mp4
 
 ---
 
-## Request file extension
+## <a name="UrlFileExtension"></a> Request file extension
 
-The **request file extension** match condition identifies requests that include the specified file extension in the file name in the requesting URL.
+The **request file extension** match condition identifies requests that include the specified file extension in the file name in the request URL.
 
 ### Properties
 
@@ -452,7 +465,7 @@ In this example, we match all requests where the request file extension is `.pdf
 
 ---
 
-## Request header
+## <a name="RequestHeader"></a> Request header
 
 The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists regardless of its value, or to check if the header matches a specified value.
 
@@ -503,7 +516,7 @@ In this example, we match all requests where the request contains a header named
 
 ---
 
-## Request method
+## <a name="RequestMethod"></a> Request method
 
 The **request method** match condition identifies requests that use the specified HTTP request method.
 
@@ -563,9 +576,9 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 ---
 
-## Request path
+## <a name="UrlPath"></a> Request path
 
-The **request path** match condition identifies requests that include the specified path in the requesting URL. The path is the part of the URL after the hostname. For example, in the URL `https://www.contoso.com/files/secure/file1.pdf`, the path is `files/secure/file1.pdf`.
+The **request path** match condition identifies requests that include the specified path in the request URL. The path is the part of the URL after the hostname. For example, in the URL `https://www.contoso.com/files/secure/file1.pdf`, the path is `files/secure/file1.pdf`.
 
 > [!TIP]
 > Make sure not to include a slash at the start of the path. For example, use `files/secure` instead of `/files/secure`.
@@ -626,7 +639,7 @@ In this example, we match all requests where the request file path begins with `
 
 ---
 
-## Request protocol
+## <a name="RequestScheme"></a> Request protocol
 
 The **request protocol** match condition identifies requests that use the specified protocol (HTTP or HTTPS).
 
@@ -682,7 +695,7 @@ In this example, we match all requests where the request uses the `HTTP` protoco
 
 ---
 
-## Request URL
+## <a name="RequestUrl"></a> Request URL
 
 Identifies requests that match the specified URL. The entire URL is evaluated.
 
@@ -745,7 +758,7 @@ In this example, we match all requests where the request URL begins with `https:
 
 ---
 
-## <a name = "operator-list"></a>Operator list
+## <a name = "operator-list"></a> Operator list
 
 For rules that accept values from the standard operator list, the following operators are valid:
 
