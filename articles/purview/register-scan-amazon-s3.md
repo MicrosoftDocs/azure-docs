@@ -69,7 +69,6 @@ The following table maps the regions where you data is stored to the region wher
 | South America (São Paulo)       | US East (Ohio)                        |
 | | |
 
-For more information, see [Scan regions](sources-and-scans.md#scan-regions).
 ## Prerequisites
 
 Ensure that you've performed the following prerequisites before adding your Amazon S3 buckets as Purview data sources and scanning your S3 data.
