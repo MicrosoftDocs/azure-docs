@@ -3,6 +3,7 @@ title: Overview of BareMetal Infrastructure Preview in Azure
 description: Overview of the BareMetal Infrastructure in Azure.
 ms.custom: references_regions
 ms.topic: conceptual
+ms.subservice: workloads
 ms.date: 1/4/2021
 ---
 
@@ -67,7 +68,7 @@ The available Linux OS versions are:
    - SLES 15 SP1
 
 ## Storage
-BareMetal instances based on specific SKU type come with predefined NFS storage for the specific workload type. When you provision BareMetal, you can provision more storage based on your estimated growth by submitting a support request. All storage comes with an all-flash disk in Revision 4.2 with support for NFSv3 and NFSv4. The newer Revision 4.5 NVMe SSD will be available. For more information on storage sizing, see the [BareMetal workload type](../../../virtual-machines/workloads/sap/get-started.md) section.
+BareMetal instances based on specific SKU type come with predefined NFS storage for the specific workload type. When you provision BareMetal, you can provision more storage based on your estimated growth by submitting a support request. All storage comes with an all-flash disk in Revision 4.2 with support for NFSv3 and NFSv4. The newer Revision 4.5 NVMe SSD will be available. For more information on storage sizing, see the [BareMetal workload type](../virtual-machines/workloads/sap/get-started.md) section.
 
 >[!NOTE]
 >The storage used for BareMetal meets [Federal Information Processing Standard (FIPS) Publication 140-2](/microsoft-365/compliance/offering-fips-140-2) requirements offering Encryption at Rest by default. The data is stored securely on the disks.
@@ -86,16 +87,16 @@ BareMetal instances are provisioned within your Azure VNET server IP address ran
 :::image type="content" source="media/baremetal-infrastructure-portal/baremetal-infrastructure-diagram.png" alt-text="Azure BareMetal Infrastructure diagram" lightbox="media/baremetal-infrastructure-portal/baremetal-infrastructure-diagram.png" border="false":::
 
 The architecture shown is divided into three sections:
-- **Left:** shows the customer on-premise infrastructure that runs different applications, connecting through the partner or local edge router like Equinix. For more information, see [Connectivity providers and locations: Azure ExpressRoute](../../../expressroute/expressroute-locations.md).
-- **Center:** shows [ExpressRoute](../../../expressroute/expressroute-introduction.md) provisioned using your Azure subscription offering connectivity to Azure edge network.
+- **Left:** shows the customer on-premise infrastructure that runs different applications, connecting through the partner or local edge router like Equinix. For more information, see [Connectivity providers and locations: Azure ExpressRoute](../expressroute/expressroute-locations.md).
+- **Center:** shows [ExpressRoute](../expressroute/expressroute-introduction.md) provisioned using your Azure subscription offering connectivity to Azure edge network.
 - **Right:** shows Azure IaaS, and in this case use of VMs to host your applications, which are provisioned within your Azure virtual network.
-- **Bottom:** shows using your ExpressRoute Gateway enabled with [ExpressRoute FastPath](../../../expressroute/about-fastpath.md) for BareMetal connectivity offering low latency.   
+- **Bottom:** shows using your ExpressRoute Gateway enabled with [ExpressRoute FastPath](../expressroute/about-fastpath.md) for BareMetal connectivity offering low latency.   
    >[!TIP]
-   >To support this, your ExpressRoute Gateway should be UltraPerformance.  For more information, see [About ExpressRoute virtual network gateways](../../../expressroute/expressroute-about-virtual-network-gateways.md).
+   >To support this, your ExpressRoute Gateway should be UltraPerformance.  For more information, see [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
 
 ## Next steps
 
 The next step is to learn how to identify and interact with BareMetal Instance units through the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Manage BareMetal Instances through the Azure portal](baremetal-infrastructure-portal.md)
+> [Manage BareMetal Instances through the Azure portal](connect-baremetal-infrastructure.md)
