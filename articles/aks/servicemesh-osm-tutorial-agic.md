@@ -12,6 +12,8 @@ ms.author: phillipgibson
 
 Open Service Mesh (OSM) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 In this tutorial, you will:
 
 > [!div class="checklist"]
@@ -28,7 +30,7 @@ In this tutorial, you will:
 
 The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.19+` and above, with Kubernetes RBAC enabled), have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), have installed the [AKS OSM add-on](./servicemesh-osm-instgll.md), and will be creating a new Azure Application Gateway for ingress.
 
-You must have the following resource installed:
+You must have the following resources installed:
 
 - The Azure CLI, version 2.20.0 or later
 - The `azure-preview` extension version 0.5.5 or later

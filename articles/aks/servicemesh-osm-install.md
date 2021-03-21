@@ -65,8 +65,6 @@ As noted prior, the OSM add-on for AKS is in a preview state and will undergo ad
 | Maximum pods per OSM controller                    | 500   |
 | Maximum Kubernetes service accounts managed my OSM | 50    |
 
-## Download and install the OSM client binary
-
 ::: zone pivot="client-operating-system-linux"
 
 [!INCLUDE [Linux - download and install client binary](includes/servicemesh/osm/install-osm-binary-linux.md)]

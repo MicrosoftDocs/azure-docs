@@ -8,9 +8,11 @@ ms.custom: mvc
 ms.author: phillipgibson
 ---
 
-# Tutorial: Deploy a multi-container managed by Open Service Mesh (OSM) with NGINX ingress
+# Tutorial: Deploy a multi-container application managed by Open Service Mesh (OSM) with NGINX ingress
 
 Open Service Mesh (OSM) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 In this tutorial, you will:
 
@@ -28,7 +30,7 @@ In this tutorial, you will:
 
 The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.19+` and above, with Kubernetes RBAC enabled), have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the [AKS OSM add-on](./servicemesh-osm-instgll.md).
 
-You must have the following resource installed:
+You must have the following resources installed:
 
 - The Azure CLI, version 2.20.0 or later
 - The `azure-preview` extension version 0.5.5 or later
@@ -60,29 +62,120 @@ Output shows the current OSM configuration for the cluster.
 
 Notice the **permissive_traffic_policy_mode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
-## Create and onboard the namespace for the multi-container application to be managed by OSM
+## Create namespaces for the multi-container application
 
-OSM allows you to selectively configure namespaces to be managed by the mesh. This approach allows flexibility and control on what application will participate in the mesh at the namespace level. First create the namespace that the multi-cluster application will be deployed to.
+In this totorial we will be using the OMS bookstore appplication that has the following application components:
 
-```azurecli
-kubectl create namespace azure-vote
-```
+- bookbuyer
+- booktheif
+- bookstore
+- bookwarehous
 
-```Output
-namespace/azure-vote created
-```
-
-Next we will onboard the namespace to be managed by OSM
+Create namespaces for each of these application components.
 
 ```azurecli
-osm namespace add azure-vote
+for i in bookstore bookbuyer bookthief bookwarehouse; do kubectl create ns $i; done
 ```
+
+You should see the following output:
 
 ```Output
-Namespace [azure-vote] successfully added to mesh [osm]
+namespace/bookstore created
+namespace/bookbuyer created
+namespace/bookthief created
+namespace/bookwarehouse created
 ```
 
-## Create an ingress controller in Azure Kubernetes Service (AKS)
+## Onboard the namespaces to be managed by OSM
+
+When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with you application. Run the following command to onboard the OSM bookstore application namespaces.
+
+```azurecli
+osm namespace add bookstore bookbuyer bookthief bookwarehouse
+```
+
+You should see the following output:
+
+```Output
+Namespace [bookstore] successfully added to mesh [osm]
+Namespace [bookbuyer] successfully added to mesh [osm]
+Namespace [bookthief] successfully added to mesh [osm]
+Namespace [bookwarehouse] successfully added to mesh [osm]
+```
+
+## Deploy the Bookstore multi-container application to the AKS cluster
+
+```azurecli
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/main/docs/example/manifests/apps/bookbuyer.yaml
+```
+
+```azurecli
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/main/docs/example/manifests/apps/bookthief.yaml
+```
+
+```azurecli
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/main/docs/example/manifests/apps/bookstore.yaml
+```
+
+```azurecli
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/main/docs/example/manifests/apps/bookwarehouse.yaml
+```
+
+All of the deployment outputs are summarized below.
+
+```Output
+serviceaccount/bookbuyer created
+service/bookbuyer created
+deployment.apps/bookbuyer created
+
+serviceaccount/bookthief created
+service/bookthief created
+deployment.apps/bookthief created
+
+service/bookstore created
+serviceaccount/bookstore created
+deployment.apps/bookstore created
+
+serviceaccount/bookwarehouse created
+service/bookwarehouse created
+deployment.apps/bookwarehouse created
+```
+
+## Verify the Bookstore multi-container application running inside the AKS cluster
+
+As of now we have deployed the bookstore mulit-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the appliction outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
+
+First let's get the bookbuyer pod's name
+
+```Console
+kubectl get pod -n bookbuyer
+```
+
+You should see output similar to the following. Your bookbuyer pod will have a unique name appended.
+
+```Output
+NAME                         READY   STATUS    RESTARTS   AGE
+bookbuyer-7676c7fcfb-mtnrz   2/2     Running   0          7m8s
+```
+
+Once we have the pod's name, we can now use the port-forward command to setup a tunnel from our local system to the application inside the AKS cluster. Run the following command to setup the port forward for the local system port 8080. Again use your specice bookbuyer pod name.
+
+```Console
+kubectl port-forward bookbuyer-7676c7fcfb-mtnrz -n bookbuyer 8080:14001
+```
+
+You should see output similar to this.
+
+```Output
+Forwarding from 127.0.0.1:8080 -> 14001
+Forwarding from [::1]:8080 -> 14001
+```
+
+While the port forwarding session is in place, navigate to the following url from a browser `http://localhost:8080`. You should now be able to see the bookbuyer application UI in the browser similar to the image below.
+
+![OSM bookbuyer app UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
+
+## Create an NGINX ingress controller in Azure Kubernetes Service (AKS)
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster.
 
@@ -90,12 +183,15 @@ We will utilize the ingress controller to expose the multi-container application
 
 The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
 
+> [!TIP]
+> The following example creates a Kubernetes namespace for the ingress resources named _ingress-basic_. Specify a namespace for your own environment as needed.
+
 ```azurecli
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
 # Add the ingress-nginx repository
-helm repo add nginx-stable https://helm.nginx.com/stable
+helm repo add ingress-nginx https://helm.nginx.com/stable
 
 # Update the helm repo(s)
 helm repo update
@@ -103,179 +199,24 @@ helm repo update
 # Use Helm to deploy an NGINX ingress controller in the ingress-basic namespace
 helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
-    --set controller.replicaCount=2 \
+    --set controller.replicaCount=1 \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-## Create service accounts for the front-end and back-end services
+When the Kubernetes load balancer service is created for the NGINX ingress controller, a dynamic public IP address is assigned, as shown in the following example output:
 
-```Console
-kubectl apply -f - <<EOF
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: azure-vote-frontend
-  namespace: azure-vote
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: azure-vote-backend
-  namespace: azure-vote
-EOF
+```
+$ kubectl --namespace ingress-basic get services -o wide -w nginx-ingress-ingress-nginx-controller
+
+NAME                                     TYPE           CLUSTER-IP    EXTERNAL-IP     PORT(S)                      AGE   SELECTOR
+nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_IP     80:32486/TCP,443:30953/TCP   44s   app.kubernetes.io/component=controller,app.kubernetes.io/instance=nginx-ingress,app.kubernetes.io/name=ingress-nginx
 ```
 
-## Deploy the application
+No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the internal IP address. Ingress rules are configured in the following steps.
 
-In this tutorial, you will deploy a manifest to create all objects needed to run the [Azure Vote application][azure-vote-app]. This manifest includes two [Kubernetes deployments][kubernetes-deployment]:
-
-- The sample Azure Vote Python applications.
-- A Redis instance.
-
-Two [Kubernetes Services][kubernetes-service] are also created:
-
-- An internal service for the Redis instance.
-- An external service to access the Azure Vote application from the internet via the NGINX ingress controller.
-
-Copy the following manifest to deploy the application to your AKS cluster:
-
-```Console
-kubectl apply -f - <<EOF
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-  namespace: azure-vote
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-back
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      serviceAccount: azure-vote-backend
-      serviceAccountName: azure-vote-backend
-      containers:
-      - name: azure-vote-back
-        image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
-        env:
-        - name: ALLOW_EMPTY_PASSWORD
-          value: "yes"
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 6379
-          name: redis
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-  namespace: azure-vote
-spec:
-  selector:
-    app: azure-vote-back
-  ports:
-  - port: 6379
-    name: tcp-6379
-    appProtocol: tcp
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-  namespace: azure-vote
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-front
-  template:
-    metadata:
-      labels:
-        app: azure-vote-front
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      serviceAccount: azure-vote-frontend
-      serviceAccountName: azure-vote-frontend
-      containers:
-      - name: azure-vote-front
-        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 80
-            scheme: HTTP
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-            scheme: HTTP
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        startupProbe:
-          httpGet:
-            path: /
-            port: 80
-            scheme: HTTP
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 80
-        env:
-        - name: REDIS
-          value: "azure-vote-back.azure-vote-back"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-front
-  namespace: azure-vote
-spec:
-  type: ClusterIP
-  ports:
-  - port: 80
-    name: http-80
-    appProtocol: http
-  selector:
-    app: azure-vote-front
-EOF
-```
-
-Output shows the successfully created deployments and services:
-
-```Output
-deployment.apps/azure-vote-back created
-service/azure-vote-back created
-deployment.apps/azure-vote-front created
-service/azure-vote-front created
-```
-
-## Create the Ingress resource
+## Expose the bookbuyer service to the internet
 
 ```Console
 kubectl apply -f - <<EOF
@@ -283,36 +224,70 @@ kubectl apply -f - <<EOF
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: azure-vote-ingress
-  namespace: azure-vote
+  name: bookbuyer-ingress
+  namespace: bookbuyer
   annotations:
     kubernetes.io/ingress.class: nginx
 
 spec:
 
   rules:
-    - host: azure-vote.contoso.com
+    - host: bookbuyer.contoso.com
       http:
         paths:
         - path: /
           backend:
-            serviceName: azure-vote-front
-            servicePort: 80
+            serviceName: bookbuyer
+            servicePort: 14001
 
   backend:
-    serviceName: azure-vote-front
-    servicePort: 80
+    serviceName: bookbuyer
+    servicePort: 14001
 EOF
 ```
 
-Output shows the successfully created ingress resource:
+You should see the following output
 
 ```Output
 Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.22+; use networking.k8s.io/v1 Ingress
-ingress.extensions/azure-vote-ingress created
+ingress.extensions/bookbuyer-ingress created
 ```
 
-## Test the application
+## View the NGINX logs
+
+```Console
+POD=$(kubectl get pods -n ingress-basic | grep 'nginx-ingress' | awk '{print $1}')
+
+kubectl logs $POD -f
+```
+
+Output shows the NGINX ingress controller status when ingress rule has been applied successfully:
+
+```Output
+I0321 <date>       6 event.go:282] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-basic", Name:"nginx-ingress-ingress-nginx-controller-54cf6c8bf4-jdvrw", UID:"3ebbe5e5-50ef-481d-954d-4b82a499ebe1", APIVersion:"v1", ResourceVersion:"3272", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+I0321 <date>        6 event.go:282] Event(v1.ObjectReference{Kind:"Ingress", Namespace:"bookbuyer", Name:"bookbuyer-ingress", UID:"e1018efc-8116-493c-9999-294b4566819e", APIVersion:"networking.k8s.io/v1beta1", ResourceVersion:"5460", FieldPath:""}): type: 'Normal' reason: 'Sync' Scheduled for sync
+I0321 <date>        6 controller.go:146] "Configuration changes detected, backend reload required"
+I0321 <date>        6 controller.go:163] "Backend successfully reloaded"
+I0321 <date>        6 event.go:282] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-basic", Name:"nginx-ingress-ingress-nginx-controller-54cf6c8bf4-jdvrw", UID:"3ebbe5e5-50ef-481d-954d-4b82a499ebe1", APIVersion:"v1", ResourceVersion:"3272", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
+```
+
+## View the NGINX services
+
+```Console
+kubectl get services -n ingress-basic
+```
+
+```Output
+NAME                                     TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
+nginx-ingress-1616041155-nginx-ingress   LoadBalancer   10.0.120.194   EXTERNAL-IP    80:32237/TCP,443:31563/TCP   23m
+```
+
+Since the host name in the ingress manifest is a psuedo name used for testing, the DNS name will not be available on the internet. We can alternatively use the curl program and past the hostname header to the NGINX public IP address and receive a 200 code succesfully connecting us to the bookbuyer service.
+
+```Console
+
+curl -H 'Host: bookbuyer.contoso.com' http://EXTERNAL-IP/
+```
 
 <!-- LINKS - internal -->
 
