@@ -18,7 +18,7 @@ SNAT enables **IP masquerading** of the backend instance. This masquerading prev
 
 >[!Note]
 > For applications that require large numbers of outbound connections or enterprise customers who require a single set of IPs to be used from a given virtual network, 
-> [Virtual Network NAT](../virtual-network/nat-overview.md) is the recommended solution. It's dynamic allocation allows for simple configuration and  > the most efficient use of SNAT ports from each IP address. It also allows all resources in the virtual network to share a set of IP addresses without a need for them to share > a load balancer.
+> [Virtual Network NAT](../virtual-network/nat-overview.md) is the recommended solution. Its dynamic allocation allows for simple configuration and  > the most efficient use of SNAT ports from each IP address. It also allows all resources in the virtual network to share a set of IP addresses without a need for them to share > a load balancer.
 
 >[!Important]
 > Even without outbound SNAT configured, Azure storage accounts within the same region will still be accessible and backend resources will still have access to Microsoft services such as Windows Updates.
