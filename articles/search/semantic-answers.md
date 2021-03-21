@@ -24,11 +24,11 @@ In this article, learn how to request a semantic answer, unpack the response, an
 
 All prerequisites that apply to [semantic queries](semantic-how-to-query-request.md) also apply to answers, including service tier and region.
 
-+ Query logic must include the semantic query parameters, and include the "answers" parameter. Required parameters are discussed in this article.
++ Query logic must include the semantic query parameters, plus the "answers" parameter. Required parameters are discussed in this article.
 
 + Query strings entered by the user must be formulated in language having the characteristics of a question (what, where, when, how).
 
-+ Search documents must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in "searchFields".
++ Search documents must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in "searchFields". For example, given a query "what is a hash table", if none of the searchFields contain passages that include "A hash table is ..." , then an answer is unlikely to be returned.
 
 ## What is a semantic answer?
 
