@@ -55,7 +55,7 @@ If you've already [set up dependency mapping](how-to-create-group-machine-depend
 
 1. In the **Servers** tab, in **Azure Migrate: Discovery and assessment** tile, click **Groups**.
 2. Click the group you want to refine.
-    - If you haven't yet set up dependency mapping, the **Dependencies** column will show a **Requires installation** status. For each server for which you want to visualize dependencies, click **Requires installation**. Install a couple of agents on each server, before you can map the server dependencies. [Learn more](how-to-create-group-server-dependencies.md).
+    - If you haven't yet set up dependency mapping, the **Dependencies** column will show a **Requires installation** status. For each server for which you want to visualize dependencies, click **Requires installation**. Install a couple of agents on each server, before you can map the server dependencies. [Learn more](how-to-create-group-machine-dependencies.md).
 
         ![Add dependency mapping](./media/how-to-create-a-group/add-dependency-mapping.png)
 

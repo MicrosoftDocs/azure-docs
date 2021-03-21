@@ -144,7 +144,7 @@ compression and deduplication.
 
 2. Review the server status:
     - **Ready for AVS**: The server can be migrated as-is to Azure (AVS) without any changes. It will start in AVS with full AVS support.
-    - **Ready with conditions**: The server might have compatibility issues with the current vSphere version as well as requiring possibly serverware tools and or other settings before full functionality from the server can be achieved in AVS.
+    - **Ready with conditions**: The server might have compatibility issues with the current vSphere version as well as requiring possibly VMware tools and or other settings before full functionality from the server can be achieved in AVS.
     - **Not ready for AVS**: The server will not start in AVS. For example, if the on-premises server has an external device attached such as a cd-rom the VMotion operation will fail (if using VMware VMotion).
     - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 

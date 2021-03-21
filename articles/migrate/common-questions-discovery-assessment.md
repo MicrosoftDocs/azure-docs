@@ -156,7 +156,7 @@ For Azure SQL Managed Instance, there is no storage cost added for the first 32 
 
 ## I can't see some VM types and sizes in Azure Government
 
-VM typesand sizes supported for assessment and migration depend on availability in Azure Government location. You can [review and compare](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) VM types in Azure Government.
+VM types and sizes supported for assessment and migration depend on availability in Azure Government location. You can [review and compare](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) VM types in Azure Government.
 
 ## The size of my server changed. Can I run an assessment again?
 
