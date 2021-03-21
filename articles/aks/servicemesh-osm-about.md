@@ -4,6 +4,7 @@ description: Learn about Open Service Mesh (OSM) in Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
+ms.custom: mvc
 ---
 
 # Open Service Mesh AKS add-on (Preview)
@@ -20,7 +21,7 @@ OSM runs an Envoy based control plane on Kubernetes, can be configured with SMI 
 
 The OSM add-on is integrated with the Azure Kubernetes Service (AKS) and is provided as a managed add-on component to the AKS managed control plane. The OSM add-on provides full lifecycle management of the service mesh as part of your AKS cluster. More detailed information on the architecture of the AKS managed control plane can be found at the AKS core concepts documentation under [Kubernetes cluster architecture](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#kubernetes-cluster-architecture).
 
-![OSM add-on AKS architecture](/media/aks-osm-addon/aks-osm-addon-arch.png)
+![OSM add-on AKS architecture](./media/aks-osm-addon/aks-osm-addon-arch.png)
 
 ## High-level software architecture
 
@@ -107,6 +108,7 @@ OSM can assist your AKS deployments with the following scenarios:
 
 ## Next steps
 
-The following documentation describes how you can install OSM on Azure Kubernetes Service (AKS):
+Learn how you can install the OSM add-on for Azure Kubernetes Service (AKS):
 
-> [!div class="nextstepaction"] > [Enable the OSM add-on for Azure Kubernetes Service (AKS)][./install-configure-open-service-mesh.md]
+> [!div class="nextstepaction"]
+> [Enable the OSM add-on for Azure Kubernetes Service (AKS)](./servicemesh-osm-install.md)
