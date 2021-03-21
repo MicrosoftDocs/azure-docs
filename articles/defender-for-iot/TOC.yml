@@ -121,8 +121,8 @@
           href: how-to-install-software.md
     - name: Prepare your sensors
       items:
-      - name: Onboard sensors
-        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions
+      - name: Manage sensors
+        displayName: onboard, cloud, register, activate, offboard, subscription, subscriptions, offboarding
         href: how-to-manage-sensors-on-the-cloud.md
       - name: Activate and set up your sensor
         displayName: onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial
