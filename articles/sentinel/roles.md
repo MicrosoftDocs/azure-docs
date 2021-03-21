@@ -52,19 +52,19 @@ There are three dedicated built-in Azure Sentinel roles.
 
 Users with particular job requirements may need to be assigned additional roles or specific permissions in order to accomplish their tasks.
 
-- Working with playbooks to automate responses to threats
+- **Working with playbooks to automate responses to threats**
 
     Azure Sentinel uses **playbooks** for automated threat response. Playbooks are built on **Azure Logic Apps**, and are a separate Azure resource. You might want to assign to specific members of your security operations team the ability to use Logic Apps for Security Orchestration, Automation, and Response (SOAR) operations. You can use the [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) role to assign explicit permission for using playbooks.
 
-- Connecting data sources to Azure Sentinel
+- **Connecting data sources to Azure Sentinel**
 
     For a user to add **data connectors**, you must assign the user write permissions on the Azure Sentinel workspace. Also, note the required additional permissions for each connector, as listed on the relevant connector page.
 
-- Guest users assigning incidents
+- **Guest users assigning incidents**
 
     If a guest user needs to be able to assign incidents, then in addition to the Azure Sentinel Responder role, the user will also need to be assigned the role of [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers). Note that this role is *not* an Azure role but an **Azure Active Directory** role, and that regular (non-guest) users have this role assigned by default.
 
-- Creating and deleting workbooks
+- **Creating and deleting workbooks**
 
     For a user to create and delete an Azure Sentinel workbook, the user will also need to be assigned with the Azure Monitor role of [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor). This role is not necessary for using workbooks, but only for creating and deleting.
 
