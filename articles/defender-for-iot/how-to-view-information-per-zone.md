@@ -4,7 +4,7 @@ description: Use the on-premises management console to get a comprehensive view 
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 14/03/2021
+ms.date: 03/21/2021
 ms.topic: how-to
 ms.service: azure
 ---
