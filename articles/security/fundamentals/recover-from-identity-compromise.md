@@ -48,7 +48,7 @@ The response to such an advanced attack should include the following objectives:
 
 Before you start responding, you must be sure that you can communicate safely without the attacker eavesdropping. Make sure to isolate any communications related to the incident so that the attacker is not tipped-off to your investigation and is taken by surprise at your response actions.
 
-For example, for initial one-on-one and group communications, you may want to use use PSTN calls, conference bridges that are not connected to the corporate infrastructure, and end-to-end encrypted messaging solutions.
+For example, for initial one-on-one and group communications, you may want to use PSTN calls, conference bridges that are not connected to the corporate infrastructure, and end-to-end encrypted messaging solutions.
 
 After those initial conversations, you may want to create an entirely new Office 365 tenant, isolated from the organization's production tenant. Create accounts only for key personnel who need to be part of the response.
 
@@ -81,7 +81,7 @@ For more information, see Microsoft's security documentation:
 
 Once your incident responders and key personnel have a secure place to collaborate, you can start investigating the compromised environment.
 
-You'll need to balance out getting to the bottom of every anomalous behavior and taking quick action to stop any further activity by the attacker. Any successful remediation requires an understanding of the initial method of entry and persistence methods that the attacker used, as complete as is possible at the time. Any persistence methods missed during the investigation can result in continued access by the attacker, and a potential re-compromise.
+You'll need to balance out getting to the bottom of every anomalous behavior and taking quick action to stop any further activity by the attacker. Any successful remediation requires an understanding of the initial method of entry and persistence methods that the attacker used, as complete as is possible at the time. Any persistence methods missed during the investigation can result in continued access by the attacker, and a potential recompromise.
 
 Microsoft's security services provide extensive resources for detailed investigations. The following sections describe top recommended actions.
 
@@ -131,7 +131,7 @@ Review administrative rights in both your cloud and on-premises environments. Fo
 
 Detecting attacker behavior includes several methods, and depends on the security tools your organization has available for responding to the attack.
 
-For example, the following Microsoft security services may have specific resources and guidance that are relevant to the attack:
+For example, the following Microsoft security services may have specific resources and guidance that is relevant to the attack:
 
 - **Azure Sentinel** may have built-in resources to help in your investigation, such as [hunting workbooks](/azure/sentinel/quickstart-get-visibility)
 
@@ -143,19 +143,19 @@ For example, the following Microsoft security services may have specific resourc
 
     Search or filter your results further to exclude extra noise. For example, you may want to include results only from federated domains. If you find suspicious sign-ins, drill down even further based on IP addresses, user accounts, and so on.
 
-    For more information, see [Additional Azure Active Directory monitoring methods](#additional-azure-active-directory-monitoring-methods).
+    For more information, see [More Azure Active Directory monitoring methods](#more-azure-active-directory-monitoring-methods).
 
 > [!IMPORTANT]
 > If your investigation finds evidence of administrative permissions acquired through the compromise on your system, which have provided access to your organization's global administrator account and/or trusted SAML token-signing certificate, we recommend taking action to [remediate and retain administrative control](#remediate-and-retain-administrative-control).
 > 
 
-### Additional Azure Active Directory monitoring methods
+### More Azure Active Directory monitoring methods
 
-The following table describes additional methods for using Azure Active directory logs in your investigation:
+The following table describes more methods for using Azure Active directory logs in your investigation:
 
 |Method  |Description  |
 |---------|---------|
-|**Analyze risky sign-in events**     |  Azure Active Directory and its Identity Protection platform may generate risk events associated with the use of attacker generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event ofr an anonymous IP address might be automatically remediated because the user passed MFA. |
+|**Analyze risky sign-in events**     |  Azure Active Directory and its Identity Protection platform may generate risk events associated with the use of attacker-generated SAML tokens. <br><br>These events might be labeled as *unfamiliar properties*, *anonymous IP address*, *impossible travel*, and so on. <br><br>We recommend that you closely analyze all risk events associated with accounts that have administrative privileges, including any that may have been automatically been dismissed or remediated. For example, a risk event or an anonymous IP address might be automatically remediated because the user passed MFA. |
 |**Detect domain authentication properties**     |  Any attempt by the attacker to manipulate domain authentication policies will be recorded in the Azure Active Directory Audit logs, and reflected in the Unified Audit log. <br><br> For example, review any events associated with **Set domain authentication** in the Unified Audit Log, Azure AD Audit logs, and / or your SIEM environment to verify that all activities listed were expected and planned.   |
 |**Detect credentials for OAuth applications**     |  Attackers who have gained control of a privileged account may search for an application with the ability to access any user's email in the organization, and then add attacker-controlled credentials to that application. <br><br>For example, you may want to search for any of the following activities, which would be consistent with attacker behavior: <br>- Adding or updating service principal credentials <br>- Updating application certificates and secrets <br>- Adding an app role assignment grant to a user <br>- Adding Oauth2PermissionGrant |
 |**Detect e-mail access by applications**     |  Search for access to email by applications in your environment. For example, use the [Office 365 Advanced Auditing features](/microsoft-365/compliance/mailitemsaccessed-forensics-investigations) to investigate compromised accounts. |
@@ -178,15 +178,15 @@ This section provides possible methods and steps to consider when building your 
 
 If your organization has lost control of the token-signing certificates or federated trust, the most assured approach is to remove trust, and switch to cloud-mastered identity while remediating on-premises.
 
-This requires careful planning and an in-depth understanding of the business operation effects of isolating identity. For more information, see [Protecting Microsoft 365 from on-premises attacks](/azure/active-directory/fundamentals/protect-m365-from-on-premises-attacks).
+Removing trust and switching to cloud-mastered identity requires careful planning and an in-depth understanding of the business operation effects of isolating identity. For more information, see [Protecting Microsoft 365 from on-premises attacks](/azure/active-directory/fundamentals/protect-m365-from-on-premises-attacks).
 
 ### Rotate your SAML token-signing certificate
 
 If your organization decides *not* to [remove trust](#remove-trust-on-your-current-servers) while recovering administrative control on-premises, you'll have to rotate your SAML token-signing certificate after having regained administrative control on-premises, and blocked the attackers ability to access the signing certificate again.
 
-Rotating the token-signing certificate a single time still allows the previous token-signing certificate to work. This is a built-in functionality for normal certificate rotations, which permits a grace period for organizations to update any relying party trusts before the certificate expires.
+Rotating the token-signing certificate a single time still allows the previous token-signing certificate to work. Continuing to allow previous certificates to work is a built-in functionality for normal certificate rotations, which permits a grace period for organizations to update any relying party trusts before the certificate expires.
 
-In case of an attack, you don't want the attacker to retain access at all. Make sure to use the following steps to ensure that the attacker doesn't maintain the ability to forge tokens for your domain.
+If there was an attack, you don't want the attacker to retain access at all. Make sure to use the following steps to ensure that the attacker doesn't maintain the ability to forge tokens for your domain.
 
 > [!CAUTION]
 > The last step in this procedure logs users out of their phones, current webmail sessions, and any other items that are using the associated tokens and refresh tokens.
@@ -198,7 +198,7 @@ In case of an attack, you don't want the attacker to retain access at all. Make 
 > If you have Relying Party Trusts, this may have effects 5 days after the initial ADFS environment change, and should be accounted for in your plan. You can also resolve this by replacing the primary certificate a third time, using the **Urgent** flag again, and removing the secondary certificate or turning off automatic certificate rotation.
 >
 
-**To fully rotate the token-signing certificate to prevent new token forging by an attacker**
+**To fully rotate the token-signing certificate, and prevent new token forging by an attacker**
 
 1. Check to make sure that your **AutoCertificateRollover** parameter is set to **True**:
 
@@ -237,13 +237,13 @@ In case of an attack, you don't want the attacker to retain access at all. Make 
         3UD1JG5MEFONKT6DQEF6D98EI8AHNTY22XPQWJFK6
     ```
 
-1. Replace the primary token signing certificate using the **Urgent** switch. This causes ADFS to replace the primary certificate immediately, without making it a secondary certificate:
+1. Replace the primary token signing certificate using the **Urgent** switch. This command causes ADFS to replace the primary certificate immediately, without making it a secondary certificate:
 
     ```powershell
     Update-AdfsCertificate -CertificateType Token-Signing -Urgent
     ```
 
-1. Create a secondary Token Signing certificate, without the **Urgent** switch. This allows for two on-premises token signing certificates before synching with Azure Cloud.
+1. Create a secondary Token Signing certificate, without the **Urgent** switch. This command allows for two on-premises token signing certificates before synching with Azure Cloud.
 
     ```powershell
     Update-AdfsCertificate -CertificateType Token-Signing
@@ -275,7 +275,7 @@ In case of an attack, you don't want the attacker to retain access at all. Make 
 
 ### Replace your ADFS servers
 
-If, instead of [rotating your SAML token-signing certificate](#rotate-your-saml-token-signing-certificate), you decide to replace the ADFS servers with clean systems, remove the existing ADFS from your environment and then build a new one. 
+If, instead of [rotating your SAML token-signing certificate](#rotate-your-saml-token-signing-certificate), you decide to replace the ADFS servers with clean systems, remove the existing ADFS from your environment, and then build a new one. 
 
 For more information, see [Remove a configuration](/azure/active-directory/cloud-provisioning/how-to-configure#remove-a-configuration). 
 
@@ -302,7 +302,7 @@ We also recommend the following activities for your on-premises environments:
 |**Remove unnecessary admin users**     |   Remove unnecessary members from Domain Admins, Backup Operators, and Enterprise Admin groups. For more information, see [Securing Privileged Access](/security/compass/overview). |
 |**Reset passwords to privileged accounts**     |  Reset passwords of all privileged accounts in the environment. <br><br>**Note**: Privileged accounts are not limited to built-in groups, but can also be groups that are delegated access to server administration, workstation administration, or other areas of your environment.      |
 |**Reset the krbtgt account**     | Reset the **krbtgt** account twice using the [New-KrbtgtKeys](https://github.com/microsoft/New-KrbtgtKeys.ps1/blob/master/New-KrbtgtKeys.ps1) script. <br><br>**Note**: If you are using Read-Only Domain Controllers, you will need to run the script separately for Read-Write Domain Controllers and for Read-Only Domain Controllers.        |
-|**Schedule a system restart**     |   After you validate that no persistence mechanisms created by the attacker exist or remain on your system, schedule a system restart to assist with removing memory resident malware. |
+|**Schedule a system restart**     |   After you validate that no persistence mechanisms created by the attacker exist or remain on your system, schedule a system restart to assist with removing memory-resident malware. |
 |**Reset the DSRM password**     |  Reset each domain controller’s DSRM (Directory Services Restore Mode) password to something unique and complex.       |
 |     |         |
 
@@ -310,7 +310,7 @@ We also recommend the following activities for your on-premises environments:
 
 Investigation is an iterative process, and you'll need to balance the organizational desire to remediate as you identify anomalies and the chance that remediation will alert the attacker to your detection and give them time to react.
 
-For example, an attacker who becomes aware of the detection might change techniques or create additional persistence.
+For example, an attacker who becomes aware of the detection might change techniques or create more persistence.
 
 Make sure to remediate any persistence techniques that you've identified in earlier stages of the investigation.
 
@@ -375,17 +375,16 @@ We recommend the following actions to ensure identity-related security posture:
 
     The least privilege necessary for the account running ADFS is the *Log on as a Service* User Right Assignment.
 
-- **Restrict administrative access to limited users and from limited IP address ranges** by leveraging Windows Firewall policies for Remote Desktop.
+- **Restrict administrative access to limited users and from limited IP address ranges** by using Windows Firewall policies for Remote Desktop.
 
     We recommend that you set up a Tier 0 jump box or equivalent system.
 
-- **Block all inbound SMB access** to the systems from anywhere in the environment. See this resource for further details.
+- **Block all inbound SMB access** to the systems from anywhere in the environment. For more information, see [Beyond the Edge: How to Secure SMB Traffic in Windows](https://techcommunity.microsoft.com/t5/itops-talk-blog/beyond-the-edge-how-to-secure-smb-traffic-in-windows/ba-p/1447159). We also recommend that you 
+stream the Windows Firewall logs to a SIEM for historical and proactive monitoring.
 
-    Get the Windows Firewall logs to a SIEM for historical and proactive monitoring.
+- If you are using a Service Account and your environment supports it, **migrate from a Service Account to a group-Managed Service Account (gMSA)**. If you cannot move to a gMSA, rotate the password on the Service Account to a complex password.
 
-- If you are using a Service Account and your environment supports it, **migrate from a Service Account to a group Managed Service Account (gMSA)**. If you cannot move to a gMSA, rotate the password on the Service Account to a complex password.
-
-- **Ensure Verbose logging is enabled on your ADFS systems** by executing the following commands:
+- **Ensure Verbose logging is enabled on your ADFS systems** by running the following commands:
 
     ```powershell
     Set-AdfsProperties -AuditLevel verbose
