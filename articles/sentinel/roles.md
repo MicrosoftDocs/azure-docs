@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2020
+ms.date: 03/21/2021
 ms.author: yelevin
 
 ---
@@ -70,9 +70,9 @@ For a side-by-side comparison, see the [table below](#roles-and-allowed-actions)
 
 In assigning Azure Sentinel-specific Azure roles, you may come across other Azure and Log Analytics Azure roles that may have been assigned to users for other purposes. You should be aware that these roles grant a wider set of permissions that includes access to your Azure Sentinel workspace and other resources:
 
-- **Azure roles:** [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), and [Reader](../role-based-access-control/built-in-roles.md#reader). Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.
+- **Azure roles:** [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Reader](../role-based-access-control/built-in-roles.md#reader), and [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor). Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.
 
-- **Log Analytics roles:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) and [Log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics roles grant access to your Log Analytics workspaces. 
+- **Log Analytics roles:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) and [Log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics roles grant access to your Log Analytics workspaces.
 
 For example, a user who is assigned the **Azure Sentinel Reader** role, but not the **Azure Sentinel Contributor** role, will still be able to edit items in Azure Sentinel if assigned the Azure-level **Contributor** role. Therefore, if you want to grant permissions to a user only in Azure Sentinel, you should carefully remove this user’s prior permissions, making sure you do not break any needed access to another resource.
 
@@ -84,7 +84,8 @@ The following table summarizes the roles and allowed actions in Azure Sentinel.
 |---|---|---|---|---|
 | Azure Sentinel Reader | -- | -- | -- | &#10003; |
 | Azure Sentinel Responder | -- | -- | &#10003; | &#10003; |
-| Azure Sentinel Contributor | -- | &#10003; | &#10003; | &#10003; |
+| Azure Sentinel Contributor | -- | -- | &#10003; | &#10003; |
+| Azure Monitoring Contributor |--  | &#10003; | &#10003; | &#10003; |
 | Azure Sentinel Contributor + Logic App Contributor | &#10003; | &#10003; | &#10003; | &#10003; |
 
 ## Custom roles and advanced Azure RBAC
