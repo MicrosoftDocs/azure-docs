@@ -30,9 +30,9 @@ Operational recommendations provide insights and suggestions to improve security
 
 | Severity | Name | Data Source | Description |
 |--|--|--|--|
-| Low | Agent sends unutilized messages | Classic Defender-IoT-micro-agent| 10% or more of security messages were smaller than 4 KB during the last 24 hours. |
-| Low | Security twin configuration not optimal | Classic Defender-IoT-micro-agent| Security twin configuration is not optimal. |
-| Low | Security twin configuration conflict | Classic Defender-IoT-micro-agent| Conflicts were identified in the security twin configuration. |  |
+| Low | Agent sends unutilized messages | Classic Defender-IoT-micro-agent | 10% or more of security messages were smaller than 4 KB during the last 24 hours. |
+| Low | Security twin configuration not optimal | Classic Defender-IoT-micro-agent | Security twin configuration is not optimal. |
+| Low | Security twin configuration conflict | Classic Defender-IoT-micro-agent | Conflicts were identified in the security twin configuration. |
 
 ## Next steps
 
