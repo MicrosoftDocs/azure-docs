@@ -1,20 +1,8 @@
 ---
 title: Agent based recommendations
-titleSuffix: Azure Defender for IoT
 description: Learn about the concept of security recommendations and how they are used for Defender for IoT devices.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
 ---
 
 # Security recommendations for IoT devices

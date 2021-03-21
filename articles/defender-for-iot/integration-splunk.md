@@ -1,13 +1,8 @@
 ---
 title: About the Splunk integration
-titleSuffix: Azure Defender for IoT
 description: To address a lack of visibility into the security and resiliency of OT networks, Defender for IoT developed the Defender for IoT, IIoT, and ICS threat monitoring application for Splunk, a native integration between Defender for IoT and Splunk that enables a unified approach to IT and OT security.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/4/2021
 ms.topic: article
-ms.service: azure
 ---
 
 # Defender for IoT and ICS threat monitoring application for Splunk

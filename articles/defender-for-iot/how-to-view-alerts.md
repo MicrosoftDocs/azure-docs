@@ -1,12 +1,8 @@
 ---
 title: View alerts
 description: View alerts according to various categories, and uses search features to help you find alerts of interest.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
-ms.service: azure
 ---
 
 # View alerts

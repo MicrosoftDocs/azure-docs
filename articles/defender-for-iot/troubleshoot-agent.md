@@ -1,20 +1,8 @@
 ---
 title: Troubleshoot security agent start-up (Linux)
 description: Troubleshoot working with Azure Defender for IoT security agents for Linux.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-
-
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
 ---
 
 # Security agent troubleshoot guide (Linux)
