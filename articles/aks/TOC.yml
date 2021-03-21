@@ -268,10 +268,18 @@
               href: servicemesh-osm-about.md
             - name: Install and Configure
               href: servicemesh-osm-install.md
-            - name: Tutorials
+            - name: OSM Operational Tasks (Preview)
+              itmes:
+                - name: Rotate the root certificate for OSM
+                  href: servicemesh-osm-ops-rotate-cert.md
+            - name: OSM Tutorials (Preview)
               items:
-                - name: Deploy multi-container application with ingress (NGINX)
+                - name: Deploy multi-container application with NGINX
                   href: servicemesh-osm-tutorial-nginx.md
+                - name: Deploy multi-container appliction with Azure Appliction Gateway
+                  href: servicemesh-osm-tutorial-agic.md
+                - name: Configure OSM AKS add-on with Prometheus and Grafana
+                  href: servicemesh-osm-tutorial-prometheus.md
             - name: OSM Troubleshooting Guides
               href: servicemesh-osm-troubleshooting.md
         - name: Secure pod traffic with network policies

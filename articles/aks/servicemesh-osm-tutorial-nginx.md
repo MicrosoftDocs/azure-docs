@@ -5,6 +5,7 @@ services: container-service
 ms.topic: quickstart
 ms.date: 3/17/2021
 ms.custom: mvc
+ms.author: phillipgibson
 ---
 
 # Tutorial: Deploy a multi-container managed by Open Service Mesh (OSM) with NGINX ingress
@@ -16,10 +17,12 @@ In this tutorial, you will:
 > [!div class="checklist"]
 >
 > - View the current OSM cluster configuration
-> - Create a namespace for OSM to manage deployed applications in the namespace
+> - Create the namespace(s) for OSM to manage deployed applications in the namespace(s)
+> - Onboard the namespaces to be managed by OSM
+> - Deploy the sample multi-container application
+> - Verify the multi-container application running inside the AKS cluster
 > - Create a NGINX ingress controller used for the multi-container appliction
-> - Deploy and run a multi-container application with a web front-end and a Redis instance in the cluster in the OSM designated namespace
-> - Configure OSM Service Mesh Interface (SMI) policies to secure the multi-container application in the OSM mesh
+> - Expose a service via the Azure Application Gateway ingress to the internet
 
 ## Before you begin
 

@@ -261,7 +261,7 @@ spec:
 EOF
 ```
 
-You should see the following output.
+You should see the following output
 
 ```Output
 Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.22+; use networking.k8s.io/v1 Ingress
@@ -274,3 +274,14 @@ Since the host name in the ingress manifest is a psuedo name used for testing, t
 appGWPIP=$(az network public-ip show -g MyResourceGroup -n myPublicIp -o tsv --query "ipAddress')
 curl -H 'Host: bookbuyer.contoso.com' http://$appGWPIP/
 ```
+
+You should see the following output
+
+```Output
+
+```
+
+## Troubleshooting
+
+- [AGIC Troubleshooting Documentation](https://docs.microsoft.com/en-us/azure/application-gateway/ingress-controller-troubleshoot)
+- [Additional troubleshooting tools are available on AGIC's GitHub repo](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/docs/troubleshootings/troubleshooting-installing-a-simple-application.md)

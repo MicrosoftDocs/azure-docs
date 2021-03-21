@@ -11,28 +11,28 @@ zone_pivot_groups: client-operating-system
 
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
-This article will show you how to enable the OSM add-on for Azure Kubernetes Service (AKS) and how to obtain and install the `osm` client binary onto your client machine to manage the OSM instance in your AKS cluster.
+This article will show you how to enable the OSM add-on for a new or existing Azure Kubernetes Service (AKS) cluster and how to obtain and install the `osm` client binary onto your client machine to manage the OSM instance in your AKS cluster.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 > [!NOTE]
 > The following instructions reference OSM version `0.8.0`.
 >
-> The OSM `0.8.x` client library release have been tested by the AKS team against Kubernetes version `1.18+`. You can find additional releases of OSM versions at [OSM Releases](https://github.com/openservicemesh/osm/releases) linke on the OSM GitHub repository and information about each of the releases.
+> The OSM `0.8.x` client library release have been tested by the OSM and AKS team against Kubernetes version `1.19+`. You can find additional releases of OSM versions at [OSM Releases](https://github.com/openservicemesh/osm/releases) linke on the OSM GitHub repository and information about each of the releases.
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
 > - Download and install the OSM `osm` client binary
-> - Enable the OSM add-on for AKS
+> - Deploy AKS and/or enable the OSM add-on for AKS
 > - Validate the OSM add-on for AKS installation
-> - Access the add-on
+> - Access the OSM add-on configuration
 > - Uninstall and remove the OSM add-on from AKS
 
 ## Before you begin
 
-The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.19+` and above, with Kubernetes RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md).
+The steps detailed in this article assume that you have already created or will be deploying a new AKS cluster with Azure virtual network connectivity (Kubernetes `1.19+` and above, with Kubernetes RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md).
 
 You must have the following resource installed:
 
@@ -90,10 +90,39 @@ As noted prior, the OSM add-on for AKS is in a preview state and will undergo ad
 
 ## Enable the AKS OSM add-on
 
-To enable the AKS OSM add-on you will need to run the `az aks enable-addons --addons` command passing the parameter "open-service-mesh" to install OSM.
+### Greenfield AKS deployment
+
+In the greenfield scenario, you will start with a brand new deployment of an AKS cluster enabling the OSM add-on at the cluster create operation.
+
+#### Create a resource group
+
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named _myOsmAksGroup_ in the _eastus2_ location (region):
+
+```azurecli-interactive
+az group create --name myOsmAksGroup --location eastus2
+```
+
+#### Deploy an AKS cluster with the OSM add-on enabled
+
+You'll now deploy a new AKS cluster with the OSM add-on enabled.
+
+> [!NOTE]
+> Please be aware the following AKS deployment command utilizes OS ephemeral disks. You can find more information here about [Ephemeral OS disks for AKS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os)
+
+```azurecli-interactive
+az aks create -n osm-addon-cluster -g myOsmAksGroup --kubernetes-version 1.19.6 --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
+```
+
+### Brownfield AKS deployment
+
+In the brownfield scenario, you will enable the OSM add-on to an existing AKS cluster that has already been deployed.
+
+#### Enable the OSM add-on to existing AKS cluster
+
+To enable the AKS OSM add-on you will need to run the `az aks enable-addons --addons` command passing the parameter `open-service-mesh`
 
 ```Azure CLI
-az aks enable-addons --addons "open-service-mesh" -g <resource group name> -n <AKS cluster name>
+az aks enable-addons --addons open-service-mesh -g <resource group name> -n <AKS cluster name>
 ```
 
 You should see output similar to the output shown below to confirm the AKS OSM add-on has been installed.
@@ -164,7 +193,11 @@ az aks disable-addons --addons "open-service-mesh" -g <resource group name> -n <
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Deploy the Azure Vote app using NGINX ingress with OSM](./servicemesh-osm-tutorial-nginx.md)
+We are developing several tutorials to get you aquainted with using OSM on AKS. Below are a few to get your started.
+
+> [!div class="nextstepaction"] > [Deploy a multi-container application managed by Open Service Mesh (OSM) with NGINX ingress](./servicemesh-osm-tutorial-nginx.md)
+
+> [!div class="nextstepaction"] > [Deploy a multi-container application managed by Open Service Mesh (OSM) using Azure Application Gateway ingress AKS add-on](./servicemesh-osm-tutorial-agic.md)
 
 <!-- LINKS - external -->
 

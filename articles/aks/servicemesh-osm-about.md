@@ -33,7 +33,7 @@ The Open Service Mesh project is composed of the following five high-level compo
 4. [Mesh specification](#4-mesh-specification) - wrapper around the [SMI Spec's Go SDK](https://github.com/deislabs/smi-sdk-go); this facility provides simple methods to retrieve [SMI Spec](https://smi-spec.io/) [resources](https://github.com/deislabs/smi-spec#service-mesh-interface), abstracting away cluster and storage specifics
 5. [Mesh catalog](#5-mesh-catalog) - the service mesh's heart; this is the central component that collects inputs from all other components and dispatches configuration to the proxy control plane
 
-![OSM Components Releationship](/media/aks-osm-add-on/osm-high-level-arch.png)
+![OSM Components Releationship](./media/aks-osm-add-on/osm-high-level-arch.png)
 
 Let's take a look at each component:
 
@@ -110,5 +110,4 @@ OSM can assist your AKS deployments with the following scenarios:
 
 Learn how you can install the OSM add-on for Azure Kubernetes Service (AKS):
 
-> [!div class="nextstepaction"]
-> [Enable the OSM add-on for Azure Kubernetes Service (AKS)](./servicemesh-osm-install.md)
+> [!div class="nextstepaction"] > [Enable the OSM add-on for Azure Kubernetes Service (AKS)](./servicemesh-osm-install.md)
