@@ -3,7 +3,7 @@ metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: conceptual
-  ms.date:  03/17/2021
+  ms.date:  03/22/2021
 
     
 title: Common questions about Azure VMware Solution
@@ -143,6 +143,8 @@ sections:
         answer: |
           [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
           
+      - question: Can we upgrade to VMware Horizon 8 2012?   
+        answer: Yes, this version is supported. 
           
       - question: Do private clouds use VMware NSX?
         answer: Yes, NSX-T 2.5 is used for the software-defined networking in Azure VMware Solution private clouds.
