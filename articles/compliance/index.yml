@@ -369,7 +369,7 @@ additionalContent:
       items:
 
         - title: Audit reports and certificates
-          summary: Accessible in the Azure portal by navigating to [Home > Security Center > Regulatory Compliance](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade)
+          summary: Accessible in the Azure portal by navigating to Home > Security Center > Regulatory Compliance
           links:
             - text: Cyber Essentials Plus (UK)
               url: https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade
