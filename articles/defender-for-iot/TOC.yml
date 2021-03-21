@@ -191,6 +191,9 @@
     - name: Gain insight into global, regional, and local threats
       href: how-to-gain-insight-into-global-regional-and-local-threats.md
       displayName: site, business unit, region, map
+    - name: Few information devices, alerts and sensors per zone
+      href: how-to-view-information-per-zone.md
+      displayName: zones
     - name: Work with alerts on the on-premises management console
       href: how-to-work-with-alerts-on-premises-management-console.md
     - name: Create reports
