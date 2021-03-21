@@ -512,6 +512,8 @@ The **request method** match condition identifies requests that use the specifie
 > [!NOTE]
 > Only the GET request method can generate cached content in Azure Front Door. All other request methods are proxied through the network.
 
+<!-- TODO check why the above is here - it's useful info but I'm not sure it belongs here; maybe on the caching page instead -->
+
 ### Properties
 
 | Property | Supported values |
@@ -563,10 +565,10 @@ In this example, we match all requests where the request uses the `DELETE` metho
 
 ## Request path
 
-The **request path** match condition identifies requests that include the specified path in the requesting URL.
+The **request path** match condition identifies requests that include the specified path in the requesting URL. The path is the part of the URL after the hostname. For example, in the URL `https://www.contoso.com/files/secure/file1.pdf`, the path is `files/secure/file1.pdf`.
 
-<!-- TODO define path -->
-<!-- TODO include leading slash or not? -->
+> [!TIP]
+> Make sure not to include a slash at the start of the path. For example, use `files/secure` instead of `/files/secure`.
 
 ### Properties
 
@@ -593,7 +595,7 @@ In this example, we match all requests where the request file path begins with `
     "operator": "BeginsWith",
     "negateCondition": false,
     "matchValues": [
-      "/files/secure/"
+      "files/secure/"
     ],
     "transforms": [
       "Lowercase"
@@ -612,7 +614,7 @@ In this example, we match all requests where the request file path begins with `
     operator: 'BeginsWith'
     negateCondition: false
     matchValues: [
-      '/files/secure/'
+      'files/secure/'
     ]
     transforms: [
       'Lowercase'
@@ -629,7 +631,7 @@ In this example, we match all requests where the request file path begins with `
 The **request protocol** match condition identifies requests that use the specified protocol (HTTP or HTTPS).
 
 > [!NOTE]
-> *Protocol* is sometimes called *scheme*.
+> *Protocol* is sometimes also called *scheme*.
 
 ### Properties
 
