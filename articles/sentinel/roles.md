@@ -62,7 +62,11 @@ Users with particular job requirements may need to be assigned additional roles 
 
 - Guest users assigning incidents
 
-    If a guest user needs to be able to assign incidents, then in addition to the Azure Sentinel Responder role, the user will also need to be assigned the role of [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers). Note that this role is *not* an Azure role but an **Azure Active Directory** role, and that regular (non-guest) users have this role assigned by default. 
+    If a guest user needs to be able to assign incidents, then in addition to the Azure Sentinel Responder role, the user will also need to be assigned the role of [Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers). Note that this role is *not* an Azure role but an **Azure Active Directory** role, and that regular (non-guest) users have this role assigned by default.
+
+- Creating and deleting workbooks
+
+    For a user to create and delete an Azure Sentinel workbook, the user will also need to be assigned with the Azure Monitor role of [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor). This role is not necessary for using workbooks, but only for creating and deleting.
 
 For a side-by-side comparison, see the [table below](#roles-and-allowed-actions).
 
@@ -70,7 +74,7 @@ For a side-by-side comparison, see the [table below](#roles-and-allowed-actions)
 
 In assigning Azure Sentinel-specific Azure roles, you may come across other Azure and Log Analytics Azure roles that may have been assigned to users for other purposes. You should be aware that these roles grant a wider set of permissions that includes access to your Azure Sentinel workspace and other resources:
 
-- **Azure roles:** [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Reader](../role-based-access-control/built-in-roles.md#reader), and [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor). Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.
+- **Azure roles:** [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), and [Reader](../role-based-access-control/built-in-roles.md#reader). Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.
 
 - **Log Analytics roles:** [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor) and [Log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics roles grant access to your Log Analytics workspaces.
 
@@ -85,7 +89,7 @@ The following table summarizes the roles and allowed actions in Azure Sentinel.
 | Azure Sentinel Reader | -- | -- | -- | &#10003; |
 | Azure Sentinel Responder | -- | -- | &#10003; | &#10003; |
 | Azure Sentinel Contributor | -- | -- | &#10003; | &#10003; |
-| Azure Monitoring Contributor |--  | &#10003; | &#10003; | &#10003; |
+| Azure Monitoring Contributor |--  | &#10003; | --| -- |
 | Azure Sentinel Contributor + Logic App Contributor | &#10003; | &#10003; | &#10003; | &#10003; |
 
 ## Custom roles and advanced Azure RBAC
