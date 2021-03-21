@@ -101,7 +101,7 @@ In this example, we match all requests that have been detected as coming from a 
 
 ## <a name="PostArgs"></a> Post args
 
-Use the **post args** match condition to identify requests based on the arguments provided within a POST body. A single match condition matches a single argument from the POST body. You can specify multiple values for this condition, and they are evaluated using OR logic.
+Use the **post args** match condition to identify requests based on the arguments provided within a POST body. A single match condition matches a single argument from the POST body. You can specify multiple values to match, which will be combined using OR logic.
 
 <!-- TODO Does this only work with certain content types? -->
 
@@ -111,7 +111,7 @@ Use the **post args** match condition to identify requests based on the argument
 |-|-|
 | Post args | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | One or more string or integer values representing the value of the POST argument to match. If multiple values are specified, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the POST argument to match. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -168,19 +168,19 @@ In this example, we match all POST requests where a `customerName` argument is p
 
 ## <a name="QueryString"></a> Query string
 
-Use the **query string** match condition to identify requests that contain a specific query string. The entire query string is matched as a single string, without the leading `?`. You can specify multiple values to match, and these are combined using OR logic.
+Use the **query string** match condition to identify requests that contain a specific query string. The entire query string is matched as a single string, without the leading `?`. You can specify multiple values to match, which will be combined using OR logic.
 
 ### Properties
 
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Query string | One or more string or integer values representing the value of the query string to match. Do not specify the `?` at the start of the query string. If multiple values are specified, they are combined using OR logic. |
+| Query string | One or more string or integer values representing the value of the query string to match. Don't include the `?` at the start of the query string. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
 
-In this example, we match all requests where the query string contains the string `language=en-US`. We want the match condition to be case-sensitive, so we don't perform any case transforms.
+In this example, we match all requests where the query string contains the string `language=en-US`. We want the match condition to be case-sensitive, so we don't transform the case.
 
 # [Portal](#tab/portal)
 
@@ -238,7 +238,7 @@ The **remote address** match condition identifies requests based on the requeste
 | Property | Supported values |
 |-|-|
 | Operator | <ul><li>In the Azure portal: `Geo Match`, `Geo Not Match`, `IP Match`, or `IP Not Match`</li><li>In ARM templates: `GeoMatch`, `IPMatch`; use the `negateCondition` property to specify _Geo Not Match_ or _IP Not Match_</li></ul> |
-| Value | <ul><li>For the `IP Match` or `IP Not Match` operators: specify one or more IP address ranges. These will be combined using OR logic.</li><li>For the `Geo Match` or `Geo Not Match` operators: specify one or more locations using their country code.</li></ul> |
+| Value | <ul><li>For the `IP Match` or `IP Not Match` operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using OR logic.</li><li>For the `Geo Match` or `Geo Not Match` operators: specify one or more locations using their country code.</li></ul> |
 
 ### Example
 
@@ -293,12 +293,12 @@ The **request body** match condition identifies requests based on specific text 
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | One or more string or integer values representing the value of the request body text to match. If multiple values are specified, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request body text to match. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
 
-In this example, we match all requests where the request body contains the string `ERROR`. We transform the request body to uppercase before performing the match, so `error` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request body contains the string `ERROR`. We transform the request body to uppercase before evaluating the match, so `error` and other case variations will also trigger this match condition.
 
 # [Portal](#tab/portal)
 
@@ -353,12 +353,12 @@ The **request file name** match condition identifies requests that include the s
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | One or more string or integer values representing the value of the request file name to match. If multiple values are specified, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request file name to match. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
 
-In this example, we match all requests where the request file name is `media.mp4`. We transform the file name to lowercase before performing the match, so `MEDIA.MP4` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request file name is `media.mp4`. We transform the file name to lowercase before evaluating the match, so `MEDIA.MP4` and other case variations will also trigger this match condition.
 
 # [Portal](#tab/portal)
 
@@ -413,12 +413,12 @@ The **request file extension** match condition identifies requests that include 
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | One or more string or integer values representing the value of the request file extension to match. Don't include a leading period; for example, use `html` instead of `.html`. If multiple values are specified, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request file extension to match. Don't include a leading period; for example, use `html` instead of `.html`. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
 
-In this example, we match all requests where the request file extension is `.pdf` or `.docx`. We transform the request file extension to lowercase before performing the match, so `.PDF`, `.DocX` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request file extension is `.pdf` or `.docx`. We transform the request file extension to lowercase before evaluating the match, so `.PDF`, `.DocX`, and other case variations will also trigger this match condition.
 
 # [Portal](#tab/portal)
 
@@ -467,7 +467,7 @@ In this example, we match all requests where the request file extension is `.pdf
 
 ## <a name="RequestHeader"></a> Request header
 
-The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists regardless of its value, or to check if the header matches a specified value.
+The **request header** match condition identifies requests that include a specific header in the request. You can use this match condition to check if a header exists whatever its value, or to check if the header matches a specified value.
 
 ### Properties
 
@@ -475,7 +475,7 @@ The **request header** match condition identifies requests that include a specif
 |-|-|
 | Header name | A string value representing the name of the POST argument. |
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | One or more string or integer values representing the value of the request header to match. If multiple values are specified, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request header to match. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
@@ -532,7 +532,7 @@ The **request method** match condition identifies requests that use the specifie
 | Property | Supported values |
 |-|-|
 | Operator | <ul><li>In the Azure portal: `Equal`, `Not Equal`</li><li>In ARM templates: `Equal`; use the `negateCondition` property to specify _Not Equal_ |
-| Request method | One or more HTTP methods from: `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`. If multiple values are specified, they are combined using OR logic. |
+| Request method | One or more HTTP methods from: `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `TRACE`. If multiple values are specified, they're evaluated using OR logic. |
 
 ### Example
 
@@ -585,12 +585,12 @@ The **request path** match condition identifies requests that include the specif
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | One or more string or integer values representing the value of the request path to match. Do not include the leading slash. If multiple values are specified, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request path to match. Don't include the leading slash. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
 
-In this example, we match all requests where the request file path begins with `files/secure/`. We transform the request file extension to lowercase before performing the match, so requests to `files/SECURE/` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request file path begins with `files/secure/`. We transform the request file extension to lowercase before evaluating the match, so requests to `files/SECURE/` and other case variations will also trigger this match condition.
 
 # [Portal](#tab/portal)
 
@@ -704,12 +704,12 @@ Identifies requests that match the specified URL. The entire URL is evaluated.
 | Property | Supported values |
 |-|-|
 | Operator | Any operator from the [standard operator list](#operator-list). |
-| Value | One or more string or integer values representing the value of the request URL to match. If multiple values are specified, they are combined using OR logic. |
+| Value | One or more string or integer values representing the value of the request URL to match. If multiple values are specified, they're evaluated using OR logic. |
 | Case transform | `Lowercase`, `Uppercase` |
 
 ### Example
 
-In this example, we match all requests where the request URL begins with `https://api.contoso.com/customers/123`. We transform the request file extension to lowercase before performing the match, so requests to `https://api.contoso.com/Customers/123` and other case variations will also trigger this match condition.
+In this example, we match all requests where the request URL begins with `https://api.contoso.com/customers/123`. We transform the request file extension to lowercase before evaluating the match, so requests to `https://api.contoso.com/Customers/123` and other case variations will also trigger this match condition.
 
 # [Portal](#tab/portal)
 
