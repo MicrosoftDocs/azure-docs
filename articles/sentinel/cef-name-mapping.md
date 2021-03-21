@@ -33,7 +33,7 @@ For more information, see [Connect your external solution using Common Event For
 |Device Product     |   DeviceProduct      |   String that, together with device vendor and version definitions, uniquely identifies the type of sending device.        |
 |Device Version     |   DeviceVersion      |      String that, together with device product and vendor definitions, uniquely identifies the type of sending device.     |
 |DeviceEventClassID     |   DeviceEventClassID     |   String or integer that serves as a unique identifier per event type.      |
-| destinationDnsDomain    | DestinationDnsDomain        |   The DNS part of the fully-qualified domain name (FQDN).      |
+| destinationDnsDomain    | DestinationDnsDomain        |   The DNS part of the fully qualified domain name (FQDN).      |
 | destinationServiceName | DestinationServiceName | The service that is targeted by the event. For example, `sshd`.|
 | destinationTranslatedAddress | DestinationTranslatedAddress | Identifies the translated destination referred to by the event in an IP network, as an IPv4 IP address. |
 | destinationTranslatedPort | DestinationTranslatedPort | Port, after translation, such as a firewall. <br>Valid port numbers: `0` - `65535` |
