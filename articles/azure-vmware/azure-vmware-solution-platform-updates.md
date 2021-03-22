@@ -14,13 +14,6 @@ All new Azure VMware Solution private clouds are deployed with VMware vCenter ve
 
 You'll receive an email with the planned maintenance date and time. You can reschedule an upgrade. The email also provides details on the upgraded component, its effect on workloads, private cloud access, and other Azure services.  An hour before the upgrade, you'll receive a notification and then again when it finishes.
 
-**Component version post-upgrade**
-- ESXi - Build 17167734
-- vCenter 6.7U3l
-- vSAN 6.7
-- NSX Data Center 3.1.1
-- HCX R146
-
 ## March 15, 2021 
 
 - Azure VMware Solution service will do maintenance work **through March 19, 2021,** to update the vCenter server in your private cloud to vCenter Server 6.7 Update 3l version.
