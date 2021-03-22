@@ -28,6 +28,9 @@ To provide room for the Azure hypervisor to operate without interfering with the
 
 Note that Constrained Cores VM sizes only reduce the number of physical cores exposed to the VM. All global shared assets (RAM, memory bandwidth, L3 cache, GMI and xGMI connectivity, InfiniBand, Azure Ethernet network, local SSD) stay constant. This allows a customer to pick a VM size best tailored to a given set of workload or software licensing needs.
 
+The following diagram shows the segregation of cores reserved for Azure Hypervisor (yellow) and the HBv3-series VM (green).
+![Segregation of cores reserved for Azure Hypervisor and HBv3-series VM](./media/architecture/hbv3-segregation-cores.png)
+
 ## InfiniBand networking
 HBv3 VMs also feature Nvidia Mellanox HDR InfiniBand network adapters (ConnectX-6) operating at up to 200 Gigabits/sec. The NIC is passed through to the VM via SRIOV, enabling network traffic to bypass the hypervisor. As a result, customers load standard Mellanox OFED drivers on HBv3 VMs as they would a bare metal environment.
 
