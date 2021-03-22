@@ -724,10 +724,10 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | The updated JSON object with the specified property |
 ||||
 
-To add a child property to an existing property, use this syntax:
+To add a parent property to an existing property, use setProperty() call instead. Otherwise, the function returns only the child object as output.
 
 ```
-addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+setProperty(<object>['<parent-property>'], '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)
 ```
 
 | Parameter | Required | Type | Description |
@@ -775,7 +775,7 @@ Here's the updated JSON object:
 This example adds the `middleName` child property to the existing `customerName` property in a JSON object, which is converted from a string to JSON by using the [JSON()](#json) function. The function assigns the specified value to the new property and returns the updated object:
 
 ```
-addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne'))
 ```
 
 Here's the current JSON object:
