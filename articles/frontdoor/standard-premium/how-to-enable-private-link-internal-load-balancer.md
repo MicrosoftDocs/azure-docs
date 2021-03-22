@@ -50,11 +50,11 @@ In this section, you'll map the Private Link service to a private endpoint creat
 
 1. Go to the Private Link Center and select **Private link services**. Then select your Private link name.
 
-    :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-link-list.png" alt-text="Screenshot of private link list.":::
+    :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/list.png" alt-text="Screenshot of private link list.":::
 
 1. Select **Private endpoint connections** under *Settings*.
 
-    :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/private-link-overview.png" alt-text="Screenshot of private link overview page.":::
+    :::image type="content" source="../media/how-to-enable-private-link-internal-load-balancer/overview.png" alt-text="Screenshot of private link overview page.":::
 
 1. Select the *pending* private endpoint request from Azure Front Door Premium then select **Approve**.
 
