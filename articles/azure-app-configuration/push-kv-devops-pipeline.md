@@ -93,16 +93,18 @@ After filling out required parameters, run the pipeline. All key-values in the s
 
 If an unexpected error occurs, debug logs can be enabled by setting the pipeline variable `system.debug` to `true`.
 
+**Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
+
+A 409 Conflict error message will occur if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.
+
+**Why am I getting the "_crypto.default.randomFillSync is not a function" error when running the task?**
+
+ The error occurs when the Azure Pipeline agent does not have the minimum required version of Node installed. Update the agent to the [latest version](https://github.com/microsoft/azure-pipelines-agent/releases) or install Node version 6.13.0 or above in the step before running the task
+ 
 ## FAQ
 
 **How can I upload multiple configuration files?**
 
 Create multiple instances of the Azure App Configuration Push task within the same pipeline to push multiple configuration files to the App Configuration store.
 
-**Why am I receiving a 409 error when attempting to push key-values to my configuration store?**
 
-A 409 Conflict error message will occur if the task tries to remove or overwrite a key-value that is locked in the App Configuration store.
-
-**Why am I getting the "crypto.default.randomFillSync is not a function" error when attempting to push key values?**
-
- The error is caused by the nodejs version that is currently being used by the agent. Update the agent or the agent's nodejs version to 6.13.0 or above.
