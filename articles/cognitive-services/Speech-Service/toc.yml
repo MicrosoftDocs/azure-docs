@@ -71,6 +71,9 @@
         - name: 'C#'
           displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
           href: /dotnet/api/microsoft.cognitiveservices.speech
+        - name: 'Go'
+          displayName: Go SDK, Go dev kit,reference,reference docs,ref documentation
+          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go          
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: /java/api/com.microsoft.cognitiveservices.speech
@@ -111,7 +114,7 @@
           href: speech-synthesis-markup.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
-        - name: Get viseme data for lip-sync
+        - name: Get facial pose events for lip-sync
           href: how-to-speech-synthesis-viseme.md
     - name: Customization
       items:

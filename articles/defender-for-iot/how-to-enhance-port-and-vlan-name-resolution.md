@@ -1,15 +1,15 @@
 ---
-title: Enhance port and VLAN name resolution
-description: Customize port and VLAN names on your sensors to enrich device resolution.
+title: Enhance port, VLAN and OS resolution
+description: Enhance port and VLAN names as well as Operating System resolution.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/13/2020
+ms.date: 03/17/2021
 ms.topic: how-to
 ms.service: azure
 ---
 
-# Enhance port and VLAN name resolution
+# Enhance port, VLAN and OS resolution
 
 You can customize port and VLAN names on your sensors to enrich device resolution.
 
@@ -67,7 +67,7 @@ VLAN names can contain up to 50 ASCII characters.
 > VLAN names are not synchronized between the sensor and the management console. You need to define the name on the management console as well.  
 For Cisco switches, add the following line to the span configuration: `monitor session 1 destination interface XX/XX encapsulation dot1q`. In that command, *XX/XX* is the name and number of the port.
 
-To configure VLANs:
+To configure VLAN names:
 
 1. On the side menu, select **System Settings**.
 
@@ -76,6 +76,21 @@ To configure VLANs:
     :::image type="content" source="media/how-to-enrich-asset-information/edit-vlan.png" alt-text="Use the system settings to edit your VLANs.":::
 
 3. Add a unique name next to each VLAN ID.
+
+## Improve device operating system classification: data enhancement
+
+Sensors continuously auto discover new devices, as well as changes to previously discovered devices, including operating system types.
+
+Under certain circumstances, conflicts might be detected in discovered operating systems. This can happen, for example, if you have an operating systems version that refers to either desktop or server systems. If it happens, you'll receive a notification with optional operating systems classifications.
+
+:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Enhance data.":::
+
+Investigate the recommendations in order to enrich  operating system classification. This classification appears in the device inventory, data-mining reports, and other displays. Making sure this information is up-to-date can improve the accuracy of alerts, threats, and risk analysis reports.
+
+To access operating system recommendations:
+
+1. Select **System Settings**.
+1. Select **Data Enhancement**.
 
 ## Next steps
 

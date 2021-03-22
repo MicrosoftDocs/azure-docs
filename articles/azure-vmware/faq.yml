@@ -16,8 +16,6 @@ sections:
       - question: What is Azure VMware Solution?
         answer: As enterprises pursue IT modernization strategies to improve business agility, reduce costs, and accelerate innovation, hybrid cloud platforms have emerged as key enablers of customers' digital transformation. Azure VMware Solution combines VMware's Software-Defined Data Center (SDDC) software with Microsoft's Azure global cloud service ecosystem. Azure VMware Solution is managed to meet performance, availability, security, and compliance requirements.
 
-  - name: Azure VMware Solution Service
-    questions:
       - question: Where is Azure VMware Solution available today?
         answer: |
           The service is continuously being added to new regions, so view the [latest service availability information](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) for more details. 
@@ -143,7 +141,10 @@ sections:
         answer: |
           [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]
           
-          
+      - question: How often is the VMware software (ESXi, vCenter, PSC, and NXS) patched, updated, or upgraded in Azure VMware Solution?
+        answer: |
+          [!INCLUDE [vmware-software-update-frequency](includes/vmware-software-update-frequency.md)]
+
       - question: Do private clouds use VMware NSX?
         answer: Yes, NSX-T 2.5 is used for the software-defined networking in Azure VMware Solution private clouds.
 
