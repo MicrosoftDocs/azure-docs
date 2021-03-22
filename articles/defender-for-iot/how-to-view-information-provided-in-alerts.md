@@ -1,7 +1,7 @@
 ---
 title: View information in alerts
 description: Select an alert from the Alerts window to review details.
-ms.date:3/21/2021
+ms.date: 3/21/2021
 ms.topic: how-to
 ---
 
