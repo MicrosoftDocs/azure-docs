@@ -413,6 +413,12 @@
       href: offline-widevine-for-android.md
     - name: Offline PlayReady for Windows 10
       href: offline-plaready-streaming-for-windows-10.md     
+  - name: Use Azure Functions
+    items:
+    - name: With .NET
+      items:
+      - name: Use Azure Functions .NET
+        href: media-services-dotnet-how-to-use-azure-functions.md
   - name: Create filters
     items:
     - name: With .NET
@@ -436,6 +442,10 @@
       href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
+  - name: Security
+    items:
+    - name: Roll stoage access keys
+      href: media-services-roll-storage-access-keys.md
   - name: Use media players
     items:
     - name: Azure Media Player full set up
@@ -444,6 +454,8 @@
       href: how-to-video-js-player.md
     - name: Use the Shaka video player
       href: how-to-shaka-player.md
+    - name: Pass authentication tokens
+      href: media-services-pass-authentication-tokens.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
